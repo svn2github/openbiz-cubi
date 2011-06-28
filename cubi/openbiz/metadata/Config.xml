@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<Config>
+   <DataSource>
+      <Database Name="Default" Driver="mysql" Server="localhost" DBName="demo" User="admin" Password="admin" />
+      <Database Name="Test" Driver="mysql" Server="localhost" DBName="Test" User="demo" Password="" />
+      <Database Name="Default_UX" Driver="mysql" Server="mysql" DBName="bigchef" User="bigchef" Password="sadmin" />
+      <Database Name="odbc_dev" Driver="odbc" Server="db2srv" DBName="devdb" User="root" Password="" />
+      <Database Name="mssql_dev" Driver="mssql" Server="server:port" DBName="devdb" User="root" Password="" />
+      <Database Name="DiakritIS_DB" Driver="mysql" Server="localhost" DBName="diakrit_is" User="root" Password="jixian" />
+   </DataSource>
+</Config>
