@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: BizDataObj_Lite.php 2591 2010-11-24 18:53:55Z jixian2003 $
+ * @version   $Id: BizDataObj_Lite.php 4108 2011-05-08 06:01:30Z jixian2003 $
  */
 
 include_once(OPENBIZ_BIN.'data/BizDataObj_Abstract.php');
@@ -411,7 +411,7 @@ class BizDataObj_Lite extends BizDataObj_Abstract
     public function count()
     {
         // get database connection
-        $db = $this->getDBConnection();
+        $db = $this->getDBConnection("READ");
         if ($this->_fetch4countQuery)
             $querySQL = $this->_fetch4countQuery;
         else
@@ -429,7 +429,7 @@ class BizDataObj_Lite extends BizDataObj_Abstract
     protected function _run_search($limit=null)
     {
         // get database connection
-        $db = $this->getDBConnection();
+        $db = $this->getDBConnection("READ");
         $querySQL = $this->getSQLHelper()->buildQuerySQL($this);
         $this->_fetch4countQuery = $querySQL;
         if ($limit && count($limit) > 0 && $limit['count'] > 0)

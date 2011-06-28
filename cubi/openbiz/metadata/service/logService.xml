@@ -21,7 +21,8 @@ Organize files by in different ways:
 PROFILE - pased on a profile userID
 LEVEL - Store log files groups by their level
 DATE - write log entries into a different file for each day
+LEVEL-DATE - Store log files groups by their level
 -->
-<Log_Config Format="CSV" Level="7" Org="level"/>
+<Log_Config Format="CSV" Level="7" Org="level-date" DaysToLive="7"/>
 
 </PluginService>

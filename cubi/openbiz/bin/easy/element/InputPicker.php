@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: InputPicker.php 2553 2010-11-21 08:36:48Z mr_a_ton $
+ * @version   $Id: InputPicker.php 3984 2011-04-28 02:54:31Z jixian2003 $
  */
 
 include_once("InputElement.php");
@@ -42,6 +42,7 @@ class InputPicker extends InputText
         $this->m_PickerMap  = isset($xmlArr["ATTRIBUTES"]["PICKERMAP"]) ? $xmlArr["ATTRIBUTES"]["PICKERMAP"] : null;
         // if no class name, add default class name. i.e. NewRecord => ObjName.NewRecord
         $this->m_ValuePicker = $this->prefixPackage($this->m_ValuePicker);
+        $this->m_UpdateForm = isset($xmlArr["ATTRIBUTES"]["UPDATEFORM"]) ? $xmlArr["ATTRIBUTES"]["UPDATEFORM"] : "N";
     }
 
     /**
@@ -51,6 +52,7 @@ class InputPicker extends InputText
      */
     public function render()
     {
+    	$this->m_Enabled='N';
         $sHTML = parent::render();
 
         // sample picker call CallFunction('easy.f_AttendeeListChild.LoadPicker(view,form,elem)','Prop_Window');
@@ -62,7 +64,13 @@ class InputPicker extends InputText
 
         return $sHTML;
     }
-
+	
+    public function getEvents(){
+    	$events = parent::getEvents();
+    	$events['onclick'] .= "Openbiz.CallFunction('".$this->m_FormName . ".LoadPicker($this->m_ValuePicker,$this->m_Name)')";
+        return $events;
+    }
+    
     public function matchRemoteMethod($method)
     {
         return ($method == "loadpicker");

@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php     BSD
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: Expression.php 2475 2010-11-09 02:16:16Z mr_a_ton $
+ * @version   $Id: Expression.php 4138 2011-05-14 14:42:17Z rockys $
  */
 
 /**
@@ -294,6 +294,9 @@ class Expression
         if (strpos($expression, "{", $start) === false)    // do nothing if no { symbol
             return $expression;
 
+        if($expression=="{@}"){
+        	return $object;
+        }
         // evaluate the expression between {}
         while (true)
         {
@@ -310,15 +313,17 @@ class Expression
                 $start = $pos1 + strlen(self::$expContainers[$tag]);
                 $section = substr($expression, $pos0 + strlen($tag), $pos1 - $pos0 - strlen($tag));
                 $_section = $section;
-                //echo "<br>###expression 1: ".$section."<br>";
-                $section = Expression::replaceVarExpr($section, $object);  // replace variable expr;
-                //echo "<br>###expression 2: ".$section."<br>";
-                if ($_section == $section) {
-                    if ((is_subclass_of($object, "BizDataObj") || get_class($object)=="BizDataObj") AND strstr($section, '['))
-                        $section = Expression::replaceFieldsExpr($section, $object);  // replace [field] with its value
+                if ($object) {
+                    //BizSystem::log(LOG_DEBUG, "EXPRESSION", "###expression 1: ".$section."");
+                    $section = Expression::replaceVarExpr($section, $object);  // replace variable expr;
+                    //BizSystem::log(LOG_DEBUG, "EXPRESSION", "###expression 2: ".$section.""); 
+                    if ($_section == $section) {
+                        if ((is_subclass_of($object, "BizDataObj") || get_class($object)=="BizDataObj") AND strstr($section, '['))
+                            $section = Expression::replaceFieldsExpr($section, $object);  // replace [field] with its value
 
-                    if ((is_subclass_of($object, "EasyForm")|| get_class($object)=="EasyForm") AND strstr($section, '['))
-                        $section = Expression::replaceElementsExpr($section, $object);  // replace [field] with its value
+                        if ((is_subclass_of($object, "EasyForm")|| get_class($object)=="EasyForm") AND strstr($section, '['))
+                            $section = Expression::replaceElementsExpr($section, $object);  // replace [field] with its value
+                    }
                 }
                 if ($section === false)
                     $script = ($script == '') ? $section : ($script . $section);

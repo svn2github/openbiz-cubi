@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: BizDataSql.php 2653 2010-11-27 17:39:44Z jixian2003 $
+ * @version   $Id: BizDataSql.php 3858 2011-04-23 01:14:49Z jixian2003 $
  */
 
 /**
@@ -228,6 +228,13 @@ class BizDataSql
             $mytable_col = $this->getTableColumn(null, $assoc["Column"]);
             // construct table.column = 'field value'
             $where = $mytable_col." = '".$assoc["FieldRefVal"]."'";
+            $mytable_cond_col = $this->getTableColumn(null, $assoc["CondColumn"]);
+            if($assoc["CondColumn"]){
+            	$where .= " AND $mytable_cond_col ='".$assoc["CondValue"]."' ";
+            }
+        	if($assoc["Condition"]){
+            	$where .= " AND ".$assoc["Condition"]." ";
+            }
         }
         elseif ($assoc["Relationship"] == "M-M")
         {

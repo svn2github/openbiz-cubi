@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: CKEditor.php 2553 2010-11-21 08:36:48Z mr_a_ton $
+ * @version   $Id: CKEditor.php 3486 2011-03-11 17:30:28Z jixian2003 $
  */
 
 include_once("InputElement.php");
@@ -53,6 +53,7 @@ class CKEditor extends InputElement
         $elementName = $this->m_Name;
 
         $value = $this->getValue();
+        $value = htmlentities($value, ENT_QUOTES, "UTF-8");
         $style = $this->getStyle();
         $width = $this->m_Width ? $this->m_Width : 600;
         $height = $this->m_Height ? $this->m_Height : 300;

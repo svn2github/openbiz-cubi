@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php     BSD
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: ErrorHandler.php 2475 2010-11-09 02:16:16Z mr_a_ton $
+ * @version   $Id: ErrorHandler.php 3459 2011-03-10 07:46:23Z rockys $
  */
 
 
@@ -26,6 +26,8 @@
  */
 class OB_ErrorHandler
 {
+    public static $errorMode = 'html';
+    
     /**
      * User error handler
      *
@@ -50,7 +52,7 @@ class OB_ErrorHandler
         $err = self::_getOutputErrorMsg($errNo, $errMsg, $fileName, $lineNum, $back_trace);
         //Send Error to Log Service;
         BizSystem::logError ($errNo, "ErrorHandler", $errMsg, null, $back_trace);
-        if (defined('CLI') && CLI)
+        if ((defined('CLI') && CLI) || self::$errorMode == 'text')
         	echo $err;
         else
         	BizSystem::clientProxy()->showErrorMessage($err, true);
@@ -76,7 +78,7 @@ class OB_ErrorHandler
         $err = self::_getOutputErrorMsg($errno, $errmsg, $filename, $linenum, $back_trace);
 
         BizSystem::logError ($errno, "ExceptionHandler", $errmsg, null, $back_trace);
-        if (defined('CLI') && CLI)
+        if ((defined('CLI') && CLI) || self::$errorMode == 'text')
         	echo $err;
         else
         	BizSystem::clientProxy()->showErrorMessage($err, true);
@@ -107,7 +109,7 @@ class OB_ErrorHandler
         //$err .= "Variable state when error occurred: $vars<br>";
         $err .= "<hr>";
         $err .= "Please ask system administrator for help...</div>\n";
-        if (defined('CLI') && CLI)
+        if ((defined('CLI') && CLI) || self::$errorMode == 'text')
         	$err = strip_tags($err);
         return $err;
     }

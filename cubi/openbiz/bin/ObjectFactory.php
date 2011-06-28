@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: ObjectFactory.php 2999 2010-12-26 17:32:28Z jixian2003 $
+ * @version   $Id: ObjectFactory.php 4179 2011-05-26 07:40:53Z rockys $
  */
 
 /**
@@ -150,20 +150,21 @@ class ObjectFactory
             $class = "BizDataObj";
 
         if (!class_exists($class, false))
-        {
+        {        	
             $classFile= BizSystem::getLibFileWithPath($class, $classPackage);
             if (!$classFile)
             {
                 if ($package)
                     trigger_error("Cannot find the class with name as $package.$class", E_USER_ERROR);
                 else
-                    trigger_error("Cannot find the class with name as $class", E_USER_ERROR);
+                    trigger_error("Cannot find the class with name as $class of $objName", E_USER_ERROR);
                 exit();
             }
             include_once($classFile);
         }
         if (class_exists($class, false))
         {
+            //if ($objName == "collab.calendar.form.EventListForm") { print_r($xmlArr); exit; }
             $obj_ref = new $class($xmlArr);
             if ($obj_ref)
             {

@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php BSD License
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: ClientProxy.php 2825 2010-12-08 19:22:02Z jixian2003 $
+ * @version   $Id: ClientProxy.php 4016 2011-04-29 12:25:27Z jixian2003 $
  */
 
 /**
@@ -278,6 +278,9 @@ class ClientProxy
      */
     public function showErrorMessage ($errMsg, $flush=false)
     {
+    	if(!$errMsg){    		
+    		return;
+    	}
         if ($this->m_bRPCFlag)
         {
             $this->_otherOutput[] = $this->_buildTargetContent("ERROR", $errMsg);
@@ -355,8 +358,10 @@ class ClientProxy
      */
     public function closePopup()
     {
-        if ($this->m_bRPCFlag)
+        if ($this->m_bRPCFlag){
             $this->_formsOutput[] = $this->_callClientFunction("Openbiz.Window.closePopup()");
+            $this->_otherOutput[] = $this->_callClientFunction("Openbiz.Window.closePopup()");
+        }
     }
 
     /**
@@ -402,6 +407,13 @@ class ClientProxy
         }
     }
 
+	public function runClientFunction($scriptStr)
+    {
+        $msg = addslashes($alertText);
+        if ($this->m_bRPCFlag)
+            $this->_otherOutput[] = $this->_callClientFunction($scriptStr);
+    }    
+    
     /**
      * Call client function
      *
@@ -545,6 +557,13 @@ class ClientProxy
         {
             if (in_array($style . "type=\"text/css\">", $cleanStyle_array) == FALSE and strlen($style) != 0)
                 $cleanStyle_array[] = $style . "type=\"text/css\">";
+        }
+        //added by Jixian for supports localization display styles 
+        // eg.: override button width for specified languages
+        $lang = I18n::getCurrentLangCode();
+        $localization_css_file = APP_HOME.DIRECTORY_SEPARATOR."languages".DIRECTORY_SEPARATOR.$lang.DIRECTORY_SEPARATOR."localization.css";
+        if(is_file($localization_css_file)){
+        	$cleanStyle_array[] = "<link rel=\"stylesheet\" href=\"".APP_URL."/languages/$lang/localization.css\" type=\"text/css\">";
         }
         return implode("\n", $cleanStyle_array);
     }

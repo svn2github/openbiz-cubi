@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: ColumnImage.php 2553 2010-11-21 08:36:48Z mr_a_ton $
+ * @version   $Id: ColumnImage.php 3742 2011-04-16 07:25:29Z jixian2003 $
  */
 
 include_once("ColumnText.php");
@@ -89,7 +89,16 @@ class ColumnImage extends ColumnText
      */
     public function render()
     {
-        $val = $this->m_Value ? $this->m_Value : Resource::getImageUrl()."/".$this->getText();
+    	if($this->m_Value)
+    	{
+    		$val = $this->m_Value;
+    	}else{
+    		if(preg_match("/\{RESOURCE_URL\}/si",$this->m_Text)){
+    			$val = $this->getText();
+    		}else{
+    			$val = Resource::getImageUrl()."/".$this->getText();
+    		}
+    	}
         if ($val == null || $val =="")
             return "";
 

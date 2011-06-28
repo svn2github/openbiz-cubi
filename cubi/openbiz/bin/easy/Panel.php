@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: Panel.php 3345 2011-02-27 17:07:33Z jixian2003 $
+ * @version   $Id: Panel.php 4049 2011-05-01 12:56:06Z jixian2003 $
  */
 
 /**
@@ -61,7 +61,7 @@ class Panel extends MetaIterator implements iUIControl
                 if (isset($elem->m_Value) && $elem->m_Value !== null)
                     $panel[$elem->m_Name]['value'] = $elem->m_Value;
                 if (isset($elem->m_Description) && $elem->m_Description !== null)
-                    $panel[$elem->m_Name]['description'] = $elem->m_Description;
+                    $panel[$elem->m_Name]['description'] = $elem->getDescription();
                 if (isset($elem->m_Required))
                     $panel[$elem->m_Name]['required'] = $elem->m_Required;
                 if (isset($elem->m_ColumnStyle))
@@ -131,6 +131,9 @@ class Panel extends MetaIterator implements iUIControl
     {
     	if(!$recArr)
     		return ;
+    		
+    	$this->getFormObj()->m_ActiveRecord = $recArr;
+    	
         // reset elements first to avoid use stale data
         foreach ($this->m_var as $elem)
         	$elem->reset();

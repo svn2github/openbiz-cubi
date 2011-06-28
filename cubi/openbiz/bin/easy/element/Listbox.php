@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: Listbox.php 2921 2010-12-18 11:04:43Z jixian2003 $
+ * @version   $Id: Listbox.php 3660 2011-04-11 10:16:41Z jixian2003 $
  */
 
 include_once("OptionElement.php");
@@ -49,7 +49,8 @@ class Listbox extends OptionElement
     {
         $fromList = array();
         $this->getFromList($fromList);
-        $valueArray = explode(',', $this->m_Value);
+        $value = $this->getValue()?$this->getValue():$this->getDefaultValue();
+        $valueArray = explode(',', $value);
         $disabledStr = ($this->getEnabled() == "N") ? "DISABLED=\"true\"" : "";
         $style = $this->getStyle();
         $func = $this->getFunction();

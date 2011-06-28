@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: ObjReference.php 2553 2010-11-21 08:36:48Z mr_a_ton $
+ * @version   $Id: ObjReference.php 3858 2011-04-23 01:14:49Z jixian2003 $
  */
 
 
@@ -56,6 +56,10 @@ class ObjReference extends MetaObject
     public $m_CascadeDelete=false;
     public $m_OnDelete;
     public $m_OnUpdate;
+    
+    public $m_CondField;
+    public $m_CondValue;
+    public $m_Condition;
     //public $m_Association;
 
     /**
@@ -77,6 +81,9 @@ class ObjReference extends MetaObject
         $this->m_CascadeDelete = (isset($xmlArr["ATTRIBUTES"]["CASCADEDELETE"]) && $xmlArr["ATTRIBUTES"]["CASCADEDELETE"] == "Y");
         $this->m_OnDelete = isset($xmlArr["ATTRIBUTES"]["ONDELETE"]) ? $xmlArr["ATTRIBUTES"]["ONDELETE"] : null;
         $this->m_OnUpdate = isset($xmlArr["ATTRIBUTES"]["ONUPDATE"]) ? $xmlArr["ATTRIBUTES"]["ONUPDATE"] : null;
+        $this->m_CondColumn = isset($xmlArr["ATTRIBUTES"]["CONDCOLUMN"]) ? $xmlArr["ATTRIBUTES"]["CONDCOLUMN"] : null;
+        $this->m_CondValue = isset($xmlArr["ATTRIBUTES"]["CONDVALUE"]) ? $xmlArr["ATTRIBUTES"]["CONDVALUE"] : null;
+        $this->m_Condition = isset($xmlArr["ATTRIBUTES"]["CONDITION"]) ? $xmlArr["ATTRIBUTES"]["CONDITION"] : null;
         if ($this->m_CascadeDelete) $this->m_OnDelete = "Cascade";
         if ($this->m_Relationship == "M-M")
         {

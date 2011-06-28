@@ -27,6 +27,19 @@ include_once("OptionElement.php");
  */
 class LabelList extends OptionElement
 {
+    public $m_BlankOption;
+
+    /**
+     * Read metadata info from metadata array and store to class variable
+     *
+     * @param array $xmlArr metadata array
+     * @return void
+     */
+    protected function readMetaData(&$xmlArr)
+    {
+        parent::readMetaData($xmlArr);
+        $this->m_BlankOption = isset($xmlArr["ATTRIBUTES"]["BLANKOPTION"]) ? $xmlArr["ATTRIBUTES"]["BLANKOPTION"] : null;
+    }    
     /**
      * Get link that evaluated by Expression::evaluateExpression
      *
@@ -66,6 +79,10 @@ class LabelList extends OptionElement
                 break;
             }
         }
+        
+        if($selectedStr=="0" || $selectedStr==null){
+        	$selectedStr = $this->m_BlankOption;
+        }
 
         if ($this->m_Link)
         {
@@ -75,6 +92,13 @@ class LabelList extends OptionElement
         else
             $sHTML = "<span $func $style>" . $selectedStr . "</span>";
 
+        if($this->m_BackgroundColor)
+        {
+            	$bgcolor = $this->getBackgroundColor();
+       			if($bgcolor){
+            		$sHTML = "<div style=\"background-color:#".$bgcolor.";text-indent:10px;\" >$sHTML</div>";
+            	}
+        }            
         return $sHTML;
     }
 }

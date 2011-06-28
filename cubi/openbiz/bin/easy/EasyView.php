@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: EasyView.php 2987 2010-12-22 08:55:07Z rockys $
+ * @version   $Id: EasyView.php 3614 2011-04-07 05:34:25Z jixian2003 $
  */
 
 /**
@@ -41,6 +41,8 @@ class EasyView extends MetaObject implements iSessionObject
     public $m_MessageFile = null;        // message file path
     protected $m_Messages;
     public $m_CacheLifeTime = 0;
+    
+    public $m_LastRenderedForm;
 
     /**
      * Initialize EasyView with xml array
@@ -167,6 +169,7 @@ class EasyView extends MetaObject implements iSessionObject
      */
     public function getSessionVars($sessionContext)
     {
+        $sessionContext->getObjVar($this->m_Name, "LastRenderedForm", $this->m_LastRenderedForm);        
     }
     
     /**
@@ -176,7 +179,8 @@ class EasyView extends MetaObject implements iSessionObject
      * @return void
      */
     public function setSessionVars($sessionContext)
-    {
+    {       
+        $sessionContext->setObjVar($this->m_Name, "LastRenderedForm", $this->m_LastRenderedForm);
     }
 
     /**

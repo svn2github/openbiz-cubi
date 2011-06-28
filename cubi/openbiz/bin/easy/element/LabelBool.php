@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2010, Jixian
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: LabelBool.php 2570 2010-11-23 08:19:25Z mr_a_ton $
+ * @version   $Id: LabelBool.php 3640 2011-04-11 03:18:17Z jixian2003 $
  */
 
 include_once("LabelText.php");
@@ -32,7 +32,7 @@ class LabelBool extends LabelText{
     {
         parent::readMetaData($xmlArr);
         $this->m_TrueImg=isset($xmlArr["ATTRIBUTES"]["TRUEIMG"])?$xmlArr["ATTRIBUTES"]["TRUEIMG"]:"flag_y.gif";
-        $this->m_FalseImg=isset($xmlArr["ATTRIBUTES"]["FLASEIMG"])?$xmlArr["ATTRIBUTES"]["FLASEIMG"]:"flag_n.gif";
+        $this->m_FalseImg=isset($xmlArr["ATTRIBUTES"]["FALSEIMG"])?$xmlArr["ATTRIBUTES"]["FALSEIMG"]:"flag_n.gif";
         $this->m_TrueValue=isset($xmlArr["ATTRIBUTES"]["TRUEVALUE"])?$xmlArr["ATTRIBUTES"]["TRUEVALUE"]:true;
         $this->m_FalseValue=isset($xmlArr["ATTRIBUTES"]["FLASEVALUE"])?$xmlArr["ATTRIBUTES"]["FLASEVALUE"]:false;
     }
@@ -45,6 +45,7 @@ class LabelBool extends LabelText{
     {
         $val=$this->m_Value;
         $style = $this->getStyle();
+        $text = $this->getText();
         $id = $this->m_Name;
         $func = $this->getFunction();
         if($val==='1' || $val==='true' || strtoupper($val) == 'Y' || $val>0 || $val==$this->m_TrueValue)
@@ -54,14 +55,21 @@ class LabelBool extends LabelText{
         else
         {
         	$image_url  = $this->m_FalseImg;            
-        }              
+        }   
+        if(preg_match("/\{.*\}/si",$image_url))
+        {
+        	$formobj = $this->getFormObj();
+        	$image_url =  Expression::evaluateExpression($image_url, $formobj);
+        }else{
+        	$image_url = Resource::getImageUrl()."/".$image_url;
+        }                   
     	if ($this->m_Link)
         {
             $link = $this->getLink();
             $target = $this->getTarget();
-            $sHTML = "<a id=\"$id\" href=\"$link\" $target $func $style><img src='".Resource::getImageUrl()."/$image_url' /></a>";
+            $sHTML = "<a alt=\"".$text."\" title=\"".$text."\" id=\"$id\" href=\"$link\" $target $func $style><img src='$image_url' /></a>";
         }else{
-        	$sHTML = "<span id=\"$id\" ><img src='".Resource::getImageUrl()."/$image_url' /></span>";
+        	$sHTML = "<span id=\"$id\"  ><img style=\"padding-top:2px;\" alt=\"".$text."\" title=\"".$text."\" src='$image_url' /></span>";
         }
         return $sHTML;
     }    	

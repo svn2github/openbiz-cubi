@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: RawData.php 3222 2011-02-12 08:41:09Z jixian2003 $
+ * @version   $Id: RawData.php 3437 2011-03-08 16:40:19Z jixian2003 $
  */
 
 include_once("Element.php");
@@ -88,9 +88,9 @@ class RawData extends Element
      */
     public function render()
     {       
-    	$value = $this->m_Text ? $this->getText() : $this->m_Value;
-        if ($value == null || $value == "")
-            return "";
+    	$value = $this->m_Text ? $this->getText() : $this->m_Value;	
+        if ($value === null || $value == "")
+            return $value;
 
         if($this->m_UnSerialize=="Y")
         {

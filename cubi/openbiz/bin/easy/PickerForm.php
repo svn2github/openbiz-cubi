@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: PickerForm.php 3149 2011-02-01 16:06:49Z jixian2003 $
+ * @version   $Id: PickerForm.php 4016 2011-04-29 12:25:27Z jixian2003 $
  */
 
 /**
@@ -85,59 +85,149 @@ class PickerForm extends EasyForm
      * @access remote
      */
     public function pickToParent($recId=null)
-    {
-        /**
-         * @todo $rec variable not used, need to remove ???
-         */
-        $rec = $this->getActiveRecord($recId);
+    {        
+    	if ($recId==null || $recId=='')
+            $recId = BizSystem::clientProxy()->getFormInputs('_selectedId');
 
+        $selIds = BizSystem::clientProxy()->getFormInputs('row_selections', false);
+        if ($selIds == null)
+            $selIds[] = $recId;
+            
         // if no parent elem or picker map, call AddToParent
         if (!$this->m_ParentFormElemName)
         {
-            $this->addToParent($recId);
-        }
+            $this->addToParent($selIds);
+        }                
 
         // if has parent elem and picker map, call JoinToParent
         if ($this->m_ParentFormElemName && $this->m_PickerMap)
         {
-            $this->joinToParent($recId);
+            $this->joinToParent($selIds);
         }
+        
     }
 
+    public function insertToParent()
+    {        
+    	 
+		$recArr = $this->readInputRecord();
+        $this->setActiveRecord($recArr);
+        if (count($recArr) == 0)
+            return;
+
+        try
+        {
+            $this->ValidateForm();
+        }
+        catch (ValidationException $e)
+        {
+            $this->processFormObjError($e->m_Errors);
+            return;
+        }
+        
+
+        if (!$this->m_ParentFormElemName)
+        {
+        	//its only supports 1-m assoc now	        	        
+	        $parentForm = BizSystem::objectFactory()->getObject($this->m_ParentFormName);
+        	//$parentForm->getDataObj()->clearSearchRule();
+	        $parentDo = $parentForm->getDataObj();
+	        
+	        $column = $parentDo->m_Association['Column'];
+	    	$field = $parentDo->getFieldNameByColumn($column);	    	    	
+	    	$parentRefVal = $parentDo->m_Association["FieldRefVal"];
+	    	
+			$recArr[$field] = $parentRefVal;
+	    	if($parentDo->m_Association['Relationship']=='1-M'){	    			    	
+		    	$cond_column = $parentDo->m_Association['CondColumn'];
+		    	$cond_value = $parentDo->m_Association['CondValue'];
+		    	if($cond_column)
+		    	{
+		    		$cond_field = $parentDo->getFieldNameByColumn($cond_column);
+		    		$recArr[$cond_field] = $cond_value;
+		    	}    
+		    	$recId = $parentDo->InsertRecord($recArr);	
+	    	}else{
+	    		$recId = $this->getDataObj()->InsertRecord($recArr);	    		
+	    		$this->addToParent($recId);
+	    	}
+        }                
+
+        if ($this->m_ParentFormElemName && $this->m_PickerMap)
+        {
+            return ; //not supported yet
+        }
+       
+        
+        $selIds[] = $recId;
+        
+        $this->close();	      
+        if($parentForm->m_ParentFormName){
+        	$parentParentForm = BizSystem::objectFactory()->getObject($parentForm->m_ParentFormName);
+        	$parentParentForm->rerender();
+        }
+        else
+        {       
+        	$parentForm->rerender();
+        }
+    }    
+    
     /**
      * Join a record (popup) to parent form
      *
      * @param <type> $recId
      * @return void
      */
-    public function joinToParent($recId=null)
-    {
-        $rec = $this->getActiveRecord($recId);
-
-        $parentForm = BizSystem::objectFactory()->getObject($this->m_ParentFormName);
-        $updArray = array();
-
-        // get the picker map of the control
-        if ($this->m_PickerMap)
-        {
-            $pickerList = $this->_parsePickerMap($this->m_PickerMap);
-            foreach ($pickerList as $ctrlPair)
-            {
-                $this_ctrl = $this->getElement($ctrlPair[1]);
-                if (!$this_ctrl)
-                    continue;
-                $this_ctrl_val = $this_ctrl->getValue();
-                $other_ctrl = $parentForm->getElement($ctrlPair[0]);
-                if ($other_ctrl)
-                    $updArray[$other_ctrl->m_Name] = $this_ctrl_val;
-            }
-        }
-        else
-            return;
-
-        $this->close();
-
-        BizSystem::clientProxy()->updateFormElements($parentForm->m_Name, $updArray);
+    public function joinToParent($recIds=null)
+    {    	
+    	if(!is_array($recIds))
+    	{    		
+    		$recIdArr = array();
+    		$recIdArr[] = $recIds;
+    	}else{
+    		$recIdArr = $recIds;
+    	}
+    	
+    	$parentForm = BizSystem::objectFactory()->getObject($this->m_ParentFormName);
+    	$updArray = array();
+    	$updRec = array();
+    	
+    	foreach($recIdArr as $recId)
+    	{
+        	$rec = $this->getDataObj()->fetchById($recId);
+              
+	        // get the picker map of the control
+	        if ($this->m_PickerMap)
+	        {
+	            $pickerList = $this->_parsePickerMap($this->m_PickerMap);
+	            foreach ($pickerList as $ctrlPair)
+	            {
+	                $this_ctrl = $this->getElement($ctrlPair[1]);
+	                if (!$this_ctrl)
+	                    continue;
+	                $this_ctrl_val = $rec[$this_ctrl->m_FieldName];
+	                $other_ctrl = $parentForm->getElement($ctrlPair[0]);
+	                if ($other_ctrl)
+	                {
+						
+	                	$updArray[$other_ctrl->m_Name] = $this_ctrl_val;
+	                	$updRec[$other_ctrl->m_FieldName] = $this_ctrl_val;
+	                }
+	            }
+	        }
+	        else
+	            return;
+    	}
+    	
+        $this->close();	                                
+                
+        $elem = $parentForm->getElement($this->m_ParentFormElemName);
+        if($elem->m_UpdateForm=='Y'){
+        	$parentForm->setActiveRecord($updRec);
+        	$parentForm->updateForm();
+        }else{
+        	BizSystem::clientProxy()->updateFormElements($parentForm->m_Name, $updArray);
+        }                               
     }
 
     /**
@@ -145,28 +235,44 @@ class PickerForm extends EasyForm
      *
      * @return void
      */
-    public function addToParent($recId=null)
+    public function addToParent($recIds=null)
     {
-        $rec = $this->getActiveRecord($recId);
-
-        /* @var $parentForm EasyForm */
-        $parentForm = BizSystem::objectFactory()->getObject($this->m_ParentFormName);
-
-        //clear parent form search rules
-        $this->m_SearchRule="";
-        $parentForm->getDataObj()->clearSearchRule();
-        
-        // add record to parent form's dataObj who is M-M or M-1/1-1 to its parent dataobj
-        $ok = $parentForm->getDataObj()->addRecord($rec, $bPrtObjUpdated);
-        if (!$ok)
-            return $parentForm->processDataObjError($ok);
-        
+    	if(!is_array($recIds))
+    	{    		
+    		$recIdArr = array();
+    		$recIdArr[] = $recIds;
+    	}else{
+    		$recIdArr = $recIds;
+    	}
+    	
+    	/* @var $parentForm EasyForm */
+    	$parentForm = BizSystem::objectFactory()->getObject($this->m_ParentFormName);
+    	foreach($recIdArr as $recId)
+    	{
+	               	        	
+	        //clear parent form search rules
+	        $this->m_SearchRule="";
+	        $parentForm->getDataObj()->clearSearchRule();
+	        
+	        $do = $this->getDataObj();
+	        $baseSearchRule = $do->m_BaseSearchRule;
+	        $do->m_BaseSearchRule = "";
+	        $do->clearSearchRule();	        	        
+	        $rec = $do->fetchById($recId);	
+			$do->m_BaseSearchRule = $baseSearchRule;
+			
+	        // add record to parent form's dataObj who is M-M or M-1/1-1 to its parent dataobj
+	        $ok = $parentForm->getDataObj()->addRecord($rec, $bPrtObjUpdated);
+	        if (!$ok)
+	            return $parentForm->processDataObjError($ok);
+    	}   
         
         $this->close();
 
         $parentForm->rerender();
-
-        // just keep it simple, don't refresh parent's parent form :)
+		if($parentForm->m_ParentFormName){
+			$parentForm->renderParent();
+		}
     }
 
 

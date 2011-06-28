@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: BizDataObj_Assoc.php 2553 2010-11-21 08:36:48Z mr_a_ton $
+ * @version   $Id: BizDataObj_Assoc.php 3975 2011-04-27 15:51:18Z jixian2003 $
  */
 
 /**
@@ -46,6 +46,11 @@ class BizDataObj_Assoc
         {
             $isParentObjUpdated = true;
             return self::_addRecordMto1($dataObj, $recArr);
+        }
+    	elseif ($dataObj->m_Association["Relationship"] == "1-M")                
+        {
+            $isParentObjUpdated = false;
+            return self::_addRecord1toM($dataObj, $recArr);
         }
         else
         {
@@ -145,6 +150,32 @@ class BizDataObj_Assoc
         $dataObj->m_Association["FieldRefVal"] = $recArr["Id"];
         return $dataObj->runSearch();
     }
+    
+    private static function _addRecord1toM($dataObj, $recArr)
+    {    	
+    	$column = $dataObj->m_Association['Column'];
+    	$field = $dataObj->getFieldNameByColumn($column);
+    	    	
+    	$parentRefVal = $dataObj->m_Association["FieldRefVal"];
+    	
+    	$newRecArr["Id"] = $recArr["Id"];    	
+		$newRecArr[$field] = $parentRefVal;
+    	
+    	$cond_column = $dataObj->m_Association['CondColumn'];
+    	$cond_value = $dataObj->m_Association['CondValue'];
+    	if($cond_column)
+    	{
+    		$cond_field = $dataObj->getFieldNameByColumn($cond_column);
+    		$newRecArr[$cond_field] = $cond_value;
+    	}    	
+    	
+    	$ok = $dataObj->updateRecord($newRecArr,$recArr);
+    	
+        if ($ok == false)
+            return false;
+        // requery on this object        
+        return true;        
+    }    
 
     /**
      * Remove a record from current record set of current association relationship
@@ -165,6 +196,11 @@ class BizDataObj_Assoc
         {
             $isParentObjUpdated = true;
             return self::_removeRecordMto1($dataObj, $recArr);
+        }
+    	elseif ($dataObj->m_Association["Relationship"] == "1-M" )
+        {
+            $isParentObjUpdated = false;
+            return self::_removeRecord1toM($dataObj, $recArr);
         }
         else
         {
@@ -229,4 +265,27 @@ class BizDataObj_Assoc
         return $dataObj->runSearch();
     }
 
+    private static function _removeRecord1toM($dataObj, $recArr)
+    {        
+    	    
+    	$column = $dataObj->m_Association['Column'];
+    	$field = $dataObj->getFieldNameByColumn($column);
+    	    	    	
+    	$newRecArr["Id"] = $recArr["Id"];
+		$newRecArr[$field] = '';
+		
+    	$cond_column = $dataObj->m_Association['CondColumn'];
+    	$cond_value = $dataObj->m_Association['CondValue'];    	
+		
+    	if($cond_column)
+    	{
+    		$cond_field = $dataObj->getFieldNameByColumn($cond_column);
+    		$newRecArr[$cond_field] = $cond_value;
+    	}  
+        $ok = $dataObj->updateRecord($newRecArr,$recArr);
+        if ($ok == false)
+            return false;
+        // requery on this object        
+        return true;
+    }    
 }

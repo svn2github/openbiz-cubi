@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: BizDataObj_SQLHelper.php 2756 2010-12-04 10:53:41Z jixian2003 $
+ * @version   $Id: BizDataObj_SQLHelper.php 3994 2011-04-28 12:39:54Z jixian2003 $
  */
 
 /**
@@ -108,6 +108,16 @@ class BizDataObj_SQLHelper
 
         $dataSqlObj->resetSQL();
 
+        // append DataPerm in the WHERE clause
+        if($dataObj->m_DataPermControl=='Y')
+        {
+	        $svcObj = BizSystem::GetService(DATAPERM_SERVICE);
+	        $hasOwnerField = $this->_hasOwnerField($dataObj);
+	        $dataPermSQLRule = $svcObj->buildSqlRule('select',$hasOwnerField);
+	        $sqlSearchRule = $this->_ruleToSql($dataObj, $dataPermSQLRule);
+	        $dataSqlObj->addSqlWhere($sqlSearchRule);
+        }
+        
         // append SearchRule in the WHERE clause
         $sqlSearchRule = $this->_ruleToSql($dataObj, $dataObj->m_SearchRule);
         $dataSqlObj->addSqlWhere($sqlSearchRule);
@@ -200,6 +210,22 @@ class BizDataObj_SQLHelper
 
         $whereStr = $dataObj->m_BizRecord->getKeySearchRule(true, true);  // use old value and column name
         $sql .= " WHERE " . $whereStr;
+    	
+        // append DataPerm in the WHERE clause
+        if($dataObj->m_DataPermControl=='Y')
+        {
+	        $svcObj = BizSystem::GetService(DATAPERM_SERVICE);
+	        $hasOwnerField = $this->_hasOwnerField($dataObj);
+	        $dataPermSQLRule = $svcObj->buildSqlRule('update',$hasOwnerField);
+	        $sqlSearchRule = $this->_convertSqlExpressionWithoutPrefix($dataObj, $dataPermSQLRule);
+	        if($whereStr!='')
+	        {
+	        	$sql .= ' AND '.$sqlSearchRule;
+	        }else
+	        {	        
+	        	$sql .= $sqlSearchRule;
+	        }
+        }
         return $sql;
     }
     
@@ -212,6 +238,22 @@ class BizDataObj_SQLHelper
         {
         	$whereStr = $this->_convertSqlExpressionWithoutPrefix($dataObj, $condition); 
         	$sql .= " WHERE " . $whereStr;
+        }
+        
+    	// append DataPerm in the WHERE clause
+        if($dataObj->m_DataPermControl=='Y')
+        {
+	        $svcObj = BizSystem::GetService(DATAPERM_SERVICE);
+	        $hasOwnerField = $this->_hasOwnerField($dataObj);
+	        $dataPermSQLRule = $svcObj->buildSqlRule('update',$hasOwnerField);
+	        $sqlSearchRule = $this->_convertSqlExpressionWithoutPrefix($dataObj, $dataPermSQLRule);
+	        if($whereStr!='')
+	        {
+	        	$sql .= ' AND '.$sqlSearchRule;
+	        }else
+	        {	        
+	        	$sql .= $sqlSearchRule;
+	        }
         }
         return $sql;
     }
@@ -227,6 +269,21 @@ class BizDataObj_SQLHelper
         $sql = "DELETE FROM `" . $dataObj->m_MainTable ."`";
         $whereStr = $dataObj->m_BizRecord->getKeySearchRule(false, true);  // use cur value and column name
         $sql .= " WHERE " . $whereStr;
+    	// append DataPerm in the WHERE clause
+        if($dataObj->m_DataPermControl=='Y')
+        {
+	        $svcObj = BizSystem::GetService(DATAPERM_SERVICE);
+	        $hasOwnerField = $this->_hasOwnerField($dataObj);
+	        $dataPermSQLRule = $svcObj->buildSqlRule('delete',$hasOwnerField);
+	        $sqlSearchRule = $this->_convertSqlExpressionWithoutPrefix($dataObj, $dataPermSQLRule);
+	        if($whereStr!='')
+	        {
+	        	$sql .= ' AND '.$sqlSearchRule;
+	        }else
+	        {	        
+	        	$sql .= $sqlSearchRule;
+	        }
+        }
         return $sql;
     }
     
@@ -238,6 +295,21 @@ class BizDataObj_SQLHelper
         {
         	$whereStr = $this->_convertSqlExpressionWithoutPrefix($dataObj, $condition); 
         	$sql .= " WHERE " . $whereStr;
+        }
+   		// append DataPerm in the WHERE clause
+        if($dataObj->m_DataPermControl=='Y')
+        {
+	        $svcObj = BizSystem::GetService(DATAPERM_SERVICE);
+	        $hasOwnerField = $this->_hasOwnerField($dataObj);
+	        $dataPermSQLRule = $svcObj->buildSqlRule('delete',$hasOwnerField);
+	        $sqlSearchRule = $this->_convertSqlExpressionWithoutPrefix($dataObj, $dataPermSQLRule);
+	        if($whereStr!='')
+	        {
+	        	$sql .= ' AND '.$sqlSearchRule;
+	        }else
+	        {	        
+	        	$sql .= $sqlSearchRule;
+	        }
         }
         return $sql;
     }
@@ -272,10 +344,9 @@ class BizDataObj_SQLHelper
                 $_val = $fldobj->getInsertLobValue($dbType);
             else
             {
-                if ($fldobj->m_ValueOnCreate != "")
-                    $_val = $fldobj->getValueOnCreate();
-                else
-                    $_val = $fldobj->getSqlValue();
+            	$_val = $fldobj->getSqlValue();
+                if ($_val =='' && $fldobj->m_ValueOnCreate != "")
+                    $_val = $fldobj->getValueOnCreate();                
             }
 
             //if (!$_val || $_val == '') continue;
@@ -428,6 +499,15 @@ class BizDataObj_SQLHelper
         }
         return $sqlstr;
     }    
+    
+    private function _hasOwnerField($dataObj){
+    	$fld = $dataObj->getField('owner_id');
+    	if($fld){
+    		return true;
+    	}else{
+    		return false;
+    	}
+    }
 }
 
 

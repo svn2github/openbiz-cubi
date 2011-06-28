@@ -32,7 +32,7 @@ class LabelText extends Element
     public $m_Label;
     public $m_DisplayFormat;
     public $m_Text;
-    public $m_Link;
+    public $m_Link;    
     public $m_Target;
     public $m_MaxLength;
     public $m_Percent;
@@ -96,7 +96,7 @@ class LabelText extends Element
         $formObj = $this->getFormObj();
         return Expression::evaluateExpression($this->m_Text, $formObj);
     }
-
+    
     /**
      * Render label
      *
@@ -159,6 +159,13 @@ class LabelText extends Element
             else
             {
                 $sHTML = "<span  title=\"$value_org\" $style $func>" . $value . "</span>";
+            }
+            if($this->m_BackgroundColor)
+            {
+            	$bgcolor = $this->getBackgroundColor();
+            	if($bgcolor){
+            	$sHTML = "<div style=\"background-color:#".$bgcolor.";text-indent:10px;\" >$sHTML</div>";
+            	}
             }
         }
 

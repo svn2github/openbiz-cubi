@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: DataRecord.php 2706 2010-11-30 15:43:41Z jixian2003 $
+ * @version   $Id: DataRecord.php 4086 2011-05-03 06:00:35Z rockys $
  */
 
 /**
@@ -57,10 +57,16 @@ class DataRecord implements Iterator, ArrayAccess
      */
     public function __construct($recArray, $bizObj)
     {
-        if ($recArray != null && (is_array($recArray) || is_a($recArray,"DataRecord")))
+        if ($recArray != null)
         {
-            $this->m_var = $recArray;
-            $this->m_var_old = $recArray;
+            if (is_array($recArray)) {
+                $this->m_var = $recArray;
+                $this->m_var_old = $recArray;
+            }
+            else if (is_a($recArray,"DataRecord")) {
+                $this->m_var = $recArray->toArray();
+                $this->m_var_old = $this->m_var;
+            }
         }
         else
             $this->m_var = $bizObj->newRecord();

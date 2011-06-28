@@ -23,15 +23,28 @@ class LabelImage extends LabelText
     public function render()
     {
     	$this->m_Prefix = Expression::evaluateExpression($this->m_Prefix, $formobj);
-    	
+    	$func = $this->getFunction();
     	if($this->m_Width){
     		$width_str = " width=\"".$this->m_Width."\" ";
     	}
         if($this->m_Height){
     		$height_str = " height=\"".$this->m_Height."\" ";
     	}    	
-    	if($this->m_Value){
-        	$sHTML = "<img src=\"".$this->m_Prefix.$this->m_Value."\" $width_str $height_str />";
+    	$value = $this->getValue()?$this->getValue():$this->getText();
+    	if($value){
+    		
+    		if ($this->m_Link)
+            {
+                $link = $this->getLink();
+                $target = $this->getTarget();
+                $sHTML = "<a href=\"$link\" $target $func $style>" . "<img src=\"".$this->m_Prefix.$value."\"  border=\"0\" $width_str $height_str />" . "</a>";
+            }
+            else
+            {
+                $sHTML = "<img border=\"0\" src=\"".$this->m_Prefix.$value."\" $func $width_str $height_str />";
+            }
+    		
+        	
     	}
         return $sHTML;
     }

@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: OptionElement.php 2569 2010-11-23 08:06:45Z mr_a_ton $
+ * @version   $Id: OptionElement.php 3561 2011-03-30 06:15:47Z jixian2003 $
  */
 
 include_once("InputElement.php");
@@ -129,6 +129,11 @@ class OptionElement extends InputElement
                 $i = 0;
                 if (!key_exists($tag, $xmlArr["SELECTION"]))
                     return false;
+                if(!$xmlArr["SELECTION"][$tag][0]){
+                	$array = $xmlArr["SELECTION"][$tag];
+                	unset($xmlArr["SELECTION"][$tag]);
+                	$xmlArr["SELECTION"][$tag][0]=$array;
+                }
                 foreach($xmlArr["SELECTION"][$tag] as $node)
                 {
                     $list[$i]['val'] = $node["ATTRIBUTES"]["VALUE"];

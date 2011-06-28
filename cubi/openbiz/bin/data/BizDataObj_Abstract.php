@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: BizDataObj_Abstract.php 3238 2011-02-13 16:05:10Z jixian2003 $
+ * @version   $Id: BizDataObj_Abstract.php 4108 2011-05-08 06:01:30Z jixian2003 $
  */
 
 include_once(OPENBIZ_BIN.'data/private/BizRecord.php');
@@ -181,6 +181,8 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
      */
     protected $m_Messages;
     
+    public $m_DataPermControl;
+    
     /**
      * Initialize BizDataObj_Abstract with xml array
      *
@@ -237,6 +239,8 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
 
         $this->m_MessageFile = isset($xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["MESSAGEFILE"]) ? $xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["MESSAGEFILE"] : null;
         $this->m_Messages = Resource::loadMessage($this->m_MessageFile , $this->m_Package);
+        
+        $this->m_DataPermControl = isset($xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["DATAPERMCONTROL"]) ? strtoupper($xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["DATAPERMCONTROL"]) : 'N';
     }
 
     /**
@@ -262,7 +266,7 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
         $this->m_MainTable    = $this->m_MainTable ? $this->m_MainTable: $parentObj->m_MainTable;
         $this->m_IdGeneration = $this->m_IdGeneration ? $this->m_IdGeneration: $parentObj->m_IdGeneration;
         $this->m_Stateless    = $this->m_Stateless ? $this->m_Stateless: $parentObj->m_Stateless;
-
+		$this->m_DataPermControl = $this->m_DataPermControl ? $this->m_DataPermControl : $parentObj->m_DataPermControl;
         $this->m_BizRecord->merge($parentObj->m_BizRecord);
 
         foreach ($this->m_BizRecord as $field)
@@ -450,9 +454,31 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
      *
      * @return Zend_Db_Adapter_Abstract
      **/
-    public function getDBConnection()
+	public function getDBConnection($type='default')
     {
-        return BizSystem::dbConnection($this->m_Database);
+    	switch(strtolower($type))
+    	{
+    		case "default":
+    		case "read":
+    			if($this->m_DatabaseforRead){
+    				$dbName = $this->m_DatabaseforRead;	
+    			}
+    			else
+    			{
+    				$dbName = $this->m_Database;
+    			}
+    			break;
+    		case "write":
+    			if($this->m_DatabaseforWrite){
+    				$dbName = $this->m_DatabaseforWrite;	
+    			}
+    			else
+    			{
+    				$dbName = $this->m_Database;
+    			}    			
+    			break;
+    	}
+        return BizSystem::dbConnection($dbName);
     }
 
     /**
@@ -540,6 +566,9 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
         $this->m_Association["Column"] = $objRef->m_Column;
         $this->m_Association["FieldRef"] = $objRef->m_FieldRef;
         $this->m_Association["FieldRefVal"] = $asscObj->getFieldValue($objRef->m_FieldRef);
+        $this->m_Association["CondColumn"] = $objRef->m_CondColumn;
+        $this->m_Association["CondValue"] = $objRef->m_CondValue;
+        $this->m_Association["Condition"] = $objRef->m_Condition;        
         if ($objRef->m_Relationship == "M-M")
         {
             $this->m_Association["XTable"] = $objRef->m_XTable;

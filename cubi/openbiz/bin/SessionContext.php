@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: SessionContext.php 2732 2010-12-01 07:49:38Z rockys $
+ * @version   $Id: SessionContext.php 4105 2011-05-06 08:48:08Z jixian2003 $
  */
 
 /**
@@ -52,8 +52,11 @@ class SessionContext
             include_once SESSION_HANDLER.".php";
         }
         else {
+        	if(!file_exists(SESSION_PATH)){        		
+        		@mkdir(SESSION_PATH,0777,true);
+        	}
             // default is file session
-            if (defined('SESSION_PATH'))
+            if (defined('SESSION_PATH') && is_writable(SESSION_PATH))
                 session_save_path(SESSION_PATH);
             // we cannot write in the session save path; aborting
             if(!is_writable(session_save_path())) 
@@ -61,11 +64,21 @@ class SessionContext
         }
         
         ini_set('session.gc_probability', 1);   // force gc 
+        ini_set('session.gc_divisor', 100);
+        if (defined('TIMEOUT') && TIMEOUT > 0)
+            ini_set("session.gc_maxlifetime", TIMEOUT);
+        else
+            ini_set("session.gc_maxlifetime", 21600); // 6 hours
         
+        		
+            
         if (!defined('CLI') || CLI == 0) {
+            if(isset($_REQUEST['cubi_sess_id'])){
+                session_id($_REQUEST['cubi_sess_id']);
+            }
             session_start();
         }
-            // record access time
+        // record access time
         $curTime = time();
         if (isset($_SESSION["LastAccessTime"]))
             $this->_lastAccessTime = $_SESSION["LastAccessTime"];
@@ -139,6 +152,16 @@ class SessionContext
         $exists =  (array_key_exists($varName, $_SESSION)) ? TRUE : FALSE;
         return $exists;
     }
+    
+    public function getNamespace()
+    {
+        $view = BizSystem::instance()->getCurrentViewName();
+        if ($view)
+            $namespace = $view;
+        else
+            $namespace = 'DEFAULT_NS';
+        return $namespace;
+    }
 
     /**
      * Set single session variable of a stateful object
@@ -149,8 +172,11 @@ class SessionContext
      * @param boolean $stateful - is stateful?
      * @return void
      **/
-    public function setObjVar($objName, $varName, &$value, $stateful=false)
+    public function setObjVar($objName, $varName, &$value, $stateful=false )
     {
+    	if(preg_match('/\./si',$objName)){
+        	$objName = $this->getNamespace().'#'.$objName;
+    	}
         if (!$stateful)
             $this->_sessObjArr[$objName][$varName] = $value;
         else
@@ -166,6 +192,9 @@ class SessionContext
      */
     public function cleanObj($objName, $stateful=false)
     {
+    	if(preg_match('/\./si',$objName)){
+        	$objName = $this->getNamespace().'#'.$objName;
+    	}
         if (!$stateful)
             unset($this->_sessObjArr[$objName]);
         else
@@ -183,6 +212,9 @@ class SessionContext
      */
     public function getObjVar($objName, $varName, &$value, $stateful=false)
     {
+    	if(preg_match('/\./si',$objName)){
+        	$objName = $this->getNamespace().'#'.$objName;
+    	}
         if (!$stateful)
         {
             if (!$this->_sessObjArr)
@@ -308,8 +340,7 @@ class SessionContext
      **/
     public function getViewHistory($formName)
     {
-        global $g_BizSystem;
-        $view = $g_BizSystem->getCurrentViewName();
+        $view = BizSystem::instance()->getCurrentViewName();
         $view_form = $formName; //$view."_".$formname;
         return $this->_viewHistory[$view_form];
     }
@@ -323,8 +354,7 @@ class SessionContext
      **/
     public function setViewHistory($formName, $historyInfo)
     {
-        global $g_BizSystem;
-        $view = $g_BizSystem->getCurrentViewName();
+        $view = BizSystem::instance()->getCurrentViewName();
         $view_form = $formName; //$view."_".$formname;
         if (!$historyInfo)
             unset($this->_viewHistory[$view_form]);

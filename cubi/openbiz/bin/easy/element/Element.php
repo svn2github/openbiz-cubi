@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: Element.php 3174 2011-02-02 09:53:36Z jixian2003 $
+ * @version   $Id: Element.php 4049 2011-05-01 12:56:06Z jixian2003 $
  */
 
 /**
@@ -48,6 +48,7 @@ class Element extends MetaObject implements iUIControl
     public $m_ClientValidator = null;
 	public $m_KeepCookie = null;
 	public $m_CookieLifetime = 3600;
+	public $m_BackgroundColor;
 	
     /**
      * Initialize Element with xml array
@@ -74,14 +75,13 @@ class Element extends MetaObject implements iUIControl
     protected function readMetaData(&$xmlArr)
     {
         $this->m_Name = isset($xmlArr["ATTRIBUTES"]["NAME"]) ? $xmlArr["ATTRIBUTES"]["NAME"] : null;
+		$this->m_BackgroundColor = isset($xmlArr["ATTRIBUTES"]["BACKGROUNDCOLOR"]) ? $xmlArr["ATTRIBUTES"]["BACKGROUNDCOLOR"] : null;        
         $this->m_Class = isset($xmlArr["ATTRIBUTES"]["CLASS"]) ? $xmlArr["ATTRIBUTES"]["CLASS"] : null;
         $this->m_Description = isset($xmlArr["ATTRIBUTES"]["DESCRIPTION"]) ? $xmlArr["ATTRIBUTES"]["DESCRIPTION"] : null;
         $this->m_Access = isset($xmlArr["ATTRIBUTES"]["ACCESS"]) ? $xmlArr["ATTRIBUTES"]["ACCESS"] : null;
-        
-        //$this->m_DefaultValue = isset($xmlArr["ATTRIBUTES"]["DEFAULTVALUE"]) ? $xmlArr["ATTRIBUTES"]["DEFAULTVALUE"] : null;
+        $this->m_DefaultValue = isset($xmlArr["ATTRIBUTES"]["DEFAULTVALUE"]) ? $xmlArr["ATTRIBUTES"]["DEFAULTVALUE"] : null;
         $this->m_cssClass = isset($xmlArr["ATTRIBUTES"]["CSSCLASS"]) ? $xmlArr["ATTRIBUTES"]["CSSCLASS"] : null;
-        //$this->m_cssErrorClass = isset($xmlArr["ATTRIBUTES"]["CSSERRORCLASS"]) ? $xmlArr["ATTRIBUTES"]["CSSERRORCLASS"] : "input_error";
-        
+        $this->m_cssErrorClass = isset($xmlArr["ATTRIBUTES"]["CSSERRORCLASS"]) ? $xmlArr["ATTRIBUTES"]["CSSERRORCLASS"] : "input_error";
         $this->m_Style = isset($xmlArr["ATTRIBUTES"]["STYLE"]) ? $xmlArr["ATTRIBUTES"]["STYLE"] : null;
         $this->m_Width = isset($xmlArr["ATTRIBUTES"]["WIDTH"]) ? $xmlArr["ATTRIBUTES"]["WIDTH"] : null;
         $this->m_Height = isset($xmlArr["ATTRIBUTES"]["HEIGHT"]) ? $xmlArr["ATTRIBUTES"]["HEIGHT"] : null;
@@ -91,16 +91,15 @@ class Element extends MetaObject implements iUIControl
         $this->m_ElementSetCode = isset($xmlArr["ATTRIBUTES"]["ELEMENTSET"]) ? $xmlArr["ATTRIBUTES"]["ELEMENTSET"] : null;          
         $this->m_Text = isset($xmlArr["ATTRIBUTES"]["TEXT"]) ? $xmlArr["ATTRIBUTES"]["TEXT"] : null;
         $this->m_Translatable = isset($xmlArr["ATTRIBUTES"]["TRANSLATABLE"]) ? $xmlArr["ATTRIBUTES"]["TRANSLATABLE"] : null;
-        
-        //$this->m_FuzzySearch = isset($xmlArr["ATTRIBUTES"]["FUZZYSEARCH"]) ? $xmlArr["ATTRIBUTES"]["FUZZYSEARCH"] : null;
-        //$this->m_OnEventLog = isset($xmlArr["ATTRIBUTES"]["ONEVENTLOG"]) ? $xmlArr["ATTRIBUTES"]["ONEVENTLOG"] : null;
-        //$this->m_Required = isset($xmlArr["ATTRIBUTES"]["REQUIRED"]) ? $xmlArr["ATTRIBUTES"]["REQUIRED"] : null;
-        //$this->m_Validator = isset($xmlArr["ATTRIBUTES"]["VALIDATOR"]) ? $xmlArr["ATTRIBUTES"]["VALIDATOR"] : null;
-        //$this->m_ClientValidator = isset($xmlArr["ATTRIBUTES"]["CLIENTVALIDATOR"]) ? $xmlArr["ATTRIBUTES"]["CLIENTVALIDATOR"] : null;
+        $this->m_FuzzySearch = isset($xmlArr["ATTRIBUTES"]["FUZZYSEARCH"]) ? $xmlArr["ATTRIBUTES"]["FUZZYSEARCH"] : null;
+        $this->m_OnEventLog = isset($xmlArr["ATTRIBUTES"]["ONEVENTLOG"]) ? $xmlArr["ATTRIBUTES"]["ONEVENTLOG"] : null;
+        $this->m_Required = isset($xmlArr["ATTRIBUTES"]["REQUIRED"]) ? $xmlArr["ATTRIBUTES"]["REQUIRED"] : null;
+        $this->m_Validator = isset($xmlArr["ATTRIBUTES"]["VALIDATOR"]) ? $xmlArr["ATTRIBUTES"]["VALIDATOR"] : null;
+        $this->m_ClientValidator = isset($xmlArr["ATTRIBUTES"]["CLIENTVALIDATOR"]) ? $xmlArr["ATTRIBUTES"]["CLIENTVALIDATOR"] : null;
         $this->m_AllowURLParam = isset($xmlArr["ATTRIBUTES"]["ALLOWURLPARAM"]) ? $xmlArr["ATTRIBUTES"]["ALLOWURLPARAM"] : 'Y';
-        //$this->m_KeepCookie = isset($xmlArr["ATTRIBUTES"]["KEEPCOOKIE"]) ? $xmlArr["ATTRIBUTES"]["KEEPCOOKIE"] : 'N';
-        //$this->m_CookieLifetime = isset($xmlArr["ATTRIBUTES"]["COOKIELIFETIME"]) ? (int)$xmlArr["ATTRIBUTES"]["COOKIELIFETIME"] : '3600';
-        
+        $this->m_KeepCookie = isset($xmlArr["ATTRIBUTES"]["KEEPCOOKIE"]) ? $xmlArr["ATTRIBUTES"]["KEEPCOOKIE"] : 'N';
+        $this->m_CookieLifetime = isset($xmlArr["ATTRIBUTES"]["COOKIELIFETIME"]) ? (int)$xmlArr["ATTRIBUTES"]["COOKIELIFETIME"] : '3600';
+
         // read EventHandler element
         if (isset($xmlArr["EVENTHANDLER"]))  // 2.1 eventhanlders
             $this->m_EventHandlers = new MetaIterator($xmlArr["EVENTHANDLER"],"EventHandler");
@@ -302,6 +301,14 @@ class Element extends MetaObject implements iUIControl
         return $style;
     }
 
+    protected function getBackgroundColor()
+    {
+        if ($this->m_BackgroundColor == null)
+            return null;   
+        $formObj = $this->getFormObj();
+        return Expression::evaluateExpression($this->m_BackgroundColor, $formObj);
+    }        
+    
     /**
      * Get text of element
      *
@@ -314,6 +321,14 @@ class Element extends MetaObject implements iUIControl
         $formobj = $this->getFormObj();
         return Expression::evaluateExpression($this->m_Text, $formobj);
     }
+    
+    public function getDescription()
+    {
+        if ($this->m_Description == null)
+            return null;
+        $formobj = $this->getFormObj();
+        return Expression::evaluateExpression($this->m_Description, $formobj);
+    }    
 
     /**
      * Get shortcut key function map
@@ -375,26 +390,7 @@ class Element extends MetaObject implements iUIControl
      */
     protected function getFunction()
     {
-        $name = $this->m_Name;
-        // loop through the event handlers
-        $func = "";
-
-        if ($this->m_EventHandlers == null)
-            return null;
-        $formobj = $this->getFormObj();
-        foreach ($this->m_EventHandlers as $eventHandler)
-        {
-            $ehName = $eventHandler->m_Name;
-            $event = $eventHandler->m_Event;
-            $type = $eventHandler->m_FunctionType;
-            if (!$event) continue;
-            if($events[$event]!=""){
-            	$events[$event]=array_merge(array($events[$event]),array($eventHandler->getFormedFunction()));
-            }else{
-            	$events[$event]=$eventHandler->getFormedFunction();
-            }
-
-        }
+        $events = $this->getEvents();
 		foreach ($events as $event=>$function){
 			if(is_array($function)){
 				foreach($function as $f){
@@ -406,6 +402,32 @@ class Element extends MetaObject implements iUIControl
 			}
 		}
         return $func;
+    }
+    
+    public function getEvents(){
+    	$name = $this->m_Name;
+        // loop through the event handlers
+        $func = "";
+
+        $events = array();
+        
+        if ($this->m_EventHandlers == null)
+            return $events;
+        $formobj = $this->getFormObj();
+       
+        foreach ($this->m_EventHandlers as $eventHandler)
+        {
+            $ehName = $eventHandler->m_Name;
+            $event = $eventHandler->m_Event;
+            $type = $eventHandler->m_FunctionType;
+            if (!$event) continue;
+            if($events[$event]!=""){
+            	$events[$event]=array_merge(array($events[$event]),array($eventHandler->getFormedFunction()));
+            }else{
+            	$events[$event]=$eventHandler->getFormedFunction();
+            }
+        }
+        return $events;
     }
     
     public function getFunctionByEventHandlerName($eventHandlerName)
@@ -520,7 +542,7 @@ class Element extends MetaObject implements iUIControl
     		$this->m_Label = I18n::t($this->m_Label, $this->getTransKey('Label'), $module);
     	if (!empty($this->m_Description))
     		$this->m_Description = I18n::t($this->m_Description, $this->getTransKey('Description'), $module);
-        if (!empty($this->m_DefaultValue))
+        if (!empty($this->m_DefaultValue) && !preg_match("/\{/si",$this->m_DefaultValue))
     		$this->m_DefaultValue = I18n::t($this->m_DefaultValue, $this->getTransKey('DefaultValue'), $module);
 		if (!empty($this->m_ElementSet))
     		$this->m_ElementSet = I18n::t($this->m_ElementSet, $this->getTransKey('ElementSet'), $module);    		

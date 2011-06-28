@@ -53,7 +53,7 @@ class ColumnSorting extends ColumnText
             }
             else
             {
-                $sHTML = "<span style=\"width:auto;height:auto;\" $func>" . $value . "</span>";
+                $sHTML = "<span style=\"width:auto;height:auto;line-height:16px;\" $func>" . $value . "</span>";
             }
         }
         

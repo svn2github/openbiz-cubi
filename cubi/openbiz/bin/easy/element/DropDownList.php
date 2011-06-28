@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: DropDownList.php 2941 2010-12-20 05:57:49Z jixian2003 $
+ * @version   $Id: DropDownList.php 3856 2011-04-21 18:10:41Z jixian2003 $
  */
 
 include_once("InputElement.php");
@@ -110,6 +110,7 @@ class DropDownList extends InputElement
         if($value==''){
             $defaultOpt = array_shift($list);
             if($display_value==''){
+            	$value = $defaultOpt['val'];
         		$display_value = $defaultOpt['txt'];
             }
         	array_unshift($list,$defaultOpt);        	 
@@ -123,7 +124,7 @@ class DropDownList extends InputElement
 		        			onclick=\"if($('".$formNameStr.$this->m_Name."_list').visible()){\$('".$formNameStr.$this->m_Name."_list').hide();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssClass."'}else{\$('".$formNameStr.$this->m_Name."_list').show();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssFocusClass."'}\"
 		        			onmouseover=\"$('span_".$formNameStr.$this->m_Name."').className='".$this->m_cssHoverClass."'\"
 		        			onmouseout=\"$('span_".$formNameStr.$this->m_Name."').className='".$this->m_cssClass."'\"
-		        			>".$this->m_DefaultDisplayValue."</span>";
+		        			>$display_value</span>";
 	        $sHTML .= "</div>";
 	        $sHTML .= "<div $display_input>";
 	        $sHTML .= "<INPUT NAME=\"" . $formNameStr.$this->m_Name . "\" ID=\"" . $formNameStr.$this->m_Name ."\" VALUE=\"" . $display_value . "\" $disabledStr $this->m_HTMLAttr $style 
@@ -165,9 +166,13 @@ class DropDownList extends InputElement
     		$txt = $item['txt'];
     		$pic = $item['pic'];
     		if($pic){
+    			if(preg_match('/\{.*\}/si',$pic)){
+    				$pic = Expression::evaluateExpression($pic,null);
+    			}
     			$str_pic="<img src=\"$pic\" />";
+    			
     		}else{
-    			$pic = "";
+    			$str_pic = "";
     		}    		
     	    if(!preg_match("/</si",$txt)){
         		$display_value = $txt;
@@ -258,6 +263,11 @@ class DropDownList extends InputElement
                 $i = 0;
                 if (!key_exists($tag, $xmlArr["SELECTION"]))
                     return false;
+                if(!$xmlArr["SELECTION"][$tag][0]){
+                	$array = $xmlArr["SELECTION"][$tag];
+                	unset($xmlArr["SELECTION"][$tag]);
+                	$xmlArr["SELECTION"][$tag][0]=$array;
+                }
                 foreach($xmlArr["SELECTION"][$tag] as $node)
                 {
                     $list[$i]['val'] = $node["ATTRIBUTES"]["VALUE"];

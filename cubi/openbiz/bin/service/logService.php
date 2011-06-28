@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: logService.php 2553 2010-11-21 08:36:48Z mr_a_ton $
+ * @version   $Id: logService.php 4042 2011-05-01 06:36:18Z rockys $
  */
 
 require_once 'Zend/Log.php';
@@ -74,6 +74,7 @@ class logService extends MetaObject
      */
     private $_extension = '.csv';
 
+    private $_daystolive;
     /**
      * Initialize logService with xml array metadata
      *
@@ -103,6 +104,7 @@ class logService extends MetaObject
         $this->_level = (int) $level;
         $this->_format = strtoupper($xmlArr["PLUGINSERVICE"]["LOG_CONFIG"]["ATTRIBUTES"]["FORMAT"]);
         $this->_org = strtoupper($xmlArr["PLUGINSERVICE"]["LOG_CONFIG"]["ATTRIBUTES"]["ORG"]);
+        $this->_daystolive = $xmlArr["PLUGINSERVICE"]["LOG_CONFIG"]["ATTRIBUTES"]["DAYSTOLIVE"]?strtoupper($xmlArr["PLUGINSERVICE"]["LOG_CONFIG"]["ATTRIBUTES"]["DAYSTOLIVE"]):'0';
     }
 
     /**
@@ -145,6 +147,11 @@ class logService extends MetaObject
         //Get the file path
         $this->_level = $level;
         $path = $this->_getPath($file_name);
+        if(!is_file($path))
+        {
+        	@touch($path);
+        	@chmod($path,0777);
+        }                
         $this->prepFile($path);
         //Create the log writer object
         $writer = new Zend_Log_Writer_Stream($path);
@@ -352,15 +359,46 @@ class logService extends MetaObject
      */
     private function _getPath($fileName = null)
     {
+        $level = $this->_level;
         if ($fileName)
             return LOG_PATH . '/' . $fileName . $this->_extension;
         switch ($this->_org)
         {
             case 'DATE':
-                return LOG_PATH . '/' . date("Y_d_m") . $this->_extension;
+                return LOG_PATH . '/' . date("Y_m_d") . $this->_extension;
                 break;
             case 'LEVEL':
-                switch ($this->_level)
+                $level = $this->_level2filename($level);                
+                return LOG_PATH . '/' . $level . $this->_extension;
+                break;
+            case 'LEVEL-DATE':
+                $level = $this->_level2filename($level);
+                //delete old log files                
+                if($this->_daystolive>0){
+	                foreach (glob(LOG_PATH . '/' . $level .'-*' .  $this->_extension) as $filename) {
+					    $mtime = filemtime($filename);
+					    if((time() - $mtime) >= $this->_daystolive*86400 ){
+					    	@unlink($filename);
+					    }
+					}
+                }
+                return LOG_PATH . '/' . $level .'-'. date("Y_m_d") .  $this->_extension;
+                break;
+            case 'PROFILE':
+                $profile = BizSystem::getUserProfile('USERID');
+                if (! $profile)
+                    $profile = 'Guest';
+                return LOG_PATH . '/' . $profile . $this->_extension;
+                break;
+            default:
+                ;
+                break;
+        }
+    }
+    
+    private function _level2filename($level)
+    {
+   				switch ($this->_level)
                 {
                     case 0:
                         $level = 'EMERG';
@@ -389,18 +427,7 @@ class logService extends MetaObject
                     default:
                         ;
                         break;
-                }
-                return LOG_PATH . '/' . $level . $this->_extension;
-                break;
-            case 'PROFILE':
-                $profile = BizSystem::getUserProfile('USERID');
-                if (! $profile)
-                    $profile = 'Guest';
-                return LOG_PATH . '/' . $profile . $this->_extension;
-                break;
-            default:
-                ;
-                break;
-        }
+                }    
+                return $level;
     }
 }

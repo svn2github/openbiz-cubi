@@ -12,7 +12,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: Resource.php 2902 2010-12-17 15:41:59Z jixian2003 $
+ * @version   $Id: Resource.php 4179 2011-05-26 07:40:53Z rockys $
  */
 
 /**
@@ -188,6 +188,7 @@ class Resource
         $smarty->assign('app_index', APP_INDEX);
         $smarty->assign('js_url', JS_URL);
         $smarty->assign('css_url', THEME_URL . "/" . $theme . "/css");
+        $smarty->assign('resource_url', RESOURCE_URL );    
         $smarty->assign('theme_js_url', THEME_URL . "/" . $theme . "/js");
         $smarty->assign('theme_url', THEME_URL . "/" . $theme);
         $smarty->assign('image_url', THEME_URL . "/" . $theme . "/images");
@@ -242,7 +243,6 @@ class Resource
             $xmlFileList[]= TARGET_APP_HOME . $xmlFile;
         $xmlFileList[] = MODULE_PATH . $xmlFile;
         $xmlFileList[] = APP_HOME . $xmlFile;
-        $xmlFileList[] = META_PATH . $xmlFile;
         $xmlFileList[] = OPENBIZ_META . $xmlFile;
         
         foreach ($xmlFileList as $xmlFileItem)
@@ -339,6 +339,9 @@ class Resource
         // cache it to save file search
         if ($filePath && extension_loaded('apc'))
             apc_store($cacheKey, $filePath);
+        /*if (!file_exists($filePath)) {
+            trigger_error("Cannot find the library file of $className", E_USER_ERROR);
+        }*/
         return $filePath;
     }
 

@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: BizDataObj.php 3169 2011-02-02 06:40:05Z jixian2003 $
+ * @version   $Id: BizDataObj.php 4108 2011-05-08 06:01:30Z jixian2003 $
  */
 
 include_once(OPENBIZ_BIN.'data/BizDataObj_Abstract.php');
@@ -86,7 +86,7 @@ class BizDataObj extends BizDataObj_Lite
         }
         if (count($this->m_ErrorFields)>0)
         {
-            print_r($this->m_ErrorFields);
+            //print_r($this->m_ErrorFields);
             throw new ValidationException($this->m_ErrorFields);
             return false;
         }
@@ -153,8 +153,29 @@ class BizDataObj extends BizDataObj_Lite
      *
      * @return boolean
      */
-    public function canUpdateRecord()
+    public function canUpdateRecord($record = null)
     {
+    	
+    	if($this->m_DataPermControl=='Y')
+        {
+	        $svcObj = BizSystem::GetService(DATAPERM_SERVICE);
+	        if(!$record)
+	        {
+	        	$record = $this->getActiveRecord();
+	        }
+	        $result = $svcObj->checkDataPerm($record,2);
+	        if($result == false)
+	        {
+	        	return false;
+	        }
+        }
+    	
+        $result = $this->canUpdateRecordCondition();
+        return $result;
+    }
+    
+    public function canUpdateRecordCondition()
+    {    	
         if ($this->m_UpdateCondition)
         {
             //return Expression::evaluateExpression($this->m_UpdateCondition,$this);
@@ -162,22 +183,40 @@ class BizDataObj extends BizDataObj_Lite
         }
         return true;
     }
-
     /**
      * Check if the current record can be deleted
      *
      * @return boolean
      */
-    public function canDeleteRecord()
+    public function canDeleteRecord($record = null)
     {
+    	if($this->m_DataPermControl=='Y')
+        {
+	        $svcObj = BizSystem::GetService(DATAPERM_SERVICE);
+	        if(!$record)
+	        {
+	        	$record = $this->getActiveRecord();
+	        }
+	        $result = $svcObj->checkDataPerm($record,3);
+	        if($result == false)
+	        {
+	        	return false;
+	        }
+        }
+    	
+        $result = $this->canDeleteRecordCondition();
+        return $result;
+    }
+
+    public function canDeleteRecordCondition()
+    {    	
         if ($this->m_DeleteCondition)
         {
             // return Expression::evaluateExpression($this->m_DeleteCondition,$this);
             return $this->allowAccess($this->m_DeleteCondition);
         }
         return true;
-    }
-
+    }    
     /**
      * Update record using given input record array
      *
@@ -187,9 +226,10 @@ class BizDataObj extends BizDataObj_Lite
      **/
     public function updateRecord($recArr, $oldRecord=null)
     {
-        if (!$this->canUpdateRecord())
+        if (!$this->canUpdateRecord($oldRecord))
         {
             $this->m_ErrorMessage = BizSystem::getMessage("DATA_NO_PERMISSION_UPDATE",$this->m_Name);
+            throw new BDOException($this->m_ErrorMessage);
             return false;
         }
 
@@ -212,7 +252,7 @@ class BizDataObj extends BizDataObj_Lite
 
         if ($sql)
         {
-            $db = $this->getDBConnection();
+            $db = $this->getDBConnection("WRITE");
             $db->beginTransaction();
             try
             {
@@ -249,14 +289,14 @@ class BizDataObj extends BizDataObj_Lite
 
     public function updateRecords($setValue, $condition = null)
     {
-        if (!$this->canUpdateRecord())
+        if (!$this->canUpdateRecordCondition())
         {
             $this->m_ErrorMessage = BizSystem::getMessage("DATA_NO_PERMISSION_UPDATE",$this->m_Name);
             return false;
         }
 
         $sql = $this->getSQLHelper()->buildUpdateSQLwithCondition($this,$setValue ,$condition);
-        $db = $this->getDBConnection();
+        $db = $this->getDBConnection("WRITE");
 
         try
         {
@@ -292,7 +332,7 @@ class BizDataObj extends BizDataObj_Lite
         {
             if (isset($recArr[$field->m_Name]) && $field->isLobField() && $field->m_Column != "")
             {
-                $db = $this->getDBConnection();
+                $db = $this->getDBConnection("WRITE");
                 $sql = "UPDATE " . $this->m_MainTable . " SET " . $field->m_Column . "=? WHERE $searchRule";
                 BizSystem::log(LOG_DEBUG, "DATAOBJ", "Upate lob Sql = $sql");
                 $stmt = $db->prepare($sql);
@@ -380,7 +420,11 @@ class BizDataObj extends BizDataObj_Lite
 
         /* @var $genIdService genIdService */
         $genIdService = BizSystem::getService(GENID_SERVICE);
-        $db = $this->getDBConnection();
+        if($this->m_db){
+        	$db = $this->m_db;
+        }else{
+        	$db = $this->getDBConnection("READ");
+        }
         $dbInfo = BizSystem::Configuration()->getDatabaseInfo($this->m_Database);
         $dbType = $dbInfo["Driver"];
         $table = $tableName ? $tableName : $this->m_MainTable;
@@ -413,7 +457,7 @@ class BizDataObj extends BizDataObj_Lite
 
         if (!$this->validateInput()) return false;
 
-        $db = $this->getDBConnection();
+        $db = $this->getDBConnection("WRITE");
 
         try
         {
@@ -424,11 +468,12 @@ class BizDataObj extends BizDataObj_Lite
                 $bindValueString = QueryStringParam::getBindValueString();
                 BizSystem::log(LOG_DEBUG, "DATAOBJ", "Insert Sql = $sql"."; BIND: $bindValueString");
                 QueryStringParam::reset();
-                $db->query($sql, $bindValues);
+                $db->query($sql, $bindValues);                
             }
             //$mainId = $db->lastInsertId();
             if ( $this->_isNeedGenerateId($recArr) )
             {
+            	$this->m_db = $db; //compatiable for CLI mode and also speed up of it running
                 $mainId = $this->generateId(false);
                 $recArr["Id"] = $mainId;
             }
@@ -478,10 +523,11 @@ class BizDataObj extends BizDataObj_Lite
      * @return boolean - if return false, the caller can call GetErrorMessage to get the error.
      **/
     public function deleteRecord($recArr)
-    {
+    {    	
         if (!$this->canDeleteRecord())
-        {
-            throw new BDOException("You don't have permission to delete this record.");
+        {            
+            $this->m_ErrorMessage = BizSystem::getMessage("DATA_NO_PERMISSION_DELETE",$this->m_Name);
+            throw new BDOException($this->m_ErrorMessage);
             return false;
         }
 
@@ -493,7 +539,7 @@ class BizDataObj extends BizDataObj_Lite
         $sql = $this->getSQLHelper()->buildDeleteSQL($this);
         if ($sql)
         {
-            $db = $this->getDBConnection();
+            $db = $this->getDBConnection("WRITE");
             $db->beginTransaction();
             try
             {
@@ -527,15 +573,15 @@ class BizDataObj extends BizDataObj_Lite
 
     public function deleteRecords($condition = null)
     {
-        if (!$this->canDeleteRecord())
+        if (!$this->canDeleteRecordCondition())
         {
-            throw new BDOException("You don't have permission to delete this record.");
+            throw new BDOException( BizSystem::getMessage("DATA_NO_PERMISSION_DELETE",$this->m_Name) );
             return false;
         }
 
 
         $sql = $this->getSQLHelper()->buildDeleteSQLwithCondition($this,$condition);
-        $db = $this->getDBConnection();
+        $db = $this->getDBConnection("WRITE");
 
         try
         {
@@ -588,7 +634,7 @@ class BizDataObj extends BizDataObj_Lite
             $fieldVal = $this->getFieldValue($objRef->m_FieldRef);
             if (!$fieldVal) return;
 
-            $db = $this->getDBConnection();
+            $db = $this->getDBConnection("WRITE");
             // get the cascade action sql
             if ($cascadeType=='Delete') {
                 if ($objRef->m_OnDelete == "Cascade") {
@@ -599,8 +645,8 @@ class BizDataObj extends BizDataObj_Lite
                 }
                 else if ($objRef->m_OnDelete == "Restrict") {
                     // check if objRef has records
-                    $refObj = $this->getRefObject($objRef->m_Name);
-                    if (count($refObj->directFetch("",1)) == 1) {
+                    $refObj = $this->getRefObject($objRef->m_Name);                    
+                    if (count($refObj->directFetch("`$column`='".$refField->m_Value."'",1)) == 1) {
                         throw new BDOException($this->getMessage("DATA_UNABLE_DEL_REC_CASCADE",array($objRef->m_Name)));
                     }
                     return;

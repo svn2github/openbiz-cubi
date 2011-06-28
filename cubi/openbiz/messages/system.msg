@@ -19,6 +19,7 @@ define('DATA_NOT_UNIQUE', "Unable to save the data because uniqueness check on %
 define('DATA_FIELD_REQUIRED', "Field %s is required.");
 define('DATA_FIELD_INVALID_INPUT', "Unable to validate field [%s] = %s as input value against rule %s.");
 define('DATA_NO_PERMISSION_UPDATE', "You don't have permission to update this record.");
+define('DATA_NO_PERMISSION_DELETE', "You don't have permission to delete this record.");
 define('DATA_UNABLE_GET_ID', "Unable to get ID for new inserted record: Id column is not Identity type.");
 define('DATA_FIELD_INCORRECT_TYPE', "The value you input on %s is not a vaild %s.");
 define('DATA_UNABLE_DEL_REC_CASCADE', "Unable to delete the record due to cascade restriction on %s.");
@@ -33,5 +34,7 @@ define('FORM_ELEMENT_INVALID_INPUT', "Unable to validate element [%s] = %s as in
 define('BFM_ERROR_INVALID_DISPMODE', "Unable to find a valid display mode for BizForm %s.");
 define('PLEASE_EDIT_A_RECORD', "Please select a record to edit.");
 define('UNABLE_TO_LOCATE_TEMPLATE_FILE', "Unable to location template file %s.");
+
+define('FORM_OPEATION_NOT_PERMITTED',"You don't have enough permission to do this opeation.");
 
 ?>

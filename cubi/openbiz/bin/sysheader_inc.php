@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: sysheader_inc.php 2566 2010-11-22 03:44:58Z mr_a_ton $
+ * @version   $Id: sysheader_inc.php 4179 2011-05-26 07:40:53Z rockys $
  */
 
 include_once "sysclass_inc.php";
@@ -97,14 +97,19 @@ setDocumentRoot();
  * @param string $className
  * @return void
  **/
-function __autoload($className)
+function __autoload_openbiz($className)
 {
-    $filePath = BizSystem::getLibFileWithPath($className);
+    /*$filePath = BizSystem::getLibFileWithPath($className);
     if ($filePath)
     {
         include_once($filePath);
         return;
-    }
+    }*/
+    BizSystem::loadClass($className);
+}
+if(!function_exists("__autoload"))
+{
+	spl_autoload_register("__autoload_openbiz");	
 }
 
 /**

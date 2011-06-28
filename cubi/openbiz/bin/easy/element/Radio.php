@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: Radio.php 2553 2010-11-21 08:36:48Z mr_a_ton $
+ * @version   $Id: Radio.php 3671 2011-04-12 06:30:49Z jixian2003 $
  */
 
 include_once("OptionElement.php");
@@ -40,8 +40,9 @@ class Radio extends OptionElement
         $style = $this->getStyle();
         $func = $this->getFunction();
 
-        foreach ($fromList as $option) {
-            $checkedStr = ($option['val'] == $this->m_Value) ? "CHECKED" : "";
+        $value = $this->getValue() ? $this->getValue() : $this->getDefaultValue();
+        foreach ($fromList as $option) {        	
+            $checkedStr = ($option['val'] == $value) ? "CHECKED" : "";
             $sHTML .= "<label style=\"text-align:left;\"><INPUT TYPE=RADIO NAME='".$this->m_Name."' ID=\"" . $this->m_Name ."_".$option['val']."\" VALUE=\"" . $option['val'] . "\" $checkedStr $disabledStr $this->m_HTMLAttr $func />" . $option['txt'] . "</label>";
         }
         

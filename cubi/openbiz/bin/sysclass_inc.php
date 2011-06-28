@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: sysclass_inc.php 3133 2011-02-01 02:51:32Z jixian2003 $
+ * @version   $Id: sysclass_inc.php 4179 2011-05-26 07:40:53Z rockys $
  */
  
 /**
@@ -193,8 +193,10 @@ class MetaIterator implements Iterator
             {
             	$a_package_name = explode(".", $className);
                 $className		= array_pop($a_package_name);
-                require_once(BizSystem::getLibFileWithPath($className, implode(".", $a_package_name)));
+                //require_once(BizSystem::getLibFileWithPath($className, implode(".", $a_package_name)));
+                $clsLoaded = BizSystem::loadClass($className, implode(".", $a_package_name));
             }
+            //if (!$clsLoaded) trigger_error("Cannot find the load class $className", E_USER_ERROR);
             $obj = new $className($xmlArr, $parentObj);
             $this->m_var[$obj->m_Name] = $obj;
         }
@@ -217,12 +219,15 @@ class MetaIterator implements Iterator
                     {
                         $a_package_name = explode(".", $className);
                         $className		= array_pop($a_package_name);
-                        require_once(BizSystem::getLibFileWithPath($className, implode(".", $a_package_name)));
+                        //require_once(BizSystem::getLibFileWithPath($className, implode(".", $a_package_name)));
+                        $clsLoaded = BizSystem::loadClass($className, implode(".", $a_package_name));
                     }elseif($parentObj->m_Package){
-                    	if(is_file(BizSystem::getLibFileWithPath($className, $parentObj->m_Package))){
+                    	/*if(is_file(BizSystem::getLibFileWithPath($className, $parentObj->m_Package))){
                         	require_once(BizSystem::getLibFileWithPath($className, $parentObj->m_Package));
-                    	};
+                    	};*/
+                        $clsLoaded = BizSystem::loadClass($className, $parentObj->m_Package);
                 	}
+                    //if (!$clsLoaded) trigger_error("Cannot find the load class $className", E_USER_ERROR);
                     $obj = new $className($child, $parentObj);
                     $this->m_var[$obj->m_Name] = $obj;
                 }
@@ -266,6 +271,11 @@ class MetaIterator implements Iterator
         $this->m_var[$key] = $val;
     }
 
+	public function count()
+    {
+        return count($this->m_var);
+    }    
+    
     /**
      * Rewind
      *
@@ -428,6 +438,11 @@ class ValidationException extends Exception
     public function __construct($errors)
     {
         $this->m_Errors = $errors;
+        $message = "";
+        foreach ($errors as $key=>$err) {
+            $message .= "$key = $err, ";
+        }
+        $this->message = $message;
     }
 }
 

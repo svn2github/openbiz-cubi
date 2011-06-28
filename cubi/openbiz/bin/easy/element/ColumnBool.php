@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: ColumnBool.php 2607 2010-11-25 07:55:29Z mr_a_ton $
+ * @version   $Id: ColumnBool.php 3687 2011-04-12 19:58:36Z jixian2003 $
  */
 
 include_once("ColumnText.php");
@@ -42,7 +42,7 @@ class ColumnBool extends ColumnText
     {
         parent::readMetaData($xmlArr);
         $this->m_TrueImg=isset($xmlArr["ATTRIBUTES"]["TRUEIMG"])?$xmlArr["ATTRIBUTES"]["TRUEIMG"]:"flag_y.gif";
-        $this->m_FalseImg=isset($xmlArr["ATTRIBUTES"]["FLASEIMG"])?$xmlArr["ATTRIBUTES"]["FLASEIMG"]:"flag_n.gif";
+        $this->m_FalseImg=isset($xmlArr["ATTRIBUTES"]["FALSEIMG"])?$xmlArr["ATTRIBUTES"]["FALSEIMG"]:"flag_n.gif";
         $this->m_TrueValue=isset($xmlArr["ATTRIBUTES"]["TRUEVALUE"])?$xmlArr["ATTRIBUTES"]["TRUEVALUE"]:true;
         $this->m_FalseValue=isset($xmlArr["ATTRIBUTES"]["FLASEVALUE"])?$xmlArr["ATTRIBUTES"]["FLASEVALUE"]:false;        
     }
@@ -54,10 +54,12 @@ class ColumnBool extends ColumnText
      */
     public function render()
     {
-        $val=$this->m_Value;
+        $val=$this->getText()?$this->getText():$this->getValue();
         $style = $this->getStyle();
+        $text = $this->getText();
         $id = $this->m_Name;
-        $func = $this->getFunction();
+        $func = $this->getFunction();        
+        
         if($val==='1' || $val==='true' || strtoupper($val) == 'Y' || $val>0 || $val==$this->m_TrueValue)
         {
         	$image_url  = $this->m_TrueImg;            
@@ -66,13 +68,21 @@ class ColumnBool extends ColumnText
         {
         	$image_url  = $this->m_FalseImg;            
         }
+        if(preg_match("/\{.*\}/si",$image_url))
+        {
+        	$formobj = $this->getFormObj();
+        	$image_url =  Expression::evaluateExpression($image_url, $formobj);
+        }else{
+        	$image_url = Resource::getImageUrl()."/".$image_url;
+        }
+        
     	if ($this->m_Link)
         {
             $link = $this->getLink();
             $target = $this->getTarget();
-            $sHTML = "<a id=\"$id\" href=\"$link\" $target $func $style><img src='".Resource::getImageUrl()."/$image_url' /></a>";
+            $sHTML = "<a alt=\"".$text."\" title=\"".$text."\"  id=\"$id\" href=\"$link\" $target $func $style><img src='$image_url' /></a>";
         }else{
-        	$sHTML = "<span id=\"$id\" ><img src='".Resource::getImageUrl()."/$image_url' /></span>";
+        	$sHTML = "<img id=\"$id\"  alt=\"".$text."\" title=\"".$text."\"  src='$image_url' />";
         }
         return $sHTML;
     }

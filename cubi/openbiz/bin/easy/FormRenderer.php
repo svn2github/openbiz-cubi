@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: FormRenderer.php 2614 2010-11-25 19:54:56Z jixian2003 $
+ * @version   $Id: FormRenderer.php 4075 2011-05-02 13:43:39Z jixian2003 $
  */
 
 /**
@@ -41,6 +41,9 @@ class FormRenderer
             $subForms = ($formObj->m_SubForms) ? implode(";",$formObj->m_SubForms) : "";
             if($formObj->m_StaticOutput!=true){
             	$formScript = "\n<script>Openbiz.newFormObject('$formObj->m_Name','$formObj->m_jsClass','$subForms'); </script>\n";
+            }
+            if($formObj->m_AutoRefresh > 0){
+            	$formScript .= "\n<script>setTimeout(\"Openbiz.CallFunction('$formObj->m_Name.UpdateForm()');\",\"".($formObj->m_AutoRefresh*1000)."\") </script>\n";
             }
         }
         if ($tplEngine == "Smarty" || $tplEngine == null)
@@ -86,12 +89,16 @@ class FormRenderer
 
         if (isset($formObj->m_SearchPanel))
         {
+        	$search_record = $formObj->m_SearchPanelValues;        	
             foreach ($formObj->m_SearchPanel as $elem)
             {
                 if (!$elem->m_FieldName)
                     continue;
-                $search_record[$elem->m_FieldName] = BizSystem::clientProxy()->getFormInputs($elem->m_Name);
-            }
+                $post_value = BizSystem::clientProxy()->getFormInputs($elem->m_Name);
+                if($post_value){
+                	$search_record[$elem->m_FieldName] = $post_value;
+                } 
+            }            
             $smarty->assign("searchPanel", $formObj->m_SearchPanel->renderRecord($search_record));
         }
         return $smarty->fetch($tplFile);

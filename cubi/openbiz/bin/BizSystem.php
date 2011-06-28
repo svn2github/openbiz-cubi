@@ -52,6 +52,8 @@ class BizSystem
     private $_userProfile = null;    // TODO: unused variable (store on Session with SessionContext)
 
     private static $_instance = null;
+    
+    private static $_classNameCache = array();
 
     /**
      * Create instant of BizSystem
@@ -308,6 +310,9 @@ class BizSystem
      */
     public static function getUserProfile($attribute=null)
     {
+    	if(!BizSystem::GetXmlFileWithPath (PROFILE_SERVICE)){
+    		return null;
+    	}
         $serviceObj = BizSystem::getService(PROFILE_SERVICE);
         if (method_exists($serviceObj,'getProfile'))
             return $serviceObj->getProfile($attribute);
@@ -320,6 +325,9 @@ class BizSystem
     
     public static function getUserPreference($attribute=null)
     {
+    	if(!BizSystem::GetXmlFileWithPath (PREFERENCE_SERVICE)){
+    		return null;
+    	}
         $serviceObj = BizSystem::getService(PREFERENCE_SERVICE);
         if (method_exists($serviceObj,'getPreference'))
             return $serviceObj->getPreference($attribute);
@@ -333,6 +341,39 @@ class BizSystem
     public static function getProfileName($account_id){
     	$serviceObj = BizSystem::getService(PROFILE_SERVICE);
     	return $serviceObj->GetProfileName($account_id);
+    }
+    
+    public static function getDefaultPerm($group)
+    {
+    	$group = strtolower($group);
+    	switch($group){
+    		default:
+    		case 'owner':
+    			$setting = BizSystem::getUserPreference('owner_perm');
+    			if($setting!=''){
+    				$perm_code = $setting;
+    			}else{
+    				$perm_code = DEFAULT_OWNER_PERM;
+    			}
+    			break;
+    		case 'group':
+    			$setting = BizSystem::getUserPreference('owner_group');
+    			if($setting!=''){
+    				$perm_code = $setting;
+    			}else{
+    				$perm_code = DEFAULT_GROUP_PERM;
+    			}
+    			break;
+    		case 'other':
+    			$setting = BizSystem::getUserPreference('owner_other');
+    			if($setting!=''){
+    				$perm_code = $setting;
+    			}else{
+    				$perm_code = DEFAULT_OTHER_PERM;
+    			}
+    			break;
+    	}    
+    	return $perm_code;	
     }
     /**
      * Get the current view name
@@ -419,7 +460,9 @@ class BizSystem
         $rDBName = (!$dbName) ? "Default" : $dbName;
         if (isset($this->_dbConnection[$rDBName])){
          	$db =  $this->_dbConnection[$rDBName];
-         	return $db;         	
+         	if(!CLI){
+         		return $db;         	
+         	}
         }
 
         $dbInfo = $this->getConfiguration()->getDatabaseInfo($rDBName);
@@ -472,7 +515,7 @@ class BizSystem
      * @param string $dbName database name
      * @return Zend_Db_Adapter_Abstract database connection
      */
-    public function dbConnection($dbName=null)
+    public static function dbConnection($dbName=null)
     {
         return BizSystem::instance()->getDBConnection($dbName);
     }
@@ -577,6 +620,11 @@ class BizSystem
     {
         return Resource::GetXmlFileWithPath($xmlObj);
     }
+    
+	public static function getCompiledFileWithPath($xmlObj)
+    {
+        return Resource::GetCompiledFileWithPath($xmlObj);
+    }
 
     /**
      * Get openbiz template file path by searching modules/package, /templates
@@ -587,6 +635,20 @@ class BizSystem
     public static function getTplFileWithPath($templateFile, $packageName)
     {
         return Resource::getTplFileWithPath($templateFile, $packageName);
+    }
+    
+    public static function loadClass($className, $packageName='')
+    {
+        if (isset(self::$_classNameCache[$packageName.$className])) return true;
+        if (strpos($className, 'Zend') === 0) return true;
+        $filePath = BizSystem::getLibFileWithPath($className, $packageName);
+        if ($filePath)
+        {
+            include_once($filePath);
+            self::$_classNameCache[$packageName.$className] = 1;
+            return true;
+        }
+        return false;
     }
 
     /**

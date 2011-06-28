@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: doTriggerService.php 2553 2010-11-21 08:36:48Z mr_a_ton $
+ * @version   $Id: doTriggerService.php 3836 2011-04-21 09:44:31Z jixian2003 $
  */
 
 /*
@@ -19,7 +19,7 @@
   <DOTrigger TriggerType="INSERT|UPDATE|DELETE"> *
    <TriggerCondition Expression="" ExtraSearchRule="" />
    <TriggerActions>
-      <TriggerAction Action="ExecuteSQL|ExecuteShell|CreateInboxItem|SendEmail|..." Immediate="Y|N" DelayMinutes="" RepeatMinutes="">
+      <TriggerAction Action="CallService|ExecuteSQL|ExecuteShell|CreateInboxItem|SendEmail|..." Immediate="Y|N" DelayMinutes="" RepeatMinutes="">
          <ActionArgument Name="" Value="" /> *
       </TriggerAction>
    </TriggerActions>
@@ -197,6 +197,24 @@ class doTriggerService extends MetaObject
         $actionMsg["StartTime"] = strftime("%Y-%m-%d %H:%M:%S");
     }
 
+    protected function callService($argList)
+    {
+    	$svcobj = $argList['Service'];
+    	$method = $argList['Method'];
+    	$svcobj = BizSystem::getObject($svcobj);
+    	if(!method_exists($svcobj,$method))
+    	{
+    		return;
+    	}    	
+    	if(!method_exists($svcobj,$method))
+    	{
+    		return;
+    	}    	 
+    	unset($argList['Service']);
+    	unset($argList['Method']);
+    	return call_user_func_array(array($svcobj,$method),$argList);
+    	
+    }
     /**
      * Execute shell
      *

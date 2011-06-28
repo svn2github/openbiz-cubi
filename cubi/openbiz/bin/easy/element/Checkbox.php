@@ -11,7 +11,7 @@
  * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: Checkbox.php 2553 2010-11-21 08:36:48Z mr_a_ton $
+ * @version   $Id: Checkbox.php 3780 2011-04-18 18:26:11Z jixian2003 $
  */
 
 include_once("OptionElement.php");
@@ -26,6 +26,18 @@ include_once("OptionElement.php");
  */
 class Checkbox extends OptionElement
 {
+	protected $m_DefaultChecked ; 
+	
+	protected function readMetaData(&$xmlArr)
+    {
+        parent::readMetaData($xmlArr);
+        $this->m_DefaultChecked = isset($xmlArr["ATTRIBUTES"]["DEFAULTCHECKED"]) ? $xmlArr["ATTRIBUTES"]["DEFAULTCHECKED"] : "N";
+    }
+    public function getDefaultChecked()
+    {
+    	$formObj = $this->getFormObj();    	
+    	return Expression::evaluateExpression($this->m_DefaultChecked, $formObj);
+    }
     /**
      * Get value of element
      *
@@ -33,6 +45,11 @@ class Checkbox extends OptionElement
      */
     public function getValue()
     {
+       	if(strtoupper($this->getDefaultChecked())=='Y')
+    	{
+    		$this->m_Value = $this->getSelectFrom();
+    		return $this->m_Value;
+    	}
         if($this->m_Value)
         {
             return $this->m_Value;
@@ -42,6 +59,7 @@ class Checkbox extends OptionElement
             return $this->m_DefaultValue;
         }
     }
+    
 
     /**
      * Render element, according to the mode
@@ -52,7 +70,7 @@ class Checkbox extends OptionElement
     {
         $boolValue = $this->getSelectFrom();
         $disabledStr = ($this->getEnabled() == "N") ? "DISABLED=\"true\"" : "";
-        $checkedStr = ($boolValue == $this->m_Value) ? "CHECKED" : "";
+        $checkedStr = ($boolValue == $this->getValue()) ? "CHECKED" : "";
         $style = $this->getStyle();
         $text = $this->getText();
         $func = $this->getFunction();
@@ -62,7 +80,7 @@ class Checkbox extends OptionElement
         
         if (count($fromList) > 1)
         {
-            $valueArr = explode(',', $this->m_Value);
+            $valueArr = explode(',', $this->getValue());
 
             foreach ($fromList as $opt)
             {
