@@ -1,0 +1,1 @@
+ACCOUNT_STILL_IN_USE = "Cannot delete this email account, it is still in use. "

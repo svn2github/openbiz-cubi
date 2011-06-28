@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EmailTemplateDetailForm" Class="EmailTemplateForm" icon="icon_email_template_list.gif" Title="Email Template Management" Description="This moudle could helps you manage and edit system notification email templates.\n To define a new entity you need to manual edit userEmailService.xml file."  FormType="" jsClass="jbForm" BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" EventName="EMAIL" MessageFile="Email.msg" ConfigFile="userEmailService.xml" ConfigNode="Template">
+    <DataPanel>
+    	<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="author_email" Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />   
+		<Element Name="fld_name" Class="LabelText" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_email_account" Class="LabelText" FieldName="EMAILACCOUNT" Label="Email Account" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+	        <EventHandler Name="fld_email_account_onclick" Event="onclick" Function="SwitchForm(email.form.EmailAccountDetailForm,{@:Elem[fld_email_account].Value})"  />
+        </Element>         
+        <Element Name="fld_title" Class="LabelText" FieldName="TITLE" Label="Email Title"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_template" Class="LabelText" FieldName="TEMPLATE" Label="Template"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+            	            
+    </DataPanel>
+    <ActionPanel>
+
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(email.form.EmailTemplateEditForm,{@:Elem[fld_Id].Value})" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+
+        <Element Name="btn_back" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="back_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm()" ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element> 
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="SecurityRuleView" Title="Security Rule Management" Description="Security Rule Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Security.Administer_Security">
+   <FormReferences>
+   		<Reference Name="security.form.URLRuleListForm" Description="URL Filters"/>
+   		<Reference Name="security.form.DomainRuleListForm" Description="Domain Filters"/>
+   		<Reference Name="security.form.IPRuleListForm" Description="IP Filters"/>
+   		<Reference Name="security.form.AgentRuleListForm" Description="Agent Filters"/>
+   		<Reference Name="security.form.PostRuleListForm" Description="Post Filters"/>
+   		<Reference Name="security.form.GetRuleListForm" Description="Get Filters"/>
+   </FormReferences>
+   
+</EasyView>

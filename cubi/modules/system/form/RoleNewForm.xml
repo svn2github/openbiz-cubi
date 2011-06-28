@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="RoleNewForm" Class="EasyForm" Icon="icon_roles_add.gif" FormType="New" jsClass="jbForm" Title="New role" Description="Please fill the form below to create a new role" BizDataObj="system.do.RoleDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html">
+    <DataPanel>
+        <Element Name="fld_Id"  hidden="Y" Class="Hidden" FieldName="Id" Label="Id"/>
+        <Element Name="fld_name" DefaultValue="New Role" Class="InputText" FieldName="name" Label="Name" />
+        <Element Name="fld_startpage" Class="InputText" FieldName="startpage" Label="Default Page" />
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />
+        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.Selection(Status)"/>
+        <Element Name="fld_default" Class="Listbox" FieldName="default" Label="Default" SelectFrom="system.Selection(Default)"/>        
+              
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" Function="SaveRecord()" RedirectPage="{@home:url}/system/role_detail/{@:Elem[fld_Id].Value}"/>
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="js:history.go(-1)"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

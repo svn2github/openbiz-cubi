@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="CompanyListView" Description="Company Contact List" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="contact.form.CompanyListForm"/>
+   </FormReferences>
+</EasyView>

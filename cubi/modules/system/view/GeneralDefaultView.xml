@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="GeneralDefaultView" Description="System Administration" Access="Site.Administer_General" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="system_view.tpl.html">
+    <FormReferences>
+        <!-- <Reference Name="menu.widget.GeneralDashboard"/> -->
+        <Reference Name="menu.widget.SitemapMenu"/>
+    </FormReferences>
+</EasyView>

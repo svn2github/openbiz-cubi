@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ThemeDetailForm" Class="ThemeForm" icon="icon_theme_list.gif" FormType="" jsClass="jbForm" Title="New Theme Package" Description="Theme is a graphical appearance for this system. similar to a graphics skin.\nEach theme package is contains custom UI component skin, css files and layout template." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="THEME" MessageFile="Theme.msg">
+    <DataPanel>
+		<Element Name="fld_Id" ElementSet="General" Class="Hidden" Hidden="Y" FieldName="Id" Label="author_email" Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Theme"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_preview" ElementSet="General" Class="LabelImage"   FieldName="preview_url" Label="Screenshot"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+   		
+		<Element Name="fld_desc" ElementSet="General" Class="LabelText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_version" ElementSet="General" Class="LabelText" FieldName="version" Label="Version"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_default" ElementSet="General"  Class="LabelBool" FieldName="default" Label="Default"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        <Element Name="fld_users" ElementSet="General" Class="LabelText" FieldName="users" Label="Users" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+
+        <Element Name="fld_author" ElementSet="Addiontional" Class="LabelText" FieldName="author" Label="Author"  Link="mailto:{@:Elem[fld_author_email].Value}"   Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_author_email" ElementSet="Addiontional" Class="LabelText" FieldName="authorEmail" Label="Email"  Link="mailto:{@:Elem[fld_author_email].Value}"   Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_author_url" ElementSet="Addiontional" Class="LabelText" FieldName="authorUrl" Label="Homepage"  Link="{@:Elem[fld_author_url].Value}"   Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_createdate" ElementSet="Addiontional" Class="LabelText" FieldName="creationDate" Label="Create Date"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+               
+    </DataPanel>
+    <ActionPanel>
+   <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(theme.form.ThemeNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
+        </Element>          
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(theme.form.ThemeEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=theme.form.ThemeListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+        </Element>
+        <Element Name="btn_reload" Class="Button" Text="Reload" CssClass="button_gray_m">
+            <EventHandler Name="exc_reload" Event="onclick" EventLogMsg="" Function="Reload({@:Elem[fld_Id].Value})" ShortcutKey="Ctrl+Shift+R" ContextMenu="Reload"/>
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element> 
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

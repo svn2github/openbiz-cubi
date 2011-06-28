@@ -1,0 +1,2 @@
+<MenuWidget Name="DashboardForm" Title="My Account Dashboard" Class="menu.widget.MenuWidget" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='MyAccount'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="sitemap_menu.tpl" CacheLifeTime="0">
+</MenuWidget>

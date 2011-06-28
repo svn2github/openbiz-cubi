@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="tool" Description="metadata tools module" Version="0.1" OpenbizVersion="2.4" Author="rocky">
+	<ACL>
+		<Resource Name="MetaEdit">
+			<Action Name="access" Description="Access Metadata editor"/>
+		</Resource>
+	</ACL>
+    <Menu>
+    <!-- Tool menus -->
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+</Module>

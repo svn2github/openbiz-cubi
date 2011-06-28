@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="{$comp}" Description="{$table_name} management module" Version="0.1" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="{$table_name}">
+			<Action Name="access" Description="access {$table_name}"/>
+			<Action Name="view"   Description="view {$table_name}"/>
+			<Action Name="create" Description="create {$table_name}"/>
+			<Action Name="update" Description="Update {$table_name}"/>
+			<Action Name="delete" Description="Delete {$table_name}"/>
+		</Resource>
+	</ACL>
+</Module>

@@ -1,0 +1,15 @@
+澳大利亚;Vienna;83859;8075
+比利时;Brussels;30518;10192
+丹麦;Copenhagen;43094;5295
+芬兰;Helsinki;304529;5147
+法国;Paris;543965;58728
+德国;Berlin;357022;82057
+希腊;Athens;131625;10511
+爱尔兰;Dublin;70723;3694
+Italy;Roma;301316;57563
+Luxembourg;Luxembourg;2586;424
+Netherlands;Amsterdam;41526;15654
+Portugal;Lisbon;91906;9957
+Spain;Madrid;504790;39348
+Sweden;Stockholm;410934;8839
+United Kingdom;London;243820;58862

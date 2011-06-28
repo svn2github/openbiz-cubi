@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="f_TransformEdit" Class="F_ElementEdit" FormType="Edit" jsClass="jbForm" Title="" Description="" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>
+        <Element Name="fld_name" Class="InputText" FieldName="Name" Label="Name" Width="200"/>
+        <Element Name="fld_source" Class="tool.EtlListbox" FieldName="source" Label="Source Column" SelectFrom="columns(source,sourceTable)" Description="Select a column from the source table or source SQL" Width="200"/>
+        <Element Name="fld_dest" Class="tool.EtlListbox" FieldName="dest" Label="Destination Column" SelectFrom="columns(destination,destTable)" Description="Select a column from the destination table" Width="200"/>
+        <Element Name="fld_func" Class="InputText" FieldName="function" Label="Transform Function" Description="The function used in tranformation. It can be a native php function or custom function defined in etl functions folder." Width="200"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button">
+            <EventHandler Name="onclick" Event="onclick" function="SaveRecord()"/>
+        </Element>
+        <Element Name="btn_reset" Class="ResetButton" Text="Reset" CssClass="button">
+        </Element>
+        <Element Name="html_msg" Class="HTMLBlock" text="" style="color:gray; padding:2"/>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

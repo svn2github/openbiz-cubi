@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="email" Description="email module is to provide email queue and log functions" Version="0.1" Author="Jixian" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="EmailQueue">
+			<Action Name="Administer_Email_Queue" Description="Can view/send/delete emails in the queue"/>
+		</Resource>
+		<Resource Name="EmailLog">
+			<Action Name="Administer_Email_Log" Description="Can view/clear emails logs"/>
+		</Resource>
+		<Resource Name="EmailSetting">
+			<Action Name="Administer_Email_Setting" Description="Can manage system email accounts"/>
+		</Resource>
+		<Resource Name="EmailTemplate">
+			<Action Name="Administer_Email_Template" Description="Can manage system email templates"/>
+		</Resource>
+    </ACL>
+    <Menu>
+    <!-- System menus -->
+		<MenuItem Name="System.Email" Title="Email" Description="System Email Management" Parent="System" IconImage="spacer.gif" IconCssClass="icon_email_queue" Order="30">
+			<MenuItem Name="System.Email.Queue" Title="Manage Email Queue" Description=""  URL="/email/email_queue_list" Order="10"/>
+			<MenuItem Name="System.Email.Log" Title="Manage Email Log" Description=""  URL="/email/email_log_list" Order="20"/>
+			<MenuItem Name="System.Email.Setting" Title="Manage Email Account" Description=""  URL="/email/email_setting_list" Order="20"/>			
+			<MenuItem Name="System.Email.Template" Title="Manage Email Template" Description=""  URL="/email/email_template_list" Order="20"/>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+</Module>

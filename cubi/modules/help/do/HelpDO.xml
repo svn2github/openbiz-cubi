@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="HelpDO" Description="" Class="BizDataObj" DBName="Default" Table="help" SearchRule="" SortRule="[sort_order] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="7200">
+	<BizFieldList>
+    	<BizField Name="Id" Column="id"     Type="Number"/>
+       	<BizField Name="category_id" Column="category_id"   />
+       	<BizField Name="c" Column="category_id"   />
+       	<BizField Name="category_name" Column="name"  Join="join_category" />
+       	<BizField Name="title" Column="title" Length="255"   Required="Y" Type="Text" Translation="Y"/>
+       	<BizField Name="description" Column="description"    Required="Y" Type="Text" Translation="Y"/>
+       	<BizField Name="content" Column="content"    Required="N" Type="Text" Translation="Y"/>
+       	<BizField Name="sort_order" Column="sort_order"    Required="N" Type="Text"/>
+        <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>        	
+   	</BizFieldList>
+    <TableJoins>
+    	<Join Name="join_category" Table="help_category" Column="id" ColumnRef="category_id" JoinType="INNER JOIN"/>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

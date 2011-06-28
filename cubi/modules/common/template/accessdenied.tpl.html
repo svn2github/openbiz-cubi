@@ -1,0 +1,28 @@
+<form id="{$form.name}" name="{$form.name}">
+<div style="float:left; width:110px; height:400px;">
+</div>
+<div style="float:left; width:620px; height:400px;">
+	<div style="height:75px;"></div>
+	<div style="height:35px;">
+		<div style="float:left; width:50px;"><img src="{$image_url}/icon_forbidden.gif" /></div>
+		<div style="float:left"><h1>{$form.title}</h1></div>
+	</div>
+	<div style="height:20px;"></div>
+		<p class="input_row" style="height:110px; line-height:20px;">
+		<label style="width:40px; height:110px;"></label>
+		<span>{t}
+Your access has been denied. 
+Your currently user role does not have permission to access the requested page. 
+
+Please sign in as the user with proper permissions.
+{/t}</span>
+		</p>
+		<div style="height:10px;"></div>
+		<p class="input_row">
+			<label style="width:40px; text-align:right"></label>
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+</div>
+</form>

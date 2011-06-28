@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="MenuTreeListDO" Description="" Class="BizDataTree" DBName="Default" Table="menu" SearchRule="" SortRule="[sortorder] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="UUID" CacheLifeTime="">
+	<BizFieldList>
+   		<BizField Name="Id" Column="name" Length="255"    Type="Text"/>
+   		<BizField Name="title" Column="title" Length="255"    Type="Text"/>
+   		<BizField Name="PId" Column="parent" Length="255"   Required="N" Type="Text"/>		
+		<BizField Name="description" Column="description"   Type="Text"/>
+		<BizField Name="published" Column="published"    Required="Y" Type="Number"/>		
+		<BizField Name="sortorder" Column="ordering"    Required="N" Type="Number"/>
+	
+			   		
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

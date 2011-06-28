@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<BizDataObj Class="BizDataObj" DBName="Default" Description="" IdGeneration="Identity" InheritFrom="" Name="EventlogDO" OtherSQLRule="" Package="system.obj" SearchRule="" SortRule="[Id] DESC" Table="event_log">
+	<BizFieldList>
+		<BizField Column="Id" Name="Id"/>
+		<BizField Column="user_id" Name="user_id" Type="Number"/>
+		<BizField Column="username" Join="join_user" Name="username" Type="Text"/>
+		<BizField Column="ipaddr" Name="ipaddr" Type="Text"/>
+		<BizField Column="event" Name="event" Type="Text"/>
+		<BizField Column="message" Name="message" Type="Text"/>
+		<BizField Column="comment" Name="comment" Type="Text"/>
+		<BizField Column="timestamp" Format="%Y/%m/%d %H:%M:%S" Name="timestamp" Type="Datetime"/>
+	</BizFieldList>
+	<TableJoins>
+	   <Join Column="id" ColumnRef="user_id" JoinType="INNER JOIN" Name="join_user" Table="user"/>
+	</TableJoins>
+   <ObjReferences>
+   </ObjReferences>
+</BizDataObj>

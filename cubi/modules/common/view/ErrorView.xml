@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ErrorView" Description="Internal System Error" Class="EasyView" TemplateEngine="Smarty" TemplateFile="user_view.tpl.html">
+   <FormReferences>
+   		<Reference Name="common.form.ErrorForm"></Reference>
+   </FormReferences>
+</EasyView>

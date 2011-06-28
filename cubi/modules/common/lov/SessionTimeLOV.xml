@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <Session Value="0" text="Don't save session"/>
+   <Session Value="1800" text="30 minutes"/>    
+   <Session Value="3600" text="One hour"/>
+   <Session Value="10800" text="Three hours"/>
+   <Session Value="86400" text="One day"/>
+   <Session Value="604800" text="One week"/>
+   <Session Value="2592000" text="One month"/>
+</Selection>

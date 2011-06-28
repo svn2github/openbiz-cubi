@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="HelpCategoryDetailForm" Class="HelpCategoryForm" Icon="icon_help_l.gif" FormType="" jsClass="jbForm" Title="Help Category Details" Description="Detailed information of Help Category Item." BizDataObj="help.do.HelpCategoryDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="HELP_CATEGORY" MessageFile="HelpCategory.msg">
+    <DataPanel>
+			<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+		        <Element Name="fld_parent_id" Class="TreeLabelText" BLANKOPTION="-- Root --,0" SelectFrom="help.do.HelpCategoryDO[name:Id]" FieldName="parent_id" Label="Parent" AllowURLParam="N"/>
+		        <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
+		        <Element Name="fld_url_match" Class="LabelText" FieldName="url_match" Label="Url Match" AllowURLParam="N"/>
+		        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description" AllowURLParam="N"></Element>		        
+		        <Element Name="fld_sortorder" Class="LabelText" FieldName="sort_order" Label="Sort Order" AllowURLParam="N"></Element>
+	    </DataPanel>
+    <ActionPanel>       
+        <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(help.form.HelpCategoryNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
+        </Element>          
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(help.form.HelpCategoryEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+		<Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
+            <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=help.form.HelpCategoryCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element> 
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=help.form.HelpCategoryListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(help.form.HelpCategoryListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

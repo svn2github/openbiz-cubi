@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="userEmailService" Package="service" Class="userEmailService" 
+				BizDataObj="email.do.EmailQueueDO" 
+				SendtoQueue="Y" >
+	
+	<Template   Name="WelcomeEmail" 
+				Title="Welcome New User" 
+				EmailAccount="SystemNotifier" 
+				Template="welcome_email.tpl" />
+				
+	<Template   Name="ForgetPasswordEmail" 
+				Title="Reset Your Password" 
+				EmailAccount="SystemNotifier" 
+				Template="forget_pass_email.tpl" />
+				
+	<Template   Name="SystemInternalError" 
+				Title="System Internal Error" 
+				EmailAccount="SystemNotifier" 
+				Template="system_internal_error.tpl" />		
+				
+	<Template   Name="CronjobEmail" 
+				Title="Execute cron job" 
+				EmailAccount="SystemNotifier" 
+				Template="execute_cron_job.tpl" />	
+				
+</PluginService>

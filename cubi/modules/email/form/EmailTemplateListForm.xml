@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EmailTemplateListForm" icon="icon_email_template_list.gif" Class="EmailTemplateForm" FormType="List" jsClass="jbForm" Title="Email Template Management" Description="This moudle could helps you manage and edit system notification email templates.\n To define a new entity you need to manual edit userEmailService.xml file." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" EventName="EMAIL" MessageFile="Email.msg" ConfigFile="userEmailService.xml" ConfigNode="Template">
+    <DataPanel>
+        
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="NAME"/>
+		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="author_email" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_name" Class="ColumnText" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+   			<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(email.form.EmailTemplateDetailForm,{@:Elem[fld_Id].Value})"  />
+        </Element>    
+        <Element Name="fld_email_account" Class="ColumnText" FieldName="EMAILACCOUNT" Label="Email Account" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+	        <EventHandler Name="fld_email_account_onclick" Event="onclick" Function="SwitchForm(email.form.EmailAccountDetailForm,{@:Elem[fld_email_account].Value})"  />
+        </Element>         
+        <Element Name="fld_title" Class="ColumnText" FieldName="TITLE" Label="Title"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_template" Class="ColumnText" FieldName="TEMPLATE" Label="Template"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        	
+    </DataPanel>
+    <ActionPanel>
+    	
+ 
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=email.form.EmailTemplateEditForm&amp;fld:Id={@:m_RecordId}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+ 
+        <Element Name="btn_reload" Class="Button" Text="Reload" CssClass="button_gray_m" >
+            <EventHandler Name="reload_onclick" Event="onclick" EventLogMsg="" Function="UpdateForm()" />
+        </Element>
+       
+        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
+            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    	
+    </NavPanel> 
+    <SearchPanel>
+                  
+    </SearchPanel>
+</EasyForm>

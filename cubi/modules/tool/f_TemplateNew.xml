@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="{$form_short_name}" Class="{$form_obj_class}" FormType="New" jsClass="jbForm" Title="New {$table_name}" Description="" BizDataObj="{$comp}.{$do_name}" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="{$event_name}" MessageFile="{$message_file}">
+    <DataPanel>
+{foreach from=$fields item=fld}
+{if $fld.name != 'Id' && $fld.raw_type!='timestamp' }
+	{if 	$fld.element == 'InputDate'}
+		<Element Name="fld_{$fld.name}" Class="{$fld.element}" DateFormat="%m/%d/%Y" FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}" {if $fld.default }DefaultValue="{$fld.default}"{/if} Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+	{elseif $fld.element == 'InputDatetime'}
+		<Element Name="fld_{$fld.name}" Class="{$fld.element}" DateFormat="%m/%d/%Y %H:%M:%S" FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}" {if $fld.default }DefaultValue="{$fld.default}"{/if} Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+    {elseif $fld.element == 'RichText'}
+		<Element Name="fld_{$fld.name}" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}" {if $fld.default }DefaultValue="{$fld.default}"{/if} Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
+    {elseif $fld.element == 'Checkbox'}
+		<Element Name="fld_{$fld.name}" Class="{$fld.element}" SelectFrom="1" FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}" {if $fld.default }DefaultValue="{$fld.default}"{/if} Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />    
+    {elseif $fld.element == 'Radio'}
+		<Element Name="fld_{$fld.name}" Class="{$fld.element}" SelectFrom="{$fld.options}"  FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}" {if $fld.default }DefaultValue="{$fld.default}"{/if} Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"   />        
+    {elseif $fld.element == 'Textarea'}
+    	<Element Name="fld_{$fld.name}" Class="{$fld.element}" width="640" FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+    {else}        
+        <Element Name="fld_{$fld.name}" Class="InputText" FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}" {if $fld.default !='' }DefaultValue="{$fld.default}"{/if}   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+    {/if}
+{/if}
+{/foreach}
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form={$comp}.{$detail_form}&amp;fld:Id={literal}{@{/literal}{$comp}.{$do_name}{literal}:Field[Id].Value}{/literal}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm({$comp}.{$list_form})"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

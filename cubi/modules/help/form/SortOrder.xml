@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<SELECTION>   
+	<Order Text="10" Value="10"/>
+	<Order Text="20" Value="20"/>
+	<Order Text="30" Value="30"/>
+	<Order Text="40" Value="40"/>
+	<Order Text="50" Value="50"/>
+	<Order Text="60" Value="60"/>
+	<Order Text="70" Value="70"/>
+	<Order Text="80" Value="80"/>
+	<Order Text="90" Value="90"/>
+	<Order Text="100" Value="100"/>
+</SELECTION>   

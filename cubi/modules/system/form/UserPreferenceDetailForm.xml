@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="UserPreferenceDetailForm" Class="UserPreferenceForm" FormType="" Icon="icon_user_list.gif" jsClass="jbForm" SearchRule="[user_id]='0'" Title="User Preference" Description="You can custom your personal setting in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl">
+    <DataPanel>
+        <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>
+		<Element Name="fld_language"  Class="LabelText" ElementSet="General" FieldName="_language" Label="Default Language"   />		
+        <Element Name="fld_theme"  Class="LabelText" ElementSet="General" label="Default Theme"  FieldName="_theme" Description=""   />
+        <Element Name="fld_continent"  Class="LabelText" ElementSet="General" Description="" FieldName="_continent" Label="Continent"  />
+		<Element Name="fld_timezone"  Class="LabelText" ElementSet="General" Description="" FieldName="_timezone" Label="Default Timezone"  />		
+
+		<Element Name="fld_anti_spam"  Class="LabelBool" ElementSet="Login" FieldName="_anti_spam" Label="Anti Spam"   />		
+        <Element Name="fld_session_lang"  Class="LabelBool" ElementSet="Login" label="Language Selector"  FieldName="_language_selector"  />
+		<Element Name="fld_session_theme"  Class="LabelBool" ElementSet="Login" Description="" FieldName="_theme_selector" Label="Theme Selector"  />
+		<Element Name="fld_cookies"  Class="LabelBool" ElementSet="Login" Description="" FieldName="_keep_cookies" Label="Keep Cookies"  />
+		
+		<Element Name="fld_allow_register"  Class="LabelBool" ElementSet="Register" Description="" FieldName="_open_register" Label="Open Register"  />
+		<Element Name="fld_allow_find_pass"  Class="LabelBool" ElementSet="Register" Description="" FieldName="_find_password" Label="Find Password"  />
+        
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(system.form.UserPreferenceEditForm)"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_back" Class="LabelText" Text="Back" Link="{@home:url}/system/general_default" CssClass="button_gray_m"/>		
+         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

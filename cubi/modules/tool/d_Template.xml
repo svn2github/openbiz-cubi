@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="{$do_short_name}" Description="" Class="BizDataObj" DBName="{$db_name}" Table="{$table_name}" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="{$uniqueness}" Stateless="N" IdGeneration="{if $id_identity}Identity{/if}" CacheLifeTime="7200">
+	<BizFieldList>
+	{foreach from=$fields item=fld}
+		{if $fld.name!='timestamp'}
+    		<BizField Name="{$fld.name}" Column="{$fld.col}" {if $fld.length }Length="{$fld.length}"{/if}   {if $fld.name != "Id"}Required="{if $fld.nullable }N{else}Y{/if}"{/if} Type="{$fld.type}"/>
+	    {else}
+	        <BizField Name="timestamp" Column="timestamp" />	
+		{/if}
+    {/foreach}
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

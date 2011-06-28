@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <AccessLevel Value="" Text=""/>
+   <AccessLevel Value="1" Text="Allow"/>
+   <!--<AccessLevel Value="2" Text="Allow Owner"/>-->
+   <AccessLevel Value="0" Text="Deny"/>
+   
+   <Status Value="1" text="Active"/>
+   <Status Value="0" text="Inactive"/>
+   
+   <Default Value="1" text="Enable"/>
+   <Default Value="0" text="Disable"/>   
+</Selection>

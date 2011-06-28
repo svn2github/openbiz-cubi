@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ModuleDetailView" Description="Module Management" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="system_view.tpl.html" Access="Module.Administer_Modules">
+    <FormReferences>
+        <Reference Name="system.form.ModuleDetailForm" SubForms="system.form.ModuleActionsForm"/>
+        <Reference Name="system.form.ModuleActionsForm"/>
+    </FormReferences>
+</EasyView>

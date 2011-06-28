@@ -1,0 +1,138 @@
+<form id="{$form.name}" name="{$form.name}">
+
+<div style="padding-left:25px;padding-right:40px;">
+{include file="system_appbuilder_btn.tpl.html"}
+	<div>
+		{if $form.icon !='' }
+	<div class="form_icon"><img  src="{$image_url}/{$form.icon}" border="0" /></div>
+	{/if}
+		<h2>
+		{$form.title}
+		</h2> 
+	</div>
+		{if $form.description}
+		<p class="input_row" style="line-height:20px;padding-bottom:20px;">		
+		<span>{$form.description}</span>
+		</p>
+		{else}
+		<div style="height:15px;"></div>
+		{/if}
+	<div style="padding-left:30px;">
+	<!-- Name  -->
+	{assign var=item value=$dataPanel.fld_name}
+	{assign var=itemName value="fld_name"}			
+			<table  id="{$itemName}_container" class="input_row">					
+			<tr>
+			<td >	
+				<label style="text-align:left">{$item.label}</label>
+			</td>
+			<td>
+			
+				<span class="label_text">{$item.element}</span>
+				{if $errors.$itemName}
+				<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+				{elseif $item.description}
+				<span class="input_desc" style="width:240px;">{$item.description}</span>			
+				{/if}
+			</td>
+			</tr>
+			</table>					
+
+	<!-- Match  -->
+	{assign var=item value=$dataPanel.fld_match}
+	{assign var=itemName value="fld_match"}			
+			<table  id="{$itemName}_container" class="input_row">								
+			<tr>
+			<td >	
+				<label style="text-align:left">{$item.label}</label>
+			</td>
+			<td>
+			
+				<span class="label_text">{$item.element}</span>
+				{if $errors.$itemName}
+				<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+				{elseif $item.description}
+				<span class="input_desc" style="width:240px;">{$item.description}</span>			
+				{/if}
+			</td>
+			</tr>
+			</table>		
+	
+	<!-- Action  -->		
+			<table  id="{$itemName}_container" class="input_row">								
+			<tr>
+			<td >	
+				<label style="text-align:left">{$dataPanel.fld_starthour.label}</label>
+			</td>
+			<td>
+			
+				<span class="label_text">
+				{$dataPanel.fld_starthour.element} :
+				{$dataPanel.fld_starttime.element}
+				&nbsp; - &nbsp; 
+				{$dataPanel.fld_endhour.element} :
+				{$dataPanel.fld_endtime.element}
+				</span>
+				
+			</td>
+			</tr>
+			</table>	
+		
+	<!-- Action  -->
+	{assign var=item value=$dataPanel.fld_action}
+	{assign var=itemName value="fld_action"}			
+			<table  id="{$itemName}_container" class="input_row">								
+			<tr>
+			<td >	
+				<label style="text-align:left">{$item.label}</label>
+			</td>
+			<td>
+			
+				<span class="label_text">{$item.element}</span>
+				{if $errors.$itemName}
+				<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+				{elseif $item.description}
+				<span class="input_desc" style="width:240px;">{$item.description}</span>			
+				{/if}
+			</td>
+			</tr>
+			</table>
+
+	<!-- Enable  -->
+	{assign var=item value=$dataPanel.fld_enable}
+	{assign var=itemName value="fld_enable"}			
+			<table  id="{$itemName}_container" class="input_row">								
+			<tr>
+			<td >	
+				<label style="text-align:left">{$item.label}</label>
+			</td>
+			<td>
+			
+				<span class="label_text">{$item.element}</span>
+				{if $errors.$itemName}
+				<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+				{elseif $item.description}
+				<span class="input_desc" style="width:240px;">{$item.description}</span>			
+				{/if}
+			</td>
+			</tr>
+			</table>
+					
+		<div style="height:10px;"></div>
+		<p class="input_row">
+			
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+	</div>
+	
+		<div style="height:15px;">
+		<div id='{$form.name}.load_disp' style="display:none;">
+		<img  src="{$image_url}/form_ajax_loader.gif"/>
+		</div>
+		</div>
+	
+</div>
+
+</form>

@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="UserEditView" Description="User Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="system_view.tpl.html" Access="User.Administer_Users">
+    <FormReferences>
+        <Reference Name="system.form.UserEditForm"/>
+    </FormReferences>
+</EasyView>

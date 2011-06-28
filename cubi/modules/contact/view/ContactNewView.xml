@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ContactNewView" Description="New Contact Profile" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="contact.form.ContactNewForm"/>
+   </FormReferences>
+</EasyView>

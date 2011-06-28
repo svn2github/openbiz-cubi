@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="f_EventHandlerEdit" Class="F_ElementEdit" FormType="Edit" jsClass="jbForm" Title="Edit Element" Description="" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>
+        <Element Name="fld_name" Class="InputText" FieldName="Name" Label="Name" Width="200"/>
+        <Element Name="fld_event" Class="Listbox" FieldName="Event" Label="Event" SelectFrom="tool.Selection(ElementEvent)" width="200"/>
+        <Element Name="fld_function" Class="EditCombobox" FieldName="Function" Label="Function" SelectFrom="tool.Selection(FormFunction)" CssClass="editcombobox_l"/>
+        <Element Name="fld_functype" Class="Listbox" FieldName="FunctionType" Label="Function Type" SelectFrom="tool.Selection(FunctionType)" Width="200"/>
+        <Element Name="fld_redirect" Class="Textarea" FieldName="RedirectPage" Label="Redirect Page" Width="400"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button">
+            <EventHandler Name="onclick" Event="onclick" function="SaveRecord()"/>
+        </Element>
+        <Element Name="btn_reset" Class="ResetButton" Text="Reset" CssClass="button">
+        </Element>
+        <Element Name="html_msg" Class="HTMLBlock" text="" style="color:gray; padding:2"/>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

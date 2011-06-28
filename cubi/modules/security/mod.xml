@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="security" Description="system security module" Author="Jixian" Version="0.2" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="Security">
+			<Action Name="Administer_Security" Description="Can manage security filtering rules for the application"/>
+		</Resource>
+</ACL>
+	<Menu>
+    <!-- System menus -->
+		<MenuItem Name="System.Security" Title="Security" Description="Security Rules Management" Parent="System" IconImage="spacer.gif" IconCssClass="icon_security" Order="50">
+			<MenuItem Name="System.Security.rule" Title="Manage Security Rules" Description=""  URL="/security/security_rule" Order="20"/>
+		</MenuItem>
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+</Module>

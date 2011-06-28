@@ -1,0 +1,2 @@
+<MenuWidget Name="MainTopMenu" Class="MenuWidget" BizDataObj="menu.do.SystemMenuDO" StartMenuID="0"  MenuDeep="1" TemplateEngine="Smarty" TemplateFile="system_top_menu.tpl.html" CacheLifeTime="0">
+</MenuWidget>

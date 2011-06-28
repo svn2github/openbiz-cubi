@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="f_ElementEdit" Class="F_ElementEdit" FormType="Edit" jsClass="jbForm" Title="edit Element" Description="" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>
+        <Element Name="fld_name" Class="InputText" FieldName="Name" Label="Name" ElementSet="Basic"/>
+        <Element Name="fld_class" Class="EditCombobox" FieldName="Class" Label="Element Class" SelectFrom="tool.Selection(ElementClass)" ElementSet="Basic" Description="Please select or type in element type">
+            <EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+        <Element Name="fld_fldname" Class="tool.ToolListbox" FieldName="FieldName" Label="Field Name" SelectFrom="fields(/EasyForm/@BizDataObj)" ElementSet="Basic"/>
+        <Element Name="fld_label" Class="InputText" FieldName="Label" Label="Label"  ElementSet="Basic"/>
+        <Element Name="fld_link" Class="InputText" FieldName="Link" Label="Link" width="500" ElementSet="More..." Description="Example: {@home:url}/system/user_detail/{@:Elem[fld_Id].Value}"/>
+        <element Name="fld_selfrom" Class="InputText" FieldName="SelectFrom" Label="Lookup List" Hidden="{(@:Elem[fld_class].Value == 'Listbox') || (@:Elem[fld_class].Value == 'Checkbox') || (@:Elem[fld_class].Value == 'Radio') ? 'N':'Y'}" ElementSet="Basic" Description="Example: system.do.UserDO[Id, Name]"/>
+        <Element Name="fld_picker" Class="InputText" FieldName="ValuePicker" Label="Value Picker" Hidden="{(@:Elem[fld_class].Value == 'InputPicker')?'N':'Y'}" ElementSet="Basic"/>
+        <Element Name="fld_pickermap" Class="Textarea" FieldName="PickerMap" Label="Picker Map" Hidden="{(@:Elem[fld_class].Value == 'InputPicker')?'N':'Y'}" ElementSet="Basic"/>
+        <Element Name="fld_dateformat" Class="InputText" FieldName="DateFormat" Label="Date Format" Hidden="{(@:Elem[fld_class].Value == 'InputDate') || (@:Elem[fld_class].Value == 'InputDatetime') ? 'N':'Y'}" ElementSet="Basic"/>
+        <Element Name="fld_sortable" Class="Listbox" FieldName="Sortable" Label="Sortable" SelectFrom="tool.Selection(NY)" Hidden="{(@:Elem[fld_class].Value == 'ColumnText')?'N':'Y'}" ElementSet="Basic"/>
+        <Element Name="fld_default" Class="InputText" FieldName="DefaultValue" Label="Default Value" Hidden="{(@:Elem[fld_class].Value == 'ColumnText')?'Y':'N'}" ElementSet="Basic"/>
+        <Element Name="fld_validator" Class="InputText" FieldName="Validator" Label="Validator"  ElementSet="Basic" Description="Validator example: {@validate:email('[Email]')}"/>
+        <Element Name="fld_req" Class="Listbox" FieldName="Required" Label="Required" SelectFrom="tool.Selection(NY)"  ElementSet="Basic"/>
+        <Element Name="fld_enabled" Class="InputText" FieldName="Enabled" Label="Enabled" width="500" ElementSet="More..."/>        
+        <Element Name="fld_text" Class="InputText" FieldName="Text" Label="Text" ElementSet="Basic"/>
+        <Element Name="fld_access" Class="InputText" FieldName="Access" Label="Access" ElementSet="More..." Description="Access is declared as resouce.action. Example: system.Administer_Role"/>
+        <element Name="fld_css" Class="InputText" FieldName="CssClass" Label="CssClass" ElementSet="More..."/>
+        <Element Name="fld_style" Class="InputText" FieldName="Style" Label="Style" ElementSet="More..."/>
+        <Element Name="fld_width" Class="InputText" FieldName="Width" Label="Width" width="50" ElementSet="More..."/>
+        <element Name="fld_height" Class="InputText" FieldName="Height" Label="Height" width="50" ElementSet="More..."/>
+        <Element Name="fld_hidden" Class="InputText" FieldName="Hidden" Label="Hidden" width="500" ElementSet="More..."/>
+        <Element Name="fld_htmlattr" Class="InputText" FieldName="HTMLAttr" Label="HTMLAttr" width="500" ElementSet="More..."/>
+        <Element Name="fld_desc" Class="Textarea" FieldName="Description" Label="Description" ElementSet="More..."/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save " CssClass="button">
+            <EventHandler Name="onclick" Event="onclick" function="SaveRecord()"/>
+        </Element>
+        <Element Name="btn_reset" Class="ResetButton" Text="Reset" CssClass="button">
+        </Element>
+        <Element Name="html_msg" Class="HTMLBlock" text="" style="color:gray; padding:2"/>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

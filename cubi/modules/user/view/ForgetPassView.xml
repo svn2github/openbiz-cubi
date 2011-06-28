@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<EasyView Name="ForgetPassView" Class="UserFindPasswordView" Description="Forget password" TemplateEngine="Smarty" TemplateFile="user_view.tpl.html">
+   <FormReferences>      
+      <Reference Name="user.form.ForgetPassForm"/>
+   </FormReferences>
+</EasyView>

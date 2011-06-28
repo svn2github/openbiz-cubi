@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ManageThemeView" Description="Theme Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Theme.Administer_Theme">
+   <FormReferences>
+   		<Reference Name="theme.form.ThemeListForm"/>
+   </FormReferences>
+   
+</EasyView>

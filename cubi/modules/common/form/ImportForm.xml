@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<EasyForm Name="ImportForm" Class="EasyForm" FormType="New" jsClass="jbForm" Title="Import from CSV" TemplateEngine="Smarty" TemplateFile="import_file.tpl.html">
+   <DataPanel>
+      <Element Name="fld_data" Class="File" FieldName="" Label="Please select a CSV file"/>
+   </DataPanel>
+   <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Submit" CssClass="button_gray_m">
+            <EventHandler Name="onclick" Event="onclick" Function="CallService(excelService,importCSV)"/>
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="onclick" Event="onclick" Function="js:Openbiz.Window.closePopup()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="HelpCategoryEditForm" Class="HelpCategoryForm" Icon="icon_help_edit.gif" FormType="Edit" jsClass="jbForm" Title="Edit help_category" Description="djakdjka" BizDataObj="help.do.HelpCategoryDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="HELP_CATEGORY" MessageFile="HelpCategory.msg">
+    <DataPanel>
+	<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
+         
+	        
+        <Element Name="fld_parent_id" Class="TreeListbox"  BLANKOPTION="-- Root --,0" FieldName="parent_id" Label="Parent" SelectFrom="help.do.HelpCategoryDO[name:Id]"  AllowURLParam="N" CssClass="" CssErrorClass="" CssFocusClass=""/>
+             
+	        
+        <Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+             
+	        
+        <Element Name="fld_url_match" Class="InputText" FieldName="url_match" Label="Url Match"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+             
+		<Element Name="fld_description" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
+        <Element Name="fld_sortorder" Class="Listbox" SelectFrom="help.form.SortOrder(Order)" FieldName="sort_order" Label="Sort Order"  AllowURLParam="N" />    
+	               
+        </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=help.form.HelpCategoryDetailForm&amp;fld:Id={@help.do.HelpCategoryDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(help.form.HelpCategoryListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

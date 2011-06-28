@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="user" Description="usr login, my account edit, password reset" Version="0.1" Author="Rocky, Jixian" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="UserAccount">
+			<Action Name="Edit_Own_Account" Description="Can edit user own account data"/>
+		</Resource>
+    </ACL>
+	<Menu>
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+</Module>

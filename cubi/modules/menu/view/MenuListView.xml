@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="MenuListView" Description="Menu Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Menu.Administer_Menu">
+   <FormReferences>
+   		<Reference Name="menu.form.MenuListForm"/>
+   </FormReferences> 
+</EasyView>

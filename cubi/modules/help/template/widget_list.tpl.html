@@ -1,0 +1,26 @@
+<form id="{$form.name}" name="{$form.name}">
+<table></table>
+<div class="title">
+	<h2>{$form.title}</h2>
+	<p style="float:right">
+	<span><a href="javascript:">{t}Help Center{/t}</a></span> 
+	<a onclick="switch_help_content()" href="javascript:"><img id="switch_help_content_btn" class="btn_max"  src="{$image_url}/spacer.gif" border="0" /></a>	</p>
+</div>
+<div id="help_content" style="display:none">
+<ul>
+	{if $dataPanel.data|@count > 0}
+	    {foreach item=row from=$dataPanel.data}
+	    	<li>{$row.fld_title}</li>
+	    {/foreach}	
+    {else}
+    	<li>{t}No help tips for this module.{/t}</li>    
+    {/if}	
+</ul>
+</div>
+<div style="padding-left:10px; padding-top:10px; height:30px;">
+		{foreach item=elem from=$searchPanel}
+			{if $elem.label} {$elem.label} {/if} {$elem.element}
+		{/foreach}
+</div>
+<script>init_help_content()</script>
+</form>

@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="HelpCategoryMappingDO" Description="" Class="BizDataObj" DBName="Default" Table="help_category_mapping" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="7200">
+	<BizFieldList>
+   		<BizField Name="Id" Column="id"     Type="Number"/>
+		<BizField Name="url" Column="url"    />
+		<BizField Name="cat_id" Column="cat_id"    />
+		<BizField Name="timestamp" Column="timestamp"    Required="N" Type="Text"/>
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

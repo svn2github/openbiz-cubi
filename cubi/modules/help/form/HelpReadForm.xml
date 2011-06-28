@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="HelpReadForm" Class="HelpForm" Description="Detail information of help tips" FormType="" jsClass="jbForm" Title="Help Tips"  BizDataObj="help.do.HelpDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="help_pop.tpl" EventName="HELP" MessageFile="Help.msg">
+    <DataPanel>
+        <Element Name="fld_title" Class="LabelText" FieldName="title" Label="Title" AllowURLParam="N"/>
+        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description" AllowURLParam="N"/>
+        <Element Name="fld_content" Class="LabelText" FieldName="content" Label="Content" AllowURLParam="N"/>
+    </DataPanel>
+    <ActionPanel>       
+        <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="Close()" />
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

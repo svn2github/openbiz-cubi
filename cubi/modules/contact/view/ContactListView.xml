@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ContactListView" Description="Contact Phone Book" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="contact.form.ContactListForm"/>
+   </FormReferences>
+   <FormReferenceLibs>
+   		<Reference Name="contact.form.ContactListForm"/>
+   		<Reference Name="contact.form.ContactEditForm"/>
+   		<Reference Name="contact.form.ContactCopyForm"/>
+   		<Reference Name="contact.form.ContactNewForm"/>
+   		<Reference Name="contact.form.ContactDetailForm"/>
+   </FormReferenceLibs>    
+</EasyView>

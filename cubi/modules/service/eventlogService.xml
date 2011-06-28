@@ -1,0 +1,3 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="eventlogService" Package="service" Class="eventlogService" BizDataObj="eventlog.do.EventlogDO"  MessageFile="eventlogService.msg">
+</PluginService>

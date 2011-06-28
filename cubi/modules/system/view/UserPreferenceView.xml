@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="UserPreferenceView" Title="User Perference Setting" Description="User Perference Setting" class="EasyView" TemplateEngine="Smarty" TemplateFile="view_pref.tpl" Access="User.Administer_Users">
+    <FormReferences>
+        <Reference Name="system.form.UserPreferenceDetailForm"/>
+    </FormReferences>
+</EasyView>

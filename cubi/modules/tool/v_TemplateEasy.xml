@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="{$view_short_name}" Description="{$comp}" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="{$comp}.{$default_form}"/>
+   </FormReferences>
+   <FormReferenceLibs>
+   		<Reference Name="{$comp}.{$list_form}"/>
+   		<Reference Name="{$comp}.{$edit_form}"/>
+   		<Reference Name="{$comp}.{$copy_form}"/>
+   		<Reference Name="{$comp}.{$new_form}"/>
+   		<Reference Name="{$comp}.{$detail_form}"/>
+   </FormReferenceLibs>    
+</EasyView>

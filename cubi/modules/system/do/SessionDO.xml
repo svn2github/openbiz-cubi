@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="SessionDO" Description="" Class="BizDataObj" DBName="Default" Table="session" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+        <BizField Name="Id" Column="id" Length="32" Type="Text"/>
+        <BizField Name="expiration" Column="expiration" Type="Number"/>
+        <BizField Name="data" Column="data" Type="Text"/>
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

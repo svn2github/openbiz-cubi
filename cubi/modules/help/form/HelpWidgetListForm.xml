@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="HelpWidgetListForm" Class="HelpWidgetForm" FormType="List" jsClass="jbForm" Title="Help" Description="dahjshj" BizDataObj="help.do.HelpDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="widget_list.tpl.html" EventName="HELP" MessageFile="Help.msg">
+    <DataPanel>
+        
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N"/>                  	        	
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:">
+        	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(help.form.HelpWidgetDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>	
+    </DataPanel>
+    <ActionPanel>
+ 
+    </ActionPanel> 
+    <NavPanel>
+        <Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+        	<EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+        	<EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
+        </Element>
+        <Element Name="btn_first"  Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+        <Element Name="qry_help_title"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="help.do.HelpDO[title],[title] like '%{$_POST['qry_help_title']}%' GROUP BY [title]" FieldName="title" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_js_onclick" Event="onclick" Function="js:var c = new Cookies();c.set('help_form','shown');" />
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" />
+        </Element>           
+    </SearchPanel>
+</EasyForm>

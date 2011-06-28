@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="eventlog" Description="Event log module, only administrator can access" Version="0.1" Author="Rocky" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="EventLog">
+			<Action Name="Access_EventLog" Description="Access event logs"></Action>
+			<Action Name="Administer_EventLog" Description="Manage event logs"></Action>
+		</Resource>
+    </ACL>
+    <Menu>
+    	<MenuItem Name="System.EventLog" Title="Event Log" Description="Event Log Management" Parent="System" IconImage="spacer.gif" IconCssClass="icon_eventlog" Order="60">
+			<MenuItem Name="System.EventLog.List" Title="Manage EventLog" Description=""  URL="/eventlog/event_log_list" Order="10"/>
+		</MenuItem>
+    </Menu>
+    <Dependency>
+    </Dependency>
+</Module>
+

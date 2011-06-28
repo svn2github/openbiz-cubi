@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="EventLogListView" Description="Event Log View" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="system_view.tpl.html" Access="EventLog.Access_EventLog">
+    <FormReferences>
+        <Reference Name="eventlog.form.EventLogListForm"/>
+    </FormReferences>
+</EasyView>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="f_TaskEdit" Class="F_ElementEdit" FormType="Edit" jsClass="jbForm" Title="" Description="" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>
+        <Element Name="fld_name" Class="InputText" FieldName="Name" Label="Name" Width="200"/>
+        <Element Name="fld_class" Class="InputText" FieldName="class" Label="Class" Width="200"/>
+        <Element Name="fld_sourceTable" Class="tool.EtlListbox" FieldName="sourceTable" Label="Source Table" SelectFrom="tables(source)" BlankOption=" ," Width="200"/>
+        <Element Name="fld_destTable" Class="tool.EtlListbox" FieldName="destTable" Label="Destination Table" SelectFrom="tables(destination)" BlankOption=" ," Width="200"/>
+        <Element Name="fld_keepData" Class="Checkbox" FieldName="keepData" Label="Keep Data" SelectFrom="1" Width="20"/>
+        <Element Name="fld_sourceSQL" Class="Textarea" FieldName="sourceSQL" Label="Source SQL" Width="600" Height="300"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button">
+            <EventHandler Name="onclick" Event="onclick" function="SaveRecord()"/>
+        </Element>
+        <Element Name="btn_reset" Class="ResetButton" Text="Reset" CssClass="button">
+        </Element>
+        <Element Name="html_msg" Class="HTMLBlock" text="" style="color:gray; padding:2"/>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

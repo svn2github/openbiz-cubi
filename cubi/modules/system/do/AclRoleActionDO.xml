@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="AclRoleActionDO" Description="" Class="BizDataObj" DBName="Default" Table="acl_role_action" SearchRule="" SortRule="" OtherSQLRule="" IdGeneration="Identity">
+	<BizFieldList>
+	    <BizField Name="Id" Column="id" Type=""/>
+        <BizField Name="role_id" Column="role_id" Type=""/>
+        <BizField Name="action_id" Column="action_id" Type=""/>
+        <BizField Name="access_level" Column="access_level" Type=""/>
+        <BizField Name="module" Join="acl_action" Column="module"/>
+        <BizField Name="resource" Join="acl_action" Column="resource"/>
+        <BizField Name="action" Join="acl_action" Column="action"/>    
+        <BizField Name="acl_action_id" Join="acl_action" Column="id"/>
+    </BizFieldList>
+    <TableJoins>
+        <Join Name="acl_action" Table="acl_action" Column="id" ColumnRef="action_id" JoinType="RIGHT JOIN"/>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
+

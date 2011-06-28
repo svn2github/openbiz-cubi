@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventLogDetailForm" Icon="icon_eventlog_l.gif" Class="EventLogForm" jsClass="jbForm" Title="Event Log Detail" Description="Detailed attributes of a given log record" BizDataObj="eventlog.do.EventlogDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="eventlogService.msg">
+    <DataPanel>
+	     <Element Name="fld_timestamp" Class="LabelText" FieldName="timestamp" Label="Timestamp" Sortable="Y"/>
+	     <Element Name="fld_ipaddr" Class="LabelText" FieldName="ipaddr" Label="IP Address" Sortable="Y"/>		     
+         <Element Name="fld_user" Class="LabelText" Link="{@home:url}/system/user_detail/{@:Field[fld_user_id].Value}" FieldName="username" Label="Username" Sortable="Y"/>
+         <Element Name="fld_event" Class="LabelText" FieldName="event" Label="Event Type" Sortable="Y" Translatable="Y"/>
+         <Element Name="fld_message" Class="LabelText"  FieldName="message" Label="Comment" Sortable="Y" Translatable="Y"/>                             
+		 <Element Name="fld_user_id" Class="Hidden" Hidden="Y" FieldName="user_id" Label="UserID" Sortable="Y"/>
+		 <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="UserID" Sortable="Y"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_back" Class="Button" Text="Back to list" CssClass="button_gray_w"  >
+        	<EventHandler Name="btn_back_onclick" Event="onclick" Function="SwitchForm(eventlog.form.EventLogListForm)" ShortcutKey="Escape"  />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel>  
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

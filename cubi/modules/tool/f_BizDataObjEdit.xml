@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="f_BizDataObjEdit" Class="F_ElementEdit" FormType="Edit" jsClass="jbForm" Title="" Description="" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>
+        <Element Name="fld_name" Class="InputText" FieldName="Name" Label="Name" Width="200"/>
+        <Element Name="fld_class" Class="EditCombobox" FieldName="Class" Label="Class" SelectFrom="|BizDataObj" width="200"/>
+        <Element Name="fld_desc" Class="InputText" FieldName="Desciption" Label="Description" width="400"/>
+        <Element Name="fld_dbname" Class="tool.ToolListbox" FieldName="DBName" Label="Database Name" SelectFrom="dbs()" width="200">
+            <EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+        <Element Name="fld_table" Class="tool.ToolListbox" FieldName="Table" Label="Table" SelectFrom="tables($fld_dbname)" width="200"/>
+        <Element Name="fld_searchrule" Class="InputText" FieldName="SearchRule" Label="SearchRule" width="200"/>
+        <Element Name="fld_sortrule" Class="InputText" FieldName="SortRule" Label="SortRule" width="200"/>
+        <Element Name="fld_otherrule" Class="InputText" FieldName="OtherSQLRule" Label="OtherSQLRule" width="200"/>
+        <Element Name="fld_idgen" Class="EditCombobox" FieldName="IDGeneration" Label="ID Generation" SelectFrom="tool.Selection(IDGeneration)" width="200"/>
+        <Element Name="fld_accessrule" Class="InputText" FieldName="AccessRule" Label="AccessSQLRule" width="400"/>
+        <Element Name="fld_updatecond" Class="InputText" FieldName="UpdateCondition" Label="UpdateCondition" width="400"/>
+        <Element Name="fld_deletecond" Class="InputText" FieldName="DeleteCondition" Label="DeleteCondition" width="400"/>
+        <Element Name="fld_unique" Class="InputText" FieldName="Uniqueness" Label="Uniqueness" width="200"/>
+        <Element Name="fld_cachelifetime" Class="InputText" FieldName="CacheLifeTime" Label="CacheLifeTime" width="200"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button">
+            <EventHandler Name="onclick" Event="onclick" function="SaveRecord()"/>
+        </Element>
+        <Element Name="btn_reset" Class="ResetButton" Text="Reset" CssClass="button">
+        </Element>
+        <Element Name="html_msg" Class="HTMLBlock" text="" style="color:gray; padding:2"/>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="CronjobListView" Description="Cronjob Management" Class="EasyView" Access="cronjob.Administer_Cron" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="cronjob.form.CronjobListForm"/>
+   </FormReferences>  
+</EasyView>

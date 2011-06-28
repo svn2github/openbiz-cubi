@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="CronjobEditForm" Class="CronjobForm" Icon="icon_cronjob_edit.gif" FormType="Edit" jsClass="jbForm" Title="Edit Cronjob Task" Description="Cronjob enables users to schedule jobs (commands or shell scripts) \nto run periodically at certain times or dates." BizDataObj="cronjob.do.CronjobDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="edit.tpl.html" EventName="CRONJOB" MessageFile="Cronjob.msg">
+    <DataPanel>
+	<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
+        <Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+         <Element Name="fld_name" Class="InputText" ElementSet="General" FieldName="name" Label="Name" Description="Cronjob task name" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_command" Class="InputText" ElementSet="General" FieldName="command" Label="Command"  AllowURLParam="N" CssClass="input_text_l" CssErrorClass="input_text_l_error" CssFocusClass="input_text_l_focus"/>
+        <Element Name="fld_description" Class="Textarea" ElementSet="General" FieldName="description" Label="Description"  AllowURLParam="N" CssClass="input_textarea" CssErrorClass="input_textarea_error" CssFocusClass="input_textarea_focus"/>
+
+        <Element Name="fld_minute" Class="EditCombobox" SelectFrom="cronjob.lov.ScheduleLOV(Minute)" DefaultValue="*" ElementSet="Schedule" FieldName="minute" Label="Minute"  AllowURLParam="N"/>
+        <Element Name="fld_hour" Class="EditCombobox" SelectFrom="cronjob.lov.ScheduleLOV(Hour)" DefaultValue="*" ElementSet="Schedule" FieldName="hour" Label="Hour"  AllowURLParam="N"/>
+        <Element Name="fld_day" Class="EditCombobox" SelectFrom="cronjob.lov.ScheduleLOV(Day)" DefaultValue="*" ElementSet="Schedule" FieldName="day" Label="Day"  AllowURLParam="N"/>
+        <Element Name="fld_month" Class="EditCombobox" SelectFrom="cronjob.lov.ScheduleLOV(Month)" DefaultValue="*" ElementSet="Schedule" FieldName="month" Label="Month"  AllowURLParam="N"/>
+        <Element Name="fld_weekday" Class="EditCombobox" SelectFrom="cronjob.lov.ScheduleLOV(Weekday)" DefaultValue="*" ElementSet="Schedule" FieldName="weekday" Label="Weekday"  AllowURLParam="N"/>
+
+        <Element Name="fld_sendmail" ElementSet="Parameters" Class="InputText" FieldName="sendmail" Label="Sendmail"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_max_run" ElementSet="Parameters" Class="InputText" FieldName="max_run" Label="Concurrent " Description="Maxium number of concurrent execution"  AllowURLParam="N" CssClass="input_text_s" CssErrorClass="input_text_s_error" CssFocusClass="input_text_s_focus"/>
+        <Element Name="fld_status" ElementSet="Parameters" Class="Listbox" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(Status)"/>
+        </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+	        <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=cronjob.form.CronjobDetailForm&amp;fld:Id={@cronjob.do.CronjobDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(cronjob.form.CronjobListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

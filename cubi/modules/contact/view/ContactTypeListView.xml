@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ContactTypeListView" Description="Contact List by Contact Type" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="contact.form.TypeListForm"/>
+   </FormReferences>
+</EasyView>

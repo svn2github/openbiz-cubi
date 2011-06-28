@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="HelpCategoryView" Description="Help Category Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Help.Administer_Help">
+   <FormReferences>
+   		<Reference Name="help.form.HelpCategoryListForm"/>
+   </FormReferences>
+   <FormReferenceLibs>
+   		<Reference Name="help.form.HelpCategoryListForm"/>
+   		<Reference Name="help.form.HelpCategoryEditForm"/>
+   		<Reference Name="help.form.HelpCategoryCopyForm"/>
+   		<Reference Name="help.form.HelpCategoryNewForm"/>
+   		<Reference Name="help.form.HelpCategoryDetailForm"/>
+   </FormReferenceLibs>    
+</EasyView>

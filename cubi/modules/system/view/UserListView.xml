@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="UserListView" Title="User Management" Description="User List View" class="EasyView" TemplateEngine="Smarty" TemplateFile="system_view.tpl.html" Access="User.Administer_Users">
+    <FormReferences>
+        <Reference Name="system.form.UserListForm"/>
+    </FormReferences>
+</EasyView>

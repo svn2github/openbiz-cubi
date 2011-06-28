@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="f_ElementEdit" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit Element" Description="" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>
+        <Element Name="fld_name" Class="InputText" FieldName="" Label="Name" Width="200"/>
+        <Element Name="fld_class" Class="Listbox" FieldName="" Label="Class" SelectFrom="Selection(ElementClass)" Width="200"/>
+        <Element Name="fld_desc" Class="InputText" FieldName="" Label="Description" width="400"/>
+        <Element Name="fld_fldname" Class="InputText" FieldName="" Label="FieldName" Width="200"/>
+        <Element Name="fld_link" Class="InputText" FieldName="" Label="Link" Width="400"/>
+        <Element Name="fld_label" Class="InputText" FieldName="" Label="Label" Width="200"/>
+        <Element Name="fld_sortable" Class="Listbox" FieldName="" Label="Sortable" SelectFrom="Selection(NY)" Width="200" Hidden="{(@:Elem[fld_class].Value == 'ColumnText')?'N':'Y'}"/>
+        <Element Name="fld_default" Class="InputText" FieldName="" Label="DefaultValue" Width="200"/>
+        <Element Name="fld_req" Class="Listbox" FieldName="" Label="Required" Width="200"/>
+        <Element Name="fld_enabled" Class="InputText" FieldName="" Label="Enabled" Width="400"/>
+        <Element Name="fld_text" Class="InputText" FieldName="" Label="Text" Width="200"/>
+        <element Name="fld_selfrom" Class="InputText" FieldName="" Label="SelectFrom" Width="200" Hidden="{(@:Elem[fld_class].Value == 'Listbox') || (@:Elem[fld_class].Value == 'Checkbox') || (@:Elem[fld_class].Value == 'Radio') ? 'N':'Y'}"/>
+        <Element Name="fld_picker" Class="InputText" FieldName="" Label="ValuePicker" Width="200" Hidden="{(@:Elem[fld_class].Value == 'InputPicker')?'N':'Y'}"/>
+        <Element Name="fld_pickermap" Class="InputText" FieldName="" Label="PickerMap" Width="200" Hidden="{(@:Elem[fld_class].Value == 'InputPicker')?'N':'Y'}"/>
+        <Element Name="fld_dateformat" Class="InputText" FieldName="" Label="DateFormat" Width="200" Hidden="{(@:Elem[fld_class].Value == 'InputDate') || (@:Elem[fld_class].Value == 'InputDatetime') ? 'N':'Y'}"/>
+        <element Name="fld_css" Class="InputText" FieldName="" Label="CssClass" Width="200"/>
+        <Element Name="fld_style" Class="InputText" FieldName="" Label="Style" Width="200"/>
+        <Element Name="fld_width" Class="InputText" FieldName="" Label="Width" Width="200"/>
+        <element Name="fld_height" Class="InputText" FieldName="" Label="Height" Width="200"/>
+        <Element Name="fld_hidden" Class="InputText" FieldName="" Label="Hidden" Width="400"/>
+        <Element Name="fld_htmlattr" Class="InputText" FieldName="" Label="HTMLAttr" Width="400"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button">
+            <EventHandler Name="onclick" Event="onclick" function="SaveRecord()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

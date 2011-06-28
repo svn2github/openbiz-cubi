@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="myaccount" Description="My Account Module" Version="0.1" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="myaccount">
+			<Action Name="access" Description="access my account dashboard"/>
+		</Resource>
+	</ACL>
+    <Menu>
+    	<MenuItem Name="MyAccount" Parent="TopHeader" Title="My Account" Description="" URL="" Order="50">
+            <MenuItem Name="MyAccount.EditAccount" Title="General" Description="General system settings" URL="/myaccount/dashboard" IconCssClass="icon_myaccount" Order="10">
+                <MenuItem Name="MyAccount.EditProfile" Title="My Profile" Description="" URL="/myaccount/my_profile" Order="10"/>
+                <MenuItem Name="MyAccount.EditPref" Title="My Preferences" Description="" URL="/myaccount/my_preference" Order="20"/>
+				<MenuItem Name="MyAccount.ViewEventLog" Title="My Event Log" Description="" URL="/myaccount/my_event_log" Order="30"/>
+				<MenuItem Name="MyAccount.SetPassword" Title="Change Password" Description="" URL="/myaccount/reset_password" Order="40"/>
+                
+            </MenuItem>	
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    	<Module Name="contact"/>
+    </Dependency>
+</Module>

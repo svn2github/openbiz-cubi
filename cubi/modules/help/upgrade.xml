@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<Upgrade>
+    <Version Name="0.1">
+    </Version>
+    <Version Name="0.1.1">
+        <UpgradeSql><![CDATA[
+        ALTER TABLE  `help` ADD `add1` varchar(255) default NULL AFTER `content`;
+        ALTER TABLE  `help` ADD `add2` int(10) default NULL AFTER `add1`;
+        ]]></UpgradeSql>
+    </Version>
+    <Version Name="0.1.2">
+        <UpgradeSql><![CDATA[
+        ALTER TABLE  `help` ADD `add3` varchar(255) default NULL AFTER `add2`;
+        ALTER TABLE  `help` ADD `add4` int(10) default NULL AFTER `add3`;
+        ]]></UpgradeSql>
+    </Version>
+</Upgrade>

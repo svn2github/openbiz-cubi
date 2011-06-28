@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="PostRuleListForm" icon="icon_security_list.gif" Class="SecurityRuleForm" FormType="List" jsClass="jbForm" Title="HTTP Post Request Filters" Description="Security management is a rule based filters system module.\nThis form allows you to filtering sensitive informaion in HTTP POST field by specifying keywords." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="SECURITY" MessageFile="Security.msg" ConfigFile="securityService.xml" ConfigNode="PostFilter">
+    <DataPanel>
+        
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="NAME"/>
+		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="author_email" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_name" Class="ColumnText" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+   			<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(security.form.PostRuleDetailForm,{@:Elem[fld_Id].Value})"  />
+        </Element>    
+        <Element Name="fld_action" Class="ColumnText" FieldName="ACTION" Label="Action"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_match" Class="ColumnText" FieldName="MATCH" Label="Match Rule" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_effectivetime" Class="ColumnText" FieldName="EFFECTIVETIME_Display" Label="EffectiveTime"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_enable" Class="ColumnBool" FieldName="STATUS" TrueValue="Enable" Label="Enable"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        		
+    </DataPanel>
+    <ActionPanel>
+    	<Element Name="lnk_switch" Class="Button" Text="{@:m_ModeStatus =='Enabled'?On:Off}" CssClass="{@:m_ModeStatus =='Enabled'?button_switch_on:button_switch_off}" Description="switch mode" >
+			<EventHandler Name="lnk_switch_onclick" Event="onclick" EventLogMsg="" Function="SwitchMode()"  ShortcutKey="Ctrl+O" ContextMenu="Switch"/>
+        </Element>    
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+			<EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(security.form.PostRuleNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=security.form.PostRuleEditForm&amp;fld:Id={@:m_RecordId}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+ 
+                
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        </Element>
+       
+        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
+            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    	
+    </NavPanel> 
+    <SearchPanel>
+                  
+    </SearchPanel>
+</EasyForm>

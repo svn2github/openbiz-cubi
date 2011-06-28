@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="Element">
+        <xsd:complexType>
+            <xs:attribute name="Name" type="xs:string" use="required" desc=""/>
+            <xs:attribute name="Class" type="xs:string" use="required" desc=""/>
+            <xs:attribute name="Description" type="xs:string" use="" desc=""/>
+            <xs:attribute name="Text" type="xs:string" use="" desc=""/>
+            <xs:attribute name="Access" type="xs:string" use="" desc=""/>
+            <xs:attribute name="Style" type="xs:string" use="" desc=""/>
+            <xs:attribute name="Width" type="xs:string" use="" desc=""/>
+            <xs:attribute name="Height" type="xs:string" use="" desc=""/>
+            <xs:attribute name="Hidden" type="xs:string" use="" desc=""/>
+            <xs:attribute name="HTMLAttr" type="xs:string" use="" desc=""/>
+            <xs:attribute name="ElementSet" type="xs:string" use="" desc=""/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
+

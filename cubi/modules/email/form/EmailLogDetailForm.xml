@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EmailLogDetailForm" Class="EmailLogForm" jsClass="jbForm" Title="Email Log Detail" Description="Detailed attributes of a given email log" BizDataObj="email.do.EmailLogDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html">
+    <DataPanel>
+		     <Element Name="fld_timestamp" Class="LabelText" FieldName="timestamp" Label="Timestamp" Sortable="Y"/>		     		     
+		     <Element Name="fld_sender" Class="LabelText" FieldName="sender"  Label="Sender" Sortable="Y"/>
+		     <Element Name="fld_recipients" Class="LabelText" FieldName="recipients"  Label="Recipient" Sortable="Y"/>
+			 <Element Name="fld_result" Class="LabelText" FieldName="result" Label="Result" Sortable="Y"/>		     
+		     <Element Name="fld_subject" Class="LabelText" FieldName="subject" Label="Subject"  Sortable="Y" />
+		     <Element Name="fld_content" Class="LabelText" FieldName="content" Label="Content"  Sortable="Y"  />		     		     			 
+			 <Element Name="fld_sender_name" Class="Hidden" Hidden="Y" FieldName="sender_name" Label="Recipient" Sortable="Y"/>
+			 <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_back" Class="Button" Text="Back to list" CssClass="button_gray_w"  >
+        	<EventHandler Name="btn_back_onclick" Event="onclick" Function="SwitchForm(email.form.EmailLogListForm)" ShortcutKey="Escape"  />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel>  
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

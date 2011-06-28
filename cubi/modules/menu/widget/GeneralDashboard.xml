@@ -1,0 +1,2 @@
+<MenuWidget Name="GeneralDashboard" Title="System Management" Class="MenuWidget" CssCLass="system" BizDataObj="menu.do.SystemMenuDO" StartMenuID="0-1"  MenuDeep="2" TemplateEngine="Smarty" TemplateFile="system_dashboard.tpl.html" CacheLifeTime="0">
+</MenuWidget>

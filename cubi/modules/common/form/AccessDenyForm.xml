@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="AccessDenyForm" Class="AccessDenyForm" FormType="Edit" jsClass="jbForm" Title="Access Denied" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="accessdenied.tpl.html" >
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_login" Class="LabelText" Text="Goto Login" CssClass="button_m_highlight" Link="{@home:url}/user/login"></Element>
+        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button" Link="javascript:history.go(-1)"></Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="NotfoundForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Page Not Found" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="notfound.tpl.html" >
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>        
+        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button_highlight" Link="javascript:history.go(-1)"></Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

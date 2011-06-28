@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EmailAccountEditForm" Class="EmailSettingForm" icon="icon_email_account_list.gif" FormType="Edit" jsClass="jbForm" Title="Email Accounts Management" Description="This module could manage email accounts for sending notification emails from system. " BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" EventName="EMAIL" MessageFile="Email.msg" ConfigFile="emailService.xml" ConfigNode="Account">
+    <DataPanel>
+		<Element Name="fld_name" Class="LabelText"  FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+         <Element Name="fld_host" Class="InputText" Required="Y" FieldName="HOST" Label="SMTP Host"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_sender_name" Class="InputText" Required="Y"  FieldName="FROMNAME" Label="Sender Name" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_sender_email" Class="InputText" Required="Y"  FieldName="FROMEMAIL" Label="Email"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_sender_username" Class="InputText" Required="Y"  FieldName="USERNAME" Label="Username"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        <Element Name="fld_sender_password" Class="InputPassword"  FieldName="Password" Label="Password"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_sender_auth" Class="Listbox" SelectFrom="email.lov.EmailLOV(Auth)" FieldName="SMTPAUTH" Label="Authentication"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />     	
+          </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="UpdateRecord()" RedirectPage="form=email.form.EmailAccountDetailForm&amp;fld:Id={@:m_RecordId}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

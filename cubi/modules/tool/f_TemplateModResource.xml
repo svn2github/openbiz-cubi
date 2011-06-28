@@ -1,0 +1,7 @@
+		<Resource Name="{$table_name}">
+			<Action Name="access" Description="access {$table_name}"/>
+			<Action Name="view"   Description="view {$table_name}"/>
+			<Action Name="create" Description="create {$table_name}"/>
+			<Action Name="update" Description="Update {$table_name}"/>
+			<Action Name="delete" Description="Delete {$table_name}"/>
+		</Resource>

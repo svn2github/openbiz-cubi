@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="f_EasyFormEdit" Class="F_ElementEdit" FormType="Edit" jsClass="jbForm" Title="" Description="" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>
+        <Element Name="fld_name" Class="InputText" FieldName="Name" Label="Name"/>
+        <Element Name="fld_class" Class="EditCombobox" FieldName="Class" Label="Class" text="EasyForm" SelectFrom="|EasyForm"/>
+        <Element Name="fld_title" Class="InputText" FieldName="Title" Label="Title"/>
+        <Element Name="fld_desc" Class="InputText" FieldName="Description" Label="Description"/>
+        <Element Name="fld_formtype" Class="EditCombobox" FieldName="FormType" Label="Form Type" SelectFrom="tool.Selection(FormType)">
+            <EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+        <Element Name="fld_jsclass" Class="EditCombobox" FieldName="jsClass" Label="jsClass" text="jbForm" SelectFrom="|jbForm"/>
+        <Element Name="fld_dataobj" Class="tool.ToolListbox" FieldName="BizDataObj" Label="BizDataObj" SelectFrom="dos()"/>
+        <Element Name="fld_tplengine" Class="Listbox" FieldName="TemplateEngine" Label="Template Engine" SelectFrom="tool.Selection(TemplateEngine)"/>
+        <Element Name="fld_tplfile" Class="InputText" FieldName="TemplateFile" Label="Template File"/>
+        <Element Name="fld_pagesize" Class="InputText" FieldName="PageSize" Label="Page Size" Hidden="{(@:Elem[fld_formtype].Value == 'List')?'N':'Y'}"/>
+        <Element Name="fld_access" Class="InputText" FieldName="Access" Label="Access"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_highlight">
+            <EventHandler Name="onclick" Event="onclick" function="SaveRecord()"/>
+        </Element>
+        <Element Name="btn_reset" Class="ResetButton" Text="Reset" CssClass="button_highlight">
+        </Element>
+        <Element Name="html_msg" Class="HTMLBlock" text="" style="color:gray; padding:2"/>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

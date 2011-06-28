@@ -1,0 +1,5 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <Auth Value="Y" text="Required"/>
+   <Auth Value="N" text="Not Supported"/>
+</Selection>

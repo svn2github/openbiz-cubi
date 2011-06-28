@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="SecurityDenyForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Security Limitation" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="securitydenied.tpl.html" >
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button" Link="{@home:url}"></Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="HelpCopyForm" Class="HelpForm" Icon="icon_help_copy.gif" FormType="Edit" jsClass="jbForm" Title="Copy help" Description="Help module is a document system, which manages a online manual and \nhelp tips quick reference box on the left side of application panel." BizDataObj="help.do.HelpDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="HELP" MessageFile="Help.msg">
+    <DataPanel>
+        
+        <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y"/>	
+	        
+        <Element Name="fld_category_id" Class="TreeListbox" SelectFrom="help.do.HelpCategoryDO[name:Id]" DefaultValue="{@help.do.HelpDO:Field[c].Value}" FieldName="category_id" Label="Category Id"  AllowURLParam="N" />
+    	        
+        <Element Name="fld_title" Class="InputText" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+    			<Element Name="fld_description" Class="CKEditor"  mode="basic"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:100," width="640" height="100" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
+    			<Element Name="fld_content" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300," width="640" height="300" FieldName="content" Label="Content"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
+        </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=help.form.HelpDetailForm&amp;fld:Id={@help.do.HelpDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm(help.form.HelpListForm)"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="InputElement">
+        <xsd:complexContent>
+            <xsd:extension base="xsd:Element">
+                <xs:attribute name="Label" type="xs:string" use=""/>
+                <xs:attribute name="Required" type="xs:string" use=""/>
+                <xs:attribute name="Validator" type="xs:string" use=""/>
+                <xs:attribute name="ClientValidator" type="xs:string" use=""/>
+                <xs:attribute name="DefaultValue" type="xs:string" use=""/>
+                <xs:attribute name="CssClass" type="xs:string" use=""/>
+                <xs:attribute name="CssErrorClass" type="xs:string" use=""/>
+             </xsd:extension>
+        </xsd:complexContent>
+    </xsd:element>
+</xsd:schema>
+

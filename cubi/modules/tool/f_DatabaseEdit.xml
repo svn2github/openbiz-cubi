@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="f_DatabaseEdit" Class="F_ElementEdit" FormType="Edit" jsClass="jbForm" Title="" Description="" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>
+        <Element Name="fld_name" Class="InputText" FieldName="Name" Label="Name" Width="200"/>
+        <Element Name="fld_driver" Class="Listbox" FieldName="Driver" Label="Driver" SelectFrom="Pdo_Mysql" Width="200"/>
+        <Element Name="fld_server" Class="InputText" FieldName="Server" Label="Server" Width="200"/>
+        <Element Name="fld_port" Class="InputText" FieldName="Port" Label="Port" Width="200"/>
+        <Element Name="fld_dbname" Class="InputText" FieldName="DBName" Label="DBName" Width="200"/>
+        <Element Name="fld_user" Class="InputText" FieldName="User" Label="User" Width="200"/>
+        <Element Name="fld_pass" Class="InputText" FieldName="Password" Label="Password" Width="200"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button">
+            <EventHandler Name="onclick" Event="onclick" function="SaveRecord()"/>
+        </Element>
+        <Element Name="btn_reset" Class="ResetButton" Text="Reset" CssClass="button">
+        </Element>
+        <Element Name="html_msg" Class="HTMLBlock" text="" style="color:gray; padding:2"/>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

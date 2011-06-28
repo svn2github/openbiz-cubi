@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EmailAccountDetailForm" Class="EmailSettingForm" icon="icon_email_account_list.gif" Title="Email Accounts Management" Description="This module could manage email accounts for sending notification emails from system. " FormType="" jsClass="jbForm" BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" EventName="EMAIL" MessageFile="Email.msg" ConfigFile="emailService.xml" ConfigNode="Account">
+    <DataPanel>
+    	<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="author_email" Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />   
+		<Element Name="fld_name" Class="LabelText" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+         <Element Name="fld_host" Class="ColumnText" FieldName="HOST" Label="SMTP Host"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_sender_name" Class="ColumnText" FieldName="FROMNAME" Label="Sender Name" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_sender_email" Class="ColumnText" FieldName="FROMEMAIL" Label="Email"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_sender_username" Class="ColumnText" FieldName="USERNAME" Label="Username"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        <Element Name="fld_sender_auth" Class="ColumnBool" FieldName="SMTPAUTH" TrueValue="y" Label="Authentication"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />     	
+        	            
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+			<EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(email.form.EmailAccountNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(email.form.EmailAccountEditForm,{@:Elem[fld_Id].Value})" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+ 
+                
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=email.form.EmailAccountListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+        </Element>
+       
+        <Element Name="btn_back" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="back_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm()" ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element> 
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

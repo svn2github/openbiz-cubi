@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="cronjob" Description="cronjob management module" Version="0.1" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="cronjob">
+			<Action Name="Administer_Cron" Description="Manage cronjobs with crontab syntax"/>
+		</Resource>
+	</ACL>
+	<Menu>
+    <!-- System menus -->
+		<MenuItem Name="System.Cronjob" Title="Cronjob" Parent="System" IconImage="spacer.gif" Description="Cronjob Management Module" IconCssClass="icon_cronjob" Order="40">
+			<MenuItem Name="System.Cronjob.List" Title="Manage Cronjobs" Description=""  URL="/cronjob/cronjob_list" Order="10"/>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+</Module>

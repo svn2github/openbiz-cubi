@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ModuleListForm" Icon="icon_modules_l.gif" Class="ModuleForm" FormType="List" jsClass="jbForm" Title="Module Management" Description="Manage modules in the application. A modules is a component implementing certain business logic. \nThe module metadata are located at app/modules/module_name folder" BizDataObj="system.do.ModuleDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" MessageFile="system.msg">
+    <DataPanel>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y"/>
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Sortable="Y" Link="{@home:url}/system/module_detail/{@:Elem[fld_Id].Value}"/>
+        <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y"></Element>
+        <Element Name="fld_status" Class="ColumnBool" FieldName="status" Sortable="Y" Label="Active" Link="javascript:;">
+			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
+		</Element>
+        <Element Name="fld_author" Class="ColumnText" FieldName="author" Sortable="Y" Label="Author"/>
+        <Element Name="fld_version" Class="ColumnText" FieldName="version" Sortable="Y" Label="Version"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m">
+            <EventHandler Name="edit_onclick" Event="onclick" Function="EditRecord()" RedirectPage="{@home:url}/system/module_edit/{@:Elem[fld_Id].Value}"/>
+        </Element>
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
+            <EventHandler Name="del_onclick" Event="onclick" Function="DeleteRecord()" ShortcutKey="Delete" ContextMenu="Delete"/>
+        </Element>
+        <Element Name="btn_load" Class="Button" Text="Load New Modules" CssClass="button_gray_m">
+            <EventHandler Name="load_onclick" Event="onclick" Function="loadNewModules()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+        <Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+        	<EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+        	<EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
+        </Element>
+        <Element Name="btn_first"  Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>    
+    </NavPanel> 
+    <SearchPanel>
+
+        <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="system.do.ModuleDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" FieldName="name" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element>        
+    </SearchPanel>
+</EasyForm>

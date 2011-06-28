@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="HelpWidgetDetailForm" Class="HelpForm" Icon="icon_help_tips.gif" Description="Detail information of help item." FormType="" jsClass="jbForm" Title="Help"  BizDataObj="help.do.HelpDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="widget_detail.tpl.html" EventName="HELP" MessageFile="Help.msg">
+    <DataPanel>
+		        <Element Name="fld_Id" hidden="Y" Class="RawData" FieldName="Id" Label="Category Id" AllowURLParam="N"/>
+		        <Element Name="fld_title" Class="RawData" FieldName="title" Label="Title" AllowURLParam="N"/>
+		        <Element Name="fld_description" Class="RawData" FieldName="description" Label="Description" AllowURLParam="N"/>
+	    </DataPanel>
+    <ActionPanel>       
+		<Element Name="btn_detail" Class="Button" Text="More" CssClass="button_gray">
+			<EventHandler Name="btn_detail_onclick" Event="onclick" Function="LoadDialog(help.form.HelpReadForm,{@:Elem[fld_Id].Value})"/>            
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(help.form.HelpWidgetListForm)" />
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

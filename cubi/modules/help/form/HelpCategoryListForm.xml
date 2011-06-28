@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="HelpCategoryListForm" TitleField="name" RootSearchRule="[PId]=0" Class="HelpCategoryForm" Icon="icon_help_category.gif" FormType="List" jsClass="jbForm" Title="Help Category Management" Description="Below list is the help category management. You can create a new category with url match. \nThe help contents under this category will map to left help center box by default." BizDataObj="help.do.HelpCategoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="HELP_CATEGORY" MessageFile="HelpCategory.msg">
+    <DataPanel>
+        
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />         
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:" >	
+        <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(help.form.HelpCategoryDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>
+        <Element Name="fld_description" Class="ColumnText" MaxLenght="40" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	        
+        <Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sort_order" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})" />
+        	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value+5})" />
+        </Element>  
+        <Element Name="fld_manage" Class="ColumnText" FieldName="sort_order" Label="Action" Link="{@home:url}/help/help_list/c_{@:Elem[fld_Id].Value}" Text="Manage" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        	
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(help.form.HelpCategoryNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=help.form.HelpCategoryEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)" >
+            <EventHandler Name="btn_copy_onclick" Event="onclick" EventLogMsg="" Function="CopyRecord()" RedirectPage="form=help.form.HelpCategoryCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element>
+                
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        </Element>
+        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
+            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
+        </Element>
+        <Element Name="btn_manage" Class="Button" Text="Manage" CssClass="button_gray_w">
+            <EventHandler Name="exc_manage" Event="onclick" EventLogMsg="" Function="CopyRecord()" RedirectPage="{@home:url}/help/help_list/c_{@:Elem[fld_Id].Value}"  ShortcutKey="Ctrl+M" ContextMenu="Manage"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    	
+    </NavPanel> 
+    <SearchPanel>
+           
+    </SearchPanel>
+</EasyForm>

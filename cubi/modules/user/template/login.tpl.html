@@ -1,0 +1,95 @@
+<form id="{$form.name}" name="{$form.name}">
+	<div class="cubi_logo_large"></div>
+	<div class="v_line"></div>
+	<div class="login_form">
+		<table><tr><td valign="middle" style="height:400px;">
+		<div style="height:75px;" class="cubi_login_banner">
+
+		</div>
+		<p class="input_row">
+			<label style="width:60px;">{$dataPanel.username.label}</label>
+			<span style="width:200px; display:block;float:left;">{$dataPanel.username.element}</span>
+			{if $errors.username}
+			<span class="input_error_msg">{$errors.username}</span>
+			{/if}			
+		</p>
+		
+		<p class="input_row">
+			<label style="width:60px;">{$dataPanel.password.label}</label>
+			<span style="width:200px; display:block;float:left;">{$dataPanel.password.element}</span>
+			{if $errors.password}
+			<span class="input_error_msg">{$errors.password}</span>
+			{/if}		
+		</p>
+		{if $dataPanel.antispam.label}
+		<p class="input_row">
+			<label style="width:60px;">{$dataPanel.antispam.label}</label>
+			<span style="width:200px; display:block;float:left;">{$dataPanel.antispam.element}</span>
+			{if $errors.antispam}
+			<span class="input_error_msg">{$errors.antispam}</span>
+			{/if}		
+		</p>
+		{/if}
+		{if $dataPanel.session_timeout.label}
+		<div class="input_row"  style="width:400px;display:block;height:35px;overflow:hidden;">
+			<label style="width:60px;">{$dataPanel.session_timeout.label}</label>
+			<span style="width:200px; display:block;height:35px;float:left;">{$dataPanel.session_timeout.element}</span>
+			{if $errors.session_timeout}
+			<span class="input_error_msg">{$errors.session_timeout}</span>
+			{/if}		
+		</div>	
+		{/if}	
+		{if $dataPanel.current_language.label}
+		<div class="input_row" style="width:400px;display:block;height:35px;overflow:hidden;" >
+			<label style="width:60px;">{$dataPanel.current_language.label}</label>
+			<span style="width:200px; display:block;height:35px;float:left;">{$dataPanel.current_language.element}</span>
+			{if $errors.current_language}
+			<span class="input_error_msg">{$errors.current_language}</span>
+			{/if}		
+		</div>	
+		{/if}
+		{if $dataPanel.current_theme.label}
+		<div class="input_row" style="width:400px;display:block;height:35px;overflow:hidden;">
+			<label style="width:60px;">{$dataPanel.current_theme.label}</label>
+			<span style="width:200px; display:block;height:35px;float:left;">{$dataPanel.current_theme.element}</span>
+			{if $errors.current_theme}
+			<span class="input_error_msg">{$errors.current_theme}</span>
+			{/if}		
+		</div>
+		{/if}
+						
+		<p class="input_row">
+			<span onclick="document.getElementById('login_indicator').className='show'">
+			{foreach item=elem from=$actionPanel}
+			{$elem.element}
+			{/foreach}
+			</span>
+			
+			{if $errors.login_status}
+				<span id="login_indicator" class="show">
+				{$errors.login_status}
+				</span>
+			{else}
+				<span id="login_indicator" class="hidden">
+				{t}Processing login...{/t}
+				</span>
+			{/if}	
+			
+		</p>
+	{if $notices}
+	    <div >
+	    {foreach item=noticeMsg from=$notices}
+	        <div>{$noticeMsg}</div>
+	    {/foreach}
+	    </div>	   
+	{/if}		
+		<p class="input_row">
+	    <span style="margin-right:10px;"> {$dataPanel.register_new.element}  </span> {$dataPanel.forget_pass.element}
+		</p>
+		</td></tr></table>
+	</div>
+
+
+</form>
+
+

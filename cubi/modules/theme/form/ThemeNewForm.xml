@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ThemeNewForm" Class="ThemeForm" icon="icon_theme_add.gif" FormType="New" jsClass="jbForm" Title="New Theme Package" Description="Theme is a graphical appearance for this system. similar to a graphics skin.\nEach theme package is contains custom UI component skin, css files and layout template." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="THEME" MessageFile="Theme.msg">
+    <DataPanel>
+		<Element Name="fld_Id" ElementSet="General" Class="Hidden" Hidden="Y" FieldName="Id" Label="author_email" Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_theme" ElementSet="General" Class="InputText" DefaultValue="new_theme" FieldName="theme" Label="Theme"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_name" ElementSet="General" Class="InputText" DefaultValue="New Theme" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+         <Element Name="fld_preview" ElementSet="General" DefaultValue="theme_screenshot.gif" Class="InputText" FieldName="preview" Label="Screenshot"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+		</Element>   				
+        <Element Name="fld_icon" ElementSet="General" DefaultValue="theme_icon.gif" Class="InputText"   FieldName="icon"  Label="Icon"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_desc" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_version" ElementSet="General" Class="InputText" DefaultValue="1.0" FieldName="version" Label="Version"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+
+        <Element Name="fld_author" ElementSet="Addiontional" Class="InputText" DefaultValue="{'@profile:username'}" FieldName="author" Label="Author"  Link="mailto:{@:Elem[fld_author_email].Value}"   Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_author_email" ElementSet="Addiontional" Class="InputText" DefaultValue="{'@profile:email'}" FieldName="authorEmail" Label="Email"  Link="mailto:{@:Elem[fld_author_email].Value}"   Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_author_url" ElementSet="Addiontional" Class="InputText" DefaultValue="http://" FieldName="authorUrl" Label="Homepage"  Link="[fld_author_url].Value}"   Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_createdate" ElementSet="Addiontional" Class="InputDate" DefaultValue="{date('Y-m-d')}" FieldName="creationDate" Label="Create Date"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+       
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=theme.form.ThemeDetailForm&amp;fld:Id={@:m_RecordID}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

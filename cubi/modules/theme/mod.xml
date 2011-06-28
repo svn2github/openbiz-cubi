@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="theme" Description="Theme management module" Author="Jixian" Version="0.1" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="Theme">
+			<Action Name="Administer_Theme" Description="Can manage system theme package for the application"/>
+		</Resource>
+	</ACL>
+	<Menu>
+    <!-- System menus -->
+		<MenuItem Name="System.Theme" Title="Theme" Description="Theme Management" Parent="System" IconImage="spacer.gif" IconCssClass="icon_theme" Order="50">			
+			<MenuItem Name="System.Theme.Manage" Title="Manage Theme" Description=""  URL="/theme/manage_theme" Order="10"/>			
+		</MenuItem>
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+</Module>

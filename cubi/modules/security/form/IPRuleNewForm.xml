@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="IPRuleNewForm" Class="SecurityRuleForm" icon="icon_security_add.gif" FormType="New" jsClass="jbForm" Title="Client IP Address Filters" Description="Security management is a rule based filters system module.\nThis form allows you to control which IP will have access permission to the system."  BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="new.tpl.html"  EventName="SECURITY" MessageFile="Security.msg" ConfigFile="securityService.xml" ConfigNode="IPFilter">
+    <DataPanel>
+		<Element Name="fld_name" DefaultValue="New_Client_IP_Rule" Class="InputText" Required="Y" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_match" Class="InputText" Required="Y" FieldName="MATCH" Label="Match Rule" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_starthour" Class="Listbox" SelectFrom="security.lov.SecurityLOV(Hour)" FieldName="starthour" DefaultValue="00" Label="Effective Time"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_starttime" Class="Listbox" SelectFrom="security.lov.SecurityLOV(Time)" FieldName="starttime" DefaultValue="00" Label="Start Time"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_endhour" Class="Listbox" SelectFrom="security.lov.SecurityLOV(Hour)" FieldName="endhour" DefaultValue="23" Label="End Hour"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_endtime" Class="Listbox"  SelectFrom="security.lov.SecurityLOV(Time)" FieldName="endtime" DefaultValue="59" Label="End Time"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+                
+        <Element Name="fld_action" Class="Listbox" SelectFrom="security.lov.SecurityLOV(Action)" DefaultValue="Deny" FieldName="ACTION" Label="Action"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_enable" Class="Listbox" SelectFrom="security.lov.SecurityLOV(Status)" DefaultValue="Enable"  FieldName="STATUS" Label="Enable"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=security.form.IPRuleDetailForm&amp;fld:Id={@:m_RecordId}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

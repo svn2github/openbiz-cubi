@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="f_ReferenceEdit" Class="F_ElementEdit" FormType="Edit" jsClass="jbForm" Title="" Description="" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>
+        <Element Name="fld_name" Class="tool.ToolListbox" FieldName="Name" Label="Form Name" SelectFrom="forms()" Width="200"/>
+        <Element Name="fld_subforms" Class="tool.ToolListbox" FieldName="SubForms" Label="Sub Forms" SelectFrom="references()" width="200"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button">
+            <EventHandler Name="onclick" Event="onclick" function="SaveRecord()"/>
+        </Element>
+        <Element Name="btn_reset" Class="ResetButton" Text="Reset" CssClass="button">
+        </Element>
+        <Element Name="html_msg" Class="HTMLBlock" text="" style="color:gray; padding:2"/>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

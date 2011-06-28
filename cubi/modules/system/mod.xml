@@ -1,0 +1,49 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="system" Description="system module, only administrator can access" Version="0.1" Author="Rocky" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="Site">
+			<Action Name="Administer_General" Description="General administration of the site"></Action>
+		</Resource>
+        <Resource Name="User">
+			<Action Name="Administer_Users" Description="Administration of users"></Action>
+			<Action Name="Administer_User_ACL" Description="Administration of user access control" />
+		</Resource>
+		<Resource Name="Role">
+			<Action Name="Administer_Roles" Description="Administration of user roles"></Action>
+		</Resource>
+        <Resource Name="Group">
+			<Action Name="Administer_Groups" Description="Administration of user groups"></Action>
+		</Resource>
+		<Resource Name="Module">
+			<Action Name="Administer_Modules" Description="Administration includes view modules, load modules, activate/deactivate modules"/>
+		</Resource>
+    </ACL>
+    <Menu>
+    <!-- System menus -->
+    	<MenuItem Name="System" Title="Administration" Description="" URL="/system/general_default" Access="Site.Administer_General" Order="10">
+	    	<MenuItem Name="System.User" Title="Users" Description="System User Management" Access="User.Administer_Users" IconImage="spacer.gif" IconCssClass="icon_user" Order="10">
+	    		<MenuItem Name="System.User.List" Title="User Management" Description="" URL="/system/user_list" Order="10">
+	    			<MenuItem Name="System.User.Detail" Title="User Detail" Description="" URL="/system/user_detail" Order="10"/>	    			
+	    		</MenuItem>
+	    		<MenuItem Name="System.User.Preference" Title="Preference Setting" Description="" URL="/system/user_preference" Order="20"/>
+	    	</MenuItem>
+	    	<MenuItem Name="System.Role" Title="Roles" Description="Role Management Module" IconImage="spacer.gif" IconCssClass="icon_role" Order="12">
+	    		<MenuItem Name="System.Role.List" Title="Role Management" Description="" URL="/system/role_list" Order="10">
+	    			<MenuItem Name="System.Role.Detail" Title="Role Detail" Description="" URL="/system/role_detail" Order="10"/>
+	    		</MenuItem>
+	    	</MenuItem>
+	    	<MenuItem Name="System.Module" Title="Modules" Description="Modules Management" IconImage="spacer.gif" IconCssClass="icon_module" Order="14">
+	    		<MenuItem Name="System.Modules.List" Title="Module Management" Description="" URL="/system/module_list" Order="10">
+	    			<MenuItem Name="System.Modules.Detail" Title="Module Detail" Description="" URL="/system/module_detail" Order="10"/>
+	    		</MenuItem>
+	    	</MenuItem>
+            <MenuItem Name="System.Group" Title="Groups" Description="Group Management Module" IconImage="spacer.gif" IconCssClass="icon_group" Order="16">
+	    		<MenuItem Name="System.Group.List" Title="Group Management" Description="" URL="/system/group_list" Order="10">
+	    		</MenuItem>
+	    	</MenuItem>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    </Dependency>
+</Module>
+

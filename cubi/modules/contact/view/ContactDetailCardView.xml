@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ContactDetailCardView" Description="Detailed Name Cards" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="contact.form.ContactDetailCardForm"/>
+   </FormReferences>   
+</EasyView>

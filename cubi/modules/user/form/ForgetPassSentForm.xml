@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?>
+<EasyForm Name="ForgetPassSentForm" Class="EasyForm" FormType="edit" jsClass="jbForm" Title="Password Email Sent" SearchRule="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="passwordsent.tpl.html" MessageFile="system.msg" >
+   <DataPanel>
+    
+   </DataPanel>
+   <ActionPanel>
+        <Element Name="btn_back" Class="LabelText" Text="Back" CssClass="button" Link="{@home:url}/user/login" >            			
+        </Element> 
+    </ActionPanel> 
+</EasyForm>

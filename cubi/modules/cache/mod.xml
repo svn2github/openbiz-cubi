@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="cache" Description="Cache management module" Author="Jixian" Version="0.1" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="cache">
+			<Action Name="Administer_Cache" Description="manage and view cache usage information"/>
+		</Resource>
+	</ACL>
+    <Menu>
+    <!-- Contact menus -->
+    	<MenuItem Name="Cache" Title="Cache" Parent="System" Description="Cache Management" IconImage="spacer.gif" IconCssClass="icon_cache" Order="50">				
+			<MenuItem Name="cache.manage" Title="Manage System Cache " Description=""  URL="/cache/manage" ></MenuItem>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+</Module>

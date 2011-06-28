@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="UserNewForm" Icon="icon_user_add.gif" Class="UserForm" FormType="New" jsClass="jbForm" Title="New user" Description="Please fill the form below to create a new user account" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="system.msg">
+    <DataPanel>
+        <Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="Id" Hidden="Y" />
+		<Element Name="fld_username" Class="InputText" FieldName="username" required="Y" Label="Username"  Validator="{@validate:betweenLength([fld_username], 3, 10)}" HTMLAttr="maxlength='10'"/>
+        <Element Name="fld_password" Class="Password" FieldName="password" label="Password"  required="Y"  Validator="{@validate:betweenLength([fld_password], 4, 20)}" HTMLAttr="maxlength='20'"/>
+		<Element Name="fld_password_repeat" Class="Password" FieldName="password" Description="Input password again for confirmation"  Label="Repeat"  required="Y"/>
+        <Element Name="fld_email" Class="InputText" FieldName="email" Label="Email"  Validator="{@validate:email('[fld_email]')}"/>
+        <Element Name="fld_corpid" Class="Listbox" FieldName="corp_id" Label="Corporate" SelectFrom="corp.do.CorpDO[name:Id]" BlankOption="---"/>
+        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.Selection(Status)"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" Function="CreateUser()" ShortcutKey="Enter" RedirectPage="{@home:url}/system/user_detail/{@:Elem[fld_Id].Value}"/>
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="js:history.go(-1)"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

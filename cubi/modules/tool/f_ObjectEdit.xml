@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="f_ObjectEdit" Class="F_ElementEdit" FormType="Edit" jsClass="jbForm" Title="" Description="" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>
+        <Element Name="fld_name" Class="tool.ToolListbox" FieldName="Name" Label="Name" SelectFrom="dos()" Width="200">
+            <EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+        <Element Name="fld_rel" Class="Listbox" FieldName="Relationship" Label="Relationship" SelectFrom="tool.Selection(TableRelationship)" Width="200">
+            <EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+        <Element Name="fld_table" Class="tool.ToolInputText" FieldName="Table" Label="Table" text="table($fld_name)" HTMLAttr="readonly" Width="200"/>
+        <Element Name="fld_column" Class="tool.ToolListbox" FieldName="Column" Label="Column" SelectFrom="columns($fld_table)" Width="200">
+            <EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+        <Element Name="fld_fieldref" Class="tool.ToolListbox" FieldName="FieldRef" Label="Referred Field" SelectFrom="fields()" Width="200"/>
+        <Element Name="fld_casdel" Class="Listbox" FieldName="CascadeDelete" Label="CascadeDelete" SelectFrom="tool.Selection(NY)" Width="200"/>
+        <Element Name="fld_xdataobj" Class="tool.ToolListbox" FieldName="XDataObj" Label="DataObject of Intersection Table" SelectFrom="dos()" Hidden="{(@:Elem[fld_rel].Value == 'M-M')?'N':'Y'}" width="200">
+            <EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+        <Element Name="fld_xtable" Class="tool.ToolInputText" FieldName="XTable" Label="Intersection Table" text="table($fld_xdataobj)" HTMLAttr="readonly" Hidden="{(@:Elem[fld_rel].Value == 'M-M')?'N':'Y'}" width="200"/>
+        <Element Name="fld_xcolumn1" Class="tool.ToolListbox" FieldName="XColumn1" Label="Intersection Table Column1" SelectFrom="columns($fld_xtable)" Hidden="{(@:Elem[fld_rel].Value == 'M-M')?'N':'Y'}" width="200"/>
+        <Element Name="fld_xcolumn2" Class="tool.ToolListbox" FieldName="XColumn2" Label="Intersection Table Column2" SelectFrom="columns($fld_xtable)" Hidden="{(@:Elem[fld_rel].Value == 'M-M')?'N':'Y'}" width="200"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button">
+            <EventHandler Name="onclick" Event="onclick" function="SaveRecord()"/>
+        </Element>
+        <Element Name="btn_reset" Class="ResetButton" Text="Reset" CssClass="button">
+        </Element>
+        <Element Name="html_msg" Class="HTMLBlock" text="" style="color:gray; padding:2"/>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

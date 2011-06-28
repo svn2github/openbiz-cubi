@@ -1,0 +1,2 @@
+<MenuWidget Name="BreadcrumbMenu" Title="Breadcrumb Menu" Class="MenuWidget" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='System'"  MenuDeep="2" TemplateEngine="Smarty" TemplateFile="breadcrumb_menu.tpl" CacheLifeTime="0">
+</MenuWidget>

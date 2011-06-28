@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="LabelText">
+        <xsd:complexContent>
+            <xsd:extension base="xsd:Element">
+                <xs:attribute name="Label" type="xs:string" use=""/>
+                <xs:attribute name="Link" type="xs:string" use=""/>
+                <xs:attribute name="Target" type="xs:string" use=""/>
+                <xs:attribute name="MaxLength" type="xs:string" use=""/>
+                <xs:attribute name="Percent" type="xs:string" use=""/>
+                <xs:attribute name="DisplayFormat" type="xs:string" use=""/>
+             </xsd:extension>
+        </xsd:complexContent>
+    </xsd:element>
+</xsd:schema>
+

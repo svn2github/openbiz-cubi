@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="f_BizFieldEdit" Class="F_ElementEdit" FormType="Edit" jsClass="jbForm" Title="" Description="" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>
+        <Element Name="fld_name" Class="InputText" FieldName="Name" Label="Name" Width="200"/>
+        <Element Name="fld_class" Class="EditCombobox" FieldName="Class" Label="Class" SelectFrom="|BizField" width="200"/>
+        <Element Name="fld_join" Class="tool.ToolListbox" FieldName="Join" Label="Join" SelectFrom="joins()" width="200">
+            <EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+        <Element Name="fld_column" Class="tool.ToolListbox" FieldName="Column" Label="Column" SelectFrom="columns(/BizDataObj/@Table,$fld_join)" width="200"/>        
+        <Element Name="fld_sqlexpr" Class="InputText" FieldName="SQLExpr" Label="SQL Expression" width="200"/>
+        <!--<Element Name="fld_alias" Class="InputText" FieldName="Alias" Label="Alias" width="200"/>-->
+        <Element Name="fld_type" Class="Listbox" FieldName="Type" Label="Type" SelectFrom="tool.Selection(FieldType)" width="200"/>
+        <element Name="fld_format" Class="InputText" FieldName="Format" Label="Format" width="200"/>
+        <Element Name="fld_default" Class="InputText" FieldName="DefaultValue" Label="Default Value" width="200"/>
+        <Element Name="fld_value" Class="InputText" FieldName="Value" Label="Calculated Value" width="200"/>
+        <Element Name="fld_required" Class="Listbox" FieldName="Required" Label="Required" SelectFrom="tool.Selection(NY)" width="200"/>
+        <Element Name="fld_validator" Class="InputText" FieldName="Validator" Label="Validator" width="400"/>
+        <Element Name="fld_valoncreate" Class="InputText" FieldName="ValueOnCreate" Label="Value on create" width="200" Description="The value set on data creation. Example: {@profile:Id} for creator, {date('Y-m-d H:i:s')} for creation time"/>
+        <Element Name="fld_valonupdate" Class="InputText" FieldName="ValueOnUpdate" Label="Value on update" width="200" Description="The value set on data update Example: {@profile:Id} for updator, {date('Y-m-d H:i:s')} for update time"/>
+        <Element Name="fld_onaudit" Class="Listbox" FieldName="OnAudit" Label="OnAudit" SelectFrom="tool.Selection(NY)" width="200"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button">
+            <EventHandler Name="onclick" Event="onclick" function="SaveRecord()"/>
+        </Element>
+        <Element Name="btn_reset" Class="ResetButton" Text="Reset" CssClass="button">
+        </Element>
+        <Element Name="html_msg" Class="HTMLBlock" text="" style="color:gray; padding:2"/>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

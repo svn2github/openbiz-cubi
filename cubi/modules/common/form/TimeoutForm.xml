@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TimeoutForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Session Timeout" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="session_timeout.tpl.html" >
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_login" Class="LabelText" Text="Goto Login" CssClass="button_m_highlight" Link="{@home:url}/user/login"></Element>        
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

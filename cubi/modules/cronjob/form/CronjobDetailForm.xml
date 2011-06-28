@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="CronjobDetailForm" Class="CronjobForm"  Icon="icon_cronjob_l.gif" Description="Cronjob enables users to schedule jobs (commands or shell scripts) \nto run periodically at certain times or dates." FormType="" jsClass="jbForm" Title="Cronjob Task Detail" BizDataObj="cronjob.do.CronjobDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="edit.tpl.html" EventName="CRONJOB" MessageFile="Cronjob.msg">
+    <DataPanel>
+		<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+         <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+         <Element Name="fld_name" Class="LabelText" ElementSet="General" FieldName="name" Label="Name"  AllowURLParam="N" />
+        <Element Name="fld_command" Class="LabelText" ElementSet="General" FieldName="command" Label="Command"  AllowURLParam="N" />
+        <Element Name="fld_description" Class="LabelTextarea" ElementSet="General" FieldName="description" Label="Description"  AllowURLParam="N" />
+
+        <Element Name="fld_minute" Class="LabelText" ElementSet="Schedule" FieldName="minute" Label="Minute"  AllowURLParam="N"/>
+        <Element Name="fld_hour" Class="LabelText"  ElementSet="Schedule" FieldName="hour" Label="Hour"  AllowURLParam="N"/>
+        <Element Name="fld_day" Class="LabelText" ElementSet="Schedule" FieldName="day" Label="Day"  AllowURLParam="N"/>
+        <Element Name="fld_month" Class="LabelText"  ElementSet="Schedule" FieldName="month" Label="Month"  AllowURLParam="N"/>
+        <Element Name="fld_weekday" Class="LabelText"  ElementSet="Schedule" FieldName="weekday" Label="Weekday"  AllowURLParam="N"/>
+
+        <Element Name="fld_sendmail" ElementSet="Parameters" Class="LabelText" FieldName="sendmail" Label="Sendmail" DefaultValue="{'@profile:email'}" AllowURLParam="N" />
+        <Element Name="fld_max_run" ElementSet="Parameters" Class="LabelText" FieldName="max_run" Label="Concurrent "  />
+        <Element Name="fld_status" ElementSet="Parameters" Class="LabelBool" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(Status)" Link="javascript:;">
+			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
+		</Element> 
+
+		<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>
+        <Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
+        <Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>
+        <Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>	        
+    </DataPanel>
+    <ActionPanel>       
+        <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(cronjob.form.CronjobNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
+        </Element>          
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(cronjob.form.CronjobEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+		<Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
+            <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=cronjob.form.CronjobCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element> 
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=cronjob.form.CronjobListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(cronjob.form.CronjobListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

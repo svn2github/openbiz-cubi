@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+
+<pdf orientation="portrait" unit="mm" format="A4">
+
+  <page orientation="p" topmargin="10" leftmargin="10" rightmargin="10">
+    <meta name="author" value="Patrick Prasse"/>
+    <meta name="creator" value="See Author"/>
+    <meta name="subject" value="Many, many subjects"/>
+    <meta name="title" value="Well, none..."/>
+    <meta name="keywords" value="key, word, keyword, keywords"/>
+    <meta name="basefont" value="arial,B,12"/>
+
+    <table>
+      <tr height="5">
+	<td width="70" border="1" align="L">This is normal text. <br/> This is the next line.  </td>
+      </tr>
+      
+      <tr height="5">
+	<td width="70" border="1"><b>This is bold text.</b> </td>
+      </tr>
+  
+      <tr height="5">
+	<td width="70" border="1"><i>This is italic text.</i> </td>
+      </tr>
+
+      <tr height="5">
+	<td width="70" border="1"><u>This is underlined text.</u> </td>
+      </tr>
+    </table>
+
+    This is text <b>NOT</b> in a table!
+    This should be the same line. <br/>
+    This should be the next line.
+    <br/><br/>
+    Now testing headings:<br/>
+    <h1>H1</h1>
+    <h2>H2</h2>
+    <h3>H3</h3>
+    <h4>H4</h4>
+    <h5>H5</h5>
+
+  </page>
+
+
+</pdf>

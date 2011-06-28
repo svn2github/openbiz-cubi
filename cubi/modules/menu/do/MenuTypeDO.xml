@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <MenuType Value="System" text="System Menu"/>
+   <MenuType Value="Application" text="Application  Menu"/>
+   <MenuType Value="User" text="User Customed Menu"/>
+</Selection>	

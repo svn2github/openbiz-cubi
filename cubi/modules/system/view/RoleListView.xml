@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="RoleListView" Description="Role Management" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="system_view.tpl.html"  Access="Role.Administer_Roles">
+    <FormReferences>
+        <Reference Name="system.form.RoleListForm"/>
+    </FormReferences>
+</EasyView>

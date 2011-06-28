@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="EmailTemplateListView" Description="Manage Email Template" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="EmailTemplate.Administer_Email_Template">
+    <FormReferences>
+        <Reference Name="email.form.EmailTemplateListForm"/>
+    </FormReferences>
+</EasyView>

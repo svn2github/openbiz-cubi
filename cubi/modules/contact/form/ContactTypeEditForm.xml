@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ContactTypeEditForm" Class="ContactTypeForm" FormType="Edit" jsClass="jbForm" Title="Edit Contact Type" Description="Edit Contact Item" BizDataObj="contact.do.ContactTypeDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="CONTACT" MessageFile="Contact.msg">
+    <DataPanel>
+		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
+		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"   />	
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	
+        <Element Name="fld_published" Class="Radio" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="1" FieldName="published" Label="Published"  />	
+        <Element Name="fld_sortorder" Class="Listbox" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=contact.form.ContactTypeDetailForm&amp;fld:Id={@contact.do.ContactTypeDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactTypeListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

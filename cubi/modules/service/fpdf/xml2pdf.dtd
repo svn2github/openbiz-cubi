@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	DTD for XML2PDF
+-->
+
+<!-- Entities -->
+
+<!-- measurement in mm -->
+<!ENTITY % mm "CDATA">
+
+<!-- alignment -->
+<!ENTITY % pageorientation "orientation (portrait|p|landscape|l) #IMPLIED">
+<!ENTITY % pageformat "format (A4|A3|A5|Letter|Legal) #IMPLIED">
+
+<!ENTITY % alignment "align (left|l|center|c|right|r) #IMPLIED">
+<!ENTITY % filltype "fill (t|transparent|0|p|painted|1) #IMPLIED">
+<!ENTITY % border "CDATA">
+
+<!ENTITY % color "CDATA">
+<!ENTITY % link "CDATA">
+
+<!ENTITY % fontfamily "family CDATA #IMPLIED">
+<!ENTITY % fontstyle "style (regular|B|I|U) #IMPLIED">
+<!ENTITY % fontsize "size CDATA #IMPLIED">
+
+<!-- Elements -->
+<!ELEMENT pdf (header|footer|page)*>
+
+<!ELEMENT header (#PCDATA|font|table|br|bold|italic|linewidth)*>
+<!ATTLIST header
+  y %mm; #IMPLIED
+  >
+
+<!ELEMENT footer (#PCDATA|font|table|br|bold|italic|linewidth)*>
+<!ATTLIST footer
+  y %mm; #REQUIRED
+  >
+
+<!ELEMENT page (#PCDATA|meta|font|table|br|bold|italic|linewidth)*>
+<!ATTLIST page
+  %pageorientation;
+  >
+
+<!ELEMENT meta EMPTY>
+<!ATTLIST meta
+  name "CDATA"; #REQUIRED
+  value "CDATA"; #REQUIRED
+  >
+
+
+<!ELEMENT table (tr)*>
+
+<!ELEMENT tr (td)*>
+<!ATTLIST tr
+  height %mm; #REQUIRED
+  >
+
+<!ELEMENT td *>
+<!ATTLIST td
+  width %mm; #REQUIRED
+  border %border;
+  %alignment;
+  %filltype;
+  >
+
+
+<!ELEMENT font *>
+<!ATTLIST font
+  %fontfamily;
+  %fontstyle;
+  %fontsize;
+  >
+
+
+<!ELEMENT br EMPTY>
+
+<!ELEMENT a *>
+<!ATTLIST a
+  href %link; #IMPLIED
+  name %link; #IMPLIED
+  >
+
+<!ELEMENT indent *>
+<!ATTLIST indent
+  indent %mm; #REQUIRED
+  >
+
+<!ELEMENT img *>
+<!ATTLIST img
+  %src; #REQUIRED
+  %width;
+  %height;
+  >
+
+<!ELEMENT i *>
+<!ELEMENT italic *>
+
+<!ELEMENT b *>
+<!ELEMENT bold *>
+
+<!ELEMENT u *>
+<!ELEMENT underline *>
+
+<!ELEMENT h1 *>
+<!ELEMENT h2 *>
+<!ELEMENT h3 *>
+<!ELEMENT h4 *>
+<!ELEMENT h5 *>
+
+<!ELEMENT ih1 *>
+<!ELEMENT ih2 *>
+<!ELEMENT ih3 *>
+<!ELEMENT ih4 *>
+<!ELEMENT ih5 *>
+
+<!ELEMENT color *>
+<!ATTLIST color
+  drawcolor %color; #IMPLIED
+  fillcolor %color; #IMPLIED
+  textcolor %color; #IMPLIED
+  >

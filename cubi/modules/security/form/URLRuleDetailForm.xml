@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="URLRuleDetailForm" Class="SecurityRuleForm" icon="icon_security_list.gif" FormType="" jsClass="jbForm" Title="URL Filter Management" Description="Security management is a rule based filters system module.\nThis form allows you to control access about URL request from the Internet by specifying keywords in URL.  " BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="SECURITY" MessageFile="Security.msg" ConfigFile="securityService.xml" ConfigNode="UrlFilter" >
+    <DataPanel>
+    	<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="author_email" Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />   
+		<Element Name="fld_name" Class="LabelText" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_match" Class="LabelText" FieldName="MATCH" Label="Match Rule" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_effectivetime" Class="LabelText" FieldName="EFFECTIVETIME_Display" Label="EffectiveTime"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_action" Class="LabelText" FieldName="ACTION" Label="Action"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_enable" Class="LabelBool" FieldName="STATUS" TrueValue="Enable" Label="Enable"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        	            
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+			<EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(security.form.URLRuleNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(security.form.URLRuleEditForm,{@:Elem[fld_Id].Value})" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+ 
+                
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=security.form.URLRuleListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+        </Element>
+       
+        <Element Name="btn_back" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="back_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm()" ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element> 
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

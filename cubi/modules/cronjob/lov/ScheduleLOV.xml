@@ -1,0 +1,112 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <Minute Value="*" text="Every min"/>
+   <Minute Value="0,5,10,15,20,25,30,35,40,45,50,55" text="Every 5 mins"/>
+   <Minute Value="0,10,20,30,40,50" text="Every 10 mins"/>
+   <Minute Value="0,15,30,45" text="Every 15 mins"/>
+   <Minute Value="0,20,40" text="Every 20 mins"/>
+   <Minute Value="0,30" text="Every 30 mins"/>   
+   <Minute Value="0" text="*:00"/>
+   <Minute Value="5" text="*:05"/>
+   <Minute Value="10" text="*:10"/>
+   <Minute Value="15" text="*:15"/>
+   <Minute Value="20" text="*:20"/>
+   <Minute Value="25" text="*:25"/>
+   <Minute Value="30" text="*:30"/>
+   <Minute Value="35" text="*:35"/>
+   <Minute Value="40" text="*:40"/>
+   <Minute Value="45" text="*:45"/>
+   <Minute Value="50" text="*:50"/>
+   <Minute Value="55" text="*:55"/>
+
+   <Hour Text="Every hour" Value="*"/>
+   <Hour Text="Every 2 hours" Value="0,2,4,6,8,10,12,14,16,18,20,22"/>
+   <Hour Text="Every 3 hours" Value="0,3,6,9,12,15,18,21"/>
+   <Hour Text="Every 4 hours" Value="0,4,8,12,16,20"/>
+   <Hour Text="Every 6 hours" Value="0,6,12,18"/>
+   <Hour Text="Every 12 hours" Value="0,12"/>
+	<Hour Text="00:*" Value="0"/>
+	<Hour Text="01:*" Value="1"/>  
+	<Hour Text="02:*" Value="2"/>
+	<Hour Text="03:*" Value="3"/>
+	<Hour Text="04:*" Value="4"/>
+	<Hour Text="05:*" Value="5"/>
+	<Hour Text="06:*" Value="6"/>
+	<Hour Text="07:*" Value="7"/>
+	<Hour Text="08:*" Value="8"/>
+	<Hour Text="09:*" Value="9"/>
+	<Hour Text="10:*" Value="10"/>
+	<Hour Text="11:*" Value="11"/>  
+	<Hour Text="12:*" Value="12"/>
+	<Hour Text="13:*" Value="13"/>
+	<Hour Text="14:*" Value="14"/>
+	<Hour Text="15:*" Value="15"/>
+	<Hour Text="16:*" Value="16"/>
+	<Hour Text="17:*" Value="17"/>
+	<Hour Text="18:*" Value="18"/>
+	<Hour Text="19:*" Value="19"/>
+	<Hour Text="20:*" Value="20"/>
+	<Hour Text="21:*" Value="21"/>
+	<Hour Text="22:*" Value="22"/>
+	<Hour Text="23:*" Value="23"/>	
+	
+
+	<Month Text="Every month" Value="*"/>
+	<Month Text="Odd months" Value="1,3,5,7,9,11"/>
+	<Month Text="Even months" Value="2,4,6,8,10,12"/>
+	<Month Text="January" Value="1"/>  
+	<Month Text="February" Value="2"/>
+	<Month Text="March" Value="3"/>
+	<Month Text="April" Value="4"/>
+	<Month Text="May" Value="5"/>
+	<Month Text="June" Value="6"/>
+	<Month Text="July" Value="7"/>
+	<Month Text="August" Value="8"/>
+	<Month Text="September" Value="9"/>
+	<Month Text="October" Value="10"/>
+	<Month Text="November" Value="11"/>  
+	<Month Text="December" Value="12"/>
+
+	<Day Text="Every day" Value="*"/>	
+	<Day Text="01" Value="1"/>  
+	<Day Text="02" Value="2"/>
+	<Day Text="03" Value="3"/>
+	<Day Text="04" Value="4"/>
+	<Day Text="05" Value="5"/>
+	<Day Text="06" Value="6"/>
+	<Day Text="07" Value="7"/>
+	<Day Text="08" Value="8"/>
+	<Day Text="09" Value="9"/>
+	<Day Text="10" Value="10"/>
+	<Day Text="11" Value="11"/>  
+	<Day Text="12" Value="12"/>
+	<Day Text="13" Value="13"/>
+	<Day Text="14" Value="14"/>
+	<Day Text="15" Value="15"/>
+	<Day Text="16" Value="16"/>
+	<Day Text="17" Value="17"/>
+	<Day Text="18" Value="18"/>
+	<Day Text="19" Value="19"/>
+	<Day Text="20" Value="20"/>
+	<Day Text="21" Value="21"/>
+	<Day Text="22" Value="22"/>
+	<Day Text="23" Value="23"/>
+	<Day Text="24" Value="24"/>
+	<Day Text="25" Value="25"/>
+	<Day Text="26" Value="26"/>
+	<Day Text="27" Value="27"/>
+	<Day Text="28" Value="28"/>
+	<Day Text="29" Value="29"/>
+	<Day Text="30" Value="30"/>
+	<Day Text="31" Value="31"/>		
+	
+	<Weekday Text="Every Weekday" Value="*"/>
+	<Weekday Text="Sunday" Value="0"/>
+	<Weekday Text="Monday" Value="1"/>  
+	<Weekday Text="Tuesday" Value="2"/>
+	<Weekday Text="Wednesday" Value="3"/>
+	<Weekday Text="Thursday" Value="4"/>
+	<Weekday Text="Friday" Value="5"/>
+	<Weekday Text="Saturday" Value="6"/>
+				
+</Selection>	

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <element name="Listbox">
+        <complexContent>
+            <extension base="OptionElement">
+                <attribute name="BlankOption" type="string" use=""/>
+             </extension>
+        </complexContent>
+    </element>
+</schema>
+

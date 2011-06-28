@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="NotfoundView" Description="Page Not Found" Class="EasyView" TemplateEngine="Smarty"  CacheLifeTime="86400" TemplateFile="user_view.tpl.html">
+   <FormReferences>
+   		<Reference Name="common.form.NotfoundForm"></Reference>
+   </FormReferences>
+</EasyView>

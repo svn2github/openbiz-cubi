@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="EmailLogDO" Description="" Class="BizDataObj" DBName="Default" Table="email_log" SearchRule="" SortRule="[Id] DESC" OtherSQLRule="" IdGeneration="Identity">
+	<BizFieldList>
+	    <BizField Name="Id" Column="id" Type=""/>        
+	    <BizField Name="result" Column="result" Type="Text" />
+        <BizField Name="sender" 	Column="sender" Type="Text"/>
+        <BizField Name="sender_name" 	Column="sender_name" Type="Text"/>        
+        <BizField Name="recipients" Column="recipients" Type="Text"/>
+        <BizField Name="subject" Column="subject" Type="Text"/>
+        <BizField Name="content" Column="content" Type="Text"/>        
+        <BizField Name="timestamp" Column="timestamp" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" />        
+    </BizFieldList>
+    <TableJoins>        
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

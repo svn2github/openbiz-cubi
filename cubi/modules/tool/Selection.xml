@@ -1,0 +1,110 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <ElementClass Value=""/>
+   <ElementClass Value="InputText"/>
+   <ElementClass Value="InputPassword"/>
+   <ElementClass Value="Textarea"/>
+   <ElementClass Value="Listbox"/>
+   <ElementClass Value="LabelText"/>
+   <ElementClass Value="LightColorPicker"/>
+   <ElementClass Value="ColumnText"/>
+   <ElementClass Value="ColumnPassword"/>
+   <ElementClass Value="Checkbox"/>
+   <ElementClass Value="Radio"/>
+   <ElementClass Value="Button"/>
+   <ElementClass Value="HTMLButton"/>
+   <ElementClass Value="ResetButton"/>
+   <ElementClass Value="SubmitButton"/>
+   <ElementClass Value="Password"/>
+   <ElementClass Value="Hidden"/>
+   <ElementClass Value="File"/>
+   <ElementClass Value="FileUploader"/>
+   <ElementClass Value="ImageUploader"/>
+   <ElementClass Value="RichText"/>
+   <ElementClass Value="CKEditor"/>
+   <ElementClass Value="AutoSuggest"/>
+   <ElementClass Value="InputDate"/>
+   <ElementClass Value="InputDatetime"/>
+   <ElementClass Value="InputPicker"/>
+   <ElementClass Value="RowCheckbox"/>
+   
+   <FormType Value=""/>
+   <FormType Value="List"/>
+   <FormType Value="Edit"/>
+   <FormType Value="New"/>
+   
+   <TemplateEngine Value="Smarty"/>
+   <TemplateEngine Value="PHP (not support yet)"/>
+   
+   <ElementEvent Value="onclick"/>
+   <ElementEvent Value="ondblclick"/>
+   <ElementEvent Value="onchange"/>
+   <ElementEvent Value="onselect"/>
+   <ElementEvent Value="onblur"/>
+   <ElementEvent Value="onfocus"/>
+   <ElementEvent Value="onmousedown"/>
+   <ElementEvent Value="onmousemove"/>
+   <ElementEvent Value="onmouseup"/>
+   <ElementEvent Value="onmouseout"/>
+   <ElementEvent Value="onmouseover"/>
+   <ElementEvent Value="onkeydown"/>
+   <ElementEvent Value="onkeypress"/>
+   <ElementEvent Value="onkeyup"/>
+   
+   <FunctionType Value=""/>
+   <FunctionType Text="AJAX (Default)" Value="RPC"/>
+   <FunctionType Text="Http get" Value="Page"/>
+   <FunctionType Text="Http post" Value="Post"/>
+   <FunctionType Text="Browser Popup window" Value="Popup"/>
+   <FunctionType Text="In-page window" Value="Prop_Window"/>
+   <FunctionType Text="Dialog window" Value="Prop_Dialog"/>
+
+   <JoinType Value="INNER JOIN"/>
+   <JoinType Value="LEFT JOIN"/>
+   <JoinType Value="RIGHT JOIN"/>
+   
+   <TableRelationship Value="1-M"/>
+   <TableRelationship Value="M-1"/>
+   <TableRelationship Value="M-M"/>
+   <TableRelationship Value="1-1"/>
+   
+   <FieldType Value=""/>
+   <FieldType Value="Text"/>
+   <FieldType Value="Number"/>
+   <FieldType Value="Date"/>
+   <FieldType Value="Datetime"/>
+   <FieldType Value="Currency"/>
+   <FieldType Value="Phone"/>
+   <FieldType Value="Blob"/>
+   
+   <IDGeneration Value=""/>
+   <IDGeneration Value="Openbiz"/>
+   <IDGeneration Value="Identity"/>
+   <IDGeneration Value="Sequence:seqname"/>
+   <IDGeneration Value="GUID"/>
+   <IDGeneration Value="UUID"/>
+   
+   <FormFunction Value=""/>
+   <FormFunction Value="GotoPage(page=1)"/>
+   <FormFunction Value="SortRecord(sort_col,order=asc)"/>
+   <FormFunction Value="RunSearch()"/>
+   <FormFunction Value="NewRecord()"/>
+   <FormFunction Value="EditRecord(id=null)"/>
+   <FormFunction Value="DeleteRecord(id=null)"/>
+   <FormFunction Value="RemoveRecord()"/>
+   <FormFunction Value="SelectRecord(recId)"/>
+   <FormFunction Value="SaveRecord()"/>
+   <FormFunction Value="Cancel()"/>
+   <FormFunction Value="UpdateForm()"/>
+   <FormFunction Value="LoadPopForm(viewName,formName)"/>
+   <FormFunction Value="LoadPicker(viewName,formName,ctrlName='')"/>
+   <FormFunction Value="CallService(class,method)"/>
+
+   <NY Value=""/>
+   <NY Value="Y"/>
+   <NY Value="N"/>
+   
+   <BOOL Value="Y"/>
+   <BOOL Value="N"/>
+
+</Selection>

@@ -1,0 +1,2 @@
+<MenuWidget Name="SitemapMenu" Title="System Administration" Class="MenuWidget" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='System'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="sitemap_menu.tpl" CacheLifeTime="0">
+</MenuWidget>

@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="MyPreferenceView" Description="My Account Set Preferences" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+    <FormReferences>
+        <Reference Name="myaccount.form.PreferenceDetailForm"/>
+    </FormReferences>
+</EasyView>

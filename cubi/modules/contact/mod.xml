@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="contact" Description="contact management module" Version="0.1" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="contact">
+			<Action Name="access" Description="access my contact"/>
+		</Resource>
+	</ACL>
+    <Menu>
+    <!-- Contact menus -->
+    	<MenuItem Name="Contact" Title="Contacts" Parent="Collaboration" Description="" IconImage="spacer.gif" IconCssClass="icon_contact" Order="50">
+			<MenuItem Name="Contact.NewProf" Title="New Contact Profile" Description=""  URL="/contact/contact_new" ></MenuItem>
+			<MenuItem Name="Contact.GCard" Title="View General Card" Description=""  URL="/contact/contact_general_card" ></MenuItem>
+			<MenuItem Name="Contact.DCard" Title="View Detailed Card" Description=""  URL="/contact/contact_detail_card" ></MenuItem>
+			<MenuItem Name="Contact.PhoneBook" Title="View Phone Book" Description=""  URL="/contact/contact_list" ></MenuItem>
+			<MenuItem Name="Contact.Company" Title="View Company" Description=""  URL="/contact/company_list" ></MenuItem>
+			<MenuItem Name="Contact.ByType" Title="View By Contact Type" Description=""  URL="/contact/contact_type_list" ></MenuItem>				
+			<MenuItem Name="Contact.Type" Title="Contact Type Manage" Description=""  URL="/contact/type_manage" ></MenuItem>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+</Module>

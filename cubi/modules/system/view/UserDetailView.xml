@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="UserDetailView" Description="User Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="system_view.tpl.html" Access="User.Administer_Users">
+    <FormReferences>
+        <Reference Name="system.form.UserDetailForm" SubForms="system.form.UserRolesForm;system.form.UserGroupsForm"/>
+        <Reference Name="system.form.UserRolesForm"/>
+        <Reference Name="system.form.UserGroupsForm"/>
+    </FormReferences>
+</EasyView>

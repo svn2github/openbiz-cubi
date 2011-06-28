@@ -1,0 +1,2 @@
+<MenuWidget Name="MainLeftSystemMenu" Title="System Admin" Class="MenuWidget" CssCLass="system" BizDataObj="menu.do.SystemMenuDO" StartMenuID="0-1"  MenuDeep="2" TemplateEngine="Smarty" TemplateFile="system_left_menu.tpl.html" CacheLifeTime="0">
+</MenuWidget>

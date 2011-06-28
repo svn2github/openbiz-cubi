@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="GroupNewForm"  Icon="icon_group_add.gif" class="EasyForm" FormType="New" jsClass="jbForm" Title="New Group" Description="User Group controls users data level visibility in the system." BizDataObj="system.do.GroupDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_name" DefaultValue="New Group" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N"/>
+        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.Selection(Status)"/>
+        <Element Name="fld_default" Class="Listbox" FieldName="default" Label="Default" SelectFrom="system.Selection(Default)"/>        
+
+        </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=system.form.GroupDetailForm&amp;fld:Id={@system.do.GroupDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm(system.form.GroupListForm)"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
