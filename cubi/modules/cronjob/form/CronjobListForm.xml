@@ -7,7 +7,7 @@
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(cronjob.form.CronjobDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>	
-        <Element Name="fld_description" Class="ColumnText" MaxLenght="20" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        	
         <Element Name="fld_last_exec" Class="ColumnText" FieldName="last_exec_text" Label="Last Run"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_status" Class="ColumnBool" FieldName="status" Sortable="Y" Label="Active" Link="javascript:;">
 			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
@@ -17,7 +17,7 @@
 		</Element>			
 		
         <!-- 
- 			
+ 			<Element Name="fld_description" Class="ColumnText" MaxLenght="20" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_sendmail" Class="ColumnText" FieldName="sendmail" Label="Sendmail"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         <Element Name="fld_max_run" Class="ColumnText" FieldName="max_run" Label="Max Run" DefaultValue="1" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         <Element Name="fld_num_run" Class="ColumnText" FieldName="num_run" Label="Num Run"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />			

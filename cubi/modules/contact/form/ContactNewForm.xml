@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ContactNewForm" Class="ContactForm" FormType="New" jsClass="jbForm" Title="New Contact Profile" Description="Here you can create a personal contact profile. And share it with your team." BizDataObj="contact.do.ContactDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="contact_new.tpl.html" EventName="CONTACT" MessageFile="Contact.msg">
+<EasyForm Name="ContactNewForm" Class="ContactForm"  Icon="icon_my_profile.gif" FormType="New" jsClass="jbForm" Title="New Contact Profile" Description="Here you can create a personal contact profile. And share it with your team." BizDataObj="contact.do.ContactDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_new.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>	            		
 	        <Element Name="fld_first_name" Class="InputText" ElementSet="Profile" FieldName="first_name" Label="Firstname"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>	        		        
 	        <Element Name="fld_last_name" Class="InputText" ElementSet="Profile" FieldName="last_name" Label="Lastname"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        	        
@@ -29,7 +29,7 @@
 	        <Element Name="fld_yahoo" Class="InputText" ElementSet="Online Contact"  FieldName="yahoo" Label="Yahoo"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
      	
  	    	<Element Name="fld_misc" Class="Textarea"  ElementSet="Miscellaneous" FieldName="misc" Label="Miscellaneous"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />                	      
-	        <Element Name="fld_type_id" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="contact.do.ContactTypeDO[name:Id],[published]=1 OR [create_by]='{@profile:Id}'" FieldName="type_id" Label="Contact Type"  AllowURLParam="N" />    	        	        
+	        <Element Name="fld_type_id" Class="common.lib.TypeSelector" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="contact.do.ContactTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" FieldName="type_id" Label="Contact Type"  AllowURLParam="N" />    	        	        
 			<Element Name="fld_sortorder" Class="Listbox" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />
 	        <Element Name="fld_published" Class="Radio" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="1" FieldName="published" Label="Published"  />	
         	    	        

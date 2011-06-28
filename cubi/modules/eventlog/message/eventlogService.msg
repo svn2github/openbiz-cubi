@@ -10,6 +10,7 @@ MSG_EVENT_USER_DELETE	=	"User Deleted. User Login: %s."
 
 MSG_LOGIN_SUCCESSFUL	=	"User: %s Login successful from IP: %s ."
 MSG_LOGIN_FAILED		=	"User: %s Login failed from IP: %s by using password: %s."
+MSG_SMARTCARD_LOGIN_FAILED = "User Login failed by using ID Card: %s"
 
 MSG_GET_PASSWORD_TOKEN 	= 	"User %s has requested a password token from IP %s ."
 MSG_USER_REGISTERED		=	"User Registered. User Login: %s, registered from IP: %s."

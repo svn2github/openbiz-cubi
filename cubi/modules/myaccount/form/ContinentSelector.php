@@ -1,7 +1,7 @@
 <?php 
-require_once(OPENBIZ_BIN."easy/element/DropDownList.php");
-class ContinentSelector extends DropDownList{
-    function getList(){
+require_once(OPENBIZ_BIN."easy/element/Listbox.php");
+class ContinentSelector extends Listbox{
+    function getFromList(&$list){
     	$list = array();
 		$zones = timezone_identifiers_list();
 		foreach ($zones as $zone) 
@@ -24,7 +24,7 @@ class ContinentSelector extends DropDownList{
     								"pic"=>""));
     		
     	}
-    	return $list;
+    	//return $list;
     }
   
 }

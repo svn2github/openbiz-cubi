@@ -18,6 +18,7 @@ function setActiveStyleSheet(link, title) {
 // This function gets called when the end-user clicks on some date.
 function selected(cal, date) {
   cal.sel.value = date; // just update the date in the input field.
+  fireEvent(cal.sel,'change');
   if (cal.dateClicked && (cal.sel.id == "sel1" || cal.sel.id == "sel3"))
     // if we add this call we close the calendar on single-click.
     // just to exemplify both cases, we are using this only for the 1st
@@ -115,4 +116,18 @@ function showFlatCalendar() {
 
   // ... we can show it here.
   cal.show();
+}
+
+function fireEvent(element,event){
+    if (document.createEventObject){
+    // dispatch for IE
+    var evt = document.createEventObject();
+    return element.fireEvent('on'+event,evt)
+    }
+    else{
+    // dispatch for firefox + others
+    var evt = document.createEvent("HTMLEvents");
+    evt.initEvent(event, true, true ); // event type,bubbling,cancelable
+    return !element.dispatchEvent(evt);
+    }
 }

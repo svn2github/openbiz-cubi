@@ -6,6 +6,7 @@
 		<div style="height:75px;" class="cubi_login_banner">
 
 		</div>
+		{if $dataPanel.username.label}
 		<p class="input_row">
 			<label style="width:60px;">{$dataPanel.username.label}</label>
 			<span style="width:200px; display:block;float:left;">{$dataPanel.username.element}</span>
@@ -21,6 +22,8 @@
 			<span class="input_error_msg">{$errors.password}</span>
 			{/if}		
 		</p>
+		{/if}
+
 		{if $dataPanel.antispam.label}
 		<p class="input_row">
 			<label style="width:60px;">{$dataPanel.antispam.label}</label>
@@ -30,6 +33,18 @@
 			{/if}		
 		</p>
 		{/if}
+
+		{if $dataPanel.smartcard.label}
+		<div class="input_row" style="height:140px;">
+			<div style="height:30px;">
+			<label style="width:120px;">{$dataPanel.smartcard.label}</label>
+			</div>
+			<div style="height:120px;">
+			<span style="width:400px; display:block;float:left;">{$dataPanel.smartcard.element}</span>
+			</div>			
+		</div>
+		{/if}		
+		
 		{if $dataPanel.session_timeout.label}
 		<div class="input_row"  style="width:400px;display:block;height:35px;overflow:hidden;">
 			<label style="width:60px;">{$dataPanel.session_timeout.label}</label>

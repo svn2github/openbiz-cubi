@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="{$form_short_name}" Class="{$form_obj_class}" FormType="Edit" jsClass="jbForm" Title="Copy {$module_name|replace:'_':' '|capitalize}" Description="" BizDataObj="{$comp}.{$do_name}" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="{$event_name}" MessageFile="{$message_file}">
+<EasyForm Name="{$form_short_name}" Class="{$form_obj_class}" FormType="Copy" jsClass="jbForm" Title="Copy {$module_name|replace:'_':' '|capitalize}" Description="" BizDataObj="{$comp}.{$do_name}" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="{$event_name}" MessageFile="{$message_file}">
     <DataPanel>
 {foreach from=$fields item=fld}
 {if $fld.name != 'Id' && $fld.raw_type!='timestamp' && $fld.name != 'create_by' && $fld.name != 'create_time' && $fld.name != 'update_by' && $fld.name != 'update_time' }

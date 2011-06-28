@@ -12,7 +12,7 @@
 	<Order Text="20" Value="20"/>
 	<Order Text="25" Value="25"/>
 	<Order Text="30" Value="30"/>
-	<Order Text="25" Value="35"/>
+	<Order Text="35" Value="35"/>
 	<Order Text="40" Value="40"/>
 	<Order Text="45" Value="45"/>
 	<Order Text="50" Value="50"/>
@@ -29,8 +29,15 @@
 	
 	<Published Text="Public" Value="1"/>
 	<Published Text="Private" Value="0"/>	
+	
+	<ReadStatusFilter Text="All Read" Value="1"/>
+	<ReadStatusFilter Text="All Unread" Value="0"/>
+	
+	<ReadStatus Text="Read" Value="1"/>
+	<ReadStatus Text="Unread" Value="0"/>
 
 	<NameDisplayMode Text="Firstname, Lastname" Value="@@Firstname@@, @@Lastname@@"/>
+	<NameDisplayMode Text="FirstnameLastname" Value="@@Firstname@@@@Lastname@@"/>
 	<NameDisplayMode Text="Lastname Firstname" Value="@@Lastname@@ @@Firstname@@"/>		
 	<NameDisplayMode Text="Firstname, Lastname (Company)" Value="@@Firstname@@, @@Lastname@@ (@@Company@@)"/>
 	<NameDisplayMode Text="Company (Firstname, Lastname)" Value="@@Company@@ (@@Firstname@@, @@Lastname@@)"/> 

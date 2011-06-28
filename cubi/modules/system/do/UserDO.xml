@@ -4,11 +4,10 @@
 	    <BizField Name="Id" Column="id" Type=""/>
         <BizField Name="username" Column="username" Type=""/>
         <BizField Name="password" Column="password" Type=""/>
-        <BizField Name="enctype" Column="enctype"/>
+        <BizField Name="enctype" Column="enctype"/>        
+        <BizField Name="smartcard" Column="smartcard" Type=""/>
         <BizField Name="email" Column="email" Type=""/>
         <BizField Name="status" Column="status" Type=""/>
-        <BizField Name="corp_id" Column="corp_id" Type=""/>
-        <BizField Name="corp_name" Column="name" Type="" Join="JoinCorp"/>
         <BizField Name="lastlogin" Column="lastlogin" Type="Datetime"/>
         <BizField Name="lastlogout" Column="lastlogout" Type="Datetime"/>
         <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
@@ -17,13 +16,13 @@
         <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
     </BizFieldList>
     <TableJoins>
-        <Join Name="JoinCorp" Table="corporate" Column="Id" ColumnRef="corp_id" JoinType="LEFT JOIN"/>
     </TableJoins>
     <ObjReferences>
         <Object Name="system.do.RoleDO" Description="" Relationship="M-M" Table="role" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="Restrict" XTable="user_role" XColumn1="user_id" XColumn2="role_id" XDataObj="system.do.UserRoleDO"/>
         <Object Name="system.do.GroupDO" Description="" Relationship="M-M" Table="group" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="Restrict" XTable="user_group" XColumn1="user_id" XColumn2="group_id" XDataObj="system.do.UserGroupDO"/>
 		<Object Name="system.do.GroupPickerDO" Description="" Relationship="M-M" Table="group" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="Restrict" XTable="user_group" XColumn1="user_id" XColumn2="group_id" XDataObj="system.do.UserGroupDO"/>
+		<Object Name="myaccount.do.WidgetDO" Description="" Relationship="M-M" Table="widget" Column="name" FieldRef="Id" OnDelete="Cascade" OnUpdate="Restrict" XTable="user_widget" XColumn1="user_id" XColumn2="widget" XDataObj="myaccount.do.UserWidgetDO"/>
        <!-- <Object Name="system.do.UserGroupDO" Description="" Relationship="1-M" Table="user_group" Column="user_id" FieldRef="Id" OnDelete="Cascade" OnUpdate="Restrict"/> -->
-	   
+	    <Object Name="contact.do.ContactDO" Relationship="1-M" Table="contact" Column="user_id" FieldRef="Id" onDelete="SetNull"/>
    </ObjReferences>
 </BizDataObj>

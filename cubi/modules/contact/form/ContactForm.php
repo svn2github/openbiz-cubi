@@ -6,7 +6,7 @@ class ContactForm extends EasyForm
         $recArr = $this->readInputRecord();
         $this->setActiveRecord($recArr);
         if (count($recArr) == 0)
-            return;
+            return; 
 
         //generate fast_index
         $svcobj=BizSystem::getService("service.chineseService");
@@ -42,15 +42,24 @@ class ContactForm extends EasyForm
         $this->processPostAction();
     }	
     
-    public function quickSearch($querry)
+    public function quickSearch($start=null,$end=null)
     {
+    	$start = strtoupper($start);
+    	$end = strtoupper($end);
+    	$searchRule = "";
+    	if($start!='' && $end!=''){
+    		$searchRule="'$start'<=[fast_index] AND [fast_index]<='$end'";
+    	}
+    	elseif($start)
+    	{
+    		$searchRule="'$start'<[fast_index]";
+    	}
+    	else
+    	{
+    		$searchRule="";
+    	}
     	
-		if($querry=='AI')
-			$this->setFixSearchRule("'A'<=[fast_index] AND [fast_index]<='I'");
-		if($querry=='JR')
-			$this->setFixSearchRule("'J'<=[fast_index] AND [fast_index]<='R'");
-		if($querry=='SZ')
-			$this->setFixSearchRule("'S'<=[fast_index] AND [fast_index]<='Z'");
+    	$this->setFixSearchRule($searchRule);		
 		$this->rerender();
 		
     }

@@ -3,6 +3,7 @@
 	<BizFieldList>
 	    <BizField Name="Id" Column="id" Type=""/>
         <BizField Name="module" Column="module" Type=""/>
+        <BizField Name="module_alias" Column="module"/>        
         <BizField Name="resource" Column="resource" Type=""/>
         <BizField Name="action" Column="action" Type=""/>
         <BizField Name="description" Column="description" Type=""/>

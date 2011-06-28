@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<EasyView Name="v_Attributes" Description="Attributes Edit View" class="DynaView" Tab="" TemplateEngine="Smarty" TemplateFile="view_attr.tpl" Access="MetaEdit.access">
+<EasyView Name="v_Attributes" Description="Attributes Edit View" class="DynaView" Tab="" TemplateEngine="Smarty" TemplateFile="view_attr.tpl">
    <FormReferences>
    </FormReferences>
 </EasyView>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="HelpCategoryCopyForm" Class="HelpCategoryForm" Icon="icon_help_copy.gif" FormType="Edit" jsClass="jbForm" Title="Copy help_category" Description="" BizDataObj="help.do.HelpCategoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="HELP_CATEGORY" MessageFile="HelpCategory.msg">
+<EasyForm Name="HelpCategoryCopyForm" Class="HelpCategoryForm" Icon="icon_help_copy.gif"  FormType="Copy" jsClass="jbForm" Title="Copy help_category" Description="" BizDataObj="help.do.HelpCategoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="HELP_CATEGORY" MessageFile="HelpCategory.msg">
     <DataPanel>
         
         <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y"/>	

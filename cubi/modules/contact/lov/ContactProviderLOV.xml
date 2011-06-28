@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <Provider Value="contact.lib.ContactProvider.Google.ContactService" text="Google Contacts"/>
+<!--    
+	<Provider Value="contact.lib.ContactProvider.Tencent.ContactService" text="Tencent QQ Contacts"/>
+   <Provider Value="contact.lib.ContactProvider.Yahoo.ContactService" text="Yahoo Contacts"/>
+   <Provider Value="contact.lib.ContactProvider.Hotmail.ContactService" text="Microsoft Hotmail Contacts"/>
+ -->   
+</Selection>

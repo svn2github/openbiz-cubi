@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="WebsvcEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit Websvc" Description="" BizDataObj="websvc.do.WebsvcDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_user_id" Class="InputText" Enabled="N" FieldName="user_id" Label="user Id"/>
+		<Element Name="fld_username" Class="InputPicker" FieldName="username" Label="username" ValuePicker="system.form.UserPickForm" PickerMap="fld_user_id:fld_Id,fld_username:fld_username"/>
+		<Element Name="fld_api_key" ElementSet="General" Class="LabelText" FieldName="api_key" Label="Api Key" AllowURLParam="N"/>
+       	<Element Name="fld_secret" ElementSet="General" Class="LabelText" FieldName="secret" Label="Secret" AllowURLParam="N"/>
+		<Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status"   AllowURLParam="N" SelectFrom="common.lov.CommLOV(Status)"/>
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"   AllowURLParam="N"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=websvc.form.WebsvcDetailForm&amp;fld:Id={@websvc.do.WebsvcDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

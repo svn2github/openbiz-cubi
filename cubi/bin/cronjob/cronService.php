@@ -61,12 +61,12 @@ class CronService
 	{
 		$name = $cronRecord['name'];
 		$maxRun = $cronRecord['max_run'];
-		$numRun = $cronRecord['num_run'];
+		$numRun = $this->getRealNumRun($cronRecord);
 		$command = $cronRecord['command'];
 		$message = "To execute cron job name=$name, maxrun=$maxRun, numrun=$numRun";
 		$this->log($cronRecord, $message);
 		// check job max_run and num_run
-		if ($cronRecord['max_run']<=0 || $cronRecord['max_run']<=$cronRecord['num_run'])
+		if ($cronRecord['max_run']<=0 || $cronRecord['max_run']<=$numRun)
 		{
 			$this->log($cronRecord, "Skip cron job $name due to reaching maxrun");
 			return;
@@ -103,6 +103,24 @@ class CronService
 		$crontabTime .= " ".$cronRecord['month'];
 		$crontabTime .= " ".$cronRecord['weekday'];
 		return $crontabTime;
+	}
+	
+	protected function getRealNumRun($cronRecord)
+	{
+		$num = 0;
+		$command = $cronRecord['command'];
+		$command = Expression::evaluateExpression($command,null);
+		switch(OS){ //we'd better define a marco to detect system od in sysheader.inc or app_init.php
+			case "windows":
+				break;			
+			case "linux":
+			default:
+
+				$result = `ps auxwwww | grep '$command' | grep -v grep | wc -l`;
+				$result = (int)$result;				
+				break;
+		}
+		return (int)$result;
 	}
 	
 	protected function updateNumRun($cronRecord, $inc=true)

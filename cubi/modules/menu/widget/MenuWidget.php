@@ -138,5 +138,9 @@ class MenuWidget extends MetaObject implements iUIControl {
     	$shortFormName = substr($this->m_Name,intval(strrpos($this->m_Name,'.'))+1);
     	return strtoupper($shortFormName.'_'.$name);
     }
+    public function getModuleName($name)
+    {
+    	return substr($name,0,intval(strpos($name,'.')));
+    }    
 }
 ?>

@@ -12,7 +12,7 @@ $module = $argv[1];
 $formName = $argv[2];
 $toName = $argv[3];
 
-include_once ("../app_init.php");
+include_once (dirname(dirname(__FILE__))."/app_init.php");
 if(!defined("CLI")){
 	exit;
 }

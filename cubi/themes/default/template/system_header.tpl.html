@@ -19,7 +19,7 @@ var top_menu_play=false;
 var top_menu_move_direction='';
 var top_menu_play_speed=1000;
 </script>
-	<div id="header">
+	<div id="header" {if $header_background_image!='' } style="background-image:url({$resource_url}{$header_background_image});" {/if}>
 		<div id="header_left"></div>
 		<div id="header_right">
 			<div id="user_actions">
@@ -27,7 +27,7 @@ var top_menu_play_speed=1000;
 				<!-- user actions start -->
 				<ul>
 					<li><a class="icon_myaccount" href="{$app_index}/myaccount/dashboard" >{t}My Account{/t}</a></li>
-					<li><a class="icon_help" href="{$app_index}/pages/help.html" target="_blank" >{t}Help{/t}</a></li>
+					<li><a class="icon_help" href="http://www.openbiz.me/web/product_cubi" target="_blank" >{t}Help{/t}</a></li>
 					<li><a class="icon_logout" href="{$app_index}/user/logout" >{t}Logout{/t}</a></li>												
 				</ul>
 				<!-- user actions end -->					

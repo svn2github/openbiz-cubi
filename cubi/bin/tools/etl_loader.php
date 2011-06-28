@@ -12,8 +12,8 @@ if(isset($argc)){
 		echo PHP_EOL;
 	}
 }
-include_once ("../app_init.php");
-include_once ("gen_meta.inc.php");
+include_once (dirname(dirname(__FILE__))."/app_init.php");
+include_once (dirname(__FILE__)."/gen_meta.inc.php");
 if(!defined("CLI")){
 	exit;
 }

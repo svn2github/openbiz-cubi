@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="WebsvcListView" Description="websvc" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="websvc.websvc.Access">
+   <FormReferences>
+   		<Reference Name="websvc.form.WebsvcListForm"/>
+   </FormReferences>
+   <FormReferenceLibs>
+   		<Reference Name="websvc.form.WebsvcListForm"/>
+   		<Reference Name="websvc.form.WebsvcEditForm"/>
+   		<Reference Name="websvc.form.WebsvcCopyForm"/>
+   		<Reference Name="websvc.form.WebsvcNewForm"/>
+   		<Reference Name="websvc.form.WebsvcDetailForm"/>
+   </FormReferenceLibs>    
+</EasyView>

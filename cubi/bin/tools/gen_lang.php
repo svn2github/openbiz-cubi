@@ -17,6 +17,9 @@ include_once dirname(dirname(__FILE__))."/app_init.php";
 if(!defined("CLI")){
 	exit;
 }
+
+include_once dirname(__FILE__)."/require_auth.php";
+
 include_once MODULE_PATH."/translation/lib/LangPackCreator.php";
 
 if ($module == '!') {

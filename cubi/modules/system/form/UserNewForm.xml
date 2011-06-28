@@ -6,7 +6,6 @@
         <Element Name="fld_password" Class="Password" FieldName="password" label="Password"  required="Y"  Validator="{@validate:betweenLength([fld_password], 4, 20)}" HTMLAttr="maxlength='20'"/>
 		<Element Name="fld_password_repeat" Class="Password" FieldName="password" Description="Input password again for confirmation"  Label="Repeat"  required="Y"/>
         <Element Name="fld_email" Class="InputText" FieldName="email" Label="Email"  Validator="{@validate:email('[fld_email]')}"/>
-        <Element Name="fld_corpid" Class="Listbox" FieldName="corp_id" Label="Corporate" SelectFrom="corp.do.CorpDO[name:Id]" BlankOption="---"/>
         <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.Selection(Status)"/>
     </DataPanel>
     <ActionPanel>

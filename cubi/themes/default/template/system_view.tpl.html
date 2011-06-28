@@ -8,12 +8,16 @@
 <link rel="stylesheet" href="{$css_url}/general.css" type="text/css" />
 <link rel="stylesheet" href="{$css_url}/system_backend.css" type="text/css" />
 <link rel="stylesheet" href="{$css_url}/system_menu_icons.css" type="text/css" />
-<link rel="stylesheet" href="{$css_url}/collaboration_menu_icons.css" type="text/css" />
 <link rel="stylesheet" href="{$css_url}/sitebuilder_menu_icons.css" type="text/css" />
 <link rel="stylesheet" href="{$css_url}/system_dashboard_icons.css" type="text/css" />
 <link rel="stylesheet" href="{$css_url}/appbuilder.css" type="text/css" />
 {$style_sheets}
 {$scripts}
+{if !$scripts|strpos:"/jquery.js" and !$style_sheets|strpos:"/jquery.js" }
+<script src="{$js_url}/jquery.js"></script>
+{/if}
+<script src="{$js_url}/jquery-ui-1.8.12.custom.min.js"></script>
+{literal}<script>try{var $j=jQuery.noConflict();}catch(e){}</script>{/literal}
 <script type="text/javascript" src="{$js_url}/cookies.js"></script>
 <script type="text/javascript" src="{$theme_js_url}/general_ui.js"></script>
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ContactGrabberForm" Icon="{RESOURCE_URL}/contact/images/icon_contact_grabber.gif" Class="ContactGrabberForm" FormType="New" jsClass="jbForm" Title="Contact Grabber" Description="Contact Grabber could help you import your contacts from various email or social network provider" BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
+    <DataPanel>
+    	<Element Name="fld_provider" KeepCookie="Y" Class="Listbox" SelectFrom="contact.lov.ContactProviderLOV(Provider)" Required="Y" FieldName="provider" Label="Provider"  />	
+        <Element Name="fld_username" KeepCookie="Y" DefaultValue="{@profile:email}" DefaultValueRename="N" Class="InputText" Description="Eg. user@domain.com" Required="Y" FieldName="username" Label="Email"   />	
+        <Element Name="fld_password"  Class="Password" FieldName="password" Label="Password" Description="It will not be saved on server"  Required="Y" />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_next" Class="Button" Text="Next" CssClass="button_gray_m">
+            <EventHandler Name="next_onclick" EventLogMsg="" Event="onclick" Function="FetchContact()" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_skip" Class="Button" Text="Skip" CssClass="button_gray_m">
+            <EventHandler Name="skip_onclick" EventLogMsg="" Event="onclick" Function="switchForm(contact.form.ContactGrabberListForm)" ShortcutKey="Escape" ContextMenu="Skip Grab" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

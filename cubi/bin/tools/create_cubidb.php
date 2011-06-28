@@ -13,7 +13,7 @@ echo "Your answer is $answer".PHP_EOL;
 if ($answer != 'y')
 	exit;
 
-include_once ("../app_init.php");
+include_once (dirname(dirname(__FILE__))."/app_init.php");
 if(!defined("CLI")){
 	exit;
 }

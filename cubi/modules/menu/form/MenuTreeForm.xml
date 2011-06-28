@@ -7,7 +7,7 @@
         <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(menu.form.MenuDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>		
-        <Element Name="fld_desc" Class="ColumnText" MaxLenght="40" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_desc" Class="ColumnText" MaxLength="30" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
 	
         <Element Name="fld_published" Class="ColumnBool" FieldName="published" Label="Published"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
 			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_published,{@:Elem[fld_published].Value})"/>		

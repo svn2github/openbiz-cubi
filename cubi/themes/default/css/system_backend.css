@@ -524,11 +524,17 @@ padding-bottom:5px;
 #main #right_panel{
 	width:770px;
 }
+.detail_form_panel_padding
+{
+	padding-left:30px;
+}
 #main #right_panel .content p.input_row{
 	
 }
+
 #main #right_panel .content table.input_row td .label_text{
 	width:250px;
+	height:26px;
 	float:left;
 	display:block;
 	word-break:break-all; 
@@ -541,6 +547,15 @@ padding-bottom:5px;
 	word-break:break-all; 
 	overflow:auto;
 	text-align:left;
+}
+#main #right_panel .content .action_panel_set p.input_row{
+padding-top:5px;
+height:25px;
+padding-left:5px;
+margin-bottom:2px;
+}
+#main #right_panel .content .action_panel_set p.even{
+background-color:#efefef;
 }
 #main #right_panel h2{
 	text-indent:0px;
@@ -618,17 +633,17 @@ padding-left:22px;
 }
 #main_loader{
  height:450px; width:1000px; position:absolute;
- z-index:100;
+ z-index:150;
 }
 #main_loader_bg{
  height:450px; width:1000px; 
  position:absolute;
  background-color:#f5f4f2;
- z-index:50;
+ z-index:100;
 }
 #footer{
 width:1000px;
-	height:84px;
+	height:284px;
 	background-image:url(../images/footer_bg.jpg);	
 	background-position:left top;
 	background-repeat:no-repeat;	

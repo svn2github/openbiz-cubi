@@ -83,11 +83,6 @@ class SessionDBHandler {
     }
 }
 
-if (defined('TIMEOUT'))
-    ini_set("session.gc_maxlifetime", TIMEOUT);
-else
-    ini_set("session.gc_maxlifetime", 60*30); // 30 minutes
-//session_set_cookie_params(0,"/",".myapp.com",false,true);
 $sessionHandler = new SessionDBHandler();
 session_set_save_handler(
     array (&$sessionHandler,"open"),

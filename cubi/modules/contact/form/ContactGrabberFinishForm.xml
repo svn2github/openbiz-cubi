@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ContactGrabberFinishForm" Icon="{RESOURCE_URL}/contact/images/icon_contact_grabber.gif" Class="ContactGrabberFinishForm" FormType="New" jsClass="jbForm" Title="Contact Import Finished" Description="Contact Grabber already sucessful helps you imported selected contacts." BizDataObj="contact.do.ContactImportDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_import_finish.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
+    <DataPanel>
+            <Element Name="fld_contact_counts" ElementSet="General" Class="LabelText" FieldName="" Label="Contacts Data" Text="Previously Imported {@:SelectedContacts} Contacts" Description=""  Required="Y" />    
+            <Element Name="fld_option"  Class="Radio" SelectFrom="contact.lov.ContactTypeSelectorLOV(Option)" DefaultValue="{1}" ElementSet="Data Operation"  FieldName="data_operation" Label="Data Option"  />
+	</DataPanel>
+    <ActionPanel>
+        <Element Name="btn_next" Class="Button" Text="Finish" CssClass="button_gray_m">
+            <EventHandler Name="next_onclick" EventLogMsg="" Event="onclick" Function="Finish()"  RedirectPage="form=contact.form.ContactGrabberForm"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

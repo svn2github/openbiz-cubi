@@ -110,31 +110,32 @@ CREATE TABLE `role` (
 /*Data for the table `role` */
 
 insert  into `role`(`id`,`name`,`description`,`status`,`startpage`) values (1,'Administrator','System administrator',1,'/system/general_default');
-insert  into `role`(`id`,`name`,`description`,`status`,`startpage`) values (2,'Guest','Guest users are unregistered users',1,'/system/general_default');
-insert  into `role`(`id`,`name`,`description`,`status`,`startpage`) values (3,'Member','General registered users',1,'/system/general_default');
+insert  into `role`(`id`,`name`,`description`,`status`,`startpage`) values (2,'Member','General registered users',1,'/system/general_default');
+insert  into `role`(`id`,`name`,`description`,`status`,`startpage`) values (3,'Guest','Guest users are unregistered users',1,'/system/general_default');
 
 /*Table structure for table `user` */
 
-DROP TABLE IF EXISTS `user`;
 
-CREATE TABLE `user` (
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `username` varchar(64) NOT NULL default '',
   `password` varchar(64) NOT NULL default '',
   `enctype` varchar(64) NOT NULL default 'SHA1',
   `email` varchar(64) default '',
+  `smartcard` varchar(255) default NULL,
   `status` int(2) default '1',
-  `corp_id` int(10) default NULL,
   `lastlogin` datetime default NULL,
   `lastlogout` datetime default NULL,
-  `create_by` int(10) default 1,
+  `create_by` int(10) default '1',
   `create_time` datetime default NULL,
-  `update_by` int(10) default 1,
+  `update_by` int(10) default '1',
   `update_time` datetime default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `username` (`username`),
+  KEY `smartcard` (`smartcard`),
   KEY `email` (`email`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 /*Data for the table `user` */
 
@@ -235,6 +236,8 @@ CREATE TABLE `menu` (
 
 /*Table structure of table `session` */
 
+DROP TABLE IF EXISTS `session`;
+
 CREATE TABLE `session` (
   `id` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
   `expiration` int(10) unsigned NOT NULL,
@@ -242,3 +245,41 @@ CREATE TABLE `session` (
   PRIMARY KEY (`id`),
   KEY `expiration` (`expiration`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+/*Table structure of table `widget` */
+
+DROP TABLE IF EXISTS `widget`;
+
+CREATE TABLE `widget` (                                 
+  `name` varchar(100) NOT NULL default '',      
+  `module` varchar(100) default NULL,           
+  `title` varchar(100) default NULL,                      
+  `description` varchar(255) default NULL,
+  `configable` tinyint(1) NOT NULL default '0', 
+  `published` tinyint(1) NOT NULL default '1',  
+  `ordering` INT NOT NULL DEFAULT '10' , 
+  `create_by` int(10) default 1,
+  `create_time` datetime default NULL,
+  `update_by` int(10) default 1,
+  `update_time` datetime default NULL,
+  PRIMARY KEY  (`name`)                         
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+/*Table structure for table `module` */
+
+DROP TABLE IF EXISTS `module_changelog`;
+
+CREATE TABLE `module_changelog` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `module` varchar(255) NOT NULL default '',
+  `name` varchar(255) NOT NULL default '',
+  `description` varchar(255) default NULL,
+  `status` varchar(255) default NULL,
+  `type` varchar(255) default NULL,
+  `version` varchar(64) default NULL,
+  `publish_date` varchar(64) default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;

@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <Type Value="0" text="Assign to exsiting type"/>
+   <Type Value="1" text="Create a new type"/>   
+   
+   <Option Value="0" text="Keep all temporary contacts for future import"/>
+   <Option Value="1" text="Delete previously imported contacts"/>
+   <Option Value="2" text="Delete all temporary contacts"/>       
+</Selection>

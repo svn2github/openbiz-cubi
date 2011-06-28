@@ -1,9 +1,25 @@
 <form id="{$form.name}" name="{$form.name}">
+{literal}
+<style>
+table.input_row label{
+	height:20px;
+}
+#general table.input_row {
+	height:30px;
+	display:block;
+}
+
+table.input_row {
+	height:26px;
+	display:block;
+}
+</style>
+{/literal}
 <div style="padding-left:25px; padding-right:40px;">
 {include file="system_appbuilder_btn.tpl.html"}
 	<div>
 		{if $form.icon !='' }
-	<div class="form_icon"><img  src="{$image_url}/{$form.icon}" border="0" /></div>
+	<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
 	{/if}
 		<div ><h2>{$form.title}</h2></div>
 	</div>
@@ -35,7 +51,7 @@
 
 				</table>
 		</div>
-		<div style="float:left;width:350px;">
+		<div style="float:left;width:350px;padding-top:8px">
 				{$dataPanel.fld_Id.element}
 				{assign var=item value=$dataPanel.fld_first_name}					
 				<table  id="fld_first_name_container" class="input_row">								

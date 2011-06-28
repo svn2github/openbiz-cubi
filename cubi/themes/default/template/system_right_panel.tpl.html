@@ -5,7 +5,9 @@
 			<div>							
 			{foreach key=formname item=form from=$forms}							    
 		         <div>
+		         	{if !preg_match("/LeftWidget$/si",$formname)}
 		         	{$form}
+					{/if}
 		         </div>
 		    {/foreach}		
 			</div>

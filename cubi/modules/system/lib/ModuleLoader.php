@@ -1,4 +1,6 @@
 <?php
+include_once(MODULE_PATH."/common/lib/fileUtil.php");
+
 // install openbiz modules
 
 class ModuleLoader
@@ -22,7 +24,8 @@ class ModuleLoader
     
     public function loadModule($installSql=false)
     {
-		$module = $this->name;
+		$this->log("Loading module ".$this->name);
+        $module = $this->name;
 		$modfile = MODULE_PATH."/$module/mod.xml";
         if (!file_exists($modfile)) {
         	$this->errors = "$module is not loaded, mod.xml is not found in $module.";	
@@ -65,7 +68,33 @@ class ModuleLoader
         $this->installMetaForm();
         $this->installMetaView();
         */
+        
+        // copy resource files to proper folders
+        $this->copyResourceFiles();
+        
         $this->log("$module is loaded.");
+        return true;
+    }
+    
+	public function loadChangeLog()
+    {
+		$module = $this->name;
+		$modfile = MODULE_PATH."/$module/mod.xml";
+        if (!file_exists($modfile)) {
+        	$this->errors = "$module is not loaded, mod.xml is not found in $module.";	
+        	return false;
+    	}
+    	if (($db = $this->DBConnection()) == null) {
+    		$this->errors = "ERROR: Cannot get database connection.";	
+        	return false;
+    	}
+
+    	$modfile = MODULE_PATH."/".$this->name."/mod.xml";        
+    	$xml = simplexml_load_file($modfile);
+    	
+        if (!$this->installChangeLog($xml))
+            return false;
+                    
         return true;
     }
     
@@ -139,7 +168,7 @@ class ModuleLoader
         $upgradeModfile = $upgradeFolder."/mod.xml";
         if (!file_exists($upgradeModfile)) {
             $this->errors = "Cannot find upgrade module source $upgradeModfile.";
-            return;
+            return false;
         }
         $u_xml = simplexml_load_file($upgradeModfile);
         
@@ -150,26 +179,30 @@ class ModuleLoader
         // check if upgrade folder has new source and the new source has higher version than current module
         if (version_compare($u_ver, $ver) <= 0) {
             $this->errors = "The upgrade module does not have higher version ($u_ver) than current module ($ver).";
-            return;
+            return false;
         }
-        
-        // ask user to backup the module and confirm the upgrade
-        echo "Upgrade '$module' module from version $ver to $u_ver. Please backup data first.".PHP_EOL;
-        echo "Press enter to continue ... ";
-        $selection = trim(fgets(STDIN));
-        
+        if(CLI) {
+            // ask user to backup the module and confirm the upgrade
+            echo "Upgrade '$module' module from version $ver to $u_ver. Please backup data first.".PHP_EOL;
+            echo "Press enter to continue ... ";
+            $selection = trim(fgets(STDIN));
+        }
         // backup the current source to /cubi/backup/modules/mod_name/version
         $backupFolder = $backupFolder."/$ver";
-        echo PHP_EOL."Backup source files to $backupFolder ...".PHP_EOL;
+        if(CLI) echo PHP_EOL."Backup source files to $backupFolder ...".PHP_EOL;
+        $this->log("Backup source files to $backupFolder ...");
         recurse_copy($modFolder, $backupFolder);
         
         // copy the source first
-        echo PHP_EOL."Copy source files from $upgradeFolder to $modFolder...".PHP_EOL;
+        if(CLI) echo PHP_EOL."Copy source files from $upgradeFolder to $modFolder...".PHP_EOL;
+        $this->log("Copy source files from $upgradeFolder to $modFolder...");
         recurse_copy($upgradeFolder, $modFolder);
         
         // run the right upgrade sql
-        echo PHP_EOL."Execute upgrade sql files ...".PHP_EOL;
+        if(CLI) echo PHP_EOL."Execute upgrade sql files ...".PHP_EOL;
+        $this->log("Execute upgrade sql files ...");
         $this->upgradeSQLs($ver, $u_ver);
+        return true;
     }
     
     static public function isModuleInstalled($module, $dbName=null)
@@ -209,14 +242,17 @@ class ModuleLoader
             if (version_compare($baseVersion, $ver) < 0 && version_compare($targetVersion, $ver) >= 0) {
                 $UpgradeSql = $v->UpgradeSql;
                 if (!$UpgradeSql) continue;
-                echo "Upgrade from version $baseVersion to $ver ...".PHP_EOL;
+                if (CLI) echo "Upgrade from version $baseVersion to $ver ...".PHP_EOL;
+                $this->log("Upgrade from version $baseVersion to $ver ...");
                 
                 //$db->exec($UpgradeSql);
                 $queryArr = MySQLDumpParser::parse($UpgradeSql);
                 foreach($queryArr as $query){
                     try {
-                        echo "Execute $query".PHP_EOL;
-                        $db->exec($query);
+                        if (CLI) echo "Execute #$query#".PHP_EOL;
+                        $this->log("Execute #$query#");
+                        $db->exec(trim($query));
+                        //$db->exec("ALTER TABLE  `help` ADD `add1` varchar(255) default NULL AFTER `content`");
                     } catch (Exception $e) {
                         $this->errors = $e->getMessage();
                         $this->log($e->getMessage());
@@ -279,7 +315,7 @@ class ModuleLoader
         
     protected function installModule()
     {
-        $this->log("Install Module.");
+        $this->log("Install Module ".$this->name);
     	$modfile = MODULE_PATH."/".$this->name."/mod.xml";
         
     	$xml = simplexml_load_file($modfile);
@@ -322,9 +358,62 @@ class ModuleLoader
         // install Menu
         $this->installMenu($xml);
         
+        // install widget
+        $this->installWidgets($xml);
+        
         // TODO: install resource
         $this->installResource($xml);
+        
+        $this->installChangeLog($xml);
+        
+        $this->installModuleAsPackage($xml);
+        
         return true;
+    }
+    
+    protected function installModuleAsPackage($xml)
+    {
+        $db = $this->DBConnection();
+        try {
+            $tblDesc = $db->describeTable("package_local");
+        }
+        catch (Exception $e)  {
+            return;
+        }
+        
+        $this->log("Install Module as a Package.");
+        
+        // write mod info in module table
+        $modName = $xml['Name'];
+        $modDesc = $xml['Description'];
+        $modAuthor = $xml['Author'];
+        $modVersion = $xml['Version'];
+        $modObVersion = $xml['OpenbizVersion'];
+        $depModules = $this->checkDependency();
+        $depModString = implode(",",array_keys($depModules));
+        $sql = "SELECT * from package_local where name='$modName'";
+        try {
+            //BizSystem::log(LOG_DEBUG, "DATAOBJ", $sql);
+            $rs = $db->fetchAll($sql);
+        }
+        catch (Exception $e) {
+            $this->errors = $e->getMessage();
+            return false;
+        }
+        $package_id = "cubi-".$modName."-module";
+        if (count($rs)>0)
+            $sql = "UPDATE package_local SET package_id='$package_id', type='Release', category='Module', description='$modDesc', version='$modVersion', inst_version='$modVersion', author='$modAuthor', status=1, pltfm_ver='$modObVersion' WHERE name='$modName'";
+        else {
+            $sql = "INSERT INTO package_local (package_id, name, type, category, description, version, inst_version, author, status, pltfm_ver) VALUES ('$package_id', '$modName','Release','Module','$modDesc','$modVersion','$modVersion','$modAuthor',1,'$modObVersion');";
+        }
+        try {
+            //BizSystem::log(LOG_DEBUG, "DATAOBJ", $sql);
+            $db->query($sql);
+        }
+        catch (Exception $e) {
+            $this->errors = $e->getMessage();
+            return false;
+        }
     }
     
     protected function installResource($xml)
@@ -334,7 +423,7 @@ class ModuleLoader
         
         if (isset($xml->Files) && isset($xml->Files->Copy)) {
             foreach ($xml->Files->Copy as $copy) {
-                //echo "Copy ".MODULE_PATH.'/'.$this->name.'/'.$copy['From'].' > '.APP_HOME.'/'.$copy['ToDir'].PHP_EOL;
+                // echo "Copy ".MODULE_PATH.'/'.$this->name.'/'.$copy['From'].' > '.APP_HOME.'/'.$copy['ToDir'].PHP_EOL;
                 $toDirs = glob(APP_HOME.'/'.$copy['ToDir']);
                 //print_r($toDirs);
                 $fromFiles = glob(MODULE_PATH.'/'.$this->name.'/'.$copy['From']);
@@ -347,6 +436,56 @@ class ModuleLoader
                 }
             }
         }
+    }
+    
+    protected function installChangeLog($xml)
+    {
+    	$this->log("Install Module Change Logs.");
+    	$module_name = $xml['Name'];
+    	
+    	if(!isset($xml->ChangeLog->Version))
+    	{
+    		return true;
+    	}
+    	
+    	foreach($xml->ChangeLog->Version as $version)
+    	{
+    		
+    		$version_name = (string)$version['Name'];
+    		if(isset($version->Change))
+    		{
+    			$changelogDO = BizSystem::GetObject("system.do.ModuleChangeLogDO");
+    			foreach($version->Change as $change)
+    			{
+    				$changelogRec = array();
+    				
+    				$changelogRec['module']			=	(string)$module_name;
+    				$changelogRec['name']			=	(string)$change['Name'];
+    				$changelogRec['description']	=	(string)$change['Description'];
+    				$changelogRec['status']			=	(string)$change['Status'];
+    				$changelogRec['version']		=	(string)$version_name;
+    				$changelogRec['type']			=	(string)$change['Type'];
+    				$changelogRec['publish_date']	=	(string)$change['PublishDate'];
+    				try{
+	    				if(strtolower($changelogRec['status'])!=''){
+	    					$oldRec = $changelogDO->fetchOne("[name]='".$changelogRec['name']."'");
+	    					if($oldRec)
+	    					{
+	    						$changelogRec['Id']= $oldRec['Id'];
+	    						$changelogDO->updateRecord($changelogRec,$oldRec);
+	    					}
+	    					else
+	    					{
+	    						$changelogDO->insertRecord($changelogRec);	
+	    					}
+	    				}
+    				}catch (Exception $e)
+    				{
+    					//var_dump($e->getMessage());
+    				}
+    			}
+    		}
+    	}
     }
     
     protected function installMenu($xml)
@@ -381,6 +520,8 @@ class ModuleLoader
     	return true;
     }
     
+ 
+    
     protected function loadMenuItem($menuItem, $parentMenuName='')
     {
     	$module = $this->name;
@@ -398,6 +539,9 @@ class ModuleLoader
     	$icon_css = $menuItem['IconCssClass']; 
     	$description = $menuItem['Description'];   	
     	
+    	$sql = "DELETE FROM menu WHERE name='$name' ";
+    	$db->query($sql);
+    	
     	$sql = "INSERT INTO menu (`name`,description,module,title,link,url_match,parent,access,ordering,icon,icon_css,published) ";
     	$sql .= "VALUES ('$name','$description','$module','$title','$link','$url_match','$parentMenuName','$access','$order','$icon','$icon_css','1');";
     	try {
@@ -414,6 +558,68 @@ class ModuleLoader
         	if ($this->loadMenuItem($m,$name) == false) return false;
         }
         return true;
+    }
+    
+    protected function installWidgets($xml)
+    {
+    	$this->log("Install Module Widget.");
+    	$module = $this->name;
+    	if (isset($xml->Widgets) && isset($xml->Widgets->Widget))
+    	{
+	    	// delete all menu item first
+	    	$db = $this->DBConnection();
+            $sql = "DELETE FROM widget WHERE module='$module'";
+	        try {
+	            //BizSystem::log(LOG_DEBUG, "DATAOBJ", $sql);
+	            $db->query($sql);
+	        }
+	        catch (Exception $e) {
+	            $this->errors = $e->getMessage();
+	            //BizSystem::log(LOG_DEBUG, "DATAOBJ", $this->errors." $sql");
+	            return false;
+	        }
+	        //clean  obj cache
+			$menuObj = BizSystem::getObject("system.do.WidgetDO");
+			$menuObj->CleanCache();
+			
+            foreach ($xml->Widgets->Widget as $m) {            	
+            	if ($this->loadWidget($m) == false) return false;
+            } 
+    	}
+    	return true;
+    }   
+
+    protected function loadWidget($widget,$moduleName='')
+    {
+		$module 	= $this->name;
+    	$db 		= $this->DBConnection();
+    	$name 		= (string)$widget['Name'];
+    	$title 		= (string)$widget['Title'];
+    	$description= (string)$widget['Description'];   	
+    	$sortorder	= (string)$widget['Order'];
+    	
+    	
+    	$configable = BizSystem::getObject($name)->configable;
+    	$configable = (int)$configable;
+
+    	$do = BizSystem::getObject("system.do.WidgetDO");
+    	$recArr = array(
+    		"name"		=>$name,	
+    		"module"	=>$module,
+    		"title"		=>$title,
+    		"description"=>$description,
+    		"sortorder"	=>$sortorder,
+    		"configable"=>$configable,
+    		"published"	=>1,    		
+    	);
+    	    	    	
+    	try{
+		$do->insertRecord($recArr);    	
+    	}catch (Exception $e)
+    	{
+    		var_dump($e->getMessage());
+    	}
+        return true;    	
     }
     
     protected function installACL($xml)
@@ -491,6 +697,18 @@ class ModuleLoader
 				}
 			}
         }
+    }
+    
+    protected function copyResourceFiles()
+    {
+        $this->log("Copy resource files to /cubi/resources folder.");
+    	$module = $this->name;
+    	$modulePath = MODULE_PATH."/$module";
+        $resourceFolder = $modulePath."/resource";
+        $targetFolder = APP_HOME."/resources/$module";
+        
+        // copy resource/* to /cubi/resources/module_name/
+        recurse_copy($resourceFolder, $targetFolder);
     }
     
     protected function installMetaDo()
@@ -660,10 +878,13 @@ class ModuleLoader
     
     protected function log($message)
     {
-    	$date = date('c', time());
-    	if ($this->debug)
-    		echo "[$date] $message\n";
-    	$this->logs .= "[$date] $message \n"; 
+    	//if(CLI)
+    	{
+	    	$date = date('c', time());
+	    	if ($this->debug)
+	    		echo "[$date] $message\n";
+	    	$this->logs .= "[$date] $message \n";
+    	} 
     }
 }
 
@@ -693,19 +914,4 @@ function php_grep($q, $path)
     }
 }
 
-function recurse_copy($src,$dst) {
-    $dir = opendir($src);
-    @mkdir($dst, 0777, true);
-    while(false !== ( $file = readdir($dir)) ) {
-        if (( $file != '.' ) && ( $file != '..' ) && ( $file != '.svn' )) {
-            if ( is_dir($src . '/' . $file) ) {
-                recurse_copy($src . '/' . $file,$dst . '/' . $file);
-            }
-            else {
-                copy($src . '/' . $file,$dst . '/' . $file);
-            }
-        }
-    }
-    closedir($dir);
-} 
 ?>

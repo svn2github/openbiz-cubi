@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <ViewMode Value="contact.form.ContactListForm" text="Phone Book"/>
+   <ViewMode Value="contact.form.ContactGeneralCardForm" text="Contact Cards"/>
+   <ViewMode Value="contact.form.ContactPhotoGridForm" text="Photo Grid"/>
+   <ViewMode Value="contact.form.ContactListTypeForm" text="Group by Type"/>
+   <ViewMode Value="contact.form.ContactListCompanyForm" text="Group by Company"/>      
+
+</Selection>

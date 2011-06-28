@@ -3,7 +3,7 @@
 {include file="system_appbuilder_btn.tpl.html"}
 	<div>
 		{if $form.icon !='' }
-	<div class="form_icon"><img  src="{$image_url}/{$form.icon}" border="0" /></div>
+	<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
 	{/if}
 		<div ><h2>{$form.title}</h2></div>
 	</div>
@@ -15,7 +15,7 @@
 		<div style="height:15px;"></div>
 		{/if}
 	<div style="padding-left:10px;" >
-		<div class="underline upline" style="height:230px;">
+		<div class="underline upline" style="height:240px;">
 		<h2>General Profile</h2>
 		<div style="float:left; width:140px; height:150px; text-align:center; padding-top:10px;">
 				{assign var=item value=$dataPanel.fld_photo}

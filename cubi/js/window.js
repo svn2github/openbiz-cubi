@@ -715,7 +715,7 @@ Window.prototype = {
         content.setStyle({height: height  + 'px'});
         content.setStyle({width: width  + 'px'});
       }
-    }
+    }    
   },
   
   updateHeight: function() {
@@ -1493,6 +1493,11 @@ var Dialog = {
 	win.setSize(w,h);
   },
   
+  setCenter: function() {
+		win = Windows.getWindow(this.dialogId);
+		win._center();
+	  },  
+	  
   _openDialog: function(content, parameters) {
     var className = parameters.className;
     

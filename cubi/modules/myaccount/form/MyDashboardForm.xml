@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="MyDashboardForm" Icon="icon_modules_l.gif" Class="MyDashboardForm" FormType="List" jsClass="jbForm" Title="My Dashboard Management" SearchRule="[user_id]='{@profile:Id}'" Description="You can custom your dashboard feature by selecting and config below installed widgets. \nThese optional widgets are usually shipped with modules." BizDataObj="myaccount.do.UserWidgetDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
+    <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>        
+        <Element Name="fld_Id" Class="ColumnHidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y"/>
+        <Element Name="fld_name" Class="ColumnHidden" Hidden="Y" FieldName="name" Label="Name" Sortable="Y"/>
+        <Element Name="fld_module" Class="ColumnText" FieldName="module" Label="Module" Sortable="Y"/>
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title" Sortable="Y" link="javascript:;">
+        	<EventHandler Name="fld_title_onclick" Event="onclick" Function="SwitchForm(myaccount.form.WidgetDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>
+        <Element Name="fld_description" Class="ColumnText"  MaxLength="40" FieldName="description" Label="Description" Sortable="Y"></Element>        
+        <Element Name="fld_sortorder" Class="ColumnSorting" FieldName="ordering" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})" />
+        	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value+5})" />
+        </Element>  
+        <Element Name="fld_config" Class="ColumnBool" FieldName="configable" link="javascript:;" TrueImg="{RESOURCE_URL}/myaccount/images/icon_config_enable.gif" FalseImg="{RESOURCE_URL}/myaccount/images/icon_config_disable.gif" Sortable="Y" Label="Config">
+        	<EventHandler Name="fld_config_onclick" Event="onclick" EventLogMsg="" Function="ConfigWidget({@:Elem[fld_Id].Value})" />
+        </Element>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_add" Class="Button" Text="Add" CssClass="button_gray_m">
+            <EventHandler Name="edit_onclick" Event="onclick" Function="LoadDialog(myaccount.form.WidgetPickForm)" RedirectPage="{@home:url}/system/module_edit/{@:Elem[fld_Id].Value}"/>
+        </Element>
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
+            <EventHandler Name="del_onclick" Event="onclick" Function="DeleteRecord()" ShortcutKey="Delete" ContextMenu="Delete"/>
+        </Element>
+        <Element Name="btn_config" Class="Button" Text="Config" CssClass="button_gray_m">
+            <EventHandler Name="load_onclick" Event="onclick" Function="ConfigWidget()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+        <Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+        	<EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+        	<EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
+        </Element>
+        <Element Name="btn_first"  Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>    
+    </NavPanel> 
+    <SearchPanel>   
+    </SearchPanel>
+</EasyForm>

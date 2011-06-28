@@ -5,7 +5,7 @@
 {include file="system_appbuilder_btn.tpl.html"}
 	<table><tr><td>
 		{if $form.icon !='' }
-		<div class="form_icon"><img  src="{$image_url}/{$form.icon}" border="0" /></div>
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
 		{/if}
 		<div style="float:left; width:600px;">
 		<h2>
@@ -16,18 +16,23 @@
 	</td></tr></table>
 {if $actionPanel or $searchPanel }	
 	<div class="form_header_panel">	
-				<div class="action_panel">
-		{foreach item=elem from=$actionPanel}
-		    	{$elem.element}
-		{/foreach}
-				</div>
-				<div class="search_panel">
+		<div class="action_panel" >
+			{foreach item=elem from=$searchPanel}
+				{if $elem.type=='InputDateRangePicker'} {$elem.element}{/if} 
+			{/foreach}
 		
-		{foreach item=elem from=$searchPanel}
-			{if $elem.label} {$elem.label} {/if} {$elem.element}
-		{/foreach}
-				</div>
-	</div>
+			{foreach item=elem from=$actionPanel}
+			    	{$elem.element}
+			{/foreach}
+		</div>
+		<div class="search_panel" >		
+			{foreach item=elem from=$searchPanel}
+				{if $elem.type!='InputDateRangePicker'}
+					{if $elem.label} {$elem.label} {/if} {$elem.element}
+				{/if}
+			{/foreach}
+		</div>
+	</div>	
 {/if}	
 <div class="from_table_container">
 <!-- table start -->

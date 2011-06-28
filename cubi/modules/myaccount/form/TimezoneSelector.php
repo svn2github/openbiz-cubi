@@ -1,6 +1,6 @@
 <?php 
-require_once(OPENBIZ_BIN."easy/element/DropDownList.php");
-class TimezoneSelector extends DropDownList{
+require_once(OPENBIZ_BIN."easy/element/Listbox.php");
+class TimezoneSelector extends Listbox{
 	public $m_continent;
 	
 	protected function readMetaData(&$xmlArr){
@@ -14,8 +14,10 @@ class TimezoneSelector extends DropDownList{
         return Expression::evaluateExpression($this->m_continent, $formobj);
 	}
 	
-    public function getList(){
-    	$list = array();
+    //public function getList(){
+    public function getFromList(&$list) 
+    {
+    	//$list = array();
 		$zones = timezone_identifiers_list();
 		foreach ($zones as $zone) 
 		{
@@ -43,7 +45,8 @@ class TimezoneSelector extends DropDownList{
     								"pic"=>""));
     		
     	}
-    	return $list;
+        
+    	//return $list;
     }
   
 }

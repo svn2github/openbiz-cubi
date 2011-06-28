@@ -26,7 +26,7 @@ switch ($CodeLevel){
 	case "2":
 		for($i=0;$i<$CodeLength;$i++){
 			//$font = ImageColorAllocate($im, rand(100,255),rand(0,100),rand(100,255));
-			$codebase = "123456789ABCDEFGHIJKLMNPQRSTUVWXYZ";
+			$codebase = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
 			srand();
 			$codepos = rand(1,strlen($codebase));
 			$authnum = substr($codebase,$codepos-1,1);

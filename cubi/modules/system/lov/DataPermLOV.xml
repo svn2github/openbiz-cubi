@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <OwnerPerm Value="3" text="Full Control"/>
+   
+   <GroupPerm Value="0" text="Invisiable"/>
+   <GroupPerm Value="1" text="Read Only"/>
+   <GroupPerm Value="2" text="Read and Modify"/>
+   <GroupPerm Value="3" text="Full Control"/>
+   
+   <OtherPerm Value="0" text="Invisiable"/>
+   <OtherPerm Value="1" text="Read Only"/>
+   <OtherPerm Value="2" text="Read and Modify"/>
+   <OtherPerm Value="3" text="Full Control"/>   
+</Selection>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="WebsvcNewForm" Class="WebsvcForm" FormType="New" jsClass="jbForm" Title="New Websvc" Description="" BizDataObj="websvc.do.WebsvcDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_user_id" Class="InputText" Enabled="N" FieldName="user_id" Label="user Id"/>
+		<Element Name="fld_username" Class="InputPicker" FieldName="username" Label="username" ValuePicker="system.form.UserPickForm" PickerMap="fld_user_id:fld_Id,fld_username:fld_username"/>
+        <Element Name="fld_api_key" Class="Hidden" FieldName="api_key" Label="Api Key"/>
+        <Element Name="fld_secret" Class="Hidden" FieldName="secret" Label="Secret"/>
+        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status"   AllowURLParam="N" SelectFrom="common.lov.CommLOV(Status)"/>
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"   AllowURLParam="N"/>
+        </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=websvc.form.WebsvcDetailForm&amp;fld:Id={@websvc.do.WebsvcDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

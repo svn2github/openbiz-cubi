@@ -11,19 +11,21 @@ function switch_datasheet(id){
 	}	
 }
 
-function load_default_status(id){
-	var c = new Cookies();
-	status = c.get(id);
-	switch(status){
-		default:
-		case 'show':
-			$(id).show();
-			$(id+"_switcher").className='shrink';
-			break;
-		case 'hide':
-			$(id).hide();
-			$(id+"_switcher").className='expand';					
-			break;
-	
+function load_default_status(id){	
+	if($(id)){
+		var c = new Cookies();
+		status = c.get(id);
+		switch(status){
+			default:
+			case 'show':
+				$(id).show();
+				$(id+"_switcher").className='shrink';
+				break;
+			case 'hide':
+				$(id).hide();
+				$(id+"_switcher").className='expand';					
+				break;
+		
+		}
 	}
 }

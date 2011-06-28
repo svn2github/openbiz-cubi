@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>   
+   <Status Value="Planning" text="Planning"/>
+   <Status Value="Developing" text="Developing"/>
+   <Status Value="Finished" text="Finished"/>
+   
+   <Type Value="Bug_Fixed" text="Bug Fixed"/>
+   <Type Value="New_Feature" text="New Feature"/>
+   <Type Value="Security" text="Security"/>
+   
+</Selection>

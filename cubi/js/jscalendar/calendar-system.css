@@ -10,7 +10,7 @@
   background: Window;
   color: WindowText;
   font-family: tahoma,verdana,sans-serif;
-  z-index:10000;  
+  z-index:10100;  
 }
 
 .calendar table {

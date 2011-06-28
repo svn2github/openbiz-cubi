@@ -5,7 +5,7 @@
         <Element Name="fld_module" Class="ColumnText" FieldName="module" Label="Module" Sortable="Y"/>
         <Element Name="fld_resource" Class="ColumnText" FieldName="resource" Label="Resource" Sortable="Y"/>
         <Element Name="fld_action" Class="ColumnText" FieldName="action" Label="Action" Sortable="Y"/>
-        <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y"/>
+        <Element Name="fld_description" MaxLength="50" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y"/>
     </DataPanel>
     <ActionPanel>
     </ActionPanel> 

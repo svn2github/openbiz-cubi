@@ -89,7 +89,9 @@ function init_top_menu_pos(){
 	$('top_menu_list').style.position='relative';
 	pos = (0-top_menu_first*top_menu_item_width);
 	$('top_menu_list').style.left=pos+'px';
-	$('top_menu_list').style.paddingLeft=pos+'px';
+	try{
+		$('top_menu_list').style.paddingLeft=pos+'px';
+	}catch(e){}
 	new Effect.Move($('top_menu_list'), { x: pos, y: 0, mode: 'absolute' });
 	top_menu_play_daemon();
 }

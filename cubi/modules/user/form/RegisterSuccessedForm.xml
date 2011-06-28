@@ -7,7 +7,7 @@
 		<Element Name="fld_lastlogin" Class="LabelText" FieldName="lastlogin" Label="Last Login" Width="200"/>
     </DataPanel>
     <ActionPanel>
-		<element Name="lnk_goto" label="" Class="LabelText" CssClass="button_m_highlight" text="Goto Home" link="{@home:url}/system/general_default"/>    		
+		<element Name="lnk_goto" label="" Class="LabelText" CssClass="button_m_highlight" text="Goto Home" link="{@home:url}/user/login"/>    		
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 

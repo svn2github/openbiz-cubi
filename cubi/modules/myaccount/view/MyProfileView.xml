@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<EasyView Name="MyProfileView" Description="My Account Profile" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+<EasyView Name="MyProfileView" Description="My Account Profile" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="myaccount.access">
     <FormReferences>
         <Reference Name="myaccount.form.ProfileDetailForm"/>
     </FormReferences>

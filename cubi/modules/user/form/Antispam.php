@@ -8,7 +8,10 @@ class Antispam extends InputElement{
 	
     public function Validate()
     {
-    	$formobj = $this->GetFormObj();        
+    	if($this->getRequired()=='N'){
+    		return true;
+    	}
+    	$formobj = $this->GetFormObj();       	     
         BizSystem::sessionContext()->getObjVar($formobj->m_Name, $this->m_Name,$orgValue);
         $inputValue = strtoupper($this->getValue());
 		if($inputValue==$orgValue) {

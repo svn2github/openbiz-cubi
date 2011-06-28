@@ -12,6 +12,7 @@
     <TableJoins>
     </TableJoins>
     <ObjReferences>
-    <Object Name="system.do.AclActionDO" Relationship="1-M" Table="acl_action" Column="module" FieldRef="name" CascadeDelete="Y"/>
+    	<Object Name="system.do.AclActionDO" Relationship="1-M" Table="acl_action" Column="module" FieldRef="name" CascadeDelete="Y"/>
+    	<Object Name="system.do.ModuleChangeLogDO" Relationship="1-M" Table="module_changelog" Column="module" FieldRef="name" CascadeDelete="Y"/>
     </ObjReferences>
 </BizDataObj>

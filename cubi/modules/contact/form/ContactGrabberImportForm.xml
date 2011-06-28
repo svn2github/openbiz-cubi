@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ContactGrabberImportForm" Icon="{RESOURCE_URL}/contact/images/icon_contact_grabber.gif" Class="ContactGrabberImportForm" FormType="New" jsClass="jbForm" Title="Contact Import Mapping" Description="Please select or create a type for imported contacts and setup group sharing for them." BizDataObj="contact.do.ContactImportDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
+    <DataPanel>
+	
+        <Element Name="fld_contact_counts" ElementSet="General" Class="LabelText" FieldName="" Label="Contacts Data" Text="{@:SelectedContacts} Selected Contacts" Description="Contacts going to be import"  Required="Y" />
+        <Element Name="fld_type_selector" ElementSet="Contact Type"  Class="Listbox" SelectFrom="contact.lov.ContactTypeSelectorLOV(Type)" FieldName="type_selector" Label="Type Mapping" Description="How should new contacts mapping to "  Required="N" >
+            <EventHandler Name="fld_type_selector_onclick" EventLogMsg="" Event="onchange" Function="UpdateForm()" />
+        </Element>
+        <Element Name="fld_type_exsit" Hidden="{@:Elem[fld_type_selector].Value=='1'?'Y':'N'}" ElementSet="Contact Type"  Class="common.lib.TypeSelector" SelectFrom="contact.do.ContactTypeDO[name:Id:color]" FieldName="contact_type_exist" Label="Select a type" Description="new contacts will be assign to this type"  Required="N" />
+        <Element Name="fld_type_new" Hidden="{@:Elem[fld_type_selector].Value=='1'?'N':'Y'}" ElementSet="Contact Type"  Class="InputText" FieldName="contact_type_new" Label="New type" Description="Create a new type for new contacts"  Required="N" />
+    
+        <Element Name="fld_owner"  Class="LabelText" Text="{@profile:username}" ElementSet="Data Sharing" Description="Data owner name " FieldName="" Label="Owner"  />  
+    	<Element Name="fld_owner_perm"  Class="Listbox" DefaultValue="{DEFAULT_OWNER_PERM}" SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Data permission for myself " FieldName="owner_perm" Label="Owner Perm"  />
+    	<Element Name="fld_group"  Class="LabelText" Text="{@profile:default_group_name}" ElementSet="Data Sharing" Description="My default group name " FieldName="" Label="Group"  />    	
+        <Element Name="fld_group_perm"  Class="Listbox" DefaultValue="{DEFAULT_GROUP_PERM}" SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing" Description="Data permission for my group's users" FieldName="group_perm" Label="Group Perm"  />
+		<Element Name="fld_other_perm"  Class="Listbox" DefaultValue="{DEFAULT_OTHER_PERM}" SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" Description="Data permission for other users " FieldName="other_perm" Label="Other Perm"  />		
+         
+    
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_next" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="next_onclick" EventLogMsg="" Event="onclick" Function="switchForm(contact.form.ContactGrabberListForm)" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_import" Class="Button" Text="Import Contacts" CssClass="button_gray_w">
+            <EventHandler Name="skip_onclick" EventLogMsg="" Event="onclick" Function="Import()" RedirectPage="form=contact.form.ContactGrabberFinishForm" ShortcutKey="Escape" ContextMenu="Skip Grab" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

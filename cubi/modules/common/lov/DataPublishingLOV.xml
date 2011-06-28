@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   
+	<PublishStatus Value="0" text="Pending" />
+	<PublishStatus Value="1" text="Published" />
+	
+	<PublishLevel Value="0" text="Specified Group" />
+	<PublishLevel Value="1" text="Global Groups" />
+   
+   
+   <DataFilter Value="2" text="My Group Published" PICTURE="{RESOURCE_URL}/common/images/icon_filter_groups.gif"/>
+   <DataFilter Value="3" text="Others Group Published" PICTURE="{RESOURCE_URL}/common/images/icon_filter_others.gif"/>
+      
+</Selection>

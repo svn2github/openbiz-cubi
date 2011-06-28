@@ -1,0 +1,112 @@
+<?php 
+if(!defined('GROUP_DATA_SHARE')){ define('GROUP_DATA_SHARE','0'); }
+
+class dataPermService
+{
+	
+	public function CheckDataOwner($rec)
+	{
+		$user_id = BizSystem::GetUserProfile('Id');
+		if($rec['owner_id'])
+		{
+			if($rec['create_by']==$user_id ||
+				$rec['owner_id']==$user_id ){
+				return true;
+			}
+		}
+		else{
+			if($rec['create_by']==$user_id){
+				return true;
+			}
+		}
+		return false;
+	}
+	public function CheckDataPerm($rec,$permCode)
+	{
+		$user_id = BizSystem::GetUserProfile('Id');
+		$user_groups = BizSystem::GetUserProfile('groups');
+		$data_owner = $rec['create_by'];
+		$data_group = $rec['group_id'];
+		$group_perm = $rec['group_perm'];
+		$other_perm = $rec['other_perm'];
+
+		if($rec['owner_id']!=null){
+			if($user_id==$rec['owner_id']){
+				return true;
+			}			
+		}
+		if($user_id == $data_owner)
+		{
+			return true;
+		}else{
+			if(GROUP_DATA_SHARE==0)
+			{
+				return false;
+			}
+		}		
+		
+		
+				
+		if($other_perm >= $permCode)
+		{
+			return true;
+		}
+		
+		if($group_perm >= $permCode)
+		{
+			foreach($user_groups as $group_id)
+			{
+				if($group_id == $data_group)
+				{
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
+	public function BuildSQLRule($type,$hasOwnerField=false)
+	{
+		$sql_where = null;
+		$user_id = BizSystem::GetUserProfile('Id');
+		$user_groups = BizSystem::GetUserProfile('groups');
+		
+		if($hasOwnerField){
+			$sql_where = " ( ([create_by]='$user_id' OR [owner_id]='$user_id') ";
+		}else{
+			$sql_where = " ( [create_by]='$user_id' ";
+		}
+		
+		if(GROUP_DATA_SHARE==0)
+		{
+			return $sql_where." ) ";
+		}
+		
+		switch($type)
+		{
+			default:
+			case 'select':
+				$perm_limit = ">=1"; 				
+				break;
+			case 'update':
+				$perm_limit = ">=2";
+				break;
+			case 'delete':
+				$perm_limit = ">=3";
+				break;
+		}
+				
+		if(count($user_groups)){
+			$sql_where .= " OR ( [group_perm] $perm_limit AND (";				
+			foreach($user_groups as $group_id)
+			{
+				$sql_where .= " [group_id] = '$group_id' OR ";
+			}
+			$sql_where .= " FALSE ) )";
+		}
+		$sql_where .= " OR [other_perm] $perm_limit  )";
+		return $sql_where;
+	}
+}
+?>

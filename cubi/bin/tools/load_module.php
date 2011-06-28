@@ -10,10 +10,13 @@ if ($argc<2) {
 	exit;
 }
 
-include_once ("../app_init.php");
+include_once (dirname(dirname(__FILE__))."/app_init.php");
 if(!defined("CLI")){
 	exit;
 }
+
+//include_once dirname(__FILE__)."/require_auth.php";
+
 include_once (MODULE_PATH."/system/lib/ModuleLoader.php");
 
 $moduleName = $argv[1];
@@ -26,17 +29,21 @@ if($moduleName!="all" && $moduleName!=""){
 }
 else
 {
-	$moduleArr = glob(MODULE_PATH."/*");			
-	for($i=0;$i<count($moduleArr);$i++)
+	$_moduleArr = glob(MODULE_PATH."/*");
+    $moduleArr[0] = "system";
+    $moduleArr[1] = "menu";
+	foreach ($_moduleArr as $_module)
 	{
-		$moduleArr[$i]=basename($moduleArr[$i]);	
+		$_module = basename($_module);
+        if ($_module == "system" || $_module == "menu") continue;
+        $moduleArr[] = $_module;	
 	}
 }
 
 foreach ($moduleArr as $moduleName)
 {
 	$loader = new ModuleLoader($moduleName);
-	echo "Start loading $moduleName module ...".PHP_EOL;
+	echo "Start loading $moduleName module ...".PHP_EOL; 
 	echo "--------------------------------------------------------".PHP_EOL;
 	$loader->loadModule($installSql);
 	echo $loader->errors . "".PHP_EOL;

@@ -153,6 +153,34 @@ class UserPreferenceForm extends EasyForm
 	            			@file_put_contents($config_file,$data);	            			
 	            		}
 	            		break;
+	            	case "group_data_share":
+	            	    if($value!=GROUP_DATA_SHARE){
+	            			$data = file_get_contents($config_file);	            			
+	            			$data = preg_replace("/define\([\'\\\"]{1}GROUP_DATA_SHARE[\'\\\"]{1}.*?\)\;/i","define('GROUP_DATA_SHARE','$value');",$data);	            			
+	            			@file_put_contents($config_file,$data);	            			
+	            		}
+	            		break;	    
+	            	case "owner_perm":
+	            	    if($value!=DEFAULT_OWNER_PERM){
+	            			$data = file_get_contents($config_file);	            			
+	            			$data = preg_replace("/define\([\'\\\"]{1}DEFAULT_OWNER_PERM[\'\\\"]{1}.*?\)\;/i","define('DEFAULT_OWNER_PERM','$value');",$data);	            			
+	            			@file_put_contents($config_file,$data);	            			
+	            		}
+	            		break;	
+	            	case "group_perm":
+	            	    if($value!=DEFAULT_GROUP_PERM){
+	            			$data = file_get_contents($config_file);	            			
+	            			$data = preg_replace("/define\([\'\\\"]{1}DEFAULT_GROUP_PERM[\'\\\"]{1}.*?\)\;/i","define('DEFAULT_GROUP_PERM','$value');",$data);	            			
+	            			@file_put_contents($config_file,$data);	            			
+	            		}
+	            		break;	
+	            	case "other_perm":
+	            	    if($value!=DEFAULT_OTHER_PERM){
+	            			$data = file_get_contents($config_file);	            			
+	            			$data = preg_replace("/define\([\'\\\"]{1}DEFAULT_OTHER_PERM[\'\\\"]{1}.*?\)\;/i","define('DEFAULT_OTHER_PERM','$value');",$data);	            			
+	            			@file_put_contents($config_file,$data);	            			
+	            		}
+	            		break;		            			            			            		        		
 	            }
             }
         }

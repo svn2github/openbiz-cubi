@@ -9,3 +9,4 @@ EMAIL_INVALID = "The username or email address you given is incorrect. we cannot
 MODULE_LOAD_ERROR = "Module loading has errors."
 MODULE_LOAD_COMPLETE = "Module loading is completed."
 ACCESS_SAVED = "Access selections are saved."
+SMARTCARD_USED = "this SmartCard was already assigned to another user, Pleace try another card."

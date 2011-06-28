@@ -163,7 +163,7 @@ class MetaGenerator
     
     public function setACL($acl)
     {
-        $resource = strtolower($this->opts[3]).'.'.strtolower($this->opts[1]);
+        $resource = strtolower($this->opts[3]); // strtolower($this->opts[3]).'.'.strtolower($this->opts[1]);
         switch ($acl) {
             case 1: 
                 $this->opts['acl'] = array('access'=>$resource.'.Access', 'manage'=>$resource.'.Manage', 
@@ -902,7 +902,7 @@ class ModGenerator
      */
     function __construct($module, $opts, $dashboard_enable=0)
     {
-        $this->module = $opts[3];
+        $this->module = $module;
         $this->opts = $opts;
         $this->dashboard_enable = $dashboard_enable;
     }
@@ -917,22 +917,22 @@ class ModGenerator
     function generateMod($table_name)
     {
         if(CLI){echo "Start generate mod.xml." . PHP_EOL;}
-        $targetPath = $moduleDir = MODULE_PATH . "/" . getModuleName($this->module);
+        $module_name = getModuleName($this->module);
+        $targetPath = $moduleDir = MODULE_PATH . "/" . $module_name;
         if (!file_exists($targetPath))
         {
             if(CLI){echo "Create directory $targetPath" . PHP_EOL;}
             mkdir($targetPath, 0777, true);
         }
-
         
-        
-        $listview_uri = strtolower(str_replace(" ","_",$this->opts[2])) . "_list";
-		$module = $this->module.".".$this->opts[1];
+        //$listview_uri = strtolower(str_replace(" ","_",$this->opts[2])) . "_list";
+        $listview_uri = strtolower(getSubModuleName($this->module)) . "_list";
+		$module = $this->module;    //.".".$this->opts[1];
         $comp = $this->opts[2];
 		
         $smarty = BizSystem::getSmartyTemplate();
 
-        $smarty->assign_by_ref("module_name", $this->module);
+        $smarty->assign_by_ref("module_name", $module_name);
         $smarty->assign_by_ref("module", $module );
         $smarty->assign_by_ref("comp", $comp );
         $smarty->assign_by_ref("listview_uri", $listview_uri);
@@ -953,19 +953,19 @@ class ModGenerator
 	function modifyMod($table_name)
     {
         if(CLI){echo "Start modify mod.xml." . PHP_EOL;}
+        $module_name = getModuleName($this->module);
         $targetFile = $moduleDir = MODULE_PATH . "/" . getModuleName($this->module)."/mod.xml";
        
         $content = file_get_contents($targetFile);
         
         $smarty = BizSystem::getSmartyTemplate();
 
-        $listview_uri = strtolower(str_replace(" ","_",$this->opts[2])) . "_list";
-		$module = $this->module.".".$this->opts[1];
-				
+        //$listview_uri = strtolower(str_replace(" ","_",$this->opts[2])) . "_list";
+        $listview_uri = strtolower(getSubModuleName($this->module)) . "_list";
+		$module = $this->module;    //.".".$this->opts[1];
         $comp = $this->opts[2];
         
-        
-        $smarty->assign_by_ref("module_name", $this->module);
+        $smarty->assign_by_ref("module_name", $module_name);
         $smarty->assign_by_ref("module", $module );
         $smarty->assign_by_ref("comp", $comp );
         $smarty->assign_by_ref("listview_uri", $listview_uri);
@@ -1244,4 +1244,11 @@ function getModuleName($comp)
     $names = explode(".", $comp);
     return $names[0];
 }
+
+function getSubModuleName($comp)
+{
+    $names = explode(".", $comp);
+    return $names[count($names)-1];
+}
+
 ?>

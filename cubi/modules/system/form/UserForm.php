@@ -113,6 +113,57 @@ class UserForm extends EasyForm
        // $this->processPostAction();
     }
     
+    public function CreateUserFromArr($data)
+    {
+        $recArr = $data;
+         
+        $password = $data['password'];            
+		$recArr['password'] = hash(HASH_ALG, $password);
+        $user_id = $this->_doInsert($recArr);
+		
+        $userArr = $this->getActiveRecord();
+        $user_id = $userArr["Id"];
+        
+        $RoleDOName = "system.do.RoleDO";
+        $UserRoleDOName = "system.do.UserRoleDO";
+        
+        $roleDo = BizSystem::getObject($RoleDOName,1);
+        $userRoleDo = BizSystem::getObject($UserRoleDOName,1);
+        
+        $roleDo->setSearchRule("[default]=1");
+        $defaultRoles = $roleDo->fetch();
+        foreach($defaultRoles as $role){
+        	$role_id = $role['Id'];
+        	$userRoleArr = array(
+        		"user_id" => $user_id,
+        		"role_id" => $role_id
+        	);
+        	$userRoleDo->insertRecord($userRoleArr);
+        }
+
+        //assign a default group to new user
+        $GroupDOName = "system.do.GroupDO";
+        $UserGroupDOName = "system.do.UserGroupDO";
+        
+        $groupDo = BizSystem::getObject($GroupDOName,1);
+        $userGroupDo = BizSystem::getObject($UserGroupDOName,1);
+        
+        $groupDo->setSearchRule("[default]=1");
+        $defaultGroups = $groupDo->fetch();
+        foreach($defaultGroups as $group){
+        	$group_id = $group['Id'];
+        	$userGroupArr = array(
+        		"user_id" => $user_id,
+        		"group_id" => $group_id
+        	);
+        	$userGroupDo->insertRecord($userGroupArr);
+        }        
+        
+       //create a default profile to new user
+       $profile_id = BizSystem::getService(PROFILE_SERVICE)->CreateProfile($user_id);
+       // $this->processPostAction();
+    }    
+    
     /**
      * Update user record
      *
@@ -122,6 +173,13 @@ class UserForm extends EasyForm
     {
         $currentRec = $this->fetchData();
         $recArr = $this->readInputRecord();
+        
+        if($this->CheckSmartCard($recArr)){
+        	$this->m_Errors = array("fld_smartcardcodexx"=> $this->getMessage("SMARTCARD_USED"));
+        	$this->setActiveRecord($currentRec);
+        	$this->rerender();
+        	return;
+        }        
         
         $this->setActiveRecord($recArr);
         
@@ -135,6 +193,8 @@ class UserForm extends EasyForm
             return;
         }
 
+
+        
         if (count($recArr) == 0)
             return;
 		
@@ -151,7 +211,37 @@ class UserForm extends EasyForm
         //$this->m_Notices[] = $this->GetMessage("USER_DATA_UPDATED");
         $this->processPostAction();
     }
+    
+	public function ClearSmartCard()
+    {
+        $currentRec = $this->fetchData();
+        $recArr = $this->readInputRecord();
+        
+		
+       	$recArr['smartcard'] = '';
+		
+        if ($this->_doUpdate($recArr, $currentRec) == false)
+            return;
+        
+        // if 'notify email' option is checked, send confirmation email to user email address
+        // ...
+        
+        //$this->m_Notices[] = $this->GetMessage("USER_DATA_UPDATED");
+        $this->processPostAction();
+    }
    
+    public function CheckSmartCard($rec)    
+    {
+    	$recId = $this->m_RecordId;
+    	$cardcode = $rec['smartcard'];
+    	$do = $this->getDataObj();
+    	$record = $do->directfetch("[smartcard]='$cardcode' AND [Id]!='$recId'");
+    	if($record->count()>0){
+    		return true;
+    	}else{
+    		return false;
+    	}
+    }
 	/**
      * Validate form user inputs
      *

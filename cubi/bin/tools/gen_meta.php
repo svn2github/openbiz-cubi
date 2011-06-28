@@ -20,6 +20,21 @@
 	...
  */
 
+/* How to create a sub module by "specify a custom module path, object name and module name"
+    #php gen_meta.php Default package_category
+    ---------------------------------------
+    Please select metadata naming:
+    1. module path: \package_category, object name: PackageCategory, module name: package
+    2. module path: \package_category, object name: Category, module name: package
+    S. specify a custom module path, object name and module name
+    Please select: [1/2/s] (1) : S
+    Please set a module path: package/category
+    Please set the component name: PackageCategory
+    Please set the component display name: Package Category
+    Please set the module name: package.category
+    ...
+ */
+ 
 if ($argc<3) {
 	echo "usage: php gen_meta.php dbname table [modulename] [metadata template set]".PHP_EOL;
 	exit;
@@ -34,6 +49,9 @@ $metatpl = isset($argv[4]) ? $argv[4] : "metatpl";
 define("META_TPL",$metatpl);
 
 include_once dirname(dirname(__FILE__))."/app_init.php";
+
+//include_once dirname(__FILE__)."/require_auth.php";
+
 include_once dirname(__FILE__)."/gen_meta.inc.php";
 if(!defined("CLI")){
 	exit;
@@ -46,7 +64,7 @@ for ($i=0;$i<count($temp);$i++){
 	$namings[$i] = array($moduleDir, 
 						 getCompName($table,$i),	
 						 getCompDisplayName($table,$i),	
-						 getCompModuleName($table,$i));
+						 $module);
 }
 echo "---------------------------------------".PHP_EOL;
 echo "Please select metadata naming:".PHP_EOL;
@@ -66,7 +84,7 @@ while(1) {
 	if(strtolower($selection)=='s'){
 		echo "Please set a module path: ";
         $module = trim(fgets(STDIN));
-		$custom_opts[0] = MODULE_PATH.DIRECTORY_SEPARATOR.trim(module);
+		$custom_opts[0] = MODULE_PATH.DIRECTORY_SEPARATOR.trim($module);
 		
 		echo "Please set the component name: ";
 		$custom_opts[1] = trim(fgets(STDIN));
@@ -76,6 +94,7 @@ while(1) {
 
 		echo "Please set the module name: ";
 		$custom_opts[3] = trim(fgets(STDIN));	
+        $module = $custom_opts[3];
 		
 		if($custom_opts[0] && $custom_opts[1]){
 			break;
@@ -95,6 +114,7 @@ if(is_array($custom_opts)){
 	$opts = $namings[$answer];
 }
 
+//print_r($opts);
 echo PHP_EOL."Access control options: ".PHP_EOL;
 echo "1. Access and Manage (default)".PHP_EOL;
 echo "2. Access, Create, Update and Delete".PHP_EOL;
@@ -164,7 +184,8 @@ if (strtolower($answer) == 'y'){
 
 
 //detects if mod.xml exists
-$modFile = $moduleDir = MODULE_PATH . "/" . strtolower($opts[3])."/mod.xml";
+$modFolder = getModuleName(strtolower($opts[3]));
+$modFile = $moduleDir = MODULE_PATH . "/" . $modFolder."/mod.xml";
 if(file_exists($modFile)){
 echo "---------------------------------------".PHP_EOL;
 	echo "Do you want to modify mod.xml? [y/n] (y) : ";
@@ -189,21 +210,22 @@ echo "---------------------------------------".PHP_EOL;
 	}	
 }
 
-
-
-
+/*
+$tmplist = explode('.',$opts[3]);
+$compName = $tmplist[0];
 echo "---------------------------------------".PHP_EOL;
-echo "Do you want to load this module now? [y/n] (y) : ";
+echo "Do you want to load this module $compName now? [y/n] (y) : ";
 // Read the input
 $answer = trim(fgets(STDIN));
 $answer = $answer?$answer:"y";
 if (strtolower($answer) == 'y'){
 	// create mod.xml
-	echo "Load module : ".$opts[3]." ...".PHP_EOL;
+	echo "Load module : ".$compName." ...".PHP_EOL;
 	$script = dirname(__FILE__)."/load_module.php";
-	$cmd = "$script ".$opts[3];
+	$cmd = "$script ".$compName;
 	exec($cmd,$output);
 	$result = implode("\n", $output );
 	echo $result."\n";
 }
+*/
 ?>

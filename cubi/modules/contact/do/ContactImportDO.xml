@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ContactImportDO" Description="" Class="BizDataObj" DBName="Default" Table="contact_import" SearchRule="[user_id]='{@profile:Id}'" SortRule="[create_time] ASC, [Id] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+        <BizField Name="Id" Column="id"     Type="Number"/>
+        <BizField Name="first_name" Column="first_name" Required="N" Length="255"  Type="Text"/>
+        <BizField Name="last_name" Column="last_name" Required="N" Length="255"  Type="Text"/>
+        <BizField Name="display_name" Column="display_name" Length="255"  Type="Text"/>
+        <BizField Name="company" Column="company" Required="N" Length="255"  Type="Text"/>
+        <BizField Name="department" Column="department" Length="255"  Type="Text"/>
+        <BizField Name="position" Column="position" Length="255"  Type="Text"/>
+        <BizField Name="fast_index" Column="fast_index" Length="10"  Type="Text"/>
+        <BizField Name="photo" Column="photo" Length="255"  Type="Text"/>
+        <BizField Name="phone" Column="phone" Length="255"  Type="Text"/>
+        <BizField Name="mobile" Column="mobile" Length="255"  Type="Text"/>
+        <BizField Name="fax" Column="fax" Length="255"  Type="Text"/>
+        <BizField Name="zipcode" Column="zipcode" Length="255"  Type="Text"/>
+        <BizField Name="province" Column="province" Length="255"  Type="Text"/>
+        <BizField Name="city" Column="city" Length="255"  Type="Text"/>
+        <BizField Name="street" Column="street" Length="255"  Type="Text"/>
+        <BizField Name="country" Column="country" Length="255"  Type="Text"/>
+        <BizField Name="email" Column="email" Length="255"  Type="Text"/>
+        <BizField Name="webpage" Column="webpage" Length="255"  Type="Text"/>
+        <BizField Name="qq" Column="qq" Length="255"  Type="Text"/>
+        <BizField Name="icq" Column="icq" Length="255"  Type="Text"/>
+        <BizField Name="skype" Column="skype" Length="255"  Type="Text"/>
+        <BizField Name="yahoo" Column="yahoo" Length="255"  Type="Text"/>        
+        <BizField Name="user_id" Column="user_id"   Type="Number"/>
+        <BizField Name="selected" Column="selected"   Type="Number"/>   
+        <BizField Name="foreign_key" Column="foreign_key"   Type="Text"/>  
+        <BizField Name="source" Column="source"   Type="Text"/>  
+        <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

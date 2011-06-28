@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="GroupDataSharingView" Description="system" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="system_view.tpl.html" Access="Group.Administer_Groups">
+   <FormReferences>
+   		<Reference Name="system.form.GroupDataShareDetailForm"/>
+   </FormReferences>
+</EasyView>

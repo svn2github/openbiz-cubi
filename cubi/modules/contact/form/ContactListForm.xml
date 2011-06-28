@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ContactListForm" Class="ContactForm" FormType="List" jsClass="jbForm" Title="Contact Phone Book" Description="Telephone directory (also called a telephone book and phone book) is a listing of telephone subscribers in a geographical area or subscribers to services provided by the organization that publishes the directory" BizDataObj="contact.do.ContactDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="CONTACT" MessageFile="Contact.msg">
+<EasyForm Name="ContactListForm" Class="ContactForm" Icon="{RESOURCE_URL}/contact/images/icon_phonebook.gif" FormType="List" jsClass="jbForm" Title="Contact Phone Book" Description="Telephone directory (also called a telephone book and phone book) is a listing of telephone." BizDataObj="contact.do.ContactDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_grid.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>
-        
-        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="ID"/>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />
+       
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+        <Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{RESOURCE_URL}/contact/images/icon_contact.gif"
+				MySharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared.gif"
+				MyAssignedImg="{RESOURCE_URL}/contact/images/icon_contact_assigned.gif"
+				MyDistributedImg="{RESOURCE_URL}/contact/images/icon_contact_distributed.gif" 
+				GroupSharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared_group.gif"
+				OtherSharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared_other.gif"
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
+		</Element>	 
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />
         <Element Name="fld_display_name" Class="ColumnText" FieldName="display_name" Label="Contact Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>	
         <Element Name="fld_phone" Class="ColumnText" FieldName="phone" Label="Phone"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
-        <Element Name="fld_mobile" Class="ColumnText" FieldName="mobile" Label="Mobile"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
-        <Element Name="fld_fax" Class="ColumnText" FieldName="fax" Label="Fax"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
-        <Element Name="fld_published" Class="ColumnBool" FieldName="published" Label="Published"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
-			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_published,{@:Elem[fld_published].Value})"/>		
-		</Element>	
+        <Element Name="fld_mobile" Class="ColumnText"   FieldName="mobile" Label="Mobile"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        <Element Name="fld_fax" Class="Hidden" Hidden="Y" FieldName="fax" Label="Fax"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+			
+
         <Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sortorder" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})" />
         	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value+5})" />
-        </Element>		        
+        </Element>
+		<Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_type" Class="ColumnText"  Style="line-height:24px;" FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
@@ -35,21 +46,9 @@
         <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
             <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
         </Element>
-    
-	
-        <Element Name="search_ai" Class="Button" Text="A~I"  CssClass="button_gray_m" >
-            <EventHandler Name="search_onclick1" Event="onclick" EventLogMsg="" Function="QuickSearch(AI)" ShortcutKey="" ContextMenu="Search"/>
-        </Element>
+    		  		
 
-		<Element Name="search_jr" Class="Button" Text="J~R"  CssClass="button_gray_m" >
-            <EventHandler Name="search_onclick2" Event="onclick" EventLogMsg="" Function="QuickSearch(JR)" ShortcutKey="" ContextMenu="Search"/>
-        </Element>
-
-		<Element Name="search_sz" Class="Button" Text="S~Z" CssClass="button_gray_m" >
-            <EventHandler Name="search_onclick3" Event="onclick" EventLogMsg="" Function="QuickSearch(SZ)" ShortcutKey="" ContextMenu="Search"/>
-        </Element>
-
-		
+								
 	</ActionPanel>
 
     <NavPanel>
@@ -75,9 +74,61 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
+		<Element Name="search_all" Class="Button" Text="All" CssClass="button_gray_m" >
+            <EventHandler Name="search_all_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch()"/>
+        </Element>	
+        <Element Name="search_09" Class="Button" Text="0~9"  CssClass="button_gray_m" >
+            <EventHandler Name="search_09_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(0,9)"/>
+        </Element>
+
+		<Element Name="search_abc" Class="Button" Text="ABC"  CssClass="button_gray_m" >
+            <EventHandler Name="search_abc_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(A,C)"/>
+        </Element>
+
+		<Element Name="search_def" Class="Button" Text="DEF" CssClass="button_gray_m" >
+            <EventHandler Name="search_def_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(D,F)"/>
+        </Element>
+
+		<Element Name="search_ghi" Class="Button" Text="GHI" CssClass="button_gray_m" >
+            <EventHandler Name="search_ghi_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(G,I)"/>
+        </Element>
+
+		<Element Name="search_jkl" Class="Button" Text="JKL" CssClass="button_gray_m" >
+            <EventHandler Name="search_jkl_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(J,L)"/>
+        </Element>
+
+		<Element Name="search_mno" Class="Button" Text="MNO" CssClass="button_gray_m" >
+            <EventHandler Name="search_mno_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(M,O)"/>
+        </Element>
+		
+		<Element Name="search_pqr" Class="Button" Text="PQR" CssClass="button_gray_m" >
+            <EventHandler Name="search_pqr_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(P,R)"/>
+        </Element>	 
+		
+		<Element Name="search_stu" Class="Button" Text="STU" CssClass="button_gray_m" >
+            <EventHandler Name="search_stu_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(S,U)"/>
+        </Element>	 
+		  	
+		<Element Name="search_vwx" Class="Button" Text="VWX" CssClass="button_gray_m" >
+            <EventHandler Name="search_vwx_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(V,X)"/>
+        </Element>	 
+		
+		<Element Name="search_yz" Class="Button" Text="YZ" CssClass="button_gray_m" >
+            <EventHandler Name="search_yz_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(Y,Z)"/>
+        </Element>	 
+
+		<Element Name="search_other" Class="Button" Text="Other" CssClass="button_gray_m" >
+            <EventHandler Name="search_other_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(Z)"/>
+        </Element>	  						
+         <Element Name="data_filter"  BlankOption="All Data" cssclass="input_select_m" Class="common.element.ShareDataFilter" FieldName="create_by" Label="" SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
+            <EventHandler Name="datafilter_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>  
+		<Element Name="type_selector" BlankOption="All Types" cssclass="input_select_m" Class="common.lib.TypeSelector" FieldName="type_id" Label="" SelectFrom="contact.do.ContactTypeDO[name:Id:color]" >
+            <EventHandler Name="type_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element> 
         <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="contact.do.ContactDO[display_name],[display_name] like '%{$_POST['qry_name']}%' GROUP BY [display_name]" FieldName="display_name" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
-        </Element>             
+        </Element>  		   
     </SearchPanel>
 </EasyForm>

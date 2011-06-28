@@ -9,10 +9,13 @@ if ($argc<2) {
 }
 $module = $argv[1];
 
-include_once ("../app_init.php");
+include_once (dirname(dirname(__FILE__))."/app_init.php");
 if(!defined("CLI")){
 	exit;
 }
+
+include_once dirname(__FILE__)."/require_auth.php";
+
 // check if the /modules/table is already there
 $moduleDir = MODULE_PATH."/".str_replace(".","/",$module);
 

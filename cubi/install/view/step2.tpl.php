@@ -9,8 +9,8 @@
         <p>Please enter your database configuration information below.<br />
 		 If you are unsure of what to fill in, we suggest that you use the default values.
         </p><p>
-        This installer will be write <strong>application.xml</strong> and create <strong>install.lock</strong> file.
-        Please set application.xml and cubi directory writable for web server.
+        This installer will be write <strong>Config.xml</strong> and create <strong>install.lock</strong> file.
+        Please set Config.xml and cubi directory writable for web server.
         
         </p>
 <form id="setupform" name="setupform" method="post" action="install.php" >

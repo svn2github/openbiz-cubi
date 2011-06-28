@@ -75,6 +75,7 @@ class MenuTreeDO extends BizDataObj
         }
         if ($this->depth <= 1)
             return $this->rootNodes;
+        if (!$this->rootNodes) return array();
         foreach ($this->rootNodes as $node)
         {
             $this->_getChildrenNodes($node, 1, $globalSearchRule);

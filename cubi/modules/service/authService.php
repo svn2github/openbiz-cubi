@@ -85,6 +85,23 @@ class authService
 	      return true;
 	   }
       return false;
+   } 
+
+   public function authenticateUserBySmartCard($smartcard)
+   {
+      $boAuth = BizSystem::getObject($this->m_AuthticationDataObj);
+      if (!$boAuth)
+         return false;
+       $searchRule = "[smartcard]='$smartcard' and status='1'";
+	   $recordList = array();
+
+	   $boAuth->fetchRecords($searchRule, $recordList, 1);
+
+	   if(count($recordList)>0){
+	   		$username 	 = $recordList[0]["username"];
+	   		return $username;
+	   }
+      return false;
    }   
    
    protected function authDBUser($username, $password)

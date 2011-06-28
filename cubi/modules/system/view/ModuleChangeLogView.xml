@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ModuleChangeLogView" Description="Module Change Logs" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl.html" Access="Module.Administer_Modules">
+    <FormReferences>
+        <Reference Name="system.form.ModuleChangeLogHisForm"/>
+    </FormReferences>
+</EasyView>

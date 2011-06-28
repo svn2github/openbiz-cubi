@@ -10,6 +10,7 @@
             <MenuItem Name="MyAccount.EditAccount" Title="General" Description="General system settings" URL="/myaccount/dashboard" IconCssClass="icon_myaccount" Order="10">
                 <MenuItem Name="MyAccount.EditProfile" Title="My Profile" Description="" URL="/myaccount/my_profile" Order="10"/>
                 <MenuItem Name="MyAccount.EditPref" Title="My Preferences" Description="" URL="/myaccount/my_preference" Order="20"/>
+				<MenuItem Name="MyAccount.EditDashboard" Title="My Dashboard" Description="" URL="/myaccount/my_dashboard" Order="25"/>
 				<MenuItem Name="MyAccount.ViewEventLog" Title="My Event Log" Description="" URL="/myaccount/my_event_log" Order="30"/>
 				<MenuItem Name="MyAccount.SetPassword" Title="Change Password" Description="" URL="/myaccount/reset_password" Order="40"/>
                 
@@ -21,4 +22,7 @@
     	<Module Name="menu"/>
     	<Module Name="contact"/>
     </Dependency>
+    <Widgets>
+    	<Widget Name="myaccount.widget.DashboardForm" Title="My Account Features" Description="Features sitemap of my account module, including shortcuts of my preference and change password etc." Ordering="10" />
+    </Widgets>
 </Module>

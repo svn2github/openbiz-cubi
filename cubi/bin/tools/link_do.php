@@ -32,7 +32,7 @@ if ($argc<3) {
 $do1name = $argv[1];
 $do2name = $argv[2];
 
-include_once ("../app_init.php");
+include_once (dirname(dirname(__FILE__))."/app_init.php");
 include_once (MODULE_PATH."/tool/lib/DomMeta.php");
 if(!defined("CLI")){
 	exit;

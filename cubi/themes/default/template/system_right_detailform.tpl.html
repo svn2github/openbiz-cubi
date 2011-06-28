@@ -4,7 +4,7 @@
 {include file="system_appbuilder_btn.tpl.html"}
 	<table><tr><td>
 		{if $form.icon !='' }
-		<div class="form_icon"><img  src="{$image_url}/{$form.icon}" border="0" /></div>
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
 		{/if}
 	
 		<div style="float:left; width:600px;">
@@ -23,13 +23,14 @@
 		
 		
 		
-	<div style="padding-left:30px;">
+	<div class="detail_form_panel_padding">
 	{foreach item=item key=itemName from=$dataPanel}
 		{if $item.type eq 'CKEditor' 
 		 or $item.type eq 'RichText' 
 		 or $item.type eq 'Textarea'  
 		 or $item.type eq 'RawData'
 		 or $item.type eq 'LabelImage'
+		 or $item.type eq 'IDCardReader'
 		 }
 			<table  id="{$itemName}_container" class="input_row">
 			<tr>
@@ -63,7 +64,7 @@
 			{if $item.type eq 'Checkbox' }
 				<span class="label_text" >{$item.element} {$item.description}</span>
 			{else}
-				<span class="label_text" style="{if $item.width}width:{$item.width}px;{/if}">{$item.element}</span>
+				<span class="label_text" style="{if $item.width}width:{$item.width+15}px;{/if}">{$item.element}</span>
 				{if $errors.$itemName}
 				<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
 				{elseif $item.description}
@@ -80,20 +81,20 @@
 	{/foreach}
 		
 		<div style="height:10px;"></div>
-		
+		{if $actionPanel|@count > 0}
 		<p class="input_row">
 			
 			{foreach item=elem from=$actionPanel}
 				{$elem.element}
 			{/foreach}
 		</p>
-
+		{/if}
 	{if $errors}
 	    <div id='errorsDiv' class='innerError errorBox'>
 	    {foreach item=errMsg from=$errors}
 	        <div>{$errMsg}</div>
 	    {/foreach}
-	    {literal}<script>setTimeout("$('errorsDiv').fade( {from: 1, to: 0});",3000);</script>{/literal}
+	    {literal}<script>try{setTimeout("$('errorsDiv').fade( {from: 1, to: 0});",3000);}catch(e){}</script>{/literal}
 	    </div>
 	{/if}
 	
@@ -103,7 +104,7 @@
 	        <div>{$noticeMsg}</div>
 	    {/foreach}
 	    </div>
-	    {literal}<script>setTimeout("$('noticeDiv').fade( {from: 1, to: 0});",3000);</script>{/literal}
+	    {literal}<script>try{setTimeout("$('noticeDiv').fade( {from: 1, to: 0});",3000);}catch(e){};</script>{/literal}
 	{/if}
 
 	</div>

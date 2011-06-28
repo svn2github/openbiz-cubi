@@ -3,7 +3,8 @@ class profileService
 {
     protected $m_Name = "ProfileService";
     protected $m_Profile;    
-    protected $m_profileObj = "contact.do.ContactDO";    
+    protected $m_profileObj = "contact.do.ContactDO";
+    protected $m_contactObj = "contact.do.ContactSystemDO";     
     protected $m_userDataObj = "system.do.UserDO";
     protected $m_user_roleDataObj = "system.do.UserRoleDO";
     protected $m_user_groupDataObj = "system.do.UserGroupDO";
@@ -170,9 +171,16 @@ class profileService
             {
                 $profile['groups'][] = $rec['group_id'];
                 $profile['groupNames'][] = $rec['group_name'];
-                if ($rec['default']==1 && $profile['default_group']==null)
+                if ($rec['default']==1 && $profile['default_group']==null){
                     $profile['default_group'] = $rec['group_id'];
-            }
+                    $profile['default_group_name'] = $rec['group_name'];
+                }
+            }            
+        }
+    	if($profile['default_group']==null)
+        {
+        	$profile['default_group'] = $rs[0]['group_id'];
+        	$profile['default_group_name'] = $rs[0]['group_name'];
         }
         return $profile;
     }
@@ -186,8 +194,15 @@ class profileService
         if (!$rs)
             return "";
         
-        $rs = $rs[0];
-        $name = $rs['username']." &lt;".$rs['email']."&gt;";
+        $contact_do = BizSystem::getObject($this->m_contactObj);    
+        $contact_rs = $contact_do->directFetch("[user_id]='$account_id'", 1);    
+        if (!$contact_rs){
+        	$rs = $rs[0];
+        	$name = $rs['username']." &lt;".$rs['email']."&gt;";
+        }else{
+        	$contact_rs = $contact_rs[0];
+        	$name = $contact_rs['display_name'];
+        }
         return $name;
     }
 }

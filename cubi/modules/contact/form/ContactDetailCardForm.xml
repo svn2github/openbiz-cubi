@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ContactDetailCardForm" Class="ContactForm" FormType="List" jsClass="jbForm" Title="Detailed Contact Card" Description="Telephone directory (also called a telephone book and phone book) is a listing of telephone subscribers in a geographical area or subscribers to services provided by the organization that publishes the directory" BizDataObj="contact.do.ContactDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="contact_card.tpl.html" EventName="CONTACT" MessageFile="Contact.msg">
+<EasyForm Name="ContactDetailCardForm" Class="ContactForm" FormType="List" jsClass="jbForm" Title="Detailed Contact Card" Description="Telephone directory (also called a telephone book and phone book) is a listing of telephone subscribers in a geographical area or subscribers to services provided by the organization that publishes the directory" BizDataObj="contact.do.ContactDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="contact_card.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />
-        <Element Name="fld_name" Class="ColumnText" FieldName="display_name" Label="Contact Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+        <Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{RESOURCE_URL}/contact/images/icon_contact.gif"
+				MySharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared.gif"
+				MyAssignedImg="{RESOURCE_URL}/contact/images/icon_contact_assigned.gif"
+				MyDistributedImg="{RESOURCE_URL}/contact/images/icon_contact_distributed.gif" 
+				GroupSharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared_group.gif"
+				OtherSharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared_other.gif"
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+			<EventHandler Name="fld_share2_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
+		</Element>
+		<Element Name="fld_name" Class="ColumnText" FieldName="display_name" Label="Contact Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>	
         <Element Name="fld_phone" Class="ColumnText" FieldName="phone" Label="Phone"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	

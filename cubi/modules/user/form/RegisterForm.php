@@ -44,6 +44,9 @@ class RegisterForm extends UserForm
         $recArr['create_by']="0";
         $recArr['update_by']="0";
 
+        $password = BizSystem::ClientProxy()->GetFormInputs("fld_password");            
+		$recArr['password'] = hash(HASH_ALG, $password);
+        
         $this->_doInsert($recArr);
                 
         //set default user role to member
@@ -51,7 +54,7 @@ class RegisterForm extends UserForm
         $userRoleObj = BizSystem::getObject('system.do.UserRoleDO');
         $uesrRoloArr =array(
         				"user_id"=>$userinfo['Id'],
-        				"role_id"=>"2",  //role 3 is Guest
+        				"role_id"=>"2",  //role 2 is Member
         				); 
          
         $userRoleObj->insertRecord($uesrRoloArr);

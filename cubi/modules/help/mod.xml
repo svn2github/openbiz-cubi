@@ -16,10 +16,4 @@
     	<Module Name="system"/>
     	<Module Name="menu"/>
     </Dependency>
-    <Files>
-        <Copy From="resource/images/*" ToDir="themes/*/images"/>
-        <Copy From="resource/template/*" ToDir="themes/*/template"/>
-        <Copy From="resource/js/*" ToDir="themes/js"/>
-        <Copy From="resource/css/*" ToDir="themes/css"/>
-    </Files>
 </Module>

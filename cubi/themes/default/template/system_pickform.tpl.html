@@ -1,7 +1,17 @@
 <form id='{$form.name}' name='{$form.name}'>
 <div style="padding-left:25px;padding-right:40px; padding-top:26px;">
-	<h2>{$form.title}</h2>
-	<p class="form_desc">{$form.description}</p>
+	<table ><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon" style="float:left;padding-right:10px;"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+		<div style="float:left; width:450px;">
+		<h2>
+		{$form.title}
+		</h2> 
+		<p class="form_desc" style="padding-top:10px;">{$form.description}</p>
+		</div>
+	</td></tr></table>
+	<br/>
 {if $actionPanel or $searchPanel }	
 	<div class="form_header_panel">	
 				<div class="action_panel">
@@ -92,3 +102,4 @@
 	<div class="v_spacer"></div>
 </div>
 </form>
+<script>Openbiz.Window.centerDialog(750,530); </script>

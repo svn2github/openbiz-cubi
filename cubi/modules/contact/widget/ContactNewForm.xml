@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ContactNewForm" Class="ContactPickerForm"  Icon="icon_my_profile.gif" FormType="New" jsClass="jbForm" Title="New Contact" Description="Here you can create a personal contact profile. And share it with your team." BizDataObj="contact.do.ContactSystemDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_quick_add.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
+    <DataPanel>	            		
+   	        <Element Name="fld_type_id" Class="common.lib.TypeSelector" ElementSet="General" KeepCookie="Y" SelectFrom="contact.do.ContactTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" FieldName="type_id" Label="Contact Type"  AllowURLParam="N" />    	        	        
+    
+	        <Element Name="fld_first_name" Class="InputText" ElementSet="General" FieldName="first_name" Label="Firstname"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>	        		        
+	        <Element Name="fld_last_name" Class="InputText" ElementSet="General" FieldName="last_name" Label="Lastname"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        	        	        	        
+	        <Element Name="fld_company" Class="InputText" ElementSet="General" FieldName="company" Label="Company"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+			<Element Name="fld_display_name" Class="contact.form.DisplayNameBox" KeepCookie="Y" ElementSet="General" HTMLattr="style='width:200px;'" SelectFrom="common.lov.CommLOV(NameDisplayMode)" FieldName="display_name" Label="Display As"  AllowURLParam="N" />	        
+ 	        
+ 	        <Element Name="fld_phone" Class="InputText" ElementSet="Contact" FieldName="phone" Label="Phone"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
+	        <Element Name="fld_mobile" Class="InputText" ElementSet="Contact" FieldName="mobile" Label="Mobile"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	                  
+	        <Element Name="fld_email" Class="InputText"  ElementSet="Contact" FieldName="email" Label="Email"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        	        
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="insertToParent()"   ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

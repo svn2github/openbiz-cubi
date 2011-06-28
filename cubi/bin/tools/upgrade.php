@@ -11,10 +11,12 @@ if ($argc<2) {
 	exit;
 }
 
-include_once ("../app_init.php");
+include_once (dirname(dirname(__FILE__))."/app_init.php");
 if(!defined("CLI")){
 	exit;
 }
+
+include_once dirname(__FILE__)."/require_auth.php";
 
 include_once (MODULE_PATH."/system/lib/ModuleLoader.php");
 

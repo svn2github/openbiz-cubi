@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ContactTypeListForm" Class="ContactForm" FormType="List" jsClass="jbForm" Title="Contact Type Manage" Description="You can mamange your contact items by types.  All system defined type are listed below." BizDataObj="contact.do.ContactTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="CONTACT" MessageFile="Contact.msg">
+<EasyForm Name="ContactTypeListForm" Class="EasyForm" Icon="{RESOURCE_URL}/contact/images/icon_contact_type.png" FormType="List" jsClass="jbForm" Title="Contact Type Manage" Description="You can mamange your contact items by types.  All user defined type are listed below." BizDataObj="contact.do.ContactTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" />
+        <Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{RESOURCE_URL}/contact/images/icon_contact_type_private.gif"
+				MySharedImg="{RESOURCE_URL}/contact/images/icon_contact_type_shared.gif" 
+				GroupSharedImg="{RESOURCE_URL}/contact/images/icon_contact_type_shared_group.gif"
+				OtherSharedImg="{RESOURCE_URL}/contact/images/icon_contact_type_shared_other.gif"
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
+		</Element>
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />
+        
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactTypeDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>	
-        <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
-        <Element Name="fld_published" Class="ColumnBool" FieldName="published" Label="Published"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+        <Element Name="fld_description"  MaxLength="30" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        <Element Name="fld_color_code" Class="ColorPicker" Mode="ViewOnly" FieldName="color" Label="Color Code"  Sortable="Y">
+        </Element>
+		<Element Name="fld_published" Class="ColumnBool" FieldName="published" Label="Published"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
 			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_published,{@:Elem[fld_published].Value})"/>		
 		</Element>	
         <Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sortorder" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
@@ -58,6 +69,9 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
+    <Element Name="data_filter"  BlankOption="All Data" cssclass="input_select_w" Class="common.element.ShareDataFilter" FieldName="create_by" Label="" SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
+            <EventHandler Name="datafilter_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>
         <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="contact.do.ContactTypeDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" FieldName="name" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>

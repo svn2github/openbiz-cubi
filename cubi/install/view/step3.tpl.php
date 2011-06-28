@@ -48,7 +48,7 @@ foreach ($status as $s) {
 ?>
 </table>
 
-<h4>Default Database in <?php echo APP_HOME.DIRECTORY_SEPARATOR;?>application.xml</h4>
+<h4>Default Database in <?php echo APP_HOME.DIRECTORY_SEPARATOR;?>Config.xml</h4>
 <?php $db = getDefaultDB(); ?>
 <table class="form_table"  cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
 <tr>

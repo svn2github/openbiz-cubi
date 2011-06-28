@@ -403,7 +403,7 @@ Openbiz.Net =
                 case "SCRIPT":
                     content.evalScripts(); continue;
                 default:
-                    // try to call client object function
+                    // try to call client object function               	
                     if (formObj = Openbiz.getFormObject(tgtName))
                         formObj.CallbackFunction(content);
             }
@@ -464,19 +464,20 @@ Openbiz.Window =
     },
     openDialog: function(_url, w, h)
     {
-        var parameters = {className: "dialog", width:w, height:h, closable:true, resizable:true, draggable:true};
+        var parameters = {className: "dialog",zIndex:10000, width:w, height:h, closable:true, resizable:true, draggable:true};
         // may support confirm and alert dialog type later
         Dialog.info({url: _url, options: {method: 'post'}}, parameters); 
     },
     openDialogT: function(text, w, h)
     {
-        var parameters = {className: "dialog", width:w, height:h, closable:true, resizable:true, draggable:true};
+        var parameters = {className: "dialog",zIndex:10000, width:w, height:h, closable:true, resizable:true, draggable:true};
         // may support confirm and alert dialog type later
         Dialog.info(text, parameters); 
     },
     centerDialog: function(w, h)
-    {
+    {    	
         Dialog.setSize(w, h);
+        Dialog.setCenter();
     },
     closeDialog: function()
     {
@@ -704,6 +705,66 @@ Openbiz.CKEditor =
 // observe the Form:Update custom event
 document.observe("Form:BeforePost",Openbiz.CKEditor.update);
 document.observe("Form:Load",Openbiz.CKEditor.load);
+
+
+Openbiz.IDCardReader =
+{
+	initStatus: false,
+    init: function(compId)
+    {
+    	  Openbiz.IDCardReader.lastInputTime = new Date().getTime();		  
+    	  if($(compId+'_reader').className=='input_cardreader_error'){
+    		  setTimeout("$('"+compId+"_reader').className='input_cardreader'",1000*2);
+    	  }
+    	  if(Openbiz.IDCardReader.initStatus==true){    		  
+    		  return;
+    	  }else{
+    		  Openbiz.IDCardReader.initStatus=true;
+    	  }
+    	  Event.observe(document, "keypress", function(event) {		      		  
+              var e = Event.element(event);
+	            if (document.all){
+	  	            pressedKey = event.keyCode;
+	  	        } else{
+	  	            pressedKey = event.which;
+	  	        }
+	            
+	  	      if(pressedKey>=48 && pressedKey<=57){
+	  	    	  
+	  	    	  currentTime = new Date().getTime();
+	  	    	  if((currentTime-Openbiz.IDCardReader.lastInputTime) <
+	  	    	  	Openbiz.IDCardReader.interval ){
+	  	    		  $(compId).value += String.fromCharCode(pressedKey);
+	  	    		  $(compId+'_code').innerHTML += String.fromCharCode(pressedKey);
+	  	    		  $(compId+'_reader').className = "input_cardreader_reading" ;	  	    		  
+	  	    	  }else{
+	  	    		  $(compId).value = String.fromCharCode(pressedKey);
+	  	    		  $(compId+'_code').innerHTML = String.fromCharCode(pressedKey);
+	  	    		  $(compId+'_reader').className = "input_cardreader";
+	  	    		  setTimeout("Openbiz.IDCardReader.resetStatus('"+compId+"');",Openbiz.IDCardReader.interval*10);
+	  	    	  }
+	  	    	Openbiz.IDCardReader.lastInputTime = new Date().getTime();
+	  	      }
+	  	      else if(pressedKey==0)
+	  	      {
+	  	    	Openbiz.IDCardReader.lastInputTime = new Date().getTime();
+	  	    	$(compId).value = "";
+	    		$(compId+'_code').innerHTML = "";
+	    		$(compId+'_reader').className = "input_cardreader";
+	  	      }
+          });        
+    },
+    resetStatus: function(compId)
+    {
+    	 currentTime = new Date().getTime();
+	     if((currentTime-Openbiz.IDCardReader.lastInputTime) >
+	    	  	Openbiz.IDCardReader.interval ){
+	    	  $(compId+'_reader').className = "input_cardreader" ;
+	     }
+    },
+    lastInputTime: new Date().getTime(),
+    interval: 200
+}
 
 /**
  * AutoSuggestion

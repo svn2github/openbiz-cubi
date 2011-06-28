@@ -9181,5 +9181,2860 @@ array (
     'from_text' => 'New Corporate',
     'to_text' => '新企业',
   ),
+  'fa3ff60f60eb786ec5334446a320b895' => 
+  array (
+    'from_text' => 'General Profile',
+    'to_text' => '一般资料',
+  ),
+  'a81911dd0854b2aeda2327377a8cbe1f' => 
+  array (
+    'from_text' => 'Subscriber Management',
+    'to_text' => '用户管理',
+  ),
+  '8ab5e868e309bd5135f5d8314b951995' => 
+  array (
+    'from_text' => 'Subscribe Time',
+    'to_text' => '订阅时间',
+  ),
+  '2c87034118dec2aa29b51996f3192c42' => 
+  array (
+    'from_text' => 'Subscriber Detail',
+    'to_text' => '订户详细',
+  ),
+  '5b446e344b5278253f7c01e2adb91c1e' => 
+  array (
+    'from_text' => 'Copy Newsletter',
+    'to_text' => '复制简讯',
+  ),
+  '2ee8ebb556cb8a152060642eef06c74a' => 
+  array (
+    'from_text' => 'New Subscriber',
+    'to_text' => '新订户',
+  ),
+  '4b65d414c1c106460954bb9545ebae9e' => 
+  array (
+    'from_text' => 'Subscribe Successed',
+    'to_text' => '订阅Successed',
+  ),
+  '2a73d657b6d37f556ee68e5231575b51' => 
+  array (
+    'from_text' => 'Publish Time',
+    'to_text' => '发布时间',
+  ),
+  '7de2efab88c509281ba6f5770bb786ce' => 
+  array (
+    'from_text' => 'Edit Newsletter',
+    'to_text' => '编辑简讯',
+  ),
+  '11e67ffe7a0d9c2ae20546fdf92c6f23' => 
+  array (
+    'from_text' => 'NewsLetter Subscribe Tester',
+    'to_text' => '电子报订阅仪',
+  ),
+  'd736d9e7f21a0a402c33c91ae97d4e2d' => 
+  array (
+    'from_text' => 'Please fill in your email address below to subscribe our newsletter.\\nYour IP Address will be automatic record by system.\\n',
+    'to_text' => '请填写您的电子邮件地址下面的订阅我们的通讯。\\\\ n您的IP地址将被系统自动记录。\\\\ ñ',
+  ),
+  '6a5345b615d54f382e31f40baa98a1a7' => 
+  array (
+    'from_text' => 'Copy Subscriber',
+    'to_text' => '复制订阅',
+  ),
+  '755a59a0509669627b458b08be0eac4e' => 
+  array (
+    'from_text' => 'Edit Subscriber',
+    'to_text' => '编辑用户',
+  ),
+  '0a6006efd06b413dbaf920610b528d32' => 
+  array (
+    'from_text' => 'Newsletter Subscribe Tester',
+    'to_text' => '电子报订阅仪',
+  ),
+  '2a99d430a879c4096d119a4efa591571' => 
+  array (
+    'from_text' => 'Newsletter Subscriber Management',
+    'to_text' => '通讯用户管理',
+  ),
+  '8a6543bbe4682e3f2275892c957d2247' => 
+  array (
+    'from_text' => 'Gallery Preview',
+    'to_text' => '画廊预览',
+  ),
+  '741e0923feb4c155afbd0a661ca3a89e' => 
+  array (
+    'from_text' => 'About Sitebuilder',
+    'to_text' => '关于Sitebuilder中',
+  ),
+  '37623e900acb753f20c3f4aaaf430b5d' => 
+  array (
+    'from_text' => 'Newsletter Preview',
+    'to_text' => '通讯预览',
+  ),
+  'e034d7e854fae650d4927c45bdd37c4c' => 
+  array (
+    'from_text' => 'Download Files Management',
+    'to_text' => '下载文件管理',
+  ),
+  'ac02e5c0188bf3cc32d52d9b0ee6191b' => 
+  array (
+    'from_text' => 'new_parameter',
+    'to_text' => 'new_parameter',
+  ),
+  '2cf53d067508a486481b386bad3c0a7f' => 
+  array (
+    'from_text' => 'Sitebuilder',
+    'to_text' => 'Sitebuilder中',
+  ),
+  'dcddec25111ab93c5ee17bf22499c396' => 
+  array (
+    'from_text' => 'Version 0.2 \\n  Openbiz Cubi Platfrom',
+    'to_text' => '版本0.2 \\\\ ñ Openbiz Cubi洗车台',
+  ),
+  'e4ea11ce60507a47defd2c4688988d24' => 
+  array (
+    'from_text' => 'Message Submitted',
+    'to_text' => '消息提交',
+  ),
+  'b5a91cb9c109d2dbc8913a88c1a85b2b' => 
+  array (
+    'from_text' => 'Your message has been successful submitted to our database.',
+    'to_text' => '您的邮件已成功提交到我们的数据库。',
+  ),
+  '70ab19e32cbe5bc0ba75005340d6f8d7' => 
+  array (
+    'from_text' => 'Submit Time',
+    'to_text' => '提交时间',
+  ),
+  '59b9203c5e94c05dd68a75113bfc6b02' => 
+  array (
+    'from_text' => 'New Category ',
+    'to_text' => '新分类',
+  ),
+  '6ce461c8764dae4fcfc2f6cdb690ec41' => 
+  array (
+    'from_text' => 'Gallery Category',
+    'to_text' => '图库分类',
+  ),
+  'e1a1b93f56368f801f83e0f632b7b1d7' => 
+  array (
+    'from_text' => 'Gallery Picture ',
+    'to_text' => '画廊图片',
+  ),
+  'dea5ec9e399ac801e8d9843d23eed969' => 
+  array (
+    'from_text' => 'Upload Picture',
+    'to_text' => '上传图片',
+  ),
+  'b19fcdef9ad7ce7fd3f1cd1341fd7fb6' => 
+  array (
+    'from_text' => 'Sitemap Management by list view,\\n The sitemap stucture in this view is simlar to tranditional FTP way to manage a directory tree.',
+    'to_text' => '网站地图的列表视图中，\\\\ n的结构在此地图管理是相近吗繁体FTP方式来管理一个目录树。',
+  ),
+  '56f553e613ccae73753cabb3382fa1bb' => 
+  array (
+    'from_text' => 'Download Management',
+    'to_text' => '下载管理',
+  ),
+  '3a66d47f15d2abe146ce1139cf546bce' => 
+  array (
+    'from_text' => 'Edit Download',
+    'to_text' => '编辑下载',
+  ),
+  '3c113d8a274e55a09ee1ebe2d76f8fd1' => 
+  array (
+    'from_text' => 'Copy Download Category',
+    'to_text' => '复制下载类别',
+  ),
+  '6114b21bff76d0d9d02bf65ed499251c' => 
+  array (
+    'from_text' => 'Edit Download Category',
+    'to_text' => '编辑下载类别',
+  ),
+  'ceb60cf1b9c68999a441904d974cab7d' => 
+  array (
+    'from_text' => 'Download Category Detail',
+    'to_text' => '下载分类明细',
+  ),
+  '2f0988f272c3f1a722d413affe85e000' => 
+  array (
+    'from_text' => 'New Download Category',
+    'to_text' => '新的下载类别',
+  ),
+  '3672e0c322dfd55a07942edadadcc230' => 
+  array (
+    'from_text' => 'Copy Download',
+    'to_text' => '复制下载',
+  ),
+  'e0ac420a2e567ce507d426697a8d36e0' => 
+  array (
+    'from_text' => 'New Download',
+    'to_text' => '新的下载',
+  ),
+  'b13134ad143d5d158b5fbdac666c3542' => 
+  array (
+    'from_text' => 'Download Detail',
+    'to_text' => '下载详细',
+  ),
+  '1bc29b36f623ba82aaf6724fd3b16718' => 
+  array (
+    'from_text' => 'md5',
+    'to_text' => 'MD5的',
+  ),
+  'd8d8a6d2e9e1fb99302b479a8fe540d4' => 
+  array (
+    'from_text' => 'sha256',
+    'to_text' => '的SHA256',
+  ),
+  'fbb7d71920afdff488c3514f3f99fe7c' => 
+  array (
+    'from_text' => 'Upload File',
+    'to_text' => '上传文件',
+  ),
+  '639e68b755cefa00d9cf11aed66b3eb4' => 
+  array (
+    'from_text' => 'Website newsletter management, visitor could fill in email address to subcribe newsletters.',
+    'to_text' => '网站通讯管理，游客可以填写的电子邮件地址，subcribe通讯。',
+  ),
+  'c16f155141b7b731f4880a05c026902b' => 
+  array (
+    'from_text' => 'Newsletter Detail',
+    'to_text' => '通讯详细',
+  ),
+  '817e7875ac31f88a2e6751ac2daf4271' => 
+  array (
+    'from_text' => 'Newsletter Usage Sample',
+    'to_text' => '通讯用法示例',
+  ),
+  '2a27c55f045fc86be8b81960b5f00d10' => 
+  array (
+    'from_text' => 'Below samples will show you how to use this module in your front-end webpages.',
+    'to_text' => '下面的样品将告诉你如何使用这个前端网页模块。',
+  ),
+  'f08589f907d4b2f9e9fbc196a0cdacec' => 
+  array (
+    'from_text' => 'Newsletter Management',
+    'to_text' => '通讯管理',
+  ),
+  '57adf3a0f74a077bcd419e4f8e930673' => 
+  array (
+    'from_text' => 'Feedback Usage Sample',
+    'to_text' => '反馈的使用范例',
+  ),
+  'f13d38258ef25faefbf62224c9895668' => 
+  array (
+    'from_text' => 'Link Usage Sample',
+    'to_text' => '链接的使用范例',
+  ),
+  '29cc56118ff766f3d00afd16f27e04b1' => 
+  array (
+    'from_text' => 'Sitemap Usage Sample',
+    'to_text' => '网站地图的使用范例',
+  ),
+  '7faaddca8ccb467728a890f566fba087' => 
+  array (
+    'from_text' => 'Gallery Usage Sample',
+    'to_text' => '画廊的使用范例',
+  ),
+  'd139dc33f65ca18f067981263974923f' => 
+  array (
+    'from_text' => 'Content Block Usage Sample',
+    'to_text' => '内容块的使用范例',
+  ),
+  '5bf1dfe1beaf77f6a88fbef2ee301f39' => 
+  array (
+    'from_text' => 'Download Category Management',
+    'to_text' => '下载分类管理',
+  ),
+  '6bb0d7190655b0e442c8b1fe18dec701' => 
+  array (
+    'from_text' => 'Sitebuilder Usage Sample',
+    'to_text' => 'Sitebuilder中使用Sample',
+  ),
+  '0a792d096d12c2407253600617e7a078' => 
+  array (
+    'from_text' => 'Picture Type',
+    'to_text' => '图片类型',
+  ),
+  'c3ddd89cd74813f601234b1e1baeede4' => 
+  array (
+    'from_text' => 'New Picture ',
+    'to_text' => '新照片',
+  ),
+  '22f93d1e1b7ee64272241909e981d3d5' => 
+  array (
+    'from_text' => 'Remote URL',
+    'to_text' => '远程URL',
+  ),
+  '835fff0cc677ed1b05202b94fe38d4e6' => 
+  array (
+    'from_text' => 'Website download files management can counting the file download times and checksum of files.',
+    'to_text' => '网站上下载文件的管理可以计数的文件下载时间和文件的校验和。',
+  ),
+  '10716b820e40f64ecd27be4c73e8afc0' => 
+  array (
+    'from_text' => 'New File',
+    'to_text' => '新文件',
+  ),
+  'e539fd665e202f536325140d87d7bf72' => 
+  array (
+    'from_text' => 'File Type',
+    'to_text' => '文件类型',
+  ),
+  'f5ddaf0ca7929578b408c909429f68f2' => 
+  array (
+    'from_text' => 'local',
+    'to_text' => '当地',
+  ),
+  '0b27918290ff5323bea1e3b78a9cf04e' => 
+  array (
+    'from_text' => 'File',
+    'to_text' => '文件',
+  ),
+  'f14700bf80af65db3f2bb38fb2853b0f' => 
+  array (
+    'from_text' => 'Remote Url',
+    'to_text' => '远程URL',
+  ),
+  'b18c29b8470190a02813415a04a2191f' => 
+  array (
+    'from_text' => 'Filesize',
+    'to_text' => '文件大小',
+  ),
+  '7f138a09169b250e9dcb378140907378' => 
+  array (
+    'from_text' => 'MD5',
+    'to_text' => 'MD5的',
+  ),
+  'b505df5aa812b4f320420b8a952f20e5' => 
+  array (
+    'from_text' => 'SHA256',
+    'to_text' => '的SHA256',
+  ),
+  '27b948ac5b24cd345b14faa60c455f67' => 
+  array (
+    'from_text' => 'Additional',
+    'to_text' => '附加',
+  ),
+  '01505ecceec3908af4a16d9dd0799f47' => 
+  array (
+    'from_text' => 'Additional 1',
+    'to_text' => '附加一',
+  ),
+  'ef8fdeca962ce50c7ce07d583eeadf00' => 
+  array (
+    'from_text' => 'Additional 2',
+    'to_text' => '增加2',
+  ),
+  '912338cecf431ab52c0a2e3b70111c02' => 
+  array (
+    'from_text' => 'Additional 3',
+    'to_text' => '另外3',
+  ),
+  '8c59e529793d42e50864fea93d61fb87' => 
+  array (
+    'from_text' => 'Additional 4',
+    'to_text' => '附加的4',
+  ),
+  'ab592bfd8053fde526aed41e0476bd49' => 
+  array (
+    'from_text' => 'Additional 5',
+    'to_text' => '额外5',
+  ),
+  '36abe48819d33bf7ef777cd79ea26e9c' => 
+  array (
+    'from_text' => 'Additional 6',
+    'to_text' => '另外6',
+  ),
+  '8f270c7f0120f854e228ec6bf9065014' => 
+  array (
+    'from_text' => 'Additional 7',
+    'to_text' => '增加7',
+  ),
+  'a5c4767940ee2ed072969ba40001f56c' => 
+  array (
+    'from_text' => 'Additional 8',
+    'to_text' => '另外8个',
+  ),
+  '90560308565b3dc948318500728334d7' => 
+  array (
+    'from_text' => 'Additional 9',
+    'to_text' => '另外的9',
+  ),
+  'f5d85249082c26088a660a10ef7a9f45' => 
+  array (
+    'from_text' => 'Additional 10',
+    'to_text' => '另外10个',
+  ),
+  'e56aa992695e7bfd2c34baffa22efded' => 
+  array (
+    'from_text' => 'Download Category is a container of files. It could be used as a folder for organize the files.',
+    'to_text' => '下载分类是一个文件容器。它可以作为一个文件夹组织文件。',
+  ),
+  '8c00d97a6fa54f73579828106015db82' => 
+  array (
+    'from_text' => 'SiteBuilder Usage',
+    'to_text' => '使用通过SiteBuilder',
+  ),
+  '9bcc6a4afcb6cd2f7223b647fde71e8f' => 
+  array (
+    'from_text' => 'Leave Message Tester',
+    'to_text' => '给我留言测试仪',
+  ),
+  '82425e0ee03bb88a68dec984a115fd9a' => 
+  array (
+    'from_text' => 'NewsLetter',
+    'to_text' => '电子新闻报',
+  ),
+  '237bc3e595c8d8c1ceba0d10c7fc36af' => 
+  array (
+    'from_text' => 'Manage NewsLetter',
+    'to_text' => '管理电子新闻报',
+  ),
+  '84226f1c154d1a90504083e73560dda0' => 
+  array (
+    'from_text' => 'Manage Subscriber',
+    'to_text' => '管理用户',
+  ),
+  '0d36066dae4fdc3a1d87a64c8d258725' => 
+  array (
+    'from_text' => 'Subscribe Tester',
+    'to_text' => '订阅仪',
+  ),
+  '0420df82f2b5e25c7e116d97d03d744d' => 
+  array (
+    'from_text' => 'Sitemap Tree',
+    'to_text' => '网站导航树',
+  ),
+  '801ab24683a4a8c433c6eb40c48bcd9d' => 
+  array (
+    'from_text' => 'Download',
+    'to_text' => '下载',
+  ),
+  '66a7b14f8d4268fe5bac7eca2d20a762' => 
+  array (
+    'from_text' => 'Website download module. manage download files for website.',
+    'to_text' => '网站下载模块。管理网站下载文件。',
+  ),
+  '54d53aa50a248f70071bc7626ea2d6e6' => 
+  array (
+    'from_text' => 'Manage Files',
+    'to_text' => '管理文件',
+  ),
+  'dc91679b8cbcf83121c654a41281ea8b' => 
+  array (
+    'from_text' => 'Access SiteBuilder dashboard',
+    'to_text' => '访问仪表板通过SiteBuilder',
+  ),
+  '40cf96b932bb5ba45fec733e8630546a' => 
+  array (
+    'from_text' => 'Manage SiteBuilder Sitemap',
+    'to_text' => '通过SiteBuilder网站地图管理',
+  ),
+  '2b7264862fc4afca02d6565a69123285' => 
+  array (
+    'from_text' => 'Access SiteBuilder General Settings',
+    'to_text' => '访问常规设置通过SiteBuilder',
+  ),
+  '31f3ade3fbbf030a4f254f0509c5d3a1' => 
+  array (
+    'from_text' => 'Manage SiteBuilder Links',
+    'to_text' => '通过SiteBuilder链接管理',
+  ),
+  'a5e5c215da1c96e65da09418fbc39f33' => 
+  array (
+    'from_text' => 'Manage SiteBuilder Feedbacks',
+    'to_text' => '通过SiteBuilder反馈管理',
+  ),
+  '05f7c82f143de32aab24e96b075a227a' => 
+  array (
+    'from_text' => 'Manage SiteBuilder Content Blocks',
+    'to_text' => '管理内容块通过SiteBuilder',
+  ),
+  '71ac12f9004db2d3276a1dc4201a4ada' => 
+  array (
+    'from_text' => 'Manage SiteBuilder Galleries',
+    'to_text' => '通过SiteBuilder画廊管理',
+  ),
+  '85d38e3c737232c7bd17d1ff907fe1cc' => 
+  array (
+    'from_text' => 'Manage SiteBuilder news letters',
+    'to_text' => '通过SiteBuilder新闻信件管理',
+  ),
+  'deaf6efd2fe9fdba4a3f99f530f70741' => 
+  array (
+    'from_text' => 'Manage SiteBuilder Download',
+    'to_text' => '通过SiteBuilder下载管理',
+  ),
+  '7774d424165669802aab8f53abc39c0c' => 
+  array (
+    'from_text' => 'The sitebuilder gallery uses the galleryView-2.1 as default gallery component that is one of jQuery 3rd-party plugin.\\n		Openbiz Dataojbect is the data provider for the gallery. So all the front-end effect you see in the Gallery Preview is implemented by galleryView.\\n		This module is also a good sample of how to intergrate a 3rd party component into Openbiz Cubi System.\\n		',
+    'to_text' => '画廊的Sitebuilder中使用galleryView - 2.1作为默认画廊jQuery的组成部分，是第三方的一个插件。\\\\ ñ Openbiz Dataojbect是为画廊数据提供程序。因此，所有的前端效果预览您在画廊看到的是实施galleryView。\\\\ n这个模块也是如何，整合成一个三党组成Openbiz Cubi系统良好的范例。\\\\ ñ',
+  ),
+  'a72324b40a175e28a49b67fea17eecbb' => 
+  array (
+    'from_text' => 'Render a Gallery ',
+    'to_text' => '呈现一个画廊',
+  ),
+  '63018443e10877a9cb517ed565950c9f' => 
+  array (
+    'from_text' => 'The front-end of gallery is implemented by jQuery , \\n		so when you init the gallery page, you will also need to init the UI scripts and following js files by order.',
+    'to_text' => '前端的走廊尽头是通过jQuery的，\\\\ ñ所以当你初始化库页，您还需要按顺序初始化脚本和用户界面以下js文件。',
+  ),
+  '76aee69dd01140940e6b56bd598b8a9a' => 
+  array (
+    'from_text' => '\\n		The sample below will show you how to render a Gallery html and using javascript to init it ..				\\n		It will render a gallery like Gallery Preview.',
+    'to_text' => '\\\\ ñ下面的例子将告诉你如何使一个画廊HTML和JavaScript来初始化它使用.. \\\\ ñ它将呈现一个像画廊预览画廊。',
+  ),
+  'e4dec69cc576805af7326e72c58ac56b' => 
+  array (
+    'from_text' => 'More information is availbale at:',
+    'to_text' => '更多信息，availbale在：',
+  ),
+  '3c66046592a8fedb0f92c8a64fbfa48f' => 
+  array (
+    'from_text' => 'galleryView offical website is at:',
+    'to_text' => 'galleryView官方网址是：',
+  ),
+  '91a512f2b310ea20936a702ea6af7289' => 
+  array (
+    'from_text' => 'Summery',
+    'to_text' => '综述',
+  ),
+  '904644928ce46594ad9fbd1481d28059' => 
+  array (
+    'from_text' => 'In most case , when you want to put some content block like a promotion banner\\n		or a contact us block into your website and it will usually appers in many pages. \\n		then you will be need this module to handle this kind of contents.',
+    'to_text' => '在大多数情况下，当你想要把一些像宣传横幅内容区块\\\\ n或到您的网站与我们联系块，它通常会在很多网页appers。 \\\\ n然后你将需要这个模块来处理这一类的内容。',
+  ),
+  '0ea7a9265ea262dfd884c3ef893d300b' => 
+  array (
+    'from_text' => 'Load a Content Block ',
+    'to_text' => '载入一个内容块',
+  ),
+  '67f8092da91dc352b41c79617512b5ce' => 
+  array (
+    'from_text' => 'Below sample will shows you how to load a content block \\n		which you have defined in Content Block module into your webpage.\\n		Indeed, you need to initallize Sitebuilder in the header of your webpage php file.		\\n		',
+    'to_text' => '以下范例将告诉您如何加载内容块\\\\ n的你在模块中定义的内容块到您的网页。\\\\ ñ事实上，你需要initallize在你的PHP网页文件头Sitebuilder中。 \\\\ ñ',
+  ),
+  'ea16072275d067990f971e7f8b1f3f01' => 
+  array (
+    'from_text' => 'in this sample , we fetch a content block "promo_banner" and render its title and content to HTML code\\nif you want to custom its look, you can do it by CSS , but it is out of our Sitebuilder system area.\\n',
+    'to_text' => '在这个例子中，我们取一个内容块“promo_banner”和它的标题和内容呈现到HTML代码\\\\ n如果你想自定义其外观，你可以通过CSS，但它是我们所Sitebuilder系统区。\\\\ ñ',
+  ),
+  '8f7f4c1ce7a4f933663d10543562b096' => 
+  array (
+    'from_text' => 'About',
+    'to_text' => '关于',
+  ),
+  '3902b5a3daa248e0a1e341095153feb3' => 
+  array (
+    'from_text' => '\\n		Openbiz Sitebuilder is light weight and extendable CMS system. \\n		It is designed for build a common business website, which is focus on describe product and services also have some basical user interactive feature like feedback module.\\n\\n		By our many years experience about build website for difference client companies, \\n		Each company requires a unique and custom web design. \\n		So it is really hard to build a template engine to make all clients happy with those provided options. \\n		One of the goal of we develop Sitebuilder is build a CMS system , which is easy to custom the front-end design and also have an easy to use back-end to manage content data . \\n		 \\n		more information is availbale at		 \\n		',
+    'to_text' => '\\\\ ñ Openbiz Sitebuilder是重量轻，可扩展的CMS系统。 \\\\ ñ这是为建立一个共同的商业网站，这是描述产品和服务上也有一些用户交互功能的基础性反馈模块一样。\\\\ ñ \\\\ ñ通过我们多年的经验，关于建立不同客户公司网站，\\\\ ñ重点设计每家公司都需要一个独特的，定制的网页设计。 \\\\ n是真的，所以它很难建立一个模板引擎，让所有与这些客户提供的选择感到高兴。 \\\\ N的目标之一是我们发展Sitebuilder是建立一个CMS系统，这是很容易习惯的前端设计，并有一个易于使用的后端管理内容的数据。 \\\\ ñ \\\\ n多信息availbale至\\\\ n',
+  ),
+  '948a2e3548aaf7f9941a3192fa607d51' => 
+  array (
+    'from_text' => 'Credits',
+    'to_text' => '积分',
+  ),
+  '0c4e06152c46d21fa881b3dab85df53b' => 
+  array (
+    'from_text' => '\\n		Rocky Swen - rockyswen@gmail.com, \\n		Jixian W - hellojixian@gmail.com ,	\\n		',
+    'to_text' => '\\\\ ñ洛基赛文 - rockyswen@gmail.com，\\\\ ñ蓟县W - hellojixian@gmail.com，\\\\ ñ',
+  ),
+  '29296dff6ede35dec9766a8df4f3a980' => 
+  array (
+    'from_text' => 'The Link module could help you to manage both Text and Picture links of your website.\\n		You can render a link list in your webpage footer or a link exchange webpages.\\n		It usually good for your search engine promotion.\\n		',
+    'to_text' => '链接模块可以帮助您管理您的网站文字和图片链接。\\\\ n您可以在网页呈现页脚链接列表或网页链接交换。\\\\ ñ它通常为您的搜索引擎推广好。\\\\ ñ',
+  ),
+  '71579d32c5d75f2ceffac3a7844b59be' => 
+  array (
+    'from_text' => 'Render a Text Link List',
+    'to_text' => '呈现一个文本链接列表',
+  ),
+  'b3b97c430cba40d1bda534e126775bb0' => 
+  array (
+    'from_text' => '\\n		Below sample will show you how to render a text link list.',
+    'to_text' => '\\\\ ñ以下范例将告诉您如何使一个文本链接的列表。',
+  ),
+  '24fd118076101b5505af769de56c4b62' => 
+  array (
+    'from_text' => 'Render a Picture Link List',
+    'to_text' => '渲染图片链接列表',
+  ),
+  '13ef555d89f393d077434bce02d4eaa4' => 
+  array (
+    'from_text' => '\\n		Below sample will show you how to render a picture link list.',
+    'to_text' => '\\\\ ñ以下范例将告诉你如何使图片链接列表。',
+  ),
+  '9f01652e1a3dcdec822a627fd22c0229' => 
+  array (
+    'from_text' => 'Usually in a business website, we might need a Feedback form in contact us page.\\n		The Feedback module provides a interactive form to handle feedback function. \\n		And the module will generate a new system contact item by using visitor\'s profile information.  \\n		',
+    'to_text' => '通常在一个商业网站，我们可能需要在反馈表联系我们页面。\\\\ n的反馈模块提供了一个互动的形式来处理反馈功能。 \\\\ n和模块将产生使用访问者的个人资料信息的新系统联系人项目。 \\\\ ñ',
+  ),
+  '4d597e70b729b033467f1070c564c124' => 
+  array (
+    'from_text' => 'Load a Feedback Form ',
+    'to_text' => '负载反馈表',
+  ),
+  'c1a80c711bd27a4bff3a01b770b561d0' => 
+  array (
+    'from_text' => 'The feedback form is a Form Level component, \\n		so when you init the sitebuilder, you will also need to init the UI scripts.\\n		\\n		Below sample will show you how to embed the contact form into your webpage.				\\n		You should able to see a form like Leave Message Tester shows.',
+    'to_text' => '反馈表是一个Form级组件，\\\\ ñ所以当你初始化Sitebuilder中，您还需要初始化界面的脚本。\\\\ ñ \\\\ ñ以下范例将告诉您如何嵌入到你的网页的联系方式。 \\\\ n您应该能看到这样留言板测试仪显示的形式。',
+  ),
+  '131083005a58a406cc6c4aa617f9c806' => 
+  array (
+    'from_text' => '\\n		\\n		To initallize the Sitebuilder with Form Level component,\\n		Please put below lines into your webpage header .\\n		',
+    'to_text' => '\\\\ n \\\\ n要initallize与表级组件，\\\\ n请把下面的行到您的网页标题中的Sitebuilder中。\\\\ ñ',
+  ),
+  '1fda293db385648a81190cd0e318058c' => 
+  array (
+    'from_text' => 'The Sitemap module usually is used for manage a menu system of your website.\\n		It supports a tree structure of menu items. you can render your custom logic UI by using the data structure.\\n		',
+    'to_text' => 'Sitemap的模块通常用于管理您的网站的菜单系统。\\\\ ñ它支持的菜单项的树状结构。你可以使你的自定义逻辑的用户界面使用的数据结构。\\\\ ñ',
+  ),
+  '139b50f4ebb6a5f747f09b47dff6c331' => 
+  array (
+    'from_text' => 'Render a Multi Levels Menu',
+    'to_text' => '多层次渲染菜单',
+  ),
+  'da5752ff8c1948589609e082be481b50' => 
+  array (
+    'from_text' => '\\n		Below sample will show you how to render a 2 levels menu tree by specified root node.',
+    'to_text' => '\\\\ ñ以下范例将告诉您如何使一个节点所指定的根2级菜单树。',
+  ),
+  '4f6080a0caa1c8c6ab60b84d3dd67ec7' => 
+  array (
+    'from_text' => 'The front-end of newsletter module is only a simple input box \\n		which allow user to fill in their email address to subscribe your newsletter.  \\n		',
+    'to_text' => '前端的通讯模块结束只是一个简单的输入框\\\\ n的允许用户填写他们的电子邮件地址订阅你的通讯。 \\\\ ñ',
+  ),
+  '417e73cf02fef5a262984e761dd6ca32' => 
+  array (
+    'from_text' => 'Load a Subscribe Form ',
+    'to_text' => '加载订阅表格',
+  ),
+  '28b780bd71742cdfb1ed27c72450fdb5' => 
+  array (
+    'from_text' => 'The Newsletter Subscribe form is a Form Level component, \\n		so when you init the sitebuilder, you will also need to init the UI scripts.\\n		\\n		Below sample will show you how to embed the subscribe form into your webpage.				\\n		You should able to see a form like Subscribe Tester shows.',
+    'to_text' => '电子报订阅的形式是一个层次构成成分，\\\\ ñ所以当你初始化Sitebuilder中，您还需要初始化界面的脚本。\\\\ ñ \\\\ ñ以下范例将告诉您如何嵌入到你的订阅网页的形式。 \\\\ n您应该能看到这样的形式订阅仪显示。',
+  ),
+  '17f266263711cd3945481da02ccf0b30' => 
+  array (
+    'from_text' => 'Before starts to use Sitebuilder to handle your website. \\n		you need to setup below php scripts at the begining of your php code.',
+    'to_text' => '前开始使用Sitebuilder来处理您的网站。 \\\\ n您需要设置以下PHP脚本在你的PHP代码的开头。',
+  ),
+  'e4d7e4c3814cac140bb3b9d4d5c9ca37' => 
+  array (
+    'from_text' => 'Data Level Initialization',
+    'to_text' => '数据级别初始化',
+  ),
+  '5265c53d3636515ee28178a0bfb99443' => 
+  array (
+    'from_text' => 'You need to insert below code into the first line of your php file, \\n		then the Sitebuilder will be load all necessary files and configration.',
+    'to_text' => '你需要把你的PHP文件的第一行，\\\\ n以下面的代码插入，那么Sitebuilder中会加载所有必需的文件和configration。',
+  ),
+  '4e2ab0b7e6234b293dee62d29e9b48a5' => 
+  array (
+    'from_text' => 'UI Level Initialization',
+    'to_text' => 'UI级别初始化',
+  ),
+  '524328ef494afc4d1bd0fbe2f773b8b0' => 
+  array (
+    'from_text' => 'If you need to use some form level components in your webpage, eg. the Feedback contact form. you will also need to add some Javascript and CSS files to your webpage\'s header section.',
+    'to_text' => '如果您需要在您的网页使用某种形式层次上的组件，例如。反馈联系表格。你还需要添加一些JavaScript和CSS文件到你的网页的标头部分。',
+  ),
+  'd9c1737bd8f5a73cb07dc969795df49d' => 
+  array (
+    'from_text' => 'Load a System Setting Parameter',
+    'to_text' => '加载系统设置参数',
+  ),
+  '122a51301a22e89f8e7bc7597ddc4265' => 
+  array (
+    'from_text' => 'Lets say if you want to load html meta setting which you have defined in the System Setting Section.\\n		You can use below code.',
+    'to_text' => '比方说，如果你要载入HTML元，你在设置系统设置一节中定义。\\\\ n您可以使用下面的代码。',
+  ),
+  'b4c364cec8bf1628d4d027832d02cb8f' => 
+  array (
+    'from_text' => 'Website Traffic Graph',
+    'to_text' => '网站流量图',
+  ),
+  'ee7d415b7cd4694cccb2ebba6ba46ec4' => 
+  array (
+    'from_text' => 'Websites traffic usage statistics of today.',
+    'to_text' => '今天的网站流量统计信息。',
+  ),
+  '2a78204f3df999f057cc9f3f49e137a9' => 
+  array (
+    'from_text' => 'Last Traffic Log',
+    'to_text' => '最后流量日志',
+  ),
+  '9e34205a8cea6346bc93303a9afd98dd' => 
+  array (
+    'from_text' => 'Last active traffic log from each server nodes. its records each website requests ',
+    'to_text' => '最后从每个服务器节点的主动流量日志。每个网站的记录请求',
+  ),
+  '8e56fde608c010ef8e2a9f424818232f' => 
+  array (
+    'from_text' => 'Website Management',
+    'to_text' => '网站管理',
+  ),
+  '7a11042f53957727d8667732d7de1102' => 
+  array (
+    'from_text' => 'Ipaddr',
+    'to_text' => 'IPaddr的',
+  ),
+  'cce0540f6d181ece33240d1b4b99dd6f' => 
+  array (
+    'from_text' => 'Edit Website',
+    'to_text' => '编辑网站',
+  ),
+  '2eaff35c996eb5db7d545e3a5fbdfebd' => 
+  array (
+    'from_text' => 'New Website',
+    'to_text' => '新网站',
+  ),
+  'f6edfdfb35556072c11a986aea6d81b9' => 
+  array (
+    'from_text' => 'Website Detail',
+    'to_text' => '网站内容',
+  ),
+  'cb3f9a1103dc3f72139f1ddf4f7d736e' => 
+  array (
+    'from_text' => 'Access Point',
+    'to_text' => '接入点',
+  ),
+  'a912a94d79b5124d876951f96ebb256f' => 
+  array (
+    'from_text' => 'statistics',
+    'to_text' => '统计',
+  ),
+  'b44279c48bb8fc6026c34c0749b49597' => 
+  array (
+    'from_text' => 'ShadowCluster Website Reload Log',
+    'to_text' => 'ShadowCluster网站刷新记录',
+  ),
+  '635c51cdbe09d6a13e2902d0a2382fd0' => 
+  array (
+    'from_text' => 'ShadowCluster Website Usage Statistics',
+    'to_text' => 'ShadowCluster网站使用率统计数据',
+  ),
+  'c0d3fe447e5cf4554c658d787e89b3b0' => 
+  array (
+    'from_text' => 'ShadowCluster Provider Management',
+    'to_text' => 'ShadowCluster供应商管理',
+  ),
+  '4e895ab5359f647f48af70f36529b7cd' => 
+  array (
+    'from_text' => 'ShadowCluster Website Usage Statistics Detail',
+    'to_text' => 'ShadowCluster网站使用率统计数据详细信息',
+  ),
+  '445617084d61cfec16d94b2645f08827' => 
+  array (
+    'from_text' => 'ShadowCluster Cluster Watchdog Log',
+    'to_text' => 'ShadowCluster集群看门狗日志',
+  ),
+  '76749f4736678509cc27c537d7e4bed9' => 
+  array (
+    'from_text' => 'ShadowCluster Cluster Node Usage Statistics',
+    'to_text' => 'ShadowCluster群集节点使用情况统计',
+  ),
+  '39c73de6686c19a2f03f888abbb33252' => 
+  array (
+    'from_text' => 'ShadowCluster Website Management',
+    'to_text' => 'ShadowCluster网站管理',
+  ),
+  '96068e2aeb74213e5ec80a1d374d05ad' => 
+  array (
+    'from_text' => 'ShadowCluster Server Node Configuration',
+    'to_text' => 'ShadowCluster服务器节点配置',
+  ),
+  '70f5bc3381bc8ec305ab8758da092cb3' => 
+  array (
+    'from_text' => 'ShadowCluster Server Group Management',
+    'to_text' => 'ShadowCluster服务器组管理',
+  ),
+  '1b8db2f93094e5f260518a78801bc672' => 
+  array (
+    'from_text' => 'ShadowCluster Server Node Health Monitoring',
+    'to_text' => 'ShadowCluster服务器节点健康监测',
+  ),
+  '08ddb23c3f6d2d1894c199de63e00dfe' => 
+  array (
+    'from_text' => 'ShadowCluster Name Servers Management',
+    'to_text' => 'ShadowCluster名称服务器管理',
+  ),
+  '2a8805ff816d53825bd1334e1477ec12' => 
+  array (
+    'from_text' => 'ShadowCluster Cluster Node Usage Statistics Detail',
+    'to_text' => 'ShadowCluster群集节点使用统计明细',
+  ),
+  '5394c7492f4759b91261cf051b6d6c87' => 
+  array (
+    'from_text' => 'ShadowCluster DNS Management',
+    'to_text' => 'ShadowCluster DNS管理',
+  ),
+  '73de1063ebdf96d53cacf91261e8e336' => 
+  array (
+    'from_text' => 'ShadowCluster Accesss Point Management',
+    'to_text' => 'ShadowCluster Accesss点管理',
+  ),
+  'b87e01b1d5900161fd690442acf53de0' => 
+  array (
+    'from_text' => 'ShadowCluster DNS Update Log',
+    'to_text' => 'ShadowCluster DNS更新日志',
+  ),
+  '2e5cfce85f60ff0b6e7a2a7afbe77c24' => 
+  array (
+    'from_text' => 'ShadowCluster DNS Database Configration',
+    'to_text' => 'ShadowCluster DNS数据库Configration',
+  ),
+  '0ad4075000518934a945d2940b9601c2' => 
+  array (
+    'from_text' => 'ShadowCluster Website Status Update Log',
+    'to_text' => 'ShadowCluster网站状态更新日志',
+  ),
+  '27161505767b8818eea695dbc913038e' => 
+  array (
+    'from_text' => 'ShadowCluster Server Node Management',
+    'to_text' => 'ShadowCluster服务器节点管理',
+  ),
+  '25526449a192fae1795e01ea3dbf15fa' => 
+  array (
+    'from_text' => 'ShadowCluster Website Statistics Log',
+    'to_text' => 'ShadowCluster网站统计日志',
+  ),
+  '1d4e2bc1d1cd219644316d15ab362cb9' => 
+  array (
+    'from_text' => 'Provider Management',
+    'to_text' => '供应商管理',
+  ),
+  '41259ffcefd26964d578b9a4679d2ab3' => 
+  array (
+    'from_text' => 'New Provider',
+    'to_text' => '新供应商',
+  ),
+  '7089e8f0a60418e8e987623b7f299c0c' => 
+  array (
+    'from_text' => 'Edit Cluster Group',
+    'to_text' => '编辑群集组',
+  ),
+  '27d2caf32b4fdf49220f369d061c4479' => 
+  array (
+    'from_text' => 'Cluster node server traffic usage statistics.',
+    'to_text' => '集群节点服务器流量统计信息。',
+  ),
+  '9d6203b23af811fdae06d97a87b518e9' => 
+  array (
+    'from_text' => 'Copy Cluster Group',
+    'to_text' => '复制群集组',
+  ),
+  '0635abd4147c40b7e785400405e2665c' => 
+  array (
+    'from_text' => 'Copy Provider',
+    'to_text' => '复制提供',
+  ),
+  'b6a01d81d77bc113c0816c61bf6a4371' => 
+  array (
+    'from_text' => 'Cluster Node Traffic Graph',
+    'to_text' => '集群节点交通图',
+  ),
+  'cacc4e5691df403fb1e91108f1ac0dce' => 
+  array (
+    'from_text' => 'New Cluster Node',
+    'to_text' => '新的群集节点',
+  ),
+  'd438211f0b1e38fa16417e10526c7bc9' => 
+  array (
+    'from_text' => 'Cluster node traffic usage statistics of today.',
+    'to_text' => '今天群集节点交通使用统计资料。',
+  ),
+  'f9d69265cce072f0c39401f64638015a' => 
+  array (
+    'from_text' => 'Cluster Node Health',
+    'to_text' => '群集节点健康',
+  ),
+  '9d16334c4c057574f0db4a233fb32fde' => 
+  array (
+    'from_text' => 'Last Online',
+    'to_text' => '最后在线',
+  ),
+  'b69c545e81ae20ea472c7cd426d5ad6d' => 
+  array (
+    'from_text' => 'Last Check',
+    'to_text' => '最后一次检查',
+  ),
+  'b94c4e316c486dbdf68a73519f37a5ec' => 
+  array (
+    'from_text' => 'Last Traffic Log ',
+    'to_text' => '最后流量日志',
+  ),
+  '444902d34929a0576192d93f32ba8d14' => 
+  array (
+    'from_text' => 'Last active traffic log from this server. its records each website requests ',
+    'to_text' => '最后从该服务器活动流量日志。每个网站的记录请求',
+  ),
+  '27984bc59dacae6df263fba1aa8d8efe' => 
+  array (
+    'from_text' => 'Cluster node traffic usage statistics.',
+    'to_text' => '集群节点的交通量统计数据。',
+  ),
+  'e40510c53052359c9d89a7d72dd3e5fb' => 
+  array (
+    'from_text' => 'Copy Cluster Node',
+    'to_text' => '复制群集节点',
+  ),
+  'efdc3c4b24d287f111ff7569fe45738b' => 
+  array (
+    'from_text' => 'Cluster Group Detail',
+    'to_text' => '群集组详细',
+  ),
+  'f831751da33b63e6a3d7e400cd6f392e' => 
+  array (
+    'from_text' => 'Cluster Group Management',
+    'to_text' => '群集组管理',
+  ),
+  '8c489d0946f66d17d73f26366a4bf620' => 
+  array (
+    'from_text' => 'Weight',
+    'to_text' => '重量',
+  ),
+  '00b4d05f70ce553a25119e231c936b5e' => 
+  array (
+    'from_text' => 'Squid Log',
+    'to_text' => 'Squid日志',
+  ),
+  'cc44b4182baaf27ab8d9fbc26454e694' => 
+  array (
+    'from_text' => 'Squid Ctrl',
+    'to_text' => '按Ctrl鱿鱼',
+  ),
+  '151b1f5c4899f6a10659e5735177369a' => 
+  array (
+    'from_text' => 'Squid Rc',
+    'to_text' => 'Rc的鱿鱼',
+  ),
+  '98a77dd023df3f20a17f5f688eff3d93' => 
+  array (
+    'from_text' => 'Edit Provider',
+    'to_text' => '编辑提供商',
+  ),
+  '01a0e1b4aaeba2626ec9931802f65b29' => 
+  array (
+    'from_text' => 'Provider Detail',
+    'to_text' => '提供详细资料',
+  ),
+  '67c19e107de33cab7ea9a9db8bc9ccd2' => 
+  array (
+    'from_text' => 'Not Available',
+    'to_text' => '不提供',
+  ),
+  'ddd8eef6f86868a07f62b0e3810711f0' => 
+  array (
+    'from_text' => 'Not Installed',
+    'to_text' => '未安装',
+  ),
+  '54f664c70c22054ea0d8d26fc3997ce7' => 
+  array (
+    'from_text' => 'Online',
+    'to_text' => '在线',
+  ),
+  '4bed942140642650ca78039de000796a' => 
+  array (
+    'from_text' => 'Unreachable',
+    'to_text' => '不可达',
+  ),
+  'd8d94c5c132e7196ad938af91bcf058f' => 
+  array (
+    'from_text' => 'HTTP Down',
+    'to_text' => 'HTTP的向下',
+  ),
+  'e3a7442b36e383ae02e8aadcdcb0b83d' => 
+  array (
+    'from_text' => 'Squid Abnormal',
+    'to_text' => '鱿鱼异常',
+  ),
+  '6825275c72091be52e58042299a1bed1' => 
+  array (
+    'from_text' => 'background-position: left -248px;color:#000000;',
+    'to_text' => '背景位置：左248px;颜色：＃000000;',
+  ),
+  'edc9f0a5a5d57797bf68e37364743831' => 
+  array (
+    'from_text' => 'Linux',
+    'to_text' => 'Linux的',
+  ),
+  'aea23489ce3aa9b6406ebb28e0cda430' => 
+  array (
+    'from_text' => 'Windows',
+    'to_text' => '视窗',
+  ),
+  '0d730df753ae6a369323fe6dc1641eb2' => 
+  array (
+    'from_text' => '1 Day',
+    'to_text' => '1日',
+  ),
+  '374616a0b786e9bffadc7f28e68d6c59' => 
+  array (
+    'from_text' => '7 Days',
+    'to_text' => '7天',
+  ),
+  '29caafb559f6602106a5af5f2be7d3ce' => 
+  array (
+    'from_text' => '15 Days',
+    'to_text' => '15天',
+  ),
+  '9c680defe5574c8355ed9be5a3fede04' => 
+  array (
+    'from_text' => '30 Days',
+    'to_text' => '30天',
+  ),
+  '3794d42212f966f7c7b047304728ee2e' => 
+  array (
+    'from_text' => '60 Days',
+    'to_text' => '60天',
+  ),
+  '4ad5aab71ddf80b1c8c2c18804db012d' => 
+  array (
+    'from_text' => '90 Days',
+    'to_text' => '90天',
+  ),
+  '8f925b59ee140712b8ac079bff548e4e' => 
+  array (
+    'from_text' => 'Database Configuration',
+    'to_text' => '数据库配置',
+  ),
+  'f4ecd924589ac9a00c75fe53ed4d372b' => 
+  array (
+    'from_text' => 'About security enhancement, we suggested you create another readonly MySQL account for MyDNS servers. which is only allowing remote connection and read only access for sc_dns_domain and sc_dns_host tables. ',
+    'to_text' => '关于安全性增强，我们建议你创建另一个只读MySQL的MyDNS服务器帐户。这是只允许远程连接和只读的sc_dns_domain和sc_dns_host表的访问。',
+  ),
+  '6b3b460094ebb33925c78c41e3cda2a5' => 
+  array (
+    'from_text' => 'Edit Database Configuration',
+    'to_text' => '编辑数据库配置',
+  ),
+  '95b9416f3bcfcdf25d885760f9b7227e' => 
+  array (
+    'from_text' => 'About security enhancement, we suggested you create another readonly MySQL account for MyDNS servers. which is only allowing remote connection and read only access for sc_dns_domain and sc_dns_host tables.',
+    'to_text' => '关于安全性增强，我们建议你创建另一个只读MySQL的MyDNS服务器帐户。这是只允许远程连接和只读的sc_dns_domain和sc_dns_host表的访问。',
+  ),
+  'e878cbf7553396f478853809bf407c1e' => 
+  array (
+    'from_text' => 'ShadowCluster',
+    'to_text' => 'ShadowCluster',
+  ),
+  '49888a67f4dfdf5349e64bd6f0273e68' => 
+  array (
+    'from_text' => 'Record Detail',
+    'to_text' => '记录的详细信息',
+  ),
+  'a254c25adc7d10d7e9c4889484f875a5' => 
+  array (
+    'from_text' => 'Detail',
+    'to_text' => '详细',
+  ),
+  '3d6f8b6696da0ab075374ecd49cd57c7' => 
+  array (
+    'from_text' => 'Cluster Node Watchdog Log',
+    'to_text' => '群集节点看门狗日志',
+  ),
+  '65fc1a00c35a4cc4e80a376b44b10460' => 
+  array (
+    'from_text' => 'Record the cluster node working activities, Including server status changes.',
+    'to_text' => '记录集群节点工作活动，包括服务器状态的变化。',
+  ),
+  'cf4759a415eb3838622614894506de5c' => 
+  array (
+    'from_text' => 'Record the Website reload activities.',
+    'to_text' => '重载记录网站的活动。',
+  ),
+  '0a7fd1fa1c76855fc302d917b292845f' => 
+  array (
+    'from_text' => 'Record the Website status update activities.',
+    'to_text' => '记录网站活动的最新情况。',
+  ),
+  '2077e21064b723187d041a5494047e5a' => 
+  array (
+    'from_text' => 'DNS Update Log',
+    'to_text' => 'DNS更新日志',
+  ),
+  '43605832cd837b682b7c41faa67f8640' => 
+  array (
+    'from_text' => 'Record the DNS records update activities.',
+    'to_text' => '记录的DNS记录更新活动。',
+  ),
+  'f1a880ae5a2c791d1f310c20f7a641fb' => 
+  array (
+    'from_text' => 'Website Traffic Statistics Log',
+    'to_text' => '网站流量统计日志',
+  ),
+  'f71c818d8abbc734613dd1071e38d5da' => 
+  array (
+    'from_text' => 'Record the Website traffic statistics activities.',
+    'to_text' => '记录网站流量统计的活动。',
+  ),
+  '59981a8cea53e0cf4167e1f78dfaeb20' => 
+  array (
+    'from_text' => 'background-position: left -348px;color:#000000;',
+    'to_text' => '背景位置：左348px;颜色：＃000000;',
+  ),
+  'cf8a33072018f35a496d80331ae705d4' => 
+  array (
+    'from_text' => 'background-position: left -248px;color:#333333;',
+    'to_text' => '背景位置：左248px;颜色：＃333333;',
+  ),
+  'd1d6f257e5a90ed49c4085739408f817' => 
+  array (
+    'from_text' => 'background-position: left -548px;color:#333333;',
+    'to_text' => '背景位置：左548px;颜色：＃333333;',
+  ),
+  '0eaadb4fcb48a0a0ed7bc9868be9fbaa' => 
+  array (
+    'from_text' => 'Warning',
+    'to_text' => '警告',
+  ),
+  '902b0d55fddef6f8d651fe1035b7d4bd' => 
+  array (
+    'from_text' => 'Error',
+    'to_text' => '错误',
+  ),
+  'f19a61667ef4f3157fe012f53486ee3a' => 
+  array (
+    'from_text' => 'Back Online',
+    'to_text' => '重新上线',
+  ),
+  'f47e6146a46f221329d2266c7a286c39' => 
+  array (
+    'from_text' => 'Import Logs',
+    'to_text' => '进口原木',
+  ),
+  '7e9254a4a6d9c37b0b9cdeffdf79d124' => 
+  array (
+    'from_text' => 'Show All Actions',
+    'to_text' => '显示所有操作',
+  ),
+  'd5a8a269db33b6cdc75830b0d8569b75' => 
+  array (
+    'from_text' => 'Skipped Records',
+    'to_text' => '跳过记录',
+  ),
+  'b00bba6e6458f57e27003ef082ecf8f9' => 
+  array (
+    'from_text' => 'Update Records',
+    'to_text' => '更新记录',
+  ),
+  'c112bb3542e98308d12d5ecb10a67abc' => 
+  array (
+    'from_text' => 'Changes',
+    'to_text' => '变化',
+  ),
+  '43ab7cbe71719fde9bcbb7ce4c596bbb' => 
+  array (
+    'from_text' => 'Please pickup cluster nodes for this access point domain.',
+    'to_text' => '请为这个接入点域皮卡群集节点。',
+  ),
+  'c791b4338116720d92168933d2a2bb06' => 
+  array (
+    'from_text' => 'Edit Name Server',
+    'to_text' => '编辑名称服务器',
+  ),
+  '17cf5b82e4a8a09138405909f6f70f31' => 
+  array (
+    'from_text' => 'Edit Host',
+    'to_text' => '编辑主机',
+  ),
+  '3efffcd58e6f8eaf071037cb4c4746e8' => 
+  array (
+    'from_text' => 'New Name Server',
+    'to_text' => '新的名字服务器',
+  ),
+  'd43a9cb5c1fb78a7e9c20c0ba037082e' => 
+  array (
+    'from_text' => 'Domain Detail',
+    'to_text' => '域名详细',
+  ),
+  'b86a494b9c6e8b21ba49d21d7522a793' => 
+  array (
+    'from_text' => 'Copy Host',
+    'to_text' => '复制主机',
+  ),
+  'ed36150d65ae0eab5d775efbd52feb82' => 
+  array (
+    'from_text' => 'Access Point Detail',
+    'to_text' => '接入点详细',
+  ),
+  '3adea617e80213cb0b0cd644f71c6905' => 
+  array (
+    'from_text' => 'Name Server Detail',
+    'to_text' => '名称服务器的详细信息',
+  ),
+  '89489076c6bdf52469d8bce319862faf' => 
+  array (
+    'from_text' => 'Dnsserver',
+    'to_text' => 'Dnsserver',
+  ),
+  'e6de894c8e1ee3ad8cec649493e5b71e' => 
+  array (
+    'from_text' => 'Host Detail',
+    'to_text' => '主机详细信息',
+  ),
+  '129ce9ff43c56238a6184da12b2a5b4e' => 
+  array (
+    'from_text' => 'Domain Id',
+    'to_text' => '域ID',
+  ),
+  '482a31247fc85cc40038b96c45d9f767' => 
+  array (
+    'from_text' => 'Domain Management',
+    'to_text' => '域名管理',
+  ),
+  '104683767ef793087eb2989356278b6d' => 
+  array (
+    'from_text' => 'Copy Domain',
+    'to_text' => '复制域',
+  ),
+  '7c5ea009244fc2b9c13d6137dc7982ea' => 
+  array (
+    'from_text' => 'New Access Point',
+    'to_text' => '新的接入点',
+  ),
+  '5152488a2fdf73d3387676ade9d1d30d' => 
+  array (
+    'from_text' => 'Edit Domain',
+    'to_text' => '修改域名',
+  ),
+  '6fcfb1af9be36afb921f9f056327ab76' => 
+  array (
+    'from_text' => 'Copy Access Point',
+    'to_text' => '复制接入点',
+  ),
+  '2fcb8fc0abb69cb958676b94c9d0e673' => 
+  array (
+    'from_text' => 'Access Point Management',
+    'to_text' => '接入点管理',
+  ),
+  'f2b9c7a9b5acb51c73a94f6a4a43fe36' => 
+  array (
+    'from_text' => 'Access point domain record is a dynamic DNS host record maintains by Shadowcluster system. Which you can CNAME your website domain to this AP host for enable shadowcluster for your website.',
+    'to_text' => '接入点是一个动态的域名记录的DNS主机记录由Shadowcluster系统维护。你可以你的网站域名的CNAME向本启用网站shadowcluster AP的主机。',
+  ),
+  'c5d429ee183e112d842b9f813271aff7' => 
+  array (
+    'from_text' => 'New Accesspoint',
+    'to_text' => '新的accessPoint',
+  ),
+  '752d35d750dd3b49b198b9ab8291cba2' => 
+  array (
+    'from_text' => 'Name Server Management',
+    'to_text' => '名称服务器管理',
+  ),
+  '93c51861d5747de9b4e90630616f3b4c' => 
+  array (
+    'from_text' => 'Edit Access Point',
+    'to_text' => '编辑接入点',
+  ),
+  '24f6d57017b9c09ac77ed4ad72968a08' => 
+  array (
+    'from_text' => 'Here you can modify the access point domain host record\'s balance algorithm .',
+    'to_text' => '在这里您可以修改接入点域的主机记录的平衡算法。',
+  ),
+  '4b06f04c4d46ea5124b652c057dde7b0' => 
+  array (
+    'from_text' => 'Cluster node servers for this selected access point domain.',
+    'to_text' => '这个选择的接入点域集群节点服务器。',
+  ),
+  'bb8b5b7be89d3247f8e3d8e1933f9a49' => 
+  array (
+    'from_text' => 'New Domain',
+    'to_text' => '新域名',
+  ),
+  '9d147df060db2feddef10e14a3846bf6' => 
+  array (
+    'from_text' => 'Copy Name Server',
+    'to_text' => '副本的名称服务器',
+  ),
+  '0ed503f331eac593912212b0adc218ac' => 
+  array (
+    'from_text' => 'MyDNS',
+    'to_text' => 'MyDNS',
+  ),
+  '0b172674284d79079624051d2ae11581' => 
+  array (
+    'from_text' => 'Bind',
+    'to_text' => '绑定',
+  ),
+  'd3f033c9819d23afdb6695c471743e6a' => 
+  array (
+    'from_text' => 'Round-Robin',
+    'to_text' => '轮转',
+  ),
+  '163ebef746592e404ea7ce66ff5d9ba5' => 
+  array (
+    'from_text' => 'All Online',
+    'to_text' => '所有在线',
+  ),
+  'ba6a40711d4c3b0e881315254478258a' => 
+  array (
+    'from_text' => 'No Update',
+    'to_text' => '无更新',
+  ),
+  '743113163f6f2d4d22b068f9076a9939' => 
+  array (
+    'from_text' => 'Update Every 1 hour',
+    'to_text' => '每隔1小时更新',
+  ),
+  '8e8a98383c1c0f5b683ba1af7b929067' => 
+  array (
+    'from_text' => 'Update Every 2 hours',
+    'to_text' => '每2小时更新',
+  ),
+  'e13049d8a4eb66a249639e38f621f0cd' => 
+  array (
+    'from_text' => 'Update Every 3 hours',
+    'to_text' => '每3小时更新',
+  ),
+  '62b0bfe7482d9683112f6ae167fc9436' => 
+  array (
+    'from_text' => 'Update Every 8 hours',
+    'to_text' => '每8小时更新',
+  ),
+  'd64ed3e9c10229648e069f56e32f4c8e' => 
+  array (
+    'from_text' => 'Response',
+    'to_text' => '响应',
+  ),
+  '15c2d85f1fae22a3c3a0594510a1f611' => 
+  array (
+    'from_text' => 'Request',
+    'to_text' => '请求',
+  ),
+  '873481116422d0a426950ef0f355d134' => 
+  array (
+    'from_text' => 'Cluster Node Traffic Graph (Today)',
+    'to_text' => '集群节点交通图（今天）',
+  ),
+  'c8f4b8c435b3d99a66e1b91bec60737c' => 
+  array (
+    'from_text' => 'Hostname',
+    'to_text' => '主机名',
+  ),
+  '217fd0a7c06ad5f4247cc85e878f0f41' => 
+  array (
+    'from_text' => 'Today Traffic',
+    'to_text' => '今天交通',
+  ),
+  '4c3880bb027f159e801041b1021e88e8' => 
+  array (
+    'from_text' => 'Method',
+    'to_text' => '方法',
+  ),
+  'df080c10e2e9f1e98c180fe2645f6132' => 
+  array (
+    'from_text' => 'Request URL',
+    'to_text' => '请求URL',
+  ),
+  'e7935ae6c516d89405ec532359d2d75a' => 
+  array (
+    'from_text' => 'Traffic',
+    'to_text' => '交通',
+  ),
+  '813d4bcdb25db7e9b96e1ba29fd4610a' => 
+  array (
+    'from_text' => 'Websites which allowed to use Shadowcluster services. The website record also updates DNS service.',
+    'to_text' => '该网站允许使用Shadowcluster服务。该网站的记录还更新DNS服务。',
+  ),
+  'bb67cefec5a95b0e417ec8f8a95abdfd' => 
+  array (
+    'from_text' => 'Enable Www',
+    'to_text' => '启用万维网',
+  ),
+  '23b08d4c7fc1f977826971100a15a766' => 
+  array (
+    'from_text' => 'Traffic Limit',
+    'to_text' => '流量限制',
+  ),
+  'd30fd576bd308f6facc9343ebd031b8e' => 
+  array (
+    'from_text' => 'Expiration',
+    'to_text' => '过期',
+  ),
+  '3cd83ed1e8dc894cfa274d2122a98046' => 
+  array (
+    'from_text' => 'Website Traffic Usage Statistisc',
+    'to_text' => '网站流量使用Statistisc',
+  ),
+  '1c5d8c415aa9b1e20eb8d850e9506a68' => 
+  array (
+    'from_text' => 'Websites traffic usage statistics.',
+    'to_text' => '网站流量统计信息。',
+  ),
+  '5ef613246042f383d4afc82f36eb86d4' => 
+  array (
+    'from_text' => 'Daily Traffic',
+    'to_text' => '每日交通',
+  ),
+  'cec0e6d2385bf7e794ed08162514fbef' => 
+  array (
+    'from_text' => 'Total Traffic',
+    'to_text' => '总流量',
+  ),
+  '1a10be3692cec335c74387f33221a6fa' => 
+  array (
+    'from_text' => 'Lifetime',
+    'to_text' => '一生',
+  ),
+  'e22cc5a83ec6f3b1b49667777ee3ec8f' => 
+  array (
+    'from_text' => 'Resovle domain to this access point ',
+    'to_text' => 'Resovle域这个接入点',
+  ),
+  '622183b4831f651d7fcdf4dd035da1df' => 
+  array (
+    'from_text' => 'AccessPoint',
+    'to_text' => '存取点',
+  ),
+  'f84517a2fbc8d06f927d023f319d3fbd' => 
+  array (
+    'from_text' => 'Domain without www prefix',
+    'to_text' => '域名没有www前缀',
+  ),
+  '5146fdb5812cae5d374e8a8b885851af' => 
+  array (
+    'from_text' => 'Original IP Address',
+    'to_text' => '原来的IP地址',
+  ),
+  'cee4703f62ccebc60fbec0341c16dc80' => 
+  array (
+    'from_text' => 'MBytes',
+    'to_text' => '兆字节',
+  ),
+  '4d29676394d688341ec389a3de8ff14f' => 
+  array (
+    'from_text' => 'Expiration Date',
+    'to_text' => '失效日期',
+  ),
+  '0043a1b3a72681807af4ee962fd0066c' => 
+  array (
+    'from_text' => 'Enable WWW access for your website',
+    'to_text' => '启用网站WWW的访问',
+  ),
+  '49940ebdc6589262f62a5665db8f525c' => 
+  array (
+    'from_text' => 'Enable WWW',
+    'to_text' => '启用万维网',
+  ),
+  'ab54dbb1ce1793c1fd31de13a995cf98' => 
+  array (
+    'from_text' => 'Sync with Internal DNS Server',
+    'to_text' => '内部DNS服务器同步',
+  ),
+  'd35efaf95526f972f1c166b81796aabc' => 
+  array (
+    'from_text' => 'Sync Dns',
+    'to_text' => '同步的DN',
+  ),
+  'c33e404a441c6ba9648f88af3c68a1ca' => 
+  array (
+    'from_text' => 'Statistics',
+    'to_text' => '统计',
+  ),
+  'c0516b8aadd80bef0a3cc2dccc9e0a7e' => 
+  array (
+    'from_text' => 'ShadowCluster Dashboard',
+    'to_text' => 'ShadowCluster仪表板',
+  ),
+  'ebc4c96a4fb95afa7c1bbda857a83523' => 
+  array (
+    'from_text' => 'New Cluster Group',
+    'to_text' => '新的群集组',
+  ),
+  '0e5fe294eada21edf81fedb8cdbfb2d5' => 
+  array (
+    'from_text' => 'Cluster Node Configuration',
+    'to_text' => '集群节点配置',
+  ),
+  '5f48801af9f75f106c48d17ea91b50d8' => 
+  array (
+    'from_text' => 'Here you can adjust cluster node configration parameters.',
+    'to_text' => '在这里你可以调整群集节点configration参数。',
+  ),
+  '27703c8f150ac4bb0a3a83a7857353af' => 
+  array (
+    'from_text' => 'Provider',
+    'to_text' => '供应商',
+  ),
+  'eae639a70006feff484a39363c977e24' => 
+  array (
+    'from_text' => 'Domain',
+    'to_text' => '域名',
+  ),
+  'c2ca16d048ec66e04bca283eab048ec2' => 
+  array (
+    'from_text' => 'Host',
+    'to_text' => '主机',
+  ),
+  'a45da96d0bf6575970f2d27af22be28a' => 
+  array (
+    'from_text' => 'System',
+    'to_text' => '系统',
+  ),
+  '2b55387dd066c5bac646ac61543d152d' => 
+  array (
+    'from_text' => 'CPU',
+    'to_text' => '中央处理器',
+  ),
+  '4789f23283b3a61f858b641a1bef19a3' => 
+  array (
+    'from_text' => 'Memory',
+    'to_text' => '内存',
+  ),
+  'd2eff3fe1fb453403cc0753b1dfb21e8' => 
+  array (
+    'from_text' => 'Stroage',
+    'to_text' => 'Stroage',
+  ),
+  '7d724e4bd163fe8323200b15500517f9' => 
+  array (
+    'from_text' => 'Bandwidth',
+    'to_text' => '带宽',
+  ),
+  '1b99867ce2d5ccbdc5baba920b17a29b' => 
+  array (
+    'from_text' => 'edit configuration (Ctrl+E)',
+    'to_text' => '编辑配置（Ctrl + E键）',
+  ),
+  'f4cd2813dd4bf167d651945b32f946d7' => 
+  array (
+    'from_text' => 'Cluster Node Traffic Usage Statistisc',
+    'to_text' => '集群节点的交通量Statistisc',
+  ),
+  'ec38f146086b0c2414b961a4f8c56c80' => 
+  array (
+    'from_text' => 'Cluster Node Management',
+    'to_text' => '集群节点管理',
+  ),
+  '53fe9f23a77be3ec9d7a0c0564f7ffd5' => 
+  array (
+    'from_text' => 'Cluster node servers, Node server could be a Debian Linux server with mini install.',
+    'to_text' => '集群节点服务器，节点服务器可以是Debian Linux的安装与迷你服务器。',
+  ),
+  '2276a1b157f2813f3b65d04c0b1c56f6' => 
+  array (
+    'from_text' => 'Megabytes',
+    'to_text' => '兆字节',
+  ),
+  'f6f7ad0fd5914138fb449b9011c8de7a' => 
+  array (
+    'from_text' => 'Gigabytes',
+    'to_text' => '千兆字节',
+  ),
+  'def6c2febfa911a242baeb9543c4ff97' => 
+  array (
+    'from_text' => 'Megabits per second',
+    'to_text' => '兆位每秒',
+  ),
+  '254f642527b45bc260048e30704edb39' => 
+  array (
+    'from_text' => 'Configuration',
+    'to_text' => '配置',
+  ),
+  '8077325a0644b6eb7249faf4186b21b0' => 
+  array (
+    'from_text' => 'background-position: left -448px;',
+    'to_text' => '背景位置：左448px;',
+  ),
+  '788f3329d5b15deeae1fc7b12abc2c9c' => 
+  array (
+    'from_text' => 'background-image: none;',
+    'to_text' => '背景图片：无;',
+  ),
+  'b4eeb8b5f637e5fc03d99da94414da73' => 
+  array (
+    'from_text' => 'background-position: left -348px;color:#333333;',
+    'to_text' => '背景位置：左348px;颜色：＃333333;',
+  ),
+  'a3dc630729e463135f4e608954fa6e19' => 
+  array (
+    'from_text' => 'FreeBSD',
+    'to_text' => 'FreeBSD的',
+  ),
+  '44334c99447c02a236667a75a33ec837' => 
+  array (
+    'from_text' => 'Client Log',
+    'to_text' => '客户端日志',
+  ),
+  '8f47fd65f1cfb8a20573addcc808428a' => 
+  array (
+    'from_text' => 'Keep client log in Database. ',
+    'to_text' => '保存在数据库客户端日志。',
+  ),
+  '5b427eb87df49635a553759eba2359ab' => 
+  array (
+    'from_text' => 'Server Log',
+    'to_text' => '服务器日志',
+  ),
+  '269673cf574d9a209f4d09b82b183de9' => 
+  array (
+    'from_text' => 'Keep access log on Node Server. ',
+    'to_text' => '继续访问节点服务器日志。',
+  ),
+  '423e555c5ec3885f2bb5d9d2d6627f63' => 
+  array (
+    'from_text' => 'Monitoring',
+    'to_text' => '监测',
+  ),
+  '551fd8abf0c4b3c567d685112d6ca68e' => 
+  array (
+    'from_text' => 'Ping Check',
+    'to_text' => '平检查',
+  ),
+  '94a2b8f25ffecea7ca6736a19b2869a2' => 
+  array (
+    'from_text' => 'Check node server icmp response. ',
+    'to_text' => '检查节点服务器ICMP响应。',
+  ),
+  'a5f81d64a51a7b3e9e7e1763f6639f8c' => 
+  array (
+    'from_text' => 'TCP Check',
+    'to_text' => '检查的TCP',
+  ),
+  '7e883bf6bd2db06058919ef6c8c076e1' => 
+  array (
+    'from_text' => 'Check node server TCP response.  ',
+    'to_text' => '检查节点服务器的TCP响应。',
+  ),
+  '1056a99c7be822868f4aa5ea9f4b8be0' => 
+  array (
+    'from_text' => 'SQUID Check',
+    'to_text' => '超导量子干涉仪检查',
+  ),
+  '1dbefbda3f6d416349f87c93212fde53' => 
+  array (
+    'from_text' => 'Check SQUID running status.  ',
+    'to_text' => '检查超导量子干涉仪的运行状态。',
+  ),
+  '20e13630218a63da7e743a23fb383330' => 
+  array (
+    'from_text' => 'Test URL',
+    'to_text' => '测试网址',
+  ),
+  'f27d31614078469e16ffb0a773c85acb' => 
+  array (
+    'from_text' => 'Used for checking squid status ',
+    'to_text' => '用于检查鱿鱼状态',
+  ),
+  'd931a7f3824fc43d624c7edb11f4f2ef' => 
+  array (
+    'from_text' => 'Test Keyword',
+    'to_text' => '测试关键字',
+  ),
+  '127e8f2db0b0130fc7590d0b88d6ae42' => 
+  array (
+    'from_text' => 'Used for determind squid runing status  ',
+    'to_text' => '用鱿鱼的determind乳宁状态',
+  ),
+  '58fd8a07a0af0a678ed5cf68918e7170' => 
+  array (
+    'from_text' => 'Maintiance',
+    'to_text' => 'Maintiance',
+  ),
+  'dfe1df11922fb82a9ffa8d15c51e22c9' => 
+  array (
+    'from_text' => 'Auto Reboot',
+    'to_text' => '自动重启',
+  ),
+  '50234e3a6ff8ef4e31f603e3b91ddb2a' => 
+  array (
+    'from_text' => 'Try to reboot node server if found abnormal.  ',
+    'to_text' => '尝试重新启动节点服务器，如果发现异常。',
+  ),
+  'c09dc65f11b833ce038cb60f2a40807e' => 
+  array (
+    'from_text' => 'DB Host',
+    'to_text' => '数据库主机',
+  ),
+  '7be04e4f81737e9dddf0e4ee73feff00' => 
+  array (
+    'from_text' => 'DB User',
+    'to_text' => '数据库用户',
+  ),
+  'f606eede393acf6072ff2743e4fb4cac' => 
+  array (
+    'from_text' => 'DB Password',
+    'to_text' => '数据库密码',
+  ),
+  'fbcd2999bd5f07eea19e90cc74611688' => 
+  array (
+    'from_text' => 'DB Name',
+    'to_text' => 'DB名称',
+  ),
+  'aeef0eec85ec2256d57f52d0725cc78b' => 
+  array (
+    'from_text' => 'Level Filter ',
+    'to_text' => '级过滤器',
+  ),
+  '367707636b8e90e4e5893ac71cb72356' => 
+  array (
+    'from_text' => 'Website Statuss Statistics Log',
+    'to_text' => '统计登录网站Statuss',
+  ),
+  '8cd0d0c99b062b3d22e8c7188ba33ab2' => 
+  array (
+    'from_text' => 'Show All',
+    'to_text' => '显示所有',
+  ),
+  'a82be0f551b8708bc08eb33cd9ded0cf' => 
+  array (
+    'from_text' => 'Information',
+    'to_text' => '信息',
+  ),
+  '4042fcadbe61a3300451157e2c9fe651' => 
+  array (
+    'from_text' => 'Detailed',
+    'to_text' => '详细',
+  ),
+  'a655e84d4924727e1e812c88a32fe95a' => 
+  array (
+    'from_text' => 'Public DNS server of Shadowcluster System',
+    'to_text' => '公共DNS服务器Shadowcluster系统',
+  ),
+  '719d067b229178f03bcfa1da4ac4dede' => 
+  array (
+    'from_text' => 'Software',
+    'to_text' => '软件',
+  ),
+  'f6068daa29dbb05a7ead1e3b5a48bbee' => 
+  array (
+    'from_text' => 'Data',
+    'to_text' => '数据',
+  ),
+  '3342cbe2cf0266817b8ab6e82f5345da' => 
+  array (
+    'from_text' => 'Aux',
+    'to_text' => '辅助',
+  ),
+  '61a5d996cbacb3b396e577c24b0669ad' => 
+  array (
+    'from_text' => 'Ttl',
+    'to_text' => 'TTL电',
+  ),
+  '3edf8ca26a1ec14dd6e91dd277ae1de6' => 
+  array (
+    'from_text' => 'Origin',
+    'to_text' => '起源',
+  ),
+  '5593e8e7f451373324de618857520852' => 
+  array (
+    'from_text' => 'Ns',
+    'to_text' => '生理盐水',
+  ),
+  '01bdf50d6025c322fe904ffad89f158c' => 
+  array (
+    'from_text' => 'Mbox',
+    'to_text' => '的mbox',
+  ),
+  '5255d3daaa0a6276b844d61401e6f493' => 
+  array (
+    'from_text' => 'Serial',
+    'to_text' => '串行',
+  ),
+  '6327b4e59f58137083214a1fec358855' => 
+  array (
+    'from_text' => 'Retry',
+    'to_text' => '重试',
+  ),
+  '4a4998a3b2da0d8aa25b4067aba9d501' => 
+  array (
+    'from_text' => 'Expire',
+    'to_text' => '到期',
+  ),
+  'a1d0ec6d56f8833a078b5a7ac4caf2d4' => 
+  array (
+    'from_text' => 'Minimum',
+    'to_text' => '最低',
+  ),
+  '99a808d8d16122d70e44bd7f709d30fb' => 
+  array (
+    'from_text' => 'Balance',
+    'to_text' => '平衡',
+  ),
+  'd16dd01adf735ed9b87eebff5fc39ce5' => 
+  array (
+    'from_text' => 'Interval',
+    'to_text' => '区间',
+  ),
+  '28b65ad4fb748f1996eafbe159d05998' => 
+  array (
+    'from_text' => 'Last Update',
+    'to_text' => '最后更新',
+  ),
+  '8d7628dd7a710c8638dbd22d4421ee46' => 
+  array (
+    'from_text' => 3600,
+    'to_text' => '3600',
+  ),
+  'f39ae9ff3a81f499230c4126e01f421b' => 
+  array (
+    'from_text' => 1800,
+    'to_text' => '1800',
+  ),
+  'cae4df4047d73f7ee93248f96af9db62' => 
+  array (
+    'from_text' => 604800,
+    'to_text' => '604800',
+  ),
+  '3fa3a28c7b6c114c329e86451aa64e22' => 
+  array (
+    'from_text' => 'New Host',
+    'to_text' => '新主机',
+  ),
+  'd619a0ce251044559a289d494080c1aa' => 
+  array (
+    'from_text' => 'Here you can create a new access point domain host record and setup it\'s balance algorithm . \\n After create an AP record, you need to add cluster nodes to the AP.',
+    'to_text' => '在这里你可以创建一个新的接入点域的主机记录和设置它的平衡算法。 \\\\在创建AP记录n，您需要添加群集节点到AP。',
+  ),
+  '62c428533830d84fd8bc77bf402512fc' => 
+  array (
+    'from_text' => 'ap',
+    'to_text' => '美联社',
+  ),
+  'a1325c2ab79a6019d5bcb3637bf02a40' => 
+  array (
+    'from_text' => 'Cluster DNS Manage',
+    'to_text' => '群集的DNS管理',
+  ),
+  '6e856be66673d8ef0465cc09f4f570d8' => 
+  array (
+    'from_text' => 'Report Information',
+    'to_text' => '报告信息',
+  ),
+  '0be3a632d5900a4e9293f91aafc7d9ef' => 
+  array (
+    'from_text' => 'Form Element Type',
+    'to_text' => '表单元素的类型',
+  ),
+  'fea087517c26fadd409bd4b9dc642555' => 
+  array (
+    'from_text' => 'normal',
+    'to_text' => '正常',
+  ),
+  '811882fecd5c7618d7099ebbd39ea254' => 
+  array (
+    'from_text' => 'left',
+    'to_text' => '左',
+  ),
+  '0c3cd33e7bf626da4897316a7158a7a4' => 
+  array (
+    'from_text' => 'Selector',
+    'to_text' => '选择',
+  ),
+  'e74368add3f2005bde60fc04a2cea2bd' => 
+  array (
+    'from_text' => 'report_table_default.tpl.html',
+    'to_text' => 'report_table_default.tpl.html',
+  ),
+  '4dedb4c96fbcb4174cb7a0b8369df375' => 
+  array (
+    'from_text' => 'Fix Search Rule',
+    'to_text' => '修正了搜索规则',
+  ),
+  'a8d75ea1cc7936a0da3b987379320450' => 
+  array (
+    'from_text' => 'Default Search Rule',
+    'to_text' => '默认搜索规则',
+  ),
+  'e5841df2166dd424a57127423d276bbe' => 
+  array (
+    'from_text' => 700,
+    'to_text' => '700',
+  ),
+  '94f6d7e04a4d452035300f18b984988c' => 
+  array (
+    'from_text' => 300,
+    'to_text' => '300',
+  ),
+  '7120c5f951d5dcfc86e6cf5e5625e16f' => 
+  array (
+    'from_text' => 'Chart Parameters',
+    'to_text' => '图参数',
+  ),
+  '421aa90e079fa326b6494f812ad13e79' => 
+  array (
+    'from_text' => 'localhost',
+    'to_text' => '本地主机',
+  ),
+  '63a9f0ea7bb98050796b649e85481845' => 
+  array (
+    'from_text' => 'root',
+    'to_text' => '根',
+  ),
+  '16fc18d787294ad5171100e33d05d4e2' => 
+  array (
+    'from_text' => 3306,
+    'to_text' => '3306',
+  ),
+  'ece4b40896de23cce6e0ab779cd61486' => 
+  array (
+    'from_text' => 'Form Parameters',
+    'to_text' => '形式参数',
+  ),
+  '97b390e431218086feba04749abb108e' => 
+  array (
+    'from_text' => 'SMS Sent Message Management',
+    'to_text' => '短信发送的邮件管理',
+  ),
+  '785fc4948f8245bd683785e8dba19e1f' => 
+  array (
+    'from_text' => 'Inbound API Setting',
+    'to_text' => '入境API设置',
+  ),
+  'a09b689dd4eabb48cd911b0998a9fc00' => 
+  array (
+    'from_text' => 'sms.message',
+    'to_text' => 'sms.message',
+  ),
+  '86eee1332f4618090015fc3d5fbd1d73' => 
+  array (
+    'from_text' => 'Gateway Configuration',
+    'to_text' => '网关配置',
+  ),
+  '0a146b6e39a8840f35a71096cd21abdf' => 
+  array (
+    'from_text' => 'SMS Received Message Management',
+    'to_text' => '短信收到的信息管理',
+  ),
+  '1fe45e3a60a15b95c97e7566998319b7' => 
+  array (
+    'from_text' => 'Compose Message',
+    'to_text' => '撰写邮件',
+  ),
+  '6a3521cc346d721636e302769d06595f' => 
+  array (
+    'from_text' => 'Message Received',
+    'to_text' => '接收到的消息',
+  ),
+  '81fcb0575be115e920d95fc7d4794275' => 
+  array (
+    'from_text' => 'Message Sent',
+    'to_text' => '消息发送',
+  ),
+  '2b60fc350a02d9163a4e0cef9608e2af' => 
+  array (
+    'from_text' => 'Outbound API Setting',
+    'to_text' => '出境API设置',
+  ),
+  '456d0deba6a86c9585590550c797502d' => 
+  array (
+    'from_text' => 'Operations',
+    'to_text' => '行动',
+  ),
+  '11bb00d0eada16c549ca3d6d8d51ae95' => 
+  array (
+    'from_text' => 'SMS Gateway',
+    'to_text' => '短信网关',
+  ),
+  'dce24ac79ec8fa451db046836f42f0c2' => 
+  array (
+    'from_text' => 'Message Task Management',
+    'to_text' => '消息任务管理',
+  ),
+  '54b2888b9441e27152ea2b067487aa4f' => 
+  array (
+    'from_text' => 'Edit Message Queue',
+    'to_text' => '编辑消息队列',
+  ),
+  '2f33d954e4c733035d1993a2442c6a9b' => 
+  array (
+    'from_text' => 'Message Task Detail',
+    'to_text' => '消息任务详细',
+  ),
+  '4cc7a62d4f7f7df130d1c8a8b67a581a' => 
+  array (
+    'from_text' => 'Reply Time',
+    'to_text' => '回复时间',
+  ),
+  '1787f9cfeb32a5cf9a7048f95956de62' => 
+  array (
+    'from_text' => 'New Message Sent',
+    'to_text' => '新的消息发送',
+  ),
+  'd4c93182988f99b034a46262985169b7' => 
+  array (
+    'from_text' => 'Copy Message Sent',
+    'to_text' => '副本的邮件发送',
+  ),
+  '602c6bc7c1837a8f084bb4371fc2d19a' => 
+  array (
+    'from_text' => 'Message Sent Detail',
+    'to_text' => '消息发送详细',
+  ),
+  'b5e897a3307ff956a2e9d6f2ad1326f7' => 
+  array (
+    'from_text' => 'Edit Message Sent',
+    'to_text' => '编辑邮件发送',
+  ),
+  '32076f452ecd93990c0af3fc81602279' => 
+  array (
+    'from_text' => 'Compose New Message',
+    'to_text' => '撰写新邮件',
+  ),
+  '20873ef20402027d0043a7003c1c87a0' => 
+  array (
+    'from_text' => 'Recipient list each line a recipient',
+    'to_text' => '每行一个收件人列表收件人',
+  ),
+  'b4554c407de8277f51d77af28ffd775c' => 
+  array (
+    'from_text' => 'Recipient list',
+    'to_text' => '收件人列表',
+  ),
+  'c3de67553f46dbe6a05c30a453a40d37' => 
+  array (
+    'from_text' => 'Max 70 Charactors',
+    'to_text' => '最多70个性质分',
+  ),
+  'de4f37afd3b3dd4c6eb91bdc15709f1c' => 
+  array (
+    'from_text' => 'Expect recipent reply message',
+    'to_text' => '预计recipent回复消息',
+  ),
+  '4fd4a56c435d5c26b3c3c366f51b074e' => 
+  array (
+    'from_text' => '.*',
+    'to_text' => '.*',
+  ),
+  '9e54d6cfe0d36596fdb72958e7db6720' => 
+  array (
+    'from_text' => 'Expected reply message format.',
+    'to_text' => '预计回复的邮件格式。',
+  ),
+  '46e6cbeaff6c022ac097f83b4e172574' => 
+  array (
+    'from_text' => 'minutes to wait recipent\'s reply.',
+    'to_text' => '几分钟等待recipent的答复。',
+  ),
+  'eb6a389dd209b2d52e50ae9cce3a1d75' => 
+  array (
+    'from_text' => 'Specify devices for this queue',
+    'to_text' => '此队列指定设备',
+  ),
+  '5978b6d5b0afb265abb7787809816ce1' => 
+  array (
+    'from_text' => '{date(\'Y-m-d H:i:s\')}',
+    'to_text' => '{日期（&#39;月日H：我：秒&#39;）}',
+  ),
+  'ca3a0695c003e95a89b464946b878fa0' => 
+  array (
+    'from_text' => 'Start queue on specified time',
+    'to_text' => '在指定的时间开始排队',
+  ),
+  '1e476e388b65e70022e85265a49f1570' => 
+  array (
+    'from_text' => 'Create Queue',
+    'to_text' => '创建队列',
+  ),
+  '0d3387f0475a684c6822136fe24175d6' => 
+  array (
+    'from_text' => 'Message Received Detail',
+    'to_text' => '接收到的消息内容',
+  ),
+  '93ad6b05dbabcc763672fc6cb379c03d' => 
+  array (
+    'from_text' => 'SMS Center',
+    'to_text' => '短信中心',
+  ),
+  '27dc9aac97a1cc57b7cbcfbfbc16ac62' => 
+  array (
+    'from_text' => 'SMSC Type',
+    'to_text' => 'SMSC的类型',
+  ),
+  'ad3da8c1a99ee9d4862fcf6e66d3bbff' => 
+  array (
+    'from_text' => 'Mobile number type of SMS center',
+    'to_text' => '移动短信中心号码类型',
+  ),
+  '6313393c52c229036298cb55a9b08cfd' => 
+  array (
+    'from_text' => 'Sender Type',
+    'to_text' => '发件人类型',
+  ),
+  'a9b85a6daa9ccaa2707a1ff57b505cbb' => 
+  array (
+    'from_text' => 'Mobile number type of sender',
+    'to_text' => '移动的发送号码类型',
+  ),
+  '6dfb446d6af9d018995ea6f7476e947c' => 
+  array (
+    'from_text' => 'Timestamp of message arrived',
+    'to_text' => '抵达的消息时间戳',
+  ),
+  '461dfa4e9b910eb11550e76ade112894' => 
+  array (
+    'from_text' => 'Data Coding',
+    'to_text' => '数据编码',
+  ),
+  '070949d05dfd9115c0182da9d05eeea8' => 
+  array (
+    'from_text' => 'Bits for encoding data',
+    'to_text' => '位编码数据',
+  ),
+  '06da28a9739171f42cf7b124eb9124d0' => 
+  array (
+    'from_text' => 'Data Length',
+    'to_text' => '数据长度',
+  ),
+  'a2b3195073c3d01794bf8bf18568dcde' => 
+  array (
+    'from_text' => 'User message data length',
+    'to_text' => '用户消息的数据长度',
+  ),
+  'df9385ecba567cd83059f2430b8c87f1' => 
+  array (
+    'from_text' => 'Multi Part',
+    'to_text' => '多部',
+  ),
+  'bbadc9bb53488d2b65dacee0d1ab2312' => 
+  array (
+    'from_text' => 'is Multi part message',
+    'to_text' => '是多部分消息',
+  ),
+  '58d61c34020400322a4ad50c44c9ced3' => 
+  array (
+    'from_text' => 'Message Sent Management',
+    'to_text' => '消息发送管理',
+  ),
+  '190caf6302bb13f3fc624ddb39009d4b' => 
+  array (
+    'from_text' => 'Message Received Management',
+    'to_text' => '接收到的消息管理',
+  ),
+  'ed68856c2a7dd273f073f3403ef08934' => 
+  array (
+    'from_text' => 'Unprocessed',
+    'to_text' => '生',
+  ),
+  'a6b1aaac598dfe99003f764eb3b509d1' => 
+  array (
+    'from_text' => 'background-position: left -448px;color:#333333;',
+    'to_text' => '背景位置：左448px;颜色：＃333333;',
+  ),
+  'b1c34bae8f8553eaba60e084f9e77fe4' => 
+  array (
+    'from_text' => 'Don\'t Expected',
+    'to_text' => '不要预期',
+  ),
+  'c6df2e58ab22c17bc31f1f8cfd2217f0' => 
+  array (
+    'from_text' => 'Expected Reply',
+    'to_text' => '预期回覆',
+  ),
+  'e4b0c2b6d59cb4cf3e169a9886008087' => 
+  array (
+    'from_text' => 'Sending',
+    'to_text' => '发送',
+  ),
+  'd7c8c85bf79bbe1b7188497c32c3b0ca' => 
+  array (
+    'from_text' => 'Failed',
+    'to_text' => '失败',
+  ),
+  '8428552d86c0d262a542a528af490afa' => 
+  array (
+    'from_text' => 'Started',
+    'to_text' => '开始',
+  ),
+  '8f3d10eb21bd36347c258679eba9e92b' => 
+  array (
+    'from_text' => 'Finished',
+    'to_text' => '成品',
+  ),
+  '2c23dacb842eee5a942daab88068d5cb' => 
+  array (
+    'from_text' => 'Log Content',
+    'to_text' => '日志内容',
+  ),
+  'd392a86c7a35517e8b4a6040b399a6cf' => 
+  array (
+    'from_text' => 'Auto refresh log content',
+    'to_text' => '自动刷新日志内容',
+  ),
+  '8d05a78720c9c754b3aa1b7db0dfd788' => 
+  array (
+    'from_text' => 'Auto Refresh',
+    'to_text' => '自动刷新',
+  ),
+  '7af6089460a015e008c46e562bb9201f' => 
+  array (
+    'from_text' => 'Edit Device',
+    'to_text' => '编辑设备',
+  ),
+  'df0e70a1e0f1c9524aa6dbec4e69a99a' => 
+  array (
+    'from_text' => 'Sending Limitation, 0 means Unlimited',
+    'to_text' => '发送限制，0表示无限制',
+  ),
+  '8ba6d9b7ef63d644c180565d0ec19fb8' => 
+  array (
+    'from_text' => 'Message Sending Counter',
+    'to_text' => '发送信息计数器',
+  ),
+  '6e037f4e9b6089f89e405179eceb36a2' => 
+  array (
+    'from_text' => 'Device Management',
+    'to_text' => '设备管理',
+  ),
+  'f2fb5f43a834aa3b3889749004b3e75f' => 
+  array (
+    'from_text' => 'To use Detect Device function , your web server user need to have access permission for modem device.\\n You could use this command to grant permission: chmod -R 777 /dev/tty*',
+    'to_text' => '使用检测设备的功能，您的Web服务器的用户需要有访问权限调制解调器设备\\\\ n您可以使用此命令授予权限：。搭配chmod - R的777的/ dev / tty的*',
+  ),
+  'cb20b6fb77caa2bdae2aa7227be851bc' => 
+  array (
+    'from_text' => 'Detect Device (Ctrl+D)',
+    'to_text' => '检测设备（按CTRL + D）',
+  ),
+  '59ee558c7e67c669a2fd9570f3a641f4' => 
+  array (
+    'from_text' => 'System Installed Devices',
+    'to_text' => '系统已安装的设备',
+  ),
+  '1a4ebb180ba59b067782515ffee6e975' => 
+  array (
+    'from_text' => 'Shutdown',
+    'to_text' => '关机',
+  ),
+  '8d9da4bc0e49a50e09ac9f7e56789d39' => 
+  array (
+    'from_text' => 'Offline',
+    'to_text' => '离线',
+  ),
+  '017de7df4f95842346dbc2edee37b9c7' => 
+  array (
+    'from_text' => 'Abnormal',
+    'to_text' => '异常',
+  ),
+  'd8a942ef2b04672adfafef0ad817a407' => 
+  array (
+    'from_text' => 'Busy',
+    'to_text' => '忙',
+  ),
+  'b49c8a0b70ade939306e4c1c383a3446' => 
+  array (
+    'from_text' => 'Overused',
+    'to_text' => '过度使用',
+  ),
+  'f17a903394b626d4e83a110acb1622cb' => 
+  array (
+    'from_text' => 'New Outbound',
+    'to_text' => '新的出站',
+  ),
+  'c0af341d77ba88d4adb994052bf872b2' => 
+  array (
+    'from_text' => 'Inbound API Detail',
+    'to_text' => '入境API的详细信息',
+  ),
+  'de2e6d9ab1eee9812074bc53d5821175' => 
+  array (
+    'from_text' => 'Outbound Management',
+    'to_text' => '出境管理',
+  ),
+  '1d5c2a05afb5e02d941e9385f5ad443f' => 
+  array (
+    'from_text' => 'Outbound Detail',
+    'to_text' => '出境详细',
+  ),
+  '0933d089da296d91f6e0fb30aa9b8190' => 
+  array (
+    'from_text' => 'Edit Inbound API',
+    'to_text' => '编辑入境的API',
+  ),
+  '50fb0955a1902cac9fb87f864080b6c4' => 
+  array (
+    'from_text' => 'New Inbound API',
+    'to_text' => '新入站的API',
+  ),
+  '91c635ebab4f4d4ba45c809f41d9fb50' => 
+  array (
+    'from_text' => 'Copy Outbound',
+    'to_text' => '复制出站',
+  ),
+  '52b6f9458854fcab0dd9c08b403d8651' => 
+  array (
+    'from_text' => 'Edit Outbound',
+    'to_text' => '编辑出境',
+  ),
+  '528c6192ed20ab27affab0b92455256d' => 
+  array (
+    'from_text' => 'Copy Inbound API',
+    'to_text' => '复制入站的API',
+  ),
+  'd46cf02c9939bbd24387295a44f34554' => 
+  array (
+    'from_text' => 'Inbound API Management',
+    'to_text' => '入境API管理',
+  ),
+  '055f466b265e26667e0bb23ddffc7970' => 
+  array (
+    'from_text' => 'Run Command',
+    'to_text' => '运行命令',
+  ),
+  '9c42d3ea1eccccc3693ab86da51c40b7' => 
+  array (
+    'from_text' => 'Don\'t need reply',
+    'to_text' => '不需要答复',
+  ),
+  'bcb5dff1d971083b5d10f2b80f6d77ce' => 
+  array (
+    'from_text' => 'Reply run result',
+    'to_text' => '运行结果回复',
+  ),
+  'b9f5c797ebbf55adccdd8539a65a0241' => 
+  array (
+    'from_text' => 'Disabled',
+    'to_text' => '禁用',
+  ),
+  'da5c0f506f033da18061650036581b8b' => 
+  array (
+    'from_text' => 'SMS Device Management',
+    'to_text' => '短信设备管理',
+  ),
+  '33e8f031dcfdbf8d1831d1ae6276fa9f' => 
+  array (
+    'from_text' => 'Message Queue Management',
+    'to_text' => '消息队列管理',
+  ),
+  '23c0c9f8d1a09e9d4350f4e0ed6bd4dd' => 
+  array (
+    'from_text' => 'SMS Gateway Dashboard',
+    'to_text' => '短信网关控制板',
+  ),
+  '4c6d20d5b2868b32892c38ce950ff06a' => 
+  array (
+    'from_text' => 'Device Detail',
+    'to_text' => '设备详细信息',
+  ),
+  '39516a4de82ecd2f3e8476502a7ada18' => 
+  array (
+    'from_text' => 'Device Log',
+    'to_text' => '设备的日志',
+  ),
+  'b080281f6b38cee949f404009d005e60' => 
+  array (
+    'from_text' => 'SMS Gateway Configuration',
+    'to_text' => '短信网关配置',
+  ),
+  '4de5611fc2561ffe92f9344af847123c' => 
+  array (
+    'from_text' => 'Here you can adjust gateway configration parameters.',
+    'to_text' => '在这里你可以调整网关configration参数。',
+  ),
+  '369686331c93d55e587441143ccdf427' => 
+  array (
+    'from_text' => 'Localization',
+    'to_text' => '本地化',
+  ),
+  'a81d6d600711cabbcde9b816c4b011da' => 
+  array (
+    'from_text' => 'Country Code',
+    'to_text' => '国家代码',
+  ),
+  '2d5e557b52c3bf2d09168d08762830f9' => 
+  array (
+    'from_text' => 'Country code of phone number',
+    'to_text' => '电话号码的国家代码',
+  ),
+  '310e6498f5315abb83ee2fe94fe735ad' => 
+  array (
+    'from_text' => 'Daemon',
+    'to_text' => '守护进程',
+  ),
+  'd6bcfd5e125a8d20603cc7c30eb13354' => 
+  array (
+    'from_text' => 'Check Interval',
+    'to_text' => '检查间隔',
+  ),
+  '1e7d80bca690c08e73dc2876012d45c1' => 
+  array (
+    'from_text' => 'Device status check interval ',
+    'to_text' => '设备状态检查间隔',
+  ),
+  '0f4c68520dde1ca9aa9939f3788d7c9b' => 
+  array (
+    'from_text' => 'Message Limit',
+    'to_text' => '消息限制',
+  ),
+  '4681eacfaa37cf494a0c73c968edd8c7' => 
+  array (
+    'from_text' => 'Message limit per device check interval ',
+    'to_text' => '消息每台设备检查间隔的限制',
+  ),
+  'ad49a64fed3b7e9f75b26c949b2381fb' => 
+  array (
+    'from_text' => 'Statistics Data',
+    'to_text' => '统计数据',
+  ),
+  '4c32be4a0b4f48cdd593aef35fd69e44' => 
+  array (
+    'from_text' => 'Outbound',
+    'to_text' => '出站',
+  ),
+  'c87076fc9901bb23fee8eda95971b5a5' => 
+  array (
+    'from_text' => 'Expected',
+    'to_text' => '预期',
+  ),
+  '02b7c6501f57e5f5fbff06c0f0102efb' => 
+  array (
+    'from_text' => 'Repiled',
+    'to_text' => 'Repiled',
+  ),
+  '6c7e3200049198face0d2648e9d1a27d' => 
+  array (
+    'from_text' => 'Inbound',
+    'to_text' => '入境',
+  ),
+  '791dee5e946e15f1e20b4dadbb2ee595' => 
+  array (
+    'from_text' => 'API Cmds',
+    'to_text' => 'API的商务智能',
+  ),
+  'f530f10e6ab80ae36f47b8055edb3a58' => 
+  array (
+    'from_text' => 'Device Id',
+    'to_text' => '设备ID',
+  ),
+  '5f24fbf2757d5ca8df9b4c424a81856e' => 
+  array (
+    'from_text' => 'Expect Reply',
+    'to_text' => '期待回复',
+  ),
+  'c78c618a7914aaffea0dbd2958e04619' => 
+  array (
+    'from_text' => 'Expect Timeout',
+    'to_text' => '预计超时',
+  ),
+  '78778e8ea4b211f9dbb1048b1b969f65' => 
+  array (
+    'from_text' => 'Finish Time',
+    'to_text' => '完成时间',
+  ),
+  '78785448ccfe86403a73fdb67cbd4ecf' => 
+  array (
+    'from_text' => 'Queue Id',
+    'to_text' => '队列ID',
+  ),
+  '2f585e1b8ca42bcacea1f8b34d2108a3' => 
+  array (
+    'from_text' => 'New Message Queue',
+    'to_text' => '新的消息队列',
+  ),
+  '237d75b957ec9b71e753fb6abe416ca2' => 
+  array (
+    'from_text' => 'Message Queue Detail',
+    'to_text' => '消息队列的详细信息',
+  ),
+  '8ec7fb7634fdcfd777395185b5c8bd5b' => 
+  array (
+    'from_text' => 'Sent Time',
+    'to_text' => '发送时间',
+  ),
+  'e0ac20adce6ffee48c7151b070aa5737' => 
+  array (
+    'from_text' => 'Device',
+    'to_text' => '设备',
+  ),
+  '71fff8b45f445d4fc48646cf736cddf2' => 
+  array (
+    'from_text' => 'Reply Timeout',
+    'to_text' => '回复超时',
+  ),
+  'c6e3548fe909ff6b6a4da6a4f337f495' => 
+  array (
+    'from_text' => 'Reply Format',
+    'to_text' => '回复格式',
+  ),
+  '5a6ed5fd23d553e9f58f46c468960a68' => 
+  array (
+    'from_text' => 'Message Traffic Graph',
+    'to_text' => '邮件流量图',
+  ),
+  'ef6e5f8b5a69c0813cb1c3ad9fcc2f49' => 
+  array (
+    'from_text' => 'Show Days',
+    'to_text' => '显示天',
+  ),
+  '8a18d2e3f0521e3116a55bb007756728' => 
+  array (
+    'from_text' => 'Priority of this queue',
+    'to_text' => '此队列的优先级',
+  ),
+  '7caeb167c5f4bdcb99280371929476bc' => 
+  array (
+    'from_text' => 'PDU Data',
+    'to_text' => 'PDU数据',
+  ),
+  '2d13df6f8b5e4c5af9f87e0dc39df69d' => 
+  array (
+    'from_text' => 'Pending',
+    'to_text' => '有待',
+  ),
+  '36a620690b2417133683084b69b91082' => 
+  array (
+    'from_text' => 'Send Quota',
+    'to_text' => '发送配额',
+  ),
+  'b3906d8e9401d31f4c70b3cfac5c95e4' => 
+  array (
+    'from_text' => 'Sent Count',
+    'to_text' => '发送数',
+  ),
+  'db271f59bc1968ac20a7eecfffdf6377' => 
+  array (
+    'from_text' => 'Device Info',
+    'to_text' => '设备信息',
+  ),
+  'c0bd7654d5b278e65f21cf4e9153fdb4' => 
+  array (
+    'from_text' => 'Manufacturer',
+    'to_text' => '制造商',
+  ),
+  'a559b87068921eec05086ce5485e9784' => 
+  array (
+    'from_text' => 'Model',
+    'to_text' => '模型',
+  ),
+  '32c676ac5296556c0573a301ef5ab07b' => 
+  array (
+    'from_text' => 'Revision',
+    'to_text' => '修订',
+  ),
+  '92666505ce75444ee14be2ebc2f10a60' => 
+  array (
+    'from_text' => 'SN',
+    'to_text' => '南北',
+  ),
+  '74e39cd6a76b534ae896c5622dc389a0' => 
+  array (
+    'from_text' => 'IMEI',
+    'to_text' => '串号',
+  ),
+  'eec89088ee408b80387155272b113256' => 
+  array (
+    'from_text' => 'Network',
+    'to_text' => '网络',
+  ),
+  '085fea7abdc5d904fe69a3081efd7398' => 
+  array (
+    'from_text' => 'Signal',
+    'to_text' => '信号',
+  ),
+  'ebb2e496e3718935f948826189805152' => 
+  array (
+    'from_text' => 'Reset Counter',
+    'to_text' => '复位计数器',
+  ),
+  'd2d5c3e087f684e56b5b81d6212d7ccb' => 
+  array (
+    'from_text' => 'Quota',
+    'to_text' => '配额',
+  ),
+  '2219963d4802bddc2547620c7c80a66a' => 
+  array (
+    'from_text' => 'Detect Device',
+    'to_text' => '检测设备',
+  ),
+  '897356954c2cd3d41b221e3f24f99bba' => 
+  array (
+    'from_text' => 'Key',
+    'to_text' => '关键',
+  ),
+  '399ad0eabfd08c9ab623e5081ec594e5' => 
+  array (
+    'from_text' => 'Sms Format',
+    'to_text' => 'SMS格式',
+  ),
+  '1a6f1711bd9d92c4c075ce8565bd21f4' => 
+  array (
+    'from_text' => 'Exec Method',
+    'to_text' => 'Exec方法',
+  ),
+  '940fa7022cd98f3b49df8be68244ead7' => 
+  array (
+    'from_text' => 'Reply Result',
+    'to_text' => '回复结果',
+  ),
+  'f68276c15301dd22da67afcc01c23f11' => 
+  array (
+    'from_text' => 'SMS gateway configuration',
+    'to_text' => '短信网关配置',
+  ),
+  'f05a7464b59136688f736b654f9aeb53' => 
+  array (
+    'from_text' => 'GSM Modem Device',
+    'to_text' => 'GSM的调制解调器设备',
+  ),
+  'd7841dbc56fc58fe873122598511ffbf' => 
+  array (
+    'from_text' => 'SMS gateway devices mangement',
+    'to_text' => '短信网关设备管理初探',
+  ),
+  '3170d47a7c66520073276e0c060966dc' => 
+  array (
+    'from_text' => 'Message Management',
+    'to_text' => '信息管理',
+  ),
+  'b171c0c3447c2a49bc3a88f61f0c0a7f' => 
+  array (
+    'from_text' => 'SMS gateway system message mangement module',
+    'to_text' => '短消息网关系统模块管理初探',
+  ),
+  '56b6256cc265026b4bb4021d247e15ef' => 
+  array (
+    'from_text' => 'Message Queue',
+    'to_text' => '消息队列',
+  ),
+  'e86ee565902ae526dd0bfc6bbac06382' => 
+  array (
+    'from_text' => 'API Setting',
+    'to_text' => 'API设置',
+  ),
+  '15459b45f6b436bda8b533b32efbf145' => 
+  array (
+    'from_text' => 'SMS API Setting',
+    'to_text' => '短信API设置',
+  ),
+  '9fda806fa0a95960b8669629f907fc89' => 
+  array (
+    'from_text' => 'Inbound API Manage',
+    'to_text' => '入境管理的API',
+  ),
+  'a65fa380aba963e2a898c61d80f0c223' => 
+  array (
+    'from_text' => 'Outbound API Manage',
+    'to_text' => '出境管理的API',
+  ),
+  'b708f5c365d21112d96b6a3b9840bb67' => 
+  array (
+    'from_text' => 'Access SMS Module',
+    'to_text' => '访问SMS模块',
+  ),
+  'f462f39b6a0ad66d07b65bb9492a358c' => 
+  array (
+    'from_text' => 'Manage SMS Module',
+    'to_text' => '管理短信模块',
+  ),
+  '9aacea7cd4e80e726aaedd8c4d5ac0a0' => 
+  array (
+    'from_text' => 'Access GSM Modem Device',
+    'to_text' => '接入GSM调制解调器设备',
+  ),
+  '657c2a74df125fc80dcb1acb48fba535' => 
+  array (
+    'from_text' => 'Manage GSM Modem Device',
+    'to_text' => '管理的GSM调制解调器设备',
+  ),
+  'b70711754ce28ac590bd497afcbc5960' => 
+  array (
+    'from_text' => 'Access SmsMessageLog',
+    'to_text' => '访问SmsMessageLog',
+  ),
+  '5092fa725e552b8d49d4a91fd7a57c80' => 
+  array (
+    'from_text' => 'Manage SmsMessageLog',
+    'to_text' => '管理SmsMessageLog',
+  ),
+  '7a87a9c5aecaf371191e9902040635e1' => 
+  array (
+    'from_text' => 'Access SmsMessageQueue',
+    'to_text' => '访问SmsMessageQueue',
+  ),
+  '83c7ab2a44eef5f19c309ee6d1832a86' => 
+  array (
+    'from_text' => 'Manage SmsMessageQueue',
+    'to_text' => '管理SmsMessageQueue',
+  ),
+  '832331fb4ddf6f13dbe8fd278d858c2a' => 
+  array (
+    'from_text' => 'Access SmsMessageReceived',
+    'to_text' => '访问SmsMessageReceived',
+  ),
+  '608b0ad92af3439260af16cee59a3094' => 
+  array (
+    'from_text' => 'Manage SmsMessageReceived',
+    'to_text' => '管理SmsMessageReceived',
+  ),
+  '2af09b1f929ca1b57ae5e6973094be27' => 
+  array (
+    'from_text' => 'Access SmsInbound',
+    'to_text' => '访问SmsInbound',
+  ),
+  '7d42bb477a8f3f8f3d868bab88a9979c' => 
+  array (
+    'from_text' => 'Manage SmsInbound',
+    'to_text' => '管理SmsInbound',
+  ),
+  '6d96aff0f60afa45703cdca63fa938c6' => 
+  array (
+    'from_text' => 'Compose SMS',
+    'to_text' => '编写短信',
+  ),
+  'c64518704ce0c0d5501a45763f464276' => 
+  array (
+    'from_text' => 'Usage',
+    'to_text' => '用法',
+  ),
+  '545f6c2f382c04810103b3e5e6f7d841' => 
+  array (
+    'from_text' => 'Unlimited',
+    'to_text' => '无限',
+  ),
+  'd6fe8aa37b2392d94c9751b15be17dd4' => 
+  array (
+    'from_text' => 'More detail...',
+    'to_text' => '更多详情...',
+  ),
+  '46b5f8c58b679b4243cbdb5749642c86' => 
+  array (
+    'from_text' => 'Progress',
+    'to_text' => '进展',
+  ),
+  'e47a182f5e5013833fc48d926f835d40' => 
+  array (
+    'from_text' => 'Here you can adjust gateway configuration parameters.',
+    'to_text' => '在这里你可以调整网关的配置参数。',
+  ),
+  'e93f994f01c537c4e2f7d8528c3eb5e9' => 
+  array (
+    'from_text' => 'Count',
+    'to_text' => '计数',
+  ),
+  'ae3b3df9970b49b6523e608759bc957d' => 
+  array (
+    'from_text' => 'UTF-8',
+    'to_text' => '使用UTF - 8',
+  ),
+  'a4cbbd9bf0026f9aab08c9f8822e1a90' => 
+  array (
+    'from_text' => 'Drop Table',
+    'to_text' => '删除表',
+  ),
+  '542b21780d99da7160f303dce8722fca' => 
+  array (
+    'from_text' => 'Add a DROP TABLE IF EXIST statsment',
+    'to_text' => '添加如果存在的DROP TABLE statsment',
+  ),
+  'ad1844a61870e71a820a272fdf83c284' => 
+  array (
+    'from_text' => 'Backup Detail',
+    'to_text' => '备份详细',
+  ),
+  '363d4297a6a4a9170756c060d2b3b6a2' => 
+  array (
+    'from_text' => 'icon_backup_item.gif',
+    'to_text' => 'icon_backup_item.gif',
+  ),
+  '815ff7fbf0a6ce4f79a6e82670e610a1' => 
+  array (
+    'from_text' => 'Filename ',
+    'to_text' => '文件名',
+  ),
+  'b7e0fc93ec5cb982a2353550978079f6' => 
+  array (
+    'from_text' => 'New Backup (Insert)',
+    'to_text' => '新的Backup（插入）',
+  ),
+  '6b57c8193bf71b9818408e839220a139' => 
+  array (
+    'from_text' => 'Restore Backup',
+    'to_text' => '还原备份',
+  ),
+  '764a2caff05993fc0d3eff5de7b225e9' => 
+  array (
+    'from_text' => 'Caution',
+    'to_text' => '警告',
+  ),
+  '43e781015ea611f37df74800e9c6c6ac' => 
+  array (
+    'from_text' => 'Yes. I understand the risk',
+    'to_text' => '是的。据我所知，风险',
+  ),
+  '5e55cec92f692e26616fd26bf9cca28d' => 
+  array (
+    'from_text' => 'Import SQL file after upload',
+    'to_text' => '上传后的文件导入SQL',
+  ),
+  '4ffba8ffd90db47caafb938f0833077e' => 
+  array (
+    'from_text' => 'Backup Management',
+    'to_text' => '备份管理',
+  ),
+  '89cece2857574232ebfbe78574438d12' => 
+  array (
+    'from_text' => 'New Backup',
+    'to_text' => '新的备份',
+  ),
+  '88f71d57b61b392daa2b06abd0c37c52' => 
+  array (
+    'from_text' => 'Database backup management could help you backup or restore your system database with simply one click. \\n It could prevent your data lost by any mistake.',
+    'to_text' => '数据库备份管理可以帮助您备份或还原只需一按一下您的系统数据库。 \\\\ ñ它可以防止你的数据丢失任何错误。',
+  ),
+  '2bd339d85ee3b33e513359ce781b60cc' => 
+  array (
+    'from_text' => 'Restore',
+    'to_text' => '还原',
+  ),
+  '197f1db67ee1241265fa85e4c6dd50e9' => 
+  array (
+    'from_text' => 'Restore Backup ',
+    'to_text' => '还原备份',
+  ),
+  '884165f5c94d34d502cdba0327f27cc2' => 
+  array (
+    'from_text' => 'Download Backup',
+    'to_text' => '下载备份',
+  ),
+  '3500ba09d0538297440ca620c9dd46bf' => 
+  array (
+    'from_text' => 'Backup',
+    'to_text' => '备份',
+  ),
+  '50828d55bbc94a7fbc008d660cf5d7a1' => 
+  array (
+    'from_text' => 'Upload Backup',
+    'to_text' => '上传备份',
+  ),
+  '113c6e877d3b643cbd42fdcb3cfa34c9' => 
+  array (
+    'from_text' => 'Backup Information',
+    'to_text' => '备份信息',
+  ),
+  '856b5192132f386574d948ba9b83fb35' => 
+  array (
+    'from_text' => 'Database Backup Management',
+    'to_text' => '数据库备份管理',
+  ),
+  'b183ca39aeb465d743184d4f45513ac3' => 
+  array (
+    'from_text' => 'Manage Backup',
+    'to_text' => '管理备份',
+  ),
+  '5f71e10e921c7710bdd595cecdd8aa77' => 
+  array (
+    'from_text' => 'Access Backup',
+    'to_text' => '访问备份',
+  ),
+  '7c82ec381aa131c09b4d4e7b00ea646a' => 
+  array (
+    'from_text' => 'Recipient File',
+    'to_text' => '收件人文件',
+  ),
+  'e35698d03f9658bde3c1d9b0d233c182' => 
+  array (
+    'from_text' => 'Fill in Ricipient List',
+    'to_text' => '填写Ricipient名单',
+  ),
+  '214831e78544afeab1d5c3a50a73aa7b' => 
+  array (
+    'from_text' => 'Upload CSV File',
+    'to_text' => '上传CSV文件',
+  ),
 );
 ?>

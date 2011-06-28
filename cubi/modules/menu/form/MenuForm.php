@@ -38,9 +38,8 @@ class MenuForm extends EasyForm
 	    return $this->rerender();
    	}
    	
-   	public function render()
-    {
-   		//echo "in MenuForm render $this->_directParentId";
+   	public function render(){
+   		
    		$this->GetParents($this->_directParentId);
    		$this->m_SearchRule = "[PId] = '".$this->_directParentId."'";
    		$this->m_SearchRuleBindValues = "";

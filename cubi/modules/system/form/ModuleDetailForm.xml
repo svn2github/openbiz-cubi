@@ -9,7 +9,7 @@
 		</Element>
         <Element Name="fld_author" Class="LabelText" FieldName="author" Label="Author"/>
         <Element Name="fld_version" Class="LabelText" FieldName="version" Label="Version"/>
-        <Element Name="fld_openbiz_version" Class="LabelText" FieldName="openbiz_version" Label="Openbiz Version"/>
+        <Element Name="fld_openbiz_version" Class="LabelText" FieldName="openbiz_version" Text="Openbiz Version {@:Elem[fld_openbiz_version].Value}" Label="Framework"/>
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_list" Class="LabelText" Text="Back" CssClass="button_gray_w" Link="{@home:url}/system/module_list">

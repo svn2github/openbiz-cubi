@@ -26,8 +26,10 @@ class LoginForm extends EasyForm
 {
     protected $username;
     protected $password;
+    protected $smartcard;
 
     protected $m_LastViewedPage;
+    public $auth_method;
     
     protected function readMetadata(&$xmlArr)
     {
@@ -40,7 +42,12 @@ class LoginForm extends EasyForm
 	        	{        		
 	        		$preference[$item["name"]] = $item["value"];        	
 	        	}	
-        }    	
+        }  
+
+        if($preference['smartcard_auth']==1){
+        	$this->auth_method = "smartcard";
+        }
+        
  		$elem_count = count($xmlArr["EASYFORM"]["DATAPANEL"]["ELEMENT"]);
         for($i=0;$i<$elem_count;$i++){                	
         	switch($xmlArr["EASYFORM"]["DATAPANEL"]["ELEMENT"][$i]['ATTRIBUTES']['NAME']){
@@ -94,7 +101,6 @@ class LoginForm extends EasyForm
     
 	public function fetchData()
 	{
-		
 		if(isset($_COOKIE["SYSTEM_SESSION_USERNAME"]) && isset($_COOKIE["SYSTEM_SESSION_PASSWORD"]))
 		{
 			$this->username = $_COOKIE["SYSTEM_SESSION_USERNAME"];
@@ -126,7 +132,7 @@ class LoginForm extends EasyForm
        	        }
        	        return ;
     		}
-		}
+		}		
 	}    
     /**
      * login action
@@ -135,27 +141,27 @@ class LoginForm extends EasyForm
      */
     public function Login()
     {
-	  	$recArr = $this->readInputRecord();
+	  	$recArr = $this->readInputRecord();	  	
 	  	try
         {
             $this->ValidateForm();
         }
         catch (ValidationException $e)
-        {
+        {        	
             $this->processFormObjError($e->m_Errors);
             return;
         }
 	  	
-	  	// get the username and password
-	
+	  	// get the username and password	
 		$this->username = BizSystem::ClientProxy()->getFormInputs("username");
-		$this->password = BizSystem::ClientProxy()->getFormInputs("password");
+		$this->password = BizSystem::ClientProxy()->getFormInputs("password");		
+		$this->smartcard = BizSystem::ClientProxy()->getFormInputs("smartcard");
 
-		global $g_BizSystem;
-		$svcobj 	= BizSystem::getService(AUTH_SERVICE);
+
+		global $g_BizSystem;		
 		$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
 		try {
-    		if ($svcobj->authenticateUser($this->username,$this->password)) 
+    		if ($this->authUser()) 
     		{
                 // after authenticate user: 1. init profile
     			$profile = $g_BizSystem->InitUserProfile($this->username);
@@ -210,19 +216,49 @@ class LoginForm extends EasyForm
     		}
     		else
     		{ 
-    			$logComment=array($this->username,
+    			
+    			switch($this->auth_method)
+    			{
+    				case "smartcard":
+    					$logComment=array($this->smartcard);
+    					$eventlog->log("LOGIN", "MSG_SMARTCARD_LOGIN_FAILED", $logComment);    					
+    					$errorMessage['smartcard'] = $this->getMessage("SMARTCARD_INCORRECT");
+    					break;
+    				default:
+						$logComment=array($this->username,
     								$_SERVER['REMOTE_ADDR'],
     								$this->password);
-    			$eventlog->log("LOGIN", "MSG_LOGIN_FAILED", $logComment);
-    			    			
-    			$errorMessage['password'] = $this->getMessage("PASSWORD_INCORRECT");
-    			$errorMessage['login_status'] = $this->getMessage("LOGIN_FAILED");
-    			$this->processFormObjError($errorMessage);
+    					$eventlog->log("LOGIN", "MSG_LOGIN_FAILED", $logComment);
+    					$errorMessage['password'] = $this->getMessage("PASSWORD_INCORRECT");    					
+    					break;
+    			}
+    			
+    			$errorMessage['login_status'] = $this->getMessage("LOGIN_FAILED");    			    			
+    			$this->processFormObjError($errorMessage);    			
     		}
     	}
-    	catch (Exception $e) {
+    	catch (Exception $e) {    		
     	    BizSystem::ClientProxy()->showErrorMessage($e->getMessage());
     	}
+    }
+    
+    protected function authUser()
+    {
+    	$svcobj 	= BizSystem::getService(AUTH_SERVICE);    	
+    	switch($this->auth_method)
+    	{
+    		case "smartcard":
+    			$result = $svcobj->authenticateUserBySmartCard($this->smartcard);
+    			if($result!=false){
+    				$this->username = $result;
+    				$result = true;
+    			}
+    			break;
+    		default:
+    			$result = $svcobj->authenticateUser($this->username,$this->password);
+    			break;	
+    	}
+    	return $result;
     }
    
     /**

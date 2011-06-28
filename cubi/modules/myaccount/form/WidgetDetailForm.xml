@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="WidgetDetailForm" Class="MyDashboardForm" FormType="" Icon="icon_modules_l.gif" jsClass="jbForm" SearchRule="[user_id]='{@profile:Id}'" Title="Widget Detail" Description="Detailed attrbutes for selected widget." BizDataObj="myaccount.do.UserWidgetDO" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>
+        <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>
+        <Element Name="fld_module"  Class="LabelText" ElementSet="General" FieldName="module" Label="Module"   />
+        <Element Name="fld_name"  Class="LabelText" ElementSet="General" FieldName="widget"  Label="Widget"  CssClass=""/>        			
+        <Element Name="fld_title"  Class="LabelText" ElementSet="General" label="Title"  FieldName="title" Description=""   />
+		<Element Name="fld_description" width="500" Class="LabelTextarea" ElementSet="General" Description="" FieldName="description" Label="Description"  />
+		
+		<Element Name="fld_ordering"  Class="LabelText" ElementSet="General" Description="" FieldName="ordering" Label="Ordering"  />		
+		<Element Name="fld_configable"  Class="Hidden" ElementSet="General" Description="" FieldName="configable" Label="Configable"  />
+		<Element Name="fld_status"  Class="LabelBool" ElementSet="General" Description="" FieldName="status" Label="Status"  />
+        
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_edit" Hidden="{@:Elem[fld_configable].Value=='1'?'N':'Y'}"  Class="Button" Text="Config" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="ConfigWidget({@:ELem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_back" Class="Button" Text="Back" CssClass="button_gray_m">
+        	<EventHandler Name="btn_back_onclick" Event="onclick" Function="SwitchForm()"  />
+        </Element>		
+         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

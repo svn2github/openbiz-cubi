@@ -4,7 +4,7 @@
 {include file="system_appbuilder_btn.tpl.html"}
 	<table><tr><td>
 		{if $form.icon !='' }
-		<div class="form_icon"><img  src="{$image_url}/{$form.icon}" border="0" /></div>
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
 		{/if}
 	
 		<div style="float:left; width:600px;">
@@ -58,19 +58,21 @@
 		
 		<div style="height:10px;"></div>
 		
+	 	{if $actionPanel|@count > 0}
 		<p class="input_row">
 			
 			{foreach item=elem from=$actionPanel}
 				{$elem.element}
 			{/foreach}
 		</p>
+		{/if}
 
 	{if $errors}
 	    <div id='errorsDiv' class='innerError errorBox'>
 	    {foreach item=errMsg from=$errors}
 	        <div>{$errMsg}</div>
 	    {/foreach}
-	    {literal}<script>setTimeout("$('errorsDiv').fade( {from: 1, to: 0});",3000);</script>{/literal}
+	    {literal}<script>try{setTimeout("$('errorsDiv').fade( {from: 1, to: 0});",3000);}catch(e){}</script>{/literal}
 	    </div>
 	{/if}
 	
@@ -80,7 +82,7 @@
 	        <div>{$noticeMsg}</div>
 	    {/foreach}
 	    </div>
-	    {literal}<script>setTimeout("$('noticeDiv').fade( {from: 1, to: 0});",3000);</script>{/literal}
+	    {literal}<script>try{setTimeout("$('noticeDiv').fade( {from: 1, to: 0});",3000);}catch(e){};</script>{/literal}
 	{/if}
 
 	</div>

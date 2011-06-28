@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ContactPhotoGridForm" Class="ContactForm" Icon="{RESOURCE_URL}/contact/images/icon_photos.png" FormType="List" jsClass="jbForm" Title="Photo Grid" Description="Telephone directory (also called a telephone book and phone book)\n is a listing of telephone." BizDataObj="contact.do.ContactDO" PageSize="12" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_photo_grid.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
+    <DataPanel>
+       
+
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />
+		<Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{RESOURCE_URL}/contact/images/icon_contact.gif"
+				MySharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared.gif"
+				MyAssignedImg="{RESOURCE_URL}/contact/images/icon_contact_assigned.gif"
+				MyDistributedImg="{RESOURCE_URL}/contact/images/icon_contact_distributed.gif" 
+				GroupSharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared_group.gif"
+				OtherSharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared_other.gif"
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
+		</Element>       
+	    <Element Name="fld_name" Class="ColumnText" FieldName="display_name" Label="Contact Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>	
+		<Element Name="fld_photo" Class="RawData"  ElementSet="Profile" FieldName="photo"  AllowURLParam="N" />	        
+		<Element Name="fld_color" Class="RawData" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_type" Class="ColumnText"  FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(contact.form.ContactNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=contact.form.ContactEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)" >
+            <EventHandler Name="btn_copy_onclick" Event="onclick" EventLogMsg="" Function="CopyRecord()" RedirectPage="form=contact.form.ContactCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element>
+                
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        </Element>
+        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
+            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
+        </Element>
+    		  		
+
+								
+	</ActionPanel>
+
+    <NavPanel>
+    	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
+        </Element>    
+        <Element Name="btn_first" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+		<Element Name="search_all" Class="Button" Text="All" CssClass="button_gray_m" >
+            <EventHandler Name="search_all_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch()"/>
+        </Element>	
+        <Element Name="search_09" Class="Button" Text="0~9"  CssClass="button_gray_m" >
+            <EventHandler Name="search_09_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(0,9)"/>
+        </Element>
+
+		<Element Name="search_abc" Class="Button" Text="ABC"  CssClass="button_gray_m" >
+            <EventHandler Name="search_abc_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(A,C)"/>
+        </Element>
+
+		<Element Name="search_def" Class="Button" Text="DEF" CssClass="button_gray_m" >
+            <EventHandler Name="search_def_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(D,F)"/>
+        </Element>
+
+		<Element Name="search_ghi" Class="Button" Text="GHI" CssClass="button_gray_m" >
+            <EventHandler Name="search_ghi_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(G,I)"/>
+        </Element>
+
+		<Element Name="search_jkl" Class="Button" Text="JKL" CssClass="button_gray_m" >
+            <EventHandler Name="search_jkl_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(J,L)"/>
+        </Element>
+
+		<Element Name="search_mno" Class="Button" Text="MNO" CssClass="button_gray_m" >
+            <EventHandler Name="search_mno_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(M,O)"/>
+        </Element>
+		
+		<Element Name="search_pqr" Class="Button" Text="PQR" CssClass="button_gray_m" >
+            <EventHandler Name="search_pqr_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(P,R)"/>
+        </Element>	 
+		
+		<Element Name="search_stu" Class="Button" Text="STU" CssClass="button_gray_m" >
+            <EventHandler Name="search_stu_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(S,U)"/>
+        </Element>	 
+		  	
+		<Element Name="search_vwx" Class="Button" Text="VWX" CssClass="button_gray_m" >
+            <EventHandler Name="search_vwx_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(V,X)"/>
+        </Element>	 
+		
+		<Element Name="search_yz" Class="Button" Text="YZ" CssClass="button_gray_m" >
+            <EventHandler Name="search_yz_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(Y,Z)"/>
+        </Element>	 
+
+		<Element Name="search_other" Class="Button" Text="Other" CssClass="button_gray_m" >
+            <EventHandler Name="search_other_onclick" Event="onclick" EventLogMsg="" Function="QuickSearch(Z)"/>
+        </Element>	  						
+           
+		<Element Name="data_filter"  BlankOption="All Data" cssclass="input_select_m" Class="common.element.ShareDataFilter" FieldName="create_by" Label="" SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
+            <EventHandler Name="datafilter_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>  
+		<Element Name="type_selector" BlankOption="All Types" cssclass="input_select_m" Class="common.lib.TypeSelector" FieldName="type_id" Label="" SelectFrom="contact.do.ContactTypeDO[name:Id:color]" >
+            <EventHandler Name="type_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element> 
+        <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="contact.do.ContactDO[display_name],[display_name] like '%{$_POST['qry_name']}%' GROUP BY [display_name]" FieldName="display_name" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element>  		   
+    </SearchPanel>
+</EasyForm>

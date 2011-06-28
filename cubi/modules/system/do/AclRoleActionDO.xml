@@ -6,6 +6,7 @@
         <BizField Name="action_id" Column="action_id" Type=""/>
         <BizField Name="access_level" Column="access_level" Type=""/>
         <BizField Name="module" Join="acl_action" Column="module"/>
+        <BizField Name="module_alias" Join="acl_action" Column="module"/>
         <BizField Name="resource" Join="acl_action" Column="resource"/>
         <BizField Name="action" Join="acl_action" Column="action"/>    
         <BizField Name="acl_action_id" Join="acl_action" Column="id"/>
@@ -16,4 +17,3 @@
     <ObjReferences>
     </ObjReferences>
 </BizDataObj>
-

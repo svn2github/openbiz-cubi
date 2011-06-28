@@ -1,4 +1,3 @@
-
 DROP TABLE IF EXISTS `contact`;
 CREATE TABLE IF NOT EXISTS `contact` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -32,6 +31,13 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `default` int(11) DEFAULT '0',
   `access` varchar(255) DEFAULT NULL,
   `params` text,
+  `foreign_key` varchar(255) default '',
+  `source` VARCHAR(255) NULL,
+  `owner_id` int(11) default 0,
+  `group_id` int(11) default 0,
+  `group_perm` INT(11) NULL,
+  `other_perm` INT(11) NULL,
+    
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL,
@@ -53,14 +59,18 @@ CREATE TABLE IF NOT EXISTS `contact_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
+  `color` varchar(255) NOT NULL,
   `sortorder` int(11) NOT NULL,
   `published` int(11) NOT NULL,
+  `group_id` INT(11) NULL,
+  `group_perm` INT(11) NULL,
+  `other_perm` INT(11) NULL,
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
 INSERT INTO `contact_type` (`id`, `name`, `description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
@@ -68,3 +78,41 @@ INSERT INTO `contact_type` (`id`, `name`, `description`, `sortorder`, `published
 (2, 'Family', 'Family Contacts', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
 (3, 'Provider', 'Business Provider Contacts', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
 (4, 'Client', 'Business Client Contacts', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
+
+DROP TABLE IF EXISTS `contact_import`;
+CREATE TABLE IF NOT EXISTS `contact_import` (
+  `id` int(11) NOT NULL auto_increment,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `display_name` varchar(255) NOT NULL,
+  `company` varchar(255) NOT NULL,
+  `department` varchar(255) default '',
+  `position` varchar(255) default '',
+  `fast_index` varchar(10) default '',
+  `photo` varchar(255) default '',
+  `phone` varchar(255) default '',
+  `mobile` varchar(255) default '',
+  `fax` varchar(255) default '',
+  `zipcode` varchar(255) default '',
+  `province` varchar(255) default '',
+  `city` varchar(255) default '',
+  `street` varchar(255) default '',
+  `country` varchar(255) default '',
+  `email` varchar(255) default '',
+  `webpage` varchar(255) NOT NULL default '',
+  `qq` varchar(255) default '',
+  `icq` varchar(255) default '',
+  `skype` varchar(255) default '',
+  `yahoo` varchar(255) default '',
+  `user_id` int(11) default '0',
+  `selected` int(11) default '0',
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`)
+) ENGINE=Memory  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+update `contact` set `group_id`=1,`group_perm`=1,`other_perm`=0;
+update `contact_type` set `group_id`=1,`group_perm`=1,`other_perm`=0;
+update `contact` set `owner_id`=`create_by`;
