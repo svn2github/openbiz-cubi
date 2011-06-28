@@ -1,0 +1,1 @@
+var cfg_apphome = '/cubi/';
