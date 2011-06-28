@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$description}</title>
+<link rel="stylesheet" href="{$css_url}/general.css" type="text/css" />
+<link rel="stylesheet" href="{$css_url}/login.css" type="text/css" />
+{$style_sheets}
+{$scripts}
+
+</head>
+
+<body>
+<div align="center">
+	<div id="wrap">
+		<div id="login_box">
+				<div id="forms" >
+					<div style="height:25px;"></div>
+					{foreach item=form from=$forms}
+					   <div>{$form}</div>
+					{/foreach}
+				</div>
+				<div id="loader_bg" ></div>
+				<div id="loader">
+					<div style="height:185px;"></div>
+					<div style="padding-left:300px; text-align:left">
+					<div class="loader_box">
+						<img src="{$image_url}/ajax_loader.gif" style="float:left; margin-top:8px;" />
+						<p style="float:left;margin-left:10px; padding-top:5px;" >
+						<img src="{$image_url}/loading.gif" />
+						<br/><span style="padding-left:3px;color:#aaaaaa ">{t}Please wait a while ...{/t}</span></p>
+					</div>
+					</div>			
+				</div>
+				{literal}
+				<script>
+					$('loader_bg').fade( {from: 1, to: 0.7});
+					$('loader').fade( {from: 0, to: 1});
+				</script>
+				{/literal}
+		</div>
+	</div>
+</div>
+
+{literal}
+<script>
+window.onload=fade_loader;
+window.onunload=fadeout_loader;
+function fade_loader(){
+	window.setTimeout("$('loader').fade( {from: 0.7, to: 0});",800);
+	window.setTimeout("$('loader_bg').fade( {from: 0.7, to: 0});",800);	
+	window.setTimeout("$('loader').hide();",2000);
+	window.setTimeout("$('loader_bg').hide();",2000);	
+}
+function fadeout_loader(){	
+	$('loader_bg').fade( {from: 0.5, to: 1});
+}
+</script>
+{/literal}
+</body>
+</html>
