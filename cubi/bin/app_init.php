@@ -71,6 +71,9 @@ define('SMARTY_CFG_PATH', APP_HOME.DIRECTORY_SEPARATOR."templates/cfg");
 define('APP_FILE_PATH', APP_HOME.DIRECTORY_SEPARATOR."files");
 define('APP_FILE_URL', APP_URL."/files");
 
+/* resources path. */
+define('RESOURCE_PATH', APP_HOME.DIRECTORY_SEPARATOR."resources");
+define('RESOURCE_URL', APP_URL."/resources");
 /* secured upload / attachment file path. files cannot be accessed by a direct url */
 define('SECURE_UPLOAD_PATH', APP_HOME.DIRECTORY_SEPARATOR."files".DIRECTORY_SEPARATOR."sec_upload");
 
@@ -133,6 +136,8 @@ define('USER_EMAIL_SERVICE', "userEmailService");
 define('VISIBILITY_SERVICE', "visService");
 define('PDF_SERVICE', "pdfService");
 define('PREFERENCE_SERVICE', "preferenceService");
+define('DATAPERM_SERVICE', "dataPermService");
+define('UTIL_SERVICE', "utilService");
 
 
 define ('DENY', 0);
@@ -157,7 +162,7 @@ if( @isset($_GET['theme'])) {
 include_once(OPENBIZ_HOME."/bin/sysheader_inc.php");
 
 // service alias. used in expression engine
-$g_ServiceAlias = array('validate'=>VALIDATE_SERVICE, 'query'=>QUERY_SERVICE, 'vis'=>VISIBILITY_SERVICE,'preference'=>PREFERENCE_SERVICE);
+$g_ServiceAlias = array('validate'=>VALIDATE_SERVICE, 'query'=>QUERY_SERVICE, 'vis'=>VISIBILITY_SERVICE,'preference'=>PREFERENCE_SERVICE,'util'=>UTIL_SERVICE);
 
 
 //init default timezone setting 
@@ -171,4 +176,8 @@ date_default_timezone_set($DefaultTimezone);
 
 define ('FusionChartVersion', "Pro");
 
+define('GROUP_DATA_SHARE','1');
+define('DEFAULT_OWNER_PERM','3');
+define('DEFAULT_GROUP_PERM','1');
+define('DEFAULT_OTHER_PERM','0');
 ?>
