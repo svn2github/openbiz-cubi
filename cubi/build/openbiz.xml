@@ -1,0 +1,83 @@
+<?xml version="1.0"  encoding="UTF-8" ?>
+
+<project name="openbiz" basedir="../" default="dist">
+    <property file="build/openbiz.properties" />
+
+    <property name="package"  value="${phing.project.name}" override="true" />
+    <property name="builddir" value="build/src/${package}" override="true" />
+    <property name="srcdir"   value="../openbiz" override="true" />
+    <property name="distdir" value="build/dist/${package}" override="true" />
+    <property name="distfile" value="${distdir}/${package}-${build.version}.${build.release}.tar.gz" override="true" />
+
+    <!-- Fileset for base source files -->
+    <fileset dir="${srcdir}" id="basesrc">
+        <include name="license.txt" />
+        <include name="bin/**" />
+        <include name="messages/**" />
+        <include name="metadata/**" />
+        <include name="others/Smarty/**" />
+        <include name="others/Zend/*.php"/>
+        <include name="others/Zend/Cache/**"/>
+        <include name="others/Zend/Crypt/**"/>
+        <include name="others/Zend/Db/**"/>
+        <include name="others/Zend/Jason/**"/>
+        <include name="others/Zend/Loader/**"/>
+        <include name="others/Zend/Locale/**"/>
+        <include name="others/Zend/Log/**"/>
+        <include name="others/Zend/Mail/**"/>
+        <include name="others/Zend/Mime/**"/>
+        <include name="others/Zend/Translate/**"/>
+        <include name="others/Zend/Validate/**"/>
+        <include name="others/Zend/View/**"/>
+        <include name="others/ZendX/**"/>
+    </fileset>
+
+    <!-- ============================================  -->
+    <!-- Target: build                                 -->
+    <!-- ============================================  -->
+    <target name="build" description="build source">
+        <echo msg="Copy source files..." />
+        <copy todir="${builddir}">
+            <fileset refid="basesrc" />
+        </copy>
+        <echo msg="Files copied and compressed in build directory OK!" />
+    </target>
+    
+    <!-- ============================================  -->
+    <!-- (DEFAULT) Target: dist                        -->
+    <!-- ============================================  -->
+    <target name="dist" depends="build, tar">
+    </target>
+    
+    <!-- ============================================  -->
+    <!-- Target: tar                                   -->
+    <!-- ============================================  -->
+    <target name="tar">
+        <echo msg="Creating archive at ${builddir}..." />
+        <mkdir dir="${distdir}" />
+        <delete file="${distfile}" />
+        <tar destfile="${distfile}" compression="gzip">
+            <fileset dir="build/src/">
+                <include name="openbiz/**" />
+            </fileset>
+        </tar>
+        <echo msg="Distribution file is created in build directory OK!" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: Rebuild                               -->
+    <!-- ============================================  -->
+    <target name="rebuild" description="rebuilds this package">
+        <delete dir="${builddir}" />
+        <delete file="${distfile}" />
+        <phingcall target="dist" />
+    </target>
+    
+    <!-- ============================================  -->
+    <!-- Target: Clean                                 -->
+    <!-- ============================================  -->
+    <target name="clean" description="clean this package">
+        <delete dir="${builddir}" />
+        <delete file="${distfile}" />
+    </target>
+</project>
