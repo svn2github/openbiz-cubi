@@ -1,0 +1,40 @@
+php_flag magic_quotes_gpc Off
+
+Options FollowSymLinks
+RewriteEngine On
+RewriteBase   /cubi/
+#RewriteRule ^(.*).html$ index.php?$1
+#RewriteRule ^(.*).htm$ index.php?$1
+
+RewriteCond  %{SCRIPT_FILENAME}  !-f
+RewriteCond  %{SCRIPT_FILENAME}  !-d
+RewriteCond  %{REQUEST_URI}  !\.
+RewriteRule ^(.*)$ index.php?$1
+
+<FilesMatch "application.xml$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+<FilesMatch ".inc$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+  ExpiresActive On
+  ExpiresDefault "access plus 1 seconds"
+  ExpiresByType text/html "access plus 7 days"
+  ExpiresByType image/gif "access plus 7 days"
+  ExpiresByType image/jpeg "access plus 7 days"
+  ExpiresByType image/png "access plus 7 days"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType text/javascript "access plus 7 days"
+  ExpiresByType application/x-javascript "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"  
+  
+  <filesMatch "\\.(css)$">
+    Header set Cache-Control "max-age=604800, public"
+  </filesMatch>
+  <filesMatch "\\.(js)$">
+    Header set Cache-Control "max-age=216000, public"
+  </filesMatch>
