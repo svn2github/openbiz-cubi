@@ -3,7 +3,7 @@
 // e.g. http://host/css.php?f=themes/default/css/system_backend.css
 // 
 // include app.inc
-include "bin/app.inc";
+include_once "bin/app_init.php";
 
 // include minify index
 include "bin/min/index.php";

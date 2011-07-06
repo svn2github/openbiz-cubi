@@ -3,7 +3,7 @@
 // url format. http://host/img.php?f=themes/default/images/a.jpg&w=300&h=100
 // 
 // include app.inc
-include "bin/app.inc";
+include_once "bin/app.inc";
 
 $MAX_AGE = 604800;  // one week cache
 
