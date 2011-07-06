@@ -1,0 +1,12 @@
+<PluginService Name="TaskDO_Trigger" Description="" Package="" Class="doTriggerService" BizObjectName="collab.task.do.TaskDO">  
+  <DOTrigger TriggerType="UPDATE"  >
+   <TriggerCondition Expression="" ExtraSearchRule="" />
+   <TriggerActions>
+      <TriggerAction Action="CallService" Immediate="Y" DelayMinutes="" RepeatMinutes="">
+         <ActionArgument Name="Service" Value="collab.task.lib.TaskService" />
+         <ActionArgument Name="Method" Value="updateTaskStatus" /> 
+         <ActionArgument Name="type" Value="{@}" />         
+      </TriggerAction>
+   </TriggerActions>
+  </DOTrigger>  
+</PluginService>

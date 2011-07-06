@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <TaskStatus Value="0" text="Not Started"/>
+   <TaskStatus Value="1" text="In Progress"/>
+   <TaskStatus Value="2" text="Completed"/>
+   <TaskStatus Value="3" text="Waiting"/>
+   <TaskStatus Value="4" text="Deferred"/>
+   
+   <Priority Value="0" text="Low"/>
+   <Priority Value="1" text="Normal"/>
+   <Priority Value="2" text="High"/>
+
+	<Progress Text="0%" Value="0"/> 
+	<Progress Text="5%" Value="5"/>  
+	<Progress Text="10%" Value="10"/>
+	<Progress Text="15%" Value="15"/>
+	<Progress Text="20%" Value="20"/>
+	<Progress Text="25%" Value="25"/>
+	<Progress Text="30%" Value="30"/>
+	<Progress Text="35%" Value="35"/>
+	<Progress Text="40%" Value="40"/>
+	<Progress Text="45%" Value="45"/>
+	<Progress Text="50%" Value="50"/>
+	<Progress Text="55%" Value="55"/>
+	<Progress Text="60%" Value="60"/>
+	<Progress Text="65%" Value="65"/>
+	<Progress Text="70%" Value="70"/>
+	<Progress Text="75%" Value="75"/>
+	<Progress Text="80%" Value="80"/>
+	<Progress Text="85%" Value="85"/>
+	<Progress Text="90%" Value="90"/>
+	<Progress Text="95%" Value="95"/>
+	<Progress Text="100%" Value="100"/>      
+</Selection>

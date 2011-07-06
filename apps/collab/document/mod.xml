@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="document" Description="Document sharing and management module" Version="0.1" OpenbizVersion="2.4" Author="Jixian W">
+	<ACL>
+		<Resource Name="document">
+			<Action Name="access" Description="access and manage document"/>
+		</Resource>
+	</ACL>
+	<Menu>
+    	<MenuItem Name="Document" Title="Document" Parent="Collaboration" Description="" IconImage="spacer.gif" IconCssClass="icon_document" Order="50">			
+			<MenuItem Name="Document.Manage" Title="Document Manage" Description=""  URL="{@home:url}/document/document_manage" Access="collab_document.access" Order="10" ></MenuItem>			
+			<MenuItem Name="Document.TypeManage" Title="Document Type" Description=""  URL="{@home:url}/document/document_type" Access="collab_document.access"  Order="20" ></MenuItem>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+    <ChangeLog>
+    	
+    </ChangeLog>    
+</Module>

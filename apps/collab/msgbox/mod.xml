@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="messeage" Description="messeage management module" Version="0.1" OpenbizVersion="2.4" Author="liwei">
+	<ACL>
+		<Resource Name="messeage">
+			<Action Name="access" Description="access messeage"/>
+		</Resource>
+	</ACL>
+	<Menu>
+    
+    	<MenuItem Name="Messeage" Title="Messeage" Parent="Collaboration" Description="" IconImage="spacer.gif" IconCssClass="icon_messeage" Order="50">
+			<MenuItem Name="Messeage.NewMesseage" Title="New Messeage" Description=""  URL="{@home:url}/messeage/messeageNew_list" ></MenuItem>
+			
+			<MenuItem Name="Messeage.DeletedItems" Title="Deleted Items" Description=""  URL="{@home:url}/messeage/messeage_list/m=3" ></MenuItem>
+
+			<MenuItem Name="Messeage.Drafts" Title="Drafts" Description=""  URL="{@home:url}/messeage/messeageDrafts_list/m=0" ></MenuItem>
+
+			<MenuItem Name="Messeage.Inbox" Title="Inbox" Description=""  URL="{@home:url}/messeage/messeageInbox_list/m=2" ></MenuItem>
+
+			<MenuItem Name="Messeage.SentItems" Title="Sent Items" Description=""  URL="{@home:url}/messeage/messeageSentItems_list/m=1" ></MenuItem>
+		
+		</MenuItem>	
+    </Menu>
+	<Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+</Module>

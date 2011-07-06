@@ -1,0 +1,49 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="MesseageDO" Description="" Class="BizDataObj" DBName="" Table="messeage" SearchRule="[from_userid]='{@profile:Id}'" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="7200">
+	<BizFieldList>
+		
+		<BizField Name="Id" Column="id"     Type=""/>
+	    
+		<BizField Name="subject" Column="subject" Length="255"   Required="Y" Type=""/>
+	    
+		<BizField Name="content" Column="content" Length="255"   Required="N" Type=""/>
+	    
+		<BizField Name="from_userid" Column="from_userid"    Required="N" Type="" ValueOnCreate="{@profile:Id}"/>
+	    <BizField Name="fusername" Join="fusername" Column="display_name"/>
+
+		<BizField Name="to_userid" Column="to_userid"    Required="N" Type=""/>
+	    <BizField Name="to" Join="to" Column="username"/>
+
+		<BizField Name="cc" Column="cc"    Required="N" Type=""/>
+	    <BizField Name="contact" Join="contact" Column="username"/>
+	    
+		<BizField Name="status" Column="status"  DefaultValue="0"  Required="N" Type=""/>
+
+		<BizField Name="is_read" Column="is_read"  DefaultValue="0"  Required="N" Type=""/>
+	    
+		<BizField Name="annex" Column="annex" Length="255"   Required="N" Type=""/>
+
+		<BizField Name="datetime" Column="datetime"   Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+	    
+		<BizField Name="sortorder" Column="sortorder"    Required="Y" Type=""/>
+	    
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+		
+		<BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		
+		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+		
+		<BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+    <TableJoins>
+		<Join Name="fusername" Table="contact" Column="id" ColumnRef="from_userid" JoinType="LEFT JOIN"/>
+
+		<Join Name="contact" Table="user" Column="id" ColumnRef="cc" JoinType="LEFT JOIN"/>
+
+		
+		<Join Name="to" Table="user" Column="id" ColumnRef="to_userid" JoinType="LEFT JOIN"/>
+		
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

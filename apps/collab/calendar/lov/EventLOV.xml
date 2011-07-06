@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <RecurrenceType Value="0" text="None"/>
+   <RecurrenceType Value="1" text="Daily"/>
+   <RecurrenceType Value="2" text="Weekly"/>
+   <RecurrenceType Value="3" text="Monthly"/>
+   <RecurrenceType Value="4" text="Annually"/>      
+   
+
+   
+   <NotifyType Value="0" text="Do not noitify"/>
+   <NotifyType Value="1" text="Noitify related contacts"/>              
+
+   <NotifyTimeType Value="0" text="Immediately"/>
+   <NotifyTimeType Value="5" text="Before 5 minutes"/>
+   <NotifyTimeType Value="10" text="Before 10 minutes"/>
+   <NotifyTimeType Value="15" text="Before 15 minutes"/>
+   <NotifyTimeType Value="30" text="Before 30 minutes"/>
+   <NotifyTimeType Value="45" text="Before 45 minutes"/>
+   <NotifyTimeType Value="60" text="Before 1 hour"/>
+   <NotifyTimeType Value="180" text="Before 3 hours"/>
+   <NotifyTimeType Value="720" text="Before half a day"/>
+   <NotifyTimeType Value="1440" text="Before 1 day"/>
+</Selection>

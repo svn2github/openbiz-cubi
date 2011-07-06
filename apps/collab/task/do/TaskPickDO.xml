@@ -1,0 +1,3 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="TaskPickDO" Description="" DataPermControl="Y" Class="BizDataObj"  inheritFrom="collab.task.do.TaskDO" >	
+</BizDataObj>

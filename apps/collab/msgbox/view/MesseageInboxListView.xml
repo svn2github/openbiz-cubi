@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="MesseageInboxListView" Description="messeage" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="messeage.form.MesseageInboxListForm"/>
+   </FormReferences>   
+</EasyView>

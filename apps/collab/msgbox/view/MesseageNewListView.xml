@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="MesseageNewListView" Description="messeage" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="messeage.form.MesseageNewForm"/>
+   </FormReferences>
+   <FormReferenceLibs>
+   		<Reference Name="messeage.form.MesseageListForm"/>
+   		<Reference Name="messeage.form.MesseageEditForm"/>
+   		<Reference Name="messeage.form.MesseageCopyForm"/>
+   		<Reference Name="messeage.form.MesseageNewForm"/>
+   		<Reference Name="messeage.form.MesseageDetailForm"/>
+   </FormReferenceLibs>    
+</EasyView>

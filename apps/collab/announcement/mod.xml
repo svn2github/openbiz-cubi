@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="announcement" Description="Announcement publish and management module" Version="0.2" OpenbizVersion="2.4" Author="Jixian W">
+	<ACL>
+		<Resource Name="announcement">
+			<Action Name="access" Description="access published announcement"/>
+			<Action Name="manage" Description="manage announcement"/>
+		</Resource>
+	</ACL>
+	<Menu>
+    	<MenuItem Name="Announcement" Title="Announcement" Parent="Collaboration" Description="" IconImage="spacer.gif" IconCssClass="icon_announcement" Order="50">			
+			<MenuItem Name="Announcement.Manage" Title="Announcement Manage" Description=""  URL="{@home:url}/announcement/announcement_manage" Access="collab_announcement.manage" Order="10" ></MenuItem>			
+			<MenuItem Name="Announcement.TypeManage" Title="Announcement Type" Description=""  URL="{@home:url}/announcement/announcement_type" Access="collab_announcement.manage"  Order="20" ></MenuItem>
+			<MenuItem Name="Announcement.View" Title="View Announcement" Description=""  URL="{@home:url}/announcement/announcement_view" Access="collab_announcement.access"  Order="30" ></MenuItem>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+    <ChangeLog>
+    	
+    </ChangeLog>    
+</Module>

@@ -1,0 +1,106 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="collab" Description="collaboration module" Version="0.1" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="collab">
+			<Action Name="access" Description="access my collaboration dashboard"/>
+		</Resource>
+        <Resource Name="collab_calendar">
+			<Action Name="access" Description="access and manage event"/>
+		</Resource>
+        <Resource Name="collab_note">
+			<Action Name="access" Description="access notes"/>
+		</Resource>
+        <Resource Name="collab_task">
+			<Action Name="access" Description="access task"/>
+			<Action Name="report" Description="view task statistics report"/>
+		</Resource>
+        <Resource Name="collab_worklog">
+			<Action Name="access" Description="access work log"/>
+			<Action Name="report" Description="view work log statistics report"/>
+		</Resource>
+        <Resource Name="collab_billing">
+			<Action Name="access" Description="access system billing information"/>
+			<Action Name="manage" Description="manage system billing information"/>			
+		</Resource>
+        <Resource Name="collab_announcement">
+			<Action Name="access" Description="access published announcement"/>
+			<Action Name="manage" Description="manage announcement"/>
+		</Resource>
+        <Resource Name="collab_document">
+			<Action Name="access" Description="access and manage document"/>
+		</Resource>
+        <Resource Name="collab_bookmark">
+			<Action Name="access" Description="access and manage bookmark"/>
+		</Resource>
+	</ACL>
+    <Menu>
+    	<MenuItem Name="collab" Title="Collab" Description="" URL="/collab/dashboard" Order="50">
+		</MenuItem>	
+        <!-- Contact menus -->
+    	<MenuItem Name="Collab_Contact" Title="Contacts" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_contact" Order="10">		
+			<MenuItem Name="Collab_Contact.Manage" Title="Contact Manage" Description=""  URL="/collab/contact_list"  Order="10" Access="contact.access" >
+                <MenuItem Name="Collab_Contact.GCard" Title="View General Card" Description=""  URL="/collab/contact_general_card" Order="10" Access="contact.access"></MenuItem>
+                <MenuItem Name="Collab_Contact.DCard" Title="View Detailed Card" Description=""  URL="/collab/contact_detail_card" Order="20" Access="contact.access"></MenuItem>
+                <MenuItem Name="Collab_Contact.PhoneBook" Title="View Phone Book" Description=""  URL="/collab/contact_list"  Order="30" Access="contact.access"></MenuItem>
+                <MenuItem Name="Collab_Contact.Company" Title="View Company" Description=""  URL="/collab/company_list"  Order="40" Access="contact.access"></MenuItem>
+                <MenuItem Name="Collab_Contact.ByType" Title="View By Contact Type" Description=""  URL="/collab/contact_type_list"  Order="50" Access="contact.access"></MenuItem>				
+			</MenuItem>
+			<MenuItem Name="Collab_Contact.Garbber" Title="Contact Grabber" Description=""  URL="/collab/contact_import"  Order="20" Access="contact.access"></MenuItem>
+			<MenuItem Name="Collab_Contact.Type" Title="Contact Type" Description=""  URL="/collab/contact_type"  Order="30" Access="contact.access" ></MenuItem>
+		</MenuItem>	
+        <!-- Calendar menus -->
+    	<MenuItem Name="Collab_Calendar" Title="Calendar" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_calendart" Order="20">			
+			<MenuItem Name="Collab_Calendar.EventManage" Title="Event Manage" Description=""  URL="{@home:url}/collab/event_manage" Order="10" ></MenuItem>
+			<MenuItem Name="Collab_Calendar.TypeManage" Title="Event Type" Description=""  URL="{@home:url}/collab/event_type" Order="20" ></MenuItem>
+		</MenuItem>	
+        <!-- Note menus -->
+    	<MenuItem Name="Note" Title="Note" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_note" Order="50">
+			<MenuItem Name="Notes.NotesManage" Title="Note Manage" Description=""  URL="{@home:url}/collab/note_manage" Order="40"></MenuItem>
+			<MenuItem Name="Notes.Type" Title="Note Type" Description=""  URL="{@home:url}/collab/note_type" Order="50"></MenuItem>
+		</MenuItem>
+        <!-- Task menus -->
+    	<MenuItem Name="Task" Title="Task" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_task" Order="30">
+			<MenuItem Name="Task.Manage" Title="Task Manage " Description=""  URL="{@home:url}/collab/task_manage" Order="40" ></MenuItem>
+			<MenuItem Name="Task.Type" Title="Task Type" Description=""  URL="{@home:url}/collab/task_type" Order="50" ></MenuItem>			
+		</MenuItem>
+        <!-- worklog menus -->
+    	<MenuItem Name="Worklog" Title="Work Log" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_worklog" Order="40">
+			<MenuItem Name="Worklog.Manage" Title="Work Log Manage " Description=""  URL="{@home:url}/collab/worklog_manage" Order="40" ></MenuItem>
+		</MenuItem>	
+        <!-- message box menus -->
+        <MenuItem Name="Msgbox" Title="Message Inbox" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_message" Order="12">
+			<MenuItem Name="Msgbox.NewMessage" Title="New Message" Description=""  URL="{@home:url}/collab/msgNew_list" Order="20"></MenuItem>
+			<MenuItem Name="Msgbox.DeletedItems" Title="Deleted Items" Description=""  URL="{@home:url}/collab/msg_list/m=3" Order="50"></MenuItem>
+			<MenuItem Name="Msgbox.Drafts" Title="Drafts" Description=""  URL="{@home:url}/collab/msgDrafts_list/m=0" Order="40"></MenuItem>
+			<MenuItem Name="Msgbox.Inbox" Title="Inbox" Description=""  URL="{@home:url}/collab/msgInbox_list/m=2" Order="10"></MenuItem>
+			<MenuItem Name="Msgbox.SentItems" Title="Sent Items" Description=""  URL="{@home:url}/collab/msgSentItems_list/m=1" Order="30"></MenuItem>
+		</MenuItem>
+        <!-- announcement menus -->
+        <MenuItem Name="Announcement" Title="Announcement" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_announcement" Order="60">
+			<MenuItem Name="Announcement.Manage" Title="Announcement Manage" Description=""  URL="{@home:url}/collab/announcement_manage" Access="collab_announcement.manage" Order="10" ></MenuItem>			
+			<MenuItem Name="Announcement.TypeManage" Title="Announcement Type" Description=""  URL="{@home:url}/collab/announcement_type" Access="collab_announcement.manage"  Order="20" ></MenuItem>
+			<MenuItem Name="Announcement.View" Title="View Announcement" Description=""  URL="{@home:url}/collab/announcement_view" Access="collab_announcement.access"  Order="30" ></MenuItem>
+		</MenuItem>
+        <!-- document menus -->
+        <MenuItem Name="Collab_Document" Title="Document" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_document" Order="70">
+			<MenuItem Name="Collab_Document.Manage" Title="Document Manage" Description=""  URL="{@home:url}/collab/document_manage" Access="collab_document.access" Order="10" ></MenuItem>			
+			<MenuItem Name="Collab_Document.TypeManage" Title="Document Type" Description=""  URL="{@home:url}/collab/document_type" Access="collab_document.access"  Order="20" ></MenuItem>
+		</MenuItem>
+        <!-- bookmark menus -->
+        <MenuItem Name="Collab_Bookmark" Title="Bookmark" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_bookmark" Order="80">
+			<MenuItem Name="Collab_Bookmark.Manage" Title="Bookmark Manage" Description=""  URL="{@home:url}/collab/bookmark_manage" Access="collab_bookmark.access" Order="10" ></MenuItem>			
+			<MenuItem Name="Collab_Bookmark.TypeManage" Title="Bookmark Type" Description=""  URL="{@home:url}/collab/bookmark_type" Access="collab_bookmark.access"  Order="20" ></MenuItem>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    	<!--<Module Name="attachment"/>
+    	<Module Name="contact"/>
+    	<Module Name="task"/>
+    	<Module Name="note"/>
+    	<Module Name="messeage"/>
+    	<Module Name="billing"/>
+    	<Module Name="worklog"/>-->
+    </Dependency>
+</Module>

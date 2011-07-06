@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="calendar" Description="Calendar event management module" Version="0.2" OpenbizVersion="2.4" Author="Jixian W">
+	<ACL>
+		<Resource Name="calendar">
+			<Action Name="access" Description="access and manage event"/>
+		</Resource>
+	</ACL>
+	<Menu>
+    	<MenuItem Name="Calendar" Title="Calendar" Parent="Collaboration" Description="" IconImage="spacer.gif" IconCssClass="icon_calendart" Order="50">			
+			<MenuItem Name="collab.calendar.EventManage" Title="Event Manage" Description=""  URL="{@home:url}/calendar/event_manage" Order="10" ></MenuItem>
+			<MenuItem Name="collab.calendar.TypeManage" Title="Event Type" Description=""  URL="{@home:url}/calendar/event_type" Order="20" ></MenuItem>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+    <ChangeLog>
+    	<Version Name="0.2">
+    		<Change Name="feature_02.2" Type="Security"  Status="Finished" PublishDate="2011-04-18" Description="Added access control attribute on form level."></Change>    		
+    		<Change Name="feature_02.1" Type="New_Feature" Status="Finished" PublishDate="2011-04-18" Description="Intergrated FullCalendar into event management view."></Change>
+    	</Version>
+    </ChangeLog>    
+</Module>

@@ -1,0 +1,3 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="NoteManageView" Description="Note Management" Class="collab.view.SelectorView" FromSelecotr="collab.note.widget.ViewSelectorLeftWidget" Tab="" TemplateEngine="Smarty"  Access="collab_note.access" TemplateFile="view_note.tpl">
+</EasyView>

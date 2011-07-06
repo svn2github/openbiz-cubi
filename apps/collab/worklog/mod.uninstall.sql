@@ -1,0 +1,1 @@
+DROP TABLE `work_log`;
