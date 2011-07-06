@@ -74,6 +74,7 @@ define('APP_FILE_URL', APP_URL."/files");
 /* resources path. */
 define('RESOURCE_PATH', APP_HOME.DIRECTORY_SEPARATOR."resources");
 define('RESOURCE_URL', APP_URL."/resources");
+define('RESOURCE_PHP', APP_URL."/rs.php"); 
 /* secured upload / attachment file path. files cannot be accessed by a direct url */
 define('SECURE_UPLOAD_PATH', APP_HOME.DIRECTORY_SEPARATOR."files".DIRECTORY_SEPARATOR."sec_upload");
 
