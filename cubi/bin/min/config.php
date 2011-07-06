@@ -55,10 +55,11 @@ $min_cachePath = CACHE_DATA_PATH;
  * If /min/ is directly inside your document root, just uncomment the 
  * second line. The third line might work on some Apache servers.
  */
-$min_documentRoot = APP_HOME;
+$min_documentRoot = '';
 //$min_documentRoot = substr(__FILE__, 0, strlen(__FILE__) - 15);
 //$min_documentRoot = $_SERVER['SUBDOMAIN_DOCUMENT_ROOT'];
 
+$min_fileSearchPath = RESOURCE_PATH.'/';
 
 /**
  * Cache file locking. Set to false if filesystem is NFS. On at least one 

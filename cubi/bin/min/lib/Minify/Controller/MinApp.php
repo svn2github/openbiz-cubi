@@ -108,8 +108,12 @@ class Minify_Controller_MinApp extends Minify_Controller_Base {
             }
             foreach ($files as $file) {
                 // TODO: allow search path other than DOCUMENT_ROOT
-                $path = $_SERVER['DOCUMENT_ROOT'] . $base . $file;
-                $file = realpath($path);
+                global $min_fileSearchPath;
+                $path = $min_fileSearchPath . $file;
+                if (($file = realpath($path)) === false) {
+                    $path = $_SERVER['DOCUMENT_ROOT'] . $base . $file;
+                    $file = realpath($path);
+                }
                 if (false === $file) {
                     $this->log("Path \"{$path}\" failed realpath()");
                     return $options;
