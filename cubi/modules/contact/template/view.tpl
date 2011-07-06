@@ -28,7 +28,7 @@ width:398px;
 }
 </style>
 '.'
-<link rel="stylesheet" href="'.$this->_tpl_vars['resource_url'].'/collaboration/css/collaboration_menu_icons.css" type="text/css" />
+<link rel="stylesheet" href="'.RESOURCE_PHP.'?f=collab/css/collaboration_menu_icons.css" type="text/css" />
 ';
 $this->_tpl_vars['style_sheets'] = $appendStyle;
 $this->assign('template_file', 'system_view.tpl.html');

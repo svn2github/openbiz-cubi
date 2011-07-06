@@ -1,0 +1,212 @@
+.photo_list_grid{
+	
+}
+.photo_list_grid h4{
+	padding:0px;
+	margin:0px;
+	font-size:14px;
+	line-height:24px;
+	display:block;
+	overflow:hidden;
+	width:110px;
+	height:24px;
+}
+.photo_list_grid h4 a{
+	text-decoration:none;
+	padding-left:5px;
+	font-weight:normal;
+	color:#999999;
+	
+}
+.photo_list_grid .hover .grid_cell  h4 a{
+	color:#666666;
+}
+.photo_list_grid .selected .grid_cell  h4 a{
+	color:#329ac1;
+}
+.photo_list_grid td{
+	padding:0px 2px 8px 0px;
+	cursor:pointer;
+	vertical-align:top;
+}
+.photo_list_grid .grid_cell
+{
+	padding:3px 2px 0px 3px;
+	width:110px;
+	height:168px;
+	background-image:url(../images/photo_bg.jpg);
+	background-repeat:repeat-x;
+	background-position:left 0px;
+}
+.photo_list_grid  .hover .grid_cell {
+	background-position:left -190px;
+}
+.photo_list_grid  .selected .grid_cell {
+	background-position:left -380px;
+}
+.photo_list_grid .cell_type
+{
+	padding-left:8px;
+	height:18px;
+	line-height:18px;
+	width:107px;
+	border-bottom:2px solid #FFFFFF;
+	float:left;
+
+}
+.photo_list_grid .cell_type span
+{
+	display:block;
+	float:left;
+
+}
+.photo_list_grid .cell_share
+{
+	padding-right:5px;
+	float:right;
+
+}
+.photo_list_grid .cell_share img
+{
+
+	height:18px;
+
+}
+.photo_list_grid .selected .cell_type{
+	border-bottom:2px solid #329ac1;
+	width:107px;
+}
+
+
+
+/* styles for card list  */
+
+.card_list_grid{}
+.card_list_grid td{
+	padding:0px 5px 8px 0px;
+	cursor:pointer;
+	vertical-align:top;
+}
+.card_list_grid .grid_cell{
+	width:230px;
+	height:136px;
+	background-image:url(../images/card_bg.gif);
+	background-repeat:repeat-x;
+	background-position:left -272px;
+}
+.card_list_grid .grid_cell_content{
+	width:230px;
+	height:107px;
+	overflow:hidden;
+}
+.card_list_grid .grid_cell_content h4{
+	font-size:20px;
+	line-height:20px;
+	display:block;
+	padding:0px;
+	margin:0px;
+	font-weight:normal;
+	overflow:hidden;
+	width:110px;
+	height:20px;
+}
+.card_list_grid .grid_cell_content h4 a{
+	color:#999999;
+	text-decoration:none;
+}
+.card_list_grid .grid_cell_content .position{
+	font-size:14px;
+	line-height:14px;
+	display:block;
+	padding:0px;
+	margin:0px;
+	padding-top:4px;
+	color:#cccccc;
+	height:16px;
+}
+.card_list_grid .grid_cell_content .attr{
+	font-size:12px;
+	line-height:16px;
+	display:block;
+	padding:0px;
+	margin:0px;
+	color:#999999;
+	width:120px;
+	height:16px;
+	overflow:hidden;
+	
+}
+.card_list_grid .grid_cell_footer .more{
+	font-size:12px;
+	line-height:16px;
+	display:block;
+	padding:0px;
+	margin:0px;
+	color:#666666;
+	width:40px;
+	height:16px;
+	overflow:hidden;
+	text-decoration:underline;
+}
+.card_list_grid .grid_cell_footer{
+	width:215px;
+	height:28px;
+	padding-left:15px;
+}
+.card_list_grid .grid_cell .photo{
+	width:70px;
+	height:105px;
+	float:left;
+	padding-left:15px;
+	padding-top:10px;
+}
+.card_list_grid .grid_cell .contact{
+	width:130px;
+	height:103px;
+	float:left;
+	padding-left:10px;
+	padding-top:12px;
+}
+.card_list_grid .grid_cell .photo img{
+	border:3px solid #dddddd;
+}
+.card_list_grid .grid_cell_footer .cell_type{
+	width:65px;
+	height:17px;
+	margin-bottom:2px;
+	overflow:hidden;
+	padding-left:5px;
+	margin-top:7px;
+	float:left;
+}
+.card_list_grid .grid_cell_footer .cell_more{
+	padding-left:10px;
+	margin-top:7px;
+	float:left;
+}
+.card_list_grid .grid_cell_footer .cell_share{
+	
+	overflow:hidden;
+	padding-right:13px;
+	
+	float:right;
+}
+
+.card_list_grid  .hover .grid_cell {
+	background-position:left -136px;
+}
+.card_list_grid  .hover h4 a {
+	color:#666666;
+}
+.card_list_grid .hover .position{
+	color:#999999;
+}
+.card_list_grid  .selected .grid_cell {
+	background-position:left 0px;
+}
+.card_list_grid  .selected h4 a {
+	color:#329ac1;
+}
+.card_list_grid .selected .position{
+	color:#999999;
+}
