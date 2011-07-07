@@ -57,8 +57,6 @@ class TaskService
 		if($update){
 			$taskRec->save();
 		}		
-			
-		
 	}
 	
 	public function genFinishTime($start_time, $duration)

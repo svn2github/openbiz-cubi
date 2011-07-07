@@ -10,11 +10,6 @@ $includedScripts.="\n"."
 <script>var \$j = jQuery.noConflict();</script>
 <script src=\"".JS_URL."/cookies.js\"></script>
 <script src=\"".JS_URL."/grouping.js\"></script>
-<script src=\"".JS_URL."/Openbiz.StickyForm.js\"></script>
-<script src=\"".JS_URL."/StickyNotes/jquery.stickynotes.js\"></script>
-<script src=\"".JS_URL."/jquery-ui-1.8.11.custom.min.js\"></script>
-<script src=\"".JS_URL."/uploadify/swfobject.js\"></script>
-<script src=\"".JS_URL."/uploadify/jquery.uploadify.v2.1.4.js\"></script>
 <style>
 
 .action_panel{
