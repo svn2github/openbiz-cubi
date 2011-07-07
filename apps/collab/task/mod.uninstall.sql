@@ -1,4 +1,0 @@
-DROP TABLE IF EXISTS `task`;
-DROP TABLE IF EXISTS `task_type`;
-DROP TABLE IF EXISTS `task_contact`;
-DROP TABLE IF EXISTS `task_event`;
