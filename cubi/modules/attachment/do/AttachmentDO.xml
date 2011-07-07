@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="AttachmentDO" Description="" DataPermControl="N" Class="BizDataObj" DBName="Default" Table="attachment" SearchRule="" SortRule="[Id] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" Column="id"     Type=""/>
+		<BizField Name="title" Column="title" Length="255"   Required="N" Type=""/>
+		<BizField Name="description" Column="description" Type=""/>
+		
+		<BizField Name="filename" Column="filename" Type=""/>		
+		<BizField Name="filesize" Column="filesize" Type=""/>
+		<BizField Name="path" Column="path" Type=""/>
+		<BizField Name="url" Column="url" Type=""/>				
+		<BizField Name="sha256" Column="sha256" Type=""/>
+		<BizField Name="md5" Column="md5" Type=""/>
+		<BizField Name="download_count" Column="download_count" Type=""/>		 
+   		
+		<BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>
+        <BizField Name="group_perm" Column="group_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   Required="N" Type="Number"/>
+        <BizField Name="other_perm" Column="other_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"   Required="N" Type="Number"/>
+   		
+   		<BizField Name="foreign_id" Column="foreign_id" Type=""/>
+   		<BizField Name="type" Column="type" Type=""/>
+			        		    		
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

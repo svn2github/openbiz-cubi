@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="AttachmentNewForm" Class="AttachmentForm" Icon="{RESOURCE_URL}/attachment/images/icon_attachment.png" FormType="New" jsClass="jbForm" Title="New Attachment" Description="Please select files from your computer to upload attachments." BizDataObj="attachment.do.AttachmentPickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_attachment_quick_add.tpl.html"  Access="attachment.access">
+    <DataPanel>        
+        <Element Name="fld_title" DefaultValue="New Attachment" Class="InputText" FieldName="title" Label="Title"   />	
+        <Element Name="fld_attachments" Class="attachment.element.AttachmentUploader" FieldName="file" Label="Files" />
+    </DataPanel>
+    <ActionPanel>
+	    <Element Name="btn_upload_file" Class="Hidden" >
+            <EventHandler Name="upload_onclick" EventLogMsg="" Event="onclick" Function="uploadFile()"  />
+        </Element>
+        <Element Name="btn_check_file" Class="Hidden" >
+            <EventHandler Name="check_onclick" EventLogMsg="" Event="onclick" Function="checkFile()"  />
+        </Element> 
+        <Element Name="btn_upload" Class="Button" Text="Upload" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="js:$j('#fld_attachments').uploadifyUpload()"   ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>        
+        <Element Name="btn_clear" Class="Button" Text="Clear" CssClass="button_gray_m">
+            <EventHandler Name="btn_clear_onclick" Event="onclick" Function="js:$j('#fld_attachments').uploadifyClearQueue()"/>
+        </Element>
+        <Element Name="Spacer" Class="Spacer" Width="10" />
+        <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

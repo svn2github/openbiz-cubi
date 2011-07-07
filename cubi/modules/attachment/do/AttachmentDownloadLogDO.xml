@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="AttachmentDownloadLogDO" Description="" DataPermControl="N" Class="BizDataObj" DBName="Default" Table="attachment_download_log" SearchRule="" SortRule="[Id] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" Column="id"     Type=""/>
+		<BizField Name="attachment_id" Column="attachment_id"  />
+		<BizField Name="user_id" Column="user_id"  />
+        <BizField Name="timestamp" Column="timestamp" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
