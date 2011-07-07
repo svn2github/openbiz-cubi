@@ -179,7 +179,7 @@ function giveActionAccess($where, $role_id)
 
 function replaceDbConfig()
 {
-   $filename = APP_HOME.'/Config.xml';
+   $filename = APP_HOME.'/application.xml';
    $xml = simplexml_load_file($filename);
    $xml->DataSource->Database[0]['Driver'] = $_REQUEST['dbtype'];
    $xml->DataSource->Database[0]['Server'] = $_REQUEST['dbHostName'];
@@ -198,7 +198,7 @@ function replaceDbConfig()
 
 function getDefaultDB()
 {
-	$filename = APP_HOME.'/Config.xml';
+	$filename = APP_HOME.'/application.xml';
    	$xml = simplexml_load_file($filename);
    	$db['Name'] = $xml->DataSource->Database[0]['Name'];
    	$db['Driver'] = $xml->DataSource->Database[0]['Driver'];
@@ -212,7 +212,7 @@ function getDefaultDB()
 
 function showDBConfig()
 {
-   $xml = simplexml_load_file(APP_HOME.'/Config.xml');
+   $xml = simplexml_load_file(APP_HOME.'/application.xml');
    //print_r($xml);
    echo "<b>Current setting of Default Database:</b>";
    echo '<table><tr>';
