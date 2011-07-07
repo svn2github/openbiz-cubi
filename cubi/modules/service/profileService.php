@@ -190,15 +190,17 @@ class profileService
         if (!$do)
             return "";
 
-        $rs = $do->directFetch("[Id]='$account_id'", 1);
+        $rs = $do->fetchById($account_id);
         if (!$rs)
             return "";
+        else
+            return $rs['email'];
         
-        $contact_do = BizSystem::getObject($this->m_contactObj);    
-        $contact_rs = $contact_do->directFetch("[user_id]='$account_id'", 1);    
-        if (!$contact_rs){
-        	$rs = $rs[0];
-        	$name = $rs['username']." &lt;".$rs['email']."&gt;";
+        $contact_do = BizSystem::getObject($this->m_contactObj);
+        $contact_rs = $contact_do->directFetch("[user_id]='$account_id'", 1);
+        if (count($contact_rs)==0){
+        	//$name = $rs['username']." &lt;".$rs['email']."&gt;";
+            $name = $rs['username']." - ".$rs['email'];
         }else{
         	$contact_rs = $contact_rs[0];
         	$name = $contact_rs['display_name'];
