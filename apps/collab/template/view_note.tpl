@@ -11,9 +11,9 @@ $includedScripts.="\n"."
 <script src=\"".JS_URL."/cookies.js\"></script>
 <script src=\"".JS_URL."/grouping.js\"></script>
 <script src=\"".JS_URL."/Openbiz.StickyForm.js\"></script>
-<script src=\"".JS_URL."/StickyNotes/jquery.stickynotes.js\"></script>
+<script src=\"".RESOURCE_URL."/collab/js/StickyNotes/jquery.stickynotes.js\"></script>
 <script src=\"".JS_URL."/jquery-ui-1.8.11.custom.min.js\"></script>
-<link rel=\"stylesheet\" href=\"".JS_URL."/StickyNotes/css/jquery.stickynotes.css\" type=\"text/css\" />
+<link rel=\"stylesheet\" href=\"".RESOURCE_URL."/collab/js/StickyNotes/css/jquery.stickynotes.css\" type=\"text/css\" />
 <link rel=\"stylesheet\" href=\"".JS_URL."/jquery-ui/ui-lightness/jquery-ui-1.8.11.custom.css\" type=\"text/css\" />
 <style>
 
@@ -25,7 +25,7 @@ width:398px;
 }
 </style>
 ".'
-<link rel="stylesheet" href="'.$this->_tpl_vars['resource_url'].'/collaboration/css/collaboration_menu_icons.css" type="text/css" />
+<link rel="stylesheet" href="'.RESOURCE_PHP.'?f=collab/css/collaboration_menu_icons.css" type="text/css" />
 ';
 $this->_tpl_vars['scripts'] = $includedScripts;
 
