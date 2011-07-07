@@ -1,5 +1,5 @@
 {php}
-$header_background_image='/collaboration/images/top_logo_banner.gif';
+$header_background_image='/collab/images/top_logo_banner.gif';
 $this->assign('header_background_image', $header_background_image);
 
 BizSystem::clientProxy()->includeColorPickerScripts();
@@ -10,10 +10,10 @@ $includedScripts.="\n"."
 <script>var \$j = jQuery.noConflict();</script>
 <script src=\"".JS_URL."/cookies.js\"></script>
 <script src=\"".JS_URL."/grouping.js\"></script>
-<script src=\"".JS_URL."/jsgantt/dhtmlxcommon.js\"></script>
-<script src=\"".JS_URL."/jsgantt/dhtmlxgantt.js\"></script>
-<link type=\"text/css\" rel=\"stylesheet\" href=\"".JS_URL."/jsgantt/dhtmlxgantt.css\">
-<script src=\"".RESOURCE_URL."/task/js/task.js\"></script>
+<script src=\"".RESOURCE_URL."/collab/js/jsgantt/dhtmlxcommon.js\"></script>
+<script src=\"".RESOURCE_URL."/collab/js/jsgantt/dhtmlxgantt.js\"></script>
+<link type=\"text/css\" rel=\"stylesheet\" href=\"".RESOURCE_URL."/collab/js/jsgantt/dhtmlxgantt.css\">
+<script src=\"".RESOURCE_URL."/collab/task/js/task.js\"></script>
 <script src=\"".JS_URL."/Openbiz.GanttForm.js\"></script>
 <script src=\"".JS_URL."/uploadify/swfobject.js\"></script>
 <script src=\"".JS_URL."/uploadify/jquery.uploadify.v2.1.4.js\"></script>
@@ -34,7 +34,7 @@ padding-left:10px;
 }
 </style>
 ".'
-<link rel="stylesheet" href="'.$this->_tpl_vars['resource_url'].'/collaboration/css/collaboration_menu_icons.css" type="text/css" />
+<link rel="stylesheet" href="'.RESOURCE_PHP.'?f=collab/css/collaboration_menu_icons.css" type="text/css" />
 ';
 $this->_tpl_vars['scripts'] = $includedScripts;
 

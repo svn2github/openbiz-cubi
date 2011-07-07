@@ -1,7 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="MesseageSentItemsListView" Description="messeage" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
-   <FormReferences>
-   		<Reference Name="messeage.form.MesseageSentItemsListForm"/>
-   </FormReferences>
-    
-</EasyView>

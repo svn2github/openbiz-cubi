@@ -1,5 +1,5 @@
 {php}
-$header_background_image='/collaboration/images/top_logo_banner.gif';
+$header_background_image='/collab/images/top_logo_banner.gif';
 $this->assign('header_background_image', $header_background_image);
 
 BizSystem::clientProxy()->includeColorPickerScripts();

@@ -32,7 +32,7 @@ class ViewSelectorLeftWidget extends EasyForm
 		{
 			$this->lastViewMode = $this->getViewMode();
 		}
-		$viewObj = BizSystem::GetObject("collab.calendar.view.EventManageView");
+		$viewObj = BizSystem::GetObject("collab.view.EventManageView");
 		//$viewObj = $this->getView();
 		if($viewObj->m_LastRenderedForm && 
 			$viewObj->m_LastRenderedForm!='help.form.HelpWidgetListForm'){
