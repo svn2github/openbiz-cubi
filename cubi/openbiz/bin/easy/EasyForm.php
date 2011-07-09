@@ -1521,7 +1521,8 @@ class EasyForm extends MetaObject implements iSessionObject
     }
 
     /**
-     * Generate list for AutoSuggest listing.  Formatted for simple of hidden inputs
+     * Generate list for AutoSuggest element
+     * Also supports elements that have hidden values
      *
      * @param string $input - the search string used to filter the list
      * @todo rename to createAutoSuggestList or createAutoSuggest(v2.5?)
@@ -1529,9 +1530,12 @@ class EasyForm extends MetaObject implements iSessionObject
      */
     public function autoSuggest($input)
     {
+    	$foo = $_POST;
+    	$hidden_flag = FALSE;
         if (strpos($input, '_hidden'))
         {
             $realInput = str_replace('_hidden', '', $input);
+			$hidden_flag = TRUE;            
         } else
         {
             $realInput = $input;
@@ -1547,11 +1551,11 @@ class EasyForm extends MetaObject implements iSessionObject
         echo "<ul>";
         if ($fromlist)
         {
-            if (strpos($input, '_hidden'))
+            if ($hidden_flag = TRUE)
             {
                 foreach ($fromlist as $item)
                 {
-                    echo "<li id=" . $item['val'] . ">" . $item['txt'] . "</li>";
+                    echo "<li id=" . $item['txt'] . ">" . $item['val'] . "</li>";
                 }
             }
             else

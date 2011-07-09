@@ -778,9 +778,22 @@ Openbiz.AutoSuggest =
 			delete this.instances[input];
         var url = Openbiz.appHome;
         url += "?"+Openbiz.Util.composeRequestString("RPCInvoke", [form,method,input]);
-        this.instances[input] = new Ajax.Autocompleter(input, input_choice, url);
+        this.instances[input] = new Ajax.Autocompleter(input, input_choice, url, {afterUpdateElement:getSelectionId});
     }
 }
+
+
+//Support AutoSuggest where user sees one value but system submits another value.
+function getSelectionId(text, li) {
+    var name = text.id;
+    var name_pos = name.search('_hidden');
+    var hidden_name = name.substring(0,name_pos);
+    if(document.getElementById(hidden_name)){
+	    var hidden_obj =  document.getElementById(hidden_name);
+	    hidden_obj.value = li.id;
+    }
+}
+
 /**
  * browser side validator
  */
