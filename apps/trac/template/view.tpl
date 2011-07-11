@@ -1,4 +1,7 @@
 {php}
+$header_background_image='/trac/images/top_logo_banner.gif';
+$this->assign('header_background_image', $header_background_image);
+
 $js_url = $this->_tpl_vars['js_url'];
 $theme_js_url = $this->_tpl_vars['theme_js_url'];
 $css_url = $this->_tpl_vars['css_url'];
