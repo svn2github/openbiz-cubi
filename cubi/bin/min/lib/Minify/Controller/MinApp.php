@@ -108,10 +108,13 @@ class Minify_Controller_MinApp extends Minify_Controller_Base {
             }
             foreach ($files as $file) {
                 // TODO: allow search path other than DOCUMENT_ROOT
-                global $min_fileSearchPath;
+                global $min_fileSearchPath;     // new change for openbiz-cubi
                 $path = $min_fileSearchPath . $file;
-                if (($file = realpath($path)) === false) {
+                if (realpath($path) === false) {
                     $path = $_SERVER['DOCUMENT_ROOT'] . $base . $file;
+                    $file = realpath($path);
+                }
+                else {
                     $file = realpath($path);
                 }
                 if (false === $file) {
