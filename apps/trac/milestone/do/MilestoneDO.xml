@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="MilestoneDO" Description="" Class="BizDataObj" DBName="Default" Table="trac_milestone" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="name" IdGeneration="Identity" CacheLifeTime="7200">
+	<BizFieldList>
+   		<BizField Name="Id" Column="id" Type="Number"/>
+   		<BizField Name="name" Column="name" Required="Y" Type="Text"/>
+   		<BizField Name="due" Column="due"    Required="N" Type="Date" Format="%m/%d/%Y" />
+   		<BizField Name="completed" Column="completed"    Required="N" Type="Date" Format="%m/%d/%Y" />
+   		<BizField Name="description" Column="description"    Required="N" Type="Text"/>
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

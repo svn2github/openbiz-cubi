@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="AttachmentDO" Description="" Class="BizDataObj" DBName="Default" Table="trac_attachment" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+   		<BizField Name="Id" Column="id" Type="Number"/>
+   		<BizField Name="parent_id" Column="parent_id" Length="30" Required="N" Type="Text"/>
+   		<BizField Name="filename" Column="filename" Length="50" Required="Y" Type="Text"/>
+   		<BizField Name="type" Column="type" Length="30" Required="N" Type="Text"/>
+   		<BizField Name="size" Column="size" Required="N" Type="Number"/>
+   		<BizField Name="time" Column="time" Required="N" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+   		<BizField Name="description" Column="description" Length="255" Required="N" Type="Text"/>
+   		<BizField Name="author_id" Column="author_id" Required="N" ValueOnCreate="{@profile:Id}"	/>
+   		<BizField Name="author" Join="user" Column="username" Type="Text"/>
+   		<BizField Name="ipnr" Column="ipnr" Length="30" Required="N" Type="Text"/>
+	</BizFieldList>
+    <TableJoins>
+    	<Join Name="user" Table="user" Column="id" ColumnRef="author_id" JoinType="LEFT JOIN"/></TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="SavedQueryForm" Class="trac.ticket.form.TicketSearchForm" Title="My saved ticket searches" FormType="List" jsClass="jbForm" BizDataObj="trac.ticket.do.TicketQueryDO" TemplateEngine="Smarty" TemplateFile="grid.tpl" PageSize="10">
+    <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox" Label="" FieldName="Id"/>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N"/>
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Link="{@home:url}/trac/search_ticket/qid={@:Elem[fld_Id].Value}" Label="Search name" Sortable="Y"/>
+        <Element Name="fld_search_rules" Class="trac.ticket.form.ColumnSearchRule" FieldName="search_rules" Label="Search rules" Sortable="Y"/>	
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
+        </Element>    
+        <Element Name="btn_first" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+    	<Element Name="qry_name"  Class="InputText" FuzzySearch="Y" SelectFrom="" FieldName="name" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element> 
+    </SearchPanel>
+</EasyForm>

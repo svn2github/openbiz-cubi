@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="trac" Description="Issue tracking module" Version="0.1" OpenbizVersion="2.4" Author="Rocky">
+	<ACL>
+		<Resource Name="trac">
+			<Action Name="View_Ticket" Description="Read only of Ticket"/>
+			<Action Name="New_Ticket" Description="New Ticket"/>
+			<Action Name="Update_Ticket" Description="Update Ticket"/>
+			<Action Name="Aminister_Trac" Description="Aminister Trac system"/>
+		</Resource>
+	</ACL>
+    <Menu>
+		<MenuItem Name="TracTicket" Title="Tickets" Parent="" URL="/trac/ticket_list" Order="10">
+			<MenuItem Name="Trac.TicketSearch" Title="Browse Tickets" Description=""  URL="" Order="10">
+                <MenuItem Name="Trac.TicketNew" Title="Create Ticket" Description=""  URL="/trac/ticket_new" Order="20"/>
+				<MenuItem Name="Trac.TicketList" Title="All Tickets" Description=""  URL="/trac/ticket_list" Order="10"/>
+				<MenuItem Name="Trac.MyTicket1" Title="My Tickets" Description=""  URL="/trac/search_ticket/q=my" Order="20"/>
+				<MenuItem Name="Trac.MyTicket2" Title="Tickets reported by me" Description=""  URL="/trac/search_ticket/q=me" Order="30"/>
+				<MenuItem Name="Trac.SavedSearch" Title="Saved Search" Description=""  URL="/trac/saved_query" Order="40"/>
+				<!-- <MenuItem Name="Trac.Ticket.Detail" Title="Ticket Detail" Description=""  URL="/trac/ticket_detail" Order="10"/>-->
+			</MenuItem>
+            <MenuItem Name="Trac" Title="Trac Admin" Access="trac.Aminister_Trac" Order="20">
+                <MenuItem Name="Trac.Product" Title="Products" Description=""  URL="/trac/product_list" Order="20"/>
+                <MenuItem Name="Trac.Component" Title="Components" Description=""  URL="/trac/component_list" Order="30"/>
+                <MenuItem Name="Trac.Version" Title="Versions" Description=""  URL="/trac/version_list" Order="40"/>
+                <MenuItem Name="Trac.Milestone" Title="Milestones" Description=""  URL="/trac/milestone_list" Order="50"/>
+                <MenuItem Name="Trac.Enumeration" Title="Enumerations" Description=""  URL="/trac/enum_list" Order="60"/>
+            </MenuItem>	
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+</Module>

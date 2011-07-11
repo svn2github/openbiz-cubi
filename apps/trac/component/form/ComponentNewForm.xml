@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ComponentNewForm" Class="EasyForm" FormType="New" jsClass="jbForm" Title="Create a new component" Description="" BizDataObj="trac.component.do.ComponentDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_name" DefaultValue="New Component" Class="InputText" FieldName="name" Label="Name" Required="Y"/>
+        <Element Name="fld_product_id" Class="ListBox" FieldName="product_id" Label="Product" SelectFrom="trac.product.do.ProductDO[name:Id]"/>
+        <Element Name="fld_owner_id" Class="Hidden" FieldName="owner_id" Label="Owner Id"/>
+        <Element Name="fld_ownername" Class="InputPicker" FieldName="owner_name" Label="Owner" ValuePicker="system.form.UserPickForm" PickerMap="fld_owner_id:fld_Id,fld_ownername:fld_username"/>
+     	<element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"/>            
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=trac.component.form.ComponentDetailForm&amp;fld:Id={@trac.component.do.ComponentDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save"/>
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm(trac.component.form.ComponentListForm)" ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

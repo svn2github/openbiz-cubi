@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="TicketDO" Description="" Class="BizDataObj" DBName="Default" Table="trac_ticket" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" AccessRule="" CacheLifeTime="0">
+	<BizFieldList>
+   		<BizField Name="Id" Column="id" Type="Number"/>
+   		<BizField Name="type" Column="type" Length="30" Required="N" Type="Text"/>
+   		<BizField Name="time" Column="time" Type="Datetime" Required="N" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+   		<BizField Name="changetime" Column="changetime" Type="Datetime" Required="N" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+   		<BizField Name="product_id" Column="product_id" Required="N" Type="Number"/>
+   		<BizField Name="product" Join="product" Column="name"/>
+   		<BizField Name="component_id" Column="component_id" Required="N" Type="Number"/>
+   		<BizField Name="component" Join="component" Column="name"/>
+   		<BizField Name="severity" Column="severity" Type="Text" Required="N"/>
+   		<BizField Name="priority" Column="priority" Length="30" Required="N" Type="Text"/>
+   		<BizField Name="owner_id" Column="owner_id" Type="Number"/>
+   		<BizField Name="owner" Join="owner" Column="username"/>
+   		<BizField Name="reporter_id" Column="reporter_id" Type="Number" ValueOnCreate="{@profile:Id}"/>
+   		<BizField Name="reporter" Join="reporter" Column="username"/>
+   		<BizField Name="cc" Column="cc" Length="255" Required="N" Type="Text"/>
+   		<BizField Name="version_id" Column="version_id" Required="N" Type="Number"/>
+   		<BizField Name="version" Join="version" Column="name"/>
+   		<BizField Name="milestone_id" Column="milestone_id" Required="N" Type="Number"/>
+   		<BizField Name="milestone" Join="milestone" Column="name"/>
+   		<BizField Name="status" Column="status" Length="30" Required="N" Type="Text"/>
+   		<BizField Name="resolution" Column="resolution" Length="30" Required="N" Type="Text"/>
+   		<BizField Name="summary" Column="summary" Length="255" Required="N" Type="Text"/>
+   		<BizField Name="description" Column="description" Required="N" Type="Text"/>
+   		<BizField Name="keywords" Column="keywords" Length="128" Required="N" Type="Text"/>
+	</BizFieldList>
+    <TableJoins>
+	    <Join Name="product" Table="trac_product" Column="id" ColumnRef="product_id" JoinType="LEFT JOIN"/>
+    	<Join Name="component" Table="trac_component" Column="id" ColumnRef="component_id" JoinType="LEFT JOIN"/>
+    	<Join Name="owner" Table="user" Column="id" ColumnRef="owner_id" JoinType="LEFT JOIN"/>
+    	<Join Name="reporter" Table="user" Column="id" ColumnRef="reporter_id" JoinType="LEFT JOIN"/>
+    	<Join Name="version" Table="trac_version" Column="id" ColumnRef="version_id" JoinType="LEFT JOIN"/>
+    	<Join Name="milestone" Table="trac_milestone" Column="id" ColumnRef="milestone_id" JoinType="LEFT JOIN"/>
+    </TableJoins>
+    <ObjReferences>
+		<Object Name="trac.attach.do.AttachmentDO" Relationship="1-M" Table="trac_attachment" Column="parent_id" FieldRef="Id"/>
+		<Object Name="trac.comments.do.CommentsDO" Relationship="1-M" Table="trac_comments" Column="parent_id" FieldRef="Id"/>
+    </ObjReferences>
+</BizDataObj>

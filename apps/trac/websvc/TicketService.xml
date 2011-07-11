@@ -1,0 +1,5 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="TicketService" Class="TicketService" BizDataObj="websvc.do.WebsvcDO"  MessageFile="">
+    <PublicMethod Name="foo" Access="trac.View_Ticket"/>
+    <PublicMethod Name="fetch" Access="trac.View_Ticket"/>
+</PluginService>

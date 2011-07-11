@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="VersionDO" Description="" Class="BizDataObj" DBName="Default" Table="trac_version" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="name" Stateless="N" IdGeneration="Identity" CacheLifeTime="7200">
+	<BizFieldList>
+   		<BizField Name="Id" Column="id" Type="Number"/>
+   		<BizField Name="name" Column="name" Type="Text" Required="Y"/>
+   		<BizField Name="update_time" Column="update_time" Type="Datetime" Required="N" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+   		<BizField Name="description" Column="description" Required="N" Type="Text"/>
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="MilestoneEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit a milestone" Description="" BizDataObj="trac.milestone.do.MilestoneDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+		<Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="Id"/>
+		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input_text" CssErrorClass="input_error"/>
+		<Element Name="fld_due" Class="InputDatetime" DateFormat="%m/%d/%Y %H:%M:%S" FieldName="due" Label="Due"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_completed" Class="InputDatetime" DateFormat="%m/%d/%Y %H:%M:%S" FieldName="completed" Label="Completed"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=trac.milestone.form.MilestoneDetailForm&amp;fld:Id={@trac.milestone.do.MilestoneDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(trac.milestone.form.MilestoneListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

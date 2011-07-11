@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ComponentListView" Description="trac.component" Class="EasyView" Access="trac.Aminister_Trac"  TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="trac.component.form.ComponentListForm"/>
+   </FormReferences>
+   <FormReferenceLibs>
+   		<Reference Name="trac.component.form.ComponentListForm"/>
+   		<Reference Name="trac.component.form.ComponentEditForm"/>
+   		<Reference Name="trac.component.form.ComponentCopyForm"/>
+   		<Reference Name="trac.component.form.ComponentNewForm"/>
+   		<Reference Name="trac.component.form.ComponentDetailForm"/>
+   </FormReferenceLibs>    
+</EasyView>

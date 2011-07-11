@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProductCopyForm" Class="EasyForm"  FormType="Copy" jsClass="jbForm" Title="Copy trac_product" Description="" BizDataObj="trac.product.do.ProductDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_name" Class="InputText" FieldName="name" Label="Name" Sortable="Y"/>	
+		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=trac.product.form.ProductDetailForm&amp;fld:Id={@trac.product.do.ProductDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm(trac.product.form.ProductListForm)"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="VersionNewForm" Class="EasyForm" Title="Create a new Version" FormType="New" jsClass="jbForm" BizDataObj="trac.version.do.VersionDO" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>
+		<Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="Id" Hidden="Y" />
+		<Element Name="fld_name" DefaultValue="New Version" Class="InputText" FieldName="name" Label="Name" Required="Y"/>
+  		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"/>            
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=trac.version.form.VersionDetailForm&amp;fld:Id={@trac.version.do.VersionDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save"/>
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm(trac.version.form.VersionListForm)" ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

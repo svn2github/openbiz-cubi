@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TicketCopyForm" Class="trac.ticket.form.TicketForm"  FormType="Copy" jsClass="jbForm" Title="Copy trac_ticket" Description="" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="ticket_edit.tpl" EventName="" MessageFile="">
+    <DataPanel>
+		<Element Name="fld_summary" Class="InputText" FieldName="summary" Label="Summary" AllowURLParam="N" CssClass="input_text_l" CssErrorClass="input_text_l_error" CssFocusClass="input_text_l_focus" ElementSet="Content"/>
+		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"  ElementSet="Content"/>
+		<Element Name="fld_type" Class="Listbox" FieldName="type" Label="Type" SelectFrom="trac.enum.do.EnumDO[name], [type]='Type'" ElementSet="General"/>
+		<Element Name="fld_product" Class="Listbox" FieldName="product_id" Label="Product" SelectFrom="trac.product.do.ProductDO[name:Id]" BlankOption="---," ElementSet="General">
+			<EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
+		</Element>
+		<Element Name="fld_component" Class="Listbox" FieldName="component_id" Label="Component" SelectFrom="trac.component.do.ComponentDO[name:Id],[product_id]='{@:Elem[fld_product].Value}'" ElementSet="General"/>
+		<Element Name="fld_version" Class="Listbox" FieldName="version_id" Label="Version" SelectFrom="trac.version.do.VersionDO[name:Id]" ElementSet="General"/>
+		<Element Name="fld_milestone" Class="Listbox" FieldName="milestone_id" Label="Milestone" SelectFrom="trac.milestone.do.MilestoneDO[name:Id]" ElementSet="General"/>
+		<Element Name="fld_severity" Class="Listbox" FieldName="severity" Label="Severity" SelectFrom="trac.enum.do.EnumDO[name], [type]='Severity'" ElementSet="General"/>
+		<Element Name="fld_priority" Class="Listbox" FieldName="priority" Label="Priority" SelectFrom="trac.enum.do.EnumDO[name], [type]='Priority'" ElementSet="General"/>
+		<Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="trac.enum.do.EnumDO[name], [type]='Status'" ElementSet="General"/>
+		<Element Name="fld_resolution" Class="Listbox" FieldName="resolution" Label="Resolution" SelectFrom="trac.enum.do.EnumDO[name], [type]='Resolution'" ElementSet="General"/>
+		<Element Name="fld_keywords" Class="InputText" FieldName="keywords" Label="Keywords" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus" ElementSet="General"/>
+		<Element Name="fld_owner_id" Class="Hidden" FieldName="owner_id" Label="Owner Id" ElementSet="Contact"/>
+		<Element Name="fld_owner" Class="InputPicker" FieldName="owner" Label="Owner" ValuePicker="system.form.UserPickForm" PickerMap="fld_owner_id:fld_Id,fld_owner:fld_username" ElementSet="Contact"/>
+		<Element Name="fld_cc" Class="InputText" FieldName="cc" Label="Cc" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus" ElementSet="Contact"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=trac.ticket.form.TicketDetailForm&amp;fld:Id={@trac.ticket.do.TicketDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm(trac.ticket.form.TicketListForm)"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

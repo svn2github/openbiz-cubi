@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ProductListView" Description="trac.product" Class="EasyView" Access="trac.Aminister_Trac" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="trac.product.form.ProductListForm"/>
+   </FormReferences>
+   <FormReferenceLibs>
+   		<Reference Name="trac.product.form.ProductListForm"/>
+   		<Reference Name="trac.product.form.ProductEditForm"/>
+   		<Reference Name="trac.product.form.ProductCopyForm"/>
+   		<Reference Name="trac.product.form.ProductNewForm"/>
+   		<Reference Name="trac.product.form.ProductDetailForm"/>
+   </FormReferenceLibs>    
+</EasyView>

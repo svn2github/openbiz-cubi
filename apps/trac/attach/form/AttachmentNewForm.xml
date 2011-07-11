@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="AttachmentNewForm" Class="trac.attach.form.AttachmentForm" FormType="New" jsClass="jbForm" Title="New trac_attachment" Description="" BizDataObj="trac.attach.do.AttachmentDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_parent_id" Class="Hidden" FieldName="parent_id" Label="Parent Id"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_filename" Class="File" FieldName="filename" Label="Filename"/>
+        <Element Name="fld_description" Class="InputText" FieldName="description" Label="Description"  AllowURLParam="N" CssClass="input_text_l" CssErrorClass="input_text_l_error" CssFocusClass="input_text_l_focus"/>
+        </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Upload" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="SaveRecord()" RedirectPage="form=trac.attach.form.AttachmentListForm"/>
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm(trac.attach.form.AttachmentListForm)"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

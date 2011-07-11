@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="AttachmentListForm" Class="trac.attach.form.AttachmentForm" FormType="List" jsClass="Openbiz.Form" Title="Attachments" Description="" BizDataObj="trac.attach.do.AttachmentDO" TemplateEngine="Smarty" TemplateFile="ticket_attach.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id"/>
+        <Element Name="fld_filename" Class="ColumnText" FieldName="filename" Label="Filename" Link="javascript:">
+         	<EventHandler Name="fld_filename_onclick" Event="onclick" Function="download({@:Elem[fld_Id].Value})" FunctionType="Page"  />
+        </Element>	
+        <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"/>	
+        <Element Name="fld_size" Class="ColumnText" FieldName="size" Label="Size"/>	
+        <Element Name="fld_time" Class="ColumnText" FieldName="time" Label="Time"/>	
+        <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description"/>	
+        <Element Name="fld_author" Class="ColumnText" FieldName="author" Label="Author"/>	
+        <Element Name="fld_ipnr" Class="ColumnText" FieldName="ipnr" Label="Ipnr"/>	
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Attach File" CssClass="button_gray_w" Description="new record (Insert)" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(trac.attach.form.AttachmentNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

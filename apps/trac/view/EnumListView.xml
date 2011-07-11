@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="EnumListView" Description="trac.enum" Class="EasyView" Access="trac.Aminister_Trac" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="trac.enum.form.EnumListForm"/>
+   </FormReferences>
+   <FormReferenceLibs>
+   		<Reference Name="trac.enum.form.EnumListForm"/>
+   		<Reference Name="trac.enum.form.EnumEditForm"/>
+   		<Reference Name="trac.enum.form.EnumCopyForm"/>
+   		<Reference Name="trac.enum.form.EnumNewForm"/>
+   		<Reference Name="trac.enum.form.EnumDetailForm"/>
+   </FormReferenceLibs>    
+</EasyView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="MilestoneListView" Description="trac.milestone" Class="EasyView" Access="trac.Aminister_Trac" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="trac.milestone.form.MilestoneListForm"/>
+   </FormReferences>
+   <FormReferenceLibs>
+   		<Reference Name="trac.milestone.form.MilestoneListForm"/>
+   		<Reference Name="trac.milestone.form.MilestoneEditForm"/>
+   		<Reference Name="trac.milestone.form.MilestoneCopyForm"/>
+   		<Reference Name="trac.milestone.form.MilestoneNewForm"/>
+   		<Reference Name="trac.milestone.form.MilestoneDetailForm"/>
+   </FormReferenceLibs>    
+</EasyView>

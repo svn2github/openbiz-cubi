@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ComponentDO" Description="" Class="BizDataObj" DBName="Default" Table="trac_component" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="name" Stateless="N" IdGeneration="Identity" CacheLifeTime="">
+	<BizFieldList>
+   		<BizField Name="Id" Column="id" Type="Number"/>
+   		<BizField Name="name" Column="name" Length="128"    Type="Text"/>
+   		<BizField Name="product_id" Column="product_id" Type="Number"/>
+   		<BizField Name="product" Join="product" Column="name" Length="128"    Type="Text"/>
+   		<BizField Name="owner_id" Column="owner_id" Required="N" Type="Number"/>
+   		<BizField Name="owner_name" Join="user" Column="username" Required="N" Type="Text"/>
+   		<BizField Name="description" Column="description"    Required="N" Type="Text"/>
+	</BizFieldList>
+    <TableJoins>
+    	<Join Name="user" Table="user" Column="id" ColumnRef="owner_id" JoinType="LEFT JOIN"/>
+    	<Join Name="product" Table="trac_product" Column="id" ColumnRef="product_id" JoinType="LEFT JOIN"/>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

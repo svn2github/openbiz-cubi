@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProductEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit trac_product" Description="" BizDataObj="trac.product.do.ProductDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+		<Element Name="fld_Id" Class="InputText" FieldName="Id" Label="Id"/>
+		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name" AllowURLParam="Y" Translatable="N" OnEventLog="N"/>
+		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=trac.product.form.ProductDetailForm&amp;fld:Id={@trac.product.do.ProductDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(trac.product.form.ProductListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

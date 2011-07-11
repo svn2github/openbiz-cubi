@@ -1,0 +1,1 @@
+QUERY_IS_SAVED = "Search %s is saved." 
