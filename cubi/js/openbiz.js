@@ -12,7 +12,12 @@ var Openbiz =
 
     init: function()
     {
-		$$('script').each (function(script) {
+        if (APP_URL && APP_CONTROLLER) {
+            Openbiz.appUrl = APP_URL;
+            Openbiz.appHome = APP_CONTROLLER;
+            return;
+        }
+        $$('script').each (function(script) {
 	        if (script.src.endsWith("js/openbiz.js"))
 	        {
 	        	// extract appHome. e.g. appHome /ob/cubi/ if see /ob/cubi/js/prototype.js
@@ -25,7 +30,7 @@ var Openbiz =
     },    
     getFormObject: function(formName)
     {
-    	if (Openbiz.formInstances[formName])
+        if (Openbiz.formInstances[formName])
             return Openbiz.formInstances[formName];
         if (window.opener && window.opener.window.Openbiz)     // check opener window
         {
