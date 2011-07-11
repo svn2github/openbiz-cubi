@@ -1,11 +1,13 @@
 {php}
+$js_url = $this->_tpl_vars['js_url'];
+$theme_js_url = $this->_tpl_vars['theme_js_url'];
+$css_url = $this->_tpl_vars['css_url'];
+
 BizSystem::clientProxy()->includeCalendarScripts();
 BizSystem::clientProxy()->includeCKEditorScripts();
 $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 $includedScripts.="
-<style>
-#main #right_panel .content table.input_row td span.label_text{ width:290px;}
-</style>
+<script type=\"text/javascript\" src=\"".RESOURCE_PHP."?f=$js_url/cookies.js,$theme_js_url/general_ui.js\"></script>
 
 <script>
 function update_import(){
@@ -30,7 +32,14 @@ function update_db_restore_opt()
 </script>
 ";
 $this->_tpl_vars['scripts'] = $includedScripts;
+
 $appendStyle = BizSystem::clientProxy()->getAppendedStyles();
+$appendStyle.= "
+<link rel=\"stylesheet\" href=\"".RESOURCE_PHP."?f=$css_url/general.css,$css_url/system_backend.css,$css_url/system_menu_icons.css\" type=\"text/css\" />
+<style>
+#main #right_panel .content table.input_row td span.label_text{ width:290px;}
+</style>
+";
 $this->_tpl_vars['style_sheets'] = $appendStyle;
 $this->assign('template_file', 'system_view.tpl.html');
 {/php}

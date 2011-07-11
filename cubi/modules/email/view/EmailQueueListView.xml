@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<EasyView Name="EmailQueueListView" Description="Manage Email Queue" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="system_view.tpl.html" Access="EmailQueue.Administer_Email_Queue">
+<EasyView Name="EmailQueueListView" Description="Manage Email Queue" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="EmailQueue.Administer_Email_Queue">
     <FormReferences>
         <Reference Name="email.form.EmailQueueListForm"/>
     </FormReferences>

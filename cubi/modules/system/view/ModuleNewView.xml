@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<EasyView Name="ModuleNewView" Description="Module Management" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="system_view.tpl.html" Access="Module.Administer_Modules">
+<EasyView Name="ModuleNewView" Description="Module Management" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Module.Administer_Modules">
     <FormReferences>
         <Reference Name="system.form.ModuleNewForm"/>
     </FormReferences>

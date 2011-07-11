@@ -11,15 +11,7 @@ $this->_tpl_vars['scripts'] = $includedScripts;
 
 $appendStyle = BizSystem::clientProxy()->getAppendedStyles();
 $appendStyle .= "\n"."
-<link rel=\"stylesheet\" href=\"".RESOURCE_PHP."?f=$css_url/general.css,$css_url/system_backend.css,$css_url/system_menu_icons.css\" type=\"text/css\" />
-<style>
-#main #right_panel .content table.input_row td .label_text{
-width:350px;
-}
-#main #right_panel .content table.input_row td label{
-width:150px;
-}
-</style>
+<link rel=\"stylesheet\" href=\"".RESOURCE_PHP."?f=$css_url/general.css,$css_url/system_backend.css,$css_url/system_menu_icons.css,$css_url/system_dashboard_icons.css\" type=\"text/css\" />
 ";
 $this->_tpl_vars['style_sheets'] = $appendStyle;
 

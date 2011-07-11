@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<EasyView Name="EmailSettingListView" Description="Manage Email Setting" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="system_view.tpl.html" Access="EmailSetting.Administer_Email_Setting">
+<EasyView Name="EmailSettingListView" Description="Manage Email Setting" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="EmailSetting.Administer_Email_Setting">
     <FormReferences>
         <Reference Name="email.form.EmailAccountListForm"/>
     </FormReferences>

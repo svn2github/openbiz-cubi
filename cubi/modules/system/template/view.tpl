@@ -1,54 +1,20 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>{$description}</title>
-  <link rel="stylesheet" href="../css/openbiz.css" type="text/css">
-  <link rel="stylesheet" href="../css/ticket.css" type="text/css">
-  {$style_sheets}
-  {$scripts}
-</head>
-<body bgcolor="#EDEDED">
+{php}
+$js_url = $this->_tpl_vars['js_url'];
+$theme_js_url = $this->_tpl_vars['theme_js_url'];
+$css_url = $this->_tpl_vars['css_url'];
 
-{php} 
-$this->assign('header', MODULE_PATH.'/common/templates/header.tpl'); 
-$this->assign('footer', MODULE_PATH.'/common/templates/footer.tpl'); 
+$includedScripts = BizSystem::clientProxy()->getAppendedScripts();
+$includedScripts .= "
+<script type=\"text/javascript\" src=\"".RESOURCE_PHP."?f=$js_url/cookies.js,$theme_js_url/general_ui.js\"></script>
+";
+$this->_tpl_vars['scripts'] = $includedScripts;
+
+$appendStyle = BizSystem::clientProxy()->getAppendedStyles();
+$appendStyle .= "\n"."
+<link rel=\"stylesheet\" href=\"".RESOURCE_PHP."?f=$css_url/general.css,$css_url/system_backend.css,$css_url/system_menu_icons.css\" type=\"text/css\" />
+";
+$this->_tpl_vars['style_sheets'] = $appendStyle;
+
+$this->assign('template_file', 'system_view.tpl.html');
 {/php}
-
-<!-- header -->
-<div style="margin-top:20px">
-{include file=$header}
-</div>
-
-<!-- main -->
-<table border=0 cellspacing=10 cellpadding=0 width=100%>
-<tr>
-<td width=150 valign=top>
-   <div class="arrowlistmenu">
-   <h3 class="headerbar">System Administration</h3>
-   <ul>
-   <li><a href="controller.php?view=system.user.v_user&form=system.user.f_userList">Users</a></li>
-   <li><a href="controller.php?view=system.role.v_role&form=system.role.f_roleList">Roles</a></li>
-   <li><a href="controller.php?view=system.module.v_module&form=system.module.f_moduleList">Modules</a></li>
-   <!--<li><a href="controller.php?view=system.acl.v_acl_action&form=system.acl.f_acl_actionList">Permission</a></li>-->
-   </ul>
-   </div>
-</td>
-<td>
-<div style="width:100%">
-<table width=100% border=0 cellspacing=10 cellpadding=0>
-{foreach item=form from=$forms}
-   <tr><td>{$form}</td></tr>
-{/foreach}
-</table>
-</div>
-</td>
-</tr>
-</table>
-
-<!-- footer -->
-<div style="margin-top:20px">
-{include file=$footer}
-</div>
-
-</body>
-</html>
+{include file=$template_file}
