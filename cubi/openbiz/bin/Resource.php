@@ -188,7 +188,8 @@ class Resource
         $smarty->assign('app_index', APP_INDEX);
         $smarty->assign('js_url', JS_URL);
         $smarty->assign('css_url', THEME_URL . "/" . $theme . "/css");
-        $smarty->assign('resource_url', RESOURCE_URL );    
+        $smarty->assign('resource_url', RESOURCE_URL );
+        $smarty->assign('resource_php', RESOURCE_PHP );
         $smarty->assign('theme_js_url', THEME_URL . "/" . $theme . "/js");
         $smarty->assign('theme_url', THEME_URL . "/" . $theme);
         $smarty->assign('image_url', THEME_URL . "/" . $theme . "/images");

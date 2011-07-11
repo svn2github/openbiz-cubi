@@ -496,7 +496,7 @@ class ClientProxy
         // add the scripts
         if ($isFile)
         {
-            $_scripts = "<script type='text/javascript' src='".Resource::getJsUrl()."/$scripts'></script>";
+            $_scripts = "<script type='text/javascript' src=\"".Resource::getJsUrl()."/$scripts\"></script>";
             $this->_extraScripts[$scriptKey] = $_scripts;
         } else
             $this->_extraScripts[$scriptKey] = $scripts;
@@ -509,15 +509,28 @@ class ClientProxy
      */
     public function getAppendedScripts()
     {
+        $initScripts = "<script>var APP_URL='".APP_URL."'; var APP_CONTROLLER='".APP_URL."/bin/controller.php';</script>\n";
         $extraScripts = implode("", $this->_extraScripts);
         $extraScript_array = explode("</script>", $extraScripts);
+        if (defined("RESOURCE_PHP")) {
+            $js_scripts = RESOURCE_PHP."?f=";
+            foreach ($extraScript_array as $script)
+            {
+                // extract src part from each line
+                if (preg_match('/.+src="([^"]+)".+/', $script, $matches) > 0 && !empty($matches[1])) {
+                    if (substr($js_scripts, -2)=='f=') $js_scripts .= $matches[1];
+                    else $js_scripts .= ','.$matches[1];
+                }
+            }
+            return $initScripts."<script type=\"text/javascript\" src=\"".$js_scripts."\"></script>";
+        }
         $cleanScript_array = array();
         foreach ($extraScript_array as $script)
         {
             if (in_array($script . "</script>", $cleanScript_array) == FALSE and strlen($script) != 0)
                 $cleanScript_array[] = $script . "</script>";
         }
-        return implode("\n", $cleanScript_array);
+        return $initScripts.implode("\n", $cleanScript_array);
     }
 
     /**
@@ -534,7 +547,7 @@ class ClientProxy
         if (isset($this->_extraStyles[$scriptKey]))
             return;
         // add the styles
-        $css = Resource::getCssUrl();        
+        $css = Resource::getCssUrl(); 
         if ($isFile)
         {
             $_styles = "<link rel=\"stylesheet\" href=\"$css/" . $styles . "\" type=\"text/css\">";
@@ -552,6 +565,18 @@ class ClientProxy
     {
         $extraStyles = implode("", $this->_extraStyles);
         $extraStyle_array = explode("type=\"text/css\">", $extraStyles);
+        if (defined("RESOURCE_PHP")) {
+            $css_scripts = RESOURCE_PHP."?f=";
+            foreach ($extraStyle_array as $style)
+            {
+                // extract href part from each line
+                if (preg_match('/.+href="([^"]+)".+/', $style, $matches) > 0 && !empty($matches[1])) {
+                    if (substr($css_scripts, -2)=='f=') $css_scripts .= $matches[1];
+                    else $css_scripts .= ','.$matches[1];
+                }
+            }
+            return "<link rel=\"stylesheet\" href=\"".$css_scripts."\" type=\"text/css\"/>";
+        }
         $cleanStyle_array = array();
         foreach ($extraStyle_array as $style)
         {
