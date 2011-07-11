@@ -210,6 +210,19 @@ class Resource
         if (defined('SMARTY_TPL_PATH'))
             $view->setScriptPath(SMARTY_TPL_PATH);
 
+        $theme = Resource::getCurrentTheme();            
+            
+        // load the config file which has the images and css url defined
+        $view->app_url = APP_URL;
+        $view->app_index = APP_INDEX;
+        $view->js_url = JS_URL;
+        $view->css_url = THEME_URL . "/" . $theme . "/css";
+        $view->resource_url = RESOURCE_URL;    
+        $view->theme_js_url = THEME_URL . "/" . $theme . "/js";
+        $view->theme_url = THEME_URL . "/" . $theme;
+        $view->image_url = THEME_URL . "/" . $theme . "/images";
+        $view->lang = strtolower(I18n::getCurrentLangCode());            
+            
         return $view;
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PHPOpenBiz Framework
  *
@@ -19,7 +20,7 @@
  *
  * @package openbiz.bin.easy
  * @author Rocky Swen
- * @copyright Copyright (c) 2005-2009
+ * @copyright Copyright (c) 2005-2011
  * @access public
  */
 class ViewRenderer
@@ -31,17 +32,74 @@ class ViewRenderer
      * @param EasyView $viewObj
      * @return string result of rendering process
      */
-    static public function render($viewObj)
+    static public function render ($viewObj)
     {
         $tplEngine = $viewObj->m_TemplateEngine;
-        $tplFile = BizSystem::getTplFileWithPath($viewObj->m_TemplateFile, $viewObj->m_Package);
-
+        $tplAttributes = ViewRenderer::buildTemplateAttributes($viewObj);
+        
         if ($tplEngine == "Smarty" || $tplEngine == null)
-            return ViewRenderer::renderSmarty($viewObj, $tplFile);
+            return ViewRenderer::renderSmarty($viewObj, $tplAttributes);
         else
-            return ViewRenderer::renderPHP($viewObj, $tplFile);
+            return ViewRenderer::renderPHP($viewObj, $tplAttributes);
     }
 
+    /**
+     * Gather all template variables needed. Should play well with Smarty or Zend templates
+     *
+     * @param EasyView $viewObj
+     * @return array associative array holding all needed VIEW based template variables
+     */
+    static public function buildTemplateAttributes ($viewObj)
+    {
+        // Assocative Array to hold all Template Values
+        // Fill with default viewobj attributes
+        $tplAttributes = $viewObj->outputAttrs();
+        
+        //Not sure what this is doing...
+        $newClntObjs = '';
+        
+        //Fill other direct view variables
+        $tplAttributes["module"] = $viewObj->getModuleName($viewObj->m_Name);
+        $tplAttributes["description"] = $viewObj->m_Description;
+        $tplAttributes["keywords"] = $viewObj->m_Keywords;
+        if ($viewObj->m_Tiles) {
+            foreach ($viewObj->m_Tiles as $tname => $tile) {
+                foreach ($tile as $formRef) {
+                    if ($formRef->m_Display == false)
+                        continue;
+                    $tiles[$tname][$formRef->m_Name] = BizSystem::getObject($formRef->m_Name)->render();
+                    $tiletabs[$tname][$formRef->m_Name] = $formRef->m_Description;
+                }
+            }
+        } else {
+            foreach ($viewObj->m_FormRefs as $formRef) {
+                if ($formRef->m_Display == false)
+                    continue;
+                $forms[$formRef->m_Name] = BizSystem::getObject($formRef->m_Name)->render();
+                $formtabs[$formRef->m_Name] = $formRef->m_Description;
+            }
+        }
+        //Fill Loop related data
+        $tplAttributes["forms"] = $forms;
+        $tplAttributes["formtabs"] = $formtabs;
+        $tplAttributes["tiles"] = $tiles;
+        $tplAttributes["tiletabs"] = $tiletabs;
+        
+        // add clientProxy scripts
+        $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
+        $tplAttributes["style_sheets"] = BizSystem::clientProxy()->getAppendedStyles();
+        if ($viewObj->m_IsPopup && $bReRender == false) {
+            $moveToCenter = "moveToCenter(self, " . $viewObj->m_Width . ", " . $viewObj->m_Height . ");";
+            $tplAttributes["scripts"] = $includedScripts . "\n<script>\n" . $newClntObjs . $moveToCenter . "</script>\n";
+        } else
+            $tplAttributes["scripts"] = $includedScripts . "\n<script>\n" . $newClntObjs . "</script>\n";
+        
+        if ($viewObj->m_Title)
+            $tplAttributes["title"] = Expression::evaluateExpression($viewObj->m_Title, $viewObj);
+        else
+            $tplAttributes["title"] = $viewObj->m_Description;
+        return $tplAttributes;
+    }
 
     /**
      * Render smarty template for view object
@@ -50,69 +108,13 @@ class ViewRenderer
      * @param string $tplFile
      * @return string result of rendering process
      */
-    static protected function renderSmarty($viewObj, $tplFile)
+    static protected function renderSmarty ($viewObj, $tplAttributes = Array())
     {
         $smarty = BizSystem::getSmartyTemplate();
-        $newClntObjs = '';
-
-        // render the viewobj attributes
-        $smarty->assign("view", $viewObj->outputAttrs());
-        $smarty->assign("module", $viewObj->getModuleName($viewObj->m_Name));
-
-        if ($viewObj->m_Tiles)
-        {
-        	foreach ($viewObj->m_Tiles as $tname=>$tile)
-        	{
-        		foreach ($tile as $formRef)
-        		{
-        			if ($formRef->m_Display == false)
-		                continue;
-	
-		            $tiles[$tname][$formRef->m_Name] = BizSystem::getObject($formRef->m_Name)->render();
-		            $tiletabs[$tname][$formRef->m_Name] = $formRef->m_Description;
-        		}
-        	}
+        //Translate Array of template variables to Zend template object
+        foreach ($tplAttributes as $key => $value) {
+            $smarty->assign($key, $value);
         }
-        else 
-        {
-	        foreach ($viewObj->m_FormRefs as $formRef)
-	        {
-	            if ($formRef->m_Display == false)
-	                continue;
-	
-	            $forms[$formRef->m_Name] = BizSystem::getObject($formRef->m_Name)->render();	            
-	            $formtabs[$formRef->m_Name] = $formRef->m_Description;
-	            
-	        }
-        }
-
-        // add clientProxy scripts
-        $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
-        $styles = BizSystem::clientProxy()->getAppendedStyles();
-
-        if ($viewObj->m_IsPopup && $bReRender == false)
-        {
-            $moveToCenter = "moveToCenter(self, ".$viewObj->m_Width.", ".$viewObj->m_Height.");";
-            $scripts = $includedScripts."\n<script>\n" . $newClntObjs . $moveToCenter . "</script>\n";
-        }
-        else
-            $scripts = $includedScripts."\n<script>\n" . $newClntObjs . "</script>\n";
-
-        if ($viewObj->m_Title)
-            $title = Expression::evaluateExpression($viewObj->m_Title,$viewObj);
-        else
-        	$title = $viewObj->m_Description;
-        
-        $smarty->assign("scripts", $scripts);
-        $smarty->assign("style_sheets", $styles);
-        $smarty->assign("title", $title);
-        $smarty->assign("description", $viewObj->m_Description);
-        $smarty->assign("keywords", $viewObj->m_Keywords);
-        $smarty->assign("forms", $forms);
-        $smarty->assign("formtabs", $formtabs);
-        $smarty->assign("tiles", $tiles);
-        $smarty->assign("tiletabs", $tiletabs);
-
         if ($viewObj->m_ConsoleOutput)
             $smarty->display(BizSystem::getTplFileWithPath($viewObj->m_TemplateFile, $viewObj->m_Package));
         else
@@ -126,8 +128,24 @@ class ViewRenderer
      * @param string $tplFile
      * @return string result of rendering process
      */
-    static protected function renderPHP($viewObj, $tplFile)
+    static protected function renderPHP ($viewObj, $tplAttributes = Array())
     {
+        $view = BizSystem::getZendTemplate();
+        $tplFile = BizSystem::getTplFileWithPath($viewObj->m_TemplateFile, $viewObj->m_Package);
+        $view->addScriptPath(dirname($tplFile));
+        
+        //Translate Array of template variables to Zend template object
+        foreach ($tplAttributes as $key => $value) {
+            if ($value == NULL) {
+                $view->$key = '';
+            } else {
+                $view->$key = $value;
+            }
+        }
+        if ($viewObj->m_ConsoleOutput)
+            echo $view->render($viewObj->m_TemplateFile);
+        else
+            return $view->render($viewObj->m_TemplateFile);
     }
 
     /**
@@ -136,13 +154,13 @@ class ViewRenderer
      * @param EasyView $viewObj
      * @return void
      */
-    static protected function setHeaders($viewObj)
+    static protected function setHeaders ($viewObj)
     {
         // get the cache attribute
         // if cache = browser, set the cache control in headers
         header('Pragma:', true);
         header('Cache-Control: max-age=3600', true);
-        $offset = 60 * 60 * 24 * -1;
+        $offset = 60 * 60 * 24 * - 1;
         $ExpStr = "Expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
         header($ExpStr, true);
     }
