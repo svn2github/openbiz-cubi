@@ -58,8 +58,8 @@ function createChartControl(htmlDiv1)
     // Create Gantt control
     ganttChartControl = new GanttChart();
     // Setup paths and behavior
-    ganttChartControl.setImagePath("../../js/jsgantt/imgs/");
-    ganttChartControl.setStylePath("../../js/jsgantt/dhtmlxgantt.css");
+    ganttChartControl.setImagePath("{php}echo RESOURCE_URL;{/php}/collab/js/jsgantt/imgs/");
+    ganttChartControl.setStylePath("{php}echo RESOURCE_URL;{/php}/collab/js/jsgantt/dhtmlxgantt.css");
     ganttChartControl.setEditable(true);
     ganttChartControl.showTreePanel(true);
     ganttChartControl.showContextMenu(false);
