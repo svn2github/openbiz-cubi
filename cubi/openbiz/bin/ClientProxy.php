@@ -490,7 +490,7 @@ class ClientProxy
      */
     public function appendScripts ($scriptKey, $scripts, $isFile = true)
     {
-    // if has the script key already, ignore
+        // if has the script key already, ignore
         if (isset($this->_extraScripts[$scriptKey]))
             return;
         // add the scripts
@@ -512,7 +512,7 @@ class ClientProxy
         $initScripts = "<script>var APP_URL='".APP_URL."'; var APP_CONTROLLER='".APP_URL."/bin/controller.php';</script>\n";
         $extraScripts = implode("", $this->_extraScripts);
         $extraScript_array = explode("</script>", $extraScripts);
-        if (defined("RESOURCE_PHP")) {
+        /*if (defined("RESOURCE_PHP")) {
             $js_scripts = RESOURCE_PHP."?f=";
             foreach ($extraScript_array as $script)
             {
@@ -523,7 +523,7 @@ class ClientProxy
                 }
             }
             return $initScripts."<script type=\"text/javascript\" src=\"".$js_scripts."\"></script>";
-        }
+        }*/
         $cleanScript_array = array();
         foreach ($extraScript_array as $script)
         {
@@ -561,11 +561,11 @@ class ClientProxy
      *
      * @return string
      */
-    public function getAppendedStyles()
+    public function getAppendedStyles($comb=0)
     {
         $extraStyles = implode("", $this->_extraStyles);
         $extraStyle_array = explode("type=\"text/css\">", $extraStyles);
-        if (defined("RESOURCE_PHP")) {
+        if (defined("RESOURCE_PHP") && $comb) {
             $css_scripts = RESOURCE_PHP."?f=";
             foreach ($extraStyle_array as $style)
             {
@@ -622,10 +622,10 @@ class ClientProxy
         if (isset($this->_extraScripts['colorpicker']))
             return;
         $style = "<link rel=\"stylesheet\" href=\"".Resource::getJsUrl()."/colorpicker/css/colorpicker.css\" type=\"text/css\">";
-        $script = "<script type='text/javascript' src='".Resource::getJsUrl()."/jquery.js'></script>";        
-        $script .= "<script type='text/javascript' src='".Resource::getJsUrl()."/colorpicker/js/eye.js'></script>";
-        $script .= "<script type='text/javascript' src='".Resource::getJsUrl()."/colorpicker/js/utils.js'></script>";
-        $script .= "<script type='text/javascript' src='".Resource::getJsUrl()."/colorpicker/js/colorpicker.js'></script>";
+        $script = "<script type=\"text/javascript\" src=\"".Resource::getJsUrl()."/jquery.js\"></script>";
+        $script .= "<script type=\"text/javascript\" src=\"".Resource::getJsUrl()."/colorpicker/js/eye.js\"></script>";
+        $script .= "<script type=\"text/javascript\" src=\"".Resource::getJsUrl()."/colorpicker/js/utils.js\"></script>";
+        $script .= "<script type=\"text/javascript\" src=\"".Resource::getJsUrl()."/colorpicker/js/colorpicker.js\"></script>";
         $this->appendStyles("colorpicker", $style, false);
         $this->appendScripts("colorpicker", $script, false);
     }    
@@ -638,7 +638,7 @@ class ClientProxy
     {
         if (isset($this->_extraScripts['rte']))
             return;
-        $script = "<script type='text/javascript' src='".Resource::getJsUrl()."/richtext.js'></script>";
+        $script = "<script type=\"text/javascript\" src=\"".Resource::getJsUrl()."/richtext.js\"></script>";
         $script .= "<script language=\"JavaScript\">initRTE('".Resource::getImageUrl()."/rte/', '../pages/rte/', '', false);</script>";
         $this->appendScripts("rte", $script, false);
     }
@@ -653,9 +653,8 @@ class ClientProxy
         if (isset($this->_extraScripts['ckeditor']))
             return;
 
-        $script = "<script type='text/javascript' src='".Resource::getJsUrl()."/ckeditor/ckeditor.js'></script>";        	    
-//        $script .= "<script type='text/javascript' src='".Resource::getJsUrl()."/ckeditor_patch.js'></script>";       	    
-
+        $script = "<script type=\"text/javascript\" src=\"".Resource::getJsUrl()."/ckeditor/ckeditor.js\"></script>";
+        
         $this->appendScripts("ckeditor", $script, false);
     }    
 
