@@ -18,10 +18,6 @@
 			<Action Name="access" Description="access work log"/>
 			<Action Name="report" Description="view work log statistics report"/>
 		</Resource>
-        <Resource Name="collab_billing">
-			<Action Name="access" Description="access system billing information"/>
-			<Action Name="manage" Description="manage system billing information"/>			
-		</Resource>
         <Resource Name="collab_announcement">
 			<Action Name="access" Description="access published announcement"/>
 			<Action Name="manage" Description="manage announcement"/>
@@ -95,12 +91,5 @@
     <Dependency>
     	<Module Name="system"/>
     	<Module Name="menu"/>
-    	<!--<Module Name="attachment"/>
-    	<Module Name="contact"/>
-    	<Module Name="task"/>
-    	<Module Name="note"/>
-    	<Module Name="messeage"/>
-    	<Module Name="billing"/>
-    	<Module Name="worklog"/>-->
     </Dependency>
 </Module>

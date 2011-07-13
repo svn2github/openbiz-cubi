@@ -30,8 +30,6 @@
 			<EventHandler Name="fld_workhours_onchange" Event="onchange" Function="js:calcFinishTime()"  />
 		</Element>
 
-		<Element Name="fld_budget" ElementSet="Financial" Class="InputText" FieldName="budget_cost" Label="Cost Budget"  Description="unit in Dollars, total budget" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-
 	</DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">

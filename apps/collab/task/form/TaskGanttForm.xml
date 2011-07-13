@@ -84,9 +84,6 @@
         <Element Name="btn_manage_worklog" ElementSet="Time" Class="Button" Text="Work Log" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_worklog_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditWorklogForm,{@:Elem[fld_Id].Value})"   />
         </Element>
-        <Element Name="btn_manage_financial" ElementSet="Financial" Class="Button"  Text="Financial" CssClass="button_gray_w" Description="">
-			<EventHandler Name="btn_manage_financial_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditBillingForm,{@:Elem[fld_Id].Value})"  />
-        </Element> 
         <Element Name="btn_manage_attachment" ElementSet="Attachment"  Class="Button" Text="Attachment" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
         </Element>
