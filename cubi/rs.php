@@ -3,7 +3,9 @@
 // e.g. http://host/css.php?f=themes/default/css/system_backend.css
 // 
 // include app.inc
-include_once "bin/app_init.php";
+//include_once "bin/app_init.php";
+define('APP_HOME',dirname(__FILE__));
+define('RESOURCE_PATH', APP_HOME.DIRECTORY_SEPARATOR."resources");
 
 $file = $_GET['f'];
 // get extention of given file
