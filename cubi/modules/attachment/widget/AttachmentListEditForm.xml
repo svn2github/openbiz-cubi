@@ -17,13 +17,13 @@
 		
     </DataPanel>
 	<ActionPanel>
-		<Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add" Access="billing.manage">
+		<Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add">
             <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentNewForm)"/>
         </Element>
-        <Element Name="btn_edit" Class="Button" text="Edit" CssClass="button_gray_m" Access="billing.manage">
+        <Element Name="btn_edit" Class="Button" text="Edit" CssClass="button_gray_m">
             <EventHandler Name="delete_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentEditForm)"/>
         </Element>
-         <Element Name="btn_delete" Class="Button" text="Delete" CssClass="button_gray_m" Access="billing.manage">
+         <Element Name="btn_delete" Class="Button" text="Delete" CssClass="button_gray_m">
             <EventHandler Name="delete_onclick" Event="onclick" Function="DeleteRecord()"/>
         </Element>
                
