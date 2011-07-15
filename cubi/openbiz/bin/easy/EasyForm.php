@@ -1166,8 +1166,6 @@ class EasyForm extends MetaObject implements iSessionObject
      */
     public function deleteRecord($id=null)
     {
-
-
         if ($id==null || $id=='')
             $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
 
@@ -1177,6 +1175,7 @@ class EasyForm extends MetaObject implements iSessionObject
         foreach ($selIds as $id)
         {        	
             $dataRec = $this->getDataObj()->fetchById($id);
+            $this->getDataObj()->setActiveRecord($dataRec);
             
             if(!$this->canDeleteRecord($dataRec))
             {
