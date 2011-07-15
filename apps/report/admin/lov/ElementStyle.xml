@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="no"?>
+<SELECTION>  
+	<FontWeight Text="Auto" Value="auto"/> 
+   <FontWeight Text="Normal" Value="normal"/>
+   <FontWeight Text="Bold" 	Value="bold"/>
+   
+   <FontStyle Text="Auto" Value="auto"/>
+   <FontStyle Text="Normal" Value="normal"/>
+   <FontStyle Text="Italic" Value="italic"/>
+   
+   <FontSize Text="Auto" 	Value="auto"/>
+   <FontSize Text="9px" 	Value="9px"/>
+   <FontSize Text="10px" 	Value="10px"/>
+   <FontSize Text="12px" 	Value="12px"/>
+   <FontSize Text="14px" 	Value="14px"/>
+   <FontSize Text="16px" 	Value="16px"/>
+   <FontSize Text="18px" 	Value="18px"/>
+   <FontSize Text="24px" 	Value="24px"/>
+   <FontSize Text="36px" 	Value="36px"/>
+   
+   <TextDecroration Text="Auto" 	Value="auto"/>
+   <TextDecroration Text="None" 	Value="none"/>
+   <TextDecroration Text="Line Through" Value="line-through"/>
+   <TextDecroration Text="Underline" 	Value="underline"/>
+   
+   <TextAlign Text="Auto" 	Value="auto"/>
+   <TextAlign Text="Left" 	Value="left"/>
+   <TextAlign Text="Center" Value="center"/>
+   <TextAlign Text="Right" 	Value="right"/>
+</SELECTION>   

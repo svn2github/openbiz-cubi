@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportMapTree" Class="ReportMapTree" FormType="List" jsClass="Openbiz.FolderTree" Title="Report Folders" Description="" BizDataObj="report.map.do.ReportMapDO" RootSearchRule="[PId] = '0'" TreeDepth="5" PageSize="10" DefaultForm="Y" TemplateEngine="PHP" TemplateFile="map_view_php.tpl">
+    <DataPanel>        
+        <Element Name="fld_id" Class="Hidden" FieldName="Id" Label="Id"/>	
+        <Element Name="fld_name" Class="ColumnText" FieldName="Name" Label="Name"/>	
+    </DataPanel>
+    <ActionPanel>
+
+    </ActionPanel>
+</EasyForm>

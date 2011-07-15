@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="MapListView" Description="Sitemap Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Report.AdminReport">
+   <FormReferences>
+   		<Reference Name="report.map.form.ReportMapListForm"/>
+   </FormReferences>    
+</EasyView>

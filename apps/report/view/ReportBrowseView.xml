@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ReportBrowseView" viewset="" Description="Browse Reports" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_report.tpl.html" Access="">
+   <FormReferences>
+   		<Reference Name="report.form.UserReportListForm" Description="User's report list"/>
+   </FormReferences>
+   
+</EasyView>

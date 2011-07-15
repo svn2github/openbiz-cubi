@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ReportDbDO" Description="" Class="BizDataObj" DBName="Default" Table="report_db" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="name" Stateless="N" IdGeneration="Identity">
+	<BizFieldList>
+		<BizField Name="Id" Column="id"     Type="Number"/>
+		<BizField Name="name" Column="name" Length="50"   Required="Y" Type="Text"/>
+		<BizField Name="server" Column="server" Length="50"   Required="Y" Type="Text"/>
+		<BizField Name="port" Column="port" Length="10"   Required="Y" Type="Text"/>
+		<BizField Name="driver" Column="driver" Length="100"   Required="Y" Type="Text"/>
+		<BizField Name="db_name" Column="db_name" Length="50"   Required="Y" Type="Text"/>
+		<BizField Name="username" Column="username" Length="50"   Required="N" Type="Text"/>
+		<BizField Name="password" Encrypted="Y" Column="password" Length="50"   Required="N" Type="Text"/>
+		<BizField Name="charset"  Column="charset" Length="50"   Required="N" Type="Text"/>
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>		
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+        <Object Name="report.do.ReportDoDO" Description="" Relationship="1-M" Table="report_do" Column="db_id" FieldRef="Id" CascadeDelete="Y"/>    
+    </ObjReferences>
+</BizDataObj>

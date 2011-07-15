@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ReportDefaultView" Description="Report Administration" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+    <FormReferences>
+        <Reference Name="report.widget.ReportAdminStartPage"/>
+    </FormReferences>
+</EasyView>

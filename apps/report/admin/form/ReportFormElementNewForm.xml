@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportFormElementNewForm" Class="ReportFormElementForm" Icon="icon_report_element.gif" FormType="New" jsClass="jbForm" Title="New Report Form Element" Description="Report Element defines data mapping from data source to report forms. \n Each element could be a dataset for chart axies or data tables." BizDataObj="report.admin.do.ReportFormElementDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_reportelement.tpl.html" EventName="REPORT_FORM_ELEMENT" >
+    <DataPanel>	        
+        <Element Name="fld_form_id" ElementSet="General" Class="Hidden" Text="{@report.admin.do.ReportFormDO:Field[Id].Value}" FieldName="form_id" Label="Report Form Id"  AllowURLParam="N" />
+        <Element Name="fld_label" ElementSet="General" Class="InputText" FieldName="label" Label="Element Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>            	        
+		<Element Name="fld_sortorder" ElementSet="General" Class="Listbox" SelectFrom="report.admin.lov.SortOrder(Order)" FieldName="sortorder" Label="Sort Order"  AllowURLParam="N" />
+        <Element Name="fld_view_name" ElementSet="Report Information" Class="LabelText" Text="{@report.admin.do.ReportViewDO:Field[title].Value}" FieldName="" Label="Report Page"  AllowURLParam="N" />
+        <Element Name="fld_form_name" ElementSet="Report Information" Class="LabelText" Text="{@report.admin.do.ReportFormDO:Field[title].Value}" FieldName="" Label="Report Form"  AllowURLParam="N" />
+        <Element Name="fld_form_type" ElementSet="Report Information" Class="LabelText" Text="{@report.admin.do.ReportFormDO:Field[type].Value}" FieldName="" Label="Report Type"  AllowURLParam="N" />	
+        
+                
+        <Element Name="fld_do_id" ElementSet="Data Source" Class="LabelText" FieldName="field_id" Label="Data Table" Text="{@report.admin.do.ReportFormDO:Field[do_name].Value}"  AllowURLParam="N" />
+        <Element Name="fld_field_id" ElementSet="Data Source" Class="Listbox"  SelectFrom="report.admin.do.ReportDoFieldDO[name:Id],[do_id]='{@report.admin.do.ReportFormDO:Field[do_id].Value}'" FieldName="field_id" Label="Data Field"  AllowURLParam="N" />
+
+        <Element Name="fld_class" ElementSet="Form Element Type" Class="report.admin.form.ElementListbox" SelectFrom="{@report.admin.do.ReportFormDO:Field[type].Value}" FieldName="class" Label="Element Type"  AllowURLParam="N">
+        
+        </Element>
+        <Element Name="fld_attr_font_width" ElementSet="Form Element Type" Class="InputText"  DefaultValue="100%" FieldName="_width" Label="Width"  AllowURLParam="N" />
+		<Element Name="fld_attr_font_height" ElementSet="Form Element Type" Class="InputText"  DefaultValue="100%" FieldName="_height" Label="Height"  AllowURLParam="N" />
+		
+        <Element Name="fld_attr_font_weight" ElementSet="Form Element Type" Class="Listbox" SelectFrom="report.admin.lov.ElementStyle(FontWeight)" DefaultValue="normal" FieldName="_font-weight" Label="Font Weight"  AllowURLParam="N" />
+		<Element Name="fld_attr_font_style" ElementSet="Form Element Type" Class="Listbox" SelectFrom="report.admin.lov.ElementStyle(FontStyle)" DefaultValue="normal" FieldName="_font-style" Label="Font Style"  AllowURLParam="N" />
+        <Element Name="fld_attr_text_decoration" ElementSet="Form Element Type" Class="Listbox" SelectFrom="report.admin.lov.ElementStyle(TextDecroration)" DefaultValue="normal" FieldName="_text-decoration" Label="Decoration"  AllowURLParam="N" />
+        <Element Name="fld_attr_align" ElementSet="Form Element Type" Class="Listbox" SelectFrom="report.admin.lov.ElementStyle(TextAlign)" DefaultValue="left" FieldName="_text-align" Label="Text Align"  AllowURLParam="N" />
+        <Element Name="fld_attr_font_size" ElementSet="Form Element Type" Class="EditCombobox" SelectFrom="report.admin.lov.ElementStyle(FontSize)" DefaultValue="12px" FieldName="_font-size" Label="Font Size"  AllowURLParam="N" />                
+
+        <Element Name="fld_attr_color" ElementSet="Form Element Type" Class="ColorPicker" FieldName="_color" Label="Text Color" DefaultValue="" AllowURLParam="N" />
+        <Element Name="fld_attr_bgcolor" ElementSet="Form Element Type" Class="ColorPicker" FieldName="_background-color" Label="Bg Color"  DefaultValue="" AllowURLParam="N" />
+        
+        <Element Name="fld_attr_selfrom" ElementSet="Form Element Type" Class="InputText" FieldName="select_from" Label="Lookup SQL" CssClass="input_text_l"/>
+
+        </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=report.admin.form.ReportFormElementDetailForm&amp;fld:Id={@report.admin.do.ReportFormElementDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportFormElementListForm)"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

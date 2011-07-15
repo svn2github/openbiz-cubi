@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportFilterStaticForm" Class="ReportFilterForm" FormType="" jsClass="Openbiz.ReportForm" Title="" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="report_filter.tpl.html">
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_search" Class="Button" Text="Search" CssClass="button_gray_m">
+            <EventHandler Name="search_onclick" Event="onclick" EventLogMsg="" Function="runSearch()"/>
+        </Element>
+        <Element Name="btn_clear" Class="Button" Text="Reset" CssClass="button_gray_m">
+            <EventHandler Name="clear_onclick" Event="onclick" EventLogMsg="" Function="resetSearch()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

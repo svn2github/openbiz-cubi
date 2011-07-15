@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ETL>
+	<DataSource>
+	      <Database Name="sino_data_org" Driver="Pdo_Mysql" Server="118.192.17.4" Port="3306" DBName="sino_data_org" User="sino_data_org" Password="jixian" Charset="utf8"/>
+          <Database Name="db1" Driver="Pdo_Mysql" Server="localhost" Port="3306" DBName="demo" User="admin" Password="admin" Charset="utf8"/>
+          <Database Name="db2" Driver="Pdo_Mysql" Server="localhost" Port="3306" DBName="vodprod" User="admin" Password="admin" Charset="utf8"/>
+	      <Database Name="sino_data" Driver="Pdo_Mysql" Server="118.192.17.4" Port="3306" DBName="sino_data" User="sino_data" Password="herui" Charset="utf8"/>
+    </DataSource>
+
+    <Queue Name="queue1" source="db1" destination="db2">
+		<Task Name="task1" class="EtlTask" sourceSQL="select grade,'年固定收入' as pay_caliber,group_concat(fc) as pfc from pool group by grade order by grade" destTable="content" sourceTable="attach">
+			<Transform Name="tf1" source="pfc" dest="p10" function="percentile(10)"/>
+			<Transform Name="tf2" source="pfc" dest="p25" function="percentile(25)"/>	
+			<Transform Name="tf3" source="pfc" dest="p50" function="percentile(50)"/>	
+			<Transform Name="tf4" source="pfc" dest="p75" function="percentile(75)"/>
+			<Transform Name="tf5" source="pfc" dest="p90" function="percentile(90)"/>
+			<Transform Name="tf6" source="grade" dest="grade"/>
+			<Transform Name="tf7" source="pay_caliber" dest="pay_caliber"/>
+		</Task>
+ 		
+		
+		
+		
+		<Task Name="task4" class="EtlTask" sourceSQL="select grade,'年固定收入' as pay_caliber,group_concat(fc) as pfc from `poolall` group by grade order by grade">	
+			<Transform source="pfc" dest="p50" function="percentile(50)"/>
+			<Transform source="grade" dest="grade"/>
+			<Transform source="pay_caliber" dest="pay_caliber"/>
+		</Task><Task Name="task5" class="EtlTask" sourceSQL="select grade,'年实际现金收入' as pay_caliber,group_concat(tc) as ptc from `poolall` group by grade order by grade" destTable="poolall_temp" keepdata="Y">	
+			<Transform source="ptc" dest="p50" function="percentile(50)"/>
+			<Transform source="grade" dest="grade"/>
+			<Transform source="pay_caliber" dest="pay_caliber"/>
+		</Task>
+		<Task Name="task6" class="EtlTask" sourceSQL="select grade,'年总薪酬' as pay_caliber,group_concat(tr) as ptr from `poolall` group by grade order by grade" destTable="poolall_temp" keepdata="Y">	
+			<Transform source="ptr" dest="p50" function="percentile(50)"/>
+			<Transform source="grade" dest="grade"/>
+			<Transform source="pay_caliber" dest="pay_caliber"/>
+		</Task> 
+		
+		<Task Name="task7" class="EtlTaskRegression" sourceSQL="   select     pool_temp.pay_caliber,    '1' as grade_min,    max(pool_temp.grade) as grade_max,    group_concat(pool_temp.p10) as p10_c,    group_concat(pool_temp.p25) as p25_c,    group_concat(pool_temp.p50) as p50_c,    group_concat(pool_temp.p75) as p75_c,    group_concat(pool_temp.p90) as p90_c,    group_concat(pool_temp.grade) as grade_c    from     pool_temp    where    pool_temp.pay_caliber = '年总薪酬'   group by     pool_temp.pay_caliber    order by     pool_temp.grade  " destTable="pool_temp2">
+			<Transform source="grade_min,grade_max,INDEX" dest="grade"/>
+			<Transform source="grade_min,grade_max,pay_caliber" dest="pay_caliber"/>			
+			<Transform source="grade_min,grade_max,grade_c,p10_c" dest="p10" function="exponential_regression()"/>
+			<Transform source="grade_min,grade_max,grade_c,p25_c" dest="p25" function="exponential_regression()"/>
+			<Transform source="grade_min,grade_max,grade_c,p50_c" dest="p50" function="exponential_regression()"/>
+			<Transform source="grade_min,grade_max,grade_c,p75_c" dest="p75" function="exponential_regression()"/>
+			<Transform source="grade_min,grade_max,grade_c,p90_c" dest="p90" function="exponential_regression()"/>
+		</Task>
+
+		<Task Name="task8" class="EtlTaskRegression" sourceSQL="   select     pool_temp.pay_caliber,    '1' as grade_min,    max(pool_temp.grade) as grade_max,    group_concat(pool_temp.p10) as p10_c,    group_concat(pool_temp.p25) as p25_c,    group_concat(pool_temp.p50) as p50_c,    group_concat(pool_temp.p75) as p75_c,    group_concat(pool_temp.p90) as p90_c,    group_concat(pool_temp.grade) as grade_c    from     pool_temp    where    pool_temp.pay_caliber = '年固定收入'   group by     pool_temp.pay_caliber    order by     pool_temp.grade  " destTable="pool_temp2" keepdata="Y">
+			<Transform source="grade_min,grade_max,INDEX" dest="grade"/>
+			<Transform source="grade_min,grade_max,pay_caliber" dest="pay_caliber"/>			
+			<Transform source="grade_min,grade_max,grade_c,p10_c" dest="p10" function="exponential_regression()"/>
+			<Transform source="grade_min,grade_max,grade_c,p25_c" dest="p25" function="exponential_regression()"/>
+			<Transform source="grade_min,grade_max,grade_c,p50_c" dest="p50" function="exponential_regression()"/>
+			<Transform source="grade_min,grade_max,grade_c,p75_c" dest="p75" function="exponential_regression()"/>
+			<Transform source="grade_min,grade_max,grade_c,p90_c" dest="p90" function="exponential_regression()"/>
+		</Task>
+		
+		<Task Name="task9" class="EtlTaskRegression" sourceSQL="   select     pool_temp.pay_caliber,    '1' as grade_min,    max(pool_temp.grade) as grade_max,    group_concat(pool_temp.p10) as p10_c,    group_concat(pool_temp.p25) as p25_c,    group_concat(pool_temp.p50) as p50_c,    group_concat(pool_temp.p75) as p75_c,    group_concat(pool_temp.p90) as p90_c,    group_concat(pool_temp.grade) as grade_c    from     pool_temp   where    pool_temp.pay_caliber = '年实际现金收入'   group by     pool_temp.pay_caliber    order by     pool_temp.grade  " destTable="pool_temp2" keepdata="Y">
+			<Transform source="grade_min,grade_max,INDEX" dest="grade"/>
+			<Transform source="grade_min,grade_max,pay_caliber" dest="pay_caliber"/>			
+			<Transform source="grade_min,grade_max,grade_c,p10_c" dest="p10" function="exponential_regression()"/>
+			<Transform source="grade_min,grade_max,grade_c,p25_c" dest="p25" function="exponential_regression()"/>
+			<Transform source="grade_min,grade_max,grade_c,p50_c" dest="p50" function="exponential_regression()"/>
+			<Transform source="grade_min,grade_max,grade_c,p75_c" dest="p75" function="exponential_regression()"/>
+			<Transform source="grade_min,grade_max,grade_c,p90_c" dest="p90" function="exponential_regression()"/>
+		</Task>	
+		
+		<Task Name="task10" class="EtlTaskRegression" sourceSQL="   select     poolall_temp.pay_caliber,    '1' as grade_min,    max(poolall_temp.grade) as grade_max,    group_concat(poolall_temp.p50) as p50_c,    group_concat(poolall_temp.grade) as grade_c    from     poolall_temp    where    poolall_temp.pay_caliber = '年总薪酬'   group by     poolall_temp.pay_caliber    order by     poolall_temp.grade  " destTable="poolall_temp2">
+			<Transform source="grade_min,grade_max,INDEX" dest="grade"/>
+			<Transform source="grade_min,grade_max,pay_caliber" dest="pay_caliber"/>			
+			<Transform source="grade_min,grade_max,grade_c,p50_c" dest="p50" function="exponential_regression()"/>
+		</Task>
+		
+		<Task Name="task11" class="EtlTaskRegression" sourceSQL="   select     poolall_temp.pay_caliber,    '1' as grade_min,    max(poolall_temp.grade) as grade_max,    group_concat(poolall_temp.p50) as p50_c,    group_concat(poolall_temp.grade) as grade_c    from     poolall_temp    where    poolall_temp.pay_caliber = '年固定收入'   group by     poolall_temp.pay_caliber    order by     poolall_temp.grade  " destTable="poolall_temp2" keepdata="Y">
+			<Transform source="grade_min,grade_max,INDEX" dest="grade"/>
+			<Transform source="grade_min,grade_max,pay_caliber" dest="pay_caliber"/>			
+			<Transform source="grade_min,grade_max,grade_c,p50_c" dest="p50" function="exponential_regression()"/>
+		</Task>
+		
+		<Task Name="task12" class="EtlTaskRegression" sourceSQL="   select     poolall_temp.pay_caliber,    '1' as grade_min,    max(poolall_temp.grade) as grade_max,    group_concat(poolall_temp.p50) as p50_c,    group_concat(poolall_temp.grade) as grade_c    from     poolall_temp    where    poolall_temp.pay_caliber = '年实际现金收入'   group by     poolall_temp.pay_caliber    order by     poolall_temp.grade  " destTable="poolall_temp2" keepdata="Y">
+			<Transform source="grade_min,grade_max,INDEX" dest="grade"/>
+			<Transform source="grade_min,grade_max,pay_caliber" dest="pay_caliber"/>			
+			<Transform source="grade_min,grade_max,grade_c,p50_c" dest="p50" function="exponential_regression()"/>
+		</Task>
+		
+		
+	</Queue>
+
+	<!--回归算法 -->	
+	<Queue Name="queue2" source="sino_data_org" destination="sino_data">
+
+		
+		<Task Name="task3" sourceTable="company_list" destTable="company_list">
+			<Transform source="*" dest="*"/>
+		</Task>
+		<Task Name="task4" sourceTable="company_member" destTable="company_member">
+			<Transform source="*" dest="*"/>
+		</Task>
+		<Task Name="task5" sourceTable="company_industry" destTable="company_industry">
+			<Transform source="*" dest="*"/>
+		</Task>
+		<Task Name="task5" sourceTable="company_industry" destTable="company_industry">
+			<Transform source="*" dest="*"/>
+		</Task>
+		<Task Name="task6" sourceTable="company_type" destTable="company_type">
+			<Transform source="*" dest="*"/>
+		</Task>
+		<Task Name="task7" sourceTable="company_building" destTable="company_building">
+			<Transform source="*" dest="*"/>
+		</Task>
+		<Task Name="task8" sourceTable="company_branche" destTable="company_branche">
+			<Transform source="*" dest="*"/>
+		</Task>
+		<Task Name="task9" sourceTable="company_department" destTable="company_department">
+			<Transform source="*" dest="*"/>
+		</Task>
+		<Task Name="task10" sourceTable="company_assets" destTable="company_assets">
+			<Transform source="*" dest="*"/>
+		</Task>
+		<Task Name="task11" sourceTable="graduate_salary" destTable="graduate_salary">
+			<Transform source="*" dest="*"/>
+		</Task>
+		<Task Name="task12" sourceTable="position_demand" destTable="position_demand">
+			<Transform source="*" dest="*"/>
+		</Task>
+		<Task Name="task13" sourceTable="salary_growth" destTable="salary_growth">
+			<Transform source="*" dest="*"/>
+		</Task>
+		<Task Name="task14" sourceTable="staff_quit" destTable="staff_quit">
+			<Transform source="*" dest="*"/>
+		</Task>
+		<Task Name="task15" sourceTable="staff_ratio" destTable="staff_ratio">
+			<Transform source="*" dest="*"/>
+		</Task>
+		<Task Name="task16" sourceTable="annual_comparison" destTable="annual_comparison">
+			<Transform source="*" dest="*"/>
+		</Task>
+		
+		
+	</Queue> 
+	
+</ETL>

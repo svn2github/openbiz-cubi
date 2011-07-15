@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ReportDbNewView" Description="report.admin" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Report.AdminReport">
+   <FormReferences>
+   		<Reference Name="report.admin.form.ReportDbNewForm"/>
+   </FormReferences>
+   <FormReferenceLibs>
+   		<Reference Name="report.admin.form.ReportDbListForm"/>
+   		<Reference Name="report.admin.form.ReportDbEditForm"/>
+   		<Reference Name="report.admin.form.ReportDbCopyForm"/>
+   		<Reference Name="report.admin.form.ReportDbNewForm"/>
+   		<Reference Name="report.admin.form.ReportDbDetailForm"/>
+   </FormReferenceLibs>    
+</EasyView>

@@ -1,0 +1,93 @@
+{php}
+$appendStyle = BizSystem::clientProxy()->getAppendedStyles();
+$this->_tpl_vars['style_sheets'] = $appendStyle;
+{/php}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+<meta name="description" content="{$description}"/>
+<meta name="keywords" content="{$keywords}"/>
+{literal}
+<style>
+	body{
+		font-size:12px;
+		line-height:20px;
+		background-color:#ffffff;
+	}
+	h1{
+		font-size:24px;
+		color:#0a6c8c;		
+		display:block;
+		line-height:24px;
+		padding:0px;
+		margin:0px;
+		padding-left:25px;
+	}
+	.header{
+		background-color:#EFFBFF;		
+		padding-top:10px;
+		padding-bottom:5px;
+		margin-bottom:20px;
+		border-bottom:1px solid #0a6c8c;
+	}
+	h2{
+		font-size:18px;
+		color:#149BC8;
+		padding:0px;
+		margin:0px;
+	}
+	table.form_table{
+		width:100%;
+		border:1px solid #dddddd;
+		color:#333333;
+		border-collapse:collapse;
+	}
+	table.form_table th{
+		text-align:left;
+		padding-left:10px;
+		height:24px;
+		color:#ffffff;
+		background-color:#1581aa;
+		border-left:1px solid #0c6d91;
+	}
+	table.form_table td{
+		text-align:left;
+		padding-left:10px;
+		height:22px;
+		border-bottom:1px solid #dddddd;
+		border-left:1px solid #efefef;
+	}
+	table.form_table .even td{
+		background-color:#ffffff;
+		
+	}	
+	table.form_table .odd td{
+		background-color:#EFFBFF;		
+	}		
+	.form_desc{
+		padding:0px;
+		margin:0px;
+	}
+</style>
+{/literal}
+</head>
+
+<body >
+<div class="header">		
+<h1>{$title}</h1>
+</div>
+									{foreach key=formname item=form from=$forms}	
+								    	{if $formname !='help.form.HelpBlockForm' and  
+								    		$formname !='report.folder.form.FolderTree' and
+								    		'/^menu\.widget\..*Menu$/si'|preg_match:$formname eq 0}							    
+								         	<div>
+								         	{"padding-left:25px;padding-right:40px;"|str_replace:"padding-left:25px;padding-right:25px;":$form}
+								         	</div>
+								       {/if}
+								    {/foreach}	
+								    	
+
+</body>
+</html>

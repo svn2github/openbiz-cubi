@@ -1,0 +1,11 @@
+DROP TABLE `report_acl`;
+DROP TABLE `report_book`;
+DROP TABLE `report_book_acl`;
+DROP TABLE `report_color`;
+DROP TABLE `report_db`;
+DROP TABLE `report_do`;
+DROP TABLE `report_do_field`;
+DROP TABLE `report_folder`;
+DROP TABLE `report_form`;
+DROP TABLE `report_form_element`;
+DROP TABLE `report_view`;

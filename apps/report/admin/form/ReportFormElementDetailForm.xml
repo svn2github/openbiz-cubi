@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportFormElementDetailForm" Class="ReportFormElementForm" Icon="icon_report_element.gif" FormType="" jsClass="jbForm" Title="Details of Report Form Element" Description="Report Element defines data mapping from data source to report forms. \n Each element could be a dataset for chart axies or data tables." BizDataObj="report.admin.do.ReportFormElementDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_reportelement.tpl.html" EventName="REPORT_FORM_ELEMENT" >
+    <DataPanel>
+		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+
+        <Element Name="fld_form_id" ElementSet="General" Class="Hidden" Text="{@report.admin.do.ReportFormDO:Field[Id].Value}" FieldName="form_id" Label="Report Form Id"  AllowURLParam="N" />
+        <Element Name="fld_label" ElementSet="General" Class="LabelText" FieldName="label" Label="Element Title"  AllowURLParam="N" />            	        
+		<Element Name="fld_sortorder" ElementSet="General" Class="LabelText" SelectFrom="report.admin.lov.SortOrder(Order)" FieldName="sortorder" Label="Sort Order"  AllowURLParam="N" />
+        <Element Name="fld_view_name" ElementSet="Report Information" Class="LabelText" Text="{@report.admin.do.ReportViewDO:Field[title].Value}" FieldName="" Label="Report Page"  AllowURLParam="N" />
+        <Element Name="fld_form_name" ElementSet="Report Information" Class="LabelText" Text="{@report.admin.do.ReportFormDO:Field[title].Value}" FieldName="" Label="Report Form"  AllowURLParam="N" />
+        <Element Name="fld_form_type" ElementSet="Report Information" Class="LabelText" Text="{@report.admin.do.ReportFormDO:Field[type].Value}" FieldName="" Label="Report Type"  AllowURLParam="N" />	
+        
+                
+        <Element Name="fld_do_id" ElementSet="Data Source" Class="LabelText" FieldName="" Label="Data Table" Text="{@report.admin.do.ReportFormDO:Field[do_name].Value}"  AllowURLParam="N" />
+        <Element Name="fld_field_id" ElementSet="Data Source" Class="LabelList"  SelectFrom="report.admin.do.ReportDoFieldDO[name:Id]" FieldName="field_id" Label="Data Field"  AllowURLParam="N" />
+
+        <Element Name="fld_class" ElementSet="Form Element Type" Class="LabelText" SelectFrom="{@report.admin.do.ReportFormDO:Field[type].Value}" FieldName="class" Label="Element Type"  AllowURLParam="N"/>
+
+        <Element Name="fld_attr_font_width" ElementSet="Form Element Type" Class="LabelText"  DefaultValue="100%" FieldName="_width" Label="Width"  AllowURLParam="N" />
+		<Element Name="fld_attr_font_height" ElementSet="Form Element Type" Class="LabelText"  DefaultValue="100%" FieldName="_height" Label="Height"  AllowURLParam="N" />
+
+		<Element Name="fld_attr_font_weight" ElementSet="Form Element Type" Class="LabelList" SelectFrom="report.admin.lov.ElementStyle(FontWeight)" DefaultValue="normal" FieldName="_font-weight" Label="Font Weight"  AllowURLParam="N" />
+		<Element Name="fld_attr_font_style" ElementSet="Form Element Type" Class="LabelList" SelectFrom="report.admin.lov.ElementStyle(FontStyle)" DefaultValue="normal" FieldName="_font-style" Label="Font Style"  AllowURLParam="N" />
+        <Element Name="fld_attr_text_decoration" ElementSet="Form Element Type" Class="LabelList" SelectFrom="report.admin.lov.ElementStyle(TextDecroration)" DefaultValue="normal" FieldName="_text-decoration" Label="Decoration"  AllowURLParam="N" />
+        <Element Name="fld_attr_align" ElementSet="Form Element Type" Class="LabelList" SelectFrom="report.admin.lov.ElementStyle(TextAlign)" DefaultValue="left" FieldName="_text-align" Label="Text Align"  AllowURLParam="N" />
+        <Element Name="fld_attr_font_size" ElementSet="Form Element Type" Class="LabelText" SelectFrom="report.admin.lov.ElementStyle(FontSize)" DefaultValue="12px" FieldName="_font-size" Label="Font Size"  AllowURLParam="N" />
+
+        <Element Name="fld_attr_color" ElementSet="Form Element Type" Class="ColorPicker" Mode="viewonly" FieldName="_color" Label="Text Color" DefaultValue="" AllowURLParam="N" />
+        <Element Name="fld_attr_bgcolor" ElementSet="Form Element Type" Class="ColorPicker" Mode="viewonly" FieldName="_background-color" Label="Bg Color"  DefaultValue="" AllowURLParam="N" />
+
+		<Element Name="fld_attr_selfrom" ElementSet="Form Element Type" Class="LabelText" FieldName="select_from" Label="Lookup SQL"/>
+		
+	    <Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>
+		<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
+		<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>
+		<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+       	
+	</DataPanel>
+    <ActionPanel>       
+        <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportFormElementNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
+        </Element>          
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportFormElementEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+		<Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
+            <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=report.admin.form.ReportFormElementCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element> 
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=report.admin.form.ReportFormElementListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportFormElementListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ReportColorView" Description="report.admin" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Report.AdminReport">
+   <FormReferences>
+   		<Reference Name="report.admin.form.ReportColorListForm"/>
+   </FormReferences>
+</EasyView>

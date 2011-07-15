@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ReportFormDO" Description="" Class="BizDataObj" DBName="Default" Table="report_form" SearchRule="" SortRule="[sortorder] ASC" OtherSQLRule="" Uniqueness="title,view_id" Stateless="N" IdGeneration="Identity">
+	<BizFieldList>
+		<BizField Name="Id" Column="id"     Type="Number"/>
+		<BizField Name="name" Column="name" Length="100"   Type="Text"/>	
+		<BizField Name="description" Column="description" Length="100"  Type="Text"/>		    			    		
+		<BizField Name="do_id" Column="do_id"    Required="Y" Type="Number"/>
+		<BizField Name="do_name"  Column="name" Join="report_do" />
+		<BizField Name="view_id" Column="view_id"    Required="Y" Type="Number"/>
+		<BizField Name="view_name" Column="title"  Join="report_view"/>
+		<BizField Name="title" Column="title" Length="100"   Required="Y" Type="Text"/>
+		<BizField Name="type" Column="type" Length="100"   Required="N" Type="Text"/>
+        <BizField Name="subtype" Column="subtype" Type="Text"/>
+       	<BizField Name="width" Column="width" Type="Number"/>
+       	<BizField Name="height" Column="height" Type="Number"/>
+       	<BizField Name="fix_searchrule" Column="fix_searchrule" Type="Text"/>
+		<BizField Name="default_searchrule" Column="default_searchrule" Type="Text"/>
+       	<BizField Name="attrs" Column="attrs" Type="Text"/>
+	    <BizField Name="sortorder" Column="sort_order" />
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>	    
+    </BizFieldList>
+    <TableJoins>
+        <Join Name="report_do" Table="report_do" Column="id" ColumnRef="do_id" JoinType="INNER JOIN"/>
+        <Join Name="report_view" Table="report_view" Column="id" ColumnRef="view_id" JoinType="INNER JOIN"/>
+    </TableJoins>
+    <ObjReferences>
+        <Object Name="report.do.ReportFormElementDO" Description="" Relationship="1-M" Table="report_form_element" Column="form_id" FieldRef="Id" CascadeDelete="Y"/>
+    </ObjReferences>
+</BizDataObj>

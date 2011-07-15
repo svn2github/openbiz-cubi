@@ -1,0 +1,46 @@
+{php}
+$this->assign('hidden_appbuilder', 1);
+{/php}
+<form id='{$form.name}' name='{$form.name}'>
+<div style="padding-left:25px;padding-right:40px;">
+	<div>
+{include file="system_appbuilder_btn.tpl.html"}
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$image_url}/{$form.icon}" border="0" /></div>
+		{/if}
+		<div style="float:left; width:600px;">
+		<h2>
+		{$form.title}
+		</h2> 
+		<p class="form_desc">{$form.description}</p>
+		</div>
+	</td></tr></table>
+	</div>
+
+	<div style="padding-left:30px;" >
+	{foreach item=setname name=elemsets  from=$dataPanel.data}
+	{if $setname.fld_name != ''}
+		{if $smarty.foreach.elemsets.first}
+		<div class="underline upline">
+		{else}
+		<div class="underline">
+		{/if}
+		<h2>{$setname.fld_name}</h2>
+		{foreach item=item key=itemName from=$setname}
+			{if $itemName !='fld_name'
+			}
+				<table  id="{$itemName}_container" class="input_row">
+
+				<tr><td  align="center" >
+					<span class="label_textarea" style="width:550px;">{$item}</span>
+								
+				</td></tr>
+				</table>		
+						
+			{/if}
+		{/foreach}
+		</div>
+	{/if}
+	{/foreach}
+<div style="height:30px;"></div>	

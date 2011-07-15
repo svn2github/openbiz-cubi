@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ReportViewDO" InheritFrom="report.do.ReportViewDO" Description="" Class="BizDataObj" DBName="Default" Table="report_view" SearchRule="" SortRule="[sortorder] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+	
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+        <Object Name="report.admin.do.ReportFormDO" Description="" Relationship="1-M" Table="report_form" Column="view_id" FieldRef="Id" CascadeDelete="Y"/>
+    </ObjReferences>
+</BizDataObj>

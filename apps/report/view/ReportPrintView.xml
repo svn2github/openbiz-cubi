@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyView Name="ReportPrintView" viewset="ReportAdmin" Description="View Report" Class="ReportPrintView" Tab="" TemplateEngine="Smarty" TemplateFile="print_report.tpl.html" Access="Report.AdminReport">
+   
+</EasyView>

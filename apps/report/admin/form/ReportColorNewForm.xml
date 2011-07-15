@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportColorNewForm" Icon="icon_color.gif" Class="EasyForm" FormType="New" jsClass="jbForm" Title="New Report Color" Description="This module controls report color style,The chart element will be rendered as below color in order." BizDataObj="report.admin.do.ReportColorDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_name" DefaultValue="New Report Color" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_color_code" Class="ColorPicker" FieldName="color_code" Label="Color Code"  AllowURLParam="N" />
+    	    	<Element Name="fld_sort_order" Class="Listbox"  SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sort_order" Label="Ordering"  AllowURLParam="N" />
+        </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=report.admin.form.ReportColorDetailForm&amp;fld:Id={@report.admin.do.ReportColorDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportColorListForm)"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

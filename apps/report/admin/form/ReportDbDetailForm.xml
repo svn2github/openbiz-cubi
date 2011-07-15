@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportDbDetailForm" Class="ReportDbForm" Icon="icon_database.gif" FormType="" jsClass="jbForm" Title="Data Source Detail" Description="Establish Database Connection to the Reporting System" BizDataObj="report.admin.do.ReportDbDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl.html" EventName="REPORT_DB" >
+    <DataPanel>
+			<Element Name="fld_Id" Hidden="Y" Class="LabelText" ElementSet="General" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+				<Element Name="fld_driver" Class="LabelText" ElementSet="General" FieldName="driver" Label="Driver" AllowURLParam="N"/>
+		        <Element Name="fld_name" Class="LabelText" ElementSet="General" FieldName="name" Label="Name" AllowURLParam="N"/>
+		        <Element Name="fld_server" Class="LabelText" ElementSet="General" FieldName="server" Label="Server" AllowURLParam="N"/>
+				<Element Name="fld_username" Class="LabelText" ElementSet="General" FieldName="username" Label="Username" AllowURLParam="N"/>
+		        <Element Name="fld_password" Class="LabelPassword" ElementSet="General" FieldName="password" Label="Password" AllowURLParam="N"/>		        
+		        <Element Name="fld_port" Class="LabelText" ElementSet="General" FieldName="port" Label="Port" AllowURLParam="N"/>		        
+		        <Element Name="fld_db_name" Class="LabelText" ElementSet="General" FieldName="db_name" Label="Database" AllowURLParam="N"/>
+		        <Element Name="fld_charset" Class="LabelList" ElementSet="General" SelectFrom="report.admin.lov.DbDrivers(Charset)" FieldName="charset" Label="Charset" AllowURLParam="N"/>
+
+		     <Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>
+		        <Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
+		        <Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>
+		        <Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+    			        
+	    </DataPanel>
+    <ActionPanel>       
+        <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportDbNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
+        </Element>          
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportDbEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+		<Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
+            <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=report.admin.form.ReportDbCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element> 
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=report.admin.form.ReportDbListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportDbListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

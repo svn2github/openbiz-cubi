@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportDoFieldNewForm" Class="ReportDoFieldForm" Icon="icon_row.gif" FormType="New" jsClass="jbForm" Title="New Data Field" Description="Below list is all data fields inside selected data object.\nA data field of object is default mapping to a table column or specified SQL expresion." BizDataObj="report.admin.do.ReportDoFieldDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="REPORT_DO_FIELD" >
+    <DataPanel>
+        <Element Name="fld_name" DefaultValue="New Data Field" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	                    	            
+	    <!--<Element Name="fld_do_id" Class="Listbox" SelectFrom="report.admin.do.ReportDoDO[name:Id]}" FieldName="do_id" Label="Data Table"  AllowURLParam="N" >
+	    	<EventHandler Name="fld_do_onchange" Event="onchange" Function="UpdateForm()" />
+	    </Element>-->
+        <Element Name="fld_do_id" Class="Hidden" FieldName="do_id" Label="Data Table" Text="{@report.admin.do.ReportDoDO:Field[Id].Value}"/>
+        <Element Name="fld_doname" Class="LabelText" Label="Data Table" Text="{@report.admin.do.ReportDbDO:Field[name].Value} : {@report.admin.do.ReportDoDO:Field[name].Value}"/>
+        <Element Name="fld_column" Class="report.admin.form.ColumListbox" FieldName="column" Label="Column"  AllowURLParam="N" />    	      
+		<Element Name="fld_type" Class="Listbox" SelectFrom="report.admin.lov.DataFieldType(DataType)" FieldName="type" Label="Type"  AllowURLParam="N"/>        
+		<Element Name="fld_format" Class="InputText" FieldName="format" Label="Format"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_sql_expr" Class="InputText" FieldName="sql_expr" Label="Sql Expr"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	                    	       
+        
+        </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=report.admin.form.ReportDoFieldDetailForm&amp;fld:Id={@report.admin.do.ReportDoFieldDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportDoFieldListForm)"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

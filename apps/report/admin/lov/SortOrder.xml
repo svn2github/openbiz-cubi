@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<SELECTION>   
+	<Order Text="10" Value="10"/>
+	<Order Text="15" Value="15"/>
+	<Order Text="20" Value="20"/>
+	<Order Text="25" Value="25"/>
+	<Order Text="30" Value="30"/>
+	<Order Text="35" Value="35"/>
+	<Order Text="40" Value="40"/>
+	<Order Text="45" Value="45"/>
+	<Order Text="50" Value="50"/>
+	<Order Text="55" Value="55"/>
+	<Order Text="60" Value="60"/>
+	<Order Text="65" Value="65"/>
+	<Order Text="70" Value="70"/>
+	<Order Text="75" Value="75"/>
+	<Order Text="80" Value="80"/>
+	<Order Text="85" Value="85"/>
+	<Order Text="90" Value="90"/>
+	<Order Text="95" Value="95"/>
+	<Order Text="100" Value="100"/>
+</SELECTION>   

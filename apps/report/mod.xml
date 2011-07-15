@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="report" Description="report module" Author="Jixian, Rocky" Version="0.1" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="Report">
+			<Action Name="AdminReport" Description="Manage reports for the application"/>
+			<Action Name="ViewReport" Description="View Reports"/>
+		</Resource>
+</ACL>
+	<Menu>
+    <!-- System menus -->
+		<MenuItem Name="System.Report" Title="Report Admin" Description="Report Management" URL="/report/report_default" IconImage="spacer.gif" IconCssClass="icon_report" Order="90">			
+			<MenuItem Name="System.Report.ReportList" Title="Manage Reports" Description=""  URL="/report/report_list" Order="20"/>
+			<MenuItem Name="System.Report.ReportDbs" Title="Manage Databases" Description=""  URL="/report/report_dbs" Order="30"/>
+			<MenuItem Name="System.Report.ReportColor" Title="Manage Color" Description=""  URL="/report/report_color" Order="40"/>
+            <MenuItem Name="System.Report.ReportMap" Title="Manage Map" Description=""  URL="/report/report_map" Order="50"/>
+			
+		</MenuItem>		
+		<MenuItem Name="System.Report.ReportUserView" Title="My Report" Description="View My Reports" URL="/report/report" URLMatch="/report/report" IconImage="spacer.gif" IconCssClass="icon_my_report" Order="100">			 
+			 <MenuItem Name="System.Report.ReportUserBookView" Title="My Report Books" Description=""  URL="/report/default" Order="10"/>
+			 
+		</MenuItem>
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+</Module>

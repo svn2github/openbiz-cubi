@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ReportFormElementDO" InheritFrom="report.do.ReportFormElementDO" Description="" Class="BizDataObj" DBName="Default" Table="report_form_element" SearchRule="" SortRule="[sortorder] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity">
+	<BizFieldList>	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportViewEditForm" Class="ReportViewForm" Icon="icon_report_page.gif" FormType="Edit" jsClass="jbForm" Title="Edit Report" Description="Report Page is a container of report forms and charts.\n Each page could contains multi form and charts." BizDataObj="report.admin.do.ReportViewDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl.html" EventName="REPORT_VIEW" >
+    <DataPanel>	
+        <Element Name="fld_title" ElementSet="General" Class="InputText" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_description" ElementSet="General"  Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N" CssClass="input_textarea" CssErrorClass="input_textarea_error" CssFocusClass="input_textarea_focus"/>
+		<Element Name="fld_sortorder" ElementSet="General" Required="Y" Class="Listbox" SelectFrom="report.admin.lov.SortOrder(Order)" FieldName="sortorder" Label="Sort Order"  AllowURLParam="N" />		
+    	<Element Name="fld_db_id" ElementSet="Data Source" Required="Y" Class="Listbox" KeepCookie="Y"   SelectFrom="report.admin.do.ReportDbDO[name:Id]" FieldName="db_id" Label="Data Source"  AllowURLParam="N" >
+    		<EventHandler Name="fld_db_onchange" Event="onchange" Function="UpdateForm()" />
+    	</Element>
+    	<Element Name="fld_do_id" ElementSet="Data Source" Required="Y" Class="Listbox" KeepCookie="Y"  SelectFrom="report.admin.do.ReportDoDO[name:Id],db_id={(int)$_POST['fld_db_id']?(int)$_POST['fld_db_id']:@:Elem[fld_db_id].Value}" FieldName="do_id" Label="Default Table"  AllowURLParam="N" />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=report.admin.form.ReportViewDetailForm&amp;fld:Id={@report.admin.do.ReportViewDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportViewListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

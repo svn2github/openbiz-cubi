@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ReportDoFieldDO" InheritFrom="report.do.ReportDoFieldDO"  Description="" Class="BizDataObj" DBName="Default" Table="report_do_field" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="name,do_id" Stateless="N" IdGeneration="Identity">
+	<BizFieldList>    
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="MapTreeView" Description="Report Map Management" Class="EasyView" Tab="" TemplateEngine="Smarty" Access="Report.AdminReport" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="report.map.form.ReportMapTreeForm"/>
+   </FormReferences>   
+</EasyView>

@@ -1,0 +1,2 @@
+<MenuWidget Name="ReportAdminStartPage" Title="Report Module" Class="menu.widget.MenuWidget" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" SearchRule="[Id]='System.Report' OR [Id]='System.Report.ReportUserView'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="sitemap_menu.tpl" CacheLifeTime="0">
+</MenuWidget>

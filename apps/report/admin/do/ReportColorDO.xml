@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ReportColorDO" InheritFrom="report.do.ReportColorDO" Description="" Class="BizDataObj" DBName="Default" Table="report_color" SearchRule="" SortRule="[sort_order] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+ 	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

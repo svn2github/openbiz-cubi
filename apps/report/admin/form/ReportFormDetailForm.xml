@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportFormDetailForm" Class="ReportFormForm" Icon="icon_report_form.gif" FormType="" jsClass="jbForm" Title="Details of Report Form" Description="Report Form could be chart form or data tables for contains report data. \nEach form has to be mounted onto report pages." BizDataObj="report.admin.do.ReportFormDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_reportform.tpl.html" EventName="REPORT_FORM" >
+    <DataPanel>
+		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+		<Element Name="fld_title" ElementSet="General" Class="LabelText" FieldName="title" Label="Title"  AllowURLParam="N" />    	                
+        <Element Name="fld_desc" ElementSet="General" Class="LabelText" FieldName="description" Label="Description"/>
+        <Element Name="fld_view_id" ElementSet="General" Class="LabelList" SelectFrom="report.do.ReportViewDO[title:Id]}'" DefaultValue="{@report.admin.do.ReportViewDO:Field[Id].Value}" FieldName="view_id" Label="Report Page"  AllowURLParam="N"/>
+        <Element Name="fld_sortorder" ElementSet="General" Class="LabelText" SelectFrom="report.admin.lov.SortOrder(Order)" FieldName="sortorder" Label="Sort Order"  AllowURLParam="N" />
+
+		  		  	                    	        
+        <Element Name="fld_do_id" ElementSet="Data Source" Class="LabelList" SelectFrom="report.admin.do.ReportDoDO[name:Id]" FieldName="do_id" Label="Data Table"  AllowURLParam="N" />    	                    	        
+        		
+		<Element Name="fld_type" ElementSet="Form Type" Class="Hidden" SelectFrom="report.admin.lov.FormType(FormType)" FieldName="type" Label="Form Type"  AllowURLParam="N" >
+        </Element>
+        <Element Name="fld_type_text" ElementSet="Form Type" Class="LabelList" SelectFrom="report.admin.lov.FormType(FormType)" FieldName="type" Label="Form Type"  AllowURLParam="N" >
+        </Element>
+
+        <Element Name="fld_template" ElementSet="Form Type" Class="LabelText"  DefaultValue="report_table_default.tpl.html" FieldName="_TemplateFile" Label="Template" />        
+        <Element Name="fld_searchrule" ElementSet="Form Type" Class="LabelText" DefaultValue="" FieldName="fix_searchrule" Label="Fix Search Rule" />
+		<Element Name="fld_defaultsearchrule" ElementSet="Form Type" Class="LabelText" DefaultValue="" FieldName="default_searchrule" Label="Default Search Rule" />
+        <Element Name="fld_pagesize" ElementSet="Form Type" Class="LabelText"  FieldName="_PageSize" Label="Page Size" />
+
+        <Element Name="fld_show_label" ElementSet="Form Type" Class="LabelBool"  Text="Config the data names will be displayed" FieldName="_shownames" Label="Show Label" />
+        <Element Name="fld_show_value" ElementSet="Form Type" Class="LabelBool"  Text="Config the data value will be displayed" FieldName="_showValues" Label="Show Value" />
+        <Element Name="fld_show_hover_cap" ElementSet="Form Type" Class="LabelBool"  Text="Show/hide hover caption box" FieldName="_showhovercap" Label="Hover Caption" />
+        <Element Name="fld_width" ElementSet="Form Type" Class="LabelText" DefaultValue="700" FieldName="width" Label="Chart Width"/>
+        <Element Name="fld_height" ElementSet="Form Type" Class="LabelText" DefaultValue="300" FieldName="height" Label="Chart Height"/>
+        <Element Name="fld_show_number_prefix" ElementSet="Form Type" Class="LabelText"  FieldName="_numberPrefix" Label="Number Prefix" />
+        <Element Name="fld_show_number_suffix" ElementSet="Form Type" Class="LabelText"   FieldName="_numberSuffix" Label="Number Suffix" />
+        <Element Name="fld_show_format_number" ElementSet="Form Type" Class="LabelBool"  Text="Format number using commas" FieldName="_formatNumber" Label="Format Number" />
+        <Element Name="fld_show_number_scale" ElementSet="Form Type" Class="LabelBool"  Text="Display real number or scaled" FieldName="_formatNumberScale" Label="Number Scale" />
+        
+
+        <Element Name="fld_subtype_text" ElementSet="Chart Parameters" Class="LabelList"  SelectFrom="report.admin.lov.FormType(SubType)" FieldName="subtype" Label="SubType" >
+        </Element>
+        
+        
+        <!-- options for pies  -->
+        <Element Name="fld_show_percentage_value" ElementSet="Chart Parameters" Class="LabelBool"   Text="Show percentage values or actual values" FieldName="_showPercentageValues" Label="Value Type" />
+        <Element Name="fld_show_percentage_in_label" ElementSet="Chart Parameters" Class="LabelBool" Text="Show percentage values in the labels" FieldName="_showPercentageInLabel" Label="Show In Label" />        
+        <!-- options for 3D pie  -->
+        <Element Name="fld_show_pie_radius" ElementSet="Chart Parameters" Class="LabelText" FieldName="_pieRadius" Label="Pie Radius" />        
+        <Element Name="fld_show_pie_y_scale" ElementSet="Chart Parameters" Class="LabelText"  FieldName="_pieYScale" Label="Pie Y-Scale" />
+        <Element Name="fld_show_pie_slice_depth" ElementSet="Chart Parameters" Class="LabelText"  FieldName="_pieSliceDepth" Label="Slice Depth" />
+        <!-- options for 2D pie  -->
+        <Element Name="fld_show_shadow" ElementSet="Chart Parameters" Class="LabelBool"   Text="Set the pie shadow would be shown or not" FieldName="_showShadow" Label="Show Shadow" />
+        <Element Name="fld_show_animation" ElementSet="Chart Parameters" Class="LabelBool"   Text="Set whether the animation is to be played " FieldName="_animation" Label="Animation" />
+   
+   
+   
+   		<!-- options for column  -->
+   		<Element Name="fld_show_limits" ElementSet="Chart Parameters" Class="LabelBool"   Text="Show/hide the chart limit textboxes" FieldName="_showLimits" Label="Show Limit" />
+   		<Element Name="fld_show_rotate_name" ElementSet="Chart Parameters" Class="LabelBool"   Text="Category name text boxes would be rotated or not" FieldName="_rotateNames" Label="Rotate Names" />
+    	<Element Name="fld_show_column_shadow" ElementSet="Chart Parameters" Class="LabelBool"   Text="2D shadow for the columns would be shown or not" FieldName="_showColumnShadow" Label="Col Shadow" />
+    	<Element Name="fld_show_bar_shadow" ElementSet="Chart Parameters" Class="LabelBool"  Text="2D shadow for the bars would be shown or not" FieldName="_showBarShadow" Label="Bar Shadow" />
+    	
+   		<Element Name="fld_y_min_value" ElementSet="Chart Parameters" Class="LabelText"   FieldName="_yAxisMinValue" Label="Y Min Value" />
+   		<Element Name="fld_y_max_value" ElementSet="Chart Parameters" Class="LabelText"   FieldName="_yAxisMaxValue" Label="Y Max Value" />
+   		
+   
+   		<!-- options for line  -->
+   		<Element Name="fld_show_anchor" ElementSet="Chart Parameters" Class="LabelBool"  Text="Anchors would be shown on the chart or not" FieldName="_showAnchors" Label="Show Anchors" />
+   		<Element Name="fld_show_anchor_radius" ElementSet="Chart Parameters" Class="LabelText"  FieldName="_anchorRadius" Label="Anchors Radius" />
+   		
+   		
+   		<!-- options for area  -->
+   		<Element Name="fld_show_area_border" ElementSet="Chart Parameters" Class="LabelBool"  Text="Border over the area would be shown or not" FieldName="_showAreaBorder" Label="Area Border" />
+   		<Element Name="fld_show_area_alpha" ElementSet="Chart Parameters" Class="LabelText"   FieldName="_areaAlpha" Label="Area Alpha" />
+   		
+   		<!-- options for Multi-series  -->
+   		<Element Name="fld_show_legend" ElementSet="Chart Parameters" Class="LabelBool"   Text="Legend would be displayed" FieldName="_showLegend" Label="Show Legend" />
+    	 <Element Name="fld_subtype" ElementSet="Chart Parameters" Class="Hidden"  SelectFrom="report.admin.lov.FormType(SubType)" FieldName="subtype" Label="SubType" >
+        </Element>
+        <Element Name="fld_attrs" ElementSet="Form Type" Class="Hidden" FieldName="attrs" Label="Attributes"/>
+    
+ 		<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>
+        <Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
+        <Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>
+        <Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+  	    
+        
+    </DataPanel>
+    <ActionPanel>       
+        <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportFormNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
+        </Element>          
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportFormEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+		<Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
+            <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=report.admin.form.ReportFormCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element> 
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=report.admin.form.ReportFormListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportFormListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

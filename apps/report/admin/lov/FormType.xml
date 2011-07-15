@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<SELECTION>   
+	<FormType Text="Chart Form" Value="chart"/>
+    <FormType Text="Table Form" Value="table"/>
+    <FormType Text="Filter Form" Value="filter"/>  
+    
+    <SubType Text="Column 2D" Value="Column2D"/>
+    <SubType Text="Column 3D" Value="Column3D"/>
+    <SubType Text="Bar Chart 2D" Value="Bar2D"/>
+    <SubType Text="Area Chart 2D" Value="Area2D"/>
+    <SubType Text="Line Chart" Value="Line"/>
+    <SubType Text="Pie Chart 2D" Value="Pie2D"/>
+    <SubType Text="Pie Chart 3D" Value="Pie3D"/>
+    <SubType Text="Multi Series Column 2D" Value="MSColumn2D"/>
+    <SubType Text="Multi Series Column 3D" Value="MSColumn3D"/>
+    <SubType Text="Multi Series Bar Chart 2D" Value="MSBar2D"/>
+    <SubType Text="Multi Series Area Chart 2D" Value="MSArea2D"/>
+    <SubType Text="Multi Series Line Chart" Value="MSLine"/>
+    <SubType Text="Stacked Bar Chart 2D" Value="StackedBar2D"/>
+    <SubType Text="Stacked Column 2D" Value="StackedColumn2D"/>
+    <SubType Text="Stacked Column 3D" Value="StackedColumn3D"/>
+    <SubType Text="Stacked Area Chart 2D" Value="StackedArea2D"/>
+</SELECTION>   

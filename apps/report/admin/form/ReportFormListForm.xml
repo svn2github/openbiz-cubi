@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportFormListForm" Class="ReportFormForm" Icon="icon_report_form.gif" FormType="List" jsClass="jbForm" Title="Report Form : {@report.admin.do.ReportViewDO:Field[title].Value}" Description="Report Form could be chart form or data tables for contains report data. \nEach form has to be mounted onto report pages." BizDataObj="report.admin.do.ReportFormDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="REPORT_FORM" >
+    <DataPanel>
+        <Element Name="fld_action" Class="ColumnText" FieldName="" Label="Ex" Text=" " CssClass="icon_expand" Link="javascript:ShowTab('report.admin.form.ReportFormElementListForm','{@:m_Name}',{@:Elem[fld_Id].Value});" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N">
+        </Element>	
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:">
+        	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportFormDetailForm,{@:Elem[fld_Id].Value})"/>
+        </Element>
+        <Element Name="fld_do_name" Class="ColumnText" FieldName="do_name" Label="Data Table"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />        	
+        <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_subtype" Class="ColumnText" FieldName="subtype" Label="SubType"  Sortable="Y"/>
+        <Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sortorder" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})" />
+        	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value+5})" />
+        </Element>  
+        <!--<Element Name="fld_attrs" Class="ColumnText" FieldName="attrs" Label="Attributes"  Sortable="Y"/>-->
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(report.admin.form.ReportFormNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=report.admin.form.ReportFormEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)" >
+            <EventHandler Name="btn_copy_onclick" Event="onclick" EventLogMsg="" Function="CopyRecord()" RedirectPage="form=report.admin.form.ReportFormCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element>
+                
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        </Element>
+        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
+            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
+        </Element>
+        <Element Name="btn_load" Class="Button" Text="Load Elems" CssClass="button_gray_w">
+            <EventHandler Name="load_onclick" Event="onclick" EventLogMsg="" Function="LoadElement()" />
+            <EventHandler Name="loadjs_onclick" Event="onclick" EventLogMsg="" Function="js:ShowTab('report.admin.form.ReportFormElementListForm')" />
+        </Element>        
+    </ActionPanel> 
+    <NavPanel>
+        <Element Name="rptform_page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+        <EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(rptform_page_selector)"/>
+        </Element>
+        <Element Name="rptform_pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+        <EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(rptform_pagesize_selector)"/>
+        </Element>
+        <Element Name="btn_first" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+        <Element Name="qry_form_name" Class="AutoSuggest" SelectFrom="report.admin.do.ReportFormDO[title],[title] like '%{@:Elem[qry_form_name].Value}%' AND [view_id]='{@:Field[view_id].Value}' GROUP BY [title]" FuzzySearch="Y" FieldName="title" Label="" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element> 
+    </SearchPanel>
+</EasyForm>

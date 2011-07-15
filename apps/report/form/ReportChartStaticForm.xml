@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportChartStaticForm" Class="ReportChartStaticForm" FormType="Detail" jsClass="Openbiz.Form" Title="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="system_right_chartform.tpl.html">
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>
+
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

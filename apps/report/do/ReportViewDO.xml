@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ReportViewDO" Description="" Class="BizDataObj" DBName="Default" Table="report_view" SearchRule="" SortRule="[sortorder] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" Column="id"     Type="Number"/>
+	    <BizField Name="name" Column="name" Length="100"  />
+	    <BizField Name="title" Column="title" Length="100"   Required="Y" Type="Text"/>
+	    <BizField Name="description" Column="description" Length="100"  Type="Text"/>
+	    <BizField Name="sortorder" Column="sort_order" Type="Number"/>
+	    <BizField Name="db_id" Column="default_db_id"  Required="Y"   Type="Number"/>
+		<BizField Name="do_id" Column="default_do_id"  Required="Y"   Type="Number"/>
+        <BizField Name="owner_id" Column="owner_id"  Required="N"   Type="Number"/>
+        <BizField Name="group_id" Column="group_id"  Required="N"   Type="Number"/>
+	    <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+    <TableJoins>
+    	
+    </TableJoins>
+    <ObjReferences>
+        <Object Name="report.do.ReportFormDO" Description="" Relationship="1-M" Table="report_form" Column="view_id" FieldRef="Id" CascadeDelete="Y"/>
+    </ObjReferences>
+</BizDataObj>

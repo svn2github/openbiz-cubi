@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<SELECTION>   
+   <TableElement Text="ColumnText" 	Value="ColumnText"/>
+   <TableElement Text="ColumnBool" 	Value="ColumnBool"/>
+   <TableElement Text="ColumnImage" Value="ColumnImage"/>
+   <TableElement Text="ColumnList" 	Value="ColumnList"/>
+   <TableElement Text="ColumnPassword" 	Value="ColumnPassword"/>
+   <TableElement Text="ColumnValue" 	Value="ColumnValue"/>
+   <TableElement Text="ColumnHidden" 	Value="ColumnHidden"/>
+   <TableElement Text="ColumnStyle" 	Value="ColumnStyle"/>
+
+ 
+   <ChartElement Text="ChartCategory" 	Value="chart.lib.ChartCategory"/>
+   <ChartElement Text="ChartData" 	Value="chart.lib.ChartData"/>
+
+   <InputElement Text="InputText" 	Value="InputText"/>
+   <InputElement Text="Listbox" 		Value="Listbox"/>
+   <InputElement Text="Checkbox" 	Value="Checkbox"/>
+   <InputElement Text="Radio" 		Value="Radio"/>
+   <InputElement Text="InputDate" 	Value="InputDate"/>
+
+</SELECTION>   

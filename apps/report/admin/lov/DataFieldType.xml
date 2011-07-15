@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<SELECTION>   
+   <DataType Text="Date" 		Value="Date"/>
+   <DataType Text="Datetime" 	Value="Datetime"/>   
+   <DataType Text="Number" 		Value="Number"/>
+   <DataType Text="Text" 		Value="Text"/>
+</SELECTION>   

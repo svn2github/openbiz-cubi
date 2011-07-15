@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportMapCopyForm" Class="EasyForm" Icon="icon_sitemap_add.gif"  FormType="Copy" jsClass="jbForm" Title="Copy Menu Item" Description="Report map module manages the website menu system." BizDataObj="report.map.do.ReportMapDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y"/>	
+        <Element Name="fld_parent_id" Class="TreeListbox" BLANKOPTION="-- Root --" SelectFrom="report.map.do.ReportMapDO[title:Id],[publish]=1,[PId]='' OR [PId]=0 OR [PId] is null" FieldName="parent_id" Label="Parent Id"  AllowURLParam="N" />
+		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_title" Class="InputText" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_link" Class="InputText" FieldName="link" Label="Link"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>          
+     	<Element Name="fld_status" Class="Radio" DefaultValue="1" SelectFrom="common.lov.CommLOV(Published)" FieldName="publish" Label="Status" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
+    	<Element Name="fld_sort_order" Class="Listbox"  SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sort_order" Label="Ordering"  AllowURLParam="N" />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=report.map.form.ReportMapDetailForm&amp;fld:Id={@report.map.do.ReportMapDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
