@@ -538,14 +538,14 @@ padding-bottom:5px;
 	float:left;
 	display:block;
 	word-break:break-all; 
-	overflow:auto;
+	/*overflow:auto;*/
 	text-align:left;
 }
 #main #right_panel .content table.input_row td .label_textarea{
 	width:700px;
 	display:block;
 	word-break:break-all; 
-	overflow:auto;
+	/*overflow:auto;*/
 	text-align:left;
 }
 #main #right_panel .content .action_panel_set p.input_row{
