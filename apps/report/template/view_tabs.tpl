@@ -17,8 +17,8 @@ $includedScripts.="
 //edit report elements functions
 function showElementConfigOptions(type){
 	switch(type){
-		case 'chart.lib.ChartCategory': 
-		case 'chart.lib.ChartData': 
+		case 'report.lib.ChartCategory': 
+		case 'report.lib.ChartData': 
 			hideElementConfigOptions();
 			break;
 		case 'InputText': 

@@ -33,7 +33,7 @@ class ReportChartForm extends ReportForm
     {
     	// query recordset first
 		$dataObj = $this->getDataObj();
-		//echo "search rule is $this->m_SearchRule"; exit;
+
 		if ($this->m_FixSearchRule)
         {
             if ($this->m_SearchRule)
@@ -42,8 +42,9 @@ class ReportChartForm extends ReportForm
                 $searchRule = $this->m_FixSearchRule;
         }
         else
-        $searchRule = $this->m_SearchRule;
+            $searchRule = $this->m_SearchRule;
         $dataObj->setSearchRule($searchRule);
+
         $dataObj->setLimit("");
         QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
         $resultRecords = $dataObj->fetch();
@@ -57,20 +58,19 @@ class ReportChartForm extends ReportForm
             {
             	if ($element->fieldName && isset($arr[$element->fieldName]))
             	{
-            		//echo "class is $element->m_Class";
-            		if ($element->m_Class == "chart.lib.ChartData")
+            		if ($element->m_Class == "report.lib.ChartData" || strpos($element->m_Class,"ChartData") !==false )
             		    $this->chartDataset[$element->key][] = $arr[$element->fieldName];
-            		if ($element->m_Class == "chart.lib.ChartCategory")
+            		if ($element->m_Class == "report.lib.ChartCategory" || strpos($element->m_Class,"ChartCategory") !==false )
             		    $this->chartCategory[] = $arr[$element->fieldName];
             	}
             }
             $counter++;
-        }      
+        }    
     }
     
     public function draw()
     {
-    	$path = MODULE_PATH.'/chart/lib';
+    	$path = MODULE_PATH.'/report/lib';
     	set_include_path(get_include_path() . PATH_SEPARATOR . $path);
     	if(strtolower(FusionChartVersion)=="pro"){
     		require_once('fusionpro/FusionCharts_Gen.php'); 		
@@ -156,11 +156,11 @@ class ReportChartForm extends ReportForm
     protected function seChartParams($FC)
     {
         if(strtolower(FusionChartVersion)=="pro"){
-    		$FC->setSWFPath(APP_URL."/js/FusionChartsPro/");    		
+    		$FC->setSWFPath(RESOURCE_URL."/report/js/FusionChartsPro/");    		
     	}
     	else
     	{
-        	$FC->setSWFPath(APP_URL."/js/FusionCharts/");
+        	$FC->setSWFPath(RESOURCE_URL."/report/js/FusionCharts/");
     	}
         
         # Set chart attributes
@@ -172,7 +172,7 @@ class ReportChartForm extends ReportForm
 	        $FC->setChartParam('exportAtClient',0);
 	        $FC->setChartParam('exportShowMenuItem',1);
 	        $FC->setChartParam('exportAction',"save");
-	        $FC->setChartParam('exportHandler',APP_URL."/js/FusionChartsPro/FCExporter.php");
+	        $FC->setChartParam('exportHandler',RESOURCE_URL."/report/js/FusionChartsPro/FCExporter.php");
 	        $FC->setChartParam('exportFileName',$this->m_Name);
         }        
         //$strParam="xAxisName=Week;yAxisName=Revenue;numberPrefix=$;decimalPrecision=0;formatNumberScale=1";

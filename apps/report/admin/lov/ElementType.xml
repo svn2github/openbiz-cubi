@@ -10,8 +10,8 @@
    <TableElement Text="ColumnStyle" 	Value="ColumnStyle"/>
 
  
-   <ChartElement Text="ChartCategory" 	Value="chart.lib.ChartCategory"/>
-   <ChartElement Text="ChartData" 	Value="chart.lib.ChartData"/>
+   <ChartElement Text="ChartCategory" 	Value="report.lib.ChartCategory"/>
+   <ChartElement Text="ChartData" 	Value="report.lib.ChartData"/>
 
    <InputElement Text="InputText" 	Value="InputText"/>
    <InputElement Text="Listbox" 		Value="Listbox"/>

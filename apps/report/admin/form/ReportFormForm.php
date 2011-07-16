@@ -140,9 +140,9 @@ class ReportFormForm extends EasyForm
 		    				break;
 		    			}
 		    			if($sortorder==10){
-		    				$elem_array["class"]="chart.lib.ChartCategory";
+		    				$elem_array["class"]="report.lib.ChartCategory";
 		    			}else{
-		    				$elem_array["class"]="chart.lib.ChartData";
+		    				$elem_array["class"]="report.lib.ChartData";
 		    				$data_colum_count ++;
 		    			}
 		    			if(substr(strtoupper($rec['subtype']),0,2)=="MS"){

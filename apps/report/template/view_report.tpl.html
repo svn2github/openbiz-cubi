@@ -2,17 +2,20 @@
 $header_background_image='/report/images/top_logo_banner.gif';
 $this->assign('header_background_image', $header_background_image);
 
+$js_url = $this->_tpl_vars['js_url'];
+$theme_js_url = $this->_tpl_vars['theme_js_url'];
+$css_url = $this->_tpl_vars['css_url'];
 
 BizSystem::clientProxy()->appendScripts("Openbiz.FolderTree","Openbiz.FolderTree.js");
 
 $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 if(strtolower(FusionChartVersion)=="pro"){
-	$includedScripts.="\n".'<script type="text/javascript" src="'.$this->_tpl_vars['js_url'].'/FusionChartsPro/FusionCharts.js"></script>';
-	$includedScripts.="\n".'<script type="text/javascript" src="'.$this->_tpl_vars['js_url'].'/FusionChartsPro/FusionChartsExportComponent.js"></script>';
-	$includedScripts.="\n".'<script type="text/javascript" src="'.$this->_tpl_vars['js_url'].'/FusionChartsPro/FusionChartsExport.js"></script>';
+	$includedScripts.="\n".'<script type="text/javascript" src="'.RESOURCE_URL.'/report/js/FusionChartsPro/FusionCharts.js"></script>';
+	$includedScripts.="\n".'<script type="text/javascript" src="'.RESOURCE_URL.'/report/js/FusionChartsPro/FusionChartsExportComponent.js"></script>';
+	$includedScripts.="\n".'<script type="text/javascript" src="'.RESOURCE_URL.'/report/js/FusionChartsPro/FusionChartsExport.js"></script>';
 }else{
 	$includedScripts.="\n".'
-	<script type="text/javascript" src="'.$this->_tpl_vars['js_url'].'/FusionCharts/FusionCharts.js"></script>
+	<script type="text/javascript" src="'.RESOURCE_URL.'/report/js/FusionCharts/FusionCharts.js"></script>
 	<script type="text/javascript" >forceSelectRecord=true;</script>
 	';
 }
