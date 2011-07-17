@@ -1,10 +1,16 @@
 {php}
 
 $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
-$includedScripts.="\n".'
-<script type="text/javascript" src="'.$this->_tpl_vars['js_url'].'/FusionCharts/FusionCharts.js"></script>
-<script type="text/javascript" >forceSelectRecord=true;</script>
-';
+if(strtolower(FusionChartVersion)=="pro"){
+	$includedScripts.="\n".'<script type="text/javascript" src="'.RESOURCE_URL.'/report/js/FusionChartsPro/FusionCharts.js"></script>';
+	$includedScripts.="\n".'<script type="text/javascript" src="'.RESOURCE_URL.'/report/js/FusionChartsPro/FusionChartsExportComponent.js"></script>';
+	$includedScripts.="\n".'<script type="text/javascript" src="'.RESOURCE_URL.'/report/js/FusionChartsPro/FusionChartsExport.js"></script>';
+}else{
+	$includedScripts.="\n".'
+	<script type="text/javascript" src="'.RESOURCE_URL.'/report/js/FusionCharts/FusionCharts.js"></script>
+	<script type="text/javascript" >forceSelectRecord=true;</script>
+	';
+}
 $this->_tpl_vars['scripts'] = $includedScripts;
 $appendStyle = BizSystem::clientProxy()->getAppendedStyles();
 $this->_tpl_vars['style_sheets'] = $appendStyle;
@@ -23,9 +29,6 @@ $this->_tpl_vars['style_sheets'] = $appendStyle;
 <link rel="stylesheet" href="{$css_url}/system_backend.css" type="text/css" />
 <link rel="stylesheet" href="{$css_url}/system_backend_tabs.css" type="text/css" />
 <link rel="stylesheet" href="{$css_url}/system_menu_icons.css" type="text/css" />
-<link rel="stylesheet" href="{$css_url}/collaboration_menu_icons.css" type="text/css" />
-<link rel="stylesheet" href="{$css_url}/system_dashboard_icons.css" type="text/css" />
-<link rel="stylesheet" href="{$css_url}/appbuilder.css" type="text/css" />
 <link rel="stylesheet" type="text/css" href="{$js_url}/jstree/tree_component.css" />
 {$style_sheets}
 {$scripts}

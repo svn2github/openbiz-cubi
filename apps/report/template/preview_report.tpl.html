@@ -2,8 +2,6 @@
 $header_background_image='/report/images/top_logo_banner.gif';
 $this->assign('header_background_image', $header_background_image);
 
-BizSystem::clientProxy()->appendScripts("Openbiz.FolderTree","Openbiz.FolderTree.js");
-
 $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 
 if(strtolower(FusionChartVersion)=="pro"){
@@ -21,9 +19,6 @@ $this->_tpl_vars['scripts'] = $includedScripts;
 $appendStyle = BizSystem::clientProxy()->getAppendedStyles();
 $this->_tpl_vars['style_sheets'] = $appendStyle;
 
-$left_menu = "report.folder.form.FolderTreePreview";
-$this->assign('left_menu', $left_menu);
-
 $this->assign('report_id', $_GET['fld:Id']);
 
 {/php}
@@ -39,9 +34,6 @@ $this->assign('report_id', $_GET['fld:Id']);
 <link rel="stylesheet" href="{$css_url}/system_backend.css" type="text/css" />
 <link rel="stylesheet" href="{$css_url}/system_backend_tabs.css" type="text/css" />
 <link rel="stylesheet" href="{$css_url}/system_menu_icons.css" type="text/css" />
-<link rel="stylesheet" href="{$css_url}/collaboration_menu_icons.css" type="text/css" />
-<link rel="stylesheet" href="{$css_url}/system_dashboard_icons.css" type="text/css" />
-<link rel="stylesheet" href="{$css_url}/appbuilder.css" type="text/css" />
 <link rel="stylesheet" type="text/css" href="{$js_url}/jstree/tree_component.css" />
 {$style_sheets}
 {$scripts}
@@ -51,7 +43,6 @@ $this->assign('report_id', $_GET['fld:Id']);
 <script type="text/javascript" src="{$js_url}/cookies.js"></script>
 <script>var $j = jQuery.noConflict();</script>
 <script>
-	var charts = new Array();
 	var reportId = "{$report_id}";
 </script>
 </head>
@@ -70,22 +61,7 @@ $this->assign('report_id', $_GET['fld:Id']);
 				<table id="main_content" border="0" cellpadding="0" cellspacing="0">
 					<tr><td><img src="{$image_url}/spacer.gif" style="height:15px;" /></td></tr>
 					<tr>
-						<td valign="top" style="width:18px;"><img src="{$image_url}/spacer.gif" style="width:18px;" /></td>
-						<td valign="top" id="left_panel">
-								<div class="content_block">
-									<div class="header"></div>
-									<div class="content_tree" >		
-									{php}
-									$left_menu = $this->_tpl_vars['left_menu'];
-									$obj = Bizsystem::GetObject($left_menu);
-									$left_menu_content = $obj->render();
-									$this->assign('system_left_menu_content', 	$left_menu_content);
-									{/php}																	
-										{$system_left_menu_content}
-									</div>
-									<div class="footer"></div>						
-								</div>
-						</td>
+						
 						<td valign="top" id="right_panel">							
 							<!-- right block start -->
 							<div class="content_block">
