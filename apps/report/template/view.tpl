@@ -16,7 +16,7 @@ $includedScripts.="
 $this->_tpl_vars['scripts'] = $includedScripts;
 
 
-$left_menu = "report.widget.ReportAdminMenu";
+$left_menu = "report.widget.ReportMenu";
 $this->assign('left_menu', $left_menu);
 
 $appendStyle = BizSystem::clientProxy()->getAppendedStyles();

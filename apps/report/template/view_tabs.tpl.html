@@ -10,7 +10,7 @@ $includedScripts.="\n".'
 <script type="text/javascript" src="'.$this->_tpl_vars['js_url'].'/FusionCharts/FusionCharts.js"></script>
 <script type="text/javascript" >forceSelectRecord=true;</script>
 ';
-$left_menu = "report.widget.ReportAdminMenu";
+$left_menu = "report.widget.ReportMenu";
 $this->assign('left_menu', $left_menu);
 $this->_tpl_vars['scripts'] = $includedScripts;
 $appendStyle = BizSystem::clientProxy()->getAppendedStyles();

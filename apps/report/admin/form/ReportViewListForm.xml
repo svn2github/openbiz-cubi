@@ -8,7 +8,8 @@
         <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title" Sortable="Y" AllowURLParam="N" Link="javascript:">
         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportViewDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
-        <Element Name="fld_desc" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y" AllowURLParam="N" />                  	        
+        <Element Name="fld_group_name" Class="ColumnText" FieldName="group_name" Label="Group"  Sortable="Y" /> 
+        <Element Name="fld_desc" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y" />       	        
 		<Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sortorder" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})" />
         	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value+5})" />

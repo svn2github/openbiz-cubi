@@ -74,35 +74,6 @@ CREATE TABLE IF NOT EXISTS `report_do_field` (
 -- --------------------------------------------------------
 
 --
--- Table structure `report_folder`
---
-
-DROP TABLE IF EXISTS `report_folder`;
-CREATE TABLE IF NOT EXISTS `report_folder` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_id` int(11) DEFAULT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `owner_id` int(11) default 0,
-  `group_id` INT(11) default '1',
-  `group_perm` INT(11) default '1',
-  `other_perm` INT(11) default '1' ,
-  `create_by` int(11) NOT NULL DEFAULT '1',
-  `create_time` datetime NOT NULL,
-  `update_by` int(11) NOT NULL DEFAULT '1',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci  ;
-
-ALTER TABLE `report_folder` ADD `sortorder` INT NOT NULL DEFAULT 10 AFTER `description` ;
-
-/*Data for the table `report_folder` */
-
-insert  into `report_folder`(`id`,`parent_id`,`name`,`description`,`sortorder`) values (1,NULL,'root','root node',10),(2,1,'sponsor',NULL,50);
-
--- --------------------------------------------------------
-
---
 -- Table structure `report_form`
 --
 
@@ -176,9 +147,7 @@ CREATE TABLE IF NOT EXISTS `report_view` (
   `default_do_id` int(11) NOT NULL,
   `sort_order` int(11) NOT NULL DEFAULT '10',
   `owner_id` int(11) default 0,
-  `group_id` INT(11) default '1',
-  `group_perm` INT(11) default '1',
-  `other_perm` INT(11) default '1' ,
+  `group_id` INT(11) default '0',
   `create_by` int(11) NOT NULL DEFAULT '1',
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL DEFAULT '1',
@@ -207,4 +176,27 @@ CREATE TABLE IF NOT EXISTS `report_color` (
 /*Data for the table `report_color` */
 
 insert  into `report_color`(`id`,`name`,`color_code`,`sort_order`,`create_by`,`create_time`,`update_by`,`update_time`) values (1,'red','ff0000',10,1,'2010-10-25 23:27:36',1,'2010-10-25 23:27:36'),(2,'blue','000dff',50,1,'2010-10-25 23:27:55',1,'2010-10-25 23:27:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure `report_map`
+--
+
+DROP TABLE IF EXISTS `report_map`;
+CREATE TABLE `report_map` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) DEFAULT '0',
+  `name` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `publish` int(2) DEFAULT NULL,
+  `sort_order` int(11) NOT NULL DEFAULT '10',
+  `create_time` datetime DEFAULT NULL,
+  `create_by` int(11) DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  `update_by` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `parent_id` (`parent_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 

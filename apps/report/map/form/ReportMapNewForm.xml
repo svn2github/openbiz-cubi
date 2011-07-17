@@ -4,7 +4,8 @@
         <Element Name="fld_parent_id" Class="TreeListbox" BLANKOPTION="-- Root --" SelectFrom="report.map.do.ReportMapDO[title:Id],[publish]=1,[PId]='' OR [PId]=0 OR [PId] is null" FieldName="parent_id" Label="Parent Id"  AllowURLParam="N" />
         <Element Name="fld_name" DefaultValue="New Menu Item" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         <Element Name="fld_title" Class="InputText" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-        <Element Name="fld_link" Class="InputText" FieldName="link" Label="Link"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>          
+        <Element Name="fld_link" Class="InputText" FieldName="link" Label="Link"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_group" Class="Listbox" FieldName="group_id" Label="Group" SelectFrom="system.do.GroupDO[name:Id]" BlankOption="---"/>        
     	<Element Name="fld_status" Class="Radio" DefaultValue="1" SelectFrom="common.lov.CommLOV(Published)" FieldName="publish" Label="Status" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
     	<Element Name="fld_sort_order" Class="Listbox"  SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sort_order" Label="Ordering"  AllowURLParam="N" />
         </DataPanel>

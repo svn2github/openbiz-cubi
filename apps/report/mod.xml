@@ -8,17 +8,18 @@
 </ACL>
 	<Menu>
     <!-- System menus -->
-		<MenuItem Name="System.Report" Title="Report Admin" Description="Report Management" URL="/report/report_default" IconImage="spacer.gif" IconCssClass="icon_report" Order="90">			
-			<MenuItem Name="System.Report.ReportList" Title="Manage Reports" Description=""  URL="/report/report_list" Order="20"/>
-			<MenuItem Name="System.Report.ReportDbs" Title="Manage Databases" Description=""  URL="/report/report_dbs" Order="30"/>
-			<MenuItem Name="System.Report.ReportColor" Title="Manage Color" Description=""  URL="/report/report_color" Order="40"/>
-            <MenuItem Name="System.Report.ReportMap" Title="Manage Map" Description=""  URL="/report/report_map" Order="50"/>
-			
-		</MenuItem>		
-		<MenuItem Name="System.Report.ReportUserView" Title="My Report" Description="View My Reports" URL="/report/report" URLMatch="/report/report" IconImage="spacer.gif" IconCssClass="icon_my_report" Order="100">			 
-			 <MenuItem Name="System.Report.ReportUserBookView" Title="My Report Books" Description=""  URL="/report/default" Order="10"/>
-			 
-		</MenuItem>
+        <MenuItem Name="Report" Title="Reports" Description="Reports" URL="/report/my_reports" Order="60">
+            <MenuItem Name="System.Report" Title="Report Admin" Description="Report Management" IconImage="spacer.gif" IconCssClass="icon_report" Order="10">			
+                <MenuItem Name="System.Report.ReportList" Title="Manage Reports" Description=""  URL="/report/report_list" Order="20"/>
+                <MenuItem Name="System.Report.ReportDbs" Title="Manage Databases" Description=""  URL="/report/report_dbs" Order="30"/>
+                <MenuItem Name="System.Report.ReportColor" Title="Manage Color" Description=""  URL="/report/report_color" Order="40"/>
+                <MenuItem Name="System.Report.ReportMap" Title="Manage Map" Description=""  URL="/report/map_list" Order="50"/>
+            </MenuItem>		
+            <MenuItem Name="System.Report.ReportUserView" Title="My Report" Description="View My Reports" IconImage="spacer.gif" IconCssClass="icon_my_report" Order="20">			 
+                 <MenuItem Name="System.Report.ReportMy" Title="My Reports" Description=""  URL="/report/my_reports" Order="10"/>
+                 <MenuItem Name="System.Report.ReportMytree" Title="My Reports Map" Description=""  URL="/report/my_reports_map" Order="20"/>
+            </MenuItem>
+        </MenuItem>
     </Menu>
     <Dependency>
     	<Module Name="system"/>

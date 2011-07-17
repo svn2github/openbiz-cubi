@@ -2,14 +2,15 @@
 <EasyForm Name="ReportViewDetailForm" Class="ReportViewForm" Icon="icon_report_page.gif" FormType="" jsClass="jbForm" Title="Details of Report" Description="Report Page is a container of report forms and charts.\n Each page could contains multi form and charts." BizDataObj="report.admin.do.ReportViewDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl.html" EventName="REPORT_VIEW" >
     <DataPanel>
 		<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-         <Element Name="fld_title" ElementSet="General" Class="LabelText" FieldName="title" Label="Title"  AllowURLParam="N"  />
+        <Element Name="fld_title" ElementSet="General" Class="LabelText" FieldName="title" Label="Title"  AllowURLParam="N"  />
+        <Element Name="fld_group_name" ElementSet="General" Class="LabelText" FieldName="group_name" Label="Group" /> 
 		<Element Name="fld_description" ElementSet="General"  Class="LabelText" FieldName="description" Label="Description"  AllowURLParam="N"/>
     	<Element Name="fld_sortorder" ElementSet="General"  Class="LabelText" FieldName="sortorder" Label="Sort Order"  AllowURLParam="N" />
     	
     	<Element Name="fld_db_id" ElementSet="Data Source"  Class="LabelList" FieldName="db_id" SelectFrom="report.admin.do.ReportDbDO[name:Id],[Id]={@:Field[db_id].Value}" Label="Data Source"  AllowURLParam="N" />
     	<Element Name="fld_do_id" ElementSet="Data Source"  Class="LabelList"  FieldName="do_id" SelectFrom="report.admin.do.ReportDoDO[name:Id],[Id]={@:Field[do_id].Value}" Label="Default Table"  AllowURLParam="N" />
 
-         <Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>
+        <Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>
         <Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
         <Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>
         <Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>

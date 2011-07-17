@@ -5,6 +5,7 @@
        	<Element Name="fld_parent_id" ElementSet="General" Class="TreeLabelText" BLANKOPTION="-- Root --" FieldName="parent_id" Label="Parent" AllowURLParam="N"/>
        	<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
        	<Element Name="fld_title" ElementSet="General" Class="LabelText" FieldName="title" Label="Title" AllowURLParam="N"/>
+        <Element Name="fld_group_name" ElementSet="General" Class="LabelText" FieldName="group_name" Label="Group" /> 
        	<Element Name="fld_link" ElementSet="General" Class="LabelText" FieldName="link" Label="Link" AllowURLParam="N"/>
        	<Element Name="fld_publish" ElementSet="General" Class="LabelBool" FieldName="publish" Label="Publish" AllowURLParam="N"/>
        	<Element Name="fld_sort_order" ElementSet="General" Class="LabelText" FieldName="sort_order" Label="Sort Order" AllowURLParam="N"/>

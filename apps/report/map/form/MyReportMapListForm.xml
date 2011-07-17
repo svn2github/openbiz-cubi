@@ -1,36 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReportMapListForm" Class="menu.form.MenuForm" icon="icon_sitemap_list.gif" FormType="List" jsClass="jbForm" Title="Manage Menu by List" Description="Report Map Management by list view,\n The sitemap stucture in this view is simlar to tranditional FTP way to manage a directory tree." BizDataObj="report.map.do.ReportMapDO" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_right_listform_menu.tpl.html" MessageFile="">
+<EasyForm Name="MyReportMapListForm" Class="menu.form.MenuForm" icon="icon_sitemap_list.gif" FormType="List" jsClass="jbForm" Title="My Report list" Description="Browse my reports by clicking '+' to drill down deeper levels" BizDataObj="report.map.do.MyReportMapDO" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_right_listform_menu.tpl.html" MessageFile="">
     <DataPanel>
-        <Element Name="fld_child" Class="ColumnText" FieldName="" Label="Ex" Text=" " CssClass="icon_expand" Link="javascript:">         
+        <Element Name="fld_child" Class="ColumnText" FieldName="" Label="Expand" Text=" " CssClass="icon_expand" Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="ListChildren({@:Elem[fld_Id].Value})"   />
         </Element>	        
         <Element Name="fld_Id" Hidden="Y" Class="Hidden" FieldName="Id" Label="Name" Sortable="Y" AllowURLParam="N" />
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name"   Sortable="Y" />
-        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
-         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(report.map.form.ReportMapDetailForm,{@:Elem[fld_Id].Value})"   />
-        </Element>
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" Link="{@home:url}{@:Elem[fld_link].Value}" Target="_blank" />
+        <Element Name="fld_link" Class="ColumnText" FieldName="link" Label="Link"/>
         <Element Name="fld_group_name" Class="ColumnText" FieldName="group_name" Label="Group"  Sortable="Y" />         
-        <Element Name="fld_published" Class="ColumnBool" FieldName="publish" Label="Published"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
-			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_published,{@:Elem[fld_published].Value})"/>		
-		</Element>
-        <Element Name="fld_sort_order" Class="ColumnSorting" FieldName="sort_order" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
-        	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sort_order,{@:Elem[fld_sort_order].Value-5})" />
-        	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sort_order,{@:Elem[fld_sort_order].Value+5})" />
-        </Element>
     </DataPanel>
     <ActionPanel>
-        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
-            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(report.map.form.ReportMapNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
-        </Element>
-        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
-            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=report.map.form.ReportMapEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
-        </Element>
-        <Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)" >
-            <EventHandler Name="btn_copy_onclick" Event="onclick" EventLogMsg="" Function="CopyRecord()" RedirectPage="form=report.map.form.ReportMapCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
-        </Element>
-                
-        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
-            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        <Element Name="btn_tree" Class="LabelText" Text="Show tree" CssClass="button_gray_w" Description="" Link="{@home:url}/report/my_reports_map">
         </Element>
     </ActionPanel> 
     <NavPanel>

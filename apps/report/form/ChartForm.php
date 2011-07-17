@@ -84,12 +84,12 @@ class ChartForm extends EasyForm
             	if ($element->fieldName && isset($arr[$element->fieldName]))
             	{
             		//echo "class is $element->m_Class";
-            		if ($element->m_Class == "chart.lib.ChartData")
+            		if ($element->m_Class == "report.lib.ChartData")
             		{
             		    $this->chartDataset[$element->key][] 	 = $arr[$element->fieldName];
             		    $this->chartDataAttrset[$element->key] = $element->attrs;
             		}
-            		if ($element->m_Class == "chart.lib.ChartCategory")
+            		if ($element->m_Class == "report.lib.ChartCategory")
             		    $this->chartCategory[] = $arr[$element->fieldName];
             	}
             }
