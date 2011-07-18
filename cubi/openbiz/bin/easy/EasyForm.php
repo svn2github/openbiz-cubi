@@ -718,7 +718,7 @@ class EasyForm extends MetaObject implements iSessionObject
     {    	    	
         if ($paramFields)
         {
-        	$this->m_FixSearchRule=null;
+        	//$this->m_FixSearchRule=null; // TODO: check why set fixsearchrule to null here?
             foreach($paramFields as $fieldName=>$val)
             {
                 $element = $this->m_DataPanel->getByField($fieldName);
@@ -796,7 +796,7 @@ class EasyForm extends MetaObject implements iSessionObject
         if (!$dataObj) return null;
         
         QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
-        
+
         if ($this->m_RefreshData)
             $dataObj->resetRules();
         else
