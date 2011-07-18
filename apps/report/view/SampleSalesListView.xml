@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="SampleSalesListView" Description="report.sample" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="">
+   <FormReferences>
+   		<Reference Name="report.sample.form.SampleSalesListForm"/>
+   </FormReferences>
+   <FormReferenceLibs>
+   		<Reference Name="report.sample.form.SampleSalesListForm"/>
+   		<Reference Name="report.sample.form.SampleSalesEditForm"/>
+   		<Reference Name="report.sample.form.SampleSalesCopyForm"/>
+   		<Reference Name="report.sample.form.SampleSalesNewForm"/>
+   		<Reference Name="report.sample.form.SampleSalesDetailForm"/>
+   </FormReferenceLibs>    
+</EasyView>

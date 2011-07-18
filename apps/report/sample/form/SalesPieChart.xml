@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="SponsorPieChart" Class="chart.form.ChartForm" FormType="Detail" ChartType="Pie2D" ChartAttrs="showValues=1;showNames=1;numberPrefix=$;baseFontSize=12" Width="700" Height="300" jsClass="Openbiz.Form" Title="Sponsor Donation" BizDataObj="chart.do.SponsorDO" TemplateEngine="Smarty" TemplateFile="chartform.tpl.html">
+    <DataPanel>
+        <Element Name="fld_name" Class="chart.lib.ChartCategory" FieldName="name" Label="Name"/>
+        <Element Name="fld_donation" Class="chart.lib.ChartData" FieldName="donation" Label="Donation"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_redraw" Class="Button" Text="Redraw" CssClass="button_gray_m">
+            <EventHandler Name="redraw_onclick" Event="onclick" Function="RedrawChart()" />
+        </Element>
+		<Element Name="btn_print" Class="LabelText" Text="Print" CssClass="button_gray_m" link="sponsor_list_print" target="_blank"></Element>
+		
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

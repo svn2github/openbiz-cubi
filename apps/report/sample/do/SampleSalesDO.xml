@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="SampleSalesDO" Description="" Class="BizDataObj" DBName="Default" Table="report_sample_sales" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+        <BizField Name="Id" Column="id"     Type="Number"/>
+        <BizField Name="name" Column="name" Length="128"   Required="Y" Type="Text"/>
+        <BizField Name="division" Column="division" Length="32"   Required="Y" Type="Text"/>
+        <BizField Name="product" Column="product" Length="64"   Required="Y" Type="Text"/>
+        <BizField Name="year" Column="year" Length="10"   Required="Y" Type="Text"/>
+        <BizField Name="revenue" Column="revenue"    Required="Y" Type="Number"/>
+        <BizField Name="cost" Column="cost"    Required="Y" Type="Number"/>
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

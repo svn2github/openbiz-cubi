@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="SampleSalesReportView" Description="Sample sales report" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_report.tpl.html">
+   <FormReferences>
+   		<Reference Name="report.sample.form.SalesListGrid"/>
+        <Reference Name="report.sample.form.SalesColumnChart"/>
+        <Reference Name="report.sample.form.SalesColumnChart2"/>
+        <!--<Reference Name="report.sample.form.SalesPieChart"/>-->
+   </FormReferences>  
+</EasyView>

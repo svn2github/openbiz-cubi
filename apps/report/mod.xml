@@ -19,6 +19,10 @@
                  <MenuItem Name="System.Report.ReportMy" Title="My Reports" Description=""  URL="/report/my_reports" Order="10"/>
                  <MenuItem Name="System.Report.ReportMytree" Title="My Reports Map" Description=""  URL="/report/my_reports_map" Order="20"/>
             </MenuItem>
+            <MenuItem Name="System.Report.Sample" Title="Sample Report" Description="View sample reports" IconImage="spacer.gif" IconCssClass="icon_my_report" Order="30">			 
+                 <MenuItem Name="System.Report.SampleSalesAdmin" Title="Sales Admin" Description=""  URL="/report/sample_sales_list" Order="10"/>
+                 <MenuItem Name="System.Report.SampleSalesReport" Title="Sales Report" Description=""  URL="/report/sample_sales_report" Order="20"/>
+            </MenuItem>
         </MenuItem>
     </Menu>
     <Dependency>

@@ -1,4 +1,7 @@
 {php}
+$left_menu = "report.widget.LeftMenu";
+$this->assign("left_menu", $left_menu);
+
 $header_background_image='/report/images/top_logo_banner.gif';
 $this->assign('header_background_image', $header_background_image);
 
