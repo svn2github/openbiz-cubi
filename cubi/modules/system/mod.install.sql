@@ -180,6 +180,10 @@ CREATE TABLE `group` (
   UNIQUE KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+/*Data for the table `group` */
+
+insert  into `group`(`id`,`name`,`description`,`default`,`status`,`create_by`,`create_time`,`update_by`,`update_time`) values (1,'Default Group',NULL,1,1,1,'2011-07-06 18:33:15',1,'2011-07-06 18:33:15');
+
 /*Table structure for table `group_role` */
 
 DROP TABLE IF EXISTS `user_group`;
