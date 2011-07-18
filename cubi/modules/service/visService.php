@@ -24,12 +24,12 @@ class visService
     {
         // get current user's group list
         $userProfile = BizSystem::getUserProfile();
-        if (!$userProfile)
-            return "";
+        //print_r($userProfile);
+        if (!$userProfile ||!$userProfile['groups'])
+            return "[".$groupIdField."] is null";
         $userId = $userProfile['Id'];
         $groupList = implode(",", $userProfile['groups']);
         
-        // return "[$groupIdField] in ($groupList)"
         return "[".$groupIdField."] in (".$groupList.")";
     }
     
