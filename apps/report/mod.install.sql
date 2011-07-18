@@ -200,3 +200,37 @@ CREATE TABLE `report_map` (
   KEY `parent_id` (`parent_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure `report_sample_sales`
+--
+
+DROP TABLE IF EXISTS `report_sample_sales`;
+CREATE TABLE `report_sample_sales` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(128) NOT NULL,
+  `division` varchar(32) NOT NULL,
+  `product` varchar(64) NOT NULL,
+  `year` varchar(10) NOT NULL,
+  `revenue` float NOT NULL,
+  `cost` float NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Data for the table `report_sample_sales` */
+
+insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('1','2000 West HDTV Sales','West','HDTV','2000','568900','210290');
+insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('2','2000 East HDTV Sales','East','HDTV','2000','450390','190380');
+insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('3','2000 West SDTV Sales','West','SDTV','2000','869100','530400');
+insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('4','2000 East SDTV Sales','East','SDTV','2000','721100','411040');
+insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('5','2001 West HDTV Sales','West','HDTV','2001','668900','310290');
+insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('6','2001 East HDTV Sales','East','HDTV','2001','550390','290380');
+insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('7','2001 West SDTV Sales','West','SDTV','2001','769100','430400');
+insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('8','2001 East SDTV Sales','East','SDTV','2001','621100','311040');
+insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('9','2002 West HDTV Sales','West','HDTV','2002','768900','410290');
+insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('10','2002 East HDTV Sales','East','HDTV','2002','650390','390380');
+insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('11','2002 West SDTV Sales','West','SDTV','2002','669100','330400');
+insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('12','2002 East SDTV Sales','East','SDTV','2002','512200','211040');
