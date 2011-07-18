@@ -71,7 +71,7 @@ $j(function () {
 		},
         callback : {
             onselect : function(n,t) { 
-                location.href='<?php echo APP_INDEX;?>/report/report/'+n.value;
+                location.href = APP_INDEX+n.href;
             }
         }
 	});
@@ -103,16 +103,17 @@ $j(function () {
             else
                 $class = 'leaf';
         }
-        
+        if (strpos($_SERVER['REQUEST_URI'],$elem->m_Link)!==false) 
+            $clicked="clicked";
+        else 
+            $clicked = '';
         if($elem->m_Type=='folder'){        
-        	echo "<li id=\"".$objName."_"."$nodeId\" rel=\"".$elem->m_Type."\" value=\"$nodeId\" class=\"$class\"><a href=\"".$elem->m_link."\">$text</a>\n";
+        	echo "<li id=\"".$objName."_"."$nodeId\" rel=\"".$elem->m_Type."\" value=\"$nodeId\" class=\"$class $clicked\" href=\".$elem->m_Link.\"><a href=\"".APP_INDEX.$elem->m_Link."\">$text</a>\n";
         }
         elseif($elem->m_Type=='report')
         {
-            if ($elem->m_Id == $report_id) $clicked="clicked";
-            else $clicked = '';
             $class = 'leaf';
-        	echo "<li id=\"".$objName."_"."$nodeId\" rel=\"".$elem->m_Type."\" value=\"$nodeId\" class=\"$class\"><a style=\"width:100px;height:auto;display:inline-block;table-layout:fixed\"  class=\"leaf2 $clicked\" href=\"".$elem->m_link."\">$text</a>\n";
+        	echo "<li id=\"".$objName."_"."$nodeId\" rel=\"".$elem->m_Type."\" value=\"$nodeId\" class=\"$class\" href=\".$elem->m_Link.\"><a style=\"width:100px;height:auto;display:inline-block;table-layout:fixed\"  class=\"leaf2 $clicked\" href=\"".APP_INDEX.$elem->m_Link."\">$text</a>\n";
         }
         if ($children && count($children)>0)
         {

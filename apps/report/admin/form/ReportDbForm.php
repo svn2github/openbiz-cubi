@@ -7,7 +7,7 @@ class ReportDbForm extends EasyForm
 	
 	public function insertRecord(){
 		$result = parent::insertRecord();
-		$this->reloadAll();
+		//$this->reloadAll();
 		return $result;
 	}
 	

@@ -73,10 +73,10 @@ class ReportForm extends EasyForm
 		}else{
 			$this->m_Range = -1;
 		}
-		
+
 		if($formRecord['fix_searchrule']) $this->m_FixSearchRule = $formRecord['fix_searchrule'];
 		if($formRecord['default_searchrule']) $this->m_SearchRule = $formRecord['default_searchrule'];
-		
+
 		// fetch the do record, then create dataobj
         $_doDO = BizSystem::getObject($doDO,1);
         $doRecord = $_doDO->fetchById($formRecord['do_id']);

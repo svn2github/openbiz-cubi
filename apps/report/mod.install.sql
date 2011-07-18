@@ -23,6 +23,8 @@ CREATE TABLE IF NOT EXISTS `report_db` (
 
 /*Data for the table `report_db` */
 
+insert  into `report_db`(`id`,`name`,`server`,`port`,`driver`,`db_name`,`username`,`password`,`charset`,`create_by`,`create_time`,`update_by`,`update_time`) values (1,'Sample sale db','localhost','3306','PDO_MYSQL','gcubi','root','b75282010f9549dd177a1ed7903df4ee','utf8',1,'2011-07-17 23:20:44',1,'2011-07-17 23:20:44');
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +49,8 @@ CREATE TABLE IF NOT EXISTS `report_do` (
 
 /*Data for the table `report_do` */
 
+insert  into `report_do`(`id`,`name`,`table`,`db_id`,`search_rule`,`sort_rule`,`group_by`,`create_by`,`create_time`,`update_by`,`update_time`) values (1,'Sales table','report_sample_sales',1,NULL,NULL,NULL,1,'2011-07-17 23:22:13',1,'2011-07-17 23:22:13');
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +74,8 @@ CREATE TABLE IF NOT EXISTS `report_do_field` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci  ;
 
 /*Data for the table `report_do_field` */
+
+insert  into `report_do_field`(`id`,`name`,`do_id`,`column`,`sql_expr`,`type`,`format`,`create_by`,`create_time`,`update_by`,`update_time`) values (1,'Id',1,'id',NULL,'Number',NULL,1,'2011-07-17 23:22:24',1,'2011-07-17 23:22:24'),(2,'Name',1,'name',NULL,'Text',NULL,1,'2011-07-17 23:22:24',1,'2011-07-17 23:22:24'),(3,'Division',1,'division',NULL,'Text',NULL,1,'2011-07-17 23:22:24',1,'2011-07-17 23:22:24'),(4,'Product',1,'product',NULL,'Text',NULL,1,'2011-07-17 23:22:24',1,'2011-07-17 23:22:24'),(5,'Year',1,'year',NULL,'Text',NULL,1,'2011-07-17 23:22:24',1,'2011-07-17 23:22:24'),(6,'Revenue',1,'revenue',NULL,'Number',NULL,1,'2011-07-17 23:22:24',1,'2011-07-17 23:22:24'),(7,'Cost',1,'cost',NULL,'Number',NULL,1,'2011-07-17 23:22:24',1,'2011-07-17 23:22:24');
 
 -- --------------------------------------------------------
 
@@ -102,6 +108,8 @@ CREATE TABLE IF NOT EXISTS `report_form` (
 
 /*Data for the table `report_form` */
 
+insert  into `report_form`(`id`,`name`,`description`,`do_id`,`view_id`,`title`,`type`,`subtype`,`width`,`height`,`attrs`,`fix_searchrule`,`default_searchrule`,`sort_order`,`create_by`,`create_time`,`update_by`,`update_time`) values (1,NULL,NULL,1,1,'Sample Sales West Table','table','Column2D',700,300,'TemplateFile=report_table_default.tpl.html;PageSize=10;shownames=0;showValues=0;showhovercap=0;numberPrefix=;numberSuffix=;formatNumber=0;formatNumberScale=0;showPercentageValues=0;showPercentageInLabel=0;pieRadius=;pieYScale=;pieSliceDepth=;showShadow=0;animation=0;showLimits=0;rotateNames=0;showColumnShadow=0;showBarShadow=0;yAxisMinValue=;yAxisMaxValue=;showAnchors=0;anchorRadius=;showAreaBorder=0;areaAlpha=;showLegend=0;','[Division]=\'west\' and [Product]=\'HDTV\'',NULL,10,1,'2011-07-17 23:23:18',1,'2011-07-18 00:04:40'),(2,NULL,NULL,1,1,'Sample Sale West Chart','chart','MSColumn3D',700,300,'TemplateFile=report_table_default.tpl.html;PageSize=10;shownames=1;showValues=1;showhovercap=1;numberPrefix=;numberSuffix=;formatNumber=0;formatNumberScale=0;showPercentageValues=1;showPercentageInLabel=1;pieRadius=;pieYScale=;pieSliceDepth=;showShadow=1;animation=1;showLimits=1;rotateNames=1;showColumnShadow=1;showBarShadow=1;yAxisMinValue=;yAxisMaxValue=;showAnchors=1;anchorRadius=;showAreaBorder=1;areaAlpha=;showLegend=1;','[Division]=\'west\' and [Product]=\'HDTV\'',NULL,15,1,'2011-07-17 23:25:47',1,'2011-07-18 00:07:55');
+
 -- --------------------------------------------------------
 
 --
@@ -130,6 +138,8 @@ ALTER TABLE `report_form_element` ADD `select_from` TEXT COLLATE utf8_unicode_ci
 
 /*Data for the table `report_form_element` */
 
+insert  into `report_form_element`(`id`,`name`,`form_id`,`field_id`,`label`,`class`,`attrs`,`style`,`select_from`,`sort_order`,`create_by`,`create_time`,`update_by`,`update_time`) values (1,NULL,1,2,'Name','ColumnText',NULL,NULL,NULL,10,1,'2011-07-17 23:23:18',1,'2011-07-17 23:23:18'),(2,NULL,1,3,'Division','ColumnText',NULL,NULL,NULL,20,1,'2011-07-17 23:23:18',1,'2011-07-17 23:23:18'),(3,NULL,1,4,'Product','ColumnText',NULL,NULL,NULL,30,1,'2011-07-17 23:23:18',1,'2011-07-17 23:23:18'),(4,NULL,1,5,'Year','ColumnText',NULL,NULL,NULL,40,1,'2011-07-17 23:23:18',1,'2011-07-17 23:23:18'),(5,NULL,1,6,'Revenue','ColumnText',NULL,NULL,NULL,50,1,'2011-07-17 23:23:18',1,'2011-07-17 23:23:18'),(6,NULL,1,7,'Cost','ColumnText',NULL,NULL,NULL,60,1,'2011-07-17 23:23:18',1,'2011-07-17 23:23:18'),(7,NULL,2,5,'Year','report.lib.ChartCategory','width:100%;height:100%;font-weight:normal;font-style:normal;text-decoration:auto;text-align:left;font-size:12px;',NULL,NULL,10,1,'2011-07-17 23:25:47',1,'2011-07-18 00:08:01'),(8,NULL,2,6,'Revenue','report.lib.ChartData','width:100%;height:100%;font-weight:normal;font-style:normal;text-decoration:auto;text-align:left;font-size:12px;',NULL,NULL,20,1,'2011-07-17 23:25:47',1,'2011-07-17 23:35:10'),(9,NULL,2,7,'Cost','report.lib.ChartData','width:100%;height:100%;font-weight:normal;font-style:normal;text-decoration:auto;text-align:left;font-size:12px;',NULL,NULL,30,1,'2011-07-17 23:35:35',1,'2011-07-17 23:35:35');
+
 -- --------------------------------------------------------
 
 --
@@ -156,6 +166,9 @@ CREATE TABLE IF NOT EXISTS `report_view` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci  ;
 
 /*Data for the table `report_view` */
+
+insert  into `report_view`(`id`,`folder_id`,`name`,`title`,`description`,`default_db_id`,`default_do_id`,`sort_order`,`owner_id`,`group_id`,`create_by`,`create_time`,`update_by`,`update_time`) values (1,0,NULL,'Sample Sales West',NULL,1,1,10,0,1,1,'2011-07-17 23:23:18',1,'2011-07-17 23:23:18');
+
 
 /*Table structure for table `report_color` */
 
@@ -200,6 +213,9 @@ CREATE TABLE `report_map` (
   KEY `parent_id` (`parent_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+/*Data for the table `report_map` */
+
+insert  into `report_map`(`id`,`parent_id`,`name`,`title`,`link`,`publish`,`sort_order`,`group_id`,`create_time`,`create_by`,`update_time`,`update_by`) values (1,0,'Sample Reports','Sample Reports',NULL,1,10,1,'2011-07-18 00:09:44',1,'2011-07-18 00:09:44',1),(2,1,'Custom report','Custom report','/report/report/1',1,10,1,'2011-07-18 00:10:30',1,'2011-07-18 00:12:41',1),(3,1,'Pre-built report','Pre-built report','/report/sample_sales_report',1,10,1,'2011-07-18 00:11:05',1,'2011-07-18 00:11:05',1);
 
 -- --------------------------------------------------------
 

@@ -7,12 +7,13 @@ $theme_js_url = $this->_tpl_vars['theme_js_url'];
 $css_url = $this->_tpl_vars['css_url'];
 
 BizSystem::clientProxy()->includeCKEditorScripts();
+BizSystem::clientProxy()->includeColorPickerScripts();
 $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 $includedScripts.="
 <script type='text/javascript' src='$js_url/cookies.js'></script>
 <script type='text/javascript' src='$js_url/grouping.js'></script>
 <script type='text/javascript' src='$theme_js_url/general_ui.js'></script>
-<script>forceSelectRecord=true;</script>
+<script>forceSelectRecord=true; \$j=jQuery.noConflict();</script>
 <script>
 //edit report elements functions
 function showElementConfigOptions(type){

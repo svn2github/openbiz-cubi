@@ -58,7 +58,7 @@ class ChartForm extends EasyForm
                 $searchRule = $this->m_FixSearchRule;
         }
         else
-        $searchRule = $this->m_SearchRule;
+            $searchRule = $this->m_SearchRule;
         $dataObj->setSearchRule($searchRule);
         if($this->m_StartItem>1)
         {
