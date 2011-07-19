@@ -39,6 +39,8 @@ class ReportFilterForm extends ReportForm
             	$searchRule = "";
 //            }       
         }
+        if (empty($searchRule)) 
+            return;
         $searchRule = $searchBaseRule."true";
 		$searchRuleBindValues = QueryStringParam::getBindValues();
 		// redraw all forms other than this filter form

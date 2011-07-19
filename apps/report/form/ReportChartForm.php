@@ -99,8 +99,8 @@ class ReportChartForm extends ReportForm
         else if (count($this->chartDataset) == 1)
             return $this->drawSingleSeries();
         else {
-            $errmsg = "Cannot draw chart due to empty data set.";
-            trigger_error($errmsg, E_USER_ERROR);
+            //$errmsg = "Cannot draw chart due to empty data set.";
+            //trigger_error($errmsg, E_USER_ERROR);
             return;
         }
         return "";
