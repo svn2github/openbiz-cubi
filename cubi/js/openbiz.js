@@ -6,6 +6,7 @@ var Openbiz =
 {
     appHome: null,
     appUrl: null,
+    currentView: null,
     formInstances: new Array(),
     activeForm: null,
     debug: false,
@@ -15,6 +16,7 @@ var Openbiz =
         if (APP_URL && APP_CONTROLLER) {
             Openbiz.appUrl = APP_URL;
             Openbiz.appHome = APP_CONTROLLER;
+            Openbiz.currentView = APP_VIEWNAME;
             return;
         }
         $$('script').each (function(script) {
@@ -140,13 +142,16 @@ Openbiz.Form = Class.create(
             requestString = Openbiz.Util.composeRequestString("RPCInvoke", paramArray);
         else
             requestString = Openbiz.Util.composeRequestString("Invoke", paramArray);
-        url += "?"+requestString;
+        //url += "?"+requestString;
+        formData = requestString + "&" + formData;
         if (options && options['evthdl'])
-            url += "&__this="+options['evthdl'];
+            formData += "&__this="+options['evthdl'];
         
-        if(this.selectedId){
-        	url += "&_selectedId=" + this.selectedId;
-        }
+        /*if(this.selectedId){
+        	formData += "&_selectedId=" + this.selectedId;
+        }*/
+        
+        formData += "&_thisView=" + Openbiz.currentView;
         
         switch (type) {
             case Openbiz.ActionType.PAGE:
