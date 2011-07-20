@@ -106,6 +106,9 @@ class BizController
             
 			return $this->renderView($viewName, $form, $rule, $params, $hist);
         }
+        else if (isset($_POST['_thisView']) && !empty($_POST['_thisView'])) {
+            BizSystem::instance()->setCurrentViewName($_POST['_thisView']);
+        }
 
         $retval = $this->invoke();
 
@@ -206,7 +209,7 @@ class BizController
         else
             BizSystem::sessionContext()->clearSessionObjects(false);
 		*/
-		BizSystem::sessionContext()->clearSessionObjects(true);            
+		BizSystem::sessionContext()->clearSessionObjects(true);
             
         if ($hist == "N") // clean view history
             $viewObj->CleanViewHistory();

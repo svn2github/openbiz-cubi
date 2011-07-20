@@ -248,8 +248,10 @@ class SessionContext
                 $obj->setSessionVars($this);
             }
             // if previous view's object is used in current view, don't discard its session data
-            if (isset($obj->m_Name) && key_exists($obj->m_Name, $this->_prevViewObjNames))
+            if (isset($obj->m_Name) && key_exists($obj->m_Name, $this->_prevViewObjNames)) {
                 unset($this->_prevViewObjNames[$obj->m_Name]);
+                BizSystem::log(LOG_ERR, "SESSION", "unset ".$obj->m_Name);
+            }
         }
 
         // discard useless previous view's session objects
@@ -302,6 +304,7 @@ class SessionContext
             {
                 foreach($this->_sessObjArr as $objName=>$sessobj)
                 {
+                    //echo "save sess $objName <br/>";
                     $this->_prevViewObjNames[$objName] = 1;
                 }
             }

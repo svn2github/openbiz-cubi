@@ -509,7 +509,9 @@ class ClientProxy
      */
     public function getAppendedScripts()
     {
+        $currentView = BizSystem::instance()->getCurrentViewName();
         $initScripts = "<script>var APP_URL='".APP_URL."'; var APP_CONTROLLER='".APP_URL."/bin/controller.php';</script>\n";
+        $initScripts .= "<script>var APP_VIEWNAME='".$currentView."';</script>\n";
         $extraScripts = implode("", $this->_extraScripts);
         $extraScript_array = explode("</script>", $extraScripts);
         /*if (defined("RESOURCE_PHP")) {
