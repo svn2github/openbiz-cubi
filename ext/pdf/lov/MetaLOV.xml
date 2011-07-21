@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <TitleType Value="DEFAULT" text="System Default"/>
+   <TitleType Value="NONE" text="None"/>
+
+   <AuthorType Value="DEFAULT" text="System Default"/>
+   <AuthorType Value="DEFAULT_USERNAME" text="Current Username"/>
+   <AuthorType Value="DEFAULT_DISPLAY_NAME" text="Current Display Name"/>
+   <AuthorType Value="NONE" text="None"/>
+   
+   <CreatorType Value="DEFAULT" text="System Default"/>
+   <CreatorType Value="NONE" text="None"/>   
+</Selection>

@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="DefaultPageHeaderSettingView" Description="Default Page Header Setting" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_page_header.tpl" Access="pdf.modify_my_setting">
+    <FormReferences>
+        <Reference Name="pdf.form.DefaultPageHeaderSettingForm"/>
+    </FormReferences>
+</EasyView>

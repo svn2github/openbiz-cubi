@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="pdf" Description="PDF Printer" Version="0.1" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="pdf">
+			<Action Name="modify_global_setting" Description="Modify global PDF printer setting"/>
+			<Action Name="modify_my_setting" Description="Modify my PDF printer setting"/>
+		</Resource>
+	</ACL>
+    <Menu>
+            <MenuItem Name="MyAccount.PDF" Parent="MyAccount" Title="PDF Printer" Description="Manage my PDF Printer setting" URL="" IconCssClass="icon_mypdf" Order="90">
+				<MenuItem Name="MyAccount.PDF.WebpagePrinter" Title="Webpage Printer" Description="" URL="/pdf/my_pdf_printer" Order="0"/>
+                <MenuItem Name="MyAccount.PDF.MyPageHeaderSetting" Title="Page Header Setting" Description="" URL="/pdf/my_page_header_setting" Order="10"/>
+				<MenuItem Name="MyAccount.PDF.MyPageFooterSetting" Title="Page Footer Setting" Description="" URL="/pdf/my_page_footer_setting" Order="20"/>
+				<MenuItem Name="MyAccount.PDF.MyProtection" Title="Protection Setting" Description="" URL="/pdf/my_protection" Order="40"/>
+                <MenuItem Name="MyAccount.PDF.MyWatermark" Title="Watermark Setting" Description="" URL="/pdf/my_watermark" Order="50"/>								
+				<MenuItem Name="MyAccount.PDF.MyMetaSetting" Title="Meta Setting" Description="" URL="/pdf/my_meta_setting" Order="60"/>
+
+            </MenuItem>		
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    	<Module Name="contact"/>
+    </Dependency>
+</Module>

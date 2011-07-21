@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="DefaultPageFooterSettingView" Description="Default Page Footer Setting" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_page_footer.tpl" Access="pdf.modify_my_setting">
+    <FormReferences>
+        <Reference Name="pdf.form.DefaultPageFooterSettingForm"/>
+    </FormReferences>
+</EasyView>

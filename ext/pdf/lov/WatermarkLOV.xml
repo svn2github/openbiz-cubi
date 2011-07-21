@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <WatermarkType Value="Text" text="Text"/>
+   <WatermarkType Value="Picture" text="Picture"/>
+
+   <SizeType Value="D" text="Original size of image"/>
+   <SizeType Value="P" text="Resize to fit the full page size, keeping aspect ratio"/>
+   <SizeType Value="F" text="Resize to fit the print-area"/>
+   
+   <PositionType Value="P" text="Centred on the whole page area"/>
+   <PositionType Value="F" text="Centred on the page print-area (frame) respecting page margins"/>
+</Selection>

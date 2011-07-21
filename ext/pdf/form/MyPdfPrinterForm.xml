@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="MyPdfPrinterForm" Class="MyPdfPrinter" FormType="NEW" Icon="icon_pdf.gif" jsClass="jbForm"  SearchRule="[section]='PDF' and [user_id]='{@profile:Id}'" Title="My PDF Printer" Description="You can print a webpage by fill in the URL in below." BizDataObj="" TemplateEngine="Smarty" TemplateFile="detail_pdf_printer.tpl">
+    <DataPanel>                
+		<Element Name="fld_url"  Class="InputText"  ElementSet="Printing Target" DefaultValue="http://" FieldName="url" Text="" Label="Printing Webpage URL"  />        
+		<Element Name="fld_page_header"  Class="Radio" KeepCookie="Y" DefaultValue="MY" SelectFrom="pdf.lov.PrinterLOV(PrintOption)"  ElementSet="Printing Options" FieldName="page_header" Text="" Label="Page Header Setting"  CssClass=""/>
+		<Element Name="fld_page_footer"  Class="Radio" KeepCookie="Y" DefaultValue="MY" SelectFrom="pdf.lov.PrinterLOV(PrintOption)"  ElementSet="Printing Options" FieldName="page_footer" Text="" Label="Page Footer Setting"  CssClass=""/>
+		<Element Name="fld_protection"  Class="Radio" KeepCookie="Y" DefaultValue="MY" SelectFrom="pdf.lov.PrinterLOV(PrintOption)" ElementSet="Printing Options" FieldName="protection" Label="Protection Setting"   />
+		<Element Name="fld_watermark"  Class="Radio" KeepCookie="Y" DefaultValue="MY" SelectFrom="pdf.lov.PrinterLOV(PrintOption)" ElementSet="Printing Options" FieldName="watermark" label="Watermark Setting"   Description=""   />				
+		<Element Name="fld_meta"  Class="Radio" KeepCookie="Y" DefaultValue="MY" SelectFrom="pdf.lov.PrinterLOV(PrintOption)" ElementSet="Printing Options" FieldName="meta" label="Meta Setting"  Description=""   />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_print" Class="Button" Text="Print" CssClass="button_gray_w">
+            <EventHandler Name="print_onclick" Event="onclick" EventLogMsg=""  Function="PrintPDF()" FunctionType="Aim"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+			<EventHandler Name="print_onclick_js" Event="onclick" EventLogMsg=""  Function="js:clean_indicator()" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="DefaultBarcodeSettingView" Description="Default Barcode Setting" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_system.tpl" Access="pdf.modify_my_setting">
+    <FormReferences>
+        <Reference Name="pdf.form.DefaultBarcodeForm"/>
+    </FormReferences>
+</EasyView>

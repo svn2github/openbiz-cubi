@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="MyMetaSettingForm" Class="MyPdfForm" InheritFrom="pdf.form.DefaultMetaSettingForm" FormType="" Icon="icon_pdf.gif" jsClass="jbForm" SearchRule="[section]='PDF' and [user_id]='{@profile:Id}'" Title="My Meta Setting" Description="You can custom your meta setting in PDF Printer." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>                
+   </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(pdf.form.MyMetaSettingEditForm)"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

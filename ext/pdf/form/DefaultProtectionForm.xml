@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="DefaultProtectionForm" Class="PdfForm" FormType="" Icon="icon_pdf.gif" jsClass="jbForm" SearchRule="[section]!=''" Title="Default Protection Setting" Description="You can custom your protection setting in PDF Printer." BizDataObj="pdf.do.PdfDO" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>                
+		<Element Name="fld_readonly_password"  Class="LabelPassword" ElementSet="Password" FieldName="_readonly_password" Text="" Label="Readonly Password"  CssClass=""/>        
+		<Element Name="fld_password"  Class="LabelPassword" ElementSet="Password" FieldName="_password" Label="Edit Password"   />
+		<Element Name="fld_protect_copy"  Class="LabelBool" ElementSet="Protection" label="Protect Copy"  FieldName="_protect_copy" Description=""   />				
+		<Element Name="fld_protect_print"  Class="LabelBool" ElementSet="Protection" label="Protect Print"  FieldName="_protect_print" Description=""   />
+		<Element Name="fld_protect_modify"  Class="LabelBool" ElementSet="Protection" label="Protect Modify"  FieldName="_protect_modify" Description=""   />
+		<Element Name="fld_protect_annot_forms"  Class="LabelBool" ElementSet="Protection" label="Protect Annot-Forms"  FieldName="_protect_annot" Description=""   />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(pdf.form.DefaultProtectionEditForm)"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

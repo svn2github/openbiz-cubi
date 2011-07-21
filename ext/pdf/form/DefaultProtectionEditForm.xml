@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="DefaultProtectionEditForm" Class="PdfForm" FormType="Edit" Icon="icon_pdf.gif" jsClass="jbForm"  SearchRule="[section]!=''" Title="Edit Default Protection Setting" Description="You can custom your protection setting in PDF Printer." BizDataObj="pdf.do.PdfDO" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>
+		<Element Name="fld_readonly_password"  Class="Password" ElementSet="Password" FieldName="_readonly_password" Text="" Label="Readonly Password"  />        
+		<Element Name="fld_password"  Class="Password" ElementSet="Password" FieldName="_password" Label="Edit Password"   />
+		<Element Name="fld_protect_copy"  Class="Radio" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="Protection" label="Protect Copy"  FieldName="_protect_copy" Description=""   />				
+		<Element Name="fld_protect_print"  Class="Radio" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="Protection" label="Protect Print"  FieldName="_protect_print" Description=""   />
+		<Element Name="fld_protect_modify"  Class="Radio" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="Protection" label="Protect Modify"  FieldName="_protect_modify" Description=""   />
+		<Element Name="fld_protect_annot_forms"  Class="Radio" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="Protection" label="Protect Annot-Forms"  FieldName="_protect_annot" Description=""   />      
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_w">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=pdf.form.DefaultProtectionForm" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="DefaultMetaSettingForm" Class="PdfForm" FormType="" Icon="icon_pdf.gif" jsClass="jbForm" SearchRule="[section]!=''" Title="Default Meta Setting" Description="You can custom your meta setting in PDF Printer." BizDataObj="pdf.do.PdfDO" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>                
+		<Element Name="fld_meta_title"  Class="LabelList" SelectFrom="pdf.lov.MetaLOV(TitleType)" ElementSet="Metadata Information" FieldName="_meta_title" Text="" Label="Meta Title"  CssClass=""/>        
+		<Element Name="fld_meta_author"  Class="LabelList" SelectFrom="pdf.lov.MetaLOV(AuthorType)" ElementSet="Metadata Information" FieldName="_meta_author" Text="" Label="Meta Author"  CssClass=""/>
+		<Element Name="fld_meta_creator"  Class="LabelList" SelectFrom="pdf.lov.MetaLOV(CreatorType)" ElementSet="Metadata Information" FieldName="_meta_creator" Label="Meta Creator"   />
+		<Element Name="fld_meta_subject"  Class="LabelText" ElementSet="Metadata Information" FieldName="_meta_subject" label="Meta Subject"   Description=""   />				
+		<Element Name="fld_meta_keywords"  Class="LabelText" ElementSet="Metadata Information" FieldName="_meta_keywords" label="Meta Keywords"  Description=""   />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(pdf.form.DefaultMetaSettingEditForm)"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

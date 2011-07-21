@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="DefaultPageFooterSettingEditForm" Class="PdfForm" FormType="New" Icon="icon_pdf.gif" jsClass="jbForm"  SearchRule="[section]!=''" Title="Edit Default Page Footer Setting" Description="You can custom your page footer setting in PDF Printer." BizDataObj="pdf.do.PdfDO" TemplateEngine="Smarty" TemplateFile="detail_pagefooter_setting.tpl">
+    <DataPanel>                
+		<Element Name="fld_page_footer_type"  Class="Radio" SelectFrom="pdf.lov.PageLOV(FooterType)" ElementSet="Footer" FieldName="_page_footer_type" Text="" Label="Page Footer Type"  CssClass="">
+		      <EventHandler Name="fld_page_footer_type_onclick" Event="onclick" EventLogMsg=""  Function="js:change_footer_type(this.value)" />
+		</Element>      		   
+		<Element Name="fld_page_footer_html_odd" Class="CKEditor"  mode="adv" Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:200" width="640" height="200"  ElementSet="Footer HTML" FieldName="_page_footer_html_odd" Text="" Label="HTML Odd Page"  CssClass=""/>
+		<Element Name="fld_page_footer_html_even_type"  Class="Radio" SelectFrom="pdf.lov.PageLOV(HtmlOddPageType)" ElementSet="Footer HTML" FieldName="_page_footer_html_even_type" Text="" Label="Even Page Type"  CssClass="">
+		      <EventHandler Name="fld_page_footer_html_even_type_onclick" Event="onclick" EventLogMsg=""  Function="js:change_footer_html_type()" />
+		</Element>
+		<Element Name="fld_page_footer_html_even" Class="CKEditor"  mode="adv" Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:200" width="640" height="200" ElementSet="Footer HTML" FieldName="_page_footer_html_even" Label="HTML Even Page"   />
+		<Element Name="fld_page_footer_text_left"  Class="InputText" ElementSet="Footer Text" label="Left Text"  FieldName="_page_footer_text_left" Description=""   />				
+		<Element Name="fld_page_footer_text_left_font"  Class="Listbox" DefaultValue="10"  SelectFrom="pdf.lov.PageLOV(FontSize)" ElementSet="Footer Text" label="Left Text Font"  FieldName="_page_footer_text_left_font" Description=""   />
+		<Element Name="fld_page_footer_text_left_style"  Class="Listbox" SelectFrom="pdf.lov.PageLOV(FontStyle)" ElementSet="Footer Text" label="Left Text Style"  FieldName="_page_footer_text_left_style" Description=""   />
+		<Element Name="fld_page_footer_text_left_color"  Class="ColorPicker"  DefaultValue="000000"  ElementSet="Footer Text" label="Left Text Color"  FieldName="_page_footer_text_left_color" Description=""   />
+		<Element Name="fld_page_footer_text_center"  Class="InputText" ElementSet="Footer Text" label="Center Text"  FieldName="_page_footer_text_center" Description=""   />
+		<Element Name="fld_page_footer_text_center_font"  Class="Listbox" DefaultValue="10" SelectFrom="pdf.lov.PageLOV(FontSize)" ElementSet="Footer Text" label="Center Text Font"  FieldName="_page_footer_text_center_font" Description=""   />
+		<Element Name="fld_page_footer_text_center_style"  Class="Listbox" SelectFrom="pdf.lov.PageLOV(FontStyle)" ElementSet="Footer Text" label="Center Text Style"  FieldName="_page_footer_text_center_style" Description=""   />
+		<Element Name="fld_page_footer_text_center_color"  Class="ColorPicker" DefaultValue="000000"  ElementSet="Footer Text" label="Center Text Color"  FieldName="_page_footer_text_center_color" Description=""   />
+		<Element Name="fld_page_footer_text_right"  Class="InputText"   ElementSet="Footer Text" label="Right Text"  FieldName="_page_footer_text_right" Description=""   />
+		<Element Name="fld_page_footer_text_right_font"  Class="Listbox" DefaultValue="10" SelectFrom="pdf.lov.PageLOV(FontSize)" ElementSet="Footer Text" label="Right Text Font"  FieldName="_page_footer_text_right_font" Description=""   />
+		<Element Name="fld_page_footer_text_right_style"  Class="Listbox"  SelectFrom="pdf.lov.PageLOV(FontStyle)" ElementSet="Footer Text" label="Right Text Style"  FieldName="_page_footer_text_right_style" Description=""   />
+		<Element Name="fld_page_footer_text_right_color"  Class="ColorPicker" DefaultValue="000000"  ElementSet="Footer Text" label="Right Text Color"  FieldName="_page_footer_text_right_color" Description=""   />
+		<Element Name="fld_page_footer_text_line"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="Footer Text" label="Footer Line"  FieldName="_page_footer_text_line" Description=""   />
+		<Element Name="fld_page_footer_text_even_type"  Class="Radio" DefaultValue="SAME" SelectFrom="pdf.lov.PageLOV(OddPageType)" ElementSet="Footer Text" label="Even Page Type"  FieldName="_page_footer_text_even_type" Description=""   />
+
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_w">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=pdf.form.DefaultPageFooterSettingForm" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

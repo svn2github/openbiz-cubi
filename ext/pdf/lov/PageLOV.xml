@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <HeaderType Value="Html" text="HTML Header"/>
+   <HeaderType Value="Text" text="Text Header"/>
+
+   <FooterType Value="Html" text="HTML Header"/>
+   <FooterType Value="Text" text="Text Header"/>
+
+   <OddPageType Value="SAME" text="Same as Even"/>
+   <OddPageType Value="MIRROR" text="Mirror"/>
+
+   <HtmlOddPageType Value="SAME" text="Same as Even"/>
+   <HtmlOddPageType Value="CUSTOM" text="Custom"/>
+
+   <FontStyle Value="" text="Normal"/>
+   <FontStyle Value="B" text="Bold"/>
+   <FontStyle Value="I" text="Italic"/>
+   <FontStyle Value="BI" text="Bold and Italic"/>
+   
+   
+   <FontSize Value="6" text="6 pt"/>
+   <FontSize Value="8" text="8 pt"/>
+   <FontSize Value="10" text="10 pt"/>
+   <FontSize Value="12" text="12 pt"/>
+   <FontSize Value="14" text="14 pt"/>
+   <FontSize Value="16" text="16 pt"/>
+   <FontSize Value="18" text="18 pt"/>
+   <FontSize Value="20" text="20 pt"/>
+   <FontSize Value="22" text="22 pt"/>
+   <FontSize Value="24" text="24 pt"/>
+</Selection>

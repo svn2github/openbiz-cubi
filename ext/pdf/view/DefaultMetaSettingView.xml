@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="DefaultMetaSettingView" Description="Default Meta Setting" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_meta_setting.tpl" Access="pdf.modify_my_setting">
+    <FormReferences>
+        <Reference Name="pdf.form.DefaultMetaSettingForm"/>
+    </FormReferences>
+</EasyView>

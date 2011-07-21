@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="DefaultProtectionView" Description="Default Protection Setting" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_protection.tpl" Access="pdf.modify_my_setting">
+    <FormReferences>
+        <Reference Name="pdf.form.DefaultProtectionForm"/>
+    </FormReferences>
+</EasyView>

@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="DefaultWatermarkView" Description="Default Watermark Setting" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_watermark.tpl" Access="pdf.modify_my_setting">
+    <FormReferences>
+        <Reference Name="pdf.form.DefaultWatermarkForm"/>
+    </FormReferences>
+</EasyView>

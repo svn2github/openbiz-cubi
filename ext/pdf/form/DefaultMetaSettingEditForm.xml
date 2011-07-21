@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="DefaultMetaSettingEditForm" Class="PdfForm" FormType="Edit" Icon="icon_pdf.gif" jsClass="jbForm"  SearchRule="[section]!=''" Title="Edit Default Meta Setting" Description="You can custom your meta setting in PDF Printer." BizDataObj="pdf.do.PdfDO" TemplateEngine="Smarty" TemplateFile="detail.tpl">
+    <DataPanel>                
+		<Element Name="fld_meta_title"  Class="EditCombobox" SelectFrom="pdf.lov.MetaLOV(TitleType)" ElementSet="Metadata Information" FieldName="_meta_title" Text="" Label="Meta Title"  CssClass=""/>        
+		<Element Name="fld_meta_author"  Class="EditCombobox" SelectFrom="pdf.lov.MetaLOV(AuthorType)"  ElementSet="Metadata Information" FieldName="_meta_author" Text="" Label="Meta Author"  CssClass=""/>
+		<Element Name="fld_meta_creator"  Class="EditCombobox" SelectFrom="pdf.lov.MetaLOV(CreatorType)" ElementSet="Metadata Information" FieldName="_meta_creator" Label="Meta Creator"   />
+		<Element Name="fld_meta_subject"  Class="InputText" ElementSet="Metadata Information" FieldName="_meta_subject" label="Meta Subject"   Description=""   />				
+		<Element Name="fld_meta_keywords"  Class="InputText" ElementSet="Metadata Information" FieldName="_meta_keywords" label="Meta Keywords"  Description=""   />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_w">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=pdf.form.DefaultMetaSettingForm" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

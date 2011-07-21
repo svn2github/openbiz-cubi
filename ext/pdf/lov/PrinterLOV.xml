@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <PrintOption Value="MY" text="My Setting"/>
+   <PrintOption Value="SYSTEM" text="System Default"/>
+   <PrintOption Value="NONE" text="None"/>   
+</Selection>

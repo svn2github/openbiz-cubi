@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="DefaultPageHeaderSettingForm" Class="PdfForm" FormType="" Icon="icon_pdf.gif" jsClass="jbForm" SearchRule="[section]!=''" Title="Default Page Header Setting" Description="You can custom your page header setting in PDF Printer." BizDataObj="pdf.do.PdfDO" TemplateEngine="Smarty" TemplateFile="detail_pageheader_setting.tpl">
+    <DataPanel>                
+		<Element Name="fld_page_header_type"  Class="LabelList" SelectFrom="pdf.lov.PageLOV(HeaderType)" ElementSet="Header" FieldName="_page_header_type" Text="" Label="Page Header Type"  CssClass=""/>        
+		<Element Name="fld_page_header_type_radio"  Class="Radio" SelectFrom="pdf.lov.PageLOV(HeaderType)" ElementSet="Header" FieldName="_page_header_type" Text="" Label="Page Header Type"  CssClass=""/>
+		<Element Name="fld_page_header_html_odd"  Class="RawData"  ElementSet="Header HTML" FieldName="_page_header_html_odd" Text="" Label="HTML Odd Page"  CssClass=""/>
+		<Element Name="fld_page_header_html_even_type_radio"  Class="Radio" SelectFrom="pdf.lov.PageLOV(HtmlOddPageType)" ElementSet="Header HTML" label="Even Page Type"  FieldName="_page_header_html_even_type" Description=""   />
+		<Element Name="fld_page_header_html_even"  Class="RawData" ElementSet="Header HTML" FieldName="_page_header_html_even" Label="HTML Even Page"   />
+		<Element Name="fld_page_header_html_even_type"  Class="LabelList" SelectFrom="pdf.lov.PageLOV(HtmlOddPageType)" ElementSet="Header HTML" label="Even Page Type"  FieldName="_page_header_html_even_type" Description=""   />
+		<Element Name="fld_page_header_text_left"  Class="LabelText" ElementSet="Header Text" label="Left Text"  FieldName="_page_header_text_left" Description=""   />				
+		<Element Name="fld_page_header_text_left_font"  Class="LabelList"  SelectFrom="pdf.lov.PageLOV(FontSize)" ElementSet="Header Text" label="Left Text Font"  FieldName="_page_header_text_left_font" Description=""   />
+		<Element Name="fld_page_header_text_left_style"  Class="LabelList" SelectFrom="pdf.lov.PageLOV(FontStyle)" ElementSet="Header Text" label="Left Text Style"  FieldName="_page_header_text_left_style" Description=""   />
+		<Element Name="fld_page_header_text_left_color"  Class="ColorPicker" Mode="viewonly"  ElementSet="Header Text" label="Left Text Color"  FieldName="_page_header_text_left_color" Description=""   />
+		<Element Name="fld_page_header_text_center"  Class="LabelText" ElementSet="Header Text" label="Center Text"  FieldName="_page_header_text_center" Description=""   />
+		<Element Name="fld_page_header_text_center_font"  Class="LabelList" SelectFrom="pdf.lov.PageLOV(FontSize)" ElementSet="Header Text" label="Center Text Font"  FieldName="_page_header_text_center_font" Description=""   />
+		<Element Name="fld_page_header_text_center_style"  Class="LabelList" SelectFrom="pdf.lov.PageLOV(FontStyle)" ElementSet="Header Text" label="Center Text Style"  FieldName="_page_header_text_center_style" Description=""   />
+		<Element Name="fld_page_header_text_center_color"  Class="ColorPicker" Mode="viewonly" ElementSet="Header Text" label="Center Text Color"  FieldName="_page_header_text_center_color" Description=""   />
+		<Element Name="fld_page_header_text_right"  Class="LabelText"   ElementSet="Header Text" label="Right Text"  FieldName="_page_header_text_right" Description=""   />
+		<Element Name="fld_page_header_text_right_font"  Class="LabelList"  SelectFrom="pdf.lov.PageLOV(FontSize)" ElementSet="Header Text" label="Right Text Font"  FieldName="_page_header_text_right_font" Description=""   />
+		<Element Name="fld_page_header_text_right_style"  Class="LabelList"  SelectFrom="pdf.lov.PageLOV(FontStyle)" ElementSet="Header Text" label="Right Text Style"  FieldName="_page_header_text_right_style" Description=""   />
+		<Element Name="fld_page_header_text_right_color"  Class="ColorPicker" Mode="viewonly" ElementSet="Header Text" label="Right Text Color"  FieldName="_page_header_text_right_color" Description=""   />
+		<Element Name="fld_page_header_text_line"  Class="LabelList" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="Header Text" label="Header Line"  FieldName="_page_header_text_line" Description=""   />
+		<Element Name="fld_page_header_text_even_type"  Class="LabelList" SelectFrom="pdf.lov.PageLOV(OddPageType)" ElementSet="Header Text" label="Even Page Type"  FieldName="_page_header_text_even_type" Description=""   />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(pdf.form.DefaultPageHeaderSettingEditForm)"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

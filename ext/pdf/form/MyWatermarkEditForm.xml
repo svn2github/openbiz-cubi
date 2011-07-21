@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="MyWatermarkEditForm" InheritFrom="pdf.form.DefaultWatermarkEditForm" Class="MyPdfForm" FormType="Edit" Icon="icon_pdf.gif" jsClass="jbForm"  SearchRule="[section]='PDF' and [user_id]='{@profile:Id}'" Title="Edit My Watermark Setting" Description="You can custom your watermark setting in PDF Printer." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_watermark.tpl">
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_w">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=pdf.form.MyWatermarkForm" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
