@@ -21,7 +21,8 @@ class pdfService
     
     public function __construct() 
     {
-        $this->pdfObj = new mPDF('zh-CN','A4');
+        $this->pdfObj = new mPDF('c'); // use default. check http://mpdf1.com/manual/index.php?tid=184
+        //$this->pdfObj = new mPDF('zh-CN','A4');   // chinese example
     }
     
     public function getPDFObject()
