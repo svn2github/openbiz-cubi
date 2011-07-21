@@ -127,7 +127,11 @@
  *
  * 	For Windows servers you can ALSO use \\ as path separator too. e.g. c:\\php\\mysite\\
  */			  
-define ( "SAVE_PATH",  dirname(dirname(dirname(__FILE__)))."/files/upload/report/" );
+// if FusionChartPro deployed under cubi/js
+// define ( "SAVE_PATH",  dirname(dirname(dirname(__FILE__)))."/files/upload/report/" );
+
+// if FusionChartPro deployed under cubi/resources/report/js
+define ( "SAVE_PATH",  dirname(dirname(dirname(dirname(dirname(__FILE__)))))."/files/upload/report/" );
 if(!is_dir(SAVE_PATH)){
 	@mkdir(SAVE_PATH);
 }
@@ -492,7 +496,7 @@ function setupServer ( $exportFile, $exportType, $target="_self" )
 	
 	// check whether directory exists
 	// raise error and halt execution if directory does not exists
-	$fe = file_exists ( realpath($path) ) or  raise_error( " Server Directory does not exist." , true) ;
+	$fe = file_exists ( realpath($path) ) or  raise_error( " Server Directory $path does not exist." , true) ;
 
 	// check if directory is writable or not
 	$dirWritable = is_writable ( realpath( $path ) ) ;  	
