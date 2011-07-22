@@ -7,7 +7,8 @@ BizSystem::clientProxy()->includeCalendarScripts();
 BizSystem::clientProxy()->includeCKEditorScripts();
 $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 $includedScripts.="
-<script type=\"text/javascript\" src=\"".RESOURCE_PHP."?f=$js_url/cookies.js,$theme_js_url/general_ui.js\"></script>
+<script type=\"text/javascript\" src=\"$js_url/cookies.js\"></script>
+<script type=\"text/javascript\" src=\"$theme_js_url/general_ui.js\"></script>
 
 <script>
 function update_import(){
@@ -35,7 +36,9 @@ $this->_tpl_vars['scripts'] = $includedScripts;
 
 $appendStyle = BizSystem::clientProxy()->getAppendedStyles();
 $appendStyle.= "
-<link rel=\"stylesheet\" href=\"".RESOURCE_PHP."?f=$css_url/general.css,$css_url/system_backend.css,$css_url/system_menu_icons.css\" type=\"text/css\" />
+<link rel=\"stylesheet\" href=\"$css_url/general.css\" type=\"text/css\" />
+<link rel=\"stylesheet\" href=\"$css_url/system_backend.css\" type=\"text/css\" />
+<link rel=\"stylesheet\" href=\"$css_url/system_menu_icons.css\" type=\"text/css\" />
 <style>
 #main #right_panel .content table.input_row td span.label_text{ width:290px;}
 </style>
