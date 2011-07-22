@@ -48,9 +48,9 @@ function getSystemStatus()
 
 function getApplicationStatus()
 {
-	//$status[0]['item'] = 'Application root';
-	//$status[0]['value'] = APP_HOME;
-	//$status[0]['status'] = is_writable(APP_HOME) ? 'OK' : 'FAIL - not writable';
+	$status[0]['item'] = 'Resources path';
+	$status[0]['value'] = RESOURCE_PATH;
+	$status[0]['status'] = is_writable(RESOURCE_PATH) ? 'OK' : 'FAIL - not writable';
 	
 	$status[2]['item'] = 'Session path';
 	$status[2]['value'] = SESSION_PATH;
