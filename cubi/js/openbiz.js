@@ -142,7 +142,7 @@ Openbiz.Form = Class.create(
             requestString = Openbiz.Util.composeRequestString("RPCInvoke", paramArray);
         else
             requestString = Openbiz.Util.composeRequestString("Invoke", paramArray);
-        //url += "?"+requestString;
+        url += "?"+requestString;
         formData = requestString + "&" + formData;
         if (options && options['evthdl'])
             formData += "&__this="+options['evthdl'];
@@ -358,7 +358,7 @@ Openbiz.Net =
     {
     	// TODO: use AIM to post file form
     	formobj.method = "post";
-    	formobj.action = url+"&jsrs=1";
+    	formobj.action = (url==Openbiz.appHome) ? url+"?jsrs=1" : url+"&jsrs=1";
     	formobj.enctype = "multipart/form-data";
     	formobj.encoding = "multipart/form-data";
     	AIM.submit(formobj, {
