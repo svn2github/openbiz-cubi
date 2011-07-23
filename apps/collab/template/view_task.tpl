@@ -48,7 +48,9 @@ $this->assign('left_menu', $left_menu);
 
 $appendStyle = BizSystem::clientProxy()->getAppendedStyles();
 $appendStyle .= "
-<link rel='stylesheet' href='".RESOURCE_PHP."?f=$css_url/general.css,$css_url/system_backend.css,$css_url/system_menu_icons.css,collab/css/collaboration_menu_icons.css' type='text/css' />
+<link rel=\"stylesheet\" href=\"$css_url/general.css\" type=\"text/css\" />
+<link rel=\"stylesheet\" href=\"$css_url/system_backend.css\" type=\"text/css\" />
+<link rel=\"stylesheet\" href=\"".RESOURCE_URL."/collab/css/collaboration_menu_icons.css\" type=\"text/css\" />
 ";
 $this->_tpl_vars['style_sheets'] = $appendStyle;
 $this->assign('template_file', 'system_view.tpl.html');
