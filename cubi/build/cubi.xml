@@ -26,6 +26,7 @@ jsMin, SvnCheckout, Version, Documentor
         <include name="build/dist" />
         <include name="files/cache" />
         <include name="files/sec_upload" />
+        <include name="files/tpl_cpl" />
         <include name="files/tmpfiles" />
         <include name="files/upload" />
         <include name="images/*.gif" />
