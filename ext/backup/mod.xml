@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="backup" Description="backup module for unix-like system only" Version="0.3" Author="Jixian" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="backup">
+			<Action Name="Access_Backup" Description="Access Backup"/>
+		</Resource>
+	</ACL>
+    <Menu>
+		<MenuItem Name="Backup" Title="Backup"  IconCssClass="icon_backup" Parent="system" Order="20" Description="Database Backup Management">
+			<MenuItem Name="Backup.List" Title="Manage Backup" Description=""  URL="{@home:url}/backup/backup_list" Order="10"/>
+			<MenuItem Name="Backup.Device" Title="Device and Location" Description=""  URL="{@home:url}/backup/backup_device_list" Order="20"/>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+    <ChangeLog>
+    	<Version Name="0.3">
+    		<Change Name="feature_03.1" Type="New_Feature"  Status="Finished" PublishDate="2011-04-17" Description="Support backup devices and locations options, allow user to manage backups in many locations, even difference storage devices. It could help user to backup data remotely."></Change>
+    		<Change Name="bugfix_03.1" Type="Bug_Fixed" Status="Finished" PublishDate="2011-04-16" Description="Fix backup archives management view sorting error bug, Removed sorting features"></Change>
+    		<Change Name="feature_03.2" Type="New_Feature" Status="Finished" PublishDate="2011-04-16" Description="Moved backup module related resources file to system resource folder."></Change>
+    	</Version>
+    	<Version Name="0.2">
+    		<Change Name="feature_02.1" Type="New_Feature" Status="Finished" PublishDate="2011-03-30" Description="Support Advanced backup features, allow user to choose backup mode by whole system, user files or database only,"></Change>
+    	</Version>
+    </ChangeLog>
+</Module>
