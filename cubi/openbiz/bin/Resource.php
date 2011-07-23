@@ -170,7 +170,7 @@ class Resource
                 $templateRoot = THEME_PATH . "/" . $themePath . "/templates";
             }
             $smarty->template_dir = $templateRoot;
-            $smarty->compile_dir = $templateRoot . "/cpl";
+            $smarty->compile_dir = defined('SMARTY_CPL_PATH') ? SMARTY_CPL_PATH : $templateRoot . "/cpl";
             $smarty->config_dir = $templateRoot . "/cfg";
             // load the config file which has the images and css url defined
             $smarty->config_load('tpl.conf');
