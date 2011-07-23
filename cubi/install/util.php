@@ -21,17 +21,19 @@ function getSystemStatus()
 	$status[3]['value'] = defined('ZEND_FRWK_HOME') ? ZEND_FRWK_HOME : 'Undefined';
 	if (defined('ZEND_FRWK_HOME') && !file_exists(ZEND_FRWK_HOME))
 		$status[3]['status'] = "FAIL - ZEND_FRWK_HOME doesn't point to Zend Framework installed path. Please modify ZEND_FRWK_HOME in ".OPENBIZ_HOME."/bin/sysheader_inc.php";
-	else if (defined('ZEND_FRWK_HOME') && file_exists(ZEND_FRWK_HOME))
-		$status[3]['status'] = 'OK';
+	else if (defined('ZEND_FRWK_HOME') && file_exists(ZEND_FRWK_HOME)) {
+		require_once 'Zend/Version.php';
+        $status[3]['status'] = Zend_Version::compareVersion('1.0.0') < 0 ? 'OK - Version 1.0.0 or later is recommended' : 'FAIL';
+    }
 	else
 		$status[3]['status'] = 'FAIL';
 	
-	if ($status[3]['status'] == 'OK')  {
+	/*if ($status[3]['status'] == 'OK')  {
 		require_once 'Zend/Version.php';
 		$status[4]['item'] = 'Zend Framework';
 		$status[4]['value'] = Zend_Version::VERSION;
 		$status[4]['status'] = Zend_Version::compareVersion('1.0.0') < 0 ? 'OK - Version 1.0.0 or later is recommended' : 'FAIL';
-	}
+	}*/
 	
 	$status[5]['item'] = 'PDO extensions';
 	$pdos = array();
@@ -56,9 +58,9 @@ function getApplicationStatus()
 	$status[2]['value'] = SESSION_PATH;
 	$status[2]['status'] = is_writable(SESSION_PATH) ? 'OK' : 'FAIL - not writable';
 	
-	$status[3]['item'] = 'Smarty template path';
-	$status[3]['value'] = THEME_PATH."/default/template"; // SMARTY_TPL_PATH;
-	$status[3]['status'] = is_writable(THEME_PATH."/default/template") ? 'OK' : 'FAIL - not writable';
+	//$status[3]['item'] = 'Smarty template path';
+	//$status[3]['value'] = THEME_PATH."/default/template"; // SMARTY_TPL_PATH;
+	//$status[3]['status'] = is_writable(THEME_PATH."/default/template") ? 'OK' : 'FAIL - not writable';
 	
 	$status[4]['item'] = 'Log path';
 	$status[4]['value'] = LOG_PATH;
@@ -99,7 +101,14 @@ function connectDB($noDB=false) {
 }
 
 function createDB() {
-	$conn = connectDB(true);
+	// check if the application.xml is writable
+    $app_xml = APP_HOME.'/application.xml';
+    if (!is_writable($app_xml)) {
+        echo "ERROR: please give file $app_xml write permission to web server user. Example of linux command: chmod a+w $app_xml";
+        exit;
+    }
+    
+    $conn = connectDB(true);
 	try {
 	   $conn->exec("CREATE DATABASE " . $_REQUEST['dbName']);
 	}
