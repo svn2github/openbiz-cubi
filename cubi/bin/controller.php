@@ -1,7 +1,6 @@
 <?PHP
-$start = (float) array_sum(explode(' ',microtime())); 
+//$start = (float) array_sum(explode(' ',microtime())); 
 include_once("app_init.php");
-
 
 include_once(OPENBIZ_BIN."BizController.php");
 /*
