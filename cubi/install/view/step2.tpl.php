@@ -9,8 +9,7 @@
         <p>Please enter your database configuration information below.<br />
 		 If you are unsure of what to fill in, we suggest that you use the default values.
         </p><p>
-        This installer will be write <strong>application.xml</strong> and create <strong>install.lock</strong> file.
-        Please set application.xml and cubi directory writable for web server.
+        The database information will be write to <strong>application.xml</strong>.
         
         </p>
 <form id="setupform" name="setupform" method="post" action="install.php" >
@@ -74,7 +73,7 @@
 <td>
 	<input  type="checkbox" checked="checked" name="create_db" id="create_db" tabindex="6" />
 	<img id="createdb_img" src="images/indicator.white.gif" alt="Create DB indicator." style="display:none"/>
-    <span id="create_db_result"></span>
+    <div id="create_db_result" style="color:red"></div>
 </td>	
 </tr>
 

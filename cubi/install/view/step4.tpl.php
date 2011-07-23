@@ -8,7 +8,7 @@
 	<h2>Installation Completed</h2>
     <p>
     Congratulations for completing Openbiz Cubi Setup Wizard. <br />
-    For security reason, we strongly recommend you to delete this install folder now.<br />
+    <img src="../themes/default/images/icon_alert.gif" align='top'/> For security reason, <b>we strongly recommend you to delete install folder and remove write permission on applicaiton.xml now.</b><br />
     And also please change default login info before use.
     </p>
     <h4>Default Login Info</h4>
@@ -19,8 +19,8 @@
     <h4>User Reference Doucments</h4>
     
     <ul class="list">
-    <li><a href="https://docs.google.com/leaf?id=0By0aXVMRD-nCNjE5NGZiZWItNjQ2ZC00N2JkLWI5OTYtOTg4Nzk0ZDQzYmEy&hl=en" target="_blank">Openbiz Cubi Guide</a></li>
-    <li><a href="https://docs.google.com/leaf?id=0By0aXVMRD-nCMTFmZjBjMmQtNzBhOC00YWFjLThmMTQtZjBkNDg4ZjFjNTI2&hl=en" target="_blank">Openbiz Framework Guide</a></li>
+    <li><a href="http://code.google.com/p/openbiz-cubi/" target="_blank">Openbiz Cubi web site</a></li>
+    <li><a href="http://code.google.com/p/openbiz-cubi/wiki/CubiCoreConcepts" target="_blank">Openbiz Cubi reference guide</a></li>
     </ul>
 
     <a href="../index.php/user/login" class='button_w_highlight'>Launch Openbiz Cubi</a>

@@ -50,7 +50,7 @@ if($isInstalled==false){
                 <img src="images/header_title.jpg" />
 			</div>
             <div class="header_text">                
-                Powered by <a href="http://www.openbiz.me/">Openbiz Framework</a>
+                Powered by <a href="http://code.google.com/p/openbiz-cubi/">Openbiz Cubi</a>
             </div>
 		</div>
 	</div>
