@@ -26,9 +26,6 @@ $this->_tpl_vars['style_sheets'] = $appendStyle;
 <link rel="stylesheet" href="{$css_url}/general.css" type="text/css" />
 <link rel="stylesheet" href="{$css_url}/system_backend.css" type="text/css" />
 <link rel="stylesheet" href="{$css_url}/system_backend_tabs.css" type="text/css" />
-<link rel="stylesheet" href="{$css_url}/system_menu_icons.css" type="text/css" />
-<link rel="stylesheet" href="{$css_url}/collaboration_menu_icons.css" type="text/css" />
-<link rel="stylesheet" href="{$css_url}/system_dashboard_icons.css" type="text/css" />
 <link rel="stylesheet" type="text/css" href="{$js_url}/jstree.css" />
 <link rel="stylesheet" type="text/css" href="{$js_url}/jstree/tree_component.css" />
 {$style_sheets}
