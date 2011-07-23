@@ -1,3 +1,5 @@
+/*Data for the table `preference` */
+
 DROP TABLE IF EXISTS `preference`;
 CREATE TABLE IF NOT EXISTS `preference` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -15,6 +17,7 @@ CREATE TABLE IF NOT EXISTS `preference` (
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+/*schema for the table `user_widget` */
 
 DROP TABLE IF EXISTS `user_widget`;
 
@@ -33,3 +36,7 @@ CREATE TABLE IF NOT EXISTS `user_widget` (
   KEY `user_id` (`user_id`),
   KEY `widget` (`widget`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+/*Data for the table `user_widget` */
+
+insert  into `user_widget`(`id`,`user_id`,`widget`,`ordering`,`config`,`status`,`create_by`,`create_time`,`update_by`,`update_time`) values (1,1,'myaccount.widget.DashboardForm',10,'',1,1,'2011-07-23 16:05:55',1,'2011-07-23 16:05:55');
