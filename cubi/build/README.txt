@@ -5,7 +5,9 @@ Windows:
 Unix:
 # ./build cubi 
 
-or
+Other commands
+# build cubi clean
 # build cubi tar
-or
+
+Invoke phing directly at phing folder
 # phing -buildfile cubi.xml
