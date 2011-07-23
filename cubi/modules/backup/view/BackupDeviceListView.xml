@@ -1,6 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="BackupDeviceListView" Description="Backup Device Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
-   <FormReferences>
-   		<Reference Name="backup.form.BackupDeviceListForm"/>
-   </FormReferences>
-</EasyView>
