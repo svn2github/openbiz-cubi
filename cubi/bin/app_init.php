@@ -50,6 +50,7 @@ define('USE_THEME', 1);
 define('THEME_URL',APP_URL."/themes");
 define('THEME_PATH',APP_HOME.DIRECTORY_SEPARATOR."themes");    // absolution path the themes
 define('DEFAULT_THEME_NAME','default');     // name of the theme. theme files are under themes/theme_name
+define('SMARTY_CPL_PATH', APP_HOME.DIRECTORY_SEPARATOR."files/tpl_cpl");    // smarty template path
 
 /* define javascript path */
 define('JS_URL', APP_URL."/js");
@@ -61,11 +62,6 @@ define("LOG_PATH", APP_HOME.DIRECTORY_SEPARATOR."log");
 //define("SESSION_HANDLER", MODULE_PATH."/system/lib/SessionDBHandler"); // save session in DATABASE 
 //define("SESSION_HANDLER", MODULE_PATH."/system/lib/SessionMCHandler"); // save session in MEMCACHE
 define("SESSION_PATH", APP_HOME.DIRECTORY_SEPARATOR."session"); // for default FILE type session handler
-
-/* smarty template path */
-define('SMARTY_TPL_PATH', APP_HOME.DIRECTORY_SEPARATOR."templates");
-define('SMARTY_CPL_PATH', APP_HOME.DIRECTORY_SEPARATOR."templates/cpl");
-define('SMARTY_CFG_PATH', APP_HOME.DIRECTORY_SEPARATOR."templates/cfg");
 
 /* file path. */
 define('APP_FILE_PATH', APP_HOME.DIRECTORY_SEPARATOR."files");
