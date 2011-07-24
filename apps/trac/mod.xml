@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="trac" Description="Issue tracking module" Version="0.1" OpenbizVersion="2.4" Author="Rocky">
+<Module Name="trac" Description="Issue tracking module" Version="0.4" OpenbizVersion="3.0" Author="Rocky">
 	<ACL>
 		<Resource Name="trac">
 			<Action Name="View_Ticket" Description="Read only of Ticket"/>
