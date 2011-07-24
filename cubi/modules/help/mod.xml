@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="help" Description="help management module" Version="0.1" OpenbizVersion="2.4">
+<Module Name="help" Description="help management module" Version="0.4" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="Help">
 			<Action Name="Administer_Help" Description="Can manage help content for the application"/>

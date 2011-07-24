@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="cache" Description="Cache management module" Author="Jixian" Version="0.1" OpenbizVersion="2.4">
+<Module Name="cache" Description="Cache management module" Author="Jixian" Version="0.4" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="cache">
 			<Action Name="Administer_Cache" Description="manage and view cache usage information"/>

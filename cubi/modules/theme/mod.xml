@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="theme" Description="Theme management module" Author="Jixian" Version="0.1" OpenbizVersion="2.4">
+<Module Name="theme" Description="Theme management module" Author="Jixian" Version="0.4" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="Theme">
 			<Action Name="Administer_Theme" Description="Can manage system theme package for the application"/>

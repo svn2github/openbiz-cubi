@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="eventlog" Description="Event log module, only administrator can access" Version="0.1" Author="Rocky" OpenbizVersion="2.4">
+<Module Name="eventlog" Description="Event log module, only administrator can access" Version="0.4" Author="Rocky" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="EventLog">
 			<Action Name="Access_EventLog" Description="Access event logs"></Action>

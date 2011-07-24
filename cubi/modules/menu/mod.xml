@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="menu" Description="menu management module" Author="Jixian, Rocky" Version="0.1" OpenbizVersion="2.4">
+<Module Name="menu" Description="menu management module" Author="Jixian, Rocky" Version="0.4" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="Menu">
 			<Action Name="Administer_Menu" Description="Can manage menu content for the application"/>
