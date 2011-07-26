@@ -2,7 +2,7 @@
 <EasyForm Name="TicketNewForm" Class="trac.ticket.form.TicketForm" FormType="New" jsClass="jbForm" Title="New trac_ticket" Description="" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="ticket_new.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_summary" Class="InputText" FieldName="summary" Label="Summary" AllowURLParam="N" CssClass="input_text_l" CssErrorClass="input_text_l_error" CssFocusClass="input_text_l_focus" ElementSet="Content"/>
-		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"  ElementSet="Content"/>
+		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" ElementSet="Content"/>
 		<Element Name="fld_type" Class="Listbox" FieldName="type" Label="Type" SelectFrom="trac.enum.do.EnumDO[name], [type]='Type'" ElementSet="General"/>
 		<Element Name="fld_product" Class="Listbox" FieldName="product_id" Label="Product" SelectFrom="trac.product.do.ProductDO[name:Id]" BlankOption="---," ElementSet="General">
 			<EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
