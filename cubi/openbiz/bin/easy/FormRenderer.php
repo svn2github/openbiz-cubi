@@ -65,11 +65,11 @@ class FormRenderer
         // Fill with default viewobj attributes
         $tplAttributes = $formObj->outputAttrs();
         
-        $formAttrs['title'] = $formObj->m_Title;
-        $formAttrs['errors'] = $formObj->m_Errors;
-        $formAttrs['notices'] = $formObj->m_Notices;
-        $formAttrs['formname'] = $formObj->m_Name;
-        $formAttrs['module'] = $formObj->getModuleName($formObj->m_Name);
+        $tplAttributes['title'] = $formObj->m_Title;
+        $tplAttributes['errors'] = $formObj->m_Errors;
+        $tplAttributes['notices'] = $formObj->m_Notices;
+        $tplAttributes['formname'] = $formObj->m_Name;
+        $tplAttributes['module'] = $formObj->getModuleName($formObj->m_Name);
         
         // if the $formobj form type is list render table, otherwise render record
         if ($formObj->m_FormType == 'LIST') {
