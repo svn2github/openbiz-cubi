@@ -29,7 +29,7 @@ if($appPath == $appHome){
 	$doc_root = str_replace('\\','/',dirname(APP_HOME));
 	$appPath = str_replace($doc_root,"",$appHome); 
 }
-if(substr($appPath,0,1)!='/'){
+if(substr($appPath,0,1)!='/' && strlen($appPath)>0){
 	$appPath = '/'.$appPath;
 }
 define('APP_URL',$appPath);

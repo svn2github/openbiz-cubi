@@ -1,9 +1,9 @@
 <?php
 /*
- * build module command line script
+ * package module command line script
  */
-if ($argc<2) {
-	echo "usage: php build_module.php module_name".PHP_EOL;
+if ($argc<3) {
+	echo "usage: php package_module.php module_name tag_name".PHP_EOL;
 	exit;
 }
 
@@ -13,9 +13,10 @@ if(!defined("CLI")){
 }
 
 $moduleName = $argv[1];
+$tagName = $argv[2];
 
-$buildNumber = getModuleVersion($moduleName);
-$ext = "tar.gz";
+$buildNumber = generateBuildNumber($moduleName, $tagName);
+$ext = "cpk";
 
 // invoke cubi/build/build mod_build.xml -Dbuild.module=$moduleName -Dbuild.number=$buildNumber
 echo "---------------------------------------\n";
@@ -35,7 +36,7 @@ function execPhing($buildFile, $options)
     system($cmd);
 }
 
-function getModuleVersion($moduleName)
+function generateBuildNumber($moduleName, $tagName)
 {
     // read mod.xml, get its version as its release name
     $modfile = MODULE_PATH."/".$moduleName."/mod.xml";
@@ -43,8 +44,11 @@ function getModuleVersion($moduleName)
     $xml = simplexml_load_file($modfile);
     $modVersion = $xml['Version'];
     $releaseName = $modVersion;
-
-    $buildNumber = $releaseName;
+    
+    // build_number = releasename_tagname_date_time
+    $date = date('Ymd');
+    $time = date('Hi');
+    $buildNumber = $releaseName.'_T'.$tagName.'_'.$date.'_'.$time;
     return $buildNumber;
 }
 
