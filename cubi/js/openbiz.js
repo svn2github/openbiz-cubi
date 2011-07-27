@@ -143,15 +143,10 @@ Openbiz.Form = Class.create(
         else
             requestString = Openbiz.Util.composeRequestString("Invoke", paramArray);
         url += "?"+requestString;
-        formData = requestString + "&" + formData;
         if (options && options['evthdl'])
-            formData += "&__this="+options['evthdl'];
+            url += "&__this="+options['evthdl'];
         
-        /*if(this.selectedId){
-        	formData += "&_selectedId=" + this.selectedId;
-        }*/
-        
-        formData += "&_thisView=" + Openbiz.currentView;
+        url += "&_thisView=" + Openbiz.currentView;
         
         switch (type) {
             case Openbiz.ActionType.PAGE:
