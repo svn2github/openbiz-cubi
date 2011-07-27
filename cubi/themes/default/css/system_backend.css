@@ -261,7 +261,7 @@ background-position:left bottom;
 	height:10px;
 	background-repeat:no-repeat;
 	background-position:left top;
-	overflow:hidden;
+	/*overflow:hidden;*/
 }
 #main_content{
 	background-color:#f5f4f2;	
