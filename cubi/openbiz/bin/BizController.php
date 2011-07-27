@@ -106,8 +106,8 @@ class BizController
             
 			return $this->renderView($viewName, $form, $rule, $params, $hist);
         }
-        else if (isset($_POST['_thisView']) && !empty($_POST['_thisView'])) {
-            BizSystem::instance()->setCurrentViewName($_POST['_thisView']);
+        else if (isset($_REQUEST['_thisView']) && !empty($_REQUEST['_thisView'])) {
+            BizSystem::instance()->setCurrentViewName($_REQUEST['_thisView']);
         }
 
         $retval = $this->invoke();
