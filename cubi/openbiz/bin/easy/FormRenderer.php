@@ -145,6 +145,9 @@ class FormRenderer
             }
         }
         
+        // render the formobj attributes
+        $form->form = $formObj->outputAttrs();
+        
         return $form->render($formObj->m_TemplateFile);
     }
 }
