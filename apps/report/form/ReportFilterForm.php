@@ -32,16 +32,17 @@ class ReportFilterForm extends ReportForm
 	                    $searchRule .= " OR " . $searchStr;
 	            }
             }     
-//            if ($searchBaseRule == "("){
-//            	$searchBaseRule.=$searchRule .") ";
-//            }else{
+            if ($searchBaseRule == "("){
+            	$searchBaseRule.=$searchRule .") ";
+            }else{
             	$searchBaseRule.=$searchRule.") AND ";
             	$searchRule = "";
-//            }       
+            }       
         }
         if (empty($searchRule)) 
             return;
-        $searchRule = $searchBaseRule."true";
+        if (substr($searchBaseRule, -4) == 'AND ')
+            $searchRule = substr($searchBaseRule, 0, -4);
 		$searchRuleBindValues = QueryStringParam::getBindValues();
 		// redraw all forms other than this filter form
 		foreach ($viewObj->m_FormRefs as $formRef)

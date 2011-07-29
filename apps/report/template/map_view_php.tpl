@@ -15,9 +15,10 @@
 <td  align="left">
    <table cellspacing="2" cellpadding="0">
    <tr>  
-    <?php foreach ($this->actionPanel as $elem ): ?>
+    <?php if (is_array($this->actionPanel)) :
+         foreach ($this->actionPanel as $elem ): ?>
      <td><?php echo $elem['element']?></td>
-   <?php endforeach; ?>
+   <?php endforeach; endif;?>
    <td><div id="<?php echo $name?>.load_disp" style="display:none"></div></td>
    </tr>
    </table>

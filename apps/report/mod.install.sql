@@ -204,6 +204,7 @@ CREATE TABLE `report_map` (
   `title` varchar(255) NOT NULL,
   `link` varchar(255) DEFAULT NULL,
   `publish` int(2) DEFAULT NULL,
+  `group_id` int(11) DEFAULT NULL,
   `sort_order` int(11) NOT NULL DEFAULT '10',
   `create_time` datetime DEFAULT NULL,
   `create_by` int(11) DEFAULT NULL,
