@@ -227,7 +227,7 @@ $appendStyle = BizSystem::clientProxy()->getAppendedStyles();
 $appendStyle .= "
 <link rel=\"stylesheet\" href=\"$css_url/general.css\" type=\"text/css\" />
 <link rel=\"stylesheet\" href=\"$css_url/system_backend.css\" type=\"text/css\" />
-<link rel=\"stylesheet\" href=\"$css_url/system_menu_icons.css\" type=\"text/css\" />
+<link rel=\"stylesheet\" href=\"$css_url/system_backend_tabs.css\" type=\"text/css\" />
 ";
 $this->_tpl_vars['style_sheets'] = $appendStyle;
 
