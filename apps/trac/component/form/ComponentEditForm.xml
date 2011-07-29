@@ -3,7 +3,7 @@
     <DataPanel>
 		<Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="Name"/>
 		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name" />
-        <Element Name="fld_product_id" Class="ListBox" FieldName="product_id" Label="Product" SelectFrom="trac.product.do.ProductDO[name:Id]"/>
+        <Element Name="fld_product_id" Class="Listbox" FieldName="product_id" Label="Product" SelectFrom="trac.product.do.ProductDO[name:Id]"/>
         <Element Name="fld_owner_id" Class="Hidden" FieldName="owner_id" Label="Owner Id"/>
         <Element Name="fld_ownername" Class="InputPicker" FieldName="owner_name" Label="Owner" ValuePicker="system.form.UserPickForm" PickerMap="fld_owner_id:fld_Id,fld_ownername:fld_username"/>
     	<element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"/>            
