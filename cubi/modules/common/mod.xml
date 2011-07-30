@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="common" Description="common module" Version="0.4" OpenbizVersion="3.0">
+	<ACL>
+	</ACL>
+    <Menu>
+    </Menu>
+    <Dependency>
+    </Dependency>
+    <ChangeLog>
+    </ChangeLog>        
+</Module>
