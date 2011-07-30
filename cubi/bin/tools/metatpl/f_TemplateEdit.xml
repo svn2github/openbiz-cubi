@@ -17,11 +17,11 @@
 {elseif $fld.element == 'Radio'}
 		<Element Name="fld_{$fld.name}" Class="{$fld.element}" SelectFrom="{$fld.options}"  FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}" {if $fld.default }DefaultValue="{$fld.default}"{/if}   />        
 {elseif $fld.element == 'Textarea'}
-   		<Element Name="fld_{$fld.name}" Class="{$fld.element}" width="640" FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+   		<Element Name="fld_{$fld.name}" Class="{$fld.element}" width="640" FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}" />
 {elseif $fld.name =='sort_order'}
-    	<Element Name="fld_{$fld.name}" Class="Listbox"  SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="{$fld.name}" Label="Ordering"  AllowURLParam="N" />
+    	<Element Name="fld_{$fld.name}" Class="Listbox"  SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="{$fld.name}" Label="Ordering" />
 {else}        
-		<Element Name="fld_{$fld.name}" Class="InputText" FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_{$fld.name}" Class="InputText" FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}" />
 {/if}
 {/if}
 {/foreach}
