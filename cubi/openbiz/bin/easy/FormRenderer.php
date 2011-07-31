@@ -113,8 +113,12 @@ class FormRenderer
         $smarty = BizSystem::getSmartyTemplate();
         $tplFile = BizSystem::getTplFileWithPath($formObj->m_TemplateFile, $formObj->m_Package);
         
+        $formOutput = $formObj->outputAttrs();
+        foreach ($formOutput as $k=>$v) {
+            $smarty->assign($k, $v);
+        }
         // render the formobj attributes
-        $smarty->assign("form", $formObj->outputAttrs());
+        $smarty->assign("form", $formOutput);
         
         //Translate Array of template variables to Zend template object
         foreach ($tplAttributes as $key => $value) {
@@ -137,6 +141,11 @@ class FormRenderer
         $tplFile = BizSystem::getTplFileWithPath($formObj->m_TemplateFile, $formObj->m_Package);
         $form->addScriptPath(dirname($tplFile));
         
+        $formOutput = $formObj->outputAttrs();
+        foreach ($formOutput as $k=>$v) {
+            $form->$k = $v;
+        }
+
         foreach ($tplAttributes as $key => $value) {
             if ($value == NULL) {
                 $form->$key = '';
@@ -146,8 +155,8 @@ class FormRenderer
         }
         
         // render the formobj attributes
-        $form->form = $formObj->outputAttrs();
-        
+        $form->form = $formOutput;
+
         return $form->render($formObj->m_TemplateFile);
     }
 }
