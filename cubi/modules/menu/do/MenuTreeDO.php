@@ -109,7 +109,7 @@ class MenuTreeDO extends BizDataObj
 		if (empty($uri))
 			return array();
     	$matchUri = $this->_getMatchUri($uri);
-    	$uri = str_replace(APP_INDEX,'',$uri);
+    	$uri = str_replace("//","/",str_replace(APP_INDEX,'',$uri));
     	
     	$pathArray = array();
     	//global $g_BizSystem;
