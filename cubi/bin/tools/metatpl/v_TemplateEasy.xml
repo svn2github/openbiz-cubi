@@ -3,11 +3,4 @@
    <FormReferences>
    		<Reference Name="{$comp}.{$default_form}"/>
    </FormReferences>
-   <FormReferenceLibs>
-   		<Reference Name="{$comp}.{$list_form}"/>
-   		<Reference Name="{$comp}.{$edit_form}"/>
-   		<Reference Name="{$comp}.{$copy_form}"/>
-   		<Reference Name="{$comp}.{$new_form}"/>
-   		<Reference Name="{$comp}.{$detail_form}"/>
-   </FormReferenceLibs>    
 </EasyView>
