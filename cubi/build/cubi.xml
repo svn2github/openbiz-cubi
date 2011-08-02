@@ -38,7 +38,10 @@ jsMin, SvnCheckout, Version, Documentor
         <include name="js/*.js" />
         <include name="js/ckeditor/**" />
         <include name="js/jscalendar/**" />
+        <include name="js/colorpicker/**" />
+        <include name="js/jquery-ui/**" />
         <include name="js/jstree/**" />
+        <include name="js/uploadify/**" />
         <include name="js/window/**" />
         <include name="js/yav/**" />
         <include name="languages/dictionary/**" />
