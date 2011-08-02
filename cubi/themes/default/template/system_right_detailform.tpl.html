@@ -63,6 +63,8 @@
 			<td>
 			{if $item.type eq 'Checkbox' }
 				<span class="label_text" >{$item.element} {$item.description}</span>
+            {elseif $item.type|substr:0:5 eq 'Label'}
+                <span>{$item.element}</span>    
 			{else}
 				<span class="label_text" style="{if $item.width}width:{$item.width+15}px;{/if}">{$item.element}</span>
 				{if $errors.$itemName}
@@ -71,13 +73,10 @@
 				<span class="input_desc" style="width:240px;">{$item.description}</span>			
 				{/if}				
 			{/if}
-
-				
 			</td>
 			</tr>
 			</table>
-		{/if}			
-		
+		{/if}
 	{/foreach}
 		
 		<div style="height:10px;"></div>

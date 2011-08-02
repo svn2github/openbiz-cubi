@@ -133,15 +133,13 @@ color:#666666;
 	</ul>
 	{assign var=es_counter value=0}
 	{foreach item=setname name=elemsets  from=$form.elementSets}
-	
 
-				
-		<div id="element_set_panel_{$es_counter}" >			
-		<div>
 		{if $es_counter eq 0 }
 		
 		
 		{else}
+        <div id="element_set_panel_{$es_counter}" class="ui-tabs-panel">			
+		<div>
 		{assign var=es_elem_counter value=0}
 		{foreach item=item key=itemName from=$dataPanel}						
 			{if $item.elementset eq $setname}
@@ -206,24 +204,12 @@ color:#666666;
 			{assign var=es_elem_counter value=$es_elem_counter+1}					
 			{/if}
 		{/foreach}
-		{/if}
-			</div>
+        	</div>
 	 			
 		</div>
-	<script>
-	var formname = '{$form.name}';
-	{literal}
-	var c = new Cookies();		
-	var $tabs = $j( "#tabs" ).tabs({
-		select: function(event, ui)
-		{				
-			c.set(formname+'_lastTab',ui.panel.id);			
-		}
-	}).css({'padding-left':'0px','width':'670px','display':'block'});		
-	lastViewedTab = c.get(formname+'_lastTab');
-	$tabs.tabs('select','#'+lastViewedTab);
-	{/literal}
-	</script>
+		{/if}
+
+
 	
 	{assign var=es_counter value=$es_counter+1}			
 	{/foreach}
@@ -284,3 +270,18 @@ color:#666666;
 	
 </div>
 </form>
+
+	<script>
+	var formname = '{$form.name}';
+	{literal}
+	var c = new Cookies();		
+	var $tabs = $j( "#tabs" ).tabs({
+		select: function(event, ui)
+		{				
+			c.set(formname+'_lastTab',ui.panel.id);			
+		}
+	}).css({'padding-left':'0px','width':'680px','display':'block'});		
+	lastViewedTab = c.get(formname+'_lastTab');
+	$tabs.tabs('select','#'+lastViewedTab);
+	{/literal}
+	</script>
