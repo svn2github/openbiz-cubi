@@ -102,7 +102,7 @@ class BizSystem
      */
     public static function getVersion()
     {
-        return '2.4beta';
+        return '3.0';
     }
 
     /**
