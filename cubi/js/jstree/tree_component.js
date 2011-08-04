@@ -1838,7 +1838,7 @@
 			// REMOVE NODES
 			remove : function(obj) {
 				if(this.locked) return this.error("LOCKED");
-
+                var _this = this;
 				// Rollback
 				var rb = {}; 
 				rb[this.container.attr("id")] = this.get_rollback();
