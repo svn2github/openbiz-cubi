@@ -1,4 +1,5 @@
 <?php
+
 class userEmailService extends MetaObject
 {
     public $m_Tempaltes;
@@ -37,6 +38,7 @@ class userEmailService extends MetaObject
 		//prepare data     
         $userObj = BizSystem::getObject("system.do.UserDO");
         $data = $userObj->directFetch("[Id]='".$user_id."'", 1);
+
         if(!count($data))
         	return false;
         	        
@@ -46,7 +48,7 @@ class userEmailService extends MetaObject
 		//render the email tempalte
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
 		$content = $this->RenderEmail($data, $tplFile);
-		
+echo "email content is ".$content;
 		//prepare recipient info
 		$recipient['email'] = $userData['email'];
 		$recipient['name']  = $userData['username'];
@@ -228,4 +230,5 @@ class userEmailService extends MetaObject
 		return ;
 	}
 }
+
 ?>
