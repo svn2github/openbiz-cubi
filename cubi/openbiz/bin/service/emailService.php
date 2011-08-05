@@ -146,23 +146,23 @@ class emailService extends MetaObject
             $this->_constructMail();
 
         $this->m_UseAccount = $accountName;
-        $accout = $this->m_Accounts->get($accountName);
-        if ($accout->m_IsSMTP == "Y")
+        $account = $this->m_Accounts->get($accountName);
+
+        if ($account->m_IsSMTP == "Y")
         {
             require_once 'Zend/Mail/Transport/Smtp.php';
-            if ($accout->m_SMTPAuth == "Y")
+            if ($account->m_SMTPAuth == "Y")
             {
-                $config = array('auth' => 'login' , 'username' => $accout->m_Username , 'password' => $accout->m_Password);
+                $config = array('auth' =>'login', 'username'=>$account->m_Username , 'password'=>$account->m_Password, "port"=>$account->m_Port, 'ssl'=>$account->m_SSL);
             }
             else
             {
                 $conig = array();
             }
-
-            $mailTransport = new Zend_Mail_Transport_Smtp($accout->m_Host, $config);
+            $mailTransport = new Zend_Mail_Transport_Smtp($account->m_Host, $config);
             $this->_mail->setDefaultTransport($mailTransport);
         }
-        $this->_mail->setFrom($accout->m_FromEmail, $accout->m_FromName);
+        $this->_mail->setFrom($account->m_FromEmail, $account->m_FromName);
     }
 
     /**
@@ -372,6 +372,8 @@ class EmailAccount extends MetaObject
 {
     public $m_Name;
     public $m_Host;
+    public $m_Port;
+    public $m_SSL;
     public $m_FromName;
     public $m_FromEmail;
     public $m_IsSMTP;
@@ -388,6 +390,8 @@ class EmailAccount extends MetaObject
     {
         $this->m_Name = $xmlArr["ATTRIBUTES"]["NAME"];
         $this->m_Host = $xmlArr["ATTRIBUTES"]["HOST"];
+        $this->m_Port = $xmlArr["ATTRIBUTES"]["PORT"];
+        $this->m_SSL = $xmlArr["ATTRIBUTES"]["SSL"];
         $this->m_FromName = $xmlArr["ATTRIBUTES"]["FROMNAME"];
         $this->m_FromEmail = $xmlArr["ATTRIBUTES"]["FROMEMAIL"];
         $this->m_IsSMTP = $xmlArr["ATTRIBUTES"]["ISSMTP"];
