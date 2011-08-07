@@ -8,7 +8,7 @@
  * with this package in the file LICENSE.txt.
  *
  * @package   openbiz.bin
- * @copyright Copyright &copy; 2005-2009, Rocky Swen
+ * @copyright Copyright (c) 2005-2011, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php     BSD
  * @link      http://www.phpopenbiz.org/
  * @version   $Id: ErrorHandler.php 3459 2011-03-10 07:46:23Z rockys $

@@ -8,7 +8,7 @@
  * with this package in the file LICENSE.txt.
  *
  * @package   openbiz.bin.easy.element
- * @copyright Copyright &copy; 2005-2009, Rocky Swen
+ * @copyright Copyright (c) 2005-2011, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
  * @version   $Id: FileUploader.php 3086 2011-01-22 20:06:43Z jixian2003 $

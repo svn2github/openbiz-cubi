@@ -8,7 +8,7 @@
  * with this package in the file LICENSE.txt.
  *
  * @package   openbiz.bin.data.private
- * @copyright Copyright &copy; 2005-2009, Rocky Swen
+ * @copyright Copyright (c) 2005-2011, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
  * @version   $Id: BizDataObj_Assoc.php 3975 2011-04-27 15:51:18Z jixian2003 $

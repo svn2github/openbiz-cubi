@@ -8,7 +8,7 @@
  * with this package in the file LICENSE.txt.
  *
  * @package   openbiz.bin.service
- * @copyright Copyright &copy; 2005-2009, Rocky Swen
+ * @copyright Copyright (c) 2005-2011, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
  * @version   $Id: logService.php 4042 2011-05-01 06:36:18Z rockys $

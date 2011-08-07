@@ -12,7 +12,7 @@
  * with this package in the file LICENSE.txt.
  *
  * @package   openbiz.bin
- * @copyright Copyright &copy; 2005-2009, Rocky Swen
+ * @copyright Copyright (c) 2005-2011, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
  * @version   $Id: BizController.php 2731 2010-12-01 07:32:03Z jixian2003 $
@@ -38,7 +38,7 @@ if($bizCtrller->processSecurityFilters()===true){
  *
  * @package   openbiz.bin
  * @author    Rocky Swen <rocky@phpopenbiz.org>
- * @copyright Copyright (c) 2005-2009, Rocky Swen
+ * @copyright Copyright (c) 2005-2011, Rocky Swen
  * @access    public
  */
 class BizController

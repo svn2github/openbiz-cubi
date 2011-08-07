@@ -8,7 +8,7 @@
  * with this package in the file LICENSE.txt.
  *
  * @package   openbiz.bin.service
- * @copyright Copyright &copy; 2005-2009, Rocky Swen
+ * @copyright Copyright (c) 2005-2011, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
  * @version   $Id: excelService.php 2792 2010-12-06 01:17:09Z rockys $

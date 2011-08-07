@@ -92,7 +92,7 @@ if (isset($PARAM_MAPPING))
 }
 
 
-
+$foo = __FILE__;
 include dirname(__FILE__).'/controller.php';
 
 function getViewName($url_path){

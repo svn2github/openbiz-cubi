@@ -8,7 +8,7 @@
  * with this package in the file LICENSE.txt.
  *
  * @package   openbiz.bin.data
- * @copyright Copyright &copy; 2005-2009, Rocky Swen
+ * @copyright Copyright (c) 2005-2011, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
  * @version   $Id: BizDataObj_Lite.php 4108 2011-05-08 06:01:30Z jixian2003 $
@@ -26,7 +26,7 @@ define('CK_CONNECTOR', "#");  // composite key connector character
  *
  * @package openbiz.bin.data
  * @author Rocky Swen
- * @copyright Copyright &copy; 2005-2009, Rocky Swen
+ * @copyright Copyright (c) 2005-2011, Rocky Swen
  * @access public
  */
 class BizDataObj_Lite extends BizDataObj_Abstract
