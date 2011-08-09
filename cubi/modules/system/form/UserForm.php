@@ -41,15 +41,7 @@ class UserForm extends EasyForm
         $this->setActiveRecord($recArr);
         if (count($recArr) == 0)
             return;
-
-        if ($this->_checkDupUsername())
-        {
-            $errorMessage = $this->GetMessage("USERNAME_USED");
-			$errors['fld_username'] = $errorMessage;
-			$this->processFormObjError($errors);
-			return;
-        }
-        
+       
         try
         {
             $this->ValidateForm();
@@ -249,6 +241,23 @@ class UserForm extends EasyForm
      */
     public function validateForm()
     {	
+        
+        if ($this->_checkDupUsername())
+        {
+            $errorMessage = $this->GetMessage("USERNAME_USED");
+			$errors['fld_username'] = $errorMessage;
+			$this->processFormObjError($errors);
+			return;
+        }
+
+        if ($this->_checkDupEmail())
+        {
+            $errorMessage = $this->GetMessage("EMAIL_USED");
+			$errors['fld_email'] = $errorMessage;
+			$this->processFormObjError($errors);
+			return;
+        }              
+        
     	// disable password validation if they are empty
     	$password = BizSystem::ClientProxy()->GetFormInputs("fld_password");
 		$password_repeat = BizSystem::ClientProxy()->GetFormInputs("fld_password_repeat");
@@ -281,7 +290,7 @@ class UserForm extends EasyForm
         $username = BizSystem::ClientProxy()->GetFormInputs("fld_username");
         // query UserDO by the username
         $userDO = $this->getDataObj();
-        $records = $userDO->directFetch("[username]='$username'",1);
+        $records = $userDO->directFetch("[username]='$username' AND [Id]<>$this->m_RecordId",1);
         if (count($records)==1)
             return true;
         return false;
@@ -296,7 +305,7 @@ class UserForm extends EasyForm
     {
         $email = BizSystem::ClientProxy()->GetFormInputs("fld_email");
         $userDO = $this->getDataObj();
-        $records = $userDO->directFetch("[email]='$email'",1);
+        $records = $userDO->directFetch("[email]='$email' AND [Id]<>$this->m_RecordId",1);
         if (count($records)==1)
             return true;
         return false;
