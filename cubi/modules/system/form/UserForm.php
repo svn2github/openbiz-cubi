@@ -288,9 +288,16 @@ class UserForm extends EasyForm
     protected function _checkDupUsername()
     {
         $username = BizSystem::ClientProxy()->GetFormInputs("fld_username");
+        $searchTxt = "[username]='$username'";        
+        
         // query UserDO by the username
-        $userDO = $this->getDataObj();
-        $records = $userDO->directFetch("[username]='$username' AND [Id]<>$this->m_RecordId",1);
+        $userDO = $this->getDataObj();        
+        //include optional ID when editing records
+        if ($this->m_RecordId > 0 ) {
+            $searchTxt .= " AND [Id]<>$this->m_RecordId";  
+        }
+                       
+        $records = $userDO->directFetch($searchTxt,1);
         if (count($records)==1)
             return true;
         return false;
@@ -304,12 +311,19 @@ class UserForm extends EasyForm
     protected function _checkDupEmail()
     {
         $email = BizSystem::ClientProxy()->GetFormInputs("fld_email");
-        $userDO = $this->getDataObj();
-        $records = $userDO->directFetch("[email]='$email' AND [Id]<>$this->m_RecordId",1);
+        $searchTxt = "[email]='$email'";           
+        // query UserDO by the email
+        $userDO = $this->getDataObj();        
+        
+        //include optional ID when editing records
+        if ($this->m_RecordId > 0 ) {
+            $searchTxt .= " AND [Id]<>$this->m_RecordId";  
+        }        
+        $records = $userDO->directFetch($searchTxt,1);
         if (count($records)==1)
             return true;
         return false;
-    }    
+    }   
 
     public function profile($user_id = null){
     	if(!$user_id){    		
