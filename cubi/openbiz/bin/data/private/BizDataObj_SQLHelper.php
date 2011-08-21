@@ -402,9 +402,8 @@ class BizDataObj_SQLHelper
             {
                 if ($bizFld->m_Column && (strpos($bizFld->m_Column,',') != 0))
                 {  // handle composite key
-                    $pos = strpos($rule,'=');
-                    $endpos = strpos($rule,"'",$pos+2);
-                    $keyval = substr($rule,$pos+2,(strlen($rule)-$endpos)*-1);
+                    preg_match('/\['.$bizFld->m_Name.'\].*=.*\'(.+)\'/', $rule, $matches); //print_r($matches);
+                    $keyval = $matches[1];
                     $rule = $this->_compKeyRuleToSql($bizFld->m_Column,$keyval);
                 }
                 else
