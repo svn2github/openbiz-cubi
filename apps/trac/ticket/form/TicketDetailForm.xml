@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="TicketDetailForm" Class="trac.ticket.form.TicketForm" FormType="" jsClass="jbForm" Title="Details of trac_ticket" Description="" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="ticket_detail.tpl" EventName="" MessageFile="">
+<EasyForm Name="TicketDetailForm" Class="trac.ticket.form.TicketForm" FormType="" jsClass="jbForm" Title="Details of Ticket" Description="" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="ticket_detail.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="Id" ElementSet="General"/>
 		<Element Name="fld_summary" Class="LabelText" FieldName="summary" Label="Summary" ElementSet="Content"/>
@@ -15,7 +15,7 @@
 		<Element Name="fld_resolution" Class="LabelText" FieldName="resolution" Label="Resolution" ElementSet="General"/>
 		<Element Name="fld_owner" Class="LabelText" FieldName="owner" Label="Owner" ElementSet="Contact"/>
 		<Element Name="fld_reporter" Class="LabelText" FieldName="reporter" Label="Reporter" ElementSet="Contact"/>
-		<Element Name="fld_cc" Class="LabelText" FieldName="cc" Label="Cc" ElementSet="Contact"/>
+		<Element Name="fld_cc" Class="LabelText" FieldName="cc" Label="Copy to" ElementSet="Contact"/>
 		<Element Name="fld_keywords" Class="LabelText" FieldName="keywords" Label="Keywords" ElementSet="General"/>
 		<Element Name="fld_time" Class="LabelText" FieldName="time" Label="Create Time" ElementSet="Misc"/>
 		<Element Name="fld_changetime" Class="LabelText" FieldName="changetime" Label="Change Time" ElementSet="Misc"/>

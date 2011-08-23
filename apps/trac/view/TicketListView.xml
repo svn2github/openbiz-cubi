@@ -1,14 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <EasyView Name="TicketListView" Description="trac.ticket" Class="EasyView" Access="trac.Aminister_Trac" TemplateEngine="Smarty" TemplateFile="ticket_view.tpl">
    <FormReferences>
-   		<Reference Name="trac.ticket.form.TicketSearchForm"/>
    		<Reference Name="trac.ticket.form.TicketListForm"/>
-   </FormReferences>
-   <FormReferenceLibs>
-   		<Reference Name="trac.ticket.form.TicketListForm"/>
-   		<Reference Name="trac.ticket.form.TicketEditForm"/>
-   		<Reference Name="trac.ticket.form.TicketCopyForm"/>
-   		<Reference Name="trac.ticket.form.TicketNewForm"/>
-   		<Reference Name="trac.ticket.form.TicketDetailForm"/>
-   </FormReferenceLibs>    
+   </FormReferences>   
 </EasyView>

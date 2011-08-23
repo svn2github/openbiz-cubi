@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="SearchResultsForm" Class="trac.ticket.form.TicketSearchForm" Title="Tickets Search Results" FormType="List" jsClass="jbForm" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="grid.tpl" PageSize="10">
+<EasyForm Name="TicketResultsForm" Class="trac.ticket.form.TicketForm" Title="Search Results" FormType="List" jsClass="jbForm" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="grid.tpl" PageSize="10">
     <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox" Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N"/>
         <Element Name="fld_summary" Class="ColumnText" FieldName="summary" Link="{@home:url}/trac/ticket_detail/{@:Elem[fld_Id].Value}" Label="Summary" Required="Y"/>
         <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type" Sortable="Y"/>	
@@ -10,12 +11,17 @@
         <Element Name="fld_priority" Class="ColumnText" FieldName="priority" Label="Priority" Sortable="Y"/>	
         <Element Name="fld_owner" Class="ColumnText" FieldName="owner" Label="Owner" Sortable="Y"/>	
         <Element Name="fld_reporter" Class="ColumnText" FieldName="reporter" Label="Reporter" Sortable="Y"/>	
-        <Element Name="fld_status" Class="ColumnText" Description="123-123" FieldName="status" Label="Status" Sortable="Y"/>	
+        <Element Name="fld_status" Class="ColumnText" FieldName="status" Label="Status" Sortable="Y"/>	
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_search" Class="LabelText" Text="Search Tickets" CssClass="button_gray_w" Link="{@home:url}/trac/ticket_list">
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(trac.ticket.form.TicketNewForm)" ShortcutKey="Insert" ContextMenu="New"/>
         </Element>
-        <Element Name="btn_saved" Class="LabelText" Text="Saved Search" CssClass="button_gray_w" Link="{@home:url}/trac/saved_query">
+        <Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
+            <EventHandler Name="btn_copy_onclick" Event="onclick" EventLogMsg="" Function="CopyRecord()" RedirectPage="form=trac.ticket.form.TicketCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element>
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
         </Element>
         <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
             <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
@@ -44,5 +50,9 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
+    	<Element Name="qry_summary"  Class="InputText" FuzzySearch="Y" SelectFrom="" FieldName="summary" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element> 
     </SearchPanel>
 </EasyForm>

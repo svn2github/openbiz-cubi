@@ -3,7 +3,7 @@ include_once (MODULE_PATH.'/trac/email/TicketEmailService.php');
 
 class TicketSearchForm extends EasyForm 
 { 
-   	protected $ticketListForm = "trac.ticket.form.TicketListForm";
+   	protected $ticketListForm = "trac.ticket.form.TicketResultsForm";
    	protected $ticketQueryDO = "trac.ticket.do.TicketQueryDO";
 	
 	public function searchTicket()

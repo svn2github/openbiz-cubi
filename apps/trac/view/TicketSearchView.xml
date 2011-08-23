@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="TicketSearchView" Description="trac.ticket" Class="EasyView" Access="trac.Aminister_Trac" TemplateEngine="Smarty" TemplateFile="ticket_view.tpl">
+   <FormReferences>
+   		<Reference Name="trac.ticket.form.TicketSearchForm"/>
+   		<Reference Name="trac.ticket.form.TicketResultsForm"/>
+   </FormReferences>   
+</EasyView>

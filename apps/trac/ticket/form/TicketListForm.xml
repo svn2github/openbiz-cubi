@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="TicketListForm" Class="trac.ticket.form.TicketForm" Title="List of tickets" FormType="List" jsClass="jbForm" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="grid.tpl" PageSize="10">
+<EasyForm Name="TicketListForm" Class="trac.ticket.form.TicketForm" Title="List of tickets" FormType="List" jsClass="jbForm" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="ticket_list.tpl" PageSize="10">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox" Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N"/>
@@ -11,7 +11,7 @@
         <Element Name="fld_priority" Class="ColumnText" FieldName="priority" Label="Priority" Sortable="Y"/>	
         <Element Name="fld_owner" Class="ColumnText" FieldName="owner" Label="Owner" Sortable="Y"/>	
         <Element Name="fld_reporter" Class="ColumnText" FieldName="reporter" Label="Reporter" Sortable="Y"/>	
-        <Element Name="fld_status" Class="ColumnText" Description="123-123" FieldName="status" Label="Status" Sortable="Y"/>	
+        <Element Name="fld_status" Class="ColumnText" FieldName="status" Label="Status" Sortable="Y"/>	
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
@@ -50,6 +50,21 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
+        <Element Name="type_filter"  BlankOption="Types" Class="Listbox" FieldName="type" Label="" SelectFrom="trac.enum.do.EnumDO[name], [type]='Type'" width="90" style="float:left;margin-right:5px">
+            <EventHandler Name="status_filter_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>
+        <Element Name="status_filter"  BlankOption="Status" Class="Listbox" FieldName="status" Label="" SelectFrom="trac.enum.do.EnumDO[name], [type]='Status'" width="90" style="float:left;margin-right:5px">
+            <EventHandler Name="status_filter_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>  
+		<Element Name="priority_filter"  BlankOption="Priorities" Class="Listbox" FieldName="priority" Label="" SelectFrom="trac.enum.do.EnumDO[name], [type]='Priority'" width="90" style="float:left;margin-right:5px">
+            <EventHandler Name="priority_filter_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>
+        <Element Name="product_filter"  BlankOption="Products" Class="Listbox" FieldName="product_id" Label="" SelectFrom="trac.product.do.ProductDO[name:Id]" width="90" style="float:left;margin-right:5px">
+            <EventHandler Name="product_filter_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>
+        <Element Name="component_filter"  BlankOption="Components" Class="Listbox" FieldName="component" Label="" SelectFrom="trac.component.do.ComponentDO[name], [product_id]='{@:Elem[product_filter].Value}'" width="90" style="float:left;margin-right:5px">
+            <EventHandler Name="component_filter_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>
     	<Element Name="qry_summary"  Class="InputText" FuzzySearch="Y" SelectFrom="" FieldName="summary" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
