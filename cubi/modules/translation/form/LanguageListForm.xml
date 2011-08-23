@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="LanguageListForm" icon="icon_translation_list.gif" Class="LanguageForm" FormType="List" jsClass="jbForm" Title="Language Management" Description="This module could manage multi-language translations for system.\n Each language package contains many translation files for each modules inside." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="TRANSLATION" MessageFile="Translation.msg">
+    <DataPanel>
+        
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="author_email" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_author_email" Class="Hidden" Hidden="Y" FieldName="authorEmail" Label="author_email" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_icon" Class="ColumnImage"   FieldName="icon" Label="Nation"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+   			<EventHandler Name="fld_icon_onclick" Event="onclick" Function="SwitchForm(translation.form.LanguageDetailForm,{@:Elem[fld_Id].Value})"  />
+        </Element>
+        <Element Name="fld_region" Class="ColumnText" FieldName="region" Label="Country"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+   			<EventHandler Name="fld_region_onclick" Event="onclick" Function="SwitchForm(translation.form.LanguageDetailForm,{@:Elem[fld_Id].Value})"  />
+        </Element>      	
+		<Element Name="fld_lang" Class="ColumnText" FieldName="lang" Label="Language"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+   			<EventHandler Name="fld_lang_onclick" Event="onclick" Function="SwitchForm(translation.form.LanguageDetailForm,{@:Elem[fld_Id].Value})"  />
+        </Element>         	
+        <Element Name="fld_users" Class="ColumnText" FieldName="users" Label="Users" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_author" Class="ColumnText" FieldName="author" Label="Author"  Link="mailto:{@:Elem[fld_author_email].Value}"   Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_version" Class="ColumnText" FieldName="version" Label="Version"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_createdate" Class="ColumnText" FieldName="creationDate" Label="Create Date"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_default" Class="ColumnBool" FieldName="default" Label="Default"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        		
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+			<EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(translation.form.LanguageNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=translation.form.LanguageEditForm&amp;fld:Id={@:m_RecordId}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+ 
+                
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        </Element>
+        
+        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
+            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    	
+    </NavPanel> 
+    <SearchPanel>
+                  
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="translation" Description="UI translation management module" Author="Jixian" Version="0.2" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="Translation">
+			<Action Name="Administer_Transation" Description="Can manage user interface translation for the application"/>
+		</Resource>
+</ACL>
+	<Menu>
+    <!-- System menus -->
+		<MenuItem Name="System.Translation" Title="Translation" Description="Translation Management" Parent="System" IconImage="spacer.gif" IconCssClass="icon_translation" Order="50">			
+			<MenuItem Name="System.Translation.translation" Title="Manage UI Translation" Description=""  URL="/translation/manage_translation" Order="20"/>
+			<MenuItem Name="System.Translation.language" Title="Manage Languages" Description=""  URL="/translation/manage_language" Order="30"/>
+		</MenuItem>
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+</Module>

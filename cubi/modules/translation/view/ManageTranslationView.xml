@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ManageTranslationView" Description="Translation Management " Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Translation.Administer_Transation">
+   <FormReferences>
+   		<Reference Name="translation.form.TranslationListForm"/>
+   </FormReferences>
+   
+</EasyView>

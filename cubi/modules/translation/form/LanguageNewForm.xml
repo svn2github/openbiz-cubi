@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="LanguageNewForm" Class="LanguageForm" icon="icon_translation_add.gif" FormType="New" jsClass="jbForm" Title="New Language Package" Description="This module could manage multi-language translations for system.\n Each language package contains many translation files for each modules inside." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="TRANSLATION" MessageFile="Translation.msg">
+    <DataPanel>
+		<Element Name="fld_Id" ElementSet="General" Class="Hidden" Hidden="Y" FieldName="Id" Label="author_email" Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_region" ElementSet="General" Class="RegionListbox" FieldName="region" Label="Region"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         	
+			<EventHandler Name="fld_region_onchange" EventLogMsg="" Event="onchange" Function="UpdateForm()" />
+		</Element>
+        <Element Name="fld_lang" ElementSet="General" Class="LanguageListbox" SelectFrom="{@:Elem[fld_region].Value}"  FieldName="lang" Label="Language"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+		</Element>   				
+        <Element Name="fld_icon" ElementSet="General" Class="LabelImage"   FieldName="icon"  Label="Nation"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_desc" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_version" ElementSet="General" Class="InputText" DefaultValue="1.0" FieldName="version" Label="Version"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+
+        <Element Name="fld_author" ElementSet="Addiontional" Class="InputText" DefaultValue="{'@profile:username'}" FieldName="author" Label="Author"  Link="mailto:{@:Elem[fld_author_email].Value}"   Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_author_email" ElementSet="Addiontional" Class="InputText" DefaultValue="{'@profile:email'}" FieldName="authorEmail" Label="Email"  Link="mailto:{@:Elem[fld_author_email].Value}"   Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_author_url" ElementSet="Addiontional" Class="InputText" DefaultValue="http://" FieldName="authorUrl" Label="Homepage"  Link="[fld_author_url].Value}"   Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_createdate" ElementSet="Addiontional" Class="InputDate" DefaultValue="{date('Y-m-d')}" FieldName="creationDate" Label="Create Date"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+       
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=translation.form.LanguageDetailForm&amp;fld:Id={@:m_RecordID}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TranslationEditForm" Class="TranslationForm" icon="icon_translation_edit.gif" FormType="Edit" jsClass="jbForm" Title="Edit Transation File" Description="You can edit translation file in below text box.\nEach line is translation string. the file format is a multi-section ini file." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="TRANSLATION" MessageFile="Translation.msg">
+    <DataPanel>
+		<Element Name="fld_Id" ElementSet="General" Class="Hidden" Hidden="Y" FieldName="Id" Label="author_email" Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_lang" ElementSet="General" Class="LabelText" FieldName="lang" Label="Language"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_filename" ElementSet="General" Class="LabelText" FieldName="filename" Label="Filename"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_translation" ElementSet="Translation" Class="Textarea" FieldName="translation" Label="Content" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />         	
+		
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="Update()" RedirectPage="form=translation.form.TranslationListForm"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

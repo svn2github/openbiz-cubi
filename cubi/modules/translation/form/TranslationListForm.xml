@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TranslationListForm" Class="TranslationForm" Icon="icon_translation_list.gif" FormType="List" jsClass="jbForm" Title="Translation Management" Description="Below list are the translation file for system modules. \nYou can manage and translate the module into your current language." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="TRANSLATION" MessageFile="Translation.msg">
+    <DataPanel>
+        
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="author_email" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_icon" Class="ColumnImage" Text="comments.png" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;" >
+        	<EventHandler Name="fld_icon_onclick" Event="onclick" Function="SwitchForm(translation.form.TranslationEditForm,{@:Elem[fld_Id].Value})"  />
+        </Element>
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Module"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;" > 
+        	<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(translation.form.TranslationEditForm,{@:Elem[fld_Id].Value})"  />
+        </Element>        	
+        <Element Name="fld_filename" Class="ColumnText" FieldName="filename" Label="Filename"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_size" Class="ColumnText"  FieldName="strings" Label="Strings"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        <Element Name="fld_items" Class="ColumnText"  FieldName="modification" Label="Modification"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>	
+        <Element Name="fld_action" Class="ColumnImage" FieldName="" Label="Action" Text="bullet_go.gif"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;"  >
+			<EventHandler Name="fld_action_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(translation.form.TranslationEditForm,{@:Elem[fld_Id].Value})" />
+        </Element>	
+        		
+    </DataPanel>
+    <ActionPanel>
+ <Element Name="selector_lang" ReadOnly="Y" Class="translation.form.LanguageSelector" Label="" Text="{@:m_Lang}" CssClass="input_select_w" CssFocusClass="input_select_w_focus" CssHoverClass="input_select_w_hover" >
+             <EventHandler Name="selector_lang_onchange" Event="onchange" EventLogMsg="" Function="updateLang()"/> 
+        </Element>   
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" >
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=translation.form.TranslationEditForm&amp;fld:Id={@:m_RecordId}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element> 
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="Delete()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        </Element>       
+        <Element Name="btn_reload" Class="Button" Text="Reload" CssClass="button_gray_m" >
+            <EventHandler Name="btn_reload_onclick" Event="onclick" EventLogMsg="" Function="Reload()" ShortcutKey="Ctrl+Shift+R" ContextMenu="Reload"/>
+        </Element>
+
+    </ActionPanel> 
+    <NavPanel>
+    	
+    </NavPanel> 
+    <SearchPanel>
+              
+    </SearchPanel>
+</EasyForm>
