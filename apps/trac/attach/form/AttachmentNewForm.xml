@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="AttachmentNewForm" Class="trac.attach.form.AttachmentForm" FormType="New" jsClass="jbForm" Title="New trac_attachment" Description="" BizDataObj="trac.attach.do.AttachmentDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+<EasyForm Name="AttachmentNewForm" Class="trac.attach.form.AttachmentForm" FormType="New" jsClass="jbForm" Title="New ticket attachment" Description="" BizDataObj="trac.attach.do.AttachmentDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
     <DataPanel>
         <Element Name="fld_parent_id" Class="Hidden" FieldName="parent_id" Label="Parent Id"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         <Element Name="fld_filename" Class="File" FieldName="filename" Label="Filename"/>

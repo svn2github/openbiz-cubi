@@ -10,7 +10,7 @@
 	</ACL>
     <Menu>
 		<MenuItem Name="TracTicket" Title="Tickets" Parent="" URL="/trac/ticket_list" Order="10">
-			<MenuItem Name="Trac.TicketBrowse" Title="Browse Tickets" Description=""  URL="" Order="10">
+			<MenuItem Name="Trac.TicketBrowse" Title="Browse Tickets" Access="trac.View_Ticket"  URL="" Order="10">
 				<MenuItem Name="Trac.TicketList" Title="All Tickets" Description=""  URL="/trac/ticket_list" Order="10"/>
                 <MenuItem Name="Trac.TicketSearch" Title="Search Tickets" Description=""  URL="/trac/ticket_search" Order="15"/>
                 <MenuItem Name="Trac.TicketNew" Title="Create Ticket" Description=""  URL="/trac/ticket_new" Order="20"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="EnumNewForm" Class="EasyForm" FormType="New" jsClass="jbForm" Title="New trac_enum" Description="" BizDataObj="trac.enum.do.EnumDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+<EasyForm Name="EnumNewForm" Class="EasyForm" FormType="New" jsClass="jbForm" Title="New ticket enumeration" Description="" BizDataObj="trac.enum.do.EnumDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
     <DataPanel>
         <Element Name="fld_type" Class="InputText" FieldName="type" Label="Type"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         <Element Name="fld_name" DefaultValue="New Enum Value" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>

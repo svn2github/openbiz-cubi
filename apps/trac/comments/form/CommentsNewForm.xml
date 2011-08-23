@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="CommentsNewForm" Class="EasyForm" FormType="New" jsClass="jbForm" Title="New trac_comments" Description="" BizDataObj="trac.comments.do.CommentsDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+<EasyForm Name="CommentsNewForm" Class="EasyForm" FormType="New" jsClass="jbForm" Title="New ticket comments" Description="" BizDataObj="trac.comments.do.CommentsDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
     <DataPanel>
         <Element Name="fld_parent_id" Class="InputText" FieldName="parent_id" Label="Parent Id"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
     			<Element Name="fld_time" Class="InputDatetime" DateFormat="%m/%d/%Y %H:%M:%S" FieldName="time" Label="Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>

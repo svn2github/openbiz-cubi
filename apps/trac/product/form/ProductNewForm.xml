@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProductNewForm" Class="EasyForm" FormType="New" jsClass="jbForm" Title="New trac_product" Description="" BizDataObj="trac.product.do.ProductDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+<EasyForm Name="ProductNewForm" Class="EasyForm" FormType="New" jsClass="jbForm" Title="New ticket product" Description="" BizDataObj="trac.product.do.ProductDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_name" DefaultValue="New Product" Class="InputText" FieldName="name" Label="Name" Sortable="Y"/>
 		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
