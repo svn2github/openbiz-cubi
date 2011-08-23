@@ -22,6 +22,8 @@ class TicketForm extends EasyForm
    		
    		// send email to ticket owner and cc
    		$emailSvc->notifyNewTicket($ticketRec);
+        
+        return true;
    	}
    
    	protected function _doUpdate($inputRecord, $currentRecord)
@@ -80,6 +82,8 @@ class TicketForm extends EasyForm
 		$commentRec['time'] = $dataRec['time'];
 		$commentRec['changes'] = $data;
 		$emailSvc->notifyChangeTicket($ticketRec, $commentRec);
+        
+        return true;
    	}
 
    	// special logic for version_id, product_id, component_id, milestone_id, owner_id
