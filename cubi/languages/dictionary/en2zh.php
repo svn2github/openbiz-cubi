@@ -12036,5 +12036,75 @@ array (
     'from_text' => 'Upload CSV File',
     'to_text' => '上传CSV文件',
   ),
+  'bc09847da7c5cbdc23537fc292802566' => 
+  array (
+    'from_text' => 'New ticket attachment',
+    'to_text' => '新的票证附件',
+  ),
+  '0561967a09e3d4ff85323710a6b6cfd0' => 
+  array (
+    'from_text' => 'New ticket comments',
+    'to_text' => '新的票证的意见',
+  ),
+  'aa0f5cd4edcff68d425cebef56ca8e39' => 
+  array (
+    'from_text' => 'New Component',
+    'to_text' => '新组件',
+  ),
+  '898d504288fb5fa65a2f17ecefe6d935' => 
+  array (
+    'from_text' => 'New ticket enumeration',
+    'to_text' => '新的票证枚举',
+  ),
+  'e368d4fa3de102ee9300acec10e41d12' => 
+  array (
+    'from_text' => 'New Enum Value',
+    'to_text' => '新的枚举值',
+  ),
+  '2edb6417367a99f8ed462f2842f36818' => 
+  array (
+    'from_text' => 'New ticket product',
+    'to_text' => '新的票证产品',
+  ),
+  '39c5dfa61825808dbc015048fb878457' => 
+  array (
+    'from_text' => 'New Product',
+    'to_text' => '新产品',
+  ),
+  '025b039ad0b292f0663a2dda52075aad' => 
+  array (
+    'from_text' => 'Tickets Search Results',
+    'to_text' => '温馨提示：结果',
+  ),
+  'ad3029ef421bebee1f7117d2c8475462' => 
+  array (
+    'from_text' => 'Details of Ticket',
+    'to_text' => '车票详情',
+  ),
+  '32df01b9cf0491a879250b58ba2744ba' => 
+  array (
+    'from_text' => 'Search Results',
+    'to_text' => '搜索结果',
+  ),
+  '0c2918dfd0517219ca422ededf58b5c6' => 
+  array (
+    'from_text' => 'New Version',
+    'to_text' => '新版本',
+  ),
+  'e8bc70160b94cbfdd3959645d60070b1' => 
+  array (
+    'from_text' => 'Copy to',
+    'to_text' => '复制到',
+  ),
+  '74248c725e00bf9fe04df4e35b249a19' => 
+  array (
+    'from_text' => 'Misc',
+    'to_text' => '杂项',
+  ),
+  '8fd1f15efcb5006a34381f69097a4e65' => 
+  array (
+    'from_text' => 'Browse Tickets',
+    'to_text' => '浏览门票',
+  ),
 );
 ?>
