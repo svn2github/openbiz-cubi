@@ -147,6 +147,8 @@ class logService extends MetaObject
         //Get the file path
         $this->_level = $level;
         $path = $this->_getPath($file_name);
+        if (!is_writable($path))
+            return false;
         if(!is_file($path))
         {
         	@touch($path);
@@ -218,6 +220,8 @@ class logService extends MetaObject
         //Get the file path
         $this->_level = $level;
         $path = $this->_getPath($fileName);
+        if (!is_writable($path))
+            return false;
         $this->prepFile($path);
 
         //Create the log writer object
