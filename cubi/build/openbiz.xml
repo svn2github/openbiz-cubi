@@ -20,7 +20,7 @@
         <include name="others/Zend/Cache/**"/>
         <include name="others/Zend/Crypt/**"/>
         <include name="others/Zend/Db/**"/>
-        <include name="others/Zend/Jason/**"/>
+        <include name="others/Zend/Json/**"/>
         <include name="others/Zend/Loader/**"/>
         <include name="others/Zend/Locale/**"/>
         <include name="others/Zend/Log/**"/>
