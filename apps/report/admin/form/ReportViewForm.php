@@ -59,7 +59,7 @@ class ReportViewForm extends EasyForm
 		}
 		
 		//create report table form
-		$chartFormType = "Table";
+		$chartFormType = "table";
 		$sortorder_t += 10;
 		if(!$this->_checkDupForm($do_id,$id,$chartFormType)){
 			$form_array = array(
