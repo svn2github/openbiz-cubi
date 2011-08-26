@@ -527,6 +527,7 @@ class BizDataObj_Lite extends BizDataObj_Abstract
             }
             else
             {
+                BizSystem::log(LOG_DEBUG, "DATAOBJ", "Query Sql = ".$rewritesql." BIND: $bindValueString");
                 $resultSet = $db->query($rewritesql, $bindValues);
                 $resultArray = $resultSet->fetch();
             }
