@@ -81,7 +81,6 @@ class DataSourceListbox extends InputElement{
         for($i=0;$i<count($dbArr);$i++){
         	$list[$i] = array('val'=>$dbArr[$i]['Id'],'txt'=>$dbArr[$i]['db_name']);
         }
-print_r($list); exit;
     }    
     
   
