@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="DashboardView" Description="Report Dashboard" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="report.Access">
+    <FormReferences>
+        <Reference Name="report.widget.DashboardForm"/>
+    </FormReferences>
+</EasyView>

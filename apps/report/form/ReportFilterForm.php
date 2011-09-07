@@ -61,14 +61,13 @@ class ReportFilterForm extends ReportForm
 
     public function resetSearch()
     {
-    	        // get view object
+    	// get view object
 		$viewObj = $this->getViewObject();
 		$viewObj->reload();
 		
         $this->m_SearchRule = "";
         $this->m_RefreshData = true;
         $this->m_CurrentPage = 1;
-        
         
     	foreach ($viewObj->m_FormRefs as $formRef)
         {
@@ -83,6 +82,41 @@ class ReportFilterForm extends ReportForm
             }
         }        
     }	
+    
+    public function renderPivot()
+    {
+        // compose pivotConfig object
+        include_once ("PivotConfig.php");
+        $pivotCfg = new PivotConfig();
+        $pivotCfg->addColumnField(BizSystem::clientProxy()->getFormInputs("fld_colfld"));
+        $pivotCfg->addRowField(BizSystem::clientProxy()->getFormInputs("fld_rowfld1"));
+        $pivotCfg->addDataField(BizSystem::clientProxy()->getFormInputs("fld_datafld1"),
+                                 BizSystem::clientProxy()->getFormInputs("fld_datafld1func"));
+        // TODO: add filter field ...
+        
+        $viewObj = $this->getViewObject();
+		$viewObj->reload();
+    	foreach ($viewObj->m_FormRefs as $formRef)
+        {
+            $formName = $formRef->m_Name;
+            //echo "$formName, ".$thisForm->m_Name."<br/>";
+            if ($formName == $this->m_Name)
+            	continue;
+            $formObj = BizSystem::objectFactory()->getObject($formName);
+            if ($formObj->m_DataObjName == $this->m_DataObjName && $formObj->m_Type=='table')
+            {
+                break;
+            }
+        }
+        $viewObj->m_FormRefs->rewind();
+        
+        $pivotViewName = "report.view.PivotView";
+        $pivotFormName = "report.form.ReportPivotTable";
+        $pivotView = BizSystem::getObject($pivotViewName);
+        $pivotForm = BizSystem::getObject($pivotFormName);
+        $pivotForm->initPivot($formObj, $pivotCfg);
+        $pivotView->render();
+    }
 
     protected function initElementObjects($elementRecords)
     {
@@ -96,7 +130,8 @@ class ReportFilterForm extends ReportForm
 			$_xmlArr["ATTRIBUTES"]["FIELDNAME"] = $elemRec['field_name'];
 			//$_xmlArr["ATTRIBUTES"]["ATTRS"] = $elemRec['attrs'];
 			$_xmlArr["ATTRIBUTES"]["SELECTFROMSQL"] = $elemRec['select_from'];
-			$_xmlArr["ATTRIBUTES"]["SORTABLE"] = 'Y';
+			//$_xmlArr["ATTRIBUTES"]["SORTABLE"] = 'Y';
+            $_xmlArr["ATTRIBUTES"]["ELEMENTSET"] = 'Filters';
 			
 			if(count($elementRecords)){
 				$_xmlArr["EVENTHANDLER"]["ATTRIBUTES"]["NAME"]=$elemRec['name']."_onchange";
@@ -108,7 +143,9 @@ class ReportFilterForm extends ReportForm
 			$xmlArr[] = $_xmlArr;
         }
        
-        $this->m_DataPanel = new Panel($xmlArr,"",$this);
+        $_dataPanel = new Panel($xmlArr,"",$this);
+        $_dataPanel->merge($this->m_DataPanel);
+        $this->m_DataPanel = $_dataPanel;
         /*foreach ($this->m_DataPanel as $elem) {
         	echo "<pre>";print_r($elem);echo "</pre>";
         }*/

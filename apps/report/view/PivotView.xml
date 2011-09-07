@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyView Name="PivotView" Description="View Pivot table" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_pivot.tpl.html">
+      <FormReferences>
+   		<Reference Name="report.form.ReportPivotTable"/>
+   </FormReferences> 
+</EasyView>

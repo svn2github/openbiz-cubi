@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportPivotTable" Class="ReportPivotTable" FormType="" jsClass="Openbiz.Form" Title="" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="report_pivot.tpl.html">
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_go" Class="Button" Text="Go" CssClass="button_gray_m">
+            <EventHandler Name="go_onclick" Event="onclick" EventLogMsg="" Function="renderPivot()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

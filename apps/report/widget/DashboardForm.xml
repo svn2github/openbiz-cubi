@@ -1,0 +1,2 @@
+<MenuWidget Name="DashboardForm" Title="Report Dashboard" Class="menu.widget.MenuWidget" CssCLass="report" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='Report'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="sitemap_menu.tpl" CacheLifeTime="0">
+</MenuWidget>

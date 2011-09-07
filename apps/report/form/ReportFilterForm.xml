@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReportFilterForm" Class="ReportFilterForm" FormType="" jsClass="Openbiz.ReportForm" Title="" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="report_filter.tpl.html">
+<EasyForm Name="ReportFilterForm" Class="ReportFilterForm" FormType="" jsClass="Openbiz.ReportForm" Title="" Description="Use this form to filter and create pivot report" BizDataObj="" TemplateEngine="Smarty" TemplateFile="report_filter.tpl.html">
     <DataPanel>
+        <Element Name="fld_colfld" Class="report.form.ReportColumnList" Label="Column Field" SelectFrom="" ElementSet="Pivot Report"/>
+        <Element Name="fld_rowfld1" Class="report.form.ReportColumnList" Label="Row Field 1" ElementSet="Pivot Report"/>
+        <!--<Element Name="fld_rowfld2" Class="report.form.ReportColumnList" Label="Row Field 2" ElementSet="Pivot Report"/>
+        <Element Name="fld_rowfld3" Class="report.form.ReportColumnList" Label="Row Field 3" ElementSet="Pivot Report"/>-->
+        <Element Name="fld_datafld1" Class="report.form.ReportColumnList" Label="Data Field" ElementSet="Pivot Report"/>
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_search" Class="Button" Text="Search" CssClass="button_gray_m">
+        <Element Name="btn_search" Class="Button" Text="Apply Filters" CssClass="button_gray_w">
             <EventHandler Name="search_onclick" Event="onclick" EventLogMsg="" Function="runSearch()"/>
+        </Element>
+        <Element Name="btn_pivot" Class="Button" Text="Go Pivot" CssClass="button_gray_w">
+            <EventHandler Name="pivot_onclick" Event="onclick" EventLogMsg="" Function="renderPivot()" FunctionType="Form"/>
         </Element>
         <Element Name="btn_clear" Class="Button" Text="Reset" CssClass="button_gray_m">
             <EventHandler Name="clear_onclick" Event="onclick" EventLogMsg="" Function="resetSearch()"/>

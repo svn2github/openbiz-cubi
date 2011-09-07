@@ -1,0 +1,54 @@
+<div align="left" style="padding-left:20px">
+    <div id="pivot">
+		<h3>Interactive Pivot table</h3>
+		Aggregate function:
+		<select id="pivot_agg"></select><br/>
+		Subtotals aggregate function:
+		<select id="pivot_agg_totals"></select><br/>
+		<div id="pivot_page"></div>
+		<div id="pivot_content"></div>
+		<div id="pivot_chart"></div>
+	</div>
+</div>
+
+<script>
+{literal}
+var header = ["Company","Year","Quarter","Color","$$$'s spent on pencils"];
+var data = [];
+var Companies = ["IBM","Novell","Microsoft"];
+var Years = ["2003","2004","2005"];
+var Quarters = ["1st","2nd","3rd","4th"];
+var Colors = ["Red","Blue","Black"];
+for (var i=0;i<Companies.length;i++)
+for (var j=0;j<Years.length;j++)
+for (var k=0;k<Quarters.length;k++)
+for (var l=0;l<Colors.length;l++) {
+	var value = Math.round(Math.random()*100);
+	data.push([Companies[i],Years[j],Quarters[k],Colors[l],value]);
+}
+
+function init() {
+    var pivot = new OAT.Pivot("pivot_content","null_pivot_chart","pivot_page",header,data,[0,1],[2,3],[],4,{showChart:1});
+    var aggRef = function() {
+        pivot.options.agg = parseInt($v("pivot_agg"));
+        pivot.go();
+    }
+    var aggRefTotals = function() {
+        pivot.options.aggTotals = parseInt($v("pivot_agg_totals"));
+        pivot.go();
+    }
+    /* create agg function list */
+    OAT.Dom.clear("pivot_agg");
+    OAT.Dom.clear("pivot_agg_totals");
+    for (var i=0;i<OAT.Statistics.list.length;i++) {
+        var item = OAT.Statistics.list[i];
+        OAT.Dom.option(item.shortDesc,i,"pivot_agg");
+        OAT.Dom.option(item.shortDesc,i,"pivot_agg_totals");
+        if (pivot.options.agg == i) { $("pivot_agg").selectedIndex = i; }
+        if (pivot.options.aggTotals == i) { $("pivot_agg_totals").selectedIndex = i; }
+    }
+    OAT.Dom.attach("pivot_agg","change",aggRef);
+    OAT.Dom.attach("pivot_agg_totals","change",aggRefTotals);
+}
+{/literal}
+</script>

@@ -1,0 +1,71 @@
+{php}
+$header_background_image='/report/images/top_logo_banner.gif';
+$this->assign('header_background_image', $header_background_image);
+
+$js_url = $this->_tpl_vars['js_url'];
+$theme_js_url = $this->_tpl_vars['theme_js_url'];
+$css_url = $this->_tpl_vars['css_url'];
+
+$includedScripts = BizSystem::clientProxy()->getAppendedScripts();
+$includedScripts.="
+<script>var featureList=['pivot'];</script>
+<script type='text/javascript' src='".RESOURCE_URL."/report/js/oat/loader.js'></script>
+";
+$this->_tpl_vars['scripts'] = $includedScripts;
+
+$appendStyle = BizSystem::clientProxy()->getAppendedStyles();
+$appendStyle .= "
+<link rel=\"stylesheet\" href=\"$css_url/general.css\" type=\"text/css\" />
+<link rel=\"stylesheet\" href=\"$css_url/system_backend.css\" type=\"text/css\" />
+<link rel='stylesheet' type='text/css' href='".RESOURCE_URL."/report/js/oat/style.css' />
+";
+$this->_tpl_vars['style_sheets'] = $appendStyle;
+
+{/php}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+<meta name="description" content="{$description}"/>
+<meta name="keywords" content="{$keywords}"/>
+{$style_sheets}
+{$scripts}
+<script type="text/javascript" src="{$theme_js_url}/general_ui.js"></script>
+<script type="text/javascript" src="{$js_url}/cookies.js"></script>
+
+</head>
+
+<body>
+<div align="center" id="body_warp">
+	<div id="header_warp">
+	{include file='system_header.tpl.html'}
+	</div>
+	<!--main warp-->
+	<div id="main_warp">	
+    {include file='system_loader.tpl.html'}
+        <div id="main_content">
+		<!--main pivot form html -->
+        {foreach key=formname item=form from=$forms}						    
+            <div>{$form}</div>
+        {/foreach}
+        <!--main-->
+        </div>
+    </div>		
+    <!--main wrap end-->
+    <!--footer-->
+    <div  id="footer_warp">			
+    {include file='system_footer.tpl.html'}
+    </div>
+    <!-- footer end -->
+
+</div>
+
+{literal}
+<script>
+$('main_loader_bg').style.height = $('main_content').offsetHeight+'px';
+</script>
+{/literal}
+</body>
+</html>
