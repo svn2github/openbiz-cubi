@@ -2,7 +2,7 @@
 class EmailLogForm extends EasyForm
 {
 	public function fetchDataSet(){
-		$resultRecords = parent::fetchDataSet();
+		$resultRecords = parent::fetchDataSet()->toArray();
 		$emailSvc = BizSystem::getService(EMAIL_SERVICE);
 		for($i=0;$i<count($resultRecords);$i++)
 		{

@@ -18,6 +18,7 @@ class TimezoneSelector extends Listbox{
     public function getFromList(&$list) 
     {
     	//$list = array();
+        if (!function_exists("timezone_identifiers_list")) return;
 		$zones = timezone_identifiers_list();
 		foreach ($zones as $zone) 
 		{

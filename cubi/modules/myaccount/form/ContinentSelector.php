@@ -3,6 +3,7 @@ require_once(OPENBIZ_BIN."easy/element/Listbox.php");
 class ContinentSelector extends Listbox{
     function getFromList(&$list){
     	$list = array();
+        if (!function_exists("timezone_identifiers_list")) return;
 		$zones = timezone_identifiers_list();
 		foreach ($zones as $zone) 
 		{
