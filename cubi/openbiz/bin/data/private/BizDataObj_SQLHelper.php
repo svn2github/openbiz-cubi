@@ -96,6 +96,8 @@ class BizDataObj_SQLHelper
         // add columns
         foreach($dataObj->m_BizRecord as $bizFld)
         {
+            if ($bizFld->m_IgnoreInQuery) // field to be ignore in query - save memory
+                continue;
             if ($bizFld->m_Column && $bizFld->m_Type == "Blob")   // ignore blob column
                 continue;
             if ($bizFld->m_Column && !$bizFld->m_SqlExpression && (strpos($bizFld->m_Column,',') == 0))

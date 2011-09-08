@@ -38,6 +38,8 @@ class BizRecord extends MetaIterator
      * @var array
      */
     public $m_InputFields;
+    
+    protected $m_IgnoreInQuery = false;
 
     /**
      * Initialize BizRecord with xml array
