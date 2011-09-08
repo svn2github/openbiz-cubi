@@ -97,8 +97,8 @@ class EasyForm extends MetaObject implements iSessionObject
     protected $m_RecordId = null;
     public $m_ActiveRecord = null;
     public $m_FormInputs = null;
-    protected $m_SearchRule = null;
-    protected $m_FixSearchRule = null; // FixSearchRule is the search rule always applying on the search
+    public $m_SearchRule = null;
+    public $m_FixSearchRule = null; // FixSearchRule is the search rule always applying on the search
     protected $m_DefaultFixSearchRule = null;
     protected $m_SearchRuleBindValues;
     protected $m_Referer = "";

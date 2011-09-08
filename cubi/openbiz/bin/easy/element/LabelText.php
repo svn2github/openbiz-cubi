@@ -125,7 +125,7 @@ class LabelText extends Element
 
         if ($this->m_Translatable == 'Y')
             $value = $this->translateString($value);
-        $value_org = $value;
+        $value_org = strip_tags($value);
         if((int)$this->m_MaxLength>0){
 	        if(function_exists('mb_strlen') && function_exists('mb_substr')){
 	        	if(mb_strlen($value,'UTF8') > (int)$this->m_MaxLength){
