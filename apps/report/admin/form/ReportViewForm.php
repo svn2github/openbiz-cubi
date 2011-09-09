@@ -72,6 +72,7 @@ class ReportViewForm extends EasyForm
 							"width"=>"700",
 							"height"=>"300",
 		    				"sortorder"=>$sortorder_t,
+                            "attrs"=>"TemplateFile=report_table_default.tpl.html;PageSize=10;"
 			);
 			$formobj->insertRecord($form_array);
 			$formRec = $formobj->getActiveRecord();
