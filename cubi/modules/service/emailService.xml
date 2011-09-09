@@ -1,8 +1,10 @@
 <?xml version="1.0" standalone="no"?>
 <PluginService Name="emailService" Package="service" Class="emailService">
    <Accounts>  
-   			   				   				   				<Account Name="System2" Host="localhost" FromName="admin" FromEmail="admin@yourcompany.com" IsSMTP="Y" SMTPAuth="Y" Username="admin" Password="" />
-	   				   				<Account Name="SystemNotifier" Host="smtp.qq.com" FromName="System Notification" FromEmail="jixian2003@qq.com" IsSMTP="Y" SMTPAuth="Y" Username="jixian2003" Password="xxxx" />
-	   						   </Accounts>  
+		<!-- use SMTP server -->
+		<Account Name="System" Host="smtp.yourcompany.com" FromName="admin" FromEmail="admin@yourcompany.com" IsSMTP="Y" SMTPAuth="Y" Username="admin" Password="xxx" />
+		<!-- use default unix sendmail function -->
+		<Account Name="SystemNotifier" Host="" FromName="System Notification" FromEmail="notifys@yourcompany.com" IsSMTP="N" SMTPAuth="N" Username="" Password="" />
+   </Accounts>  
    <Logging Type="DB" Object="email.do.EmailLogDO" Enabled="Y" />
 </PluginService>

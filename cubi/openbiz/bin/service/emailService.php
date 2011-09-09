@@ -162,6 +162,12 @@ class emailService extends MetaObject
             $mailTransport = new Zend_Mail_Transport_Smtp($account->m_Host, $config);
             $this->_mail->setDefaultTransport($mailTransport);
         }
+        else 
+        {
+            require_once 'Zend/Mail/Transport/Sendmail.php';
+            $mailTransport = new Zend_Mail_Transport_Sendmail();
+            $this->_mail->setDefaultTransport($mailTransport);
+        }
         $this->_mail->setFrom($account->m_FromEmail, $account->m_FromName);
     }
 
@@ -249,7 +255,7 @@ class emailService extends MetaObject
         }
         catch (Exception $e)
         {
-            $result = $e->getMessage();
+            $result = "ERROR: ".$e->getMessage();
             $this->logEmail($result, $subject, $body, $TOs, $CCs, $BCCs);
             return FALSE;
         }
