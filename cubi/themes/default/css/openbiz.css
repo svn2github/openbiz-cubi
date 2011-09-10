@@ -851,7 +851,9 @@ table.input_row td{
 	vertical-align:top;
 }
 table.input_row label{
-width:80px; text-align:right; color:#14a8f1;vertical-align:top;
+/*width:80px; */
+text-align:right; 
+color:#14a8f1;vertical-align:top;
 line-height:100%;
 }
 table.input_row .label_text{
