@@ -42,78 +42,60 @@ color:#666666;
 		{assign var=es_counter value=$es_counter+1}
 	{/foreach}
 	</ul>
-	{assign var=es_counter value=0}
-	{foreach item=setname name=elemsets  from=$form.elementSets}
-        <div id="element_set_panel_{$es_counter}" class="ui-tabs-panel">			
-		<div>
-		{assign var=es_elem_counter value=0}
-		{foreach item=item key=itemName from=$dataPanel}						
-			{if $item.elementset eq $setname}
-				{if $item.type eq 'Hidden' }
-				<table  id="{$itemName}_container" class="input_row" style="display:none">
-				{else}
-					{if $es_elem_counter is odd}
-					<table   id="{$itemName}_container" class="input_row odd">
-					{else}
-					<table   id="{$itemName}_container" class="input_row ">
-					{/if}
-				{/if}					
-				<tr>
-				{if $item.label}
-				<td style="width:120px;" >	
-					<label style="text-align:left">{$item.label}</label>
-				</td>
-				{/if}
-				<td>
-				{if $item.type eq 'Checkbox' }
-					<span class="label_text" >{$item.element} {$item.description}</span>
-				{else}
-					<span class="label_text" style="float:left;{if $item.width}width:{$item.width}px;{else}{if $default_label_text_width}{$default_label_text_width}{else}width:270px;{/if}{/if}">{$item.element}</span>
-					{if $errors.$itemName}
-					<span class="input_error_msg" style="width:200px;">{$errors.$itemName}</span>
-					{elseif $item.description}
-					<span class="input_desc" style="width:200px;">{$item.description}</span>			
-					{/if}				
-				{/if}					
-					</td>
-				</tr>
-				</table>
-			{/if}
-		{assign var=es_elem_counter value=$es_elem_counter+1}
-		{/foreach}
-        </div>
-		</div>
-	
-	{assign var=es_counter value=$es_counter+1}			
-	{/foreach}
+    <div id="element_set_panel_0" class="ui-tabs-panel">			
+    <div>
+    {foreach item=item key=itemName from=$dataPanel}						
+        {if $item.elementset eq 'Filters'}
+            <table class="input_row">
+            <tr>
+            <td style="width:120px;" >	
+                <label>{$item.label}</label>
+            </td>
+            <td>
+            {if $item.type eq 'Checkbox' }
+                <span class="label_text" >{$item.element} {$item.description}</span>
+            {else}
+                <span class="label_text" style="float:left;{if $item.width}width:{$item.width}px;{else}{if $default_label_text_width}{$default_label_text_width}{else}width:270px;{/if}{/if}">{$item.element}</span>
+                {if $errors.$itemName}
+                <span class="input_error_msg" style="width:200px;">{$errors.$itemName}</span>
+                {elseif $item.description}
+                <span class="input_desc" style="width:200px;">{$item.description}</span>			
+                {/if}				
+            {/if}					
+            </td>
+            </tr>
+            </table>
+        {/if}
+    {/foreach}
+    </div>
+    </div>
+    <div id="element_set_panel_1" class="ui-tabs-panel">			
+    <div>
+        <table class="input_row">
+        <tr><td style="width:120px;" ><label>{$dataPanel.fld_colfld1.label}</label></td>
+        <td>
+            {$dataPanel.fld_colfld1.element}
+            {$dataPanel.fld_colfld2.element}
+        </td></tr>
+        <tr><td style="width:120px;" ><label>{$dataPanel.fld_rowfld1.label}</label></td>
+        <td>
+            {$dataPanel.fld_rowfld1.element}
+            {$dataPanel.fld_rowfld2.element}
+            {$dataPanel.fld_rowfld3.element}
+        </td></tr>
+        <tr><td style="width:120px;" ><label>{$dataPanel.fld_datafld1.label}</label></td>
+        <td>{$dataPanel.fld_datafld1.element}</td></tr>
+        </table>
+    </div>
+    </div>
     
     <div style="height:10px;"></div>
     {if $actionPanel|@count > 0}
-        {if $form.ActionElementSets|@count > 0}
-        <div class="action_panel_set">
-            {assign var=es_counter value=0}
-            {foreach item=setname name=elemsets  from=$form.ActionElementSets}		 		
-                    {if $es_counter is odd}
-                    <p  class="input_row odd">
-                    {else}
-                    <p  class="input_row ">
-                    {/if}
-                    {foreach item=elem from=$actionPanel}
-                        {if $elem.elementset eq $setname}
-                            {$elem.element}
-                        {/if}
-                    {/foreach}
-                    </p>		
-                    {assign var=es_counter value=$es_counter+1}			
-            {/foreach}
-         </div>
-        {else}
         <p class="input_row">			
             {foreach item=elem from=$actionPanel}
                 {$elem.element}
             {/foreach}
         </p>
-        {/if}
     {/if}
 
 	{if $errors}
@@ -145,17 +127,32 @@ color:#666666;
 </div>
 </form>
 
-	<script>
-	var formname = '{$form.name}';
-	{literal}
-	var c = new Cookies();		
-	var $tabs = $j( "#tabs" ).tabs({
-		select: function(event, ui)
-		{				
-			c.set(formname+'_lastTab',ui.panel.id);			
-		}
-	}).css({'padding-left':'0px','width':'680px','display':'block'});		
-	lastViewedTab = c.get(formname+'_lastTab');
-	$tabs.tabs('select','#'+lastViewedTab);
-	{/literal}
-	</script>
+<script>
+// validation of input
+var pivotInputs = ['fld_colfld1','fld_colfld2','fld_rowfld1','fld_rowfld2','fld_rowfld3','fld_datafld1'];
+{literal}
+function validatePivotInputs(elem) {
+    for(i=0; i<pivotInputs.length; i++) {
+        if (elem.id != pivotInputs[i] && elem.value != '' && elem.value == $(pivotInputs[i]).value) {
+            select_list_selected_index = elem.selectedIndex;
+            text = elem.options[select_list_selected_index].text
+            alert("Please select a different field other than '"+text+"'");
+            elem.value='';
+        }
+    }
+}
+{/literal}
+
+var formname = '{$form.name}';
+{literal}
+var c = new Cookies();		
+var $tabs = $j( "#tabs" ).tabs({
+    select: function(event, ui)
+    {				
+        c.set(formname+'_lastTab',ui.panel.id);			
+    }
+}).css({'padding-left':'0px','width':'680px','display':'block'});		
+lastViewedTab = c.get(formname+'_lastTab');
+$tabs.tabs('select','#'+lastViewedTab);
+{/literal}
+</script>

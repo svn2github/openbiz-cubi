@@ -88,11 +88,17 @@ class ReportFilterForm extends ReportForm
         // compose pivotConfig object
         include_once ("PivotConfig.php");
         $pivotCfg = new PivotConfig();
-        $pivotCfg->addColumnField(BizSystem::clientProxy()->getFormInputs("fld_colfld"));
+        $pivotCfg->addColumnField(BizSystem::clientProxy()->getFormInputs("fld_colfld1"));
+        $pivotCfg->addColumnField(BizSystem::clientProxy()->getFormInputs("fld_colfld2"));
         $pivotCfg->addRowField(BizSystem::clientProxy()->getFormInputs("fld_rowfld1"));
+        $pivotCfg->addRowField(BizSystem::clientProxy()->getFormInputs("fld_rowfld2"));
+        $pivotCfg->addRowField(BizSystem::clientProxy()->getFormInputs("fld_rowfld3"));
         $pivotCfg->addDataField(BizSystem::clientProxy()->getFormInputs("fld_datafld1"),
                                  BizSystem::clientProxy()->getFormInputs("fld_datafld1func"));
         // TODO: add filter field ...
+        
+        // validate the inputs
+        
         
         $viewObj = $this->getViewObject();
 		$viewObj->reload();
