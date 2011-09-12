@@ -27,7 +27,7 @@
         <Element Name="btn_clear" Class="Button" Text="Reset Filters" CssClass="button_gray_w">
             <EventHandler Name="clear_onclick" Event="onclick" EventLogMsg="" Function="resetSearch()"/>
         </Element>
-        <Element Name="btn_pivot" Class="Button" Text="Go Pivot" CssClass="button_gray_w">
+        <Element Name="btn_pivot" Class="Button" Text="Go Pivot" CssClass="button_gray_w"  Hidden="Y">
             <EventHandler Name="pivot_onclick" Event="onclick" EventLogMsg="" Function="renderPivot()" FunctionType="Form"/>
         </Element>
     </ActionPanel> 

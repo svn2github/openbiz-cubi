@@ -2,6 +2,38 @@
 include_once "ReportForm.php";
 class ReportFilterForm extends ReportForm
 {
+    public $m_UsePivot = 0;
+    public $m_PivotLimit = 1000;
+    
+    public function setAttributes($formRecord)
+    {
+        //echo "in setAttributes of $this->m_Name";
+        parent::setAttributes($formRecord);
+        $attrArr = explode(";",$this->m_Attrs);
+        //print_r($attrArr);
+		foreach($attrArr as $value){
+			$itemArr = explode("=",$value);
+			$attrs[$itemArr[0]]=$itemArr[1];
+		}
+        //added for support pivot table
+		if(isset($attrs['UsePivot']) && $attrs['UsePivot']==1){
+			$this->m_UsePivot = 1;
+            $this->getElement('btn_pivot')->m_Hidden = 'N';
+		}
+        
+        if(isset($attrs['PivotLimit'])){
+			$this->m_PivotLimit = $attrs['PivotLimit'];
+		}
+        
+    }
+    
+    public function outputAttrs()
+    {
+        $output = parent::outputAttrs();
+        $output['use_pivot'] = $this->m_UsePivot;
+        return $output;
+    }
+    
 	public function runSearch()
 	{
 		// get view object
@@ -88,6 +120,7 @@ class ReportFilterForm extends ReportForm
         // compose pivotConfig object
         include_once ("PivotConfig.php");
         $pivotCfg = new PivotConfig();
+        $pivotCfg->queryLimit = $this->m_PivotLimit;
         $pivotCfg->addColumnField(BizSystem::clientProxy()->getFormInputs("fld_colfld1"));
         $pivotCfg->addColumnField(BizSystem::clientProxy()->getFormInputs("fld_colfld2"));
         $pivotCfg->addRowField(BizSystem::clientProxy()->getFormInputs("fld_rowfld1"));
@@ -96,10 +129,7 @@ class ReportFilterForm extends ReportForm
         $pivotCfg->addDataField(BizSystem::clientProxy()->getFormInputs("fld_datafld1"),
                                  BizSystem::clientProxy()->getFormInputs("fld_datafld1func"));
         // TODO: add filter field ...
-        
-        // validate the inputs
-        
-        
+
         $viewObj = $this->getViewObject();
 		$viewObj->reload();
     	foreach ($viewObj->m_FormRefs as $formRef)

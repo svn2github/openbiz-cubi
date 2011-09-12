@@ -16,8 +16,8 @@ class ReportDO extends BizDataObj
 		$this->m_SortRule = $doRecord['sort_rule'];
 		$this->m_BaseSearchRule = $doRecord['search_rule'];
         $this->m_SearchRule = $this->m_BaseSearchRule;
-		
-		$this->m_OtherSQLRule = $doRecord['group_by'];
+		$group_by = isset($doRecord['group_by']) ? 'GROUP BY '.$doRecord['group_by'] : '';
+		$this->m_OtherSQLRule = $group_by;
 		$this->m_DbId = $doRecord['db_id'];
 		
         // fetch fields records

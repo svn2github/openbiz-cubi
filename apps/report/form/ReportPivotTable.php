@@ -3,6 +3,7 @@
 class ReportPivotTable extends EasyForm
 {
     protected $pivotConfig, $pivotFields;
+    protected $queryLimit = 1000;
     protected $baseForm;
     
     function __construct(&$xmlArr)
@@ -13,13 +14,28 @@ class ReportPivotTable extends EasyForm
     public function initPivot($baseForm, $pivotConfig)
     {
         $this->baseForm = $baseForm;
+        $this->queryLimit = $pivotConfig->queryLimit;
         $rf_elem = $baseForm->getElement($pivotConfig->columnFields[0]);
+        if (!$rf_elem) {
+            throw new Exception("Please speficy a valid column field in Pivot table");
+            return false;
+        }
+        
         $pivotFld['name'] = 'RF_'.$rf_elem->m_Name;
         $pivotFld['label'] = $rf_elem->m_Label;
         $pivotFld['type'] = 'column_field';
         $pivotFld['field'] = $rf_elem->m_FieldName;
         $this->pivotFields[$rf_elem->m_FieldName] = $pivotFld;
-            
+        
+        if (empty($pivotConfig->rowFields)) {
+            throw new Exception("Please speficy at least one valid row field in Pivot table");
+            return false;
+        }
+        if (empty($pivotConfig->dataFields)) {
+            throw new Exception("Please speficy a valid data field in Pivot table");
+            return false;
+        }
+        
         foreach ($pivotConfig->rowFields as $rf) {
             $rf_elem = $baseForm->getElement($rf);
             //$rf_fld = $baseDO->getField($rf_elem->m_FieldName);
@@ -90,8 +106,10 @@ class ReportPivotTable extends EasyForm
         $db = $baseDO->getDBConnection();
         $sqlHelper = BizDataObj_SQLHelper::instance();
         $sql = $sqlHelper->buildQuerySQL($baseDO);
-        //echo $sql; exit;
-        
+        $hasGroupBy = stripos($sql, 'GROUP BY')>0 ? true : false;
+        if (!$hasGroupBy && $this->queryLimit > 0) {
+            $sql = $db->limit($sql, $this->queryLimit, 0);
+        }
         try
         {
             $bindValues = QueryStringParam::getBindValues();

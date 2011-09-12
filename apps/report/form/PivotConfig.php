@@ -2,20 +2,22 @@
 
 class PivotConfig
 {
-    public $columnFields;
+    public $columnFields = array();
     
-    public $rowFields;
+    public $rowFields = array();
     
-    public $dataFields;
+    public $dataFields = array();
     
-    public $filterFields;
+    public $filterFields = array();
     
-    public function addColumnField($colFld) { $this->columnFields[] = $colFld; }
+    public $queryLimit = 1000;
     
-    public function addRowField($rowFld) { $this->rowFields[] = $rowFld; }
+    public function addColumnField($colFld) { if ($colFld) $this->columnFields[] = $colFld; }
     
-    public function addDataField($dataFld, $func) { $this->dataFields[] = array($dataFld, $func='SUM'); }
+    public function addRowField($rowFld) { if ($rowFld) $this->rowFields[] = $rowFld; }
     
-    public function addFilterField($filterFld) { $this->filterFields[] = $filterFld; }
+    public function addDataField($dataFld, $func) { if ($dataFld) $this->dataFields[] = array($dataFld, $func='SUM'); }
+    
+    public function addFilterField($filterFld) { if ($filterFld) $this->filterFields[] = $filterFld; }
 }
 ?>

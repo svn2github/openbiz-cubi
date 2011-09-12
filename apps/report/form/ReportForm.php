@@ -71,7 +71,7 @@ class ReportForm extends EasyForm
 		if($formRecord['PageSize']){
 			$this->m_Range = $formRecord['PageSize'];
 		}else{
-			$this->m_Range = -1;
+			$this->m_Range = 10;
 		}
 
 		if($formRecord['fix_searchrule']) $this->m_FixSearchRule = $formRecord['fix_searchrule'];

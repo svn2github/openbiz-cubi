@@ -86,6 +86,8 @@ function showConfigOptions(type){
 
 		case 'filter':
 			hideConfigOptions();
+            $('fld_usepivot_container').show();
+			$('fld_pivot_limit_container').show();
 	}	
 }
 
@@ -215,6 +217,8 @@ function hideConfigOptions(){
 	$('fld_show_area_border_container').hide();
 	$('fld_show_area_alpha_container').hide();
 	$('fld_show_legend_container').hide();
+    $('fld_usepivot_container').hide();
+    $('fld_pivot_limit_container').hide();
 }
 </script>
 ";

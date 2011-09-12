@@ -36,11 +36,10 @@ color:#666666;
 	{assign var=es_counter value=0}
 	<div style="padding-left:20px;" id="tabs">
 	<ul style="border-radius: none;">
-	{assign var=es_counter value=0}
-	{foreach item=setname name=elemsets  from=$form.elementSets}			
-		<li><a href="#element_set_panel_{$es_counter}">{$setname}</a></li>
-		{assign var=es_counter value=$es_counter+1}
-	{/foreach}
+	<li><a href="#element_set_panel_0">Filters</a></li>
+    {if $use_pivot==1}
+    <li><a href="#element_set_panel_1">Pivot</a></li>
+    {/if}
 	</ul>
     <div id="element_set_panel_0" class="ui-tabs-panel">			
     <div>
@@ -69,6 +68,8 @@ color:#666666;
     {/foreach}
     </div>
     </div>
+    <!-- pivot table tab -->
+    {if $use_pivot}
     <div id="element_set_panel_1" class="ui-tabs-panel">			
     <div>
         <table class="input_row">
@@ -88,6 +89,7 @@ color:#666666;
         </table>
     </div>
     </div>
+    {/if}
     
     <div style="height:10px;"></div>
     {if $actionPanel|@count > 0}
