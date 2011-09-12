@@ -10,12 +10,18 @@ Openbiz.ReportForm = Class.create(Openbiz.TableForm,
         this.baseFormName = formNameArr[0];
         this.reportFormName = formNameArr[1];
     },
+    renderPivot: function(paramArray, options)
+    {
+        if (validatePivotForm())
+            this.CallFunction("renderPivot", paramArray, options);
+    },
 	CallFunction: function(method, paramArray, options)
     {
         Openbiz.activeForm = this;
     	type = (options && options['type']) ? options['type'] : Openbiz.ActionType.RPC;
         this.actionType = type;
         paramArray.unshift(this.baseFormName, method);	//paramArray.unshift(this.name, method);
+
         // does AJAX call
         var url = Openbiz.appHome;
         var formData = this.collectData();
