@@ -143,6 +143,13 @@ function validatePivotInputs(elem) {
         }
     }
 }
+function validatePivotForm() {
+    if ($('fld_colfld1').value == '' || $('fld_rowfld1').value == '' || $('fld_datafld1').value == '') {
+        alert("Please select a valid column field, row fields and data field for pivot table.");
+        return false;
+    }
+    return true;
+}
 {/literal}
 
 var formname = '{$form.name}';
