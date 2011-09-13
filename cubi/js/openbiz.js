@@ -54,7 +54,9 @@ var Openbiz =
 			delete Openbiz.formInstances[formName];
         try
         {        	
-            var newobj  = eval("new "+className+"('"+formName+"','"+subForms+"')");
+            //var newobj  = eval("new "+className+"('"+formName+"','"+subForms+"')");
+            var NewClass = stringToFunction(className);
+            var newobj = new NewClass(formName, subForms);
             if (newobj)
                 this.formInstances[formName] = newobj;
         }
@@ -92,6 +94,21 @@ var Openbiz =
 }
 // call Openbiz init method
 Openbiz.init();
+
+var stringToFunction = function(str) {
+  var arr = str.split(".");
+
+  var fn = (window || this);
+  for (var i = 0, len = arr.length; i < len; i++) {
+    fn = fn[arr[i]];
+  }
+
+  if (typeof fn !== "function") {
+    throw new Error("function not found");
+  }
+
+  return  fn;
+};
 
 /**
  * Openbiz action types
