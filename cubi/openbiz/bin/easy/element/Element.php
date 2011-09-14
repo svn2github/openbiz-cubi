@@ -648,9 +648,13 @@ class EventHandler
         if ($this->m_Function)
         {
         	if(strtolower(substr($this->m_Function,0,3))!='js:'){
-            $pos = strrpos($this->m_Function, ".");
-            if ($pos > 0)
-                $this->m_Function = $this->_formName.".".substr($this->m_Function, $pos+1);
+                $pos0 = strpos($this->m_Function, "(");
+                if ($pos0 > 1)
+                    $pos = strrpos($this->m_Function, ".", -1*$pos0);
+                else 
+                    $pos = strrpos($this->m_Function, ".");
+                if ($pos > 0)
+                    $this->m_Function = $this->_formName.".".substr($this->m_Function, $pos+1);
         	}
         }
     }
