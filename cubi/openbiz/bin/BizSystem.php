@@ -436,14 +436,15 @@ class BizSystem
     }
 
     
-    public function resetDBConnection($dbName=null)
+    public static function resetDBConnection($dbName=null)
     {    	
-        return BizSystem::instance()->removeDBConnection($rDBName);
+        return BizSystem::instance()->removeDBConnection($dbName);
     }
     
     public function removeDBConnection($dbName=null){
     	$rDBName = (!$dbName) ? "Default" : $dbName;
         if (isset($this->_dbConnection[$rDBName])){
+            $this->_dbConnection[$rDBName]->closeConnection();
          	unset($this->_dbConnection[$rDBName]);         	         	
         }
         return $this->getDBConnection($rDBName);
