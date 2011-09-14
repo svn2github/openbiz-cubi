@@ -13,11 +13,10 @@ class ReportDO extends BizDataObj
 		$this->m_Name .= ':'.$doRecord['name'];
 		$this->m_MainTable = $doRecord['table'];
 		$this->m_Database = $doRecord['database'];
-		$this->m_SortRule = $doRecord['sort_rule'];
-		$this->m_BaseSearchRule = $doRecord['search_rule'];
-        $this->m_SearchRule = $this->m_BaseSearchRule;
-		$group_by = isset($doRecord['group_by']) ? 'GROUP BY '.$doRecord['group_by'] : '';
-		$this->m_OtherSQLRule = $group_by;
+		$this->m_BaseSortRule = $this->m_SortRule = $doRecord['sort_rule'];
+		$this->m_BaseSearchRule = $this->m_SearchRule = $doRecord['search_rule'];
+		$group_by = isset($doRecord['group_by']) && !empty($doRecord['group_by']) ? 'GROUP BY '.$doRecord['group_by'] : '';
+		$this->m_BaseOtherSQLRule = $this->m_OtherSQLRule = $group_by;
 		$this->m_DbId = $doRecord['db_id'];
 		
         // fetch fields records
