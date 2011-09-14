@@ -7,10 +7,8 @@ class ReportFilterForm extends ReportForm
     
     public function setAttributes($formRecord)
     {
-        //echo "in setAttributes of $this->m_Name";
         parent::setAttributes($formRecord);
         $attrArr = explode(";",$this->m_Attrs);
-        //print_r($attrArr);
 		foreach($attrArr as $value){
 			$itemArr = explode("=",$value);
 			$attrs[$itemArr[0]]=$itemArr[1];
@@ -24,16 +22,15 @@ class ReportFilterForm extends ReportForm
         if(isset($attrs['PivotLimit'])){
 			$this->m_PivotLimit = $attrs['PivotLimit'];
 		}
-        
     }
     
     public function outputAttrs()
     {
         $output = parent::outputAttrs();
         $output['use_pivot'] = $this->m_UsePivot;
-        return $output;
+	return $output;
     }
-    
+ 
 	public function runSearch()
 	{
 		// get view object
@@ -77,7 +74,7 @@ class ReportFilterForm extends ReportForm
             $searchRule = substr($searchBaseRule, 0, -4);
 		$searchRuleBindValues = QueryStringParam::getBindValues();
 		// redraw all forms other than this filter form
-		foreach ($viewObj->m_FormRefs as $formRef)
+	foreach ($viewObj->m_FormRefs as $formRef)
         {
             $formName = $formRef->m_Name;
             if ($formName == $this->m_Name)
@@ -129,14 +126,14 @@ class ReportFilterForm extends ReportForm
 			$_xmlArr["ATTRIBUTES"]["SELECTFROMSQL"] = $elemRec['select_from'];
 			//$_xmlArr["ATTRIBUTES"]["SORTABLE"] = 'Y';
             $_xmlArr["ATTRIBUTES"]["ELEMENTSET"] = 'Filters';
-			/*
+		/*	
 			if(count($elementRecords)){
 				$_xmlArr["EVENTHANDLER"]["ATTRIBUTES"]["NAME"]=$elemRec['name']."_onchange";
 				$_xmlArr["EVENTHANDLER"]["ATTRIBUTES"]["EVENT"]="onchange";
 				$_xmlArr["EVENTHANDLER"]["ATTRIBUTES"]["FUNCTION"]="UpdateForm()";
 				$_xmlArr["EVENTHANDLER"]["VALUE"]=null;
-			}*/
-			
+			}
+		*/	
 			$xmlArr[] = $_xmlArr;
         }
        

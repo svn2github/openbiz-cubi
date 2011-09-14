@@ -7,7 +7,8 @@ class ReportChartForm extends ReportForm
 {
 	public $chartCategory;
 	public $chartDataset;
-	
+	protected $colorList = array();	
+
 	public function outputAttrs()
     {
         $output['name'] = $this->m_Name;
@@ -105,19 +106,38 @@ class ReportChartForm extends ReportForm
         }
         return "";
     }
+
+	protected function getReportColors()
+	{
+		$this->colorList = BizSystem::sessionContext()->getVar("ReportColors");
+		if (empty($this->colorList)) {
+			$colorObj = BizSystem::getObject("report.do.ReportColorDO");
+			$colorList = $colorObj->directFetch("");
+			$i = 0;
+			foreach ($colorList as $color) {
+				$this->colorList[$i]["color_code"] = $color["color_code"];
+				$i++;
+			}
+			BizSystem::sessionContext()->setVar("ReportColors", $this->colorList);
+		}
+		return $this->colorList;
+	}
     
     protected function drawSingleSeries()
     {
     	//load color styles
-    	$colorObj = BizSystem::getObject("report.do.ReportColorDO");
-    	$colorList = $colorObj->directFetch("");
+        $colorList = $this->getReportColors();
     	
         $FC = new FusionCharts($this->m_SubType, $this->m_Width, $this->m_Height); 
         $this->seChartParams($FC);
         if(is_array($this->chartDataset)){
 	        foreach ($this->chartDataset as $key=>$ds) {
-	            for ($i=0; $i<count($ds); $i++)
-	                $FC->addChartData($ds[$i], "name=".$this->chartCategory[$i].";color=".$colorList[$i]["color_code"]);
+	            for ($i=0; $i<count($ds); $i++) {
+                    $colorString = "";
+                    if ($colorList[$i]["color_code"])
+                        $colorString = ";color=".$colorList[$i]["color_code"];
+	                $FC->addChartData($ds[$i], "name=".$this->chartCategory[$i].$colorString);
+                    }
 	        }
         }
         
@@ -132,8 +152,7 @@ class ReportChartForm extends ReportForm
             return;
         }
         //load color styles
-    	$colorObj = BizSystem::getObject("report.do.ReportColorDO");
-    	$colorList = $colorObj->directFetch("");
+        $colorList = $this->getReportColors();
     	    	
         $FC = new FusionCharts($this->m_SubType, $this->m_Width, $this->m_Height); 
         $this->seChartParams($FC);
@@ -143,16 +162,19 @@ class ReportChartForm extends ReportForm
         }
         $colorI=0;
         foreach ($this->chartDataset as $key=>$ds) {
-            $FC->addDataset($key,"color=".$colorList[$colorI]["color_code"]);
+            $colorString = "";
+            if ($colorList[$colorI]["color_code"])
+                $colorString = "color=".$colorList[$colorI]["color_code"];
+            $FC->addDataset($key,$colorString);
             for ($i=0; $i<count($ds); $i++){
-                $FC->addChartData($ds[$i],"color=".$colorList[$colorI]["color_code"]);                 
+                $FC->addChartData($ds[$i],$colorString);                 
             }
             $colorI++;
         }
         
         return $FC->renderChart(false, false);
     }
-    
+   
     protected function seChartParams($FC)
     {
         if(strtolower(FusionChartVersion)=="pro"){

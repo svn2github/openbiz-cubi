@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="ReportFilterForm" Class="ReportFilterForm" FormType="" jsClass="Openbiz.ReportForm" Title="" Description="Use this form to filter and create pivot report" BizDataObj="" TemplateEngine="Smarty" TemplateFile="report_filter.tpl.html">
     <DataPanel>
-        <Element Name="fld_colfld1" Class="report.form.ReportColumnList" Label="Column Fields" Width="100" BlankOption="-- Select --" ElementSet="Pivot Report">
-            <EventHandler Name="colfld1_onclick" Event="onchange" Function="js:validatePivotInputs(this);"/>
-        </Element>
-        <Element Name="fld_colfld2" Class="report.form.ReportColumnList" Label="" Width="100" BlankOption="-- Select --" ElementSet="Pivot Report">
-            <EventHandler Name="colfld1_onclick" Event="onchange" Function="js:validatePivotInputs(this);"/>
-        </Element>
-        <Element Name="fld_rowfld1" Class="report.form.ReportColumnList" Label="Row Fields" Width="100" BlankOption="-- Select --" ElementSet="Pivot Report">
-            <EventHandler Name="colfld1_onclick" Event="onchange" Function="js:validatePivotInputs(this);"/>
-        </Element>
-        <Element Name="fld_rowfld2" Class="report.form.ReportColumnList" Label="" Width="100" BlankOption="-- Select --" ElementSet="Pivot Report">
-            <EventHandler Name="colfld1_onclick" Event="onchange" Function="js:validatePivotInputs(this);"/>
-        </Element>
-        <Element Name="fld_rowfld3" Class="report.form.ReportColumnList" Label="" Width="100" BlankOption="-- Select --" ElementSet="Pivot Report">
-            <EventHandler Name="colfld1_onclick" Event="onchange" Function="js:validatePivotInputs(this);"/>
-        </Element>
-        <Element Name="fld_datafld1" Class="report.form.ReportColumnList" Label="Data Field" Width="100" BlankOption="-- Select --" ElementSet="Pivot Report">
-            <EventHandler Name="colfld1_onclick" Event="onchange" Function="js:validatePivotInputs(this);"/>
-        </Element>
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_search" Class="Button" Text="Apply Filters" CssClass="button_gray_w">
@@ -27,8 +9,8 @@
         <Element Name="btn_clear" Class="Button" Text="Reset Filters" CssClass="button_gray_w">
             <EventHandler Name="clear_onclick" Event="onclick" EventLogMsg="" Function="resetSearch()"/>
         </Element>
-        <Element Name="btn_pivot" Class="Button" Text="Go Pivot" CssClass="button_gray_w"  Hidden="Y">
-            <EventHandler Name="pivot_onclick" Event="onclick" EventLogMsg="" Function="renderPivot()" FunctionType="Form"/>
+        <Element Name="btn_pivot" Class="Button" Text="Set Pivot" CssClass="button_gray_w">
+            <EventHandler Name="pivot_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(report.form.ReportPivotForm)" />
         </Element>
     </ActionPanel> 
     <NavPanel>

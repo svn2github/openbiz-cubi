@@ -8,7 +8,7 @@ class ReportColumnList extends Listbox {
         $thisForm = $this->getFormObj();
         // get view object
 		$viewObj = $thisForm->getViewObject();
-		//$viewObj->reload();
+		$viewObj->reload();
     	foreach ($viewObj->m_FormRefs as $formRef)
         {
             $formName = $formRef->m_Name;
@@ -16,7 +16,7 @@ class ReportColumnList extends Listbox {
             if ($formName == $thisForm->m_Name)
             	continue;
             $formObj = BizSystem::objectFactory()->getObject($formName);
-            if ($formObj->m_DataObjName == $thisForm->m_DataObjName && $formObj->m_Type=='table')
+            if ($formObj->m_Type=='table') // ($formObj->m_DataObjName == $thisForm->m_DataObjName && $formObj->m_Type=='table')
             {
                 break;
             }

@@ -1,0 +1,114 @@
+<form id="{$form.name}" name="{$form.name}">
+<link rel="stylesheet" href="{$js_url}/jquery-ui/ui-openbiz/jquery.css" type="text/css" />
+{literal}
+<style>
+.ui-tabs-panel .input_row{
+width:100%;
+padding-bottom:0px;
+}
+.ui-tabs-panel .odd{
+background-color:#efefef;
+width:100%;
+}
+table.input_row .element_set_panel .label_text{
+padding-top:4px;
+height:20px;
+
+}
+.ui-tabs-panel .input_row label {
+padding-left:20px;
+line-height:24px;
+}
+.ui-widget{
+font-size:auto;
+}
+.ui-widget-content
+{
+color:#666666;
+}
+</style>
+{/literal}
+<div style="padding-left:35px; padding-right:30px;">
+	<div style="padding-left:0px;" >
+	<h2>{$form.title}</h2>
+	</div>
+    <!-- pivot table -->
+    <div>
+        <table class="input_row">
+        <tr><td style="width:120px;" ><label>{$dataPanel.fld_colfld1.label}</label></td>
+        <td>
+            {$dataPanel.fld_colfld1.element}
+            {$dataPanel.fld_colfld2.element}
+        </td></tr>
+        <tr><td style="width:120px;" ><label>{$dataPanel.fld_rowfld1.label}</label></td>
+        <td>
+            {$dataPanel.fld_rowfld1.element}
+            {$dataPanel.fld_rowfld2.element}
+            {$dataPanel.fld_rowfld3.element}
+        </td></tr>
+        <tr><td style="width:120px;" ><label>{$dataPanel.fld_datafld1.label}</label></td>
+        <td>{$dataPanel.fld_datafld1.element}</td></tr>
+        </table>
+    </div>
+    
+    <div style="height:10px;"></div>
+    {if $actionPanel|@count > 0}
+        <p class="input_row">			
+            {foreach item=elem from=$actionPanel}
+                {$elem.element}
+            {/foreach}
+        </p>
+    {/if}
+
+	{if $errors}
+	    <div id='errorsDiv' class='innerError errorBox'>
+	    {foreach item=errMsg from=$errors}
+	        <div>{$errMsg}</div>
+	    {/foreach}
+	    {literal}<script>try{setTimeout("$('errorsDiv').fade( {from: 1, to: 0});",3000);}catch(e){}</script>{/literal}
+	    </div>
+	{/if}
+	
+	{if $notices}
+	    <div id='noticeDiv' class='noticeBox' >
+	    {foreach item=noticeMsg from=$notices}
+	        <div>{$noticeMsg}</div>
+	    {/foreach}
+	    </div>
+	    {literal}<script>try{setTimeout("$('noticeDiv').fade( {from: 1, to: 0});",3000);}catch(e){};</script>{/literal}
+	{/if}
+
+	</div>
+	
+    <div style="height:0px; padding-left:20px;">
+    <div id='{$form.name}.load_disp' style="display:none;">
+    <img  src="{$image_url}/form_ajax_loader.gif"/>
+    </div>
+    </div>
+	
+</div>
+</form>
+
+<script>
+// validation of input
+var pivotInputs = ['fld_colfld1','fld_colfld2','fld_rowfld1','fld_rowfld2','fld_rowfld3','fld_datafld1'];
+{literal}
+function validatePivotInputs(elem) {
+    for(i=0; i<pivotInputs.length; i++) {
+        if (elem.id != pivotInputs[i] && elem.value != '' && elem.value == $(pivotInputs[i]).value) {
+            select_list_selected_index = elem.selectedIndex;
+            text = elem.options[select_list_selected_index].text
+            alert("Please select a different field other than '"+text+"'");
+            elem.value='';
+        }
+    }
+}
+function validatePivotForm() {
+    if ($('fld_colfld1').value == '' || $('fld_rowfld1').value == '' || $('fld_datafld1').value == '') {
+        alert("Please select a valid column field, row fields and data field for pivot table.");
+        return false;
+    }
+    return true;
+}
+{/literal}
+</script>

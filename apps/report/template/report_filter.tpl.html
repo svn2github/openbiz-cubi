@@ -32,17 +32,7 @@ color:#666666;
 	<div style="padding-left:0px;" >
 	<h2>{$form.title}</h2>
 	</div>
-	<div id="element_set_panel_{$es_counter}" class="element_set_panel">
-	{assign var=es_counter value=0}
-	<div style="padding-left:20px;" id="tabs">
-	<ul style="border-radius: none;">
-	<li><a href="#element_set_panel_0">Filters</a></li>
-    {if $use_pivot==1}
-    <li><a href="#element_set_panel_1">Pivot</a></li>
-    {/if}
-	</ul>
-    <div id="element_set_panel_0" class="ui-tabs-panel">			
-    <div>
+   <div>
     {foreach item=item key=itemName from=$dataPanel}						
         {if $item.elementset eq 'Filters'}
             <table class="input_row">
@@ -67,30 +57,7 @@ color:#666666;
         {/if}
     {/foreach}
     </div>
-    </div>
-    <!-- pivot table tab -->
-    {if $use_pivot}
-    <div id="element_set_panel_1" class="ui-tabs-panel">			
-    <div>
-        <table class="input_row">
-        <tr><td style="width:120px;" ><label>{$dataPanel.fld_colfld1.label}</label></td>
-        <td>
-            {$dataPanel.fld_colfld1.element}
-            {$dataPanel.fld_colfld2.element}
-        </td></tr>
-        <tr><td style="width:120px;" ><label>{$dataPanel.fld_rowfld1.label}</label></td>
-        <td>
-            {$dataPanel.fld_rowfld1.element}
-            {$dataPanel.fld_rowfld2.element}
-            {$dataPanel.fld_rowfld3.element}
-        </td></tr>
-        <tr><td style="width:120px;" ><label>{$dataPanel.fld_datafld1.label}</label></td>
-        <td>{$dataPanel.fld_datafld1.element}</td></tr>
-        </table>
-    </div>
-    </div>
-    {/if}
-    
+   
     <div style="height:10px;"></div>
     {if $actionPanel|@count > 0}
         <p class="input_row">			
@@ -120,7 +87,7 @@ color:#666666;
 
 	</div>
 	
-    <div style="height:0px;">
+    <div style="height:0px; padding-left:30px;">
     <div id='{$form.name}.load_disp' style="display:none;">
     <img  src="{$image_url}/form_ajax_loader.gif"/>
     </div>
@@ -128,40 +95,3 @@ color:#666666;
 	
 </div>
 </form>
-
-<script>
-// validation of input
-var pivotInputs = ['fld_colfld1','fld_colfld2','fld_rowfld1','fld_rowfld2','fld_rowfld3','fld_datafld1'];
-{literal}
-function validatePivotInputs(elem) {
-    for(i=0; i<pivotInputs.length; i++) {
-        if (elem.id != pivotInputs[i] && elem.value != '' && elem.value == $(pivotInputs[i]).value) {
-            select_list_selected_index = elem.selectedIndex;
-            text = elem.options[select_list_selected_index].text
-            alert("Please select a different field other than '"+text+"'");
-            elem.value='';
-        }
-    }
-}
-function validatePivotForm() {
-    if ($('fld_colfld1').value == '' || $('fld_rowfld1').value == '' || $('fld_datafld1').value == '') {
-        alert("Please select a valid column field, row fields and data field for pivot table.");
-        return false;
-    }
-    return true;
-}
-{/literal}
-
-var formname = '{$form.name}';
-{literal}
-var c = new Cookies();		
-var $tabs = $j( "#tabs" ).tabs({
-    select: function(event, ui)
-    {				
-        c.set(formname+'_lastTab',ui.panel.id);			
-    }
-}).css({'padding-left':'0px','width':'680px','display':'block'});		
-lastViewedTab = c.get(formname+'_lastTab');
-$tabs.tabs('select','#'+lastViewedTab);
-{/literal}
-</script>
