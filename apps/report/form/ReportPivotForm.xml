@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReportPivotForm" Class="ReportPivotForm" FormType="" jsClass="Openbiz.Form" Title="Configure Pivot Table" Description="Use this form to filter and create pivot report" BizDataObj="" TemplateEngine="Smarty" TemplateFile="report_pivotform.tpl.html">
+<EasyForm Name="ReportPivotForm" Class="ReportPivotForm" FormType="" jsClass="Openbiz.PivotForm" Title="Configure Pivot Table" Description="Use this form to filter and create pivot report" BizDataObj="" TemplateEngine="Smarty" TemplateFile="report_pivotform.tpl.html">
     <DataPanel>
         <Element Name="fld_colfld1" Class="report.form.ReportColumnList" Label="Column Fields" Width="100" BlankOption="-- Select --" ElementSet="Pivot Report">
             <EventHandler Name="colfld1_onclick" Event="onchange" Function="js:validatePivotInputs(this);"/>

@@ -54,20 +54,6 @@ class ReportView extends EasyView
         	exit;
         }
         
-        //get User ID
-        $user_id = BizSystem::getUserProfile("Id");
-        /*
-        // fetch view record with id
-        if($this->m_CheckAcl){
-	        $ReportAclDO = BizSystem::getObject($ReportAclDO);
-	        $viewAclRecord = $ReportAclDO->fetchOne("[report_id]='$reportId' AND [user_id]='$user_id'");
-	        if (empty($viewAclRecord)) {
-	            $viewObj = BizSystem::getObject(ACCESS_DENIED_VIEW);
-	            $viewObj->render();
-	            exit;
-	        }
-        }
-        */
         $viewDO = BizSystem::getObject($viewDO);
         $viewRecord = $viewDO->fetchById($reportId);
         if (empty($viewRecord)) {
@@ -76,6 +62,20 @@ class ReportView extends EasyView
             exit;
         }
         
+        if ($this->m_CheckACL) {
+            $group_id = $viewRecord['group_id'];
+            // if the report has empty group id, everyone can access the report
+            if ($group_id and $group_id > 0) {
+                $userProfile = BizSystem::getUserProfile();
+                $userGroups = $userProfile['groups'];
+                // match the user groups with report group
+                if (!in_array($group_id, $userGroups)) {
+                    $viewObj = BizSystem::getObject(ACCESS_DENIED_VIEW);
+                    $viewObj->render();
+                    exit;
+                }
+            }
+        }
         
         if($viewRecord['name']){
         	$this->m_Name .= '--'. $viewRecord['name'];
