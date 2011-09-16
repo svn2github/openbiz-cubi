@@ -141,6 +141,7 @@ class cacheService
             if(strtoupper($this->m_CacheEngine)=="FILE" && $objName!="" )
             {
                 $objfolder=str_replace(".","/",$objName)."/";
+                $objfolder=str_replace(array(':',' '),'_',$objfolder);
                 if(!strpos($this->m_CacheEngineOptions['cache_dir'],$objfolder))
                 {
                     $this->m_CacheEngineOptions['cache_dir'].=$objfolder;
