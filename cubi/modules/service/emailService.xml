@@ -4,7 +4,7 @@
 		<!-- use SMTP server -->
 		<Account Name="System" Host="smtp.yourcompany.com" FromName="admin" FromEmail="admin@yourcompany.com" IsSMTP="Y" SMTPAuth="Y" Username="admin" Password="xxx" />
 		<!-- use default unix sendmail function -->
-		<Account Name="SystemNotifier" Host="" FromName="System Notification" FromEmail="notifys@yourcompany.com" IsSMTP="N" SMTPAuth="N" Username="" Password="" />
+		<Account Name="SystemNotifier" Host="" FromName="System Notification" FromEmail="notify@yourcompany.com" IsSMTP="N" SMTPAuth="N" Username="" Password="" />
    </Accounts>  
    <Logging Type="DB" Object="email.do.EmailLogDO" Enabled="Y" />
 </PluginService>

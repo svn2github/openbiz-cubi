@@ -42,6 +42,7 @@ class ColumnImage extends ColumnText
      * @var string
      */
     public $m_Title;
+    public $m_ImgUrl; // image url prefix to the image path
 
     /**
      * Read array meta data, and store to meta object
@@ -54,6 +55,7 @@ class ColumnImage extends ColumnText
         parent::readMetaData($xmlArr);
         $this->m_Alt = isset($xmlArr["ATTRIBUTES"]["ALT"]) ? $xmlArr["ATTRIBUTES"]["ALT"] : null;
         $this->m_Title = isset($xmlArr["ATTRIBUTES"]["TITLE"]) ? $xmlArr["ATTRIBUTES"]["TITLE"] : null;
+        $this->m_ImgUrl = isset($xmlArr["ATTRIBUTES"]["IMGURL"]) ? $xmlArr["ATTRIBUTES"]["IMGURL"] : '';
     }
 
     /**
@@ -91,7 +93,7 @@ class ColumnImage extends ColumnText
     {
     	if($this->m_Value)
     	{
-    		$val = $this->m_Value;
+    		$val = ($this->m_ImgUrl) ? $this->m_ImgUrl.$this->m_Value : $this->m_Value;
     	}else{
     		if(preg_match("/\{RESOURCE_URL\}/si",$this->m_Text)){
     			$val = $this->getText();

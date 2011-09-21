@@ -2,7 +2,8 @@
 <EasyForm Name="MenuDetailForm" Class="EasyForm" FormType="" icon="icon_menu_l.gif" jsClass="jbForm" Title="Menu Item Detail" Description="In this form you can view a detailed menu item ." BizDataObj="menu.do.MenuTreeDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="MENU" MessageFile="">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" ElementSet="General" FieldName="Id" Label="Id"  AllowURLParam="Y"/>
-        <Element Name="fld_parent" Class="TreeLabelText" BLANKOPTION="-- Root --" SelectFrom="menu.do.MenuTreeListDO[title:Id]" ElementSet="General" FieldName="parent" Label="Parent"  AllowURLParam="N"/>
+        <Element Name="fld_parent_id" Class="Hidden" ElementSet="General" FieldName="PId" Label="Parent Id"/>
+        <Element Name="fld_parent" Class="LabelText" Text="{@query:FetchField(menu.do.MenuDO, [Id]=@:Elem[fld_parent_id].Value, title)}" ElementSet="General" FieldName="parent" Label="Parent"/>
         <Element Name="fld_label" Class="LabelText"  ElementSet="General" FieldName="title" Label="Title" AllowURLParam="N"/>
 		<Element Name="fld_link" Class="LabelText"  ElementSet="General" FieldName="link" Label="Link" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
         <Element Name="fld_url_match" Class="LabelText"  ElementSet="General" FieldName="url_match" Label="URL Match" AllowURLParam="N" />

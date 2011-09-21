@@ -14,7 +14,7 @@
  * @version   $Id: FileUploader.php 3086 2011-01-22 20:06:43Z jixian2003 $
  */
 
-include_once("File.php");
+include_once("FileInput.php");
 
 /**
  * File class is the element for Upload File
@@ -24,7 +24,7 @@ include_once("File.php");
  * @copyright Copyright (c) 2005-2009
  * @access public
  */
-class FileUploader extends File
+class FileUploader extends FileInput
 {
     public $m_UploadRoot ;
     public $m_UploadRootURL ;
@@ -63,8 +63,6 @@ class FileUploader extends File
      */
     protected function readMetaData(&$xmlArr)
     {
-
-    	
         parent::readMetaData($xmlArr);
         $this->m_UploadFolder = isset($xmlArr["ATTRIBUTES"]["UPLOADFOLDER"]) ? $xmlArr["ATTRIBUTES"]["UPLOADFOLDER"] : null;
         $this->m_UploadFileType = isset($xmlArr["ATTRIBUTES"]["FILETYPE"]) ? $xmlArr["ATTRIBUTES"]["FILETYPE"] : null;

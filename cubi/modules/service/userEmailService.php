@@ -48,7 +48,7 @@ class userEmailService extends MetaObject
 		//render the email tempalte
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
 		$content = $this->RenderEmail($data, $tplFile);
-echo "email content is ".$content;
+
 		//prepare recipient info
 		$recipient['email'] = $userData['email'];
 		$recipient['name']  = $userData['username'];

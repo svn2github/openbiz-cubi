@@ -445,7 +445,7 @@ class BizSystem
     	$rDBName = (!$dbName) ? "Default" : $dbName;
         if (isset($this->_dbConnection[$rDBName])){
             $this->_dbConnection[$rDBName]->closeConnection();
-         	unset($this->_dbConnection[$rDBName]);         	         	
+            unset($this->_dbConnection[$rDBName]);         	         	
         }
         return $this->getDBConnection($rDBName);
     }

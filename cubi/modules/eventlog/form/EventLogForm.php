@@ -55,7 +55,6 @@ class EventLogForm extends EasyForm
     
     public function ClearLog()	
 	{
-
         try
         {
           $this->getDataObj()->deleteRecords();
@@ -74,6 +73,17 @@ class EventLogForm extends EasyForm
 		return true;
 	}   
 	
-
+    protected function getMessage($messageId, $params=array())
+    {
+        $message = isset($this->m_Messages[$messageId]) ? $this->m_Messages[$messageId] : @constant($messageId);
+        if (!$message) {
+            $message = $messageId;
+        }
+        else {
+            //$message = I18n::getInstance()->translate($message);
+            $message = I18n::t($message, $messageId, $this->getModuleName($this->m_Name));
+        }
+        return @vsprintf($message,$params);
+    }
 }  
 ?>

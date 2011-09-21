@@ -955,6 +955,7 @@ class EasyForm extends MetaObject implements iSessionObject
         $searchRule = "";
         foreach ($this->m_SearchPanel as $element)
         {
+            $searchStr = '';
         	if(method_exists($element,"getSearchRule")){
         		$searchStr = $element->getSearchRule();        		
         	}else{        	

@@ -330,7 +330,7 @@ class ModuleLoader
         $modObVersion = $xml['OpenbizVersion'];
         $depModules = $this->checkDependency();
         $depModString = implode(",",array_keys($depModules));
-        $sql = "SELECT * from module where name='$modName'";
+        $sql = "SELECT id, name, version from module where name='$modName'";
         try {
             //BizSystem::log(LOG_DEBUG, "DATAOBJ", $sql);
             $rs = $db->fetchAll($sql);
@@ -339,6 +339,18 @@ class ModuleLoader
             $this->errors = $e->getMessage();
             return false;
         }
+        
+        // if the installed version is newer than (or equal to) the local module, only do "installResource"
+        $skipDBChanges = false;
+        if (count($rs)>0) {
+            $record = $rs[0];
+            $version = $record[2];
+            if (version_compare($modVersion, $version) <= 0) {
+                $this->errors = "NOTE: The upgrade module does not have higher version ($modVersion) than current module ($version).";
+                $skipDBChanges = true;
+            }
+        }
+        
         if (count($rs)>0)
             $sql = "UPDATE module SET description='$modDesc', version='$modVersion', author='$modAuthor', openbiz_version='$modObVersion' WHERE name='$modName'";
         else
@@ -353,20 +365,20 @@ class ModuleLoader
         }
     
         // install ACL
-        $this->installACL($xml);
+        if (!$skipDBChanges) $this->installACL($xml);
         
         // install Menu
-        $this->installMenu($xml);
+        if (!$skipDBChanges) $this->installMenu($xml);
         
         // install widget
-        $this->installWidgets($xml);
+        if (!$skipDBChanges) $this->installWidgets($xml);
         
-        // TODO: install resource
+        // install resource
         $this->installResource($xml);
         
-        $this->installChangeLog($xml);
+        if (!$skipDBChanges) $this->installChangeLog($xml);
         
-        $this->installModuleAsPackage($xml);
+        if (!$skipDBChanges) $this->installModuleAsPackage($xml);
         
         return true;
     }
