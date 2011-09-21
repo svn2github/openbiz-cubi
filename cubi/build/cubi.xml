@@ -68,7 +68,7 @@ jsMin, SvnCheckout, Version, Documentor
         <include name="modules/system/**" />
         <include name="modules/theme/**" />
         <include name="modules/tool/**" />
-        <include name="modules/tranlation/**" />
+        <include name="modules/translation/**" />
         <include name="modules/user/**" />
         <include name="modules/myaccount/**" />
         <include name="modules/websvc/**" />
