@@ -99,7 +99,7 @@ define("DEBUG", 0);
 /* check whether user logged in */
 define("CHECKUSER", "Y");
 /* session timeout seconds */
-define("TIMEOUT", 0);  // 0 means never timeout.
+define("TIMEOUT", 86400);  // 86400 = 1 day
 
 //I18n
 //define('DEFAULT_LANGUAGE','en_US');

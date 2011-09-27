@@ -8,10 +8,10 @@
 		<Element Name="fld_continent" ReadOnly="Y" Class="myaccount.form.ContinentSelector" ElementSet="Timezone" Description="" FieldName="_continent" Label="Continent" BlankOption="---">
 			<EventHandler Name="fld_continent_onclick" Event="onchange" EventLogMsg=""  Function="UpdateForm()" />
 		</Element>		
-		<Element Name="fld_timezone" ReadOnly="Y" Class="myaccount.form.TimezoneSelector" continent="{@:Elem[fld_continent].Value}" ElementSet="Timezone" Description="" FieldName="_timezone" Label="Timezone" BlankOption="---" Description="My default timezone" />
-        <Element Name="fld_owner_perm"  Class="DropDownList" DefaultValue="{DEFAULT_OWNER_PERM}" SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Default permission for my data " FieldName="_owner_perm" Label="Owner Perm"  />
-        <Element Name="fld_group_perm"  Class="DropDownList" DefaultValue="{DEFAULT_GROUP_PERM}" SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing" Description="Default permission for my group's users" FieldName="_group_perm" Label="Group Perm"  />
-		<Element Name="fld_other_perm"  Class="DropDownList" DefaultValue="{DEFAULT_OTHER_PERM}" SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" Description="Default permission for other users " FieldName="_other_perm" Label="Other Perm"  />		
+		<Element Name="fld_timezone" ReadOnly="Y" Class="myaccount.form.TimezoneSelector" continent="{@:Elem[fld_continent].Value}" ElementSet="Timezone" FieldName="_timezone" Label="Timezone" BlankOption="---" Description="My default timezone" />
+        <Element Name="fld_owner_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Default permission for my data " FieldName="_owner_perm" Label="Owner Perm"  />
+        <Element Name="fld_group_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing" Description="Default permission for my group's users" FieldName="_group_perm" Label="Group Perm"  />
+		<Element Name="fld_other_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" Description="Default permission for other users " FieldName="_other_perm" Label="Other Perm"  />		
          
     </DataPanel>
     <ActionPanel>
