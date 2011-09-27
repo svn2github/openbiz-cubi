@@ -198,6 +198,9 @@ CREATE TABLE `user_group` (
   KEY `group_id` (`group_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+/*Data for the table `user_group` */
+
+insert into `user_group`(`id`,`user_id`,`group_id`) values (1,1,1);
 
 DROP TABLE IF EXISTS `pass_token`;
 CREATE TABLE IF NOT EXISTS `pass_token` (

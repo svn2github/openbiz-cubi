@@ -5,8 +5,8 @@
         <Element Name="fld_name" Class="InputText" FieldName="name" Label="Name" />
         <Element Name="fld_startpage" Class="InputText" FieldName="startpage" Label="Default Page" />        
         <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />
-        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.Selection(Status)"/>
-        <Element Name="fld_default" Class="Listbox" FieldName="default" Label="Default" SelectFrom="system.Selection(Default)"/>        
+        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)"/>
+        <Element Name="fld_default" Class="Listbox" FieldName="default" Label="Default" SelectFrom="system.lov.Selection(Default)"/>        
         
     </DataPanel>
     <ActionPanel>

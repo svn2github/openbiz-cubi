@@ -3,8 +3,8 @@
     <DataPanel>
         <Element Name="fld_name" DefaultValue="New Group" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N"/>
-        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.Selection(Status)"/>
-        <Element Name="fld_default" Class="Listbox" FieldName="default" Label="Default" SelectFrom="system.Selection(Default)"/>        
+        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)"/>
+        <Element Name="fld_default" Class="Listbox" FieldName="default" Label="Default" SelectFrom="system.lov.Selection(Default)"/>        
 
         </DataPanel>
     <ActionPanel>

@@ -6,7 +6,7 @@
         <Element Name="fld_password" Class="Password" label="Password"   Validator="{@validate:betweenLength([fld_password], 4, 20)}" HTMLAttr="maxlength='20'"/>
 		<Element Name="fld_password_repeat" Class="Password" Description="Input password again for confirmation" label="Repeat" />
         <Element Name="fld_email" Class="InputText" FieldName="email" Label="Email"  Validator="{@validate:email('[fld_email]')}"/>
-        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.Selection(Status)"/>
+        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)"/>
 		<Element Name="fld_lastlogin" Class="LabelText" FieldName="lastlogin" Label="Last Login" />
 		<Element Name="fld_lastlogout" Class="LabelText" FieldName="lastlogout" Label="Last Logout" />
     </DataPanel>

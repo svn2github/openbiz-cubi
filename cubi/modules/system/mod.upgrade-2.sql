@@ -1,1 +1,0 @@
-ALTER TABLE  `group` ADD `default` int(2) default 0 AFTER `description`;

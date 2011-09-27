@@ -6,7 +6,7 @@
         <Element Name="fld_resource" Class="ColumnText" FieldName="resource" Label="Resource" Sortable="Y"/>
         <Element Name="fld_action" Class="ColumnText" FieldName="action" Label="Action" Sortable="Y"/>
         <!--<Element Name="fld_access_level" Class="ColumnText" FieldName="access_level" Label="Access Level" Sortable="Y"/>-->
-        <Element Name="access_level" Class="system.form.AccessListbox" FieldName="access_level" Label="Access Level" SelectFrom="system.Selection(AccessLevel)"/>
+        <Element Name="access_level" Class="system.form.AccessListbox" FieldName="access_level" Label="Access Level" SelectFrom="system.lov.Selection(AccessLevel)"/>
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
