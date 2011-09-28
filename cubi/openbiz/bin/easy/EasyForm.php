@@ -146,7 +146,6 @@ class EasyForm extends MetaObject implements iSessionObject
         parent::readMetaData($xmlArr);
         $this->m_InheritFrom = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["INHERITFROM"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["INHERITFROM"] : null;        
         $this->m_Title = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["TITLE"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["TITLE"] : null;
-        $this->m_Title = Expression::evaluateExpression($this->m_Title, $this);
         $this->m_Icon = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["ICON"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["ICON"] : null;        
         $this->m_Description = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["DESCRIPTION"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["DESCRIPTION"] : null;
         $this->m_jsClass = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["JSCLASS"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["JSCLASS"] : null;
@@ -489,7 +488,7 @@ class EasyForm extends MetaObject implements iSessionObject
     public function outputAttrs()
     {
         $output['name'] = $this->m_Name;
-        $output['title'] = $this->m_Title;
+        $output['title'] = Expression::evaluateExpression($this->m_Title, $this);
         $output['icon'] = $this->m_Icon;
         $output['hasSubform'] = $this->m_SubForms ? 1 : 0;
         $output['currentPage'] = $this->m_CurrentPage;
