@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="TicketEditForm" Class="trac.ticket.form.TicketForm" FormType="Edit" jsClass="jbForm" Title="Edit trac_ticket" Description="" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="ticket_edit.tpl" EventName="" MessageFile="">
+<EasyForm Name="TicketEditForm" Class="trac.ticket.form.TicketForm" FormType="Edit" jsClass="jbForm" Title="Edit Ticket #{@:Elem[fld_Id].Value}. {@:Elem[fld_summary].Value}" Description="" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="ticket_edit.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error" ElementSet="General"/>
 		<Element Name="fld_summary" Class="InputText" FieldName="summary" Label="Summary" AllowURLParam="N" CssClass="input_text_l" CssErrorClass="input_text_l_error" CssFocusClass="input_text_l_focus" ElementSet="Content"/>
