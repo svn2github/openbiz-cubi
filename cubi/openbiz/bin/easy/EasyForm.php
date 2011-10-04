@@ -717,7 +717,7 @@ class EasyForm extends MetaObject implements iSessionObject
     {    	    	
         if ($paramFields)
         {
-        	//$this->m_FixSearchRule=null; // TODO: check why set fixsearchrule to null here?
+        	$this->m_FixSearchRule=null; // reset fixsearchrule to clean the previous one in session
             foreach($paramFields as $fieldName=>$val)
             {
                 $element = $this->m_DataPanel->getByField($fieldName);
