@@ -101,7 +101,7 @@ class BizDataObj_SQLHelper
             if ($bizFld->m_Column && $bizFld->m_Type == "Blob")   // ignore blob column
                 continue;
             if ($bizFld->m_Column && !$bizFld->m_SqlExpression && (strpos($bizFld->m_Column,',') == 0))
-                $dataSqlObj->addTableColumn($bizFld->m_Join, $bizFld->m_Column);
+                $dataSqlObj->addTableColumn($bizFld->m_Join, $bizFld->m_Column, $bizFld->m_Alias);
             if ($bizFld->m_SqlExpression)
             {
                 $dataSqlObj->addSqlExpression($this->_convertSqlExpression($dataObj, $bizFld->m_SqlExpression),$bizFld->m_Alias);

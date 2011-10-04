@@ -84,9 +84,10 @@ class BizDataSql
      * @param string $column column name
      * @return void
      **/
-    public function addTableColumn($join, $column)
+    public function addTableColumn($join, $column, $alias=null)
     {
         $tcol = $this->getTableColumn($join, $column);
+        if ($alias) $tcol .= " AS ".$alias;
         if (!$this->_tableColumns)
             $this->_tableColumns = $tcol;
         else
