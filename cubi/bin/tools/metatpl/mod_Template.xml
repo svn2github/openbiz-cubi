@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="{$module_name}" Description="{$module_name} module" Version="0.1" OpenbizVersion="2.4">
+<Module Name="{$module_name}" Description="{$module_name} module" Version="0.1.0" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="{$module_name|lower}">
 			<Action Name="Access" Description="Access {$module_name|capitalize|replace:'.':' '} Module Dashboard"/>

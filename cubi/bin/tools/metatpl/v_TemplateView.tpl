@@ -3,6 +3,8 @@ $js_url = $this->_tpl_vars['js_url'];
 $theme_js_url = $this->_tpl_vars['theme_js_url'];
 $css_url = $this->_tpl_vars['css_url'];
 
+BizSystem::clientProxy()->includeCalendarScripts();
+BizSystem::clientProxy()->includeCKEditorScripts();
 $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 $includedScripts .= "
 <script type=\"text/javascript\" src=\"$js_url/cookies.js\"></script>
