@@ -10,9 +10,10 @@
 .pivot_table {
 	border-collapse: collapse;
 	font: menu;
-	margin: 1em;
+	margin: 10px;
     border: 1px solid #888;
     color: #000;
+	width:940px;
 }
 
 .pivot_table th, .pivot_table td {

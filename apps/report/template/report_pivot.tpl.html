@@ -9,7 +9,7 @@
             </tr></table>
             <div id="pivot_page"></div>
         </fieldset>
-        <div id="pivot_content"></div>
+        <div id="pivot_content" style="background-color:white; margin-top:10px"></div>
         <div id="pivot_chart"></div>
 	</div>
 </div>
@@ -25,7 +25,7 @@ var filter_index = {$meta.filter_index};
 
 {literal}
 function init() {
-    var pivot = new OAT.Pivot("pivot_content","null_pivot_chart","pivot_page",header,data,row_index,col_index,filter_index,data_index,{showChart:0});
+    var pivot = new OAT.Pivot("pivot_content","null_pivot_chart","pivot_page",header,data,row_index,col_index,filter_index,data_index,{showChart:0,headingBefore:1,headingAfter:0});
     var aggRef = function() {
         pivot.options.agg = parseInt($v("pivot_agg"));
         pivot.go();
@@ -48,4 +48,53 @@ function init() {
     OAT.Dom.attach("pivot_agg_totals","change",aggRefTotals);
 }
 {/literal}
+</script>
+
+<div id="chartContainer" style="display:block">FusionCharts will load here!</div>
+<script type="text/javascript"><!--
+{php} 
+$chartType = "MSColumn3D.swf";
+//$chartType = "MSLine.swf";
+$chartWidth = 950; $chartHeight = 400;
+$swf = RESOURCE_URL."/report/js/FusionChartsPro/".$chartType; 
+echo "var myChart = new FusionCharts( \"$swf\", \"pivot_chart1\", \"$chartWidth\", \"$chartHeight\", \"0\", \"1\" );"
+{/php}
+{literal}
+	/*
+	myChart.setXMLData("<chart caption='Pivot Table' xAxisName='X-name' yAxisName='Y-name' showValues='0' numberPrefix='$'><categories><category label='2000'/><category label='2001'/><category label='2002'/></categories><dataset seriesName='West'><set value='1438000'/><set value='1438000'/><set value='1438000'/></dataset><dataset seriesName='East'><set value='1171490'/><set value='1171490'/><set value='1162590'/></dataset></chart>");
+	myChart.render("chartContainer");
+	*/
+	function renderFCChart(data, textX, textY) {
+	
+		// chart attributes
+		var chart_txt = "<chart caption='Pivot Table Chart' xAxisName='' yAxisName='' showValues='1' numberPrefix='$'>";
+	
+		// categories
+		var cat_txt = "<categories>";
+		for (i=0; i<textY.length; i++) {
+			cat_txt += "<category label='"+textY[i]+"'/>";
+		}
+		cat_txt += "</categories>";
+		
+		// data sets
+		dim_x = data.length;
+		dim_y = data[0].length;
+		var data_txt = "";
+		i = 0; j = 0;
+		for (i=0; i<dim_x; i++) {
+			data_txt += "<dataset seriesName='"+textX[i]+"'>";
+			for (j=0; j<dim_y; j++) {
+				data_txt += "<set value='"+data[i][j]+"'/>";
+			}
+			data_txt += "</dataset>";
+		}
+		
+		var fcData = chart_txt + cat_txt + data_txt + "</chart>";
+		//var chartContainer = FusionCharts("pivot_chart1");
+		myChart.setXMLData(fcData);
+		myChart.render("chartContainer");
+	
+	}
+{/literal}
+	// -->
 </script>

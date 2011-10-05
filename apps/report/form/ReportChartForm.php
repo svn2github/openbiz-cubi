@@ -57,7 +57,7 @@ class ReportChartForm extends ReportForm
             if (!$arr) break;
             foreach ($this->m_DataPanel as $element)
             {
-            	if ($element->fieldName && isset($arr[$element->fieldName]))
+            	if ($element->fieldName) // && isset($arr[$element->fieldName]))
             	{
             		if ($element->m_Class == "report.lib.ChartData" || strpos($element->m_Class,"ChartData") !==false )
             		    $this->chartDataset[$element->key][] = $arr[$element->fieldName];

@@ -843,6 +843,7 @@ OAT.Pivot = function(div,chartDiv,filterDiv,headerRow,dataRows,headerRowIndexes,
 			th.conditionIndex = -1;
 		} else { th.style.border = "none"; }
 		th.colSpan = self.colStructure.span + (self.options.headingBefore ? 1 : 0) + (self.options.totals ? 1 : 0);
+        if (self.options.headingAfter==0) th.colSpan--;     // cubi fix
 		tr.appendChild(th);
 		if (self.colConditions.length) { /* blank space after */
 			var th = OAT.Dom.create("th",{border:"none"});
@@ -1271,6 +1272,24 @@ OAT.Pivot = function(div,chartDiv,filterDiv,headerRow,dataRows,headerRowIndexes,
 			OAT.Dom.hide(self.charts.colLink);
 		}
 	}
+    
+    this.fc_setCharts = function(chartOptions) {
+        // chart options
+        // type (col, line, bar, pie,...)
+        // title, width, height, showValues, numberPrefix
+    }
+    
+    this.fc_drawCharts = function() {
+		var data = [];
+		for (var i=0;i<self.tabularData.length;i++) { 
+			var col = [];
+			for (var j=self.tabularData[0].length-1;j>=0;j--) { col.push(self.tabularData[i][j]); }
+			data.push(col); 
+		}
+		var textX = self.getLabels(self.colPointers[self.colConditions.length-1],1,"<br/>");
+		var textY = self.getLabels(self.rowPointers[self.rowConditions.length-1],-1," - ").reverse();
+		renderFCChart(data, textX, textY);
+	}
 	
 	this.go = function() {
 		self.gd.clearSources();
@@ -1285,6 +1304,7 @@ OAT.Pivot = function(div,chartDiv,filterDiv,headerRow,dataRows,headerRowIndexes,
 		self.count(); /* fill tabularData with values */
 		self.drawTable();
 		if (self.chartDiv) { self._drawCharts(); }
+        if (1) self.fc_drawCharts();
 	}
 
 	self.init();
