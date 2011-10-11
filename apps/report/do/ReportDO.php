@@ -85,6 +85,9 @@ class ReportDO extends BizDataObj
         {
 			$_xmlArr["ATTRIBUTES"]["NAME"] = $fldRec['name'];
 			$_xmlArr["ATTRIBUTES"]["COLUMN"] = $fldRec['column'];
+            $_xmlArr["ATTRIBUTES"]["FORMAT"] = $fldRec['format'];
+            $_xmlArr["ATTRIBUTES"]["TYPE"] = $fldRec['type'];
+            $_xmlArr["ATTRIBUTES"]["SQLEXPR"] = $fldRec['sql_expr'];
 			$xmlArr[] = $_xmlArr;
         }
         $this->m_BizRecord = new BizRecord($xmlArr,"BizField",$this);
