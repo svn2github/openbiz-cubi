@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="VersionListView" Description="trac.version" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="trac.admin.Manage">
+   <FormReferences>
+   		<Reference Name="trac.version.form.VersionListForm"/>
+   </FormReferences>
+</EasyView>

@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="trac" Description="trac module" Version="0.1.5" OpenbizVersion="3.0">
+    <ACL>
+        <Resource Name="trac">
+            <Action Name="Access" Description="Access Trac Module Dashboard"/>
+        </Resource>
+        <Resource Name="trac.ticket">
+            <Action Name="Access" Description="Access Trac Ticket"/>
+            <Action Name="Manage" Description="Manage Trac Ticket"/>
+        </Resource>
+        <Resource Name="trac.admin">
+            <Action Name="Manage" Description="Manage Trac"/>
+        </Resource>
+    </ACL>
+    <Menu>
+        <MenuItem Name="Trac" Title="Trac" Description="Trac Description" URL="/trac/dashboard" Parent="" Order="10">
+            <MenuItem Name="Trac.Ticket" Title="Ticket" Description="Trac Ticket description" URL="" Parent="" Order="10">
+                <MenuItem Name="Trac.Ticket.List" Title="Ticket Manage" Description=""  URL="/trac/ticket_list" Order="10"/>
+                <MenuItem Name="Trac.Ticket.New" Title="New Ticket" Description=""  URL="/trac/ticket_new" Order="10"/>
+            </MenuItem>	
+            <MenuItem Name="Trac.Admin" Title="Trac Admin" Description="" URL="" Parent="" Order="20">
+                <MenuItem Name="Trac.Product.List" Title="Products" Description=""  URL="/trac/product_list" Order="10"/>
+                <MenuItem Name="Trac.Component.List" Title="Components" Description=""  URL="/trac/component_list" Order="20"/>
+                <MenuItem Name="Trac.Milestone.List" Title="Milestones" Description=""  URL="/trac/milestone_list" Order="30"/>
+                <MenuItem Name="Trac.Version.List" Title="Versions" Description=""  URL="/trac/version_list" Order="40"/>
+                <MenuItem Name="Trac.Enum.List" Title="Enumerations" Description=""  URL="/trac/enum_list" Order="50"/>
+            </MenuItem>
+        </MenuItem>
+	</Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+</Module>

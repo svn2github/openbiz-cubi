@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="TicketListView" Description="trac.ticket" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="trac.ticket.Access">
+   <FormReferences>
+   		<Reference Name="trac.ticket.form.TicketListForm"/>
+   </FormReferences>
+</EasyView>

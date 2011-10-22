@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="CommentsDO" Description="" Class="BizDataObj" DBName="Default" Table="trac_comments" SearchRule="" SortRule="[time] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+   		<BizField Name="Id" Column="id" Type="Number"/>
+   		<BizField Name="parent_id" Column="parent_id" Length="30" Required="Y" Type="Text"/>
+   		<BizField Name="time" Column="create_time" Required="N" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+   		<BizField Name="author_id" Column="author_id" Type="Number" ValueOnCreate="{@profile:Id}"/>
+   		<BizField Name="author" Join="user" Column="username" Type="Text" Required="N"/>
+   		<BizField Name="comments" Column="comments" Required="N" Type="Text"/>
+	</BizFieldList>
+    <TableJoins>
+        <Join Name="user" Table="user" Column="id" ColumnRef="author_id" JoinType="LEFT JOIN"/></TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

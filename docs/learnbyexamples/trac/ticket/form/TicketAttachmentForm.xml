@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TicketAttachmentForm" Class="attachment.widget.AttachmentForm" FormType="List" Title="Ticket Attachments" jsClass="Openbiz.Form" BizDataObj="attachment.do.AttachmentDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="ticket_attach.tpl"  Access="attachment.access">
+    <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>        
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" />
+        <Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/attachment/images/icon_attachment_private.png" FieldName="" Label="Type">				
+        </Element>
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title" Link="javascript:">         
+            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentDetailForm,{@:Elem[fld_Id].Value})"/>        
+        </Element>
+        <Element Name="fld_filename" Class="ColumnText" FieldName="filename" Label="Filename" ></Element>
+        <Element Name="fld_filesize" Class="ColumnText" FieldName="filesize" Text="{@util:format_bytes(@:Elem[fld_filesize].Value)}"  Label="Filesize" ></Element>	
+        <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description" />        
+        <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Timestamp"></Element>
+        <Element Name="fld_create_by" Class="ColumnText" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}"/>
+        <Element Name="fld_download" Class="ColumnText" FieldName="download_count" Label="Downloads"></Element>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add">
+            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentNewForm)"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+</EasyForm>

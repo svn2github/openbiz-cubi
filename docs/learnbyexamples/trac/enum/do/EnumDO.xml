@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="EnumDO" Description="" Class="BizDataObj" DBName="Default" Table="trac_enum" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="trac.admin.Manage" UpdateCondition="trac.admin.Manage" DeleteCondition="trac.admin.Manage">
+	<BizFieldList>
+        <BizField Name="Id" Column="id"     Type="Number"/>
+        <BizField Name="type" Column="type" Length="30"   Required="N" Type="Text"/>
+        <BizField Name="name" Column="name" Length="50"   Required="N" Type="Text"/>
+        <BizField Name="value" Column="value" Length="50"   Required="N" Type="Text"/>
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

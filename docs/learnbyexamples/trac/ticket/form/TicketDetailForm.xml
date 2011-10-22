@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TicketDetailForm" Class="TicketForm" FormType="" jsClass="jbForm" Title="Ticket #{@:Elem[fld_Id].Value}. {@:Elem[fld_summary].Value}" Description="" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="ticket_detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+		<Element Name="fld_Id" ElementSet="General" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+        <Element Name="fld_summary" ElementSet="Content" Class="LabelText" FieldName="summary" Label="Summary"/>
+       	<Element Name="fld_description" ElementSet="Content" Class="LabelText" FieldName="description" Label="Description"/>
+        
+       	<Element Name="fld_type" ElementSet="General" Class="LabelText" FieldName="type" Label="Type"/>
+       	<Element Name="fld_product" ElementSet="General" Class="LabelText" FieldName="product" Label="Product"/>
+       	<Element Name="fld_component" ElementSet="General" Class="LabelText" FieldName="component" Label="Component"/>
+       	<Element Name="fld_severity" ElementSet="General" Class="LabelText" FieldName="severity" Label="Severity"/>
+       	<Element Name="fld_priority" ElementSet="General" Class="LabelText" FieldName="priority" Label="Priority"/>
+       	<Element Name="fld_version" ElementSet="General" Class="LabelText" FieldName="version" Label="Version Id"/>
+       	<Element Name="fld_milestone" ElementSet="General" Class="LabelText" FieldName="milestone" Label="Milestone"/>
+       	<Element Name="fld_status" ElementSet="General" Class="LabelText" FieldName="status" Label="Status"/>
+       	<Element Name="fld_resolution" ElementSet="General" Class="LabelText" FieldName="resolution" Label="Resolution"/>
+       	<Element Name="fld_keywords" ElementSet="General" Class="LabelText" FieldName="keywords" Label="Keywords"/>
+       	
+        <Element Name="fld_owner" ElementSet="Contact" Class="LabelText" FieldName="owner" Label="Owner"/>
+       	<Element Name="fld_reporter" ElementSet="Contact" Class="LabelText" FieldName="reporter" Label="Reporter"/>
+       	<Element Name="fld_cc" ElementSet="Contact" Class="LabelText" FieldName="cc" Label="Cc"/>
+        
+        <Element Name="fld_time" ElementSet="Misc" Class="LabelText" FieldName="time" Label="Time"/>
+       	<Element Name="fld_changetime" ElementSet="Misc" Class="LabelText" FieldName="changetime" Label="Changetime"/>
+    </DataPanel>
+    <ActionPanel>        
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(trac.ticket.form.TicketEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

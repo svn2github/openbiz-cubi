@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="TicketNewView" Title="Create a new ticket" keywords="ticket" Description="trac.ticket" Class="EasyView" Access="trac.View_Ticket" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="trac.ticket.form.TicketNewForm"/>
+   </FormReferences>   
+</EasyView>

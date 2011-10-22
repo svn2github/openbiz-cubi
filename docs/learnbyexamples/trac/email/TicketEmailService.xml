@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="TicketEmailService" Package="service" Class="TicketEmailService" 
+				BizDataObj="email.do.EmailQueueDO" 
+				SendtoQueue="Y" >
+	
+	<Template   Name="NewTicketEmail" 
+				Title="Ticket #{$id} [New]: {$summary}" 
+				EmailAccount="TicketNotifier" 
+				Template="newticket_email.tpl" />
+				
+	<Template   Name="ChangeTicketEmail" 
+				Title="Ticket #{$id} [Change]: {$summary}" 
+				EmailAccount="TicketNotifier" 
+				Template="changeticket_email.tpl" />
+				
+</PluginService>

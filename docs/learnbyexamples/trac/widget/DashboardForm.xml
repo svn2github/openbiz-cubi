@@ -1,0 +1,2 @@
+<MenuWidget Name="DashboardForm" Title="Trac Dashboard" Class="menu.widget.MenuWidget" CssCLass="trac" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='Trac'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="sitemap_menu.tpl" CacheLifeTime="0">
+</MenuWidget>

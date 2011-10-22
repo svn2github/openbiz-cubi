@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="CommentsListForm" Class="EasyForm" FormType="List" jsClass="Openbiz.Form" Title="Change history" Description="" BizDataObj="trac.comments.do.CommentsDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="ticket_history.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y"/>
+        <Element Name="fld_parent_id" Class="ColumnText" FieldName="parent_id" Label="Parent Id"  Sortable="Y"/>	
+        <Element Name="fld_time" Class="ColumnText" FieldName="time" Label="Time"  Sortable="Y"/>	
+        <Element Name="fld_author" Class="ColumnText" FieldName="author" Label="Author"  Sortable="Y"/>	
+        <Element Name="fld_comments" Class="RawData" FieldName="comments" Label="Comments" UnSerialize="Y" Sortable="Y"/>	
+    </DataPanel>
+    <ActionPanel>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

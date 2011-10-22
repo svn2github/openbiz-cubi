@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="TicketDetailView" Description="Ticket details" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="ticket_detail_view.tpl" Access="trac.ticket.Access">
+   <FormReferences>
+   		<Reference Name="trac.ticket.form.TicketDetailForm" SubForms="trac.comments.form.CommentsListForm;trac.ticket.form.TicketAttachmentForm"/>
+        <Reference Name="trac.comments.form.CommentsListForm"/>
+        <Reference Name="trac.ticket.form.TicketAttachmentForm"/>
+   </FormReferences>
+</EasyView>
