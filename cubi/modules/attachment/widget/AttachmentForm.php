@@ -6,45 +6,35 @@ class AttachmentForm extends PickerForm
 	
 	public function uploadFile()
 	{
-		if (!empty($_FILES)) {
+		if (empty($_FILES)) return;
 		
 		$upload_user_dir = BizSystem::getUserProfile("Id");						
 		$upload_user_dir = (int)$upload_user_dir;
 		$upload_dir = "common";
 		
-		try{
-		$parentForm = BizSystem::getObject($this->m_ParentFormName);		
-		$cond_value = $parentForm->getDataObj()->m_Association['CondValue'];
-		if($cond_value)
-		{
-			$upload_dir = $cond_value;
-		}
-							
-		if(!file_exists(PUBLIC_UPLOAD_PATH.DIRECTORY_SEPARATOR.$this->m_BasePath.DIRECTORY_SEPARATOR.$upload_dir.DIRECTORY_SEPARATOR.$upload_user_dir))
-		{
-			@mkdir(PUBLIC_UPLOAD_PATH.DIRECTORY_SEPARATOR.$this->m_BasePath.DIRECTORY_SEPARATOR.$upload_dir.DIRECTORY_SEPARATOR.$upload_user_dir,0777,true);
-		}				
-		
-		$targetPath = PUBLIC_UPLOAD_PATH.DIRECTORY_SEPARATOR.$this->m_BasePath.DIRECTORY_SEPARATOR.$upload_dir.DIRECTORY_SEPARATOR.$upload_user_dir.DIRECTORY_SEPARATOR;
-		
-		
-		$targetURL = PUBLIC_UPLOAD_URL."/".$this->m_BasePath."/".$upload_dir."/".$upload_user_dir;
-		
-		$tempFile = $_FILES['Filedata']['tmp_name'];	
-		$newFilename = 	date("YmdHis")."_".uniqid().'.att';
-		$targetFile =  str_replace('//',DIRECTORY_SEPARATOR,$targetPath) . $newFilename;
-		
-		// $fileTypes  = str_replace('*.','',$_REQUEST['fileext']);
-		// $fileTypes  = str_replace(';','|',$fileTypes);
-		// $typesArray = split('\|',$fileTypes);
-		// $fileParts  = pathinfo($_FILES['Filedata']['name']);
-		
-		// if (in_array($fileParts['extension'],$typesArray)) {
-			// Uncomment the following line if you want to make the directory if it doesn't exist
-			// mkdir(str_replace('//','/',$targetPath), 0755, true);
-			
-			move_uploaded_file($tempFile,$targetFile);
-		}catch(Exception $e){
+		try {
+            $parentForm = BizSystem::getObject($this->m_ParentFormName);		
+            $cond_value = $parentForm->getDataObj()->m_Association['CondValue'];
+            if($cond_value)
+            {
+                $upload_dir = $cond_value;
+            }
+                                
+            if(!file_exists(PUBLIC_UPLOAD_PATH.DIRECTORY_SEPARATOR.$this->m_BasePath.DIRECTORY_SEPARATOR.$upload_dir.DIRECTORY_SEPARATOR.$upload_user_dir)) {
+                @mkdir(PUBLIC_UPLOAD_PATH.DIRECTORY_SEPARATOR.$this->m_BasePath.DIRECTORY_SEPARATOR.$upload_dir.DIRECTORY_SEPARATOR.$upload_user_dir,0777,true);
+            }				
+            
+            $targetPath = PUBLIC_UPLOAD_PATH.DIRECTORY_SEPARATOR.$this->m_BasePath.DIRECTORY_SEPARATOR.$upload_dir.DIRECTORY_SEPARATOR.$upload_user_dir.DIRECTORY_SEPARATOR;
+            
+            $targetURL = PUBLIC_UPLOAD_URL."/".$this->m_BasePath."/".$upload_dir."/".$upload_user_dir;
+            
+            $tempFile = $_FILES['Filedata']['tmp_name'];	
+            $newFilename = 	date("YmdHis")."_".uniqid().'.att';
+            $targetFile =  str_replace('//',DIRECTORY_SEPARATOR,$targetPath) . $newFilename;
+            
+            move_uploaded_file($tempFile,$targetFile);
+            
+		} catch(Exception $e){
 			file_put_contents(APP_HOME.'\out.txt', $e->getMessage());			
 		}
 		$output =array();
@@ -53,11 +43,7 @@ class AttachmentForm extends PickerForm
 		$output['file_name'] = $_FILES['Filedata']['name'];
 
 		echo base64_encode(json_encode($output));
-			exit;
-		// } else {
-		// 	echo 'Invalid file type.';
-		// }
-		}		
+        exit;
 	}
 	
 	public function checkFile()
@@ -70,7 +56,7 @@ class AttachmentForm extends PickerForm
 				}
 			}
 		}
-		echo json_encode($fileArray);		
+		echo json_encode($fileArray);	
 		exit;
 	}
 	
@@ -130,7 +116,6 @@ class AttachmentForm extends PickerForm
         $recId = $parentDo->InsertRecord($recArr);
             
         $selIds[] = $recId;
-            
 
 		exit;
 	}
