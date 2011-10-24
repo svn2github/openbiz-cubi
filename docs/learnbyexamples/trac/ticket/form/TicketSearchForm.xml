@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TicketSearchForm" Class="trac.ticket.form.TicketSearchForm" FormType="" jsClass="jbForm" Title="Search Ticket" Description="" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="ticket_search.tpl" EventName="" MessageFile="trac.msg">
+    <DataPanel>
+		<Element Name="fld_Id" Class="InputText" FieldName="Id" Label="Ticket ID" AllowURLParam="N" CssClass="input_text" ElementSet="General"/>
+		<Element Name="fld_summary" Class="InputText" FieldName="summary" Label="Summary" AllowURLParam="N" CssClass="input_text_l" CssErrorClass="input_text_l_error" CssFocusClass="input_text_l_focus" ElementSet="Content"/>
+		<Element Name="fld_description" Class="InputText" FieldName="description" Label="Description"  CssClass="input_text_l" ElementSet="Content"/>
+		<Element Name="fld_type" Class="Listbox" FieldName="type" Label="Type" SelectFrom="trac.enum.do.EnumDO[name], [type]='Type'" BlankOption="All Types" Width="120" ElementSet="General"/>
+		<Element Name="fld_product" Class="Listbox" FieldName="product_id" Label="Product" SelectFrom="trac.product.do.ProductDO[name:Id]" BlankOption="All Products" Width="120" ElementSet="General">
+			<EventHandler Name="onchange" Event="onchange" Function="UpdateForm()"/>
+		</Element>
+		<Element Name="fld_component" Class="Listbox" FieldName="component_id" Label="Component" SelectFrom="trac.component.do.ComponentDO[name:Id],[product_id]='{@:Elem[fld_product].Value}'" BlankOption="All Components" Width="120" ElementSet="General"/>
+		<Element Name="fld_version" Class="Listbox" FieldName="version_id" Label="Version" SelectFrom="trac.version.do.VersionDO[name:Id]" BlankOption="All Versions" Width="120" ElementSet="General"/>
+		<Element Name="fld_milestone" Class="Listbox" FieldName="milestone_id" Label="Milestone" SelectFrom="trac.milestone.do.MilestoneDO[name:Id]" BlankOption="All Milestones" Width="120" ElementSet="General"/>
+		<Element Name="fld_severity" Class="Listbox" FieldName="severity" Label="Severity" SelectFrom="trac.enum.do.EnumDO[name], [type]='Severity'" BlankOption="All Severities" Width="120" ElementSet="General"/>
+		<Element Name="fld_priority" Class="Listbox" FieldName="priority" Label="Priority" SelectFrom="trac.enum.do.EnumDO[name], [type]='Priority'" BlankOption="All Priorities" Width="120" ElementSet="General"/>
+		<Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="trac.enum.do.EnumDO[name], [type]='Status'" BlankOption="All Status" Width="120" ElementSet="General"/>
+		<Element Name="fld_resolution" Class="Listbox" FieldName="resolution" Label="Resolution" SelectFrom="trac.enum.do.EnumDO[name], [type]='Resolution'" BlankOption="All Resolutions" Width="120" ElementSet="General"/>
+		<Element Name="fld_keywords" Class="InputText" FieldName="keywords" Label="Keywords" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus" ElementSet="General"/>
+		<Element Name="fld_owner_id" Class="Hidden" FieldName="owner_id" Label="Owner Id" ElementSet="Contact"/>
+		<Element Name="fld_owner" Class="InputPicker" FieldName="owner" Label="Owner" ValuePicker="system.form.UserPickForm" PickerMap="fld_owner_id:fld_Id,fld_owner:fld_username" ElementSet="Contact"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_search" Class="Button" Text="Search" CssClass="button_gray_m">
+            <EventHandler Name="search_onclick" Event="onclick" Function="searchTicket()" RedirectPage="" ShortcutKey="Ctrl+Enter" ContextMenu="Search"/>
+        </Element>
+        <Element Name="btn_reset" Class="Button" Text="Reset" CssClass="button_gray_m">
+            <EventHandler Name="reset_onclick" Event="onclick" Function="js:$('trac.ticket.form.TicketSearchForm').reset()"/>
+        </Element>
+        <Element Name="btn_saveas" Class="Button" Text="Save Search As" CssClass="button_gray_w">
+            <EventHandler Name="saveas_onclick" Event="onclick" Function="saveSearch()"/>
+        </Element>
+        <Element Name="input_saveas" Class="InputText" Text="" CssClass="" CssFocusClass="">
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

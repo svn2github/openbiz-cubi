@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="SavedQueryView" Description="trac.ticket" Class="EasyView" Access="trac.ticket.Access" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="trac.ticket.form.SavedQueryForm"/>
+   </FormReferences> 
+</EasyView>

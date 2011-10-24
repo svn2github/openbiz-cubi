@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="TicketQueryDO" Description="" Class="BizDataObj" DBName="Default" Table="trac_query" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+   		<BizField Name="Id" Column="id" Type="Number"/>
+   		<BizField Name="name" Column="name" Length="128" Required="Y" Type="Text"/>
+   		<BizField Name="search_rules" Column="search_rules" Type="Text"/>
+   		<BizField Name="owner_id" Column="owner_id" Type="Number" ValueOnCreate="{@profile:Id}"/>
+   		<BizField Name="public" Column="public" Type="Number"/>
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

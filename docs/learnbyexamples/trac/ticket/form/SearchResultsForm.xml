@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="SearchResultsForm" Class="trac.ticket.form.TicketSearchForm" Title="Tickets Search Results" FormType="List" jsClass="jbForm" BizDataObj="trac.ticket.do.TicketDO" TemplateEngine="Smarty" TemplateFile="grid.tpl" PageSize="10">
+    <DataPanel>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N"/>
+        <Element Name="fld_summary" Class="ColumnText" FieldName="summary" Link="{@home:url}/trac/ticket_detail/{@:Elem[fld_Id].Value}" Label="Summary" Required="Y"/>
+        <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type" Sortable="Y"/>	
+        <Element Name="fld_product" Class="ColumnText" FieldName="product" Label="Product" Sortable="Y"/>
+        <Element Name="fld_component" Class="ColumnText" FieldName="component" Label="Component" Sortable="Y"/>	
+        <Element Name="fld_severity" Class="ColumnText" FieldName="severity" Label="Severity" Sortable="Y"/>	
+        <Element Name="fld_priority" Class="ColumnText" FieldName="priority" Label="Priority" Sortable="Y"/>	
+        <Element Name="fld_owner" Class="ColumnText" FieldName="owner" Label="Owner" Sortable="Y"/>	
+        <Element Name="fld_reporter" Class="ColumnText" FieldName="reporter" Label="Reporter" Sortable="Y"/>	
+        <Element Name="fld_status" Class="ColumnText" Description="123-123" FieldName="status" Label="Status" Sortable="Y"/>	
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_search" Class="LabelText" Text="All Tickets" CssClass="button_gray_w" Link="{@home:url}/trac/ticket_list">
+        </Element>
+        <Element Name="btn_saved" Class="LabelText" Text="Saved Search" CssClass="button_gray_w" Link="{@home:url}/trac/saved_query">
+        </Element>
+        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
+            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
+        </Element>    
+        <Element Name="btn_first" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
