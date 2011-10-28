@@ -135,10 +135,9 @@ class UserPreferenceForm extends EasyForm
 	            			$data = file_get_contents($config_file);	            			
 	            			$data = preg_replace("/define\([\'\\\"]{1}DEFAULT_THEME_NAME[\'\\\"]{1}.*?\)\;/i","define('DEFAULT_THEME_NAME','$value');",$data);	            			
 	            			@file_put_contents($config_file,$data);
-	            			
-	            			//clean template cache
-	            			$this->DeleteDirectory(SMARTY_CPL_PATH);
 	            		}
+	            		//clean template cache
+	            		$this->DeleteDirectory(SMARTY_CPL_PATH);
 	            		break;
 	            	case "language":
 	            	    if($value!=DEFAULT_LANGUAGE){
