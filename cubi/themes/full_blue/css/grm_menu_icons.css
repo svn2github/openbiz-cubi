@@ -1,0 +1,31 @@
+/* CSS Document */
+
+#main #left_panel .content .grm li img{
+	background-image:url(../images/left_menu_icon_grm.gif);
+}
+#main #left_panel .content .grm .icon_announcement{
+	background-position:left 0px;
+}
+#main #left_panel .content .grm .icon_category{
+	background-position:left -16px;
+}
+#main #left_panel .content .grm .icon_grm{
+	background-position:left -32px;
+}
+
+/* --for hovers */
+#main #left_panel .content .grm a:hover .icon_announcement,
+#main #left_panel .content .grm a.current .icon_announcement,
+#main #left_panel .content .grm a:active .icon_announcement{
+	background-position:right -0px;
+}
+#main #left_panel .content .grm a:hover .icon_category,
+#main #left_panel .content .grm a.current .icon_category,
+#main #left_panel .content .grm a:active .icon_category{
+	background-position:right -16px;
+}
+#main #left_panel .content .grm a:hover .icon_grm,
+#main #left_panel .content .grm a.current .icon_grm,
+#main #left_panel .content .grm a:active .icon_grm{
+	background-position:right -32px;
+}

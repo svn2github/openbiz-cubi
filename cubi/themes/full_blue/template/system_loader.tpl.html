@@ -1,0 +1,25 @@
+<div style="position:absolute;">
+	<div id="main_loader_bg"></div>
+	<div id="main_loader">
+			<div style="height:175px;" id="main_loader_top"></div>
+			<div style="padding-left:400px; text-align:left" id="main_loader_content">
+			<div class="loader_box">
+				<img src="{$image_url}/ajax_loader.gif" style="float:left; margin-top:8px;" />
+				<p style="float:left;margin-left:10px; padding-top:5px;" >
+				<img src="{$image_url}/loading.gif" />
+				<br/><span style="padding-left:3px;color:#aaaaaa ">{t}Please wait a while ...{/t}</span></p>
+			</div>
+			</div>			
+	</div>
+</div>
+
+{literal}
+<script>
+w = 200;
+h = 60;
+LeftPosition = (document.viewport.getWidth()-w)/2;
+$('main_loader_content').style.paddingLeft = LeftPosition+"px";
+$('main_loader_bg').fade( {from: 1, to: 0.7});
+$('main_loader').fade( {from: 0, to: 1});
+</script>
+{/literal}
