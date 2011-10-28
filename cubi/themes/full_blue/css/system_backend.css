@@ -579,6 +579,7 @@ float:left; padding-top:10px;height:50px;padding-right:15px;
 
 #main #right_panel .dashboard {
 padding-left:20px;
+width:100%;
 }
 #main #right_panel .dashboard div {
 background-image:url("../images/icon_module.jpg");
@@ -641,7 +642,7 @@ padding-left:22px;
 	background-color:#F5F4F2;
 	-moz-box-shadow: -5px 10px 5px gray;
 	-webkit-box-shadow: -5px 10px 5px gray;
-	box-shadow: -5px 10px 5px gray;
+	box-shadow: -5px 10px 5px #b8b8b8;
 	-moz-border-bottom-left-radius: 15px;
 	-moz-border-bottom-right-radius: 15px;
 	-webkit-border-bottom-left-radius:15px;
