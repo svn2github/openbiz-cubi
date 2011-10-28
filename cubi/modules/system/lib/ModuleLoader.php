@@ -368,7 +368,9 @@ class ModuleLoader
         if (!$skipDBChanges) $this->installACL($xml);
         
         // install Menu
-        if (!$skipDBChanges) $this->installMenu($xml);
+        //if (!$skipDBChanges)
+        //install it anyway
+        $this->installMenu($xml);
         
         // install widget
         if (!$skipDBChanges) $this->installWidgets($xml);
