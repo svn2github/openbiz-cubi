@@ -172,6 +172,9 @@ class Resource
             $smarty->template_dir = $templateRoot;
             $smarty->compile_dir = defined('SMARTY_CPL_PATH') ? SMARTY_CPL_PATH : $templateRoot . "/cpl";
             $smarty->config_dir = $templateRoot . "/cfg";
+			if (!file_exists($smarty->compile_dir)) {
+                @mkdir($smarty->compile_dir, 777);
+            }
             // load the config file which has the images and css url defined
             $smarty->config_load('tpl.conf');
         } else
