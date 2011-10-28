@@ -137,7 +137,7 @@ class UserPreferenceForm extends EasyForm
 	            			@file_put_contents($config_file,$data);
 	            			
 	            			//clean template cache
-	            			$this->DeleteDirectory(CACHE_METADATA_PATH);
+	            			$this->DeleteDirectory(SMARTY_CPL_PATH);
 	            		}
 	            		break;
 	            	case "language":
