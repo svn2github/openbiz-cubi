@@ -360,7 +360,7 @@ padding-bottom:5px;
 }
 #main #left_panel .content_block .content,
 #main #left_panel .content_block .content_tree{
-	border:1px solid #999;
+	border:1px solid #d8d8d8;
 	padding-top:1em;
 	background-color:white;
 	-moz-border-radius:8px;
@@ -370,7 +370,7 @@ padding-bottom:5px;
 	border-radius:8px;
 }
 #main #left_panel .content_block_dark .content{
-	border:1px solid #999;
+	border:1px solid #d8d8d8;
 	padding-top:1em;
 	background-color:#FAFAFA;
 	-moz-border-radius:8px;
@@ -567,7 +567,7 @@ background-color:#efefef;
 float:left; padding-top:10px;height:50px;padding-right:15px;
 }
 #main #right_panel .content_block .content{
-	border:1px solid #999;
+	border:1px solid #d8d8d8;
 	padding-top:1em;
 	background-color:white;
 	-moz-border-radius:8px;
