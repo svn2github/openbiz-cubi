@@ -146,28 +146,18 @@ class CacheForm extends EasyFormGrouping
     	}
     	//Complied Template 
     	$tempdata = array();
-    	$generalTempalte = array(
-    		"Id" => "General",
-    		"name" => "General",
-    		"space" => $this->GetSpaceUsage(SMARTY_CPL_PATH),
-    		"items" => $this->GetChildItems(SMARTY_CPL_PATH),
-    		"path" => SMARTY_CPL_PATH
-    	);
-    	$tempdata[0]=$generalTempalte;
-    	$i=1;
-    	foreach ( glob(THEME_PATH.DIRECTORY_SEPARATOR."*",GLOB_ONLYDIR) as $dir){
+    	
+    	$i=0;
+    	foreach ( glob(SMARTY_CPL_PATH.DIRECTORY_SEPARATOR."*",GLOB_ONLYDIR) as $dir){
     		$tempdata[$i]['Id'] = "TEMPDATA_".$i;
     		$tempdata[$i]['name'] = ucwords(basename($dir));
-    		
-    		if(!is_dir($dir."/template/cpl")){
-    			mkdir($dir."/template/cpl");
-    		}    		
+    		 	
     		
     		if(!$lite){
-	    		$tempdata[$i]['space'] = $this->GetSpaceUsage($dir."/template/cpl");
-	    		$tempdata[$i]['items'] = $this->GetChildItems($dir."/template/cpl");
+	    		$tempdata[$i]['space'] = $this->GetSpaceUsage($dir);
+	    		$tempdata[$i]['items'] = $this->GetChildItems($dir);
     		}
-    		$tempdata[$i]['path'] = $dir."/template/cpl";
+    		$tempdata[$i]['path'] = $dir;
     		$i++; 
     	}
 

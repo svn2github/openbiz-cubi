@@ -170,7 +170,7 @@ class Resource
                 $templateRoot = THEME_PATH . "/" . $themePath . "/templates";
             }
             $smarty->template_dir = $templateRoot;
-            $smarty->compile_dir = defined('SMARTY_CPL_PATH') ? SMARTY_CPL_PATH : $templateRoot . "/cpl";
+            $smarty->compile_dir = defined('SMARTY_CPL_PATH') ? SMARTY_CPL_PATH."/".$themePath : $templateRoot . "/cpl";
             $smarty->config_dir = $templateRoot . "/cfg";
 			if (!file_exists($smarty->compile_dir)) {
                 @mkdir($smarty->compile_dir, 777);
@@ -182,9 +182,12 @@ class Resource
             if (defined('SMARTY_TPL_PATH'))
                 $smarty->template_dir = SMARTY_TPL_PATH;
             if (defined('SMARTY_CPL_PATH'))
-                $smarty->compile_dir = SMARTY_CPL_PATH;
+                $smarty->compile_dir = SMARTY_CPL_PATH."/".$themePath;
             if (defined('SMARTY_CFG_PATH'))
                 $smarty->config_dir = SMARTY_CFG_PATH;
+        }
+        if(!is_dir($smarty->compile_dir)){
+        	mkdir($smarty->compile_dir,777);
         }
         // load the config file which has the images and css url defined
         $smarty->assign('app_url', APP_URL);

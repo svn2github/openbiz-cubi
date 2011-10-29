@@ -136,8 +136,6 @@ class UserPreferenceForm extends EasyForm
 	            			$data = preg_replace("/define\([\'\\\"]{1}DEFAULT_THEME_NAME[\'\\\"]{1}.*?\)\;/i","define('DEFAULT_THEME_NAME','$value');",$data);	            			
 	            			@file_put_contents($config_file,$data);
 	            		}
-	            		//clean template cache
-	            		$this->DeleteDirectory(SMARTY_CPL_PATH);
 	            		break;
 	            	case "language":
 	            	    if($value!=DEFAULT_LANGUAGE){
@@ -201,22 +199,5 @@ class UserPreferenceForm extends EasyForm
 
     }
 
-    private function DeleteDirectory($dir,$deleteItSelf=false){
-	   $iterator = new RecursiveDirectoryIterator($dir);
-	   foreach (new RecursiveIteratorIterator($iterator, RecursiveIteratorIterator::CHILD_FIRST) as $file)
-	   {
-		      if ($file->isDir()) {
-		         @rmdir($file->getPathname());
-		      } else {
-		         @unlink($file->getPathname());
-		      }
-	   		
-	   }
-	   if($deleteItSelf)
-	   {
-	   	@rmdir($dir);	
-    	}
-    	return true;
-    }
 }  
 ?>
