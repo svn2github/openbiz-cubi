@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <PluginService Name="cacheService" Package="service" Class="cacheService">
-	<CacheSetting Mode="Enable">			
+	<CacheSetting Mode="Enabled">			
 		<Config Name="lifetime" Value="7200" />		
 		<Config Name="write_control" Value="Y" />				
 		<Config Name="automatic_cleaning_factor" Value="N" />

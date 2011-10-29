@@ -67,7 +67,7 @@ class cacheService
         $this->m_Cache 	= isset($xmlArr["PLUGINSERVICE"]["CACHESETTING"]["ATTRIBUTES"]["MODE"]) ? $xmlArr["PLUGINSERVICE"]["CACHESETTING"]["ATTRIBUTES"]["MODE"] : "Enabled";
         $this->m_CacheEngine = isset($xmlArr["PLUGINSERVICE"]["CACHEENGINE"]["ATTRIBUTES"]["TYPE"]) ? $xmlArr["PLUGINSERVICE"]["CACHEENGINE"]["ATTRIBUTES"]["TYPE"] : "FileCache";
         // process Cache settings
-        if(strtoupper($this->m_Cache)=="ENABLE")
+        if(strtoupper($this->m_Cache)=="ENABLED")
         {
             $this->_loadConfig($xmlArr["PLUGINSERVICE"]["CACHESETTING"]["CONFIG"],$this->m_CacheOptions);
         }
@@ -136,7 +136,7 @@ class cacheService
      */
     public function init($objName = "", $lifeTime = 0)
     {
-        if(strtoupper($this->m_Cache)=="ENABLE")
+        if(strtoupper($this->m_Cache)=="ENABLED")
         {
             if(strtoupper($this->m_CacheEngine)=="FILE" && $objName!="" )
             {
@@ -182,7 +182,7 @@ class cacheService
      */
     public function save($data, $id)
     {
-        if($this->m_CacheObj && strtoupper($this->m_Cache)=="ENABLE" )
+        if($this->m_CacheObj && strtoupper($this->m_Cache)=="ENABLED" )
         {
             return $this->m_CacheObj->save($data, $id);
         }
@@ -200,7 +200,7 @@ class cacheService
      */
     public function load($id)
     {
-        if($this->m_CacheObj && strtoupper($this->m_Cache)=="ENABLE")
+        if($this->m_CacheObj && strtoupper($this->m_Cache)=="ENABLED")
         {
             return $this->m_CacheObj->load($id);
         }else
@@ -217,7 +217,7 @@ class cacheService
      */
     public function test($id)
     {
-        if($this->m_CacheObj && strtoupper($this->m_Cache)=="ENABLE")
+        if($this->m_CacheObj && strtoupper($this->m_Cache)=="ENABLED")
         {
             return $this->m_CacheObj->test($id);
         }else
@@ -234,7 +234,7 @@ class cacheService
      */
     public function remove($id)
     {
-        if($this->m_CacheObj && strtoupper($this->m_Cache)=="ENABLE")
+        if($this->m_CacheObj && strtoupper($this->m_Cache)=="ENABLED")
         {
             return $this->m_CacheObj->remove($id);
         }
@@ -251,7 +251,7 @@ class cacheService
      */
     public function cleanAll()
     {
-        if($this->m_CacheObj && strtoupper($this->m_Cache)=="ENABLE")
+        if($this->m_CacheObj && strtoupper($this->m_Cache)=="ENABLED")
         {
             return $this->m_CacheObj->clean(Zend_Cache::CLEANING_MODE_ALL);
         }
@@ -268,7 +268,7 @@ class cacheService
      */
     public function cleanExpired()
     {
-        if($this->m_CacheObj && strtoupper($this->m_Cache) == "ENABLE")
+        if($this->m_CacheObj && strtoupper($this->m_Cache) == "ENABLED")
         {
             return $this->m_CacheObj->clean(Zend_Cache::CLEANING_MODE_OLD);
         }

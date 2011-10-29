@@ -58,7 +58,7 @@ class CacheForm extends EasyFormGrouping
 		$configArr=BizSystem::getXmlArray($file);
 		
    		$this->m_ModeStatus = $configArr["PLUGINSERVICE"]["CACHESETTING"]["ATTRIBUTES"]["MODE"];
-   		if($this->m_ModeStatus == 'Enable'){
+   		if($this->m_ModeStatus == 'Enabled'){
    			$result['status'] 	= 'Enabled';
    			$this->m_ModeStatus = 'Enabled';
    		}else{
@@ -76,10 +76,10 @@ class CacheForm extends EasyFormGrouping
 		$configArr=BizSystem::getXmlArray($file);
 		
    		$this->m_ModeStatus = $configArr["PLUGINSERVICE"]["CACHESETTING"]["ATTRIBUTES"]["MODE"];
-   		if($this->m_ModeStatus == 'Enable'){   			   		
-   			$newMode = 'Disable';
+   		if($this->m_ModeStatus == 'Enabled'){   			   		
+   			$newMode = 'Disabled';
    		}else{   		   		
-   			$newMode = 'Enable';	
+   			$newMode = 'Enabled';	
    		}   		
 	   	$configData = file_get_contents($file);
 	   	$configData = preg_replace("/CacheSetting\sMode\=\"(.*?)\"/si",
