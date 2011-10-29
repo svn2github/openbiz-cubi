@@ -2,24 +2,24 @@
 <PluginService Name="securityService" Package="service" Class="securityService">
    <Security Mode="Enabled">
       		      		   		<URLFILTER Mode="Enabled" >
-   				   				   				<Rule Name="url_filter_1" Action="Deny" Match="\.\." EffectiveTime="0000-2359" Status="" />
+   				   				   				<Rule Name="url_filter_1" Action="Deny" Match="\.\." EffectiveTime="0000-2359" Status="Enable" />
 	   				   				<Rule Name="url_filter_2" Action="Deny" Match="'" EffectiveTime="0000-2359" Status="Enable" />
-	   				   				<Rule Name="url_filter_3" Action="Deny" Match="''" EffectiveTime="0000-2359" Status="" />
+	   				   				<Rule Name="url_filter_3" Action="Deny" Match="''" EffectiveTime="0000-2359" Status="Enable" />
 	   						   		</URLFILTER>
    		      		   		<DOMAINFILTER Mode="Enabled" >
-   			   				<Rule Name="domain_filter_1" Action="Allow" Match="openbiz.cn" EffectiveTime="0000-2400" Status="" />
+   			   				<Rule Name="domain_filter_1" Action="Allow" Match="openbiz.cn" EffectiveTime="0000-2400" Status="Enable" />
    			   		</DOMAINFILTER>
    		      		   		<IPFILTER Mode="Enabled" >
-   			   				<Rule Name="ip_filter_1" Action="Allow" Match="210.72.214.*" EffectiveTime="0000-0000" Status="" />
+   			   				<Rule Name="ip_filter_1" Action="Allow" Match="210.72.214.*" EffectiveTime="0000-0000" Status="Enable" />
    			   		</IPFILTER>
    		      		   		<AGENTFILTER Mode="Disabled" >
-   			   				<Rule Name="agent_filter_1" Action="Deny" Match="Spider" EffectiveTime="0700-2000" Status="" />
+   			   				<Rule Name="agent_filter_1" Action="Deny" Match="Spider" EffectiveTime="0700-2000" Status="Enable" />
    			   		</AGENTFILTER>
    		      		   		<POSTFILTER Mode="Disabled" >
-   			   				<Rule Name="post_filter_1" Action="Deny" Match="\.\." EffectiveTime="0000-2359" Status="" />
+   			   				<Rule Name="post_filter_1" Action="Deny" Match="\.\." EffectiveTime="0000-2359" Status="Enable" />
    			   		</POSTFILTER>
    		      		   		<GETFILTER Mode="Enabled" >
-   			   				<Rule Name="get_filter_1" Action="Deny" Match="\.\." EffectiveTime="0000-2359" Status="" />
+   			   				<Rule Name="get_filter_1" Action="Deny" Match="\.\." EffectiveTime="0000-2359" Status="Enable" />
    			   		</GETFILTER>
    		      </Security>
 </PluginService>
