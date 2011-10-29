@@ -12,7 +12,7 @@
    		      		   		<IPFILTER Mode="Enabled" >
    			   				<Rule Name="ip_filter_1" Action="Allow" Match="210.72.214.*" EffectiveTime="0000-0000" Status="Enable" />
    			   		</IPFILTER>
-   		      		   		<AGENTFILTER Mode="Disabled" >
+   		      		   		<AGENTFILTER Mode="Enabled" >
    			   				<Rule Name="agent_filter_1" Action="Deny" Match="Spider" EffectiveTime="0700-2000" Status="Enable" />
    			   		</AGENTFILTER>
    		      		   		<POSTFILTER Mode="Disabled" >

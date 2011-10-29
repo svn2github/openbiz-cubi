@@ -63,7 +63,7 @@ class FormRenderer
     {
         // Assocative Array to hold all Template Values
         // Fill with default viewobj attributes
-        //$tplAttributes = $formObj->outputAttrs();
+        $tplAttributes = $formObj->outputAttrs(); //jixian: we still need this function 
         
         $tplAttributes['title'] = $formObj->m_Title;
         $tplAttributes['errors'] = $formObj->m_Errors;
@@ -94,7 +94,6 @@ class FormRenderer
         } else {
             $tplAttributes['searchPanel'] = $formObj->m_SearchPanel->render();
         }
-        
         $tplAttributes['actionPanel'] = $formObj->m_ActionPanel->render();
         $tplAttributes['navPanel'] = $formObj->m_NavPanel->render();
         
