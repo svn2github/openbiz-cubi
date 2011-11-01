@@ -370,7 +370,7 @@ class ModuleLoader
         // install Menu
         //if (!$skipDBChanges)
         //install it anyway
-        $this->installMenu($xml);
+         $this->installMenu($xml);
         
         // install widget
         if (!$skipDBChanges) $this->installWidgets($xml);
@@ -892,13 +892,13 @@ class ModuleLoader
     
     protected function log($message)
     {
-    	//if(CLI)
-    	{
+    	
 	    	$date = date('c', time());
-	    	if ($this->debug)
+	    	if ($this->debug && CLI){
 	    		echo "[$date] $message\n";
+	    	}
 	    	$this->logs .= "[$date] $message \n";
-    	} 
+    	
     }
 }
 
