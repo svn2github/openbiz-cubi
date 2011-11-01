@@ -334,7 +334,7 @@ class BizDataObj extends BizDataObj_Lite
             {
                 $db = $this->getDBConnection("WRITE");
                 $sql = "UPDATE " . $this->m_MainTable . " SET " . $field->m_Column . "=? WHERE $searchRule";
-                BizSystem::log(LOG_DEBUG, "DATAOBJ", "Upate lob Sql = $sql");
+                BizSystem::log(LOG_DEBUG, "DATAOBJ", "Update lob Sql = $sql");
                 $stmt = $db->prepare($sql);
 
                 $fp = fopen($recArr[$field->m_Name], 'rb');
@@ -347,7 +347,7 @@ class BizDataObj extends BizDataObj_Lite
                 catch (Exception $e)
                 {
                     $this->m_ErrorMessage = $this->getMessage("DATA_ERROR_QUERY").": ".$sql.". ".$e->getMessage();
-                    BizSystem::log(LOG_ERR, "DATAOBJ", "Upate lob error = $sql");
+                    BizSystem::log(LOG_ERR, "DATAOBJ", "Update lob error = $sql");
                     fclose($fp);
                     throw new BDOException($this->m_ErrorMessage);
                     return null;
