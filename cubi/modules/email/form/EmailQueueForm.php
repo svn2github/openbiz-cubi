@@ -108,7 +108,7 @@ class EmailQueueForm extends EasyForm
 	}
 
 	public function fetchData(){
-		$resultRecords = parent::fetchData()->toArray();
+		$resultRecords = parent::fetchData();
 		$emailSvc = BizSystem::getService(EMAIL_SERVICE);
 
 		$account = $emailSvc->m_Accounts->get($resultRecords['sender']);						
