@@ -13,6 +13,7 @@ class LabelImage extends LabelText
     {
         parent::readMetaData($xmlArr);
         $this->m_Prefix = isset($xmlArr["ATTRIBUTES"]["URLPREFIX"]) ? $xmlArr["ATTRIBUTES"]["URLPREFIX"] : null;
+        $this->m_Prefix =  Expression::evaluateExpression($this->m_Prefix,$this);
     }
 	
     /**
