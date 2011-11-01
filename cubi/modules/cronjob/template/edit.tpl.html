@@ -4,7 +4,7 @@
 
 	<div>
 		{if $form.icon !='' }
-	<div class="form_icon"><img  src="{$image_url}/{$form.icon}" border="0" /></div>
+	<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
 	{/if}
 		<div ><h2>{$form.title}</h2></div>
 	</div>
@@ -42,7 +42,7 @@
 					</td>
 					</tr>
 					<tr><td colspan="2" align="center" >
-						<span class="label_text" style="width:680px;">{$item.element}</span>
+						<span class="label_text" style="width:680px;height:auto">{$item.element}</span>
 									
 					</td></tr>
 					</table>		
