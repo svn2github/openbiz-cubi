@@ -961,7 +961,9 @@ class ModGenerator
         $smarty = BizSystem::getSmartyTemplate();
 
         //$listview_uri = strtolower(str_replace(" ","_",$this->opts[2])) . "_list";
-        $listview_uri = strtolower(getSubModuleName($this->module)) . "_list";
+        //$listview_uri = strtolower(getSubModuleName($this->module)) . "_list";
+        $listview_uri = strtolower($this->opts[1]) . "_list";
+        
 		$module = $this->module;    //.".".$this->opts[1];
         $comp = $this->opts[2];
         
