@@ -8,10 +8,11 @@
         <Element Name="fld_redirect" Class="Textarea" FieldName="RedirectPage" Label="Redirect Page" Width="400"/>
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button">
-            <EventHandler Name="onclick" Event="onclick" function="SaveRecord()"/>
+        <Element Name="btn_save" Class="Button" Text="Save " CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" function="SaveRecord()"/>
         </Element>
-        <Element Name="btn_reset" Class="ResetButton" Text="Reset" CssClass="button">
+        <Element Name="btn_reset" Class="Button" Text="Reset" CssClass="button_gray_m">
+            <EventHandler Name="reset_onclick" Event="onclick" function="js:$('{@:m_Name}').reset()"/>
         </Element>
         <Element Name="html_msg" Class="HTMLBlock" text="" style="color:gray; padding:2"/>
     </ActionPanel> 

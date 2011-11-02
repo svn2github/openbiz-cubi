@@ -24,7 +24,7 @@
         <Element Name="fld_htmlattr" Class="InputText" FieldName="" Label="HTMLAttr" Width="400"/>
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button">
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
             <EventHandler Name="onclick" Event="onclick" function="SaveRecord()"/>
         </Element>
     </ActionPanel> 

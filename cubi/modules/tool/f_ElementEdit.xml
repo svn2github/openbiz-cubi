@@ -7,7 +7,7 @@
         </Element>
         <Element Name="fld_fldname" Class="tool.ToolListbox" FieldName="FieldName" Label="Field Name" SelectFrom="fields(/EasyForm/@BizDataObj)" ElementSet="Basic"/>
         <Element Name="fld_label" Class="InputText" FieldName="Label" Label="Label"  ElementSet="Basic"/>
-        <Element Name="fld_link" Class="InputText" FieldName="Link" Label="Link" width="500" ElementSet="More..." Description="Example: {@home:url}/system/user_detail/{@:Elem[fld_Id].Value}"/>
+        <Element Name="fld_link" Class="InputText" FieldName="Link" Label="Link" width="500" ElementSet="More..." Description="Example: {@home:url}/system/user_detail/id_value"/>
         <element Name="fld_selfrom" Class="InputText" FieldName="SelectFrom" Label="Lookup List" Hidden="{(@:Elem[fld_class].Value == 'Listbox') || (@:Elem[fld_class].Value == 'Checkbox') || (@:Elem[fld_class].Value == 'Radio') ? 'N':'Y'}" ElementSet="Basic" Description="Example: system.do.UserDO[Id, Name]"/>
         <Element Name="fld_picker" Class="InputText" FieldName="ValuePicker" Label="Value Picker" Hidden="{(@:Elem[fld_class].Value == 'InputPicker')?'N':'Y'}" ElementSet="Basic"/>
         <Element Name="fld_pickermap" Class="Textarea" FieldName="PickerMap" Label="Picker Map" Hidden="{(@:Elem[fld_class].Value == 'InputPicker')?'N':'Y'}" ElementSet="Basic"/>
@@ -28,10 +28,11 @@
         <Element Name="fld_desc" Class="Textarea" FieldName="Description" Label="Description" ElementSet="More..."/>
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_save" Class="Button" Text="Save " CssClass="button">
-            <EventHandler Name="onclick" Event="onclick" function="SaveRecord()"/>
+        <Element Name="btn_save" Class="Button" Text="Save " CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" function="SaveRecord()"/>
         </Element>
-        <Element Name="btn_reset" Class="ResetButton" Text="Reset" CssClass="button">
+        <Element Name="btn_reset" Class="Button" Text="Reset" CssClass="button_gray_m">
+            <EventHandler Name="reset_onclick" Event="onclick" function="js:$('{@:m_Name}').reset()"/>
         </Element>
         <Element Name="html_msg" Class="HTMLBlock" text="" style="color:gray; padding:2"/>
     </ActionPanel> 

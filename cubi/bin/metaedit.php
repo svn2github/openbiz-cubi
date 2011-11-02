@@ -18,6 +18,17 @@ if (!APPBUILDER)
 	<link rel="stylesheet" type="text/css" href="../js/jstree/tree_component.css" />
 	<script type="text/javascript" src="../js/jstree/_lib.js"></script>
 	<script type="text/javascript" src="../js/jstree/tree_component.js"></script>
+<style type="text/css">
+.panel{
+	border:1px solid #999;
+	padding-top:1em;
+    padding-bottom:1em;
+	background-color:white;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+}
+</style>
 </head>
 <body style="margin:10px;background-color:#ffffff;">
 
@@ -183,9 +194,9 @@ $(function () {
 ?>
 
 <div style="font-size:14px;font-weight:bold">Edit Openbiz Metadata: <?php echo $metaobj?></div>
-<table border=0 width="98%">
+<table border=0 cellspacing="5" width="98%">
 <tr>
-<td valign="top" style="border:1px solid gray;">
+<td valign="top" class="panel">
 <div id="ob_element" class="demo" style="width:220px;height:600px;overflow:auto;">
 	<ul>
         <?php $metaTree = new MetaXMLTree($metaobj); $metaTree->displayXML2Tree(); ?>
@@ -203,7 +214,7 @@ $(function () {
     <?php } ?>
 </div>
 </td>
-<td valign="top" style="border:1px solid gray">
+<td valign="top" class="panel">
 <div id="attributes" style="width:760px;height:600px;">
 <iframe frameborder=0 name="attributes_frame" id="attributes_frame" src="empty.php" width="100%" height="100%">
 </iframe>

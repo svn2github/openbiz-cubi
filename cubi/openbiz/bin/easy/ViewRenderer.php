@@ -111,6 +111,14 @@ class ViewRenderer
     static protected function renderSmarty ($viewObj, $tplAttributes = Array())
     {
         $smarty = BizSystem::getSmartyTemplate();
+		
+		$viewOutput = $viewObj->outputAttrs();
+        foreach ($viewOutput as $k=>$v) {
+            $smarty->assign($k, $v);
+        }
+        // render the formobj attributes
+        $smarty->assign("view", $viewOutput);
+		
         //Translate Array of template variables to Zend template object
         foreach ($tplAttributes as $key => $value) {
             $smarty->assign($key, $value);
