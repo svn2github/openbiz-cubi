@@ -243,6 +243,23 @@ class cacheService
             return false;
         }
     }
+     
+     /**
+     * get a list of all caches
+     *
+     * @return array ids
+     */
+    public function getIds()
+    {
+        if($this->m_CacheObj && strtoupper($this->m_Cache)=="ENABLE")
+        {
+            return $this->m_CacheObj->getIds();
+        }
+        else
+        {
+            return false;
+        }
+    }    
 
     /**
      * clean all cache
