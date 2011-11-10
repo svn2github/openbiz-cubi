@@ -30,6 +30,6 @@
 </div>
 <script>//setTimeout("location.href='../index.php/user/login'",10000)</script>
 <?php
-$lockfile =  (dirname(dirname(dirname(__FILE__))).'/install.lock');
+$lockfile =  (dirname(dirname(dirname(__FILE__))).'/files/install.lock');
 file_put_contents($lockfile, '1');
 ?>

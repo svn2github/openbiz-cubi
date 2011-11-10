@@ -1,5 +1,5 @@
 <?php
-if(is_file(dirname(__FILE__).'/install.lock') && filesize(dirname(__FILE__).'/install.lock')==1){
+if(is_file(dirname(__FILE__).'/files/install.lock') && filesize(dirname(__FILE__).'/files/install.lock')==1){
 	include 'bin/_forward.php';	
 }else{
 	$script_name = $_SERVER['SCRIPT_NAME'];
