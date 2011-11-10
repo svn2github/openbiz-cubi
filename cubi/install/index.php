@@ -5,7 +5,7 @@ require_once('../bin/app_init.php');
 require_once('util.php');
 
 $isInstalled = false;
-if(is_file(dirname(dirname(__FILE__)).'/install.lock')){
+if(is_file(dirname(dirname(__FILE__)).'/files/install.lock')){
 	$isInstalled = true;
 }
 
