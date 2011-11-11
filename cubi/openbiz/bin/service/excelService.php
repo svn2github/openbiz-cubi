@@ -193,7 +193,10 @@ class excelService
             $line = "";
             foreach ($row as $cell) {
                 $txt = $this->strip_cell($cell);
-                if (!empty($txt))
+                //if (!empty($txt))
+				//Changed condition from empty()to is_null() to allow null fields from being truncated out when csv generated (cyril ogana 2011-11-11)
+				//TODO: Need to add condition to leave out fields which have no column name e.g. the first field which has rowcheckboxes?
+				if (!is_null($txt))
                     $line .= "\"" . $txt . "\"$separator";
             }
             $line = rtrim($line, $separator);
