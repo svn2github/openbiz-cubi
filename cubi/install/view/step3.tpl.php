@@ -79,10 +79,10 @@ foreach ($status as $s) {
 <a href="javascript:showContent('loadmodules_results','load modules');" class="button_m">Show results</a>
 </div>
 <div>
-<div id="loadmodules_img"  style="display:none;" ><img src="images/indicator.white.gif" style="display:none"/>loading modules ...</div>
+<div id="loadmodules_img"  style="display:none;color:red" ><img src="images/indicator.white.gif" style="display:none"/>Loading modules, it will takes 1-2 mintues, please wait...</div>
 <span id="loadmodules_status"></span>
 </div>
-<div id="loadmodules_results" style="display:none;color:red" onclick="showContent('loadmodules_results','load modules');">
+<div id="loadmodules_results" style="display:none;" onclick="showContent('loadmodules_results','load modules');">
 </div>
 
 <a href="index.php?step=2" class="button">< Back</a>
