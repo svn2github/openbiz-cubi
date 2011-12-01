@@ -76,7 +76,7 @@ if(!$_REQUEST['dbtype']){
 	<label>Create Database</label>
 </td>
 <td>
-	<input  type="checkbox" checked="checked" name="create_db" id="create_db" tabindex="6" />
+	<input  type="checkbox" <?php if($_REQUEST['create_db']!='N'){ echo "checked=\"checked\""; }?>  name="create_db" id="create_db" tabindex="6" />
 	<img id="createdb_img" src="images/indicator.white.gif" alt="Create DB indicator." style="display:none"/>
     <span id="create_db_result" style="color:red"></span>
 </td>	

@@ -221,6 +221,7 @@ function loadDBConfig(){
    $_REQUEST['dbPassword'] = $xml->DataSource->Database[0]['Password'] ;
    $_REQUEST['dbName'] = $xml->DataSource->Database[0]['DBName'] ;
    $_REQUEST['dbHostPort'] = $xml->DataSource->Database[0]['Port'] ;
+   $_REQUEST['create_db'] = "N";
    return true;
 }
 
