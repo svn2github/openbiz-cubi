@@ -50,7 +50,7 @@ class Checkbox extends OptionElement
     		$this->m_Value = $this->getSelectFrom();
     		return $this->m_Value;
     	}
-        if($this->m_Value)
+        if($this->m_Value!=null)
         {
             return $this->m_Value;
         }
