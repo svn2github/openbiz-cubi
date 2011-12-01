@@ -23,12 +23,12 @@
     <li><a href="http://code.google.com/p/openbiz-cubi/wiki/CubiCoreConcepts" target="_blank">Openbiz Cubi reference guide</a></li>
     </ul>
 
-    <a href="../index.php/user/login" class='button_w_highlight'>Launch Openbiz Cubi</a>
+    <a href="../index.php/user/login/do" class='button_w_highlight'>Launch Openbiz Cubi</a>
 
 </div>
 
 </div>
-<script>//setTimeout("location.href='../index.php/user/login'",10000)</script>
+<script>//setTimeout("location.href='../index.php/user/login/do'",10000)</script>
 <?php
 $lockfile =  (dirname(dirname(dirname(__FILE__))).'/files/install.lock');
 file_put_contents($lockfile, '1');
