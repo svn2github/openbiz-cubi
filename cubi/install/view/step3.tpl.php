@@ -74,22 +74,22 @@ foreach ($status as $s) {
     <td><?php echo $db['Password'];?></td>
 </tr>
 </table>
-<div>
+<div style="display:none;">
 <a href="javascript:load_modules();" class="button_m_highlight">Load Modules</a>
 <a href="javascript:showContent('loadmodules_results','load modules');" class="button_m">Show results</a>
-<img id="loadmodules_img" src="images/indicator.white.gif" style="display:none"/>
+</div>
+<div>
+<div id="loadmodules_img"  style="display:none;" ><img src="images/indicator.white.gif" style="display:none"/>loading modules ...</div>
 <span id="loadmodules_status"></span>
 </div>
-<br/>
-<div id="loadmodules_results" style="display:none" onclick="showContent('loadmodules_results','load modules');">
+<div id="loadmodules_results" style="display:none;color:red" onclick="showContent('loadmodules_results','load modules');">
 </div>
-<br/>
-<hr/>
+
 <a href="index.php?step=2" class="button">< Back</a>
 <?php 
 if (!$hasError){
 ?>
-    <a href="index.php?step=4" class="button_highlight">Next ></a>
+    <a href="javascript:load_modules();" class="button_highlight">Next ></a>
 <?php
 }else{
 ?>
@@ -122,6 +122,9 @@ function load_modules()
          $('loadmodules_results').innerHTML = response;
          if (response.indexOf('###')>=0) {
             $('loadmodules_status').innerHTML = response.substr(0,response.indexOf('###'));
+            window.location = "index.php?step=4";
+         }else{
+        	 showContent('loadmodules_results','load modules');
          }
       },
       onFailure: function(){ alert('Something went wrong...') }

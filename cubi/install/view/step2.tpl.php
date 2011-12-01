@@ -1,3 +1,8 @@
+<?php 
+if(!$_REQUEST['dbtype']){
+	loadDBConfig();
+}
+?>
 <div class="container">
 
     <div class="left left_style_b">
@@ -73,7 +78,7 @@
 <td>
 	<input  type="checkbox" checked="checked" name="create_db" id="create_db" tabindex="6" />
 	<img id="createdb_img" src="images/indicator.white.gif" alt="Create DB indicator." style="display:none"/>
-    <div id="create_db_result" style="color:red"></div>
+    <span id="create_db_result" style="color:red"></span>
 </td>	
 </tr>
 
@@ -103,7 +108,8 @@ function step2_next()
         create_db();
     }
     else {
-        window.location = "index.php?step=3";
+		replace_db_cfg();
+        //window.location = "index.php?step=3";
     }
     /*
     if ($('load_db').checked && !$('create_db').checked) {
@@ -112,6 +118,31 @@ function step2_next()
     if (!$('load_db').checked && !$('create_db').checked)
         alert("Please select the above checkboxes to continue.");
     */
+}
+
+function replace_db_cfg()
+{
+    $('create_db_result').innerHTML='';
+    new Ajax.Request('index.php?action=replace_db_cfg', {
+      onLoading: function() {
+         Element.show('createdb_img'); // or $('createdb_img').show();
+      },
+      onComplete: function() {
+          
+         Element.hide('createdb_img');
+      },
+      onSuccess: function(transport){
+         var response = transport.responseText || "no response text";
+         $('create_db_result').innerHTML=response;
+         if (response.indexOf('SUCCESS')>=0) {
+            /*if ($('load_db').checked)
+                fill_db();*/
+            window.location = "index.php?step=3";
+         }
+      },
+      onFailure: function(){ alert('Something went wrong...') },
+      parameters: $('setupform').serialize()
+   })	
 }
 
 function create_db()

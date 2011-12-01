@@ -188,6 +188,11 @@ function giveActionAccess($where, $role_id)
 
 function replaceDbConfig()
 {
+	$conn = connectDB();
+    if (!$conn) {
+		echo 'ERROR: Unable to create Database!';
+		return false;
+	}
    $filename = APP_HOME.'/application.xml';
    $xml = simplexml_load_file($filename);
    $xml->DataSource->Database[0]['Driver'] = $_REQUEST['dbtype'];
@@ -198,11 +203,25 @@ function replaceDbConfig()
    $xml->DataSource->Database[0]['Port'] = $_REQUEST['dbHostPort'];
    $fp = fopen ($filename, 'w');
    if (fwrite($fp, $xml->asXML()) === FALSE) {
-        echo "Cannot write to file ($filename)";
-        exit;
-    }
+        echo "ERROR: Cannot write to file ($filename)";
+		return false;
+   }
     fclose($fp);
     //showDBConfig();
+    echo "SUCCESS";
+    return true;
+}
+
+function loadDBConfig(){
+   $filename = APP_HOME.'/application.xml';
+   $xml = simplexml_load_file($filename);
+   $_REQUEST['dbtype'] = $xml->DataSource->Database[0]['Driver'];
+   $_REQUEST['dbtype'] = $xml->DataSource->Database[0]['Server'];
+   $_REQUEST['dbUserName'] = $xml->DataSource->Database[0]['User'];
+   $_REQUEST['dbPassword'] = $xml->DataSource->Database[0]['Password'] ;
+   $_REQUEST['dbName'] = $xml->DataSource->Database[0]['DBName'] ;
+   $_REQUEST['dbHostPort'] = $xml->DataSource->Database[0]['Port'] ;
+   return true;
 }
 
 function getDefaultDB()
