@@ -23,6 +23,10 @@ class dataPermService
 	}
 	public function CheckDataPerm($rec,$permCode)
 	{
+		if($rec==null)
+		{
+			return true;
+		}
 		$user_id = BizSystem::GetUserProfile('Id');
 		$user_groups = BizSystem::GetUserProfile('groups');
 		$data_owner = $rec['create_by'];
