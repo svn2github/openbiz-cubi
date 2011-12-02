@@ -33,10 +33,10 @@
     </DataPanel>
     <ActionPanel>
     	<Element Name="btn_finish" Class="Button" Text="Quick Finish" CssClass="button_gray_w">
-            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.calendar.form.EventDetailForm&amp;fld:Id={collab.calendar.do.EventDO:Field[Id].Value}"  ContextMenu="Quick Finish"  />
+            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.calendar.form.EventDetailForm&amp;fld:Id={@:Field[Id].Value}"  ContextMenu="Quick Finish"  />
         </Element>
         <Element Name="btn_save" Class="Button" Text="Next" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.calendar.form.EventEditContactForm&amp;fld:Id={collab.calendar.do.EventDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Next" />
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.calendar.form.EventEditContactForm&amp;fld:Id={@:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Next" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
