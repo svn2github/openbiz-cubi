@@ -72,9 +72,38 @@ class ModuleLoader
         // copy resource files to proper folders
         $this->copyResourceFiles();
         
+        //give permission to role 1
+        $this->giveActionAccess(1);
+        
         $this->log("$module is loaded.");
         return true;
     }
+    
+	public function giveActionAccess($role_id)
+	{
+		
+		$db = BizSystem::dbConnection();
+		try {
+			$where = "module='".$this->name."'"; 
+			$sql = "SELECT * FROM acl_action WHERE $where";
+		    BizSystem::log(LOG_DEBUG, "DATAOBJ", $sql);
+		    $rs = $db->fetchAll($sql);
+		    
+		    $sql = "";
+			foreach ($rs as $r) {
+				$sql = "DELETE FROM acl_role_action WHERE role_id=$role_id AND action_id=$r[0]; ";
+				BizSystem::log(LOG_DEBUG, "DATAOBJ", $sql);
+				$db->query($sql);
+				$sql = "INSERT INTO acl_role_action (role_id, action_id, access_level) VALUES ($role_id,$r[0],1)";
+				BizSystem::log(LOG_DEBUG, "DATAOBJ", $sql);
+		    	$db->query($sql);
+			}
+		}
+		catch (Exception $e) {
+		    echo "ERROR: ".$e->getMessage()."".PHP_EOL;
+		    return false;
+		}
+	}    
     
 	public function loadChangeLog()
     {
