@@ -858,6 +858,7 @@ line-height:100%;
 }
 table.input_row .label_text{
 line-height:24px;
+padding-left:1px;
 }
 table.input_row .label_text a{
 color:#006599;

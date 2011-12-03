@@ -855,6 +855,7 @@ width:80px; text-align:right; color:#14a8f1;vertical-align:top;
 line-height:100%;
 }
 table.input_row .label_text{
+padding-left:1px;
 line-height:24px;
 }
 table.input_row .label_text a{
