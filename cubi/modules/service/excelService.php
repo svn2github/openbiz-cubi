@@ -194,7 +194,13 @@ class excelService
             foreach ($row as $cell) {
                 $txt = $this->strip_cell($cell);
                 if (!empty($txt))
+                {
                     $line .= "\"" . $txt . "\"$separator";
+                }
+                else
+                {
+                	$line .= "\"" .  "\"$separator";
+                }
             }
             $line = rtrim($line, $separator);
             $line = iconv("UTF-8","GB2312//IGNORE",$line);
