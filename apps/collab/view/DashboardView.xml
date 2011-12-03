@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<EasyView Name="DashboardView" Description="Collaboration Dashboard" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+<EasyView Name="DashboardView" Access="collab.access" Description="Collaboration Dashboard" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
     <FormReferences>
         <Reference Name="collab.widget.DashboardForm"/>
     </FormReferences>
