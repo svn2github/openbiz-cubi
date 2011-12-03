@@ -107,6 +107,8 @@ CREATE TABLE IF NOT EXISTS `contact_import` (
   `yahoo` varchar(255) default '',
   `user_id` int(11) default '0',
   `selected` int(11) default '0',
+  `foreign_key` varchar(255) default '',
+  `source` varchar(255) default '',
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL,
