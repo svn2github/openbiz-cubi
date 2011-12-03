@@ -71,7 +71,7 @@ class ContactGrabberImportForm extends EasyForm
         	$newContactRec['other_perm'] 	= $permOpt['other_perm'];
         	$newContactRec['type_id']	 	= $ImportOpt['contact_type'];
         	$newContactRec['sortorder']	 	= '50';
-        	
+        	unset($newContactRec['user_id']);
         	if(!$newContactRec['company'])
         	{
         		$newContactRec['company']='N/A';
