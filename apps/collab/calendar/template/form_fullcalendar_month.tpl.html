@@ -109,6 +109,7 @@ width:300px;
 				this.style.backgroundColor='#b20304';
 				this.style.color='#FFFFFF';
 				});
+			Openbiz.getFormObject(form_name).selectedId = event.id;
 			Openbiz.getFormObject(form_name).selectedItem = event.ui_id;
 			Openbiz.CallFunction('{/literal}{$form.name}{literal}.SelectRecord('+event.id+')');			
 		},
