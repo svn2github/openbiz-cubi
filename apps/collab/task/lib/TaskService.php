@@ -5,6 +5,9 @@ class TaskService
 	
 	public function updateTaskTime($worklogDO){						
 		$task_id = $this->getObjValue($worklogDO, 'task_id');
+		if(!$task_id){
+			return;
+		}
 		$statDO = BizSystem::getObject("collab.worklog.do.WorkLogStatDO");
 		$statRec = $statDO->fetchOne("[task_id]='$task_id'");
 		$total_hours = $statRec['total_hours'];
@@ -15,6 +18,9 @@ class TaskService
 	
 	public function updateTaskStatus($taskDO){
 		$task_id = $this->getObjValue($taskDO, 'Id');
+		if(!$task_id){
+			return;
+		}
 		$progress = $this->getObjValue($taskDO, 'progress');
 		$status_prev = $taskDO->getField('status')->m_OldValue;
 		$status_new = $taskDO->getField('status')->m_Value;	
