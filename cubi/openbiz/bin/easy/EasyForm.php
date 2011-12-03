@@ -1303,22 +1303,22 @@ class EasyForm extends MetaObject implements iSessionObject
         $currentRec = $this->fetchData();
         $recArr = $this->readInputRecord();
         //$this->setActiveRecord($recArr);
-        if (count($recArr) == 0)
-            return;
-
-        try
-        {
-            $this->ValidateForm();
+        if (count($recArr) != 0){
+            	
+	        try
+	        {
+	            $this->ValidateForm();
+	        }
+	        catch (ValidationException $e)
+	        {
+	            $this->processFormObjError($e->m_Errors);
+	            return;
+	        }
+	
+	        if ($this->_doUpdate($recArr, $currentRec) == false)
+	            return;
+        
         }
-        catch (ValidationException $e)
-        {
-            $this->processFormObjError($e->m_Errors);
-            return;
-        }
-
-        if ($this->_doUpdate($recArr, $currentRec) == false)
-            return;
-
         // in case of popup form, close it, then rerender the parent form
         if ($this->m_ParentFormName)
         {
@@ -1327,6 +1327,7 @@ class EasyForm extends MetaObject implements iSessionObject
             $this->renderParent();
         }
 
+        
         $this->processPostAction();
 
     }
