@@ -32,7 +32,11 @@ if($appPath == $appHome){
 if(substr($appPath,0,1)!='/' && strlen($appPath)>0){
 	$appPath = '/'.$appPath;
 }
-define('APP_URL',$appPath);
+if($appPath=='/'){
+	define('APP_URL','');
+}else{
+	define('APP_URL',$appPath);
+}
 
 
 /* APP_INDEX is /a/b/index.php in case of http://host/a/b/index.php?... */
