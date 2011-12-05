@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <Charset Value="utf8" text="UTF-8"/>	
+   <Charset Value="gbk" text="GBK"/>
+   <Charset Value="latin1" text="Latin-1"/>	
+   
+   <BackupMode Value="db_only" text="Database Only"/>	
+   <BackupMode Value="db_files" text="Database and User files"/>
+   <BackupMode Value="all_files" text="Entire Cubi System"/>
+
+   <RestoreMode_sql Value="db" text="Database"/>	
+   <RestoreMode_tarball Value="db_only" text="Database"/>   
+   <RestoreMode_tarball Value="db_files" text="Database and Files"/>
+   <RestoreMode_tarball Value="files_only" text="Files"/>
+   
+   
+   
+   
+   
+  
+   <FileType Value="sql" text="Database Backup"/>
+   <FileType Value="tarball" text="Database And Files"/>
+</Selection>   
