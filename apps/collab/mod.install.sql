@@ -418,3 +418,80 @@ Date: 2010-8-16 11:51:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+
+/*
+Tables for msgbox module
+*/
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE IF NOT EXISTS `message` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(255) NOT NULL,
+  `content` text,
+  `send_status` int(11) NOT NULL DEFAULT '0',
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `subject` (`subject`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+
+DROP TABLE IF EXISTS `message_log`;
+CREATE TABLE IF NOT EXISTS `message_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `view_count` int(11) NOT NULL DEFAULT '0',
+  `create_time` datetime NOT NULL,
+  `update_time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS `message_recipient`;
+CREATE TABLE IF NOT EXISTS `message_recipient` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `read_status` int(11) NOT NULL,
+  `importance` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL,
+  `visiable` int(11) NOT NULL,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+DROP TABLE IF EXISTS `message_type`;
+CREATE TABLE IF NOT EXISTS `message_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `color` varchar(255) NOT NULL,
+  `sortorder` int(11) NOT NULL,
+  `published` int(11) NOT NULL,
+  `group_id` int(11) DEFAULT '1',
+  `group_perm` int(11) DEFAULT '1',
+  `other_perm` int(11) DEFAULT '1',
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+INSERT INTO `message_type` (`id`, `name`, `description`, `color`, `sortorder`, `published`, `group_id`, `group_perm`, `other_perm`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+(1, 'Business', 'Business Bookmarks', '66c2ff', 45, 1, 1, 1, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
+(2, 'Family', 'Family Bookmarks', 'ff7aa0', 45, 1, 1, 1, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
+(3, 'Provider', 'Business Provider Bookmarks', '7fff7f', 50, 1, 1, 1, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
+(4, 'Client', 'Business Client Bookmarks', 'ffd042', 45, 1, 1, 1, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
