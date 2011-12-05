@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="collaboration module" Version="0.5" OpenbizVersion="3.0">
+<Module Name="collab" Description="collaboration module" Version="0.6" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -10,6 +10,9 @@
         <Resource Name="collab_note">
 			<Action Name="access" Description="access notes"/>
 		</Resource>
+        <Resource Name="collab_msgbox">
+			<Action Name="access" Description="access message box"/>
+		</Resource>		
         <Resource Name="collab_task">
 			<Action Name="access" Description="access task"/>
 			<Action Name="report" Description="view task statistics report"/>
@@ -65,11 +68,9 @@
 		</MenuItem>	
         <!-- message box menus -->
         <MenuItem Name="Msgbox" Title="Message Inbox" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_message" Order="12">
-			<MenuItem Name="Msgbox.NewMessage" Title="New Message" Description=""  URL="{@home:url}/collab/msgNew_list" Order="20"></MenuItem>
-			<MenuItem Name="Msgbox.DeletedItems" Title="Deleted Items" Description=""  URL="{@home:url}/collab/msg_list/m=3" Order="50"></MenuItem>
-			<MenuItem Name="Msgbox.Drafts" Title="Drafts" Description=""  URL="{@home:url}/collab/msgDrafts_list/m=0" Order="40"></MenuItem>
-			<MenuItem Name="Msgbox.Inbox" Title="Inbox" Description=""  URL="{@home:url}/collab/msgInbox_list/m=2" Order="10"></MenuItem>
-			<MenuItem Name="Msgbox.SentItems" Title="Sent Items" Description=""  URL="{@home:url}/collab/msgSentItems_list/m=1" Order="30"></MenuItem>
+			<MenuItem Name="Msgbox.NewMessage" Title="Compose Message" Description=""  URL="{@home:url}/collab/msg_compose" Order="10"></MenuItem>
+			<MenuItem Name="Msgbox.Inbox" Title="Message Inbox" Description=""  URL="{@home:url}/collab/msg_inbox" Order="20"></MenuItem>
+			<MenuItem Name="Msgbox.SentItems" Title="Message Type" Description=""  URL="{@home:url}/collab/msg_type" Order="30"></MenuItem>
 		</MenuItem>
         <!-- announcement menus -->
         <MenuItem Name="Announcement" Title="Announcement" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_announcement" Order="60">
@@ -93,6 +94,9 @@
     	<Module Name="menu"/>
     </Dependency>
         <ChangeLog>
+        <Version Name="0.6">    		    		
+    		<Change Name="feature_06.01" Type="New_Feature" Status="Finished" PublishDate="2011-12-06" Description="Modified message module menu items"></Change>
+    	</Version>           	
         <Version Name="0.5">    		    		
     		<Change Name="feature_05.01" Type="New_Feature" Status="Finished" PublishDate="2011-12-05" Description="Release with an advanced Message module"></Change>
     	</Version>       
