@@ -140,19 +140,20 @@ function loadModules()
 		}
 	}
     $logs = "";
-	// find all modules
+	// find all modules	
 	foreach ($modules as $mod)
 	{
+		$logs .= "Loading Module: $mod\n";
 		$loader = new ModuleLoader($mod);
 		$loader->debug=0;
 	    $loader->loadModule(true);
         $logs .= $loader->logs;
         $logs .= $loader->errors;
+        $logs .= "\n";
 	}
-
    	giveActionAccess("", 1);	// admin to access all actions
 	giveActionAccess("module='user'", 2);
-
+	file_put_contents(APP_FILE_PATH.'/install.log', $log);
     echo "SUCCESS. Modules are loaded in Cubi. ###\n".$logs;
 }
 
