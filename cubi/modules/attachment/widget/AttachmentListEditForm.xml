@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="AttachmentListEditForm" Class="AttachmentForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/worklog/images/icon_worklog.gif" BizDataObj="attachment.do.AttachmentDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_in_tab.tpl.html"  Access="attachment.access">
+<EasyForm Name="AttachmentListEditForm" Class="AttachmentForm" FormType="List" jsClass="jbForm" Icon="" BizDataObj="attachment.do.AttachmentDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_in_tab.tpl.html"  Access="attachment.access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>        
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
@@ -11,7 +11,7 @@
                 	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentDetailForm,{@:Elem[fld_Id].Value})"/>        
         </Element>
         <Element Name="fld_filename" Class="ColumnText" FieldName="filename" Label="Filename" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_filesize" Class="ColumnText" FieldName="filesize" Text="{@util:format_bytes(@:Elem[fld_filesize].Value)}"  Label="Filesize" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
+        <Element Name="fld_filesize" Class="ColumnText" FieldName="filesize" Text="{@util:format_bytes({tx}@:Elem[fld_filesize].Value{/tx})}"  Label="Filesize" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
 		<Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Timestamp"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
 		<Element Name="fld_download" Class="ColumnText" FieldName="download_count" Label="Downloads" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
 		
