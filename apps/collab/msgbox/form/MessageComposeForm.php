@@ -4,7 +4,7 @@ class MessageComposeForm extends EasyForm
 	public function fetchData()
 	{
 		$dataRec = new DataRecord(null, $this->getDataObj());
-        $dataRec["subject"] = "no subject";
+        $dataRec["subject"] = "";
 		$dataRec["send_status"] = "draft";
         $recId = $dataRec->save();
 		$this->m_RecordId = $recId;
