@@ -3,15 +3,14 @@ class MessageComposeForm extends EasyForm
 {
 	public function fetchData()
 	{
-		if(!(int)$this->m_RecordId){
-			$dataRec = new DataRecord(null, $this->getDataObj());
-	        $dataRec["subject"] = "no subject";
-			$dataRec["send_status"] = "draft";
-	        $recId = $dataRec->save();
-			$this->m_RecordId = $recId;
-			$this->m_ActiveRecord = $dataRec;
-			$this->setActiveRecord($dataRec->toArray());
-		}
+		$dataRec = new DataRecord(null, $this->getDataObj());
+        $dataRec["subject"] = "no subject";
+		$dataRec["send_status"] = "draft";
+        $recId = $dataRec->save();
+		$this->m_RecordId = $recId;
+		$this->m_ActiveRecord = $dataRec;
+		$this->setActiveRecord($dataRec->toArray());
+	
  		$result = parent::fetchData();
 		return $result;
 	}
