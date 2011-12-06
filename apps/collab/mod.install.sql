@@ -432,14 +432,14 @@ CREATE TABLE IF NOT EXISTS `message` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `subject` varchar(255) NOT NULL,
   `content` text,
-  `send_status` int(11) NOT NULL DEFAULT '0',
+  `send_status` ENUM( 'sent', 'draft' ) NOT NULL DEFAULT 'draft',
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL,
   `update_time` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `subject` (`subject`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
 
@@ -453,7 +453,7 @@ CREATE TABLE IF NOT EXISTS `message_read_log` (
   `create_time` datetime NOT NULL,
   `update_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 DROP TABLE IF EXISTS `message_recipient`;
 CREATE TABLE IF NOT EXISTS `message_recipient` (
@@ -469,7 +469,7 @@ CREATE TABLE IF NOT EXISTS `message_recipient` (
   `update_by` int(11) NOT NULL,
   `update_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
 DROP TABLE IF EXISTS `message_type`;
