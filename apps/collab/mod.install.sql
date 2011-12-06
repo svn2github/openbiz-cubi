@@ -443,8 +443,8 @@ CREATE TABLE IF NOT EXISTS `message` (
 
 
 
-DROP TABLE IF EXISTS `message_log`;
-CREATE TABLE IF NOT EXISTS `message_log` (
+DROP TABLE IF EXISTS `message_read_log`;
+CREATE TABLE IF NOT EXISTS `message_read_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `message_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -463,7 +463,7 @@ CREATE TABLE IF NOT EXISTS `message_recipient` (
   `read_status` int(11) NOT NULL,
   `importance` int(11) NOT NULL,
   `type_id` int(11) NOT NULL,
-  `visiable` int(11) NOT NULL,
+  `type` ENUM(  'Recipient',  'CC',  'BCC' ) NOT NULL,
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL,
@@ -488,7 +488,7 @@ CREATE TABLE IF NOT EXISTS `message_type` (
   `update_by` int(11) NOT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 INSERT INTO `message_type` (`id`, `name`, `description`, `color`, `sortorder`, `published`, `group_id`, `group_perm`, `other_perm`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
 (1, 'Business', 'Business Bookmarks', '66c2ff', 45, 1, 1, 1, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
