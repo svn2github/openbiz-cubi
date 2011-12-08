@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="MessageOutboxDO" Description="" Class="BizDataObj" DBName="Default" Table="message" SearchRule="[create_by]={@profile:Id}" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="collab_msgbox.access" UpdateCondition="collab_msgbox.access" DeleteCondition="collab_msgbox.access">
+<BizDataObj Name="MessageSentDO" Description="" Class="BizDataObj" DBName="Default" Table="message" SearchRule="[create_by]={@profile:Id} AND [send_status]='sent'" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="collab_msgbox.access" UpdateCondition="collab_msgbox.access" DeleteCondition="collab_msgbox.access">
 	<BizFieldList>
         <BizField Name="Id" Column="id"     Type="Number"/>
         <BizField Name="subject" Column="subject" Length="255"   Required="N" Type="Text"/>

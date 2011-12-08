@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="MessageSentListForm" Class="MessageSentListForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_outbox.png"  FormType="List" jsClass="jbForm" Title="Message Outbox Management" Description="You can review your drafe message or send them out in below form." BizDataObj="collab.msgbox.do.MessageOutboxDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl"  MessageFile="Message.msg" Access="collab_msgbox.access">
+<EasyForm Name="MessageSentListForm" Class="MessageSentListForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_outbox.png"  FormType="List" jsClass="jbForm" Title="Message Sent Management" Description="You can review your sent messages." BizDataObj="collab.msgbox.do.MessageSentDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl"  MessageFile="Message.msg" Access="collab_msgbox.access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
