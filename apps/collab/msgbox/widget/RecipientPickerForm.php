@@ -29,6 +29,7 @@ class RecipientPickerForm extends PickerForm
     	
     	$recipientDo = BizSystem::getObject($this->m_RecipientDO,1);
     	//clear associated recipients before save new 
+    	$recipientDo->deleteRecords("[message_id]='".$parentRec["Id"]."' AND type='".$this->m_RecipientType."'");
     	foreach($recIdArr as $recId)
     	{
 	        $this->m_SearchRule="";

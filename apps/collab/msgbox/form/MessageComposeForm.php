@@ -1,9 +1,12 @@
 <?php 
 class MessageComposeForm extends EasyForm
 {
+	public $m_RecipientDO = "collab.msgbox.do.MessageRecipientDO";
+		
 	public function fetchData()
 	{
-		if($_GET["F"]!='RPCInvoke'){			
+		if($_GET["F"]!='RPCInvoke'){		
+				
 			$dataRec = new DataRecord(null, $this->getDataObj());
 	        $dataRec["subject"] = "";
 			$dataRec["send_status"] = "draft";
@@ -11,17 +14,27 @@ class MessageComposeForm extends EasyForm
 			$this->m_RecordId = $recId;
 			$this->m_ActiveRecord = $dataRec;
 			$this->setActiveRecord($dataRec->toArray());
-		}elseif($this->m_RecordId){
-			$this->m_ActiveRecord = $this->getDataObj()
-									->fetchById($this->m_RecordId)
-									->toArray();
-		}		
+		}else{		
+			if($this->m_RecordId){
+				$this->m_ActiveRecord = $this->getDataObj()
+										->fetchById($this->m_RecordId)
+										->toArray();
+			}		
+		}
  		$result = parent::fetchData();
- 		
+ 		$result["recipient_to"] = $this->getRecipientList("Recipient");
+		$result["recipient_cc"] = $this->getRecipientList("CC");
+		$result["recipient_bcc"] = $this->getRecipientList("BCC");
 		return $result;
 	}
 	
+	public function getRecipientList($type)
+	{
+		return BizSystem::getService("collab.msgbox.lib.recipientListService")->getRecipientList($type,$this->m_RecordId);
+	}
+	
 	public function LoadDialog($formName,$id=null){
+		$currentRec = $this->fetchData();
 		$recArr = $this->readInputRecord();
         
         try
