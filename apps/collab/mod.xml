@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="collaboration module" Version="0.62" OpenbizVersion="3.0">
+<Module Name="collab" Description="collaboration module" Version="0.63" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -69,9 +69,9 @@
         <!-- message box menus -->
         <MenuItem Name="Msgbox" Title="Message" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_message" Order="12">
 			<MenuItem Name="Msgbox.NewMessage" Title="Compose Message" Description=""  URL="{@home:url}/collab/message_compose" Order="10"></MenuItem>
+			<MenuItem Name="Msgbox.Sent" Title="Sent Messages" Description=""  URL="{@home:url}/collab/message_sent" Order="25"></MenuItem>
+			<MenuItem Name="Msgbox.Draft" Title="Draft Messages" Description=""  URL="{@home:url}/collab/message_draft" Order="30"></MenuItem>
 			<MenuItem Name="Msgbox.Inbox" Title="Message Inbox" Description=""  URL="{@home:url}/collab/message_inbox" Order="20"></MenuItem>
-			<MenuItem Name="Msgbox.Sent" Title="Message Sent" Description=""  URL="{@home:url}/collab/message_sent" Order="25"></MenuItem>
-			<MenuItem Name="Msgbox.Draft" Title="Message Draft" Description=""  URL="{@home:url}/collab/message_draft" Order="30"></MenuItem>
 			<MenuItem Name="Msgbox.Type" Title="Message Type" Description=""  URL="{@home:url}/collab/message_type" Order="35"></MenuItem>
 		</MenuItem>
         <!-- announcement menus -->

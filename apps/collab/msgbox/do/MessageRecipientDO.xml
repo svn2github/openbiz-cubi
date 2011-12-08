@@ -4,7 +4,7 @@
         <BizField Name="Id" Column="id"     Type="Number"/>
         <BizField Name="message_id" Column="message_id"    Required="Y" Type="Number"/>
         <BizField Name="user_id" Column="user_id"    Required="Y" Type="Number"/>
-        <BizField Name="read_status" Column="read_status"    Required="Y" Type="Number"/>
+        <BizField Name="read_status" Column="read_status"   />
         <BizField Name="importance" Column="importance"    Required="Y" Type="Number"/>
         <BizField Name="type_id" Column="type_id"    Required="Y" Type="Number"/>
         <BizField Name="type" Column="type"    Required="Y" Type="Number"/>

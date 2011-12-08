@@ -460,7 +460,7 @@ CREATE TABLE IF NOT EXISTS `message_recipient` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `message_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `read_status` int(11) NOT NULL,
+  `read_status` ENUM( 'Unread', 'Read' ) NOT NULL,
   `importance` int(11) NOT NULL,
   `type_id` int(11) NOT NULL,
   `type` ENUM(  'Recipient',  'CC',  'BCC' ) NOT NULL,
