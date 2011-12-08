@@ -11,9 +11,32 @@ class MessageComposeForm extends EasyForm
 			$this->m_RecordId = $recId;
 			$this->m_ActiveRecord = $dataRec;
 			$this->setActiveRecord($dataRec->toArray());
-		}
+		}elseif($this->m_RecordId){
+			$this->m_ActiveRecord = $this->getDataObj()
+									->fetchById($this->m_RecordId)
+									->toArray();
+		}		
  		$result = parent::fetchData();
+ 		
 		return $result;
+	}
+	
+	public function LoadDialog($formName,$id=null){
+		$recArr = $this->readInputRecord();
+        
+        try
+        {
+            $this->ValidateForm();
+        }
+        catch (ValidationException $e)
+        {
+            $this->processFormObjError($e->m_Errors);
+            return;
+        }
+        $recArr['send_status'] = 'draft';
+        if ($this->_doUpdate($recArr, $currentRec) == false)
+            return;        
+		parent::loadDialog($formName,$id);	
 	}
 	
 	public function SendMessage()

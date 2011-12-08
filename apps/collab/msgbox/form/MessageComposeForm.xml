@@ -22,7 +22,7 @@
         <Element Name="btn_send" Class="Button" Text="Send Now" CssClass="button_gray_w">
             <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="SendMessage()" RedirectPage="form=collab.msgbox.form.MessageDetailForm&amp;fld:Id={@collab.msgbox.do.MessageDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Send Now" />
         </Element>
-        <Element Name="btn_save" Class="Button" Text="Draft" CssClass="button_gray_m">
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
             <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="SaveMessage()" RedirectPage="form=collab.msgbox.form.MessageDetailForm&amp;fld:Id={@collab.msgbox.do.MessageDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save Draft" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
