@@ -19,15 +19,7 @@ $includedScripts.="
 <script type='text/javascript' src='$js_url/uploadify/swfobject.js'></script>
 <script type='text/javascript' src='$js_url/uploadify/jquery.uploadify.v2.1.4.js'></script>
 
-<style>
 
-.action_panel{
-width:292px;
-}
-.search_panel{
-width:398px;
-}
-</style>
 ";
 
 $this->_tpl_vars['scripts'] = $includedScripts;
