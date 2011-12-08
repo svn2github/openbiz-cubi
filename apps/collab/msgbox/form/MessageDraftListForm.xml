@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="MessageOutboxListForm" Class="MessageOutboxListForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_outbox.png"  FormType="List" jsClass="jbForm" Title="Message Outbox Management" Description="You can review your drafe message or send them out in below form." BizDataObj="collab.msgbox.do.MessageOutboxDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl"  MessageFile="Message.msg" Access="collab_msgbox.access">
+<EasyForm Name="MessageDraftListForm" Class="MessageDraftListForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_outbox.png"  FormType="List" jsClass="jbForm" Title="Message Outbox Management" Description="You can review your drafe message or send them out in below form." BizDataObj="collab.msgbox.do.MessageOutboxDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl"  MessageFile="Message.msg" Access="collab_msgbox.access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
-        <!-- 
+        
         <Element Name="fld_share" Class="ColumnShare" 
-				MyPrivateImg="{RESOURCE_URL}/collab/note/images/icon_note_private.gif"
-				MySharedImg="{RESOURCE_URL}/collab/note/images/icon_note_shared.gif" 
-				MyAssignedImg="{RESOURCE_URL}/collab/note/images/icon_note_assigned.gif"
-				MyDistributedImg="{RESOURCE_URL}/collab/note/images/icon_note_distributed.gif" 
-				GroupSharedImg="{RESOURCE_URL}/collab/note/images/icon_note_shared_group.gif"
-				OtherSharedImg="{RESOURCE_URL}/collab/note/images/icon_note_shared_other.gif"
+				SentImg="{RESOURCE_URL}/collab/note/images/icon_note_private.gif"
+				DraftImg="{RESOURCE_URL}/collab/note/images/icon_note_shared.gif" 				
 				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
-		 -->
+		 
         <Element Name="fld_subject" Class="ColumnText" MaxLength="30"  FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
         	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.note.form.NoteDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>	
@@ -57,9 +53,7 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
-    	<Element Name="data_filter"  BlankOption="All Messages" cssclass="input_select_w" Class="common.element.ShareDataFilter" FieldName="create_by" Label="" SelectFrom="collab.msgbox.lov.MessageLOV(MessageType)" >
-            <EventHandler Name="datafilter_onchange" Event="onchange" Function="RunSearch()"/>
-        </Element>
+    	
          <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.note.do.NoteDO[title],[title] like '%{$_POST['qry_name']}%' GROUP BY [title]" FieldName="title" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
