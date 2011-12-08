@@ -3,13 +3,13 @@
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
-        <Element Name="fld_status" Class="ColumnShare" 
-				SentImg="{RESOURCE_URL}/collab/note/images/icon_note_private.gif"
-				DraftImg="{RESOURCE_URL}/collab/note/images/icon_note_shared.gif" 				
-				FieldName="create_by" Label="Status"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+        <Element Name="fld_status" Class="ColumnImage" 
+				Text="{RESOURCE_URL}/collab/message/images/icon_message_draft.png"
+				FieldName="" Label="Status"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
-		 
+		
+		<Element Name="fld_recipient" Class="ColumnText"  FieldName="recipient" Label="Recipients"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" /> 
         <Element Name="fld_subject" Class="ColumnText" MaxLength="30"  FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
         	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.note.form.NoteDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>	
@@ -17,10 +17,8 @@
         
     </DataPanel>
     <ActionPanel>
-        <Element Name="lnk_new" Class="Button" Text="Compose" CssClass="button_gray_w" Description="new record (Insert)" >
-            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(collab.note.form.NoteNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
-        </Element>
-        <Element Name="btn_edit" Class="Button" Text="Send" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+
+        <Element Name="btn_edit" Class="Button" Text="Send" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
             <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=collab.note.form.NoteEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
                 

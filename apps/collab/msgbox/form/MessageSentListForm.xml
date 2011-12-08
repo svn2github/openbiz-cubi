@@ -24,11 +24,6 @@
         <Element Name="btn_edit" Class="Button" Text="Send" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
             <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=collab.note.form.NoteEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
-                
-        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
-            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
-        </Element>
-              
     </ActionPanel> 
     <NavPanel>
     	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
