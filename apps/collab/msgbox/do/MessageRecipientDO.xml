@@ -7,7 +7,7 @@
         <BizField Name="read_status" Column="read_status"   />
         <BizField Name="importance" Column="importance"    Required="Y" Type="Number"/>
         <BizField Name="type_id" Column="type_id"    Required="Y" Type="Number"/>
-        <BizField Name="type" Column="type"    Required="Y" Type="Number"/>
+        <BizField Name="type" Column="type"   />
 		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
 		<BizField Name="create_time" Column="create_time"  Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
 		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>		

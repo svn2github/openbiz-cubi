@@ -6,10 +6,10 @@
 	        <EventHandler Name="to_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientPickForm)"/>	    
 	    </Element>
 	    <Element Name="fld_cc" Class="InputText" FieldName="" Label="CC"   >
-	    	<EventHandler Name="cc_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientPickForm)"/>
+	    	<EventHandler Name="cc_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientCCPickForm)"/>
 	    </Element>
 	    <Element Name="fld_bcc" Class="InputText" FieldName="" Label="BCC"   >
-	    	<EventHandler Name="bcc_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientPickForm)"/>
+	    	<EventHandler Name="bcc_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientBCCPickForm)"/>
 	    </Element>
 	    
 	    <Element Name="fld_subject" Class="InputText" FieldName="subject" Label="Subject"   />	

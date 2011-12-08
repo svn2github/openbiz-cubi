@@ -28,6 +28,7 @@ class RecipientPickerForm extends PickerForm
     	$parentRec = $parentRec->toArray();
     	
     	$recipientDo = BizSystem::getObject($this->m_RecipientDO,1);
+    	//clear associated recipients before save new 
     	foreach($recIdArr as $recId)
     	{
 	        $this->m_SearchRule="";
@@ -41,11 +42,12 @@ class RecipientPickerForm extends PickerForm
 			$do->m_BaseSearchRule = $baseSearchRule;						
 			
 			$newRec = array(
-				"message_id" => $parentRec["Id"],
-				"user_id" => $rec["user_id"],
-				"read_status"=> 'Unread',
-				"importance"=> '0',
-				"type_id"=> '1',
+				"message_id" 	=> $parentRec["Id"],
+				"user_id" 		=> $rec["user_id"],
+				"read_status"	=> 'Unread',
+				"importance"	=> '0',
+				"type_id"		=> '1',
+				'type'			=> $this->m_RecipientType
 			);
 						
 	        $ok = $recipientDo->insertRecord($newRec);
