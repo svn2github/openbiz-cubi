@@ -3,7 +3,7 @@ class MessageComposeForm extends EasyForm
 {
 	public function fetchData()
 	{
-		if(!$this->m_RecordId){
+		if($_GET["F"]!='RPCInvoke'){			
 			$dataRec = new DataRecord(null, $this->getDataObj());
 	        $dataRec["subject"] = "";
 			$dataRec["send_status"] = "draft";
