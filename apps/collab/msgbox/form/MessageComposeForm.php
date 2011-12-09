@@ -19,14 +19,22 @@ class MessageComposeForm extends EasyForm
 			$this->m_RecordId = $recId;
 			$this->m_ActiveRecord = $dataRec;
 			$this->setActiveRecord($dataRec->toArray());
-		}else{		
-			if($this->m_RecordId){
+		}else{					
+			if($this->m_RecordId)
+			{
 				$this->m_ActiveRecord = $this->getDataObj()
+										->resetRules()
 										->fetchById($this->m_RecordId)
-										->toArray();
-			}		
-		}
+										->toArray();															
+			}
+			
+		}					
  		$result = parent::fetchData();
+ 		if($result['send_status']=='draft'){
+ 			$result["type_color"] = 'afe8fb';	
+ 		}else{
+ 			$result["type_color"] = 'c8c8c8';
+ 		}
  		$result["recipient_to"] = $this->getRecipientList("Recipient");
 		$result["recipient_cc"] = $this->getRecipientList("CC");
 		$result["recipient_bcc"] = $this->getRecipientList("BCC");

@@ -10,7 +10,7 @@
 		
 		<Element Name="fld_recipient" Class="ColumnText"  FieldName="recipient" MaxLength="15" Label="Recipients"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" /> 
         <Element Name="fld_subject" Class="ColumnText" MaxLength="30"  FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
-        	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.note.form.NoteDetailForm,{@:Elem[fld_Id].Value})"   />
+        	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.msgbox.form.MessageDraftDetailForm,{@:Elem[fld_Id].Value})" />
         </Element>	
         <Element Name="fld_att" Class="ColumnBool" 
 				TrueImg="{RESOURCE_URL}/collab/message/images/icon_message_attachment_on.png"
@@ -59,7 +59,7 @@
     </NavPanel> 
     <SearchPanel>
     	
-         <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.msgbox.do.MessageDraftDO[subject],[subject] like '%{$_POST['qry_name']}%' GROUP BY [subject]" FieldName="subject" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+         <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.msgbox.do.MessageDO[subject],[subject] like '%{$_POST['qry_name']}%' GROUP BY [subject]" FieldName="subject" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>   
