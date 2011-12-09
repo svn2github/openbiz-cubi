@@ -1,4 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<BizDataObj Name="MessageDetailDO" Description="" Class="BizDataObj" SearchRule="[create_by]={@profile:Id} AND [send_status]='draft'" inheritFrom="collab.msgbox.do.MessageDraftDO">
-
-</BizDataObj>
