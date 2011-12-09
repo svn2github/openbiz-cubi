@@ -3,6 +3,7 @@ class messageService
 {
 	public $m_RecipientDO = "collab.msgbox.do.MessageRecipientDO";
 	public $m_ContactDO = "contact.do.ContactPickerDO";
+	public $m_AttachmentDO = "attachment.do.AttachmentDO";
 		
 	public function getRecipientList($type,$message_id)
 	{
@@ -15,6 +16,12 @@ class messageService
 			$list.=$contacts[0]['display_name'].'; ';			
 		}		
 		return $list;
+	}
+	
+	public function getAttachmentStatus($message_id){
+		$attachmentDo = BizSystem::getObject($this->m_AttachmentDO,1);
+		$atts = $attachmentDo->directFetch("[type]='message' AND [foreign_id]='$message_id' ");
+		return (int)$atts->count();
 	}
 }
 ?>

@@ -2,7 +2,12 @@
 class MessageComposeForm extends EasyForm
 {
 	public $m_RecipientDO = "collab.msgbox.do.MessageRecipientDO";
-		
+	
+	public function fetchDataRaw()
+	{
+		return parent::fetchData();
+	}
+	
 	public function fetchData()
 	{
 		if($_GET["F"]!='RPCInvoke'){		
@@ -32,7 +37,7 @@ class MessageComposeForm extends EasyForm
 	{
 		return BizSystem::getService("collab.msgbox.lib.messageService")->getRecipientList($type,$this->m_RecordId);
 	}
-	
+
 	public function LoadDialog($formName,$id=null){
 		$currentRec = $this->fetchData();
 		$recArr = $this->readInputRecord();
