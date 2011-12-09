@@ -1,5 +1,5 @@
 <?php 
-class recipientListService
+class messageService
 {
 	public $m_RecipientDO = "collab.msgbox.do.MessageRecipientDO";
 	public $m_ContactDO = "contact.do.ContactPickerDO";

@@ -30,7 +30,7 @@ class MessageComposeForm extends EasyForm
 	
 	public function getRecipientList($type)
 	{
-		return BizSystem::getService("collab.msgbox.lib.recipientListService")->getRecipientList($type,$this->m_RecordId);
+		return BizSystem::getService("collab.msgbox.lib.messageService")->getRecipientList($type,$this->m_RecordId);
 	}
 	
 	public function LoadDialog($formName,$id=null){
