@@ -18,6 +18,5 @@
         <Object Name="collab.msgbox.do.RecipientDO" 	Description="" Relationship="1-M" Table="message_recipient"   Column="message_id" FieldRef="Id" CondColumn='type' CondValue='Recipient' />
         <Object Name="collab.msgbox.do.RecipientCCDO" 	Description="" Relationship="1-M" Table="message_recipient"   Column="message_id" FieldRef="Id" CondColumn='type' CondValue='CC' />
         <Object Name="collab.msgbox.do.RecipientBCCDO" 	Description="" Relationship="1-M" Table="message_recipient"   Column="message_id" FieldRef="Id" CondColumn='type' CondValue='BCC' />        
-                
     </ObjReferences>
 </BizDataObj>

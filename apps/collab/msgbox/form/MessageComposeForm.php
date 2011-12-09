@@ -22,10 +22,7 @@ class MessageComposeForm extends EasyForm
 		}else{					
 			if($this->m_RecordId)
 			{
-				$this->m_ActiveRecord = $this->getDataObj()
-										->resetRules()
-										->fetchById($this->m_RecordId)
-										->toArray();															
+				$this->m_SearchRule = "[Id]='$this->m_RecordId'";															
 			}
 			
 		}					
