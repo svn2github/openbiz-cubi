@@ -319,6 +319,7 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
         $this->m_SearchRule = $this->m_BaseSearchRule;
         $this->m_SortRule = $this->m_BaseSortRule;
         $this->m_OtherSQLRule = $this->m_BaseOtherSQLRule;
+        return $this;
     }
 
     /**
@@ -330,6 +331,7 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
     public function clearSearchRule()
     {
         $this->m_SearchRule = $this->m_BaseSearchRule;
+        return $this;
     }
 
     /**
@@ -342,6 +344,7 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
 
     {
         $this->m_SortRule = $this->m_BaseSortRule;
+        return $this;
     }
 
     /**
@@ -354,6 +357,7 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
 
     {
         $this->m_OtherSQLRule = $this->m_BaseOtherSQLRule;
+        return $this;
     }
 
     /**
@@ -367,6 +371,7 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
         $this->m_SortRule = $this->m_BaseSortRule;
         $this->m_OtherSQLRule = $this->m_BaseOtherSQLRule;
         $this->m_Limit = array();
+        return $this;
     }
 
     /**
