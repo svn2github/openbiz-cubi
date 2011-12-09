@@ -6,12 +6,12 @@
         <Element Name="fld_status" Class="ColumnImage" 
 				Text="{RESOURCE_URL}/collab/message/images/icon_message_draft.png"
 				FieldName="" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
-				<EventHandler Name="fld_status_onclick" Event="onclick" Function="SwitchForm(collab.msgbox.form.MessageDraftDetailForm,{@:Elem[fld_Id].Value})" />				
+				<EventHandler Name="fld_status_onclick" Event="onclick" Function="SwitchForm(collab.msgbox.form.MessageSentDetailForm,{@:Elem[fld_Id].Value})" />				
 		</Element>	
 		
 		<Element Name="fld_recipient" Class="ColumnText"  FieldName="recipient" MaxLength="15" Label="Recipients"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" /> 
         <Element Name="fld_subject" Class="ColumnText" MaxLength="30"  FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
-        	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.msgbox.form.MessageDraftDetailForm,{@:Elem[fld_Id].Value})" />
+        	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.msgbox.form.MessageSentDetailForm,{@:Elem[fld_Id].Value})" />
         </Element>	
         <Element Name="fld_att" Class="ColumnBool" 
 				TrueImg="{RESOURCE_URL}/collab/message/images/icon_message_attachment_on.png"
