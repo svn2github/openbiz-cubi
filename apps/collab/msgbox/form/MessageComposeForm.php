@@ -35,6 +35,10 @@ class MessageComposeForm extends EasyForm
  		$result["recipient_to"] = $this->getRecipientList("Recipient");
 		$result["recipient_cc"] = $this->getRecipientList("CC");
 		$result["recipient_bcc"] = $this->getRecipientList("BCC");
+		if($result['subject']=="")
+		{
+			$result['subject']="[no subject]";
+		}
 		return $result;
 	}
 	

@@ -1,5 +1,6 @@
 <?php
-class MessageSentListForm extends EasyForm
+include_once dirname(__FILE__).'/MessageDraftListForm.php';
+class MessageSentListForm extends MessageDraftListForm
 {
 	
 }

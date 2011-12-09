@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="MessageDraftDetailForm" Class="MessageDraftEditForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_outbox.png"  FormType="Detail" jsClass="jbForm" Title="Message Detail" Description="You can review the message." BizDataObj="collab.msgbox.do.MessageDraftDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl"  MessageFile="Message.msg" Access="collab_msgbox.access">
+<EasyForm Name="MessageSentDetailForm" Class="MessageDraftEditForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_outbox.png"  FormType="Detail" jsClass="jbForm" Title="Message Detail" Description="You can review the message." BizDataObj="collab.msgbox.do.MessageDraftDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl"  MessageFile="Message.msg" Access="collab_msgbox.access">
     <DataPanel>
 			<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 			<Element Name="fld_form_title"  Class="LabelText" FieldName="subject" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" />	
@@ -25,14 +25,12 @@
     </DataPanel>
     <ActionPanel>
 
-        <Element Name="btn_send" Class="Button" Text="Send Now" CssClass="button_gray_w">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="SendMessage()" RedirectPage="form=collab.msgbox.form.MessageSentDetailForm&amp;fld:Id={@:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Send Now" />
+        <Element Name="btn_send" Class="Button" Text="Forward" CssClass="button_gray_w">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="ForwardMessage()" RedirectPage="form=collab.msgbox.form.MessageForwardForm&amp;fld:Id={@collab.msgbox.do.MessageDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Send Now" />
         </Element>
-        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
-            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=collab.msgbox.form.MessageDraftListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
-        </Element>
+
         <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
-            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(collab.msgbox.form.MessageSentListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
         </Element>    
               
     </ActionPanel> 
