@@ -5,7 +5,8 @@
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" />
         <Element Name="fld_status" Class="ColumnImage" 
 				Text="{RESOURCE_URL}/collab/message/images/icon_message_draft.png"
-				FieldName="" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">				
+				FieldName="" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+				<EventHandler Name="fld_status_onclick" Event="onclick" Function="SwitchForm(collab.msgbox.form.MessageDraftDetailForm,{@:Elem[fld_Id].Value})" />				
 		</Element>	
 		
 		<Element Name="fld_recipient" Class="ColumnText"  FieldName="recipient" MaxLength="15" Label="Recipients"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" /> 
