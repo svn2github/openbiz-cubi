@@ -151,5 +151,25 @@ $('{$form.name}_data_table').fade({literal}{ duration: 0.5, from: 1, to: 0.35 }{
 		</div>		
 	</div>
 	<div class="v_spacer"></div>
+	{if $errors}
+	    <div id='errorsDiv' class='innerError errorBox'>
+	    {foreach item=errMsg from=$errors}
+	        <div>{$errMsg}</div>
+	    {/foreach}
+	    {literal}<script>try{setTimeout("$('errorsDiv').fade( {from: 1, to: 0});",3000);}catch(e){}</script>{/literal}
+	    </div>
+	    <div class="v_spacer"></div>
+	{/if}
+	
+	{if $notices}
+	    <div id='noticeDiv' class='noticeBox' >
+	    {foreach item=noticeMsg from=$notices}
+	        <div>{$noticeMsg}</div>
+	    {/foreach}
+	    </div>
+	    {literal}<script>try{setTimeout("$('noticeDiv').fade( {from: 1, to: 0});",3000);}catch(e){};</script>{/literal}
+	    <div class="v_spacer"></div>
+	{/if}
+	
 </div>
 </form>
