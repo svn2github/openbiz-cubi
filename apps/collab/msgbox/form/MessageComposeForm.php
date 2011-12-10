@@ -57,7 +57,7 @@ class MessageComposeForm extends EasyForm
 	public function LoadDialog($formName,$id=null){
 		$currentRec = $this->fetchData();
 		$recArr = $this->readInputRecord();
-        
+        $currentRec['Id'] = $recArr['Id'];
         try
         {
             $this->ValidateForm();
