@@ -2,7 +2,6 @@
 <EasyForm Name="MessageComposeForm" Class="MessageComposeForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_compose.png" FormType="Edit" jsClass="jbForm" Title="Compose Message" Description="Send a message to your colleagues." BizDataObj="collab.msgbox.do.MessageDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" MessageFile="Message.msg" Access="collab_msgbox.access">
     <DataPanel>        
         <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-                <Element Name="fld_Id" Class="InputText" FieldName="Id" Label="Id" AllowURLParam="N"/>	
         	
 	    <Element Name="fld_to" Class="InputText" FieldName="recipient_to" Label="To"  >
 	        <EventHandler Name="to_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientPickForm)"/>	    

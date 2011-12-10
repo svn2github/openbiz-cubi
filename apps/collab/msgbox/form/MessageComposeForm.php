@@ -24,12 +24,12 @@ class MessageComposeForm extends EasyForm
 		{					
 			if($this->m_RecordId)
 			{
-				$this->m_SearchRule = "[Id]='$this->m_RecordId'";	
+				//$this->m_SearchRule = "[Id]='$this->m_RecordId'";	
 				$this->m_ActiveRecord = null;														
 			}
 			else
 			{
-				$this->m_SearchRule = "";
+				//$this->m_SearchRule = "";
 			}	
 		}
  		$result = parent::fetchData();
@@ -58,6 +58,7 @@ class MessageComposeForm extends EasyForm
 		$currentRec = $this->fetchData();
 		$recArr = $this->readInputRecord();
         $currentRec['Id'] = $recArr['Id'];
+        
         try
         {
             $this->ValidateForm();
