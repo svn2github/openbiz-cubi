@@ -1,5 +1,5 @@
 <?php 
-class MessageComposeForm extends EasyForm
+class MessageForm extends EasyForm
 {
 	public $m_RecipientDO = "collab.msgbox.do.MessageRecipientDO";
 	

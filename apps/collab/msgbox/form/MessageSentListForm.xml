@@ -22,8 +22,8 @@
         
     </DataPanel>
     <ActionPanel>
-        <Element Name="lnk_new" Class="Button" Text="Forward" CssClass="button_gray_w" Description="new record (Insert)" >
-            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(collab.note.form.NoteNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        <Element Name="lnk_new" Class="Button" Text="Forward" CssClass="button_gray_w" Description="Forward Message (Ctrl+F)" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="ForwardMessage(collab.msgbox.form.MessageForwardForm)"  ShortcutKey="Ctrl+F" ContextMenu="Forward"/>
         </Element>        
     </ActionPanel> 
     <NavPanel>

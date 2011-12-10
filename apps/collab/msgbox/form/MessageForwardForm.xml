@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="MessageComposeForm" Class="MessageForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_compose.png" FormType="Edit" jsClass="jbForm" Title="Compose Message" Description="Send a message to your colleagues." BizDataObj="collab.msgbox.do.MessageDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" MessageFile="Message.msg" Access="collab_msgbox.access">
+<EasyForm Name="MessageForwardForm" Class="MessageForwardForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_compose.png" FormType="Edit" jsClass="jbForm" Title="Compose Message" Description="Send a message to your colleagues." BizDataObj="collab.msgbox.do.MessageDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" MessageFile="Message.msg" Access="collab_msgbox.access">
     <DataPanel>        
         <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y"/>
         	

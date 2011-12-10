@@ -1,6 +1,6 @@
 <?php 
 include_once dirname(__FILE__).'/MessageForm.php';
-class MessageDraftEditForm extends MessageForm
+class MessageForwardForm extends MessageForm
 {
 	public function fetchData()
 	{
