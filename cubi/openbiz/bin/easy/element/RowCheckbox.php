@@ -26,6 +26,13 @@ include_once("Element.php");
  */
 class RowCheckbox extends InputElement
 {
+	protected  $m_CheckStatus;
+	
+    protected function readMetaData(&$xmlArr)
+    {
+        parent::readMetaData($xmlArr);
+        $this->m_CheckStatus = isset($xmlArr["ATTRIBUTES"]["CHECKSTATUS"]) ? $xmlArr["ATTRIBUTES"]["CHECKSTATUS"] : null;
+    }
     /**
      * Render label
      *
@@ -34,8 +41,8 @@ class RowCheckbox extends InputElement
     public function renderLabel()
     {
         $formName = $this->m_FormName;
-        $name = $this->m_Name.'[]';
-        $sHTML = "<INPUT TYPE=\"CHECKBOX\" onclick=\"Openbiz.Util.checkAll(this, $('$formName')['$name']);\"/>";
+        $name = $this->m_Name.'[]';        
+        $sHTML = "<INPUT TYPE=\"CHECKBOX\"  onclick=\"Openbiz.Util.checkAll(this, $('$formName')['$name']);\"/>";
         return $sHTML;
     }
 
@@ -48,7 +55,23 @@ class RowCheckbox extends InputElement
     {
         $value = $this->m_Value;
         $name = $this->m_Name.'[]';
-        $sHTML = "<INPUT TYPE=\"CHECKBOX\" NAME=\"$name\" VALUE='$value' onclick=\"event.cancelBubble=true;\"/>";
+                
+        if($this->checkStatus)
+        {
+        	if(Expression::evaluateExpression($this->checkStatus, $formObj))
+        	{
+        		$checkStatus = "checked";
+        	}
+        	else
+        	{
+        		$checkStatus = "";
+        	}
+        }
+        else
+        {
+        	$checkStatus = "";
+        }
+        $sHTML = "<INPUT TYPE=\"CHECKBOX\" checked=\"$checkStatus\" NAME=\"$name\" VALUE='$value' onclick=\"event.cancelBubble=true;\"/>";
         return $sHTML;
     }
 }
