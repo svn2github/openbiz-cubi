@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="RecipientPickForm" Class="RecipientPickerForm" RecipientType="Recipient" Icon="{RESOURCE_URL}/contact/images/icon_phonebook.gif"  FormType="List" jsClass="jbForm" Title="Please select a contact" Description="To selec a contact, click on a row and click to Select button" BizDataObj="contact.do.UserContactPickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_picker.tpl.html"  Access="contact.access" >
     <DataPanel>
-       <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>    
+       <Element Name="fld_checkstatus" Class="Hidden" Hidden="Y" FieldName="check_status" />
+       <Element Name="row_selections" Class="RowCheckbox" CheckStatus="{tx}@:Elem[fld_checkstatus].Value{/tx}" width="20"  Label="" FieldName="Id"/>    
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Contact Id" Sortable="Y"/>
         <Element Name="fld_share" Class="ColumnShare" 
 				MyPrivateImg="{RESOURCE_URL}/contact/images/icon_contact.gif"

@@ -11,6 +11,29 @@ class RecipientPickerForm extends PickerForm
         $this->m_RecipientType = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["RECIPIENTTYPE"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["RECIPIENTTYPE"] : 'Recipient';        
     }
 	
+    public function fetchDataSet(){
+    	$result = parent::fetchDataSet();
+    	$newResult = array();
+    	foreach($result as $record){
+    		$record['check_status'] = $this->isCheckedRecipient($record['user_id']);
+    		array_push($newResult,$record);
+    	}
+    	return $newResult;
+    }
+    
+    protected function isCheckedRecipient($userId)
+    {
+    	$parentForm = BizSystem::objectFactory()->getObject($this->m_ParentFormName);
+    	$messageId 	= $parentForm->m_RecordId;
+    	$userId 	= (int)$userId;
+    	$recipientDo = BizSystem::getObject($this->m_RecipientDO,1);
+    	$recList = $recipientDo->directFetch("[message_id]='".$messageId."' 
+    											AND [type]='".$this->m_RecipientType."'
+    											AND [user_id]='$userId'
+    											");
+    	return (int)$recList->count();
+    }
+    
 	public function addToParent($recIds=null)
 	{
 		if(!is_array($recIds))
@@ -29,7 +52,7 @@ class RecipientPickerForm extends PickerForm
     	
     	$recipientDo = BizSystem::getObject($this->m_RecipientDO,1);
     	//clear associated recipients before save new 
-    	$recipientDo->deleteRecords("[message_id]='".$parentRec["Id"]."' AND type='".$this->m_RecipientType."'");
+    	$recipientDo->deleteRecords("[message_id]='".$parentRec["Id"]."' AND [type]='".$this->m_RecipientType."'");
     	foreach($recIdArr as $recId)
     	{
 	        $this->m_SearchRule="";
