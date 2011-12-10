@@ -3,13 +3,13 @@
     <DataPanel>        
         <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y"/>
         	
-	    <Element Name="fld_to" Class="InputText" FieldName="recipient_to" Label="To"  >
+	    <Element Name="fld_to" Class="InputText" FieldName="recipient_to" Label="Recipient To"  >
 	        <EventHandler Name="to_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientPickForm)"/>	    
 	    </Element>
-	    <Element Name="fld_cc" Class="InputText" FieldName="recipient_cc" Label="CC"   >
+	    <Element Name="fld_cc" Class="InputText" FieldName="recipient_cc" Label="Recipient CC"   >
 	    	<EventHandler Name="cc_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientCCPickForm)"/>
 	    </Element>
-	    <Element Name="fld_bcc" Class="InputText" FieldName="recipient_bcc" Label="BCC"   >
+	    <Element Name="fld_bcc" Class="InputText" FieldName="recipient_bcc" Label="Recipient BCC"   >
 	    	<EventHandler Name="bcc_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientBCCPickForm)"/>
 	    </Element>
 	    
