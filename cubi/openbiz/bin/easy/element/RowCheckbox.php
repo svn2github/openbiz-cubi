@@ -56,11 +56,13 @@ class RowCheckbox extends InputElement
         $value = $this->m_Value;
         $name = $this->m_Name.'[]';
                 
-        if($this->checkStatus)
+        if($this->m_CheckStatus)
         {
-        	if(Expression::evaluateExpression($this->checkStatus, $formObj))
+        	$formObj = $this->getFormObj();
+        	$testResult = Expression::evaluateExpression($this->m_CheckStatus, $formObj);        	
+        	if($testResult)
         	{
-        		$checkStatus = "checked";
+        		$checkStatus = " checked=\"checked\" ";
         	}
         	else
         	{
@@ -71,7 +73,7 @@ class RowCheckbox extends InputElement
         {
         	$checkStatus = "";
         }
-        $sHTML = "<INPUT TYPE=\"CHECKBOX\" checked=\"$checkStatus\" NAME=\"$name\" VALUE='$value' onclick=\"event.cancelBubble=true;\"/>";
+        $sHTML = "<INPUT TYPE=\"CHECKBOX\" $checkStatus NAME=\"$name\" VALUE='$value' onclick=\"event.cancelBubble=true;\"/>";
         return $sHTML;
     }
 }
