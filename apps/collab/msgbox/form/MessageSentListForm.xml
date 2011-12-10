@@ -24,7 +24,12 @@
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Forward" CssClass="button_gray_w" Description="Forward Message (Ctrl+F)" >
             <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="ForwardMessage(collab.msgbox.form.MessageForwardForm)"  ShortcutKey="Ctrl+F" ContextMenu="Forward"/>
+        </Element> 
+        
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteSentMessage()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
         </Element>        
+               
     </ActionPanel> 
     <NavPanel>
     	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
@@ -50,7 +55,7 @@
     </NavPanel> 
     <SearchPanel>
     	
-         <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.note.do.NoteDO[title],[title] like '%{$_POST['qry_name']}%' GROUP BY [title]" FieldName="title" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+         <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.msgbox.do.MessageDO[subject],[subject] like '%{$_POST['qry_name']}%' GROUP BY [subject]" FieldName="subject" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>   

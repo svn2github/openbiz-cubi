@@ -1,37 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="MessageForwardForm" Class="MessageForwardForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_compose.png" FormType="Edit" jsClass="jbForm" Title="Compose Message" Description="Send a message to your colleagues." BizDataObj="collab.msgbox.do.MessageDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" MessageFile="Message.msg" Access="collab_msgbox.access">
-    <DataPanel>        
-        <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-        	
-	    <Element Name="fld_to" Class="InputText" FieldName="recipient_to" Label="To"  >
-	        <EventHandler Name="to_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientPickForm)"/>	    
-	    </Element>
-	    <Element Name="fld_cc" Class="InputText" FieldName="recipient_cc" Label="CC"   >
-	    	<EventHandler Name="cc_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientCCPickForm)"/>
-	    </Element>
-	    <Element Name="fld_bcc" Class="InputText" FieldName="recipient_bcc" Label="BCC"   >
-	    	<EventHandler Name="bcc_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientBCCPickForm)"/>
-	    </Element>
-	    
-	    <Element Name="fld_subject" Class="InputText" FieldName="subject" Label="Subject"   />	
-        <Element Name="fld_content" Class="CKEditor" mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:450" width="640" height="450" FieldName="content" Label="Content" />
-        <Element Name="fld_related_attachment"    Class="FormElement" FormReference="attachment.widget.AttachmentListEditForm" FieldName="" Label="Attachment" AllowURLParam="N" />
-        
-        	
-    </DataPanel>
-    <ActionPanel>
-        <Element Name="btn_send" Class="Button" Text="Send Now" CssClass="button_gray_w">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="SendMessage()" RedirectPage="form=collab.msgbox.form.MessageDetailForm&amp;fld:Id={@collab.msgbox.do.MessageDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Send Now" />
-        </Element>
-        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="SaveMessage()" RedirectPage="form=collab.msgbox.form.MessageDraftDetailForm&amp;fld:Id={@collab.msgbox.do.MessageDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save Draft" />
-        </Element>
-        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
-            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
-        </Element>
-    </ActionPanel> 
-    <NavPanel>
-    </NavPanel> 
-    <SearchPanel>
-    </SearchPanel>
-</EasyForm>
+<EasyForm Name="MessageForwardForm" Class="MessageDraftEditForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_compose.png" FormType="Edit" jsClass="jbForm" Title="Forward Message" Description="Forward a message to your colleagues." inheritFrom="collab.msgbox.form.MessageDraftEditForm" >
+    
+</EasyForm>

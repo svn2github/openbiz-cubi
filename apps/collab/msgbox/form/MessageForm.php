@@ -2,6 +2,7 @@
 class MessageForm extends EasyForm
 {
 	public $m_RecipientDO = "collab.msgbox.do.MessageRecipientDO";
+	public $m_AttachmentDO = "attachment.do.AttachmentDO";
 	
 	public function fetchDataRaw()
 	{
@@ -127,6 +128,132 @@ class MessageForm extends EasyForm
             $this->renderParent();
         }
         $this->processPostAction();
+	}
+	
+	public function ForwardMessage($formName)
+	{
+		//copy main record to a new record
+		$currentRecord = $this->getActiveRecord();		
+		$currentRecordId = $currentRecord['Id'];
+		$newRecord = $currentRecord;
+		$newRecord['send_status'] = 'draft';
+		unset($newRecord['Id']);		
+		$newRecordId = $this->getDataObj()->insertRecord($newRecord);
+		
+		//process related attachemnt
+		$attachmentDo = BizSystem::getObject($this->m_AttachmentDO,1);
+		$attList = $attachmentDo->directFetch("[type]='message' AND [foreign_id]='$currentRecordId'");
+		foreach($attList as $attachmentRec){
+			$newAttachmentRec = $attachmentRec;
+			$newAttachmentRec['foreign_id']=$newRecordId;
+			$attachmentDo->insertRecord($newAttachmentRec);
+		}
+		
+		//process related recipients
+		$recipientDO = BizSystem::getObject($this->m_RecipientDO,1);
+		$recList = $recipientDO->directFetch("[message_id]='$currentRecordId'");
+		foreach($recList as $recRec){
+			$newRecRec = array();
+			$newRecRec['message_id']=$newRecordId;
+			$newRecRec['user_id']=$recRec['user_id'];
+			$newRecRec['read_status']='Unread';
+			$newRecRec['type_id']='1';
+			$newRecRec['type']=$recRec['type'];;
+			$recipientDO->insertRecord($newRecRec);
+		}
+		
+
+		//switch to edit form
+		$this->switchForm($formName,$newRecordId);
+	}
+	
+   public function SendMessages($id=null)
+    {
+        if ($id==null || $id=='')
+            $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
+
+        $selIds = BizSystem::clientProxy()->getFormInputs('row_selections', false);
+        if ($selIds == null)
+            $selIds[] = $id;
+        foreach ($selIds as $id)
+        {        	
+            $dataRec = $this->getDataObj()->fetchById($id);
+            $this->getDataObj()->setActiveRecord($dataRec);
+                                                
+            // take care of exception
+            try
+            {
+            	$dataRec['send_status'] = 'sent';            	
+                $dataRec->Save();
+            } catch (BDOException $e)
+            {
+                $this->processBDOException($e);
+                return;
+            }
+        }
+        
+        $this->m_Notices[] = $this->getMessage("MESSAGE_HAS_BEEN_SENT");
+
+        if ($this->m_FormType == "LIST")
+            $this->rerender();
+
+        $this->runEventLog();
+        $this->processPostAction();
+    }
+    
+    public function DeleteSentMessage()
+    {
+    	if ($id==null || $id=='')
+            $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
+
+        $selIds = BizSystem::clientProxy()->getFormInputs('row_selections', false);
+        if ($selIds == null)
+            $selIds[] = $id;
+        foreach ($selIds as $id)
+        {        	
+            $dataRec = $this->getDataObj()->fetchById($id);
+            $this->getDataObj()->setActiveRecord($dataRec);
+                                                
+            // take care of exception
+            try
+            {
+            	$dataRec['deleted_flag'] = '1';            	
+                $dataRec->Save();
+            } catch (BDOException $e)
+            {
+                $this->processBDOException($e);
+                return;
+            }
+        }
+        
+        $this->m_Notices[] = $this->getMessage("MESSAGE_HAS_BEEN_DELETED");
+        
+        if ($this->m_FormType == "LIST")
+            $this->rerender();
+
+        $this->runEventLog();
+        $this->processPostAction();
+    } 
+    
+	public function fetchDataSet()
+	{		
+		//clean complete empty message drafts
+		$this->getDataObj()->deleteRecords("[subject]='' AND [content] is NULL");	
+		$resultSet = parent::fetchDataSet();
+		$recordSet = array();
+		$svc = BizSystem::getService("collab.msgbox.lib.messageService");
+		foreach ($resultSet as $record)
+		{
+			if($record['subject']=="")
+			{
+				$record['subject']="[no subject]";
+			}
+			$record['recipient'] = $svc->getRecipientList('Recipient',$record['Id']);
+			$record['attachment'] = $svc->getAttachmentStatus($record['Id']);	
+			array_push($recordSet,$record);
+		}
+		unset($svc);
+		return $recordSet;
 	}
 }
 ?>
