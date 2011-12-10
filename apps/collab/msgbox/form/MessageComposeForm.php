@@ -28,10 +28,11 @@ class MessageComposeForm extends EasyForm
 		}					
  		$result = parent::fetchData();
  		if($result['send_status']=='draft'){
- 			$result["type_color"] = 'afe8fb';	
+ 			$result["type_color"] = 'afe8fb'; 				
  		}else{
  			$result["type_color"] = 'c8c8c8';
  		}
+ 		$result["send_status"] = ucwords($result["send_status"]);
  		$result["recipient_to"] = $this->getRecipientList("Recipient");
 		$result["recipient_cc"] = $this->getRecipientList("CC");
 		$result["recipient_bcc"] = $this->getRecipientList("BCC");

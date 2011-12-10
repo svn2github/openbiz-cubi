@@ -24,7 +24,7 @@
     <ActionPanel>
 
         <Element Name="btn_send" Class="Button" Text="Send" CssClass="button_gray_m" Description="Send message (Ctrl+S)">
-            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=collab.msgbox.form.MessageDraftEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+            <EventHandler Name="btn_send_onclick" Event="onclick" EventLogMsg="" Function="SendMessages()"  ShortcutKey="Ctrl+S" ContextMenu="Send" />
         </Element>
         
 		<Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="Edit record (Ctrl+E)">
