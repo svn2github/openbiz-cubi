@@ -78,8 +78,8 @@ class MessageForm extends EasyForm
 	
 	public function SendMessage()
 	{
-		$currentRec = parent::fetchData();
-        $recArr = $this->readInputRecord();
+		$currentRec = $this->getDataObj()->fetchById($this->m_RecordId);			
+		$recArr = $this->readInputRecord();
         
         try
         {
@@ -91,6 +91,9 @@ class MessageForm extends EasyForm
             return;
         }
         $recArr['send_status'] = 'sent';
+        //update sent_time        
+        BizSystem::getObject($this->m_RecipientDO,1)->updateRecords("[sent_time]='".date('Y-m-d H:i:s')."'","[message_id]='".$currentRec['Id']."'");
+        
         if ($this->_doUpdate($recArr, $currentRec) == false)
             return;        
 
@@ -183,7 +186,8 @@ class MessageForm extends EasyForm
             // take care of exception
             try
             {
-            	$dataRec['send_status'] = 'sent';            	
+            	$dataRec['send_status'] = 'sent';  
+            	BizSystem::getObject($this->m_RecipientDO,1)->updateRecords("[sent_time]='NOW()'","[message_id]='".$dataRec['Id']."'");           	
                 $dataRec->Save();
             } catch (BDOException $e)
             {

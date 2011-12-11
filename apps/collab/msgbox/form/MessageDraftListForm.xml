@@ -60,7 +60,7 @@
     </NavPanel> 
     <SearchPanel>
     	
-         <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.msgbox.do.MessageDO[subject],[subject] like '%{$_POST['qry_name']}%' GROUP BY [subject]" FieldName="subject" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+         <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.msgbox.do.MessageDraftDO[subject],[subject] like '%{$_POST['qry_name']}%' GROUP BY [subject]" FieldName="subject" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>   

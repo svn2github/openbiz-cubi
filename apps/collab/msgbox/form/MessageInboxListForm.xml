@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="MessageSentListForm" Class="MessageSentListForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_inbox.png"  FormType="List" jsClass="jbForm" Title="Message Inbox" Description="You can recive messages in this form." BizDataObj="collab.msgbox.do.MessageRecivedDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl"  MessageFile="Message.msg" Access="collab_msgbox.access">
+<EasyForm Name="MessageInboxListForm" Class="MessageInboxListForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_inbox.png"  FormType="List" jsClass="jbForm" Title="Message Inbox" Description="You can receive messages in this form." BizDataObj="collab.msgbox.do.MessageReceivedDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl"  MessageFile="Message.msg" Access="collab_msgbox.access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" />
         <Element Name="fld_status" Class="ColumnImage" 
 				Text="{RESOURCE_URL}/collab/message/images/icon_message_draft.png"
-				FieldName="" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+				FieldName="" Label="Read"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
 				<EventHandler Name="fld_status_onclick" Event="onclick" Function="SwitchForm(collab.msgbox.form.MessageSentDetailForm,{@:Elem[fld_Id].Value})" />				
 		</Element>	
-		
-		<Element Name="fld_recipient" Class="ColumnText"  FieldName="recipient" MaxLength="15" Label="Recipients"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" /> 
+		<Element Name="fld_receive_type" Class="ColumnText"  FieldName="type"   Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_sender" Class="ColumnText"  FieldName="display_name"  Label="Form"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" /> 
         <Element Name="fld_subject" Class="ColumnText" MaxLength="30"  FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
         	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.msgbox.form.MessageSentDetailForm,{@:Elem[fld_Id].Value})" />
         </Element>	
@@ -18,16 +18,19 @@
 				FalseImg="{RESOURCE_URL}/collab/message/images/icon_message_attachment_off.png"
 				FieldName="attachment" Label="Att"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >				
 		</Element>
-		<Element Name="fld_timestamp" Class="ColumnText"  FieldName="update_time" Label="Update Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
+		<Element Name="fld_timestamp" Class="ColumnText"  FieldName="sent_time" Label="Sent Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
         
     </DataPanel>
     <ActionPanel>
-        <Element Name="lnk_new" Class="Button" Text="Forward" CssClass="button_gray_w" Description="Forward Message (Ctrl+F)" >
+     	<Element Name="lnk_reply" Class="Button" Text="Reply" CssClass="button_gray_w" Description="Forward Message (Ctrl+F)" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="ForwardMessage(collab.msgbox.form.MessageForwardForm)"  ShortcutKey="Ctrl+F" ContextMenu="Forward"/>
+        </Element> 
+        <Element Name="lnk_new" Class="Button" Text="Forward" CssClass="button_gray_m" Description="Forward Message (Ctrl+F)" >
             <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="ForwardMessage(collab.msgbox.form.MessageForwardForm)"  ShortcutKey="Ctrl+F" ContextMenu="Forward"/>
         </Element> 
         
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
-            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteSentMessage()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteReceivedMessage()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
         </Element>        
                
     </ActionPanel> 
@@ -55,7 +58,7 @@
     </NavPanel> 
     <SearchPanel>
     	
-         <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.msgbox.do.MessageDO[subject],[subject] like '%{$_POST['qry_name']}%' GROUP BY [subject]" FieldName="subject" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+         <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.msgbox.do.MessageReceivedDO[subject],[subject] like '%{$_POST['qry_name']}%' GROUP BY [subject]" FieldName="subject" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>   
