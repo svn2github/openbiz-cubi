@@ -1,7 +1,7 @@
 <?php
 class MessageInboxListForm extends EasyForm
 {
-public function DeleteReceivedMessage()
+	public function DeleteReceivedMessage()
     {
     	if ($id==null || $id=='')
             $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
@@ -33,6 +33,25 @@ public function DeleteReceivedMessage()
 
         $this->runEventLog();
         $this->processPostAction();
-    } 	
+    } 
+
+	public function fetchDataSet()
+	{		
+		$resultSet = parent::fetchDataSet();
+		$recordSet = array();
+		$svc = BizSystem::getService("collab.msgbox.lib.messageService");
+		foreach ($resultSet as $record)
+		{
+			if($record['subject']=="")
+			{
+				$record['subject']="[no subject]";
+			}
+			$record['recipient'] = $svc->getRecipientList('Recipient',$record['message_id']);
+			$record['attachment'] = $svc->getAttachmentStatus($record['message_id']);	
+			array_push($recordSet,$record);
+		}
+		unset($svc);
+		return $recordSet;
+	}    
 }
 ?>

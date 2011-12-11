@@ -18,6 +18,24 @@ class messageService
 		return $list;
 	}
 	
+	public function getReadStatus($message_id)
+	{
+		$my_user_id = BizSystem::getUserProfile("Id");
+		$recipientDo = BizSystem::getObject($this->m_RecipientDO,1);
+		$recipients = $recipientDo->directFetch("[message_id]='$message_id' and [user_id]='$my_user_id'");				
+		return $recipients[0]['read_status'];		
+	}
+	
+	public function updateReadStatus($message_id)
+	{
+		if(strtolower($this->getReadStatus($message_id))=='unread')
+		{
+			$my_user_id = BizSystem::getUserProfile("Id");
+			$recipientDo = BizSystem::getObject($this->m_RecipientDO,1);
+			$recipients = $recipientDo->updateRecords("[read_status]='Read'","[message_id]='$message_id' and [user_id]='$my_user_id'");
+		}
+	}
+	
 	public function getAttachmentStatus($message_id){
 		$attachmentDo = BizSystem::getObject($this->m_AttachmentDO,1);
 		$atts = $attachmentDo->directFetch("[type]='message' AND [foreign_id]='$message_id' ");
