@@ -26,7 +26,7 @@
     <ActionPanel>
 
         <Element Name="btn_send" Class="Button" Text="Forward" CssClass="button_gray_w">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="ForwardMessage()" RedirectPage="form=collab.msgbox.form.MessageForwardForm&amp;fld:Id={@collab.msgbox.do.MessageDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Send Now" />
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="ForwardMessage(collab.msgbox.form.MessageForwardForm)" RedirectPage="form=collab.msgbox.form.MessageForwardForm&amp;fld:Id={@collab.msgbox.do.MessageDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Send Now" />
         </Element>
 
         <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">

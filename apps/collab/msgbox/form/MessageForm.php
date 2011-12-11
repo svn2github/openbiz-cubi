@@ -133,7 +133,7 @@ class MessageForm extends EasyForm
 	public function ForwardMessage($formName)
 	{
 		//copy main record to a new record
-		$currentRecord = $this->getActiveRecord();		
+		$currentRecord = $this->fetchData();	
 		$currentRecordId = $currentRecord['Id'];
 		$newRecord = $currentRecord;
 		$newRecord['send_status'] = 'draft';
