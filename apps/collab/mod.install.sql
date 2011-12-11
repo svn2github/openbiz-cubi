@@ -433,7 +433,7 @@ CREATE TABLE IF NOT EXISTS `message` (
   `subject` varchar(255) NOT NULL,
   `content` text,
   `send_status` ENUM( 'sent', 'draft' ) NOT NULL DEFAULT 'draft',
-  `deleted_flag` INT NOT NULL DEFAULT '0' AFTER `read_status`,
+  `deleted_flag` INT NOT NULL DEFAULT '0',
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL,
@@ -462,7 +462,7 @@ CREATE TABLE IF NOT EXISTS `message_recipient` (
   `message_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `read_status` ENUM( 'Unread', 'Read' ) NOT NULL,
-  `deleted_flag` INT NOT NULL DEFAULT '0' AFTER `read_status`,
+  `deleted_flag` INT NOT NULL DEFAULT '0',
   `importance` int(11) NOT NULL,
   `type_id` int(11) NOT NULL,
   `type` ENUM(  'Recipient',  'CC',  'BCC' ) NOT NULL,
@@ -470,6 +470,7 @@ CREATE TABLE IF NOT EXISTS `message_recipient` (
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL,
   `update_time` datetime NOT NULL,
+  `sent_time` DATETIME NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
