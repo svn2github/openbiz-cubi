@@ -26,6 +26,7 @@
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
             <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="SaveMessage()" RedirectPage="form=collab.msgbox.form.MessageDraftDetailForm&amp;fld:Id={@collab.msgbox.do.MessageDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save Draft" />
         </Element>
+         <Element Name="btn_spacer" Class="Spacer" width="10" />
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
         </Element>

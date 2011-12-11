@@ -25,7 +25,7 @@
         <Element Name="lnk_new" Class="Button" Text="Forward" CssClass="button_gray_w" Description="Forward Message (Ctrl+F)" >
             <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="ForwardMessage(collab.msgbox.form.MessageForwardForm)"  ShortcutKey="Ctrl+F" ContextMenu="Forward"/>
         </Element> 
-        
+         <Element Name="btn_spacer" Class="Spacer" width="10" />
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteSentMessage()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
         </Element>        

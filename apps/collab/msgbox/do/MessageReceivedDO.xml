@@ -29,9 +29,13 @@
         <BizField Name="yahoo" Column="yahoo" Length="255"  Type="Text" Join="JoinContact" />
         <BizField Name="misc" Column="misc"   Type="Text" Join="JoinContact" />    		
 		
+		<BizField Name="type_color" Column="color"  Join="JoinMessageType" />
+	    <BizField Name="type_name" Column="name" Join="JoinMessageType" />
+		
 	</BizFieldList>
     <TableJoins>
     	<Join Name="JoinMessage" Table="message" Column="id" ColumnRef="message_id" JoinType="INNER JOIN"/>
+    	<Join Name="JoinMessageType" Table="message_type" Column="id" ColumnRef="type_id" JoinType="INNER JOIN"/>
     	<Join Name="JoinContact" Table="contact" Column="user_id" ColumnRef="create_by" JoinType="RIGHT JOIN"/>        	
     </TableJoins>
     <ObjReferences>
