@@ -1553,16 +1553,22 @@ class EasyForm extends MetaObject implements iSessionObject
         {
             if ($hidden_flag = TRUE)
             {
+            	$count=0;
                 foreach ($fromlist as $item)
-                {
+                {                	
                     echo "<li id=" . $item['txt'] . ">" . $item['val'] . "</li>";
+                    $count++;
+                    if($count>=5) break;
                 }
             }
             else
             {
+            	$count=0;
                 foreach ($fromlist as $item)
                 {
                     echo "<li>" . $item['txt'] . "</li>";
+                    $count++;
+                    if($count>=5) break;
                 }
             }
         }
