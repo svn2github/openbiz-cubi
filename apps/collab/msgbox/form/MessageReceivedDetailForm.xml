@@ -24,12 +24,13 @@
     </DataPanel>
     <ActionPanel>
 
-        <Element Name="btn_send" Class="Button" Text="Reply" CssClass="button_gray_w">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="SendMessage()" RedirectPage="form=collab.msgbox.form.MessageSentDetailForm&amp;fld:Id={@:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Send Now" />
+        <Element Name="btn_reply" Class="Button" Text="Reply" CssClass="button_gray_w">
+            <EventHandler Name="reply_onclick" EventLogMsg="" Event="onclick" Function="SendMessage()" RedirectPage="form=collab.msgbox.form.MessageSentDetailForm&amp;fld:Id={@:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Send Now" />
         </Element>
-        <Element Name="btn_send" Class="Button" Text="Forward" CssClass="button_gray_w">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="SendMessage()" RedirectPage="form=collab.msgbox.form.MessageSentDetailForm&amp;fld:Id={@:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Send Now" />
+        <Element Name="btn_forward" Class="Button" Text="Forward" CssClass="button_gray_w">
+            <EventHandler Name="forward_onclick" EventLogMsg="" Event="onclick" Function="SendMessage()" RedirectPage="form=collab.msgbox.form.MessageSentDetailForm&amp;fld:Id={@:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Send Now" />
         </Element>
+         <Element Name="btn_spacer" Class="Spacer" width="10" />
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteReceivedMessage()"  RedirectPage="form=collab.msgbox.form.MessageInboxListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
