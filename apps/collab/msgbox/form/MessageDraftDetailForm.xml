@@ -15,7 +15,6 @@
 	        	
 	        <Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 	        		    
-			<Element Name="fld_sortorder" Class="LabelText" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />		     
 			<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>		        
 			<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
 			<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>		        
@@ -31,6 +30,7 @@
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=collab.msgbox.form.MessageDraftListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
+         <Element Name="btn_spacer" Class="Spacer" width="10" />
         <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
         </Element>    
