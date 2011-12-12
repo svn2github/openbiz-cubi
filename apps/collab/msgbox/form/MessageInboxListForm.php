@@ -76,5 +76,25 @@ class MessageInboxListForm extends EasyForm
 		unset($svc);
 		return $recordSet;
 	}    
+	
+	public function replyMessage($formName)
+	{
+		if ($id==null || $id=='')
+            $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
+        $prefix = $this->getMessage("MESSAGE_PREFIX_REPLY");
+        $message_id = $this->getDataObj()->fetchById($id)->message_id;
+        $newId = BizSystem::getService("collab.msgbox.lib.messageService")->replyMessage($prefix,$message_id);
+        $this->switchForm($formName,$newId);
+	}
+	
+	public function forwardMessage($formName)
+	{
+		if ($id==null || $id=='')
+            $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
+        $prefix = $this->getMessage("MESSAGE_PREFIX_FORWARD");
+        $message_id = $this->getDataObj()->fetchById($id)->message_id;
+        $newId = BizSystem::getService("collab.msgbox.lib.messageService")->forwardMessage($prefix,$message_id);
+        $this->switchForm($formName,$newId);
+	}
 }
 ?>

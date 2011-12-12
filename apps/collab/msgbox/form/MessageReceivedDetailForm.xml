@@ -24,12 +24,12 @@
     </DataPanel>
     <ActionPanel>
 
-        <Element Name="btn_reply" Class="Button" Text="Reply" CssClass="button_gray_w">
-            <EventHandler Name="reply_onclick" EventLogMsg="" Event="onclick" Function="SendMessage()" RedirectPage="form=collab.msgbox.form.MessageSentDetailForm&amp;fld:Id={@:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Send Now" />
-        </Element>
-        <Element Name="btn_forward" Class="Button" Text="Forward" CssClass="button_gray_w">
-            <EventHandler Name="forward_onclick" EventLogMsg="" Event="onclick" Function="SendMessage()" RedirectPage="form=collab.msgbox.form.MessageSentDetailForm&amp;fld:Id={@:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Send Now" />
-        </Element>
+        <Element Name="lnk_reply" Class="Button" Text="Reply" CssClass="button_gray_w" Description="Forward Message (Ctrl+R)" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="ReplyMessage(collab.msgbox.form.MessageDraftEditForm)"  ShortcutKey="Ctrl+R" ContextMenu="Reply"/>
+        </Element> 
+        <Element Name="lnk_new" Class="Button" Text="Forward" CssClass="button_gray_w" Description="Forward Message (Ctrl+F)" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="ForwardMessage(collab.msgbox.form.MessageDraftEditForm)"  ShortcutKey="Ctrl+F" ContextMenu="Forward"/>
+        </Element> 
          <Element Name="btn_spacer" Class="Spacer" width="10" />
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteReceivedMessage()"  RedirectPage="form=collab.msgbox.form.MessageInboxListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />

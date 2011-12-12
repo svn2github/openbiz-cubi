@@ -34,11 +34,11 @@
         
     </DataPanel>
     <ActionPanel>
-     	<Element Name="lnk_reply" Class="Button" Text="Reply" CssClass="button_gray_w" Description="Forward Message (Ctrl+F)" >
-            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="ForwardMessage(collab.msgbox.form.MessageForwardForm)"  ShortcutKey="Ctrl+F" ContextMenu="Forward"/>
+     	<Element Name="lnk_reply" Class="Button" Text="Reply" CssClass="button_gray_w" Description="Forward Message (Ctrl+R)" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="ReplyMessage(collab.msgbox.form.MessageDraftEditForm)"  ShortcutKey="Ctrl+R" ContextMenu="Reply"/>
         </Element> 
         <Element Name="lnk_new" Class="Button" Text="Forward" CssClass="button_gray_w" Description="Forward Message (Ctrl+F)" >
-            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="ForwardMessage(collab.msgbox.form.MessageForwardForm)"  ShortcutKey="Ctrl+F" ContextMenu="Forward"/>
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="ForwardMessage(collab.msgbox.form.MessageDraftEditForm)"  ShortcutKey="Ctrl+F" ContextMenu="Forward"/>
         </Element> 
          <Element Name="btn_spacer" Class="Spacer" width="10" />
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >

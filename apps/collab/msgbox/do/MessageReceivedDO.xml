@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="MessageReceivedDO" Description="" Class="BizDataObj" DBName="Default" Table="message_recipient" SearchRule="[user_id]='{@profile:Id}' AND [deleted_flag]='0'" SortRule="[sent_time] DESC"  inheritFrom="collab.msgbox.do.MessageRecipientDO">
+<BizDataObj Name="MessageReceivedDO" Description="" Class="BizDataObj" DBName="Default" Table="message_recipient" SearchRule="[user_id]='{@profile:Id}' AND [deleted_flag]='0' AND [sent_time]!='0000-00-00 00:00:00'" SortRule="[sent_time] DESC"  inheritFrom="collab.msgbox.do.MessageRecipientDO">
 	<BizFieldList>        
         <BizField Name="subject" Column="subject" Join="JoinMessage"/>
         <BizField Name="content" Column="content" Join="JoinMessage"/>		

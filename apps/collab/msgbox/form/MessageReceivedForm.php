@@ -118,5 +118,21 @@ class MessageReceivedForm extends EasyForm
 			
         }
 	}
+	
+	public function replyMessage($formName)
+	{
+		$id=$this->m_RecordId;
+        $prefix = $this->getMessage("MESSAGE_PREFIX_REPLY");
+        $newId = BizSystem::getService("collab.msgbox.lib.messageService")->replyMessage($prefix,$id);
+        $this->switchForm($formName,$newId);
+	}
+	
+	public function forwardMessage($formName)
+	{
+		$id=$this->m_RecordId;
+        $prefix = $this->getMessage("MESSAGE_PREFIX_FORWARD");
+        $newId = BizSystem::getService("collab.msgbox.lib.messageService")->forwardMessage($prefix,$id);
+        $this->switchForm($formName,$newId);
+	}
 }
 ?>
