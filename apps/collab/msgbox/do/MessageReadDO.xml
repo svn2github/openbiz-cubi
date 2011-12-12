@@ -1,4 +1,4 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="MessageReadDO" Description="" Class="BizDataObj" DBName="Default" Table="message" SearchRule="[send_status]='sent'" SortRule="[sent_time] DESC"  inheritFrom="collab.msgbox.do.MessageDO">
+<BizDataObj Name="MessageReadDO" Description="" Class="BizDataObj" DBName="Default" Table="message" SearchRule="[send_status]='sent'" SortRule=""  inheritFrom="collab.msgbox.do.MessageDO">
 
 </BizDataObj>
