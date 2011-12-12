@@ -6,6 +6,8 @@
 			<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 			<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="" AllowURLParam="N" />
 			
+			<Element Name="fld_sender" ElementSet="General"  Class="LabelText" FieldName="display_name" Label="Send From" Description="" />
+			
 			<Element Name="fld_recipient_to" ElementSet="General"  Class="LabelText" FieldName="recipient_to" Label="Recipient To" Description="Select message recipients from contact list" />
 			<Element Name="fld_recipient_cc" ElementSet="General"  Class="LabelText" FieldName="recipient_cc" Label="Recipient CC" Description="Contacts can also get this message" />
 			
