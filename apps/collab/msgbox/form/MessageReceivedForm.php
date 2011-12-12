@@ -1,18 +1,27 @@
 <?php 
 class MessageReceivedForm extends EasyForm
 {
-	private $m_ReadLogDO = "collab.msgbox.do.MessageReadLogDO";
+	protected $m_ReadLogDO = "collab.msgbox.do.MessageReadLogDO";
+	protected $m_TypeDO = "collab.msgbox.do.MessageTypeDO";
+	protected $m_MessageRecipientDO = "collab.msgbox.do.MessageRecipientDO";
 	
 	public function fetchData()
 	{
 		$result = parent::fetchData();
 		$this->updateReadStatus();
 		$result['read_status'] = $this->getReadStatus();
- 		if($result['read_status']=='Read'){
- 			$result["type_color"] = 'afe8fb'; 				
- 		}else{
- 			$result["type_color"] = 'c8c8c8';
- 		}
+ 		//fetch type_color and type_name
+ 		$typeDo = BizSystem::getObject($this->m_TypeDO,1);
+ 		$recipientDo = BizSystem::getObject($this->m_MessageRecipientDO,1);
+ 		
+ 		$userId = BizSystem::getUserProfile("Id");
+ 		$recRec = $recipientDo->fetchOne("[message_id]='".$result["Id"]."' AND [user_id]='$userId' ");
+ 		$typeId = $recRec['type_id'];
+
+ 		$typeRec = $typeDo->fetchById($typeId);
+ 		$result["type_name"] = $typeRec['name'];
+ 		$result["type_color"] = $typeRec['color'];
+ 		
  		$result["read_status_display"] = ucwords($result["read_status"]);
  		$result["recipient_to"] = $this->getRecipientList("Recipient");
 		$result["recipient_cc"] = $this->getRecipientList("CC");
