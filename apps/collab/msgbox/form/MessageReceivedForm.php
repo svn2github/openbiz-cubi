@@ -1,6 +1,8 @@
 <?php 
 class MessageReceivedForm extends EasyForm
 {
+	private $m_ReadLogDO = "collab.msgbox.do.MessageReadLogDO";
+	
 	public function fetchData()
 	{
 		$result = parent::fetchData();
@@ -19,6 +21,7 @@ class MessageReceivedForm extends EasyForm
 		{
 			$result['subject']="[no subject]";
 		}
+		$this->WriteLog($result['Id']);
 		return $result;
 	}
 	
@@ -70,5 +73,41 @@ class MessageReceivedForm extends EasyForm
         $this->runEventLog();
         $this->processPostAction();
     } 
+    
+	public function WriteLog($id=null)
+	{
+        if ($id==null || $id=='')
+            $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
+
+        $selIds = BizSystem::clientProxy()->getFormInputs('row_selections', false);
+        if ($selIds == null)
+            $selIds[] = $id;
+        foreach ($selIds as $id)
+        {      		
+		
+			if(!$id){
+				return;
+			}
+			$user_id = BizSystem::getUserProfile("Id");
+			$do = BizSystem::getObject($this->m_ReadLogDO,1);
+			$logRec = $do->fetchOne("[message_id]='$id' and [user_id]='$user_id'");
+			if(!$logRec){
+				$recArr = array(
+					"user_id"=>$user_id,
+					"message_id" => $id,
+					"view_count" => 1,
+					"timestamp" => date('Y-m-d H:i:s')
+				);
+				$do->insertRecord($recArr);
+			}
+			else 
+			{
+				$logRec['view_count'] = (int)$logRec['view_count'] + 1;
+				$logRec['timestamp'] = date('Y-m-d H:i:s');
+				$logRec->save();
+			}
+			
+        }
+	}
 }
 ?>

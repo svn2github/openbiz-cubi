@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="AnnouncementReadLogForm" Class="EasyForm"   Title="Announcement View Log" Description="You can view current announcement read logs." FormType="List" jsClass="jbForm" BizDataObj="collab.announcement.do.AnnouncementReadLogDO"   PageSize="5" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_announcement_view_log.tpl.html"  Access="collab_announcement.access">
+<EasyForm Name="MessageReadLogForm" Class="EasyForm"   Title="Message Read Log" Description="You can view current message read logs." FormType="List" jsClass="jbForm" BizDataObj="collab.msgbox.do.MessageReadLogDO"   PageSize="5" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_message_view_log.tpl.html"  Access="collab_msgbox.access">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="announcement_id" Label="Id" Sortable="Y" AllowURLParam="Y" Link="javascript:" />
         <Element Name="fld_icon" Class="ColumnImage" 
@@ -12,12 +12,7 @@
         <Element Name="fld_view_count" Class="ColumnText" FieldName="view_count" Label="View Count"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
     </DataPanel>
     <ActionPanel>
-    	<Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
-            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
-        </Element>     
-        <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
-            <EventHandler Name="btn_close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
-        </Element>    
+    	  
     </ActionPanel> 
  	<NavPanel>
     	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
