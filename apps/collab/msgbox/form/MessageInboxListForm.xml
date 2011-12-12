@@ -44,7 +44,9 @@
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteReceivedMessage()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
         </Element>        
-               
+         <Element Name="btn_type" Class="Button" Text="Type" CssClass="button_gray_m" >
+            <EventHandler Name="type_onclick" Event="onclick" EventLogMsg="" Function="ChangeMessageType(collab.msgbox.form.MessageChangeTypeForm)" />
+        </Element>       
     </ActionPanel> 
     <NavPanel>
     	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
