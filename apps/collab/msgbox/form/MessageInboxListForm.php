@@ -37,12 +37,20 @@ class MessageInboxListForm extends EasyForm
 
 	public function ChangeMessageType($form)
     {
-    	
+    	if ($id==null || $id=='')
+            $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
+            
         $selIds = BizSystem::clientProxy()->getFormInputs('row_selections', false);
+        
         if ($selIds == null){    
-        	$this->m_Notices[] = $this->getMessage("PLEASE_SELECT_MESSAGE_TO_CHANGE_TYPE");
-            $this->rerender();            
-        	return;
+			if($id)
+			{
+            	$selIds[] = $id;
+			}else{
+        		$this->m_Notices[] = $this->getMessage("PLEASE_SELECT_MESSAGE_TO_CHANGE_TYPE");
+            	$this->rerender();            
+        		return;
+			}
         }
         if(is_array($selIds))
         {
