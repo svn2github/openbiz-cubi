@@ -10,7 +10,7 @@
 			<Element Name="fld_recipient_cc" ElementSet="General"  Class="LabelText" FieldName="recipient_cc" Label="Recipient CC" Description="Contacts can also get this message" />
 			<Element Name="fld_recipient_bcc" ElementSet="General"  Class="LabelText" FieldName="recipient_bcc" Label="Recipient BCC" Description="Contacts are invisible for other recipients"  />
 			
-			<Element Name="fld_description" ElementSet="General"  Class="HTMLPreview" FieldName="content" Label="Content" />				   
+			<Element Name="fld_description" ElementSet="General"  Class="HTMLPreview" Height="400"  FieldName="content" Label="Content" />				   
 	        	
 	        	
 	        <Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
