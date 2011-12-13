@@ -7,7 +7,7 @@
 			<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="collab.document.do.DocumentTypeDO[name:Id],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />
 			
 			<Element Name="fld_description" ElementSet="General"  Class="LabelTextarea" FieldName="description" Label="Description" />				   
-			<Element Name="fld_content" ElementSet="General"  Class="LabelTextarea" FieldName="content" Label="Content" />			
+			<Element Name="fld_content" ElementSet="General"  Class="HTMLPreview" FieldName="content" Label="Content" />			
 
 		<Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		<Element Name="btn_manage_attachment" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
