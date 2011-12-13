@@ -14,6 +14,8 @@
 	        	
 	        	
 	        <Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+	        <Element Name="fld_readlog"   ElementSet="View Log" Class="FormElement" FormReference="collab.msgbox.form.MessageReadLogForm" FieldName="" Label="" AllowURLParam="N" />
+
 	        		    
 			<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>		        
 			<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
