@@ -22,17 +22,18 @@ class MessageForm extends EasyForm
 			$this->setActiveRecord($dataRec->toArray());							
 		}
 		else
-		{					
+		{		
 			if($this->m_RecordId)
 			{
-				//$this->m_SearchRule = "[Id]='$this->m_RecordId'";	
-				$this->m_ActiveRecord = null;														
+				//$this->m_BaseSearchRule = "[Id]='$this->m_RecordId'";	
+				$this->m_ActiveRecord = $this->getDataObj()->fetchOne("[Id]='$this->m_RecordId'")->toArray();
 			}
 			else
 			{
-				//$this->m_SearchRule = "";
+				//$this->m_BaseSearchRule = "";
 			}	
 		}
+		
  		$result = parent::fetchData();
  		if($result['send_status']=='draft'){
  			$result["type_color"] = 'afe8fb'; 				
@@ -56,6 +57,7 @@ class MessageForm extends EasyForm
 	}
 
 	public function LoadDialog($formName,$id=null){
+	
 		$currentRec = $this->fetchData();
 		$recArr = $this->readInputRecord();
         $currentRec['Id'] = $recArr['Id'];
@@ -73,6 +75,7 @@ class MessageForm extends EasyForm
 
         if ($this->_doUpdate($recArr, $currentRec) == false)
             return;        
+           
 		parent::loadDialog($formName,$id);	
 	}
 	

@@ -45,8 +45,8 @@ class RecipientPickerForm extends PickerForm
     	}
     	
     	$parentForm = BizSystem::objectFactory()->getObject($this->m_ParentFormName);
-    	$parentDo = $parentForm->getDataObj();
-    	$parentDo->clearSearchRule();
+    	$parentDo = BizSystem::getObject("collab.msgbox.do.MessageContactPickDO");
+    	
     	$parentRec = $parentDo->fetchById($parentForm->m_RecordId);
     	$parentRec = $parentRec->toArray();
     	
@@ -56,8 +56,7 @@ class RecipientPickerForm extends PickerForm
     	foreach($recIdArr as $recId)
     	{
 	        $this->m_SearchRule="";
-	        $parentForm->getDataObj()->clearSearchRule();
-	        
+	        	        
 	        $do = $this->getDataObj();
 	        $baseSearchRule = $do->m_BaseSearchRule;
 	        $do->m_BaseSearchRule = "";
@@ -78,7 +77,7 @@ class RecipientPickerForm extends PickerForm
 	        if (!$ok)
 	            return $parentForm->processDataObjError($ok);
     	}   
-        
+    	        
         $this->close();
 
         $parentForm->rerender();
