@@ -29,7 +29,7 @@
         </Element>
         <Element Name="btn_spacer" Class="Spacer" Width="10" ></Element>    
         <Element Name="btn_pick" Class="Button" text="Pick Events" CssClass="button_gray_w">
-            <EventHandler Name="pick_onclick" Event="onclick" Function="LoadDialog(calendar.widget.EventPickForm)"/>
+            <EventHandler Name="pick_onclick" Event="onclick" Function="LoadDialog(collab.calendar.widget.EventPickForm)"/>
         </Element>
         <Element Name="btn_remove" Class="Button" text="Remove" CssClass="button_gray_w">
             <EventHandler Name="remove_onclick" Event="onclick" Function="RemoveRecord()"/>
