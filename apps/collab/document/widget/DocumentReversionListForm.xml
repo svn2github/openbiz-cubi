@@ -3,7 +3,7 @@
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
         <Element Name="fld_icon" Class="ColumnImage" 
-				Text="{RESOURCE_URL}/collab/document/images/icon_document_private.png"
+				Text="{RESOURCE_URL}/collab/document/images/icon_document_reversion.png"
 				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">							
 		</Element>
         <Element Name="fld_reversion" Class="ColumnText" FieldName="reversion" Label="Reversion"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
