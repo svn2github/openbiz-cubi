@@ -408,6 +408,20 @@ CREATE TABLE `document` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+
+DROP TABLE IF EXISTS `document_reversion`;
+CREATE TABLE `document_reversion` (
+  `id` int(11) NOT NULL auto_increment,
+  `document_id` int(11) NOT NULL,
+  `reversion` int(11) NOT NULL,
+  `title` varchar(255) default '',
+  `description` text NOT NULL,
+  `content` text NOT NULL,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 /*
 MySQL Data Transfer
 Source Host: localhost
