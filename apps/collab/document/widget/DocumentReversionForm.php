@@ -17,7 +17,7 @@ class DocumentReversionForm extends EasyForm
 				"title"			=>	$documentRec['title'],
 				"description"	=>	$documentRec['description'],
 				"content"		=>	$documentRec['content']		,
-				"create_by"		=>  BizSystem::getUserProfile($Id)
+				"create_by"		=>  BizSystem::getUserProfile('Id')
 		);
 		$this->getDataObj()->insertRecord($recArr);
 		

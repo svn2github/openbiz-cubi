@@ -15,7 +15,7 @@ class DocumentService
 				"title"			=>	$data['title'],
 				"description"	=>	$data['description'],
 				"content"		=>	$data['content'],
-				"create_by"		=>  BizSystem::getUserProfile($Id)
+				"create_by"		=>  BizSystem::getUserProfile('Id')
 			);
 			BizSystem::getObject($this->m_DocumentReversionDO)->insertRecord($reversionRec);
 		}
