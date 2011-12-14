@@ -4,11 +4,12 @@
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
         <Element Name="fld_icon" Class="ColumnImage" 
 				Text="{RESOURCE_URL}/collab/document/images/icon_document_reversion.png"
-				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">							
+				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N">				
+							
 		</Element>
         <Element Name="fld_reversion" Class="ColumnText" FieldName="reversion" Label="Reversion"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
         <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
-        	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentDetailROForm,{@:Elem[fld_Id].Value})"/>
+        	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(collab.document.widget.DocumentReversionDetailForm,{@:Elem[fld_Id].Value})"/>
         </Element>
         <Element Name="fld_create_by" Class="ColumnText" FieldName="create_by" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}"  Label="Create by"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
         <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Create Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
