@@ -1,4 +1,4 @@
-<PluginService Name="TaskDO_Trigger" Description="" Package="" Class="doTriggerService" BizObjectName="collab.document.do.DocumentDO">  
+<PluginService Name="DocumentDO_Trigger" Description="" Package="" Class="doTriggerService" BizObjectName="collab.document.do.DocumentDO">  
    <DOTrigger TriggerType="INSERT"  >
    <TriggerCondition Expression="" ExtraSearchRule="" />
    <TriggerActions>
