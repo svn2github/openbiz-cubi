@@ -29,6 +29,6 @@
     </TableJoins>
     <ObjReferences>
         <Object Name="attachment.do.AttachmentDO" Description="" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='document' Column="foreign_id" FieldRef="Id" />
-		<Object Name="document.do.DocuumentReversionDO" Description="" Relationship="1-M" Table="document_reversion" Column="document_id" FieldRef="Id" />
+		<Object Name="collab.document.do.DocumentReversionDO" Description="" Relationship="1-M" Table="document_reversion" Column="document_id" FieldRef="Id" />
     </ObjReferences>
 </BizDataObj>
