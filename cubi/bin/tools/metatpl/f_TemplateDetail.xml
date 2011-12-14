@@ -5,7 +5,7 @@
 {if $fld.name != 'Id' && $fld.name != 'create_by' && $fld.name != 'create_time' && $fld.name != 'update_by' && $fld.name != 'update_time'  }
        	<Element Name="fld_{$fld.name}" ElementSet="General" Class="LabelText" FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}" AllowURLParam="{if $fld.name eq 'Id'}Y{else}N{/if}"/>
 {elseif $fld.name == 'create_by' || $fld.name == 'update_by'}
-       	<Element Name="fld_{$fld.name}" Class="LabelText" ElementSet="Miscellaneous" FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}" Text="{literal}{{/literal}BizSystem::GetProfileName(@:Elem[{$fld.name}].Value){literal}}{/literal}" AllowURLParam="N"/>       	
+       	<Element Name="fld_{$fld.name}" Class="LabelText" ElementSet="Miscellaneous" FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}" Text="{literal}{{/literal}BizSystem::GetProfileName(@:Elem[fld_{$fld.name}].Value){literal}}{/literal}" AllowURLParam="N"/>       	
 {elseif $fld.name == 'create_time' || $fld.name == 'update_time'}
        	<Element Name="fld_{$fld.name}" Class="LabelText" ElementSet="Miscellaneous" FieldName="{$fld.name}" Label="{$fld.name|replace:'_':' '|capitalize}"  AllowURLParam="N"/>       	
 {else}
