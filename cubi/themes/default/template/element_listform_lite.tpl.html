@@ -87,4 +87,19 @@ background-color:#f8f8f8;
   
 							
 </table>
+{if $navPanel}
+<div class="form_footer_panel" style="width:640px;">
+		<div class="ajax_indicator" style="width:130px;">
+			<div id='{$form.name}.load_disp' style="display:none" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
+		</div>
+		<div class="navi_panel">
+   {foreach item=elem from=$navPanel}
+   		{if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
+    	{$elem.element}
+   {/foreach}				
+		</div>		
+	</div>
+{/if}		
 </div>
