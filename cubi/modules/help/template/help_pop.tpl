@@ -1,7 +1,7 @@
 {literal}
 <style type="text/css">
 .fld_help_content {font-size: 14px; padding: 10px;}
-.fld_help_content ul, li { padding-left:20px; }
+.fld_help_content ul li { padding-left:20px; }
 </style>
 {/literal}
 <div style="margin:20px;">
