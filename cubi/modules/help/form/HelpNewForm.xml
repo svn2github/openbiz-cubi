@@ -4,8 +4,10 @@
 		<Element Name="fld_Id" Hidden="Y" Class="InputText" FieldName="Id" Label="Id"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>	        
         <Element Name="fld_category_id" Class="TreeListbox" SelectFrom="help.do.HelpCategoryDO[name:Id]" DefaultValue="{@help.do.HelpDO:Field[c].Value}" FieldName="category_id" Label="Category"  AllowURLParam="N" />
         <Element Name="fld_title" Class="InputText" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-    	<Element Name="fld_description" Class="CKEditor"  mode="basic"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:100," width="640" height="100" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
-    	<Element Name="fld_content" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300," width="640" height="300" FieldName="content" Label="Content"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
+ 
+    	<Element Name="fld_description" Class="CKEditor"  mode="basic"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:100" width="640" height="100" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
+    	<Element Name="fld_content" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="content" Label="Content"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
+ 
         <Element Name="fld_sortorder" Class="Listbox" SelectFrom="help.form.SortOrder(Order)" FieldName="sort_order" Label="Sort Order"  AllowURLParam="N" />    			            
         </DataPanel>
     <ActionPanel>

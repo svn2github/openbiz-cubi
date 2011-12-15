@@ -9,9 +9,9 @@
 	        
         <Element Name="fld_title" Class="InputText" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
              
-			<Element Name="fld_description" Class="CKEditor"  mode="basic"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:100," width="640" height="100" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
+			<Element Name="fld_description" Class="CKEditor"  mode="basic"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:100" width="640" height="100" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
              
-			<Element Name="fld_content" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300," width="640" height="300" FieldName="content" Label="Content"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
+			<Element Name="fld_content" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="content" Label="Content"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
         </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
