@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="PackageMasterNewForm" Class="EasyForm" FormType="New" jsClass="jbForm" Title="New Package" Description="" BizDataObj="packagemstr.master.do.PackageMasterDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_package_id" Class="InputText" FieldName="package_id" Label="Package Id"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_name" Class="InputText" FieldName="name" Label="Name" DefaultValue="New Package"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_type" Class="Listbox" FieldName="type" Label="Type" SelectFrom="package.lov.PackageLOV(PackageType)"/>
+        <Element Name="fld_cat_id" Class="Listbox" FieldName="cat_id" Label="Category" SelectFrom="packagemstr.category.do.PackageCategoryDO[name:Id]"/>
+        <Element Name="fld_version" Class="InputText" FieldName="version" Label="Version"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_pltfm_ver" Class="InputText" FieldName="pltfm_ver" Label="Pltfm Ver"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_author" Class="InputText" FieldName="author" Label="Author"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_file" Class="InputText" FieldName="file" Label="File"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"  />            
+        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(Status)"/>
+        <Element Name="fld_release_time" Class="InputDatetime" DateFormat="%Y-%m-%d %H:%M:%S" FieldName="release_time" Label="Release Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_repository" Class="Textarea" FieldName="repository" Label="Repository"/>           
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=packagemstr.master.form.PackageMasterDetailForm&amp;fld:Id={@packagemstr.master.do.PackageMasterDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

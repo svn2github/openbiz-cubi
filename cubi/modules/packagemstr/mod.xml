@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="packagemstr" Description="package master" Version="0.1" OpenbizVersion="2.4">
+	<ACL>
+        <Resource Name="PackageMaster">
+            <Action Name="Access" Description="Access PackageMaster"/>
+            <Action Name="Manage" Description="Manage PackageMaster"/>
+		</Resource>
+        <Resource Name="PackageCategory">
+            <Action Name="Access" Description="Access PackageCategory"/>
+            <Action Name="Manage" Description="Manage PackageCategory"/>
+		</Resource>
+    </ACL>
+    <Menu>
+        <MenuItem Name="MasterPackageAdmin" Title="Master Packages" Parent="System" Order="101">
+			<MenuItem Name="PackageMstr.Master" Title="Master Packages" Description=""  URL="/packagemstr/package_master_list" Order="20"/>
+            <MenuItem Name="PackageMstr.Category" Title="Package Category" Description=""  URL="/packagemstr/package_category_list" Order="40"/>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+</Module>

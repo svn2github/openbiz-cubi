@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="PackageMasterDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Title="Package Detail" Description="" BizDataObj="packagemstr.master.do.PackageMasterDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
+    <DataPanel>
+		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+       	<Element Name="fld_package_id" ElementSet="General" Class="LabelText" FieldName="package_id" Label="Package Id" AllowURLParam="N"/>
+       	<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
+       	<Element Name="fld_type" Class="LabelText" FieldName="type" Label="Type" AllowURLParam="N"/>
+        <Element Name="fld_category_name" ElementSet="General" Class="LabelText" FieldName="category_name" Label="Category"  Sortable="Y"/>
+       	<Element Name="fld_version" ElementSet="General" Class="LabelText" FieldName="version" Label="Version" AllowURLParam="N"/>
+       	<Element Name="fld_pltfm_ver" ElementSet="General" Class="LabelText" FieldName="pltfm_ver" Label="Pltfm Ver" AllowURLParam="N"/>
+       	<Element Name="fld_author" ElementSet="General" Class="LabelText" FieldName="author" Label="Author" AllowURLParam="N"/>
+       	<Element Name="fld_file" ElementSet="General" Class="LabelText" FieldName="file" Label="File" AllowURLParam="N"/>
+       	<Element Name="fld_description" ElementSet="General" Class="LabelText" FieldName="description" Label="Description" AllowURLParam="N"/>
+       	<Element Name="fld_status" ElementSet="General" Class="LabelList" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(Status)"/>
+       	<Element Name="fld_release_time" ElementSet="General" Class="LabelText" FieldName="release_time" Label="Release Time" AllowURLParam="N"/>
+       	<Element Name="fld_repository" ElementSet="General" Class="LabelText" FieldName="repository" Label="Repository" AllowURLParam="N"/>
+       	<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>       	
+       	<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>       	
+       	<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By" Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>       	
+       	<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+    </DataPanel>
+    <ActionPanel>       
+        <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(packagemstr.master.form.PackageMasterNewForm)" ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>          
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(packagemstr.master.form.PackageMasterEditForm,{@:Elem[fld_Id].Value})" ShortcutKey="Ctrl+E" ContextMenu="Edit"/>
+        </Element>
+		<Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
+            <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=packagemstr.master.form.PackageMasterCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element> 
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})" RedirectPage="form=packagemstr.master.form.PackageMasterListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()" ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

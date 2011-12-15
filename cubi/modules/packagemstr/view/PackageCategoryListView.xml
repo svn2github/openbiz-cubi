@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="PackageCategoryListView" Description="packagemstr.category" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="PackageCategory.Access">
+   <FormReferences>
+   		<Reference Name="packagemstr.category.form.PackageCategoryListForm"/>
+   </FormReferences>    
+</EasyView>

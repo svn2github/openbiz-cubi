@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="package" Description="local package management module" Version="0.1" OpenbizVersion="2.4">
+	<ACL>
+		<Resource Name="PackageLocal">
+            <Action Name="Access" Description="Access PackageLocal"/>
+            <Action Name="Manage" Description="Manage PackageLocal"/>
+		</Resource>
+    </ACL>
+    <Menu>
+        <MenuItem Name="PackageAdmin" Title="Package" Description="Local Cubi packages management" Parent="System" Order="100">
+            <MenuItem Name="Package.Installed" Title="Installed Packages" Description=""  URL="/package/package_installed_list" Order="10"/>
+            <MenuItem Name="Package.NewReleased" Title="New Released" Description=""  URL="/package/package_released_list" Order="20"/>
+            <MenuItem Name="Package.NewUpdate" Title="Recent Updates" Description=""  URL="/package/package_updated_list" Order="30"/>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+</Module>

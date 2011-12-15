@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="PackageInstalledListView" Description="Installed Package" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="PackageLocal.Access">
+   <FormReferences>
+   		<Reference Name="package.local.form.PackageInstalledListForm"/>
+   </FormReferences>
+   <FormReferenceLibs>
+   </FormReferenceLibs>    
+</EasyView>

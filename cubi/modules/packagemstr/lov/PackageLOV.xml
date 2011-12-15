@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <PackageStatus Value="0" text="Not installed"/>
+   <PackageStatus Value="1" text="Installed"/>
+   <PackageStatus Value="2" text="Downloading"/>
+   <PackageStatus Value="3" text="Installing"/>
+   
+   <PackageType Value="Release" text="Release"/>
+   <PackageType Value="Patch" text="Patch"/>
+</Selection>

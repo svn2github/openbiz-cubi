@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="PackageMasterListView" Description="packagemstr.master" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="PackageMaster.Access">
+   <FormReferences>
+   		<Reference Name="packagemstr.master.form.PackageMasterListForm"/>
+   </FormReferences>   
+</EasyView>
