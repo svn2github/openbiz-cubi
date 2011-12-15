@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<EasyView Name="BackupListView" Description="Backup Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+<EasyView Name="BackupListView" Description="Backup Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="backup.Access_Backup">
    <FormReferences>
    		<Reference Name="backup.form.BackupListForm"/>
    </FormReferences>

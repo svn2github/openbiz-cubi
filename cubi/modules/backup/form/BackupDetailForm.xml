@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="BackupDetailForm" Class="BackupForm" Icon="{RESOURCE_URL}/backup/images/icon_backup_list.gif" FormType="" jsClass="jbForm" Title="Backup Detail" Description="Database backup management could help you backup or restore your system database with simply one click. \n It could prevent your data lost by any mistake." BizDataObj="" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+<EasyForm Name="BackupDetailForm" Class="BackupForm" Icon="{RESOURCE_URL}/backup/images/icon_backup_list.gif" FormType="" jsClass="jbForm" Title="Backup Detail" Description="Database backup management could help you backup or restore your system database with simply one click. \n It could prevent your data lost by any mistake." BizDataObj="" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="" Access="backup.Access_Backup">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       	
 				<Element Name="fld_location"  Class="LabelText" FieldName="" Label="Location" Text="{@:m_LocationName}" AllowURLParam="N"/>

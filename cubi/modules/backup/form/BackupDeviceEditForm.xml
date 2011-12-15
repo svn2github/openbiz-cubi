@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="BackupDeviceEditForm" Class="DeviceForm" Icon="{RESOURCE_URL}/backup/images/icon_backup_list.gif"  FormType="Edit" jsClass="jbForm" Title="Edit Backup Device" Description="Edit selected backup device and storage location." BizDataObj="backup.do.BackupDeviceDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="backup_device_msg.ini">
+<EasyForm Name="BackupDeviceEditForm" Class="DeviceForm" Icon="{RESOURCE_URL}/backup/images/icon_backup_list.gif"  FormType="Edit" jsClass="jbForm" Title="Edit Backup Device" Description="Edit selected backup device and storage location." BizDataObj="backup.do.BackupDeviceDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="backup_device_msg.ini" Access="backup.Access_Backup">
     <DataPanel>
         <Element Name="fld_name"  Class="InputText" FieldName="name" Label="Name"   />	
         <Element Name="fld_location"  Class="InputText" FieldName="location" Label="Location"   />	
