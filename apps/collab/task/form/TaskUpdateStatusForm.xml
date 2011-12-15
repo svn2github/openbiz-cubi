@@ -14,7 +14,10 @@
 		<Element Name="fld_spend_progress" ElementSet="General"  Class="LabelBar" Width="300" height="14"  DisplayUnit="%" MaxValue="100" FieldName="cost_spend_bar" Label="Cost"  AllowURLParam="N" />
 		
 		
-		<Element Name="fld_priority" ElementSet="General" Class="LabelList"   FieldName="priority" Label="Priority" SelectFrom="collab.task.lov.TaskLOV(Priority)" AllowURLParam="N" />
+		<Element Name="fld_priority_value" Class="Hidden" Hidden="Y" FieldName="priority"  />		
+		<Element Name="fld_priority" Class="LabelImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Priority" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority_value,{@:Elem[fld_priority_value].Value},0,2)"/>		
+		</Element>
 		 <Element Name="fld_milestone" Class="LabelBool" ElementSet="General" TrueImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_enable.gif"  FalseImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_disable.gif" FieldName="milestone" Sortable="Y" Label="Milestone" Link="javascript:;">
 			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_milestone,{@:Elem[fld_milestone].Value})"/>		
 		</Element>
