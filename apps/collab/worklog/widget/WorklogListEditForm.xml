@@ -19,7 +19,7 @@
         </Element>
         <Element Name="btn_spacer" Class="Spacer" Width="10" ></Element>        
         <Element Name="btn_pick" Class="Button" text="Pick Work Log" CssClass="button_gray_w">
-            <EventHandler Name="pick_onclick" Event="onclick" Function="LoadDialog(worklog.widget.WorklogPickForm)"/>
+            <EventHandler Name="pick_onclick" Event="onclick" Function="LoadDialog(collab.worklog.widget.WorklogPickForm)"/>
         </Element>
         <Element Name="btn_remove" Class="Button" text="Remove" CssClass="button_gray_w">
             <EventHandler Name="remove_onclick" Event="onclick" Function="RemoveRecord()"/>
