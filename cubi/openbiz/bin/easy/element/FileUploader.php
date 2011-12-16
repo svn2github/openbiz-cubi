@@ -108,7 +108,7 @@ class FileUploader extends FileInput
 	                {
 	                    mkdir($this->m_UploadRoot.$this->m_UploadFolder ,0777,true);
 	                }
-	                $uploadFile = $this->m_UploadFolder."/".date("YmdHis")."-".urlencode($file['name']);
+	                $uploadFile = $this->m_UploadFolder."/".date("YmdHis")."-".md5($file['name']);
 
 	                if($this->m_UploadFileType){
 	                	$pattern = "/".$this->m_UploadFileType."$/si";
