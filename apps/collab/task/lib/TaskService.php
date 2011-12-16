@@ -17,7 +17,7 @@ class TaskService
 	}	
 	
 	public function updateTaskStatus($taskDO){
-		$task_id = $this->getObjValue($taskDO, 'Id');
+		$task_id = (int)$this->getObjValue($taskDO, 'Id');
 		if(!$task_id){
 			return;
 		}
@@ -27,7 +27,7 @@ class TaskService
 		
 		$taskPickDO = BizSystem::getObject($this->m_DataObj);		
 		$taskRec = $taskPickDO->fetchById($task_id);
-		$update = false;
+		$update = false;		
 		if($progress==0){
 			if($status_new == $status_prev){
 				$update = true;
@@ -50,7 +50,7 @@ class TaskService
 			}
 		}		
 		if($update){
-			$taskRec->save();
+			$taskRec->save();			
 		}		
 	}
 	
