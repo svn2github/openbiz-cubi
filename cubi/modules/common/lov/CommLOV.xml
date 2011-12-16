@@ -66,17 +66,6 @@
 	<ColorIcons Text="Yellow" Value="yellow"/>
 	<ColorIcons Text="White" Value="white"/>
 
-	<Labellist Text="None" Value="None"/>
-	<Labellist Text="Important" Value="Important"/>
-	<Labellist Text="Business" Value="Business"/>
-	<Labellist Text="Personal" Value="Personal"/>
-	<Labellist Text="Vacation" Value="Vacation"/>
-	<Labellist Text="Must Attand" Value="Must Attand"/>
-	<Labellist Text="Travel Required" Value="Travel Required"/>
-	<Labellist Text="Needs Preparation" Value="Needs Preparation"/>
-	<Labellist Text="Birthday" Value="Birthday"/>
-	<Labellist Text="Anniversary" Value="Anniversary"/>
-	<Labellist Text="Phone Call" Value="Phone Call"/>
 
 	<IsCycle Text="No Cycle" Value="0"/>
 	<IsCycle Text="Cycle" Value="1"/>
