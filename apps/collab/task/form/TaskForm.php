@@ -8,6 +8,7 @@ class TaskForm extends EasyForm
 	{
 		if($value<2){
     		$value_xor = 2;
+    		$this->updateFieldValue($id,'fld_progress',100);
     	}else{
     		$value_xor = 1;
     	}
