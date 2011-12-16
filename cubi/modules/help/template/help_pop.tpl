@@ -15,7 +15,7 @@
 			<div class="label_text"><b>{$dataPanel.fld_description.element}</b></div>
 		</div>
 		<div class="fld_content">
-			<div class="label_text">{$dataPanel.fld_content.element}</div>
+			<div class="label_text">{$dataPanel.fld_help_content.element}</div>
 		</div>
 	</div>
 		
