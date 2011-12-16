@@ -4,6 +4,16 @@ class TaskForm extends EasyForm
 	public $m_parent_task_desc ;
 	public $m_dependency_task_desc ;  
 	
+	public function UpdateTaskStatus($id, $fld_name, $value)
+	{
+		if($value<2){
+    		$value_xor = 2;
+    	}else{
+    		$value_xor = 1;
+    	}
+		return $this->updateFieldValue($id,$fld_name,$value_xor);		
+	}
+	
 	public function fetchData(){
 		$result = parent::fetchData();
 		if($result['total_workhour']>0){
