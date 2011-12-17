@@ -145,6 +145,13 @@ class UserPreferenceForm extends EasyForm
 	            			@file_put_contents($config_file,$data);	            			
 	            		}
 	            		break;
+	            	case "appbuilder":
+	            	    if($value!=APPBUILDER){	            			
+	            			$data = file_get_contents($config_file);	            			
+	            			$data = preg_replace("/define\([\'\\\"]{1}APPBUILDER[\'\\\"]{1}.*?\)\;/i","define('APPBUILDER','$value');",$data);	            			
+	            			@file_put_contents($config_file,$data);	            			
+	            		}
+	            		break;
 	            	case "timezone":
 	            	    if($value!=DEFAULT_TIMEZONE){
 	            			//update default theme DEFAULT_THEME_NAME
