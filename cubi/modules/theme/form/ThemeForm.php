@@ -149,7 +149,6 @@ class ThemeForm extends EasyForm
 				$result[$i]['path']	=	$dir;				
 				$result[$i]['default']	=	$this->isDefaultTheme(basename($dir));
 				$result[$i]['current']	=	$this->isCurrentTheme(basename($dir));
-				$result[$i]['users']	=	"0";
 				$this->ReadThemePack(basename($dir),$result[$i]);
 
 				$i++;	
