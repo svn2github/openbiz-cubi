@@ -862,3 +862,33 @@ background-position:left top;
 .form_header_breadcrumb a:hover .icon_dot{
 background-position:left bottom;
 }
+.screen_switch_max_btn {
+    background-position: 0 -16px;
+    background-repeat: no-repeat;
+    display: block;
+    height: 16px;
+    overflow: hidden;
+    width: 16px;
+    background-image: url("../images/screen_switch_icon.png");
+}
+.screen_switch_max_btn:hover {
+    background-position: -16px -16px;
+}
+.screen_switch_max_btn:active {
+    background-position: -32px -16px;
+}
+.screen_switch_min_btn {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+    height: 16px;
+    overflow: hidden;
+    width: 16px;
+    background-image: url("../images/screen_switch_icon.png");
+}
+.screen_switch_min_btn:hover {
+    background-position: -16px 0px;
+}
+.screen_switch_min_btn:active {
+    background-position: -32px 0px;
+}
