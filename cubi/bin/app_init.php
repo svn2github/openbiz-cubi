@@ -145,7 +145,7 @@ define ('DENY', 0);
 define ('ALLOW', 1);
 define ('ALLOW_OWNER', 2);
 
-define ('APPBUILDER', 1); // 0: hidden, 1: show
+define('APPBUILDER','1'); // 0: hidden, 1: show
 
 // load default theme
 if( @isset($_GET['theme'])) {
