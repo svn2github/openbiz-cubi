@@ -1,3 +1,7 @@
+.greyTextItalics{
+	color: #CCCCCC;
+	font-style: italic;
+}
 .element_spacer{
 display:block;
 float:left;
