@@ -87,6 +87,7 @@ class InputElement extends Element
     		$this->m_Value = null;
     		return null;
     	}
+    	return $value;
     }
     /**
      * Render label, just return label value
