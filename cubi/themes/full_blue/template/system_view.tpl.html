@@ -5,6 +5,10 @@
 <title>{$title}</title>
 <meta name="description" content="{$description}"/>
 <meta name="keywords" content="{$keywords}"/>
+<script src="{$js_url}/jquery.js"></script>
+<script src="{$js_url}/jquery-ui-1.8.12.custom.min.js"></script>
+<script src="{$js_url}/jquery.textbox.hinter.js"></script>
+<script>{literal}try{var $j=jQuery.noConflict();}catch(e){}{/literal}</script>
 {$style_sheets}
 {$scripts}
 </head>

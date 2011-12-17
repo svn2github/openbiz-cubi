@@ -8,7 +8,7 @@
 <script src="{$js_url}/jquery.js"></script>
 <script src="{$js_url}/jquery-ui-1.8.12.custom.min.js"></script>
 <script src="{$js_url}/jquery.textbox.hinter.js"></script>
-<script>var $j = jQuery.noConflict()</script>
+<script>{literal}try{var $j=jQuery.noConflict();}catch(e){}{/literal}</script>
 {$style_sheets}
 {$scripts}
 
