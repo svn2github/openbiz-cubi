@@ -60,6 +60,13 @@ class InputText extends InputElement
 		}        
         
         $sHTML = "<INPUT NAME=\"" . $this->m_Name . "\" ID=\"" . $this->m_Name ."\" VALUE=\"" . $value . "\" $disabledStr $this->m_HTMLAttr $style $func />";
+        if($this->m_Hint){
+        	$sHTML.="<script>        	
+        	\$j('#" . $this->m_Name . "').tbHinter({
+				text: '".$this->m_Hint."',
+			});
+        	</script>";
+        }
         return $sHTML;
     }
 

@@ -34,6 +34,7 @@ class InputElement extends Element
     public $m_Required = "N";
     public $m_Enabled = "Y";      // support expression
     public $m_Text;
+    public $m_Hint;
 
     /**
      * Read array meta data, and store to meta object
@@ -53,6 +54,8 @@ class InputElement extends Element
         $this->m_Enabled = isset($xmlArr["ATTRIBUTES"]["ENABLED"]) ? $xmlArr["ATTRIBUTES"]["ENABLED"] : null;
         $this->m_Text = isset($xmlArr["ATTRIBUTES"]["TEXT"]) ? $xmlArr["ATTRIBUTES"]["TEXT"] : null;
 
+        $this->m_Hint = isset($xmlArr["ATTRIBUTES"]["HINT"]) ? $xmlArr["ATTRIBUTES"]["HINT"] : null;
+        
         // if no class name, add default class name. i.e. NewRecord => ObjName.NewRecord
         $this->m_ValuePicker = $this->prefixPackage($this->m_ValuePicker);
     }
@@ -75,7 +78,16 @@ class InputElement extends Element
         $formObj = $this->getFormObj();
         return Expression::evaluateExpression($this->m_Required, $formObj);
     }    
-
+	
+    public function getValue()
+    {
+    	$value=parent::getValue();
+    	if($value==$this->m_Hint)
+    	{
+    		$this->m_Value = null;
+    		return null;
+    	}
+    }
     /**
      * Render label, just return label value
      *
