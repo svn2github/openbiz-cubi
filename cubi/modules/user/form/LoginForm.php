@@ -151,13 +151,19 @@ class LoginForm extends EasyForm
             $this->processFormObjError($e->m_Errors);
             return;
         }
-	  	
+	  	        
 	  	// get the username and password	
 		$this->username = BizSystem::ClientProxy()->getFormInputs("username");
 		$this->password = BizSystem::ClientProxy()->getFormInputs("password");		
 		$this->smartcard = BizSystem::ClientProxy()->getFormInputs("smartcard");
-
-
+		
+		if($this->username == $this->getElement("username")->m_Hint){
+			$this->username = null;
+		}
+    	if($this->password == $this->getElement("password")->m_Hint){
+			$this->password = null;
+		}
+		
 		global $g_BizSystem;		
 		$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
 		try {

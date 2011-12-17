@@ -1,8 +1,8 @@
 <?xml version="1.0" standalone="no"?>
 <EasyForm Name="LoginForm" Class="LoginForm" FormType="edit" jsClass="jbForm" Title="System Login" SearchRule="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="login.tpl.html" MessageFile="login.msg">
    <DataPanel>
-      <Element Name="username" Hidden="{@:auth_method=='smartcard'?'Y':'N'}" FieldName="fld_username" Label="Username" Class="InputText" required="{@:auth_method=='smartcard'?'N':'Y'}" HTMLATTR="maxlength='25'"/>
-      <Element Name="password" Hidden="{@:auth_method=='smartcard'?'Y':'N'}" FieldName="fld_password" Label="Password" Class="Password" required="{@:auth_method=='smartcard'?'N':'Y'}" HTMLATTR="maxlength='25'"/>
+      <Element Name="username" Hidden="{@:auth_method=='smartcard'?'Y':'N'}" Hint="Username" FieldName="fld_username" Label="Username" Class="InputText" required="{@:auth_method=='smartcard'?'N':'Y'}" HTMLATTR="maxlength='25'"/>
+      <Element Name="password" Hidden="{@:auth_method=='smartcard'?'Y':'N'}" Hint="Password" FieldName="fld_password" Label="Password" Class="Password" required="{@:auth_method=='smartcard'?'N':'Y'}" HTMLATTR="maxlength='25'"/>
       <Element Name="antispam"  Hidden="{@:auth_method=='smartcard'?'Y':'N'}" FieldName="" AntiSpamImage="{@home:base_url}/bin/antispam_image.php" Length="6" SpamLevel="2" Label="Anti Spam" Class="Antispam" required="{@:auth_method=='smartcard'?'N':'Y'}" />            
 	  <Element Name="session_timeout"  Hidden="{@:auth_method=='smartcard'?'Y':'N'}" ReadOnly="Y" KeepCookie="Y" FieldName="" DefaultValue="0" Label="Cookies" Class="DropDownList" SelectFrom="common.lov.SessionTimeLOV(Session)"  />
 	  <Element Name="smartcard"  Hidden="{@:auth_method=='smartcard'?'N':'Y'}" FieldName="smartcard" Label="ID Card" Class="IDCardReader" />
