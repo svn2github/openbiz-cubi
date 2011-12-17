@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS `user_pref`;
 CREATE TABLE `user_pref` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
