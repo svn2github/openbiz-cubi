@@ -13,7 +13,7 @@
 	    	<EventHandler Name="bcc_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientBCCPickForm)"/>
 	    </Element>
 	    
-	    <Element Name="fld_subject" Class="InputText" FieldName="subject" Label="Subject" Description="Subject of this message"   />	
+	    <Element Name="fld_subject"  Class="InputText" FieldName="subject" Label="Subject" Description="Subject of this message"   />	
         <Element Name="fld_content" Class="CKEditor" mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:450" width="640" height="450" FieldName="content" Label="Content" />
         <Element Name="fld_related_attachment"    Class="FormElement" FormReference="attachment.widget.AttachmentListEditForm" FieldName="" Label="Attachment" AllowURLParam="N" />
         

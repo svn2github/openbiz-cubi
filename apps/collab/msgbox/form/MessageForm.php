@@ -46,7 +46,12 @@ class MessageForm extends EasyForm
 		$result["recipient_bcc"] = $this->getRecipientList("BCC");
 		if($result['subject']=="")
 		{
-			$result['subject']="[no subject]";
+			if($_GET["F"]=='RPCInvoke')
+			{
+				$result['subject']="[no subject]";
+			}else{
+				$result['subject']="";
+			}
 		}
 		return $result;
 	}
