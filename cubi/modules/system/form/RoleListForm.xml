@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="RoleListForm" Icon="icon_roles.gif" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Role Management" Description="Manage user roles in the application. Role is used in the application to control user permissions" BizDataObj="system.do.RoleDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
+<EasyForm Name="RoleListForm" Icon="icon_roles.gif" Class="RoleListForm" FormType="List" jsClass="jbForm" Title="Role Management" Description="Manage user roles in the application. Role is used in the application to control user permissions" BizDataObj="system.do.RoleDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
     <DataPanel>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Role Id" Sortable="Y"/>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Link="{@home:url}/system/role_detail/{@:Elem[fld_Id].Value}" Sortable="Y"/>
@@ -17,6 +17,9 @@
         </Element>    
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Access="">
             <EventHandler Name="edit_onclick" Event="onclick" Function="EditRecord()" RedirectPage="{@home:url}/system/role_edit/{@:Elem[fld_Id].Value}"/>
+        </Element>
+        <Element Name="btn_perm" Class="Button" Text="Perm" CssClass="button_gray_m" Access="">
+            <EventHandler Name="perm_onclick" Event="onclick" Function="SetPermission()" />
         </Element>
         
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
