@@ -98,7 +98,7 @@ define('CACHE_DATA_PATH', APP_HOME.DIRECTORY_SEPARATOR."files".DIRECTORY_SEPARAT
    application system level constances
  ****************************************************************************/
 /* whether print debug infomation or not */
-define("DEBUG", 1);
+define("DEBUG", 0);
 
 /* check whether user logged in */
 define("CHECKUSER", "Y");
@@ -167,7 +167,7 @@ $g_ServiceAlias = array('validate'=>VALIDATE_SERVICE, 'query'=>QUERY_SERVICE, 'v
 
 
 //init default timezone setting 
-define('DEFAULT_TIMEZONE','Asia/Chongqing');
+define('DEFAULT_TIMEZONE','America/Los_Angeles');
 $DefaultTimezone = BizSystem::sessionContext()->getVar("TIMEZONE");        
 // default language
 if ($DefaultTimezone == ""){
