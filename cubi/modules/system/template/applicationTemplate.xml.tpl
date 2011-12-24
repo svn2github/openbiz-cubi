@@ -1,18 +1,16 @@
 <?xml version="1.0" standalone="no"?>
-<PluginService Name="{$data.PLUGINSERVICE.ATTRIBUTES.NAME}" Package="{$data.PLUGINSERVICE.ATTRIBUTES.PACKAGE}" Class="{$data.PLUGINSERVICE.ATTRIBUTES.CLASS}">
-   <Security Mode="{$data.PLUGINSERVICE.SECURITY.ATTRIBUTES.MODE}">
-   {foreach item=item key=itemName from=$data.PLUGINSERVICE.SECURITY }
+<Application>   
+   {foreach item=item key=itemName from=$data.APPLICATION }
    		{if $itemName != 'ATTRIBUTES'}
-   		<{$itemName} Mode="{$item.ATTRIBUTES.MODE}" >
-   			{if $item.RULE.ATTRIBUTES.NAME != ""}
-   				<Rule Name="{$item.RULE.ATTRIBUTES.NAME}" Action="{$item.RULE.ATTRIBUTES.ACTION}" Match="{$item.RULE.ATTRIBUTES.MATCH}" EffectiveTime="{$item.RULE.ATTRIBUTES.EFFECTIVETIME}" Status="{$rule.ATTRIBUTES.STATUS}" />
+   		<{$itemName}  >
+   			{if $item.ATTRIBUTES.NAME != ""}
+   					<Database Name="{$item.ATTRIBUTES.NAME}" Driver="{$item.ATTRIBUTES.DRIVER}" Server="{$item.ATTRIBUTES.SERVER}" Port="{$item.ATTRIBUTES.PORT}" DBName="{$item.ATTRIBUTES.DBNAME}" User="{$item.ATTRIBUTES.USER}" Password="{$item.ATTRIBUTES.PASSWORD}" Charset="{$item.ATTRIBUTES.CHARSET}" Status="{$item.ATTRIBUTES.STATUS}" />
    			{else}
-	   			{foreach item=rule key=ruleName from=$item.RULE }
-	   				<Rule Name="{$rule.ATTRIBUTES.NAME}" Action="{$rule.ATTRIBUTES.ACTION}" Match="{$rule.ATTRIBUTES.MATCH}" EffectiveTime="{$rule.ATTRIBUTES.EFFECTIVETIME}" Status="{$rule.ATTRIBUTES.STATUS}" />
+	   			{foreach item=db key=ruleName from=$item.DATABASE }
+	   				<Database Name="{$db.ATTRIBUTES.NAME}" Driver="{$db.ATTRIBUTES.DRIVER}" Server="{$db.ATTRIBUTES.SERVER}" Port="{$db.ATTRIBUTES.PORT}" DBName="{$db.ATTRIBUTES.DBNAME}" User="{$db.ATTRIBUTES.USER}" Password="{$db.ATTRIBUTES.PASSWORD}" Charset="{$db.ATTRIBUTES.CHARSET}" Status="{$db.ATTRIBUTES.STATUS}" />
 	   			{/foreach}
 			{/if}
    		</{$itemName}>
    		{/if}
-   {/foreach}
-   </Security>
-</PluginService>
+   {/foreach}   
+</Application>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DatabaseListForm" icon="icon_database_list.png" Class="DatabaseForm" FormType="List" jsClass="jbForm" Title="Database Connection Management" Description="You can review and manage system database connection. " BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" ConfigFile="application.xml" ConfigNode="DataSource" Message="database.msg" Access="System.Administer_System">
+<EasyForm Name="DatabaseListForm" icon="icon_database_list.png" Class="DatabaseForm" FormType="List" jsClass="jbForm" Title="Database Connection Management" Description="You can review and manage system database connection. " BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" ConfigFile="application.xml" ConfigNode="DataSource" MessageFile="database.msg" Access="System.Administer_System">
     <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="NAME"/>

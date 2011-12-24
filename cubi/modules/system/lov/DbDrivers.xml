@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<SELECTION>   
+   <Driver Text="MySQL" Value="PDO_MYSQL"/>
+   <Driver Text="Microsoft SQL Server" Value="PDO_DBLIB"/>   
+   <Driver Text="Firebird" Value="PDO_FIREBIRD"/>
+   <Driver Text="IBM DB2" Value="PDO_IBM"/>
+   <Driver Text="Oracle" Value="PDO_OCI"/>
+   <Driver Text="PostgreSQL" Value="PDO_PGSQL"/>
+   <Driver Text="SQLite 3" Value="PDO_SQLITE"/>
+   
+   <Charset Text="UTF8" Value="utf8" />
+   <Charset Text="GBK" Value="gbk" />
+   <Charset Text="BIG5" Value="big5" />
+   <Charset Text="Latin-1" Value="latin1" />
+</SELECTION>   

@@ -244,9 +244,6 @@ class DatabaseForm extends EasyForm
    
    public function deleteRecord($id=null)
     {
-        if ($this->m_Resource != "" && !$this->allowAccess($this->m_Resource.".delete"))
-            return BizSystem::clientProxy()->redirectView(ACCESS_DENIED_VIEW);
-
         if ($id==null || $id=='')
             $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
 
@@ -325,7 +322,7 @@ class DatabaseForm extends EasyForm
 		{
 			$nodesArr = $configArr["APPLICATION"][strtoupper($this->m_ConfigNode)]["DATABASE"];
 			for($i=0;$i<count($nodesArr);$i++){
-				if(is_array($nodesArr[$i]["ATTRIBUTES"])){
+				if(is_array($nodesArr[$i]["ATTRIBUTES"])){					
 					if($nodesArr[$i]["ATTRIBUTES"]["NAME"]==$name){	
 						unset($configArr["APPLICATION"][strtoupper($this->m_ConfigNode)]["DATABASE"][$i]);
 					}
@@ -371,7 +368,7 @@ class DatabaseForm extends EasyForm
 	private function saveToXML($data){
 		$smarty = BizSystem::getSmartyTemplate();
 		$smarty->assign("data", $data);
-		$xmldata = $smarty->fetch(BizSystem::getTplFileWithPath("serviceTemplate.xml.tpl", $this->m_Package));
+		$xmldata = $smarty->fetch(BizSystem::getTplFileWithPath("applicationTemplate.xml.tpl", $this->m_Package));
 		$service_dir = APP_HOME;
 		$service_file = $service_dir.DIRECTORY_SEPARATOR.$this->m_ConfigFile;
 		file_put_contents($service_file ,$xmldata);		
