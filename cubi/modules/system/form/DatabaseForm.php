@@ -224,7 +224,6 @@ class DatabaseForm extends EasyForm
             $this->processFormObjError($e->m_Errors);
             return;
         }
-        $recArr["EFFECTIVETIME"] = $recArr["starthour"].$recArr["starttime"]."-".$recArr["endhour"].$recArr["endtime"];
 		$nodeArr = array(
 			"ATTRIBUTES" => null,
 			"VALUE" => null
@@ -262,7 +261,94 @@ class DatabaseForm extends EasyForm
         $this->runEventLog();
         $this->processPostAction();
     }	
+    
+    public function TestConnection($id=null){
+        if ($id==null || $id=='')
+            $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
+
+        $selIds = BizSystem::clientProxy()->getFormInputs('row_selections', false);
+        if ($selIds == null)
+            $selIds[] = $id;
+            
+        //check prehabit to delete default theme        
+        foreach ($selIds as $id)
+        {
+            $this->testConnStatus($id);            
+        }
+        if ($this->m_FormType == "LIST")
+            $this->rerender();
+
+        $this->runEventLog();
+        $this->processPostAction();    	
+    }
 	
+	private function testConnStatus($name){
+		$file = APP_HOME.DIRECTORY_SEPARATOR.$this->m_ConfigFile;
+		if(!is_file($file)){
+			return;
+		}
+		$configArr=BizSystem::getXmlArray($file);
+		$recordName = $configArr["APPLICATION"][strtoupper($this->m_ConfigNode)]["DATABASE"]["ATTRIBUTES"]["NAME"];
+		if(!$recordName)
+		{
+			$nodesArr = $configArr["APPLICATION"][strtoupper($this->m_ConfigNode)]["DATABASE"];
+			for($i=0;$i<count($nodesArr);$i++){
+				if(is_array($nodesArr[$i]["ATTRIBUTES"])){					
+					if($nodesArr[$i]["ATTRIBUTES"]["NAME"]==$name){	
+						
+						$rec = $nodesArr[$i]["ATTRIBUTES"];
+						
+						$server = $rec['SERVER'];	
+			    		$port 	= $rec['PORT'];
+			    		$driver	= $rec['DRIVER'];
+			    		$username= $rec['USER'];
+			    		$password 	= $rec['PASSWORD'];
+			    		$charset 	= $rec['CHARSET'];
+			    		$dbname 	= $rec['DBNAME'];
+						
+						$dbconn = @mysql_connect($server.":".$port,$username,$password);
+        				$dblist = @mysql_list_dbs($dbconn); 
+						
+						$connStatus = 0;
+						while ($row = @mysql_fetch_array($dblist)){
+		        			if($row['Database']==$dbname){
+		        				$connStatus = 1; 
+		        				break;
+		        			}
+		        		}
+						$configArr["APPLICATION"][strtoupper($this->m_ConfigNode)]["DATABASE"][$i]["ATTRIBUTES"]['STATUS']=$connStatus;
+					}
+				}
+			}
+		}
+		else
+		{			
+			$rec = $configArr["APPLICATION"][strtoupper($this->m_ConfigNode)]["DATABASE"]["ATTRIBUTES"];
+						
+						$server = $rec['SERVER'];	
+			    		$port 	= $rec['PORT'];
+			    		$driver	= $rec['DRIVER'];
+			    		$username= $rec['USER'];
+			    		$password 	= $rec['PASSWORD'];
+			    		$charset 	= $rec['CHARSET'];
+			    		$dbname 	= $rec['DBNAME'];
+						
+						$dbconn = @mysql_connect($server.":".$port,$username,$password);
+        				$dblist = @mysql_list_dbs($dbconn); 
+						
+						$connStatus = 0;
+						while ($row = @mysql_fetch_array($dblist)){
+		        			if($row['Database']==$dbname){
+		        				$connStatus = 1; 
+		        				break;
+		        			}
+		        		}
+		        		$configArr["APPLICATION"][strtoupper($this->m_ConfigNode)]["DATABASE"]["ATTRIBUTES"]['STATUS']=$connStatus;
+			
+		}
+		$this->saveToXML($configArr);	
+	}
+    
 	private function addNode($nodeArr){
 		$file = APP_HOME.DIRECTORY_SEPARATOR.$this->m_ConfigFile;
 		if(!is_file($file)){
