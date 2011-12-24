@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="URLRuleNewForm" Class="SecurityRuleForm" icon="icon_security_add.gif" FormType="New" jsClass="jbForm" Title="URL Filter Management" Description="Security management is a rule based filters system module.\nThis form allows you to control access about URL request from the Internet by specifying keywords in URL.  "  BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="new.tpl.html"  EventName="SECURITY" ConfigFile="securityService.xml" ConfigNode="UrlFilter" Access="System.Administer_System" Message="database.msg">
+<EasyForm Name="DatabaseNewForm" Class="DatabaseForm" icon="icon_database_add.png" FormType="New" jsClass="jbForm" Title="Database Connection Management" Description="You can review and manage system database connection. "  BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl"  ConfigFile="application.xml" ConfigNode="DataSource" Access="System.Administer_System" Message="database.msg">
     <DataPanel>
-		<Element Name="fld_name" DefaultValue="New_URL_Filter_Rule" Class="InputText" Required="Y" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
-        <Element Name="fld_match" Class="InputText" Required="Y" FieldName="MATCH" Label="Match Rule" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-        <Element Name="fld_starthour" Class="Listbox" SelectFrom="security.lov.SecurityLOV(Hour)" FieldName="starthour" DefaultValue="00" Label="Effective Time"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-        <Element Name="fld_starttime" Class="Listbox" SelectFrom="security.lov.SecurityLOV(Time)" FieldName="starttime" DefaultValue="00" Label="Start Time"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_endhour" Class="Listbox" SelectFrom="security.lov.SecurityLOV(Hour)" FieldName="endhour" DefaultValue="23" Label="End Hour"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-        <Element Name="fld_endtime" Class="Listbox"  SelectFrom="security.lov.SecurityLOV(Time)" FieldName="endtime" DefaultValue="59" Label="End Time"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-                
-        <Element Name="fld_action" Class="Listbox" SelectFrom="security.lov.SecurityLOV(Action)" DefaultValue="Deny" FieldName="ACTION" Label="Action"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
-        <Element Name="fld_enable" Class="Listbox" SelectFrom="security.lov.SecurityLOV(Status)" DefaultValue="Enable"  FieldName="STATUS" Label="Enable"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+		<Element Name="fld_name" DefaultValue="New_DB" Class="InputText" Required="Y" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_driver" Class="Listbox" SelectFrom="system.lov.DbDrivers(Driver)" FieldName="DRIVER" Label="Driver"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_server" DefaultValue="localhost" Class="InputText" FieldName="SERVER" Label="Server" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_port" DefaultValue="3306" Class="InputText" FieldName="PORT" Label="Port" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_username" DefaultValue="root" Class="InputText" FieldName="USER" Label="Username"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_password" Class="InputPassword" FieldName="PASSWORD" Label="Password"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="btn_load" Class="Button" Text="Load Database" HTMLattr="style='color:#666666';" CssClass="button_gray_w">
+            <EventHandler Name="load_onclick" EventLogMsg="" Event="onclick" Function="UpdateForm()" />
+        </Element>
+        <Element Name="fld_db_name" Class="system.form.DBListbox" Required="Y" FieldName="DBNAME" Label="Database"  AllowURLParam="N" />
+        <Element Name="fld_charset" Class="Listbox" SelectFrom="system.lov.DbDrivers(Charset)" FieldName="CHARSET" Label="Charset"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        	
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=security.form.URLRuleDetailForm&amp;fld:Id={@:m_RecordId}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=system.form.DatabaseDetailForm&amp;fld:Id={@:m_RecordId}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
