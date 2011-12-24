@@ -24,11 +24,16 @@ body{
 	background-position:center 0px;
 	background-color:#dfdfdf;
 }
+#header_bg{
+	height:63px;
+	width:1000px;
+	background-image:url(../images/header_bg.png);
+	border-bottom:4px solid #006599;
+}
 #header{
 	height:63px;
 	width:1000px;
-	border-bottom:4px solid #006599;
-	background-color:#129bc7;
+
 	color:#FFFFFF;
 	background-image:url(../../../images/top_logo_banner.gif);
 	background-position: 0px 0px;
