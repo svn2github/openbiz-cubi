@@ -10,6 +10,7 @@
         <Element Name="fld_password" Class="LabelPassword" FieldName="PASSWORD" Label="Password"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_dbname" Class="LabelText" FieldName="DBNAME" Label="Database"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_charset" Class="LabelText" FieldName="CHARSET" Label="Charset"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_options" Class="LabelText" FieldName="OPTIONS" Label="Options"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_status" Class="LabelBool" FieldName="STATUS" Label="Status"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	        	            
     </DataPanel>
     <ActionPanel>

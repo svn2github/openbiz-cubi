@@ -11,6 +11,7 @@
             <EventHandler Name="load_onclick" EventLogMsg="" Event="onclick" Function="UpdateForm()" />
         </Element>
         <Element Name="fld_db_name" Class="system.form.DBListbox" Required="Y" FieldName="DBNAME" Label="Database"  AllowURLParam="N" />
+        <Element Name="fld_options" Class="InputText" FieldName="OPTIONS" Label="Options"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_charset" Class="Listbox" SelectFrom="system.lov.DbDrivers(Charset)" FieldName="CHARSET" Label="Charset"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         	
 	</DataPanel>
