@@ -280,6 +280,51 @@ background-position:left bottom;
 	text-indent:18px;
 	line-height:38px;
 }
+#main #left_panel h2{
+	color: #333333;
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 25px;
+    text-indent: 5px;
+    width: 105px;
+}
+#main #left_panel .menu_index_link
+{
+	color: #999999;
+    text-decoration: none;	
+}
+#main #left_panel .menu_index_link:hover {
+    color: #666666;
+    text-decoration: underline;
+}
+#main #left_panel .menu_index_link:active {
+    color: #999999;
+    text-decoration: underline;
+}
+#main #left_panel .content .btn_dashboard{
+    background-image: url("../images/dashboard_icon.gif");
+    background-position: left top;
+    background-repeat: no-repeat;
+    display: block;
+    float: left;
+    height: 12px;
+    margin-left: 5px;
+    margin-top: 3px;
+    margin-right: 5px;
+    width: 12px;
+}
+#main #left_panel .content .btn_dashboard:hover {
+    background-position: -12px top;
+}
+#main #left_panel .content .btn_dashboard:active {
+    background-position: -24px top;
+}
+#main #left_panel .menu_title
+{
+height:25px;padding-top:0px;margin-bottom:5px;border-bottom: 1px solid #D6D6D6;margin-left:10px;margin-right:10px;
+}	
 #main #left_panel .content .toplevel
 {
 	display:block;

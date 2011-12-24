@@ -1,4 +1,6 @@
+<div class="menu_title">
 <h2>{$widget.title}</h2>
+</div>
 <ul class="toplevel {$widget.css} left_menu">
 	{foreach item=item from=$widget.menu}
 	<li>
