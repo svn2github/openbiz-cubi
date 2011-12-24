@@ -19,6 +19,7 @@ var top_menu_play=false;
 var top_menu_move_direction='';
 var top_menu_play_speed=1000;
 </script>
+<div id="header_bg">
 	<div id="header" {if $header_background_image!='' } style="background-image:url({$resource_url}{$header_background_image});" {/if}>
 		<div id="header_right">
 			<div id="user_actions">
@@ -59,6 +60,7 @@ var top_menu_play_speed=1000;
 			
 		</div>
 	</div>	
+</div>
 	<div id="header_navi">
 		<div id="navi">
 		{php}echo Bizsystem::GetObject('menu.widget.BreadcrumbMenu')->render();{/php}
@@ -75,6 +77,7 @@ var top_menu_play_speed=1000;
 		
 		</div>			
 	</div>
+	
 {if $menu_count >5}
 <script>init_top_menu_pos();</script>
 {/if}	

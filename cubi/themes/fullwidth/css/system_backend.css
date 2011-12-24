@@ -13,14 +13,19 @@ body{
 #footer_warp{
 	background-color:#dfdfdf;
 }
-#header{
+#header_bg{
 	height:63px;
 	width:100%;
+	background-image:url(../images/header_bg.png);
 	border-bottom:4px solid #006599;
-	background-color:#129bc7;
+}
+
+#header{
+	height:63px;
+	width:100%;	
 	color:#FFFFFF;
 	background-image:url(../../../images/top_logo_banner.gif);
-	background-position: 0px 0px;
+	background-position: 0px 1px;
 	background-repeat:no-repeat;
 	text-align:left;	
 }
