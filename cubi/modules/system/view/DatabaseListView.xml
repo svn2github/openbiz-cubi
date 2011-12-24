@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="DatabaseListView" Title="Database Connection Setting" Description="Database Connection Setting" class="EasyView" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="System.Administer_System">
+    <FormReferences>
+        <Reference Name="system.form.DatabaseListForm"/>
+    </FormReferences>
+</EasyView>
