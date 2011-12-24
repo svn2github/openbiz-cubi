@@ -85,7 +85,17 @@ class DBListbox extends InputElement{
     	$password = BizSystem::clientProxy()->getFormInputs('fld_password')?BizSystem::clientProxy()->getFormInputs('fld_password'):$rec['password'];
     	$charset = 'UTF8';
     	
-        if(!$driver)
+    	if(!$server)
+    	{
+    		$server = $rec['SERVER'];	
+    		$port 	= $rec['PORT'];
+    		$driver	= $rec['DRIVER'];
+    		$username= $rec['USER'];
+    		$password 	= $rec['PASSWORD'];
+    		$charset 	= $rec['CHARSET'];
+    	}
+
+    	if(!$driver)
         	return;
         
 
@@ -103,7 +113,6 @@ class DBListbox extends InputElement{
         		}      		
         		break;        	
         }
-        
 
     }    
     
