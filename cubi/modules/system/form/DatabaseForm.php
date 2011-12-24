@@ -250,10 +250,13 @@ class DatabaseForm extends EasyForm
         if ($selIds == null)
             $selIds[] = $id;
             
+        
         //check prehabit to delete default theme        
         foreach ($selIds as $id)
         {
-            $this->removeNode($id);            
+			if(strtoupper($id)!='DEFAULT'){
+        		$this->removeNode($id);    
+			}        
         }
         if ($this->m_FormType == "LIST")
             $this->rerender();
@@ -369,7 +372,8 @@ class DatabaseForm extends EasyForm
 		}else{
 			$configArr["APPLICATION"][strtoupper($this->m_ConfigNode)]["DATABASE"] = $nodeArr;
 		}
-		$this->saveToXML($configArr);		
+		$this->saveToXML($configArr);	
+		$this->TestConnection($nodeArr["ATTRIBUTES"]["NAME"]);	
 	}
 	
 	private function updateNode($name, $nodeArr){
@@ -395,6 +399,7 @@ class DatabaseForm extends EasyForm
 			$configArr["APPLICATION"][strtoupper($this->m_ConfigNode)]["DATABASE"]=$nodeArr;
 		}
 		$this->saveToXML($configArr);		
+		$this->TestConnection($name);
 	}
 	
 	private function removeNode($name){
