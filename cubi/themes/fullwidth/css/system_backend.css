@@ -4,7 +4,7 @@ body{
 	background-color:#dfdfdf;
 }	
 #header_warp{
-	height:91px;	
+	height:93px;	
 	background-color:#dfdfdf;
 }
 #main_warp{
@@ -199,6 +199,8 @@ body{
 	height:24px;
 	text-align:left;
 	line-height:24px;
+	border-top:1px solid #f2f1f0;
+	border-bottom:1px solid #d3d2d2;
 }
 #header_navi #navi{
 	/*width:650px;*/
@@ -252,7 +254,8 @@ background-position:left bottom;
 }
 #main{
 	width:100%;
-	text-align:left;		
+	text-align:left;	
+	border-top:1px solid #fafaf9;	
 }
 #main .header, #main .footer{	
 	height:10px;

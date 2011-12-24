@@ -5,7 +5,7 @@ body{
 
 }	
 #header_warp{
-	height:91px;	
+	height:93px;	
 	background-image:url(../images/header_top_bg.gif);
 	background-repeat:repeat-x;
 	background-position:center 0px;
@@ -210,6 +210,8 @@ body{
 	height:24px;
 	text-align:left;
 	line-height:24px;
+	border-top:1px solid #f2f1f0;
+	border-bottom:1px solid #d3d2d2;
 }
 #header_navi #navi{
 	width:650px;
@@ -262,7 +264,8 @@ background-position:left bottom;
 }
 #main{
 	width:1000px;
-	text-align:left;		
+	text-align:left;	
+	border-top:1px solid #fafaf9;	
 }
 #main .header, #main .footer{	
 	height:10px;
