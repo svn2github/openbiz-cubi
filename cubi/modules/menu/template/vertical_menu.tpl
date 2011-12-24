@@ -1,4 +1,9 @@
+<div class="menu_title">
 <h2>{$widget.title}</h2>
+<p style="float:right;display:block;padding-top:4px;">
+<span style="display: block;float: left;"><a class="menu_index_link" href="{$app_index}/system/general_default">{t}Index{/t}</a></span> 
+<a href="{$app_index}/system/general_default"><img id="system_dashboard" class="btn_dashboard"  src="{$image_url}/spacer.gif" border="0" /></a></p>
+</div>
 <ul class="toplevel {$widget.css} left_menu">
 	{foreach item=item from=$widget.menu}
 	<li>
