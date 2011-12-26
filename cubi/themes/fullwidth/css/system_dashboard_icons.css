@@ -1,5 +1,6 @@
 #main #right_panel .dashboard_panel{
 	padding-bottom:30px;
+	min-width:600px;
 }
 
 #main #right_panel .dashboard_bg_light,#main #right_panel .dashboard_bg_light_header {
