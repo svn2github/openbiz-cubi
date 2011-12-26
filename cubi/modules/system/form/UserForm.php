@@ -35,6 +35,13 @@ class UserForm extends EasyForm
 	private $m_ProfileEditForm = "contact.form.ContactEditForm";
 	private $m_ProfileDetailForm = "contact.form.ContactDetailForm";
 	
+	public function GoDetail()
+	{		
+        $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
+		$redirectPage = APP_INDEX."/system/user_detail/".$id;
+		BizSystem::clientProxy()->ReDirectPage($redirectPage);
+	}
+	
     public function CreateUser()
     {
         $recArr = $this->readInputRecord();

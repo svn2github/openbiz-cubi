@@ -18,7 +18,9 @@
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m">
             <EventHandler Name="edit_onclick" Event="onclick" Function="EditRecord()" RedirectPage="user_edit/{@:Elem[fld_Id].Value}"/>
         </Element>
-
+		<Element Name="btn_detail" Class="Button" Text="Detail" CssClass="button_gray_m" Access="">
+            <EventHandler Name="detail_onclick" Event="onclick" Function="GoDetail()" />
+        </Element>
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
             <EventHandler Name="del_onclick" Event="onclick" Function="DeleteRecord()" ShortcutKey="Delete" ContextMenu="Delete"/>
         </Element>
