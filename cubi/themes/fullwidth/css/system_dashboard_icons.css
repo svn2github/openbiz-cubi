@@ -46,7 +46,7 @@
 	background-image:url("../images/system_dashboard_icon.png");
 }
 #main #right_panel .dashboard_panel .icons a:hover {
-	color:#1197c3;
+	color:#000000;
 }
 #main #right_panel .dashboard_panel .icons a:active {
 	color:#08abe0;
