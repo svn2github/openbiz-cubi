@@ -310,3 +310,13 @@
 #main #right_panel .dashboard_panel .icons .icon_language:active img {
 	background-position:-1260px -96px;
 }
+
+#main #right_panel .dashboard_panel .icons .icon_backup_device img {
+	background-position:-420px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_backup_device:hover img {
+	background-position:-420px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_backup_device:active img {
+	background-position:-420px -96px;
+}
