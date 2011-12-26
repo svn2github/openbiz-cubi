@@ -191,12 +191,12 @@ body{
 	color:#FFFFFF;
 }
 #header #header_right #menu ul li a.current:hover{
-	background-position:left -119px;
+	background-position:left -120px;
 	line-height:32px;	
 	color:#FFFFFF;
 }
 #header #header_right #menu ul li a.current:active{
-	background-position:left -148px;
+	background-position:left -149px;
 	line-height:32px;	
 	color:#FFFFFF;
 }
