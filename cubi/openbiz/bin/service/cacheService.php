@@ -251,7 +251,7 @@ class cacheService
      */
     public function getIds()
     {
-        if($this->m_CacheObj && strtoupper($this->m_Cache)=="ENABLE")
+        if($this->m_CacheObj && strtoupper($this->m_Cache)=="ENABLED")
         {
             return $this->m_CacheObj->getIds();
         }
