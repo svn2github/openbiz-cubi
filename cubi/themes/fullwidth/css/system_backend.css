@@ -185,8 +185,18 @@ body{
 	color:#FFFFFF;
 }
 
-#header #header_right #menu ul li a.current, #header #header_right #menu ul li a.current:active, #header #header_right #menu ul li a.current:hover{
+#header #header_right #menu ul li a.current {
 	background-position:left -90px;
+	line-height:32px;	
+	color:#FFFFFF;
+}
+#header #header_right #menu ul li a.current:hover{
+	background-position:left -119px;
+	line-height:32px;	
+	color:#FFFFFF;
+}
+#header #header_right #menu ul li a.current:active{
+	background-position:left -138px;
 	line-height:32px;	
 	color:#FFFFFF;
 }
