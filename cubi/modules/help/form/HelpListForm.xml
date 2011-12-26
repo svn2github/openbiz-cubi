@@ -6,7 +6,7 @@
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N"/>                  	
         <Element Name="fld_category_id" Class="Hidden" Hidden="Y" FieldName="c" Label="Category ID"  Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />
         <Element Name="fld_category_name" Class="ColumnText" FieldName="category_name" Label="Category"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
-        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:">
+        <Element Name="fld_title" Class="ColumnText"  MaxLength="30" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:">
         <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(help.form.HelpDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>	
         <Element Name="fld_description" MaxLength="30" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
