@@ -5,7 +5,7 @@
 		        <Element Name="fld_category_id" Class="LabelText" FieldName="category_name" Label="Category" AllowURLParam="N"/>
 		        <Element Name="fld_title" Class="LabelText" FieldName="title" Label="Title" AllowURLParam="N"/>
 		        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description" AllowURLParam="N"/>
-		        <Element Name="fld_content" Class="HTMLPreview" Heigth="500" FieldName="content" Label="Content" AllowURLParam="N"/>
+		        <Element Name="fld_content" Class="HTMLPreview" Height="500" FieldName="content" Label="Content" AllowURLParam="N"/>
 	    </DataPanel>
     <ActionPanel>       
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
