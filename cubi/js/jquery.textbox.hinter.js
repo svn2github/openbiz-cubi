@@ -9,8 +9,7 @@
 	$j.fn.tbHinter = function(options) {
 
 	var defaults = {
-		text: 'Enter a text ...',
-   		class: ''
+		text: 'Enter a text ...'   		
 	};
 	
 	var options = $j.extend(defaults, options);
