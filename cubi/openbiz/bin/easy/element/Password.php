@@ -51,7 +51,7 @@ class Password extends InputElement
     	if($this->m_Hint){
         	$sHTML.="<script>        	
         	\$j('#" . $this->m_Name . "').tbHinter({
-				text: '".$this->m_Hint."',
+				text: '".$this->m_Hint."'
 			});
         	</script>";
         }
