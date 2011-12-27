@@ -7,7 +7,9 @@
 <meta name="keywords" content="{$keywords}"/>
 {$style_sheets}
 {$scripts}
-
+{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
+<link rel="stylesheet" href="{$css_url}/ipad.css" type="text/css" />
+{php}}{/php}
 </head>
 
 <body>
