@@ -17,5 +17,10 @@
 				{$elem.element}
 			{/foreach}
 </div>
-<script>init_help_content()</script>
+{literal}
+<script>
+init_help_content();
+try{$('help_content').style.display="block";}catch(e){};
+</script>
+{/literal}
 </form>
