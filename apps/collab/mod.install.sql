@@ -291,6 +291,7 @@ INSERT INTO `bookmark_type` (`id`, `name`, `color`,`description`, `sortorder`, `
 DROP TABLE IF EXISTS `bookmark`;
 CREATE TABLE `bookmark` (
   `id` int(11) NOT NULL auto_increment,
+  `icon` varchar(255) default '',
   `title` varchar(255) default '',
   `description` text NOT NULL,
   `url` varchar(255) NOT NULL,
