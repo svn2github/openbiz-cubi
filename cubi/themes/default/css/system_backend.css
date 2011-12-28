@@ -932,7 +932,7 @@ background-position:left bottom;
     height: 16px;
     overflow: hidden;
     width: 16px;
-    background-image: url("../images/screen_switch_icon.png");
+    background-image: url("../images/screen_switch_icon.gif");
 }
 .screen_switch_max_btn:hover {
     background-position: -16px -16px;
@@ -947,7 +947,7 @@ background-position:left bottom;
     height: 16px;
     overflow: hidden;
     width: 16px;
-    background-image: url("../images/screen_switch_icon.png");
+    background-image: url("../images/screen_switch_icon.gif");
 }
 .screen_switch_min_btn:hover {
     background-position: -16px 0px;
