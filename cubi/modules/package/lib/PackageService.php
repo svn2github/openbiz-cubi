@@ -14,6 +14,8 @@ class PackageService extends MetaObject
 
     public $repositoryUrl; // repository url
     
+    public static $printConsole = false;
+    
     function __construct(&$xmlArr)
     {
         $this->readMetadata($xmlArr);
@@ -97,7 +99,6 @@ class PackageService extends MetaObject
             $httpClient->addQuery($q);
         $headerList = array();
         $out = $httpClient->fetchContents($this->repositoryUrl, $headerList);
-        //echo $out;
         $pkgs = json_decode($out, true);
         return $pkgs;
     }
@@ -110,8 +111,10 @@ class PackageService extends MetaObject
         $this->_installPackage = $package;
         // get the master package record
         $pkgs = $this->findPackages("[status]=1 AND [name]='$package'");
-        if (!$pkgs) return null;
-
+        if (!$pkgs) { 
+            return null;
+        }
+        //print_r($pkgs);
         
         // download cpk from respository url
         $pkg = $pkgs['data'][0];
@@ -119,6 +122,7 @@ class PackageService extends MetaObject
  		// $pkg['repository']='http://guides.hosting.czm.cn/test.rar';
         if (empty($pkg)) {
             $this->setInstallInfo($package, array("state"=>"ERROR","log"=>"Unable to find same package from repository"));
+            pkg_log("Package download error: Unable to find same package $package from repository");
             return false;
         }
         pkg_log(">>> Package: ".$pkg['package_id'].", ".$pkg['name'].", ".$pkg['version'].", ".$pkg['repository']."\n");
@@ -410,7 +414,7 @@ class PackageService extends MetaObject
 
 function pkg_log($text)
 {
-    // echo $text;
+    if (PackageService::$printConsole) echo $text.nl;
     //BizSystem::log(LO_ERR, "ECHO", $text);
     $logfile = LOG_PATH."/install_pkg.log";
     $fp = fopen($logfile, "a+");
