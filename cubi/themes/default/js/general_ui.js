@@ -48,7 +48,7 @@ function init_help_content(){
 function control_help_content(action){
 	switch(action){
 		case "hide":
-			$('help_content').hide();
+			$('help_content').style.display="none";
 			$('switch_help_content_btn').className='btn_max';			
 			break;
 		case "show":
@@ -56,6 +56,7 @@ function control_help_content(action){
 			$('help_content').style.display="block";
 			$('help_content').fade({duration: 0.5,from: 0.5, to: 1}); 
 			$('switch_help_content_btn').className='btn_min';			
+			setTimeout("$('help_content').show();",600);
 			break;
 	}
 }
