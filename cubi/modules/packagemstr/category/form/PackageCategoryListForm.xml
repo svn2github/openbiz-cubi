@@ -2,16 +2,13 @@
 <EasyForm Name="PackageCategoryListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Package Category Management" Description="" BizDataObj="packagemstr.category.do.PackageCategoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="PackageCategory.Access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:">         
-         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(packagemstr.category.form.PackageCategoryDetailForm,{@:Elem[fld_Id].Value})"   />
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N"/>
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Link="javascript:" Sortable="Y">
+            <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(packagemstr.category.form.PackageCategoryDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
-                <Element Name="fld_parent_id" Class="ColumnText" FieldName="parent_id" Label="Parent Id"  Sortable="Y" Link="javascript:">
-         		<EventHandler Name="fld_parent_id_onclick" Event="onclick" Function="SwitchForm(packagemstr.category.form.PackageCategoryDetailForm,{@:Elem[fld_Id].Value})"   />
-        </Element>
-                <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Package Category" Sortable="Y"/>
-                <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y"/>
-                <Element Name="fld_attrs" Class="ColumnText" FieldName="attrs" Label="Attrs"  Sortable="Y"/>
-                <Element Name="fld_publish" Class="ColumnText" FieldName="publish" Label="Publish"  Sortable="Y"/>
+        <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y"/>
+        <!--<Element Name="fld_attrs" Class="ColumnText" FieldName="attrs" Label="Attrs"  Sortable="Y"/>-->
+        <Element Name="fld_publish" Class="ColumnText" FieldName="publish" Label="Publish"  Sortable="Y"/>
         <Element Name="fld_sort_order" Class="ColumnSorting" FieldName="sort_order" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sort_order,{@:Elem[fld_sort_order].Value-5})" />
         	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sort_order,{@:Elem[fld_sort_order].Value+5})" />
@@ -57,7 +54,7 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
-			<Element Name="qry_parent_id" Class="AutoSuggest" SelectFrom="packagemstr.category.do.PackageCategoryDO[parent_id],[parent_id] like '%{@:Elem[qry_parent_id].Value}%' GROUP BY [parent_id]" FuzzySearch="Y" FieldName="parent_id" Label="" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
+        <Element Name="qry_name" Class="InputText" FuzzySearch="Y" FieldName="name" Label="" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>	

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="PackageCategoryCopyForm" Class="EasyForm" FormType="Copy" jsClass="jbForm" Title="Copy Package Category" Description="" BizDataObj="packagemstr.category.do.PackageCategoryDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
     <DataPanel>
-		<Element Name="fld_parent_id" Class="InputText" FieldName="parent_id" Label="Parent Id"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_parent_id" Class="TreeListbox" FieldName="parent_id" Label="Parent Id" BLANKOPTION="-- Root --,0" SelectFrom="packagemstr.category.do.PackageCategoryDO[name:Id]"/>
 		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_description" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
-		<Element Name="fld_attrs" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="attrs" Label="Attrs"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
-		<Element Name="fld_publish" Class="InputText" FieldName="publish" Label="Publish"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"/>            
+		<!--<Element Name="fld_attrs" Class="Textarea" FieldName="attrs" Label="Attrs" />-->            
+		<Element Name="fld_publish" Class="Checkbox" FieldName="publish" Label="Publish" SelectFrom="1" DefaultValue="0" />
     	<Element Name="fld_sort_order" Class="Listbox"  SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sort_order" Label="Ordering"  AllowURLParam="N" />
     </DataPanel>
     <ActionPanel>

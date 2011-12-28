@@ -2,7 +2,7 @@
 <EasyForm Name="PackageCategoryDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Title="Package Category Detail" Description="" BizDataObj="packagemstr.category.do.PackageCategoryDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-       	<Element Name="fld_parent_id" ElementSet="General" Class="LabelText" FieldName="parent_id" Label="Parent Id" AllowURLParam="N"/>
+       	<Element Name="fld_parent_id" ElementSet="General" Class="TreeLabelText" FieldName="parent_id" Label="Parent Id" BLANKOPTION="-- Root --,0" SelectFrom="packagemstr.category.do.PackageCategoryDO[name:Id]"/>
        	<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
        	<Element Name="fld_description" ElementSet="General" Class="LabelText" FieldName="description" Label="Description" AllowURLParam="N"/>
        	<Element Name="fld_attrs" ElementSet="General" Class="LabelText" FieldName="attrs" Label="Attrs" AllowURLParam="N"/>

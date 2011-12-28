@@ -10,7 +10,7 @@
 		<Element Name="fld_pltfm_ver" Class="InputText" FieldName="pltfm_ver" Label="Pltfm Ver"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
 		<Element Name="fld_author" Class="InputText" FieldName="author" Label="Author"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
 		<Element Name="fld_file" Class="InputText" FieldName="file" Label="File"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_description" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />            
+		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"  />            
 		<Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(Status)"/>
 		<Element Name="fld_release_time" Class="InputDatetime" DateFormat="%Y-%m-%d %H:%M:%S" FieldName="release_time" Label="Release Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
 		<Element Name="fld_repository" Class="Textarea" FieldName="repository" Label="Repository" />            
