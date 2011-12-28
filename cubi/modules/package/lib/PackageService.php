@@ -14,8 +14,6 @@ class PackageService extends MetaObject
 
     public $repositoryUrl; // repository url
     
-    public static $printConsole = false;
-    
     function __construct(&$xmlArr)
     {
         $this->readMetadata($xmlArr);
@@ -414,7 +412,7 @@ class PackageService extends MetaObject
 
 function pkg_log($text)
 {
-    if (PackageService::$printConsole) echo $text.nl;
+    if (CLI) echo $text.nl;
     //BizSystem::log(LO_ERR, "ECHO", $text);
     $logfile = LOG_PATH."/install_pkg.log";
     $fp = fopen($logfile, "a+");
