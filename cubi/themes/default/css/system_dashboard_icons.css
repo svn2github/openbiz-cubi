@@ -44,7 +44,7 @@
 	display:block;
 	height:50px;
 	width:60px;		
-	background-image:url("../images/system_dashboard_icon.png");
+	background-image:url("../images/system_dashboard_icon.gif");
 }
 #main #right_panel .dashboard_panel .icons a:hover {
 	color:#000000;
