@@ -2,6 +2,7 @@
 <BizDataObj Name="BookmarkDO" Description="" DataPermControl="Y" Class="BizDataObj" DBName="Default" Table="bookmark" SearchRule="" SortRule="[sortorder] ASC, [Id] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
 	<BizFieldList>
 		<BizField Name="Id" Column="id"     Type=""/>
+		<BizField Name="icon" Column="icon" Length="255"   Required="N" Type=""/>
 		<BizField Name="title" Column="title" Length="255"   Required="N" Type=""/>
 		<BizField Name="description" Column="description" Type=""/>
 		<BizField Name="url" Column="url" Type=""/>
