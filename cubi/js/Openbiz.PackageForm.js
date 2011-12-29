@@ -17,7 +17,7 @@ Openbiz.PackageForm = Class.create(Openbiz.Form,
                 inst_info = tgt_ctnt.content.split('|', 4);
                 state = inst_info[0];                 
                 log = inst_info[1]; 
-                //$(tgt_ctnt.target).innerHTML = log;
+                $(tgt_ctnt.target).innerHTML = log;
                 if (state == 'Install' ||
                 	state == 'Download' ||
                 	state == 'Wait' 
