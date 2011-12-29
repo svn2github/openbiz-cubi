@@ -3,7 +3,7 @@
     <DataPanel>        
         <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y"/>
         	
-	    <Element Name="fld_to" Class="InputText" FieldName="recipient_to" Label="Recipient To" Description="Select message recipients from contact list" >
+	    <Element Name="fld_to" Class="InputText" FieldName="recipient_to" Label="Send To" Description="Select message recipients from contact list" >
 	        <EventHandler Name="to_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientPickForm)"/>	    
 	    </Element>
 	    <Element Name="fld_cc" Class="InputText" FieldName="recipient_cc" Label="Recipient CC"  Description="Contacts can also get this message"  >
