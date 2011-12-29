@@ -10,7 +10,7 @@
 			<div class="announcement_widget">
 				<div class="title">
 					<a class="icon" href="{$app_index}/collab/announcement_view"></a>
-					<div style="float:left;">
+					<div style="float:left;width:120px;">
 					<h2>{$form.title}</h2>
 					<p>{$form.description}</p>
 					</div>
