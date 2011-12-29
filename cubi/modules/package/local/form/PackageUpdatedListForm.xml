@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="PackageUpdatedListForm" Class="PackageLocalForm" FormType="List" jsClass="jbForm"  Icon="{RESOURCE_URL}/package/images/icon_package_update.png" Title="Recent Updated Packages" Description="Update installed package and bugfix package from here." SearchRule="([inst_version]!='' AND [inst_version] &lt; [version])" BizDataObj="package.local.do.PackageLocalDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="PackageLocal.Access">
     <DataPanel>
-              <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
     
-         <Element Name="fld_Id" Class="ColumnHidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:">         
+        <Element Name="fld_Id" Class="ColumnHidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:">         
         </Element>
         <Element Name="fld_package_id" Class="ColumnHidden" Hidden="Y" FieldName="package_id" Label="Package Id"  Sortable="Y" Link="javascript:"/>
             

@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="PackageReleasedListForm" Class="PackageLocalForm"  FormType="List" jsClass="jbForm" Title="New Released Packages" Description="Get and install new features to cubi system." BizDataObj="package.local.do.PackageLocalDO" SearchRule="( [inst_time]='' or [inst_time] is null )"  PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="PackageLocal.Access">
+<EasyForm Name="PackageLocalListForm" Class="PackageLocalForm"  FormType="List" jsClass="jbForm" Title="New Released Packages" Description="Get and install new features to cubi system." BizDataObj="package.local.do.PackageLocalDO" SearchRule=""  PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="PackageLocal.Access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
     
         <Element Name="fld_Id" Class="ColumnHidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:">         
         </Element>
-        <Element Name="fld_package_id" Class="ColumnHidden" Hidden="Y" FieldName="package_id" Label="Package Id"  Sortable="Y" Link="javascript:"/>
+        <Element Name="fld_package_id" Class="ColumnText" FieldName="package_id" Label="Package Id"  Sortable="Y" Link="javascript:"/>
             
-        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Package" Sortable="Y"  Link="javascript:">
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Package Name" DefaultValue="New Package" Sortable="Y"  Link="javascript:">
         	<EventHandler Name="fld_package_id_onclick" Event="onclick" Function="SwitchForm(package.local.form.PackageLocalDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
         <Element Name="fld_category_name" Class="ColumnText" FieldName="category_name" Label="Category"  Sortable="Y"/>
-        <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y"/>
-        <Element Name="fld_version" Class="ColumnText" FieldName="version" Label="Version"  Sortable="Y"/>
-		<Element Name="fld_author" Class="ColumnText" FieldName="author" Label="Author"  Sortable="Y"/>
-        <Element Name="fld_release_time" Class="ColumnText" FieldName="release_time" Label="Release Time"  Sortable="Y"/>-->
+        <!--<Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y"/>-->
+        <Element Name="fld_version" Class="ColumnText" FieldName="version" Label="Released Version"  Sortable="Y"/>
+		<!--<Element Name="fld_author" Class="ColumnText" FieldName="author" Label="Author"  Sortable="Y"/>-->
+        <Element Name="fld_release_time" Class="ColumnText" FieldName="release_time" Label="Released Time"  Sortable="Y"/>
+        <Element Name="fld_inst_version" Class="ColumnText" FieldName="inst_version" Label="Installed Version"  Sortable="Y"/>
+        <Element Name="fld_inst_time" Class="ColumnText" FieldName="inst_time" Label="Installed Time"  Sortable="Y"/>
+        
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_reload" Class="Button" Text="Refresh" CssClass="button_gray_w" Access="PackageLocal.Manage">
             <EventHandler Name="reload_onclick" Event="onclick" EventLogMsg="" Function="Reload()"/>
+        </Element> 
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_w" Access="PackageLocal.Manage">
+            <EventHandler Name="delete_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()"/>
         </Element> 
     </ActionPanel> 
     <NavPanel>

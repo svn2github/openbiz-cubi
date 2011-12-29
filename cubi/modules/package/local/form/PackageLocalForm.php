@@ -106,7 +106,7 @@ class PackageLocalForm extends EasyForm
         $updArray['progress_bar'] = $progress;
         BizSystem::clientProxy()->updateFormElements($this->m_Name, $updArray);
         
-        $this->updateForm();
+        //$this->updateForm();
         return;
     }
 }

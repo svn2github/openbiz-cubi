@@ -64,7 +64,7 @@ class PackageService extends MetaObject
         // update or insert package in package DO
         $localPkgDo = BizSystem::GetObject(self::LOCAL_PACKAGE_DO);
         foreach ($pkgs['data'] as $pkg) {
-            //pkg_log(">>> Package: ".$pkg['package_id'].", ".$pkg['name'].", ".$pkg['version'].", ".$pkg['repository']."\n");
+            pkg_log(">>> Package: ".$pkg['package_id'].", ".$pkg['name'].", ".$pkg['version'].", ".$pkg['repository']."\n");
             // insert or update local master package DO
             $this->saveLocalPackgeRecord($pkg);
         }
@@ -192,7 +192,7 @@ class PackageService extends MetaObject
     protected function saveLocalPackgeRecord($pkg)
     {
         $pkgDo = BizSystem::GetObject(self::LOCAL_PACKAGE_DO);
-        $record = $pkgDo->fetchByName($pkg['name']);
+        $record = $pkgDo->fetchOne("[package_id]='".$pkg['package_id']."'");
         if (!$record) {
             pkg_log("To insert ".$pkg['name'].", ".$pkg['version']." to local package table\n");
             $dataRec = new DataRecord(null, $pkgDo);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="PackageLocalDetailForm" Class="PackageLocalForm" FormType="" jsClass="Openbiz.PackageForm"  Icon="{RESOURCE_URL}/package/images/icon_package.png" Title="Package Detail" Description="" BizDataObj="package.local.do.PackageLocalDO" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl.html" EventName="" MessageFile="">
+<EasyForm Name="PackageLocalDetailForm" Class="PackageLocalForm" FormType="" jsClass="Openbiz.PackageForm" Title="Package Detail" Description="" BizDataObj="package.local.do.PackageLocalDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
        	<Element Name="fld_package_id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="package_id" Label="Package ID" AllowURLParam="N"/>
@@ -27,7 +27,7 @@
        	<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time"  AllowURLParam="N"/>       	
     </DataPanel>
     <ActionPanel>       
-        <Element Name="btn_install" Hidden="{@:m_InstallState==true?'Y':'N'}" Class="Button" Text="Install" CssClass="button_gray_w" Description="Install this package">
+        <Element Name="btn_install"  Class="Button" Text="Install" CssClass="button_gray_w" Description="Install this package">
 			<EventHandler Name="btn_install_onclick" Event="onclick" Function="LoadDialog(package.local.form.PackageInstallerForm,{@:Elem[fld_Id].Value})" />
         </Element>
         <Element Name="btn_upgrade" Hidden="{@:m_hasUpgrade==true?'N':'Y'}" Class="Button" Text="Upgrade" CssClass="button_gray_w" Description="Upgrade this package">
