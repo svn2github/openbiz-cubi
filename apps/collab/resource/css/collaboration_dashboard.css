@@ -1,0 +1,9 @@
+.announcement_widget
+{
+	height:30px;	
+}
+.announcement_widget .title h2
+{
+	font-size:14px;
+	line-height:14px;
+}

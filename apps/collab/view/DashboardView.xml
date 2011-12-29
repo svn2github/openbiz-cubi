@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
-<EasyView Name="DashboardView" Access="collab.access" Description="Collaboration Dashboard" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+<EasyView Name="DashboardView" Access="collab.access" Description="Collaboration Dashboard" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="collab_dash_view.tpl.html">
     <FormReferences>
-        <Reference Name="collab.widget.DashboardForm"/>
+        <Reference Name="collab.announcement.widget.DashboardWidgetForm"/>
     </FormReferences>
 </EasyView>

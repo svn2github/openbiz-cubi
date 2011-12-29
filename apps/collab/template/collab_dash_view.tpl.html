@@ -1,0 +1,117 @@
+{php}
+$header_background_image='/collab/images/top_logo_banner.gif';
+$this->assign('header_background_image', $header_background_image);
+
+$js_url = $this->_tpl_vars['js_url'];
+$theme_js_url = $this->_tpl_vars['theme_js_url'];
+$css_url = $this->_tpl_vars['css_url'];
+
+BizSystem::clientProxy()->includeColorPickerScripts();
+BizSystem::clientProxy()->includeCalendarScripts();
+BizSystem::clientProxy()->includeCKEditorScripts();
+$includedScripts = BizSystem::clientProxy()->getAppendedScripts();
+$includedScripts.="
+<script type='text/javascript' src='$js_url/cookies.js'></script>
+<script type='text/javascript' src='$js_url/grouping.js'></script>
+<script type='text/javascript' src='$theme_js_url/general_ui.js'></script>
+<script>try{var \$j=jQuery.noConflict();}catch(e){}</script>
+<script type='text/javascript' src='$js_url/jquery-ui-1.8.12.custom.min.js'></script>
+";
+$this->_tpl_vars['scripts'] = $includedScripts;
+
+$appendStyle = BizSystem::clientProxy()->getAppendedStyles();
+$appendStyle .= "
+<link rel=\"stylesheet\" href=\"$css_url/general.css\" type=\"text/css\" />
+<link rel=\"stylesheet\" href=\"$css_url/system_backend.css\" type=\"text/css\" />
+<link rel=\"stylesheet\" href=\"".RESOURCE_URL."/collab/css/collaboration_menu_icons.css\" type=\"text/css\" />
+<link rel=\"stylesheet\" href=\"".RESOURCE_URL."/collab/css/collaboration_dashboard.css\" type=\"text/css\" />
+
+<style>
+
+.action_panel{
+width:292px;
+}
+.search_panel{
+width:398px;
+}
+</style>
+";
+$this->_tpl_vars['style_sheets'] = $appendStyle;
+
+$left_menu = "collab.widget.CollaborationLeftMenu";
+$this->assign('left_menu', $left_menu);
+
+{/php}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}</title>
+<meta name="description" content="{$description}"/>
+<meta name="keywords" content="{$keywords}"/>
+<script src="{$js_url}/ckeditor/ckeditor.js"></script>
+{$style_sheets}
+{$scripts}
+{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
+<link rel="stylesheet" href="{$css_url}/ipad.css" type="text/css" />
+{php}}{/php}
+</head>
+
+<body>
+<div align="center" id="body_warp">
+	<div id="header_warp">
+	{include file='system_header.tpl.html'}
+	</div>
+	<!--main warp-->
+	<div id="main_warp">	
+		<!--main-->
+		<div id="main" >
+			{include file='system_loader.tpl.html'}
+			<table id="main_content" border="0" cellpadding="0" cellspacing="0">
+				<tr><td><img src="{$image_url}/spacer.gif" style="height:15px;" /></td></tr>
+				<tr>
+					<td valign="top" style="width:18px;"><img src="{$image_url}/spacer.gif" style="width:18px;" /></td>
+					<td valign="top" id="left_panel">
+						{include file='system_left_panel.tpl.html'}
+					</td>
+					<td valign="top" id="right_panel">
+						<!-- right block start -->
+	
+	
+	
+						
+		{foreach key=formname item=form from=$forms}							    
+	         <div>
+	         	{if $formname eq 'collab.announcement.widget.DashboardWidgetForm' }{$form}{/if}
+	         </div>
+	    {/foreach}		
+
+	
+	
+	
+						<!-- right block end -->
+					</td>
+				</tr>
+			  </table>		  
+			</div>
+			<!--main-->
+		
+		</div>		
+		<!--main wrap end-->
+		<!--footer-->
+		<div  id="footer_warp">			
+		{include file='system_footer.tpl.html'}
+		</div>
+		<!-- footer end -->
+	
+	</div>
+</div>
+
+{literal}
+<script>
+$('main_loader_bg').style.height = $('main_content').offsetHeight+'px';
+</script>
+{/literal}
+</body>
+</html>
+ 
