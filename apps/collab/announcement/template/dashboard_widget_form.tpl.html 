@@ -8,10 +8,12 @@
 		<form id='{$form.name}' name='{$form.name}'>
 			<table></table>
 			<div class="announcement_widget">
-				<div class="title">
-					<a class="icon" href="{$app_index}/collab/announcement_view"></a>
-					<div style="float:left;width:120px;">
-					<h2>{$form.title}</h2>
+				<div class="title" style="overflow:hidden;">
+					<div style="float:left;width:35px;">
+						<a class="icon" href="{$app_index}/collab/announcement_view"></a>
+					</div>
+					<div style="float:left;width:114px;height:30px;">
+					<h2 style="width:110px;">{$form.title}</h2>
 					<p>{$form.description}</p>
 					</div>
 				</div>
