@@ -86,8 +86,90 @@ $this->assign('left_menu', $left_menu);
 	         </div>
 	    {/foreach}		
 
+	<div class="widgets_main">
+		<div class="widget_big_shadow">
+				<div class="header"></div>
+				<div class="body">
+				{foreach key=formname item=form from=$forms}							    
+			         <div>
+			         	{if $formname eq 'collab.task.widget.DashboardWidgetForm' }{$form}{/if}
+			         </div>
+			    {/foreach}
+			    </div>
+			    <div class="footer"></div>	
+		</div>
+		<div class="widget_shadow">
+				<div class="header"></div>
+				<div class="body">
+				{foreach key=formname item=form from=$forms}							    
+			         <div>
+			         	{if $formname eq 'collab.msgbox.widget.DashboardWidgetForm' }{$form}{/if}
+			         </div>
+			    {/foreach}
+			    </div>
+			    <div class="footer"></div>	
+		</div>
+		<div class="widget_shadow">
+				<div class="header"></div>
+				<div class="body">
+				{foreach key=formname item=form from=$forms}							    
+			         <div>
+			         	{if $formname eq 'collab.calendar.widget.DashboardWidgetForm' }{$form}{/if}
+			         </div>
+			    {/foreach}
+			    </div>
+			    <div class="footer"></div>
+		</div>
+	</div>
 	
-	
+	<div class="widgets_bottom">
+		<div class="widget_big">
+				<div class="header"></div>
+				<div class="body">
+				{foreach key=formname item=form from=$forms}							    
+			         <div>
+			         	{if $formname eq 'contact.widget.DashboardWidgetForm' }{$form}{/if}
+			         </div>
+			    {/foreach}
+			    </div>
+			    <div class="footer"></div>		
+		</div>
+		<div class="widget">
+				<div class="header"></div>
+				<div class="body">
+				{foreach key=formname item=form from=$forms}							    
+			         <div>
+			         	{if $formname eq 'collab.document.widget.DashboardWidgetForm' }{$form}{/if}
+			         </div>
+			    {/foreach}
+			    </div>
+			    <div class="footer"></div>
+		</div>
+		<div class="widgets_small_container">
+			<div class="widget_small">
+				<div class="header"></div>
+				<div class="body">
+				{foreach key=formname item=form from=$forms}							    
+			         <div>
+			         	{if $formname eq 'collab.bookmark.widget.DashboardWidgetForm' }{$form}{/if}
+			         </div>
+			    {/foreach}
+			    </div>
+			    <div class="footer"></div>
+			</div>
+			<div class="widget_small">
+				<div class="header"></div>
+				<div class="body">
+				{foreach key=formname item=form from=$forms}							    
+			         <div>
+			         	{if $formname eq 'collab.note.widget.DashboardWidgetForm' }{$form}{/if}
+			         </div>
+			    {/foreach}
+			    </div>
+			    <div class="footer"></div>				
+			</div>
+		</div>
+	</div>
 	
 						<!-- right block end -->
 					</td>
