@@ -688,7 +688,7 @@ Openbiz.CKEditor =
     ['Source','-','Templates'],
     ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print', 'SpellChecker', 'Scayt'],
     ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
-    ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],
+    ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'Maximize'],
     '/',
     ['Bold','Italic','Underline','Strike','-','Subscript','Superscript'],
     ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
@@ -698,7 +698,7 @@ Openbiz.CKEditor =
     '/',
     ['Styles','Format','Font','FontSize'],
     ['TextColor','BGColor'],
-    ['Maximize', 'ShowBlocks','-','About']
+    ['ShowBlocks','-','About']
     ];
         break;
         default:
@@ -706,10 +706,10 @@ Openbiz.CKEditor =
     ['Bold','Italic','Underline','Strike','Subscript','Superscript'],
     ['NumberedList','BulletedList','Outdent','Indent'],
     ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
-    ['Link','Unlink','Image','Flash','Table','HorizontalRule','SpecialChar','PageBreak','-','SelectAll','RemoveFormat'],
+    ['Link','Unlink','Image','Flash','Table','HorizontalRule','SpecialChar','PageBreak','-','Maximize','RemoveFormat'],
     ['Styles','Format','Font','FontSize'],
     ['TextColor','BGColor'],
-    ['Maximize', 'ShowBlocks','Find','Replace','-','Source']
+    ['SelectAll', 'ShowBlocks','Find','Replace','-','Source']
     ];
         }
         CKEDITOR.replace(editorId, options);
