@@ -6,10 +6,10 @@
 	    <Element Name="fld_to" Class="InputText" FieldName="recipient_to" Label="Send To" Description="Select message recipients from contact list" >
 	        <EventHandler Name="to_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientPickForm)"/>	    
 	    </Element>
-	    <Element Name="fld_cc" Class="InputText" FieldName="recipient_cc" Label="Recipient CC"  Description="Contacts can also get this message"  >
+	    <Element Name="fld_cc" Class="InputText" FieldName="recipient_cc" Label="Send CC"  Description="Contacts can also get this message"  >
 	    	<EventHandler Name="cc_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientCCPickForm)"/>
 	    </Element>
-	    <Element Name="fld_bcc" Class="InputText" FieldName="recipient_bcc" Label="Recipient BCC" Description="Contacts are invisible for other recipients"   >
+	    <Element Name="fld_bcc" Class="InputText" FieldName="recipient_bcc" Label="Send BCC" Description="Contacts are invisible for other recipients"   >
 	    	<EventHandler Name="bcc_onclick" Event="onclick" Function="LoadDialog(collab.msgbox.widget.RecipientBCCPickForm)"/>
 	    </Element>
 	    
