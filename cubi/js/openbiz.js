@@ -706,7 +706,7 @@ Openbiz.CKEditor =
     ['Bold','Italic','Underline','Strike','Subscript','Superscript'],
     ['NumberedList','BulletedList','Outdent','Indent'],
     ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
-    ['Link','Unlink','Image','Flash','Table','HorizontalRule','SpecialChar','PageBreak','-','Maximize','RemoveFormat'],
+    ['Link','Unlink','Image','Flash','Table','HorizontalRule','SpecialChar','PageBreak','-','RemoveFormat','Maximize'],
     ['Styles','Format','Font','FontSize'],
     ['TextColor','BGColor'],
     ['SelectAll', 'ShowBlocks','Find','Replace','-','Source']
