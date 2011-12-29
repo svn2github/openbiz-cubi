@@ -1,9 +1,69 @@
-.announcement_widget
+#main .icon_list
+{
+background-image:url(../dashboard/go_list_icon.gif);
+width:20px;
+height:20px;
+display:block;
+text-decoration: none;
+}
+
+#main .icon_list:hover{
+background-position:0px -20px; 
+}
+
+#main .icon_list:active{
+background-position:0px -40px; 
+}
+
+#main .announcement_widget
 {
 	height:30px;	
 }
-.announcement_widget .title h2
+#announcement_type_indicator{
+width:520px;
+height:3px;
+margin-left:177px;
+margin-top:2px;
+display:block;
+background-color:#999999;
+}
+#main .announcement_widget .title
+{
+	width:158px;
+	height:30px;
+	float:left;
+	padding-left:10px;
+}
+#main .announcement_widget .title .icon
+{
+	background-image:url(../dashboard/dashboard_icons.gif);
+	background-position:0px 0px;
+	width:30px;
+	height:30px;
+	float:left;	
+	display:block;
+	margin-right:5px;
+}
+#main .announcement_widget .title h2
 {
 	font-size:14px;
 	line-height:14px;
+}
+
+#main .announcement_widget .content
+{
+	float:left;
+	height:30px;
+	border-left:1px solid #e3e3e3;
+	padding-left:15px;
+
+}
+#main .announcement_widget .content a{
+	line-height:14px;
+}
+
+#main .announcement_widget .actions
+{
+	float:right;
+	padding-right:30px;
 }
