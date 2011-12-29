@@ -67,3 +67,127 @@ background-color:#999999;
 	float:right;
 	padding-right:30px;
 }
+
+#main .widgets_main
+{
+	height:286px;
+	padding-top:9px;
+}
+#main .widget_big_shadow
+{
+	height:286px;
+	width:370px;
+	float:left;	
+	overflow:hidden;
+}
+#main .widget_big_shadow .body{
+	background-image:url(../dashboard/widget_big_shadow_bg_body.gif);
+	background-repeat:repeat-y;
+	height:266px;
+}
+#main .widget_big_shadow .header
+{
+	background-image:url(../dashboard/widget_big_shadow_bg_header.gif);
+}
+#main .widget_big_shadow .footer
+{
+	background-image:url(../dashboard/widget_big_shadow_bg_footer.gif);
+	height:14px;
+}
+
+#main .widget_shadow
+{
+	height:286px;
+	width:195px;
+	float:left;	
+	overflow:hidden;
+}
+#main .widget_shadow .body{
+	background-image:url(../dashboard/widget_shadow_bg_body.gif);	
+	background-repeat:repeat-y;
+	height:266px;
+}
+#main .widget_shadow .header
+{
+	background-image:url(../dashboard/widget_shadow_bg_header.gif);
+}
+#main .widget_shadow .footer
+{
+	background-image:url(../dashboard/widget_shadow_bg_footer.gif);
+	height:14px;
+}
+
+#main .widgets_bottom
+{
+	padding-top:10px;
+	height:226px;
+}
+#main .widget_big
+{
+	height:206px;
+	width:370px;
+	float:left;	
+	overflow:hidden;
+}
+#main .widget_big .body{
+	background-image:url(../dashboard/widget_big_bg_body.gif);
+	background-repeat:repeat-y;
+	height:206px;
+}
+#main .widget_big .header
+{
+	background-image:url(../dashboard/widget_big_bg_header.gif);
+}
+#main .widget_big .footer
+{
+	background-image:url(../dashboard/widget_big_bg_footer.gif);
+}
+
+#main .widget
+{
+	height:206px;
+	width:195px;
+	float:left;	
+	overflow:hidden;
+}
+#main .widget .body{
+	background-image:url(../dashboard/widget_bg_body.gif);
+	background-repeat:repeat-y;
+	height:206px;
+}
+#main .widget .header
+{
+	background-image:url(../dashboard/widget_bg_header.gif);
+}
+#main .widget .footer
+{
+	background-image:url(../dashboard/widget_bg_footer.gif);
+}
+
+#main .widgets_small_container
+{
+	height:206px;
+	width:195px;
+	float:left;	
+	overflow:hidden;	
+}
+
+#main .widget_small
+{
+	height:116px;
+	width:195px;
+	overflow:hidden;
+}
+#main .widget_small .body{
+	background-image:url(../dashboard/widget_bg_body.gif);
+	background-repeat:repeat-y;
+	height:90px;
+}
+#main .widget_small .header
+{
+	background-image:url(../dashboard/widget_bg_header.gif);
+}
+#main .widget_small .footer
+{
+	background-image:url(../dashboard/widget_bg_footer.gif);
+}
