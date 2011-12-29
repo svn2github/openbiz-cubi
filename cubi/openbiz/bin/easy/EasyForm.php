@@ -494,7 +494,8 @@ class EasyForm extends MetaObject implements iSessionObject
         $output['currentPage'] = $this->m_CurrentPage;
         $output['currentRecordId'] = $this->m_RecordId;
         $output['totalPages'] = $this->m_TotalPages;
-        $output['description'] = str_replace('\n', "<br />", $this->m_Description);
+        $output['totalRecords'] = $this->m_TotalRecords;
+        $output['description'] = str_replace('\n', "<br />", Expression::evaluateExpression($this->m_Description,$this));
         $output['elementSets'] = $this->getElementSet();
         $output['ActionElementSets'] = $this->getElementSet($this->m_ActionPanel);    
         if($output['icon'])
