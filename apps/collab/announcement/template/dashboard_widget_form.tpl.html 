@@ -7,7 +7,7 @@
 		<div>	
 		<form id='{$form.name}' name='{$form.name}'>
 			<table></table>
-			<div class="announcement_widget">
+			<div class="announcement_widget widget_control">
 				<div class="title" style="overflow:hidden;">
 					<div style="float:left;width:35px;">
 						<a class="icon" href="{$app_index}/collab/announcement_view"></a>
