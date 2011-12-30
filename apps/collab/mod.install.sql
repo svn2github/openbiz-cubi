@@ -395,7 +395,7 @@ CREATE TABLE `document` (
   `id` int(11) NOT NULL auto_increment,
   `title` varchar(255) default '',
   `description` text NOT NULL,
-  `content` text NOT NULL,
+  `content` longtext NOT NULL,
   `type_id` int(11) NOT NULL,
   `owner_id` int(11) default 0,
   `group_id` INT(11) default '1',
