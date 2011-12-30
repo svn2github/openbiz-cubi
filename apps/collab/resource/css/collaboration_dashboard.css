@@ -15,58 +15,47 @@ background-position:0px -20px;
 background-position:0px -40px; 
 }
 
-#main .announcement_widget
-{
-	height:30px;	
-}
-#announcement_type_indicator{
-width:520px;
-height:3px;
-margin-left:177px;
-margin-top:2px;
-display:block;
-background-color:#999999;
-}
-#main .announcement_widget .title
+#main .widget_control .title
 {
 	width:158px;
 	height:30px;
 	float:left;
 	padding-left:10px;
 }
-#main .announcement_widget .title .icon
+#main .widget_control .title .icon
 {
 	background-image:url(../dashboard/dashboard_icons.gif);
-	background-position:0px 0px;
 	width:30px;
 	height:30px;
 	float:left;	
 	display:block;
 	margin-right:5px;
 }
-#main .announcement_widget .title h2
+#main .widget_control .title h2
 {
 	font-size:14px;
 	line-height:14px;
 }
-
-#main .announcement_widget .content
-{
-	float:left;
-	height:30px;
-	border-left:1px solid #e3e3e3;
-	padding-left:15px;
-
-}
-#main .announcement_widget .content a{
-	line-height:14px;
-}
-
-#main .announcement_widget .actions
+#main .widget_control .actions
 {
 	float:right;
-	padding-right:30px;
 }
+#main .widget_control ul,#main .widget_control li
+{
+	list-style:none;margin:0px;padding:0px;	
+}
+#main .widget_table_gray
+{
+	width:100%;
+	height:100%;
+	border-top:1px solid #b9b9b9;
+	border-bottom:1px solid #b9b9b9;
+}
+
+/*
+Below code is
+Dashboard Panel Layout's
+*/
 
 #main .widgets_main
 {
@@ -124,7 +113,7 @@ background-color:#999999;
 }
 #main .widget_big
 {
-	height:206px;
+	height:220px;
 	width:370px;
 	float:left;	
 	overflow:hidden;
@@ -132,7 +121,7 @@ background-color:#999999;
 #main .widget_big .body{
 	background-image:url(../dashboard/widget_big_bg_body.gif);
 	background-repeat:repeat-y;
-	height:186px;
+	height:200px;
 }
 #main .widget_big .header
 {
@@ -145,7 +134,7 @@ background-color:#999999;
 
 #main .widget
 {
-	height:206px;
+	height:220px;
 	width:195px;
 	float:left;	
 	overflow:hidden;
@@ -153,7 +142,7 @@ background-color:#999999;
 #main .widget .body{
 	background-image:url(../dashboard/widget_bg_body.gif);
 	background-repeat:repeat-y;
-	height:186px;
+	height:200px;
 }
 #main .widget .header
 {
@@ -166,7 +155,7 @@ background-color:#999999;
 
 #main .widgets_small_container
 {
-	height:206px;
+	height:228px;
 	width:195px;
 	float:left;	
 	overflow:hidden;	
@@ -174,14 +163,14 @@ background-color:#999999;
 
 #main .widget_small
 {
-	height:106px;
+	height:110px;
 	width:195px;
 	overflow:hidden;
 }
 #main .widget_small .body{
 	background-image:url(../dashboard/widget_bg_body.gif);
 	background-repeat:repeat-y;
-	height:80px;
+	height:84px;
 }
 #main .widget_small .header
 {
@@ -190,4 +179,104 @@ background-color:#999999;
 #main .widget_small .footer
 {
 	background-image:url(../dashboard/widget_bg_footer.gif);
+}
+
+/*
+Below code is for announcement wiget
+*/
+
+
+#main .announcement_widget
+{
+	height:30px;	
+}
+#announcement_type_indicator{
+width:520px;
+height:3px;
+margin-left:177px;
+margin-top:2px;
+display:block;
+background-color:#999999;
+}
+ 
+#main .announcement_widget .title .icon
+{
+ 	background-position:0px 0px;
+} 
+
+#main .announcement_widget .content
+{
+	float:left;
+	height:30px;
+	border-left:1px solid #e3e3e3;
+	padding-left:15px;
+
+}
+#main .announcement_widget .content a{
+	line-height:14px;
+}
+
+#main .announcement_widget .actions
+{
+	padding-right:30px;
+}
+
+
+/*
+Below code is for bookmark wiget
+*/
+
+#main .bookmark_widget .title .icon
+{
+ 	background-position:-180px 0px; 
+}
+#main ul.bookmark_list
+{
+	padding-left:5px;
+	display:block;
+	padding-top:2px;
+}
+#main .bookmark_list li
+{
+	float:left;
+	margin-right:6px;	
+}
+#main .bookmark_list li a
+{
+	border-bottom:3px solid #dddddd;
+	width:16px;
+	height:16px;
+	margin-right:5px;
+	margin-bottom:3px;
+	display:block;	
+}
+/*
+Below code is for note wiget
+*/
+
+#main .note_widget .title .icon
+{
+ 	background-position:-210px 0px; 
+}
+#main ul.note_list
+{
+	padding-left:5px;
+	display:block;
+	padding-top:2px;
+}
+#main .note_list li
+{
+	float:left;
+	margin-right:6px;	
+	margin-bottom:2px;
+}
+
+#main .note_list li a
+{
+	border-bottom:3px solid #dddddd;
+	width:16px;
+	height:16px;
+	margin-right:5px;
+	margin-bottom:1px;
+	display:block;	
 }

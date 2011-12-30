@@ -3,5 +3,6 @@
     <FormReferences>
         <Reference Name="collab.announcement.widget.DashboardWidgetForm"/>
         <Reference Name="collab.bookmark.widget.DashboardWidgetForm"/>
+        <Reference Name="collab.note.widget.DashboardWidgetForm"/>
     </FormReferences>
 </EasyView>
