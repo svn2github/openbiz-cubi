@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DashboardWidgetForm" Class="collab.msgbox.form.MessageInboxListForm"  FormType="List" jsClass="jbForm" Title="Message" Description="Total {@:m_TotalRecords} messages"  BizDataObj="collab.msgbox.do.MessageReceivedDO" PageSize="6" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="dashboard_widget_form.tpl.html"  Access="collab_msgbox.access">
+<EasyForm Name="DashboardWidgetForm" Class="collab.msgbox.form.MessageInboxListForm"  FormType="List" jsClass="jbForm" Title="Message" Description="{@:m_TotalRecords} messages"  BizDataObj="collab.msgbox.do.MessageReceivedDO" PageSize="6" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="dashboard_widget_form.tpl.html"  Access="collab_msgbox.access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" />
@@ -20,7 +20,7 @@
 		</Element>
 		<Element Name="fld_receive_type" Class="ColumnText"  FieldName="type"   Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_sender" Class="ColumnText"  FieldName="display_name"  Label="Form"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" /> 
-        <Element Name="fld_subject" Class="ColumnText" Style="{@:Elem[fld_read_status].Value=='Unread'?'font-weight:bold;':''}" MaxLength="30"  FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
+        <Element Name="fld_subject" Class="ColumnText" Style="{@:Elem[fld_read_status].Value=='Unread'?'font-weight:bold;':''}" MaxLength="20"  FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
         	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.msgbox.form.MessageReceivedDetailForm,{@:Elem[fld_message_id].Value})" />
         </Element>	
         <Element Name="fld_att" Class="ColumnBool" 
@@ -28,13 +28,13 @@
 				FalseImg="{RESOURCE_URL}/collab/message/images/icon_message_attachment_off.png"
 				FieldName="attachment" Label="Att"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >				
 		</Element>
-		<Element Name="fld_timestamp" Class="ColumnText"  FieldName="sent_time" Label="Sent Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
+		<Element Name="fld_timestamp" Class="ColumnText"  FieldName="sent_time_display" Label="Sent Time" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
         <Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_type" Class="ColumnText"  Style="line-height:24px;" FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
         
     </DataPanel>
     <ActionPanel>
-         <Element Name="btn_compose" Class="LabelText" text="&amp;nbsp;" CssClass="icon_list" Link="{@home:url}/collab/message_compose"></Element>
+         <Element Name="btn_compose" Class="LabelText" text="&amp;nbsp;" CssClass="icon_compose" Link="{@home:url}/collab/message_compose"></Element>
          <Element Name="btn_index" Class="LabelText" text="&amp;nbsp;" CssClass="icon_list" Link="{@home:url}/collab/message_inbox"></Element>
    
     </ActionPanel> 

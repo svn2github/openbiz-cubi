@@ -70,7 +70,14 @@ class MessageInboxListForm extends EasyForm
 				$record['subject']="[no subject]";
 			}
 			$record['recipient'] = $svc->getRecipientList('Recipient',$record['message_id']);
-			$record['attachment'] = $svc->getAttachmentStatus($record['message_id']);	
+			$record['attachment'] = $svc->getAttachmentStatus($record['message_id']);
+			if(date("Y-m-d",strtotime($record['sent_time']))==date("y-m-d")){
+				$record['sent_time_display'] = date("H:i:s",strtotime($record['sent_time']));
+			}else{
+				$record['sent_time_display'] = date("y/m/d",strtotime($record['sent_time']));	
+			}
+			
+			
 			array_push($recordSet,$record);
 		}
 		unset($svc);

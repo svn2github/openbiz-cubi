@@ -1,12 +1,12 @@
 <form id='{$form.name}' name='{$form.name}'>
 	<table></table>
-	<div class="bookmark_widget widget_control">
+	<div class="message_widget widget_control">
 		<div class="title" style="width:165px;float:none;height:34px;">
 			<div style="float:left;width:35px;">
-				<a class="icon" href="{$app_index}/collab/document_manage"></a>
+				<a class="icon" href="{$app_index}/collab/message_inbox"></a>
 			</div>
-			<div style="float:left;width:84px;height:30px;">
-				<h2 style="width:110px;">{$form.title}</h2>
+			<div style="float:left;width:75px;height:30px;">
+				<h2 style="width:85px;">{$form.title}</h2>
 				<p style="font-size:11px;">{$form.description}</p>
 			</div>
 			<div class="actions" style="padding-top:0px;">
@@ -15,12 +15,26 @@
 				{/foreach}
 			</div>
 		</div>
-		<div style="padding-left:10px; width:167px;height:46px;">
+		<div style="padding-left:10px; width:167px;height:221px;">
 			<div class="widget_table_gray">
-				<ul class="bookmark_list">
+				<ul class="message_list">
 				    {assign var=row_counter value=0}            
      				{foreach item=row from=$dataPanel.data}
-					<li><a style="border-bottom:3px solid #{$row.fld_color}" href="{$row.fld_url}" title="{$row.fld_title}" alt="{$row.fld_title}" target="_blank" class="bookmark_item"><img src="{$resource_url}/collab/bookmark/icons/{$row.fld_icon_data}" border="0" /></a></li>
+     				{if $row_counter is odd}
+     				<li  style="background-color:#f0fbff">
+     				{else}
+					<li  style="">
+					{/if}
+						<div style="height:20px;">
+							<span style="float:left;display:block;height:20px;line-height:22px;padding-top:8px;padding-right:8px;">{$row.fld_status}</span>
+							<span style="float:left;display:block;height:20px;line-height:22px;">{$row.fld_subject}</span>
+						</div>
+						<div>
+							<span style="float:left;display:block;height:16px;line-height:16px;padding-right:8px;width:70px;color:#999999;">{$row.fld_sender}</span>
+							<span style="float:left;display:block;height:16px;line-height:16px;padding-right:8px;color:#999999;">{$row.fld_timestamp}</span>
+						</div>
+					</li>
+					{assign var=row_counter value=$row_counter+1}
 					{/foreach}
 				</ul>
 			</div>
