@@ -20,7 +20,15 @@
         
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_markread" Class="LabelText" text="&amp;nbsp;" CssClass="icon_list" Link="{@home:url}/collab/bookmark_manage"></Element>
+        
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+                <Element Name="btn_markread" Class="LabelText" text="&amp;nbsp;" CssClass="icon_list" Link="{@home:url}/collab/bookmark_manage"></Element>
+        
     </ActionPanel> 
     <NavPanel>
     	
