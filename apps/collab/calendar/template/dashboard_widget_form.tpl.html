@@ -1,9 +1,9 @@
 <form id='{$form.name}' name='{$form.name}'>
 	<table></table>
-	<div class="message_widget widget_control">
+	<div class="calendar_widget widget_control">
 		<div class="title" style="width:165px;float:none;height:34px;">
 			<div style="float:left;width:35px;">
-				<a class="icon" href="{$app_index}/collab/message_inbox"></a>
+				<a class="icon" href="{$app_index}/collab/event_manage"></a>
 			</div>
 			<div style="float:left;width:75px;height:30px;">
 				<h2 style="width:85px;">{$form.title}</h2>
@@ -17,21 +17,20 @@
 		</div>
 		<div style="padding-left:10px; width:167px;height:221px;">
 			<div class="widget_table_gray">
-				<ul class="message_list">
+				<ul class="calendar_list">
 				    {assign var=row_counter value=0}            
      				{foreach item=row from=$dataPanel.data}
      				{if $row_counter is odd}
-     				<li  style="background-color:#f0fbff">
+     				<li  style="border-right:6px solid #{$row.fld_color};background-color:#f0fbff">
      				{else}
-					<li  style="">
+					<li  style="border-right:6px solid #{$row.fld_color};">
 					{/if}
 						<div style="height:20px;">
-							<span style="float:left;display:block;height:20px;line-height:22px;padding-top:6px;padding-right:8px;">{$row.fld_status}</span>
+							<span style="float:left;display:block;height:20px;line-height:22px;padding-top:8px;padding-right:8px;">{$row.fld_share}</span>
 							<span style="float:left;display:block;height:20px;line-height:22px;">{$row.fld_subject}</span>
 						</div>
 						<div>
-							<span style="float:left;display:block;height:16px;line-height:14px;padding-right:8px;width:70px;color:#999999;">{$row.fld_sender}</span>
-							<span style="float:left;display:block;height:16px;line-height:14px;padding-right:8px;color:#999999;">{$row.fld_timestamp}</span>
+							<span style="float:left;display:block;height:16px;line-height:14px;padding-right:0px;width:120px;color:#999999;">{$row.fld_start_time} - {$row.fld_end_time}</span>
 						</div>
 					</li>
 					{assign var=row_counter value=$row_counter+1}

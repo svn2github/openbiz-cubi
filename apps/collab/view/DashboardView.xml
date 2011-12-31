@@ -3,6 +3,7 @@
     <FormReferences>
         <Reference Name="collab.announcement.widget.DashboardWidgetForm"/>
         <Reference Name="collab.msgbox.widget.DashboardWidgetForm"/>
+        <Reference Name="collab.calendar.widget.DashboardWidgetForm"/>
         <Reference Name="contact.widget.DashboardWidgetForm"/>
         <Reference Name="collab.document.widget.DashboardWidgetForm"/>
         <Reference Name="collab.bookmark.widget.DashboardWidgetForm"/>
