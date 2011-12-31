@@ -16,6 +16,27 @@ background-position:0px -20px;
 #main .icon_list:active{
 background-position:0px -40px; 
 }
+
+#main .icon_compose
+{
+background-image:url(../dashboard/action_icon.gif);
+width:26px;
+height:26px;
+display:block;
+text-decoration: none;
+float:left;
+display:block;
+background-position:-26px 0px;
+}
+
+#main .icon_compose:hover{
+background-position:-26px -26px; 
+}
+
+#main .icon_compose:active{
+background-position:-26px -52px; 
+}
+
 #main .widget_control .button_navi
 {
 	background-image: url("../dashboard/nav_icon.gif");
@@ -397,4 +418,43 @@ Below code is for contact wiget
 #main .contact_widget h4 a:hover
 {
 	color: #999999;    
+}
+
+
+/*
+Below code is for message wiget
+*/
+#main .message_widget .title .icon
+{
+ 	background-position:-60px 0px; 
+}
+#main .message_widget .icon_list
+{
+ 	margin-top:3px;
+}
+ 
+#main ul.message_list
+{
+	overflow:hidden;
+	display:block;
+	width:165px;
+}
+#main .message_list li
+{
+	width:160px;
+	height:36px;
+	display:block;
+	margin-right:4px;	
+	padding-left:5px;
+	border-bottom:1px solid #dddddd;
+}
+#main .message_list li a
+{
+	color:#666666;
+	text-decoration: none;
+}
+#main .message_list li a:hover
+{
+	color:#333333;
+	text-decoration: underline;
 }
