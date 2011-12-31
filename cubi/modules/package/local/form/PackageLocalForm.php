@@ -99,11 +99,34 @@ class PackageLocalForm extends EasyForm
         $state = $dataRec['inst_state'] ? $dataRec['inst_state'] : "Wait";
         $log = $dataRec['inst_log'] ? $dataRec['inst_log'] : "Waiting...";
         $progress = $state . "|". $log;
+        $updArray['fld_status'] = $progress;
+        
+        switch(strtoupper($dataRec['inst_state']))
+        {
+            default:
+            case "ERROR":
+                $updArray['fld_total_progress'] = '0';
+                $updArray['fld_download_progress'] = '0';
+                break;
+            case "DOWNLOAD":
+                $updArray['fld_total_progress'] = '20';
+                if ($dataRec['inst_filesize'] == 0) $updArray['fld_download_progress'] = '0';
+                else $updArray['fld_download_progress'] = (int)(($dataRec['inst_download'] / $dataRec['inst_filesize'])*100);     	
+                break;    			
+            case "INSTALL":
+                $updArray['fld_total_progress'] = '60';
+                $updArray['fld_download_progress'] = '100';
+                break;
+            case "OK":
+                $updArray['fld_total_progress'] = '100';
+                $updArray['fld_download_progress'] = '100';
+                break;	
+        }
         /*
         $script = "Openbiz.ProgressBar.set('progress_bar','$progress');"; // $func";
         BizSystem::clientProxy()->runClientFunction($script);
         */
-        $updArray['progress_bar'] = $progress;
+        
         BizSystem::clientProxy()->updateFormElements($this->m_Name, $updArray);
         
         //$this->updateForm();

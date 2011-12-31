@@ -170,7 +170,7 @@ class PackageService extends MetaObject
 
         if (isset($installInfo['filesize'])) $dataRec["inst_filesize"] = $installInfo['filesize'];
         if (isset($installInfo['download'])) $dataRec["inst_download"] = $installInfo['download'];
-        
+        //BizSystem::log(LOG_DEBUG, "PackageService", "save to db ".print_r($installInfo,1));
         try {
             $dataRec->save();
         }
@@ -243,13 +243,14 @@ class PackageService extends MetaObject
     
     protected function downloadUrl($url, $filename)
     {
-    	//clean setting for counting download, filesize, download size
+    	$package = $this->_installPackage;
+        
+        //clean setting for counting download, filesize, download size
     	$this->setInstallInfo($package, array("filesize"=>"0" , "download"=>"0"));
     	
     	$filesize = $this->remote_filesize($url);
     	$this->setInstallInfo($package, array("filesize"=>$filesize , "download"=>"0"));
     	
-        $package = $this->_installPackage;
         $this->setInstallInfo($package, array("state"=>"Download","log"=>"Downloading 0..."));
         $handle = fopen($url, "rb");
         if (!$handle) {
