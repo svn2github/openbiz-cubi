@@ -2,6 +2,7 @@
 <EasyView Name="DashboardView" Access="collab.access" Description="Collaboration Dashboard" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="collab_dash_view.tpl.html">
     <FormReferences>
         <Reference Name="collab.announcement.widget.DashboardWidgetForm"/>
+        <Reference Name="contact.widget.DashboardWidgetForm"/>
         <Reference Name="collab.document.widget.DashboardWidgetForm"/>
         <Reference Name="collab.bookmark.widget.DashboardWidgetForm"/>
         <Reference Name="collab.note.widget.DashboardWidgetForm"/>
