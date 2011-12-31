@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="DashboardWidgetForm" Class="contact.form.ContactForm" FormType="List" jsClass="jbForm" Title="Contact" Description="{@:m_TotalRecords} contacts" BizDataObj="contact.do.ContactDO" PageSize="4" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="dashboard_widget_form.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
+    <DataPanel>
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />
+		<Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{RESOURCE_URL}/contact/images/icon_contact.gif"
+				MySharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared.gif"
+				MyAssignedImg="{RESOURCE_URL}/contact/images/icon_contact_assigned.gif"
+				MyDistributedImg="{RESOURCE_URL}/contact/images/icon_contact_distributed.gif" 
+				GroupSharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared_group.gif"
+				OtherSharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared_other.gif"
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
+		</Element>       
+	    <Element Name="fld_name" Class="LabelText" MaxLength="12"  FieldName="display_name" Label="Contact Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>	
+		<Element Name="fld_photo" Class="RawData"  ElementSet="Profile" FieldName="photo"  AllowURLParam="N" />	        
+		<Element Name="fld_color" Class="RawData" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_type" Class="LabelText" MaxLength="5" FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
+    </DataPanel>
+    <ActionPanel>
+		<Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_markread" Class="LabelText" text="&amp;nbsp;" CssClass="icon_list" Link="{@home:url}/collab/bookmark_manage"></Element>
+	</ActionPanel>
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+     	<Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="contact.do.ContactDO[display_name],[display_name] like '%{$_POST['qry_name']}%' GROUP BY [display_name]" FieldName="display_name" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element>  		   
+    </SearchPanel>
+</EasyForm>
