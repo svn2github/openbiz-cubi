@@ -280,3 +280,36 @@ Below code is for note wiget
 	margin-bottom:1px;
 	display:block;	
 }
+/*
+Below code is for document wiget
+*/
+
+#main .document_widget .title .icon
+{
+ 	background-position:-150px 0px; 
+}
+#main ul.document_list
+{
+	
+	display:block;
+	width:165px;
+}
+#main .document_list li
+{
+	width:156px;
+	height:26px;
+	display:block;
+	margin-right:4px;	
+	padding-left:5px;
+	border-bottom:1px solid #dddddd;
+}
+#main .document_list li a
+{
+	color:#666666;
+	text-decoration: none;
+}
+#main .document_list li a:hover
+{
+	color:#333333;
+	text-decoration: underline;
+}
