@@ -458,3 +458,42 @@ Below code is for message wiget
 	color:#333333;
 	text-decoration: underline;
 }
+
+
+/*
+Below code is for calendar wiget
+*/
+#main .calendar_widget .title .icon
+{
+ 	background-position:-90px 0px; 
+}
+#main .calendar_widget .icon_list
+{
+ 	margin-top:3px;
+}
+ 
+#main ul.calendar_list
+{
+	overflow:hidden;
+	display:block;
+	width:167px;
+}
+#main .calendar_list li
+{
+	width:156px;
+	height:36px;
+	display:block;
+	margin-right:4px;	
+	padding-left:5px;
+	border-bottom:1px solid #dddddd;
+}
+#main .calendar_list li a
+{
+	color:#666666;
+	text-decoration: none;
+}
+#main .calendar_list li a:hover
+{
+	color:#333333;
+	text-decoration: underline;
+}
