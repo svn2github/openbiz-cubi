@@ -71,7 +71,7 @@ class MessageInboxListForm extends EasyForm
 			}
 			$record['recipient'] = $svc->getRecipientList('Recipient',$record['message_id']);
 			$record['attachment'] = $svc->getAttachmentStatus($record['message_id']);
-			if(date("Y-m-d",strtotime($record['sent_time']))==date("y-m-d")){
+			if(date("Y-m-d",strtotime($record['sent_time']))==date("Y-m-d")){
 				$record['sent_time_display'] = date("H:i:s",strtotime($record['sent_time']));
 			}else{
 				$record['sent_time_display'] = date("y/m/d",strtotime($record['sent_time']));	
