@@ -44,11 +44,13 @@
 			 		 <div class="grid_cell">  
 						<div class="grid_cell_content">
 							<div class="photo_frame">
+							<a href="{$app_index}/collab/contact_detail/{$row.fld_Id}">
 							{if $row.fld_photo !=""}
-								<image src="{$app_url}/{$row.fld_photo}" width="69" height="96"/>
+								<image src="{$app_url}/{$row.fld_photo}" border="0" width="69" height="96"/>
 							{else}
-								<image src="{$image_url}/profile_photo_icon.gif" width="69" height="96"/>
+								<image src="{$image_url}/profile_photo_icon.gif" border="0" width="69" height="96"/>
 							{/if}
+							</a>
 							</div>
 							<h4>{$row.fld_name}</h4>
 									
