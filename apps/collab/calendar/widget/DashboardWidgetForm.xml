@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DashboardWidgetForm" Class="collab.calendar.form.EventListForm" FormType="List" jsClass="jbForm" Title="Calendar" Description="{@:m_TotalRecords} events"  BizDataObj="collab.calendar.do.EventIncomingDO" PageSize="6" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="dashboard_widget_form.tpl.html"  Access="collab_calendar.access" >
+<EasyForm Name="DashboardWidgetForm" Class="DashboardWidgetForm" FormType="List" jsClass="jbForm" Title="Calendar" Description="{@:m_TotalRecords} events"  BizDataObj="collab.calendar.do.EventIncomingDO" PageSize="6" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="dashboard_widget_form.tpl.html"  Access="collab_calendar.access" >
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
