@@ -2,7 +2,7 @@
 <EasyForm Name="DashboardWidgetForm" Class="EasyForm"  FormType="List" jsClass="jbForm" Title="Note" Description="Total {@:m_TotalRecords} items" BizDataObj="collab.note.do.NoteDO" PageSize="12" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="dashboard_widget_form.tpl.html" Access="collab_note.access">
     <DataPanel>
           <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="{@home:url}/collab/note_detail/{@:Elem[fld_Id].Value}" />
         <Element Name="fld_share" Class="ColumnShare" 
 				MyPrivateImg="{RESOURCE_URL}/collab/note/images/icon_note_private.gif"
 				MySharedImg="{RESOURCE_URL}/collab/note/images/icon_note_shared.gif" 
@@ -10,7 +10,7 @@
 				MyDistributedImg="{RESOURCE_URL}/collab/note/images/icon_note_distributed.gif" 
 				GroupSharedImg="{RESOURCE_URL}/collab/note/images/icon_note_shared_group.gif"
 				OtherSharedImg="{RESOURCE_URL}/collab/note/images/icon_note_shared_other.gif"
-				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{@home:url}/collab/note_manage">
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{@home:url}/collab/note_detail/{@:Elem[fld_Id].Value}">
 		</Element>	
 			<Element Name="fld_icon_data" Class="RawData" FieldName="icon" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
 		

@@ -10,7 +10,7 @@
 				ReadImg="{RESOURCE_URL}/collab/message/images/icon_message_read.png"
 				UnreadImg="{RESOURCE_URL}/collab/message/images/icon_message_unread.png"
 				RepliedImg="{RESOURCE_URL}/collab/message/images/icon_message_replied.png"
-				FieldName="read_status" Label="Status"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+				FieldName="read_status" Label="Status"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{@home:url}/collab/message_detail/{@:Elem[fld_message_id].Value}">
 		</Element>	
 		<Element Name="fld_importance" Class="ColumnBool" 
 			 TrueImg="{RESOURCE_URL}/collab/message/images/icon_message_importance_yes.png" 
@@ -19,7 +19,7 @@
 		</Element>
 		<Element Name="fld_receive_type" Class="ColumnText"  FieldName="type"   Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_sender" Class="ColumnText"  FieldName="display_name"  Label="Form"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" /> 
-        <Element Name="fld_subject" Class="ColumnText" Style="{@:Elem[fld_read_status].Value=='Unread'?'font-weight:bold;':''}" MaxLength="20"  FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
+        <Element Name="fld_subject" Class="ColumnText" Style="{@:Elem[fld_read_status].Value=='Unread'?'font-weight:bold;':''}" MaxLength="20"  FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="{@home:url}/collab/message_detail/{@:Elem[fld_message_id].Value}" Translatable="N" OnEventLog="N" >
         </Element>	
         <Element Name="fld_att" Class="ColumnBool" 
 				TrueImg="{RESOURCE_URL}/collab/message/images/icon_message_attachment_on.png"

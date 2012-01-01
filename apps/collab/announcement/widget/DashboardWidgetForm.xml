@@ -8,7 +8,7 @@
 				FieldName="read_status" Label="Stat"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
 			<EventHandler Name="fld_read_onclick" Event="onclick" Function="MarkAsRead({@:Elem[fld_Id].Value})"/>		
 		</Element>	
-        <Element Name="fld_title" Class="ColumnText" Style="{@:Elem[fld_read].Value==1?'':'font-weight:bold;'}" MaxLength="40"  FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N"  Link="{@home:url}/collab/announcement_view" Translatable="N" OnEventLog="N" >
+        <Element Name="fld_title" Class="ColumnText" Style="{@:Elem[fld_read].Value==1?'':'font-weight:bold;'}" MaxLength="40"  FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N"  Link="{@home:url}/collab/announcement_detail/{@:Elem[fld_Id].Value}" Translatable="N" OnEventLog="N" >
         
         </Element>	
         <Element Name="fld_description" Class="ColumnText"  MaxLength="70" FieldName="description"  Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	        

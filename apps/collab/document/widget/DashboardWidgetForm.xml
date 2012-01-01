@@ -3,11 +3,11 @@
     <DataPanel>
           <Element Name="row_selections" Class="RowCheckbox" Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:"/>
-        <Element Name="fld_share" Class="ColumnShare" MyPrivateImg="{RESOURCE_URL}/collab/document/images/icon_document_private.png" MySharedImg="{RESOURCE_URL}/collab/document/images/icon_document_shared.png" MyAssignedImg="{RESOURCE_URL}/collab/document/images/icon_document_assigned.png" MyDistributedImg="{RESOURCE_URL}/collab/document/images/icon_document_distributed.png" GroupSharedImg="{RESOURCE_URL}/collab/document/images/icon_document_shared_group.png" OtherSharedImg="{RESOURCE_URL}/collab/document/images/icon_document_shared_other.png" FieldName="create_by" Label="Share" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+        <Element Name="fld_share" Class="ColumnShare" MyPrivateImg="{RESOURCE_URL}/collab/document/images/icon_document_private.png" MySharedImg="{RESOURCE_URL}/collab/document/images/icon_document_shared.png" MyAssignedImg="{RESOURCE_URL}/collab/document/images/icon_document_assigned.png" MyDistributedImg="{RESOURCE_URL}/collab/document/images/icon_document_distributed.png" GroupSharedImg="{RESOURCE_URL}/collab/document/images/icon_document_shared_group.png" OtherSharedImg="{RESOURCE_URL}/collab/document/images/icon_document_shared_other.png" FieldName="create_by" Label="Share" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{@home:url}/collab/document_detail/{@:Elem[fld_Id].Value}">
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
 		
-        <Element Name="fld_title" Class="LabelText" MaxLength="14" FieldName="title" Label="Title" Link="javascript:" Sortable="Y">
+        <Element Name="fld_title" Class="LabelText" MaxLength="14" FieldName="title" Label="Title" Link="{@home:url}/collab/document_detail/{@:Elem[fld_Id].Value}" Sortable="Y">
         </Element>	
         <Element Name="fld_description" Class="ColumnText" MaxLength="50" FieldName="description" Label="Description" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>	
         
