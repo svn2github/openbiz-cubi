@@ -332,7 +332,11 @@ margin-top:4px;
 	$('element_set_panel_3').className='ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide';
 	$('element_set_panel_4').className='ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide';
 	$('element_set_panel_5').className='ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide';
-	$(lastViewedTab).className='ui-tabs-panel ui-widget-content ui-corner-bottom';
+	if(lastViewedTab){
+		$(lastViewedTab).className='ui-tabs-panel ui-widget-content ui-corner-bottom';
+	}else{
+		$('element_set_panel_1').className='ui-tabs-panel ui-widget-content ui-corner-bottom';
+	}
 	</script>
 	{/literal}
 	{assign var=es_counter value=$es_counter+1}			
