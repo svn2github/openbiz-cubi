@@ -1,3 +1,12 @@
+*{
+-webkit-tap-highlight-color:#333333;
+-webkit-text-size-adjust:none;
+-webkit-touch-callout:none;
+-webkit-user-select:none;
+}
+#wrap_header_padding {
+height:60px;
+}
 .input_text,.input_text_error,.input_text_focus{
 	height:18px;
 	line-height:18px;
