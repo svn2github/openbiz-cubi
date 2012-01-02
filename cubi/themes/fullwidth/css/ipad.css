@@ -27,8 +27,13 @@
 	line-height:15px;
 	width:45px;
 }
+
 .input_select_w,.input_select_w_focus{
 	height:15px;
 	line-height:15px;
-	width:165px;
+	width:170px;
+}
+.input_select_m,.input_select_m_focus{
+	height:15px;
+	line-height:15px;
 }
