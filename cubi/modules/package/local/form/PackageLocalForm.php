@@ -2,7 +2,7 @@
 class PackageLocalForm extends EasyForm 
 { 
 	
-	public $m_InstallState = true;
+	public $m_InstallState = false;
 	public $m_hasUpagrade = false;
 	
     public function validateRequest($methodName)
@@ -23,8 +23,9 @@ class PackageLocalForm extends EasyForm
     				$result['install_download'] = '0';
     				break;
     			case "DOWNLOAD":
-    				$result['install_progress'] = '10';
-    				$result['install_download'] = (int)(($result['inst_download'] / $result['inst_filesize'])*100);     	
+    				$result['install_progress'] = '20';
+                    if ($dataRec['inst_filesize'] == 0) $updArray['fld_download_progress'] = '0';
+                    else $updArray['fld_download_progress'] = (int)(($dataRec['inst_download'] / $dataRec['inst_filesize'])*100);     	
     				break;    			
     			case "INSTALL":
     				$result['install_progress'] = '60';
@@ -35,23 +36,23 @@ class PackageLocalForm extends EasyForm
     				$result['install_download'] = '100';
     				break;	
     		}
-    		$result['install_status'] = 'Stand by.';
+    		//$result['install_status'] = 'Stand by.';
             //	var_dump((int)(($result['inst_download'])/$result['inst_filesize']*100));exit;    				
     		
     		$state = $result['inst_state'] ? $result['inst_state'] : "Wait";
         	$log = $result['inst_log'] ? $result['inst_log'] : "Waiting...";
-        	$result['install_status'] =  $log;
+        	//$result['install_status'] =  $log;
     		
-        	if($result['inst_version']){
-        		$this->m_InstallState = true;
+        	if($result['inst_version'] && $result['inst_time']){
+        		$this->m_InstallState = 1;
         	}else{
-        		$this->m_InstallState = false;
+        		$this->m_InstallState = 0;
         	}
         	if($result['inst_version']< $result['version'])
         	{
-        		$this->m_hasUpagrade = true;
+        		$this->m_hasUpagrade = 1;
         	}else{
-        		$this->m_hasUpagrade = false;
+        		$this->m_hasUpagrade = 0;
         	}
     		return $result ;
     	
@@ -132,6 +133,15 @@ class PackageLocalForm extends EasyForm
         //$this->updateForm();
         return;
     }
+    
+    public function uninstall($id)
+    {
+        // remove the package from the installed location
+        
+        // remove the inst_... from local package table
+        
+    }
+    
 }
 
 ?>

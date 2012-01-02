@@ -12,10 +12,10 @@
 		<Element Name="fld_status" ElementSet="" Class="Textarea" FieldName="install_status" Label="Status" width="350" height="30" CssClass=" " cssFocusClass=" " DefaultValue="Not start yet" AllowURLParam="N"/>
     </DataPanel>
     <ActionPanel>
-    	<Element Name="btn_install" Class="Button" Hidden="{@:m_InstallState=='ERROR'?'Y':'N'}" Text="Start" CssClass="button_gray_m" Description="Install this package">
+    	<Element Name="btn_install" Class="Button" Hidden="{@:m_InstallState==1?'Y':'N'}" Text="Start" CssClass="button_gray_m" Description="Install this package">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="install({@:Elem[fld_Id].Value})" />
         </Element>
-        <Element Name="btn_retry" Class="Button" Hidden="{@:m_InstallState=='ERROR'?'N':'Y'}" Text="Retry" CssClass="button_gray_m" Description="Install this package">
+        <Element Name="btn_retry" Class="Button" Hidden="{@:m_InstallState==1?'N':'Y'}" Text="Retry" CssClass="button_gray_m" Description="Install this package">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="install({@:Elem[fld_Id].Value})" />
         </Element>
         <Element Name="btn_finish" Hidden="Y" Class="Button" Text="Finish" CssClass="button_gray_m">
