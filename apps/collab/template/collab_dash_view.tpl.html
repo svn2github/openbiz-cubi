@@ -96,7 +96,12 @@ $this->assign('left_menu', $left_menu);
 				<div class="body">
 				{foreach key=formname item=form from=$forms}							    
 			         <div>
-			         	{if $formname eq 'collab.task.widget.DashboardWidgetForm' }{$form}{/if}
+			         	{if $formname eq 'collab.task.widget.DashboardWidgetInProgressForm' }{$form}{/if}
+			         </div>
+			    {/foreach}
+			    {foreach key=formname item=form from=$forms}							    
+			         <div>
+			         	{if $formname eq 'collab.task.widget.DashboardWidgetNotStartedForm' }{$form}{/if}
 			         </div>
 			    {/foreach}
 			    </div>
