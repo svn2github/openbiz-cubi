@@ -20,12 +20,13 @@ for(var i=0;i<a.length;i++)
 if(window.navigator.standalone === true) {
     var lastpage = localStorage.getItem('exitsatus');
     if (lastpage==null){
-        lastpage = "index.html";
     }
     if(document.referrer.length > 0 && document.referrer.indexOf("mysite.com") != -1){
         var lastpageupdate = window.location;
         localStorage.setItem('exitsatus',lastpageupdate);      
     } else {
-        window.location = lastpage;
+    	if(lastpage!=null){
+    		window.location = lastpage;
+    	}
     }
 }
