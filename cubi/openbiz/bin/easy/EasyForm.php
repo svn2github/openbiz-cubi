@@ -1902,6 +1902,11 @@ $('".$this->m_Name."').observe('click',Openbiz.Menu.hide);
 						{
 						    a[i].onclick=function()
 						    {
+							    try{
+						    		show_loader();
+						    	}catch(e){
+						    		
+						    	}
 						        window.location=this.getAttribute('href');
 						        return false
 						    }
