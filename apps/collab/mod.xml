@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="collaboration module" Version="0.7" OpenbizVersion="3.0">
+<Module Name="collab" Description="collaboration module" Version="0.71" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -57,7 +57,7 @@
 			<MenuItem Name="Collab_Calendar.TypeManage" Title="Event Type" Description=""  URL="{@home:url}/collab/event_type" Order="20"  Access="collab_calendar.access"></MenuItem>
 		</MenuItem>	
         <!-- Note menus -->
-    	<MenuItem Name="Note" Title="Note" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_note" Order="50" Access="collab_note.access" >
+    	<MenuItem Name="Note" Title="Note" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_note" Order="100" Access="collab_note.access" >
 			<MenuItem Name="Notes.NotesManage" Title="Note Manage" Description=""  URL="{@home:url}/collab/note_manage" Order="40" Access="collab_note.access" >
 				<MenuItem Name="Notes.NotesDetail" Title="Note Detail" Description=""  URL="{@home:url}/collab/note_detail" Order="10"  Access="collab_note.access" ></MenuItem>
 			</MenuItem>
@@ -67,6 +67,8 @@
     	<MenuItem Name="Task" Title="Task" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_task" Order="30" Access="collab_task.access">
 			<MenuItem Name="Task.Manage" Title="Task Manage " Description=""  URL="{@home:url}/collab/task_manage" Order="40" Access="collab_task.access" >
 				<MenuItem Name="Task.Detail" Title="Task Detail" Description=""  URL="{@home:url}/collab/task_detail" Order="5"  Access="collab_task.access" ></MenuItem>
+				<MenuItem Name="Task.Gantt" Title="Task Gantt Chart" Description=""  URL="{@home:url}/collab/task_gantt" Order="10"  Access="collab_task.access" ></MenuItem>
+				<MenuItem Name="Task.New" Title="New Task" Description=""  URL="{@home:url}/collab/task_new" Order="15"  Access="collab_task.access" ></MenuItem>
 			</MenuItem>
 			<MenuItem Name="Task.Type" Title="Task Type" Description=""  URL="{@home:url}/collab/task_type" Order="50"  Access="collab_task.access"></MenuItem>			
 		</MenuItem>
@@ -85,7 +87,7 @@
 			<MenuItem Name="Msgbox.Type" Title="Message Type" Description=""  URL="{@home:url}/collab/message_type" Order="40" Access="collab_msgbox.access"></MenuItem>
 		</MenuItem>
         <!-- announcement menus -->
-        <MenuItem Name="Announcement" Title="Announcement" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_announcement" Order="60" Access="collab_announcement.access">
+        <MenuItem Name="Announcement" Title="Announcement" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_announcement" Order="70" Access="collab_announcement.access">
 			<MenuItem Name="Announcement.Manage" Title="Announcement Manage" Description=""  URL="{@home:url}/collab/announcement_manage" Access="collab_announcement.manage" Order="10" ></MenuItem>			
 			<MenuItem Name="Announcement.TypeManage" Title="Announcement Type" Description=""  URL="{@home:url}/collab/announcement_type" Access="collab_announcement.manage"  Order="20" ></MenuItem>
 			<MenuItem Name="Announcement.View" Title="View Announcement" Description=""  URL="{@home:url}/collab/announcement_view" Access="collab_announcement.access"  Order="30" >
@@ -93,7 +95,7 @@
 			</MenuItem>
 		</MenuItem>
         <!-- document menus -->
-        <MenuItem Name="Collab_Document" Title="Document" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_document" Order="70" Access="collab_document.access"  >
+        <MenuItem Name="Collab_Document" Title="Document" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_document" Order="60" Access="collab_document.access"  >
 			<MenuItem Name="Collab_Document.Manage" Title="Document Manage" Description=""  URL="{@home:url}/collab/document_manage" Access="collab_document.access" Order="10" >
 				<MenuItem Name="Collab_Document.Detail" Title="Document Detail" Description=""  URL="{@home:url}/collab/document_detail" Order="5"  Access="collab_document.access" ></MenuItem>
 			</MenuItem>			

@@ -555,12 +555,12 @@ Below code is for task wiget
 {
  	margin-top:3px;
 }
-#main .task_widget  a
+#main .task_widget .widget_table a
 {
 	color:#666666;
 	text-decoration: none;
 }
-#main .task_widget  a:hover
+#main .task_widget .widget_table a:hover
 {
 	color:#333333;
 	text-decoration: underline;

@@ -13,9 +13,8 @@
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
 
-        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title" Style="width:110px;display:block;"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
-         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   />
-        </Element>
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title" Style="width:110px;display:block;"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{@home:url}/collab/task_detail/{@:Elem[fld_Id].Value}">         
+         </Element>
        
        
 		<Element Name="start_time" Class="ColumnText" Style="line-height:16px;display:block;"  FieldName="start_time_display_short" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
