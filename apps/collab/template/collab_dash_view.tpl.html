@@ -46,6 +46,9 @@ $this->assign('left_menu', $left_menu);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
+{include file='ios_webapp.tpl.html'}
+{php}}{/php}
 <title>{$title}</title>
 <meta name="description" content="{$description}"/>
 <meta name="keywords" content="{$keywords}"/>
@@ -203,6 +206,9 @@ $this->assign('left_menu', $left_menu);
 $('main_loader_bg').style.height = $('main_content').offsetHeight+'px';
 </script>
 {/literal}
+{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
+<script src="{$js_url}/ios_webapp.js"></script>
+{php}}{/php}
 </body>
 </html>
  
