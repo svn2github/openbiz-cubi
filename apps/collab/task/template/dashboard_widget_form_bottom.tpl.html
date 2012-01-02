@@ -1,0 +1,53 @@
+<form id='{$form.name}' name='{$form.name}'>
+<table></table>	
+	<div class="task_widget widget_control">		
+		<div style="padding-left:10px; width:340px;height:60px;">
+			<div class="widget_table_bar" >
+				<span>{t}Not Started{/t}</span>
+				<div class="actions" style="padding-top:0px;">
+					{foreach item=elem from=$actionPanel}
+				    	{$elem.element}
+					{/foreach}
+				</div> 			
+			</div>
+			<div class="widget_table" style="height:58px;overflow:hidden;">
+<table border="0" cellpadding="0" cellspacing="0" class="form_table" style="width:340px;" id="{$form.name}_data_table">
+	
+      {assign var=row_counter value=0}            
+     {foreach item=row from=$dataPanel.data}
+     	     	 
+          {if $row_counter is odd}
+		   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+		   			class="odd"  normal="odd" select="odd"
+					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+         {else}
+			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					class="even"  normal="even" select="even"
+					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+         {/if}
+         
+         {assign var=col_counter value=0}    
+         {foreach key=name item=cell key=cell_name from=$row}
+
+         		{if $cell_name != 'fld_color'}
+	              	{if $cell_name eq 'fld_reminder' }
+		            	<td style="border-right:6px solid #{$row.fld_color};padding-right:6px;" nowrap="nowrap" >{$cell}</td>
+					{else}
+						<td nowrap="nowrap" >{$cell}</td>
+					{/if}            
+	            {/if}
+           
+            {assign var=col_counter value=$col_counter+1}
+         {/foreach}
+                  
+		{assign var=row_counter value=$row_counter+1}
+		</tr>
+     {/foreach}
+  
+  
+							
+</table>						
+			</div>
+		</div>
+	</div>
+</form>

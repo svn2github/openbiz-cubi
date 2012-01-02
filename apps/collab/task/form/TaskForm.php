@@ -186,6 +186,21 @@ class TaskForm extends EasyForm
 		return $result;
 	}
 	
-
+	public function fetchDataSet()
+	{		
+		$resultSet = parent::fetchDataSet();
+		$recordSet = array();		
+		foreach ($resultSet as $record)
+		{
+			if(date("Y-m-d",strtotime($record['start_time']))==date("Y-m-d")){
+				$record['start_time_display_short'] = date("H:i",strtotime($record['start_time']));
+			}else{
+				$record['start_time_display_short'] = date("Y/m/d",strtotime($record['start_time']));	
+			}						
+			array_push($recordSet,$record);
+		}
+		unset($svc);
+		return $recordSet;
+	}  
 }
 ?>
