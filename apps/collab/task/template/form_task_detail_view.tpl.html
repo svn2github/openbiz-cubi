@@ -314,9 +314,10 @@ margin-top:4px;
 			</div>
 	 			
 		</div>
+	{literal}
 	<script>
 	var formname = '{$form.name}';
-	{literal}
+	
 	var c = new Cookies();		
 	var $tabs = $j( "#tabs" ).tabs({
 		select: function(event, ui)
@@ -326,9 +327,14 @@ margin-top:4px;
 	}).css({'padding-left':'0px','width':'670px','display':'block'});		
 	lastViewedTab = c.get(formname+'_lastTab');
 	$tabs.tabs('select','#'+lastViewedTab);
-	{/literal}
+	$('element_set_panel_1').className='ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide';
+	$('element_set_panel_2').className='ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide';
+	$('element_set_panel_3').className='ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide';
+	$('element_set_panel_4').className='ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide';
+	$('element_set_panel_5').className='ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide';
+	$(lastViewedTab).className='ui-tabs-panel ui-widget-content ui-corner-bottom';
 	</script>
-	
+	{/literal}
 	{assign var=es_counter value=$es_counter+1}			
 	{/foreach}
 		<div style="height:10px;"></div>
