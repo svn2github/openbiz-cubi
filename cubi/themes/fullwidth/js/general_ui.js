@@ -115,6 +115,13 @@ function fade_loader(){
 	}
 }
 
+function show_loader(){	
+	$('main_loader').show();
+	$('main_loader_bg').show();
+	$('main_loader_bg').style.height='1000px';
+	$('main_loader_bg').style.display='block';	
+}
+
 function toggleDisplay(id){
 	if($(id).style.display=='none'){
 		$(id).show();
