@@ -4,8 +4,8 @@
 -webkit-touch-callout:none;
 -webkit-user-select:none;
 }
-#wrap_header_padding {
-height:60px;
+#footer_wrap div#footer{
+	height:64px;
 }
 .input_text,.input_text_error,.input_text_focus{
 	height:18px;

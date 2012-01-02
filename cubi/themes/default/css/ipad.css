@@ -4,6 +4,9 @@
 -webkit-touch-callout:none;
 -webkit-user-select:none;
 }
+#footer_wrap div#footer{
+	height:64px;
+}
 .input_text,.input_text_error,.input_text_focus{
 	height:18px;
 	line-height:18px;
