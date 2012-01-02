@@ -107,8 +107,12 @@ $this->assign('left_menu', $left_menu);
 			         	{if $formname eq 'collab.task.widget.DashboardWidgetNotStartedForm' }{$form}{/if}
 			         </div>
 			    {/foreach}
+				
 			    </div>
-			    <div class="footer"></div>	
+			    <div class="footer">
+			    	
+					
+			    </div>	
 		</div>
 		<div class="widget_shadow">
 				<div class="header"></div>
@@ -144,7 +148,14 @@ $this->assign('left_menu', $left_menu);
 			         </div>
 			    {/foreach}
 			    </div>
-			    <div class="footer"></div>		
+			    <div class="footer">
+			    	
+<div class="ajax_indicator" style="padding-top:0px;">
+		<div id='collab.contact.widget.DashboardWidgetForm.load_disp' style="display:none" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+		</div>
+</div>					
+			    </div>		
 		</div>
 		<div class="widget">
 				<div class="header"></div>
@@ -155,7 +166,13 @@ $this->assign('left_menu', $left_menu);
 			         </div>
 			    {/foreach}
 			    </div>
-			    <div class="footer"></div>
+			    <div class="footer">
+<div class="ajax_indicator" style="padding-top:0px;">
+		<div id='collab.document.widget.DashboardWidgetForm.load_disp' style="display:none" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+		</div>
+</div>
+			    </div>
 		</div>
 		<div class="widgets_small_container">
 			<div class="widget_small">
