@@ -1889,6 +1889,28 @@ $('".$this->m_Name."').observe('click',Openbiz.Menu.hide);
         include_once(OPENBIZ_BIN."/easy/FormRenderer.php");
         $formHTML = FormRenderer::render($this);
         $otherHTML = $this->rendercontextmenu();
+        
+        
+        if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || 
+        	preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){
+        		$otherHTML.="
+        		<script>
+				var a=document.getElementsByTagName('a');
+				for(var i=0;i<a.length;i++)
+				{
+					if(a[i].getAttribute('href').indexOf('javascript:')==-1)
+						{
+						    a[i].onclick=function()
+						    {
+						        window.location=this.getAttribute('href');
+						        return false
+						    }
+						}else{
+						}
+				} 
+				</script>       		
+        		";
+        	} 
         if(!$this->m_ParentFormName)
         {
         	if (($viewObj = $this->getViewObject())!=null)
