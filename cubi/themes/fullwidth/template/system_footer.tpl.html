@@ -1,4 +1,8 @@
-	<div id="footer">	
+{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
+	<div id="footer" style="height:64px;">
+{php}}else{{/php}
+	<div id="footer">
+{php}}{/php}	
 		<div style="float:right; width:580px; height:60px;" class="logo">
 		<div style="padding-top:18px;"></div>
 		<p style="padding-right:120px">
