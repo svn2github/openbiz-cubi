@@ -5,6 +5,11 @@ for(var i=0;i<a.length;i++)
 		{
 		    a[i].onclick=function()
 		    {
+		    	try{
+		    		show_loader();
+		    	}catch(e){
+		    		
+		    	}
 		        window.location=this.getAttribute("href");
 		        return false
 		    }
