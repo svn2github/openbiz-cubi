@@ -88,5 +88,15 @@ class TaskService
 		}
 		return $value;
 	}
-	
+	public function notifyUserUpdate($taskDO){
+		$task_id = (int)$this->getObjValue($taskDO, 'Id');
+		if(!$task_id){
+			return;
+		}
+		$status_prev = $taskDO->getField('status')->m_OldValue;
+		$status_new = $taskDO->getField('status')->m_Value;		
+
+		$progress_prev = $taskDO->getField('progress')->m_OldValue;
+		$progress_new = $taskDO->getField('progress')->m_Value;
+	}
 }
