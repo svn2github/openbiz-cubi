@@ -123,9 +123,9 @@ class BizDataObj extends BizDataObj_Lite
                     break;
                 }
                 if ($searchRule == "")
-                    $searchRule = "[".$bizField->m_Name."]='".$bizField->m_Value."'";
+                    $searchRule = "[".$bizField->m_Name."]='".addslashes($bizField->m_Value)."'";
                 else
-                    $searchRule .= " AND [".$bizField->m_Name."]='".$bizField->m_Value."'";
+                    $searchRule .= " AND [".$bizField->m_Name."]='".addslashes($bizField->m_Value)."'";
             }
             if ($needCheck)
             {
