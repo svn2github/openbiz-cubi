@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="SessionManageView" Title="Session Management" Description="User Session Management" class="EasyView" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Session.Administer_Session">
+    <FormReferences>
+        <Reference Name="system.form.SessionListForm"/>
+    </FormReferences>
+</EasyView>

@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="system" Description="system module, only administrator can access" Version="0.7" Author="Rocky" OpenbizVersion="3.0">
+<Module Name="system" Description="system module, only administrator can access" Version="0.8" Author="Rocky" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="Site">
 			<Action Name="Administer_General" Description="General administration of the site"></Action>
@@ -20,6 +20,9 @@
 		<Resource Name="System">
 			<Action Name="Administer_System" Description="Administration of system setting"></Action>			
 		</Resource>
+		<Resource Name="Session">
+			<Action Name="Administer_Session" Description="Administration of user sessions"></Action>			
+		</Resource>
     </ACL>
     <Menu>
     <!-- System menus -->
@@ -28,6 +31,7 @@
 	    		<MenuItem Name="System.User.List" Title="User Management" Description="" URL="/system/user_list" Order="10">
 	    			<MenuItem Name="System.User.Detail" Title="User Detail" Description="" URL="/system/user_detail" Order="10"/>	    			
 	    		</MenuItem>
+				<MenuItem Name="System.Session_Management" Title="Session Management" Description="" URL="/system/session_manage" Order="20"/>
 	    	</MenuItem>
 	    	<MenuItem Name="System.Role" Title="Role" Description="Role Management Module" IconImage="spacer.gif" IconCssClass="icon_role" Order="12">
 	    		<MenuItem Name="System.Role.List" Title="Role Management" Description="" URL="/system/role_list" Order="10">
@@ -47,7 +51,7 @@
 	    		<MenuItem Name="System.Group.DataShare" Title="Group Data Sharing" Description="" URL="/system/group_data_sharing" Order="20">
 	    		</MenuItem>
 	    	</MenuItem>
-	    	<MenuItem Name="System.Setting" Title="System" Description="System Management" Access="User.Administer_System" IconImage="spacer.gif" IconCssClass="icon_system" Order="17">
+	    	<MenuItem Name="System.Setting" Title="System" Description="System Management" Access="System.Administer_System" IconImage="spacer.gif" IconCssClass="icon_system" Order="17">
 	    		<MenuItem Name="System.Setting.Database" Title="Database Connections" Description="" URL="/system/database_list" Order="10">
 	    		</MenuItem>
 	    		<MenuItem Name="System.Setting.Preference" Title="Preference Setting" Description="" URL="/system/user_preference" Order="20"/>
@@ -57,8 +61,11 @@
     <Dependency>
     </Dependency>
     <ChangeLog>
+    	<Version Name="0.8">
+	    	<Change Name="feature_08" Type="New_Feature"  Status="Finished" PublishDate="2012-01-03" Description="Added session manager can allow administrator to view and manage user session"></Change>
+	    </Version>
 	    <Version Name="0.7">
-	    	<Change Name="feature_06.7" Type="New_Feature"  Status="Finished" PublishDate="2011-05-02" Description="Added module and resource selectors in Role permission setting."></Change>
+	    	<Change Name="feature_07.7" Type="New_Feature"  Status="Finished" PublishDate="2011-05-02" Description="Added module and resource selectors in Role permission setting."></Change>
 	    </Version>
     	<Version Name="0.6">
     		<Change Name="feature_06.7" Type="New_Feature"  Status="Finished" PublishDate="2011-05-02" Description="Added module and resource selectors in Role permission setting."></Change>
