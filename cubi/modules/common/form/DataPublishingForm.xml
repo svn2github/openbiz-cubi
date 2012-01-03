@@ -25,7 +25,7 @@
     	<Element Name="fld_group_setting" Hidden="{(@:Elem[fld_editable].Value==1 &amp;&amp; @:Elem[fld_other_perm_setting].Value==0  &amp;&amp; @:Elem[fld_group_perm_setting].Value==1)?'N':'Y'}"  Class="Listbox" SelectFrom="system.do.GroupDO[name:Id]" ElementSet="Data Sharing" Description="Publish the data to specified group users " FieldName="group_id" Label="Group"  />
         
         		
-        
+        <Element Name="fld_notify_users" Class="Checkbox"  ElementSet="Data Sharing" Description="Notify users by email" DefaultChecked="N" DefaultValue="0" SelectFrom="1" FieldName="notify_user" Label="Notify User"  />
          		
     </DataPanel>
     <ActionPanel>

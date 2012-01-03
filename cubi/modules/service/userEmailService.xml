@@ -22,5 +22,20 @@
 				Title="Execute cron job" 
 				EmailAccount="SystemNotifier" 
 				Template="execute_cron_job.tpl" />	
+	
+	<Template   Name="DataSharingEmail" 
+				Title="Your collegue has shared data to you" 
+				EmailAccount="SystemNotifier" 
+				Template="data_sharing_email.tpl" />	
 				
+	<Template   Name="DataPublishEmail" 
+				Title="Your collegue has published data to you" 
+				EmailAccount="SystemNotifier" 
+				Template="data_publish_email.tpl" />
+				
+	<Template   Name="DataAssignedEmail" 
+				Title="Your collegue has assigned task to you" 
+				EmailAccount="SystemNotifier" 
+				Template="data_assign_email.tpl" />
+																
 </PluginService>

@@ -95,6 +95,85 @@ class userEmailService extends MetaObject
 		return $result;		
 	}
 
+	public function DataSharingEmail($recipient_user_id, $data)
+	{
+		//init email info
+		$template = $this->m_Tempaltes["DataSharingEmail"]["TEMPLATE"];
+		$subject  = $this->m_Tempaltes["DataSharingEmail"]["TITLE"];
+		$sender   = $this->m_Tempaltes["DataSharingEmail"]["EMAILACCOUNT"];
+				        
+		//render the email tempalte
+		$tplFile = BizSystem::getTplFileWithPath($template, "email");
+		$content = $this->RenderEmail($data, $tplFile);
+		
+		//prepare recipient info
+		$userObj = BizSystem::getObject("system.do.UserDO");
+        $userData = $userObj->directFetch("[Id]='".$recipient_user_id."'", 1);                	        
+        if(!count($data))
+        	return false;
+        $userData = $userData[0];
+        
+		$recipient['email'] = $userData['email'];
+		$recipient['name']  = $userData['username'];
+		
+		//send it to the queue		
+		$result = $this->sendEmail($sender,$recipient,$subject,$content);
+		return $result;		
+	}	
+	
+
+	public function DataAssignedEmail($recipient_user_id, $data)
+	{
+		//init email info
+		$template = $this->m_Tempaltes["DataAssignedEmail"]["TEMPLATE"];
+		$subject  = $this->m_Tempaltes["DataAssignedEmail"]["TITLE"];
+		$sender   = $this->m_Tempaltes["DataAssignedEmail"]["EMAILACCOUNT"];
+				        
+		//render the email tempalte
+		$tplFile = BizSystem::getTplFileWithPath($template, "email");
+		$content = $this->RenderEmail($data, $tplFile);
+		
+		//prepare recipient info
+		$userObj = BizSystem::getObject("system.do.UserDO");
+        $userData = $userObj->directFetch("[Id]='".$recipient_user_id."'", 1);                	        
+        if(!count($data))
+        	return false;
+        $userData = $userData[0];
+        
+		$recipient['email'] = $userData['email'];
+		$recipient['name']  = $userData['username'];
+		
+		//send it to the queue		
+		$result = $this->sendEmail($sender,$recipient,$subject,$content);
+		return $result;		
+	}		
+	
+	public function DataPublishEmail($recipient_user_id, $data)
+	{
+		//init email info
+		$template = $this->m_Tempaltes["DataPublishEmail"]["TEMPLATE"];
+		$subject  = $this->m_Tempaltes["DataPublishEmail"]["TITLE"];
+		$sender   = $this->m_Tempaltes["DataPublishEmail"]["EMAILACCOUNT"];
+				        
+		//render the email tempalte
+		$tplFile = BizSystem::getTplFileWithPath($template, "email");
+		$content = $this->RenderEmail($data, $tplFile);
+		
+		//prepare recipient info
+		$userObj = BizSystem::getObject("system.do.UserDO");
+        $userData = $userObj->directFetch("[Id]='".$recipient_user_id."'", 1);                	        
+        if(!count($data))
+        	return false;
+        $userData = $userData[0];
+        
+		$recipient['email'] = $userData['email'];
+		$recipient['name']  = $userData['username'];
+		
+		//send it to the queue		
+		$result = $this->sendEmail($sender,$recipient,$subject,$content);
+		return $result;		
+	}		
+	
 	public function SystemInternalErrorEmail($recipient, $errMsg)
 	{
 		//init email info

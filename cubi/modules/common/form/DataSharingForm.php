@@ -65,6 +65,8 @@ class DataSharingForm extends EasyForm
 			$result['data_record'] = $dataRec['Id'];
 		}
 		
+		$result['data_record'] = $result['data_record'];
+		
 		if($this->m_hasOwnerField){
 			$owner_id = $dataRec['owner_id'];			
 			$result['owner_id'] =  $dataRec['owner_id'];
@@ -112,6 +114,18 @@ class DataSharingForm extends EasyForm
 		
 		$recArr = $this->readInputRecord();
 		$DataRec = $dataRec;
+		
+		//notice users has new shared data
+		//test if changed a new owner
+		$emailSvc = BizSystem::getService(USER_EMAIL_SERVICE);
+		if($DataRec['owner_id']	!= $recArr['owner_id'])
+		{
+			
+		}
+		//test if changes for group level visiable
+		
+		//test if changes for other group level visiable
+		
 		if(isset($recArr['group_perm']))
 		{
 			$DataRec['group_perm'] = $recArr['group_perm'];
@@ -141,6 +155,7 @@ class DataSharingForm extends EasyForm
 				$this->_casacadeUpdate($dataObj, $recArr);
 			}			
 		}
+				
 		
 		if ($this->m_ParentFormName)
         {
