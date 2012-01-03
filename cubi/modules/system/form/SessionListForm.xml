@@ -4,8 +4,9 @@
     	<Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Role Id" Sortable="Y"/>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Link="{@home:url}/system/role_detail/{@:Elem[fld_Id].Value}" Sortable="Y"/>
-        <Element Name="fld_startpage" Class="ColumnText" FieldName="startpage" Label="Start Page" Sortable="Y"/>
-        <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y"/>
+        <Element Name="fld_start_time" Class="ColumnText" FieldName="startpage" Label="Start Page" Sortable="Y"/>
+		<Element Name="fld_last_update" Class="ColumnText" FieldName="startpage" Label="Start Page" Sortable="Y"/>
+        <Element Name="fld_login_ip" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y"/>
         	
     </DataPanel>
     <ActionPanel>	
