@@ -341,3 +341,12 @@
 #main #right_panel .dashboard_panel .icons .icon_eventlog:active img {
 	background-position:-1320px -96px;
 }
+#main #right_panel .dashboard_panel .icons .icon_session img {
+	background-position:-1680px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_session:hover img {
+	background-position:-1680px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_session:active img {
+	background-position:-1680px -96px;
+}
