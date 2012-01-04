@@ -4,7 +4,7 @@
     	<Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="ColumnText" Hidden="Y" FieldName="Id" Label="Session Id" Sortable="Y"/>
         <Element Name="fld_user" Class="ColumnText" FieldName="user_id" Label="User" Link="{@home:url}/system/user_detail/{@:Elem[fld_user].Value}" Text="{BizSystem::GetProfileName(@:Elem[fld_user].Value)}"  Sortable="Y"/>
-        <Element Name="fld_last_url" Class="ColumnText" FieldName="last_url" Label="Last Request" MaxLength="35" Sortable="Y"/>
+        <Element Name="fld_last_url" Class="ColumnText" FieldName="last_url" link="{@:Elem[fld_last_url].Value}" target="_blank" Label="Last Request" MaxLength="35" Sortable="Y"/>
         <Element Name="fld_start_time" Class="ColumnText" FieldName="create_time_display" Label="Start Time" Sortable="Y"/>
 		<Element Name="fld_last_update" Class="ColumnText" FieldName="update_time_display" Label="Last Access" Sortable="Y"/>
         <Element Name="fld_login_ip" Class="ColumnText" FieldName="ipaddr" Label="IP Address" Sortable="Y"/>
