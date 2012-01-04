@@ -2,11 +2,11 @@
 <EasyForm Name="SessionListForm" Icon="icon_session.gif" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Session Management" Description="You can view and manage user sessions in below form." BizDataObj="system.do.SessionDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" access="Session.Administer_Session">
     <DataPanel>
     	<Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Role Id" Sortable="Y"/>
-        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Link="{@home:url}/system/role_detail/{@:Elem[fld_Id].Value}" Sortable="Y"/>
-        <Element Name="fld_start_time" Class="ColumnText" FieldName="startpage" Label="Start Page" Sortable="Y"/>
-		<Element Name="fld_last_update" Class="ColumnText" FieldName="startpage" Label="Start Page" Sortable="Y"/>
-        <Element Name="fld_login_ip" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y"/>
+        <Element Name="fld_Id" Class="ColumnText" Hidden="Y" FieldName="Id" Label="Session Id" Sortable="Y"/>
+        <Element Name="fld_user" Class="ColumnText" FieldName="user_id" Label="User" Link="{@home:url}/system/user_detail/{@:Elem[fld_user].Value}" Text="{BizSystem::GetProfileName(@:Elem[fld_user].Value)}"  Sortable="Y"/>
+        <Element Name="fld_start_time" Class="ColumnText" FieldName="create_time" Label="Start Time" Sortable="Y"/>
+		<Element Name="fld_last_update" Class="ColumnText" FieldName="update_time" Label="Last Access" Sortable="Y"/>
+        <Element Name="fld_login_ip" Class="ColumnText" FieldName="ipaddr" Label="IP Address" Sortable="Y"/>
         	
     </DataPanel>
     <ActionPanel>	
@@ -37,9 +37,6 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
-        <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="system.do.RoleDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" FieldName="name" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
-        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
-            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
-        </Element>        
+    
     </SearchPanel>
 </EasyForm>

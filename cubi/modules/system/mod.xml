@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="system" Description="system module, only administrator can access" Version="0.8" Author="Rocky" OpenbizVersion="3.0">
+<Module Name="system" Description="system module, only administrator can access" Version="0.81" Author="Rocky" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="Site">
 			<Action Name="Administer_General" Description="General administration of the site"></Action>
