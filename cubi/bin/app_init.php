@@ -63,9 +63,9 @@ define('OTHERS_URL', APP_URL."/others");
 define("LOG_PATH", APP_HOME.DIRECTORY_SEPARATOR."log");
 
 /* define session save handler */
-//define("SESSION_HANDLER", MODULE_PATH."/system/lib/SessionDBHandler"); // save session in DATABASE 
+define("SESSION_HANDLER", MODULE_PATH."/system/lib/SessionDBHandler"); // save session in DATABASE 
 //define("SESSION_HANDLER", MODULE_PATH."/system/lib/SessionMCHandler"); // save session in MEMCACHE
-define("SESSION_PATH", APP_HOME.DIRECTORY_SEPARATOR."session"); // for default FILE type session handler
+//define("SESSION_PATH", APP_HOME.DIRECTORY_SEPARATOR."session"); // for default FILE type session handler
 
 /* file path. */
 define('APP_FILE_PATH', APP_HOME.DIRECTORY_SEPARATOR."files");
@@ -167,7 +167,7 @@ $g_ServiceAlias = array('validate'=>VALIDATE_SERVICE, 'query'=>QUERY_SERVICE, 'v
 
 
 //init default timezone setting 
-define('DEFAULT_TIMEZONE','America/Los_Angeles');
+define('DEFAULT_TIMEZONE','Asia/Chongqing');
 $DefaultTimezone = BizSystem::sessionContext()->getVar("TIMEZONE");        
 // default language
 if ($DefaultTimezone == ""){
