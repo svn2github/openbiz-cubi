@@ -290,3 +290,17 @@ CREATE TABLE `module_changelog` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `session`;
+CREATE TABLE IF NOT EXISTS `session` (
+  `id` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `expiration` int(10) unsigned NOT NULL,
+  `data` text COLLATE utf8_unicode_ci NOT NULL,
+  `ipaddr` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `expiration` (`expiration`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
