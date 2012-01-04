@@ -299,6 +299,7 @@ CREATE TABLE IF NOT EXISTS `session` (
   `expiration` int(10) unsigned NOT NULL,
   `data` text COLLATE utf8_unicode_ci NOT NULL,
   `ipaddr` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `last_url` text COLLATE utf8_unicode_ci NOT NULL,
   `create_time` datetime NOT NULL,
   `update_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
