@@ -48,7 +48,9 @@ class SessionDBHandler {
         $dataArr = self::unserializesession($data);
         $user_id = (int)$dataArr['_USER_PROFILE']["Id"];
         $ip_addr = $_SERVER["REMOTE_ADDR"];        
+        $last_url = $_SERVER["REQUEST_URI"];
         $update_time = date("Y-m-d H:i:s");
+        
         try {
             if ($this->initSessionData == null) {
                 //echo "insert session data";
@@ -58,6 +60,7 @@ class SessionDBHandler {
                 											'expiration'=>$expiration,
                 											'user_id'=>$user_id,
                 											'ipaddr'=>$ip_addr,
+                											'last_url'=>$last_url,
                 											'create_time'=>$create_time,
                 											'update_time'=>$update_time));
             }
@@ -67,6 +70,7 @@ class SessionDBHandler {
                     $this->sessionDb->update('session', array('expiration'=>$expiration,
                     										  'user_id'=>$user_id,
                     										  'ipaddr'=>$ip_addr,
+                    										  'last_url'=>$last_url,
                     										  'update_time'=>$update_time
                     										), "id = '$sessionID'");
                 }
@@ -76,6 +80,7 @@ class SessionDBHandler {
                     										  'expiration'=>$expiration,
                     										  'user_id'=>$user_id,
                     										  'ipaddr'=>$ip_addr,
+                    										  'last_url'=>$last_url,
                     										  'update_time'=>$update_time
                     											), "id = '$sessionID'");
                 }
