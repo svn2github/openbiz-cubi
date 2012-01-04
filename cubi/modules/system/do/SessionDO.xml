@@ -6,6 +6,7 @@
         <BizField Name="expiration" Column="expiration" Type="Number"/>
         <BizField Name="data" Column="data" Type="Text"/>
         <BizField Name="ipaddr" Column="ipaddr" Type="Text"/>
+        <BizField Name="last_url" Column="last_url" Type="Text"/>
         <BizField Name="create_time" Column="create_time" />
         <BizField Name="update_time" Column="update_time" />
 	</BizFieldList>
