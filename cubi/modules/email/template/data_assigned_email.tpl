@@ -6,5 +6,6 @@
 	You can click this link to login <a href="{$data.refer_url}">Openbiz Collaboration</a> system.<br/>
 	{$data.action_timestamp}
 	</p>
+	<p>Openbiz Collaboration</p>
 </body>
 </html> 
