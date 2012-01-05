@@ -121,7 +121,58 @@ class userEmailService extends MetaObject
 		return $result;		
 	}	
 	
+	public function TaskUpdateEmail($recipient_user_id, $data)
+	{
+		//init email info
+		$template = $this->m_Tempaltes["TaskUpdateEmail"]["TEMPLATE"];
+		$subject  = $this->m_Tempaltes["TaskUpdateEmail"]["TITLE"];
+		$sender   = $this->m_Tempaltes["TaskUpdateEmail"]["EMAILACCOUNT"];
+				        
+		//render the email tempalte
+		$tplFile = BizSystem::getTplFileWithPath($template, "email");
+		$content = $this->RenderEmail($data, $tplFile);
+		
+		//prepare recipient info
+		$userObj = BizSystem::getObject("system.do.UserDO");
+        $userData = $userObj->directFetch("[Id]='".$recipient_user_id."'", 1);                	        
+        if(!count($data))
+        	return false;
+        $userData = $userData[0];
+        
+		$recipient['email'] = $userData['email'];
+		$recipient['name']  = $userData['username'];
+		
+		//send it to the queue		
+		$result = $this->sendEmail($sender,$recipient,$subject,$content);
+		return $result;		
+	}
 
+	public function NewMessageEmail($recipient_user_id, $data)
+	{
+		//init email info
+		$template = $this->m_Tempaltes["NewMessageEmail"]["TEMPLATE"];
+		$subject  = $this->m_Tempaltes["NewMessageEmail"]["TITLE"];
+		$sender   = $this->m_Tempaltes["NewMessageEmail"]["EMAILACCOUNT"];
+				        
+		//render the email tempalte
+		$tplFile = BizSystem::getTplFileWithPath($template, "email");
+		$content = $this->RenderEmail($data, $tplFile);
+		
+		//prepare recipient info
+		$userObj = BizSystem::getObject("system.do.UserDO");
+        $userData = $userObj->directFetch("[Id]='".$recipient_user_id."'", 1);                	        
+        if(!count($data))
+        	return false;
+        $userData = $userData[0];
+        
+		$recipient['email'] = $userData['email'];
+		$recipient['name']  = $userData['username'];
+		
+		//send it to the queue		
+		$result = $this->sendEmail($sender,$recipient,$subject,$content);
+		return $result;		
+	}	
+	
 	public function DataAssignedEmail($recipient_user_id, $data)
 	{
 		//init email info

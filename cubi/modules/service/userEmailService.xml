@@ -37,5 +37,15 @@
 				Title="Your collegue has assigned data to you" 
 				EmailAccount="CubiNotification" 
 				Template="data_assign_email.tpl" />
+				
+	<Template   Name="TaskUpdateEmail" 
+				Title="Your collegue has updated your task progress" 
+				EmailAccount="CubiNotification" 
+				Template="task_update_email.tpl" />		
+						
+	<Template   Name="NewMessageEmail" 
+				Title="Your collegue has send you a new message" 
+				EmailAccount="CubiNotification" 
+				Template="new_message_email.tpl" />							
 																
 </PluginService>
