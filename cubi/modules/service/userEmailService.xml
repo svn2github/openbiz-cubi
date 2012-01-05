@@ -25,17 +25,17 @@
 	
 	<Template   Name="DataSharingEmail" 
 				Title="Your collegue has shared data to you" 
-				EmailAccount="SystemNotifier" 
+				EmailAccount="CubiNotification" 
 				Template="data_sharing_email.tpl" />	
 				
 	<Template   Name="DataPublishEmail" 
 				Title="Your collegue has published data to you" 
-				EmailAccount="SystemNotifier" 
+				EmailAccount="CubiNotification" 
 				Template="data_publish_email.tpl" />
 				
 	<Template   Name="DataAssignedEmail" 
 				Title="Your collegue has assigned task to you" 
-				EmailAccount="SystemNotifier" 
+				EmailAccount="CubiNotification" 
 				Template="data_assign_email.tpl" />
 																
 </PluginService>
