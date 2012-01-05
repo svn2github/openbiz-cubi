@@ -141,6 +141,7 @@ define('PDF_SERVICE', "pdfService");
 define('PREFERENCE_SERVICE', "preferenceService");
 define('DATAPERM_SERVICE', "dataPermService");
 define('UTIL_SERVICE', "utilService");
+define('LOV_SERVICE', "lovService");
 
 
 define ('DENY', 0);
