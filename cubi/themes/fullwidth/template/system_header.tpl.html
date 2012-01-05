@@ -69,10 +69,10 @@ var top_menu_play_speed=1000;
 		<a class="screen_switch_min_btn" title="{t}Switch Theme{/t}"  href="javascript:;" onclick="Openbiz.switchTheme('default')" style="float:right;margin-left:5px; margin-top:6px;  " ></a>
 			{include file="system_appbuilder_btn.tpl.html"}
 		<span style="display:block;float:right;">{php}
-		$profile = BizSystem::getUserProfile();
-		$this->assign('profile', $profile);
+		$profile_display = BizSystem::GetProfileName(BizSystem::getUserProfile("Id"));
+		$this->assign('profile', $profile_display);
 		{/php}
-		{$profile.username} &lt;{$profile.email}&gt;
+		{$profile}
 		</span>
 		
 		</div>			
