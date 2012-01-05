@@ -1898,7 +1898,8 @@ $('".$this->m_Name."').observe('click',Openbiz.Menu.hide);
 				var a=document.getElementsByTagName('a');
 				for(var i=0;i<a.length;i++)
 				{
-					if(a[i].getAttribute('href').indexOf('javascript:')==-1)
+					if(a[i].getAttribute('href').indexOf('javascript:')==-1
+					&& a[i].getAttribute('href').indexOf('#')==-1)
 						{
 						    a[i].onclick=function()
 						    {
