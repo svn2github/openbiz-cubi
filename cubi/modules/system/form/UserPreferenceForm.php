@@ -73,11 +73,11 @@ class UserPreferenceForm extends EasyForm
         {
         	if($_SERVER["HTTPS"])
         	{
-        		$prefRecord["_siteurl"]="https://".$_SERVER["SERVER_NAME"]."/".APP_URL;
+        		$prefRecord["_siteurl"]="https://".$_SERVER["SERVER_NAME"].APP_URL;
         	}
         	else
         	{
-        		$prefRecord["_siteurl"]="http://".$_SERVER["SERVER_NAME"]."/".APP_URL;	
+        		$prefRecord["_siteurl"]="http://".$_SERVER["SERVER_NAME"].APP_URL;	
         	}        	
         }
         
