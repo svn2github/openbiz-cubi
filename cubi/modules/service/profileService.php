@@ -3,7 +3,7 @@ class profileService
 {
     protected $m_Name = "ProfileService";
     protected $m_Profile;    
-    protected $m_profileObj = "contact.do.ContactDO";
+    protected $m_profileObj = "contact.do.ContactSystemDO";
     protected $m_contactObj = "contact.do.ContactSystemDO";     
     protected $m_userDataObj = "system.do.UserDO";
     protected $m_user_roleDataObj = "system.do.UserRoleDO";
@@ -133,12 +133,11 @@ class profileService
         $profile['password'] = null;
         $profile['enctype'] = null;
         
-    	$do = BizSystem::getObject($this->m_profileObj);
+    	$do = BizSystem::getObject($this->m_profileObj,1);
         if (!$do)
             return false;
 
         $rs = $do->directFetch("[user_id]='$userId'", 1);
-      
         if ($rs)
         {
         	$rs = $rs[0];        	
