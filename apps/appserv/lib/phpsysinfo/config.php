@@ -54,7 +54,7 @@ define('PSI_ADD_PATHS', false);
  * - UpdateNotifier - show update notifications (only for Ubuntu server)
  * - SNMPPInfo      - show printers info via SNMP
  */
-define('PSI_PLUGINS', false);
+define('PSI_PLUGINS', 'PS');
 
 
 // ********************************
@@ -157,7 +157,7 @@ define('PSI_TEMP_FORMAT', 'c');
  * - K8Temp     http://hur.st/k8temp/
  * Example: If you want to use lmsensors : define('PSI_SENSOR_PROGRAM', 'LMSensors');
  */
-define('PSI_SENSOR_PROGRAM', false);
+define('PSI_SENSOR_PROGRAM', 'LMSensors');
 
 /**
  * Define how to access the monitor program
@@ -182,7 +182,7 @@ define('PSI_SENSOR_ACCESS', 'command');
  * - define('PSI_HDD_TEMP', 'tcp');	     // read data from hddtemp deamon (localhost:7634)
  * - define('PSI_HDD_TEMP', 'command');  // read data from hddtemp programm (must be set suid)
  */
-define('PSI_HDD_TEMP', false);
+define('PSI_HDD_TEMP', 'tcp');
 
 
 // ********************************
