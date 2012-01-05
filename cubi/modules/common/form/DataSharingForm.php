@@ -64,9 +64,7 @@ class DataSharingForm extends EasyForm
 		{
 			$result['data_record'] = $dataRec['Id'];
 		}
-		
-		$result['data_record'] = $result['data_record'];
-		
+				
 		if($this->m_hasOwnerField){
 			$owner_id = $dataRec['owner_id'];			
 			$result['owner_id'] =  $dataRec['owner_id'];
@@ -117,14 +115,43 @@ class DataSharingForm extends EasyForm
 		
 		//notice users has new shared data
 		//test if changed a new owner
-		$emailSvc = BizSystem::getService(USER_EMAIL_SERVICE);
-		if($DataRec['owner_id']	!= $recArr['owner_id'])
-		{
+		if($recArr['notify_user']){
+			$data = $this->fetchData();			
+			$data['app_index'] = APP_INDEX;
+			$data['app_url'] = APP_URL;
+			$data['operator_name'] = BizSystem::GetProfileName(BizSystem::getUserProfile("Id"));
 			
+			$emailSvc = BizSystem::getService(USER_EMAIL_SERVICE);
+			if($DataRec['owner_id']	!= $recArr['owner_id'])
+			{
+				$emailSvc->DataAssignedEmail($recArr['owner_id'], $data);
+			}
+			
+			//test if changes for group level visiable
+			if($recArr['group_perm']>=1){
+				$group_id = $recArr['group_id'];
+				$userList = $this->_getGroupUserList($group_id);
+				foreach($userList as $user_id)
+				{
+					$emailSvc->DataSharingEmail($user_id, $data);
+				}				
+			}
+			//test if changes for other group level visiable
+			if($recArr['other_perm']>=1){
+				
+				$groupList = $this->_getGroupList();
+				foreach($groupList as $group_id){
+					if($recArr['group_id']==$group_id){
+						continue;
+					}					
+					$userList = $this->_getGroupUserList($group_id);
+					foreach($userList as $user_id)
+					{
+						$emailSvc->DataSharingEmail($user_id, $data);
+					}				
+				}
+			}
 		}
-		//test if changes for group level visiable
-		
-		//test if changes for other group level visiable
 		
 		if(isset($recArr['group_perm']))
 		{
@@ -164,6 +191,24 @@ class DataSharingForm extends EasyForm
         }
         $this->processPostAction();
 	}
+	
+	protected function _getGroupList(){
+		$rs = BizSystem::getObject("system.do.GroupDO")->directFetch("");
+		$group_ids = array();
+		foreach($rs as $group){
+			$group_ids[]=$group['Id'];
+		}
+		return $group_ids;
+	}
+	
+	protected function _getGroupUserList($group_id){
+		$rs = BizSystem::getObject("system.do.UserGroupDO")->directFetch("[group_id]='$group_id'");
+		$user_ids = array();
+		foreach($rs as $user){
+			$user_ids[]=$user['user_id'];
+		}
+		return $user_ids;
+	}	
 	
 	private function _casacadeUpdate($obj,$setting){
 		$dataShareSvc = BizSystem::getService(DATAPERM_SERVICE);

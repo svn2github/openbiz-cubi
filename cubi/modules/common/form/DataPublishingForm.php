@@ -12,6 +12,41 @@ class DataPublishingForm extends  DataSharingForm
 		
 		$recArr = $this->readInputRecord();
 		$DataRec = $dataRec;
+		
+		//notice users has new published data
+		//test if changed a new owner
+		if($recArr['notify_user'] && $recArr['group_perm']){
+			$data = $this->fetchData();			
+			$data['app_index'] = APP_INDEX;
+			$data['app_url'] = APP_URL;
+			$data['operator_name'] = BizSystem::GetProfileName(BizSystem::getUserProfile("Id"));
+			
+			$emailSvc = BizSystem::getService(USER_EMAIL_SERVICE);
+			
+			//test if changes for group level visiable
+			if($recArr['group_perm']>=1)
+			{
+				$group_id = $recArr['group_id'];
+				$userList = $this->_getGroupUserList($group_id);
+				foreach($userList as $user_id)
+				{
+					$emailSvc->DataPublishEmail($user_id, $data);
+				}				
+			}
+			//test if changes for other group level visiable
+			if($recArr['other_perm']>=1)
+			{				
+				$groupList = $this->_getGroupList();
+				foreach($groupList as $group_id){								
+					$userList = $this->_getGroupUserList($group_id);
+					foreach($userList as $user_id)
+					{
+						$emailSvc->DataPublishEmail($user_id, $data);
+					}				
+				}
+			}
+		}
+		
 		if(isset($recArr['group_perm']))
 		{
 			$DataRec['group_perm'] = $recArr['group_perm'];
