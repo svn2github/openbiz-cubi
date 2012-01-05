@@ -12,9 +12,9 @@ define('APP_HOME',dirname(dirname(__FILE__)));
 
 /* website url. please change the localhost to real url */
 if(isset($_SERVER["HTTP_HOST"])){
-	define('SITE_URL','http://'.$_SERVER["HTTP_HOST"]);
+	define('SITE_URL','http://'.$_SERVER["HTTP_HOST"].'/');
 }else{
-	define('SITE_URL','http://localhost');
+	define('SITE_URL','http://localhost/');
 }
 
 /* APP_URL is /a/b in case of http://host/a/b/index.php?... */
