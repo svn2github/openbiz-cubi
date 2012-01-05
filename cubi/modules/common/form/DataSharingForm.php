@@ -99,6 +99,10 @@ class DataSharingForm extends EasyForm
 		$result['owner_name'] = $this->_getOwnerName($owner_id);
 		$result['creator_name'] = 	$this->_getOwnerName($dataRec['create_by']);
 		$result['hasOwnerField'] = (int)$this->m_hasOwnerField;
+		
+		$result['form_title'] = $prtFormObj->m_Title;
+		$result['action_timestamp'] = date("Y-m-d H:i:s");
+		$result['refer_url'] = $_SERVER["REQUEST_URI"];
 		return $result;
 	}
 	
