@@ -22,8 +22,8 @@ class TaskService
 			return;
 		}
 		$progress = $this->getObjValue($taskDO, 'progress');
-		$status_prev = $taskDO->getField('status')->m_OldValue;
-		$status_new = $taskDO->getField('status')->m_Value;	
+		
+		
 		
 		$taskPickDO = BizSystem::getObject($this->m_DataObj);		
 		$taskRec = $taskPickDO->fetchById($task_id);
@@ -98,5 +98,31 @@ class TaskService
 
 		$progress_prev = $taskDO->getField('progress')->m_OldValue;
 		$progress_new = $taskDO->getField('progress')->m_Value;
+		
+		$creator_id = $taskDO->getField('create_by')->m_Value;
+		$owner_id = $taskDO->getField('owner_id')->m_Value;
+
+		$status_prev = BizSystem::getService(LOV_SERVICE)->getTextByValue("collab.task.lov.TaskLOV(TaskStatus)",$status_prev);
+		$status_new = BizSystem::getService(LOV_SERVICE)->getTextByValue("collab.task.lov.TaskLOV(TaskStatus)",$status_new);
+		
+		$data = array(
+			"progress_prev" => $progress_prev."%",
+			"progress_new" => $progress_new."%",
+			"status_prev" => $status_prev,
+			"status_new" => $status_new,
+			"data_record" => $taskDO->getField('title')->m_Value,
+			"app_index" => APP_INDEX,
+			"app_url" => APP_URL,
+			"operator_name" => BizSystem::GetProfileName(BizSystem::getUserProfile("Id")),
+			"action_timestamp"=> date("Y-m-d H:i:s"),
+			"refer_url" => SITE_URL.APP_URL
+		);				
+		
+		$emailSvc = BizSystem::getService(USER_EMAIL_SERVICE);
+		$emailSvc->TaskUpdateEmail($creator_id, $data);
+	
+		if($owner_id && $creator_id!=$owner_id){
+			$emailSvc->TaskUpdateEmail($owner_id, $data);
+		}		
 	}
 }
