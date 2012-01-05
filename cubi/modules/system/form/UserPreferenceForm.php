@@ -69,6 +69,17 @@ class UserPreferenceForm extends EasyForm
         foreach($resultRecords as $record){
         	$prefRecord["_".$record['name']] = $record["value"];
         }
+        if($prefRecord["_siteurl"]=="")
+        {
+        	if($_SERVER["HTTPS"])
+        	{
+        		$prefRecord["_siteurl"]="https://".$_SERVER["SERVER_NAME"]."/".APP_URL;
+        	}
+        	else
+        	{
+        		$prefRecord["_siteurl"]="http://".$_SERVER["SERVER_NAME"]."/".APP_URL;	
+        	}        	
+        }
         
         $this->m_RecordId = $resultRecords[0]['Id'];
         $this->setActiveRecord($prefRecord);
@@ -137,6 +148,14 @@ class UserPreferenceForm extends EasyForm
 	            			@file_put_contents($config_file,$data);
 	            		}
 	            		break;
+					case "siteurl":
+	            		if($value!=SITE_URL){
+	            			//update default theme SITE_URL
+	            			$data = file_get_contents($config_file);	            			
+	            			$data = preg_replace("/define\([\'\\\"]{1}SITE_URL[\'\\\"]{1}.*?\)\;/i","define('SITE_URL','$value');",$data);	            			
+	            			@file_put_contents($config_file,$data);
+	            		}
+	            		break;	            		
 	            	case "language":
 	            	    if($value!=DEFAULT_LANGUAGE){
 	            			//update default theme DEFAULT_THEME_NAME

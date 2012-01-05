@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="UserPreferenceEditForm" Class="UserPreferenceForm" FormType="Edit" Icon="icon_user_list.gif" jsClass="jbForm"  SearchRule="[user_id]='0'" Title="Edit User Perference" Description="You can custom default user setting in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" Access="System.Administer_System">
     <DataPanel>
-        <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>        
+        <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>   
+		<Element Name="fld_siteurl" ReadOnly="Y" Class="InputText" ElementSet="General" FieldName="_siteurl" Label="Site URL"   />     
 		<Element Name="fld_language" ReadOnly="Y" Class="myaccount.form.LanguageSelector" ElementSet="General" FieldName="_language" Label="Language" CssClass="input_select_w" CssFocusClass="input_select_w_focus" CssHoverClass="input_select_w_hover"  />		
         <Element Name="fld_theme" ReadOnly="Y" Class="myaccount.form.ThemeSelector" ElementSet="General" label="Theme"  FieldName="_theme" Description="" CssClass="input_select_w" CssFocusClass="input_select_w_focus" CssHoverClass="input_select_w_hover"  />
 		<Element Name="fld_appbuilder"  Class="DropDownList" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="General" Description="" FieldName="_appbuilder" Label="App Builder"  />

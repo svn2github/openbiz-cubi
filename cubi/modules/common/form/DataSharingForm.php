@@ -102,7 +102,7 @@ class DataSharingForm extends EasyForm
 		
 		$result['form_title'] = $prtFormObj->m_Title;
 		$result['action_timestamp'] = date("Y-m-d H:i:s");
-		$result['refer_url'] = $_SERVER["REQUEST_URI"];
+		$result['refer_url'] = SITE_URL.APP_URL;
 		return $result;
 	}
 	
