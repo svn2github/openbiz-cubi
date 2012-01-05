@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <PluginService Name="userEmailService" Package="service" Class="userEmailService" 
 				BizDataObj="email.do.EmailQueueDO" 
-				SendtoQueue="N" >
+				SendtoQueue="Y" >
 	
 	<Template   Name="WelcomeEmail" 
 				Title="Welcome New User" 
