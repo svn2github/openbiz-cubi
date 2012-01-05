@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DashboardWidgetForm" Class="collab.msgbox.form.MessageInboxListForm"  FormType="List" jsClass="jbForm" Title="Message" Description="{@:m_TotalRecords} messages"  BizDataObj="collab.msgbox.do.MessageReceivedDO" PageSize="6" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="dashboard_widget_form.tpl.html"  Access="collab_msgbox.access">
+<EasyForm Name="MsgboxDashboardWidgetForm" Class="collab.msgbox.form.MessageInboxListForm"  FormType="List" jsClass="jbForm" Title="Message" Description="{@:m_TotalRecords} messages"  BizDataObj="collab.msgbox.do.MessageReceivedDO" PageSize="6" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="dashboard_widget_form.tpl.html"  Access="collab_msgbox.access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" />

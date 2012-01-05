@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DashboardWidgetForm" Class="EasyForm"  FormType="List" jsClass="jbForm" Title="Note" Description="Total {@:m_TotalRecords} items" BizDataObj="collab.note.do.NoteDO" PageSize="12" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="dashboard_widget_form.tpl.html" Access="collab_note.access">
+<EasyForm Name="NoteDashboardWidgetForm" Class="EasyForm"  FormType="List" jsClass="jbForm" Title="Note" Description="Total {@:m_TotalRecords} items" BizDataObj="collab.note.do.NoteDO" PageSize="12" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="dashboard_widget_form.tpl.html" Access="collab_note.access">
     <DataPanel>
           <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="{@home:url}/collab/note_detail/{@:Elem[fld_Id].Value}" />

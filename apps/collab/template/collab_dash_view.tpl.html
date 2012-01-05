@@ -89,7 +89,7 @@ $this->assign('left_menu', $left_menu);
 						
 		{foreach key=formname item=form from=$forms}							    
 	         <div>
-	         	{if $formname eq 'collab.announcement.widget.DashboardWidgetForm' }{$form}{/if}
+	         	{if $formname eq 'collab.announcement.widget.AnnouncementDashboardWidgetForm' }{$form}{/if}
 	         </div>
 	    {/foreach}		
 
@@ -119,7 +119,7 @@ $this->assign('left_menu', $left_menu);
 				<div class="body">
 				{foreach key=formname item=form from=$forms}							    
 			         <div>
-			         	{if $formname eq 'collab.msgbox.widget.DashboardWidgetForm' }{$form}{/if}
+			         	{if $formname eq 'collab.msgbox.widget.MsgboxDashboardWidgetForm' }{$form}{/if}
 			         </div>
 			    {/foreach}
 			    </div>
@@ -130,7 +130,7 @@ $this->assign('left_menu', $left_menu);
 				<div class="body">
 				{foreach key=formname item=form from=$forms}							    
 			         <div>
-			         	{if $formname eq 'collab.calendar.widget.DashboardWidgetForm' }{$form}{/if}
+			         	{if $formname eq 'collab.calendar.widget.EventDashboardWidgetForm' }{$form}{/if}
 			         </div>
 			    {/foreach}
 			    </div>
@@ -156,7 +156,7 @@ $this->assign('left_menu', $left_menu);
 				<div class="body">
 				{foreach key=formname item=form from=$forms}							    
 			         <div>
-			         	{if $formname eq 'collab.document.widget.DashboardWidgetForm' }{$form}{/if}
+			         	{if $formname eq 'collab.document.widget.DocumentDashboardWidgetForm' }{$form}{/if}
 			         </div>
 			    {/foreach}
 			    </div>
@@ -169,7 +169,7 @@ $this->assign('left_menu', $left_menu);
 				<div class="body">
 				{foreach key=formname item=form from=$forms}							    
 			         <div>
-			         	{if $formname eq 'collab.bookmark.widget.DashboardWidgetForm' }{$form}{/if}
+			         	{if $formname eq 'collab.bookmark.widget.BookmarkDashboardWidgetForm' }{$form}{/if}
 			         </div>
 			    {/foreach}
 			    </div>
@@ -180,7 +180,7 @@ $this->assign('left_menu', $left_menu);
 				<div class="body" style="height:90px;">
 				{foreach key=formname item=form from=$forms}							    
 			         <div>
-			         	{if $formname eq 'collab.note.widget.DashboardWidgetForm' }{$form}{/if}
+			         	{if $formname eq 'collab.note.widget.NoteDashboardWidgetForm' }{$form}{/if}
 			         </div>
 			    {/foreach}
 			    </div>
