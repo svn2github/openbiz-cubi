@@ -32,7 +32,7 @@ table.input_row {
 		{/if}
 	<div style="padding-left:10px;" >
 		<div class="underline upline" style="height:230px;">
-		<h2>General Profile</h2>
+		<h2>{t}General Profile{/t}</h2>
 		<div style="float:left; width:140px; height:150px; text-align:center; padding-top:10px;">
 				{assign var=item value=$dataPanel.fld_photo}
 											
@@ -133,7 +133,7 @@ table.input_row {
 
 		<!-- Phone Section -->
 		<div class="underline" style="height:110px;">
-			<h2>Phone</h2>			
+			<h2>{t}Phone{/t}</h2>			
 			{foreach name=phone item=item key=itemName from=$dataPanel}
 				{if $item.elementsetcode eq "Phone"}			
 					{if $smarty.foreach.phone.index is odd}
@@ -156,7 +156,7 @@ table.input_row {
 		
 		<!-- Address Section -->
 		<div class="underline" style="height:140px;">
-			<h2>Address</h2>
+			<h2>{t}Address{/t}</h2>
 			{foreach name=address item=item key=itemName from=$dataPanel}
 				{if $item.elementsetcode eq "Address"}			
 					{if $smarty.foreach.address.index is odd}
@@ -179,7 +179,7 @@ table.input_row {
 
 		<!-- Online Contact Section -->
 		<div class="underline" style="height:140px;">
-			<h2>Online Contact</h2>			
+			<h2>{t}Online Contact{/t}</h2>			
 			{foreach name=contact item=item key=itemName from=$dataPanel}				
 				{if $item.elementsetcode eq "Online Contact"}			
 					{if $smarty.foreach.contact.index is odd}
@@ -202,7 +202,7 @@ table.input_row {
 		
 		<!-- Misc Section -->
 		<div class="underline" style="height:170px;">
-			<h2>Miscellaneous</h2>			
+			<h2>{t}Miscellaneous{/t}</h2>			
 			{foreach item=item key=itemName from=$dataPanel}
 				{if $item.elementsetcode eq "Miscellaneous"}
 					{if $item.type eq 'CKEditor' or $item.type eq 'RichText' or $item.type eq 'Textarea'}
