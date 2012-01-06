@@ -1,6 +1,4 @@
-/*Table structure for table `help` */
 
-DROP TABLE IF EXISTS `help`;
 CREATE TABLE IF NOT EXISTS `help` (
   `id` int(11) NOT NULL auto_increment,
   `category_id` int(11) NOT NULL,
@@ -15,10 +13,9 @@ CREATE TABLE IF NOT EXISTS `help` (
   PRIMARY KEY  (`id`),
   KEY `create_by` (`create_by`),
   KEY `update_by` (`update_by`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55 ;
 
 --
--- Dumping data for table `help`
 --
 
 INSERT INTO `help` (`id`, `category_id`, `title`, `description`, `sort_order`, `content`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
@@ -73,14 +70,15 @@ INSERT INTO `help` (`id`, `category_id`, `title`, `description`, `sort_order`, `
 (50, 28, 'What is Bookmark module for?', '<p>\n	Bookmark module is designed for convenient to share some webiste link with group member.</p>\n', 10, '<p>\n	1 click &quot;Bookmark Manage&quot; function under Bookmark module</p>\n<p>\n	<img alt="" height="89" src="/cubi/files/upload/helptips/Collaboration/bookmark/1.png" width="191" /></p>\n<p>\n	2 input the link that you want to share with your group member and save it</p>\n<p>\n	<img alt="" height="522" src="/cubi/files/upload/helptips/Collaboration/bookmark/2.png" width="688" /></p>\n', 1, '2011-12-29 23:24:22', 1, '2011-12-29 23:24:22'),
 (51, 23, 'Check task progress with Gant View.', '<p>\n	For more clearly see the task progress user can use Gant View to check all task progress.</p>\n', 10, '<p>\n	1 click &quot;Task Gant View&quot; function under Task module to see all the task progress</p>\n<p>\n	<img alt="" height="455" src="/cubi/files/upload/helptips/Collaboration/task/14.png" width="206" /></p>\n<p>\n	2 from this Gant View user can clearly see every task progress and when it is started and when it will be end</p>\n<p>\n	<img alt="" height="445" src="/cubi/files/upload/helptips/Collaboration/task/15.png" width="721" /></p>\n', 1, '2011-12-29 23:48:02', 1, '2011-12-29 23:48:02'),
 (52, 22, 'Calendar view', '<p>\n	For more fit for human common sense we have designed an common Calendar view for Calendar module.</p>\n', 10, '<p>\n	1 click &quot;Calendar View&quot; function under Calendar module</p>\n<p>\n	<img alt="" height="451" src="/cubi/files/upload/helptips/Collaboration/calendar/10.png" width="190" /></p>\n<p>\n	2 then all the Calendar like meeting records have been displayed as Calendar view now</p>\n<p>\n	<img alt="" src="/cubi/files/upload/helptips/Collaboration/calendar/11.png" /></p>\n', 1, '2011-12-30 00:00:07', 1, '2011-12-30 00:00:07'),
+(53, 19, 'How to start use Collaboration?', '<p>\n	There are 8 areas in Collaboration that have been tightly arranged in the platform.</p>\n', 10, '<p>\n	1&nbsp; the navigation and Help center are arranged in the left panel of&nbsp; platform</p>\n<p>\n	<img alt="" height="387" src="/cubi/files/upload/helptips/Collaboration/1.png" width="186" /></p>\n<p>\n	2&nbsp; all the core modules have been displayed in the right panel&nbsp; of platform</p>\n<p>\n	&nbsp; &nbsp; that will display company announcement and the latest three Tasks and two work logs; six latest messages; six latest calendar; four contacts; six documents and three Bookmarks and notes</p>\n<p>\n	<img alt="" height="527" src="/cubi/files/upload/helptips/Collaboration/2.png" width="864" /></p>\n', 1, '2012-01-01 23:49:15', 1, '2012-01-02 01:25:46'),
+(54, 19, 'What is Collaboration?', '<p>\n	Collaboration is an platform of office automation that include of 9 modules like contacts manage; message; task manage and so on.</p>\n', 10, NULL, 1, '2012-01-02 01:30:44', 1, '2012-01-02 01:31:40'),
 (18, 12, 'How to Backup your Cubi system?', '<p>\n	In case user make some wrong operations we can backup Cubi system so that user can reverse Cubi system to the state of backup</p>\n', 10, '<p>\n	1 Click backup module--&gt;Manage Backup in left navigation bar</p>\n<p>\n	<img alt="" height="82" src="/cubi/files/upload/helptips/backup/1.png" width="193" /></p>\n<p>\n	&nbsp;</p>\n<p>\n	2 Click Backup button to set up a backup&nbsp;</p>\n<p>\n	<img alt="" src="/cubi/files/upload/helptips/backup/2.png" /></p>\n<p>\n	3 Input the backup file name and select backup database or entire Cubi system and select a timestamp for it.</p>\n<p>\n	<img alt="" src="/cubi/files/upload/helptips/backup/3.png" /></p>\n<p>\n	4 when you save your backup you could download it into your local device like portable hard disk then copy it into the other computer.</p>\n<p>\n	<img alt="" src="/cubi/files/upload/helptips/backup/4.png" /></p>\n', 1, '2011-12-25 19:24:22', 1, '2011-12-25 20:42:59');
 
+-- --------------------------------------------------------
 
 --
--- Table structure for table `help_category`
 --
 
-DROP TABLE IF EXISTS `help_category`;
 CREATE TABLE IF NOT EXISTS `help_category` (
   `id` int(11) NOT NULL auto_increment,
   `parent_id` int(11) default '0',
@@ -97,7 +95,6 @@ CREATE TABLE IF NOT EXISTS `help_category` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
 
 --
--- Dumping data for table `help_category`
 --
 
 INSERT INTO `help_category` (`id`, `parent_id`, `name`, `url_match`, `description`, `sort_order`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
@@ -117,7 +114,7 @@ INSERT INTO `help_category` (`id`, `parent_id`, `name`, `url_match`, `descriptio
 (16, 7, 'Cache', '/cache/manage.*', '<p>\n	About Cubi Platform cache management.</p>\n', 10, 1, '2011-12-27 02:46:02', 1, '2011-12-27 02:46:02'),
 (17, 7, 'Security', '/security/security_rule.*', '<p>\r\n	About internal and external internet access authorication </p>\r\n', 10, 1, '2011-12-27 06:05:15', 1, '2011-12-27 06:05:15'),
 (18, 7, 'Translation', '/translation.*', '<p>\r\n	About Cubi platform language setting</p>\r\n', 10, 1, '2011-12-27 08:04:04', 1, '2011-12-27 08:04:04'),
-(19, 0, 'Collaboration', NULL, '<p>\n	Collaboration help content.</p>\n', 10, 1, '2011-12-28 00:43:36', 1, '2011-12-28 00:43:36'),
+(19, 0, 'Collaboration', '/collab/dashboard', '<p>\n	Collaboration help content.</p>\n', 10, 1, '2011-12-28 00:43:36', 1, '2012-01-01 23:39:59'),
 (20, 19, 'Contact Manage', '/collab/contact_.*', '<p>\n	About Contact Management.</p>\n', 10, 1, '2011-12-28 00:49:11', 1, '2011-12-28 00:49:11'),
 (21, 19, 'Message', '/collab/message_.*', '<p>\n	About internal message module.</p>\n', 10, 1, '2011-12-28 03:36:03', 1, '2011-12-28 03:36:03'),
 (22, 19, 'Calendar', '/collab/event_.*', '<p>\n	About Collaboration Calendar management</p>\n', 10, 1, '2011-12-28 03:37:36', 1, '2011-12-28 03:37:36'),
@@ -127,18 +124,3 @@ INSERT INTO `help_category` (`id`, `parent_id`, `name`, `url_match`, `descriptio
 (26, 19, 'Announcement', '/collab/announcement_.*', '<p>\n	About Collaboration Announcement management</p>\n', 10, 1, '2011-12-28 03:43:01', 1, '2011-12-28 03:43:01'),
 (27, 19, 'Document', '/collab/document_.*', '<p>\n	About Collaboration Document management</p>\n', 10, 1, '2011-12-28 03:45:05', 1, '2011-12-28 03:45:05'),
 (28, 19, 'Bookmark', '/collab/bookmark_.*', '<p>\n	About Collaboration Bookmark management</p>\n', 10, 1, '2011-12-28 03:46:10', 1, '2011-12-28 03:46:31');
-
-/*Table structure for table `help_category_mapping` */
-
-DROP TABLE IF EXISTS `help_category_mapping`;
-CREATE TABLE `help_category_mapping` (
-  `id` int(11) NOT NULL auto_increment,
-  `url` varchar(255) NOT NULL,
-  `cat_id` int(11) NOT NULL,
-  `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`),
-  KEY `url` (`url`),
-  KEY `cat_id` (`cat_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-/*Data for the table `help_category_mapping` */
