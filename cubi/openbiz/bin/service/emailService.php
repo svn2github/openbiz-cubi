@@ -157,7 +157,7 @@ class emailService extends MetaObject
             }
             else
             {
-                $conig = array();
+                $config = array();
             }
             $mailTransport = new Zend_Mail_Transport_Smtp($account->m_Host, $config);
             $this->_mail->setDefaultTransport($mailTransport);
