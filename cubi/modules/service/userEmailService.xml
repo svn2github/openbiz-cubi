@@ -36,7 +36,7 @@
 	<Template   Name="DataAssignedEmail" 
 				Title="Your collegue has assigned data to you" 
 				EmailAccount="CubiNotification" 
-				Template="data_assign_email.tpl" />
+				Template="data_assigned_email.tpl" />
 				
 	<Template   Name="TaskUpdateEmail" 
 				Title="Your collegue has updated your task progress" 
