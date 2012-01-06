@@ -124,3 +124,14 @@ INSERT INTO `help_category` (`id`, `parent_id`, `name`, `url_match`, `descriptio
 (26, 19, 'Announcement', '/collab/announcement_.*', '<p>\n	About Collaboration Announcement management</p>\n', 10, 1, '2011-12-28 03:43:01', 1, '2011-12-28 03:43:01'),
 (27, 19, 'Document', '/collab/document_.*', '<p>\n	About Collaboration Document management</p>\n', 10, 1, '2011-12-28 03:45:05', 1, '2011-12-28 03:45:05'),
 (28, 19, 'Bookmark', '/collab/bookmark_.*', '<p>\n	About Collaboration Bookmark management</p>\n', 10, 1, '2011-12-28 03:46:10', 1, '2011-12-28 03:46:31');
+
+
+CREATE TABLE IF NOT EXISTS `help_category_mapping` (
+  `id` int(11) NOT NULL auto_increment,
+  `url` varchar(255) NOT NULL,
+  `cat_id` int(11) NOT NULL,
+  `timestamp` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`),
+  KEY `url` (`url`),
+  KEY `cat_id` (`cat_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=78 ;
