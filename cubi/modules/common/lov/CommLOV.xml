@@ -37,8 +37,8 @@
 	<ReadStatus Text="Unread" Value="0"/>
 
 	<NameDisplayMode Text="Firstname, Lastname" Value="@@Firstname@@, @@Lastname@@"/>
-	<NameDisplayMode Text="FirstnameLastname" Value="@@Firstname@@@@Lastname@@"/>
-	<NameDisplayMode Text="Lastname Firstname" Value="@@Lastname@@ @@Firstname@@"/>		
+	<NameDisplayMode Text="LastnameFirstname" Value="@@Lastname@@@@Firstname@@"/>
+	<NameDisplayMode Text="Lastname Firstname" Value="@@Lastname@@ @@Firstname@@"/>	
 	<NameDisplayMode Text="Firstname, Lastname (Company)" Value="@@Firstname@@, @@Lastname@@ (@@Company@@)"/>
 	<NameDisplayMode Text="Company (Firstname, Lastname)" Value="@@Company@@ (@@Firstname@@, @@Lastname@@)"/> 
 	
