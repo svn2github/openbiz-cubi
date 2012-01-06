@@ -6,10 +6,10 @@
 		<h1 style="font-size:20px; padding:0px; margin:0px;">Your collegue has updated your task progress</h1>
 		<p style="font-size:14px; padding:0px; margin:0px;padding-top:30px;line-height:22px;">
 	{$operator_name} has recently update task progress of <br/>
-	<strong>{$data_record}</strong> .<br/>
+	<strong style="color:#02a5ea;">{$data_record}</strong> .<br/>
 	Progress: {$progress_prev} => {$progress_new}<br/>
 	Status: {$status_prev} => {$status_new}<br/>
-	You can click this link to login <a href="{$refer_url}">Openbiz Collaboration</a> system.<br/>
+	You can click this link to login <a style="color:#02a5ea;" href="{$refer_url}">Openbiz Collaboration</a> system.<br/>
 	{$action_timestamp}
 		</p>
 		<p style="font-size:14px; padding-left:300px;padding-top:20px;">Openbiz Collaboration</p>
