@@ -72,7 +72,10 @@ if(is_file(APP_FILE_PATH.'/install.lock')){
 	define("SESSION_HANDLER", MODULE_PATH."/system/lib/SessionDBHandler"); // save session in DATABASE 
 	//define("SESSION_HANDLER", MODULE_PATH."/system/lib/SessionMCHandler"); // save session in MEMCACHE
 	//define("SESSION_PATH", APP_HOME.DIRECTORY_SEPARATOR."session"); // for default FILE type session handler
+}else{
+ 	define("SESSION_PATH", APP_HOME.DIRECTORY_SEPARATOR."session"); // for default FILE type session handler^M
 }
+
 /* resources path. */
 define('RESOURCE_PATH', APP_HOME.DIRECTORY_SEPARATOR."resources");
 define('RESOURCE_URL', APP_URL."/resources");
