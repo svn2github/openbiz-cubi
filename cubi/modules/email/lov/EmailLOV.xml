@@ -2,4 +2,7 @@
 <Selection>
    <Auth Value="Y" text="Required"/>
    <Auth Value="N" text="Not Supported"/>
+   
+   <SSL Value="ssl" text="Required"/>
+   <SSL Value="" text="Not Supported"/>   
 </Selection>

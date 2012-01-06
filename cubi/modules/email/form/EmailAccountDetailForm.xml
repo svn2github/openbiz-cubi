@@ -3,11 +3,13 @@
     <DataPanel>
     	<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="author_email" Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />   
 		<Element Name="fld_name" Class="LabelText" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
-         <Element Name="fld_host" Class="ColumnText" FieldName="HOST" Label="SMTP Host"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_host" Class="ColumnText" FieldName="HOST" Label="SMTP Host"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_port" Class="ColumnText" FieldName="PORT" Label="SMTP Port"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_sender_name" Class="ColumnText" FieldName="FROMNAME" Label="Sender Name" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_sender_email" Class="ColumnText" FieldName="FROMEMAIL" Label="Email"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_sender_username" Class="ColumnText" FieldName="USERNAME" Label="Username"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         <Element Name="fld_sender_auth" Class="ColumnBool" FieldName="SMTPAUTH" TrueValue="y" Label="Authentication"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />     	
+        <Element Name="fld_ssl" Class="ColumnBool" FieldName="SSL" TrueValue="ssl" Label="SSL"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         	            
     </DataPanel>
     <ActionPanel>

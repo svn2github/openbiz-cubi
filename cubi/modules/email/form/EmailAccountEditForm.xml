@@ -3,11 +3,13 @@
     <DataPanel>
 		<Element Name="fld_name" Class="LabelText"  FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
          <Element Name="fld_host" Class="InputText" Required="Y" FieldName="HOST" Label="SMTP Host"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+         <Element Name="fld_port" Class="InputText" Required="Y" FieldName="PORT" Label="SMTP Port"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_sender_name" Class="InputText" Required="Y"  FieldName="FROMNAME" Label="Sender Name" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_sender_email" Class="InputText" Required="Y"  FieldName="FROMEMAIL" Label="Email"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_sender_username" Class="InputText" Required="Y"  FieldName="USERNAME" Label="Username"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         <Element Name="fld_sender_password" Class="InputPassword"  FieldName="Password" Label="Password"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-        <Element Name="fld_sender_auth" Class="Listbox" SelectFrom="email.lov.EmailLOV(Auth)" FieldName="SMTPAUTH" Label="Authentication"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />     	
+        <Element Name="fld_sender_auth" Class="Listbox" SelectFrom="email.lov.EmailLOV(Auth)" FieldName="SMTPAUTH" Label="Authentication"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_ssl" Class="Listbox" SelectFrom="email.lov.EmailLOV(SSL)" FieldName="SSL" TrueValue="ssl" Label="SSL"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />     	
           </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
