@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <body style="background-color:#eeeeee;">
 <div align="center">
 <div style="width:600px;height:600px;border:3px solid #DDDDDD;background-color:#ffffff;background-image:url({$refer_url}/images/email_background_collab.jpg);">
