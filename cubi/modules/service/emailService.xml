@@ -5,7 +5,7 @@
 		<Account Name="System" Host="smtp.yourcompany.com" FromName="admin" FromEmail="admin@yourcompany.com" IsSMTP="Y" SMTPAuth="Y" Username="admin" Password="xxx" />
 		<!-- use default unix sendmail function -->
 		<Account Name="SystemNotifier" Host="" FromName="System Notification" FromEmail="notify@yourcompany.com" IsSMTP="N" SMTPAuth="N" Username="" Password="" />		
-		<Account Name="CubiNotification" Host="smtp.gmail.com" Port="465" FromName="Openbiz Collaboration" FromEmail="notice@openbiz.me" IsSMTP="Y" SMTPAuth="Y" SSL="Y" Username="notice@openbiz.me" Password="jixianwang" />
+		<Account Name="CubiNotification" Host="smtp.gmail.com" Port="465" FromName="Openbiz Collaboration" FromEmail="notice@openbiz.me" IsSMTP="Y" SMTPAuth="Y" SSL="ssl" Username="notice@openbiz.me" Password="jixianwang" />
    </Accounts>  
    <Logging Type="DB" Object="email.do.EmailLogDO" Enabled="Y" />
 </PluginService>
