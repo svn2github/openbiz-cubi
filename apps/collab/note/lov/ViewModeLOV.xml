@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
 <Selection>
-   <ViewMode Value="collab.note.form.NoteListForm" text="Note List View"/>
-   <ViewMode Value="collab.note.form.NoteStickyBoardForm" text="Sticky Board View"/>
+   <NoteViewMode Value="collab.note.form.NoteListForm" text="Note List View"/>
+   <NoteViewMode Value="collab.note.form.NoteStickyBoardForm" text="Sticky Board View"/>
 </Selection>

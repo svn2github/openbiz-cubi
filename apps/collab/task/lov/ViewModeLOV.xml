@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
 <Selection>
-   <ViewMode Value="collab.task.form.TaskListForm" text="General Task Manage"/>
-   <ViewMode Value="collab.task.form.TaskGanttForm" text="Task Gantt View"/>
+   <TaskViewMode Value="collab.task.form.TaskListForm" text="General Task Manage"/>
+   <TaskViewMode Value="collab.task.form.TaskGanttForm" text="Task Gantt View"/>
 </Selection>
