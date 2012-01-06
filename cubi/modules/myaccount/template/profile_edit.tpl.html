@@ -124,7 +124,7 @@
 		<div class="underline" style="height:110px;">
 			<h2>Phone</h2>			
 			{foreach name=phone item=item key=itemName from=$dataPanel}
-				{if $item.elementset eq "Phone"}			
+				{if $item.elementsetcode eq "Phone"}			
 					{if $smarty.foreach.phone.index is odd}
 					<table  id="{$itemName}_container" class="input_row" style="float:left;">
 					{else}
@@ -147,7 +147,7 @@
 		<div class="underline" style="height:140px;">
 			<h2>Address</h2>
 			{foreach name=address item=item key=itemName from=$dataPanel}
-				{if $item.elementset eq "Address"}			
+				{if $item.elementsetcode eq "Address"}			
 					{if $smarty.foreach.address.index is odd}
 					<table  id="{$itemName}_container" class="input_row" style="float:left;padding-right:65px;">
 					{else}
@@ -170,7 +170,7 @@
 		<div class="underline" style="height:140px;">
 			<h2>Online Contact</h2>			
 			{foreach name=contact item=item key=itemName from=$dataPanel}				
-				{if $item.elementset eq "Online Contact"}			
+				{if $item.elementsetcode eq "Online Contact"}			
 					{if $smarty.foreach.contact.index is odd}
 					<table  id="{$itemName}_container" class="input_row" style="float:left;">
 					{else}
@@ -193,7 +193,7 @@
 		<div class="underline" style="height:260px;">
 			<h2>Miscellaneous</h2>			
 			{foreach item=item key=itemName from=$dataPanel}
-				{if $item.elementset eq "Miscellaneous"}
+				{if $item.elementsetcode eq "Miscellaneous"}
 					{if $item.type eq 'CKEditor' or $item.type eq 'RichText' or $item.type eq 'Textarea'}
 					<table  id="{$itemName}_container" class="input_row">
 					<tr>
