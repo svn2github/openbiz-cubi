@@ -77,7 +77,9 @@ class profileService
         		"fast_index" => substr(strtolower($userinfo['username']),0,1),
         		"email" => $userinfo['email'],
         		"company" => "N/A",
-        		"user_id" => $user_id
+        		"user_id" => $user_id,
+        		"group_perm" => '1',
+        		"other_perm" => '1',
         );
         $profile_id = $profileDo->insertRecord($profileArr);
     	return $profile_id;
