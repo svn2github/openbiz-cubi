@@ -327,12 +327,13 @@ margin-top:4px;
 	}).css({'padding-left':'0px','width':'670px','display':'block'});		
 	lastViewedTab = c.get(formname+'_lastTab');
 	$tabs.tabs('select','#'+lastViewedTab);
+	try{
 	$('element_set_panel_1').className='ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide';
 	$('element_set_panel_2').className='ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide';
 	$('element_set_panel_3').className='ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide';
 	$('element_set_panel_4').className='ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide';
 	$('element_set_panel_5').className='ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide';
-	try{
+	
 		if(lastViewedTab && typeof(document.getElementById(lastViewedTab)) != 'undefined' ){
 			$(lastViewedTab).className='ui-tabs-panel ui-widget-content ui-corner-bottom';
 		}else{
