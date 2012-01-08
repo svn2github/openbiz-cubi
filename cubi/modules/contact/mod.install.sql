@@ -74,10 +74,10 @@ CREATE TABLE IF NOT EXISTS `contact_type` (
 
 
 INSERT INTO `contact_type` (`id`, `name`, `description`, `color`, `sortorder`, `published`, `group_id`, `group_perm`, `other_perm`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-(1, 'Business', 'Business Contacts', '66c2ff', 45, 1, 1, 1, 0, 1, '2010-05-23 01:09:06', 1, '2011-12-01 23:50:48'),
-(2, 'Family', 'Family Contacts', 'ff7aa0', 45, 1, 1, 1, 0, 1, '2010-05-23 01:23:04', 1, '2011-12-01 23:50:39'),
-(3, 'Provider', 'Business Provider Contacts', '7fff7f', 50, 1, 1, 1, 0, 1, '2010-05-23 01:34:12', 1, '2011-12-01 23:51:11'),
-(4, 'Client', 'Business Client Contacts', 'ffd042', 45, 1, 1, 1, 0, 1, '2010-05-23 01:34:39', 1, '2011-12-01 23:51:01');
+(1, 'Business', 'Business Contacts', '66c2ff', 45, 1, 1, 1, 1, 1, '2010-05-23 01:09:06', 1, '2011-12-01 23:50:48'),
+(2, 'Family', 'Family Contacts', 'ff7aa0', 45, 1, 1, 1, 1, 1, '2010-05-23 01:23:04', 1, '2011-12-01 23:50:39'),
+(3, 'Provider', 'Business Provider Contacts', '7fff7f', 50, 1, 1, 1, 1, 1, '2010-05-23 01:34:12', 1, '2011-12-01 23:51:11'),
+(4, 'Client', 'Business Client Contacts', 'ffd042', 45, 1, 1, 1, 1, 1, '2010-05-23 01:34:39', 1, '2011-12-01 23:51:01');
 
 DROP TABLE IF EXISTS `contact_import`;
 CREATE TABLE IF NOT EXISTS `contact_import` (
