@@ -27,10 +27,11 @@ class TaskService
 		{
 			$taskRec['status']=1;			
 		}
-		
+//		var_dump($progress);
+//		var_dump($taskRec['status']);exit;
 		$taskRec->save();
-		$taskNoticeDO = $taskRec->getDataObj();
-		$this->notifyUserUpdate($taskNoticeDO);		
+//		$taskNoticeDO = $taskRec->getDataObj();
+//		$this->notifyUserUpdate($taskNoticeDO);		
 	}	
 	
 	public function updateTaskStatus($taskDO){
