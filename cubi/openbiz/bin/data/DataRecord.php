@@ -86,6 +86,11 @@ class DataRecord implements Iterator, ArrayAccess
     {
         return isset($this->m_var[$key]) ? $this->m_var[$key] : null;
     }
+    
+    public function getOldValue($key)
+    {
+    	return isset($this->m_var_old[$key]) ? $this->m_var_old[$key] : null;
+    }
 
     /**
      * Set item value of array
