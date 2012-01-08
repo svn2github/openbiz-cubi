@@ -23,6 +23,8 @@ class TaskService
 		}
 		$progress = $this->getObjValue($taskDO, 'progress');
 		
+		$status_prev = $taskDO->getField('status')->m_OldValue;
+		$status_new = $taskDO->getField('status')->m_Value;	
 		
 		
 		$taskPickDO = BizSystem::getObject($this->m_DataObj);		
