@@ -13,7 +13,24 @@ class TaskService
 		$total_hours = $statRec['total_hours'];
 		$taskRec = BizSystem::getObject($this->m_DataObj)->fetchById($task_id);
 		$taskRec['actual_workhour'] = $total_hours;
-		$taskRec->save();		
+				
+		$progress = $taskRec['progress'];
+		if($progress==0){
+			$taskRec['status']=0;
+		
+		}
+		elseif($progress==100)		
+		{
+			$taskRec['status']=2;			
+		}
+		else
+		{
+			$taskRec['status']=1;			
+		}
+		
+		$taskRec->save();
+		$taskNoticeDO = $taskRec->getDataObj();
+		$this->notifyUserUpdate($taskNoticeDO);		
 	}	
 	
 	public function updateTaskStatus($taskDO){
@@ -91,7 +108,8 @@ class TaskService
 		return $value;
 	}
 	public function notifyUserUpdate($taskDO){
-		$task_id = (int)$this->getObjValue($taskDO, 'Id');
+		$task_id = (int)$this->getObjValue($taskDO, 'Id');				
+		$task_id= $task_id?$task_id:$taskDO->getField('Id')->m_Value;
 		if(!$task_id){
 			return;
 		}
@@ -125,6 +143,8 @@ class TaskService
 	
 		if($owner_id && $creator_id!=$owner_id){
 			$emailSvc->TaskUpdateEmail($owner_id, $data);
-		}		
+		}
 	}
+	
+	
 }
