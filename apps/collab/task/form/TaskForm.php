@@ -6,12 +6,21 @@ class TaskForm extends EasyForm
 	
 	public function UpdateTaskStatus($id, $fld_name, $value)
 	{
-		if($value<2){
+		if($value == 1){
     		$value_xor = 2;
-    		$this->updateFieldValue($id,'fld_progress',100);
+	        $currentRec = $this->getActiveRecord($Id);
+      		$recArr = $this->getActiveRecord($Id);
+			$recArr["progress"]="100";
+        	$this->_doUpdate($recArr, $currentRec);     		
     	}else{
     		$value_xor = 1;
-    	}
+    		$currentRec = $this->getActiveRecord($Id);      		
+			if($currentRec["progress"]=="100"){
+				$recArr = $this->getActiveRecord($Id);
+				$recArr["progress"]="90";
+        		$this->_doUpdate($recArr, $currentRec);
+			} 
+    	}    	
 		return $this->updateFieldValue($id,$fld_name,$value_xor);		
 	}
 	
