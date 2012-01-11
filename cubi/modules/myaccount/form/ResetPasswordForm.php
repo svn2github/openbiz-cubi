@@ -132,5 +132,9 @@ class ResetPasswordForm extends UserForm
     	//its not gonna change username so doesnt matter
     	return false;
     }
+    protected function _checkDupEmail(){
+    	//its not gonna change email address so doesnt matter
+    	return false;
+    }    
 }  
 ?>   
