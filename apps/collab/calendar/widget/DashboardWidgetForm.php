@@ -69,8 +69,8 @@ class DashboardWidgetForm extends EasyForm
 			case "1":
 				for($i=0;$i<$this->m_Range;$i++){
 					$rec = $record;
-					$new_start_time = date("Y-m-d H:i:s",strtotime(date("Y-m-d")." ".strtotime($record['start_time']))+86400*$i);
-					$new_end_time = date("Y-m-d H:i:s",strtotime(date("Y-m-d")." ".strtotime($record['end_time']))+86400*$i);															
+					$new_start_time = date("Y-m-d H:i:s",strtotime(date("Y-m-d")." ".date("H:i:s",strtotime($record['start_time'])))+86400*$i);
+					$new_end_time = date("Y-m-d H:i:s",strtotime(date("Y-m-d")." ".date("H:i:s",strtotime($record['end_time'])))+86400*$i);															
 					$rec['start_time'] = $new_start_time;
 					$rec['end_time'] = $new_end_time;
 					$records[strtotime($rec['start_time'])]=$rec;					
