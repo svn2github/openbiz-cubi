@@ -114,6 +114,13 @@ class TaskService
 		if(!$task_id){
 			return;
 		}
+		
+		$reminder = $taskDO->getField('reminder')->m_Value;
+		if(!$reminder)
+		{
+			return ;
+		}
+		
 		$status_prev = $taskDO->getField('status')->m_OldValue;
 		$status_new = $taskDO->getField('status')->m_Value;		
 
