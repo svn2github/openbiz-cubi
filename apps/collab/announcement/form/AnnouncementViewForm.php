@@ -70,7 +70,7 @@ class AnnouncementViewForm extends EasyForm
 				$logRec['timestamp'] = date('Y-m-d H:i:s');
 				$logRec->save();
 			}
-			$this->m_counted = true;
+			$this->m_counted[$id] = true;
 			if($this->m_FormType=='LIST'){			
 				$this->updateForm();		
 			}
