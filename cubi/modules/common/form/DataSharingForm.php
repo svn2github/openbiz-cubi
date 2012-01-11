@@ -21,7 +21,7 @@ class DataSharingForm extends EasyForm
 		$result['editable'] = 0;
 		$result['has_ref_data'] = 0;
 		
-		if($dataObj->m_ObjReferences->count()){			
+		if($dataObj->m_ObjReferences->count()){						
 			$result['has_ref_data'] = 1;			
 		}
 		
@@ -103,6 +103,10 @@ class DataSharingForm extends EasyForm
 		$result['form_title'] = $prtFormObj->m_Title;
 		$result['action_timestamp'] = date("Y-m-d H:i:s");
 		$result['refer_url'] = SITE_URL.APP_URL;
+		
+		if($result['editable']==0){
+			$result['has_ref_data'] = 0;
+		}
 		return $result;
 	}
 	
