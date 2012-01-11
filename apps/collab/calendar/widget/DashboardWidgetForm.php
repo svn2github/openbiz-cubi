@@ -80,18 +80,18 @@ class DashboardWidgetForm extends EasyForm
 				for($i=0;$i<$this->m_Range;$i++){
 					$rec = $record;
 					$new_start_time = strtotime($record['start_time']);		
-					$weekday_org = date('l',$new_start_time);
-					$weekday_cur = date('l');			
+					$weekday_org = date('w',$new_start_time);
+					$weekday_cur = date('w');			
 					$weekday_diff = $weekday_cur - $weekday_org;					
 					$dayinthisweek = time() + $weekday_diff*86400 + 7*86400*$i;													
-					$rec['start_time'] = date("Y-m-d H:i:s",$dayinthisweek);					
+					$rec['start_time'] = date("Y-m-d",$dayinthisweek)." ".date("H:i:s",strtotime($record['start_time']));					
 			    	
 					$new_end_time = strtotime($record['end_time']);		
-					$weekday_org = date('l',$new_end_time);
-					$weekday_cur = date('l');			
+					$weekday_org = date('w',$new_end_time);
+					$weekday_cur = date('w');			
 					$weekday_diff = $weekday_cur - $weekday_org;					
 					$dayinthisweek = time() + $weekday_diff*86400 + 7*86400*$i;													
-					$rec['end_time'] = date("Y-m-d H:i:s",$dayinthisweek);
+					$rec['end_time'] = date("Y-m-d",$dayinthisweek)." ".date("H:i:s",strtotime($record['end_time']));;
 					
 					
 					$records[strtotime($rec['start_time'])]=$rec;					
