@@ -70,12 +70,12 @@ class InputPassword extends Password
      */
     public function render()
     {
-        $value = BizSystem::clientProxy()->getFormInputs($this->m_Name);
-        if ($value == '' )
-        {
+        $value = $this->m_Value;
+        
+        	$this->m_Value_Real = $this->m_Value;
             $value = $this->m_PasswordMask;
-            $this->m_Value_Real = $this->m_Value;
-        }
+           
+        
         $disabledStr = ($this->getEnabled() == "N") ? "DISABLED=\"true\"" : "";
         $style = $this->getStyle();
 
@@ -104,9 +104,16 @@ class InputPassword extends Password
      * @return string
      */
     public function getValue()
-    {
+    {    	
+    	if($this->m_Value==null){
+    		$this->m_Value = BizSystem::clientProxy()->getFormInputs($this->m_Name);
+    	}
         if($this->m_Value==$this->m_PasswordMask)
         {
+        	
+    		$rawDataArr = $this->getFormObj()->fetchData();
+    		$this->m_Value_Real = $rawDataArr[$this->m_FieldName];
+    		$this->m_Value = $rawDataArr[$this->m_FieldName];
             return $this->m_Value_Real;
         }
         else
@@ -125,7 +132,7 @@ class InputPassword extends Password
     {
         if($value==$this->m_PasswordMask)
         {
-            $this->m_Value = null;
+            $this->m_Value = $this->m_Value_Real;
         }
         else
         {
