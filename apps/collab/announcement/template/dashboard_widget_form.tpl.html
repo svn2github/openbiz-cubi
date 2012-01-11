@@ -21,7 +21,7 @@
 				<div class="content">			 
 				     {assign var=row value=$dataPanel.data.0}
 				     <div>{$row.fld_title}</div>
-				     <div>{$row.fld_description}</div>
+				     <div style="width: 500px; height: 20px; display: block; overflow: hidden;">{$row.fld_description}</div>
 				     <script>$('announcement_type_indicator').style.backgroundColor='#{$row.fld_color}';</script>
 				     <p></p>			                      			 	 
 				</div>
