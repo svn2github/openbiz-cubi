@@ -19,7 +19,7 @@
         </Element>	
         <Element Name="fld_location" Class="ColumnText" FieldName="location" Label="Location"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         <Element Name="fld_start_time" Class="ColumnText"  FieldName="start_time_display"  />
-        <Element Name="fld_end_time" Class="ColumnText"  FieldName="start_time_display"  />
+        <Element Name="fld_end_time" Class="ColumnText"  FieldName="end_time_display"  />
         
         <Element Name="fld_reminder" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/calendar/images/icon_reminder_enable.gif"  FalseImg="{RESOURCE_URL}/collab/calendar/images/icon_reminder_disable.gif" FieldName="reminder" Sortable="Y" Label="Rmd" Link="javascript:;">
 			<EventHandler Name="fld_reminder_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_reminder,{@:Elem[fld_reminder].Value})"/>		
