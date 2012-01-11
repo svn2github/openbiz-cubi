@@ -21,7 +21,7 @@
 		<Element Name="fld_other_perm" Hidden="{@:Elem[fld_editable].Value==1?'Y':'N'}" Class="LabelList"  SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" Description="Data permission for other users " FieldName="other_perm" Label="Other Perm"  />
 		<Element Name="fld_other_perm_setting" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}" Class="Listbox"  SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" Description="Data permission for other users " FieldName="other_perm" Label="Other Perm"  />		
         		
-        <Element Name="fld_update_ref_data" Hidden="({@:Elem[fld_has_ref_data].Value==1&amp;&amp;@:Elem[fld_editable].Value==1)?'N':'Y'}" Class="Checkbox"  ElementSet="Data Sharing" Description="Cascade update referenced my data" DefaultChecked="N" DefaultValue="0" SelectFrom="1" FieldName="update_ref_data" Label="Cascade"  />
+        <Element Name="fld_update_ref_data" Hidden="({@:Elem[fld_has_ref_data].Value==0&amp;&amp;@:Elem[fld_editable].Value==0)?'Y':'N'}" Class="Checkbox"  ElementSet="Data Sharing" Description="Cascade update referenced my data" DefaultChecked="N" DefaultValue="0" SelectFrom="1" FieldName="update_ref_data" Label="Cascade"  />
 		<Element Name="fld_notify_users" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}" Class="Checkbox"  ElementSet="Data Sharing" Description="Notify users by email" DefaultChecked="N" DefaultValue="0" SelectFrom="1" FieldName="notify_user" Label="Notify User"  />
          		
     </DataPanel>
