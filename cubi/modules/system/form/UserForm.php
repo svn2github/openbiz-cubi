@@ -34,6 +34,7 @@ class UserForm extends EasyForm
 	private $m_ProfileDO = "contact.do.ContactDO";
 	private $m_ProfileEditForm = "contact.form.ContactEditForm";
 	private $m_ProfileDetailForm = "contact.form.ContactDetailForm";
+	private $m_UserFormType;
 	
 	public function GoDetail()
 	{		
@@ -294,6 +295,9 @@ class UserForm extends EasyForm
      */
     protected function _checkDupUsername()
     {
+    	if($this->m_UserFormType=='changePassword'){
+    		return false;
+    	}
         $username = BizSystem::ClientProxy()->GetFormInputs("fld_username");
         $searchTxt = "[username]='$username'";        
         

@@ -41,6 +41,7 @@ class ResetPasswordForm extends UserForm
     
     public function resetPassword()
     {
+    	$this->m_UserFormType='changePassword';
         $currentRec = $this->fetchData();
         $recArr = $this->readInputRecord();
         $this->setActiveRecord($recArr);
