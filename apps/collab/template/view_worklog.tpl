@@ -41,7 +41,11 @@ width:45px;
 table.input_row label{
 width:85px;
 }
+#main #right_panel .content table.input_row td .label_text {
+width: 250px;
+}
 </style>
+
 ";
 $this->_tpl_vars['scripts'] = $includedScripts;
 
