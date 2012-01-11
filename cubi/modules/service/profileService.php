@@ -194,7 +194,7 @@ class profileService
         
         $rs = $do->fetchById($account_id);
         if (!$rs)
-            return "";
+            return "-- Deleted User (ID:$account_id) --";
         
         $contact_do = BizSystem::getObject($this->m_contactObj);
         $contact_rs = $contact_do->directFetch("[user_id]='$account_id'", 1);
