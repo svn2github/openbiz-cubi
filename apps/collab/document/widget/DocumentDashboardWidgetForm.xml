@@ -7,7 +7,7 @@
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
 		
-        <Element Name="fld_title" Class="LabelText" MaxLength="14" FieldName="title" Label="Title" Link="{@home:url}/collab/document_detail/{@:Elem[fld_Id].Value}" Sortable="Y">
+        <Element Name="fld_title" Class="LabelText" MaxLength="10" FieldName="title" Label="Title" Link="{@home:url}/collab/document_detail/{@:Elem[fld_Id].Value}" Sortable="Y">
         </Element>	
         <Element Name="fld_description" Class="ColumnText" MaxLength="50" FieldName="description" Label="Description" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>	
         
