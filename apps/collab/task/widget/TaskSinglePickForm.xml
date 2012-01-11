@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="TaskSinglePickForm" Class="PickerForm" Icon="{RESOURCE_URL}/collab/task/images/icon_task_gantt.gif"  FormType="List" jsClass="jbForm" Title="Please select a task" Description="To selec a task click on a row and click to Select button" BizDataObj="collab.task.do.TaskPickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_picker.tpl.html"  Access="collab_task.access" >
+<EasyForm Name="TaskSinglePickForm" Class="TaskSinglePickForm" Icon="{RESOURCE_URL}/collab/task/images/icon_task_gantt.gif"  FormType="List" jsClass="jbForm" Title="Please select a task" Description="To selec a task click on a row and click to Select button" BizDataObj="collab.task.do.TaskPickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_picker.tpl.html" SearchRule="" Access="collab_task.access" >
     <DataPanel>     
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Contact Id" Sortable="Y"/>
         <Element Name="fld_share" Class="ColumnShare" 
