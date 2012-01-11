@@ -13,7 +13,7 @@
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
 
-        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title" Style="width:110px;display:block;"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{@home:url}/collab/task_detail/{@:Elem[fld_Id].Value}">         
+        <Element Name="fld_title" MaxLength="15" Class="ColumnText" FieldName="title" Label="Title" Style="width:110px;display:block;"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{@home:url}/collab/task_detail/{@:Elem[fld_Id].Value}">         
          </Element>
        
        
