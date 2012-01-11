@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="AnnouncementTypeNewForm" Class="AnnouncementTypeForm" Icon="{RESOURCE_URL}/collab/calendar/images/icon_event_type.png" FormType="New" jsClass="jbForm" Title="New Announcement Type" Description="Please fill in below field to create a new announcement type" BizDataObj="collab.announcement.do.AnnouncementTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl"   MessageFile="AnnouncementType.msg" Access="collab_announcement.manage">
+<EasyForm Name="AnnouncementTypeNewForm" Class="AnnouncementTypeForm" Icon="{RESOURCE_URL}/collab/announcement/images/icon_announcement_type.png" FormType="New" jsClass="jbForm" Title="New Announcement Type" Description="Please fill in below field to create a new announcement type" BizDataObj="collab.announcement.do.AnnouncementTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl"   MessageFile="AnnouncementType.msg" Access="collab_announcement.manage">
     <DataPanel>
         <Element Name="fld_name" DefaultValue="New Announcement Type" Class="InputText" FieldName="name" Label="Name"   />	
         <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="AnnouncementTypeCopyForm" Class="AnnouncementTypeForm"  Icon="{RESOURCE_URL}/collab/calendar/images/icon_event_type.png" FormType="Copy" jsClass="jbForm" Title="Copy Announcement Type" Description="Copy announcement type from an existing item." BizDataObj="collab.announcement.do.AnnouncementTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="BOOKMARK_TYPE" MessageFile="AnnouncementType.msg" Access="collab_announcement.manage">
+<EasyForm Name="AnnouncementTypeCopyForm" Class="AnnouncementTypeForm"  Icon="{RESOURCE_URL}/collab/announcement/images/icon_announcement_type.png" FormType="Copy" jsClass="jbForm" Title="Copy Announcement Type" Description="Copy announcement type from an existing item." BizDataObj="collab.announcement.do.AnnouncementTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="BOOKMARK_TYPE" MessageFile="AnnouncementType.msg" Access="collab_announcement.manage">
     <DataPanel>        
         <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y"/>	
 	    <Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"   />	
