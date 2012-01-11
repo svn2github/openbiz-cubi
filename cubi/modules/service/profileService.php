@@ -193,9 +193,14 @@ class profileService
 
         
         $rs = $do->fetchById($account_id);
-        if (!$rs)
-            return "<span style='color:#AAAAAA'>-- Deleted User ( UID:$account_id ) --<span>";
-        
+        if (!$rs){
+			$msg = "-- Deleted User ( UID:$account_id ) --";
+			if(CLI){
+				return $msg;
+			}else{
+        		return "<span style='color:#AAAAAA'>$msg<span>";
+			}
+        }
         $contact_do = BizSystem::getObject($this->m_contactObj);
         $contact_rs = $contact_do->directFetch("[user_id]='$account_id'", 1);
         if (count($contact_rs)==0){
