@@ -294,10 +294,7 @@ class UserForm extends EasyForm
      * @return boolean
      */
     protected function _checkDupUsername()
-    {
-    	if($this->m_UserFormType=='changePassword'){
-    		return false;
-    	}
+    {    	
         $username = BizSystem::ClientProxy()->GetFormInputs("fld_username");
         $searchTxt = "[username]='$username'";        
         
