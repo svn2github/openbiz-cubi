@@ -100,7 +100,7 @@ margin-right:5px;
 			<div class="grid_cell_content">
 				<div class="photo_frame">
 				{if $row.fld_photo !=""}
-					<image src="{$app_url}/{$row.fld_photo}" width="90" height="125"/>
+					<image src="{$app_url}{$row.fld_photo}" width="90" height="125"/>
 				{else}
 					<image src="{$image_url}/profile_photo_icon.gif" width="90" height="125"/>
 				{/if}
