@@ -48,24 +48,19 @@
 				EmailAccount="CubiNotification" 
 				Template="new_message_email.tpl" />
 				
-	<Template   Name="TaskAssignedInternalNoticeEmail" 
-				Title="You have a task remind notification" 
+	<Template   Name="TaskRemindEmail" 
+				Title="You have a planned task about to start" 
 				EmailAccount="CubiNotification" 
-				Template="task_assigned_internal_notice_email.tpl" />
+				Template="task_remind_email.tpl" />
 				
-	<Template   Name="TaskAssignedExternalNoticeEmail" 
-				Title="You have a task remind notification" 
+	<Template   Name="EventRemindEmail" 
+				Title="You have a planned event about to start" 
 				EmailAccount="CubiNotification" 
-				Template="task_assigned_external_notice_email.tpl" />
+				Template="event_remind_email.tpl" />
 				
-	<Template   Name="CalendarAssignedInternalNoticeEmail" 
-				Title="You have a schedule remind notification" 
+	<Template   Name="EventNoticeEmail" 
+				Title="Would you have time for this planned event" 
 				EmailAccount="CubiNotification" 
-				Template="calendar_assigned_internal_notice_email.tpl" />
-				
-	<Template   Name="CalendarAssignedExternalNoticeEmail" 
-				Title="You have a schedule remind notification" 
-				EmailAccount="CubiNotification" 
-				Template="calendar_assigned_external_notice_email.tpl" />						
+				Template="event_notice_email.tpl" />						
 																
 </PluginService>

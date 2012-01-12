@@ -6,9 +6,10 @@
 	<tr><td valign="top"><img width="600" height="178" alt="Openbiz Collaboration" src="{$refer_url}/images/email_background_collab_header.jpg" border="0" style="width:600px;height:178px;border:none;"/></td></tr>
 	<tr><td valign="top">
 	<div style="padding-left:60px;">
-		<h1 style="font-size:24px; padding:0px; margin:0px;">You have a schedule remind notification</h1>
+		<h1 style="font-size:24px; padding:0px; margin:0px;">You have a planned task about to start</h1>
 		<p style="font-size:14px; padding:0px; margin:0px;padding-top:30px;line-height:22px;">
-	The schedule {$schedule_name} should be start after  <strong style="color:#02a5ea;">{$start_time}</strong><br/>	
+	The task {$data_record} should be start after  <strong style="color:#02a5ea;">{$start_time}</strong><br/>
+	You can click this link to login <a style="color:#02a5ea;" href="{$refer_url}">Openbiz Collaboration</a> system.<br/>
 	{$action_timestamp}
 		</p>
 		<p style="font-size:14px; padding-left:300px;padding-top:20px;">Openbiz Collaboration</p>	
