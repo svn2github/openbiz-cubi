@@ -265,7 +265,8 @@ class userEmailService extends MetaObject
 		//render the email tempalte	
 		$data['app_index'] = APP_INDEX;
 		$data['app_url'] = APP_URL;
-		$data['operator_name'] = BizSystem::GetProfileName(BizSystem::getUserProfile("Id"));		
+		$data['operator_name'] = BizSystem::GetProfileName($data['user_id']);
+		$data['operator_email'] = BizSystem::GetProfileEmail($data['user_id']);
 		
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
 		$content = $this->RenderEmail($data, $tplFile);
@@ -279,6 +280,13 @@ class userEmailService extends MetaObject
         
 		$recipient['email'] = $userData['email'];
 		$recipient['name']  = $userData['display_name'];
+		
+		$data['contact_display_name'] = $userData['display_name'];
+		
+		if($userData['email']==''){
+			//if no email address , then do nothing
+			return ;
+		}
 		
 		//send it to the queue		
 		$result = $this->sendEmail($sender,$recipient,$subject,$content);

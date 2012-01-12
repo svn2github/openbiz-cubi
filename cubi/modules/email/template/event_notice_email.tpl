@@ -9,10 +9,10 @@
 		<h1 style="font-size:24px; padding:0px; margin:0px;">Would you have time for this planned event</h1>
 		<p style="font-size:14px; padding:0px; margin:0px;padding-top:30px;line-height:22px;">
 		Dear {$contact_display_name}:
-		We have recently setup a event on {$start_time} about <strong style="color:#02a5ea;">{$data_record}</strong>, </br/>
-		
-		We have left {$reminder_time_display} to it.<br/><br/>
-		Hope you are still ok with the time plan, </br>
+		We have recently setup a event on {$start_time} about <strong style="color:#02a5ea;">{$subject}</strong> <br/>
+		{if $location!= '' }at {$location} <br/>{/if}
+		<br/>
+		Hope you are still ok with the time plan, <br/>
 		If anything need to change, please reply to my <a href="mailto:{{$operator_email}}">{$operator_email}</a>.		
 		<br/>
 		<br/>
