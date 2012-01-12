@@ -19,12 +19,14 @@
 	    <BizField Name="recurrence" Column="recurrence"  Required="N" Type=""/>
 		
 		<BizField Name="reminder" 		Column="reminder"  Required="N" Type=""/>
+		<BizField Name="reminder_status" Column="reminder_status"  Type=""/>
 		<BizField Name="reminder_time" 	Column="reminder_time"  Required="N" Type=""/>
 		<BizField Name="reminder_method_sms" Column="reminder_method_sms"  Required="N" Type=""/>
 		<BizField Name="reminder_method_email" Column="reminder_method_email"  Required="N" Type=""/>
 		<BizField Name="reminder_method_systray" Column="reminder_method_systray"  Required="N" Type=""/>
 		
 		<BizField Name="notify_contacts" 		Column="notify_contacts"  Required="N" Type=""/>
+		<BizField Name="notify_contacts_status" Column="notify_contacts_status"  Type=""/>
 		<BizField Name="notify_contacts_time" 	Column="notify_contacts_time"  Required="N" Type=""/>
 		<BizField Name="notify_contacts_sms" 	Column="notify_contacts_sms"  Required="N" Type=""/>
 		<BizField Name="notify_contacts_email" 	Column="notify_contacts_email"  Required="N" Type=""/>

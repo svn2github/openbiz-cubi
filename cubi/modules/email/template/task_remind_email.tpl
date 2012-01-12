@@ -8,7 +8,11 @@
 	<div style="padding-left:60px;">
 		<h1 style="font-size:24px; padding:0px; margin:0px;">You have a planned task about to start</h1>
 		<p style="font-size:14px; padding:0px; margin:0px;padding-top:30px;line-height:22px;">
-	The task {$data_record} should be start after  <strong style="color:#02a5ea;">{$start_time}</strong><br/>
+	The task <strong style="color:#02a5ea;">{$title}</strong> <br/>
+	should be start on <strong style="color:#02a5ea;">{$start_time}</strong><br/>
+	Task description: <br/>
+	{$description}
+	<br/><br/>
 	You can click this link to login <a style="color:#02a5ea;" href="{$refer_url}">Openbiz Collaboration</a> system.<br/>
 	{$action_timestamp}
 		</p>

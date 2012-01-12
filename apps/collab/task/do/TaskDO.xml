@@ -13,6 +13,7 @@
 		<BizField Name="milestone" Column="milestone" Type=""/>
 
 		<BizField Name="reminder" 		Column="reminder"  Required="N" Type=""/>
+		<BizField Name="reminder_status" Column="reminder_status"  Type=""/>
 		<BizField Name="reminder_time" 	Column="reminder_time"  Required="N" Type=""/>
 		<BizField Name="reminder_method_sms" Column="reminder_method_sms"  Required="N" Type=""/>
 		<BizField Name="reminder_method_email" Column="reminder_method_email"  Required="N" Type=""/>
