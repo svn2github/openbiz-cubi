@@ -232,7 +232,11 @@ class userEmailService extends MetaObject
 		$subject  = $this->m_Tempaltes[$template_name]["TITLE"];
 		$sender   = $this->m_Tempaltes[$template_name]["EMAILACCOUNT"];
 				        
-		//render the email tempalte
+		//render the email tempalte		
+		$data['app_index'] = APP_INDEX;
+		$data['app_url'] = APP_URL;
+		$data['operator_name'] = BizSystem::GetProfileName(BizSystem::getUserProfile("Id"));
+		
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
 		$content = $this->RenderEmail($data, $tplFile);
 		
@@ -258,7 +262,11 @@ class userEmailService extends MetaObject
 		$subject  = $this->m_Tempaltes[$template_name]["TITLE"];
 		$sender   = $this->m_Tempaltes[$template_name]["EMAILACCOUNT"];
 				        
-		//render the email tempalte
+		//render the email tempalte	
+		$data['app_index'] = APP_INDEX;
+		$data['app_url'] = APP_URL;
+		$data['operator_name'] = BizSystem::GetProfileName(BizSystem::getUserProfile("Id"));		
+		
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
 		$content = $this->RenderEmail($data, $tplFile);
 		
