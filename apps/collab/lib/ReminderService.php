@@ -172,7 +172,7 @@ class ReminderService
 	{
 		$nextTaskRec = $this->_getNextRepeatTime($taskRec);
 		$repeatPeriod = $this->_getRepeatPeriodSecond($taskRec);
-		if(strtotime($nextTaskRec['start_time'])-$nextTaskRec['notify_contacts_time']*60 < time()){
+		if(strtotime($nextTaskRec['start_time'])-$nextTaskRec['notify_contacts_time']*60 < time()){			
 			if(time() - strtotime($nextTaskRec['notify_contacts_lasttime']) > $repeatPeriod ){
 				return true;
 			}
@@ -210,8 +210,7 @@ class ReminderService
 		   <RecurrenceType Value="3" text="Monthly"/>
 		   <RecurrenceType Value="4" text="Annually"/>         
 		 */
-		$records = array();
-		$i=1;
+		$i=0;
 		switch($record['recurrence'])
 		{
 			case "1":				
@@ -220,7 +219,6 @@ class ReminderService
 				$new_end_time = date("Y-m-d H:i:s",strtotime(date("Y-m-d")." ".date("H:i:s",strtotime($record['end_time'])))+86400*$i);															
 				$rec['start_time'] = $new_start_time;
 				$rec['end_time'] = $new_end_time;
-				$records[strtotime($rec['start_time'])]=$rec;									
 				break;
 				
 			case "2":				
@@ -240,7 +238,6 @@ class ReminderService
 				$rec['end_time'] = date("Y-m-d",$dayinthisweek)." ".date("H:i:s",strtotime($record['end_time']));;
 				
 				
-				$records[strtotime($rec['start_time'])]=$rec;					
 				
 				break;
 				
@@ -272,7 +269,6 @@ class ReminderService
 		    	date('d',$new_end_time), date('Y')+$offset_y ));      										
 				$rec['end_time'] = $newdate;
 				
-				$records[strtotime($rec['start_time'])]=$rec;					
 				
 				break;
 				
@@ -290,11 +286,51 @@ class ReminderService
 		    	date('d',$new_end_time), date('Y')+$i));      										
 				$rec['end_time'] = $newdate;
 				
-				$records[strtotime($rec['start_time'])]=$rec;					
 				
 				break;
 		}
-		return $records;
+		return $rec;
 	}
+	
+	public function ClearTaskReminderStatus($taskDO)
+	{
+		$Id = $taskDO->getField('Id')->m_Value;	
+		$reminder_prev = $taskDO->getField('reminder')->m_OldValue;
+		$reminder_new = $taskDO->getField('reminder')->m_Value;	
+		
+		if($reminder_prev!=$reminder_new){
+			$rec = BizSystem::getObject("collab.task.do.TaskSystemDO",1)->fetchByID($Id);
+			$rec->reminder_status=0;
+			$rec->save();
+		}
+	}
+	
+	public function ClearEventReminderStatus($eventDO)
+	{
+		$Id = $eventDO->getField('Id')->m_Value;	
+		$reminder_prev = $eventDO->getField('reminder')->m_OldValue;
+		$reminder_new = $eventDO->getField('reminder')->m_Value;	
+		
+		$recurrence_prev = $eventDO->getField('recurrence')->m_OldValue;
+		$recurrence_new = $eventDO->getField('recurrence')->m_Value;	
+		
+		if($reminder_prev!=$reminder_new || $recurrence_prev!=$recurrence_new){
+			$rec = BizSystem::getObject("collab.calendar.do.EventSystemDO",1)->fetchByID($Id);
+			$rec->reminder_status=0;
+			$rec->reminder_lasttime='';
+			$rec->save();
+		}
+		
+		$notify_prev = $eventDO->getField('notify_contacts')->m_OldValue;
+		$notify_new = $eventDO->getField('notify_contacts')->m_Value;	
+		
+		if($notify_prev!=$notify_new || $recurrence_prev!=$recurrence_new ){
+			$rec = BizSystem::getObject("collab.calendar.do.EventSystemDO",1)->fetchByID($Id);
+			$rec->notify_contacts_status=0;
+			$rec->notify_contacts_lasttime='';
+			$rec->save();
+		}		
+		
+	}	
 }
 ?>

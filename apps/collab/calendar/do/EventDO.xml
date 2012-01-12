@@ -26,7 +26,7 @@
 		<BizField Name="reminder_method_email" Column="reminder_method_email"  Required="N" Type=""/>
 		<BizField Name="reminder_method_systray" Column="reminder_method_systray"  Required="N" Type=""/>
 		
-		<BizField Name="notify_contacts" 		Column="notify_contacts"  Required="N" Type=""/>
+		<BizField Name="notify_contacts" 		Column="notify_contacts" ValueOnCreate="0" Required="N" Type=""/>
 		<BizField Name="notify_contacts_status" Column="notify_contacts_status"  Type=""/>
 		<BizField Name="notify_contacts_lasttime" Column="notify_contacts_lasttime"  Type=""/>
 		<BizField Name="notify_contacts_time" 	Column="notify_contacts_time"  Required="N" Type=""/>
