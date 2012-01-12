@@ -13,7 +13,7 @@
 		{if $location!= '' }at {$location} <br/>{/if}
 		<br/>
 		Hope you are still ok with the time plan, <br/>
-		If anything need to change, please reply to my <a href="mailto:{{$operator_email}}">{$operator_email}</a>.		
+		If anything need to change, please reply to my <a href="mailto:{$operator_email}">{$operator_email}</a>.		
 		<br/>
 		<br/>
 		Best regard!<br/>
