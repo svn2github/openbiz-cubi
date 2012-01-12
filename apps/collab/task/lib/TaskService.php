@@ -182,28 +182,21 @@ class TaskService
 	}
 	
 	
-	private function _getGroupName($id)
-	{
-		$rec = BizSystem::GetObject("system.do.GroupDO")->fetchById($id);
-		$result = $rec['name'];
-		return $result;
+	protected function _getGroupList(){
+		$rs = BizSystem::getObject("system.do.GroupDO")->directFetch("");
+		$group_ids = array();
+		foreach($rs as $group){
+			$group_ids[]=$group['Id'];
+		}
+		return $group_ids;
 	}
 	
-	private function _getOwnerName($id)
-	{
-		
-		$contactDO = BizSystem::GetObject("contact.do.ContactSystemDO");
-		$rec = $contactDO->fetchOne("[user_id]='$id'");
-		if(count($rec))
-		{
-			$result = $rec['display_name'];
+	protected function _getGroupUserList($group_id){
+		$rs = BizSystem::getObject("system.do.UserGroupDO")->directFetch("[group_id]='$group_id'");
+		$user_ids = array();
+		foreach($rs as $user){
+			$user_ids[]=$user['user_id'];
 		}
-		else
-		{
-			$rec = BizSystem::GetObject("system.do.UserDO")->fetchById($id);
-			$result = $rec['username']." (".$rec['email'].")";
-		}
-		return $result;
+		return $user_ids;
 	}	
-	
 }
