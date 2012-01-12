@@ -265,8 +265,7 @@ class userEmailService extends MetaObject
 		//render the email tempalte	
 		$data['app_index'] = APP_INDEX;
 		$data['app_url'] = APP_URL;
-		$data['operator_name'] = BizSystem::GetProfileName($data['user_id']);
-		$data['operator_email'] = BizSystem::GetProfileEmail($data['user_id']);
+
 		
 		
 		
@@ -279,6 +278,9 @@ class userEmailService extends MetaObject
         
 		$recipient['email'] = $userData['email'];
 		$recipient['name']  = $userData['display_name'];
+		
+		$data['operator_name'] = BizSystem::GetProfileName($data['user_id']);
+		$data['operator_email'] = BizSystem::GetProfileEmail($data['user_id']);
 		
 		$data['contact_display_name'] = $userData['display_name'];
 		
