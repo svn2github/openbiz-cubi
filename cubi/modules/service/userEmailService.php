@@ -225,6 +225,58 @@ class userEmailService extends MetaObject
 		return $result;		
 	}		
 	
+	public function SendEmailToUser($template_name, $recipient_user_id, $data)
+	{
+		//init email info
+		$template = $this->m_Tempaltes[$template_name]["TEMPLATE"];
+		$subject  = $this->m_Tempaltes[$template_name]["TITLE"];
+		$sender   = $this->m_Tempaltes[$template_name]["EMAILACCOUNT"];
+				        
+		//render the email tempalte
+		$tplFile = BizSystem::getTplFileWithPath($template, "email");
+		$content = $this->RenderEmail($data, $tplFile);
+		
+		//prepare recipient info
+		$userObj = BizSystem::getObject("system.do.UserDO");
+        $userData = $userObj->directFetch("[Id]='".$recipient_user_id."'", 1);                	        
+        if(!count($data))
+        	return false;
+        $userData = $userData[0];
+        
+		$recipient['email'] = $userData['email'];
+		$recipient['name']  = $userData['username'];
+		
+		//send it to the queue		
+		$result = $this->sendEmail($sender,$recipient,$subject,$content);
+		return $result;		
+	}
+	
+	public function SendEmailToContact($template_name, $recipient_contact_id, $data)
+	{
+		//init email info
+		$template = $this->m_Tempaltes[$template_name]["TEMPLATE"];
+		$subject  = $this->m_Tempaltes[$template_name]["TITLE"];
+		$sender   = $this->m_Tempaltes[$template_name]["EMAILACCOUNT"];
+				        
+		//render the email tempalte
+		$tplFile = BizSystem::getTplFileWithPath($template, "email");
+		$content = $this->RenderEmail($data, $tplFile);
+		
+		//prepare recipient info
+		$userObj = BizSystem::getObject("contact.do.ContactSystemDO");
+        $userData = $userObj->directFetch("[Id]='".$recipient_contact_id."'", 1);                	        
+        if(!count($data))
+        	return false;
+        $userData = $userData[0];
+        
+		$recipient['email'] = $userData['email'];
+		$recipient['name']  = $userData['display_name'];
+		
+		//send it to the queue		
+		$result = $this->sendEmail($sender,$recipient,$subject,$content);
+		return $result;		
+	}
+	
 	public function SystemInternalErrorEmail($recipient, $errMsg)
 	{
 		//init email info
