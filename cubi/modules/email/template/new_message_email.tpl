@@ -10,6 +10,7 @@
 		<p style="font-size:14px; padding:0px; margin:0px;padding-top:30px;line-height:22px;">
 	{$operator_name} just sent you a new message about:<br/> 
 	<strong style="color:#02a5ea;">{$data_record}</strong><br/>
+	<p>{$content}</p>
 	You can click this link to login <a style="color:#02a5ea;" href="{$refer_url}">Openbiz Collaboration</a> system.<br/>
 	{$action_timestamp}
 		</p>

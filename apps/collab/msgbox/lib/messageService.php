@@ -101,5 +101,39 @@ class messageService
 		
 		return $newRecordId;
 	}	
+	
+	public function noticeUsers($msgDO)
+	{
+		$messageId	= $msgDO->getField('Id')->m_Value;
+		$sendStatus = $msgDO->getField('send_status')->m_Value;
+		$deleteFlag = $msgDO->getField('deleted_flag')->m_Value;
+		$subject 	= $msgDO->getField('subject')->m_Value;
+		$content	= $msgDO->getField('content')->m_Value;
+		
+		if($sendStatus =='sent' && $deleteFlag==0){
+			$emailSvc = BizSystem::getService(USER_EMAIL_SERVICE);
+			
+			$MsgRecipientDO = BizSystem::getObject("collab.msgbox.do.MessageRecipientDO",1);
+			$RecList = $MsgRecipientDO->directFetch("[message_id]='$messageId' AND [read_status]='Unread'");
+			foreach ($RecList as $RecipientRecord)
+			{
+				$recipient_user_id = $RecipientRecord['user_id'];
+				$data = array(
+					"data_record" => $subject,
+					"content" => $content,									
+					"app_index" => APP_INDEX,
+					"app_url" => APP_URL,
+					"operator_name" => BizSystem::GetProfileName(BizSystem::getUserProfile("Id")),
+					"action_timestamp"=> date("Y-m-d H:i:s"),
+					"refer_url" => SITE_URL.APP_URL
+				);				
+				$emailSvc->NewMessageEmail($recipient_user_id, $data);
+			}
+			
+			
+		}
+		
+		
+	}
 }
 ?>

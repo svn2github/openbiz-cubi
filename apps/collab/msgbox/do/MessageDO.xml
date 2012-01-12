@@ -5,6 +5,7 @@
         <BizField Name="subject" Column="subject" Length="255"   Required="N" Type="Text"/>
         <BizField Name="content" Column="content"    Required="N" Type="Text"/>
         <BizField Name="send_status" Column="send_status"    Required="Y" Type="Text"/>
+        <BizField Name="deleted_flag" Column="deleted_flag"  Type="Text"/>
 		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
 		<BizField Name="create_time" Column="create_time"  Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
 		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>		
