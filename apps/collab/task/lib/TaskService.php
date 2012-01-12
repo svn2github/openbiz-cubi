@@ -130,8 +130,13 @@ class TaskService
 		$creator_id = $taskDO->getField('create_by')->m_Value;
 		$owner_id = $taskDO->getField('owner_id')->m_Value;
 
+		if($status_prev == $status_new && $progress_prev == $progress_new){
+			//skip notify if nothing important field changes
+			return ;
+		}
+		
 		$status_prev = BizSystem::getService(LOV_SERVICE)->getTextByValue("collab.task.lov.TaskLOV(TaskStatus)",$status_prev);
-		$status_new = BizSystem::getService(LOV_SERVICE)->getTextByValue("collab.task.lov.TaskLOV(TaskStatus)",$status_new);
+		$status_new = BizSystem::getService(LOV_SERVICE)->getTextByValue("collab.task.lov.TaskLOV(TaskStatus)",$status_new);				
 		
 		$data = array(
 			"progress_prev" => $progress_prev."%",
