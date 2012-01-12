@@ -267,7 +267,8 @@ class userEmailService extends MetaObject
 		$data['app_url'] = APP_URL;
 
 		
-		
+		$data['operator_name'] = BizSystem::GetProfileName($data['create_by']);
+		$data['operator_email'] = BizSystem::GetProfileEmail($data['create_by']);
 		
 		//prepare recipient info
 		$userObj = BizSystem::getObject("contact.do.ContactSystemDO");
@@ -279,8 +280,6 @@ class userEmailService extends MetaObject
 		$recipient['email'] = $userData['email'];
 		$recipient['name']  = $userData['display_name'];
 		
-		$data['operator_name'] = BizSystem::GetProfileName($data['user_id']);
-		$data['operator_email'] = BizSystem::GetProfileEmail($data['user_id']);
 		
 		$data['contact_display_name'] = $userData['display_name'];
 		
