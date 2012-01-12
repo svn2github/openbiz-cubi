@@ -1,8 +1,10 @@
-#!/usr/bin/env php
+#!/usr/bin/php
 <?php
 /*
  * cron job controller script
  * it reads the cronjob table and runs command based on the command settings 
+ * #!/usr/bin/env php path is not work with cronjob, so have to replace it to an absulately path
+ * like 
  */
 
 include_once (dirname(dirname(__FILE__))."/app_init.php");
