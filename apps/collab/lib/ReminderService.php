@@ -146,7 +146,7 @@ class ReminderService
 					foreach ($contactList as $contactRec)
 					{
 						$contact_id = $contactRec['contact_id'];
-						$emailSvc->SendEmailToContact("EventRemindEmail",$contact_id,$taskRec);
+						$emailSvc->SendEmailToContact("EventNoticeEmail",$contact_id,$taskRec);
 					}
 					$taskDO->updateRecords("[notify_contacts_lasttime]=NOW()", "[Id]='".$taskRec['Id']."'");
 				}
