@@ -528,4 +528,4 @@ added system cronjob
 */
 
 INSERT INTO `cronjob` ( `name`, `minute`, `hour`, `day`, `month`, `weekday`, `command`, `sendmail`, `max_run`, `num_run`, `description`, `status`, `last_exec`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-( 'Trigger Collab Reminder', '*', '*', '*', '*', '*', '{APP_HOME}/bin/cronjob/run_svc.php  collab.lib.ReminderService CheckRemind', 'hellojixian@gmail.com', 1, 0, 'Trigger Collaboration Reminder, It will generate notification emails about planned task and events.', 1, NULL, 1, '2012-01-12 18:41:03', 1, '2012-01-12 18:41:03');
+( 'Trigger Collab Reminder', '*', '*', '*', '*', '*', '{APP_HOME}/bin/cronjob/run_svc.php  collab.lib.ReminderService CheckRemind', '', 1, 0, 'Trigger Collaboration Reminder, It will generate notification emails about planned task and events.', 1, NULL, 1, '2012-01-12 18:41:03', 1, '2012-01-12 18:41:03');
