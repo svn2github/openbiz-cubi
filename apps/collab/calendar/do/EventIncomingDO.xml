@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="EventIncomingDO" Description="" DataPermControl="Y" Class="BizDataObj" DBName="" Table="event" SearchRule="([start_time] > now()-3600 OR [recurrence]!=0)" SortRule="[recurrence]!=0 DESC,[start_time] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+<BizDataObj Name="EventIncomingDO" Description="" DataPermControl="Y" Class="BizDataObj" DBName="" Table="event" SearchRule="([start_time] > DATE_ADD(now(),INTERVAL -1 HOUR) OR [recurrence]!=0)" SortRule="[recurrence]!=0 DESC,[start_time] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
 	<BizFieldList>
 		<BizField Name="Id" Column="id"     Type=""/>
 	    <BizField Name="subject" Column="subject" Length="255"   Required="Y" Type=""/>
