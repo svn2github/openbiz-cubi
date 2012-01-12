@@ -225,6 +225,26 @@ class profileService
         }
         return $name;
     }
+    
+    
+	public function GetProfileEmail($account_id){
+    	$do = BizSystem::getObject($this->m_userDataObj);
+        if (!$do)
+            return "";
+
+        
+        $rs = $do->fetchById($account_id);
+        if (!$rs){
+			$msg = "-- Deleted User ( UID:$account_id ) --";
+			if(CLI){
+				return $msg;
+			}else{
+        		return "<span style='color:#AAAAAA'>$msg<span>";
+			}
+        }
+        
+        return $rs['email'];
+    }
 }
 
 ?>
