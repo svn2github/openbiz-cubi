@@ -513,3 +513,10 @@ INSERT INTO `message_type` (`id`, `name`, `description`, `color`, `sortorder`, `
 (2, 'Family', 'Family Bookmarks', 'ff7aa0', 45, 1, 1, 1, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
 (3, 'Provider', 'Business Provider Bookmarks', '7fff7f', 50, 1, 1, 1, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
 (4, 'Client', 'Business Client Bookmarks', 'ffd042', 45, 1, 1, 1, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
+
+/*
+table structure changes for support task and events email reminder feature 
+*/
+ALTER TABLE `task` ADD `reminder_status` INT NOT NULL DEFAULT '0' AFTER `reminder`;
+ALTER TABLE `event` ADD `reminder_status` INT NOT NULL DEFAULT '0' AFTER `reminder`;
+ALTER TABLE `event` ADD `notify_contacts_status` INT NOT NULL DEFAULT '0' AFTER `notify_contacts`;
