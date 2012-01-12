@@ -343,6 +343,11 @@ class BizSystem
     	return $serviceObj->GetProfileName($account_id);
     }
     
+	public static function getProfileEmail($account_id){
+    	$serviceObj = BizSystem::getService(PROFILE_SERVICE);
+    	return $serviceObj->getProfileEmail($account_id);
+    }
+    
     public static function getDefaultPerm($group)
     {
     	$group = strtolower($group);
