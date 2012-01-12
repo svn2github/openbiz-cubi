@@ -268,8 +268,7 @@ class userEmailService extends MetaObject
 		$data['operator_name'] = BizSystem::GetProfileName($data['user_id']);
 		$data['operator_email'] = BizSystem::GetProfileEmail($data['user_id']);
 		
-		$tplFile = BizSystem::getTplFileWithPath($template, "email");
-		$content = $this->RenderEmail($data, $tplFile);
+		
 		
 		//prepare recipient info
 		$userObj = BizSystem::getObject("contact.do.ContactSystemDO");
@@ -283,6 +282,9 @@ class userEmailService extends MetaObject
 		
 		$data['contact_display_name'] = $userData['display_name'];
 		
+		
+		$tplFile = BizSystem::getTplFileWithPath($template, "email");
+		$content = $this->RenderEmail($data, $tplFile);
 		if($userData['email']==''){
 			//if no email address , then do nothing
 			return ;
