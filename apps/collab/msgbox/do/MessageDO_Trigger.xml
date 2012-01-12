@@ -4,7 +4,7 @@
    <TriggerActions>
       <TriggerAction Action="CallService" Immediate="Y" DelayMinutes="" RepeatMinutes="">
          <ActionArgument Name="Service" Value="collab.msgbox.lib.messageService" />
-         <ActionArgument Name="Method" Value="noticeUsers" /> 
+         <ActionArgument Name="Method" Value="notifyUsers" /> 
          <ActionArgument Name="data" Value="{@}" />         
       </TriggerAction>	  
    </TriggerActions>

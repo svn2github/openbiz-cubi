@@ -102,7 +102,7 @@ class messageService
 		return $newRecordId;
 	}	
 	
-	public function noticeUsers($msgDO)
+	public function notifyUsers($msgDO)
 	{
 		$messageId	= $msgDO->getField('Id')->m_Value;
 		$sendStatus = $msgDO->getField('send_status')->m_Value;
