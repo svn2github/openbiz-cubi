@@ -149,10 +149,61 @@ class TaskService
 		$emailSvc = BizSystem::getService(USER_EMAIL_SERVICE);
 		$emailSvc->TaskUpdateEmail($creator_id, $data);
 	
+		//notify owner
 		if($owner_id && $creator_id!=$owner_id){
 			$emailSvc->TaskUpdateEmail($owner_id, $data);
 		}
+		
+		$group_id = $taskDO->getField('group_id')->m_Value;
+		$group_perm = $taskDO->getField('group_perm')->m_Value;
+		$other_perm = $taskDO->getField('other_perm')->m_Value;
+		
+		//test if changes for group level visiable
+		if($group_perm>=1)
+		{
+			$userList = $this->_getGroupUserList($group_id);
+			foreach($userList as $user_id)
+			{
+				$emailSvc->TaskUpdateEmail($user_id, $data);
+			}				
+		}
+		//test if changes for other group level visiable
+		if($other_perm>=1)
+		{				
+			$groupList = $this->_getGroupList();
+			foreach($groupList as $group_id){								
+				$userList = $this->_getGroupUserList($group_id);
+				foreach($userList as $user_id)
+				{
+					$emailSvc->TaskUpdateEmail($user_id, $data);
+				}				
+			}
+		}
 	}
 	
+	
+	private function _getGroupName($id)
+	{
+		$rec = BizSystem::GetObject("system.do.GroupDO")->fetchById($id);
+		$result = $rec['name'];
+		return $result;
+	}
+	
+	private function _getOwnerName($id)
+	{
+		
+		$contactDO = BizSystem::GetObject("contact.do.ContactSystemDO");
+		$rec = $contactDO->fetchOne("[user_id]='$id'");
+		if(count($rec))
+		{
+			$result = $rec['display_name'];
+		}
+		else
+		{
+			$rec = BizSystem::GetObject("system.do.UserDO")->fetchById($id);
+			$result = $rec['username']." (".$rec['email'].")";
+		}
+		return $result;
+	}	
 	
 }
