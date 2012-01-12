@@ -1641,13 +1641,13 @@ class EasyForm extends MetaObject implements iSessionObject
         foreach ($this->m_DataPanel as $element)
         {
             $value = BizSystem::clientProxy()->getFormInputs($element->m_Name);
-            if ($value === null && (!is_a($element,"FileUploader")&& !is_subclass_of($element,"FileUploader") && !is_a($element,"Checkbox"))){             	
+            if ($value ===null && (!is_a($element,"FileUploader")&& !is_subclass_of($element,"FileUploader") && !is_a($element,"Checkbox"))){             	
             	continue;
             }
             $element->setValue($value);
             $this->m_FormInputs[$element->m_Name] = $value;
             $value = $element->getValue();
-            if ($value !== null && $element->m_FieldName)
+            if ( $element->m_FieldName)
                 $recArr[$element->m_FieldName] = $value;
         }
 
