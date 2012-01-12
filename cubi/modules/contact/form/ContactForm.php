@@ -63,5 +63,56 @@ class ContactForm extends EasyForm
 		$this->rerender();
 		
     }
+    
+	public function updateRecord()
+	{
+		$currentRec = $this->fetchData();
+        $recArr = $this->readInputRecord();
+        if($currentRec['user_id']!=0)
+        {
+        	$user_email = BizSystem::getObject("system.do.UserDO",1)->fetchById($currentRec['user_id'])->email;
+        }
+        
+        if($user_email!=$recArr['email'] 
+        	&& $currentRec['user_id']!=0
+        	&& $recArr['email']!=''
+        	)
+        {
+        	//check if email address duplicate
+        	if ($this->_checkDupEmail($recArr['email'],$currentRec['user_id']))
+	        {
+	        	$this->setActiveRecord($recArr);
+	            $errorMessage = $this->GetMessage("EMAIL_USED");
+				$errors['fld_email'] = $errorMessage;
+				$this->processFormObjError($errors);
+				return;
+	        }  
+	        
+	        	//auto update user's email
+	        	$email = $currentRec['email'];
+	        	$userRec = BizSystem::getObject("system.do.UserDO",1)->fetchById($currentRec['user_id']);
+	        	$userRec['email'] = $recArr['email'];
+	        	$userRec->save();
+	        
+        }
+        
+		parent::updateRecord();
+	}
+
+    protected function _checkDupEmail($email,$ignored_id=0)
+    {
+        $searchTxt = "[email]='$email'";           
+        // query UserDO by the email
+        $userDO = BizSystem::getObject("system.do.UserDO",1);
+               
+        //include optional ID when editing records
+        if ($ignored_id > 0 ) {
+            $searchTxt .= " AND [Id]!='$ignored_id'";  
+        }    
+        $records = $userDO->directFetch($searchTxt,1);
+        if (count($records)>0)
+            return true;
+        return false;
+    }   	
 }
 ?>

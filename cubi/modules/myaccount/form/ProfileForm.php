@@ -30,6 +30,5 @@ class ProfileForm extends ContactForm
 		return parent::fetchData();
 	}
 	
-
 }
 ?>

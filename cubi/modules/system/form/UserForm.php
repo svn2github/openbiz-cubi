@@ -174,13 +174,14 @@ class UserForm extends EasyForm
         $currentRec = $this->fetchData();
         $recArr = $this->readInputRecord();
         
-        if($this->CheckSmartCard($recArr)){
-        	$this->m_Errors = array("fld_smartcardcodexx"=> $this->getMessage("SMARTCARD_USED"));
-        	$this->setActiveRecord($currentRec);
-        	$this->rerender();
-        	return;
-        }        
-        
+        if($this->SmartCardAuthStatus()){
+	        if($this->CheckSmartCard($recArr)){
+	        	$this->m_Errors = array("fld_smartcardcodexx"=> $this->getMessage("SMARTCARD_USED"));
+	        	$this->setActiveRecord($currentRec);
+	        	$this->rerender();
+	        	return;
+	        }        
+        }
         $this->setActiveRecord($recArr);
         
         try
@@ -196,15 +197,24 @@ class UserForm extends EasyForm
 
         
         if (count($recArr) == 0)
-            return;
-		
-        $password = BizSystem::ClientProxy()->GetFormInputs("fld_password");            
-        if($password){
+            return;		        
+            
+        $password_mask = $this->getElement("fld_password")->m_PasswordMask;        
+        $password = BizSystem::ClientProxy()->GetFormInputs("fld_password");
+        if($password!=$password_mask){
         	$recArr['password'] = hash(HASH_ALG, $password);
 		}
         if ($this->_doUpdate($recArr, $currentRec) == false)
             return;
         
+        //also update users profile 
+        $profileDO = BizSystem::getObject("contact.do.ContactSystemDO",1);
+        $UserProfiles = $profileDO->directFetch("[user_id]='".$currentRec['Id']."'");
+        foreach($UserProfiles as $Profile)
+        {        	
+        	$profileDO->updateRecords("[email]='".$recArr['email']."'","[user_id]='".$currentRec['Id']."'");
+        }
+            
         // if 'notify email' option is checked, send confirmation email to user email address
         // ...
         
@@ -352,6 +362,20 @@ class UserForm extends EasyForm
 		}
     }
     
+	public function SmartCardAuthStatus()
+	{
+		$do = BizSystem::getObject("myaccount.do.PreferenceDO");
+        $rs = $do->directFetch("[user_id]='0' AND ([section]='Login' OR [section]='Register' )");
+      
+        if ($rs)
+        {
+	        	foreach ($rs as $item)
+	        	{        		
+	        		$preference[$item["name"]] = $item["value"];        	
+	        	}	
+        }  
 
+        return $preference['smartcard_auth'];        		
+	}
 }  
 ?>
