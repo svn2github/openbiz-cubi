@@ -12,9 +12,14 @@
         	
     </DataPanel>
     <ActionPanel>	
+   		<Element Name="btn_delete_anonymous" Class="Button" Text="Clean up" CssClass="button_gray_w">
+            <EventHandler Name="btn_delete_anonymous_onclick" Event="onclick" Function="CleanUp()"  ContextMenu="Clean up"/>
+        </Element>
+        <Element Name="btn_spacer" Class="Spacer" width="10" />
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
             <EventHandler Name="del_onclick" Event="onclick" Function="DeleteRecord()" ShortcutKey="Delete" ContextMenu="Delete"/>
         </Element>
+        
     </ActionPanel> 
     <NavPanel>
         <Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">

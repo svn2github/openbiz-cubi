@@ -27,5 +27,12 @@ class SessionListForm extends EasyForm
 		unset($svc);
 		return $recordSet;
 	}  	
+	
+	public function CleanUp()
+	{
+		 $this->getDataObj()->deleteRecords("[user_id]=0");
+		 $this->updateForm();
+		 return ;
+	}
 }
 ?>
