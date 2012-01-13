@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectListForm" Class="ProjectForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project_gantt.gif" Title="Project Management" Description="This module could help you manage project.\n You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_grid.tpl.html" EventName="PROJECT" MessageFile="Project.msg" Access="collab_project.access">
+<EasyForm Name="ProjectListForm" Class="ProjectForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project_gantt.gif" Title="Project Management" Description="This module could help you manage project. You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_grid.tpl.html" EventName="PROJECT" MessageFile="Project.msg" Access="collab_project.access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
@@ -22,9 +22,15 @@
         </Element>
         <Element Name="fld_progress" Class="ColumnBar" Width="120" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:170px" MaxValue="100" FieldName="progress" Label="Progress"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
         </Element>
-        <Element Name="fld_importamce" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/project/images/icon_project_importamce_yes.gif"  FalseImg="{RESOURCE_URL}/collab/project/images/icon_project_importamce_no.gif" FieldName="importance" Sortable="Y" Label="Importance" Link="javascript:;">
-			<EventHandler Name="fld_importamce_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_milestone,{@:Elem[fld_milestone].Value})"/>		
+		<Element Name="fld_priority_value" Class="Hidden" Hidden="Y" FieldName="priority"  />
+        <Element Name="fld_priority" Class="ColumnImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Pri" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority_value,{@:Elem[fld_priority_value].Value},0,2)"/>		
 		</Element>
+		<!--
+        <Element Name="fld_importance" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/project/images/icon_project_importance_yes.gif"  FalseImg="{RESOURCE_URL}/collab/project/images/icon_project_importance_no.gif" FieldName="importance" Sortable="Y" Label="Flag" Link="javascript:;">
+			<EventHandler Name="fld_importamce_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_importance,{@:Elem[fld_importance].Value})"/>		
+		</Element>
+		-->
 		<Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_type" Class="ColumnText"  Style="line-height:24px;" FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
         
@@ -33,10 +39,7 @@
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
             <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(collab.project.form.ProjectNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
         </Element>
-        <Element Name="btn_spacer" Class="Spacer" Width="10"></Element>
-        <Element Name="btn_update" Class="Button"   Text="Update" CssClass="button_gray_m" Description="update status (Ctrl+U)">
-			<EventHandler Name="btn_update_onclick" Event="onclick" Function="EditRecord()" RedirectPage="form=collab.project.form.ProjectUpdateStatusForm&amp;fld:Id={@:Elem[fld_Id].Value}"  ShortcutKey="Ctrl+U" ContextMenu="Update Status" />
-        </Element>   
+        <Element Name="btn_spacer" Class="Spacer" Width="10"></Element>        
         
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
             <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=collab.project.form.ProjectEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
@@ -94,7 +97,7 @@
             <EventHandler Name="type_selector_onchange" Event="onchange" Function="RunSearch()"/>
         </Element> 
         <Element Name="btn_spacer3" Class="Spacer" Width="10"></Element>
-        <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.project.do.ProjectDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" FieldName="title" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+        <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.project.do.ProjectDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" FieldName="name" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>  

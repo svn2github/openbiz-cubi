@@ -9,7 +9,7 @@
 		<BizField Name="status" Column="status" Type=""/>
 		
    		<BizField Name="progress" Column="progress"  />
-		<BizField Name="importance" Column="importance" />
+		<BizField Name="priority" Column="priority" Type=""/>
 
 		<BizField Name="type_id" Column="type_id"  ValueOnCreate="1"  Required="N" Type=""/>
 		<BizField Name="type_color" Column="color"  Join="JoinEventType" />
