@@ -190,16 +190,16 @@ class profileService
     	$do = BizSystem::getObject($this->m_userDataObj);
         if (!$do)
             return "";
-
+		if($account_id==0)
+		{
+			$msg = "-- Not Available ( UID:$account_id ) --";			
+			return $msg;
+		}
         
         $rs = $do->fetchById($account_id);
         if (!$rs){
-			$msg = "-- Deleted User ( UID:$account_id ) --";
-			if(CLI){
-				return $msg;
-			}else{
-        		return "<span style='color:#AAAAAA'>$msg<span>";
-			}
+			$msg = "-- Deleted User ( UID:$account_id ) --";			
+			return $msg;			
         }
         $contact_do = BizSystem::getObject($this->m_contactObj);
         $contact_rs = $contact_do->directFetch("[user_id]='$account_id'", 1);
