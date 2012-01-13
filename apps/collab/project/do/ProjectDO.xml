@@ -7,12 +7,15 @@
    		<BizField Name="start_time" Column="start_time" />
 		<BizField Name="end_time" Column="end_time" />  
 		<BizField Name="status" Column="status" Type=""/>
+		
    		<BizField Name="progress" Column="progress"  />
 		<BizField Name="importance" Column="importance" />
 
 		<BizField Name="type_id" Column="type_id"  ValueOnCreate="1"  Required="N" Type=""/>
 		<BizField Name="type_color" Column="color"  Join="JoinEventType" />
 	    <BizField Name="type_name" Column="name" Join="JoinEventType" />
+
+		<BizField Name="sortorder" Column="sortorder"  ValueOnCreate="50"   Required="N" Type=""/>
 
 		<BizField Name="owner_id" Column="owner_id" ValueOnCreate="{@profile:Id}"   Required="N" Type="Number"/>   		
    		<BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>
