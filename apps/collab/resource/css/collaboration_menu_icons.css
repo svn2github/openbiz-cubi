@@ -30,7 +30,9 @@
 #main #left_panel .content .collaboration .icon_bookmark{
 	background-position:left -128px;
 }
-
+#main #left_panel .content .collaboration .icon_project{
+	background-position:left -144px;
+}
 /* --for hovers */
 #main #left_panel .content .collaboration a:hover .icon_calender,
 #main #left_panel .content .collaboration a.current .icon_calender,
@@ -56,4 +58,9 @@
 #main #left_panel .content .collaboration a.current .icon_note,
 #main #left_panel .content .collaboration a:active .icon_note{
 	background-position:right -64px;
+}
+#main #left_panel .content .collaboration a:hover .icon_project,
+#main #left_panel .content .collaboration a.current .icon_project,
+#main #left_panel .content .collaboration a:active .icon_project{
+	background-position:left -144px;
 }
