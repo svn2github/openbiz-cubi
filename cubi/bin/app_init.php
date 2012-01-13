@@ -35,7 +35,7 @@ if(substr($appPath,0,1)!='/' && strlen($appPath)>0){
 if($appPath=='/'){
 	define('APP_URL','');
 }else{
-	if(!isset($_SERVER['DOCUMENT_ROOT'])){
+	if(!isset($_SERVER['HTTP_HOST'])){
 		define('APP_URL','');
 	}else{
 		define('APP_URL',$appPath);
