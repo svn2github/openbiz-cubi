@@ -392,9 +392,11 @@ class ModuleLoader
             $this->errors = $e->getMessage();
             return false;
         }
-    
+        
         // install ACL
-        if (!$skipDBChanges) $this->installACL($xml);
+        //if (!$skipDBChanges) 
+        // about ACL changes install it anyway
+        $this->installACL($xml);
         
         // install Menu
         //if (!$skipDBChanges)
