@@ -10,12 +10,12 @@ class SessionListForm extends EasyForm
 			if(date("Y-m-d",strtotime($record['create_time']))==date("Y-m-d")){
 				$record['create_time_display'] = date("H:i",strtotime($record['create_time']));
 			}else{
-				$record['create_time_display'] = date("Y-m-d",strtotime($record['create_time']));	
+				$record['create_time_display'] = date("m-d",strtotime($record['create_time']));	
 			}
 			if(date("Y-m-d",strtotime($record['update_time']))==date("Y-m-d")){
 				$record['update_time_display'] = date("H:i",strtotime($record['update_time']));
 			}else{
-				$record['update_time_display'] = date("Y-m-d",strtotime($record['update_time']));	
+				$record['update_time_display'] = date("m-d",strtotime($record['update_time']));	
 			}			
 			if($record['user_id']>0){
 				$record['link'] = APP_URL.'/system/user_detail/'.$record['user_id']; 
