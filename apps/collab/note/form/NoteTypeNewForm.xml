@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="NoteTypeNewForm" Class="NoteTypeForm" Icon="{RESOURCE_URL}/collab/calendar/images/icon_event_type.png" FormType="New" jsClass="jbForm" Title="New Note Type" Description="Please fill in below field to create a new note type" BizDataObj="collab.note.do.NoteTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="TASK_TYPE" MessageFile="NoteType.msg" Access="collab_note.access">
+<EasyForm Name="NoteTypeNewForm" Class="NoteTypeForm" Icon="{RESOURCE_URL}/collab/note/images/icon_note_type.png" FormType="New" jsClass="jbForm" Title="New Note Type" Description="Please fill in below field to create a new note type" BizDataObj="collab.note.do.NoteTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="TASK_TYPE" MessageFile="NoteType.msg" Access="collab_note.access">
     <DataPanel>
         <Element Name="fld_name" DefaultValue="New Note Type" Class="InputText" FieldName="name" Label="Name"   />	
         <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	
