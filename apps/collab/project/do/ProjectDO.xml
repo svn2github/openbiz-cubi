@@ -6,6 +6,7 @@
    		<BizField Name="description" Column="description"  Type="Text"/>
    		<BizField Name="start_time" Column="start_time" />
 		<BizField Name="end_time" Column="end_time" />  
+		<BizField Name="status" Column="status" Type=""/>
    		<BizField Name="progress" Column="progress"  />
 		<BizField Name="importance" Column="importance" />
 

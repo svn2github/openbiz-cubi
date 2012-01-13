@@ -567,8 +567,13 @@ CREATE TABLE `project` (
 `start_time` DATETIME NOT NULL ,
 `end_time` DATETIME NOT NULL ,
 `type_id` INT NOT NULL DEFAULT '1',
+`status` int(11) NOT NULL,
 `importance` INT NOT NULL DEFAULT '0',
 `progress` INT NOT NULL DEFAULT '0',
+`owner_id` int(11) default 0,
+`group_id` INT(11) default '1',
+`group_perm` INT(11) default '1',
+`other_perm` INT(11) default '1' ,
 `create_by` INT NOT NULL ,
 `create_time` DATETIME NOT NULL ,
 `update_by` INT NOT NULL ,
@@ -576,6 +581,27 @@ CREATE TABLE `project` (
 PRIMARY KEY ( `id` ) ,
 INDEX ( `name` , `type_id` )
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_general_ci ;
+
+
+DROP TABLE IF EXISTS `project_contact`;
+CREATE TABLE `project_contact` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `project_id` int(10) unsigned NOT NULL default '0',
+  `contact_id` int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  KEY `project_id` (`project_id`),
+  KEY `contact_id` (`contact_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `project_event`;
+CREATE TABLE `project_event` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `project_id` int(10) unsigned NOT NULL default '0',
+  `event_id` int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  KEY `project_id` (`project_id`),
+  KEY `event_id` (`event_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `project_template`;
 CREATE TABLE `project_template` (
@@ -586,6 +612,10 @@ CREATE TABLE `project_template` (
 `end_time` DATETIME NOT NULL ,
 `type_id` INT NOT NULL DEFAULT '1',
 `importance` INT NOT NULL DEFAULT '0',
+`owner_id` int(11) default 0,
+`group_id` INT(11) default '1',
+`group_perm` INT(11) default '1',
+`other_perm` INT(11) default '1' ,
 `create_by` INT NOT NULL ,
 `create_time` DATETIME NOT NULL ,
 `update_by` INT NOT NULL ,
