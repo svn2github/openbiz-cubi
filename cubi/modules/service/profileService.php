@@ -192,7 +192,7 @@ class profileService
             return "";
 		if($account_id==0)
 		{
-			$msg = "-- Not Available ( UID:$account_id ) --";			
+			$msg = "-- Not Available --";			
 			return $msg;
 		}
         
