@@ -149,12 +149,11 @@ class UserPreferenceForm extends EasyForm
 	            		}
 	            		break;
 					case "siteurl":
-	            		if($value!=SITE_URL){
-	            			//update default theme SITE_URL
-	            			$data = file_get_contents($config_file);	            			
-	            			$data = preg_replace("/define\([\'\\\"]{1}SITE_URL[\'\\\"]{1}.*?\)\;/i","define('SITE_URL','$value');",$data);	            			
-	            			@file_put_contents($config_file,$data);
-	            		}
+						//update default theme SITE_URL
+            			$data = file_get_contents($config_file);	            			
+            			$data = preg_replace("/define\([\'\\\"]{1}SITE_URL[\'\\\"]{1}.*?\)\;/i","define('SITE_URL','$value');",$data);	            			
+            			@file_put_contents($config_file,$data);
+            		
 	            		break;	            		
 	            	case "language":
 	            	    if($value!=DEFAULT_LANGUAGE){
