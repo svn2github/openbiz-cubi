@@ -130,7 +130,7 @@ class emailService extends MetaObject
     private function _constructMail ()
     {
         require_once 'Zend/Mail.php';
-        $this->_mail = new Zend_Mail();
+        $this->_mail = new Zend_Mail('utf-8');
     }
 
     /**
