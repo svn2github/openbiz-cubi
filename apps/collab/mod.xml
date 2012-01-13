@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="collaboration module" Version="0.71" OpenbizVersion="3.0">
+<Module Name="collab" Description="Openbiz Collaboration" Version="0.8" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -30,6 +30,9 @@
 		</Resource>
         <Resource Name="collab_bookmark">
 			<Action Name="access" Description="access and manage bookmark"/>
+		</Resource>
+		<Resource Name="collab_project">
+			<Action Name="access" Description="access and manage project"/>
 		</Resource>
 	</ACL>
     <Menu>
@@ -62,6 +65,14 @@
 				<MenuItem Name="Notes.NotesDetail" Title="Note Detail" Description=""  URL="{@home:url}/collab/note_detail" Order="10"  Access="collab_note.access" ></MenuItem>
 			</MenuItem>
 			<MenuItem Name="Notes.Type" Title="Note Type" Description=""  URL="{@home:url}/collab/note_type" Order="50" Access="collab_note.access"></MenuItem>
+		</MenuItem>
+		 <!-- Project menus -->
+    	<MenuItem Name="Project" Title="Project" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_project" Order="25" Access="collab_project.access" >
+			<MenuItem Name="Project.ProjectManage" Title="Project Manage" Description=""  URL="{@home:url}/collab/project_manage" Order="40" Access="collab_project.access" >
+				<MenuItem Name="Project.ProjectDetail" Title="Project Detail" Description=""  URL="{@home:url}/collab/project_detail" Order="10"  Access="collab_project.access" ></MenuItem>
+			</MenuItem>
+			<MenuItem Name="Project.Template" Title="Project Template" Description=""  URL="{@home:url}/collab/project_template" Order="50" Access="collab_project.access"></MenuItem>
+			<MenuItem Name="Project.Type" Title="Project Type" Description=""  URL="{@home:url}/collab/project_type" Order="60" Access="collab_project.access"></MenuItem>
 		</MenuItem>
         <!-- Task menus -->
     	<MenuItem Name="Task" Title="Task" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_task" Order="30" Access="collab_task.access">
@@ -112,6 +123,9 @@
     	<Module Name="menu"/>
     </Dependency>
         <ChangeLog>
+        <Version Name="0.8">    		    		
+    		<Change Name="feature_08" Type="New_Feature" Status="Finished" PublishDate="2012-01-13" Description="Collaboration with project management features"></Change>
+    	</Version> 
         <Version Name="0.7">    		    		
     		<Change Name="feature_07.01" Type="New_Feature" Status="Finished" PublishDate="2012-01-02" Description="Collab Dashboard feature is ready"></Change>
     	</Version> 

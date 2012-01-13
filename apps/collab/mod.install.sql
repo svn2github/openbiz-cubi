@@ -529,3 +529,32 @@ added system cronjob
 
 INSERT INTO `cronjob` ( `name`, `minute`, `hour`, `day`, `month`, `weekday`, `command`, `sendmail`, `max_run`, `num_run`, `description`, `status`, `last_exec`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
 ( 'Trigger Collab Reminder', '*', '*', '*', '*', '*', '{APP_HOME}/bin/cronjob/run_svc.php  collab.lib.ReminderService CheckRemind', '', 1, 0, 'Trigger Collaboration Reminder, It will generate notification emails about planned task and events.', 1, NULL, 1, '2012-01-12 18:41:03', 1, '2012-01-12 18:41:03');
+
+/*
+tables for project management
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+DROP TABLE IF EXISTS `project_type`;
+CREATE TABLE `project_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `color` varchar(255) NOT NULL,
+  `sortorder` int(11) NOT NULL,
+  `published` int(11) NOT NULL,
+  `group_id` INT(11) default '1',
+  `group_perm` INT(11) default '1',
+  `other_perm` INT(11) default '1' ,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+INSERT INTO `project_type` (`id`, `name`, `color`,`description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+(1, 'Business', '66c2ff', 'Business Contacts', 45, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
+(2, 'Family', 'ff7aa0', 'Family Contacts', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
+(3, 'Provider', '7fff7f', 'Business Provider Contacts', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
+(4, 'Client', 'ffd042','Business Client Contacts', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
