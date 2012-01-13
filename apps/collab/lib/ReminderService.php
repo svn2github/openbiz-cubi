@@ -95,9 +95,10 @@ class ReminderService
 				if($this->_isNeedRemind($taskRec))
 				{
 					$userList = BizSystem::getService(DATAPERM_SERVICE)->getReadableUserList($taskRec);
+					$taskNextRec = $this->_getNextRepeatTime($taskRec);
 					foreach ($userList as $user_id)
 					{
-						$emailSvc->SendEmailToUser("EventRemindEmail",$user_id,$taskRec);
+						$emailSvc->SendEmailToUser("EventRemindEmail",$user_id,$taskNextRec);
 					}
 					$taskDO->updateRecords("[reminder_lasttime]=NOW()", "[Id]='".$taskRec['Id']."'");
 				}
@@ -143,10 +144,11 @@ class ReminderService
 				if($this->_isNeedNotify($taskRec))
 				{
 					$contactList = BizSystem::getObject("collab.calendar.do.EventContactDO")->directFetch("[event_id]='".$taskRec['Id']."'");
+					$taskNextRec = $this->_getNextRepeatTime($taskRec);
 					foreach ($contactList as $contactRec)
 					{
 						$contact_id = $contactRec['contact_id'];
-						$emailSvc->SendEmailToContact("EventNoticeEmail",$contact_id,$taskRec);
+						$emailSvc->SendEmailToContact("EventNoticeEmail",$contact_id,$taskNextRec);
 					}
 					$taskDO->updateRecords("[notify_contacts_lasttime]=NOW()", "[Id]='".$taskRec['Id']."'");
 				}
