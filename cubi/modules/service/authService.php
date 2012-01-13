@@ -114,6 +114,9 @@ class authService
 
 	   $boAuth->fetchRecords($searchRule, $recordList, 1);
 
+		if(count($recordList)==0){
+			return false;
+		}
 	   $encType 	 = $recordList[0]["enctype"];
 	   $realPassword = $recordList[0]["password"];
 

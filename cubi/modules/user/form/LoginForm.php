@@ -179,7 +179,7 @@ class LoginForm extends EasyForm
     			// after authenticate user: 3. update login time in user record
     	   	    if (!$this->UpdateloginTime())
     	   	        return false;
-    	   	        
+    	   	            	   	        
     	   	    // after authenticate user: 3. update current theme and language
        			$currentLanguage = BizSystem::ClientProxy()->getFormInputs("current_language");
    				if($currentLanguage!=''){
@@ -243,8 +243,10 @@ class LoginForm extends EasyForm
     			$this->processFormObjError($errorMessage);    			
     		}
     	}
-    	catch (Exception $e) {    		
-    	    BizSystem::ClientProxy()->showErrorMessage($e->getMessage());
+    	catch (Exception $e) {    	
+    		$errorMessage['login_status'] = $this->getMessage("LOGIN_FAILED");    			    			
+    			$this->processFormObjError($errorMessage);    				
+    	    //BizSystem::ClientProxy()->showErrorMessage($e->getMessage());
     	}
     }
     
@@ -260,10 +262,10 @@ class LoginForm extends EasyForm
     				$result = true;
     			}
     			break;
-    		default:
+    		default:    			
     			$result = $svcobj->authenticateUser($this->username,$this->password);
     			break;	
-    	}
+    	}    	
     	return $result;
     }
    
@@ -277,7 +279,10 @@ class LoginForm extends EasyForm
         $userObj = BizSystem::getObject('system.do.UserDO');
         try {
             $curRecs = $userObj->directFetch("[username]='".$this->username."'", 1);
-            $dataRec = new DataRecord($curRecs[0], $userObj);
+            if(count($curRecs)==0){
+            	return false;
+            }
+            $dataRec = new DataRecord($curRecs[0], $userObj);            
             $dataRec['lastlogin'] = date("Y-m-d H:i:s");
             $ok = $dataRec->save();
             if (! $ok) {
