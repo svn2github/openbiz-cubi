@@ -29,11 +29,14 @@ class DashboardWidgetForm extends EasyForm
 		$i=0;
 		foreach($recordSet as $rec)
 		{
-			$i++;						
+			if(strtotime($rec['start_time'])>time()){
+				array_push($recordResult, $rec);
+				$i++;
+			}						
 			if($i>$this->m_Range){
 				break;
 			}
-			array_push($recordResult, $rec);
+			
 		}
 		return $recordResult;
 	} 
