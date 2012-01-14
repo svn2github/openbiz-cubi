@@ -34,7 +34,7 @@ padding:5px 10px 10px 10px;
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
-    var map_{/literal}{$form.js_name}{literal} = new google.maps.Map(document.getElementById("map_canvas_edit"), myOptions_{/literal}{$form.js_name}{literal});
+    var map_{/literal}{$form.js_name}{literal} = new google.maps.Map(document.getElementById("{/literal}{$form.js_name}{literal}_map_canvas"), myOptions_{/literal}{$form.js_name}{literal});
 
     var contentString = '<div id="content">'+
         '<div id="siteNotice">'+
@@ -67,6 +67,7 @@ padding:5px 10px 10px 10px;
         title: 'Uluru (Ayers Rock)'
     });
     google.maps.event.addListener(marker, 'click', function() {
+        google.maps.event.addListener(marker, 'click', function() {
     });
  	
     
@@ -78,6 +79,7 @@ padding:5px 10px 10px 10px;
 <table></table>
 <div style="width:640px; height:400px;">
 
-	<div id="map_canvas_edit" style="height:100%"></div>
+	<div id="{$form.js_name}_map_canvas" style="height:100%"></div>
+	<script>initialize();</script>
 </div>	
 </div>
