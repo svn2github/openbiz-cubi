@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="location" Description="locations management module" Version="0.1" OpenbizVersion="3.0" Author="Jixian">
+	<ACL>
+		<Resource Name="location">
+			<Action Name="access" Description="access location"/>
+		</Resource>
+	</ACL>    
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+</Module>
