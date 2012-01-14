@@ -11,7 +11,7 @@
 
 		<Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		<Element Name="fld_related_picture"   ElementSet="Picture" Class="FormElement" FormReference="picture.widget.PictureListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		 
+		<Element Name="fld_locations"   ElementSet="Locations" Class="FormElement" FormReference="location.widget.LocationListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 	        		
 		<Element Name="fld_view_log"   ElementSet="View Log" Class="FormElement" FormReference="collab.announcement.form.AnnouncementReadLogForm" FieldName="" Label="" AllowURLParam="N" />
 	        			    
