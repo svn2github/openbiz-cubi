@@ -23,9 +23,12 @@ padding:5px 10px 10px 10px;
 {/literal}
 </style>
 <div style="padding-left:0px;padding-right:0px;">
+<table></table>
+{if $dataPanel.data|count >0}
 <div class="from_table_container" style="width:642px;">
 <!-- table start -->
-<table></table>
+
+
 {foreach item=row from=$dataPanel.data}
 <div class="picture_item">
 	<div style="padding:10px;">
@@ -57,3 +60,8 @@ padding:5px 10px 10px 10px;
 	</div>
 {/if}		
 </div>
+{else}
+<div style="background-color:#f8f8f8;padding:10px;">
+{t}-- No related pictures --{/t}
+</div>
+{/if}
