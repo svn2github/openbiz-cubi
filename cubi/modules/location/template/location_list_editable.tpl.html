@@ -1,6 +1,5 @@
 </form>
 <form id='{$form.name}' name='{$form.name}'>
-<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
 <style>
 {literal}
 .picture_item{
@@ -24,62 +23,61 @@ padding:5px 10px 10px 10px;
 }
 {/literal}
 </style>
-{literal}
-<script type="text/javascript">
-  function initialize() {
-    var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-    var myOptions = {
-      zoom: 4,
-      center: myLatlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
 
-    var map = new google.maps.Map(document.getElementById("map_canvas_edit"), myOptions);
-
-    var contentString = '<div id="content">'+
-        '<div id="siteNotice">'+
-        '</div>'+
-        '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-        '<div id="bodyContent">'+
-        '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-        'sandstone rock formation in the southern part of the '+
-        'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-        'south west of the nearest large town, Alice Springs; 450&#160;km '+
-        '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-        'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-        'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-        'Aboriginal people of the area. It has many springs, waterholes, '+
-        'rock caves and ancient paintings. Uluru is listed as a World '+
-        'Heritage Site.</p>'+
-        '<p>Attribution: Uluru, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-        'http://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-        '(last visited June 22, 2009).</p>'+
-        '</div>'+
-        '</div>';
-        
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-
-    var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        title: 'Uluru (Ayers Rock)'
-    });
-    google.maps.event.addListener(marker, 'click', function() {
-    	infowindow.open(map,marker);
-    });
- 	
-    
-  }
-
-</script>
-{/literal}
 <div style="padding-left:0px;padding-right:0px;">
 <table></table>
 <div style="width:640px; height:400px;">
 
-	<div id="map_canvas_edit" style="height:100%"></div>
-	<script>initialize();</script>
+	<div id="map_canvas_{$form.js_name}" style="height:100%"></div>
+	{literal}
+ 
+
+	<script>
+	 var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+	    var myOptions = {
+	      zoom: 4,
+	      center: myLatlng,
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	    }
+
+	    var map_{/literal}{$form.js_name}{literal} = new google.maps.Map(document.getElementById("map_canvas_{/literal}{$form.js_name}{literal}"), myOptions);
+
+	    var contentString = '<div id="content">'+
+	        '<div id="siteNotice">'+
+	        '</div>'+
+	        '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+	        '<div id="bodyContent">'+
+	        '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+	        'sandstone rock formation in the southern part of the '+
+	        'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+	        'south west of the nearest large town, Alice Springs; 450&#160;km '+
+	        '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+	        'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+	        'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+	        'Aboriginal people of the area. It has many springs, waterholes, '+
+	        'rock caves and ancient paintings. Uluru is listed as a World '+
+	        'Heritage Site.</p>'+
+	        '<p>Attribution: Uluru, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+	        'http://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+	        '(last visited June 22, 2009).</p>'+
+	        '</div>'+
+	        '</div>';
+	        
+	    var infowindow = new google.maps.InfoWindow({
+	        content: contentString
+	    });
+
+	    var marker = new google.maps.Marker({
+	        position: myLatlng,
+	        map: map_{/literal}{$form.js_name}{literal},
+	        title: 'Uluru (Ayers Rock)'
+	    });
+	    google.maps.event.addListener(marker, 'click', function() {
+	    	infowindow.open(map_{/literal}{$form.js_name}{literal},marker);
+	    });
+	 	
+	
+	</script>
+	{/literal}
 </div>	
 </div>
