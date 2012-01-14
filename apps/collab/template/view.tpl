@@ -11,6 +11,7 @@ BizSystem::clientProxy()->includeCalendarScripts();
 BizSystem::clientProxy()->includeCKEditorScripts();
 $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 $includedScripts.="
+<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
 <script type='text/javascript' src='$js_url/cookies.js'></script>
 <script type='text/javascript' src='$js_url/grouping.js'></script>
 <script type='text/javascript' src='$theme_js_url/general_ui.js'></script>
