@@ -53,13 +53,13 @@
 		{literal} 
 			var myLatlng_{/literal}{$row.fld_Id}{literal} = new google.maps.LatLng({/literal}{$row.fld_latitude}{literal},{/literal}{$row.fld_longtitude}{literal});
 		    var infowindow_{/literal}{$row.fld_Id}{literal} = new google.maps.InfoWindow({
-		        content:'<span class="location_title">{/literal}{$row.fld_title}{literal}</span><p>{/literal}{$row.fld_description}{literal}</p>'						
+		        content:'<span class="location_title">{/literal}{$row.fld_title|addslashes}{literal}</span><p>{/literal}{$row.fld_description|addslashes}{literal}</p>'						
 		    });
 	
 		    var marker_{/literal}{$row.fld_Id}{literal} = new google.maps.Marker({
 		        position: myLatlng_{/literal}{$row.fld_Id}{literal},
 		        map: map,
-		        title: '{/literal}{$row.fld_title}{literal}'
+		        title: '{/literal}{$row.fld_title|addslashes}{literal}'
 		    });		
 		    google.maps.event.addListener(marker_{/literal}{$row.fld_Id}{literal}, 'click', function() {
 		    	infowindow_{/literal}{$row.fld_Id}{literal}.open(map,marker_{/literal}{$row.fld_Id}{literal});

@@ -40,13 +40,13 @@
 		{literal} 
 			var myLatlng_{/literal}{$row.fld_Id}{literal} = new google.maps.LatLng({/literal}{$row.fld_latitude}{literal},{/literal}{$row.fld_longtitude}{literal});
 		    var infowindow_{/literal}{$row.fld_Id}{literal} = new google.maps.InfoWindow({
-		        content:'{/literal}{$row.fld_description}{literal}'						
+		        content:'{/literal}{$row.fld_description|addslashes}{literal}'						
 		    });
 	
 		    var marker_{/literal}{$row.fld_Id}{literal} = new google.maps.Marker({
 		        position: myLatlng_{/literal}{$row.fld_Id}{literal},
 		        map: map,
-		        title: '{/literal}{$row.fld_title}{literal}'
+		        title: '{/literal}{$row.fld_title|addslashes}{literal}'
 		    });		
 		    google.maps.event.addListener(marker_{/literal}{$row.fld_Id}{literal}, 'click', function() {		    	
 				Openbiz.CallFunction('{/literal}{$form.name}{literal}.SwitchForm(location.widget.LocationDetailForm,{/literal}{$row.fld_Id}{literal},,Dialog)',{'type':'','target':'','evthdl':'btn_add:fld_add_onclick'});				
@@ -56,7 +56,7 @@
 		{/literal}
 		{/foreach}	
 		 {literal}
-	    google.maps.event.addListener(map, 'dblclick', function(event) {
+	    google.maps.event.addListener(map, 'click', function(event) {
 	    	var paramFields='';
 			
 			paramFields += 'longtitude='+event.latLng.lng()+'&';

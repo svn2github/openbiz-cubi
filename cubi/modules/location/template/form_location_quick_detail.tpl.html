@@ -21,21 +21,10 @@
 		 or $item.type eq 'Textarea'  
 		 or $item.type eq 'RawData'
 		 or $item.type eq 'InputText'
-		 or $item.type eq 'attachment.element.AttachmentUploader'
+		 or $item.type eq 'location.element.LocationPreview'
 		 }
 			<table  id="{$itemName}_container" class="input_row">
-			<tr>
-			<td style="width:80px;">	
-				<label style="text-align:left">{$item.label}</label>
-			</td>
-			<td>
-				{if $errors.$itemName}
-				<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
-				{elseif $item.description}
-				<span class="input_desc" style="width:240px;">{$item.description}</span>			
-				{/if}
-			</td>
-			</tr>
+			
 			<tr><td colspan="2" align="left" >
 				<span class="label_textarea" style="width:655px;">{$item.element}</span>
 							
@@ -109,4 +98,4 @@
 </div>
 </div>
 </form>
-<script>Openbiz.Window.centerDialog(470,385); </script>
+<script>Openbiz.Window.centerDialog(470,485); </script>

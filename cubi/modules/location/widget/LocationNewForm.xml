@@ -3,8 +3,8 @@
     <DataPanel>        
         <Element Name="fld_title" DefaultValue="New Location" Class="InputText" FieldName="title" Label="Title"   />	
         <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"   />
-		<Element Name="fld_longtitude" HTMLattr="style='display:none;'" DefaultValue="{@:Params[longtitude]}" Class="InputText" FieldName="longtitude" Label=""   />
-		<Element Name="fld_latitude"  HTMLattr="style='display:none;'" Hidden="Y" DefaultValue="{@:Params[latitude]}" Class="InputText" FieldName="latitude" Label=""   />
+		<Element Name="fld_longtitude" HTMLattr="style='display:none;'" DefaultValue="{@:Params[longtitude]}" Class="Hidden" FieldName="longtitude" Label=""   />
+		<Element Name="fld_latitude"  HTMLattr="style='display:none;'" DefaultValue="{@:Params[latitude]}" Class="Hidden" FieldName="latitude" Label=""   />
     </DataPanel>
     <ActionPanel>
 	    
