@@ -1112,7 +1112,11 @@ button.ui-button::-moz-focus-inner {
      border-top:none;
 }
 .ui-tabs .ui-tabs-hide {
-    display: none !important;
+    
+	display: block;
+    position: absolute;
+    top: -999em;
+    left: -999em;
 }
 .ui-datepicker {
     display: none;
