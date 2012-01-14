@@ -34,13 +34,13 @@ padding:5px 10px 10px 10px;
 
 	<script>
 	 var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-	    var myOptions = {
+	    var myOptions_{/literal}{$form.rand}{literal} = {
 	      zoom: 4,
 	      center: myLatlng,
 	      mapTypeId: google.maps.MapTypeId.ROADMAP
 	    }
 
-	    var map_{/literal}{$form.js_name}{literal} = new google.maps.Map(document.getElementById("map_canvas_{/literal}{$form.js_name}{literal}"), myOptions);
+	    var map_{/literal}{$form.js_name}{literal} = new google.maps.Map(document.getElementById("map_canvas_{/literal}{$form.js_name}{literal}"), myOptions_{/literal}{$form.rand}{literal});
 
 	    var contentString = '<div id="content">'+
 	        '<div id="siteNotice">'+
@@ -75,8 +75,9 @@ padding:5px 10px 10px 10px;
 	    google.maps.event.addListener(marker, 'click', function() {
 	    	infowindow.open(map_{/literal}{$form.js_name}{literal},marker);
 	    });
-	 	
-	
+	    
+	    
+
 	</script>
 	{/literal}
 </div>	

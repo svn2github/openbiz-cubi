@@ -16,6 +16,7 @@ class LocationForm extends EasyForm
 		if( BizSystem::getObject($this->m_ParentFormName)->m_RecordId ){
 			$result['js_name'] .= '_'.BizSystem::getObject($this->m_ParentFormName)->m_RecordId;
 		} 
+		$result['rand'] = md5(rand());	
 		return $result;
 	}
 
