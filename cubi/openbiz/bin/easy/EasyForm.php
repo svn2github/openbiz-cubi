@@ -39,6 +39,7 @@ class EasyForm extends MetaObject implements iSessionObject
     public $m_Width;
     public $m_DefaultForm;
   
+    public $m_CanUpdateRecord;
     public $m_DirectMethodList = null; //list of method that can directly from browser
 
     public $m_Panels; 
@@ -887,7 +888,8 @@ class EasyForm extends MetaObject implements iSessionObject
         $this->setActiveRecord($resultRecords[0]);    	
         
         QueryStringParam::ReSet();
-
+		
+        $this->m_CanUpdateRecord = (int)$this->getDataObj()->canUpdateRecord();
         return $resultRecords[0];
     }
 
