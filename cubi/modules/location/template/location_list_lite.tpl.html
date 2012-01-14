@@ -27,14 +27,14 @@ padding:5px 10px 10px 10px;
 {literal}
 <script type="text/javascript">
   function initialize() {
-    var myLatlng_{/literal}{$form.js_name}{literal} = new google.maps.LatLng(-25.363882,131.044922);
-    var myOptions_{/literal}{$form.js_name}{literal} = {
+    var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+    var myOptions = {
       zoom: 4,
-      center: myLatlng_{/literal}{$form.js_name}{literal},
+      center: myLatlng,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
-    var map_{/literal}{$form.js_name}{literal} = new google.maps.Map(document.getElementById("map_canvas_edit"), myOptions_{/literal}{$form.js_name}{literal});
+    var map = new google.maps.Map(document.getElementById("map_canvas_edit"), myOptions);
 
     var contentString = '<div id="content">'+
         '<div id="siteNotice">'+
@@ -62,8 +62,8 @@ padding:5px 10px 10px 10px;
     });
 
     var marker = new google.maps.Marker({
-        position: myLatlng_{/literal}{$form.js_name}{literal},
-        map: map_{/literal}{$form.js_name}{literal},
+        position: myLatlng,
+        map: map,
         title: 'Uluru (Ayers Rock)'
     });
     google.maps.event.addListener(marker, 'click', function() {
@@ -80,5 +80,6 @@ padding:5px 10px 10px 10px;
 <div style="width:640px; height:400px;">
 
 	<div id="map_canvas_edit" style="height:100%"></div>
+	<script>initialize();</script>
 </div>	
 </div>
