@@ -32,23 +32,23 @@
 		<Element Name="fld_workhour" ElementSet="Time" Class="LabelText" Text="{@:Elem[fld_workhour].Value} Hours" FieldName="total_workhour" Label="Time Budget"   AllowURLParam="N"  />
 		<Element Name="fld_actualhour" ElementSet="Time" Class="LabelText" Text="{@:Elem[fld_actualhour].Value} Hours" FieldName="actual_workhour" Label="Worked Hours"   AllowURLParam="N"  />
 		<Element Name="fld_work_log"   ElementSet="Time" Class="FormElement" FormReference="collab.worklog.widget.WorklogListDetailForm" FieldName="" Label="" AllowURLParam="N" />		
-		<Element Name="btn_manage_worklog" ElementSet="Time" Class="Button" Style="color:#666666;margin-left:5px;margin-top:2px;" Text="Manage" CssClass="button_gray_w" Description="">
+		<Element Name="btn_manage_worklog" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Time" Class="Button" Style="color:#666666;margin-left:5px;margin-top:2px;" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_worklog_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditWorklogForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
         
 		<Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_attachment" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+		<Element Name="btn_manage_attachment" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
         
 		<Element Name="fld_related_events"   ElementSet="Events" Class="FormElement" FormReference="collab.calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_event" ElementSet="Events" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+		<Element Name="btn_manage_event" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Events" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_evnt_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditEventForm,{@:Elem[fld_Id].Value})"  />
         </Element> 
 		
 		<Element Name="fld_related_contacts"   ElementSet="Contacts" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		    	
-		<Element Name="btn_manage_contact" ElementSet="Contacts" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+		<Element Name="btn_manage_contact" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Contacts" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_contact_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditContactForm,{@:Elem[fld_Id].Value})" />
         </Element>   
 
@@ -60,7 +60,7 @@
 			<Element Name="fld_reminder_method_systray" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelBool"  FieldName="reminder_method_systray" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Systray" AllowURLParam="N" />
 			<Element Name="fld_reminder_method_sms" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelBool"  FieldName="reminder_method_sms" DefaultValue="0" SelectFrom="1" Label="Send SMS" AllowURLParam="N" />
 			
-			<Element Name="btn_manage_reminder" ElementSet="Reminder"  Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Setting" CssClass="button_gray_w" Description="">
+			<Element Name="btn_manage_reminder" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Reminder"  Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Setting" CssClass="button_gray_w" Description="">
 				<EventHandler Name="btn_manage_reminder_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditReminderForm,{@:Elem[fld_Id].Value})"  />
 	        </Element>
 		

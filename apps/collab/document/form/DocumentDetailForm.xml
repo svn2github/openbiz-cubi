@@ -10,7 +10,7 @@
 			<Element Name="fld_content" ElementSet="General"  Class="HTMLPreview" Height="400" FieldName="content" Label="Content" />			
 
 		<Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_attachment" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+		<Element Name="btn_manage_attachment" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
         </Element>
 	        			

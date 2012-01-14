@@ -17,7 +17,7 @@
 			</Element>
 						
 			<Element Name="fld_related_contacts"   ElementSet="Related Contacts" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-			<Element Name="btn_manage_contact"  ElementSet="Related Contacts" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<Element Name="btn_manage_contact" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Related Contacts" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 				<EventHandler Name="btn_manage_contact_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventEditContactForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Insert" ContextMenu="New" />
        		 </Element>  
 			
@@ -28,7 +28,7 @@
 			<Element Name="fld_notify_contacts_time" Hidden="{@:Elem[fld_notify_contacts].Value=='0'?'Y':'N'}" ElementSet="Notify Contacts" Class="LabelList" selectFrom="collab.calendar.lov.EventLOV(NotifyTimeType)" FieldName="notify_contacts_time" Label="Time Setting" AllowURLParam="N" />			
 			<Element Name="fld_notify_contacts_method_sms"  Hidden="{@:Elem[fld_notify_contacts].Value=='0'?'Y':'N'}" ElementSet="Notify Contacts" Class="LabelBool" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" FieldName="notify_contacts_email" Label="Send Email" AllowURLParam="N" />
 			<Element Name="fld_notify_contacts_method_email"  Hidden="{@:Elem[fld_notify_contacts].Value=='0'?'Y':'N'}" ElementSet="Notify Contacts" Class="LabelBool" DefaultValue="0" SelectFrom="1" FieldName="notify_contacts_sms" Label="Send SMS" AllowURLParam="N" />
-			<Element Name="btn_manage_contact_notify"  ElementSet="Notify Contacts" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Setting" CssClass="button_gray_w" Description="">
+			<Element Name="btn_manage_contact_notify" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Notify Contacts" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Setting" CssClass="button_gray_w" Description="">
 				<EventHandler Name="btn_manage_contact_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventEditContactNotifyForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Insert" ContextMenu="New" />
        		 </Element> 
 			 
@@ -39,7 +39,7 @@
 			<Element Name="fld_reminder_method_email" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelBool"  FieldName="reminder_method_email" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Email" AllowURLParam="N" />
 			<Element Name="fld_reminder_method_systray" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelBool"  FieldName="reminder_method_systray" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Systray" AllowURLParam="N" />
 			<Element Name="fld_reminder_method_sms" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelBool"  FieldName="reminder_method_sms" DefaultValue="0" SelectFrom="1" Label="Send SMS" AllowURLParam="N" />
-			<Element Name="btn_manage_reminder" ElementSet="Reminder"  Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Setting" CssClass="button_gray_w" Description="">
+			<Element Name="btn_manage_reminder" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Reminder"  Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Setting" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_reminder_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventEditReminderForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Insert" ContextMenu="New" />
         </Element> 
 			
