@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="LocationListEditForm" Class="LocationForm" FormType="List" jsClass="jbForm" Icon="" BizDataObj="location.do.LocationDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_in_tab.tpl.html"  Access="location.access">
+<EasyForm Name="LocationListEditForm" Class="LocationForm" FormType="List" jsClass="jbForm" Icon="" BizDataObj="location.do.LocationDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="location_list_editable.tpl.html"  Access="location.access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>        
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
