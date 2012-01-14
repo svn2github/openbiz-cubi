@@ -568,7 +568,7 @@ CREATE TABLE `project` (
 `end_time` DATETIME NOT NULL ,
 `type_id` INT NOT NULL DEFAULT '1',
 `status` int(11) NOT NULL,
-`importance` INT NOT NULL DEFAULT '0',
+`priority` int(11) NOT NULL,
 `progress` INT NOT NULL DEFAULT '0',
 `sortorder` int(11) NOT NULL,
 `owner_id` int(11) default 0,
