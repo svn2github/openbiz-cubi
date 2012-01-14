@@ -250,19 +250,8 @@ class DataSharingForm extends EasyForm
 	}
 	
 	private function _getOwnerName($id)
-	{
-		
-		$contactDO = BizSystem::GetObject("contact.do.ContactSystemDO");
-		$rec = $contactDO->fetchOne("[user_id]='$id'");
-		if(count($rec))
-		{
-			$result = $rec['display_name'];
-		}
-		else
-		{
-			$rec = BizSystem::GetObject("system.do.UserDO")->fetchById($id);
-			$result = $rec['username']." (".$rec['email'].")";
-		}
+	{		
+		$result = BizSystem::getProfileEmail($id);
 		return $result;
 	}
 	
