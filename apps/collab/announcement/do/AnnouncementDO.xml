@@ -26,6 +26,7 @@
 		<Join Name="JoinType" Table="announcement_type" Column="id" ColumnRef="type_id" JoinType="LEFT JOIN"/>    	
     </TableJoins>
     <ObjReferences>
+        <Object Name="picture.do.PictureDO" Description="" Relationship="1-M" Table="picture" CondColumn='type' CondValue='announcement' Column="foreign_id" FieldRef="Id" />
         <Object Name="attachment.do.AttachmentDO" Description="" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='announcement' Column="foreign_id" FieldRef="Id" />
         <Object Name="collab.announcement.do.AnnouncementReadLogDO" Description="" Relationship="1-M" Table="announcement_read_log"   Column="announcement_id" FieldRef="Id" />        
     </ObjReferences>

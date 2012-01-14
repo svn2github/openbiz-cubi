@@ -25,7 +25,9 @@
         <Element Name="btn_manage_attachment"   Class="Button" Text="Attachment" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
         </Element>    
-
+		<Element Name="btn_manage_picture"   Class="Button" Text="Picture" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_picture_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditPictureForm,{@:Elem[fld_Id].Value})"   />
+        </Element> 
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 

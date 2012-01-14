@@ -27,18 +27,23 @@
 		
 		
 		
-		<Element Name="fld_start_time" ElementSet="Time"  Class="LabelText" FieldName="start_time" Label="Start Time"  AllowURLParam="Y" />
-		<Element Name="fld_finish_time"  ElementSet="Time"  Class="LabelText" FieldName="finish_time" Label="End Time"  AllowURLParam="Y" />
-		<Element Name="fld_workhour" ElementSet="Time" Class="LabelText" Text="{@:Elem[fld_workhour].Value} Hours" FieldName="total_workhour" Label="Time Budget"   AllowURLParam="N"  />
-		<Element Name="fld_actualhour" ElementSet="Time" Class="LabelText" Text="{@:Elem[fld_actualhour].Value} Hours" FieldName="actual_workhour" Label="Worked Hours"   AllowURLParam="N"  />
-		<Element Name="fld_work_log"   ElementSet="Time" Class="FormElement" FormReference="collab.worklog.widget.WorklogListDetailForm" FieldName="" Label="" AllowURLParam="N" />		
-		<Element Name="btn_manage_worklog" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Time" Class="Button" Style="color:#666666;margin-left:5px;margin-top:2px;" Text="Manage" CssClass="button_gray_w" Description="">
+		<Element Name="fld_start_time" ElementSet="Worklog"  Class="LabelText" FieldName="start_time" Label="Start Time"  AllowURLParam="Y" />
+		<Element Name="fld_finish_time"  ElementSet="Worklog"  Class="LabelText" FieldName="finish_time" Label="End Time"  AllowURLParam="Y" />
+		<Element Name="fld_workhour" ElementSet="Worklog" Class="LabelText" Text="{@:Elem[fld_workhour].Value} Hours" FieldName="total_workhour" Label="Time Budget"   AllowURLParam="N"  />
+		<Element Name="fld_actualhour" ElementSet="Worklog" Class="LabelText" Text="{@:Elem[fld_actualhour].Value} Hours" FieldName="actual_workhour" Label="Worked Hours"   AllowURLParam="N"  />
+		<Element Name="fld_work_log"   ElementSet="Worklog" Class="FormElement" FormReference="collab.worklog.widget.WorklogListDetailForm" FieldName="" Label="" AllowURLParam="N" />		
+		<Element Name="btn_manage_worklog" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Worklog" Class="Button" Style="color:#666666;margin-left:5px;margin-top:2px;" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_worklog_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditWorklogForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
         
 		<Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		<Element Name="btn_manage_attachment" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+        
+         <Element Name="fld_related_picture"   ElementSet="Picture" Class="FormElement" FormReference="picture.widget.PictureListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_picture" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Picture"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditPictureForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
         
 		<Element Name="fld_related_events"   ElementSet="Events" Class="FormElement" FormReference="collab.calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />

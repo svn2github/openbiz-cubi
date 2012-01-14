@@ -13,6 +13,11 @@
 		<Element Name="btn_manage_attachment" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
         </Element>
+	      
+	    <Element Name="fld_related_picture"   ElementSet="Picture" Class="FormElement" FormReference="picture.widget.PictureListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_picture" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Picture"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditPictureForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
 	        			
 		<Element Name="fld_reversion"   ElementSet="Reversion" Class="FormElement" FormReference="collab.document.widget.DocumentReversionListForm" FieldName="" Label="" AllowURLParam="N" />
 	        			
