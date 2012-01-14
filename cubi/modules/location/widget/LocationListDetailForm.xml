@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="LocationListDetailForm" Class="LocationForm" FormType="List" jsClass="jbForm" BizDataObj="location.do.LocationDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="location_list_lite.tpl.html"  Access="location.access">
-    <DataPanel>
-        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
-        <Element Name="fld_icon" Class="ColumnImage" 
-				Text="{RESOURCE_URL}/location/images/icon_location_private.png"
-				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">							
-		</Element>
-        <Element Name="fld_title" Class="RawData" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
-        	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(location.widget.LocationDetailROForm,{@:Elem[fld_Id].Value})"/>
-        </Element>
-        <Element Name="fld_url" Class="RawData" FieldName="url" Label="Url" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_description" Class="RawData" FieldName="description" Label="description" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_filename" Class="RawData" FieldName="filename" Label="Filename" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_filesize" Class="RawData" FieldName="filesize" Text="{tx}@util:format_bytes(@:Elem[fld_filesize].Value){/tx}" Label="Filesize" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
-        <Element Name="fld_create_time" Class="RawData" FieldName="create_time" Label="Timestamp"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-    </DataPanel>
+    <DataPanel>        
+        <Element Name="fld_Id" Class="RawData"  FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />        
+        <Element Name="fld_title" Class="RawData" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+		<Element Name="fld_description" Class="RawData" FieldName="description" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_longtitude"  Class="RawData" FieldName="longtitude" Label="longtitude" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_latitude" Class="RawData" FieldName="latitude"  Label="latitude" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
+	</DataPanel>
 </EasyForm>

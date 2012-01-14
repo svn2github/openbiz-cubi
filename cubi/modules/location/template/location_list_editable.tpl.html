@@ -1,28 +1,5 @@
 </form>
 <form id='{$form.name}' name='{$form.name}'>
-<style>
-{literal}
-.picture_item{
-border-bottom:1px solid #d6d6d6;
-padding:10px;
-width:620px;
-overflow:hidden;
-}
-.picture_item img{
-margin-bottom:10px;
-max-width:600px;
-}
-.picture_title{
-font-size:14px;
-line-height:20px;
-}
-.picture_attr{
-background-color:#f8f8f8;
-display:block;
-padding:5px 10px 10px 10px;
-}
-{/literal}
-</style>
 
 <div style="padding-left:0px;padding-right:0px;">
 <table></table>
@@ -38,51 +15,57 @@ padding:5px 10px 10px 10px;
 		
 		setTimeout(function(){
 
-		var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-	    var myOptions = {
-	      zoom: 11,
-	      center: myLatlng,
+		{/literal}
+		{if $dataPanel.data|count >0}
+		 {foreach item=row name=locations from=$dataPanel.data}
+		 	{if $smarty.foreach.locations.first}
+		  	var myLatlng = new google.maps.LatLng({$row.fld_latitude},{$row.fld_longtitude});
+			var defaultZoom=10;		 	
+			{/if}
+		 {/foreach}
+		 {else}
+			var myLatlng = new google.maps.LatLng({$smarty.const.DEFAULT_LATITUDE},{$smarty.const.DEFAULT_LONGTITUDE});
+			var defaultZoom=7;
+		 {/if}
+		{literal}
+		var myOptions = {
+	      zoom: defaultZoom,
+		  center: myLatlng,		  	      
 	      mapTypeId: google.maps.MapTypeId.ROADMAP
-	    }
-
-	    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
-	    var contentString = '<div id="content">'+
-	        '<div id="siteNotice">'+
-	        '</div>'+
-	        '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-	        '<div id="bodyContent">'+
-	        '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-	        'sandstone rock formation in the southern part of the '+
-	        'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-	        'south west of the nearest large town, Alice Springs; 450&#160;km '+
-	        '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-	        'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-	        'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-	        'Aboriginal people of the area. It has many springs, waterholes, '+
-	        'rock caves and ancient paintings. Uluru is listed as a World '+
-	        'Heritage Site.</p>'+
-	        '<p>Attribution: Uluru, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-	        'http://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-	        '(last visited June 22, 2009).</p>'+
-	        '</div>'+
-	        '</div>';
-	        
-	    var infowindow = new google.maps.InfoWindow({
-	        content: contentString
-	    });
-
-	    var marker = new google.maps.Marker({
-	        position: myLatlng,
-	        map: map,
-	        title: 'Uluru (Ayers Rock)'
-	    });
-	    google.maps.event.addListener(marker, 'click', function() {
-	    	infowindow.open(map,marker);
+	     }
+		
+		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	    {/literal}
+	    {foreach item=row name=locations from=$dataPanel.data}
+		{literal} 
+			var myLatlng_{/literal}{$row.fld_Id}{literal} = new google.maps.LatLng({/literal}{$row.fld_latitude}{literal},{/literal}{$row.fld_longtitude}{literal});
+		    var infowindow_{/literal}{$row.fld_Id}{literal} = new google.maps.InfoWindow({
+		        content:'{/literal}{$row.fld_description}{literal}'						
+		    });
+	
+		    var marker_{/literal}{$row.fld_Id}{literal} = new google.maps.Marker({
+		        position: myLatlng_{/literal}{$row.fld_Id}{literal},
+		        map: map,
+		        title: '{/literal}{$row.fld_title}{literal}'
+		    });		
+		    google.maps.event.addListener(marker_{/literal}{$row.fld_Id}{literal}, 'click', function() {		    	
+				Openbiz.CallFunction('{/literal}{$form.name}{literal}.SwitchForm(location.widget.LocationDetailForm,{/literal}{$row.fld_Id}{literal},,Dialog)',{'type':'','target':'','evthdl':'btn_add:fld_add_onclick'});				
+		    });
+			
+			//infowindow_{/literal}{$row.fld_Id}{literal}.open(map,marker_{/literal}{$row.fld_Id}{literal});
+		{/literal}
+		{/foreach}	
+		 {literal}
+	    google.maps.event.addListener(map, 'dblclick', function(event) {
+	    	var paramFields='';
+			
+			paramFields += 'longtitude='+event.latLng.lng()+'&';
+			paramFields += 'latitude='+event.latLng.lat()+'&';
+			Openbiz.CallFunction('{/literal}{$form.name}{literal}.SwitchForm(location.widget.LocationNewForm,,'+paramFields+',Dialog)',{'type':'','target':'','evthdl':'btn_add:fld_add_onclick'});
 	    });
 		
 					
 			
-		},100);
+		},50);
 	</script>
 	{/literal}

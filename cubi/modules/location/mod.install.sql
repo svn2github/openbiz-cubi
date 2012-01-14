@@ -6,8 +6,8 @@ CREATE TABLE `location` (
   `title` varchar(255) default '',
   `description` text NOT NULL,  
   
-  `longtitude` float default 0,
-  `latitude` float default 0,
+  `longtitude` varchar(255) default '',
+  `latitude` varchar(255) default '',
   
   `group_id` INT(11) default '1',
   `group_perm` INT(11) default '1',

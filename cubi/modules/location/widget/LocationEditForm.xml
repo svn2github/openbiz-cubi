@@ -3,11 +3,7 @@
     <DataPanel>        
     	<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>   
         <Element Name="fld_title" Class="InputText" FieldName="title" Label="Title"   />	        
-        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"   />
-        <Element Name="fld_filename" Class="LabelText" FieldName="filename" Label="Filename"   />
-        <Element Name="fld_filesize" Class="LabelText" FieldName="filesize" Text="{@util:format_bytes(@:Elem[fld_filesize].Value)}" Label="Filesize"   />
-        <Element Name="fld_md5" Class="LabelText" FieldName="md5" Label="MD5"   />
-        <Element Name="fld_sha256" Class="LabelText" FieldName="sha256" Label="SHA256"   />
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"   />        
     </DataPanel>
     <ActionPanel>
 	 

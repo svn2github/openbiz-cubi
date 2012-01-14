@@ -2,20 +2,14 @@
 <EasyForm Name="LocationNewForm" Class="LocationForm" Icon="{RESOURCE_URL}/location/images/icon_location.png" FormType="New" jsClass="jbForm" Title="New Location" Description="Please select files from your computer to upload locations." BizDataObj="location.do.LocationPickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_location_quick_add.tpl.html"  Access="location.access">
     <DataPanel>        
         <Element Name="fld_title" DefaultValue="New Location" Class="InputText" FieldName="title" Label="Title"   />	
-        <Element Name="fld_locations" Class="location.element.LocationUploader" FieldName="file" Label="Files" />
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"   />
+		<Element Name="fld_longtitude" HTMLattr="style='display:none;'" DefaultValue="{@:Params[longtitude]}" Class="InputText" FieldName="longtitude" Label=""   />
+		<Element Name="fld_latitude"  HTMLattr="style='display:none;'" Hidden="Y" DefaultValue="{@:Params[latitude]}" Class="InputText" FieldName="latitude" Label=""   />
     </DataPanel>
     <ActionPanel>
-	    <Element Name="btn_upload_file" Class="Hidden" >
-            <EventHandler Name="upload_onclick" EventLogMsg="" Event="onclick" Function="uploadFile()"  />
-        </Element>
-        <Element Name="btn_check_file" Class="Hidden" >
-            <EventHandler Name="check_onclick" EventLogMsg="" Event="onclick" Function="checkFile()"  />
-        </Element> 
-        <Element Name="btn_upload" Class="Button" Text="Upload" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="js:$j('#fld_locations').uploadifyUpload()"   ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
-        </Element>        
-        <Element Name="btn_clear" Class="Button" Text="Clear" CssClass="button_gray_m">
-            <EventHandler Name="btn_clear_onclick" Event="onclick" Function="js:$j('#fld_locations').uploadifyClearQueue()"/>
+	    
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="addLocation()"   ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
         </Element>
         <Element Name="Spacer" Class="Spacer" Width="10" />
         <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
