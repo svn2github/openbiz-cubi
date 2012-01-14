@@ -122,6 +122,10 @@ define("LANGUAGE_PATH", APP_HOME.DIRECTORY_SEPARATOR."languages");
 //$local["es"]="es_ES.utf8";
 //$local["en"]="en_EN.utf8";
 
+//{$row.fld_latitude},{$row.fld_longtitude}
+define('DEFAULT_LATITUDE','39.92');
+define('DEFAULT_LONGTITUDE','116.46');
+
 // login page
 define('USER_LOGIN_VIEW', "user.view.LoginView");
 
