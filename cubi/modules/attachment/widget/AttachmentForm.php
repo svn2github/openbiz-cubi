@@ -26,7 +26,7 @@ class AttachmentForm extends PickerForm
             
             $targetPath = PUBLIC_UPLOAD_PATH.DIRECTORY_SEPARATOR.$this->m_BasePath.DIRECTORY_SEPARATOR.$upload_dir.DIRECTORY_SEPARATOR.$upload_user_dir.DIRECTORY_SEPARATOR;
             
-            $targetURL = PUBLIC_UPLOAD_URL."/".$this->m_BasePath."/".$upload_dir."/".$upload_user_dir;
+            $targetURL = PUBLIC_UPLOAD_URL."/".$this->m_BasePath."/".$upload_dir."/".$upload_user_dir."/";
             
             $tempFile = $_FILES['Filedata']['tmp_name'];	
             $newFilename = 	date("YmdHis")."_".uniqid().'.att';
