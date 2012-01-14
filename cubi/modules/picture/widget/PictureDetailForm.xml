@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="PictureDetailForm" Class="PictureForm" inheritFrom="picture.widget.PictureDetailROForm"  Access="picture.access">
+
+    <ActionPanel>
+	
+		<Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="switchForm(picture.widget.PictureEditForm,{@:Elem[fld_Id].Value})"/>
+        </Element>
+    
+        <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="close()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

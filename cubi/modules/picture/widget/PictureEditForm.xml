@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="PictureEditForm" Class="PictureForm" Icon="{RESOURCE_URL}/picture/images/icon_picture.png" FormType="Detail" jsClass="jbForm" Title="Picture Detail" Description="You can edit title and description for a uploaded picture." BizDataObj="picture.do.PicturePickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_picture_quick_edit.tpl.html"  Access="picture.access">
+    <DataPanel>        
+    	<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>   
+        <Element Name="fld_title" Class="InputText" FieldName="title" Label="Title"   />	        
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"   />
+        <Element Name="fld_filename" Class="LabelText" FieldName="filename" Label="Filename"   />
+        <Element Name="fld_filesize" Class="LabelText" FieldName="filesize" Text="{@util:format_bytes(@:Elem[fld_filesize].Value)}" Label="Filesize"   />
+        <Element Name="fld_md5" Class="LabelText" FieldName="md5" Label="MD5"   />
+        <Element Name="fld_sha256" Class="LabelText" FieldName="sha256" Label="SHA256"   />
+    </DataPanel>
+    <ActionPanel>
+	 
+		<Element Name="btn_edit" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="UpdateRecord()" RedirectPage="form=picture.widget.PictureDetailForm&amp;fld:Id={@picture.do.PictureDO:Field[Id].Value}" />
+        </Element>
+        
+        <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,3 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="PicturePickDO" Description="" DataPermControl="N" Class="BizDataObj" inheritFrom="picture.do.PictureDO">
+</BizDataObj>

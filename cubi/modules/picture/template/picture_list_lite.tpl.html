@@ -1,0 +1,59 @@
+</form>
+<form id='{$form.name}' name='{$form.name}'>
+<style>
+{literal}
+.picture_item{
+border-bottom:1px solid #d6d6d6;
+padding:10px;
+width:620px;
+overflow:hidden;
+}
+.picture_item img{
+margin-bottom:10px;
+}
+.picture_title{
+font-size:14px;
+line-height:20px;
+}
+.picture_attr{
+background-color:#f8f8f8;
+display:block;
+padding:5px 10px 10px 10px;
+}
+{/literal}
+</style>
+<div style="padding-left:0px;padding-right:0px;">
+<div class="from_table_container" style="width:642px;">
+<!-- table start -->
+<table></table>
+{foreach item=row from=$dataPanel.data}
+<div class="picture_item">
+	<div style="padding:10px;">
+		<a href="{$row.fld_url}" target="_blank"><img alt="{$row.fld_title}" src="{$row.fld_url}"  border="0"></a><br/>
+		<span class="picture_title"><a href="{$row.fld_url}" target="_blank">{$row.fld_title}</a></span><br/>
+		<p>{$row.fld_description}</p>
+	</div>
+	<p class="picture_attr">
+	<span>{$row.fld_filename} ( {$row.fld_filesize} )</span><br/>	
+	<span>{$row.fld_create_time}</span><br/>
+	</p>
+	
+</div>
+{/foreach}
+
+{if $navPanel}
+<div class="form_footer_panel" style="width:640px;">
+		<div class="ajax_indicator" style="width:130px;">
+			<div id='{$form.name}.load_disp' style="display:none" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
+		</div>
+		<div class="navi_panel"  style="width:460px;">
+   {foreach item=elem from=$navPanel}
+   		{if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
+    	{$elem.element}
+   {/foreach}				
+		</div>		
+	</div>
+{/if}		
+</div>
