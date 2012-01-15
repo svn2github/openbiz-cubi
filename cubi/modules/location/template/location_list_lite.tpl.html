@@ -33,12 +33,12 @@
 		 {foreach item=row name=locations from=$dataPanel.data}
 		 	{if $smarty.foreach.locations.first}
 		  	var myLatlng = new google.maps.LatLng({$row.fld_latitude},{$row.fld_longtitude});
-			var defaultZoom=10;		 	
+			var defaultZoom=15;		 	
 			{/if}
 		 {/foreach}
 		 {else}
 			var myLatlng = new google.maps.LatLng({$smarty.const.DEFAULT_LATITUDE},{$smarty.const.DEFAULT_LONGTITUDE});
-			var defaultZoom=7;
+			var defaultZoom=10;
 		 {/if}
 		{literal}
 		var myOptions = {
