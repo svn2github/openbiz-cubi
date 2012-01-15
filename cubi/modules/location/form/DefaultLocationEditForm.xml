@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="DefaultLocationEditForm" Class="PreferenceForm" Icon="{RESOURCE_URL}/location/images/icon_location.png" FormType="Detail" jsClass="jbForm" Title="System Default Location" Description="You can change and review default system location. This feature will be used in collaboration event and announcement. If there is no related location information, the default location will be used." BizDataObj="location.do.LocationPickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="default_location_edit.tpl.html"  Access="location.setting">
+    <DataPanel>        
+    	<Element Name="fld_longtitude" DefaultValue="{DEFAULT_LONGTITUDE}"  Class="InputText" FieldName="_longtitude" Label="Longtitude"   />
+		<Element Name="fld_latitude" DefaultValue="{DEFAULT_LATITUDE}" Class="InputText" FieldName="_latitude" Label="Latitude"   />
+    </DataPanel>
+    <ActionPanel>
+	 
+		<Element Name="btn_edit" Class="Button" Text="Save Setting" CssClass="button_gray_w">
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="UpdateRecord()" RedirectPage="form=location.form.DefaultLocationDetailForm" />
+        </Element>
+		
+		<Element Name="btn_spacer" Class="Spacer" width="10" />
+		
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(location.form.DefaultLocationDetailForm)"   />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

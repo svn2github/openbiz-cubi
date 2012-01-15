@@ -1,0 +1,131 @@
+<form id="{$form.name}" name="{$form.name}">
+<style>
+{literal}
+.location_title{
+	color: #006599;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 16px;
+	padding:0px;
+	margin:0px;
+	padding-bottom:5px;
+	display:block;
+}
+.location_desc{
+	
+    padding:0px;
+	margin:0px;
+	width:250px;
+	height:40px;
+	display:block;
+}
+{/literal}
+</style>
+<div style="padding-left:25px;padding-right:40px;">
+{include file="system_appbuilder_btn.tpl.html"}
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+	
+		<div style="float:left; width:600px;">
+			<h2>
+			{$form.title}
+			</h2> 
+			{if $form.description}
+			<p class="input_row" style="line-height:20px;padding-bottom:15px;">		
+			<span>{$form.description}</span>
+			</p>
+			{else}
+			<div style="height:15px;"></div>
+			{/if}
+		</div>
+	</td></tr></table>
+		
+		
+		
+	<div class="detail_form_panel_padding">
+<table></table>
+<div style="width:645px; height:480px;" id="map_contianer">
+
+	<div id="map_canvas" style="width:100%; height:100%;"  ></div>
+	{literal}
+ </div>	
+
+
+	<script>
+		
+
+		setTimeout(function(){
+		{/literal} 		 
+		var myLatlng = new google.maps.LatLng({$smarty.const.DEFAULT_LATITUDE},{$smarty.const.DEFAULT_LONGTITUDE});
+		var defaultZoom=10;
+		{literal}
+		
+		var myOptions = {
+	      zoom: defaultZoom,
+		  center: myLatlng,		  	      		  
+	      mapTypeId: google.maps.MapTypeId.ROADMAP		  
+	     }
+		
+		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+
+		var marker = new google.maps.Marker({
+		        position: myLatlng,
+		        map: map,
+				draggable: true,
+				animation: google.maps.Animation.DROP,
+		        title: '{/literal}{$form.title|addslashes}{literal}'
+		});
+					
+		google.maps.event.addListener(map, 'click', function(event) {
+	    	
+			document.getElementById('fld_longtitude').value=event.latLng.lng();
+			document.getElementById('fld_latitude').value=event.latLng.lat();
+			marker.setAnimation(google.maps.Animation.DROP);
+			marker.setPosition(event.latLng);
+			
+			
+	    });
+		
+		google.maps.event.addListener(marker, 'dragend', function(event) {					    	    	
+			document.getElementById('fld_longtitude').value=event.latLng.lng();
+			document.getElementById('fld_latitude').value=event.latLng.lat();	
+		});
+			
+		 
+		},100);
+	</script>
+	{/literal}
+	<div style="height:10px;"></div>
+	<table class="input_row">
+		<tr>
+			<td><label style="text-align:left;width:60px;">{$dataPanel.fld_longtitude.label}</label></td>
+			<td><span class="label_text" >{$dataPanel.fld_longtitude.element}</span></td>
+			<td><label style="text-align:right;">{$dataPanel.fld_latitude.label}</label></td>
+			<td><span class="label_text" >{$dataPanel.fld_latitude.element}</span></td>
+			
+		</tr>
+		
+	</table>
+	
+		<div style="height:20px;"></div>
+		{if $actionPanel|@count > 0}
+		<p class="input_row">
+			
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+		{/if}
+	
+		<div style="height:15px;">
+		<div id='{$form.name}.load_disp' style="display:none;">
+		<img  src="{$image_url}/form_ajax_loader.gif"/>
+		</div>
+		</div>
+</div>	
+</div>
+
+</form>	

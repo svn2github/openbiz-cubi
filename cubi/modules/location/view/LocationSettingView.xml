@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="LocationSettingView" Description="System Default Location Setting" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="location.setting">
+   <FormReferences>
+   		<Reference Name="location.form.DefaultLocationDetailForm"/>
+   </FormReferences>    
+</EasyView>

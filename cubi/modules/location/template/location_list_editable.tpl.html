@@ -46,10 +46,15 @@
 		    var marker_{/literal}{$row.fld_Id}{literal} = new google.maps.Marker({
 		        position: myLatlng_{/literal}{$row.fld_Id}{literal},
 		        map: map,
+				draggable: true,
 		        title: '{/literal}{$row.fld_title|addslashes}{literal}'
 		    });		
 		    google.maps.event.addListener(marker_{/literal}{$row.fld_Id}{literal}, 'click', function() {		    	
-				Openbiz.CallFunction('{/literal}{$form.name}{literal}.SwitchForm(location.widget.LocationDetailForm,{/literal}{$row.fld_Id}{literal},,Dialog)',{'type':'','target':'','evthdl':'btn_add:fld_add_onclick'});				
+				Openbiz.CallFunction('{/literal}{$form.name}{literal}.SwitchForm(location.widget.LocationDetailForm,{/literal}{$row.fld_Id}{literal},,Dialog)',{'type':'','target':'','evthdl':'btn_add:fld_add_onclick'});				 								
+		    });
+			
+			google.maps.event.addListener(marker_{/literal}{$row.fld_Id}{literal}, 'dragend', function(event) {					    	    	
+				Openbiz.CallFunction('{/literal}{$form.name}{literal}.UpdateLocation({/literal}{$row.fld_Id}{literal},'+event.latLng.lat()+','+event.latLng.lng()+')',{'type':'','target':'','evthdl':'btn_add:fld_add_onclick'});				
 		    });
 			
 			//infowindow_{/literal}{$row.fld_Id}{literal}.open(map,marker_{/literal}{$row.fld_Id}{literal});

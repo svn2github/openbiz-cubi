@@ -58,13 +58,19 @@
 	
 		    var marker_{/literal}{$row.fld_Id}{literal} = new google.maps.Marker({
 		        position: myLatlng_{/literal}{$row.fld_Id}{literal},
-		        map: map,
+		        map: map,				
 		        title: '{/literal}{$row.fld_title|addslashes}{literal}'
 		    });		
 		    google.maps.event.addListener(marker_{/literal}{$row.fld_Id}{literal}, 'click', function() {
-		    	infowindow_{/literal}{$row.fld_Id}{literal}.open(map,marker_{/literal}{$row.fld_Id}{literal});
+		    	infowindow_{/literal}{$row.fld_Id}{literal}.open(map,marker_{/literal}{$row.fld_Id}{literal});				
 		    });
-			
+			google.maps.event.addListener(marker_{/literal}{$row.fld_Id}{literal}, 'dblclick', function() {
+				 if (marker_{/literal}{$row.fld_Id}{literal}.getAnimation() != null) {
+				    marker_{/literal}{$row.fld_Id}{literal}.setAnimation(null);
+				  } else {
+				    marker_{/literal}{$row.fld_Id}{literal}.setAnimation(google.maps.Animation.BOUNCE);
+				  }
+			});	
 			infowindow_{/literal}{$row.fld_Id}{literal}.open(map,marker_{/literal}{$row.fld_Id}{literal});
 		{/literal}
 		{/foreach}	

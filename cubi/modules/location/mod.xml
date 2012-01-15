@@ -1,12 +1,21 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="location" Description="locations management module" Version="0.1" OpenbizVersion="3.0" Author="Jixian">
+<Module Name="location" Description="locations management module" Version="0.2" OpenbizVersion="3.0" Author="Jixian">
 	<ACL>
 		<Resource Name="location">
 			<Action Name="access" Description="access location"/>
+			<Action Name="setting" Description="Administration of system default location setting"></Action>
 		</Resource>
 	</ACL>    
+	<Menu>
+		<MenuItem Name="System.Setting.Location" Parent="System.Setting" Title="Location Setting" Description="" URL="/location/location_setting" Order="30"/>
+	</Menu>		
     <Dependency>
     	<Module Name="system"/>
     	<Module Name="menu"/>
     </Dependency>
+	<ChangeLog>
+		<Version Name="0.2">
+	    	<Change Name="feature_02" Type="New_Feature"  Status="Finished" PublishDate="2012-01-15" Description="Added system default location setting pannel"></Change>
+	    </Version>
+	</ChangeLog>
 </Module>

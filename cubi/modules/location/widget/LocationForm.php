@@ -15,6 +15,14 @@ class LocationForm extends EasyForm
 		return parent::close();
 	}
 
+	public function UpdateLocation($id,$lat,$lng)
+	{
+		$location = $this->getDataObj()->fetchById($id);
+		$location['latitude'] = $lat;
+		$location['longtitude'] = $lng;
+		$location->save();
+		return ;
+	}
 	public function addLocation()
 	{
 		$recArr = $this->readInputRecord();
