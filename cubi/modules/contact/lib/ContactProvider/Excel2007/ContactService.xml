@@ -1,0 +1,3 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="ContactService" Package="contact.lib.ContactProvider.Excel2007" Class="ContactService" >
+</PluginService>
