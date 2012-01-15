@@ -7,7 +7,7 @@
     <ActionPanel>
 	 
 		<Element Name="btn_edit" Class="Button" Text="Save Setting" CssClass="button_gray_w">
-            <EventHandler Name="btn_close_onclick" Event="onclick" Function="UpdateRecord()" RedirectPage="form=location.form.DefaultLocationDetailForm" />
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="UpdateRecord()" RedirectPage="{@home:url}/location/location_setting" />
         </Element>
 		
 		<Element Name="btn_spacer" Class="Spacer" width="10" />
