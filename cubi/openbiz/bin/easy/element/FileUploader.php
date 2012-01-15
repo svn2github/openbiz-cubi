@@ -109,18 +109,17 @@ class FileUploader extends FileInput
 	                    mkdir($this->m_UploadRoot.$this->m_UploadFolder ,0777,true);
 	                }
 	                $uploadFile = $this->m_UploadFolder."/".date("YmdHis")."-".md5($file['name']);
-
 	                if($this->m_UploadFileType){
 	                	$pattern = "/".$this->m_UploadFileType."$/si";
-	                	if(!preg_match($pattern,$uploadFile)){
+	                	if(!preg_match($pattern,$file['name'])){
 	                		return;
-	                	}	                	
+	                	}	                		                	
 	                }
 	                if(move_uploaded_file($file['tmp_name'], $this->m_UploadRoot.$uploadFile))
 	                {
 	                    $this->m_Value = $this->m_UploadRootURL.$uploadFile;
 	                    $this->m_Uploaded=true;
-	                }
+	                }	                	                
 	                return $uploadFile;		
 	            }
 	        }    	
