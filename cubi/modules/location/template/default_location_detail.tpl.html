@@ -81,10 +81,11 @@
 		        title: '{/literal}{$form.title|addslashes}{literal}'
 		    });		
 		    google.maps.event.addListener(marker, 'click', function() {
-		    	infowindow.open(map,marker);
+		    	infowindow.open(map,marker);	
 		    });
 			
 			infowindow.open(map,marker);
+			marker.setAnimation(google.maps.Animation.BOUNCE);
 		 
 		},100);
 	</script>
