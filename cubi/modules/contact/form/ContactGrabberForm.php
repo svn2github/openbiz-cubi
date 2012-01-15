@@ -41,7 +41,7 @@ class ContactGrabberForm extends EasyForm
         	$this->processFormObjError($credential_invaild);
             return;
         }
-        $contacts = $contactSvc->fetchContacts($credential,$provider);
+        $contacts = $contactSvc->fetchContacts($credential,$provider);        
         //save contacts to import db
         $contactImportDO = BizSystem::GetObject("contact.do.ContactImportDO");                
         $user_id = BizSystem::GetUserProfile("Id");

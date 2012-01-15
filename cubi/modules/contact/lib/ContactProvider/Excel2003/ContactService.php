@@ -25,7 +25,7 @@ class ContactService{
 			$this->_data = $credential;
 		}
 		
-		if(is_file($this->_data['file']))
+		if(is_file(APP_HOME.$this->_data['file']))
 		{
 			return true;
 		}else{
@@ -35,43 +35,55 @@ class ContactService{
 	
 	public function FetchContacts($credential = null)
 	{
-		//$data = new Spreadsheet_Excel_Reader("example.xls");
-		$results = array();
+		$filename = APP_HOME.$this->_data['file'];
+		$data = new Spreadsheet_Excel_Reader($filename);
+		$results = array();		
+		$row_num = $data->rowcount();		
+		if($row_num>=3){
+			for($i=3;$i<=$row_num;$i++){
+				$results[] = $this->RowtoContact($data,$i);
+			}
+		}
+		unlink($filename);
 		return $results;
 	}
 	
-	protected function RowtoContact($row)
+	protected function RowtoContact(Spreadsheet_Excel_Reader $data,$row)
 	{		        
-		$contactRec = array();
-		
-		$contactRec['first_name'] 	= $first_name;
-		$contactRec['last_name'] 	= $last_name;
-		$contactRec['display_name'] = (string) $entry->title;
-		$contactRec['company'] 		= (string) $xml->organization->orgName;;
-		$contactRec['department'] 	= '';
-		$contactRec['position'] 	= (string) $xml->organization->orgTitle;
-		$contactRec['photo'] 		= $photo;
-		$contactRec['phone'] 		= $phone;
-		$contactRec['mobile'] 		= $mobile;
-		$contactRec['fax']			= $fax;
-		$contactRec['zipcode'] 		= '';
-		$contactRec['province'] 	= '';
-		$contactRec['city'] 		= '';
-		$contactRec['street'] 		= $address;
-		$contactRec['country'] 		= '';
-		$contactRec['email'] 		= $email;
-		$contactRec['webpage'] 		= $webpage;
-		$contactRec['qq'] 			= $qq;
-		$contactRec['icq']	 		= $icq;
-		$contactRec['skype'] 		= $skype;
-		$contactRec['yahoo'] 		= $yahoo;
-				
-		
+		$contactRec = array();		
+		$contactRec['first_name'] 	= $data->value($row, 1);
+		$contactRec['last_name'] 	= $data->value($row, 2);				
+		$contactRec['display_name'] = $data->value($row, 3);
+		$contactRec['company'] 		= $data->value($row, 4);
+		$contactRec['department'] 	= $data->value($row, 5);
+		$contactRec['position'] 	= $data->value($row, 6);				
+		$contactRec['email'] 		= $data->value($row, 7);
+		$contactRec['phone'] 		= $data->value($row, 8);
+		$contactRec['mobile'] 		= $data->value($row, 9);
+		$contactRec['fax']			= $data->value($row, 10);
+		$contactRec['zipcode'] 		= $data->value($row, 11);
+		$contactRec['province'] 	= $data->value($row, 12);
+		$contactRec['city'] 		= $data->value($row, 13);
+		$contactRec['street'] 		= $data->value($row, 14);
+		$contactRec['country'] 		= $data->value($row, 15);		
+		$contactRec['webpage'] 		= $data->value($row, 16);
+		$contactRec['qq'] 			= $data->value($row, 17);
+		$contactRec['icq']	 		= $data->value($row, 18);
+		$contactRec['skype'] 		= $data->value($row, 19);
+		$contactRec['yahoo'] 		= $data->value($row, 20);
+		$contactRec['photo'] 		= "";		
 		$contactRec['selected'] 	= '1';
-		$contactRec['foreign_key'] 	= (string) $entry->id;;
-		$contactRec['source'] 	= 'Excel2007 - '.$this->filename;
+		$contactRec['foreign_key'] 	= $this->getRawFileName().'-'.$row;
+		$contactRec['source'] 	= 'Excel2003 - '.$this->getRawFileName();		
 		return $contactRec;
 
+	}
+	
+	protected function getRawFileName()
+	{
+		$filename = basename($this->_data['file']);
+		preg_match("/[0-9]*\-(.*)/si",$filename,$match);		
+		return $match[1];
 	}
 	
 	public function getValidateError(){
