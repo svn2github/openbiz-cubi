@@ -82,6 +82,11 @@
 		    });		
 		    google.maps.event.addListener(marker, 'click', function() {
 		    	infowindow.open(map,marker);	
+				 if (marker.getAnimation() != null) {
+				    marker.setAnimation(null);
+				  } else {
+				    marker.setAnimation(google.maps.Animation.BOUNCE);
+				  }
 		    });
 			
 			infowindow.open(map,marker);
