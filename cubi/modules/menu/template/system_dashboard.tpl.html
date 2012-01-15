@@ -4,93 +4,166 @@
 	<div class="dashboard_bg_light_header">
 		<div class="title">{t}User & Group{/t}</div>
 		<div class="icons">
+			{php} if(BizSystem::allowUserAccess('User.Administer_Users')){ {/php}
 			<a href="{$app_index}/system/user_list" class="icon_user">
 				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}User{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('Role.Administer_Roles')){ {/php}
 			<a href="{$app_index}/system/role_list" class="icon_role">
 				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Role{/t}</a>
+			{php} } {/php}
+				
+			{php} if(BizSystem::allowUserAccess('Group.Administer_Groups')){ {/php}
 			<a href="{$app_index}/system/group_list" class="icon_group">
 				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Group{/t}</a>
+			{php} } {/php}
+				
+			{php} if(BizSystem::allowUserAccess('Group.Administer_Groups')){ {/php}
 			<a href="{$app_index}/system/group_data_sharing" class="icon_datasharing" >
 				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Sharing{/t}</a>
+			{php} } {/php}
 		</div>
 	</div>
 	<div class="dashboard_bg_dark">
 		<div class="title">{t}Application{/t}</div>
 		<div class="icons">
+			
 			<a href="#" class="icon_appstore">
 				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Market{/t}</a>
+				
+			{php} if(BizSystem::allowUserAccess('Module.Administer_Modules')){ {/php}
 			<a href="{$app_index}/system/module_list" class="icon_module">
-				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Module{/t}</a>			
+				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Module{/t}</a>
+			{php} } {/php}	
+						
+			{php} if(BizSystem::allowUserAccess('Menu.Administer_Menu')){ {/php}
 			<a href="{$app_index}/menu/menu_list" class="icon_menu_list">
 				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Menu list{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('Menu.Administer_Menu')){ {/php}
 			<a href="{$app_index}/menu/menu_tree" class="icon_menu_tree" >
 				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Menu tree{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('Module.Administer_Modules')){ {/php}							
 			<a href="{$app_index}/system/module_change_log" class="icon_changelog" >
 				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}ChangeLog{/t}</a>
+			{php} } {/php}
 		</div>
 	</div>
 	<div class="dashboard_bg_light">
 		<div class="title">{t}Email{/t}</div>
 		<div class="icons">
+			{php} if(BizSystem::allowUserAccess('EmailQueue.Administer_Email_Queue')){ {/php}
 			<a href="{$app_index}/email/email_queue_list" class="icon_mail_queue">
 				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Queue{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('EmailLog.Administer_Email_Log')){ {/php}
 			<a href="{$app_index}/email/email_log_list" class="icon_mail_sentlog">
 				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Sent Log{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('EmailSetting.Administer_Email_Setting')){ {/php}
 			<a href="{$app_index}/email/email_setting_list" class="icon_mail_account">
 				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Account{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('EmailTemplate.Administer_Email_Template')){ {/php}
 			<a href="{$app_index}/email/email_template_list" class="icon_mail_template" >
-				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Template{/t}</a>			
+				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Template{/t}</a>
+			{php} } {/php}			
 		</div>
 	</div>
 	<div class="dashboard_bg_dark">
 		<div class="title">{t}System{/t}</div>
 		<div class="icons">		
+			{php} if(BizSystem::allowUserAccess('System.Administer_System')){ {/php}
 			<a href="{$app_index}/system/user_preference" class="icon_preference">
 				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Preference{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('System.Administer_System')){ {/php}
 			<a href="{$app_index}/system/database_list" class="icon_database">
 				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Database{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('backup.Access_Backup')){ {/php}
 			<a href="{$app_index}/backup/backup_device_list" class="icon_backup_device">
-				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Devices{/t}</a>	
+				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Devices{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('backup.Access_Backup')){ {/php}	
 			<a href="{$app_index}/backup/backup_list" class="icon_backup">
 				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Backup{/t}</a>
+			{php} } {/php}
 			
 			<a href="{$app_index}/email/email_log_list" class="icon_update">
-				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Update{/t}</a>		
+				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Update{/t}</a>
+			
+			{php} if(BizSystem::allowUserAccess('websvc.websvc.Access')){ {/php}		
 			<a href="{$app_index}/websvc/websvc_list" class="icon_webservice">
 				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}WebService{/t}</a>
+			{php} } {/php}
 		</div>
 	</div>
 	<div class="dashboard_bg_light">
 		<div class="title">{t}Advanced Feature{/t}</div>
 		<div class="icons">		
+			{php} if(BizSystem::allowUserAccess('cache.Administer_Cache')){ {/php}
 			<a href="{$app_index}/cache/manage" class="icon_cache">
 				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Cache{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('cronjob.Administer_Cron')){ {/php}
 			<a href="{$app_index}/cronjob/cronjob_list" class="icon_cronjob">
 				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Cronjob{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('Security.Administer_Security')){ {/php}
 			<a href="{$app_index}/security/security_rule" class="icon_security">
 				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Security{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('EventLog.Access_EventLog')){ {/php}
 			<a href="{$app_index}/eventlog/event_log_list" class="icon_eventlog">
 				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Event Log{/t}</a>
-			<a href="{$app_index}/system/location_setting" class="icon_location">
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('location.setting')){ {/php}
+			<a href="{$app_index}/location/location_setting" class="icon_location">
 				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Location{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('Session.Administer_Session')){ {/php}
 			<a href="{$app_index}/system/session_manage" class="icon_session">
 				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Session{/t}</a>					
-					
+			{php} } {/php}		
 		</div>
 	</div>	
 	<div class="dashboard_bg_dark">
 		<div class="title">{t}Misc{/t}</div>
 		<div class="icons">		
+			{php} if(BizSystem::allowUserAccess('Help.Administer_Help')){ {/php}
 			<a href="{$app_index}/help/help_category" class="icon_helpcategory">
 				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}HelpCategory{/t}</a>
 			<a href="{$app_index}/help/help_list" class="icon_helptips">
 				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Help Tips{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('Theme.Administer_Theme')){ {/php}
 			<a href="{$app_index}/theme/manage_theme" class="icon_theme">
 				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Theme{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('Translation.Administer_Transation')){ {/php}
 			<a href="{$app_index}/translation/manage_translation" class="icon_translation">
 				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Translation{/t}</a>	
 			<a href="{$app_index}/translation/manage_language" class="icon_language">
-				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Language{/t}</a>			
+				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Language{/t}</a>
+			{php} } {/php}
 		</div>
 	</div>
 </div>
