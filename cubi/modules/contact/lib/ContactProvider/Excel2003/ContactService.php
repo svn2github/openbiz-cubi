@@ -3,13 +3,14 @@
  * Google Contact API Reference
  * http://code.google.com/googleapps/domain/shared_contacts/gdata_shared_contacts_api_reference.html
  */
+require_once dirname(__FILE__).'/excel_reader2.php';
+
 class ContactService{
 	protected $_credential = array();
 	public $source_name = "Google";
 	
 	public function __construct($credential = null)
 	{
-		$this->_credential = $credential;
 		return ;
 	}
 	
@@ -20,7 +21,8 @@ class ContactService{
 	
 	public function FetchContacts($credential = null)
 	{
-		
+		//$data = new Spreadsheet_Excel_Reader("example.xls");
+		$results = array();
 		return $results;
 	}
 	

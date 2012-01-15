@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="ContactGrabberForm" Icon="{RESOURCE_URL}/contact/images/icon_contact_grabber.gif" Class="ContactGrabberForm" FormType="New" jsClass="jbForm" Title="Contact Grabber" Description="Contact Grabber could help you import your contacts from various email or social network provider" BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>
-    	<Element Name="fld_provider" KeepCookie="Y" Class="Listbox" SelectFrom="contact.lov.ContactProviderLOV(Provider)" Required="Y" FieldName="provider" Label="Provider"  />	
-        <Element Name="fld_username" KeepCookie="Y" DefaultValue="{tx}@profile:email{/tx}" DefaultValueRename="N" Class="InputText" Description="Eg. user@domain.com" Required="Y" FieldName="username" Label="Email"   />	
-        <Element Name="fld_password"  Class="Password" FieldName="password" Label="Password" Description="It will not be saved on server"  Required="Y" />
+    	<Element Name="fld_provider" KeepCookie="Y" Class="Listbox" SelectFrom="contact.lov.ContactProviderLOV(Provider)" Required="Y" FieldName="provider" Label="Provider"  >
+    		<EventHandler Name="fld_provider_onchange" EventLogMsg="" Event="onchange" Function="UpdateForm()"  />	
+		</Element>	
+        <Element Name="fld_username" Hidden="{@:Elem[fld_provider].Value=='contact.lib.ContactProvider.Google.ContactService'?'N':'Y'}" KeepCookie="Y" DefaultValue="{tx}@profile:email{/tx}" DefaultValueRename="N" Class="InputText" Description="Eg. user@domain.com"  Required="{@:Elem[fld_provider].Value=='contact.lib.ContactProvider.Google.ContactService'?'Y':'N'}" FieldName="username" Label="Email"   />	
+        <Element Name="fld_password" Hidden="{@:Elem[fld_provider].Value=='contact.lib.ContactProvider.Google.ContactService'?'N':'Y'}" Class="Password" FieldName="password" Label="Password" Description="It will not be saved on server"  Required="{@:Elem[fld_provider].Value=='contact.lib.ContactProvider.Google.ContactService'?'Y':'N'}" />
+		
+		
+		<Element Name="fld_fileuploader" Hidden="{@:Elem[fld_provider].Value=='contact.lib.ContactProvider.Excel2003.ContactService'?'N':'Y'}" Class="FileUploader" FieldName="file" Label="Excel File" Description="The file should contain your contact data" />
+		<Element Name="fld_sampledata" Hidden="{@:Elem[fld_provider].Value=='contact.lib.ContactProvider.Excel2003.ContactService'?'N':'Y'}" Class="LabelText" FieldName="" Label="Sample Data" Text="Download Sample Data Template" Link="{APP_URL}{RESOURCE_URL}/contact/sampledata/excel2003/SampleData.xls" Description="Please fill in your contact as this template" />
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_next" Class="Button" Text="Next" CssClass="button_gray_m">
