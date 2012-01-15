@@ -29,21 +29,15 @@ class ContactGrabberForm extends EasyForm
         
         $contactSvc = BizSystem::getObject("contact.lib.ContactGrabberService");
         try{
-	        if(!$contactSvc->ValidateCredential($credential,$provider)){
-	        	$credential_invaild = array(
-	        		"username" => "Username or Password is incorrect.",
-	        		"password" => "",
-	        	);
+	        if(!$contactSvc->ValidateCredential($recArr,$provider)){	        	
+	        	$credential_invaild = BizSystem::getService($provider)->getValidateError();
 	        	$this->processFormObjError($credential_invaild);
 	            return;
 	        }
         }
         catch (Exception $e)
         {
-        	$credential_invaild = array(
-	        		"username" => $e->getMessage(),
-	        		"password" => "",
-        	);
+        	$credential_invaild = BizSystem::getService($provider)->getValidateError();
         	$this->processFormObjError($credential_invaild);
             return;
         }

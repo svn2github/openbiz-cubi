@@ -6,17 +6,31 @@
 require_once dirname(__FILE__).'/excel_reader2.php';
 
 class ContactService{
-	protected $_credential = array();
-	public $source_name = "Google";
+	protected $_data = array();
+	public $source_name = "Excel2003";
 	
 	public function __construct($credential = null)
-	{
+	{		
+		$this->_data = $credential;
 		return ;
 	}
 	
 	
 	public function ValidateCredential($credential = null){
-		return true;
+		if(!$credential)
+		{
+			$credential = $this->_data;
+		}else
+		{
+			$this->_data = $credential;
+		}
+		
+		if(is_file($this->_data['file']))
+		{
+			return true;
+		}else{
+			return false;
+		}
 	}	
 	
 	public function FetchContacts($credential = null)
@@ -58,6 +72,13 @@ class ContactService{
 		$contactRec['source'] 	= 'Excel2007 - '.$this->filename;
 		return $contactRec;
 
+	}
+	
+	public function getValidateError(){
+		$credential_invaild = array(
+		        		"file" => "Please upload a excel 2003 format file",
+		);
+		return $credential_invaild;
 	}
 }
 ?>

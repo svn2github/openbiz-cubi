@@ -190,5 +190,12 @@ class ContactService{
 		return $contactRec;
 
 	}
+	public function getValidateError(){
+		$credential_invaild = array(
+		        		"username" => "Username or Password is incorrect.",
+		        		"password" => "",
+		);
+		return $credential_invaild;
+	}	
 }
 ?>
