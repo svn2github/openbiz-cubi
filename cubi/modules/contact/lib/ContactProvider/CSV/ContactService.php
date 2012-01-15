@@ -24,7 +24,7 @@ class ContactService{
 			$this->_data = $credential;
 		}
 		
-		if(is_file(APP_HOME.$this->_data['file']))
+		if(is_file(APP_HOME.$this->_data['file_csv']))
 		{
 			return true;
 		}else{
@@ -34,7 +34,7 @@ class ContactService{
 	
 	public function FetchContacts($credential = null)
 	{
-		$filename = APP_HOME.$this->_data['file'];
+		$filename = APP_HOME.$this->_data['file_csv'];
 		$data = file_get_contents($filename); 
 		
 		$rows = explode("\n",$data);		

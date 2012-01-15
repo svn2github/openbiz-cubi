@@ -24,7 +24,6 @@ class ContactService{
 		{
 			$this->_data = $credential;
 		}
-		
 		if(is_file(APP_HOME.$this->_data['file']))
 		{
 			return true;

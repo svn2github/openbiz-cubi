@@ -11,7 +11,7 @@
 		<Element Name="fld_excel_fileuploader" UPLOADFOLDER="/contact_data" FILETYPE="xls" Hidden="{@:Elem[fld_provider].Value=='contact.lib.ContactProvider.Excel2003.ContactService'?'N':'Y'}" Class="FileUploader" FieldName="file" Label="Excel File" Description="The file should contain your contact data" />
 		<Element Name="fld_excel_sampledata" Hidden="{@:Elem[fld_provider].Value=='contact.lib.ContactProvider.Excel2003.ContactService'?'N':'Y'}" Class="LabelText" FieldName="" Label="Sample Data" Text="Download Sample Data Template" Link="{APP_URL}{RESOURCE_URL}/contact/sampledata/excel2003/SampleData.xls" Description="Please fill in your contact as this template" />
 		
-		<Element Name="fld_csv_fileuploader" UPLOADFOLDER="/contact_data" FILETYPE="csv" Hidden="{@:Elem[fld_provider].Value=='contact.lib.ContactProvider.CSV.ContactService'?'N':'Y'}" Class="FileUploader" FieldName="file" Label="CSV File" Description="The file should contain your contact data" />
+		<Element Name="fld_csv_fileuploader" UPLOADFOLDER="/contact_data" FILETYPE="csv" Hidden="{@:Elem[fld_provider].Value=='contact.lib.ContactProvider.CSV.ContactService'?'N':'Y'}" Class="FileUploader" FieldName="file_csv" Label="CSV File" Description="The file should contain your contact data" />
 		<Element Name="fld_csv_sampledata" Hidden="{@:Elem[fld_provider].Value=='contact.lib.ContactProvider.CSV.ContactService'?'N':'Y'}" Class="LabelText" FieldName="" Label="Sample Data" Text="Download Sample Data Template" Link="{APP_URL}{RESOURCE_URL}/contact/sampledata/csv/SampleData.csv" Description="Please fill in your contact as this template" />
     </DataPanel>
     <ActionPanel>
