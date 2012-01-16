@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="picture" Description="pictures management module" Version="0.1" OpenbizVersion="3.0" Author="Jixian">
+<Module Name="picture" Description="pictures management module" Version="0.11" OpenbizVersion="3.0" Author="Jixian">
 	<ACL>
 		<Resource Name="picture">
 			<Action Name="access" Description="access pictures"/>
@@ -9,4 +9,9 @@
     	<Module Name="system"/>
     	<Module Name="menu"/>
     </Dependency>
+    <ChangeLog>
+		<Version Name="0.1">
+	    	<Change Name="feature_01" Type="New_Feature"  Status="Finished" PublishDate="2012-01-16" Description="replaced a default icon"></Change>
+	    </Version>
+	</ChangeLog>
 </Module>
