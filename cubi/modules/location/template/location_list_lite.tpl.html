@@ -53,17 +53,24 @@
 		{literal} 
 			var myLatlng_{/literal}{$row.fld_Id}{literal} = new google.maps.LatLng({/literal}{$row.fld_latitude}{literal},{/literal}{$row.fld_longtitude}{literal});
 		    var infowindow_{/literal}{$row.fld_Id}{literal} = new google.maps.InfoWindow({
+		    	zIndex:10,
 		        content:'<span class="location_title">{/literal}{$row.fld_title|addslashes}{literal}</span><p>{/literal}{$row.fld_description|addslashes}{literal}</p>'						
 		    });
 	
 		    var marker_{/literal}{$row.fld_Id}{literal} = new google.maps.Marker({
 		        position: myLatlng_{/literal}{$row.fld_Id}{literal},
 		        map: map,				
+		        zIndex:10,
 		        title: '{/literal}{$row.fld_title|addslashes}{literal}'
 		    });		
 		    google.maps.event.addListener(marker_{/literal}{$row.fld_Id}{literal}, 'click', function() {
-		    	infowindow_{/literal}{$row.fld_Id}{literal}.open(map,marker_{/literal}{$row.fld_Id}{literal});				
+		    	infowindow_{/literal}{$row.fld_Id}{literal}.open(map,marker_{/literal}{$row.fld_Id}{literal});		    	
+		    	info_zindex = infowindow_{/literal}{$row.fld_Id}{literal}.getZIndex();
+		    	infowindow_{/literal}{$row.fld_Id}{literal}.setZIndex(info_zindex+5);
+		    	marker_zindex = marker_{/literal}{$row.fld_Id}{literal}.getZIndex();
+		    	marker_{/literal}{$row.fld_Id}{literal}.setZIndex(marker_zindex+5);
 		    });
+		    
 			google.maps.event.addListener(marker_{/literal}{$row.fld_Id}{literal}, 'dblclick', function() {
 				 if (marker_{/literal}{$row.fld_Id}{literal}.getAnimation() != null) {
 				    marker_{/literal}{$row.fld_Id}{literal}.setAnimation(null);
