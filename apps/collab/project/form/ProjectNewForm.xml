@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProjectNewForm" Class="ProjectForm" FormType="New" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project_gantt.gif" Title="New Project" Description="This module could help you manage project. You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
+    <DataPanel>
+	       
+		<Element Name="fld_type_id" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" />			    
+        <Element Name="fld_name" ElementSet="General" Class="InputText" DefaultValue="New Project" FieldName="name" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
+		<Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+		<Element Name="fld_priority" ElementSet="General" Class="Listbox" DefaultValue="2" FieldName="priority" Label="Priority" SelectFrom="collab.project.lov.ProjectLOV(Priority)" AllowURLParam="N" />
+				
+		<Element Name="fld_start_time" ElementSet="Time" DefaultValue="{@:Params[start_time]?date('Y-m-d H:i:s',@:Params[start_time]):date('Y-m-d H:i:s',time())}" Class="InputDatetime" FieldName="start_time" Label="Start Time"  AllowURLParam="Y" >
+			<EventHandler Name="fld_start_time_onchange" Event="onchange" Function="js:calcWorkHours()"  />
+		</Element>
+		<Element Name="fld_finish_time"  ElementSet="Time" DefaultValue="{@:Params[finish_time]?date('Y-m-d H:i:s',@:Params[finish_time]):date('Y-m-d H:i:s',time()+7200)}" Class="InputDatetime" FieldName="finish_time" Label="End Time"  AllowURLParam="Y" Description="only used for auto calculate time budget" >
+			<EventHandler Name="fld_finish_time_onchange" Event="onchange" Function="js:calcWorkHours()"  />
+		</Element>
+		<Element Name="fld_workhours" ElementSet="Time" Class="InputText" DefaultValue="2" FieldName="total_workhour" Label="Time Budget"  Description="unit in Hours, total work hours as planned" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus">
+			<EventHandler Name="fld_workhours_onchange" Event="onchange" Function="js:calcFinishTime()"  />
+		</Element>
+						        
+    </DataPanel>
+    <ActionPanel>
+    	<Element Name="btn_finish" Class="Button" Text="Quick Finish" CssClass="button_gray_w">
+            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectDetailForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ContextMenu="Quick Finish"   />
+        </Element>
+        <Element Name="btn_save" Class="Button" Text="Next" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectEditContactForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Next" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

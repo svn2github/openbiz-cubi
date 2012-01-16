@@ -5,7 +5,7 @@
    		<BizField Name="name" Column="name" Length="255"  Required="Y" Type="Text"/>
    		<BizField Name="description" Column="description"  Type="Text"/>
    		<BizField Name="start_time" Column="start_time" />
-		<BizField Name="end_time" Column="end_time" />  
+		<BizField Name="finish_time" Column="finish_time" />  
 		<BizField Name="status" Column="status" Type=""/>
 		
    		<BizField Name="progress" Column="progress"  />
