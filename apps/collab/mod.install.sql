@@ -565,7 +565,7 @@ CREATE TABLE `project` (
 `name` VARCHAR( 255 ) NOT NULL ,
 `description` TEXT NOT NULL ,
 `start_time` DATETIME NOT NULL ,
-`end_time` DATETIME NOT NULL ,
+`finish_time` DATETIME NOT NULL ,
 `type_id` INT NOT NULL DEFAULT '1',
 `status` int(11) NOT NULL,
 `priority` int(11) NOT NULL,
