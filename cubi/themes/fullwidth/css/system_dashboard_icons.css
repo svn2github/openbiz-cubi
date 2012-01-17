@@ -43,7 +43,7 @@
 	display:block;
 	height:50px;
 	width:60px;		
-	background-image:url("../images/system_dashboard_icon.gif");
+	background-image:url("../images/system_dashboard_icon.png");
 }
 #main #right_panel .dashboard_panel .icons a:hover {
 	color:#000000;
