@@ -1,28 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectDetailForm" Class="ProjectForm" FormType="New" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="New Project" Description="This module could help you manage project. You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
+<EasyForm Name="ProjectDetailForm" Class="ProjectForm" FormType="Detail" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Project Detail" Description="This module could help you manage project. You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
     <DataPanel>
+	    <Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 	       
-		<Element Name="fld_type_id" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" />			    
-        <Element Name="fld_name" ElementSet="General" Class="LabelText" DefaultValue="New Project" FieldName="name" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
-		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
-						
-		<Element Name="fld_start_time" ElementSet="Setting" DefaultValue="{@:Params[start_time]?date('Y-m-d H:i:s',@:Params[start_time]):date('Y-m-d H:i:s',time())}" Class="InputText" FieldName="start_time" Label="Start Time"  AllowURLParam="Y" >
-			<EventHandler Name="fld_start_time_onchange" Event="onchange" Function="js:calcWorkHours()"  />
+		<Element Name="fld_form_title"  Class="LabelText"   FieldName="name" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />
+		<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" />		
+		
+		<Element Name="fld_starttime" ElementSet="General" Class="LabelText" FieldName="start_time" Label="Start Time" AllowURLParam="N" />
+		<Element Name="fld_status" ElementSet="General" Class="LabelList" FieldName="status" Label="Status" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" AllowURLParam="N" />		
+		<Element Name="fld_priority_value" Class="Hidden" Hidden="Y" FieldName="priority"  />		
+		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Priority" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority_value,{@:Elem[fld_priority_value].Value},0,2)"/>		
 		</Element>
-		<Element Name="fld_priority" ElementSet="Setting" Class="LabelList" DefaultValue="1" FieldName="priority" Label="Priority" SelectFrom="collab.project.lov.ProjectLOV(Priority)" AllowURLParam="N" />
-		<Element Name="fld_status_update" ElementSet="Setting" Class="LabelList" FieldName="status" Label="Status" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" AllowURLParam="N" />
-					        
+		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+		
+			<Element Name="fld_sortorder" Class="LabelText" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />		     
+			<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
+			<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+		
+						        
     </DataPanel>
     <ActionPanel>
-    	<Element Name="btn_finish" Class="Button" Text="Quick Finish" CssClass="button_gray_w">
-            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectDetailForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ContextMenu="Quick Finish"   />
+ <Element Name="btn_new" Class="Button"   Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
+        </Element>      
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
-        <Element Name="btn_save" Class="Button" Text="Next" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectEditContactForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Next" />
+        
+        <Element Name="btn_delete" Class="Button"   Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=collab.project.form.ProjectListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
-        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
-            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
-        </Element>
+        <Element Name="btn_cancel" Class="Button"  Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>  
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 
