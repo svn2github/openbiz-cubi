@@ -28,6 +28,7 @@
 		<Element Name="fld_workhours" ElementSet="Time" Class="InputText" DefaultValue="2" FieldName="total_workhour" Label="Time Budget"  Description="unit in Hours, total work hours as planned" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus">
 			<EventHandler Name="fld_workhours_onchange" Event="onchange" Function="js:calcFinishTime()"  />
 		</Element>
+		<Element Name="fld_budget" ElementSet="Financial" Class="InputText" FieldName="budget_cost" Label="Cost Budget"  Description="unit in Dollars, total budget" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
 
 		<Element Name="fld_reminder" ElementSet="Reminder" DefaultValue="0" Class="Listbox" selectFrom="collab.lov.ReminderLOV(ReminderType)" FieldName="reminder" Label="Reminder" AllowURLParam="N" >
 			<EventHandler Name="fld_reminder_onclick" Event="onchange" Function="UpdateForm()"  />
