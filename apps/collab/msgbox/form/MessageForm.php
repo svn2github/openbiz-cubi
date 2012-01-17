@@ -111,6 +111,7 @@ class MessageForm extends EasyForm
             $this->renderParent();
         }
 
+        
         $this->processPostAction();
 	}
 	
@@ -138,6 +139,8 @@ class MessageForm extends EasyForm
             $this->close();
             $this->renderParent();
         }
+        
+       
         $this->processPostAction();
 	}
 	
