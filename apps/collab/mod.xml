@@ -17,7 +17,7 @@
 			<Action Name="access" Description="access task"/>
 			<Action Name="report" Description="view task statistics report"/>
 		</Resource>
-		<Resource Name="collab_billing">
+		<Resource Name="collab_budget">
 			<Action Name="access" Description="access billing information"/>
 			<Action Name="manage" Description="manage billing information"/>			
 		</Resource>
