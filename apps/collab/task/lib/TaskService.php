@@ -3,10 +3,10 @@ class TaskService
 {
 	protected $m_DataObj = 'collab.task.do.TaskListDO';
 	
-	public function updateTaskFinancial($billingDO){				
-		$task_id = $this->getObjValue($billingDO, 'foreign_id');
-		$type = $this->getObjValue($billingDO, 'type');		
-		$statDO = BizSystem::getObject("collab.billing.do.BillingStatDO");
+	public function updateTaskFinancial($budgetDO){				
+		$task_id = $this->getObjValue($budgetDO, 'foreign_id');
+		$type = $this->getObjValue($budgetDO, 'type');		
+		$statDO = BizSystem::getObject("collab.budget.do.BudgetStatDO");
 		$statRec = $statDO->fetchOne("[foreign_id]='$task_id' and [type]='$type'");
 		$total_credit = $statRec['total_credit'];		
 		$taskRec = BizSystem::getObject($this->m_DataObj)->fetchById($task_id);
