@@ -123,6 +123,7 @@ class AttachmentForm extends PickerForm
 	public function allUploadComplete(){
 		$this->close();	
 		$parentForm = BizSystem::getObject($this->m_ParentFormName);
+		usleep(300000);
 		$parentForm->rerender();
 	}
 	
