@@ -260,8 +260,10 @@ class ModuleLoader
         include_once (MODULE_PATH."/system/lib/MySQLDumpParser.php");
         $db = $this->DBConnection();
         
-        $upgradeFolder = APP_HOME."/upgrade/modules/".$this->name;
-        $upgradeFile = $upgradeFolder."/upgrade.xml";
+        //$upgradeFolder = APP_HOME."/upgrade/modules/".$this->name;
+        //$upgradeFile = $upgradeFolder."/upgrade.xml";
+        $upgradeFile = MODULE_PATH."/".$this->name."/upgrade.xml";
+        
         // read upgrade.xml
         $xml = simplexml_load_file($upgradeFile, 'SimpleXMLElement', LIBXML_NOCDATA);
         $versions = $xml->Version;
@@ -413,6 +415,9 @@ class ModuleLoader
         
         if (!$skipDBChanges) $this->installModuleAsPackage($xml);
         
+        // invoke upgrade SQL 
+        if (!$skipDBChanges) $this->upgradeSQLs($version, $modVersion);
+        
         return true;
     }
     
@@ -428,7 +433,7 @@ class ModuleLoader
         
         $this->log("Install Module as a Package.");
         
-        // write mod info in module table
+        // write mod info in package table
         $modName = $xml['Name'];
         $modDesc = $xml['Description'];
         $modAuthor = $xml['Author'];
@@ -445,11 +450,12 @@ class ModuleLoader
             $this->errors = $e->getMessage();
             return false;
         }
-        $package_id = "cubi-".$modName."-module";
+        $package_id = "cubi.module.".$modName;
+        $modName = "Cubi $modName Module";
         if (count($rs)>0)
-            $sql = "UPDATE package_local SET package_id='$package_id', type='Release', category='Module', description='$modDesc', version='$modVersion', inst_version='$modVersion', author='$modAuthor', status=1, pltfm_ver='$modObVersion' WHERE name='$modName'";
+            $sql = "UPDATE package_local SET package_id='$package_id', type='Module', category='Cubi Module', description='$modDesc', version='$modVersion', inst_version='$modVersion', author='$modAuthor', status=1, pltfm_ver='$modObVersion' WHERE name='$modName'";
         else {
-            $sql = "INSERT INTO package_local (package_id, name, type, category, description, version, inst_version, author, status, pltfm_ver) VALUES ('$package_id', '$modName','Release','Module','$modDesc','$modVersion','$modVersion','$modAuthor',1,'$modObVersion');";
+            $sql = "INSERT INTO package_local (package_id, name, type, category, description, version, inst_version, author, status, pltfm_ver) VALUES ('$package_id', '$modName','Module','Cubi Module','$modDesc','$modVersion','$modVersion','$modAuthor',1,'$modObVersion');";
         }
         try {
             //BizSystem::log(LOG_DEBUG, "DATAOBJ", $sql);
