@@ -5,10 +5,8 @@
    		<BizField Name="name" Column="name" Length="255"  Required="Y" Type="Text"/>
    		<BizField Name="description" Column="description"  Type="Text"/>
    		<BizField Name="start_time" Column="start_time" />
-		<BizField Name="finish_time" Column="finish_time" />  
 		<BizField Name="status" Column="status" Type=""/>
 		
-   		<BizField Name="progress" Column="progress"  />
 		<BizField Name="priority" Column="priority" Type=""/>
 
 		<BizField Name="type_id" Column="type_id"  ValueOnCreate="1"  Required="N" Type=""/>
