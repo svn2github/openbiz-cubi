@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="Openbiz Collaboration" Version="0.92" OpenbizVersion="3.0">
+<Module Name="collab" Description="Openbiz Collaboration" Version="0.93" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -95,8 +95,12 @@
         <!-- message box menus -->
         <MenuItem Name="Msgbox" Title="Message" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_message" Order="12" Access="collab_msgbox.access">
 			<MenuItem Name="Msgbox.NewMessage" Title="Compose Message" Description=""  URL="{@home:url}/collab/message_compose" Order="10" Access="collab_msgbox.access"></MenuItem>
-			<MenuItem Name="Msgbox.Sent" Title="Sent Messages" Description=""  URL="{@home:url}/collab/message_sent" Order="25" Access="collab_msgbox.access"></MenuItem>
-			<MenuItem Name="Msgbox.Draft" Title="Draft Messages" Description=""  URL="{@home:url}/collab/message_draft" Order="30" Access="collab_msgbox.access"></MenuItem>
+			<MenuItem Name="Msgbox.Sent" Title="Sent Messages" Description=""  URL="{@home:url}/collab/message_sent" Order="25" Access="collab_msgbox.access">
+				<MenuItem Name="Msgbox.SentDetail" Title="Sent Message Detail" Description=""  URL="{@home:url}/collab/message_sent_detail" Order="5"  Access="collab_msgbox.access" ></MenuItem>
+			</MenuItem>
+			<MenuItem Name="Msgbox.Draft" Title="Draft Messages" Description=""  URL="{@home:url}/collab/message_draft" Order="30" Access="collab_msgbox.access">
+				<MenuItem Name="Msgbox.DraftDetail" Title="Draft Message Detail" Description=""  URL="{@home:url}/collab/message_draft_detail" Order="5"  Access="collab_msgbox.access" ></MenuItem>
+			</MenuItem>
 			<MenuItem Name="Msgbox.Inbox" Title="Message Inbox" Description=""  URL="{@home:url}/collab/message_inbox" Order="35" Access="collab_msgbox.access">
 				<MenuItem Name="Msgbox.Detail" Title="Message Detail" Description=""  URL="{@home:url}/collab/message_detail" Order="5"  Access="collab_msgbox.access" ></MenuItem>
 			</MenuItem>

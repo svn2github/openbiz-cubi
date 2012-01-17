@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProjectDetailForm" Class="ProjectForm" FormType="New" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="New Project" Description="This module could help you manage project. You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
+    <DataPanel>
+	       
+		<Element Name="fld_type_id" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" />			    
+        <Element Name="fld_name" ElementSet="General" Class="LabelText" DefaultValue="New Project" FieldName="name" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
+		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+						
+		<Element Name="fld_start_time" ElementSet="Setting" DefaultValue="{@:Params[start_time]?date('Y-m-d H:i:s',@:Params[start_time]):date('Y-m-d H:i:s',time())}" Class="InputText" FieldName="start_time" Label="Start Time"  AllowURLParam="Y" >
+			<EventHandler Name="fld_start_time_onchange" Event="onchange" Function="js:calcWorkHours()"  />
+		</Element>
+		<Element Name="fld_priority" ElementSet="Setting" Class="LabelList" DefaultValue="1" FieldName="priority" Label="Priority" SelectFrom="collab.project.lov.ProjectLOV(Priority)" AllowURLParam="N" />
+		<Element Name="fld_status_update" ElementSet="Setting" Class="LabelList" FieldName="status" Label="Status" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" AllowURLParam="N" />
+					        
+    </DataPanel>
+    <ActionPanel>
+    	<Element Name="btn_finish" Class="Button" Text="Quick Finish" CssClass="button_gray_w">
+            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectDetailForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ContextMenu="Quick Finish"   />
+        </Element>
+        <Element Name="btn_save" Class="Button" Text="Next" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectEditContactForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Next" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

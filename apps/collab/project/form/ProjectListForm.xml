@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectListForm" Class="ProjectForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project_gantt.gif" Title="Project Management" Description="This module could help you manage project. You can put tasks under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_grid.tpl.html" EventName="PROJECT" MessageFile="Project.msg" Access="collab_project.access">
+<EasyForm Name="ProjectListForm" Class="ProjectForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Project Management" Description="This module could help you manage project. You can put tasks under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_grid.tpl.html" EventName="PROJECT" MessageFile="Project.msg" Access="collab_project.access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
@@ -20,8 +20,7 @@
         <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" FieldName="status" Label="Status" Link="javascript:;" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         <EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateProjectStatus({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>         
         </Element>
-        <Element Name="fld_progress" Class="ColumnBar" Width="120" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:170px" MaxValue="100" FieldName="progress" Label="Progress"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
-        </Element>
+
 		<Element Name="fld_priority_value" Class="Hidden" Hidden="Y" FieldName="priority"  />
         <Element Name="fld_priority" Class="ColumnImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Pri" Link="javascript:;">
 			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority_value,{@:Elem[fld_priority_value].Value},0,2)"/>		
