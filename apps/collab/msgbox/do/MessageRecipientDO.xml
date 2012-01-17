@@ -19,5 +19,6 @@
     <TableJoins>
     </TableJoins>
     <ObjReferences>
+        <Object Name="attachment.do.AttachmentDO" Description="" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='message' Column="foreign_id" FieldRef="message_id" />                
     </ObjReferences>
 </BizDataObj>
