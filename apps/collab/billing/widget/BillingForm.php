@@ -75,7 +75,7 @@ class BillingForm extends PickerForm
             
         	if($dataRec['type'] == 'task')
 	        {
-	        	$svcobj = BizSystem::getService("task.lib.TaskService");
+	        	$svcobj = BizSystem::getService("collab.task.lib.TaskService");
 	        	$svcobj->updateTaskFinancial($dataRec,'sub');
 	        }
             
