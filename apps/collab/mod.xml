@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="Openbiz Collaboration" Version="0.8" OpenbizVersion="3.0">
+<Module Name="collab" Description="Openbiz Collaboration" Version="0.9" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -16,6 +16,10 @@
         <Resource Name="collab_task">
 			<Action Name="access" Description="access task"/>
 			<Action Name="report" Description="view task statistics report"/>
+		</Resource>
+		<Resource Name="collab_billing">
+			<Action Name="access" Description="access billing information"/>
+			<Action Name="manage" Description="manage billing information"/>			
 		</Resource>
         <Resource Name="collab_worklog">
 			<Action Name="access" Description="access work log"/>
@@ -34,6 +38,7 @@
 		<Resource Name="collab_project">
 			<Action Name="access" Description="access and manage project"/>
 		</Resource>
+		
 	</ACL>
     <Menu>
     	<MenuItem Name="collab" Title="Collab" Description="" URL="/collab/dashboard" Order="50" Access="collab.access">
@@ -123,6 +128,9 @@
     	<Module Name="menu"/>
     </Dependency>
         <ChangeLog>
+        <Version Name="0.9">    		    		
+    		<Change Name="feature_09" Type="New_Feature" Status="Finished" PublishDate="2012-01-17" Description="added task billing tracing feature"></Change>
+    	</Version>
         <Version Name="0.8">    		    		
     		<Change Name="feature_08" Type="New_Feature" Status="Finished" PublishDate="2012-01-13" Description="Collaboration with project management features"></Change>
     	</Version> 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="BillingListDetailForm" Class="EasyForm" FormType="List" jsClass="jbForm" BizDataObj="collab.billing.do.BillingDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="collab_billing.access">
+    <DataPanel>
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        <Element Name="fld_icon" Class="ColumnImage" 
+				Text="{RESOURCE_URL}/billing/images/icon_billing_out.gif"
+				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">				
+		</Element>
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+                	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(collab.billing.widget.BillingDetailROForm,{@:Elem[fld_Id].Value})"/>        
+        </Element>
+        <Element Name="fld_description" MaxLength="30" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_credit" Class="ColumnText" FieldName="credit" Label="Credit" Text="$ {@:Elem[fld_credit].Value}" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
+        <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Timestamp"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+    </DataPanel>
+</EasyForm>
