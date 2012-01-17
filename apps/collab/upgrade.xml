@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <Upgrade>
-    <Version Name="0.9">
+    <Version Name="0.92">
         <UpgradeSql><![CDATA[
 DROP TABLE IF EXISTS `task_billing`;
 DROP TABLE IF EXISTS `task_budget`;
