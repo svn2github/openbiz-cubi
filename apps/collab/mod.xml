@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="Openbiz Collaboration" Version="0.9" OpenbizVersion="3.0">
+<Module Name="collab" Description="Openbiz Collaboration" Version="0.92" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -129,6 +129,7 @@
     </Dependency>
         <ChangeLog>
         <Version Name="0.9">    		    		
+    		<Change Name="feature_092" Type="New_Feature" Status="Finished" PublishDate="2012-01-17" Description="rename billing to budget"></Change>
     		<Change Name="feature_09" Type="New_Feature" Status="Finished" PublishDate="2012-01-17" Description="added task billing tracing feature"></Change>
     	</Version>
         <Version Name="0.8">    		    		
