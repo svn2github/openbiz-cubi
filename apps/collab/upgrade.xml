@@ -19,4 +19,9 @@ CREATE TABLE `task_billing` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
         ]]></UpgradeSql>
     </Version>
+    <Version Name="0.10">
+        <UpgradeSql><![CDATA[
+
+        ]]></UpgradeSql>
+    </Version>
 </Upgrade>
