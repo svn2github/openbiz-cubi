@@ -13,6 +13,9 @@
         <BizField Name="actual_workhour" Column="actual_workhour" Type=""/>
 		<BizField Name="progress" Column="progress" Type=""/>
 		<BizField Name="reminder" 		Column="reminder"  Required="N" Type=""/>
+		
+		<BizField Name="budget_cost" Column="budget_cost" Type=""/>
+		<BizField Name="actual_cost" Column="actual_cost" Type=""/>
 								
 		<BizField Name="owner_id" Column="owner_id" ValueOnCreate="{@profile:Id}"   Required="N" Type="Number"/>
 		<BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>

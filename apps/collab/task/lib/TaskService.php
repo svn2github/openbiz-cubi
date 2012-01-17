@@ -8,9 +8,9 @@ class TaskService
 		$type = $this->getObjValue($billingDO, 'type');		
 		$statDO = BizSystem::getObject("collab.billing.do.BillingStatDO");
 		$statRec = $statDO->fetchOne("[foreign_id]='$task_id' and [type]='$type'");
-		$total_credit = $statRec['total_credit'];
+		$total_credit = $statRec['total_credit'];		
 		$taskRec = BizSystem::getObject($this->m_DataObj)->fetchById($task_id);
-		$taskRec['actual_cost'] = $total_credit;
+		$taskRec['actual_cost'] = $total_credit;		
 		$taskRec->save();		
 	}
 	
