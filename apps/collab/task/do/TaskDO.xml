@@ -51,12 +51,13 @@
     <TableJoins>
 		<Join Name="JoinEventType" Table="task_type" Column="id" ColumnRef="type_id" JoinType="LEFT JOIN"/>    	
     </TableJoins>
-    <ObjReferences>
+    <ObjReferences>    	
         <Object Name="picture.do.PictureDO" Description="" Relationship="1-M" Table="picture" CondColumn='type' CondValue='task' Column="foreign_id" FieldRef="Id" />    
         <Object Name="contact.do.ContactDO" Description="" Relationship="M-M" Table="contact" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="task_contact" XColumn1="task_id" XColumn2="contact_id" XDataObj="collab.task.do.TaskContactDO"/>
         <Object Name="collab.calendar.do.EventDO" Description="" Relationship="M-M" Table="event" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="task_event" XColumn1="task_id" XColumn2="event_id" XDataObj="collab.task.do.TaskEventDO"/>
         <Object Name="collab.worklog.do.WorkLogDO" Description="" Relationship="1-M" Table="work_log" Column="task_id" FieldRef="Id" />
-        <Object Name="attachment.do.AttachmentDO" Description="" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='task' Column="foreign_id" FieldRef="Id" />    
+        <Object Name="attachment.do.AttachmentDO" Description="" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='task' Column="foreign_id" FieldRef="Id" />
+        <Object Name="collab.billing.do.BillingDO" Description="" Relationship="1-M" Table="billing" CondColumn='type' CondValue='task' Column="foreign_id" FieldRef="Id" />    
     </ObjReferences>
     
 </BizDataObj>
