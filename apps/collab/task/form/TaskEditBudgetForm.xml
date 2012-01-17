@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="TaskEditBillingForm" Class="TaskForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/task/images/icon_task_gantt.gif" Title="Edit Task Billing" Description="This module could help you manage tasks work log." BizDataObj="collab.task.do.TaskDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_detail.tpl.html" EventName="TASK" MessageFile="Task.msg" Access="collab_task.access">
+<EasyForm Name="TaskEditBudgetForm" Class="TaskForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/task/images/icon_task_gantt.gif" Title="Edit Task Budget" Description="This module could help you manage tasks work log." BizDataObj="collab.task.do.TaskDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_detail.tpl.html" EventName="TASK" MessageFile="Task.msg" Access="collab_task.access">
     <DataPanel>
 		<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 		<Element Name="fld_form_title"  Class="LabelText"   FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />
@@ -27,10 +27,10 @@
 		
 		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 
-		<Element Name="fld_budget" ElementSet="Financial" Class="LabelText"  Text="$ {@:Elem[fld_budget].Value} Dollars"  FieldName="budget_cost" Label="Cost Budget"  Description="unit in Dollars, total budget" AllowURLParam="N" />
-		<Element Name="fld_cost" ElementSet="Financial" Class="LabelText"  Text="$ {@:Elem[fld_cost].Value} Dollars"  FieldName="actual_cost" Label="Actual Cost"  Description="unit in Dollars, actual spend cost" AllowURLParam="N" />
+		<Element Name="fld_budget" ElementSet="Budget" Class="LabelText"  Text="$ {@:Elem[fld_budget].Value} Dollars"  FieldName="budget_cost" Label="Cost Budget"  Description="unit in Dollars, total budget" AllowURLParam="N" />
+		<Element Name="fld_cost" ElementSet="Budget" Class="LabelText"  Text="$ {@:Elem[fld_cost].Value} Dollars"  FieldName="actual_cost" Label="Actual Cost"  Description="unit in Dollars, actual spend cost" AllowURLParam="N" />
 		
-	    <Element Name="fld_task_worklog"   ElementSet="Financial" Class="FormElement" FormReference="collab.billing.widget.BillingListEditForm" FieldName="" Label="" AllowURLParam="N" />
+	    <Element Name="fld_budget_worklog"   ElementSet="Budget" Class="FormElement" FormReference="collab.budget.widget.BudgetListEditForm" FieldName="" Label="" AllowURLParam="N" />
 
 		
 		

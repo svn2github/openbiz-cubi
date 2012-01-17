@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="BudgetDO" Description="" DataPermControl="N" Class="BizDataObj" DBName="Default" Table="task_budget" SearchRule="" SortRule="" OtherSQLRule="" IdGeneration="Identity">
+	<BizFieldList>
+	    <BizField Name="Id" Column="id" Type=""/>
+        <BizField Name="type" Column="type" Type=""/>
+        <BizField Name="foreign_id" Column="foreign_id" Type=""/>
+        <BizField Name="title" Column="title" Type=""/>
+        <BizField Name="description" Column="description" Type=""/>        
+        <BizField Name="credit" Column="credit" ValueOnCreate="0" Type=""/>
+        <BizField Name="debit" Column="debit"  ValueOnCreate="0" Type=""/>                
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>                
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

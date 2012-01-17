@@ -36,11 +36,11 @@
 			<EventHandler Name="btn_manage_worklog_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditWorklogForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
         
-		<Element Name="fld_budget" ElementSet="Financial" Class="LabelText"  Text="$ {@:Elem[fld_budget].Value} Dollars"  FieldName="budget_cost" Label="Cost Budget"  Description="unit in Dollars, total budget" AllowURLParam="N" />
-		<Element Name="fld_cost" ElementSet="Financial" Class="LabelText"  Text="$ {@:Elem[fld_cost].Value} Dollars"  FieldName="actual_cost" Label="Actual Cost"  Description="unit in Dollars, actual spend cost" AllowURLParam="N" />
-		<Element Name="fld_financial_log"   ElementSet="Financial" Class="FormElement" FormReference="collab.billing.widget.BillingListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_financial" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}"  ElementSet="Financial" Class="Button" Style="color:#666666;margin-left:5px;margin-top:2px;" Text="Manage" CssClass="button_gray_w" Description="">
-			<EventHandler Name="btn_manage_financial_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditBillingForm,{@:Elem[fld_Id].Value})"  />
+		<Element Name="fld_budget" ElementSet="Budget" Class="LabelText"  Text="$ {@:Elem[fld_budget].Value} Dollars"  FieldName="budget_cost" Label="Cost Budget"  Description="unit in Dollars, total budget" AllowURLParam="N" />
+		<Element Name="fld_cost" ElementSet="Budget" Class="LabelText"  Text="$ {@:Elem[fld_cost].Value} Dollars"  FieldName="actual_cost" Label="Actual Cost"  Description="unit in Dollars, actual spend cost" AllowURLParam="N" />
+		<Element Name="fld_financial_log"   ElementSet="Budget" Class="FormElement" FormReference="collab.budget.widget.BudgetListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_financial" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}"  ElementSet="Budget" Class="Button" Style="color:#666666;margin-left:5px;margin-top:2px;" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_financial_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditBudgetForm,{@:Elem[fld_Id].Value})"  />
         </Element> 
         
 		<Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />

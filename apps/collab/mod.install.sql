@@ -659,8 +659,8 @@ CREATE TABLE `project_task_template` (
 table for task billing
 */
 
-DROP TABLE IF EXISTS `task_billing`;
-CREATE TABLE `task_billing` (
+DROP TABLE IF EXISTS `task_budget`;
+CREATE TABLE `task_budget` (
   `id` int(11) NOT NULL auto_increment,
   `type` varchar(255) default '',
   `foreign_id` int(11) NOT NULL,
