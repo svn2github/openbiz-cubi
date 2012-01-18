@@ -171,7 +171,7 @@ class LoginForm extends EasyForm
     		{
                 // after authenticate user: 1. init profile
     			$profile = $g_BizSystem->InitUserProfile($this->username);
-    			
+    	   	   
     			// after authenticate user: 2. insert login event
     			$logComment=array(	$this->username, $_SERVER['REMOTE_ADDR']);
     			$eventlog->log("LOGIN", "MSG_LOGIN_SUCCESSFUL", $logComment);
@@ -198,12 +198,14 @@ class LoginForm extends EasyForm
    						BizSystem::sessionContext()->setVar("THEME",$currentTheme );
 		   			}
 				}
-   		
+    	   	   		
     	   	    $redirectPage = APP_INDEX.$profile['roleStartpage'][0];
-    	   	                    		
-    	   	   	if(!$redirectPage){
-    	   	   		$redirectPage = APP_INDEX."/common/access_deny";
-					exit;
+    	   	   	if(!$profile['roleStartpage'][0])
+    	   	   	{
+    	   	   		$errorMessage['password'] = $this->getMessage("PERM_INCORRECT");
+    	   	   		$errorMessage['login_status'] = $this->getMessage("LOGIN_FAILED");    			    			
+    				$this->processFormObjError($errorMessage);
+    				return;
     	   	   	}
     	   	    $cookies = BizSystem::ClientProxy()->getFormInputs("session_timeout");
     	   	    if($cookies)
