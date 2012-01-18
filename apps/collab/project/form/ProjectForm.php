@@ -10,5 +10,13 @@ class ProjectForm extends EasyForm
     	}    	
 		return $this->updateFieldValue($id,$fld_name,$value_xor);		
 	}
+	
+	public function fetchDataSet(){
+		$result = parent::fetchDataSet();
+		if(!$this->m_RecordId){
+			$this->m_RecordId = $result[0]['Id'];
+		}
+		return $result;
+	}
 }
 ?>
