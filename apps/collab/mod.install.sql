@@ -20,7 +20,7 @@ CREATE TABLE `task` (
   `finish_time` datetime NOT NULL,
   `actual_finish_time` datetime NOT NULL,
 
-  `reminder` int(2) default 1,
+  `reminder` int(2) default 0,
   `reminder_time` int(2) default 15,
   `reminder_method_sms` int(2) default 15,
   `reminder_method_email` int(2) default 15,

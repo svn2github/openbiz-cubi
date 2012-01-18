@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="Openbiz Collaboration" Version="0.93" OpenbizVersion="3.0">
+<Module Name="collab" Description="Openbiz Collaboration" Version="0.94" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -76,6 +76,9 @@
 			<MenuItem Name="Project.ProjectManage" Title="Project Manage" Description=""  URL="{@home:url}/collab/project_manage" Order="40" Access="collab_project.access" >
 				<MenuItem Name="Project.ProjectDetail" Title="Project Detail" Description=""  URL="{@home:url}/collab/project_detail" Order="10"  Access="collab_project.access" ></MenuItem>
 			</MenuItem>
+			<MenuItem Name="Project.Gantt" Title="Project Gantt Chart" Description=""  URL="{@home:url}/collab/project_gantt" Order="50" Access="collab_project.access">
+				<MenuItem Name="Project.GanttDetail" Title="Project Gantt Detail" Description=""  URL="{@home:url}/collab/project_gantt_detail" Order="50" Access="collab_project.access" />
+			</MenuItem>
 			<MenuItem Name="Project.Template" Title="Project Template" Description=""  URL="{@home:url}/collab/project_template" Order="50" Access="collab_project.access"></MenuItem>
 			<MenuItem Name="Project.Type" Title="Project Type" Description=""  URL="{@home:url}/collab/project_type" Order="60" Access="collab_project.access"></MenuItem>
 		</MenuItem>
@@ -133,6 +136,7 @@
     </Dependency>
         <ChangeLog>
         <Version Name="0.9">    		    		
+        	<Change Name="feature_093" Type="New_Feature" Status="Finished" PublishDate="2012-01-18" Description="add project gannt chart view"></Change>
     		<Change Name="feature_092" Type="New_Feature" Status="Finished" PublishDate="2012-01-17" Description="rename billing to budget"></Change>
     		<Change Name="feature_09" Type="New_Feature" Status="Finished" PublishDate="2012-01-17" Description="added task billing tracing feature"></Change>
     	</Version>
