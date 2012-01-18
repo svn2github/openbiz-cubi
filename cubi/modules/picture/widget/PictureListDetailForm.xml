@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="PictureListDetailForm" Class="PictureForm" FormType="List" jsClass="jbForm" BizDataObj="picture.do.PictureDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="picture_list_lite.tpl.html"  Access="picture.access">
+<EasyForm Name="PictureListDetailForm" Class="PictureForm" FormType="List" jsClass="jbForm" BizDataObj="picture.do.PictureDO"   PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="picture_list_lite.tpl.html"  Access="picture.access">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
         <Element Name="fld_icon" Class="ColumnImage" 
