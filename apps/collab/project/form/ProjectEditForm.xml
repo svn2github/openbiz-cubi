@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectNewForm" Class="ProjectForm" FormType="New" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="New Project" Description="This module could help you manage project. You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
+<EasyForm Name="ProjectEditForm" Class="ProjectForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Edit Project" Description="This module could help you manage project. You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
     <DataPanel>
-	       
+	    <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
 		<Element Name="fld_type_id" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" />			    
         <Element Name="fld_name" ElementSet="General" Class="InputText" DefaultValue="New Project" FieldName="name" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
 		<Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N" />
@@ -13,11 +13,8 @@
 					        
     </DataPanel>
     <ActionPanel>
-    	<Element Name="btn_finish" Class="Button" Text="Quick Finish" CssClass="button_gray_w">
-            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectDetailForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ContextMenu="Quick Finish"   />
-        </Element>
-        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectEditTaskForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Next" />
+    	<Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="UpdateRecord()" RedirectPage="form=collab.project.form.ProjectDetailForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ContextMenu="Save"   />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
