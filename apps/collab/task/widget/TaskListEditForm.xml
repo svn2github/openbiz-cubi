@@ -15,13 +15,16 @@
 		</Element>	
 
         <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
-         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
+        
+    
+        <Element Name="fld_start_time" Class="ColumnText"  FieldName="start_time" Label="Start Time" Text="{date('Y-m-d',strtotime(@:Elem[fld_start_time].Value))}"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_budget" Class="LabelText"  Text="$ {@:Elem[fld_budget].Value}"  FieldName="budget_cost" Label="Budget"   AllowURLParam="N" />
+        
         <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" FieldName="status" Label="Status" Link="javascript:;" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         <EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateTaskStatus({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>         
         </Element>
-        <Element Name="fld_progress" Class="ColumnBar" Width="120" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:170px" MaxValue="100" FieldName="progress" Label="Progress"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
-        </Element>
+        
 		<Element Name="fld_reminder" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/task/images/icon_reminder_enable.gif"  FalseImg="{RESOURCE_URL}/collab/task/images/icon_reminder_disable.gif" FieldName="reminder" Sortable="Y" Label="Rmd" Link="javascript:;">
 			<EventHandler Name="fld_reminder_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_reminder,{@:Elem[fld_reminder].Value})"/>		
 		</Element>

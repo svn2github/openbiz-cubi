@@ -13,17 +13,18 @@
 		</Element>	
 
         <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+                        	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="ParentSwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   />         
         </Element>
-        <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" FieldName="status" Label="Status" Link="javascript:;" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" FieldName="status" Label="Status"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         </Element>
         <Element Name="fld_progress" Class="ColumnBar" Width="120" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:170px" MaxValue="100" FieldName="progress" Label="Progress"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
         </Element>
-		<Element Name="fld_reminder" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/task/images/icon_reminder_enable.gif"  FalseImg="{RESOURCE_URL}/collab/task/images/icon_reminder_disable.gif" FieldName="reminder" Sortable="Y" Label="Rmd" Link="javascript:;">
+		<Element Name="fld_reminder" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/task/images/icon_reminder_enable.gif"  FalseImg="{RESOURCE_URL}/collab/task/images/icon_reminder_disable.gif" FieldName="reminder" Sortable="Y" Label="Rmd" >
 		</Element>
         <Element Name="fld_priority_value" Class="Hidden" Hidden="Y" FieldName="priority"  />
-        <Element Name="fld_priority" Class="ColumnImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Pri" Link="javascript:;">
+        <Element Name="fld_priority" Class="ColumnImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Pri" >
 		</Element>
-        <Element Name="fld_milestone" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_enable.gif"  FalseImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_disable.gif" FieldName="milestone" Sortable="Y" Label="Mst" Link="javascript:;">
+        <Element Name="fld_milestone" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_enable.gif"  FalseImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_disable.gif" FieldName="milestone" Sortable="Y" Label="Mst" >
 		</Element>
 				<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		
