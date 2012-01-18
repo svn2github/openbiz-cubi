@@ -97,6 +97,10 @@ class ProjectGanttForm extends EasyForm
 		$DefaultProject = $parentForm->m_RecordId;
 		
 		
+		if($DefaultProject==null){
+    		$parentForm = BizSystem::getObject("collab.project.form.ProjectDetailBriefForm");
+			$DefaultProject = $parentForm->m_RecordId;								
+    	}
 		$projectRecs = $projectDo->directfetch("[Id]='$DefaultProject'");
 		
 		$do = $this->getDataObj();
@@ -261,8 +265,13 @@ class ProjectGanttForm extends EasyForm
     {
     	if($project_id==null){
     		$parentForm = BizSystem::getObject("collab.project.form.ProjectFilterForm");
-			$project_id = $parentForm->m_RecordId;
+			$project_id = $parentForm->m_RecordId;								
     	}
+    	if($project_id==null){
+    		$parentForm = BizSystem::getObject("collab.project.form.ProjectDetailBriefForm");
+			$project_id = $parentForm->m_RecordId;								
+    	}
+    	
     	
         $dataObj = $this->getDataObj();
         if (!$dataObj) return null;
