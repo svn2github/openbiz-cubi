@@ -561,7 +561,7 @@ INSERT INTO `project_type` (`id`, `name`, `color`,`description`, `sortorder`, `p
 
 DROP TABLE IF EXISTS `project`;
 CREATE TABLE `project` (
-`id` INT NOT NULL ,
+`id` int(11) NOT NULL auto_increment,
 `name` VARCHAR( 255 ) NOT NULL ,
 `description` TEXT NOT NULL ,
 `start_time` DATETIME NOT NULL ,
@@ -579,7 +579,7 @@ CREATE TABLE `project` (
 `update_time` DATETIME NOT NULL ,
 PRIMARY KEY ( `id` ) ,
 INDEX ( `name` , `type_id` )
-) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_general_ci ;
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 DROP TABLE IF EXISTS `project_contact`;
