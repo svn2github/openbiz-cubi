@@ -35,6 +35,9 @@ width:398px;
 .form_table td span.column_bar{
 padding-top:5px;
 }
+.label_textarea .form_table td span.column_bar {
+padding-top:0px;
+}
 .form_table td span.column_bar .value{
 width:auto;
 padding-left:10px;
