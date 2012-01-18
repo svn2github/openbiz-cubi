@@ -51,7 +51,7 @@
 						        
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_gantt_view"  Class="LabelText" Text="Gantt View" CssClass="button_gray_w" Description="" Link="{@home:url}/collab/project_gantt/{W:Elem[fld_Id].Value}">
+        <Element Name="btn_gantt_view"  Class="LabelText" Text="Gantt View" CssClass="button_gray_w" Description="" Link="{@home:url}/collab/project_gantt_detail/{@:Elem[fld_Id].Value}">
         </Element>      
     		<Element Name="btn_spacer" Class="Spacer" width="10" />		
     
