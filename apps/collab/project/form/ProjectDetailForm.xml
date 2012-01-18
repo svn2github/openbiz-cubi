@@ -19,6 +19,7 @@
 		<Element Name="btn_manage_task" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Task"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_task_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectEditTaskForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
+
 		
 		<Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		<Element Name="btn_manage_attachment" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
@@ -50,7 +51,11 @@
 						        
     </DataPanel>
     <ActionPanel>
- <Element Name="btn_new" Class="Button"   Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+        <Element Name="btn_gantt_view"  Class="LabelText" Text="Gantt View" CssClass="button_gray_w" Description="" Link="{@home:url}/collab/project_gantt/{W:Elem[fld_Id].Value}">
+        </Element>      
+    		<Element Name="btn_spacer" Class="Spacer" width="10" />		
+    
+ 		<Element Name="btn_new" Class="Button"   Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
         </Element>      
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
@@ -62,6 +67,8 @@
         <Element Name="btn_delete" Class="Button"   Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=collab.project.form.ProjectListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
+            		<Element Name="btn_spacer_2" Class="Spacer" width="10" />		
+        
         <Element Name="btn_cancel" Class="Button"  Text="Back" CssClass="button_gray_m">
             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
         </Element>  
