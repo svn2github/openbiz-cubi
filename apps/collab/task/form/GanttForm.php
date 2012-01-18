@@ -98,6 +98,12 @@ class GanttForm extends EasyForm
 		$this->m_outputIds = array();
 		foreach($projectRecs as $projectRec)
 		{						
+			
+			if($projectRec['project_id']!='0')
+			{
+				continue;
+			}
+			
 			if($this->m_ViewMode == 1) // show tree
 			{
 		        QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
