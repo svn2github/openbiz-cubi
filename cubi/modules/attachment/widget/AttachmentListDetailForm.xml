@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="AttachmentListDetailForm" Class="AttachmentForm" FormType="List" jsClass="jbForm" BizDataObj="attachment.do.AttachmentDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="attachment.access">
+<EasyForm Name="AttachmentListDetailForm" Class="AttachmentForm" FormType="List" jsClass="jbForm" BizDataObj="attachment.do.AttachmentDO"   PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="attachment.access">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
         <Element Name="fld_icon" Class="ColumnImage" 
