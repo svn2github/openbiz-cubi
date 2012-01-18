@@ -263,7 +263,10 @@ class ModuleLoader
         //$upgradeFolder = APP_HOME."/upgrade/modules/".$this->name;
         //$upgradeFile = $upgradeFolder."/upgrade.xml";
         $upgradeFile = MODULE_PATH."/".$this->name."/upgrade.xml";
-        
+        if(!is_file($upgradeFile))
+        {
+        	return;
+        }
         // read upgrade.xml
         $xml = simplexml_load_file($upgradeFile, 'SimpleXMLElement', LIBXML_NOCDATA);
         $versions = $xml->Version;
