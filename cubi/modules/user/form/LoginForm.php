@@ -201,6 +201,10 @@ class LoginForm extends EasyForm
    		
     	   	    $redirectPage = APP_INDEX.$profile['roleStartpage'][0];
     	   	                    		
+    	   	   	if(!$redirectPage){
+    	   	   		$redirectPage = APP_INDEX."/common/access_deny";
+					exit;
+    	   	   	}
     	   	    $cookies = BizSystem::ClientProxy()->getFormInputs("session_timeout");
     	   	    if($cookies)
     	   	    {
@@ -209,15 +213,15 @@ class LoginForm extends EasyForm
     	   	    	setcookie("SYSTEM_SESSION_USERNAME",$this->username,time()+(int)$cookies,"/");
     	   	    	setcookie("SYSTEM_SESSION_PASSWORD",$password,time()+(int)$cookies,"/");
     	   	    }
-    			
+    	   	    
     	   	    if($this->m_LastViewedPage!=""){
     	   	    	BizSystem::clientProxy()->ReDirectPage($this->m_LastViewedPage);
     	   	    }
        	        elseif($profile['roleStartpage'][0]){
        	        	BizSystem::clientProxy()->ReDirectPage($redirectPage);	
        	        }else{
-    		    	parent::processPostAction();
-       	        }
+       	        	parent::processPostAction();       	        	
+       	        }       	        
     		    return true;
     		}
     		else
@@ -245,7 +249,7 @@ class LoginForm extends EasyForm
     	}
     	catch (Exception $e) {    	
     		$errorMessage['login_status'] = $this->getMessage("LOGIN_FAILED");    			    			
-    			$this->processFormObjError($errorMessage);    				
+    		$this->processFormObjError($errorMessage);    				
     	    //BizSystem::ClientProxy()->showErrorMessage($e->getMessage());
     	}
     }
