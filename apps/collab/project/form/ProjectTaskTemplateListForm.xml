@@ -10,11 +10,11 @@
 				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">				
 		</Element>
         <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
-         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   />
+         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectTaskTemplateDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
         <Element Name="fld_start_time"   Class="ColumnText" FieldName="start_date" Label="Start Date" Text="After {@:Elem[fld_start_time].Value} Days "  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
 		<Element Name="fld_workhour"    Class="ColumnText" FieldName="during_days" Text="{@:Elem[fld_workhour].Value} Days" Label="During Days"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_budget"    Class="ColumnText" FieldName="budget_cost" Text="$ {@:Elem[fld_workhour].Value}" Label="Budget"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_budget"    Class="ColumnText" FieldName="budget_cost" Text="$ {@:Elem[fld_budget].Value}" Label="Budget"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
       
 		
         <Element Name="fld_priority_value" Class="Hidden" Hidden="Y" FieldName="priority"  />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectTaskTemplateNewForm" Class="ProjectTemplateForm" FormType="New" jsClass="jbForm"  BizDataObj="collab.project.do.ProjectTaskTemplateDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="TASK_TYPE" MessageFile="ProjectTemplate.msg" Access="collab_project.access">
+<EasyForm Name="ProjectTaskTemplateCopyForm" Class="ProjectTemplateForm" FormType="Copy" jsClass="jbForm"  BizDataObj="collab.project.do.ProjectTaskTemplateDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="TASK_TYPE" MessageFile="ProjectTemplate.msg" Access="collab_project.access">
     <DataPanel>
 		<Element Name="fld_type_id" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.task.do.TaskTypeDO[name:Id:color]" AllowURLParam="N" />
 		<Element Name="fld_title" ElementSet="General" Class="InputText" DefaultValue="New Task" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
