@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectEditTaskForm" Class="ProjectForm" FormType="Detail" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Edit Project Tasks" Description="This module could help you manage project. You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_detail_view.tpl.html" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
+<EasyForm Name="ProjectCreateTaskForm" Class="ProjectForm" FormType="Detail" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Project Tasks" Description="This module could help you manage project. You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_detail_view.tpl.html" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
     <DataPanel>
 	    <Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 	       
@@ -17,18 +17,20 @@
 		</Element>
 		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 		
-		<Element Name="fld_related_task"   ElementSet="Task" Class="FormElement" FormReference="collab.task.widget.TaskListEditForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_use_template"   ElementSet="Import Tasks" Class="Listbox" SelectFrom="collab.project.lov.ProjectLOV(UseTemplate)" FieldName="" Label="Use Template" AllowURLParam="N" >
+			<EventHandler Name="fld_use_template_onchange" Event="onchange" Function="UpdateForm()"/>
+		</Element>
+		<Element Name="fld_tasks"  Hidden="{@:Elem[fld_use_template].Value=='1'?'N':'Y'}" ElementSet="Import Tasks" Class="FormElement" FormReference="collab.project.widget.ProjectTemplateListForm" FieldName="" Label="" AllowURLParam="N" />
 			        
     </DataPanel>
     <ActionPanel>
-    	 <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+        <Element Name="btn_save"  Hidden="{@:Elem[fld_use_template].Value=='1'?'N':'Y'}" Class="Button" Text="Create Tasks" CssClass="button_gray_w">
             <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="SwitchForm(collab.project.form.ProjectDetailForm,{@collab.project.do.ProjectDO:Field[Id].Value})"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
         </Element>
-    	 
-		<Element Name="btn_spacer" Class="Spacer" width="10" />
-       <Element Name="btn_import" Class="Button" Text="Import Tasks" CssClass="button_gray_w">
-            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="SwitchForm(collab.project.form.ProjectCreateTaskForm,{@collab.project.do.ProjectDO:Field[Id].Value})"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
-        </Element>
+		<Element Name="btn_spacer" Hidden="{@:Elem[fld_use_template].Value=='1'?'N':'Y'}" Class="Spacer" width="10" />
+		<Element Name="btn_skip" Class="Button" Text="Skip" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectDetailForm,{@collab.project.do.ProjectDO:Field[Id].Value})"  />
+        </Element> 
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
         </Element>     

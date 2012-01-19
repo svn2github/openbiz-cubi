@@ -14,11 +14,13 @@
 					        
     </DataPanel>
     <ActionPanel>
-    	<Element Name="btn_finish" Class="Button" Text="Quick Finish" CssClass="button_gray_w">
-            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectDetailForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ContextMenu="Quick Finish"   />
-        </Element>
-        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+    	<Element Name="btn_save" Class="Button" Text="Next Step" CssClass="button_gray_w">
             <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectEditTaskForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Next" />
+        </Element>
+		<Element Name="btn_spacer" Class="Spacer" width="10" />
+        
+		<Element Name="btn_finish" Class="Button" Text="Quick Finish" CssClass="button_gray_w">
+            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectDetailForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ContextMenu="Quick Finish"   />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
