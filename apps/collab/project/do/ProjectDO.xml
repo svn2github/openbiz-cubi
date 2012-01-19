@@ -26,7 +26,7 @@
         <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
         <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>	 </BizFieldList>
     <TableJoins>
-		<Join Name="JoinEventType" Table="task_type" Column="id" ColumnRef="type_id" JoinType="LEFT JOIN"/>    	
+		<Join Name="JoinEventType" Table="project_type" Column="id" ColumnRef="type_id" JoinType="LEFT JOIN"/>    	
     </TableJoins>
     <ObjReferences>
     	<Object Name="picture.do.PictureDO" Description="" Relationship="1-M" Table="picture" CondColumn='type' CondValue='project' Column="foreign_id" FieldRef="Id" />

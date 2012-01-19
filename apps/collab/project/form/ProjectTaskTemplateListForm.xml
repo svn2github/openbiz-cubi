@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectTemplateListForm" Class="ProjectTemplateForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project_template.png"  FormType="List" jsClass="jbForm" Title="Project Template Manage" Description="You can define your repeatable projects as project templates." BizDataObj="collab.project.do.ProjectTemplateDO" PageSize="4" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_template_grid.tpl.html" EventName="PROJECT_TYPE" MessageFile="ProjectTemplate.msg" Access="collab_project.access">
+<EasyForm Name="ProjectTaskTemplateListForm" Class="ProjectTemplateForm" Icon=""  FormType="List" jsClass="jbForm" Title="" Description="" BizDataObj="collab.project.do.ProjectTaskTemplateDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="PROJECT_TYPE" MessageFile="ProjectTemplate.msg" Access="collab_project.access">
    <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
@@ -19,14 +19,9 @@
         </Element>	
         <Element Name="fld_description"  MaxLength="30"  Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
        
-       
-        <Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sortorder" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
-        	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})" />
-        	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value+5})" />
-        </Element>	
-        <Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_type" Class="ColumnText"  Style="line-height:24px;" FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
-        
+        <Element Name="fld_published" Class="ColumnBool" FieldName="published" Label="Published"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_published,{@:Elem[fld_published].Value})"/>		
+		</Element>	
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
@@ -69,12 +64,6 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
-    <Element Name="data_filter"  BlankOption="All Data" cssclass="input_select_w" Class="common.element.ShareDataFilter" FieldName="create_by" Label="" SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
-            <EventHandler Name="datafilter_onchange" Event="onchange" Function="RunSearch()"/>
-        </Element>
-        <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.project.do.ProjectTemplateDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" FieldName="name" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
-        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
-            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
-        </Element>     
+    
     </SearchPanel>
 </EasyForm>

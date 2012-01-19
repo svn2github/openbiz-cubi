@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectTemplateNewForm" Class="ProjectTemplateForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project_type.png" FormType="New" jsClass="jbForm" Title="New Project Type" Description="Please fill in below field to create a new project type" BizDataObj="collab.project.do.ProjectTemplateDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="TASK_TYPE" MessageFile="ProjectTemplate.msg" Access="collab_project.access">
+<EasyForm Name="ProjectTemplateNewForm" Class="ProjectTemplateForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project_template.png" FormType="New" jsClass="jbForm" Title="New Project Template" Description="Please fill in below field to create a new project type" BizDataObj="collab.project.do.ProjectTemplateDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="TASK_TYPE" MessageFile="ProjectTemplate.msg" Access="collab_project.access">
     <DataPanel>
-		<Element Name="fld_type_id" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.project.do.ProjectTemplateDO[name:Id:color]" AllowURLParam="N" />
-        <Element Name="fld_name" DefaultValue="New Project Type" Class="InputText" FieldName="name" Label="Name"   />	
+		<Element Name="fld_type_id" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" />
+        <Element Name="fld_name" DefaultValue="New Project Template" Class="InputText" FieldName="name" Label="Name"   />	
         <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />
         <Element Name="fld_sortorder" Class="Listbox" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />	        	
         	

@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="ProjectTemplateDO" Description="" DataPermControl="Y" Class="BizDataObj" DBName="" Table="project_template" SearchRule="" SortRule="[Id] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+<BizDataObj Name="ProjectTemplateDO" Description="" DataPermControl="Y" Class="BizDataObj" DBName="" Table="project_template" SearchRule="" SortRule="[sortorder] ASC, [Id] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
 	<BizFieldList>
    		<BizField Name="Id" Column="id"     Type="Number"/>
    		<BizField Name="name" Column="name" Length="255"  Required="Y" Type="Text"/>
@@ -20,7 +20,7 @@
         <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
         <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>	 </BizFieldList>
     <TableJoins>
-		<Join Name="JoinEventType" Table="task_type" Column="id" ColumnRef="type_id" JoinType="LEFT JOIN"/>    	
+		<Join Name="JoinEventType" Table="project_type" Column="id" ColumnRef="type_id" JoinType="LEFT JOIN"/>    	
     </TableJoins>
     <ObjReferences>
     	<Object Name="collab.project.do.ProjectTaskTemplateDO" Description="" Relationship="1-M" Table="project_task_template" Column="project_id" FieldRef="Id" />
