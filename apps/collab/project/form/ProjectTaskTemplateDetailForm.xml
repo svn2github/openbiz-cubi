@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectTaskTemplateDetailForm" Class="ProjectTemplateForm" FormType="Detail" jsClass="jbForm"  BizDataObj="collab.project.do.ProjectTaskTemplateDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="PROJECT_TYPE" MessageFile="ProjectTemplate.msg" Access="collab_project.access">
+<EasyForm Name="ProjectTaskTemplateDetailForm" Class="ProjectTaskTemplateForm" FormType="Detail" jsClass="jbForm"  BizDataObj="collab.project.do.ProjectTaskTemplateDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="PROJECT_TYPE" MessageFile="ProjectTemplate.msg" Access="collab_project.access">
     <DataPanel>
 			<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 			<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	

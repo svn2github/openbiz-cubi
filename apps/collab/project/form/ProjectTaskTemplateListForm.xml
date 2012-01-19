@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectTaskTemplateListForm" Class="ProjectTemplateForm" Icon=""  FormType="List" jsClass="jbForm" Title="" Description="" BizDataObj="collab.project.do.ProjectTaskTemplateDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_grid.tpl.html" EventName="PROJECT_TYPE" MessageFile="ProjectTemplate.msg" Access="collab_project.access">
+<EasyForm Name="ProjectTaskTemplateListForm" Class="ProjectTaskTemplateForm" Icon=""  FormType="List" jsClass="jbForm" Title="" Description="" BizDataObj="collab.project.do.ProjectTaskTemplateDO" PageSize="8" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_grid.tpl.html" EventName="PROJECT_TYPE" MessageFile="ProjectTemplate.msg" Access="collab_project.access">
    <DataPanel>
         
        

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectTaskTemplateEditForm" Class="ProjectTemplateForm" FormType="Edit" jsClass="jbForm"  BizDataObj="collab.project.do.ProjectTaskTemplateDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="TASK_TYPE" MessageFile="ProjectTemplate.msg" Access="collab_project.access">
+<EasyForm Name="ProjectTaskTemplateEditForm" Class="ProjectTaskTemplateForm" FormType="Edit" jsClass="jbForm"  BizDataObj="collab.project.do.ProjectTaskTemplateDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="TASK_TYPE" MessageFile="ProjectTemplate.msg" Access="collab_project.access">
     <DataPanel>
     	<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
 		<Element Name="fld_type_id" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.task.do.TaskTypeDO[name:Id:color]" AllowURLParam="N" />
@@ -27,7 +27,7 @@
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="UpdateRecord()" RedirectPage="form=collab.project.form.ProjectTaskTemplateDetailForm&amp;fld:Id={@collab.project.do.ProjectTaskTemplateDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="UpdateRecord()" RedirectPage="form=collab.project.form.ProjectTaskTemplateDetailForm&amp;fld:Id={@:Elem[fld_Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
