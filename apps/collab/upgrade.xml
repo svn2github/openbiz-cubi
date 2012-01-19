@@ -98,10 +98,11 @@ CREATE TABLE `project_event` (
         <![CDATA[
 DROP TABLE IF EXISTS `project_template`;
 CREATE TABLE `project_template` (
-`id` INT NOT NULL ,
+`id` int(10) unsigned NOT NULL auto_increment,
 `name` VARCHAR( 255 ) NOT NULL ,
 `description` TEXT NOT NULL ,
 `type_id` int(11) NOT NULL,
+`sortorder` int(11) NOT NULL,
 `group_id` INT(11) default '1',
 `group_perm` INT(11) default '1',
 `other_perm` INT(11) default '1' ,
