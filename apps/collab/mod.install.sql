@@ -608,11 +608,7 @@ CREATE TABLE `project_template` (
 `id` INT NOT NULL ,
 `name` VARCHAR( 255 ) NOT NULL ,
 `description` TEXT NOT NULL ,
-`start_time` DATETIME NOT NULL ,
-`end_time` DATETIME NOT NULL ,
-`type_id` INT NOT NULL DEFAULT '1',
-`importance` INT NOT NULL DEFAULT '0',
-`owner_id` int(11) default 0,
+`type_id` int(11) NOT NULL,
 `group_id` INT(11) default '1',
 `group_perm` INT(11) default '1',
 `other_perm` INT(11) default '1' ,
@@ -632,27 +628,18 @@ CREATE TABLE `project_task_template` (
   `priority` int(11) NOT NULL,
   `milestone` int(11) NOT NULL,
   `start_time` datetime NOT NULL,
-  `finish_time` datetime NOT NULL,
-  `reminder` int(2) default 1,
-  `reminder_time` int(2) default 15,
-  `reminder_method_sms` int(2) default 15,
-  `reminder_method_email` int(2) default 15,
-  `reminder_method_systray` int(2) default 15,
   `total_workhour` float(11) NOT NULL,
   `budget_cost` float(11) NOT NULL,
+  `project_id` int(11) default 0,
   `parent_task_id` int(11) default 0,
   `dependency_task_id` int(11) default 0,
   `type_id` int(11) NOT NULL,
-  `owner_id` int(11) default 0,
-  `group_id` INT(11) default '1',
-  `group_perm` INT(11) default '1',
-  `other_perm` INT(11) default '1' ,
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL,
   `update_time` timestamp NOT NULL default '0000-00-00 00:00:00' on update CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;   
 
 /*
 table for task billing

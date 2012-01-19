@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="Openbiz Collaboration" Version="0.95" OpenbizVersion="3.0">
+<Module Name="collab" Description="Openbiz Collaboration" Version="1.0" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -135,6 +135,9 @@
     	<Module Name="menu"/>
     </Dependency>
         <ChangeLog>
+        <Version Name="1.0">
+          <Change Name="feature_10" Type="New_Feature" Status="Finished" PublishDate="2012-01-19" Description="project management support project template feature"></Change>
+        </Version> 
         <Version Name="0.9">    		    		
         	<Change Name="feature_094" Type="New_Feature" Status="Finished" PublishDate="2012-01-19" Description="project management system is ready"></Change>
         	<Change Name="feature_093" Type="New_Feature" Status="Finished" PublishDate="2012-01-18" Description="add project gannt chart view"></Change>
