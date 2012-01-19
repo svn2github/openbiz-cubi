@@ -1305,7 +1305,7 @@ class EasyForm extends MetaObject implements iSessionObject
     {
         $currentRec = $this->fetchData();
         $recArr = $this->readInputRecord();
-        //$this->setActiveRecord($recArr);
+        $this->setActiveRecord($recArr);
         if (count($recArr) != 0){
             	
 	        try
