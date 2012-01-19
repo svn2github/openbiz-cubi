@@ -17,11 +17,13 @@
         </Element>
         <Element Name="fld_desc" Class="ColumnText" FieldName="description" Label="Description" Maxlenght="20"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="">         
         </Element>
-        <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" FieldName="status" Label="Status"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" FieldName="status" Label="Status" Link="javascript:;" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        <EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateProjectStatus({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>         
         </Element>
 
 		<Element Name="fld_priority_value" Class="Hidden" Hidden="Y" FieldName="priority"  />
 		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Priority" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority_value,{@:Elem[fld_priority_value].Value},0,2)"/>		
 		</Element>
 		<!--
         <Element Name="fld_importance" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/project/images/icon_project_importance_yes.gif"  FalseImg="{RESOURCE_URL}/collab/project/images/icon_project_importance_no.gif" FieldName="importance" Sortable="Y" Label="Flag" Link="javascript:;">
