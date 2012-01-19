@@ -1,35 +1,7 @@
 <form id='{$form.name}' name='{$form.name}'>
-{literal}
-<style>
-.action_panel{
-width:310px;
-}
-.search_panel{
-width:380px;
-}
-.search_panel select{
-float:left;
-margin-right:5px;
-}
-</style>
-{/literal}
 <div style="padding-left:25px;padding-right:40px;">
-	<div>
-{include file="system_appbuilder_btn.tpl.html"}
-	<table><tr><td>
-		{if $form.icon !='' }
-		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
-		{/if}
-		<div style="float:left; width:600px;">
-		<h2>
-		{$form.title}
-		</h2> 
-		<p class="form_desc">{$form.description}</p>
-		</div>
-	</td></tr></table>
-	</div>
-<div class="form_header_panel">	
-{if  $actionPanel }			
+{if  $actionPanel }	
+	<div class="form_header_panel">	
 		<div class="action_panel"  >
 		{foreach item=elem from=$actionPanel}
 		    	{$elem.element}
@@ -45,9 +17,9 @@ margin-right:5px;
 				{$elem.element}
 			
 		{/foreach}
-		</div>	
+		</div>		
 {/if}	
-</div>	
+</div>
 
 <div class="from_table_container">
 <!-- table start -->

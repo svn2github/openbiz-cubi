@@ -9,8 +9,8 @@
 		<BizField Name="dependency_task_id" Column="dependency_task_id" Type=""/>		
 		<BizField Name="priority" Column="priority" Type=""/>
 		<BizField Name="milestone" Column="milestone" Type=""/>		
-		<BizField Name="start_time" Column="start_time" Required="Y" Type=""/>		
-		<BizField Name="total_workhour" Column="total_workhour"  Required="Y" Type=""/>
+		<BizField Name="start_date" Column="start_date" Required="Y" Type=""/>		
+		<BizField Name="during_days" Column="during_days"  Required="Y" Type=""/>
 		<BizField Name="budget_cost" Column="budget_cost" Type=""/>
 		<BizField Name="type_id" Column="type_id"  ValueOnCreate="1"  Required="N" Type=""/>
 		<BizField Name="type_color" Column="color"  Join="JoinEventType" />
