@@ -6,8 +6,8 @@
         <Element Name="fld_share" Class="ColumnShare" 
 				MyPrivateImg="{RESOURCE_URL}/collab/project/images/icon_project_private.png"
 				MySharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared.png" 
-				MyAssignedImg="{RESOURCE_URL}/collab/project/images/icon_project_assigned.gif"
-				MyDistributedImg="{RESOURCE_URL}/collab/project/images/icon_project_distributed.gif" 
+				MyAssignedImg="{RESOURCE_URL}/collab/project/images/icon_project_assigned.png"
+				MyDistributedImg="{RESOURCE_URL}/collab/project/images/icon_project_distributed.png" 
 				GroupSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_group.png"
 				OtherSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_other.png"
 				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
