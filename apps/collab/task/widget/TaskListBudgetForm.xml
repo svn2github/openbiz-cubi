@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TaskListBudgetForm" Class="TaskBudgetForm" FormType="List" jsClass="jbForm" BizDataObj="collab.task.do.TaskDO"   PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="collab_task.access">
+    <DataPanel>
+           <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        <Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{RESOURCE_URL}/collab/task/images/icon_task_private.png"
+				MySharedImg="{RESOURCE_URL}/collab/task/images/icon_task_shared.png" 
+				MyAssignedImg="{RESOURCE_URL}/collab/task/images/icon_task_assigned.gif"
+				MyDistributedImg="{RESOURCE_URL}/collab/task/images/icon_task_distributed.gif" 
+				GroupSharedImg="{RESOURCE_URL}/collab/task/images/icon_task_shared_group.png"
+				OtherSharedImg="{RESOURCE_URL}/collab/task/images/icon_task_shared_other.png"
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+		</Element>	
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+        	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="ParentSwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   />         
+        </Element>
+        <Element Name="fld_budget"  Text="$ {@:Elem[fld_budget].Value}"  Class="ColumnText"  FieldName="budget_cost" Label="Budget"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_spend"  Text="$ {@:Elem[fld_spend].Value}"  Class="ColumnText"  FieldName="budget_spend" Label="Spent"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		
+        <Element Name="fld_progress" Class="ColumnBar" Width="150" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:230px" MaxValue="100" FieldName="budget_precent" Label="Spend"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
+        </Element>
+        <Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+	</DataPanel>
+</EasyForm>

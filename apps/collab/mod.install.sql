@@ -566,6 +566,7 @@ CREATE TABLE `project` (
 `description` TEXT NOT NULL ,
 `start_time` DATETIME NOT NULL ,
 `type_id` INT NOT NULL DEFAULT '1',
+`budget_cost` float(11) NOT NULL,
 `status` int(11) NOT NULL,
 `priority` int(11) NOT NULL,
 `sortorder` int(11) NOT NULL,
