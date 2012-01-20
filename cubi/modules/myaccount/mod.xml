@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="myaccount" Description="My Account Module" Version="0.5" OpenbizVersion="3.0">
+<Module Name="myaccount" Description="My Account Module" Version="0.5" OpenbizVersion="3.0"  LoadHandler="myaccount.lib.MyAccountLoadHandler">
 	<ACL>
 		<Resource Name="myaccount">
 			<Action Name="access" Description="access my account dashboard"/>

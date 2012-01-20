@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="picture" Description="pictures management module" Version="0.11" OpenbizVersion="3.0" Author="Jixian">
+<Module Name="picture" Description="pictures management module" Version="0.11" OpenbizVersion="3.0" Author="Jixian"  LoadHandler="picture.lib.PictureLoadHandler">
 	<ACL>
 		<Resource Name="picture">
 			<Action Name="access" Description="access pictures"/>

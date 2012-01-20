@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="location" Description="locations management module" Version="0.2" OpenbizVersion="3.0" Author="Jixian">
+<Module Name="location" Description="locations management module" Version="0.2" OpenbizVersion="3.0" Author="Jixian" LoadHandler="location.lib.LocationLoadHandler">
 	<ACL>
 		<Resource Name="location">
 			<Action Name="access" Description="access location"/>

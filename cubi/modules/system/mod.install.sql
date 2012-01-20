@@ -109,9 +109,9 @@ CREATE TABLE `role` (
 
 /*Data for the table `role` */
 
-insert  into `role`(`id`,`name`,`description`,`status`,`default`,`startpage`) values (1,'Administrator','System administrator',1,0,'/system/general_default');
-insert  into `role`(`id`,`name`,`description`,`status`,`default`,`startpage`) values (2,'Member','General registered users',1,1,'/myaccount/my_profile');
-insert  into `role`(`id`,`name`,`description`,`status`,`default`,`startpage`) values (3,'Guest','Guest users are unregistered users',1,0,'/system/general_default');
+insert  into `role`(`id`,`name`,`description`,`status`,`default`,`startpage`) values (1,'Cubi Administrator','System administrator',1,0,'/system/general_default');
+insert  into `role`(`id`,`name`,`description`,`status`,`default`,`startpage`) values (2,'Cubi Member','General registered users',1,1,'/myaccount/my_profile');
+insert  into `role`(`id`,`name`,`description`,`status`,`default`,`startpage`) values (3,'Cubi Guest','Guest users are unregistered users',1,0,'/system/general_default');
 
 /*Table structure for table `user` */
 
@@ -140,8 +140,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 /*Data for the table `user` */
 
 insert  into `user`(`id`,`username`,`password`,`enctype`,`email`,`status`,`lastlogin`,`lastlogout`,`create_by`,`create_time`,`update_by`,`update_time`) values (1,'admin','d033e22ae348aeb5660fc2140aec35850c4da997','SHA1','admin@yourcompany.com',1,'2010-05-16 18:20:40','2009-08-24 13:24:14',1,'2010-05-01 01:19:57',1,'2010-05-01 01:19:57');
-insert  into `user`(`id`,`username`,`password`,`enctype`,`email`,`status`,`lastlogin`,`lastlogout`,`create_by`,`create_time`,`update_by`,`update_time`) values (2,'member','6467baa3b187373e3931422e2a8ef22f3e447d77','SHA1','member@yourcompany.com',1,'2010-05-01 01:19:57','2009-08-23 23:39:37',1,'2010-05-01 01:19:57',5,'2010-05-01 01:19:57');
-insert  into `user`(`id`,`username`,`password`,`enctype`,`email`,`status`,`lastlogin`,`lastlogout`,`create_by`,`create_time`,`update_by`,`update_time`) values (3,'guest','35675e68f4b5af7b995d9205ad0fc43842f16450','SHA1','guest@yourcompany.com',1,NULL,NULL,NULL,'2010-01-12 02:20:10',NULL,'2010-01-12 02:20:10');
 
 /*Table structure for table `user_role` */
 
@@ -159,8 +157,7 @@ CREATE TABLE `user_role` (
 /*Data for the table `user_role` */
 
 insert  into `user_role`(`id`,`user_id`,`role_id`) values (1,1,1);
-insert  into `user_role`(`id`,`user_id`,`role_id`) values (2,2,2);
-insert  into `user_role`(`id`,`user_id`,`role_id`) values (3,3,3);
+insert  into `user_role`(`id`,`user_id`,`role_id`) values (2,1,2);
 
 /*Table structure for table `group` */
 

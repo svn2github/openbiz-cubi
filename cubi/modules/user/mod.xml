@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="user" Description="usr login, my account edit, password reset" Version="0.4" Author="Rocky, Jixian" OpenbizVersion="3.0">
+<Module Name="user" Description="usr login, my account edit, password reset" Version="0.4" Author="Rocky, Jixian" OpenbizVersion="3.0"  LoadHandler="user.lib.UserLoadHandler">
 	<ACL>
 		<Resource Name="UserAccount">
 			<Action Name="Edit_Own_Account" Description="Can edit user own account data"/>
