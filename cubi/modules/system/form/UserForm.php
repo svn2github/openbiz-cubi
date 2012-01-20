@@ -263,17 +263,18 @@ class UserForm extends EasyForm
         if ($this->_checkDupUsername())
         {
             $errorMessage = $this->GetMessage("USERNAME_USED");
-			$errors['fld_username'] = $errorMessage;
-			$this->processFormObjError($errors);
-			return;
+			$this->m_ValidateErrors['fld_username'] = $errorMessage;
+			throw new ValidationException($this->m_ValidateErrors);
+			return false;
+			
         }
 
         if ($this->_checkDupEmail())
         {
             $errorMessage = $this->GetMessage("EMAIL_USED");
-			$errors['fld_email'] = $errorMessage;
-			$this->processFormObjError($errors);
-			return;
+			$this->m_ValidateErrors['fld_email'] = $errorMessage;
+			throw new ValidationException($this->m_ValidateErrors);
+			return false;
         }              
         
     	// disable password validation if they are empty
