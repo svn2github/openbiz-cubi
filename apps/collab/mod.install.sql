@@ -661,3 +661,8 @@ CREATE TABLE `task_budget` (
   `update_time` timestamp NOT NULL default '0000-00-00 00:00:00' on update CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+insert  into `role`(`name`,`description`,`status`,`default`,`startpage`) values ('Collaboration Admin','Collaboration system administrator',1,0,'/collab/dashboard');
+insert  into `role`(`name`,`description`,`status`,`default`,`startpage`) values ('Collaboration Member','General Collaboration system member',1,1,'/collab/dashboard');
+
