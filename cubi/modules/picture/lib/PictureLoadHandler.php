@@ -10,7 +10,7 @@ class PictureLoadHandler implements ModuleLoadHandler
     public function postLoadingModule($moduelLoader)
     {
     	
-    	$roleRec = BizSystem::getObject("system.do.RoleDO")->fetchOne("[name]='Cubi Member");
+    	$roleRec = BizSystem::getObject("system.do.RoleDO")->fetchOne("[name]='Cubi Member'");
     	$roleId = $roleRec['Id'];
     	
     	$actionRec = BizSystem::getObject("system.do.AclActionDO")->fetchOne("[module]='picture' AND [resource]='picture' AND [action]='access'");
