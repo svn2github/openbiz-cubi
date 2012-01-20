@@ -839,7 +839,10 @@ class EasyForm extends MetaObject implements iSessionObject
         $this->getDataObj()->setActiveRecord($resultRecords[$selectedIndex]);
 
         QueryStringParam::ReSet();
-
+		if(!$this->m_RecordId)
+		{
+			$this->m_RecordId = $resultRecords[0]["Id"];
+		}
         return $resultRecords;
     }
 
