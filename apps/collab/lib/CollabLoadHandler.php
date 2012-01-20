@@ -10,10 +10,10 @@ class CollabLoadHandler implements ModuleLoadHandler
     public function postLoadingModule($moduelLoader)
     {
     	
-    	$roleRec = BizSystem::getObject("system.do.RoleDO")->fetchOne("[name]='Collaboration Admin");
+    	$roleRec = BizSystem::getObject("system.do.RoleDO")->fetchOne("[name]='Collaboration Admin'");
     	$adminRoleId = $roleRec['Id'];
     	
-    	$roleRec = BizSystem::getObject("system.do.RoleDO")->fetchOne("[name]='Collaboration Member");
+    	$roleRec = BizSystem::getObject("system.do.RoleDO")->fetchOne("[name]='Collaboration Member'");
     	$memberRoleId = $roleRec['Id'];
     	
     	$actionList = BizSystem::getObject("system.do.AclActionDO")->fetchOne("[module]='collab'");
