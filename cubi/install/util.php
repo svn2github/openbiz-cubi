@@ -152,7 +152,7 @@ function loadModules()
         $logs .= "\n";
 	}
    	giveActionAccess("", 1);	// admin to access all actions
-	giveActionAccess("module='user'", 2);
+	//giveActionAccess("module='user'", 2);
 	file_put_contents(APP_FILE_PATH.'/install.log', $log);
     echo "SUCCESS. Modules are loaded in Cubi. ###\n".$logs;
 }
