@@ -12,6 +12,10 @@ class MyAccountLoadHandler implements ModuleLoadHandler
     	
     	$roleRec = BizSystem::getObject("system.do.RoleDO")->fetchOne("[name]='Cubi Member'");
     	$roleId = $roleRec['Id'];
+    	if(!$roleId)
+    	{
+    		$roleId = 2;
+    	}
     	
     	$actionRec = BizSystem::getObject("system.do.AclActionDO")->fetchOne("[module]='myaccount' AND [resource]='myaccount' AND [action]='access'");
     	$actionId = $actionRec["Id"];

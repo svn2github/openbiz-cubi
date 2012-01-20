@@ -12,6 +12,10 @@ class AttachmentLoadHandler implements ModuleLoadHandler
     	
     	$roleRec = BizSystem::getObject("system.do.RoleDO")->fetchOne("[name]='Cubi Member'");
     	$roleId = $roleRec['Id'];
+    	if(!$roleId)
+    	{
+    		$roleId = 2;
+    	}
     	
     	$actionRec = BizSystem::getObject("system.do.AclActionDO")->fetchOne("[module]='attachment' AND [resource]='attachment' AND [action]='access'");
     	$actionId = $actionRec["Id"];

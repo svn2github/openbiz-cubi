@@ -12,6 +12,10 @@ class LocationLoadHandler implements ModuleLoadHandler
     	
     	$roleRec = BizSystem::getObject("system.do.RoleDO")->fetchOne("[name]='Cubi Member'");
     	$roleId = $roleRec['Id'];
+   		if(!$roleId)
+    	{
+    		$roleId = 2;
+    	}
     	
     	$actionRec = BizSystem::getObject("system.do.AclActionDO")->fetchOne("[module]='location' AND [resource]='location' AND [action]='access'");
     	$actionId = $actionRec["Id"];
