@@ -35,6 +35,9 @@ class ModuleLoader
     		$this->errors = "ERROR: Cannot get database connection.";	
         	return false;
     	}
+        
+        // invoke custom beforeLoadingModule method
+        $this->invokeLoadHandler("beforeLoadingModule");
 
     	// dependency check
     	$depModules = $this->checkDependency();
@@ -75,8 +78,31 @@ class ModuleLoader
         //give permission to role 1
         $this->giveActionAccess(1);
         
+        // invoke custom beforeLoadingModule method
+        $this->invokeLoadHandler("postLoadingModule");
+        
         $this->log("$module is loaded.");
         return true;
+    }
+    
+    protected function invokeLoadHandler($event)
+    {
+        $modfile = MODULE_PATH."/".$this->name."/mod.xml";
+        $xml = simplexml_load_file($modfile);
+        if (!isset($xml['LoadHandler']) && !empty($xml['LoadHandler'])) return;
+        $modLoadHandler = $xml['LoadHandler'];
+        $dotPos = strrpos($modLoadHandler, ".");
+        $package = $dotPos>0 ? substr($modLoadHandler, 0, $dotPos) : null;
+        $class = $dotPos>0 ? substr($modLoadHandler, $dotPos+1) : $modLoadHandler;
+        if (BizSystem::loadClass($class, $package)) {
+            $loadHandler = new $class();
+            if ($event == "beforeLoadingModule") {
+                $loadHandler->beforeLoadingModule($this);
+            }
+            else if ($event == "postLoadingModule") {
+                $loadHandler->postLoadingModule($this);
+            }
+        }
     }
     
 	public function giveActionAccess($role_id)
