@@ -148,9 +148,9 @@ class HTMLPreview extends Element
         	";
            $sHTML = "
            			<script>".$id."_data=".json_encode($header.$value)."</script>
-           			<iframe border=\"0\" allowtransparency=\"true\"
+           			<iframe border=\"0\" frameborder=\"0\" allowtransparency=\"true\"
            				tabIndex=\"-1\" style=\"width:100%;height:$height;background: none repeat scroll 0 0 transparent;border: 0 none;border-collapse: collapse;\"
-           				src=\"javascript:void(%20setTimeout(%20function()%7Bdocument.open()%3Bdocument.write(%20window.parent%5B%20%22".$id."_data%22%20%5D%20)%3Bdocument.close()%3Bwindow.parent%5B%20%22".$id."_data%22%20%5D%20%3D%20null%3B%7D%2C%20200%20)%20)\">
+           				src=\"javascript:setTimeout(%20function()%7Bdocument.open()%3Bdocument.write(%20window.parent%5B%20%22".$id."_data%22%20%5D%20)%3Bdocument.close()%3Bwindow.parent%5B%20%22".$id."_data%22%20%5D%20%3D%20null%3B%7D%2C%20200%20)\">
            			</iframe>
            			";
             
