@@ -171,11 +171,12 @@ margin-top:4px;
 
 				
 		<div id="element_set_panel_{$es_counter}" style="padding-bottom:0px;">			
-		<div style="padding-bottom:15px;">
+		
 		{if $es_counter eq 0 }
 		
-		
+		<div style="display:none;">
 		{else}
+		<div style="padding-bottom:15px;">
 		{assign var=es_elem_counter value=0}
 		{foreach item=item key=itemName from=$dataPanel}						
 			{if $item.elementset eq $setname}

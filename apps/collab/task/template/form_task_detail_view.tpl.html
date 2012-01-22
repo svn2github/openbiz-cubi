@@ -171,11 +171,10 @@ margin-top:4px;
 
 		
 		<div id="element_set_panel_{$es_counter}" style="padding-bottom:0px;">			
-		<div style="padding-bottom:15px;">
-	{if $es_counter eq 0 }
-		
-	{elseif $es_counter eq 1}	
-						
+		{if $es_counter eq 0 }		
+		<div style="display:none;">				
+		{elseif $es_counter eq 1}	
+		<div style="padding-bottom:15px;">				
 			{assign var=item value=$dataPanel.fld_workhour}		
 			<table  class="input_row">				
 			<tr>	
