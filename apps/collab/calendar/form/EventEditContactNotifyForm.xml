@@ -23,7 +23,7 @@
 			<EventHandler Name="fld_notify_contacts_onclick" Event="onchange" Function="UpdateForm()"  />
 		</Element>
 		<Element Name="fld_notify_contacts_time" Hidden="{@:Elem[fld_notify_contacts].Value=='0'?'Y':'N'}" ElementSet="Notify Contacts" Class="Listbox" selectFrom="collab.calendar.lov.EventLOV(NotifyTimeType)" FieldName="notify_contacts_time" Label="Time Setting" AllowURLParam="N" />		
-		<Element Name="fld_notify_contacts_method_sms"  Hidden="{@:Elem[fld_notify_contacts].Value=='0'?'Y':'N'}" ElementSet="Notify Contacts" Class="Checkbox" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" FieldName="notify_contacts_email" Label="Send Email" AllowURLParam="N" />
+		<Element Name="fld_notify_contacts_method_sms"  Hidden="{@:Elem[fld_notify_contacts].Value=='0'?'Y':'N'}" ElementSet="Notify Contacts" Class="Checkbox" DefaultValue="0" SelectFrom="1" FieldName="notify_contacts_email" Label="Send Email" AllowURLParam="N" />
 		<Element Name="fld_notify_contacts_method_email"  Hidden="{@:Elem[fld_notify_contacts].Value=='0'?'Y':'N'}" ElementSet="Notify Contacts" Class="Checkbox" DefaultValue="0" SelectFrom="1" FieldName="notify_contacts_sms" Label="Send SMS" AllowURLParam="N" />
 		
     </DataPanel>
