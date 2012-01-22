@@ -1,15 +1,15 @@
 <form id='{$form.name}' name='{$form.name}'>
 	<table></table>
 	<div class="document_widget widget_control">
-		<div class="title" style="width:165px;float:none;height:34px;">
+		<div class="title" style="width:175px;float:none;height:34px;">
 			<div style="float:left;width:35px;">
 				<a class="icon" href="{$app_index}/collab/document_manage"></a>
 			</div>
-			<div style="float:left;width:74px;height:30px;">
-				<h2 style="width:110px;">{$form.title}</h2>
+			<div style="float:left;width:70px;height:30px;">
+				<h2 style="width:70px;">{$form.title}</h2>
 				<p style="font-size:11px;">{$form.description}</p>
 			</div>
-			<div class="actions" style="padding-top:0px;">
+			<div class="actions" style="padding-top:0px;overflow:hidden;width:60px;">
 				{foreach item=elem from=$actionPanel}
 			    	{$elem.element}
 				{/foreach}
