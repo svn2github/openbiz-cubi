@@ -6,7 +6,7 @@
 				<a class="icon" href="{$app_index}/collab/note_manage"></a>
 			</div>
 			<div style="float:left;width:84px;height:30px;">
-				<h2 style="width:110px;">{$form.title}</h2>
+				<h2 style="width:80px;">{$form.title}</h2>
 				<p style="font-size:11px;">{$form.description}</p>
 			</div>
 			<div class="actions" style="padding-top:0px;">
@@ -20,7 +20,11 @@
 				<ul class="note_list">
 				    {assign var=row_counter value=0}            
      				{foreach item=row from=$dataPanel.data}
-					<li  style="border-bottom:3px solid #{$row.fld_color}" title="{$row.fld_title}">{$row.fld_share}</li>
+					<div style="padding-right:7px;padding-bottom:2px;float:left;">
+						<div  style="width:20px;overflow:hidden;border-bottom:3px solid #{$row.fld_color}" title="{$row.fld_title}">
+					{$row.fld_share}
+						</div>
+					</div>
 					{/foreach}
 				</ul>
 			</div>

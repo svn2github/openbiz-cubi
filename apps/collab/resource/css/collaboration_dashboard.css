@@ -375,14 +375,9 @@ Below code is for note wiget
 	display:block;
 	padding-top:2px;
 }
-#main .note_list li
-{
-	float:left;
-	margin-right:6px;	
-	margin-bottom:2px;
-}
 
-#main .note_list li a
+
+#main .note_list  a
 {
 	border-bottom:3px solid #dddddd;
 	width:16px;
@@ -405,21 +400,16 @@ Below code is for document wiget
 	display:block;
 	width:165px;
 }
-#main .document_list li
+#main .document_list td
 {
-	width:156px;
-	height:26px;
-	display:block;
-	margin-right:4px;	
-	padding-left:5px;
 	border-bottom:1px solid #dddddd;
 }
-#main .document_list li a
+#main .document_list  a
 {
 	color:#666666;
 	text-decoration: none;
 }
-#main .document_list li a:hover
+#main .document_list  a:hover
 {
 	color:#333333;
 	text-decoration: underline;
@@ -482,21 +472,16 @@ Below code is for message wiget
 	display:block;
 	width:165px;
 }
-#main .message_list li
+#main .message_list td
 {
-	width:160px;
-	height:36px;
-	display:block;
-	margin-right:4px;	
-	padding-left:5px;
 	border-bottom:1px solid #dddddd;
 }
-#main .message_list li a
+#main .message_list  a
 {
 	color:#666666;
 	text-decoration: none;
 }
-#main .message_list li a:hover
+#main .message_list  a:hover
 {
 	color:#333333;
 	text-decoration: underline;
@@ -521,21 +506,16 @@ Below code is for calendar wiget
 	display:block;
 	width:167px;
 }
-#main .calendar_list li
+#main .calendar_list td
 {
-	width:156px;
-	height:36px;
-	display:block;
-	margin-right:4px;	
-	padding-left:5px;
 	border-bottom:1px solid #dddddd;
 }
-#main .calendar_list li a
+#main .calendar_list a
 {
 	color:#666666;
 	text-decoration: none;
 }
-#main .calendar_list li a:hover
+#main .calendar_list a:hover
 {
 	color:#333333;
 	text-decoration: underline;

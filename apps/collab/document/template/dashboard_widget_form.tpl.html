@@ -17,20 +17,22 @@
 		</div>
 		<div style="padding-left:10px; width:167px;height:161px;">
 			<div class="widget_table_gray" style="height:161px;overflow:hidden;">
-				<ul class="document_list">
+				<table class="document_list" style="" border="0" cellpadding="0" cellspacing="0">
 				    {assign var=row_counter value=0}            
      				{foreach item=row from=$dataPanel.data}
      				{if $row_counter is odd}
-     				<li  style="border-right:6px solid #{$row.fld_color};background-color:#f7f7f7">
+     				<tr><td  style="border-right:6px solid #{$row.fld_color};background-color:#f7f7f7">
      				{else}
-					<li  style="border-right:6px solid #{$row.fld_color}">
+					<tr><td  style="border-right:6px solid #{$row.fld_color}">
 					{/if}
+					<div style="padding-left:5px;width:165px;height:26px;overflow:hidden;">
 					<span style="float:left;display:block;height:24px;line-height:26px;padding-top:2px;padding-right:8px;">{$row.fld_share}</span>
 					<span style="float:left;display:block;height:26px;line-height:26px;">{$row.fld_title}</span>
-					</li>
+					</div>
+					</td></tr>
 					{assign var=row_counter value=$row_counter+1}
 					{/foreach}
-				</ul>
+				</table>
 			</div>
 		</div>
 	</div>
