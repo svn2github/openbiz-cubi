@@ -140,7 +140,7 @@ Openbiz.Form = Class.create(
     collectData: function()
     {
     	/*this.form.fire("Form:BeforePost",{formName:this.name});  // fire Form:BeforePost. observers can update values accordingly*/
-    	var formData = this.form.serialize();
+    	try{var formData = this.form.serialize();}catch(e){var formData=''};
     	// TODO: add __url
         return formData;
     },
