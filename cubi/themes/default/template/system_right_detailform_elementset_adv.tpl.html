@@ -139,8 +139,8 @@ color:#666666;
 		
 		
 		{else}
-        <div id="element_set_panel_{$es_counter}" class="ui-tabs-panel">			
-		<div>
+        <div id="element_set_panel_{$es_counter}" class="ui-tabs-panel" style="padding-bottom:0px;">			
+		<div style="padding-bottom:15px;">
 		{assign var=es_elem_counter value=0}
 		{foreach item=item key=itemName from=$dataPanel}						
 			{if $item.elementset eq $setname}
