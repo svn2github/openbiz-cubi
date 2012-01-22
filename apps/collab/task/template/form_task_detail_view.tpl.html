@@ -169,12 +169,12 @@ margin-top:4px;
 	{foreach item=setname name=elemsets  from=$form.elementSets}
 	
 
-				
+	{if $es_counter eq 0 }
+		
+	{elseif $es_counter eq 1}			
 		<div id="element_set_panel_{$es_counter}" >			
 		<div>
-		{if $es_counter eq 0 }
-		
-		{elseif $es_counter eq 1}
+
 						
 			{assign var=item value=$dataPanel.fld_workhour}		
 			<table  class="input_row">				
@@ -310,10 +310,10 @@ margin-top:4px;
 			{assign var=es_elem_counter value=$es_elem_counter+1}					
 			{/if}
 		{/foreach}
+			</div>	 			
+		</div>		
 		{/if}
-			</div>
-	 			
-		</div>
+			
 	{literal}
 	<script>
 	var formname = '{$form.name}';

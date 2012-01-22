@@ -143,12 +143,13 @@ margin-top:4px;
 	{assign var=es_counter value=0}
 	{foreach item=setname name=elemsets  from=$form.elementSets}
 
-		<div id="element_set_panel_{$es_counter}" >			
-		<div>
 		{if $es_counter eq 0 }
 		
 		
 		{else}
+		<div id="element_set_panel_{$es_counter}" >			
+		<div>
+		
 		{assign var=es_elem_counter value=0}
 		{foreach item=item key=itemName from=$dataPanel}						
 			{if $item.elementset eq $setname}
@@ -184,10 +185,11 @@ margin-top:4px;
 			{/if}
 			{/if}
 		{/foreach}
-		{/if}
-			</div>
+		</div>
 	 			
 		</div>
+		{/if}
+			
 	
 	{assign var=es_counter value=$es_counter+1}			
 	{/foreach}
