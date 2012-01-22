@@ -169,13 +169,13 @@ margin-top:4px;
 	{foreach item=setname name=elemsets  from=$form.elementSets}
 	
 
+				
+		<div id="element_set_panel_{$es_counter}" style="padding-bottom:0px;">			
+		<div style="padding-bottom:15px;">
 		{if $es_counter eq 0 }
 		
 		
-		{else}				
-		<div id="element_set_panel_{$es_counter}" >			
-		<div>
-
+		{else}
 		{assign var=es_elem_counter value=0}
 		{foreach item=item key=itemName from=$dataPanel}						
 			{if $item.elementset eq $setname}
@@ -240,11 +240,13 @@ margin-top:4px;
 			{assign var=es_elem_counter value=$es_elem_counter+1}					
 			{/if}
 		{/foreach}
-		</div>
+		{/if}
+			</div>
 	 			
 		</div>
-		{/if}
-			
+	
+	{assign var=es_counter value=$es_counter+1}			
+	{/foreach}		
 	<script>
 	var formname = '{$form.name}';
 	{literal}
@@ -256,12 +258,12 @@ margin-top:4px;
 		}
 	}).css({'padding-left':'0px','width':'670px','display':'block'});		
 	lastViewedTab = c.get(formname+'_lastTab');
-	$tabs.tabs('select','#'+lastViewedTab);
+	if(lastViewedTab){
+		$tabs.tabs('select','#'+lastViewedTab);
+	}
 	{/literal}
 	</script>
-	
-	{assign var=es_counter value=$es_counter+1}			
-	{/foreach}
+
 		<div style="height:10px;"></div>
 	 	{if $actionPanel|@count > 0}
 	 		{if $form.ActionElementSets|@count > 0}

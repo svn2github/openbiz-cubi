@@ -169,12 +169,12 @@ margin-top:4px;
 	{foreach item=setname name=elemsets  from=$form.elementSets}
 	
 
+		
+		<div id="element_set_panel_{$es_counter}" style="padding-bottom:0px;">			
+		<div style="padding-bottom:15px;">
 	{if $es_counter eq 0 }
 		
-	{elseif $es_counter eq 1}			
-		<div id="element_set_panel_{$es_counter}" >			
-		<div>
-
+	{elseif $es_counter eq 1}	
 						
 			{assign var=item value=$dataPanel.fld_workhour}		
 			<table  class="input_row">				
@@ -310,10 +310,13 @@ margin-top:4px;
 			{assign var=es_elem_counter value=$es_elem_counter+1}					
 			{/if}
 		{/foreach}
-			</div>	 			
-		</div>		
+	
 		{/if}
-			
+					</div>	 			
+		</div>		
+	
+		{assign var=es_counter value=$es_counter+1}			
+	{/foreach}
 	{literal}
 	<script>
 	var formname = '{$form.name}';
@@ -321,8 +324,8 @@ margin-top:4px;
 	var c = new Cookies();		
 	var $tabs = $j( "#tabs" ).tabs({
 		select: function(event, ui)
-		{				
-			c.set(formname+'_lastTab',ui.panel.id);			
+		{	
+				c.set(formname+'_lastTab',ui.panel.id);
 		}
 	}).css({'padding-left':'0px','width':'670px','display':'block'});		
 	lastViewedTab = c.get(formname+'_lastTab');
@@ -346,8 +349,7 @@ margin-top:4px;
 	}
 	</script>
 	{/literal}
-	{assign var=es_counter value=$es_counter+1}			
-	{/foreach}
+
 		<div style="height:10px;"></div>
 	 	{if $actionPanel|@count > 0}
 	 		{if $form.ActionElementSets|@count > 0}
