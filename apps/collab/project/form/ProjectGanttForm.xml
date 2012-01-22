@@ -33,7 +33,9 @@
 		</Element>
 		<Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_type" Class="ColumnText"  Style="line-height:24px;" FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
-        
+                <Element Name="btn_update_time" Class="Hidden" Hidden="Y" Text="Print" CssClass="button_gray_m">
+            <EventHandler Name="btn_update_time_onchange" Event="onchange" EventLogMsg="" Function="taskUpdateTime()" />
+        </Element>
     </DataPanel>
     <ActionPanel>
 
