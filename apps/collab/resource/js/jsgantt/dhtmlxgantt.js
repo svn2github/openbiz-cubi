@@ -2413,7 +2413,10 @@ GanttChart.prototype.createPanelTasks = function()
     var divTasks = document.createElement("div");
     divTasks.className = "taskPanel";
     divTasks.style.cssText = "position:relative;";
+    try{
     divTasks.style.height = this.contentHeight - 63 + "px";
+    }catch(e)
+    {};
     var w = this.startDate ? (this.startDate.getDay()-1) : ((new Date(0)).getDay()-1);
     if (w==-1) w=6;
     divTasks.style.background = "url(" + this.imgs + "bg_week.png) -"+(w*24)+"px 0px";
@@ -2430,7 +2433,10 @@ GanttChart.prototype.createPanelNamesTasks = function()
     var divListNames = document.createElement("div");
     divListNames.innerHTML = "&nbsp;";
     divListNames.style.cssText = "position:relative;background:url(" + this.imgs + "bg.png)";
+    try{
     divListNames.style.height = this.contentHeight - 63 + "px";
+    }catch(e)
+    {};
     divListNames.style.width = this.maxWidthPanelNames + "px";
 
     return divListNames;
@@ -2904,12 +2910,15 @@ GanttChart.prototype.create = function(divId)
 
     //Show panel of names
     if (this._showTreePanel) {
+    	try{
         this.panelNames.style.height = (this.contentHeight - 56) + "px";
-        this.panelNames.style.width = this.maxWidthPanelNames + "px";
         this.oData.style.width = (this.contentWidth - this.maxWidthPanelNames) + "px";
         this.panelTasks.style.width = this.dayInPixels * this.countDays + "px";
         this.panelTime.style.width = (this.contentWidth - this.maxWidthPanelNames - 0*18) + "px";
         this.panelTime.firstChild.style.width = this.dayInPixels * this.countDays + "px";
+    	}catch(e){};
+        this.panelNames.style.width = this.maxWidthPanelNames + "px";                
+        
         if (this.isShowConMenu && this.contextMenu == null) this.contextMenu = new contextMenu(this);
     } else {
         this.oData.style.width = this.contentWidth + "px";
