@@ -20,8 +20,8 @@
 				<ul class="note_list">
 				    {assign var=row_counter value=0}            
      				{foreach item=row from=$dataPanel.data}
-					<div style="padding-right:7px;padding-bottom:2px;float:left;">
-						<div  style="width:20px;overflow:hidden;border-bottom:3px solid #{$row.fld_color}" title="{$row.fld_title}">
+					<div style="padding-right:7px;padding-bottom:1px;float:left;">
+						<div  style="width:20px;height:20px;overflow:hidden;border-bottom:3px solid #{$row.fld_color}" title="{$row.fld_title}">
 					{$row.fld_share}
 						</div>
 					</div>
