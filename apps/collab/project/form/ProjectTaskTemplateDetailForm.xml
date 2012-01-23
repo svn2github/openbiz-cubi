@@ -11,6 +11,7 @@
 
 		</Element>
 		<Element Name="fld_priority" ElementSet="General" Class="LabelList" DefaultValue="1" FieldName="priority" Label="Priority" SelectFrom="collab.task.lov.TaskLOV(Priority)" AllowURLParam="N" />
+		<Element Name="fld_severity" ElementSet="General" Class="LabelList" DefaultValue="1" FieldName="severity" Label="Severity" SelectFrom="collab.task.lov.TaskLOV(Severity)" AllowURLParam="N" />
 		
 		<Element Name="fld_milestone" ElementSet="General" Class="LabelBool" FieldName="milestone"  Label="Milestone" DefaultValue="0" SelectFrom="1" Description="" AllowURLParam="Y" >
 		</Element>

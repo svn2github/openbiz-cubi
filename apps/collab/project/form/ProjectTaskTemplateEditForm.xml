@@ -11,7 +11,8 @@
 		<Element Name="fld_dependency" ElementSet="General" Description="{@:m_dependency_task_desc}"  Class="Listbox" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="collab.project.do.ProjectTaskTemplateDO[title:Id],[project_id]={@collab.project.form.ProjectTemplateListForm:m_RecordId}" AllowURLParam="N" >
 			<EventHandler Name="fld_dependency_onchange" Event="onchange" Function="UpdateForm()"  />
 		</Element>
-		<Element Name="fld_priority" ElementSet="General" Class="Listbox" DefaultValue="1" FieldName="priority" Label="Priority" SelectFrom="collab.task.lov.TaskLOV(Priority)" AllowURLParam="N" />
+		<Element Name="fld_priority" ElementSet="General" Class="Listbox"  FieldName="priority" Label="Priority" SelectFrom="collab.task.lov.TaskLOV(Priority)" AllowURLParam="N" />
+		<Element Name="fld_severity" ElementSet="General" Class="Listbox"  FieldName="severity" Label="Severity" SelectFrom="collab.task.lov.TaskLOV(Severity)" AllowURLParam="N" />
 		
 		<Element Name="fld_milestone" ElementSet="General" Class="Checkbox" FieldName="milestone" DefaultChecked="{@:Params[all_day]?'Y':'N'}" Label="Milestone" DefaultValue="0" SelectFrom="1" Description="" AllowURLParam="Y" >
 		</Element>

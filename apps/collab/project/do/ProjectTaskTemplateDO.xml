@@ -8,6 +8,7 @@
 		<BizField Name="parent_task_id" Column="parent_task_id" Type=""/>
 		<BizField Name="dependency_task_id" Column="dependency_task_id" Type=""/>		
 		<BizField Name="priority" Column="priority" Type=""/>
+		<BizField Name="severity" Column="severity" Type=""/>
 		<BizField Name="milestone" Column="milestone" Type=""/>		
 		<BizField Name="start_date" Column="start_date" Required="Y" Type=""/>		
 		<BizField Name="during_days" Column="during_days"  Required="Y" Type=""/>
