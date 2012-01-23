@@ -67,11 +67,11 @@
         <Element Name="btn_print" Class="Button" Text="Print" CssClass="button_gray_m">
             <EventHandler Name="print_onclick" Event="onclick" EventLogMsg="" Function="UpdateForm()" ShortcutKey="Ctrl+P" ContextMenu="Print"/>
         </Element>
-                
+        <!-- 
         <Element Name="fld_viewmode" Class="Listbox" DefaultValue="{@:m_ViewMode}" SelectFrom="collab.task.lov.GanttLOV(ViewMode)" Text="Print" style="margin-left:5px;" >
             <EventHandler Name="btn_viewmode_onclick" Event="onchange" EventLogMsg="" Function="switchMode()" />
         </Element>
-        
+         -->
         <Element Name="btn_render_gantt" Class="Hidden" Hidden="Y" Text="Print" CssClass="button_gray_m">
             <EventHandler Name="btn_render_gantt_onclick" Event="onclick" EventLogMsg="" Function="renderGantt()" />
         </Element>

@@ -10,6 +10,12 @@
    <Priority Value="1" text="Normal" Picture="{RESOURCE_URL}/collab/task/images/icon_task_status_1_s.png"/>
    <Priority Value="0" text="Low" Picture="{RESOURCE_URL}/collab/task/images/icon_task_status_0_s.png"/>
 
+   <Severity Value="4" text="Stopper" Picture="{RESOURCE_URL}/collab/task/images/icon_task_severity_4_s.png"/>
+   <Severity Value="3" text="Major" Picture="{RESOURCE_URL}/collab/task/images/icon_task_severity_3_s.png"/>   
+   <Severity Value="2" text="Minor" Picture="{RESOURCE_URL}/collab/task/images/icon_task_severity_2_s.png"/>
+   <Severity Value="1" text="Trivial" Picture="{RESOURCE_URL}/collab/task/images/icon_task_severity_1_s.png"/>
+
+
 	<Progress Text="0%" Value="0"/> 
 	<Progress Text="5%" Value="5"/>  
 	<Progress Text="10%" Value="10"/>

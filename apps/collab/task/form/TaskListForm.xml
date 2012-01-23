@@ -23,13 +23,16 @@
         </Element>
         <Element Name="fld_progress" Class="ColumnBar" Width="120" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:170px" MaxValue="100" FieldName="progress" Label="Progress"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
         </Element>
-		<Element Name="fld_reminder" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/task/images/icon_reminder_enable.gif"  FalseImg="{RESOURCE_URL}/collab/task/images/icon_reminder_disable.gif" FieldName="reminder" Sortable="Y" Label="Rmd" Link="javascript:;">
-			<EventHandler Name="fld_reminder_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_reminder,{@:Elem[fld_reminder].Value})"/>		
-		</Element>
+		
         <Element Name="fld_priority_value" Class="Hidden" Hidden="Y" FieldName="priority"  />
         <Element Name="fld_priority" Class="ColumnImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Pri" Link="javascript:;">
 			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority_value,{@:Elem[fld_priority_value].Value},0,2)"/>		
 		</Element>
+		<Element Name="fld_severity_value" Class="Hidden" Hidden="Y" FieldName="severity"  />
+        <Element Name="fld_severity" Class="ColumnImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_severity_{@:Elem[fld_severity_value].Value}.gif" FieldName="" Sortable="Y" Label="Sev" Link="javascript:;">
+			<EventHandler Name="fld_severity_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_severity_value,{@:Elem[fld_severity_value].Value},1,4)"/>		
+		</Element>
+		
         <Element Name="fld_milestone" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_enable.gif"  FalseImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_disable.gif" FieldName="milestone" Sortable="Y" Label="Mst" Link="javascript:;">
 			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_milestone,{@:Elem[fld_milestone].Value})"/>		
 		</Element>
@@ -105,6 +108,9 @@
         </Element> 
         <Element Name="pri_selector" cssclass="input_select_m" BlankOption="All Priority" Class="DropDownList" FieldName="priority" Label="" SelectFrom="collab.task.lov.TaskLOV(Priority)" >
             <EventHandler Name="pri_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element> 
+        <Element Name="sev_selector" cssclass="input_select_m" BlankOption="All Severity" Class="DropDownList" FieldName="severity" Label="" SelectFrom="collab.task.lov.TaskLOV(Severity)" >
+            <EventHandler Name="sev_selector_onchange" Event="onchange" Function="RunSearch()"/>
         </Element> 
     	<Element Name="type_selector" cssclass="input_select_m" BlankOption="All Types" Class="collab.lib.TypeSelector" FieldName="type_id" Label="" SelectFrom="collab.task.do.TaskTypeDO[name:Id:color]" >
             <EventHandler Name="type_selector_onchange" Event="onchange" Function="RunSearch()"/>

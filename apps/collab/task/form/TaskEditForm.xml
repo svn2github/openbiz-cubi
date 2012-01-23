@@ -7,9 +7,11 @@
 		<Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 		<Element Name="fld_project" ElementSet="General" Description="This task will belong selected project" Class="Listbox" BlankOption="none,0" FieldName="project_id" Label="Project" SelectFrom="collab.project.do.ProjectDO[name:Id]" DefaultValue="{@:m_DefaultProject}" AllowURLParam="N" />   
 		
+		<!-- 
 		<Element Name="fld_parent" ElementSet="General" Description="{@:m_parent_task_desc}" Class="Listbox" BlankOption="none,0" FieldName="parent_task_id" Label="Parent Task" SelectFrom="collab.task.do.TaskListDO[title:Id]" AllowURLParam="N" >
 			<EventHandler Name="fld_parent_onchange" Event="onchange" Function="UpdateForm()"  />		
 		</Element>
+		 -->
 		<Element Name="fld_dependency" ElementSet="General" Description="{@:m_dependency_task_desc}"  Class="Listbox" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="collab.task.do.TaskListDO[title:Id]" AllowURLParam="N" >
 			<EventHandler Name="fld_dependency_onchange" Event="onchange" Function="UpdateForm()"  />
 		</Element>	

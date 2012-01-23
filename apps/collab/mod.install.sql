@@ -669,3 +669,9 @@ CREATE TABLE `task_budget` (
 insert  into `role`(`name`,`description`,`status`,`default`,`startpage`) values ('Collaboration Admin','Collaboration system administrator',1,0,'/collab/dashboard');
 insert  into `role`(`name`,`description`,`status`,`default`,`startpage`) values ('Collaboration Member','General Collaboration system member',1,1,'/collab/dashboard');
 
+/* 
+added task severity
+version 1.0.1
+*/
+ALTER TABLE `task` ADD `severity` INT NOT NULL DEFAULT '2' AFTER `priority`;  
+ALTER TABLE `project` ADD `condition` INT NULL DEFAULT '0' AFTER `priority`;

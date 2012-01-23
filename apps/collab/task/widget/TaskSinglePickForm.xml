@@ -22,6 +22,10 @@
         <Element Name="fld_priority" Class="ColumnImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Pri"  >
 					
 		</Element>
+		
+		<Element Name="fld_severity_value" Class="Hidden" Hidden="Y" FieldName="severity"  />
+        <Element Name="fld_severity" Class="ColumnImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_severity_{@:Elem[fld_severity_value].Value}.gif" FieldName="" Sortable="Y" Label="Sev" Link="javascript:;">					
+		</Element>
         <Element Name="fld_milestone" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_enable.gif"  FalseImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_disable.gif" FieldName="milestone" Sortable="Y" Label="Mst"  >
 					
 		</Element>

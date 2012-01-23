@@ -17,14 +17,20 @@
 		<Element Name="fld_priority_value" Class="Hidden" Hidden="Y" FieldName="priority"  />		
 		<Element Name="fld_priority" Class="LabelImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Priority" >
 		</Element>
+		<Element Name="fld_severity_value" Class="Hidden" Hidden="Y" FieldName="severity"  />
+        <Element Name="fld_severity" Class="LabelImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_severity_{@:Elem[fld_severity_value].Value}.gif" FieldName="" Sortable="Y" Label="Severity" Link="javascript:;">
+			<EventHandler Name="fld_severity_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_severity_value,{@:Elem[fld_severity_value].Value},1,4)"/>		
+		</Element>
 		 <Element Name="fld_milestone" Class="LabelBool" ElementSet="General" TrueImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_enable.gif"  FalseImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_disable.gif" FieldName="milestone" Sortable="Y" Label="Milestone" Link="javascript:;">
 			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_milestone,{@:Elem[fld_milestone].Value})"/>		
 		</Element>
+		<Element Name="fld_parent" ElementSet="General" Class="LabelList" BlankOption="none" FieldName="parent_task_id" Label="Parent Task" SelectFrom="collab.task.do.TaskListDO[title:Id]" AllowURLParam="N" />
 		<Element Name="fld_dependency" ElementSet="General" Class="LabelList" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="collab.task.do.TaskListDO[title:Id]" AllowURLParam="N" />
 		
 		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 
-		<Element Name="fld_priority_update" ElementSet="Status" Class="Listbox" DefaultValue="0" FieldName="priority" Label="Priority" SelectFrom="collab.task.lov.TaskLOV(Priority)" AllowURLParam="N" />
+		<Element Name="fld_priority_update" ElementSet="Status" Class="Listbox"  FieldName="priority" Label="Priority" SelectFrom="collab.task.lov.TaskLOV(Priority)" AllowURLParam="N" />
+		<Element Name="fld_severity_update" ElementSet="Status" Class="Listbox" FieldName="severity" Label="Severity" SelectFrom="collab.task.lov.TaskLOV(Severity)" AllowURLParam="N" />
 		
 		<Element Name="fld_status_update" ElementSet="Status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" AllowURLParam="N" />				
 		<Element Name="fld_progress_update" ElementSet="Status" Class="Listbox"  FieldName="progress" Label="Progress" SelectFrom="collab.task.lov.TaskLOV(Progress)" AllowURLParam="N" />

@@ -10,6 +10,7 @@
 		<BizField Name="dependency_task_id" Column="dependency_task_id" Type=""/>
 		<BizField Name="status" Column="status" Type=""/>
 		<BizField Name="priority" Column="priority" Type=""/>
+		<BizField Name="severity" Column="severity" Type=""/>
 		<BizField Name="milestone" Column="milestone" Type=""/>
 
 		<BizField Name="reminder" 		Column="reminder"  Required="N" Type=""/>

@@ -4,7 +4,8 @@
 		<BizField Name="Id" Column="id"     Type=""/>
 		<BizField Name="title" Column="title" Length="255"   Required="N" Type=""/>	
 		<BizField Name="priority" Column="priority" Type=""/>		
-		<BizField Name="status" Column="status" Type=""/>
+		<BizField Name="severity" Column="severity" Type=""/>
+		<BizField Name="status" Column="status" Type=""/>		
 		
 		<BizField Name="start_time" Column="start_time" Type=""/>
 		<BizField Name="finish_time" Column="finish_time" Type=""/>

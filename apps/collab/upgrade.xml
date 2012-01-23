@@ -93,7 +93,7 @@ CREATE TABLE `project_event` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
         ]]></UpgradeSql>
        </Version>
-       <Version Name="1.0">
+       <Version Name="1.0.0">
         <UpgradeSQL>
         <![CDATA[
 DROP TABLE IF EXISTS `project_template`;
@@ -138,4 +138,14 @@ CREATE TABLE `project_task_template` (
         </UpgradeSQL>
         
     </Version>
+    <Version Name="1.0.1">
+        <UpgradeSql><![CDATA[
+/* 
+added task severity
+*/
+ALTER TABLE `task` ADD `severity` INT NOT NULL DEFAULT '2' AFTER `priority`;  
+ALTER TABLE `project` ADD `condition` INT NULL DEFAULT '0' AFTER `priority`;
+        ]]></UpgradeSql>
+    </Version>
+   
 </Upgrade>
