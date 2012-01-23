@@ -9,9 +9,9 @@
    <ProjectStatus Value="3" text="Waiting"/>
    <ProjectStatus Value="4" text="Deferred"/>
    
-   <ProjectCondition Value="0" text="On Target"/>
-   <ProjectCondition Value="1" text="At Risk"/>
-   <ProjectCondition Value="2" text="In Trouble"/>
+   <ProjectCondition Value="0" text="On Target" Picture="{RESOURCE_URL}/collab/project/images/icon_project_condition_0_s.png"/>
+   <ProjectCondition Value="1" text="At Risk" Picture="{RESOURCE_URL}/collab/project/images/icon_project_condition_1_s.png"/>
+   <ProjectCondition Value="2" text="In Trouble" Picture="{RESOURCE_URL}/collab/project/images/icon_project_condition_2_s.png"/>
       
    
    <Priority Value="2" text="High" Picture="{RESOURCE_URL}/collab/project/images/icon_project_status_2_s.png"/>   

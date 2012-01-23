@@ -103,6 +103,9 @@
         <Element Name="pri_selector" cssclass="input_select_m" BlankOption="All Priority" Class="DropDownList" FieldName="priority" Label="" SelectFrom="collab.project.lov.ProjectLOV(Priority)" >
             <EventHandler Name="pri_selector_onchange" Event="onchange" Function="RunSearch()"/>
         </Element> 
+        <Element Name="cond_selector" cssclass="input_select_m" BlankOption="All Condition" Class="DropDownList" FieldName="condition" Label="" SelectFrom="collab.project.lov.ProjectLOV(ProjectCondition)" >
+            <EventHandler Name="cond_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element> 
     	<Element Name="type_selector" cssclass="input_select_m" BlankOption="All Types" Class="collab.lib.TypeSelector" FieldName="type_id" Label="" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" >
             <EventHandler Name="type_selector_onchange" Event="onchange" Function="RunSearch()"/>
         </Element> 
