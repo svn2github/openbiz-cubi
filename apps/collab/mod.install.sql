@@ -49,28 +49,31 @@ CREATE TABLE `task` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `task_type`;
-CREATE TABLE `task_type` (
+CREATE TABLE IF NOT EXISTS `task_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `color` varchar(255) NOT NULL,
   `sortorder` int(11) NOT NULL,
   `published` int(11) NOT NULL,
-  `group_id` INT(11) default '1',
-  `group_perm` INT(11) default '1',
-  `other_perm` INT(11) default '1' ,
+  `group_id` int(11) DEFAULT '1',
+  `group_perm` int(11) DEFAULT '1',
+  `other_perm` int(11) DEFAULT '1',
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
-INSERT INTO `task_type` (`id`, `name`, `color`,`description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-(1, 'Business', '66c2ff', 'Business Contacts', 45, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
-(2, 'Family', 'ff7aa0', 'Family Contacts', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
-(3, 'Provider','7fff7f', 'Business Provider Contacts', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
-(4, 'Client','ffd042', 'Business Client Contacts', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
+
+INSERT INTO `task_type` (`id`, `name`, `description`, `color`, `sortorder`, `published`, `group_id`, `group_perm`, `other_perm`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+(1, 'General', 'General office releated tasks', '66c2ff', 45, 1, 1, 1, 1, 1, '2010-05-23 01:09:06', 1, '2012-01-23 22:34:22'),
+(2, 'Enhancement', 'Feature enhancement related releated tasks', '7fff6b', 45, 1, 1, 1, 1, 1, '2010-05-23 01:23:04', 1, '2012-01-23 22:35:57'),
+(3, 'New Feature', 'New feature releated tasks', 'ffea5e', 50, 1, 1, 1, 1, 1, '2010-05-23 01:34:12', 1, '2012-01-23 22:36:56'),
+(4, 'Bug Fix', 'Bug fix releated tasks', 'ff8f8f', 45, 1, 1, 1, 1, 1, '2010-05-23 01:34:39', 1, '2012-01-23 22:39:40'),
+(5, 'Quality Check', 'Quality Check related tasks', 'faaff1', 50, 1, 1, 1, 1, 1, '2012-01-23 22:38:08', 1, '2012-01-23 22:39:52'),
+(6, 'Requirement', 'Reuqrement Collection related tasks', 'd7ffc7', 50, 1, 1, 1, 1, 1, '2012-01-23 22:41:09', 1, '2012-01-23 22:41:35');
 
 
 DROP TABLE IF EXISTS `task_contact`;
