@@ -12,7 +12,7 @@
 		</Element>
 		<Element Name="fld_priority" ElementSet="Setting" Class="Listbox" DefaultValue="1" FieldName="priority" Label="Priority" SelectFrom="collab.project.lov.ProjectLOV(Priority)" AllowURLParam="N" />
 		<Element Name="fld_status_update" ElementSet="Setting" Class="Listbox" FieldName="status" Label="Status" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" AllowURLParam="N" />
-					        
+		<Element Name="fld_condition_update" ElementSet="Setting" Class="Listbox" FieldName="condition" Label="Condition" SelectFrom="collab.project.lov.ProjectLOV(ProjectCondition)" AllowURLParam="N" />			        
     </DataPanel>
     <ActionPanel>
     	<Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">

@@ -15,6 +15,10 @@
 		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Priority" Link="javascript:;">
 			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority_value,{@:Elem[fld_priority_value].Value},0,2)"/>		
 		</Element>
+		<Element Name="fld_condition_value" Class="Hidden" Hidden="Y" FieldName="condition"  />		
+		<Element Name="fld_condition" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_condition_{@:Elem[fld_condition_value].Value}.png" FieldName="" Sortable="Y" Label="Condition" Link="javascript:;">
+			<EventHandler Name="fld_condition_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_condition_value,{@:Elem[fld_condition_value].Value},0,2)"/>		
+		</Element>		
 		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 		
 		<Element Name="fld_related_task"   ElementSet="Task" Class="FormElement" FormReference="collab.task.widget.TaskListEditForm" FieldName="" Label="" AllowURLParam="N" />

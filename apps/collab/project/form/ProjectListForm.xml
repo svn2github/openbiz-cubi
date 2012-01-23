@@ -17,14 +17,23 @@
         <Element Name="fld_title"  MaxLength="30" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
+        <!-- 
         <Element Name="fld_desc"  MaxLength="30" Class="ColumnText" FieldName="description" Label="Description" Maxlenght="20"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="">         
         </Element>
+         -->
+        
         <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" FieldName="status" Label="Status" Link="javascript:;" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         <EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateProjectStatus({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>         
         </Element>
 
+ 		<Element Name="fld_condition_value" Class="Hidden" Hidden="Y" FieldName="condition"  />
+		<Element Name="fld_condition" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_condition_{@:Elem[fld_condition_value].Value}.png" FieldName="" Sortable="Y" Label="Cond" Link="javascript:;">		
+        	<EventHandler Name="fld_conditoin_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_condition_value,{@:Elem[fld_condition_value].Value},0,2)"/>         
+        </Element>
+        
+
 		<Element Name="fld_priority_value" Class="Hidden" Hidden="Y" FieldName="priority"  />
-		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Priority" Link="javascript:;">
+		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Pri" Link="javascript:;">
 			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority_value,{@:Elem[fld_priority_value].Value},0,2)"/>		
 		</Element>
 		<!--

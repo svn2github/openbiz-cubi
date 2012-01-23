@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `task_type` (
   `update_by` int(11) NOT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
 INSERT INTO `task_type` (`id`, `name`, `description`, `color`, `sortorder`, `published`, `group_id`, `group_perm`, `other_perm`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
@@ -539,28 +539,30 @@ tables for project management
 
 SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `project_type`;
-CREATE TABLE `project_type` (
+CREATE TABLE IF NOT EXISTS `project_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `color` varchar(255) NOT NULL,
   `sortorder` int(11) NOT NULL,
   `published` int(11) NOT NULL,
-  `group_id` INT(11) default '1',
-  `group_perm` INT(11) default '1',
-  `other_perm` INT(11) default '1' ,
+  `group_id` int(11) DEFAULT '1',
+  `group_perm` int(11) DEFAULT '1',
+  `other_perm` int(11) DEFAULT '1',
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-INSERT INTO `project_type` (`id`, `name`, `color`,`description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-(1, 'Business', '66c2ff', 'Business Contacts', 45, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
-(2, 'Family', 'ff7aa0', 'Family Contacts', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
-(3, 'Provider', '7fff7f', 'Business Provider Contacts', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
-(4, 'Client', 'ffd042','Business Client Contacts', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
+
+INSERT INTO `project_type` (`id`, `name`, `description`, `color`, `sortorder`, `published`, `group_id`, `group_perm`, `other_perm`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+(1, 'General', 'General Type of Projects', '66c2ff', 45, 1, 1, 1, 1, 1, '2010-05-23 01:09:06', 1, '2012-01-20 15:59:14'),
+(2, 'Marketing', 'Marketing and Tradeshows', 'ff7aa0', 45, 1, 1, 1, 1, 1, '2010-05-23 01:23:04', 1, '2012-01-24 01:16:40'),
+(3, 'Product', 'Proudct Launch', '7fff7f', 50, 1, 1, 1, 1, 1, '2010-05-23 01:34:12', 1, '2012-01-24 01:17:29'),
+(4, 'Press', 'Press Release', 'ffd042', 45, 1, 1, 1, 1, 1, '2010-05-23 01:34:39', 1, '2012-01-24 01:17:05'),
+(5, 'Design', 'Design projects like sales brochure', 'ebc9ff', 50, 1, 1, 1, 1, 1, '2012-01-24 01:19:15', 1, '2012-01-24 01:20:52');
 
 DROP TABLE IF EXISTS `project`;
 CREATE TABLE `project` (
