@@ -673,5 +673,6 @@ insert  into `role`(`name`,`description`,`status`,`default`,`startpage`) values 
 added task severity
 version 1.0.1
 */
-ALTER TABLE `task` ADD `severity` INT NOT NULL DEFAULT '2' AFTER `priority`;  
+ALTER TABLE `task` ADD `severity` INT NOT NULL DEFAULT '2' AFTER `priority`;
+ALTER TABLE `project_task_template` ADD `severity` INT NOT NULL DEFAULT '2' AFTER `priority`;  
 ALTER TABLE `project` ADD `condition` INT NULL DEFAULT '0' AFTER `priority`;
