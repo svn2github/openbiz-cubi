@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ChangeLogDO" Description="" DataPermControl="N" Class="BizDataObj" DBName="Default" Table="changelog" SearchRule="" SortRule="[Id] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" Column="id"     Type=""/>
+   		<BizField Name="type" Column="type" Type=""/>
+   		<BizField Name="foreign_id" Column="foreign_id" Type=""/>
+   		
+		<BizField Name="form" Column="form" Type=""/>
+		<BizField Name="data" Column="data" Type=""/>
+		<BizField Name="comment" Column="comment" Type=""/>		
+			        		    		
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>        
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

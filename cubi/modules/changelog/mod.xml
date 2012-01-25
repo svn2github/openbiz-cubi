@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="changelog" Description="This module designed for record and review data change logs" Version="0.1" OpenbizVersion="3.0" Author="Jixian"  LoadHandler="changelog.lib.ChangeLogLoadHandler">
+	<ACL>
+		<Resource Name="changelog">
+			<Action Name="access" Description="access data change logs"/>
+		</Resource>
+	</ACL>    
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+</Module>
