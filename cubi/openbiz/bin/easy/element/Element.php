@@ -253,6 +253,12 @@ class Element extends MetaObject implements iUIControl
      	return "";
     }
 
+    public function renderLabel()
+    {        
+        $sHTML = $this->translateString($this->m_Label);       
+        return $sHTML;
+    }    
+    
     /**
      * Get hidden status
      *

@@ -43,6 +43,14 @@ class LabelBool extends LabelText{
      */
     public function render()
     {
+    	if(!$this->m_TrueImg)
+    	{
+    		$this->m_TrueImg = "flag_y.gif";
+    	}
+    	if(!$this->m_FalseImg)
+    	{
+    		$this->m_FalseImg = "flag_n.gif";
+    	}
         $val=$this->m_Value;
         $style = $this->getStyle();
         $text = $this->getText();
