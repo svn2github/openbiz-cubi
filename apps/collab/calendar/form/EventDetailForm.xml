@@ -53,7 +53,8 @@
 			<EventHandler Name="btn_manage_reminder_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventEditReminderForm,{@:Elem[fld_Id].Value})" />
         </Element> 
 			
-	               
+	         <Element Name="fld_changelog"   ElementSet="ChangeLog" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetForm" FieldName="" Label="" AllowURLParam="N" /> 
+	              
 		     <Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>
 		        <Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
 		        <Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>
