@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ChangeLogWidgetForm" Class="ChangeLogWidgetForm" FormType="List" jsClass="jbForm" BizDataObj="changelog.do.ChangeLogDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="changelog_list_widget.tpl.html"  Access="changelog.access">
+<EasyForm Name="ChangeLogWidgetForm" Class="ChangeLogWidgetForm" FormType="List" jsClass="jbForm" BizDataObj="changelog.do.ChangeLogDO"   PageSize="5" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="changelog_list_widget.tpl.html"  Access="changelog.access">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
         <Element Name="fld_icon" Class="ColumnImage" 
@@ -9,8 +9,8 @@
         <Element Name="fld_form"  Class="RawData" FieldName="form" Label="Form"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_data"  Class="RawData" FieldName="data" Label="Data"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_comment"  Class="ColumnText" FieldName="comment" Label="Comment"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-        <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Create Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_create_by" Class="ColumnText" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>
+        <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Change Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_create_by" Class="ColumnText" FieldName="create_by" Label="Change By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>
     </DataPanel>
     <NavPanel>
     	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">

@@ -58,7 +58,8 @@ class ChangeLogForm extends EasyForm
 			if ($oldVal == $fldVal)
 				continue;
 			
-			$logRecord[$fldName] = array('old'=>$oldVal, 'new'=>$fldVal);
+			$elem = $this->m_DataPanel->getByField($fldName)->m_XMLMeta;			
+			$logRecord[$fldName] = array('old'=>$oldVal, 'new'=>$fldVal, 'element'=>$elem);
 		}
 		
 		$comment = BizSystem::clientProxy()->getFormInputs("fld_changelog_comment");		
@@ -66,11 +67,17 @@ class ChangeLogForm extends EasyForm
 		if (empty($logRecord))
 			return true;
 			
+		$formMetaLite = array(
+			"name" 		=> $this->m_Name,
+			"package" 	=> $this->m_Package,
+			"message_file" 	=> $this->m_MessageFile,		
+		);
+		
    		// save to comment do
 		$dataRec = new DataRecord(null, $logDO); 
 		$dataRec['foreign_id'] = $foreign_id;
 		$dataRec['type'] = $type;
-		$dataRec['form'] = serialize( $this );
+		$dataRec['form'] = serialize( $formMetaLite );
 		$dataRec['data'] = serialize( $logRecord );
 		$dataRec['comment'] = $comment;
 		
