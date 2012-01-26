@@ -1,5 +1,6 @@
 <?php
-class CalendarForm extends EasyForm
+include_once MODULE_PATH.'/changelog/form/ChangeLogNoCommentForm.php';
+class CalendarForm extends ChangeLogNoCommentForm
 {
 	public $CalendarDefaultView ;
 	public $m_DayRange;

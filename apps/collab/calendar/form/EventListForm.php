@@ -1,5 +1,6 @@
 <?php 
-class EventListForm extends EasyForm
+include_once MODULE_PATH.'/changelog/form/ChangeLogNoCommentForm.php';
+class EventListForm extends ChangeLogNoCommentForm
 {
 	public function fetchDataSet()
 	{		
