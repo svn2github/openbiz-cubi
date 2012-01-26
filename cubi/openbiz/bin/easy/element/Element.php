@@ -37,6 +37,7 @@ class Element extends MetaObject implements iUIControl
     public $m_FuzzySearch;
     public $m_OnEventLog;
     public $m_AllowURLParam = 'N';
+    public $m_XMLMeta;
 
     public $m_SortFlag;
     public $m_Value = "";
@@ -58,6 +59,7 @@ class Element extends MetaObject implements iUIControl
      */
     function __construct(&$xmlArr, $formObj)
     {
+    	$this->m_XMLMeta = $xmlArr;
         $this->m_FormName = $formObj->m_Name;
         $this->m_Package = $formObj->m_Package;
 
