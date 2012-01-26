@@ -55,9 +55,11 @@ class ChangeLogWidgetForm extends EasyForm
 		{
 			case "Listbox":
 			case "DropDownList":
+			case "ColumnList":
 				$newClass = "LabelList";
 				break;
-				
+			
+			case "ColumnBool":
 			case "Checkbox":
 				$newClass = "LabelBool";
 				break;
