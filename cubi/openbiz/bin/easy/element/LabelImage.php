@@ -31,7 +31,7 @@ class LabelImage extends LabelText
         if($this->m_Height){
     		$height_str = " height=\"".$this->m_Height."\" ";
     	}    	
-    	$value = $this->getValue()?$this->getValue():$this->getText();
+    	$value = $this->getText()?$this->getText():$this->getValue();
     	if($value){
     		
     		if ($this->m_Link)
