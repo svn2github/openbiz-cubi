@@ -26,15 +26,15 @@
 		
 
 		
-		<Element Name="fld_priority" Class="ColumnImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Priority" Link="javascript:;">
+		<Element Name="fld_priority" Class="ColumnImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Pri" Link="javascript:;">
 			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value},0,2)"/>		
 		</Element>
 		
-        <Element Name="fld_severity" Class="ColumnImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_severity_{@:Elem[fld_severity].Value}.gif" FieldName="severity" Sortable="Y" Label="Severity" Link="javascript:;">
+        <Element Name="fld_severity" Class="ColumnImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_severity_{@:Elem[fld_severity].Value}.gif" FieldName="severity" Sortable="Y" Label="Sev" Link="javascript:;">
 			<EventHandler Name="fld_severity_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_severity,{@:Elem[fld_severity].Value},1,4)"/>		
 		</Element>
 		
-		 <Element Name="fld_milestone" Class="ColumnBool" ElementSet="General" TrueImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_enable.gif"  FalseImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_disable.gif" FieldName="milestone" Sortable="Y" Label="Milestone" Link="javascript:;">
+		 <Element Name="fld_milestone" Class="ColumnBool" ElementSet="General" TrueImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_enable.gif"  FalseImg="{RESOURCE_URL}/collab/task/images/icon_task_milestone_disable.gif" FieldName="milestone" Sortable="Y" Label="Mst" Link="javascript:;">
 			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_milestone,{@:Elem[fld_milestone].Value})"/>		
 		</Element>		
 		
