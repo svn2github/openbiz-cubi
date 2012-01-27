@@ -91,7 +91,7 @@ class ColumnImage extends ColumnText
      */
     public function render()
     {
-    	if($this->m_Value)
+    	if(!$this->getText())
     	{
     		$val = ($this->m_ImgUrl) ? $this->m_ImgUrl.$this->m_Value : $this->m_Value;
     	}else{
