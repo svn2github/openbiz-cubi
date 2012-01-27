@@ -31,9 +31,12 @@ class ChangeLogWidgetForm extends EasyForm
 				$data[$key]['label'] = $elemObj->renderLabel(); 
 				
 				$elemObj->setValue($data[$key]['old']);
+				$elemObj->m_Text = str_replace("{@:Elem[".$elemObj->m_Name."].Value}",$data[$key]['old'],$elemObj->m_Text);
 				$data[$key]['old'] = $elemObj->render();
 				
+				$elemObj = new $objName($elemObjMeta,$formObj);
 				$elemObj->setValue($data[$key]['new']);
+				$elemObj->m_Text = str_replace("{@:Elem[".$elemObj->m_Name."].Value}",$data[$key]['new'],$elemObj->m_Text);
 				$data[$key]['new'] = $elemObj->render();
 				
 				unset($data[$key]['element']);
@@ -55,11 +58,13 @@ class ChangeLogWidgetForm extends EasyForm
 		{
 			case "Listbox":
 			case "DropDownList":
+			case "LabelList":
 			case "ColumnList":
 				$newClass = "LabelList";
 				break;
 			
 			case "ColumnBool":
+			case "LabelBool":
 			case "Checkbox":
 				$newClass = "LabelBool";
 				break;
@@ -69,6 +74,10 @@ class ChangeLogWidgetForm extends EasyForm
 			case "InputDate":
 			case "InputDatetime":							
 				$newClass = "LabelText";				
+				break;
+			case "LabelImage":
+			case "ColumnImage":								
+				$newClass = "LabelImage";				
 				break;
 			default:				
 				$newClass = "LabelText";
