@@ -10,19 +10,20 @@ class ChangeLogForm extends EasyForm
     	//load message file
     	$this->m_ChangeLogMessages = Resource::loadMessage("changelog.ini" , "changelog");
     	
-    	//add a comment field on fly
-    	$elem_comment_attrs = array(
-    		"NAME"  => 'fld_changelog_comment',
-    		"CLASS"  => 'Textarea',
-    		"ELEMENTSET"  => $this->getChangeLogMessage(CHENGLOG_ELEMENTSET_NAME),
-    		"LABEL" => $this->getChangeLogMessage(CHENGLOG_LABEL),    		
-    		"DESCRIPTION" => $this->getChangeLogMessage(CHENGLOG_DESC),    		
-    	);
-    	$elem_comment = array(
-    		"ATTRIBUTES" => $elem_comment_attrs
-    	);
-    	$xmlArr["EASYFORM"]["DATAPANEL"]["ELEMENT"][] = $elem_comment;
-		
+    	if(strtolower($xmlArr["EASYFORM"]["ATTRIBUTES"]["FORMTYPE"])=='edit'){
+	    	//add a comment field on fly
+	    	$elem_comment_attrs = array(
+	    		"NAME"  => 'fld_changelog_comment',
+	    		"CLASS"  => 'Textarea',
+	    		"ELEMENTSET"  => "Change Comment",
+	    		"LABEL" => $this->getChangeLogMessage(CHENGLOG_LABEL),    		
+	    		"DESCRIPTION" => $this->getChangeLogMessage(CHENGLOG_DESC),    		
+	    	);
+	    	$elem_comment = array(
+	    		"ATTRIBUTES" => $elem_comment_attrs
+	    	);    	
+	    	$xmlArr["EASYFORM"]["DATAPANEL"]["ELEMENT"][] = $elem_comment;
+    	}
     	parent::readMetaData($xmlArr);
     }
     
