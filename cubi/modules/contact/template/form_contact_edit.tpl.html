@@ -288,7 +288,42 @@ table.input_row {
 		<script>
 			init_elementset('{$form.name}','4');
 		</script>		
-		
+		<!-- Change Comment Section -->
+		<div class="underline" >
+			<h2 class="element_set_title"><a id="element_set_btn_5" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','5')" >{t}Change Comment{/t}</a></h2>
+				<div id="element_set_panel_5" class="element_set_panel">
+				<table ><tr><td>		
+			{foreach item=item key=itemName from=$dataPanel}
+				{if $item.elementsetcode eq "Change Comment"}
+
+				<table  id="{$itemName}_container" class="input_row" style="height:auto;">
+				<tr>
+				<td style="width:80px;">	
+					<label style="text-align:left">{$item.label}</label>
+				</td>
+				<td>
+					{if $errors.$itemName}
+					<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+					{elseif $item.description}
+					<span class="input_desc" style="width:240px;">{$item.description}</span>			
+					{/if}
+				</td>
+				</tr>
+				<tr><td colspan="2" align="center" >
+					<span class="label_textarea" style="{if $item.width}width:{$item.width+15}px;{else}{if $default_label_textarea_width}{$default_label_textarea_width}{else}width:655px;{/if}{/if}">{$item.element}</span>
+								
+				</td></tr>
+				</table>		
+			
+					
+				{/if}						
+			{/foreach}	
+			</td></tr></table>	
+			</div>		
+		</div>		
+		<script>
+			init_elementset('{$form.name}','5');
+		</script>			
 		<div style="height:10px;"></div>
 		<p class="input_row">
 			

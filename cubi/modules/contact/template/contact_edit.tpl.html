@@ -229,6 +229,29 @@
 			{/foreach}			
 		</div>		
 		
+		<!-- Change Comment Section -->
+		<div class="underline" style="height:340px;">
+			<h2>{t}Change Comment{/t}</h2>			
+			{foreach item=item key=itemName from=$dataPanel}
+				{if $item.elementsetcode eq "Change Comment"}				
+					<table  id="{$itemName}_container" class="input_row">
+					<tr>
+					<td style="width:80px;">	
+						<label style="text-align:left">{$item.label}</label>
+					</td>
+					<td>
+						{if $errors.$itemName}
+						<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+						{elseif $item.description}
+						<span class="input_desc" style="width:240px;">{$item.description}</span>			
+						{/if}
+					</td>					
+					</table>
+				
+				{/if}						
+			{/foreach}			
+		</div>			
+		
 		<div style="height:10px;"></div>
 		<p class="input_row">
 			

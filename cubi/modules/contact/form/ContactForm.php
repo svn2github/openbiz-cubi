@@ -1,5 +1,6 @@
 <?php 
-class ContactForm extends EasyForm
+include_once MODULE_PATH.'/changelog/form/ChangeLogNoCommentForm.php';
+class ContactForm extends ChangeLogForm
 {
 	public function insertRecord()
     {

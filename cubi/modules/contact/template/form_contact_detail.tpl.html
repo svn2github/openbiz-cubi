@@ -256,6 +256,32 @@ table.input_row {
 			init_elementset('{$form.name}','4');
 		</script>		
 		
+		<!-- Change Comment Section -->
+		<div class="underline" >
+			<h2 class="element_set_title"><a id="element_set_btn_5" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','5')" >{t}ChangeLog{/t}</a></h2>
+				<div id="element_set_panel_5" class="element_set_panel">
+				<table ><tr><td>		
+			{foreach item=item key=itemName from=$dataPanel}
+				{if $item.elementsetcode eq "ChangeLog"}
+
+				<table  id="{$itemName}_container" class="input_row" style="height:auto;">
+				
+				<tr><td colspan="2" align="center" >
+					<span class="label_textarea" style="{if $item.width}width:{$item.width+15}px;{else}{if $default_label_textarea_width}{$default_label_textarea_width}{else}width:655px;{/if}{/if}">{$item.element}</span>
+								
+				</td></tr>
+				</table>		
+			
+					
+				{/if}						
+			{/foreach}	
+			</td></tr></table>	
+			</div>		
+		</div>		
+		<script>
+			init_elementset('{$form.name}','5');
+		</script>	
+		
 		<div style="height:10px;"></div>
 		<p class="input_row">
 			
