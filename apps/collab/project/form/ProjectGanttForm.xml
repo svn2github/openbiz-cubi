@@ -36,6 +36,9 @@
                 <Element Name="btn_update_time" Class="Hidden" Hidden="Y" Text="Print" CssClass="button_gray_m">
             <EventHandler Name="btn_update_time_onchange" Event="onchange" EventLogMsg="" Function="taskUpdateTime()" />
         </Element>
+        <Element Name="fld_total_workhour" Class="ColumnText"  FieldName="total_workhour" Sortable="Y" Label="Work Hours"></Element>
+        <Element Name="fld_start_time" Class="ColumnText"  FieldName="start_time" Sortable="Y" Label="Start Time"></Element>
+        <Element Name="fld_finish_time" Class="ColumnText"  FieldName="finish_time" Sortable="Y" Label="Finish Time"></Element>
     </DataPanel>
     <ActionPanel>
 

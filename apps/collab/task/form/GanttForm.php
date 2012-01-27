@@ -16,12 +16,14 @@ class GanttForm extends ChangeLogForm
     {
         parent::getSessionVars($sessionContext);
     	$sessionContext->getObjVar($this->m_Name, "ViewMode", $this->m_ViewMode);
+    	$sessionContext->getObjVar($this->m_Name, "ProjectID", $this->m_ProjectID);
     }
 
     public function setSessionVars($sessionContext)
     {
     	parent::setSessionVars($sessionContext);
         $sessionContext->setObjVar($this->m_Name, "ViewMode", $this->m_ViewMode);
+        $sessionContext->setObjVar($this->m_Name, "ProjectID", $this->m_ProjectID);
     }	
 
     public function UpdateTaskTime(){
@@ -85,82 +87,57 @@ class GanttForm extends ChangeLogForm
     	return ;
     }
     
+    public function runSearch()
+    {
+    	$this->m_ProjectID=$_POST['fld_project'];
+    	$result = parent::runSearch();
+    }
+    
 	public function renderGantt()
 	{
 		
 		header('Content-type: text/xml');		
 		echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 		<projects>";
-		
-		$projectDo = BizSystem::getObject("collab.task.do.TaskProjectDO");
-		$projectRecs = $projectDo->fetch();
-		
-		$do = $this->getDataObj();
+				
+		$do=$this->getDataObj();
+		if($this->m_ProjectID){
+			$default_project_id = $this->m_ProjectID;
+		}else{
+			$default_project_id=0;		
+		}
 		$this->m_outputIds = array();
-		foreach($projectRecs as $projectRec)
-		{						
-			
-			if($projectRec['project_id']!='0')
+
+			if($default_project_id)
 			{
-				continue;
-			}
-			
-			if($this->m_ViewMode == 1) // show tree
-			{
-		        QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
-				
-		        if ($this->m_FixSearchRule)
-		        {
-		            if ($this->m_SearchRule)
-		                $searchRule = $this->m_SearchRule . " AND " . $this->m_FixSearchRule;
-		            else
-		                $searchRule = $this->m_FixSearchRule;
-		        }
-		        else
-		            $searchRule = $this->m_SearchRule;
-		
-		        if($searchRule){
-		        	$searchRule .= " AND [project_id]='".$projectRec['project_id']."' AND [PId]='0'";
-		        }else{
-		        	$searchRule = " [project_id]='".$projectRec['project_id']."'  AND [PId]='0'";
-		        }				
-		        
-				$recTree = $do->fetchTree($searchRule, 5);
-				foreach($recTree as $rec)
-				{
-					$this->prepareTaskNode($rec);
-				}
-				
-				$tasks = $this->renderTaskTree($recTree);
-				$recList = array();
-				foreach($recTree as $rec)
-				{
-					$nodeRec = $rec->m_Record;
-					$recList[]	= $nodeRec;
-				}
-				
-				QueryStringParam::ReSet();
-			}
-			else
-			{
-				$recList = $this->fetchDataSet($projectRec['project_id']);		
-				foreach($recList as $rec){
-					$this->m_outputIds[] = $rec['Id'];	
-				}				 		
-				$tasks = $this->renderTaskList($recList);
-			}
-			
-			if($projectRec['project_id']=='0')
-			{
+				$projectRec['project_id']=$default_project_id;	
+				$projectData = BizSystem::getObject("collab.project.do.ProjectDO",1)->fetchById($projectRec['project_id']); 
+				$projectRec['project_name'] = $projectData['name'];		
+				$projectRec['project_color'] = $projectData['type_color'];	
+				$projectRec['project_start_time'] = $start_time = date('Y,m,d',strtotime($projectData['start_time']));
+								
+			}else{
+				$projectRec['project_id']='0';	
 				$projectRec['project_name'] = $this->getMessage("DEFAULT_PROJECT");		
 				$projectRec['project_color'] = $this->getMessage("DEFAULT_PROJECT_COLOR");	
-				$projectRec['project_start_time'] = $this->getProjectStartTime($recList);				
-			}			
+				
+			}
+			
+			$recList = $this->fetchDataSet();		
+			foreach($recList as $rec){
+				$this->m_outputIds[] = $rec['Id'];	
+			}				 		
+			$tasks = $this->renderTaskList($recList);
+			
+			if($default_project_id=='0')
+			{											
+				$projectRec['project_start_time'] = $this->getProjectStartTime($recList);
+			}		
 						
 			echo "<project id = \"".$projectRec['project_id']."\" name = \"".$projectRec['project_name']."\" startdate = \"".$projectRec['project_start_time']."\" color=\"".$projectRec['project_color']."\">";	
 			echo $tasks;
 			echo "</project>";	
-		}
+		 
 
 		echo "</projects>";		
 		exit;
@@ -262,7 +239,6 @@ class GanttForm extends ChangeLogForm
         $dataObj = $this->getDataObj();
 
         if (!$dataObj) return null;
-        
         QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
         
         if ($this->m_RefreshData)
@@ -280,11 +256,7 @@ class GanttForm extends ChangeLogForm
         else
             $searchRule = $this->m_SearchRule;
 
-        if($searchRule){
-        	$searchRule .= " AND [project_id]='$project_id'";
-        }else{
-        	$searchRule = " [project_id]='$project_id'";
-        }
+        
         $dataObj->setSearchRule($searchRule);
         if($this->m_StartItem>1)
         {

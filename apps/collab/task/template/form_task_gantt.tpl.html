@@ -27,6 +27,7 @@ margin-right:5px;
 		{foreach item=elem from=$actionPanel}
 		    	{$elem.element}
 		{/foreach}
+		{$searchPanel.fld_project.element}
 		</div>
 	</div>	
 {/if}	
@@ -35,9 +36,10 @@ margin-right:5px;
 	<div class="form_header_panel" style="background-color:#efefef;padding-left:10px;margin-top:2px;width:690px;">			
 		<div class="search_panel" style="width:688px;">
 		{foreach item=elem key=name from=$searchPanel}
-			
+			{if $name!='fld_project'}
 				{if $elem.label} {$elem.label} {/if} 
 				{$elem.element}
+			{/if}
 			
 		{/foreach}
 		</div>
