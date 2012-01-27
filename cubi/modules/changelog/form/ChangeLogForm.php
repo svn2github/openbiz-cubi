@@ -38,6 +38,14 @@ class ChangeLogForm extends EasyForm
    	{   		
    		parent::_doUpdate($inputRecord, $currentRecord);
 		
+   		$postFields = $_POST;
+   		$elem_mapping = array();
+   		foreach($postFields as $elem_name=>$value)
+   		{
+   			$elem = $this->getElement($elem_name);
+   			$fld_name = $elem->m_FieldName;
+   			$elem_mapping[$fld_name] = $elem;
+   		}
    		$logDO = $this->getDataObj()->getRefObject($this->m_LogDO);
 		if (!$logDO) {
 			return true;
@@ -59,7 +67,10 @@ class ChangeLogForm extends EasyForm
 			if ($oldVal == $fldVal)
 				continue;
 			
-			$elem = $this->m_DataPanel->getByField($fldName)->m_XMLMeta;			
+			$elem = $elem_mapping[$fldName]->m_XMLMeta;		
+			if(!$elem){
+				$elem = $this->m_DataPanel->getByField($fldName)->m_XMLMeta;
+			}	
 			$logRecord[$fldName] = array('old'=>$oldVal, 'new'=>$fldVal, 'element'=>$elem);
 		}
 		
