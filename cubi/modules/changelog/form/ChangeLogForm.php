@@ -42,9 +42,11 @@ class ChangeLogForm extends EasyForm
    		$elem_mapping = array();
    		foreach($postFields as $elem_name=>$value)
    		{
-   			$elem = $this->getElement($elem_name);
+   			$elem = $this->m_DataPanel->get($elem_name);
    			$fld_name = $elem->m_FieldName;
-   			$elem_mapping[$fld_name] = $elem;
+   			if($elem){
+   				$elem_mapping[$fld_name] = $elem;
+   			}
    		}
    		$logDO = $this->getDataObj()->getRefObject($this->m_LogDO);
 		if (!$logDO) {
