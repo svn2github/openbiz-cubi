@@ -16,10 +16,9 @@
 			<Element Name="fld_all_day" ElementSet="General" Class="LabelBool" FieldName="all_day" Label="All Day" DefaultValue="0" SelectFrom="1" Description="All day event" AllowURLParam="N" >
 			</Element>
 					
-			<Element Name="fld_notify" Class="Hidden"  FieldName="notify_contacts" />		
-			<Element Name="fld_allday" Class="Hidden"  FieldName="all_day" />
-			<Element Name="fld_reminder" Class="Hidden"  FieldName="reminder" />
-			<Element Name="fld_repeat" Class="Hidden"  FieldName="recurrence" />
+			<Element Name="fld_notify" ElementSet="General" Class="Hidden"  FieldName="notify_contacts" />		
+			<Element Name="fld_allday" ElementSet="General" Class="Hidden"  FieldName="all_day" />
+			<Element Name="fld_repeat" ElementSet="General" Class="Hidden"  FieldName="recurrence" />
 			
 			
 			<Element Name="fld_related_contacts"   ElementSet="Related Contacts" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
@@ -53,8 +52,8 @@
 			<Element Name="fld_reminder_method_systray" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelBool"  FieldName="reminder_method_systray" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Systray" AllowURLParam="N" />
 			<Element Name="fld_reminder_method_sms" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelBool"  FieldName="reminder_method_sms" DefaultValue="0" SelectFrom="1" Label="Send SMS" AllowURLParam="N" />
 			<Element Name="btn_manage_reminder" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Reminder"  Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Setting" CssClass="button_gray_w" Description="">
-			<EventHandler Name="btn_manage_reminder_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventEditReminderForm,{@:Elem[fld_Id].Value})" />
-        </Element> 
+				<EventHandler Name="btn_manage_reminder_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventEditReminderForm,{@:Elem[fld_Id].Value})" />
+        	</Element> 
 			
 	         <Element Name="fld_changelog"   ElementSet="ChangeLog" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetForm" FieldName="" Label="" AllowURLParam="N" /> 
 	              
