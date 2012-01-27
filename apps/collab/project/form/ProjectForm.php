@@ -1,5 +1,6 @@
 <?php 
-class ProjectForm extends EasyForm
+include_once MODULE_PATH.'/changelog/form/ChangeLogForm.php';
+class ProjectForm extends ChangeLogForm
 {
 	public function UpdateProjectStatus($id, $fld_name, $value)
 	{
