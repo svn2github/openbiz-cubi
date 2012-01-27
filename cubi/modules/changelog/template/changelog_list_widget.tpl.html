@@ -83,15 +83,15 @@ float:none;
 					{foreach item=field from=$row.fld_data}
 					<tr>
 						<td width="75" style="border:none;border-bottom:1px solid #dddddd;background-image:none;padding-right:5px;background-color:#efefef;">{$field.label}</td>
-						<td width="180" class="old_value" style="padding-right:10px;padding-left:5px;text-align:right;border:none;border-bottom:1px solid #dddddd;background-image:none;">						
+						<td width="180" class="old_value" style="padding-right:10px;padding-left:5px;text-align:right;border:none;border-bottom:1px solid #dddddd;background-image:none;height:auto;padding-top:6px;">						
 						{if $field.old|strip_tags}
 							{$field.old}
 						{else}
 							<span style="color:#AAAAAA;">&lt;{t}Empty{/t}&gt;</span>
 						{/if}
 						</td>
-						<td width="34" style="border:none;border-bottom:1px solid #dddddd;background-image:none;"><img border="0" width="20" height="20" src="{$resource_url}/changelog/images/icon_changeto.png" /></td>
-						<td width="260" style="border:none;border-bottom:1px solid #dddddd;background-image:none;">						
+						<td width="34" style="border:none;border-bottom:1px solid #dddddd;background-image:none;height:auto;padding-top:8px;"><img border="0" width="20" height="20" src="{$resource_url}/changelog/images/icon_changeto.png" /></td>
+						<td width="260" style="border:none;border-bottom:1px solid #dddddd;background-image:none;height:auto;padding-top:6px;">						
 						{if $field.new|strip_tags}
 							{$field.new}
 						{else}
