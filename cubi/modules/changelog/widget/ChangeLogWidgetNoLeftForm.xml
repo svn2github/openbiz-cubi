@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ChangeLogWidgetNoLeftForm" Class="ChangeLogWidgetForm" TemplateFile="changelog_list_no_left_widget.tpl.html" inheritfrom="changelog.widget.ChangeLogWidgetForm" Access="changelog.access">
+</EasyForm>
