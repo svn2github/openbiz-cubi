@@ -117,10 +117,10 @@
 		{if $row.fld_description}
 		<tr>
 			<td nowrap="nowrap" style="background-image:none;background-color:#FAFAFA;"></td>
-			<td nowrap="nowrap" style="background-image:none;background-color:#FAFAFA;text-align:right;">
+			<td nowrap="nowrap" style="background-image:none;background-color:#FAFAFA;text-align:right;padding-top:8px;" valign="top">
 				<img border="0" src="{$resource_url}/collab/worklog/images/icon_worklog_arrow.png" style="padding-right:5px;" />
 			</td>
-			<td colspan="3" style="background-image:none;background-color:#FAFAFA;">			
+			<td colspan="3" style="background-image:none;background-color:#FAFAFA;height:auto;" valign="top">			
 			{$row.fld_description}<br/>			
 		</tr>
 		{/if}		
