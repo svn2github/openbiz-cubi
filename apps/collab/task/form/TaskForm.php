@@ -133,8 +133,11 @@ class TaskForm extends ChangeLogForm
 		}
 		if($recArr['dependency_task_id'])
 		{
-			$start_time_min_arr[] = strtotime($svcObj->genFinishTime($dependencyTaskRec['start_time'],$dependencyTaskRec['total_workhour']));
-			$start_time_max_arr[] = strtotime($dependencyTaskRec['finish_time']);
+			//logic error
+			//$start_time_min_arr[] = strtotime($svcObj->genFinishTime($dependencyTaskRec['start_time'],$dependencyTaskRec['total_workhour']));
+			//$start_time_max_arr[] = strtotime($dependencyTaskRec['finish_time']);
+			$start_time_min_arr[] = strtotime($dependencyTaskRec['finish_time']);
+			$start_time_max_arr[] = time()+86400*365*100;
 		}
 		rsort($start_time_min_arr, SORT_NUMERIC);
 		$start_time_min =  $start_time_min_arr[0];
