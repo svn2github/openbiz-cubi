@@ -44,6 +44,7 @@ class Element extends MetaObject implements iUIControl
     public $m_FormName;
     public $m_ElementSet;
     public $m_ElementSetCode;
+    public $m_FieldName;
     public $m_Required = null;
     public $m_Validator = null;
     public $m_ClientValidator = null;
