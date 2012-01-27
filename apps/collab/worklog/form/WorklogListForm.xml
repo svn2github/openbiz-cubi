@@ -12,6 +12,8 @@
         </Element>
         <Element Name="fld_worked_hours" Class="ColumnBar" Width="120" Color="ff6600" DisplayUnit=" Hours" Style="width:180px" MaxValue="8" FieldName="worked_hours" Label="Worked Hours"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
         <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Create Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_description"  Class="LabelTextarea" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
