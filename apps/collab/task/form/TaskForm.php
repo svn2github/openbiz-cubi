@@ -1,5 +1,6 @@
 <?php 
-class TaskForm extends EasyForm
+include_once MODULE_PATH.'/changelog/form/ChangeLogForm.php';
+class TaskForm extends ChangeLogForm
 {		
 	public $m_parent_task_desc ;
 	public $m_dependency_task_desc ;  

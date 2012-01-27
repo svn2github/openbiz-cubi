@@ -12,7 +12,7 @@
 			<EventHandler Name="fld_parent_onchange" Event="onchange" Function="UpdateForm()"  />		
 		</Element>
 		 -->
-		<Element Name="fld_dependency" ElementSet="General" Description="{@:m_dependency_task_desc}"  Class="Listbox" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="collab.task.do.TaskListDO[title:Id]" AllowURLParam="N" >
+		<Element Name="fld_dependency" ElementSet="General" Description="{@:m_dependency_task_desc}"  Class="Listbox" BlankOption="none,0" FieldName="dependency_task_id" Label="Dependency" SelectFrom="collab.task.do.TaskListDO[title:Id]" AllowURLParam="N" >
 			<EventHandler Name="fld_dependency_onchange" Event="onchange" Function="UpdateForm()"  />
 		</Element>	
 		<!--

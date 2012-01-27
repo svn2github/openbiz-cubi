@@ -1,5 +1,6 @@
 <?php 
-class GanttForm extends EasyForm
+include_once MODULE_PATH.'/changelog/form/ChangeLogForm.php';
+class GanttForm extends ChangeLogForm
 {
 	public $m_ViewMode=0;
 	public $m_print = 0;
