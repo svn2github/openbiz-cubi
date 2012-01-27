@@ -96,7 +96,8 @@ class InputElement extends Element
      */
     public function renderLabel()
     {
-        return $this->m_Label;
+        $sHTML = $this->translateString($this->m_Label);       
+        return $sHTML;
     }
 
     /**
