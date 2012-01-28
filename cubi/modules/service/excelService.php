@@ -8,7 +8,7 @@
  * with this package in the file LICENSE.txt.
  *
  * @package   openbiz.bin.service
- * @copyright Copyright (c) 2005-2011, Rocky Swen
+ * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
  * @version   $Id: excelService.php 2553 2010-11-21 08:36:48Z mr_a_ton $
@@ -194,13 +194,7 @@ class excelService
             foreach ($row as $cell) {
                 $txt = $this->strip_cell($cell);
                 if (!empty($txt))
-                {
                     $line .= "\"" . $txt . "\"$separator";
-                }
-                else
-                {
-                	$line .= "\"" .  "\"$separator";
-                }
             }
             $line = rtrim($line, $separator);
             $line = iconv("UTF-8","GB2312//IGNORE",$line);
