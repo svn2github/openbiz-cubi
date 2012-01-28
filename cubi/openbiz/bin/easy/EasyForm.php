@@ -1136,7 +1136,7 @@ class EasyForm extends MetaObject implements iSessionObject
 
             if(!$formObj->canDisplayForm())
             {
-            	$formObj->m_ErrorMessage = $this->getMessage("FORM_OPEATION_NOT_PERMITTED",$formObj->m_Name);
+            	$formObj->m_ErrorMessage = $this->getMessage("FORM_OPERATION_NOT_PERMITTED",$formObj->m_Name);
          
         		if ($this->m_FormType == "LIST"){
         			BizSystem::log(LOG_ERR, "DATAOBJ", "DataObj error = ".$errorMsg);
@@ -1186,7 +1186,7 @@ class EasyForm extends MetaObject implements iSessionObject
             
             if(!$this->canDeleteRecord($dataRec))
             {
-            	$this->m_ErrorMessage = $this->getMessage("FORM_OPEATION_NOT_PERMITTED",$this->m_Name);         
+            	$this->m_ErrorMessage = $this->getMessage("FORM_OPERATION_NOT_PERMITTED",$this->m_Name);         
         		if ($this->m_FormType == "LIST"){
         			BizSystem::log(LOG_ERR, "DATAOBJ", "DataObj error = ".$errorMsg);
         			BizSystem::clientProxy()->showClientAlert($this->m_ErrorMessage);
