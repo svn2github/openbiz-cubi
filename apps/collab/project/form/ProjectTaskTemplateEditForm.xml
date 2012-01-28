@@ -6,9 +6,11 @@
 		<Element Name="fld_title" ElementSet="General" Class="InputText" DefaultValue="New Task" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
 		<Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 		
-		<Element Name="fld_project" ElementSet="General" Description="This task will belong selected project" Class="Hidden" BlankOption="none,0" FieldName="project_id" Label="Project" SelectFrom="collab.project.do.ProjectTemplateDO[name:Id]" DefaultValue="{@collab.project.form.ProjectTemplateListForm:m_RecordId}" AllowURLParam="N" />   
+		<Element Name="fld_project" ElementSet="General" Description="This task will belong selected project" Class="Listbox" BlankOption="none,0" FieldName="project_id" Label="Project" SelectFrom="collab.project.do.ProjectTemplateDO[name:Id]" DefaultValue="{@collab.project.form.ProjectTemplateListForm:m_RecordId}" AllowURLParam="N" >
+			<EventHandler Name="fld_project_onchange" Event="onchange" Function="UpdateForm()"  />
+		</Element>      
 		
-		<Element Name="fld_dependency" ElementSet="General" Description="{@:m_dependency_task_desc}"  Class="Listbox" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="collab.project.do.ProjectTaskTemplateDO[title:Id],[project_id]={@collab.project.form.ProjectTemplateListForm:m_RecordId}" AllowURLParam="N" >
+		<Element Name="fld_dependency" ElementSet="General"  Class="Listbox" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="collab.project.do.ProjectTaskTemplateDO[title:Id],[project_id]={@:Elem[fld_project].Value}" AllowURLParam="N" >
 			<EventHandler Name="fld_dependency_onchange" Event="onchange" Function="UpdateForm()"  />
 		</Element>
 		<Element Name="fld_priority" ElementSet="General" Class="Listbox"  FieldName="priority" Label="Priority" SelectFrom="collab.task.lov.TaskLOV(Priority)" AllowURLParam="N" />
