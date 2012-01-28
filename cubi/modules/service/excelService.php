@@ -8,7 +8,7 @@
  * with this package in the file LICENSE.txt.
  *
  * @package   openbiz.bin.service
- * @copyright Copyright &copy; 2005-2009, Rocky Swen
+ * @copyright Copyright &copy; 2005-2012, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
  * @version   $Id: excelService.php 2553 2010-11-21 08:36:48Z mr_a_ton $
@@ -177,7 +177,7 @@ class excelService
      */
     protected function render($objName, $separator=",", $ext="csv")
     {
-        ob_end_clean();
+     	ob_end_clean();
         header("Pragma: public");
         header("Expires: 0");
         header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
@@ -193,7 +193,7 @@ class excelService
             $line = "";
             foreach ($row as $cell) {
                 $txt = $this->strip_cell($cell);
-                if (!empty($txt))
+                if (!is_null($txt))
                     $line .= "\"" . $txt . "\"$separator";
             }
             $line = rtrim($line, $separator);
@@ -235,7 +235,18 @@ class excelService
             {
                 $labelRow[] = $elem['label'];
             }
-            $dataTable = array_merge(array($labelRow), $dataSet['data']);
+            //If no datasets, return only labelrow to enable gracful export
+			//to avoid error message as a result of trying to apply array_merge
+			//on a null variable
+			//Cyril Ogana 2012-01-28 23:30
+			if (count($dataSet['data']))
+			{
+			    $dataTable = array_merge(array($labelRow), $dataSet['data']);			    
+			}
+			else
+			{
+			    $dataTable = array($labelRow);
+			}
         }
 
         return $dataTable;
