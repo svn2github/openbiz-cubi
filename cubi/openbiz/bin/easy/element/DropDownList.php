@@ -66,7 +66,10 @@ class DropDownList extends InputElement
     	if($value==null){
     		$value = $this->getDefaultValue();
     	}
-    	
+    	if(preg_match('/\{.*?@.*?\}/si',$value)){
+    		$formObj = $this->getFormObj();
+    		$value = Expression::evaluateExpression($value, $formObj);
+    	}
         $disabledStr = ($this->getEnabled() == "N") ? "READONLY=\"true\"" : "";
         $style = $this->getStyle();
         $func = $this->getFunction();
