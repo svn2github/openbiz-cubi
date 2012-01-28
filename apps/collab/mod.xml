@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="Openbiz Collaboration" Version="1.0.2" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
+<Module Name="collab" Description="Openbiz Collaboration" Version="1.0.3" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -62,6 +62,7 @@
 				<MenuItem Name="Collab_Calendar.EventNew" Title="Create Event" Description=""  URL="{@home:url}/collab/event_new" Order="10" Access="collab_calendar.access" ></MenuItem>
 				<MenuItem Name="Collab_Calendar.EventDetail" Title="EventDetail" Description=""  URL="{@home:url}/collab/event_detail" Order="20" Access="collab_calendar.access" ></MenuItem>
 			</MenuItem>
+			<MenuItem Name="Collab_Calendar.Calendar" Title="Event Calendar" Description=""  URL="{@home:url}/collab/event_calendar" Order="15"  Access="collab_calendar.access" ></MenuItem>
 			<MenuItem Name="Collab_Calendar.TypeManage" Title="Event Type" Description=""  URL="{@home:url}/collab/event_type" Order="20"  Access="collab_calendar.access"></MenuItem>
 		</MenuItem>	
         <!-- Note menus -->
@@ -69,6 +70,7 @@
 			<MenuItem Name="Notes.NotesManage" Title="Note Manage" Description=""  URL="{@home:url}/collab/note_manage" Order="40" Access="collab_note.access" >
 				<MenuItem Name="Notes.NotesDetail" Title="Note Detail" Description=""  URL="{@home:url}/collab/note_detail" Order="10"  Access="collab_note.access" ></MenuItem>
 			</MenuItem>
+			<MenuItem Name="Notes.StickyBoard" Title="Note Sticky Board" Description=""  URL="{@home:url}/collab/sticky_board" Order="45"  Access="collab_note.access" ></MenuItem>
 			<MenuItem Name="Notes.Type" Title="Note Type" Description=""  URL="{@home:url}/collab/note_type" Order="50" Access="collab_note.access"></MenuItem>
 		</MenuItem>
 		 <!-- Project menus -->
@@ -85,10 +87,10 @@
         <!-- Task menus -->
     	<MenuItem Name="Task" Title="Task" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_task" Order="30" Access="collab_task.access">
 			<MenuItem Name="Task.Manage" Title="Task Manage " Description=""  URL="{@home:url}/collab/task_manage" Order="40" Access="collab_task.access" >
-				<MenuItem Name="Task.Detail" Title="Task Detail" Description=""  URL="{@home:url}/collab/task_detail" Order="5"  Access="collab_task.access" ></MenuItem>
-				<MenuItem Name="Task.Gantt" Title="Task Gantt Chart" Description=""  URL="{@home:url}/collab/task_gantt" Order="10"  Access="collab_task.access" ></MenuItem>
+				<MenuItem Name="Task.Detail" Title="Task Detail" Description=""  URL="{@home:url}/collab/task_detail" Order="5"  Access="collab_task.access" ></MenuItem>				
 				<MenuItem Name="Task.New" Title="New Task" Description=""  URL="{@home:url}/collab/task_new" Order="15"  Access="collab_task.access" ></MenuItem>
 			</MenuItem>
+			<MenuItem Name="Task.Gantt" Title="Task Gantt Chart" Description=""  URL="{@home:url}/collab/task_gantt" Order="45"  Access="collab_task.access" ></MenuItem>
 			<MenuItem Name="Task.Timesheet" Title="Task Timesheet" Description=""  URL="{@home:url}/collab/task_timesheet" Order="50"  Access="collab_task.access"></MenuItem>
 			<MenuItem Name="Task.Type" Title="Task Type" Description=""  URL="{@home:url}/collab/task_type" Order="60"  Access="collab_task.access"></MenuItem>			
 		</MenuItem>
@@ -136,6 +138,9 @@
     	<Module Name="menu"/>
     </Dependency>
         <ChangeLog>
+        <Version Name="1.0.3">
+        	<Change Name="feature_103" Type="New_Feature" Status="Finished" PublishDate="2012-01-28" Description="added task gantt view and event calendar view"></Change>
+        </Version>
         <Version Name="1.0.2">
         	<Change Name="feature_1021" Type="New_Feature" Status="Finished" PublishDate="2012-01-28" Description="added task timesheet view"></Change>
         </Version>
