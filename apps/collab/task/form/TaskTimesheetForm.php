@@ -7,13 +7,28 @@ class TaskTimesheetForm extends ChangeLogForm
 	public $m_start_date ;
 	public $m_end_date ;
 	
-	public function fetchDataSet()
+	public function fetchDataGroup()
 	{				
 		$this->calcDateRange();
-
-		$do = $this->getDataObj();
+		$resultSet = array();
+		for($i=0;$i<=6;$i++){
+			$selected_date = date("Y-m-d",strtotime($this->m_start_date)+86400*$i); 
+			$resultSet[] = $this->getTaskStat($selected_date);	
+		}		
+		return $resultSet;
 	}
-
+    public function outputAttrs()
+    {
+    	$output = parent::outputAttrs();
+    	$output['dataGroup'] = $this->fetchDataGroup();
+    	return $output;	
+    
+    } 
+    public function fetchDataSet()
+	{
+		$this->calcDateRange();
+		return array();
+	}  
 	public function getSessionVars($sessionContext)
     {    
         $sessionContext->getObjVar($this->m_Name, "WeekNum", $this->m_week_num);
@@ -39,11 +54,13 @@ class TaskTimesheetForm extends ChangeLogForm
 		{
 			$this->m_week_num = $week_num = date('W',time());
 			$this->m_year_num = $this_year = date('Y',time());
-		}
-		
+		}		
 
 		$start_date = new DateTime($this_year.'-01-01');
+		$weekday_offset = date('w',strtotime($this_year.'-01-01'));		
 		$start_date->add(new DateInterval('P'.(($week_num-1)*7).'D'));
+		$start_date->sub(new DateInterval('P'.$weekday_offset.'D'));
+		
 		$start_date_str = $start_date->format("Y-m-d")." 00:00:00";
 		
 		$end_date = $start_date;
@@ -71,6 +88,59 @@ class TaskTimesheetForm extends ChangeLogForm
         $this->m_week_num = $week_num;
         $this->rerender();
 	}
+
+	public function ChangeDateRange()
+	{
+		$data = $this->readInputs();		
+		$this->m_year_num = (int)$data['year_selector'];
+		$this->m_week_num = (int)$data['week_selector'];
+        $this->rerender();
+	}
+	public function GotoToday()
+	{
+		$this->m_week_num = $week_num = date('W',time());
+		$this->m_year_num = $this_year = date('Y',time());
+        $this->rerender();
+	}
+	public function getTaskStat($sel_date){
+		$searchRule = "
+			[start_time]<='$sel_date 23:59:59' AND
+			[finish_time]>'$sel_date 00:00:00' 
+		";
+		$recs = BizSystem::getObject('collab.task.do.TaskStatDO',1)->directfetch($searchRule);
+		$statData = array();
+		foreach($recs as $rec)
+		{
+			$statData[$rec['Id']] = $rec['num'];
+		}
+		
+		$total_tasks = (int)array_sum($statData);
+		if($sel_date == date('Y-m-d'))
+		{
+			$is_today = true;
+		}else{
+			$is_today = false;
+		}
+		$bar_width=70;
+		$dataArr = array(
+			"Id"			=>	strtotime($sel_date),
+			"date"			=>	date('Y-m-d',strtotime($sel_date)),
+			"weekdate"		=>	date('l',strtotime($sel_date)),
+			"dayofweek"		=>	date('w',strtotime($sel_date)),
+			"not_started"	=>	(int)$statData[0],
+			"in_progress"	=>	(int)$statData[1],
+			"completed"		=>	(int)$statData[2],
+			"other"			=>	(int)$statData[3]+(int)$statData[4],
+			"not_started_wid"	=>	(int)($statData[0]/$total_tasks*$bar_width)+1,
+			"in_progress_wid"	=>	(int)($statData[1]/$total_tasks*$bar_width)+1,
+			"completed_wid"		=>	(int)($statData[2]/$total_tasks*$bar_width)+1,
+			"other_wid"			=>	(int)(($statData[3]+(int)$statData[4])/$total_tasks*$bar_width)+1,
+			"total"			=>	$total_tasks,
+			"istoday"		=>	$is_today,
+		);
+		return $dataArr;
+	}
+	
 
 }
 ?>
