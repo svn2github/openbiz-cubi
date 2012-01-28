@@ -121,7 +121,7 @@ class TaskTimesheetForm extends ChangeLogForm
 		}else{
 			$is_today = false;
 		}
-		$bar_width=70;
+		$bar_width=70;		
 		$dataArr = array(
 			"Id"			=>	strtotime($sel_date),
 			"date"			=>	date('Y-m-d',strtotime($sel_date)),
@@ -131,13 +131,21 @@ class TaskTimesheetForm extends ChangeLogForm
 			"in_progress"	=>	(int)$statData[1],
 			"completed"		=>	(int)$statData[2],
 			"other"			=>	(int)$statData[3]+(int)$statData[4],
-			"not_started_wid"	=>	(int)($statData[0]/$total_tasks*$bar_width)+1,
-			"in_progress_wid"	=>	(int)($statData[1]/$total_tasks*$bar_width)+1,
-			"completed_wid"		=>	(int)($statData[2]/$total_tasks*$bar_width)+1,
-			"other_wid"			=>	(int)(($statData[3]+(int)$statData[4])/$total_tasks*$bar_width)+1,
 			"total"			=>	$total_tasks,
 			"istoday"		=>	$is_today,
 		);
+		
+		if($total_tasks){
+			$dataArr['not_started_wid'] = (int)($statData[0]/$total_tasks*$bar_width)+2;
+			$dataArr['in_progress_wid'] = (int)($statData[1]/$total_tasks*$bar_width)+2;
+			$dataArr['completed_wid'] = (int)($statData[2]/$total_tasks*$bar_width)+2;
+			$dataArr['other_wid'] = (int)(($statData[3]+(int)$statData[4])/$total_tasks*$bar_width)+2;
+		}else{
+			$dataArr['not_started_wid'] = 2;
+			$dataArr['in_progress_wid'] = 2;
+			$dataArr['completed_wid'] = 2;
+			$dataArr['other_wid'] = 2;
+		}
 		return $dataArr;
 	}
 	

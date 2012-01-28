@@ -16,7 +16,46 @@ margin-right:5px;
 }
 .timesheet_block
 {
-padding:4px;
+padding:2px;
+cursor:pointer;
+}
+.timesheet_block .normal
+{
+padding:2px;
+background-color:none;
+border-bottom:3px solid #efefef;
+}
+.timesheet_block .selected
+{
+padding:2px;
+background-color:none;
+border-bottom:3px solid #0d95c8;
+}
+.timesheet_block .selected .day_name,.timesheet_block .selected  .day_name_today
+{
+background-color:#0d95c8;
+color:#ffffff;
+opacity:1;
+}
+.timesheet_block .selected .date
+{
+background-color:#9fddfa;
+border-bottom:3px solid #4fcbfa;
+color:#333333;
+}
+.timesheet_block .hover
+{
+padding:2px;
+background-color:#effbff;
+border-bottom:3px solid #6bd0fe;
+}
+.timesheet_block .hover .day_name
+{
+background-color:#6bd0fe;
+}
+.timesheet_block .hover .date
+{
+border-bottom:3px solid #bfeeff;
 }
 .timesheet_block .day_name
 {
@@ -47,14 +86,14 @@ display:block;
 height:22px;
 line-height:24px;
 padding-left:2px;
-border-bottom:3px solid #cccccc;
+border-bottom:3px solid #eeeeee;
 }
 
 .timesheet_block .label_title
 {
 display:block;
 color:#999999;
-padding-top:5px;
+padding-top:0px;
 }
 .timesheet_block .bar
 {
@@ -137,7 +176,7 @@ height:12px;
      				{if $row.istoday}     				
      					{assign var=day_bgcolor value='background-color:#bfedfb;'}
      				{elseif $row.dayofweek eq 0 or $row.dayofweek eq 6}
-     					{assign var=day_bgcolor value='background-color:#efefef;'}
+     					{assign var=day_bgcolor value='background-color:#f4f4f4;'}
      				{else}
      					{assign var=day_bgcolor value=''}
      				{/if}
@@ -147,12 +186,34 @@ height:12px;
      				{else}
      					{assign var=day_name_class value='day_name'}
      				{/if}
-     				<td width="98" style="padding:0px;background-image:none;{$day_bgcolor}">
-	     				<div class="timesheet_block" >
+     				<td width="99" style="padding:0px;background-image:none;{$day_bgcolor}">
+	     				<div class="timesheet_block">	     				
+						 {if $form.currentRecordId == $row.Id}  
+				         {assign var=default_selected_id value=$row.Id}       	
+							<div id="{$form.name}-{$row.Id}" 									
+									class="normal"   normal="normal" select="selected"
+									onmouseover="if(this.className!='selected')this.className='hover'" 
+									onmouseout="if(this.className!='selected')this.className='normal'" 
+									onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$row.Id})');">
+				         {elseif $row_counter == 0 and $form.currentRecordId == ""}
+				         {assign var=default_selected_id value=$row.Id}    
+							<div  id="{$form.name}-{$row.Id}" 									
+									class="selected"   normal="normal" select="selected"
+									onmouseover="if(this.className!='selected')this.className='hover'" 
+									onmouseout="if(this.className!='selected')this.className='normal'" 
+									onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$row.Id})');">
+				         {else}
+							<div  id="{$form.name}-{$row.Id}" 									
+									class="normal"  normal="normal" select="selected"
+									onmouseover="if(this.className!='selected')this.className='hover'" 
+									onmouseout="if(this.className!='selected')this.className='normal'" 
+									onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$row.Id})');">
+				         {/if}
+	     				
 	     				
 	     					<div class="{$day_name_class}">{$row.weekdate}</div>
 	     					<div class="date">{$row.date}</div>	
-	     					<div>
+	     					<div style="padding-top:2px;">
 	     						
 	     						<div style="padding-top:5px;">
 	     						<div class="bar_block">
@@ -174,6 +235,7 @@ height:12px;
 	     							<span style="font-size:26px;display:inline;float:none;line-height:26px;">{$row.total}</span> 
 	     							{t}tasks{/t}
 	     						</p>
+	     					</div>
      					</div>
      				</td>
      				{assign var=row_counter value=$row_counter+1}		
@@ -184,6 +246,7 @@ height:12px;
 	<!-- 	 <td width="20" style="padding:0px;background-image:none;">{$navPanel.btn_next.element}</td> -->
 	 </tr>							
 </table>
+<div class="v_spacer"></div>
 </div>
 
 <span id='{$form.name}_selected_id' style="display:none">{$default_selected_id}</span>
