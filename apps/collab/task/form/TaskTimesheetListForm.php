@@ -37,7 +37,7 @@ class TaskTimesheetListForm extends ChangeLogForm
         $ExtraSearchRule = "( [start_time]<='$sel_date 23:59:59' AND [finish_time]>'$sel_date 00:00:00' ) ";
         if($this->m_FixSearchRule)
         {
-        	$this->m_FixSearchRule = ' AND '.$ExtraSearchRule;
+        	$this->m_FixSearchRule = $this->m_FixSearchRule.' AND '.$ExtraSearchRule;
         }else{
         	$this->m_FixSearchRule = $ExtraSearchRule;
         }
