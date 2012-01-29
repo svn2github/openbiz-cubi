@@ -121,6 +121,10 @@ class TaskTimesheetForm extends ChangeLogForm
 			[finish_time]>'$sel_date 00:00:00'
 		) 
 		";
+		$svcObj = BizSystem::GetService(DATAPERM_SERVICE);
+	    $dataPermSQLRule = $svcObj->buildSqlRule('update',true);
+	    $searchRule = ' AND '.$dataPermSQLRule;	
+	    
 		$recs = BizSystem::getObject('collab.task.do.TaskStatDO',1)->directfetch($searchRule);
 		$statData = array();
 		foreach($recs as $rec)
