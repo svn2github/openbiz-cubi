@@ -5,7 +5,7 @@
 		<Element Name="fld_username" Class="InputText"  Description="between 3-10 letters or numbers" FieldName="username" Label="Username" required="Y" Width="200" Required="Y" Validator="{@validate:betweenLength([fld_username], 3, 10)}" HTMLAttr="maxlength='10'"/>
         <Element Name="fld_password" Class="Password" Description="between 4-20 any charactors" label="Password" FieldName="password" Width="200" required="Y" Validator="{@validate:betweenLength([fld_password], 4, 20)}" HTMLAttr="maxlength='20'"/>
 		<Element Name="fld_password_repeat" Class="Password"  Description="Input password again for confirmation" FieldName="password_repeat" Label="Password Repeat" Width="200" required="Y" HTMLAttr="maxlength='20'"/>
-        <Element Name="fld_email" Class="InputText" FieldName="email" Label="Email" Width="200" Validator="{@validate:email('[fld_email]')}" HTMLAttr="maxlength='50'"/>
+        <Element Name="fld_email" required="Y" Class="InputText" Description="For receive system notice" FieldName="email" Label="Email" Width="200" Validator="{@validate:email('[fld_email]')}" HTMLAttr="maxlength='50'"/>
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_register" Class="Button" Text="Register" CssClass="button_highlight">
