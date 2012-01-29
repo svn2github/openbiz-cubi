@@ -46,7 +46,6 @@ class TaskTimesheetListForm extends ChangeLogForm
     	//within each group, search records like before
         QueryStringParam::setBindValues($this->m_SearchRuleBindValues);       
 
-        $this->m_FixSearchRule = $ExtraSearchRule;
         if ($this->m_FixSearchRule)
         {
             if ($this->m_SearchRule)
