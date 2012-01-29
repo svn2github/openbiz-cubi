@@ -140,9 +140,6 @@ CREATE TABLE `project_task_template` (
     </Version>
     <Version Name="1.0.1">
         <UpgradeSql><![CDATA[
-/* 
-added task severity
-*/
 ALTER TABLE `task` ADD `severity` INT NOT NULL DEFAULT '2' AFTER `priority`;  
 ALTER TABLE `project_task_template` ADD `severity` INT NOT NULL DEFAULT '2' AFTER `priority`;
 ALTER TABLE `project` ADD `condition` INT NULL DEFAULT '0' AFTER `priority`;
