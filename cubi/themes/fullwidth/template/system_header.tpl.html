@@ -68,8 +68,9 @@ var top_menu_play_speed=1000;
 		<div id="current_user_info">
 		<a class="screen_switch_min_btn" title="{t}Switch Theme{/t}"  href="javascript:;" onclick="Openbiz.switchTheme('default')" style="float:right;margin-left:5px; margin-top:6px;  " ></a>
 			{include file="system_appbuilder_btn.tpl.html"}
+			<div>
 			{php}echo Bizsystem::GetObject('system.widget.SwitchUserWidget')->render();{/php}
-		
+			</div>
 		</div>			
 	</div>
 	
