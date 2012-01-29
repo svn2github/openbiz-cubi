@@ -9,6 +9,16 @@
       </TriggerAction>
    </TriggerActions>
   </DOTrigger>
+  <DOTrigger TriggerType="Insert"  >
+   <TriggerCondition Expression="" ExtraSearchRule="" />
+   <TriggerActions>
+      <TriggerAction Action="CallService" Immediate="Y" DelayMinutes="" RepeatMinutes="">
+         <ActionArgument Name="Service" Value="collab.task.lib.TaskService" />
+         <ActionArgument Name="Method" Value="updateTaskTime" /> 
+         <ActionArgument Name="type" Value="{@}" />         
+      </TriggerAction>
+   </TriggerActions>
+  </DOTrigger>
   <DOTrigger TriggerType="UPDATE"  >
    <TriggerCondition Expression="" ExtraSearchRule="" />
    <TriggerActions>

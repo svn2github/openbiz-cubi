@@ -24,12 +24,12 @@ width:35px;
 	<br/>
 {if $actionPanel or $searchPanel }	
 	<div class="form_header_panel">	
-				<div class="action_panel" style="width:292px;">
+				<div class="action_panel" style="width:150px;">
 		{foreach item=elem from=$actionPanel}
 		    	{$elem.element}
 		{/foreach}
 				</div>
-				<div class="search_panel" style="width:398px;">
+				<div class="search_panel" style="width:508px;">
 		
 		{foreach item=elem from=$searchPanel}
 			{if $elem.label} {$elem.label} {/if} {$elem.element}
