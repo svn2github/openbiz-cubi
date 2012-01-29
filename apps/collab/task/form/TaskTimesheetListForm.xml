@@ -23,7 +23,7 @@
         <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" FieldName="status" Label="Status" Link="javascript:;" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         <EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateTaskStatus({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>         
         </Element>
-        <Element Name="fld_progress" Class="ColumnBar" Width="120" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:170px" MaxValue="100" FieldName="progress" Label="Progress"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
+        <Element Name="fld_progress" Class="ColumnBar" Width="120" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:165px" MaxValue="100" FieldName="progress" Label="Progress"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
         </Element>
 		
 
