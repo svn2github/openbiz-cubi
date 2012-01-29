@@ -187,6 +187,18 @@ class profileService
         return $profile;
     }
 
+    public function SwitchUserProfile($userId)
+    {
+    	//get previously profile
+    	if(!BizSystem::sessionContext()->getVar("_PREV_USER_PROFILE"))
+    	{
+    		$prevProfile = BizSystem::sessionContext()->getVar("_USER_PROFILE");
+    		BizSystem::sessionContext()->clearVar("_USER_PROFILE");
+    		BizSystem::sessionContext()->setVar("_PREV_USER_PROFILE", $prevProfile);
+    	}
+    	BizSystem::initUserProfile($userId);    	
+    }
+    
     public function GetProfileName($account_id){
     	$do = BizSystem::getObject($this->m_userDataObj);
         if (!$do)

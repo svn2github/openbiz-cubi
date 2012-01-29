@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="SwitchUserWidget" Icon="" Class="SwitchUserWidget" FormType="List" jsClass="jbForm" Title="Login as" Description="" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_switch_user_widget.tpl.html"  Access="Session.Switch_User">
-    <SearchPanel>
-        <Element Name="qry_username"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="system.do.UserDO[username],[username] like '%{$_POST['qry_username']}%' GROUP BY [username]" FieldName="username" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
+<EasyForm Name="SwitchUserWidget" Icon="" Class="SwitchUserWidget" FormType="Detail" jsClass="jbForm"  Description="" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="switch_user_widget.tpl.html" >
+    <DataPanel>
+    
+    	<Element Name="fld_switch_session_uid"  ReadOnly="Y" cssclass="input_select_m" Class="DropDownList" FieldName="username" Label="Switch to" SelectFrom="system.do.UserContactDO[display_name:username]" >
+            <EventHandler Name="datafilter_onchange" Event="onchange" Function="SwitchSession()"/>
+        </Element>
+        <!-- 
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
-        </Element>        
-    </SearchPanel> 
+        </Element>
+         -->        
+    </DataPanel> 
 </EasyForm>

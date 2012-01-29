@@ -41,6 +41,6 @@
                 
     </BizFieldList>
     <TableJoins>
-		<Join Name="JoinContact" Table="contact" Column="id" ColumnRef="user_id" JoinType="INNER JOIN"/>
+		<Join Name="JoinContact" Table="contact" Column="user_id" ColumnRef="Id" JoinType="INNER JOIN"/>
     </TableJoins>
 </BizDataObj>
