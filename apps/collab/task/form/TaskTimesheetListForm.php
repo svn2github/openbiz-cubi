@@ -33,7 +33,7 @@ class TaskTimesheetListForm extends EasyForm
         
         $sel_date_timestamp= BizSystem::getObject("collab.task.form.TaskTimesheetForm")->m_RecordId;
         $sel_date= date("Y-m-d",$sel_date_timestamp);
-        $ExtraSearchRule = " AND
+        $ExtraSearchRule = "
         (
 			[start_time]<='$sel_date 23:59:59' AND
 			[finish_time]>'$sel_date 00:00:00'
@@ -44,6 +44,7 @@ class TaskTimesheetListForm extends EasyForm
     	//within each group, search records like before
         QueryStringParam::setBindValues($this->m_SearchRuleBindValues);       
 
+        $this->m_FixSearchRule = $ExtraSearchRule;
         if ($this->m_FixSearchRule)
         {
             if ($this->m_SearchRule)
@@ -54,7 +55,7 @@ class TaskTimesheetListForm extends EasyForm
         else
             $searchRule = $this->m_SearchRule;
 
-        $dataObj->setSearchRule($searchRule.$ExtraSearchRule);
+        $dataObj->setSearchRule($searchRule. " AND " .$ExtraSearchRule);
         
         $resultRecords = $dataObj->fetch();
         $this->m_TotalRecords = $dataObj->count();
@@ -74,7 +75,7 @@ class TaskTimesheetListForm extends EasyForm
 	        if ($this->m_FixSearchRule)
 	        {
 	            if ($this->m_SearchRule)
-	                $searchRule = $this->m_SearchRule . " AND " . $this->m_FixSearchRule;
+	                $searchRule = $this->m_SearchRule .$this->m_FixSearchRule;
 	            else
 	                $searchRule = $this->m_FixSearchRule;
 	        }
@@ -96,7 +97,7 @@ class TaskTimesheetListForm extends EasyForm
 			
 			$dataObj->setOtherSQLRule("");
 			$dataObj->setLimit(0,0);
-	        $dataObj->setSearchRule($searchRule.$ExtraSearchRule); 
+	        $dataObj->setSearchRule($searchRule); 
 	        $resultRecords_grouped = $dataObj->fetch();
 	        //renderTable
 	        $resultRecords_grouped_table = $this->m_DataPanel->renderTable($resultRecords_grouped);

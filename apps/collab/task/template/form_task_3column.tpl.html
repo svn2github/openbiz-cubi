@@ -19,6 +19,11 @@ margin-right:5px;
 display:block;
 color:#333333;
 text-indent:10px;
+margin-bottom:2px;
+}
+.task_list .form_table{
+margin:0px;
+margin-bottom:2px;
 }
 .form_table td{
 padding-left:5px;
@@ -34,6 +39,14 @@ white-space:inherit;
 color:#999999;
 line-height:18px;
 font-size:12px;
+}
+.form_table .not_found
+{
+	color:#999999;
+	display:block;
+	padding-top:10px;
+	padding-bottom:10px;
+	text-align:center;	
 }
 </style>
 {/literal}
@@ -55,11 +68,11 @@ font-size:12px;
 <div class="from_table_container">
 <table border="0" cellpadding="0" cellspacing="0" class="form_table" id="{$form.name}_data_table">
 	<tr>
-		<td width="180" style="padding:3px;background-image:none;background-color:#faf9f8;"  valign="top">
-			<span class="panel_title" style="background-color:#66c2ff">{t}Not Started{/t}</span>
+		<td class="task_list" width="180" style="padding:3px;background-image:none;background-color:#faf9f8;"  valign="top">
+			<span class="panel_title" style="background-color:#66c2ff;height:auto;">{t}Not Started{/t}</span>
 
-							
-			     {assign var=row_counter value=0}            
+				 {if $form.dataGroup.0.data|count}
+			     {assign var=row_counter value=0}   			             
 			     {foreach item=row from=$form.dataGroup.0.data}
 			     <table border="0" cellpadding="0" cellspacing="0" style="width:180px;" class="form_table" id="{$form.name}_data_table">	
 			         {if $row_style != ''}
@@ -94,14 +107,17 @@ font-size:12px;
 					{/if}
 					</table>	
 			     {/foreach}
-			  
+			  	 {else}
+			     <span class="not_found">{t}-- No not started tasks --{/t}</span>
+			     {/if}
 										
 					
 
 		</td>
-		<td style="padding:3px;background-image:none;" valign="top">
-			<span class="panel_title" style="background-color:#ffb053">{t}In Progress{/t}</span>
-			{assign var=row_counter value=0}            
+		<td class="task_list" style="padding:3px;background-image:none;" valign="top">
+			<span class="panel_title" style="background-color:#ffb053;height:auto;">{t}In Progress{/t}</span>
+			{assign var=row_counter value=0}   
+				{if $form.dataGroup.1.data|count}           
 			     {foreach item=row from=$form.dataGroup.1.data}
 			     <table border="0" cellpadding="0" cellspacing="0" style="width:340px;border-bottom-color:#ffb053;" class="form_table" id="{$form.name}_data_table">	
 			         {if $row_style != ''}
@@ -129,17 +145,21 @@ font-size:12px;
 					</tr>
 					{if $row.fld_description}
 					<tr>						
-						<td class="task_desc" style="width:340px;" nowrap="" colspan="4" >
+						<td class="task_desc" style="width:auto;" nowrap="" colspan="4" >
 						{$row.fld_description}
 						</td>
 					</tr>
 					{/if}
 					</table>	
 			     {/foreach}
+			     {else}
+			     <span class="not_found">{t}-- No in progress tasks --{/t}</span>
+			     {/if}
 		</td>
-		<td width="180" style="padding:3px;background-image:none;background-color:#faf9f8;"  valign="top">
-			<span class="panel_title" style="background-color:#7fff6b">{t}Completed{/t}</span>
-			{assign var=row_counter value=0}            
+		<td class="task_list" width="180" style="padding:3px;background-image:none;background-color:#faf9f8;"  valign="top">
+			<span class="panel_title" style="background-color:#7fff6b;height:auto;">{t}Completed{/t}</span>
+				{assign var=row_counter value=0}        
+				{if $form.dataGroup.2.data|count}    
 			     {foreach item=row from=$form.dataGroup.2.data}
 			     <table border="0" cellpadding="0" cellspacing="0" style="width:180px;" class="form_table" id="{$form.name}_data_table">	
 			         {if $row_style != ''}
@@ -177,10 +197,13 @@ font-size:12px;
 					{/if}
 					</table>	
 			     {/foreach}
+			     {else}
+			     <span class="not_found">{t}-- No comepleted tasks --{/t}</span>
+			     {/if}
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3"  style="padding:3px;background-image:none;background-color:#faf9f8;">
+		<td class="task_list" colspan="3"  style="padding:3px;background-image:none;background-color:#faf9f8;">
 			<span class="panel_title" style="background-color:#cccccc">{t}Other Status{/t}</span>
 		</td>
 	</tr>

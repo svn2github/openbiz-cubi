@@ -58,9 +58,13 @@ class TaskTimesheetForm extends ChangeLogForm
 		else
 		{
 			$this->m_week_num = $week_num = date('W',time());
-			$this->m_year_num = $this_year = date('Y',time());
+			$this->m_year_num = $this_year = date('Y',time());			
 		}		
 
+		if(!$this->m_RecordId)
+		{
+			$this->m_RecordId = strtotime(date('Y-m-d',time()));
+		}
 		$start_date = new DateTime($this_year.'-01-01');
 		$weekday_offset = date('w',strtotime($this_year.'-01-01'));		
 		$start_date->add(new DateInterval('P'.((($week_num-1)*7)+1).'D'));

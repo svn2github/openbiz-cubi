@@ -43,6 +43,10 @@ background-color:#9fddfa;
 border-bottom:3px solid #4fcbfa;
 color:#333333;
 }
+
+.timesheet_block .selected .total_label{
+color:#0d95c8;
+}
 .timesheet_block .hover
 {
 padding:2px;
@@ -115,6 +119,9 @@ line-height:8px;
 {
 display:block;
 height:12px;
+}
+.timesheet_block .total_num{
+font-size:26px;display:inline;float:none;line-height:26px;
 }
 </style>
 {/literal}
@@ -235,8 +242,8 @@ height:12px;
 	     						</div>	     						
 	     					</div>
 	     					<span class="label_title">{t}Total{/t}:</span> 
-	     						<p style="padding:0px; margin:0px;text-align:left;">
-	     							<span style="font-size:26px;display:inline;float:none;line-height:26px;">{$row.total}</span> 
+	     						<p class="total_label" style="padding:0px; margin:0px;text-align:left;">
+	     							<span class="total_num" >{$row.total}</span> 
 	     							{t}tasks{/t}
 	     						</p>
 	     					</div>
