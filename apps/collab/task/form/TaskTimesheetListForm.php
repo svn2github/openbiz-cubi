@@ -1,5 +1,6 @@
 <?php 
-class TaskTimesheetListForm extends EasyForm
+include_once MODULE_PATH.'/changelog/form/ChangeLogForm.php';
+class TaskTimesheetListForm extends ChangeLogForm
 {
 	protected $m_GroupBy;
 	
@@ -33,12 +34,8 @@ class TaskTimesheetListForm extends EasyForm
         
         $sel_date_timestamp= BizSystem::getObject("collab.task.form.TaskTimesheetForm")->m_RecordId;
         $sel_date= date("Y-m-d",$sel_date_timestamp);
-        $ExtraSearchRule = "
-        (
-			[start_time]<='$sel_date 23:59:59' AND
-			[finish_time]>'$sel_date 00:00:00'
-		) 
-		";
+        $ExtraSearchRule = "( [start_time]<='$sel_date 23:59:59' AND [finish_time]>'$sel_date 00:00:00' ) ";
+        $this->m_FixSearchRule = $ExtraSearchRule;
         $dataObj->setOtherSQLRule($GroupSQLRule);
         
     	//within each group, search records like before
@@ -55,7 +52,7 @@ class TaskTimesheetListForm extends EasyForm
         else
             $searchRule = $this->m_SearchRule;
 
-        $dataObj->setSearchRule($searchRule. " AND " .$ExtraSearchRule);
+        $dataObj->setSearchRule($searchRule);
         
         $resultRecords = $dataObj->fetch();
         $this->m_TotalRecords = $dataObj->count();
@@ -64,7 +61,7 @@ class TaskTimesheetListForm extends EasyForm
         QueryStringParam::ReSet();
         //looping
         $i=0;
-        $results = array();
+        $results = array();        
         foreach($resultRecords as $record){
         	if ($this->m_RefreshData)
 	            $dataObj->resetRules();
@@ -75,7 +72,7 @@ class TaskTimesheetListForm extends EasyForm
 	        if ($this->m_FixSearchRule)
 	        {
 	            if ($this->m_SearchRule)
-	                $searchRule = $this->m_SearchRule .$this->m_FixSearchRule;
+	                $searchRule = $this->m_SearchRule . " AND " .$this->m_FixSearchRule;
 	            else
 	                $searchRule = $this->m_FixSearchRule;
 	        }
