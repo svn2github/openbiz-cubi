@@ -30,8 +30,11 @@ class TaskTimesheetForm extends ChangeLogForm
     	BizSystem::clientProxy()->updateClientElement($elem->m_Name, $elem->render());
     }
     public function fetchDataSet()
-	{
+	{		
 		$this->calcDateRange();
+		$svcObj = BizSystem::GetService(DATAPERM_SERVICE);
+	    $dataPermSQLRule = $svcObj->buildSqlRule('update',true);
+	    $this->m_FixSearchRule = $dataPermSQLRule;				
 		return array();
 	}  
 	public function getSessionVars($sessionContext)

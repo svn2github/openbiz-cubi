@@ -35,7 +35,12 @@ class TaskTimesheetListForm extends ChangeLogForm
         $sel_date_timestamp= BizSystem::getObject("collab.task.form.TaskTimesheetForm")->m_RecordId;
         $sel_date= date("Y-m-d",$sel_date_timestamp);
         $ExtraSearchRule = "( [start_time]<='$sel_date 23:59:59' AND [finish_time]>'$sel_date 00:00:00' ) ";
-        $this->m_FixSearchRule = $ExtraSearchRule;
+        if($this->m_FixSearchRule)
+        {
+        	$this->m_FixSearchRule = ' AND '.$ExtraSearchRule;
+        }else{
+        	$this->m_FixSearchRule = $ExtraSearchRule;
+        }
         $dataObj->setOtherSQLRule($GroupSQLRule);
         
     	//within each group, search records like before
@@ -122,7 +127,10 @@ class TaskTimesheetListForm extends ChangeLogForm
     }	
     public function outputAttrs()
     {
-    	$output = parent::outputAttrs();    	
+    	$output = parent::outputAttrs(); 
+    	$svcObj = BizSystem::GetService(DATAPERM_SERVICE);
+	    $dataPermSQLRule = $svcObj->buildSqlRule('update',true);
+	    $this->m_FixSearchRule = $dataPermSQLRule;   	
     	$output['dataGroup'] = $this->fetchDataGroup();
     	return $output;	
     
