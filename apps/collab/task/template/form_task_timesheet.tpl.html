@@ -120,15 +120,19 @@ height:12px;
 {/literal}
 <div style="padding-left:25px;padding-right:40px;">
 	<div>
-{include file="system_appbuilder_btn.tpl.html"}
 	<table><tr><td>
 		{if $form.icon !='' }
 		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
 		{/if}
-		<div style="float:left; width:600px;">
-		<h2>
+		<div style="float:left; width:690px;">
+		<h2 style="width:300px;float:left;">
 		{$form.title}
 		</h2> 
+		<h3 id="txt_sel_date" style="width:300px;float:right;text-align:right;font-size:14px;padding-bottom:0px;padding-top:20px;">
+		{$navPanel.txt_sel_date.element}
+		</h3>
+	
+		 
 		{if $form.description}
 		<p class="form_desc">{$form.description}</p>
 		{/if}

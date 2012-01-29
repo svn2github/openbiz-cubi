@@ -20,10 +20,15 @@ class TaskTimesheetForm extends ChangeLogForm
     public function outputAttrs()
     {
     	$output = parent::outputAttrs();
-    	$output['dataGroup'] = $this->fetchDataGroup();
+    	$output['dataGroup'] = $this->fetchDataGroup();    	
     	return $output;	
     
     } 
+    public function selectRecord($recId){
+    	$result = parent::selectRecord($recId);
+    	$elem = $this->m_NavPanel->get('txt_sel_date');
+    	BizSystem::clientProxy()->updateClientElement($elem->m_Name, $elem->render());
+    }
     public function fetchDataSet()
 	{
 		$this->calcDateRange();
@@ -58,7 +63,7 @@ class TaskTimesheetForm extends ChangeLogForm
 
 		$start_date = new DateTime($this_year.'-01-01');
 		$weekday_offset = date('w',strtotime($this_year.'-01-01'));		
-		$start_date->add(new DateInterval('P'.(($week_num-1)*7).'D'));
+		$start_date->add(new DateInterval('P'.((($week_num-1)*7)+1).'D'));
 		$start_date->sub(new DateInterval('P'.$weekday_offset.'D'));
 		
 		$start_date_str = $start_date->format("Y-m-d")." 00:00:00";
@@ -104,8 +109,10 @@ class TaskTimesheetForm extends ChangeLogForm
 	}
 	public function getTaskStat($sel_date){
 		$searchRule = "
+		(
 			[start_time]<='$sel_date 23:59:59' AND
-			[finish_time]>'$sel_date 00:00:00' 
+			[finish_time]>'$sel_date 00:00:00'
+		) 
 		";
 		$recs = BizSystem::getObject('collab.task.do.TaskStatDO',1)->directfetch($searchRule);
 		$statData = array();
@@ -149,6 +156,6 @@ class TaskTimesheetForm extends ChangeLogForm
 		return $dataArr;
 	}
 	
-
+    
 }
 ?>
