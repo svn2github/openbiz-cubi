@@ -11,10 +11,10 @@
 		<Element Name="fld_spend_progress" Color="ffAA00" ElementSet="General" Class="LabelBar" Width="300" height="14"  DisplayUnit="%" MaxValue="100" FieldName="cost_spend_bar" Label="Expenses"  AllowURLParam="N" />
 		<Element Name="fld_starttime" ElementSet="General" Class="LabelText" FieldName="start_time" Label="Start Time" AllowURLParam="N" />
 		<Element Name="fld_status" ElementSet="General" Class="LabelList" FieldName="status" Label="Status" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" AllowURLParam="N" />		
-		<Element Name="fld_condition" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_condition_{@:Elem[fld_condition].Value}.png" FieldName="condition" Sortable="Y" Label="Cond" >		
+		<Element Name="fld_condition" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_condition_{@:Elem[fld_condition].Value}.png" FieldName="condition" Sortable="Y" Label="Condition" >		
         </Element>
         		
-		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Pri">
+		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Priority">
 		</Element>	
 		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 
