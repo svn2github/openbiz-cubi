@@ -42,7 +42,7 @@ class ReminderService
 			/**
 			 * do remind uesrs
 			 */
-			$userList = BizSystem::getService(DATAPERM_SERVICE)->getReadableUserList($taskRec);
+			$userList = BizSystem::getService(DATAPERM_SERVICE)->getEditableUserList($taskRec);
 			foreach ($userList as $user_id)
 			{
 				$emailSvc->SendEmailToUser("TaskRemindEmail",$user_id,$taskRec);
