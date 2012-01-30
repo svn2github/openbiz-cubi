@@ -26,6 +26,6 @@ define('FORM_ELEMENT_INVALID_INPUT', "Unable to validate element [%s] = %s as in
 define('BFM_ERROR_INVALID_DISPMODE', "Unable to find a valid display mode for BizForm %s.");
 define('PLEASE_EDIT_A_RECORD', "Please select a record to edit.");
 define('UNABLE_TO_LOCATE_TEMPLATE_FILE', "Unable to location template file %s.");
-define('FORM_OPEATION_NOT_PERMITTED',"You don't have enough permission to do this operation.");
+define('FORM_OPERATION_NOT_PERMITTED',"You don't have enough permission to do this operation.");
 
 ?>
