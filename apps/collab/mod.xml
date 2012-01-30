@@ -140,6 +140,7 @@
         <ChangeLog>
         <Version Name="1.0.3">
         	<Change Name="feature_103" Type="New_Feature" Status="Finished" PublishDate="2012-01-28" Description="added task gantt view and event calendar view"></Change>
+        	<Change Name="feature_1032" Type="New_Feature" Status="Finished" PublishDate="2012-01-30" Description="added repeatable task creation logic"></Change>
         </Version>
         <Version Name="1.0.2">
         	<Change Name="feature_1021" Type="New_Feature" Status="Finished" PublishDate="2012-01-28" Description="added task timesheet view"></Change>
