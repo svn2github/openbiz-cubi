@@ -162,7 +162,53 @@ class dataPermService
 		
 	}
 	
+	public function getEditableUserList($recArr)
+	{
+		$recId 		= $recArr['Id'];
+		$creatorId 	= $recArr['create_by'];
+		$ownerId 	= $recArr['owner_id'];
+		$groupId 	= $recArr['group_id'];
+		$groupPerm 	= $recArr['group_perm'];
+		$otherPerm 	= $recArr['other_perm'];
+		
 	
+		$userListArr = array();
+		$userListArr[$creatorId] = $creatorId;
+		
+		if($ownerId	!= $creatorId)
+		{
+			$userListArr[$ownerId] = $ownerId;
+		}
+			
+		//test if changes for group level visiable
+		if($groupPerm >=2)
+		{
+			$userList = $this->_getGroupUserList($groupId);
+			foreach($userList as $user_id)
+			{
+				$userListArr[$user_id] = $user_id;
+			}				
+		}
+		
+		//test if changes for other group level visiable
+		if($otherPerm >=2)
+		{				
+			$groupList = $this->_getGroupList();
+			foreach($groupList as $group_id){
+				if($groupId==$group_id)
+				{
+					continue;
+				}					
+				$userList = $this->_getGroupUserList($group_id);
+				foreach($userList as $user_id)
+				{
+					$userListArr[$user_id] = $user_id;
+				}				
+			}
+		}
+		return $userListArr;
+		
+	}
 	protected function _getGroupList(){
 		$rs = BizSystem::getObject("system.do.GroupDO")->directFetch("");
 		$group_ids = array();
