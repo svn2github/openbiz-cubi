@@ -72,7 +72,7 @@ float:left;
 <div class="from_table_container">
 <table border="0" cellpadding="0" cellspacing="0" class="form_table" id="{$form.name}_data_table">
 	<tr>
-		<td class="task_list" width="170" style="padding:2px;padding-left:0px;background-image:none;background-color:#faf9f8;"  valign="top">
+		<td class="task_list" width="170" style="padding:1px;padding-left:0px;background-image:none;background-color:#faf9f8;"  valign="top">
 			<span class="panel_title" style="background-color:#66c2ff;height:auto;">{t}Not Started{/t}</span>
 
 				 {if $form.dataGroup.0.data|count}
@@ -81,7 +81,7 @@ float:left;
 			     {if $row.fld_description}
 			     	<table border="0" cellpadding="0" cellspacing="0" style="width:170px;" class="form_table" id="{$form.name}_data_table">
 			     {else}
-			     	<table border="0" cellpadding="0" cellspacing="0" style="width:178px;" class="form_table" id="{$form.name}_data_table">
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:174px;" class="form_table" id="{$form.name}_data_table">
 			     {/if}	
 			         {if $row_style != ''}
 					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
@@ -107,8 +107,8 @@ float:left;
 					</tr>
 					{if $row.fld_description}
 					<tr>						
-						<td class="task_desc" style="padding:0px;" nowrap="" colspan="4" >
-						<div style="padding-left:5px;width:160px;padding-right:5px;overflow:hidden;">
+						<td class="task_desc" style="padding:0px;"  colspan="4" >
+						<div style="padding-left:5px;width:160px;overflow:hidden;">
 						{$row.fld_description}
 						</div>
 						</td>
@@ -124,12 +124,16 @@ float:left;
 					
 
 		</td>
-		<td class="task_list" style="padding:2px;background-image:none;" valign="top">
+		<td class="task_list" style="padding:1px;background-image:none;" valign="top">
 			<span class="panel_title" style="background-color:#ffb053;height:auto;">{t}In Progress{/t}</span>
 			{assign var=row_counter value=0}   
 				{if $form.dataGroup.1.data|count}           
 			     {foreach item=row from=$form.dataGroup.1.data}
-			     <table border="0" cellpadding="0" cellspacing="0" style="width:347px;overflow:hidden;border-bottom-color:#ffb053;" class="form_table" id="{$form.name}_data_table">	
+			     {if $row.fld_description}
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:340px;overflow:hidden;border-bottom-color:#ffb053;" class="form_table" id="{$form.name}_data_table">
+			     {else}
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:344px;overflow:hidden;border-bottom-color:#ffb053;" class="form_table" id="{$form.name}_data_table">
+			     {/if}		
 			         {if $row_style != ''}
 					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
 								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
@@ -169,7 +173,7 @@ float:left;
 			     <span class="not_found">{t}-- No in progress tasks --{/t}</span>
 			     {/if}
 		</td>
-		<td class="task_list" width="170" style="padding:2px;padding-right:0px;background-image:none;background-color:#faf9f8;"  valign="top">
+		<td class="task_list" width="170" style="padding:1px;padding-right:0px;background-image:none;background-color:#faf9f8;"  valign="top">
 			<span class="panel_title" style="background-color:#7fff6b;height:auto;">{t}Completed{/t}</span>
 				{assign var=row_counter value=0}        
 				{if $form.dataGroup.2.data|count}    
@@ -177,7 +181,7 @@ float:left;
 				 {if $row.fld_description}
 			     	<table border="0" cellpadding="0" cellspacing="0" style="width:170px;" class="form_table" id="{$form.name}_data_table">
 			     {else}
-			     	<table border="0" cellpadding="0" cellspacing="0" style="width:178px;" class="form_table" id="{$form.name}_data_table">
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:174px;" class="form_table" id="{$form.name}_data_table">
 			     {/if}				         {if $row_style != ''}
 					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
 								style="{$row_style}"										
@@ -205,8 +209,8 @@ float:left;
 					</tr>
 					{if $row.fld_description}
 					<tr>						
-						<td class="task_desc" style="padding:0px;" nowrap="" colspan="4" >
-						<div style="padding-left:5px;width:160px;padding-right:5px;overflow:hidden;">
+						<td class="task_desc" style="padding:0px;"  colspan="4" >
+						<div style="padding-left:5px;width:160px;overflow:hidden;">
 						{$row.fld_description}
 						</div>
 						</td>
