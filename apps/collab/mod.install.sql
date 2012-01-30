@@ -73,7 +73,7 @@ INSERT INTO `task_type` (`id`, `name`, `description`, `color`, `sortorder`, `pub
 (3, 'New Feature', 'New feature releated tasks', 'ffea5e', 50, 1, 1, 1, 1, 1, '2010-05-23 01:34:12', 1, '2012-01-23 22:36:56'),
 (4, 'Bug Fix', 'Bug fix releated tasks', 'ff8f8f', 45, 1, 1, 1, 1, 1, '2010-05-23 01:34:39', 1, '2012-01-23 22:39:40'),
 (5, 'Quality Check', 'Quality Check related tasks', 'faaff1', 50, 1, 1, 1, 1, 1, '2012-01-23 22:38:08', 1, '2012-01-23 22:39:52'),
-(6, 'Requirement', 'Reuqrement Collection related tasks', 'd7ffc7', 50, 1, 1, 1, 1, 1, '2012-01-23 22:41:09', 1, '2012-01-23 22:41:35');
+(6, 'Requirement', 'Requirement Collection related tasks', 'd7ffc7', 50, 1, 1, 1, 1, 1, '2012-01-23 22:41:09', 1, '2012-01-23 22:41:35');
 
 
 DROP TABLE IF EXISTS `task_contact`;

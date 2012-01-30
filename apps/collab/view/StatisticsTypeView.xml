@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="StatisticsTypeView" Description="Data Type Statistics" Class="EasyView" Tab="" Access="collab_statistics.access" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="collab.task.form.TaskTypeListForm"/>
+   </FormReferences>
+</EasyView>
