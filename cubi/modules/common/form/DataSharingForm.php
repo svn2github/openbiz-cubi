@@ -251,7 +251,7 @@ class DataSharingForm extends EasyForm
 	
 	private function _getOwnerName($id)
 	{		
-		$result = BizSystem::getProfileEmail($id);
+		$result = BizSystem::getProfileName($id);
 		return $result;
 	}
 	
