@@ -36,6 +36,7 @@ class TaskForm extends ChangeLogForm
 					$inputRecord['title']		= $org_title.'-'.$i;
 					$inputRecord['start_time']	= $this->getRecurrenceTime($org_start_time, $recurrence, $i-1);
 					$inputRecord['finish_time']	= $this->getRecurrenceTime($org_finish_time, $recurrence, $i-1);
+					
 					$recId = parent::_doInsert($inputRecord);
 				}
 				break;
@@ -50,7 +51,7 @@ class TaskForm extends ChangeLogForm
 		{
 			case "1":
 				$i=$recurrence_times;				
-				$new_time = date("Y-m-d H:i:s",strtotime(date("Y-m-d")." ".date("H:i:s",strtotime($timestamp)))+86400*$i);											
+				$new_time = date("Y-m-d H:i:s",strtotime($timestamp)+86400*$i);				
 				break;
 				
 			case "2":
@@ -80,10 +81,7 @@ class TaskForm extends ChangeLogForm
 				
 			case "4":
 				$i=$recurrence_times;
-				$new_time = strtotime($timestamp);					
-		      	$new_time = date('Y-m-d h:i:s', mktime(date('h',$new_time),
-		      	date('i',$new_time), date('s',$new_time), date('m',$new_time),
-		    	date('d',$new_time), date('Y')+$i));      										
+				$new_time = date("Y-m-d H:i:s",strtotime($timestamp)+86400*365*$i);  										
 				break;
 		}
 		
