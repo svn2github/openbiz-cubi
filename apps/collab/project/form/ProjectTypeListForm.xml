@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectTypeListForm" Class="ProjectTypeForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project_type.png"  FormType="List" jsClass="jbForm" Title="Project Type Manage" Description="You can mamange your project items by types.  All user defined type are listed below." BizDataObj="collab.project.do.ProjectTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="PROJECT_TYPE" MessageFile="ProjectType.msg" Access="collab_project.access">
+<EasyForm Name="ProjectTypeListForm" Class="ProjectTypeForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project_type.png"  FormType="List" jsClass="jbForm" Title="Project Type Manage" Description="You can mamange your project items by types.  All user defined type are listed below." BizDataObj="collab.project.do.ProjectTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="PROJECT_TYPE"  Access="collab_project.access">
    <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
