@@ -78,7 +78,11 @@ float:left;
 				 {if $form.dataGroup.0.data|count}
 			     {assign var=row_counter value=0}
 			     {foreach item=row from=$form.dataGroup.0.data}
-			     <table border="0" cellpadding="0" cellspacing="0" style="width:170px;" class="form_table" id="{$form.name}_data_table">	
+			     {if $row.fld_description}
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:170px;" class="form_table" id="{$form.name}_data_table">
+			     {else}
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:178px;" class="form_table" id="{$form.name}_data_table">
+			     {/if}	
 			         {if $row_style != ''}
 					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
 								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
@@ -170,8 +174,11 @@ float:left;
 				{assign var=row_counter value=0}        
 				{if $form.dataGroup.2.data|count}    
 			     {foreach item=row from=$form.dataGroup.2.data}
-			     <table border="0" cellpadding="0" cellspacing="0" style="width:170px;" class="form_table" id="{$form.name}_data_table">	
-			         {if $row_style != ''}
+				 {if $row.fld_description}
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:170px;" class="form_table" id="{$form.name}_data_table">
+			     {else}
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:178px;" class="form_table" id="{$form.name}_data_table">
+			     {/if}				         {if $row_style != ''}
 					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
 								style="{$row_style}"										
 								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
