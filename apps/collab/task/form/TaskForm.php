@@ -5,6 +5,91 @@ class TaskForm extends ChangeLogForm
 	public $m_parent_task_desc ;
 	public $m_dependency_task_desc ;  
 	
+	protected function _doInsert($inputRecord)	
+	{		
+		$recurrence = $inputRecord['recurrence'];
+		$recurrence_times = $inputRecord['recurrence_times'];		
+		
+		if(!$recurrence_times)
+		{
+			$recurrence_times = 1;
+		}
+		
+		unset($inputRecord['recurrence']);
+		unset($inputRecord['recurrence_times']);
+		
+		switch ($recurrence)
+		{
+			default:
+			case "0":
+				$recId = parent::_doInsert($inputRecord);
+				break;
+			case "1": //daily				
+			case "2": //weekly			
+			case "3": //monthly			
+			case "4": //anual
+				$org_title = $inputRecord['title'];
+				$org_start_time = $inputRecord['start_time'];
+				$org_finish_time = $inputRecord['finish_time'];
+				$recIds = array();
+				for($i=$recurrence_times;$i>=1;$i--){
+					$inputRecord['title']		= $org_title.'-'.$i;
+					$inputRecord['start_time']	= $this->getRecurrenceTime($org_start_time, $recurrence, $i-1);
+					$inputRecord['finish_time']	= $this->getRecurrenceTime($org_finish_time, $recurrence, $i-1);
+					$recId = parent::_doInsert($inputRecord);
+				}
+				break;
+		}
+		return $recId;
+	}
+	
+	public function getRecurrenceTime($timestamp,$recurrence_type,$recurrence_times)
+	{		
+	
+		switch($recurrence_type)
+		{
+			case "1":
+				$i=$recurrence_times;				
+				$new_time = date("Y-m-d H:i:s",strtotime(date("Y-m-d")." ".date("H:i:s",strtotime($timestamp)))+86400*$i);											
+				break;
+				
+			case "2":
+				$i=$recurrence_times;
+				$new_time = strtotime($timestamp);		
+				$weekday_org = date('w',$new_time);
+				$weekday_cur = date('w');			
+				$weekday_diff = $weekday_org - $weekday_cur ;					
+				$dayinthisweek = time() + $weekday_diff*86400 + 7*86400*$i;													
+				$new_time = date("Y-m-d",$dayinthisweek)." ".date("H:i:s",strtotime($timestamp));					
+			    break;
+			    
+			case "3":
+				$i=$recurrence_times;				
+				$new_time = strtotime($timestamp);					
+				if(date('m',$new_time)+$i>12){
+					$month = date('m',$new_time)+$i - 12;
+					$offset_y = 1;
+				}else{
+					$month = date('m',$new_time)+$i;
+					$offset_y = 0;
+				}					
+				$new_time = date('Y-m-d h:i:s', mktime(date('h',$new_time),
+		      	date('i',$new_time), date('s',$new_time), $month,
+		    	date('d',$new_time), date('Y')+$offset_y )); 		    										
+				break;
+				
+			case "4":
+				$i=$recurrence_times;
+				$new_time = strtotime($timestamp);					
+		      	$new_time = date('Y-m-d h:i:s', mktime(date('h',$new_time),
+		      	date('i',$new_time), date('s',$new_time), date('m',$new_time),
+		    	date('d',$new_time), date('Y')+$i));      										
+				break;
+		}
+		
+		return $new_time;
+	}	
+	
 	public function UpdateTaskStatus($id, $fld_name, $value)
 	{
 		if($value == 1){
