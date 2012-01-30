@@ -27,14 +27,20 @@ class CollabLoadHandler implements ModuleLoadHandler
 	    	);
 	    	BizSystem::getObject("system.do.AclRoleActionDO")->insertRecord($aclRecord);
 	    	
-		    if($actionRec['name']!='manage' && $actionRec['resource']!='collab_announcement'){
-		    	$aclRecord = array(
-		    		"role_id" =>  $memberRoleId,
-		    		"action_id" => $actionId,
-		    		"access_level" => 1
-		    	);
-		    	BizSystem::getObject("system.do.AclRoleActionDO")->insertRecord($aclRecord);
-	    	}
+		    if(
+		    	($actionRec['name']=='manage' && $actionRec['resource']=='collab_announcement') ||
+		     	($actionRec['name']=='access' && $actionRec['resource']=='collab_statistics')
+		     ){
+		     	continue;
+		     }
+		     	
+	    	$aclRecord = array(
+	    		"role_id" =>  $memberRoleId,
+	    		"action_id" => $actionId,
+	    		"access_level" => 1
+	    	);
+	    	BizSystem::getObject("system.do.AclRoleActionDO")->insertRecord($aclRecord);
+	    	
     	}
     	
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="Openbiz Collaboration" Version="1.0.3" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
+<Module Name="collab" Description="Openbiz Collaboration" Version="1.1.0" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -37,6 +37,9 @@
 		</Resource>
 		<Resource Name="collab_project">
 			<Action Name="access" Description="access and manage project"/>
+		</Resource>
+		<Resource Name="collab_statistics">
+			<Action Name="access" Description="access collaboration system statistics"/>
 		</Resource>
 		
 	</ACL>
@@ -132,12 +135,21 @@
 			<MenuItem Name="Collab_Bookmark.Manage" Title="Bookmark Manage" Description=""  URL="{@home:url}/collab/bookmark_manage" Access="collab_bookmark.access" Order="10" ></MenuItem>			
 			<MenuItem Name="Collab_Bookmark.TypeManage" Title="Bookmark Type" Description=""  URL="{@home:url}/collab/bookmark_type" Access="collab_bookmark.access"  Order="20" ></MenuItem>
 		</MenuItem>	
+		
+		 <!-- statistics menus -->
+        <MenuItem Name="Collab_Statistics" Title="Statistics" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_statistics" Order="110" Access="collab_statistics.access">
+			<MenuItem Name="Collab_Statistics.TypeStat" Title="Data Type Statistics" Description=""  URL="{@home:url}/collab/statistics_type" Access="collab_statistics.access" Order="10" ></MenuItem>			
+			<MenuItem Name="Collab_Statistics.ProjectStat" Title="Project Statistics" Description=""  URL="{@home:url}/collab/statistics_project" Access="collab_statistics.access"  Order="20" ></MenuItem>
+		</MenuItem>	
     </Menu>
     <Dependency>
     	<Module Name="system"/>
     	<Module Name="menu"/>
     </Dependency>
         <ChangeLog>
+        <Version Name="1.1.0">
+        	<Change Name="feature_110" Type="New_Feature" Status="Finished" PublishDate="2012-01-30" Description="added statistics charts feature for collaboration system"></Change>        	
+        </Version>
         <Version Name="1.0.3">
         	<Change Name="feature_103" Type="New_Feature" Status="Finished" PublishDate="2012-01-28" Description="added task gantt view and event calendar view"></Change>
         	<Change Name="feature_1032" Type="New_Feature" Status="Finished" PublishDate="2012-01-30" Description="added repeatable task creation logic"></Change>

@@ -33,6 +33,9 @@
 #main #left_panel .content .collaboration .icon_project{
 	background-position:left -144px;
 }
+#main #left_panel .content .collaboration .icon_statistics{
+	background-position:left -160px;
+}
 /* --for hovers */
 #main #left_panel .content .collaboration a:hover .icon_calender,
 #main #left_panel .content .collaboration a.current .icon_calender,
@@ -63,4 +66,9 @@
 #main #left_panel .content .collaboration a.current .icon_project,
 #main #left_panel .content .collaboration a:active .icon_project{
 	background-position:left -144px;
+}
+#main #left_panel .content .collaboration a:hover .icon_statistics,
+#main #left_panel .content .collaboration a.current .icon_statistics,
+#main #left_panel .content .collaboration a:active .icon_statistics{
+	background-position:left -160px;
 }
