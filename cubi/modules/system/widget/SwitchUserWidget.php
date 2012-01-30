@@ -10,6 +10,8 @@ class SwitchUserWidget extends EasyForm
 			if(!BizSystem::sessionContext()->getVar("_PREV_USER_PROFILE"))
 			{
 				return ;
+			}else{
+				$this->m_ShowWidget = true;
 			}
 		}else{			
 			$this->m_ShowWidget = true;
