@@ -125,7 +125,7 @@ class ChartForm extends EasyForm
             trigger_error($errmsg, E_USER_ERROR);
             return;
         }
-                
+        
         if (count($this->chartDataset) > 1)
             return $this->drawMultiSeries();
         else if (count($this->chartDataset) == 1)
@@ -141,7 +141,7 @@ class ChartForm extends EasyForm
     protected function drawSingleSeries()
     {
     	//load color styles
-    	$colorObj = BizSystem::getObject("report.do.ReportColorDO");
+    	$colorObj = BizSystem::getObject("chart.do.ChartColorDO");
     	$colorList = $colorObj->directFetch("");
     	
         $FC = new FusionCharts($this->m_SubType, $this->m_Width, $this->m_Height); 
@@ -194,11 +194,11 @@ class ChartForm extends EasyForm
     protected function seChartParams($FC)
     {
     	if(strtolower(FusionChartVersion)=="pro"){
-    		$FC->setSWFPath(APP_URL."/js/FusionChartsPro/");    		
+    		$FC->setSWFPath(RESOURCE_URL."/chart/js/FusionChartsPro/");    		
     	}
     	else
     	{
-        	$FC->setSWFPath(APP_URL."/js/FusionCharts/");
+        	$FC->setSWFPath(RESOURCE_URL."/chart/js/FusionCharts/");
     	}
         
         # Set chart attributes

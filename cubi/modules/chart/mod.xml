@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="chart" Description="Report Chart Module" Version="0.1" OpenbizVersion="2.4" LoadHandler="chart.lib.ChartLoadHandler">
+<Module Name="chart" Description="Report Chart Module" Version="0.3" OpenbizVersion="2.4" LoadHandler="chart.lib.ChartLoadHandler">
 	<ACL>
 		<Resource Name="Chart">
 			<Action Name="View_Chart" Description="View Charts"/>
@@ -8,4 +8,9 @@
     <Dependency>
     	<Module Name="system"/>
     </Dependency>
+    <ChangeLog>
+        <Version Name="0.2">
+        	<Change Name="feature_2" Type="New_Feature" Status="Finished" PublishDate="2012-02-01" Description="added report chart color defines."></Change>        	
+        </Version>
+    </ChangeLog>
 </Module>

@@ -1,0 +1,19 @@
+DROP TABLE IF EXISTS `chart_color`;
+CREATE TABLE IF NOT EXISTS `chart_color` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `color_code` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sort_order` int(2) DEFAULT NULL,
+  `create_by` int(11) NOT NULL DEFAULT '1',
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL DEFAULT '1',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `name` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+INSERT INTO `chart_color`
+(`id`,`name`,`color_code`,`sort_order`,`create_by`,`create_time`,`update_by`,`update_time`) 
+VALUES
+(1,'red','ff0000',10,1,'2010-10-25 23:27:36',1,'2010-10-25 23:27:36'),
+(2,'blue','000dff',50,1,'2010-10-25 23:27:55',1,'2010-10-25 23:27:55');
