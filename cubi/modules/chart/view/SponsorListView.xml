@@ -1,8 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="SponsorListView" Description="Sample Chart" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
-   <FormReferences>
-   		<Reference Name="chart.form.SponsorListForm"/>
-        <Reference Name="chart.form.SponsorColumnChart"/>
-        <Reference Name="chart.form.SponsorPieChart"/>
-   </FormReferences>  
-</EasyView>
