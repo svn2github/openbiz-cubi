@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="chart" Description="Report Chart Module" Version="0.1" OpenbizVersion="2.4" LoadHandler="chart.lib.ChartLoadHandler">
+	<ACL>
+		<Resource Name="Chart">
+			<Action Name="View_Chart" Description="View Charts"/>
+		</Resource>
+	</ACL>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+</Module>

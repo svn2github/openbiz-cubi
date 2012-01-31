@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="SponsorListPrintView" Description="Sample Chart in Print Preview" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="print_report.tpl.html">
+   <FormReferences>
+   		<Reference Name="chart.form.SponsorListForm"/>
+        <Reference Name="chart.form.SponsorColumnChart"/>
+        <Reference Name="chart.form.SponsorPieChart"/>
+   </FormReferences>  
+</EasyView>
