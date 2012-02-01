@@ -14,40 +14,28 @@
 			<span>{$form.description}</span>
 			</p>
 			{else}
-			<div style="height:15px;"></div>
 			{/if}
 		</div>
 	</td></tr></table>
 {if $actionPanel or $searchPanel }	
 	<div class="form_header_panel">	
-				<div class="action_panel">
-		{foreach item=elem from=$actionPanel}
+				<div class="action_panel" style="width:398px;">
+		{foreach item=elem from=$searchPanel}
+		    	{if $elem.label}
+		    	<span style="float:left;padding-right:10px;padding-top:2px;">{$elem.label}</span> 
+		    	{/if}
 		    	{$elem.element}
 		{/foreach}
+					<div id='{$form.name}.load_disp' style="float:left;display:none;padding-top:6px;padding-left:10px;" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
 				</div>
-				<div class="search_panel">
-		
-		{foreach item=elem from=$searchPanel}
-			{if $elem.label} {$elem.label} {/if} {$elem.element}
-		{/foreach}
-				</div>
+				
 	</div>
 {/if}
 <div>{$form.data}</div>
-	<div class="form_footer_panel">
-		<div class="ajax_indicator">
-			<div id='{$form.name}.load_disp' style="display:none" >
-				<img src="{$image_url}/form_ajax_loader.gif"/>
-			</div>
-		</div>
-		<div class="navi_panel">
-{if $navPanel}
-   {foreach item=elem from=$navPanel}
-   		{if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
-    	{$elem.element}
-   {/foreach}
-{/if}					
-		</div>	
-	</div>
+
+	<div class="v_spacer"></div>
+	 
 </div>
 </form>
