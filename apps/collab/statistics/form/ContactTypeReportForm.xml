@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ContactTypeReportForm" Class="chart.form.ChartForm" FormType="Detail" ChartType="Pie2D" ChartAttrs="showValues=1;showNames=1;numberSuffix= contacts;baseFontSize=12" Width="700" Height="400" jsClass="Openbiz.Form" Title="Contact Type Statistics" BizDataObj="collab.statistics.do.ContactTypeStatDO" TemplateEngine="Smarty" PageSize="100" TemplateFile="system_right_chartform.tpl.html">
+    <DataPanel>
+        <Element Name="fld_name" Class="chart.lib.ChartCategory" FieldName="type_name" Label="Type"/>
+        <Element Name="fld_data_count" Class="chart.lib.ChartData" FieldName="type_count" Label="Data Count"/>
+        <Element Name="fld_data_data" Class="chart.lib.ChartColor" FieldName="type_color" Label="Data Color"/>
+    </DataPanel>
+    <ActionPanel>
+    
+        <Element Name="btn_redraw" Class="Button" Text="Redraw" CssClass="button_gray_m">
+            <EventHandler Name="redraw_onclick" Event="onclick" Function="RedrawChart()" />
+        </Element>
+    		
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
