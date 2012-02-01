@@ -5,6 +5,7 @@ class ChartForm extends EasyForm
 	public $chartCategory;
 	public $chartDataset;
 	public $chartDataAttrset;
+	public $chartColorset;
     public $m_Attrs;
     public $m_SubType;
     
@@ -39,6 +40,10 @@ class ChartForm extends EasyForm
     
     protected function fetchDatasetByColumn()
     {
+		$this->chartCategory = array();
+		$this->chartDataAttrset = array();
+		$this->chartDataset = array();
+		$this->chartColorset = array();
     	// query recordset first
 		$dataObj = $this->getDataObj();
 
@@ -90,7 +95,13 @@ class ChartForm extends EasyForm
             		    $this->chartDataAttrset[$element->key] = $element->attrs;
             		}
             		if ($element->m_Class == "chart.lib.ChartCategory")
+            		{
             		    $this->chartCategory[] = $arr[$element->fieldName];
+            		}
+            		if ($element->m_Class == "chart.lib.ChartColor")
+            		{
+            		    $this->chartColorset[] = $arr[$element->fieldName];
+            		}
             	}
             }
             $counter++;
@@ -102,11 +113,11 @@ class ChartForm extends EasyForm
     	$path = MODULE_PATH.'/chart/lib';
     	set_include_path(get_include_path() . PATH_SEPARATOR . $path);    	
         if(strtolower(FusionChartVersion)=="pro"){
-    		require_once('fusionpro/FusionCharts_Gen.php'); 		
+    		require_once(dirname(dirname(__FILE__)).'/lib/fusionpro/FusionCharts_Gen.php'); 		
     	}
     	else
     	{
-        	require_once('fusion/FusionCharts_Gen.php');
+        	require_once(dirname(dirname(__FILE__)).'/lib/fusion/FusionCharts_Gen.php');
     	} 
     	return $this->drawChart();
     }
@@ -118,8 +129,7 @@ class ChartForm extends EasyForm
     //TODO: for different type of chart, use template? or render class?
     protected function drawChart()
     {
-        $this->fetchDatasetByColumn();
-        
+        $this->fetchDatasetByColumn(); 
         if ($this->checkChartType($this->m_SubType) == false) {
             $errmsg = "Unsupported chart type $this->m_SubType.";
             trigger_error($errmsg, E_USER_ERROR);
@@ -149,7 +159,17 @@ class ChartForm extends EasyForm
         if(is_array($this->chartDataset)){
 	        foreach ($this->chartDataset as $key=>$ds) {
 	            for ($i=0; $i<count($ds); $i++){
-	                $FC->addChartData($ds[$i], "name=".$this->chartCategory[$i].";color=".$colorList[$i]["color_code"].";".$this->chartDataAttrset[$key]);
+	            	
+	            	$elemConfig = "name=".$this->chartCategory[$i].';'.$this->chartDataAttrset[$key].';';
+	            	if($this->chartColorset[$i])
+	            	{
+	            		$elemConfig.="color=".$this->chartColorset[$i];
+	            	}
+	            	else
+	            	{
+	            		$elemConfig.="color=".$colorList[$i]["color_code"];
+	            	}
+	                $FC->addChartData($ds[$i], $elemConfig);
 	            }
 	        }
         }
@@ -178,7 +198,13 @@ class ChartForm extends EasyForm
         foreach ($this->chartDataset as $key=>$ds) {
             if(preg_match("/color=/si",$this->chartDataAttrset[$key])){
             	$color = "";
-            }else{
+            }
+            elseif($this->chartColorset[$colorI])
+            {
+            	$color = "color=".$this->chartColorset[$colorI].";";
+            }
+            else
+            {
         		$color = "color=".$colorList[$colorI]["color_code"].";";
             }
         	
