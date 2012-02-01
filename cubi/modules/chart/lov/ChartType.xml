@@ -1,25 +1,25 @@
 <?xml version="1.0" standalone="no"?>
 <Selection>
 
-   <SingleSeries Value="Column2D" 		Text="Column Chart"/>
-   <SingleSeries Value="Column3D" 		Text="Column Chart 3D"/>  
-   <SingleSeries Value="Bar2D" 			Text="Bar Chart"/>
-   <SingleSeries Value="Area2D" 		Text="Area Chart"/>
-   <SingleSeries Value="Line" 			Text="Line Chart"/>
-   <SingleSeries Value="Pie2D" 			Text="Pie Chart"/>
-   <SingleSeries Value="Pie3D" 			Text="Pie Chart 3D"/>
+   <SingleSeries Value="Column2D" 		Text="Column Chart" 		Picture="{RESOURCE_URL}/chart/images/icon_chart_column2d.png"/>
+   <SingleSeries Value="Column3D" 		Text="Column Chart 3D"		Picture="{RESOURCE_URL}/chart/images/icon_chart_column3d.png"/>  
+   <SingleSeries Value="Bar2D" 			Text="Bar Chart"			Picture="{RESOURCE_URL}/chart/images/icon_chart_bar.png"/>
+   <SingleSeries Value="Area2D" 		Text="Area Chart"			Picture="{RESOURCE_URL}/chart/images/icon_chart_area.png"/>
+   <SingleSeries Value="Line" 			Text="Line Chart"			Picture="{RESOURCE_URL}/chart/images/icon_chart_line.png"/>
+   <SingleSeries Value="Pie2D" 			Text="Pie Chart"			Picture="{RESOURCE_URL}/chart/images/icon_chart_pie2d.png"/>
+   <SingleSeries Value="Pie3D" 			Text="Pie Chart 3D"			Picture="{RESOURCE_URL}/chart/images/icon_chart_pie3d.png"/>
    
-   <MultiSeries Value="MSColumn2D" 			Text="Column Chart"/>
-   <MultiSeries Value="MSColumn3D" 			Text="Column Chart 3D"/>
-   <MultiSeries Value="MSColumn2DLineDY" 	Text="Column Chart with Line"/>
-   <MultiSeries Value="MSColumn3DLineDY" 	Text="Column Chart with Line 3D"/>
-   <MultiSeries Value="MSBar2D" 			Text="Bar Chart"/>
-   <MultiSeries Value="MSArea2D" 			Text="Area Chart"/>
-   <MultiSeries Value="MSLine" 				Text="Line Chart"/>
+   <MultiSeries Value="MSColumn2D" 			Text="Column Chart"		Picture="{RESOURCE_URL}/chart/images/icon_chart_column2d.png"/>
+   <MultiSeries Value="MSColumn3D" 			Text="Column Chart 3D"	Picture="{RESOURCE_URL}/chart/images/icon_chart_column3d.png"/>
+   <MultiSeries Value="MSColumn2DLineDY" 	Text="Column Chart with Line"	Picture="{RESOURCE_URL}/chart/images/icon_chart_column2d.png"/>
+   <MultiSeries Value="MSColumn3DLineDY" 	Text="Column Chart with Line 3D"	Picture="{RESOURCE_URL}/chart/images/icon_chart_column3d.png"/>
+   <MultiSeries Value="MSBar2D" 			Text="Bar Chart"		Picture="{RESOURCE_URL}/chart/images/icon_chart_bar.png"/>
+   <MultiSeries Value="MSArea2D" 			Text="Area Chart"		Picture="{RESOURCE_URL}/chart/images/icon_chart_area.png"/>
+   <MultiSeries Value="MSLine" 				Text="Line Chart"		Picture="{RESOURCE_URL}/chart/images/icon_chart_line.png"/>
    
-   <StackedSeries Value="StackedBar2D" 		Text="Bar Chart"/>
-   <StackedSeries Value="StackedColumn2D" 	Text="Column Chart"/>
-   <StackedSeries Value="StackedColumn3D" 	Text="Column Chart 3D"/>
-   <StackedSeries Value="StackedArea2D" 	Text="Area Chart"/>
+   <StackedSeries Value="StackedBar2D" 		Text="Bar Chart"		Picture="{RESOURCE_URL}/chart/images/icon_chart_bar.png"/>
+   <StackedSeries Value="StackedColumn2D" 	Text="Column Chart"		Picture="{RESOURCE_URL}/chart/images/icon_chart_column2d.png"/>
+   <StackedSeries Value="StackedColumn3D" 	Text="Column Chart 3D"	Picture="{RESOURCE_URL}/chart/images/icon_chart_column3d.png"/>
+   <StackedSeries Value="StackedArea2D" 	Text="Area Chart"		Picture="{RESOURCE_URL}/chart/images/icon_chart_area.png"/>
    
 </Selection>
