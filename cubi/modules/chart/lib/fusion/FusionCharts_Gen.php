@@ -1166,7 +1166,9 @@ class FusionCharts{
 
 	 # converting ' and " to %26apos; and &quot; 
 	 function encodeSpecialChars($strValue){
-	 
+	 	if(preg_match("/Openbiz\.CallFunction/si",$strValue)){
+	    	return $strValue;
+	    }
 	    $pattern="/%(?![\da-f]{2}|[\da-f]{4})/i";
 		$strValue=preg_replace($pattern, "%25", $strValue);
 		

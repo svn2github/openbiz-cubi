@@ -6,6 +6,8 @@ class ChartForm extends EasyForm
 	public $chartDataset;
 	public $chartDataAttrset;
 	public $chartColorset;
+	public $chartDescset;
+	public $chartIdset;
     public $m_Attrs;
     public $m_SubType;
     
@@ -43,6 +45,8 @@ class ChartForm extends EasyForm
 		$this->chartCategory = array();
 		$this->chartDataAttrset = array();
 		$this->chartDataset = array();
+		$this->chartDataDescset = array();
+		$this->chartDataIdset = array();
 		$this->chartColorset = array();
     	// query recordset first
 		$dataObj = $this->getDataObj();
@@ -85,22 +89,30 @@ class ChartForm extends EasyForm
             $arr = $resultRecords[$counter];
             if (!$arr) break;
             foreach ($this->m_DataPanel as $element)
-            {
+            {            	
             	if ($element->fieldName && isset($arr[$element->fieldName]))
-            	{
-            		//echo "class is $element->m_Class";
-            		if ($element->m_Class == "chart.lib.ChartData")
+            	{	            	            			            		
+            		switch($element->m_Class)
             		{
-            		    $this->chartDataset[$element->key][] 	 = $arr[$element->fieldName];
-            		    $this->chartDataAttrset[$element->key] = $element->attrs;
-            		}
-            		if ($element->m_Class == "chart.lib.ChartCategory")
-            		{
-            		    $this->chartCategory[] = $arr[$element->fieldName];
-            		}
-            		if ($element->m_Class == "chart.lib.ChartColor")
-            		{
-            		    $this->chartColorset[] = $arr[$element->fieldName];
+            			case "chart.lib.ChartColor":
+            				$this->chartColorset[] = $arr[$element->fieldName];            				
+            				break;
+            			case "chart.lib.ChartDataId":
+            				$this->chartIdset[] = $arr[$element->fieldName];
+            				break;
+            			case "chart.lib.ChartDescription":
+            				$this->chartDescset[] = $arr[$element->fieldName];
+            				break;
+            			case "chart.lib.ChartColor":
+            				$this->chartColorset[] = $arr[$element->fieldName];
+            				break;
+            			case "chart.lib.ChartCategory":
+            				$this->chartCategory[] = $arr[$element->fieldName];
+            				break;
+            			case "chart.lib.ChartData":
+            				$this->chartDataset[$element->key][] 	 = $arr[$element->fieldName];
+            		    	$this->chartDataAttrset[$element->key] = $element->attrs;
+            				break;
             		}
             	}
             }
@@ -128,9 +140,10 @@ class ChartForm extends EasyForm
     
     public function updateForm()
     {        
-    	if($_POST['_chart_type'])
+    	$data = $this->readInputRecord();
+    	if($data['chart_type'])
     	{
-    		$this->m_SubType = $_POST['_chart_type'];
+    		$this->m_SubType = $data['chart_type'];
     	}
     	return parent::updateForm();
     }
@@ -168,16 +181,29 @@ class ChartForm extends EasyForm
         if(is_array($this->chartDataset)){
 	        foreach ($this->chartDataset as $key=>$ds) {
 	            for ($i=0; $i<count($ds); $i++){
-	            	
-	            	$elemConfig = "name=".$this->chartCategory[$i].';'.$this->chartDataAttrset[$key].';';
+	            	$elemConfig = "name=".$this->chartCategory[$i].';'.$this->chartDataAttrset[$key].';';	            	
 	            	if($this->chartColorset[$i])
 	            	{
-	            		$elemConfig.="color=".$this->chartColorset[$i];
+	            		$elemConfig.="color=".$this->chartColorset[$i].';';
+	            		$elemConfig.="anchorBgColor=6bd0fe;";
+	            		$elemConfig.="anchorBorderColor=0d78af;";       		
 	            	}
 	            	else
 	            	{
-	            		$elemConfig.="color=".$colorList[$i]["color_code"];
+	            		$elemConfig.="color=".$colorList[$i]["color_code"].';';
+	            		$elemConfig.="anchorBgColor=".$colorList[$i]["color_code"].';';
+	            		$elemConfig.="anchorBorderColor=".$colorList[$i]["color_code"].';';
 	            	}
+	            	//select record feature
+	            	$elemConfig .="link=JavaScript:Openbiz.CallFunction(\\\"".$this->m_Name.".SelectRecord(".addslashes($this->chartIdset[$i]).")\\\");";
+	            	
+	            	//desc text feature
+	            	if($this->chartDescset[$i])
+	            	{
+	            		$elemConfig .="toolText=".addslashes($this->chartDescset[$i]).";";
+	            	}
+	            	//add anchor 
+	            	$elemConfig .="anchorRadius=6;";
 	                $FC->addChartData($ds[$i], $elemConfig);
 	            }
 	        }
@@ -279,5 +305,7 @@ class ChartForm extends EasyForm
         }
         return false;
     }
+    
+
 }
 ?>
