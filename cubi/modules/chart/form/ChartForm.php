@@ -37,7 +37,7 @@ class ChartForm extends EasyForm
     public function fetchDataSet()
     {
     }
-    
+   
     protected function fetchDatasetByColumn()
     {
 		$this->chartCategory = array();
@@ -124,6 +124,15 @@ class ChartForm extends EasyForm
     
     public function redrawChart(){
     	return $this->updateForm();
+    }
+    
+    public function updateForm()
+    {        
+    	if($_POST['_chart_type'])
+    	{
+    		$this->m_SubType = $_POST['_chart_type'];
+    	}
+    	return parent::updateForm();
     }
     
     //TODO: for different type of chart, use template? or render class?
@@ -246,7 +255,7 @@ class ChartForm extends EasyForm
     }
     
     protected function checkChartType($type)
-    {
+    {    
         switch ($this->m_SubType) {
             case "Column2D" : 
             case "Column3D" : 
