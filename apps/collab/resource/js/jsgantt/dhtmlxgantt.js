@@ -2162,11 +2162,11 @@ GanttChart.prototype.loadXML = function(content, isFile, isLocal)
             } else
         if (!isLocal)
         {
-            this.xmlLoader.loadXML(this.loadPath + "?path=" + content + "&rnd=" + (new Date() - 0), false);
+            this.xmlLoader.loadXML(this.loadPath + "path=" + content + "&rnd=" + (new Date() - 0), false);
 
         } else
         {
-            this.xmlLoader.loadXML(content + "?rnd=" + (new Date() - 0), false);
+            this.xmlLoader.loadXML(content + "rnd=" + (new Date() - 0), false);
         }
         this.doLoadDetails(isLocal);
 
