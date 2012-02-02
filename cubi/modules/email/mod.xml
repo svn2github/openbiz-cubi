@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="email" Description="email module is to provide email queue and log functions" Version="0.4" Author="Jixian" OpenbizVersion="3.0">
+<Module Name="email" Description="email module is to provide email queue and log functions" Version="0.5" Author="Jixian" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="EmailQueue">
 			<Action Name="Administer_Email_Queue" Description="Can view/send/delete emails in the queue"/>
@@ -27,4 +27,9 @@
     	<Module Name="system"/>
     	<Module Name="menu"/>
     </Dependency>
+    <ChangeLog>
+        <Version Name="0.5">
+        	<Change Name="feature_05" Type="New_Feature" Status="Finished" PublishDate="2012-02-02" Description="added some icon to describe email queue status"></Change>        	
+        </Version>
+    </ChangeLog>
 </Module>
