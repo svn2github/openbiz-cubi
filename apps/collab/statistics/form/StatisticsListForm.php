@@ -1,6 +1,8 @@
 <?php 
 class StatisticsListForm extends EasyForm
 {
+	public $m_Total;
+	
 	public function fetchDataSet()
 	{
 		$resultSet = parent::fetchDataSet();
@@ -24,6 +26,13 @@ class StatisticsListForm extends EasyForm
 		}
 		$this->m_Total = $total;
 		return $newResultSet;
+	}
+	
+	public function outputAttrs()
+	{
+		$data = parent::outputAttrs();
+		$data['total'] = $this->m_Total;
+		return $data;
 	}
 }
 ?>

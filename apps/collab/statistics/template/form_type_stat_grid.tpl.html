@@ -147,7 +147,12 @@ $('{$form.name}_data_table').fade({literal}{ duration: 0.5, from: 1, to: 0.35 }{
 <!-- table end -->	
 
 	<div class="form_footer_panel">
-		<div class="ajax_indicator">
+	<div style="float:left; height: 20px;padding-top:4px;padding-left:5px;">
+			{t}Total Records{/t}: {$form.total} 
+	</div>
+		<div class="ajax_indicator" style="width:100px;">
+	
+		
 			<div id='{$form.name}.load_disp' style="display:none" >
 				<img src="{$image_url}/form_ajax_loader.gif"/>
 			</div>
