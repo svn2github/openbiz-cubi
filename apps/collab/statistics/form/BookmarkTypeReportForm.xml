@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="BookmarkTypeReportForm" Class="chart.form.ChartForm" FormType="Detail" ChartType="Pie2D" ChartAttrs="showValues=1;showNames=1;numberSuffix= contacts;baseFontSize=12;borderColor=#dddddd;plotBorderColor=aaaaaa;" Width="700" Height="400" jsClass="Openbiz.Form" Title="Bookmark Type Statistics" BizDataObj="collab.statistics.do.BookmarkTypeStatDO" TemplateEngine="Smarty" PageSize="100" TemplateFile="system_right_chartform.tpl.html"  Access="collab_statistics.access">
+    <DataPanel>
+        <Element Name="fld_Id" Class="chart.lib.ChartDataId" FieldName="Id" Label="Type ID"/>
+        <Element Name="fld_name" Class="chart.lib.ChartCategory" FieldName="type_name" Label="Type"/>
+        <Element Name="fld_data_count" Class="chart.lib.ChartData" FieldName="type_count" Label="Data Count"/>
+        <Element Name="fld_data_color" Class="chart.lib.ChartColor" FieldName="type_color" Label="Data Color"/>
+        <Element Name="fld_data_desc" Class="chart.lib.ChartDescription" FieldName="type_description" Label="Data Description"/>
+        <Element Name="fld_detail_form"  Class="FormElement" FormReference="collab.statistics.form.BookmarkTypeListForm" FieldName="" Label="" AllowURLParam="N" />
+    </DataPanel>
+    <SearchPanel>
+    
+    	<Element Name="sel_charttype"  cssclass="input_select_w" Class="DropDownList" FieldName="chart_type" Text="{@:m_SubType}" Label="Chart Type" SelectFrom="chart.lov.ChartType(SingleSeries)" >
+            <EventHandler Name="charttype_onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+        <Element Name="btn_redraw" Class="Button" Text="Redraw" CssClass="button_gray_m">
+            <EventHandler Name="redraw_onclick" Event="onclick" Function="UpdateForm()" />
+        </Element>
+    		
+    </SearchPanel> 
+    <NavPanel>
+    </NavPanel> 
+</EasyForm>
