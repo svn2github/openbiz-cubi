@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <TypeViewMode Value="collab.statistics.form.ContactTypeReportForm" text="Contact Statistics"/>
+   <TypeViewMode Value="collab.statistics.form.EventTypeReportForm" text="Event Statistics"/>
+   <TypeViewMode Value="collab.statistics.form.ProjectTypeReportForm" text="Project Statistics"/>
+   <TypeViewMode Value="collab.statistics.form.TaskTypeReportForm" text="Task Statistics"/>
+   <TypeViewMode Value="collab.statistics.form.DocumentTypeReportForm" text="Document Statistics"/>
+   <TypeViewMode Value="collab.statistics.form.BookmarkTypeReportForm" text="Bookmark Statistics"/>
+   <TypeViewMode Value="collab.statistics.form.AnnouncementTypeReportForm" text="Announcement Stat"/>
+   <TypeViewMode Value="collab.statistics.form.NoteTypeReportForm" text="Note Statistics"/>
+
+</Selection>

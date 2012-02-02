@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="EventTypeStatDO" Description="" Class="BizDataObj" DBName="Default" Table="contact" SearchRule="[Id] >0" SortRule="" OtherSQLRule="GROUP BY [Id]" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+        <BizField Name="Id" Column="type_id" Type="Number"/>
+        <BizField Name="type_name" Column="name"  Join="JoinContactType"/>        
+        <BizField Name="type_description" Column="description"  Join="JoinContactType"/>
+        <BizField Name="type_color" Column="color"  Join="JoinContactType"/>
+        <BizField Name="type_count" SQLExpr="COUNT(*)"/>        
+	</BizFieldList>
+    <TableJoins>
+        	<Join Name="JoinContactType"  ColumnRef="type_id" JoinType="LEFT JOIN" Column="id"  Table="event_type"/>    
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
