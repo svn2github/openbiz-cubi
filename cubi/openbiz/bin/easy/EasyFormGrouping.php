@@ -68,6 +68,8 @@ class EasyFormGrouping extends EasyForm
         $this->m_TotalRecords = $dataObj->count();
         if ($this->m_Range && $this->m_Range > 0)
             $this->m_TotalPages = ceil($this->m_TotalRecords/$this->m_Range);
+            
+        $this->m_TotalPagesBak = $this->m_TotalPages;
         QueryStringParam::ReSet();
         //looping
         $i=0;
@@ -127,9 +129,16 @@ class EasyFormGrouping extends EasyForm
         //set active records
         $selectedIndex = 0;
         $this->getDataObj()->setActiveRecord($resultRecords[$selectedIndex]);
-
         return $results;
     }	
+    
+    public function fetchDataSet(){
+    	$this->fetchDataGroup();
+    	$resultset = parent::fetchDataSet();
+    	$this->m_TotalPages = $this->m_TotalPagesBak;
+    	return $resultset;
+    }
+    
     public function outputAttrs()
     {
     	$output = parent::outputAttrs();
