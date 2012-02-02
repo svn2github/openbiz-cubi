@@ -3,14 +3,17 @@ class ChangeLogForm extends EasyForm
 {
 	protected  $m_LogDO = "changelog.do.ChangeLogDO";
 	protected  $m_ChangeLogMessages;
+	protected  $m_ShowComment;
 	
 	protected function readMetadata(&$xmlArr)
     {
-    						
+    	$this->m_ShowComment = $xmlArr["EASYFORM"]["ATTRIBUTES"]["SHOWCOMMENT"]?$xmlArr["EASYFORM"]["ATTRIBUTES"]["SHOWCOMMENT"]:'Y';
     	//load message file
     	$this->m_ChangeLogMessages = Resource::loadMessage("changelog.ini" , "changelog");
     	
-    	if(strtolower($xmlArr["EASYFORM"]["ATTRIBUTES"]["FORMTYPE"])=='edit'){
+    	if(strtolower($xmlArr["EASYFORM"]["ATTRIBUTES"]["FORMTYPE"])=='edit' &&
+    		$this->m_ShowComment != 'N'
+    	){
 	    	//add a comment field on fly
 	    	$elem_comment_attrs = array(
 	    		"NAME"  => 'fld_changelog_comment',
