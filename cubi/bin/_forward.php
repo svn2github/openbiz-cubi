@@ -125,7 +125,9 @@ function getParameters($urlArr){
 		//Cid_20 parse it as fld:Cid=20
 		// http://localhost/cubi/some/thing/Cid_20
 		// echo $_GET['Cid'];  // 20 
-		elseif(preg_match("/^([a-z]*?)_([a-z0-9]*)$/si",$urlArr[$i],$match))
+		// http://local.openbiz.me/index.php/collab/task_manage/fld_type_1/
+		// array(1) { ["fld:fld_type"]=> string(1) "1" }
+		elseif(preg_match("/^([a-z_]*?)_([a-z0-9]*)$/si",$urlArr[$i],$match))
 		{			
 			$PARAM_MAPPING["fld:".$match[1]] = $match[2];	
 			$_GET[$match[1]] = $match[2];
@@ -139,6 +141,7 @@ function getParameters($urlArr){
 			$PARAM_MAPPING[$k] = $v;
 		}
 	}
+	var_dump($PARAM_MAPPING);exit;
 	return $PARAM_MAPPING;
 }
 
