@@ -2,7 +2,7 @@
 <EasyForm Name="ModuleDetailForm" Icon="icon_modules_l.gif" Class="ModuleForm" FormType="" jsClass="jbForm" Title="Module Details " Description="Detailed attributes of a given module. \nThe module metadata are located at app/modules/module_name folder" BizDataObj="system.do.ModuleDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" MessageFile="system.msg">
     <DataPanel>
         <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Id"/>
-        <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name"/>
+        <Element Name="fld_name" Class="LabelText" AllowURLParam="Y" FieldName="name" Label="Name"/>
         <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description"/>
         <Element Name="fld_status" Class="LabelBool" FieldName="status"  Label="Status" Link="javascript:;">
 			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		

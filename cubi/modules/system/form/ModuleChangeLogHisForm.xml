@@ -2,7 +2,7 @@
 <EasyForm Name="ModuleChangeLogHisForm"  Class="ModuleChangeLogForm" GroupBy="[publish_month:publish_month]" Icon="{RESOURCE_URL}/system/images/icon_change_log.gif" FormType="List" jsClass="jbForm" Title="Module Change Logs" Description="List the change logs of current module" BizDataObj="system.do.ModuleChangeLogDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform_grouping.tpl.html">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" />
-        <Element Name="fld_module" Class="ColumnText" Link="{@home:url}/system/module_detail/{@:Elem[fld_Id].Value}" FieldName="module" Label="Module" Sortable="Y"/>
+        <Element Name="fld_module" Class="ColumnText" Link="{@home:url}/system/module_detail/name_{@:Elem[fld_module].Value}" FieldName="module" Label="Module" Sortable="Y"/>
         <Element Name="fld_version" Class="ColumnText" FieldName="version" Label="Version" Sortable="Y"/>
         <Element Name="fld_type" Class="ColumnList" SelectFrom="system.lov.ChangeLogLOV(Type)" FieldName="type" Label="Type" Sortable="Y"/>
         
