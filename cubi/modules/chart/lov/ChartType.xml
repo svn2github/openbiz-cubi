@@ -11,8 +11,10 @@
    
    <MultiSeries Value="MSColumn2D" 			Text="Column Chart"		Picture="{RESOURCE_URL}/chart/images/icon_chart_column2d.png"/>
    <MultiSeries Value="MSColumn3D" 			Text="Column Chart 3D"	Picture="{RESOURCE_URL}/chart/images/icon_chart_column3d.png"/>
-   <MultiSeries Value="MSColumn2DLineDY" 	Text="Column Chart with Line"	Picture="{RESOURCE_URL}/chart/images/icon_chart_column2d.png"/>
-   <MultiSeries Value="MSColumn3DLineDY" 	Text="Column Chart with Line 3D"	Picture="{RESOURCE_URL}/chart/images/icon_chart_column3d.png"/>
+   <!-- 
+   <MultiSeries Value="MSColumn2DLineDY" 	Text="Column Line Chart"	Picture="{RESOURCE_URL}/chart/images/icon_chart_column2d.png"/>
+   <MultiSeries Value="MSColumn3DLineDY" 	Text="Column Line Chart 3D"	Picture="{RESOURCE_URL}/chart/images/icon_chart_column3d.png"/>
+    -->
    <MultiSeries Value="MSBar2D" 			Text="Bar Chart"		Picture="{RESOURCE_URL}/chart/images/icon_chart_bar.png"/>
    <MultiSeries Value="MSArea2D" 			Text="Area Chart"		Picture="{RESOURCE_URL}/chart/images/icon_chart_area.png"/>
    <MultiSeries Value="MSLine" 				Text="Line Chart"		Picture="{RESOURCE_URL}/chart/images/icon_chart_line.png"/>

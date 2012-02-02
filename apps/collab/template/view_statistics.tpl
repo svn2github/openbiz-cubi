@@ -11,7 +11,6 @@ BizSystem::clientProxy()->includeCalendarScripts();
 BizSystem::clientProxy()->includeCKEditorScripts();
 $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 $includedScripts.="
-<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
 <script>try{var \$j=jQuery.noConflict();}catch(e){}</script>
 <script type='text/javascript' src='$js_url/cookies.js'></script>
 <script type='text/javascript' src='$js_url/grouping.js'></script>
@@ -26,6 +25,11 @@ $includedScripts.="
 <script type='text/javascript' src='$js_url/uploadify/jquery.uploadify.v2.1.4.js'></script>
 <script type='text/javascript' src='$js_url/jquery-ui-1.8.12.custom.min.js'></script>
 <script type='text/javascript' >var charts = new Array();</script>
+<script>try{var \$j=jQuery.noConflict();}catch(e){}</script>
+<script src=\"".JS_URL."/jquery-ui-1.8.12.custom.min.js\"></script>
+<script type=\"text/javascript\" src=\"".JS_URL."/DateRangePicker/daterangepicker.jQuery.js\"></script>
+<link rel=\"stylesheet\" href=\"".JS_URL."/DateRangePicker/css/ui.daterangepicker.css\" type=\"text/css\" />
+<link rel=\"stylesheet\" href=\"".JS_URL."/DateRangePicker/css/redmond/jquery-ui-1.7.1.custom.css\" type=\"text/css\" />
 <style>
 
 .action_panel{

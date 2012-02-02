@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectListForm" Class="StatisticsListForm" FormType="List"  jsClass="Openbiz.TableForm" Title="" BizDataObj="collab.statistics.do.NoteTypeStatDO" TemplateEngine="Smarty" PageSize="10" TemplateFile="form_type_stat_grid.tpl.html" Access="collab_statistics.access">
+<EasyForm Name="ProjectListForm" Class="ProjectListForm" FormType="List"  jsClass="Openbiz.TableForm" Title="" BizDataObj="collab.project.do.ProjectSystemDO" TemplateEngine="Smarty" PageSize="10" TemplateFile="form_type_stat_grid.tpl.html" Access="collab_statistics.access">
     <DataPanel>
-        <Element Name="fld_Id" Class="ColumnHidden" Hidden="Y" FieldName="Id" Label="Type ID"/>        
-        <Element Name="fld_name" Class="ColumnText" FieldName="type_name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_URL}/collab/project_manage" ></Element>        
-        <Element Name="fld_description"  MaxLength="30"  Class="ColumnText" FieldName="type_description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-        <Element Name="fld_count" Class="ColumnText" FieldName="type_count" Label="Count" Text="{@:Elem[fld_count].Value} items" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_percent" Class="ColumnBar" Width="120" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:170px" MaxValue="100" FieldName="type_percent" Label="Percent"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+       <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        <Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{RESOURCE_URL}/collab/project/images/icon_project_private.png"
+				MySharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared.png" 
+				MyAssignedImg="{RESOURCE_URL}/collab/project/images/icon_project_assigned.png"
+				MyDistributedImg="{RESOURCE_URL}/collab/project/images/icon_project_distributed.png" 
+				GroupSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_group.png"
+				OtherSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_other.png"
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+		</Element>	
+
+        <Element Name="fld_title"  MaxLength="20" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/project_gantt_detail/{@:Elem[fld_Id].Value}"></Element>
+        <Element Name="fld_owner"  Text="{BizSystem::GetProfileName(@:Elem[fld_owner].Value,'short')}" Class="ColumnText" FieldName="owner_id" Label="Owner"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element> 
+        <!-- 
+        <Element Name="fld_desc"  MaxLength="16" Class="ColumnText" FieldName="description" Label="Description" Maxlenght="20"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="">         
+        </Element>
+         -->
         
-        
-	
+        <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" FieldName="status" Label="Status" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        </Element>
+ 		
+		<Element Name="fld_condition" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_condition_{@:Elem[fld_condition].Value}.png" FieldName="condition" Sortable="Y" Label="Cond">		
+        </Element>
+        		
+		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Pri" >
+		</Element>
+		<!--
+        <Element Name="fld_importance" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/project/images/icon_project_importance_yes.gif"  FalseImg="{RESOURCE_URL}/collab/project/images/icon_project_importance_no.gif" FieldName="importance" Sortable="Y" Label="Flag" Link="javascript:;">
+			<EventHandler Name="fld_importamce_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_importance,{@:Elem[fld_importance].Value})"/>		
+		</Element>
+		-->
 		<Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_type" Class="ColumnText"  Style="line-height:24px;" FieldName="type_name" Label="Color"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
-        
+		<Element Name="fld_type" Class="ColumnText"  Style="line-height:24px;" FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
+             
     </DataPanel>
 <NavPanel>
     	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">

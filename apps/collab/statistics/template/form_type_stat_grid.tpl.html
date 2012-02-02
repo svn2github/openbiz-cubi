@@ -17,7 +17,19 @@ margin-right:5px;
 </style>
 {/literal}
 <div style="padding-left:25px;padding-right:40px;">
-
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+	
+		<div style="float:left; width:600px;">
+			{if $form.title}
+			<h3 style="padding:0px;">
+			{$form.title}
+			</h3>
+			{/if}
+		</div>
+	</td></tr></table>
 {if $actionPanel or $searchPanel }	
 	<div class="form_header_panel">	
 		<div class="action_panel"  style="width:292px;">
@@ -147,9 +159,11 @@ $('{$form.name}_data_table').fade({literal}{ duration: 0.5, from: 1, to: 0.35 }{
 <!-- table end -->	
 
 	<div class="form_footer_panel">
+	{if $form.total}
 	<div style="float:left; height: 20px;padding-top:4px;padding-left:5px;">
 			{t}Total Records{/t}: {$form.total} 
 	</div>
+	{/if}
 		<div class="ajax_indicator" style="width:100px;">
 	
 		

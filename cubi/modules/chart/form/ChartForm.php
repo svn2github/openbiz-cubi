@@ -11,6 +11,7 @@ class ChartForm extends EasyForm
     public $m_Attrs;
     public $m_SubType;
     public $m_SelectRecord;
+    public $m_CategoryId;
     
     protected function readMetadata(&$xmlArr)
     {
@@ -22,7 +23,8 @@ class ChartForm extends EasyForm
     
 
     public function getSessionVars($sessionContext)
-    {
+    {    	
+    	$sessionContext->getObjVar($this->m_Name, "CategoryId", $this->m_CategoryId);
         $sessionContext->getObjVar($this->m_Name, "SubType", $this->m_SubType);
         return parent::getSessionVars($sessionContext);
     }
@@ -30,6 +32,7 @@ class ChartForm extends EasyForm
 
     public function setSessionVars($sessionContext)
     {
+    	$sessionContext->setObjVar($this->m_Name, "CategoryId", $this->m_CategoryId);
         $sessionContext->setObjVar($this->m_Name, "SubType", $this->m_SubType);
         return parent::setSessionVars($sessionContext);        
     }    
@@ -239,7 +242,7 @@ class ChartForm extends EasyForm
             return;
         }
         //load color styles
-    	$colorObj = BizSystem::getObject("report.do.ReportColorDO");
+    	$colorObj = BizSystem::getObject("chart.do.ChartColorDO");
     	$colorList = $colorObj->directFetch("");
     	    	
         $FC = new FusionCharts($this->m_SubType, $this->m_Width, $this->m_Height); 
@@ -252,7 +255,7 @@ class ChartForm extends EasyForm
         foreach ($this->chartDataset as $key=>$ds) {
             if(preg_match("/color=/si",$this->chartDataAttrset[$key])){
             	$color = "";
-            }
+            }           
             elseif($this->chartColorset[$colorI])
             {
             	$color = "color=".$this->chartColorset[$colorI].";";
@@ -262,15 +265,23 @@ class ChartForm extends EasyForm
         		$color = "color=".$colorList[$colorI]["color_code"].";";
             }
         	
-        	$FC->addDataset($key,$color.$this->chartDataAttrset[$key]);
+            $elemConfig = $color.$this->chartDataAttrset[$key];                        
+        	$FC->addDataset($key,$elemConfig);
             for ($i=0; $i<count($ds); $i++){
-                $FC->addChartData($ds[$i]);
+            	$setConfig ="link=JavaScript:Openbiz.CallFunction(\\\"".$this->m_Name.".SelectRecord(".addslashes($colorI).",".addslashes($i).")\\\");";
+                $FC->addChartData($ds[$i],$setConfig);
             }
             $colorI++;
         }
         return $FC->renderChart(false, false);
     }
-    
+    public function selectRecord($recId,$catId = null)
+    {    	
+    	if($catId!=null){
+    		$this->m_CategoryId = $catId;
+    	}
+    	return parent::selectRecord($recId);
+    }
     protected function seChartParams($FC)
     {
     	if(strtolower(FusionChartVersion)=="pro"){
