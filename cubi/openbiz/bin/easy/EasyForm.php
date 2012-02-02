@@ -844,7 +844,7 @@ class EasyForm extends MetaObject implements iSessionObject
 			$this->m_RecordId = $resultRecords[0]["Id"];
 		}else{
 			$foundRecordId = false;
-			foreach($result as $record)
+			foreach($resultRecords as $record)
 			{
 				if($this->m_RecordId==$record['Id'])
 				{
