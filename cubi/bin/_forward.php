@@ -141,7 +141,6 @@ function getParameters($urlArr){
 			$PARAM_MAPPING[$k] = $v;
 		}
 	}
-	var_dump($PARAM_MAPPING);exit;
 	return $PARAM_MAPPING;
 }
 
