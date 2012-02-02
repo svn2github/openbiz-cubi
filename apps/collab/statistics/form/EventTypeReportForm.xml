@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="EventTypeReportForm" Class="chart.form.ChartForm" FormType="Detail" ChartType="Pie2D" ChartAttrs="showValues=1;showNames=1;numberSuffix= contacts;baseFontSize=12;borderColor=#dddddd;plotBorderColor=aaaaaa;" Width="700" Height="400" jsClass="Openbiz.Form" Title="Event Type Statistics" BizDataObj="collab.statistics.do.EventTypeStatDO" TemplateEngine="Smarty" PageSize="100" TemplateFile="system_right_chartform.tpl.html"  Access="collab_statistics.access">
+<EasyForm Name="EventTypeReportForm" Class="chart.form.ChartForm" FormType="Detail" ChartType="Pie2D" ChartAttrs="showValues=1;showNames=1;numberSuffix= events;baseFontSize=12;borderColor=#dddddd;plotBorderColor=aaaaaa;" Width="700" Height="400" jsClass="Openbiz.Form" Title="Event Type Statistics" BizDataObj="collab.statistics.do.EventTypeStatDO" TemplateEngine="Smarty" PageSize="100" TemplateFile="system_right_chartform.tpl.html"  Access="collab_statistics.access">
     <DataPanel>
         <Element Name="fld_Id" Class="chart.lib.ChartDataId" FieldName="Id" Label="Type ID"/>
         <Element Name="fld_name" Class="chart.lib.ChartCategory" FieldName="type_name" Label="Type"/>
