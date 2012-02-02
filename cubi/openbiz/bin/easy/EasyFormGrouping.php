@@ -136,7 +136,7 @@ class EasyFormGrouping extends EasyForm
     	$this->fetchDataGroup();
     	$resultset = parent::fetchDataSet();
     	$this->m_TotalPages = $this->m_TotalPagesBak;
-    	return $resultset;
+    	return $resultset; 
     }
     
     public function outputAttrs()
