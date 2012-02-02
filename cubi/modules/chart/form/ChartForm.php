@@ -25,6 +25,8 @@ class ChartForm extends EasyForm
         $output['title'] = $this->m_Title;
         $output['description'] = str_replace('\n', "<br />", $this->m_Description);
         $output['data'] = $this->draw();
+        $output['height'] = $this->m_Height;
+        $output['width'] = $this->m_Width;
         return $output;
     }
     
