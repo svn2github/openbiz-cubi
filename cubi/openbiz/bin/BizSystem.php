@@ -338,10 +338,10 @@ class BizSystem
         }
     }    
 
-    public static function getProfileName($account_id){
+    public static function getProfileName($account_id,$type='full'){
     	$serviceObj = BizSystem::getService(PROFILE_SERVICE);
-    	return $serviceObj->GetProfileName($account_id);
-    }
+    	return $serviceObj->GetProfileName($account_id,$type);
+    }    
     
 	public static function getProfileEmail($account_id){
     	$serviceObj = BizSystem::getService(PROFILE_SERVICE);

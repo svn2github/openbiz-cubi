@@ -199,7 +199,7 @@ class profileService
     	BizSystem::initUserProfile($userId);    	
     }
     
-    public function GetProfileName($account_id){
+    public function GetProfileName($account_id,$type='full'){
     	$do = BizSystem::getObject($this->m_userDataObj);
         if (!$do)
             return "";
@@ -232,7 +232,7 @@ class profileService
         		$email = $rs['email'];
         	}
         	$name = $contact_rs['display_name'];
-        	if($email){
+        	if($email && $type=='full'){
         		$name.=" &lt;$email&gt;";
         	}
         }
