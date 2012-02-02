@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="TaskTypeStatDO" Description="" Class="BizDataObj" DBName="Default" Table="task" SearchRule="[Id] >0" SortRule="" OtherSQLRule="GROUP BY [Id]" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+        <BizField Name="Id" Column="type_id" Type="Number"/>
+        <BizField Name="type_name" Column="name"  Join="JoinTaskType"/>        
+        <BizField Name="type_description" Column="description"  Join="JoinTaskType"/>
+        <BizField Name="type_color" Column="color"  Join="JoinTaskType"/>
+        <BizField Name="type_count" SQLExpr="COUNT(*)"/>        
+	</BizFieldList>
+    <TableJoins>
+        	<Join Name="JoinTaskType"  ColumnRef="type_id" JoinType="LEFT JOIN" Column="id"  Table="task_type"/>    
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
