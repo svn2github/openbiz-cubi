@@ -10,13 +10,29 @@ class ChartForm extends EasyForm
 	public $chartIdset;
     public $m_Attrs;
     public $m_SubType;
+    public $m_SelectRecord;
     
     protected function readMetadata(&$xmlArr)
     {
         parent::readMetaData($xmlArr);
         $this->m_SubType = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["CHARTTYPE"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["CHARTTYPE"] : null;
         $this->m_Attrs = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["CHARTATTRS"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["CHARTATTRS"] : null;
+        $this->m_SelectRecord = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["SELECTRECORD"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["SELECTRECORD"] : null;
     }
+    
+
+    public function getSessionVars($sessionContext)
+    {
+        $sessionContext->getObjVar($this->m_Name, "SubType", $this->m_SubType);
+        return parent::getSessionVars($sessionContext);
+    }
+
+
+    public function setSessionVars($sessionContext)
+    {
+        $sessionContext->setObjVar($this->m_Name, "SubType", $this->m_SubType);
+        return parent::setSessionVars($sessionContext);        
+    }    
 	
 	public function outputAttrs()
     {
@@ -197,8 +213,9 @@ class ChartForm extends EasyForm
 	            		$elemConfig.="anchorBorderColor=".$colorList[$i]["color_code"].';';
 	            	}
 	            	//select record feature
-	            	$elemConfig .="link=JavaScript:Openbiz.CallFunction(\\\"".$this->m_Name.".SelectRecord(".addslashes($this->chartIdset[$i]).")\\\");";
-	            	
+	            	if($this->m_SelectRecord){
+	            		$elemConfig .="link=JavaScript:Openbiz.CallFunction(\\\"".$this->m_Name.".SelectRecord(".addslashes($this->chartIdset[$i]).")\\\");";
+	            	}
 	            	//desc text feature
 	            	if($this->chartDescset[$i])
 	            	{
