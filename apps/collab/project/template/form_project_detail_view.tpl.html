@@ -201,7 +201,7 @@ margin-top:4px;
 				{if $item.type eq 'Checkbox' }
 					<span class="label_text" >{$item.element} {$item.description}</span>
 				{else}
-					<span class="label_text" style="float:left;{if $item.width}width:{$item.width}px;{else}{if $default_label_text_width}{$default_label_text_width}{else}width:300px;{/if}{/if}">{$item.element}</span>
+					<span class="label_text" style="float:left;{if $item.width}width:{$item.width+2}px;{else}{if $default_label_text_width}{$default_label_text_width}{else}width:300px;{/if}{/if}">{$item.element}</span>
 					{if $errors.$itemName}
 					<span class="input_error_msg" style="width:200px;float:left;">{$errors.$itemName}</span>
 					{elseif $item.description}
