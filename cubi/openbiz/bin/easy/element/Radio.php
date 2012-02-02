@@ -37,13 +37,16 @@ class Radio extends OptionElement
         $fromList = array();
         $this->getFromList($fromList);
         $disabledStr = ($this->getEnabled() == "N") ? "DISABLED=\"true\"" : "";
+        if(!$this->m_Style){
+        	$this->m_Style.="margin-right:8px;";
+        }
         $style = $this->getStyle();
         $func = $this->getFunction();
 
         $value = $this->getValue()!='null' ? $this->getValue() : $this->getDefaultValue();
         foreach ($fromList as $option) {        	
             $checkedStr = ($option['val'] == $value) ? "CHECKED" : "";
-            $sHTML .= "<label style=\"text-align:left;\"><INPUT TYPE=RADIO NAME='".$this->m_Name."' ID=\"" . $this->m_Name ."_".$option['val']."\" VALUE=\"" . $option['val'] . "\" $checkedStr $disabledStr $this->m_HTMLAttr $func />" . $option['txt'] . "</label>";
+            $sHTML .= "<label style=\"text-align:left;\"><INPUT TYPE=RADIO NAME='".$this->m_Name."' ID=\"" . $this->m_Name ."_".$option['val']."\" VALUE=\"" . $option['val'] . "\" $checkedStr $disabledStr $style $this->m_HTMLAttr $func />" . $option['txt'] . "</label>";
         }
         
         return $sHTML;
