@@ -14,6 +14,7 @@ class ProjectStatListForm extends StatisticsListForm
 		}
 
 		if($searchRule){
+			$searchRule = str_replace("AND [chart_type]  = :_v1", "", $searchRule);
 			$searchRule = str_replace("[chart_type]  = :_v1", "", $searchRule);		
 			$this->m_SearchRule = $searchRule.$this->m_SearchRule;
 		}
