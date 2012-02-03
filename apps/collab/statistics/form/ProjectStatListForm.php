@@ -1,6 +1,6 @@
 <?php 
 require_once dirname(__FILE__).'/StatisticsListForm.php';
-class ProjectListForm extends StatisticsListForm
+class ProjectStatListForm extends StatisticsListForm
 {
 	public function fetchDataSet()
 	{
