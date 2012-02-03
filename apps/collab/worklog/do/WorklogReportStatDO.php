@@ -2,6 +2,21 @@
 class WorklogReportStatDO extends BizDataObj
 {
 	
+	public $m_Empty=FALSE;
+
+    public function getSessionVars($sessionContext)
+    {    	    	
+        $sessionContext->getObjVar($this->m_Name, "Empty", $this->m_Empty);
+        return parent::getSessionVars($sessionContext);
+    }
+
+
+    public function setSessionVars($sessionContext)
+    {    	
+        $sessionContext->setObjVar($this->m_Name, "Empty", $this->m_Empty);
+        return parent::setSessionVars($sessionContext);        
+    }  	
+	
 	public function fetch()
 	{		
 		if($this->m_SearchRule){
@@ -16,20 +31,23 @@ class WorklogReportStatDO extends BizDataObj
 				$searchRule = "";
 		}				
 		$rows = parent::directFetch($searchRule);
+		
 		if(count($rows))
 		{
 			$row = $rows[0];
 			$create_date = date("Y-m-d",strtotime($row['create_time']));
 			$month = date("Y-m",strtotime($row['create_time']));
 			$month_days = date("t",$create_date);
-		} 		
+			$this->m_Empty = false;
+		}else{
+			$this->m_Empty = true;
+		}
 		$dataset_avg = array();
 		foreach($rows as $row)
 		{
 			$create_date = date("Y-m-d",strtotime($row['create_time']));
 			$dataset_avg[$create_date] = $row;
 		}		
-		
 		
 		//get stat data for my data
 		$my_user_id = BizSystem::getUserProfile("Id");

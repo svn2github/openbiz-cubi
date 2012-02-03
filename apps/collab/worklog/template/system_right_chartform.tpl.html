@@ -33,7 +33,14 @@
 				
 	</div>
 {/if}
-<div style="width:{$form.width}px;height:{$form.height}px;">{$form.data}</div>	 
+{if $form.empty}
+<div style="width:{$form.width}px;height:30px;">
+	<span style="display:block;padding:10px;color:#999999;">{t}-- No data found this specified date range. --{/t}</span>
 </div>
+{else}
+<div style="width:{$form.width}px;height:{$form.height}px;">{$form.data}</div>	 
+{/if}
+</div>
+
 <div>{$dataPanel.fld_detail_form.element}</div>
 </form>
