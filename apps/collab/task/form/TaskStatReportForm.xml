@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TaskStatReportForm" Class="chart.form.ChartForm" FormType="Detail" ChartType="MSColumn3D" ChartAttrs="showValues=1;showNames=1;numberSuffix= tasks;baseFontSize=12;borderColor=#dddddd;plotBorderColor=aaaaaa;" Width="700" Height="400" jsClass="Openbiz.Form" Title="General Task Statistics" BizDataObj="collab.task.do.TaskReportStatDO" TemplateEngine="Smarty" PageSize="100" TemplateFile="system_right_chartform.tpl.html"  Access="collab_statistics.access">
+    <DataPanel>
+        <Element Name="fld_Id" Class="chart.lib.ChartDataId" FieldName="Id" Label="Type ID"/>
+        <Element Name="fld_name" Class="chart.lib.ChartCategory" FieldName="cond_name" Label="Condition"/>
+        <Element Name="fld_data2_count" Class="chart.lib.ChartData" Attrs="color=f42a36;" FieldName="pri_2_count" Label="High Priority"/>
+        <Element Name="fld_data1_count" Class="chart.lib.ChartData" Attrs="color=ffd24c;" FieldName="pri_1_count" Label="Normal Priority"/>
+        <Element Name="fld_data0_count" Class="chart.lib.ChartData" Attrs="color=939393;" FieldName="pri_0_count" Label="Low Priority"/>        
+        
+        <Element Name="fld_data_color" Class="chart.lib.ChartColor" FieldName="cond_color" Label="Data Color"/>
+        <Element Name="fld_data_desc" Class="chart.lib.ChartDescription" FieldName="type_description" Label="Data Description"/>        
+    </DataPanel>
+    <SearchPanel>
+    	<Element Name="qry_date_range"  Class="InputDateRangePicker" DefaultValue="{date('Y/m/d')}" FieldName="start_time" Label="Start Time" >
+    		<EventHandler Name="qry_date_range_onchange" Event="onchange" Function="RunSearch()" />
+    	</Element>
+    	<Element Name="btn_spacer" Class="Spacer" width="10" />
+    	<Element Name="sel_charttype"  cssclass="input_select_w" Class="DropDownList" FieldName="chart_type" Text="{@:m_SubType}" Label="Chart Type" SelectFrom="chart.lov.ChartType(MultiSeries)" >
+            <EventHandler Name="charttype_onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+        <Element Name="btn_redraw" Class="Button" Text="Redraw" CssClass="button_gray_m">
+            <EventHandler Name="redraw_onclick" Event="onclick" Function="UpdateForm()" />
+        </Element>
+    		
+    </SearchPanel> 
+    <NavPanel>
+    </NavPanel> 
+</EasyForm>
