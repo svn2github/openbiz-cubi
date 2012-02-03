@@ -1,21 +1,24 @@
 <?php
-require_once MODULE_PATH.'/chart/form/ChartForm.php';
-class UserWorkhourReportForm extends ChartForm
+require_once MODULE_PATH.'/chart/form/ChartForm.php'; 
+class WorklogStatReportForm extends ChartForm
 {
 	public $m_Year;
 	public $m_Month;
-	public $m_RecordId;
+	public $m_UserDisplayName;
 	
-	public function runSearch()
-	{	
-		$data = $this->readInputRecord();		
-		$this->m_Year = $data['year'];
-		$this->m_Month = $data['month'];
-		return parent::runSearch();	
-	}
-	
-	public function fetchDatasetByColumn()
+	public function fetchData()
 	{
+		$prtForm = BizSystem::getObject("collab.statistics.form.UserWorkhourReportForm");
+		$user_id = $prtForm->m_RecordId;
+		$this->m_Year = $prtForm->m_Year;
+		$this->m_Month = $prtForm->m_Month;
+		$this->m_UserDisplayName = BizSystem::getProfileName($user_id,'short');
+		return;
+	}
+		
+	
+	public function fetchDatasetByColumn(){		
+		
 		if(!$this->m_Year){
 			$this->m_Year = date('Y');
 		}
@@ -44,7 +47,9 @@ class UserWorkhourReportForm extends ChartForm
 		$start_date = $this->m_Year.'-'.$this->m_Month.'-01 00:00:00';
 		$end_date = $this->m_Year.'-'.$this->m_Month.'-'.date('t',strtotime($start_date)).' 00:00:00';		
 		$this->m_SearchRule = "([create_time]>'$start_date' AND [create_time]<'$end_date')";
+		//$this->getDataObj()->setSearchRule($searchRule,1);
 		            
+            
 		//echo "search rule is $this->m_SearchRule"; exit;
 		if ($this->m_FixSearchRule)
         {
@@ -107,6 +112,11 @@ class UserWorkhourReportForm extends ChartForm
         }  
 	}
 	
+	public function updateForm()
+	{	
+		return parent::updateForm();
+	}
+	
     public function getSessionVars($sessionContext)
     {    	
     	$sessionContext->getObjVar($this->m_Name, "Year", $this->m_Year);
@@ -120,6 +130,14 @@ class UserWorkhourReportForm extends ChartForm
     	$sessionContext->setObjVar($this->m_Name, "Year", $this->m_Year);
         $sessionContext->setObjVar($this->m_Name, "Month", $this->m_Month);
         return parent::setSessionVars($sessionContext);        
-    }	
+    }   
+
+    public function outputAttrs()
+    {
+    	$data = parent::outputAttrs();
+    	$data['empty'] = $this->getDataObj()->m_Empty;
+    	$data['title'] = Expression::evaluateExpression( $this->m_Title, $this);
+    	return $data;
+    }
 }
 ?>

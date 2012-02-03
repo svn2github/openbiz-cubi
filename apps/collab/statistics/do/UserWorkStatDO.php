@@ -3,11 +3,13 @@ class UserWorkStatDO extends BizDataObj
 {
 	public function fetch()
 	{
-		if(preg_match("/\[group_id\]/si",$this->m_SearchRule)){
+		
+		$params = QueryStringParam::getBindValues();
+		if(preg_match("/\[group_id\]/si",$this->m_SearchRule) || is_numeric($params[':_v1'])){
 			//$this->m_SearchRule = str_replace("AND [year] = :_v2 AND [month] = :_v3 AND [chart_type] = :_v4", "", $this->m_SearchRule);
 			$this->m_SearchRule = "[group_id] = :_v1";		
 		}
-		$params = QueryStringParam::getBindValues();	
+		
 		
 		foreach($params as $key=>$value)
 		{
