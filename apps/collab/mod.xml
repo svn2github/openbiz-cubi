@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="Openbiz Collaboration" Version="1.1.0" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
+<Module Name="collab" Description="Openbiz Collaboration" Version="1.1.2" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -84,8 +84,9 @@
 			<MenuItem Name="Project.Gantt" Title="Project Gantt Chart" Description=""  URL="{@home:url}/collab/project_gantt" Order="50" Access="collab_project.access">
 				<MenuItem Name="Project.GanttDetail" Title="Project Gantt Detail" Description=""  URL="{@home:url}/collab/project_gantt_detail" Order="50" Access="collab_project.access" />
 			</MenuItem>
-			<MenuItem Name="Project.Template" Title="Project Template" Description=""  URL="{@home:url}/collab/project_template" Order="50" Access="collab_project.access"></MenuItem>
-			<MenuItem Name="Project.Type" Title="Project Type" Description=""  URL="{@home:url}/collab/project_type" Order="60" Access="collab_project.access"></MenuItem>
+			<MenuItem Name="Project.Statistics" Title="Project Statistics" Description=""  URL="{@home:url}/collab/project_statistics" Access="collab_project.access"  Order="55" ></MenuItem>
+			<MenuItem Name="Project.Template" Title="Project Template" Description=""  URL="{@home:url}/collab/project_template" Order="60" Access="collab_project.access"></MenuItem>			
+			<MenuItem Name="Project.Type" Title="Project Type" Description=""  URL="{@home:url}/collab/project_type" Order="70" Access="collab_project.access"></MenuItem>
 		</MenuItem>
         <!-- Task menus -->
     	<MenuItem Name="Task" Title="Task" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_task" Order="30" Access="collab_task.access">
@@ -94,12 +95,15 @@
 				<MenuItem Name="Task.New" Title="New Task" Description=""  URL="{@home:url}/collab/task_new" Order="15"  Access="collab_task.access" ></MenuItem>
 			</MenuItem>
 			<MenuItem Name="Task.Gantt" Title="Task Gantt Chart" Description=""  URL="{@home:url}/collab/task_gantt" Order="45"  Access="collab_task.access" ></MenuItem>
+			<MenuItem Name="Task.Statistics" Title="Task Statistics" Description=""  URL="{@home:url}/collab/task_statistics" Access="collab_task.access"  Order="48" ></MenuItem>
 			<MenuItem Name="Task.Timesheet" Title="Task Timesheet" Description=""  URL="{@home:url}/collab/task_timesheet" Order="50"  Access="collab_task.access"></MenuItem>
+			
 			<MenuItem Name="Task.Type" Title="Task Type" Description=""  URL="{@home:url}/collab/task_type" Order="60"  Access="collab_task.access"></MenuItem>			
 		</MenuItem>
         <!-- worklog menus -->
     	<MenuItem Name="Worklog" Title="Work Log" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_worklog" Order="40" Access="collab_worklog.access">
 			<MenuItem Name="Worklog.Manage" Title="Work Log Manage " Description=""  URL="{@home:url}/collab/worklog_manage" Order="40"  Access="collab_worklog.access" ></MenuItem>
+			<MenuItem Name="Worklog.Statistics" Title="Work Statistics" Description=""  URL="{@home:url}/collab/worklog_statistics" Access="collab_worklog.access"  Order="50" ></MenuItem>
 		</MenuItem>	
         <!-- message box menus -->
         <MenuItem Name="Msgbox" Title="Message" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_message" Order="12" Access="collab_msgbox.access">
@@ -140,6 +144,8 @@
         <MenuItem Name="Collab_Statistics" Title="Statistics" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_statistics" Order="110" Access="collab_statistics.access">
 			<MenuItem Name="Collab_Statistics.TypeStat" Title="Data Type Statistics" Description=""  URL="{@home:url}/collab/statistics_type" Access="collab_statistics.access" Order="10" ></MenuItem>			
 			<MenuItem Name="Collab_Statistics.ProjectStat" Title="Project Statistics" Description=""  URL="{@home:url}/collab/statistics_project" Access="collab_statistics.access"  Order="20" ></MenuItem>
+			<MenuItem Name="Collab_Statistics.TaskStat" Title="Task Statistics" Description=""  URL="{@home:url}/collab/statistics_task" Access="collab_statistics.access"  Order="30" ></MenuItem>
+			<MenuItem Name="Collab_Statistics.WorkStat" Title="Work Statistics" Description=""  URL="{@home:url}/collab/statistics_work" Access="collab_statistics.access"  Order="40" ></MenuItem>
 		</MenuItem>	
     </Menu>
     <Dependency>
@@ -147,7 +153,8 @@
     	<Module Name="menu"/>
     </Dependency>
         <ChangeLog>
-        <Version Name="1.1.0">
+        <Version Name="1.1.2">
+        	<Change Name="feature_112" Type="New_Feature" Status="Finished" PublishDate="2012-02-03" Description="added statistics charts feature for users view"></Change>
         	<Change Name="feature_110" Type="New_Feature" Status="Finished" PublishDate="2012-01-30" Description="added statistics charts feature for collaboration system"></Change>        	
         </Version>
         <Version Name="1.0.3">
