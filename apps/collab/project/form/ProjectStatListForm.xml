@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectStatListForm" Class="ProjectStatListForm" FormType="List"  jsClass="Openbiz.TableForm" Title="" BizDataObj="collab.project.do.ProjectSystemDO" TemplateEngine="Smarty" PageSize="10" TemplateFile="form_type_stat_grid.tpl.html" Access="collab_project.access">
+<EasyForm Name="ProjectStatListForm" Class="ProjectStatListForm" FormType="List"  jsClass="Openbiz.TableForm" Title="" BizDataObj="collab.project.do.ProjectDO" TemplateEngine="Smarty" PageSize="10" TemplateFile="form_type_stat_grid.tpl.html" Access="collab_project.access">
     <DataPanel>
        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
         <Element Name="fld_share" Class="ColumnShare" 

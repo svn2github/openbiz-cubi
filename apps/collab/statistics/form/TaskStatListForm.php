@@ -6,11 +6,11 @@ class TaskStatListForm extends StatisticsListForm
 	{
 		
 		$parentForm = BizSystem::getObject("collab.statistics.form.TaskStatReportForm");			
-		$cond = $parentForm->m_CategoryId;
+		$sev = abs(4-$parentForm->m_CategoryId);
 		$pri  =	abs(2-($parentForm->m_RecordId));
 		$searchRule = $parentForm->m_SearchRule;
-		if($cond!==null && $pri!==null){
-			$this->m_SearchRule="[condition]='$cond' AND [priority]='$pri'";
+		if($sev!==null && $pri!==null){
+			$this->m_SearchRule="[severity]='$sev' AND [priority]='$pri'";
 		}
 
 		if($searchRule){

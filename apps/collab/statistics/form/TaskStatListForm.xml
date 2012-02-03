@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="TaskStatListForm" Class="TaskStatListForm" FormType="List"  jsClass="Openbiz.TableForm" Title="" BizDataObj="collab.project.do.ProjectSystemDO" TemplateEngine="Smarty" PageSize="10" TemplateFile="form_type_stat_grid.tpl.html" Access="collab_statistics.access">
+<EasyForm Name="TaskStatListForm" Class="TaskStatListForm" FormType="List"  jsClass="Openbiz.TableForm" Title="" BizDataObj="collab.task.do.TaskSystemDO" TemplateEngine="Smarty" PageSize="10" TemplateFile="form_type_stat_grid.tpl.html" Access="collab_statistics.access">
     <DataPanel>
-       <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+       <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" />
 <Element Name="fld_share" Class="ColumnShare" 
 				MyPrivateImg="{RESOURCE_URL}/collab/task/images/icon_task_private.png"
 				MySharedImg="{RESOURCE_URL}/collab/task/images/icon_task_shared.png" 
@@ -9,10 +9,10 @@
 				MyDistributedImg="{RESOURCE_URL}/collab/task/images/icon_task_distributed.gif" 
 				GroupSharedImg="{RESOURCE_URL}/collab/task/images/icon_task_shared_group.png"
 				OtherSharedImg="{RESOURCE_URL}/collab/task/images/icon_task_shared_other.png"
-				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:" >
 		</Element>	
 
-        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="{APP_INDEX}/collab/task_detail/{@:Elem[fld_Id].Value}">         
         </Element>
         <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" FieldName="status" Label="Status"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         </Element>

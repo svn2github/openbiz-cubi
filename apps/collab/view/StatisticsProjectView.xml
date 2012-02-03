@@ -1,8 +1,8 @@
 <?xml version="1.0" standalone="no"?>
 <EasyView Name="StatisticsProjectView" Description="Project Statistics" Class="EasyView" Tab="" Access="collab_statistics.access" TemplateEngine="Smarty" TemplateFile="view_statistics.tpl">
    <FormReferences>
-   		<Reference Name="collab.statistics.form.ProjectStatReportForm" subforms="collab.statistics.form.ProjectListForm"/>
-   		<Reference Name="collab.statistics.form.ProjectListForm"/>
+   		<Reference Name="collab.statistics.form.ProjectStatReportForm" subforms="collab.statistics.form.ProjectStatListForm"/>
+   		<Reference Name="collab.statistics.form.ProjectStatListForm"/>
    		
    </FormReferences>
 </EasyView>
