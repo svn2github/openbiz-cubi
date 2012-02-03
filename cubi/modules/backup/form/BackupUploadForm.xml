@@ -3,7 +3,7 @@
     <DataPanel>         
     		<Element Name="fld_location"  Class="LabelText" ElementSet="General" FieldName="" Label="Location" Text="{@:m_LocationName}" AllowURLParam="N"/>
                    
-		<Element Name="fld_name" DefaultValue="New Backup" width="550" ElementSet="General" Class="FileUploader" UploadFolder="/../backup" Filetype="(.sql)|(.tar.gz)" FieldName="filename"  Label="File" AllowURLParam="N" />
+		<Element Name="fld_name" DefaultValue="New Backup" width="550" ElementSet="General" Class="FileUploader" UseRawName="Y" UploadFolder="/../backup" Filetype="(.sql)|(.tar.gz)" FieldName="filename"  Label="File" AllowURLParam="N" />
 		
 		<Element Name="fld_import" ElementSet="General" DefaultValue="0" SelectFrom="1" Class="Checkbox" FieldName="import" Label="Import" Description="restore backup after upload" AllowURLParam="N">
 		    	<EventHandler Name="fld_import_onclick" EventLogMsg="" Event="onclick" Function="js:update_import()" />
