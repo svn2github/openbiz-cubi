@@ -209,7 +209,7 @@ class ChartForm extends EasyForm
 	            		$elemConfig.="anchorBgColor=6bd0fe;";
 	            		$elemConfig.="anchorBorderColor=0d78af;";       		
 	            	}
-	            	else
+	            	elseif($colorList[$i]["color_code"])
 	            	{
 	            		$elemConfig.="color=".$colorList[$i]["color_code"].';';
 	            		$elemConfig.="anchorBgColor=".$colorList[$i]["color_code"].';';
@@ -260,7 +260,7 @@ class ChartForm extends EasyForm
             {
             	$color = "color=".$this->chartColorset[$colorI].";";
             }
-            else
+            elseif($colorList[$colorI]["color_code"])
             {
         		$color = "color=".$colorList[$colorI]["color_code"].";";
             }
