@@ -31,7 +31,8 @@ class FileUploader extends FileInput
     public $m_UploadFolder ;
     public $m_UploadFileType ;
     public $m_Uploaded =false;   	
-    public $m_Deleteable;    
+    public $m_Deleteable;
+    public $m_UseRawName=false;        
 
     /**
      * Initialize Element with xml array
@@ -67,6 +68,7 @@ class FileUploader extends FileInput
         $this->m_UploadFolder = isset($xmlArr["ATTRIBUTES"]["UPLOADFOLDER"]) ? $xmlArr["ATTRIBUTES"]["UPLOADFOLDER"] : null;
         $this->m_UploadFileType = isset($xmlArr["ATTRIBUTES"]["FILETYPE"]) ? $xmlArr["ATTRIBUTES"]["FILETYPE"] : null;
         $this->m_Deleteable = isset($xmlArr["ATTRIBUTES"]["DELETEABLE"]) ? $xmlArr["ATTRIBUTES"]["DELETEABLE"] : "N";
+        $this->m_UseRawName = isset($xmlArr["ATTRIBUTES"]["USERAWNAME"]) ? $xmlArr["ATTRIBUTES"]["USERAWNAME"] : false;
     }
 
     /**
@@ -108,7 +110,11 @@ class FileUploader extends FileInput
 	                {
 	                    mkdir($this->m_UploadRoot.$this->m_UploadFolder ,0777,true);
 	                }
-	                $uploadFile = $this->m_UploadFolder."/".date("YmdHis")."-".md5($file['name']);
+	                if($this->m_UseRawName){
+	                	$uploadFile = $this->m_UploadFolder."/".$file['name'];
+	                }else{
+	                	$uploadFile = $this->m_UploadFolder."/".date("YmdHis")."-".md5($file['name']);
+	                }
 	                if($this->m_UploadFileType){
 	                	$pattern = "/".$this->m_UploadFileType."$/si";
 	                	if(!preg_match($pattern,$file['name'])){
