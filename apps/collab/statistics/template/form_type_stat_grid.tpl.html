@@ -17,19 +17,21 @@ margin-right:5px;
 </style>
 {/literal}
 <div style="padding-left:25px;padding-right:40px;">
+{if $form.title}
 	<table><tr><td>
 		{if $form.icon !='' }
 		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
 		{/if}
 	
 		<div style="float:left; width:600px;">
-			{if $form.title}
+			
 			<h3 style="padding:0px;">
 			{$form.title}
 			</h3>
-			{/if}
+			
 		</div>
 	</td></tr></table>
+{/if}	
 {if $actionPanel or $searchPanel }	
 	<div class="form_header_panel">	
 		<div class="action_panel"  style="width:292px;">
