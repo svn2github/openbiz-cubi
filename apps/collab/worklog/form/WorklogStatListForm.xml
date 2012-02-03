@@ -1,40 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="WorklogStatListForm" Class="WorklogStatListForm" FormType="List"  jsClass="Openbiz.TableForm" Title="" BizDataObj="collab.project.do.ProjectDO" TemplateEngine="Smarty" PageSize="10" TemplateFile="form_type_stat_grid.tpl.html" Access="collab_project.access">
+<EasyForm Name="WorklogStatListForm" Class="WorklogStatListForm" GroupBy="[work_date:work_date]" FormType="List"  jsClass="Openbiz.TableForm" Title="" BizDataObj="collab.worklog.do.WorkLogGroupingDO" TemplateEngine="Smarty" PageSize="10" TemplateFile="form_type_stat_grid.tpl.html" Access="collab_project.access">
     <DataPanel>
        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
-        <Element Name="fld_share" Class="ColumnShare" 
-				MyPrivateImg="{RESOURCE_URL}/collab/project/images/icon_project_private.png"
-				MySharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared.png" 
-				MyAssignedImg="{RESOURCE_URL}/collab/project/images/icon_project_assigned.png"
-				MyDistributedImg="{RESOURCE_URL}/collab/project/images/icon_project_distributed.png" 
-				GroupSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_group.png"
-				OtherSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_other.png"
-				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
-		</Element>	
-
-        <Element Name="fld_title"  MaxLength="20" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/project_detail/{@:Elem[fld_Id].Value}"></Element>
-        <Element Name="fld_start_time"  Text="{date('Y-m-d',strtotime(@:Elem[fld_start_time].Value))}" Class="ColumnText" FieldName="start_time" Label="Start Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element> 
-        <!-- 
-        <Element Name="fld_desc"  MaxLength="16" Class="ColumnText" FieldName="description" Label="Description" Maxlenght="20"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="">         
-        </Element>
-         -->
-        
-        <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.project.lov.ProjectLOV(WorklogStatus)" FieldName="status" Label="Status" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
-        </Element>
- 		
-		<Element Name="fld_condition" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_condition_{@:Elem[fld_condition].Value}.png" FieldName="condition" Sortable="Y" Label="Cond">		
-        </Element>
-        		
-		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Pri" >
+        <Element Name="fld_icon" Class="ColumnImage" 
+				Text="{RESOURCE_URL}/collab/worklog/images/icon_worklog_private.png"
+				FieldName="" Label="Share"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">				
 		</Element>
-		<!--
-        <Element Name="fld_importance" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/project/images/icon_project_importance_yes.gif"  FalseImg="{RESOURCE_URL}/collab/project/images/icon_project_importance_no.gif" FieldName="importance" Sortable="Y" Label="Flag" Link="javascript:;">
-			<EventHandler Name="fld_importamce_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_importance,{@:Elem[fld_importance].Value})"/>		
-		</Element>
-		-->
-		<Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_type" Class="ColumnText"  Style="line-height:24px;" FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
-             
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(collab.worklog.form.WorklogDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>
+        <Element Name="fld_worked_hours" Class="ColumnBar" Width="120" Color="ff6600" DisplayUnit=" Hours" Style="width:180px" MaxValue="8" FieldName="worked_hours" Label="Worked Hours"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
+        <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Create Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_description"  Class="LabelTextarea" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+            
     </DataPanel>
 <NavPanel>
     	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">

@@ -1,24 +1,18 @@
 <?php 
-require_once MODULE_PATH.'/collab/statistics/form/StatisticsListForm.php';
-class WorklogStatListForm extends StatisticsListForm
+class WorklogStatListForm extends EasyFormGrouping
 {
-	public function fetchDataSet()
+	public function fetchDataGroup()
 	{
 		
 		$parentForm = BizSystem::getObject("collab.worklog.form.WorklogStatReportForm");			
-		$cond = $parentForm->m_CategoryId;
-		$pri  =	abs(2-($parentForm->m_RecordId));
-		$searchRule = $parentForm->m_SearchRule;
-		if($cond!==null && $pri!==null){
-			//$this->m_SearchRule="[condition]='$cond' AND [priority]='$pri'";
+		$day = sprintf('%02d',$parentForm->m_CategoryId+1);
+		$workdate = $parentForm->m_Year.'-'.$parentForm->m_Month.'-'.$day;
+		//$searchRule = $parentForm->m_SearchRule;
+		if($parentForm->m_RecordId){
+			$this->m_SearchRule="[work_date]='$workdate'";
 		}
 
-		if($searchRule){
-			$searchRule = str_replace("[chart_type]  = :_v1", "", $searchRule);		
-			//$this->m_SearchRule = $searchRule.$this->m_SearchRule;
-		}
-		
-		$result = parent::fetchDataSet();		
+		$result = parent::fetchDataGroup();		
 		return $result;
 	}
 }
