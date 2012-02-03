@@ -9,6 +9,7 @@
 				MyDistributedImg="{RESOURCE_URL}/collab/project/images/icon_project_distributed.png" 
 				GroupSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_group.png"
 				OtherSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_other.png"
+				DefaultImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_other.png"
 				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:" >
 		</Element>	
 
