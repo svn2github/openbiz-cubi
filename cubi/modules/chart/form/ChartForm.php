@@ -169,6 +169,16 @@ class ChartForm extends EasyForm
     	return parent::updateForm();
     }
     
+    public function runSearch()
+    {
+    	$data = $this->readInputRecord();
+    	if($data['chart_type'])
+    	{
+    		$this->m_SubType = $data['chart_type'];
+    	}
+    	return parent::runSearch();
+    }
+    
     //TODO: for different type of chart, use template? or render class?
     protected function drawChart()
     {
