@@ -5,6 +5,14 @@ class UserWorkhourReportForm extends ChartForm
 	public $m_Year;
 	public $m_Month;
 	
+	public function runSearch()
+	{	
+		$data = $this->readInputRecord();		
+		$this->m_Year = $data['year'];
+		$this->m_Month = $data['month'];
+		return parent::runSearch();	
+	}
+	
 	public function fetchDatasetByColumn()
 	{
 		if(!$this->m_Year){
