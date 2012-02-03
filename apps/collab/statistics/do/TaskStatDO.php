@@ -22,7 +22,6 @@ class TaskStatDO extends BizDataObj
 			$record['Id']		=$value;
 			$record['condition']=$value;
 			$record['cond_name']=$name;
-			$record['cond_color']=$this->getCondColor($value);		
 			$record['pri_0_count']=0;
 			$record['pri_1_count']=0;
 			$record['pri_2_count']=0;
@@ -36,22 +35,7 @@ class TaskStatDO extends BizDataObj
 		return $resultSet;
 	}
 	
-	public function getCondColor($value)
-	{
-		switch ($value)
-		{
-			case "0":
-				$code = "f42a36";
-				break;
-			case "1":
-				$code = "ffd24c";
-				break;
-			case "2":
-				$code = "939393";
-				break;
-		}
-		return $code;
-	}
+
 	
 }
 ?>

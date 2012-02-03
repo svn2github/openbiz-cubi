@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="WorklogStatReportForm" Class="WorklogStatReportForm" FormType="Detail" ChartType="MSColumn3D" ChartAttrs="showValues=0;showNames=1;numberSuffix= hours;baseFontSize=12;borderColor=#dddddd;plotBorderColor=aaaaaa;" Width="700" Height="500" jsClass="Openbiz.Form" Title="Worklog Statistics" BizDataObj="collab.worklog.do.WorklogReportStatDO" TemplateEngine="Smarty" PageSize="100" TemplateFile="system_right_chartform.tpl.html"  Access="collab_project.access">
+    <DataPanel>
+        <Element Name="fld_Id" Class="chart.lib.ChartDataId" FieldName="Id" Label="Type ID"/>
+        <Element Name="fld_name" Class="chart.lib.ChartCategory" FieldName="date_d" Label="Date"/>
+        <Element Name="fld_data1_count" Class="chart.lib.ChartData" Attrs="color=ff6600;" FieldName="workhour_mine" Label="My Workhours"/>
+        <Element Name="fld_data0_count" Class="chart.lib.ChartData" Attrs="color=CCCCCC;" FieldName="workhour_avg" Label="Average Workhours"/>        
+        
+    </DataPanel>
+    <SearchPanel>
+    	<Element Name="year_selector" cssclass="input_select_m" DefaultValue="{@:m_Year}"   Class="DropDownList" SelectFrom="collab.task.lov.TimesheetLOV(Year)" FieldName="year" Label="Year"  >
+            <EventHandler Name="year_selector_onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element> 
+        <Element Name="month_selector" cssclass="input_select" DefaultValue="{@:m_Month}" Class="DropDownList" SelectFrom="collab.task.lov.TimesheetLOV(Month)" FieldName="month" Label="Month" >
+            <EventHandler Name="month_selector_onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element> 
+    	<Element Name="btn_spacer" Class="Spacer" width="10" />
+    	<Element Name="sel_charttype"  cssclass="input_select_w" Class="DropDownList" FieldName="chart_type" Text="{@:m_SubType}" Label="Chart Type" SelectFrom="chart.lov.ChartType(MultiSeries)" >
+            <EventHandler Name="charttype_onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+        <Element Name="btn_redraw" Class="Button" Text="Redraw" CssClass="button_gray_m">
+            <EventHandler Name="redraw_onclick" Event="onclick" Function="UpdateForm()" />
+        </Element>
+    		
+    </SearchPanel> 
+    <NavPanel>
+    </NavPanel> 
+</EasyForm>
