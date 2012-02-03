@@ -33,6 +33,7 @@ class ColumnShare extends ColumnText
     public $m_MyDistributedImg	= null;    
     public $m_GroupSharedImg	= null;
     public $m_OtherSharedImg	= null;
+    public $m_DefaultImg		= null;
     
     public $m_RecordOwnerId		= null;
     public $m_RecordGroupId		= null;
@@ -62,6 +63,7 @@ class ColumnShare extends ColumnText
         $this->m_MyDistributedImg  = isset($xmlArr["ATTRIBUTES"]["MYDISTRIBUTEDIMG"])		? $xmlArr["ATTRIBUTES"]["MYDISTRIBUTEDIMG"]	: "{RESOURCE_URL}/common/images/icon_data_distributed.gif";
         $this->m_GroupSharedImg = isset($xmlArr["ATTRIBUTES"]["GROUPSHAREDIMG"])? $xmlArr["ATTRIBUTES"]["GROUPSHAREDIMG"]: "{RESOURCE_URL}/common/images/icon_data_shared_group.gif";
         $this->m_OtherSharedImg = isset($xmlArr["ATTRIBUTES"]["OTHERSHAREDIMG"])? $xmlArr["ATTRIBUTES"]["OTHERSHAREDIMG"]: "{RESOURCE_URL}/common/images/icon_data_shared_other.gif";
+        $this->m_DefaultImg = isset($xmlArr["ATTRIBUTES"]["DEFAULTIMG"])? $xmlArr["ATTRIBUTES"]["DEFAULTIMG"]: "{RESOURCE_URL}/common/images/icon_data_shared_other.gif";
         
         $this->m_RecordCreatorId	=	isset($xmlArr["ATTRIBUTES"]["CREATORID"])		? $xmlArr["ATTRIBUTES"]["CREATORID"]	: null;
         $this->m_RecordOwnerId	=	isset($xmlArr["ATTRIBUTES"]["OWNERID"])		? $xmlArr["ATTRIBUTES"]["OWNERID"]	: null;
@@ -194,7 +196,10 @@ class ColumnShare extends ColumnText
 	       		break;
 	       	case "5":
 	       		$image_url = $this->m_MyDistributedImg;
-	       		break;	       			       		
+	       		break;	    
+	       	default:
+	       		$image_url = $this->m_DefaultImg;
+	       		break;   			       		
        }
        
         if(preg_match("/\{.*\}/si",$image_url))
