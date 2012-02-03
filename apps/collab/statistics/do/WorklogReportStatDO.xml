@@ -6,6 +6,7 @@
         <BizField Name="workhour_mine" SQLExpr="'workhour_mine'"/>
         <BizField Name="workhour_avg" SQLExpr="'workhour_avg'"/>
         <BizField Name="data_count" SQLExpr="SUM(worked_hours)"/>
+        <BizField Name="data_count_avg" SQLExpr="AVG(worked_hours)"/>
         <BizField Name="create_by" Column="create_by" Type="Number" />
         <BizField Name="create_time" Column="create_time" Type="Datetime" />
         

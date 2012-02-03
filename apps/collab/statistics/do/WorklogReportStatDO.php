@@ -77,7 +77,7 @@ class WorklogReportStatDO extends BizDataObj
 			$record['Id'] = strtotime($new_date);
 			$record['date'] = $new_date;
 			$record['date_d'] = (int)date('d',strtotime($new_date));
-			$record['workhour_avg']	= (int)$dataset_avg[$new_date]['data_count'];
+			$record['workhour_avg']	= (int)$dataset_avg[$new_date]['data_count_avg'];
 			$record['workhour_mine']= (int)$dataset_mine[$new_date]['data_count'];
 			$resultSet[] = $record;
 		}
