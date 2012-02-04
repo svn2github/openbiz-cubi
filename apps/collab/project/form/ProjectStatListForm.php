@@ -10,7 +10,7 @@ class ProjectStatListForm extends StatisticsListForm
 		$pri  =	abs(2-($parentForm->m_RecordId));
 		$searchRule = $parentForm->m_SearchRule;
 		if($cond!==null && $pri!==null){
-			$this->m_SearchRule="AND ([condition]='$cond' AND [priority]='$pri')";
+			$this->m_SearchRule="([condition]='$cond' AND [priority]='$pri')";
 		}
 
 		if($searchRule){
