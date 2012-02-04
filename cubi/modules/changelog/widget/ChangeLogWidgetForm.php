@@ -18,7 +18,7 @@ class ChangeLogWidgetForm extends EasyForm
 				
 				$messageFile_loaded = true;
 			}
-			
+			if(is_array($data)){
 			foreach ($data as $key=>$value)
 			{
 				$elemObjMeta = $data[$key]['element'];
@@ -40,6 +40,7 @@ class ChangeLogWidgetForm extends EasyForm
 				$data[$key]['new'] = $elemObj->render();
 				
 				unset($data[$key]['element']);
+			}
 			}
 			$record['data'] = $data;
 			unset($record['form']);
