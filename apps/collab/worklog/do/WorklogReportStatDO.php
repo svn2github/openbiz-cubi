@@ -37,7 +37,7 @@ class WorklogReportStatDO extends BizDataObj
 			$row = $rows[0];
 			$create_date = date("Y-m-d",strtotime($row['create_time']));
 			$month = date("Y-m",strtotime($row['create_time']));
-			$month_days = date("t",$create_date);
+			$month_days = date("t",strtotime($create_date));
 			$this->m_Empty = false;
 		}else{
 			$this->m_Empty = true;
