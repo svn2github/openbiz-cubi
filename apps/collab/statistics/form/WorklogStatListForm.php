@@ -12,7 +12,7 @@ class WorklogStatListForm extends EasyFormGrouping
 		$workdate = $parentForm->m_Year.'-'.$parentForm->m_Month.'-'.$day;
 		$user_id = $parentForm->m_RecordId;
 		//$searchRule = $parentForm->m_SearchRule;
-		if($parentForm->m_RecordId){
+		if($day){
 			$this->m_SearchRule="[work_date]='$workdate' AND [create_by]='$user_id'";
 		}
 		$result = parent::fetchDataGroup();		
