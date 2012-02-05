@@ -72,13 +72,15 @@ CREATE TABLE IF NOT EXISTS `contact_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+
 INSERT INTO `contact_type` (`id`, `name`, `description`, `color`, `sortorder`, `published`, `group_id`, `group_perm`, `other_perm`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
 (1, 'Colleague', 'Our company colleague''s contacts', '66c2ff', 45, 1, 1, 1, 1, 1, '2010-05-23 01:09:06', 1, '2012-02-05 10:59:07'),
-(2, 'Potential Client', 'Potential Clients', 'b8ff7d', 45, 1, 1, 1, 1, 1, '2010-05-23 01:23:04', 1, '2012-02-05 10:59:02'),
-(3, 'Provider', 'Provider Contacts', '7fff7f', 50, 1, 1, 1, 1, 1, '2010-05-23 01:34:12', 1, '2012-02-05 10:58:51'),
-(4, 'Existing Client', 'Business Client Contacts', 'ffd042', 45, 1, 1, 1, 1, 1, '2010-05-23 01:34:39', 1, '2012-02-05 10:58:57'),
+(2, 'Potential Client', 'Potential clients, People interested buy not start using our product yet.', 'b8ff7d', 45, 1, 1, 1, 1, 1, '2010-05-23 01:23:04', 1, '2012-02-05 11:02:01'),
+(3, 'Provider', 'All kind of providers. Like product hardware provider, printing service providers etc.', '7fff7f', 50, 1, 1, 1, 1, 1, '2010-05-23 01:34:12', 1, '2012-02-05 11:03:38'),
+(4, 'Existing Client', 'Client who already started using our products.', 'ffd042', 45, 1, 1, 1, 1, 1, '2010-05-23 01:34:39', 1, '2012-02-05 11:02:29'),
 (5, 'Government', 'Government department managers contacts', 'fa8282', 50, 1, 1, 1, 1, 1, '2011-12-02 23:11:18', 1, '2012-02-05 10:58:44'),
 (6, 'Misc', 'Miscellaneous, Other type of contacts', 'd1d1d1', 50, 1, 1, 1, 1, 1, '2012-02-05 10:56:40', 1, '2012-02-05 10:58:39');
+
 
 DROP TABLE IF EXISTS `contact_import`;
 CREATE TABLE IF NOT EXISTS `contact_import` (
