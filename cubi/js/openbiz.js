@@ -195,6 +195,13 @@ Openbiz.Form = Class.create(
     		return;
     	this.CallFunction("deleteRecord", paramArray, options);
     },
+    PurgeRecord: function(paramArray, options)
+    {
+    	alertMsg = "Are you sure you want to purge this record?";
+        if (!confirm(alertMsg))
+    		return;
+    	this.CallFunction("purgeRecord", paramArray, options);
+    },
     submit: function(url)
     {
         this.form.method = "post";
