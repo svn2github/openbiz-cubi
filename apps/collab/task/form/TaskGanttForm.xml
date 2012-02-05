@@ -65,7 +65,7 @@
         <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
             <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+X" ContextMenu="Export"/>
         </Element>
-        <!-- <Element Name="btn_spacer3" Class="Spacer" Width="10"></Element> -->
+        <Element Name="btn_spacer3" Class="Spacer" Width="10"></Element>
         <Element Name="btn_print" Class="Button" Text="Print" CssClass="button_gray_m">
             <EventHandler Name="print_onclick" Event="onclick" EventLogMsg="" Function="UpdateForm()" ShortcutKey="Ctrl+P" ContextMenu="Print"/>
         </Element>
@@ -132,7 +132,7 @@
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element> 
-        <Element Name="fld_project" Class="Listbox" BlankOption="none,0" FieldName="project_id" DefaultValue="{@:m_ProjectID}" Label="Project" SelectFrom="collab.project.do.ProjectDO[name:Id]" AllowURLParam="N" >
+        <Element Name="fld_project" width="170" Class="Listbox" BlankOption="none,0" FieldName="project_id" DefaultValue="{@:m_ProjectID}" Label="Project" SelectFrom="collab.project.do.ProjectDO[name:Id]" AllowURLParam="N" >
         	<EventHandler Name="fld_project_onchange" Event="onchange" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>  
     </SearchPanel>
