@@ -13,6 +13,7 @@ CREATE TABLE `task` (
   `description` text NOT NULL,
   `status` int(11) NOT NULL,
   `priority` int(11) NOT NULL,
+  `severity` INT NOT NULL DEFAULT '2' ,
   `milestone` int(11) NOT NULL,
   `progress` int(11) NOT NULL,
 
@@ -574,6 +575,7 @@ CREATE TABLE `project` (
 `budget_cost` float(11) NOT NULL,
 `status` int(11) NOT NULL,
 `priority` int(11) NOT NULL,
+`condition` INT NULL DEFAULT '0' ,
 `sortorder` int(11) NOT NULL,
 `owner_id` int(11) default 0,
 `group_id` INT(11) default '1',
@@ -632,6 +634,7 @@ CREATE TABLE `project_task_template` (
   `title` varchar(255) default '',
   `description` text NOT NULL,
   `priority` int(11) NOT NULL,
+  `severity` INT NOT NULL DEFAULT '2',
   `milestone` int(11) NOT NULL,
   `start_date` int(11) NOT NULL,
   `during_days` int(11) NOT NULL,
@@ -670,11 +673,3 @@ CREATE TABLE `task_budget` (
 
 insert  into `role`(`name`,`description`,`status`,`default`,`startpage`) values ('Collaboration Admin','Collaboration system administrator',1,0,'/collab/dashboard');
 insert  into `role`(`name`,`description`,`status`,`default`,`startpage`) values ('Collaboration Member','General Collaboration system member',1,1,'/collab/dashboard');
-
-/* 
-added task severity
-version 1.0.1
-*/
-ALTER TABLE `task` ADD `severity` INT NOT NULL DEFAULT '2' AFTER `priority`;
-ALTER TABLE `project_task_template` ADD `severity` INT NOT NULL DEFAULT '2' AFTER `priority`;  
-ALTER TABLE `project` ADD `condition` INT NULL DEFAULT '0' AFTER `priority`;
