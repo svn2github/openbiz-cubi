@@ -10,7 +10,7 @@
         <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title" Link="javascript:" Sortable="Y">
         	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentDetailForm,{@:Elem[fld_Id].Value})"/>
         </Element>	
-        <Element Name="fld_description" Class="ColumnText" MaxLength="50" FieldName="description" Label="Description" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>	
+        <Element Name="fld_description" Class="ColumnText" MaxLength="20" FieldName="description" Label="Description" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>	
         
         <Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sortorder" Label="Ordering" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N">
         	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})"/>
