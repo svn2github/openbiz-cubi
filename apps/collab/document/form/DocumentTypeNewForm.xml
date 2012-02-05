@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DocumentTypeNewForm" Class="DocumentTypeForm" Icon="{RESOURCE_URL}/collab/calendar/images/icon_event_type.png" FormType="New" jsClass="jbForm" Title="New Document Type" Description="Please fill in below field to create a new document type" BizDataObj="collab.document.do.DocumentTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="TASK_TYPE" MessageFile="DocumentType.msg" Access="collab_document.access">
+<EasyForm Name="DocumentTypeNewForm" Class="DocumentTypeForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document_type.png" FormType="New" jsClass="jbForm" Title="New Document Type" Description="Please fill in below field to create a new document type" BizDataObj="collab.document.do.DocumentTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="TASK_TYPE" MessageFile="DocumentType.msg" Access="collab_document.access">
     <DataPanel>
         <Element Name="fld_name" DefaultValue="New Document Type" Class="InputText" FieldName="name" Label="Name"   />	
         <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	

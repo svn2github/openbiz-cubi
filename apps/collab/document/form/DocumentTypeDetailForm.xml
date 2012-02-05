@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DocumentTypeDetailForm" Class="DocumentTypeForm" FormType="Detail" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/calendar/images/icon_event_type.png" Title="Document Type Detail" Description="Detailed document type information." BizDataObj="collab.document.do.DocumentTypeDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="BOOKMARK_TYPE" MessageFile="DocumentType.msg" Access="collab_document.access">
+<EasyForm Name="DocumentTypeDetailForm" Class="DocumentTypeForm" FormType="Detail" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document_type.png" Title="Document Type Detail" Description="Detailed document type information." BizDataObj="collab.document.do.DocumentTypeDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="BOOKMARK_TYPE" MessageFile="DocumentType.msg" Access="collab_document.access">
     <DataPanel>
 			<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 			<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DocumentTypeListForm" Class="DocumentTypeForm" Icon="{RESOURCE_URL}/collab/Document/images/icon_document_type.png"  FormType="List" jsClass="jbForm" Title="Document Type Manage" Description="You can mamange your document items by types.  All user defined type are listed below." BizDataObj="collab.document.do.DocumentTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="BOOKMARK_TYPE" MessageFile="DocumentType.msg" Access="collab_document.access">
+<EasyForm Name="DocumentTypeListForm" Class="DocumentTypeForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document_type.png"  FormType="List" jsClass="jbForm" Title="Document Type Manage" Description="You can mamange your document items by types.  All user defined type are listed below." BizDataObj="collab.document.do.DocumentTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="BOOKMARK_TYPE" MessageFile="DocumentType.msg" Access="collab_document.access">
    <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
