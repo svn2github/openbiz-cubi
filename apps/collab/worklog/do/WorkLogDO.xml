@@ -24,5 +24,7 @@
     		<Join Name="JoinTask" Table="task" Column="id" ColumnRef="task_id" JoinType="LEFT JOIN"/>
     </TableJoins>
     <ObjReferences>
+    	<Object Name="collab.calendar.do.EventDO" Description="" Relationship="M-M" Table="event" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="work_log_event" XColumn1="worklog_id" XColumn2="event_id" XDataObj="collab.worklog.do.WorklogEventDO"/>
+    	<Object Name="collab.document.do.DocumentDO" Description="" Relationship="M-M" Table="document" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="work_log_document" XColumn1="worklog_id" XColumn2="document_id" XDataObj="collab.worklog.do.WorklogDocumentDO"/>
     </ObjReferences>
 </BizDataObj>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="WorklogEditEventForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/worklog/images/icon_worklog.gif" Title="Work Log Detail" Description="Detailed work log information." BizDataObj="collab.worklog.do.WorkLogDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform_elementset_adv.tpl.html"   Access="collab_worklog.access">
+    <DataPanel>
+			<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+			<Element Name="fld_task_id" ElementSet="General" Hidden="Y" Class="Hidden" FieldName="task_id" Label="Id" AllowURLParam="N"/>
+			<Element Name="fld_form_title"  Class="LabelText" FieldName="title" Label="Title" style="font-size:24px;color:#333333;line-height:24px;"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+      		<Element Name="fld_form_description"  Class="LabelBar" Color="ff6600" Width="350" DisplayUnit=" Hours" Style="width:500px" MaxValue="8" FieldName="worked_hours" Label="Worked Hours"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		      		
+      		<Element Name="fld_task" Hidden="{@:Elem[fld_task_id].Value?'N':'Y'}" ElementSet="General" Class="LabelText" FieldName="task_title" Label="Related Task"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;" >
+      			<EventHandler Name="fld_task_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_task_id].Value})"  />
+      		</Element>	        	
+      		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		
+				<Element Name="fld_related_event"   ElementSet="Events" Class="FormElement" FormReference="collab.calendar.widget.EventListEditForm" FieldName="" Label="" AllowURLParam="N" />
+    		
+      			        	
+	</DataPanel>
+    <ActionPanel>       
+            <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="SwitchForm(collab.worklog.form.WorklogDetailForm,{@collab.worklog.do.WorkLogDO:Field[Id].Value})"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>       
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

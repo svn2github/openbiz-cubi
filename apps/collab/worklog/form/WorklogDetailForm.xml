@@ -8,7 +8,13 @@
       		<Element Name="fld_task" Hidden="{@:Elem[fld_task_id].Value?'N':'Y'}" ElementSet="General" Class="LabelText" FieldName="task_title" Label="Related Task"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;" >
       			<EventHandler Name="fld_task_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_task_id].Value})"  />
       		</Element>	        	
-      		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	        	
+      		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		
+		<Element Name="fld_related_events"   ElementSet="Events" Class="FormElement" FormReference="collab.calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_event" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Events" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_evnt_onclick" Event="onclick" Function="SwitchForm(collab.worklog.form.WorklogEditEventForm,{@:Elem[fld_Id].Value})"  />
+        </Element>       		
+      			        	
 		    <Element Name="fld_create_by" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>
 		    <Element Name="fld_create_time" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
 		    <Element Name="fld_update_by" ElementSet="Miscellaneous" Class="LabelText" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>

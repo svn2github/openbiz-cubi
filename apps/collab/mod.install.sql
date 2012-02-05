@@ -161,6 +161,27 @@ CREATE TABLE `work_log` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `work_log_event`;
+CREATE TABLE `work_log_event` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `worklog_id` int(10) unsigned NOT NULL default '0',
+  `event_id` int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  KEY `worklog_id` (`worklog_id`),
+  KEY `event_id` (`event_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `work_log_document`;
+CREATE TABLE `work_log_document` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `worklog_id` int(10) unsigned NOT NULL default '0',
+  `document_id` int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  KEY `worklog_id` (`worklog_id`),
+  KEY `document_id` (`document_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 /*
 MySQL Data Transfer
 Source Host: localhost
