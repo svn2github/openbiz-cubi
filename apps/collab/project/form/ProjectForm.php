@@ -69,5 +69,54 @@ class ProjectForm extends ChangeLogForm
 			return "0";	
 		}
 	}	
+	
+	public function PurgeRecord($id=null)
+	{
+		if ($id==null || $id=='')
+            $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
+
+        $selIds = BizSystem::clientProxy()->getFormInputs('row_selections', false);
+        if ($selIds == null)
+            $selIds[] = $id;
+        foreach ($selIds as $id)
+        {        	
+            $dataRec = $this->getDataObj()->fetchById($id);
+            $this->getDataObj()->setActiveRecord($dataRec);
+            
+            if(!$this->canDeleteRecord($dataRec))
+            {
+            	$this->m_ErrorMessage = $this->getMessage("FORM_OPERATION_NOT_PERMITTED",$this->m_Name);         
+        		if ($this->m_FormType == "LIST"){
+        			BizSystem::log(LOG_ERR, "DATAOBJ", "DataObj error = ".$errorMsg);
+        			BizSystem::clientProxy()->showClientAlert($this->m_ErrorMessage);
+        		}else{
+        			$this->processFormObjError(array($this->m_ErrorMessage));	
+        		}	
+        		return;
+            }
+            
+            // take care of exception
+            try
+            {
+                $dataRec->delete();
+                $this->deleteProjectTasks($id);
+            } catch (BDOException $e)
+            {
+                // call $this->processBDOException($e);
+                $this->processBDOException($e);
+                return;
+            }
+        }
+        if ($this->m_FormType == "LIST")
+            $this->rerender();
+
+        $this->runEventLog();
+        $this->processPostAction();
+	}
+	
+	public function deleteProjectTasks($project_id)
+	{
+		return BizSystem::getObject("collab.task.do.TaskSystemDO")->deleteRecords("[project_id]='".(int)$product_id."'");		
+	}
 }
 ?>

@@ -70,6 +70,10 @@
         <Element Name="btn_delete" Class="Button"   Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=collab.project.form.ProjectListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
+        <Element Name="btn_purge" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button"   Text="Purge" CssClass="button_gray_m" Description="purge record (Delete)">
+            <EventHandler Name="purge_onclick" Event="onclick" EventLogMsg="" Function="PurgeRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=collab.project.form.ProjectListForm" ShortcutKey="Ctrl+Shift+Delete" ContextMenu="Purge" />
+        </Element>    				
+        
             		<Element Name="btn_spacer_2" Class="Spacer" width="10" />		
         
         <Element Name="btn_cancel" Class="Button"  Text="Back" CssClass="button_gray_m">

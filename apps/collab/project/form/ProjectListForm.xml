@@ -62,7 +62,9 @@
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
         </Element>
-       
+        <Element Name="btn_purge" Class="Button" Text="Purge" CssClass="button_gray_m" >
+            <EventHandler Name="purge_onclick" Event="onclick" EventLogMsg="" Function="PurgeRecord()" ShortcutKey="Ctrl+Shift+Delete" ContextMenu="Purge"/>
+        </Element>
         <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
             <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+X" ContextMenu="Export"/>
         </Element>
