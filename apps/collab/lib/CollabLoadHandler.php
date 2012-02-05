@@ -28,8 +28,8 @@ class CollabLoadHandler implements ModuleLoadHandler
 	    	BizSystem::getObject("system.do.AclRoleActionDO")->insertRecord($aclRecord);
 	    	
 		    if(
-		    	($actionRec['name']=='manage' && $actionRec['resource']=='collab_announcement') ||
-		     	($actionRec['name']=='access' && $actionRec['resource']=='collab_statistics')
+		    	($actionRec['action']=='manage' && $actionRec['resource']=='collab_announcement') ||
+		     	($actionRec['action']=='access' && $actionRec['resource']=='collab_statistics')
 		     ){
 		     	continue;
 		     }
