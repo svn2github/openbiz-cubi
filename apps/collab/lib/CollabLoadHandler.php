@@ -16,7 +16,7 @@ class CollabLoadHandler implements ModuleLoadHandler
     	$roleRec = BizSystem::getObject("system.do.RoleDO")->fetchOne("[name]='Collaboration Member'");
     	$memberRoleId = $roleRec['Id'];
     	
-    	$actionList = BizSystem::getObject("system.do.AclActionDO")->fetchOne("[module]='collab'");
+    	$actionList = BizSystem::getObject("system.do.AclActionDO")->directfetch("[module]='collab'");
     	foreach ($actionList as $actionRec){
 	    	$actionId = $actionRec["Id"];
 	    	
