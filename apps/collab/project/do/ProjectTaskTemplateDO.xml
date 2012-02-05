@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="ProjectTaskTemplateDO" Description="" DataPermControl="N" Class="BizDataObj" DBName="" Table="project_task_template" SearchRule="" SortRule="[Id] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+<BizDataObj Name="ProjectTaskTemplateDO" Description="" DataPermControl="N" Class="BizDataObj" DBName="" Table="project_task_template" SearchRule="" SortRule="[start_date] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
 	<BizFieldList>
 <BizField Name="Id" Column="id"     Type=""/>
 		<BizField Name="project_id" Column="project_id"  Required="N" Type=""/>
