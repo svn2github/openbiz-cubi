@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="WorklogEditEventForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/worklog/images/icon_worklog.gif" Title="Edit work log related events"  BizDataObj="collab.worklog.do.WorkLogDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform_elementset_adv.tpl.html"   Access="collab_worklog.access">
+<EasyForm Name="WorklogEditDocumentForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/worklog/images/icon_worklog.gif" Title="Edit work log related documents" BizDataObj="collab.worklog.do.WorkLogDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform_elementset_adv.tpl.html"   Access="collab_worklog.access">
     <DataPanel>
 			<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 			<Element Name="fld_task_id" ElementSet="General" Hidden="Y" Class="Hidden" FieldName="task_id" Label="Id" AllowURLParam="N"/>
@@ -9,8 +9,7 @@
       			<EventHandler Name="fld_task_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_task_id].Value})"  />
       		</Element>	        	
       		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		
-				<Element Name="fld_related_event"   ElementSet="Events" Class="FormElement" FormReference="collab.calendar.widget.EventListEditForm" FieldName="" Label="" AllowURLParam="N" />
+			<Element Name="fld_related_document"   ElementSet="Documents" Class="FormElement" FormReference="collab.document.widget.DocumentListEditForm" FieldName="" Label="" AllowURLParam="N" />
     		
       			        	
 	</DataPanel>

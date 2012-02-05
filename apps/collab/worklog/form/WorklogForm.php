@@ -1,5 +1,6 @@
 <?php 
-class WorklogForm extends EasyForm
+include_once MODULE_PATH.'/changelog/form/ChangeLogForm.php';
+class WorklogForm extends ChangeLogForm
 {
 	public function insertRecord(){
 		//process update task progress
