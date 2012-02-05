@@ -286,11 +286,14 @@ CREATE TABLE `bookmark_type` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-INSERT INTO `bookmark_type` (`id`, `name`, `color`,`description`, `sortorder`, `published`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-(1, 'Business','66c2ff', 'Business Bookmarks', 45, 1, 1, '2010-05-23 01:09:06', 1, '2010-05-23 18:47:14'),
-(2, 'Family', 'ff7aa0','Family Bookmarks', 45, 1, 1, '2010-05-23 01:23:04', 1, '2010-05-24 18:51:35'),
-(3, 'Provider','7fff7f', 'Business Provider Bookmarks', 50, 1, 1, '2010-05-23 01:34:12', 1, '2010-05-24 02:41:09'),
-(4, 'Client', 'ffd042','Business Client Bookmarks', 45, 1, 1, '2010-05-23 01:34:39', 1, '2010-05-24 11:10:32');
+
+INSERT INTO `bookmark_type` (`id`, `name`, `description`, `color`, `sortorder`, `published`, `group_id`, `group_perm`, `other_perm`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+(1, 'Project', 'Our product''s websites', '66c2ff', 45, 1, 1, 1, 1, 1, '2010-05-23 01:09:06', 1, '2012-02-05 12:20:01'),
+(2, 'Resources', 'Useful resources like design resources, pictures, icons etc', 'ff7aa0', 45, 1, 1, 1, 1, 1, '2010-05-23 01:23:04', 1, '2012-02-05 12:18:47'),
+(3, 'Utilities', 'Other utilities websites, like traffic analytisc, button generator etc.', '7fff7f', 50, 1, 1, 1, 1, 1, '2010-05-23 01:34:12', 1, '2012-02-05 12:21:42'),
+(4, 'Reference', 'Reference docusments, like w3c docs, php docs etc', 'ffd042', 45, 1, 1, 1, 1, 1, '2010-05-23 01:34:39', 1, '2012-02-05 12:19:24'),
+(5, 'System', 'Other system''s link. like tax reporting system. government agency website', '96f8ff', 50, 1, 1, 1, 1, 1, '2012-02-05 12:23:01', 1, '2012-02-05 12:23:15');
+
 
 DROP TABLE IF EXISTS `bookmark`;
 CREATE TABLE `bookmark` (
