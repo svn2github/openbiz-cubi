@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="EventPickForm" Class="PickerForm" Icon="{RESOURCE_URL}/collab/calendar/images/icon_calendar_list.gif"  FormType="List" jsClass="jbForm" Title="Please select a event" Description="To selec a event click on a row and click to Select button" BizDataObj="collab.calendar.do.EventPickerDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_event_picker.tpl.html"  Access="collab_calendar.access" >
+<EasyForm Name="EventPickForm" Class="PickerForm" Icon="{RESOURCE_URL}/collab/calendar/images/icon_calendar_list.gif"  FormType="List" jsClass="jbForm" Title="Please select a event" Description="To select a event click on a row and click to Select button" BizDataObj="collab.calendar.do.EventPickerDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_event_picker.tpl.html"  Access="collab_calendar.access" >
     <DataPanel>
          <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>    
      
@@ -60,10 +60,10 @@
          <Element Name="data_filter"  BlankOption="All Data" cssclass="input_select_m" Class="common.element.ShareDataFilter" FieldName="create_by" Label="" SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
             <EventHandler Name="datafilter_onchange" Event="onchange" Function="RunSearch()"/>
         </Element> 
-        <Element Name="type_selector" BlankOption="All Types" cssclass="input_select_m" Class="collab.lib.TypeSelector" FieldName="type_id" Label="" SelectFrom="contact.do.ContactTypeDO[name:Id:color]" >
+        <Element Name="type_selector" BlankOption="All Types" cssclass="input_select_m" Class="collab.lib.TypeSelector" FieldName="type_id" Label="" SelectFrom="collab.calendar.do.EventTypeDO[name:Id:color]" >
             <EventHandler Name="type_selector_onchange" Event="onchange" Function="RunSearch()"/>
         </Element> 
-		<Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="contact.do.ContactDO[display_name],[display_name] like '%{$_POST['qry_name']}%' GROUP BY [display_name]" FieldName="display_name" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+		<Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.calendar.do.EventDO[subject],[subject] like '%{$_POST['qry_name']}%' GROUP BY [subject]" FieldName="subject" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>  		   
