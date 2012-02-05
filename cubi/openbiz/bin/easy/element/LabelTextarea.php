@@ -64,7 +64,7 @@ class LabelTextarea extends LabelText
          */
                
         //$value = htmlentities($value);
-        //$value = str_replace(" ","&nbsp;",$value);
+        $value = str_replace("\n\n","\n<img src=\"".Resource::getImageUrl()."/spacer.gif\" style=\"display:block;height:10px;\">",$value);
         $value = nl2br($value);
         
         if ($value!=null)
