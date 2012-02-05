@@ -48,10 +48,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
 
 
 INSERT INTO `contact` (`id`, `first_name`, `last_name`, `display_name`, `company`, `department`, `position`, `fast_index`, `photo`, `phone`, `mobile`, `fax`, `zipcode`, `province`, `city`, `street`, `country`, `email`, `webpage`, `qq`, `icq`, `skype`, `yahoo`, `misc`, `type_id`, `sortorder`, `user_id`, `published`, `default`, `access`, `params`, `foreign_key`, `source`, `owner_id`, `group_id`, `group_perm`, `other_perm`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-(1, 'Rocky', 'Swen', 'Rocky, Swen', 'Openbiz LLC', 'Management', 'CEO', 'J', '/files/upload/contact/20100524200309-RockySwen.jpg', '', '', '', '', 'CA', '', '', 'USA', '', '', '', '', '', '', NULL, 1, 50, 1, 1, 0, NULL, NULL, '', NULL, 1, 1, 1, 0, 1, '2010-05-24 08:00:01', 1, '2011-12-01 18:14:00'),
-(2, 'Jixian', 'Wang', 'Jixian, Wang', 'Openbiz LLC', 'Management', 'CTO', 'R', '/files/upload/contact/20100524200245-skype.jpg', '+86 10 6497 9191', '+86 139 1015 4220', '+86 10 6497 9191', '100101', 'Beijing', 'Beijing', 'Chaoyang Yayuncun', 'China', 'jixian2003@qq.com', 'http://www.czm.cn/', '315824246', '', 'jixianwang', '', 'Hosting Company CEO\r\n#1 fadsf\r\nadfasdf', 1, 50, 0, 1, 0, NULL, NULL, '', NULL, 1, 1, 1, 0, 1, '2010-05-24 08:41:57', 1, '2011-12-01 18:14:00'),
-(3, 'Wang', 'Ou', 'Wang, Ou', 'Openbiz LLC', 'Design Dept', 'Designer', 'W', '/files/upload/contact/20100524200233-WangOu.jpg', '+86 10 64979191', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, 1, 50, 0, 1, 0, NULL, NULL, '', NULL, 1, 1, 1, 0, 1, '2010-05-24 08:43:41', 1, '2011-12-01 18:14:00'),
-(4, 'test', 'li', 'test, li', 'jixian llc', 'sdf', 'jixian', 't', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, 1, 50, 0, 1, 0, NULL, NULL, '', NULL, 1, 1, 1, 0, 1, '2010-06-13 10:52:00', 1, '2011-12-01 18:14:00');
+(1, 'Rocky', 'Swen', 'Rocky, Swen', 'Openbiz LLC', 'Management', 'CEO', 'J', '', '', '', '', '', 'CA', '', '', 'USA', '', '', '', '', '', '', NULL, 1, 50, 1, 1, 0, NULL, NULL, '', NULL, 1, 1, 1, 0, 1, '2010-05-24 08:00:01', 1, '2011-12-01 18:14:00'),
 
 
 DROP TABLE IF EXISTS `contact_type`;
