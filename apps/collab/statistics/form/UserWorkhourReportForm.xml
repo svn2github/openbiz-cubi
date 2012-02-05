@@ -16,7 +16,7 @@
         <Element Name="month_selector" cssclass="input_select" DefaultValue="{@:m_Month}" Class="DropDownList" SelectFrom="collab.task.lov.TimesheetLOV(Month)" FieldName="month" Label="" >
             <EventHandler Name="month_selector_onchange" Event="onchange" Function="RunSearch()"/>
         </Element>
-        <Element Name="btn_spacer_2" Class="Spacer" width="10" />
+       <!--  <Element Name="btn_spacer_2" Class="Spacer" width="10" /> -->
     	<Element Name="sel_charttype"  cssclass="input_select_w" Class="DropDownList" FieldName="chart_type" Text="{@:m_SubType}" Label="Chart Type" SelectFrom="chart.lov.ChartType(SingleSeries)" >
             <EventHandler Name="sel_charttype_onchange" Event="onchange" Function="RunSearch()"/>
         </Element>
