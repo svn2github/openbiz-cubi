@@ -3,7 +3,6 @@
 	<BizFieldList>
 		<BizField Name="Id" Column="id"     Type=""/>
 		<BizField Name="task_id" Column="task_id" Type=""/>
-		<BizField Name="task_title" Join="JoinTask" Column="task_title" SQLExpr="T1.title AS task_title"/>
 		<BizField Name="title" Column="title" Length="255"   Required="N" Type=""/>
 		<BizField Name="description" Column="description" Type=""/>
 		<BizField Name="worked_hours" Column="worked_hours" Type=""/>
