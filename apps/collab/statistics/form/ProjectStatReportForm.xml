@@ -14,7 +14,7 @@
     	<Element Name="qry_date_range"  Class="InputDateRangePicker" DefaultValue="{date('Y/m/d')}" FieldName="start_time" Label="Start Time" >
     		<EventHandler Name="qry_date_range_onchange" Event="onchange" Function="RunSearch()" />
     	</Element>
-    	<Element Name="btn_spacer" Class="Spacer" width="10" />
+    	<!--  <Element Name="btn_spacer" Class="Spacer" width="10" />-->
     	<Element Name="sel_charttype"  cssclass="input_select_w" Class="DropDownList" FieldName="chart_type" Text="{@:m_SubType}" Label="Chart Type" SelectFrom="chart.lov.ChartType(MultiSeries)" >
             <EventHandler Name="charttype_onchange" Event="onchange" Function="UpdateForm()"/>
         </Element>
