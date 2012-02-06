@@ -102,8 +102,12 @@ padding-top:0px;
 .timesheet_block .bar
 {
 display:block;
-height:8px;
+height:4px;
 float:left;
+}
+.timesheet_block .bar_bgcolor{
+background-color:#eeeeee;width:70px;float:left;
+padding:1px;
 }
 .timesheet_block .bar_label
 {
@@ -228,16 +232,16 @@ font-size:26px;display:inline;float:none;line-height:26px;
 	     						
 	     						<div style="padding-top:5px;">
 	     						<div class="bar_block">
-	     							<span class="bar_label">{$row.not_started}</span>	<img src="{$image_url}/spacer.gif" class="bar" style="background-color:#66c2ff;width:{$row.not_started_wid}px;" />
+	     							<span class="bar_label">{$row.not_started}</span>	<div class="bar_bgcolor" ><img src="{$image_url}/spacer.gif" class="bar" style="background-color:#66c2ff;border-top:1px solid #51b9fd;border-bottom:1px solid #51b9fd;width:{$row.not_started_wid}px;" /></div>
 	     						</div>
 	     						<div class="bar_block">
-	     							<span class="bar_label">{$row.in_progress}</span>	<img src="{$image_url}/spacer.gif" class="bar" style="background-color:#ffb053;width:{$row.in_progress_wid}px;" />
+	     							<span class="bar_label">{$row.in_progress}</span>	<div class="bar_bgcolor" ><img src="{$image_url}/spacer.gif" class="bar" style="background-color:#ffb053;border-top:1px solid #fda640;border-bottom:1px solid #fda640;width:{$row.in_progress_wid}px;" /></div>
 	     						</div>
 	     						<div class="bar_block">
-	     							<span class="bar_label">{$row.completed}</span>	<img src="{$image_url}/spacer.gif" class="bar" style="background-color:#7fff6b;width:{$row.completed_wid}px;" />
+	     							<span class="bar_label">{$row.completed}</span>	<div class="bar_bgcolor" ><img src="{$image_url}/spacer.gif" class="bar" style="background-color:#7fff6b;border-top:1px solid #6bfd54;border-bottom:1px solid #6bfd54;width:{$row.completed_wid}px;" /></div>
 	     						</div>
 	     						<div class="bar_block">
-	     							<span class="bar_label">{$row.other}</span>		<img src="{$image_url}/spacer.gif" class="bar" style="background-color:#cccccc;width:{$row.other_wid}px;" />
+	     							<span class="bar_label">{$row.other}</span>		<div class="bar_bgcolor" ><img src="{$image_url}/spacer.gif" class="bar" style="background-color:#cccccc;border-top:1px solid #bbbbbb;border-bottom:1px solid #bbbbbb;width:{$row.other_wid}px;" /></div>
 	     						</div>
 	     						</div>	     						
 	     					</div>
