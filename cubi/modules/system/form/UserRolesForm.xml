@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="UserRolesForm" Class="UserRolesForm" Icon="icon_roles.gif" FormType="List" jsClass="jbForm" Title="User Roles" Description="List roles of a given user account. An user can associate with one or more roles." BizDataObj="system.do.RoleDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
+<EasyForm Name="UserRolesForm" Class="UserRolesForm" Icon="icon_roles.gif" FormType="List" jsClass="jbForm" Title="User Roles" Description="List roles of a given user account. An user can associate with one or more roles." BizDataObj="system.do.RolePickerDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
     <DataPanel>
     	<Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Role Id" Sortable="Y"/>
