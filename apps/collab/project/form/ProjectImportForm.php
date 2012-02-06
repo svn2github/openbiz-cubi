@@ -18,7 +18,7 @@ class ProjectImportForm extends ProjectForm
 	public function createTasks($projectRec,$templateId,$prefix)
 	{
 		$taskTemplates = BizSystem::getObject("collab.project.do.ProjectTaskTemplateDO")->directFetch("[project_id]='$templateId'");
-		$taskDo = BizSystem::getObject("collab.task.do.TaskDO");
+		$taskDo = BizSystem::getObject("collab.task.do.TaskSystemDO",1);
 		//create tasks
 		$taskMapping = array();
 		foreach ($taskTemplates as $template){
