@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="WorklogReportUserCountDO" Description="" DataPermControl="N" Class="WorklogReportStatDO" DBName="Default" Table="work_log" SearchRule="" SortRule="" OtherSQLRule="GROUP BY [date],[create_by]" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+<BizDataObj Name="WorklogReportUserCountDO" Description="" DataPermControl="N" Class="WorklogReportStatDO" DBName="Default" Table="work_log" SearchRule="" SortRule="" OtherSQLRule="GROUP BY [create_by]" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
 	<BizFieldList>
         <BizField Name="Id" SQLExpr="'timestamp'" Type="Number"/>
         <BizField Name="date" SQLExpr="DATE_FORMAT(create_time,'%Y-%m-%d')"/>
