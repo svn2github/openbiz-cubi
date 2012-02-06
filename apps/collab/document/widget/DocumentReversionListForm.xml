@@ -7,7 +7,7 @@
 				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N">				
 							
 		</Element>
-        <Element Name="fld_reversion" Class="ColumnText" FieldName="reversion" Label="Reversion"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_reversion" Class="ColumnText" FieldName="reversion" Label="Rev"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
         <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
         	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(collab.document.widget.DocumentReversionDetailForm,{@:Elem[fld_Id].Value})"/>
         </Element>
