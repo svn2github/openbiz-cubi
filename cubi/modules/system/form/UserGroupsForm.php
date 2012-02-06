@@ -1,7 +1,9 @@
 <?php 
 class UserGroupsForm extends EasyForm{
-	public function SetDefault(){
-		$group_id =  (int)BizSystem::clientProxy()->getFormInputs('_selectedId');
+	public function SetDefault($group_id=null){
+		if($group_id==null){
+			$group_id =  (int)BizSystem::clientProxy()->getFormInputs('_selectedId');
+		}
 		$user_id = (int)BizSystem::objectFactory()->getObject('system.form.UserDetailForm')->m_RecordId;
 		
 		$groupDo = BizSystem::getObject("system.do.UserGroupDO",1);

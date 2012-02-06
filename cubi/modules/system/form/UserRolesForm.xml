@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="UserRolesForm" Class="EasyForm" Icon="icon_roles.gif" FormType="List" jsClass="jbForm" Title="User Roles" Description="List roles of a given user account. An user can associate with one or more roles." BizDataObj="system.do.RoleDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
+<EasyForm Name="UserRolesForm" Class="UserRolesForm" Icon="icon_roles.gif" FormType="List" jsClass="jbForm" Title="User Roles" Description="List roles of a given user account. An user can associate with one or more roles." BizDataObj="system.do.RoleDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
     <DataPanel>
     	<Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Role Id" Sortable="Y"/>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Sortable="Y"/>
         <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y"/>
+        <Element Name="fld_default" Class="ColumnBool" FieldName="user_default" Label="Default" Link="javascript:;">
+        	<EventHandler Name="fld_default_onclick" Event="onclick" EventLogMsg="" Function="SetDefault({@:Elem[fld_Id].Value})" />
+        </Element>
         <Element Name="fld_status" Class="ColumnBool" FieldName="status" Label="Active"/>
     </DataPanel>
     <ActionPanel>
@@ -14,6 +17,10 @@
         <Element Name="btn_remove" Class="Button" Text="Delete" CssClass="button_gray_m">
             <EventHandler Name="onclick" Event="onclick" Function="RemoveRecord()"/>
         </Element>
+        <Element Name="btn_spacer" Class="Spacer" width="10" />
+        <Element Name="btn_default" Class="Button" Text="Set Default" CssClass="button_gray_w" >
+            <EventHandler Name="default_onclick" Event="onclick" EventLogMsg="" Function="SetDefault()" />
+        </Element>	
     </ActionPanel> 
     <NavPanel>
         <Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">

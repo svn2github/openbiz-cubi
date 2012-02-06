@@ -149,6 +149,7 @@ CREATE TABLE `user_role` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `user_id` int(10) unsigned NOT NULL default '0',
   `role_id` int(10) unsigned NOT NULL default '0',
+  `default` int(2) default 0,
   PRIMARY KEY  (`id`),
   KEY `user_id` (`user_id`),
   KEY `role_id` (`role_id`)

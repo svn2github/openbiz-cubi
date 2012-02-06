@@ -1,11 +1,12 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="UserRoleDO" Description="" Class="BizDataObj" DBName="Default" Table="user_role" SearchRule="" SortRule="" OtherSQLRule="" IdGeneration="Identity">
+<BizDataObj Name="UserRoleDO" Description="" Class="BizDataObj" DBName="Default" Table="user_role" SearchRule="" SortRule="[default] ASC" OtherSQLRule="" IdGeneration="Identity">
 	<BizFieldList>
 	    <BizField Name="Id" Column="id" Type=""/>
         <BizField Name="user_id" Column="user_id" Type=""/>
         <BizField Name="role_id" Column="role_id" Type=""/>
         <BizField Name="role_name" Column="name" Join="role"/>
-        <BizField Name="role_startpage" Column="startpage" Join="role"/>        
+        <BizField Name="role_startpage" Column="startpage" Join="role"/>  
+        <BizField Name="default" Column="default" Type=""/>      
     </BizFieldList>
     <TableJoins>
         <Join Name="role" Table="role" Column="id" ColumnRef="role_id" JoinType="INNER JOIN"/>

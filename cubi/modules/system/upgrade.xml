@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<Upgrade>
+    <Version Name="0.92">
+        <UpgradeSql><![CDATA[
+        ALTER TABLE  `user_role` ADD  `default` INT( 2 ) NOT NULL DEFAULT  '0' AFTER  `role_id`;
+        ]]></UpgradeSql>
+    </Version>    
+</Upgrade>

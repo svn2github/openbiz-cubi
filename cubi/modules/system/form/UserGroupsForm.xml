@@ -5,7 +5,9 @@
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Group ID" Sortable="Y" />        
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Group Name" Sortable="Y"/>
         <Element Name="fld_description" Class="ColumnText" FieldName="group_desc" Label="Description" Sortable="Y"/>
-        <Element Name="fld_default" Class="ColumnBool" FieldName="user_default" Label="User Default"/>						
+        <Element Name="fld_default" Class="ColumnBool" FieldName="user_default" Label="Default" Link="javascript:;">
+        	<EventHandler Name="fld_default_onclick" Event="onclick" EventLogMsg="" Function="SetDefault({@:Elem[fld_Id].Value})" />
+        </Element>						
 	    <Element Name="fld_status" Class="ColumnBool" FieldName="status" Label="Status"/>						
     </DataPanel>
     <ActionPanel>
@@ -19,6 +21,7 @@
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="RemoveRecord()" />
         </Element>
+        <Element Name="btn_spacer" Class="Spacer" width="10" />
         <Element Name="btn_default" Class="Button" Text="Set Default" CssClass="button_gray_w" >
             <EventHandler Name="default_onclick" Event="onclick" EventLogMsg="" Function="SetDefault()" />
         </Element>		
