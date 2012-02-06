@@ -320,19 +320,17 @@ class BackupForm extends EasyForm
 			return;
 		}
 		
-		
       	$filename = $this->m_Folder.DIRECTORY_SEPARATOR.basename($recArr['filename']);
-      			
-      	if(preg_match("/.sql$/si",$recArr['mode'])){
+      	if(preg_match("/.sql$/si",$recArr['filename'])){
       		$recArr['mode']='db';
       	}
 		if($recArr["import"]==1){
 			switch($recArr['mode'])
 	        {
-	        	case 'db':
+	        	case 'db':	  
 	        		$this->_RestoreDB($recArr["database"],$filename,$recArr["charset"]);
 	        		break;
-	        		
+
 	        	case 'db_only':
 	        		$db_tmpfile = $this->_RestoreDBFile($filename);
 	        		$this->_RestoreDB($recArr["database"],$db_tmpfile,$recArr["charset"]);
@@ -383,7 +381,6 @@ class BackupForm extends EasyForm
 			$this->rerender();
 			return;
 		}
-
 	    switch($recArr['mode'])
         {
         	case 'db':
