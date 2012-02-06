@@ -116,7 +116,7 @@ class ProjectForm extends ChangeLogForm
 	
 	public function deleteProjectTasks($project_id)
 	{
-		return BizSystem::getObject("collab.task.do.TaskSystemDO")->deleteRecords("[project_id]='".(int)$product_id."'");		
+		return BizSystem::getObject("collab.task.do.TaskSystemDO")->deleteRecords("[project_id]='".(int)$project_id."'");		
 	}
 }
 ?>
