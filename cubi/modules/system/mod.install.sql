@@ -238,18 +238,6 @@ CREATE TABLE `menu` (
   
 /*Data for the table `menu` */
 
-/*Table structure of table `session` */
-
-DROP TABLE IF EXISTS `session`;
-
-CREATE TABLE `session` (
-  `id` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
-  `expiration` int(10) unsigned NOT NULL,
-  `data` text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `expiration` (`expiration`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 
 /*Table structure of table `widget` */
 
@@ -294,7 +282,7 @@ CREATE TABLE IF NOT EXISTS `session` (
   `id` varchar(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
   `user_id` int(11) NOT NULL,
   `expiration` int(10) unsigned NOT NULL,
-  `data` text COLLATE utf8_unicode_ci NOT NULL,
+  `data` LONGTEXT COLLATE utf8_unicode_ci NOT NULL,
   `ipaddr` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `last_url` text COLLATE utf8_unicode_ci NOT NULL,
   `create_time` datetime NOT NULL,
