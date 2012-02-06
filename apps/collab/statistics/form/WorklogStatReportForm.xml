@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="WorklogStatReportForm" Class="WorklogStatReportForm" FormType="Detail" ChartType="MSColumn3D" ChartAttrs="showValues=0;showNames=1;numberSuffix= hours;baseFontSize=12;borderColor=#dddddd;plotBorderColor=aaaaaa;" Width="700" Height="400" jsClass="Openbiz.Form" Title="{@:m_UserDisplayName} 's Work Statistics" BizDataObj="collab.statistics.do.WorklogReportStatDO" TemplateEngine="Smarty" PageSize="100" TemplateFile="user_work_stat_form.tpl.html"  Access="collab_project.access">
+<EasyForm Name="WorklogStatReportForm" Class="WorklogStatReportForm" FormType="Detail" ChartType="MSColumn3D" ChartAttrs="decimals=1;showValues=0;showNames=1;numberSuffix= hours;baseFontSize=12;borderColor=#dddddd;plotBorderColor=aaaaaa;" Width="700" Height="400" jsClass="Openbiz.Form" Title="{@:m_UserDisplayName} 's Work Statistics" BizDataObj="collab.statistics.do.WorklogReportStatDO" TemplateEngine="Smarty" PageSize="100" TemplateFile="user_work_stat_form.tpl.html"  Access="collab_project.access">
     <DataPanel>
         <Element Name="fld_Id" Class="chart.lib.ChartDataId" FieldName="Id" Label="Type ID"/>
         <Element Name="fld_name" Class="chart.lib.ChartCategory" FieldName="date_d" Label="Date"/>

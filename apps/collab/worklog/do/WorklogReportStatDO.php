@@ -18,10 +18,10 @@ class WorklogReportStatDO extends BizDataObj
     }  	
 	
 	public function fetch()
-	{		
+	{						
 		if($this->m_SearchRule){
 			$this->m_SearchRule = str_replace("[chart_type]  = :_v1", "", $this->m_SearchRule);		
-		}
+		}		
 		
 		//get stat data for avg level
 		if($this->m_SearchRule)
@@ -46,6 +46,12 @@ class WorklogReportStatDO extends BizDataObj
 		foreach($rows as $row)
 		{
 			$create_date = date("Y-m-d",strtotime($row['create_time']));
+			$users_count = BizSystem::getObject("collab.worklog.do.WorklogReportUserCountDO")->directfetch($this->m_SearchRule)->count();
+			if($users_count>0){
+				$row['data_count_avg'] = sprintf("%.2f",$row['data_count']/$users_count);
+			}else{
+				$row['data_count_avg'] = 0;
+			}
 			$dataset_avg[$create_date] = $row;
 		}		
 		
@@ -74,8 +80,8 @@ class WorklogReportStatDO extends BizDataObj
 			$record['Id'] = strtotime($new_date);
 			$record['date'] = $new_date;
 			$record['date_d'] = (int)date('d',strtotime($new_date));
-			$record['workhour_avg']	= (int)$dataset_avg[$new_date]['data_count_avg'];
-			$record['workhour_mine']= (int)$dataset_mine[$new_date]['data_count'];
+			$record['workhour_avg']	= sprintf("%.2f",$dataset_avg[$new_date]['data_count_avg']);
+			$record['workhour_mine']= sprintf("%.2f",$dataset_mine[$new_date]['data_count']);
 			$resultSet[] = $record;
 		}
 		return $resultSet;
