@@ -268,8 +268,9 @@ INSERT INTO `event_type` (`id`, `name`, `description`, `sortorder`, `published`,
 (1, 'General', 'General type of events', 50, 1, '66c2ff', 1, 1, 1, 1, '2010-07-28 11:51:16', 1, '2012-02-07 15:14:31'),
 (2, 'Deploy', 'Go to clients place deploy products', 50, 1, 'ffa1a1', 1, 1, 1, 1, '2010-07-29 06:49:13', 1, '2012-02-07 15:15:28'),
 (3, 'Meeting', 'Meeting clients', 50, 1, 'ffc2f0', 1, 1, 1, 1, '2010-07-29 06:49:50', 1, '2012-02-07 15:14:47'),
-(21, 'Presentation', 'Presentation products for clients', 50, 1, 'b2f7ca', 1, 1, 1, 1, '2012-02-07 22:53:15', 1, '2012-02-07 14:53:15'),
-(7, 'Personal', 'Personal type of events, like holidays', 50, 1, 'ffec8a', 1, 1, 1, 1, '2010-07-29 06:51:10', 1, '2012-02-07 15:14:59');
+(4, 'Presentation', 'Presentation products for clients', 50, 1, 'b2f7ca', 1, 1, 1, 1, '2012-02-07 22:53:15', 1, '2012-02-07 14:53:15'),
+(5, 'Personal', 'Personal type of events, like holidays', 50, 1, 'ffec8a', 1, 1, 1, 1, '2010-07-29 06:51:10', 1, '2012-02-07 15:14:59'),
+(6, 'Discuss', 'Discuss with colleagues', 50, 1, 'c5d4fa', 1, 1, 1, 1, '2012-02-07 23:31:32', 1, '2012-02-07 15:31:32');
 
  
 update `event` set `group_id`=1,`group_perm`=1,`other_perm`=0;
