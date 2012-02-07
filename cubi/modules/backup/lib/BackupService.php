@@ -85,6 +85,7 @@ class BackupService
         $backup->dump();  
         $data = $backup->output;
         file_put_contents($filename,$data);		
+        @chmod($filename,0777);
         return $filename;
 	}
 	
@@ -97,6 +98,7 @@ class BackupService
 		@exec($cmd,$output);
 		@unlink($db_tmpfile);
 		@unlink($db_backup);
+		@chmod($filename,0777);
 		return $filename;
 	}
 	
@@ -109,6 +111,7 @@ class BackupService
 		@exec($cmd,$output);
 		@unlink($db_tmpfile);
 		@unlink($db_backup);
+		@chmod($filename,0777);
 		return $filename;
 	}	
 		
