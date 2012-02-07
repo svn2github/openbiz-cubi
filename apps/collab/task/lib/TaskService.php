@@ -159,7 +159,7 @@ class TaskService
 			"app_url" => APP_URL,
 			"operator_name" => BizSystem::GetProfileName(BizSystem::getUserProfile("Id")),
 			"action_timestamp"=> date("Y-m-d H:i:s"),
-			"refer_url" => SITE_URL.APP_URL
+			"refer_url" => SITE_URL
 		);				
 		
 		$emailSvc = BizSystem::getService(USER_EMAIL_SERVICE);

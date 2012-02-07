@@ -125,7 +125,7 @@ class messageService
 					"app_url" => APP_URL,
 					"operator_name" => BizSystem::GetProfileName(BizSystem::getUserProfile("Id")),
 					"action_timestamp"=> date("Y-m-d H:i:s"),
-					"refer_url" => SITE_URL.APP_URL
+					"refer_url" => SITE_URL
 				);				
 				$emailSvc->NewMessageEmail($recipient_user_id, $data);
 			}
