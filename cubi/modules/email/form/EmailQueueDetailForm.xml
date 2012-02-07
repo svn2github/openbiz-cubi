@@ -9,7 +9,7 @@
 	     <Element Name="fld_sent_time" Class="LabelText" FieldName="sent_time" Label="Processed Time" Sortable="Y"/>
 		 <Element Name="fld_recipient" Class="Hidden" Hidden="Y" FieldName="recipient" Label="Recipient" Sortable="Y"/>
 		 <Element Name="fld_subject" Class="LabelText" FieldName="subject" Label="Subject"  Sortable="Y"  />		 
-		 <Element Name="fld_content" Class="HTMLPreview" Height="600" FieldName="content" Label="Content"  Sortable="Y"  />
+		 <Element Name="fld_content" Class="HTMLPreview" Height="620" FieldName="content" Label="Content"  Sortable="Y"  />
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_back" Class="Button" Text="Back to list" CssClass="button_gray_w"  >
