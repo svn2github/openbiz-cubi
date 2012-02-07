@@ -69,8 +69,8 @@ float:left;
 	</div>	
 {/if}	
 
-<div class="from_table_container">
-<table border="0" cellpadding="0" cellspacing="0" class="form_table" id="{$form.name}_data_table">
+<div class="from_table_container" style="width:705px;">
+<table border="0" cellpadding="0" cellspacing="0" class="form_table" id="{$form.name}_data_table"  style="margin:0px;border-right:none;">
 	<tr>
 		<td class="task_list" width="170" style="padding:1px;padding-left:0px;background-image:none;background-color:#faf9f8;"  valign="top">
 			<span class="panel_title" style="background-color:#66c2ff;height:auto;">{t}Not Started{/t}</span>
@@ -132,7 +132,7 @@ float:left;
 			     {if $row.fld_description}
 			     	<table border="0" cellpadding="0" cellspacing="0" style="width:340px;overflow:hidden;border-bottom-color:#ffb053;" class="form_table" id="{$form.name}_data_table">
 			     {else}
-			     	<table border="0" cellpadding="0" cellspacing="0" style="width:344px;overflow:hidden;border-bottom-color:#ffb053;" class="form_table" id="{$form.name}_data_table">
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:342px;overflow:hidden;border-bottom-color:#ffb053;" class="form_table" id="{$form.name}_data_table">
 			     {/if}		
 			         {if $row_style != ''}
 					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
@@ -153,7 +153,7 @@ float:left;
 				        
 				        <td nowrap="nowrap" style="padding-left:3px;">{$row.fld_progress}</td>				        
 				        <td width="50" nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}">
-				        	{$row.fld_type}
+				        	<div style="width:50px;overflow:hidden;">{$row.fld_type}</div>
 				        </td>
 				           				           			                  
 					{assign var=row_counter value=$row_counter+1}
