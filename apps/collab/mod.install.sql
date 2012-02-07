@@ -265,13 +265,11 @@ CREATE TABLE `event_type` (
 -- ----------------------------
 
 INSERT INTO `event_type` (`id`, `name`, `description`, `sortorder`, `published`, `color`, `group_id`, `group_perm`, `other_perm`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-(1, 'Business', 'Business', 50, 1, '66c2ff', 1, 1, 1, 1, '2010-07-28 11:51:16', 1, '2011-12-02 00:01:40'),
-(2, 'Competition', 'Competition', 50, 1, 'ff5252', 1, 1, 1, 1, '2010-07-29 06:49:13', 1, '2011-12-02 00:02:23'),
-(3, 'Gifts', 'Gifts', 50, 1, 'ff6bd8', 1, 1, 1, 1, '2010-07-29 06:49:50', 1, '2011-12-02 00:05:12'),
-(4, 'Holiday', 'Holiday', 50, 1, '97ff6e', 1, 1, 1, 1, '2010-07-29 06:50:10', 1, '2011-12-02 00:08:13'),
-(5, 'Key Customer', 'Key Customer', 50, 1, '7587ff', 1, 1, 1, 1, '2010-07-29 06:50:54', 1, '2011-12-02 00:13:14'),
-(6, 'Miscellaneous', 'Miscellaneous', 50, 1, 'addeff', 1, 1, 1, 1, '2010-07-29 06:51:02', 1, '2011-12-02 00:13:25'),
-(7, 'Personal', 'Personal', 50, 1, 'ffec8a', 1, 1, 1, 1, '2010-07-29 06:51:10', 1, '2011-12-02 00:12:33');
+(1, 'General', 'General type of events', 50, 1, '66c2ff', 1, 1, 1, 1, '2010-07-28 11:51:16', 1, '2012-02-07 15:14:31'),
+(2, 'Deploy', 'Go to clients place deploy products', 50, 1, 'ffa1a1', 1, 1, 1, 1, '2010-07-29 06:49:13', 1, '2012-02-07 15:15:28'),
+(3, 'Meeting', 'Meeting clients', 50, 1, 'ffc2f0', 1, 1, 1, 1, '2010-07-29 06:49:50', 1, '2012-02-07 15:14:47'),
+(21, 'Presentation', 'Presentation products for clients', 50, 1, 'b2f7ca', 1, 1, 1, 1, '2012-02-07 22:53:15', 1, '2012-02-07 14:53:15'),
+(7, 'Personal', 'Personal type of events, like holidays', 50, 1, 'ffec8a', 1, 1, 1, 1, '2010-07-29 06:51:10', 1, '2012-02-07 15:14:59');
 
  
 update `event` set `group_id`=1,`group_perm`=1,`other_perm`=0;
