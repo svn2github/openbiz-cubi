@@ -335,12 +335,14 @@ class emailService extends MetaObject
             $mlArr["subject"] = $subject;
             $mlArr["content"] = $body;            
             $mlArr["result"] = $result;
+			/*
+			 * as long as data could read from db, its no longer need to addslashes
             //Escape Data since this may contain quotes or other goodies
             foreach ($mlArr as $key => $value)
             {
                 $mlArr[$key] = addslashes($value);
             }
-
+			*/
             $ok = $boMessageLog->insertRecord($mlArr);
             if (! $ok)
             {
