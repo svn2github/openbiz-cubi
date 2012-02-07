@@ -236,7 +236,7 @@ class userEmailService extends MetaObject
 		$data['app_index'] = APP_INDEX;
 		$data['app_url'] = APP_URL;
 		$data['operator_name'] = BizSystem::GetProfileName(BizSystem::getUserProfile("Id"));
-		$data['refer_url'] = SITE_URL.APP_URL;
+		$data['refer_url'] = SITE_URL;
 		
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
 		$content = $this->RenderEmail($data, $tplFile);
@@ -270,7 +270,7 @@ class userEmailService extends MetaObject
 		
 		$data['operator_name'] = BizSystem::GetProfileName($data['create_by']);
 		$data['operator_email'] = BizSystem::GetProfileEmail($data['create_by']);
-		$data['refer_url'] = SITE_URL.APP_URL;
+		$data['refer_url'] = SITE_URL;
 		
 		//prepare recipient info
 		$userObj = BizSystem::getObject("contact.do.ContactSystemDO");

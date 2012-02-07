@@ -102,7 +102,7 @@ class DataSharingForm extends EasyForm
 		
 		$result['form_title'] = $prtFormObj->m_Title;
 		$result['action_timestamp'] = date("Y-m-d H:i:s");
-		$result['refer_url'] = SITE_URL.APP_URL;
+		$result['refer_url'] = SITE_URL;
 		
 		if($result['editable']==0){
 			$result['has_ref_data'] = 0;
