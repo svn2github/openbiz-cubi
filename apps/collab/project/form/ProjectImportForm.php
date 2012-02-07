@@ -30,6 +30,10 @@ class ProjectImportForm extends ProjectForm
 			$newTask['start_time'] = $this->getWorkTime($projectRec['start_time'],$template['start_date']);
 			$newTask['finish_time'] = $this->getWorkTime($projectRec['start_time'],$template['start_date']+$template['during_days']);;
 			$newTask['total_workhour'] = $template['during_days']*8;
+			unset($newTask['create_by']);
+			unset($newTask['create_time']);
+			unset($newTask['update_by']);
+			unset($newTask['update_time']);
 			$newTaskId = $taskDo->insertRecord($newTask);
 			$taskMapping[$template["Id"]] = $newTaskId;
 		}
