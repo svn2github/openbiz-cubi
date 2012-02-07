@@ -46,20 +46,23 @@ class ModuleForm extends EasyForm
                 }
             }
             closedir($dh);
-        }
-        
+        }        
         // find all modules
         foreach ($mods as $mod)
         {
-            if ($skipOld && ModuleLoader::isModuleInstalled($mod))
-                continue;
+            if ($skipOld ==true && ModuleLoader::isModuleInstalled($mod)){
+            	continue;
+            }
+        	if (!ModuleLoader::isModuleOld($mod)){
+            	continue;
+            }
             $loader = new ModuleLoader($mod);
             $loader->debug = false;
             if (!$loader->loadModule()) {
-            	$this->m_Errors[] = nl2br($this->GetMessage("MODULE_LOAD_ERROR")."\n".$loader->errors."\n".$loader->logs);
+            	$this->m_Errors[] = nl2br($this->GetMessage("MODULE_LOAD_ERROR",$mod)."\n".$loader->errors."\n".$loader->logs);
             }
             else {
-            	$this->m_Notices[] = $this->GetMessage("MODULE_LOAD_COMPLETE");	//." ".$loader->logs;
+            	$this->m_Notices[] = $this->GetMessage("MODULE_LOAD_COMPLETE",$mod);	//." ".$loader->logs;
             }
         }
         $this->rerender();

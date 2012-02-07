@@ -281,6 +281,39 @@ class ModuleLoader
         return false;
     }
     
+	static public function isModuleOld($module, $dbName=null)
+    {
+
+    	$db = BizSystem::DBConnection($dbName);
+        $sql = "SELECT * from module where name='$module'";
+        try {
+            //BizSystem::log(LOG_DEBUG, "DATAOBJ", $sql);
+            $rs = $db->fetchAll($sql,array(),Zend_Db::FETCH_ASSOC);
+        }
+        catch (Exception $e)
+        {
+            //$this->errors = $e->getMessage();
+            var_dump($e->getMessage());
+            return true;
+        }
+        if (count($rs)>0) {
+        	$installed_version = $rs[0]['version'];
+        }else{
+        	return true;
+        }
+        
+        
+        $modFolder = MODULE_PATH."/".$module;
+        $modfile = $modFolder."/mod.xml";
+    	$xml = simplexml_load_file($modfile);        
+        $mod_ver = $xml['Version'];
+                
+    	if (version_compare($installed_version, $mod_ver) < 0) {
+            return true;
+        }
+        return false;
+    }
+    
     protected function upgradeSQLs($baseVersion, $targetVersion)
     {
         include_once (MODULE_PATH."/system/lib/MySQLDumpParser.php");
