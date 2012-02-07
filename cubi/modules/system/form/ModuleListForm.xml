@@ -18,7 +18,7 @@
             <EventHandler Name="del_onclick" Event="onclick" Function="DeleteRecord()" ShortcutKey="Delete" ContextMenu="Delete"/>
         </Element>
         <Element Name="btn_load" Class="Button" Text="Load Modules" CssClass="button_gray_w">
-            <EventHandler Name="load_onclick" Event="onclick" Function="loadNewModules()"/>
+            <EventHandler Name="load_onclick" Event="onclick" Function="loadNewModules(false)"/>
         </Element>
     </ActionPanel> 
     <NavPanel>

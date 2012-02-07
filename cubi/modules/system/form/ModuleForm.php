@@ -32,9 +32,8 @@ class ModuleForm extends EasyForm
      *
      * @return void
      */
-    public function loadNewModules()
-    {
-        $skipOld = true;
+    public function loadNewModules($skipOld = true)
+    {        
        	$mods = array();
         $dir = MODULE_PATH;
         if ($dh = opendir($dir)) {
