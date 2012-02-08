@@ -866,10 +866,7 @@ class EasyForm extends MetaObject implements iSessionObject
      * @return array one record array
      */
     public function fetchData()
-    {
-    	if($this->getDataObj()){
-			$this->m_CanUpdateRecord = (int)$this->getDataObj()->canUpdateRecord();
-    	}
+    {    	
         // if has valid active record, return it, otherwise do a query
         if ($this->m_ActiveRecord != null)
             return $this->m_ActiveRecord;
@@ -907,7 +904,9 @@ class EasyForm extends MetaObject implements iSessionObject
         $this->setActiveRecord($resultRecords[0]);    	
         
         QueryStringParam::ReSet();
-		        
+    	if($this->getDataObj()){
+			$this->m_CanUpdateRecord = (int)$this->getDataObj()->canUpdateRecord();
+    	}        
         return $resultRecords[0];
     }
 
