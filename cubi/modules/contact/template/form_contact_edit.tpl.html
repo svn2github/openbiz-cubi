@@ -288,6 +288,7 @@ table.input_row {
 		<script>
 			init_elementset('{$form.name}','4');
 		</script>		
+		{if $dataPanel.fld_changelog_comment.label}
 		<!-- Change Comment Section -->
 		<div class="underline" >
 			<h2 class="element_set_title"><a id="element_set_btn_5" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','5')" >{t}Change Comment{/t}</a></h2>
@@ -324,6 +325,7 @@ table.input_row {
 		<script>
 			init_elementset('{$form.name}','5');
 		</script>			
+		{/if}
 		<div style="height:10px;"></div>
 		<p class="input_row">
 			
