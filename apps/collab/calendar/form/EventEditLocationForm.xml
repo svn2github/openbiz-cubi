@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="EventEditLocationForm" Class="EasyForm" Icon="{RESOURCE_URL}/collab/calendar/images/icon_calendar_list.gif"  FormType="Edit" jsClass="jbForm" Title="Edit Event Locations" Description="Each event could have related locations.\nYou can assign locations to this event and notify related locations about this event." BizDataObj="collab.calendar.do.EventDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_event_edit.tpl.html" EventName="CALENDAR" MessageFile="Event.msg"  Access="collab_calendar.access" >
+<EasyForm Name="EventEditLocationForm" Class="EasyForm" Icon="{RESOURCE_URL}/collab/calendar/images/icon_calendar_list.gif"  FormType="Edit" jsClass="jbForm" Title="Edit Event Locations" Description="Each event could have related locations.\nYou can assign locations to this event and notify related contacts about this event." BizDataObj="collab.calendar.do.EventDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_event_edit.tpl.html" EventName="CALENDAR" MessageFile="Event.msg"  Access="collab_calendar.access" >
     <DataPanel>
 		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
 
