@@ -11,7 +11,8 @@ class ChangeLogForm extends EasyForm
     	//load message file
     	$this->m_ChangeLogMessages = Resource::loadMessage("changelog.ini" , "changelog");
     	
-    	if(strtolower($xmlArr["EASYFORM"]["ATTRIBUTES"]["FORMTYPE"])=='edit' &&
+    	if((strtolower($xmlArr["EASYFORM"]["ATTRIBUTES"]["FORMTYPE"])=='edit'||
+    		strtolower($xmlArr["EASYFORM"]["ATTRIBUTES"]["FORMTYPE"])=='copy') &&
     		$this->m_ShowComment != 'N'
     	){
 	    	//add a comment field on fly
