@@ -15,8 +15,7 @@
         </Element>	
         <Element Name="fld_progress" Class="ColumnBar" Width="120" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:180px" MaxValue="100" FieldName="progress" Label="Progress"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
         </Element>
-         <Element Name="fld_start_time" Class="Hidden" Hidden="Y" FieldName="start_time"  />
-        <Element Name="fld_starttime" Class="ColumnText" FieldName="" Text="{date('Y-m-d H:i',strtotime(@:elem[fld_start_time].Value))}" Label="Start Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        <Element Name="fld_starttime" Class="ColumnText" Text="{date('Y-m-d H:i',strtotime(@:elem[fld_starttime].Value))}" Label="Start Time" FieldName="start_time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         
         <Element Name="fld_priority_value" Class="Hidden" Hidden="Y" FieldName="priority"  />
         <Element Name="fld_priority" Class="ColumnImage" Text="{RESOURCE_URL}/collab/task/images/icon_task_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Pri"  >
