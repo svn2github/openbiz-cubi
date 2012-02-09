@@ -19,7 +19,6 @@ $includedScripts.="
 <script type='text/javascript' src='".RESOURCE_URL."/collab/js/jsgantt/dhtmlxgantt.js'></script>
 <link type='text/css' rel='stylesheet' href='".RESOURCE_URL."/collab/js/jsgantt/dhtmlxgantt.css'/>
 <script type='text/javascript' src='".RESOURCE_URL."/collab/task/js/task.js'></script>
-<script type='text/javascript' src='".RESOURCE_URL."/collab/statistics/js/Openbiz.StatChartForm.js'></script>
 <script type='text/javascript' src='$js_url/Openbiz.GanttForm.js'></script>
 <script type='text/javascript' src='$js_url/uploadify/swfobject.js'></script>
 <script type='text/javascript' src='$js_url/uploadify/jquery.uploadify.v2.1.4.js'></script>
