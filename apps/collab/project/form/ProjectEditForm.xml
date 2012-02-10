@@ -11,7 +11,7 @@
 		<Element Name="fld_start_time" ElementSet="Setting" DefaultValue="{@:Params[start_time]?date('Y-m-d H:i:s',@:Params[start_time]):date('Y-m-d H:i:s',time())}" Class="InputDatetime" FieldName="start_time" Label="Start Time"  AllowURLParam="Y" >
 		</Element>
 		<Element Name="fld_priority" ElementSet="Setting" Class="Listbox" DefaultValue="1" FieldName="priority" Label="Priority" SelectFrom="collab.project.lov.ProjectLOV(Priority)" AllowURLParam="N" />
-		<Element Name="fld_status_update" ElementSet="Setting" Class="Listbox" FieldName="status" Label="Status" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" AllowURLParam="N" />
+		<Element Name="fld_status_update" ElementSet="Setting" Class="collab.lib.DataStatusList" FieldName="status" Label="Status" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" AllowURLParam="N" />
 		<Element Name="fld_condition_update" ElementSet="Setting" Class="Listbox" FieldName="condition" Label="Condition" SelectFrom="collab.project.lov.ProjectLOV(ProjectCondition)" AllowURLParam="N" />			        
     </DataPanel>
     <ActionPanel>
