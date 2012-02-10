@@ -432,6 +432,7 @@ class LangPackCreator
     		case "CONTEXTMENU":
             case "DEFAULTVALUE":
             case "ELEMENTSET":
+            case "BlankOption":
     			$result = true;
     			break;
     			
