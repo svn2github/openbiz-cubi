@@ -66,7 +66,7 @@ class ReminderService
 		$taskDO = BizSystem::getObject("collab.task.do.TaskSystemDO",1);
 		$searchRule = "(						    
 						[status] = 0 
-						AND DATE_ADD([start_time], INTERVAL $delay_mins MINUTE) > NOW()
+						AND DATE_ADD([start_time], INTERVAL $delay_mins MINUTE) < NOW()
 						)";
 		
 		$taskList = $taskDO->directFetch($searchRule);
