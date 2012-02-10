@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="Openbiz Collaboration" Version="1.1.5" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
+<Module Name="collab" Description="Openbiz Collaboration" Version="1.1.6" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -153,7 +153,8 @@
     	<Module Name="menu"/>
     </Dependency>
         <ChangeLog>
-        <Version Name="1.1.5">
+        <Version Name="1.1.6">
+        	<Change Name="feature_115" Type="New_Feature" Status="Finished" PublishDate="2012-02-10" Description="added task and document m-m relationship"></Change>
         	<Change Name="feature_115" Type="New_Feature" Status="Finished" PublishDate="2012-02-05" Description="added changelog feature for worklogs "></Change>
         	<Change Name="feature_114" Type="New_Feature" Status="Finished" PublishDate="2012-02-05" Description="added worklog and event m-m relationship"></Change>
         	<Change Name="feature_113" Type="New_Feature" Status="Finished" PublishDate="2012-02-05" Description="added worklog and document m-m relationship"></Change>

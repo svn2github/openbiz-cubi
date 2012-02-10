@@ -87,6 +87,16 @@ CREATE TABLE `task_contact` (
   KEY `contact_id` (`contact_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `task_document`;
+CREATE TABLE `task_document` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `task_id` int(10) unsigned NOT NULL default '0',
+  `document_id` int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  KEY `task_id` (`task_id`),
+  KEY `document_id` (`document_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 DROP TABLE IF EXISTS `task_event`;
 CREATE TABLE `task_event` (
   `id` int(10) unsigned NOT NULL auto_increment,
