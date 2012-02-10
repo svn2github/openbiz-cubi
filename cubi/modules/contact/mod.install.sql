@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
 
 
 INSERT INTO `contact` (`id`, `first_name`, `last_name`, `display_name`, `company`, `department`, `position`, `fast_index`, `photo`, `phone`, `mobile`, `fax`, `zipcode`, `province`, `city`, `street`, `country`, `email`, `webpage`, `qq`, `icq`, `skype`, `yahoo`, `misc`, `type_id`, `sortorder`, `user_id`, `published`, `default`, `access`, `params`, `foreign_key`, `source`, `owner_id`, `group_id`, `group_perm`, `other_perm`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-(1, 'System', 'Admin', 'System, Admin', 'N/A', '', '', 'J', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, 1, 50, 1, 1, 0, NULL, NULL, '', NULL, 1, 1, 1, 0, 1, '2010-05-24 08:00:01', 1, '2012-02-05 11:08:49');
+(1, 'System', 'Admin', 'System, Admin', 'N/A', '', '', 'J', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, 1, 100, 1, 1, 0, NULL, NULL, '', NULL, 1, 1, 1, 0, 1, '2010-05-24 08:00:01', 1, '2012-02-05 11:08:49');
 
 
 DROP TABLE IF EXISTS `contact_type`;
