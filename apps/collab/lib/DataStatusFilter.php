@@ -11,6 +11,9 @@ class DataStatusFilter extends DropDownList
 			case 'todo':								
 				$searchRule = "([$fieldName]= '0' OR [$fieldName]= '1' OR [$fieldName]= '4')";									
 				break;
+			case '':								
+				$searchRule = "";							
+				break;
 			default:
 				$searchRule = "[$fieldName] = '$value'";
 				break;
