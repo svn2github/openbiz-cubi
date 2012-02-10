@@ -147,10 +147,12 @@ class ChartForm extends EasyForm
     	set_include_path(get_include_path() . PATH_SEPARATOR . $path);    	
         if(strtolower(FusionChartVersion)=="pro"){
     		require_once(dirname(dirname(__FILE__)).'/lib/fusionpro/FusionCharts_Gen.php'); 		
+    		require_once(dirname(dirname(__FILE__)).'/lib/fusionpro/FusionCharts.php');
     	}
     	else
     	{
         	require_once(dirname(dirname(__FILE__)).'/lib/fusion/FusionCharts_Gen.php');
+        	require_once(dirname(dirname(__FILE__)).'/lib/fusion/FusionCharts.php');
     	} 
     	return $this->drawChart();
     }
