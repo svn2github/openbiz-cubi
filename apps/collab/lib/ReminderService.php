@@ -9,6 +9,7 @@ class ReminderService
 	public function CheckRemind()
 	{
 		$this->CheckRemidforTask();
+		$this->CheckDeferredTask();
 		$this->CheckRemidforEvent();
 		$this->CheckNotifyforEvent();
 		return;
@@ -56,7 +57,36 @@ class ReminderService
 		}
 	}
 	
-
+	protected function CheckDeferredTask(){
+		/**
+		 * if a task's status is  "not start" and delayed for more than 10 mins
+		 * then auto set the task status to deferred
+		 */
+		$delay_mins = 10;
+		$taskDO = BizSystem::getObject("collab.task.do.TaskSystemDO",1);
+		$searchRule = "(						    
+						[status] = 0 
+						AND DATE_ADD([start_time], INTERVAL $delay_mins MINUTE) > NOW()
+						)";
+		
+		$taskList = $taskDO->directFetch($searchRule);
+		$emailSvc = BizSystem::getService(USER_EMAIL_SERVICE);
+		foreach ($taskList as $taskRec)
+		{
+			if($taskRec['reminder']==1){
+				//if task reminder is On then notice all editable users
+				$userList = BizSystem::getService(DATAPERM_SERVICE)->getEditableUserList($taskRec);
+				foreach ($userList as $user_id)
+				{
+					$taskRec['delay_mins'] = $delay_mins;
+					$emailSvc->SendEmailToUser("TaskDeferredEmail",$user_id,$taskRec);
+				}
+			}
+			
+			// set the task status to deferred
+			$taskDO->updateRecords("[status]='4'", "[Id]='".$taskRec['Id']."'");
+		}
+	}
 	
 	protected function CheckRemidforEvent(){
 		/**
