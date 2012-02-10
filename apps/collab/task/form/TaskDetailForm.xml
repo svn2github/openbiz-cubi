@@ -47,6 +47,11 @@
 			<EventHandler Name="btn_manage_financial_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditBudgetForm,{@:Elem[fld_Id].Value})"  />
         </Element> 
         
+        <Element Name="fld_related_document"   ElementSet="Docs" Class="FormElement" FormReference="collab.document.widget.DocumentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_document" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Docs"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_document_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditDocumentForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+        
 		<Element Name="fld_related_attachment"   ElementSet="Atts" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		<Element Name="btn_manage_attachment" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Atts"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
@@ -68,17 +73,17 @@
 			<EventHandler Name="btn_manage_contact_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditContactForm,{@:Elem[fld_Id].Value})" />
         </Element>   
 
-		<Element Name="fld_changelog"   ElementSet="ChangeLog" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_changelog"   ElementSet="Changes" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetForm" FieldName="" Label="" AllowURLParam="N" />
 
-			<Element Name="fld_reminder" ElementSet="Reminder" DefaultValue="0" Class="LabelList" selectFrom="collab.lov.ReminderLOV(ReminderType)" FieldName="reminder" Label="Reminder" AllowURLParam="N" >
+			<Element Name="fld_reminder" ElementSet="Remind" DefaultValue="0" Class="LabelList" selectFrom="collab.lov.ReminderLOV(ReminderType)" FieldName="reminder" Label="Reminder" AllowURLParam="N" >
 				<EventHandler Name="fld_reminder_onclick" Event="onchange" Function="UpdateForm()"  />
 			</Element>
-			<Element Name="fld_reminder_time" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelList" selectFrom="collab.calendar.lov.EventLOV(ReminderTimeType)" FieldName="reminder_time" Label="Time Setting" AllowURLParam="N" />
-			<Element Name="fld_reminder_method_email" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelBool"  FieldName="reminder_method_email" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Email" AllowURLParam="N" />
-			<Element Name="fld_reminder_method_systray" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelBool"  FieldName="reminder_method_systray" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Systray" AllowURLParam="N" />
-			<Element Name="fld_reminder_method_sms" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelBool"  FieldName="reminder_method_sms" DefaultValue="0" SelectFrom="1" Label="Send SMS" AllowURLParam="N" />
+			<Element Name="fld_reminder_time" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelList" selectFrom="collab.calendar.lov.EventLOV(ReminderTimeType)" FieldName="reminder_time" Label="Time Setting" AllowURLParam="N" />
+			<Element Name="fld_reminder_method_email" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelBool"  FieldName="reminder_method_email" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Email" AllowURLParam="N" />
+			<Element Name="fld_reminder_method_systray" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelBool"  FieldName="reminder_method_systray" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Systray" AllowURLParam="N" />
+			<Element Name="fld_reminder_method_sms" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelBool"  FieldName="reminder_method_sms" DefaultValue="0" SelectFrom="1" Label="Send SMS" AllowURLParam="N" />
 			
-			<Element Name="btn_manage_reminder" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Reminder"  Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Setting" CssClass="button_gray_w" Description="">
+			<Element Name="btn_manage_reminder" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Remind"  Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Setting" CssClass="button_gray_w" Description="">
 				<EventHandler Name="btn_manage_reminder_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditReminderForm,{@:Elem[fld_Id].Value})"  />
 	        </Element>
 		
