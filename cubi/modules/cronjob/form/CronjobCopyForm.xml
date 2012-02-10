@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="CronjobCopyForm" Class="CronjobForm"  FormType="Copy" jsClass="jbForm" Title="Copy Cronjob Task" Icon="icon_cronjob_add.gif" Description="Cronjob enables users to schedule jobs (commands or shell scripts) \nto run periodically at certain times or dates." BizDataObj="cronjob.do.CronjobDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="edit.tpl.html" EventName="CRONJOB" MessageFile="Cronjob.msg">
+<EasyForm Name="CronjobCopyForm" Class="CronjobForm"  FormType="Copy" jsClass="jbForm" Title="Copy Cronjob Task" Icon="icon_cronjob_copy.gif" Description="Cronjob enables users to schedule jobs (commands or shell scripts) \nto run periodically at certain times or dates." BizDataObj="cronjob.do.CronjobDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="edit.tpl.html" EventName="CRONJOB" MessageFile="Cronjob.msg">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y"/>	        
                 <Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
