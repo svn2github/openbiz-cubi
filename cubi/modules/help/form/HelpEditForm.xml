@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="HelpEditForm" Class="HelpForm" Icon="icon_help_edit.gif" FormType="Edit" jsClass="jbForm" Title="Edit help" Description="Help module is a document system, which manages a online manual and \nhelp tips quick reference box on the left side of application panel." BizDataObj="help.do.HelpDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="HELP" MessageFile="Help.msg">
+<EasyForm Name="HelpEditForm" Class="HelpForm" Icon="icon_help_tips_edit.gif" FormType="Edit" jsClass="jbForm" Title="Edit help" Description="Help module is a document system, which manages a online manual and \nhelp tips quick reference box on the left side of application panel." BizDataObj="help.do.HelpDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="HELP" MessageFile="Help.msg">
     <DataPanel>
 	<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
          

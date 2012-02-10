@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="MenuCopyForm" Class="EasyForm" icon="icon_menu_add.gif"  FormType="Copy" jsClass="jbForm" Title="Copy Menu Item" Description="In this form you can copy a new menu item to system." BizDataObj="menu.do.MenuTreeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="MENU" MessageFile="">
+<EasyForm Name="MenuCopyForm" Class="EasyForm" icon="icon_menu_copy.gif"  FormType="Copy" jsClass="jbForm" Title="Copy Menu Item" Description="In this form you can copy a new menu item to system." BizDataObj="menu.do.MenuTreeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="MENU" MessageFile="">
     <DataPanel>
         <Element Name="fld_parent" Class="TreeListbox" BLANKOPTION="-- Root --" SelectFrom="menu.do.MenuTreeListDO[title:Id],[published]=1,[PId]=''" ElementSet="General" FieldName="parent" Label="Parent"  AllowURLParam="N"/>
         <Element Name="fld_label" Class="InputText"  ElementSet="General" FieldName="title" Label="Title" Description="Will displayed in menu tree" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>

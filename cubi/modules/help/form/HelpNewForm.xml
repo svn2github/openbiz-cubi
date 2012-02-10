@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="HelpNewForm" Class="HelpForm" Icon="icon_help_add.gif" FormType="New" jsClass="jbForm" Title="New help" Description="Help module is a document system, which manages a online manual and \nhelp tips quick reference box on the left side of application panel." BizDataObj="help.do.HelpDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="HELP" MessageFile="Help.msg">
+<EasyForm Name="HelpNewForm" Class="HelpForm" Icon="icon_help_tips_add.gif" FormType="New" jsClass="jbForm" Title="New help" Description="Help module is a document system, which manages a online manual and \nhelp tips quick reference box on the left side of application panel." BizDataObj="help.do.HelpDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="HELP" MessageFile="Help.msg">
     <DataPanel>
 		<Element Name="fld_Id" Hidden="Y" Class="InputText" FieldName="Id" Label="Id"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>	        
         <Element Name="fld_category_id" Class="TreeListbox" SelectFrom="help.do.HelpCategoryDO[name:Id]" DefaultValue="{@help.do.HelpDO:Field[c].Value}" FieldName="category_id" Label="Category"  AllowURLParam="N" />

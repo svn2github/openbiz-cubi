@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="LanguageNewForm" Class="LanguageForm" icon="icon_translation_add.gif" FormType="New" jsClass="jbForm" Title="New Language Package" Description="This module could manage multi-language translations for system.\n Each language package contains many translation files for each modules inside." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="TRANSLATION" MessageFile="Translation.msg">
+<EasyForm Name="LanguageNewForm" Class="LanguageForm" icon="icon_languages_add.gif" FormType="New" jsClass="jbForm" Title="New Language Package" Description="This module could manage multi-language translations for system.\n Each language package contains many translation files for each modules inside." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="TRANSLATION" MessageFile="Translation.msg">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Class="Hidden" Hidden="Y" FieldName="Id" Label="author_email" Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_region" ElementSet="General" Class="RegionListbox" FieldName="region" Label="Region"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         	
