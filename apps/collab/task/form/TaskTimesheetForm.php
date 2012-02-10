@@ -154,10 +154,10 @@ class TaskTimesheetForm extends ChangeLogForm
 		);
 		
 		if($total_tasks){
-			$dataArr['not_started_wid'] = (int)($statData[0]/$total_tasks*$bar_width)-2;
-			$dataArr['in_progress_wid'] = (int)($statData[1]/$total_tasks*$bar_width)-2;
-			$dataArr['completed_wid'] = (int)($statData[2]/$total_tasks*$bar_width)-2;
-			$dataArr['other_wid'] = (int)(($statData[3]+(int)$statData[4])/$total_tasks*$bar_width)-2;
+			$dataArr['not_started_wid'] = (int)($statData[0]/$total_tasks*$bar_width);
+			$dataArr['in_progress_wid'] = (int)($statData[1]/$total_tasks*$bar_width);
+			$dataArr['completed_wid'] = (int)($statData[2]/$total_tasks*$bar_width);
+			$dataArr['other_wid'] = (int)(($statData[3]+(int)$statData[4])/$total_tasks*$bar_width);
 		}else{
 			$dataArr['not_started_wid'] = 2;
 			$dataArr['in_progress_wid'] = 2;
