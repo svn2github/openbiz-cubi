@@ -6,12 +6,12 @@
    <DataType Value="3" text="My Assigned Data"/>
    <DataType Value="4" text="My Distributed Data"/>
    
-   <DataFilter Value="1" text="My Data" PICTURE="{RESOURCE_URL}/common/images/icon_filter_mine.gif"/>
+   <DataFilter Value="1" text="My Managed Data" PICTURE="{RESOURCE_URL}/common/images/icon_filter_mine.gif"/>
    <DataFilter Value="2" text="My Group Shared" PICTURE="{RESOURCE_URL}/common/images/icon_filter_groups.gif"/>
    <DataFilter Value="3" text="Others Group Shared" PICTURE="{RESOURCE_URL}/common/images/icon_filter_others.gif"/>
-   <DataFilter Value="4" text="Created by me" PICTURE="{RESOURCE_URL}/common/images/icon_filter_created.gif"/>
-   <DataFilter Value="5" text="Assigned to me" PICTURE="{RESOURCE_URL}/common/images/icon_filter_assigned.gif"/>
-   <DataFilter Value="6" text="Distributed by me" PICTURE="{RESOURCE_URL}/common/images/icon_filter_distributed.gif"/>
+   <DataFilter Value="4" text="Created by Me" PICTURE="{RESOURCE_URL}/common/images/icon_filter_created.gif"/>
+   <DataFilter Value="5" text="Assigned to Me" PICTURE="{RESOURCE_URL}/common/images/icon_filter_assigned.gif"/>
+   <DataFilter Value="6" text="Distributed by Me" PICTURE="{RESOURCE_URL}/common/images/icon_filter_distributed.gif"/>
    
    
 </Selection>
