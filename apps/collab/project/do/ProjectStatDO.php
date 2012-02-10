@@ -7,7 +7,9 @@ class ProjectStatDO extends BizDataObj
 		if($this->m_SearchRule){
 			$this->m_SearchRule = str_replace("[chart_type]  = :_v1", "", $this->m_SearchRule);		
 		}
-		$cond_list = BizSystem::getService(LOV_SERVICE)->getDictionary("collab.project.lov.ProjectLOV(ProjectCondition)");
+		$lovService = BizSystem::getService(LOV_SERVICE);
+		$lovService->m_SelectFrom="collab.project.lov.ProjectLOV(ProjectCondition)";
+		$cond_list = $lovService->getDictionary("collab.project.lov.ProjectLOV(ProjectCondition)");
 		$resultSet = array();
 		foreach($cond_list as $value=>$name)
 		{			
