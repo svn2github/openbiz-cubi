@@ -3,6 +3,7 @@
    <UseTemplate Value="0" text="Don't use project template"/>
    <UseTemplate Value="1" text="Create tasks from project template"/>	
 	
+   <ProjectStatus Value="todo" text="Need To Do"/>	
    <ProjectStatus Value="0" text="Not Started"/>
    <ProjectStatus Value="1" text="In Progress"/>
    <ProjectStatus Value="2" text="Completed"/>

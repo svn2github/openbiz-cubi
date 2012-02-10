@@ -6,6 +6,7 @@
    <RecurrenceType Value="3" text="Monthly"/>
    <RecurrenceType Value="4" text="Annually"/>
 
+   <TaskStatus Value="todo" text="Need To Do"/>
    <TaskStatus Value="0" text="Not Started"/>
    <TaskStatus Value="1" text="In Progress"/>
    <TaskStatus Value="2" text="Completed"/>

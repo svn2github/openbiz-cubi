@@ -118,7 +118,7 @@
     	<Element Name="data_filter"  BlankOption="All Data" cssclass="input_select_m" Class="common.element.ShareDataFilter" FieldName="create_by" Label="" SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
             <EventHandler Name="datafilter_onchange" Event="onchange" Function="RunSearch()"/>
         </Element>
-        <Element Name="status_selector" cssclass="input_select_m" BlankOption="All Status" Class="DropDownList" FieldName="status" Label="" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" >
+        <Element Name="status_selector" cssclass="input_select_m" BlankOption="All Status" Class="collab.lib.DataStatusFilter" FieldName="status" Label="" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" >
             <EventHandler Name="status_selector_onchange" Event="onchange" Function="RunSearch()"/>
         </Element> 
         <Element Name="pri_selector" cssclass="input_select_m" BlankOption="All Priority" Class="DropDownList" FieldName="priority" Label="" SelectFrom="collab.task.lov.TaskLOV(Priority)" >
