@@ -18,7 +18,7 @@ class SessionListForm extends EasyForm
 				$record['update_time_display'] = date("m-d",strtotime($record['update_time']));	
 			}			
 			if($record['user_id']>0){
-				$record['link'] = APP_URL.'/system/user_detail/'.$record['user_id']; 
+				$record['link'] = APP_INDEX.'/system/user_detail/'.$record['user_id']; 
 			}else{
 				$record['link'] = "javascript:;";
 			}
