@@ -16,8 +16,9 @@
 		</Element>		
 		<Element Name="fld_priority" ElementSet="General" Class="Listbox"  FieldName="priority" Label="Priority" SelectFrom="collab.task.lov.TaskLOV(Priority)" AllowURLParam="N" />
 		<Element Name="fld_severity" ElementSet="General" Class="Listbox"  FieldName="severity" Label="Severity" SelectFrom="collab.task.lov.TaskLOV(Severity)" AllowURLParam="N" />
+		
+		<Element Name="fld_status" ElementSet="General" Class="collab.lib.DataStatusList" FieldName="status" Label="Status" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" AllowURLParam="N" />				
 		<!-- 
-		<Element Name="fld_status" ElementSet="General" Class="Listbox" FieldName="status" Label="Status" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" AllowURLParam="N" />				
 		<Element Name="fld_progress" ElementSet="General" Class="Listbox"  FieldName="progress" Label="Progress" SelectFrom="collab.task.lov.TaskLOV(Progress)" AllowURLParam="N" />
 		 -->
 		<Element Name="fld_milestone" ElementSet="General" Class="Checkbox" FieldName="milestone" DefaultChecked="{@:Params[all_day]?'Y':'N'}" Label="Milestone" DefaultValue="0" SelectFrom="1" Description="" AllowURLParam="Y" >
