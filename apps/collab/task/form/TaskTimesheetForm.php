@@ -143,7 +143,7 @@ class TaskTimesheetForm extends ChangeLogForm
 		$dataArr = array(
 			"Id"			=>	strtotime($sel_date),
 			"date"			=>	date('Y-m-d',strtotime($sel_date)),
-			"weekdate"		=>	date('l',strtotime($sel_date)),
+			"weekdate"		=>	$this->getMessage("WEEKDAY_".date('w',strtotime($sel_date))),
 			"dayofweek"		=>	date('w',strtotime($sel_date)),
 			"not_started"	=>	(int)$statData[0],
 			"in_progress"	=>	(int)$statData[1],
