@@ -160,11 +160,11 @@ class doTriggerService extends MetaObject
      */
     protected function executeAction($triggerAction, $dataObj)
     {
-        // action method
-        $methodName = $triggerAction->m_Action;
+        // action method        
+        $methodName = $triggerAction->m_Action;        
         // action method arguments
         if (method_exists($this, $methodName))
-        {
+        {        	
             // evaluate arguments as expression support
             foreach ($triggerAction->m_ArgList as $argName => $argValue)
                 $argList[$argName] = Expression::evaluateExpression($argValue, $dataObj);
@@ -206,11 +206,7 @@ class doTriggerService extends MetaObject
     	if(!method_exists($svcobj,$method))
     	{
     		return;
-    	}    	
-    	if(!method_exists($svcobj,$method))
-    	{
-    		return;
-    	}    	 
+    	}  	 
     	unset($argList['Service']);
     	unset($argList['Method']);
     	return call_user_func_array(array($svcobj,$method),$argList);
@@ -373,7 +369,7 @@ class DOTrigger
         $this->m_TriggerCondition["ExtraSearchRule"] = $xmlArr["TRIGGERCONDITION"]["ATTRIBUTES"]["EXTRASEARCHRULE"];
         if($xmlArr["TRIGGERACTIONS"]["TRIGGERACTION"][0]){
         	foreach($xmlArr["TRIGGERACTIONS"]["TRIGGERACTION"] as $key=>$value){	
-        		$this->m_TriggerActions[] = new MetaIterator($xmlArr["TRIGGERACTIONS"]["TRIGGERACTION"][$key], "TriggerAction");
+        		$this->m_TriggerActions[] = new TriggerAction($xmlArr["TRIGGERACTIONS"]["TRIGGERACTION"][$key]);
         	}
         }else{
         	$this->m_TriggerActions = new MetaIterator($xmlArr["TRIGGERACTIONS"]["TRIGGERACTION"], "TriggerAction");
