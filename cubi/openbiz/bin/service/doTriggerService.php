@@ -95,9 +95,10 @@ class doTriggerService extends MetaObject
     {
         /* @var $doTrigger DOTrigger */
         foreach ($this->m_DOTriggerList as $doTrigger)
-        {
-            if ($doTrigger->m_TriggerType == $triggerType)
+        {        	
+            if ($doTrigger->m_TriggerType == $triggerType){            	;
                 $this->executeAllActions($doTrigger, $dataObj);
+            }
         }
     }
 
@@ -112,7 +113,7 @@ class doTriggerService extends MetaObject
     {
         if (! $this->matchCondition($doTrigger, $dataObj))
             return;
-        /* @var $triggerAction TriggerAction */
+        /* @var $triggerAction TriggerAction */            
         foreach ($doTrigger->m_TriggerActions as $triggerAction)
         {
             $this->executeAction($triggerAction, $dataObj);
@@ -370,7 +371,14 @@ class DOTrigger
         // read in trigger condition
         $this->m_TriggerCondition["Expression"] = $xmlArr["TRIGGERCONDITION"]["ATTRIBUTES"]["EXPRESSION"];
         $this->m_TriggerCondition["ExtraSearchRule"] = $xmlArr["TRIGGERCONDITION"]["ATTRIBUTES"]["EXTRASEARCHRULE"];
-        $this->m_TriggerActions = new MetaIterator($xmlArr["TRIGGERACTIONS"]["TRIGGERACTION"], "TriggerAction");
+        if($xmlArr["TRIGGERACTIONS"]["TRIGGERACTION"][0]){
+        	foreach($xmlArr["TRIGGERACTIONS"]["TRIGGERACTION"] as $key=>$value){	
+        		$this->m_TriggerActions[] = new MetaIterator($xmlArr["TRIGGERACTIONS"]["TRIGGERACTION"][$key], "TriggerAction");
+        	}
+        }else{
+        	$this->m_TriggerActions = new MetaIterator($xmlArr["TRIGGERACTIONS"]["TRIGGERACTION"], "TriggerAction");
+        }
+        
     }
 }
 
