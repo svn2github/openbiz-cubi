@@ -59,6 +59,9 @@ class TaskService
 		$taskPickDO = BizSystem::getObject($this->m_DataObj);		
 		$taskRec = $taskPickDO->fetchById($task_id);
 		$update = false;		
+		
+		
+
 		if($progress==0){
 			if($status_new == $status_prev){
 				$update = true;
@@ -74,7 +77,15 @@ class TaskService
 		}
 		else
 		{
-			if((int)$status_prev!=1)
+			if((int)$status_prev==4)
+			{
+				$start_time = $taskDO->getField('start_time')->m_Value;
+				if(strtotime($start_time)>time()){
+					$update = true;
+					$taskRec['status']=0;
+				}
+			}
+			elseif((int)$status_prev!=1)
 			{
 				$update = true;
 				$taskRec['status']=1;
