@@ -27,15 +27,13 @@ outline:none;
 h1{
 	line-height:35px;
 	color:#7d7d7d;
-	font-size:25px;
-	font-family:"华文细黑";
+	font-size:25px;	
 }
 h2{
 	color:#149bc8;
 	line-height:18px;
 	font-size:18px;
 	font-weight:normal;
-	font-family:"华文细黑";
 }
 h3{
 	color:#006599;
@@ -44,7 +42,6 @@ h3{
 	font-weight:normal;
 	padding:10px 0px 10px 0px;
 	margin:0px;
-	font-family:"华文细黑";
 }
 a{
 	color:#006599;
