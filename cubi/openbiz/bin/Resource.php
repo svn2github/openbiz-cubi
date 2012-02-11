@@ -200,6 +200,7 @@ class Resource
         $smarty->assign('theme_url', THEME_URL . "/" . $theme);
         $smarty->assign('image_url', THEME_URL . "/" . $theme . "/images");
         $smarty->assign('lang', strtolower(I18n::getCurrentLangCode()));
+        $smarty->assign('lang_name', I18n::getCurrentLangCode());
 
         return $smarty;
     }
