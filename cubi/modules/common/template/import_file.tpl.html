@@ -1,24 +1,26 @@
 <form id="{$form.name}" name="{$form.name}">
-
-<div style="padding-left:25px; ">
 <br/>
-	<div>	
-		<div ><h2>{$form.title}</h2></div>
-	</div>
-		{if $form.description}
-		<p class="input_row" style="line-height:20px;padding-bottom:20px;">		
-		<span>{$form.description}</span>
-		</p>
-		{else}
-		<div style="height:15px;"></div>
+<div style="padding-left:25px; ">
+	<table ><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon" style="float:left;padding-right:10px;"><img  src="{$form.icon}" border="0" /></div>
 		{/if}
+		<div style="float:left; width:350px;">
+		<h2>
+		{$form.title}
+		</h2> 
+		<p class="form_desc" style="padding-top:10px;">{$form.description}</p>
+		</div>
+	</td></tr></table>
 	<div style="padding-left:30px;">
 	{foreach item=item key=itemName from=$dataPanel}
 		<table class="input_row">
 		<tr>
 		<td >	
-			<label style="text-align:left">{$item.label}</label>
+			<label style="text-align:left;width:300px;">{$item.label}</label>
 		</td>
+		</tr>
+		<tr>
 		<td>
 			<span class="label_text">{$item.element}</span>
 			{if $errors.$itemName}

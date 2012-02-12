@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<EasyForm Name="ImportForm" Class="EasyForm" FormType="New" jsClass="jbForm" Title="Import from CSV" TemplateEngine="Smarty" TemplateFile="import_file.tpl.html">
+<EasyForm Name="ImportForm" Class="EasyForm" icon="{RESOURCE_URL}/common/images/icon_csv_import.gif" FormType="New" jsClass="jbForm" Title="Import data from CSV" Description="You can import data from a CSV file to target module." TemplateEngine="Smarty" TemplateFile="import_file.tpl.html">
    <DataPanel>
       <Element Name="fld_data" Class="File" FieldName="" Label="Please select a CSV file"/>
    </DataPanel>
