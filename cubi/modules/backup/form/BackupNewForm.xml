@@ -6,7 +6,7 @@
 		<Element Name="fld_mode"  Class="Listbox" SelectFrom="backup.lov.BackupOption(BackupMode)" FieldName="mode" Label="Backup Mode" AllowURLParam="N" />
 		<Element Name="fld_db"  Class="DatabaseListbox" FieldName="database" Label="Database" AllowURLParam="N" />
 		<Element Name="fld_append_date" BlankOption="None" Class="DateListbox" SelectFrom="Y-m-d_H-i|Y-m-d|m-d" FieldName="timestamp" Label="Timestamp" AllowURLParam="N"/>
-		<Element Name="fld_drop_table" DefaultValue="0" SelectFrom="1" Class="Checkbox" FieldName="drop_table" Label="Drop Table" Description="Add a DROP TABLE IF EXIST statsment" AllowURLParam="N"/>
+		<Element Name="fld_drop_table" DefaultValue="1" SelectFrom="1" Class="Checkbox" FieldName="drop_table" Label="Drop Table" Description="Add a DROP TABLE IF EXIST statsment" AllowURLParam="N"/>
         </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
