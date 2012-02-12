@@ -81,7 +81,7 @@ class ChangeLogForm extends EasyForm
 		
 		$comment = BizSystem::clientProxy()->getFormInputs("fld_changelog_comment");		
 		
-		if (empty($logRecord))
+		if (empty($logRecord) && empty($comment))
 			return true;
 			
 		$formMetaLite = array(

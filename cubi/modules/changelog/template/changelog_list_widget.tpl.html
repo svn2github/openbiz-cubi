@@ -105,6 +105,7 @@ float:none;
 		</tr>
 		{/if}
 		<tr>
+			{if !$row.fld_data|count}<td style="background-image:none;{$bg_color}"></td>{/if}
 			<td style="background-image:none;{$bg_color}">
 			{if $row.fld_comment}
 			{$row.fld_comment}<br/>
