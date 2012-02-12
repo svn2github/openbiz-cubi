@@ -179,8 +179,10 @@ class DropDownList extends InputElement
         	if($item['val']==$value){
         		if(!preg_match("/\</si",$item['txt'])){
         			$display_value = $item['txt'];
+        			return $display_value;
         		}else{
         			$display_value = $item['val'];
+        			return $display_value;
         		}
         		break;
         	}
