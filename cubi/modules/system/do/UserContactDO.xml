@@ -37,10 +37,13 @@
         <BizField Name="icq" Column="icq" Length="255"  Type="Text" Join="JoinContact" />
         <BizField Name="skype" Column="skype" Length="255"  Type="Text" Join="JoinContact" />
         <BizField Name="yahoo" Column="yahoo" Length="255"  Type="Text" Join="JoinContact" />
-        <BizField Name="misc" Column="misc"   Type="Text" Join="JoinContact" />        
+        <BizField Name="misc" Column="misc"   Type="Text" Join="JoinContact" />
+        
+        <BizField Name="group_id" Column="group_id"  Join="JoinUserGroup" />        
                 
     </BizFieldList>
     <TableJoins>
 		<Join Name="JoinContact" Table="contact" Column="user_id" ColumnRef="Id" JoinType="INNER JOIN"/>
+		<Join Name="JoinUserGroup" Table="user_group" Column="user_id" ColumnRef="Id" JoinType="INNER JOIN"/>
     </TableJoins>
 </BizDataObj>
