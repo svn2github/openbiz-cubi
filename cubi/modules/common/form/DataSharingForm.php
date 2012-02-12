@@ -2,6 +2,7 @@
 class DataSharingForm extends EasyForm
 {
 	public $m_hasOwnerField = false;
+	protected  $m_LogDO = "changelog.do.ChangeLogDO";
 	public function fetchData()
 	{
 		$prtForm = $this->m_ParentFormName;
@@ -120,6 +121,8 @@ class DataSharingForm extends EasyForm
 		
 		$recArr = $this->readInputRecord();
 		$DataRec = $dataRec;
+		$DataRecOld = $dataRec;
+		$currentRecord = $DataRecOld->toArray();
 		
 		//notice users has new shared data
 		//test if changed a new owner
@@ -181,9 +184,67 @@ class DataSharingForm extends EasyForm
 		}
 		
 		$DataRec->save();
+		$inputRecord = $recArr;
 		//$prtFormObj->getDataObj()->updateRecord($newDataRec,$dataRec);
 		
-		
+		//save change log
+		$postFields = $_POST;
+   		$elem_mapping = array();
+   		foreach($postFields as $elem_name=>$value)
+   		{
+   			$elem = $this->m_DataPanel->get($elem_name);
+   			$fld_name = $elem->m_FieldName;
+   			if($elem){
+   				$elem_mapping[$fld_name] = $elem;
+   			}
+   		}
+		$logDO = $dataObj->getRefObject($this->m_LogDO);
+		if ($logDO) {
+			
+			$cond_column = $logDO->m_Association['CondColumn'];
+	    	$cond_value = $logDO->m_Association['CondValue'];
+	    	
+	    	if($cond_column)
+	    	{
+	    		$type = $cond_value;
+	    	}
+			$foreign_id = $currentRecord['Id'];
+			$logRecord = array();
+			
+			
+			
+			
+	   		foreach ($inputRecord as $fldName=>$fldVal)
+			{			
+				$oldVal = $currentRecord[$fldName];			
+				if ($oldVal == $fldVal)
+					continue;
+				
+				if ($oldVal ===null || $fldVal===null)
+					continue;	
+	
+				$elem = $elem_mapping[$fldName]->m_XMLMeta;		
+				if(!$elem){
+					$elem = $this->m_DataPanel->getByField($fldName)->m_XMLMeta;
+				}	
+				$logRecord[$fldName] = array('old'=>$oldVal, 'new'=>$fldVal, 'element'=>$elem);
+			}
+			$formMetaLite = array(
+				"name" 		=> $this->m_Name,
+				"package" 	=> $this->m_Package,
+				"message_file" 	=> $this->m_MessageFile,		
+			);
+			
+	   		// save to comment do
+			$logRec = new DataRecord(null, $logDO); 
+			$logRec['foreign_id'] = $foreign_id;
+			$logRec['type'] = $type;
+			$logRec['form'] = serialize( $formMetaLite );
+			$logRec['data'] = serialize( $logRecord );
+			$logRec['comment'] = $comment;
+			$logRec->save();
+		}
+   		//end save change log
 		
 		if($recArr['update_ref_data']){
 			if($dataObj->m_ObjReferences->count()){

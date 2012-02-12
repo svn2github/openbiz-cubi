@@ -15,7 +15,8 @@ class ChangeLogWidgetForm extends EasyForm
 			if(!$messageFile_loaded)
 			{
 				$this->m_Messages = Resource::loadMessage($form['message_file'] , $form['package']);
-				
+				$formObj = BizSystem::getObject($this->m_ParentFormName);				
+				I18n::AddLangData("common",substr($formObj->m_Package,0,intval(strpos($formObj->m_Package,'.'))));
 				$messageFile_loaded = true;
 			}
 			if(is_array($data)){

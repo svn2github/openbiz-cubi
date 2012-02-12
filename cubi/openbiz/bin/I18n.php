@@ -81,6 +81,24 @@ class I18n
     	return true;
     } 
     
+	public static function AddLangData($from_module,$to_module=null)	
+    {    	        	
+    	if($to_module==null){
+    		$to_module = $from_module;
+    	}
+    	$langCode = I18n::getCurrentLangCode();    	    	    
+    	$filename = "mod.$from_module.ini";
+    	$langFile = LANGUAGE_PATH."/$langCode/$filename";    	
+    	if (!file_exists($langFile)) return false;    	    	
+    	$inidata = parse_ini_file($langFile, false);
+    	if(is_array(I18n::$_langData[$to_module])){
+    		I18n::$_langData[$to_module] = array_merge(I18n::$_langData[$to_module],$inidata);
+    	}else{
+    		I18n::$_langData[$to_module] = $inidata;
+    	}
+    	return true;
+    }     
+    
 	public static function getCurrentLangCode ()
     {
     	if (I18n::$_langCode != null)
