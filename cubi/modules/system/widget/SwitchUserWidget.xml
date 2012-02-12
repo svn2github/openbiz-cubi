@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="SwitchUserWidget" Icon="" Class="SwitchUserWidget" FormType="Detail" jsClass="jbForm"  Description="" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="switch_user_widget.tpl.html" >
     <DataPanel>
-    
-    	<Element Name="fld_switch_session_uid"  ReadOnly="Y" cssclass="input_select_m" Class="DropDownList" FieldName="username" Label="Switch to" SelectFrom="system.do.UserContactDO[display_name:username]" >
-            <EventHandler Name="datafilter_onchange" Event="onchange" Function="SwitchSession()"/>
+    	<Element Name="fld_switch_session_group_filter"   cssclass="input_select_m" Class="DropDownList" FieldName="" Label="Switch to" SelectFrom="system.do.GroupDO[name:Id]">
+            <EventHandler Name="groupfilter_onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+    	<Element Name="fld_switch_session_uid"   cssclass="input_select_m" Class="DropDownList" FieldName="username" Label="" SelectFrom="system.do.UserContactDO[display_name:username],[group_id]='{@:Elem[fld_switch_session_group_filter].Value}'">
+            <EventHandler Name="ownerfilter_onchange" Event="onchange" Function="SwitchSession()"/>
         </Element>
         <!-- 
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
