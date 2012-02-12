@@ -100,7 +100,9 @@ class DropDownList extends InputElement
             $entryList = array(array("val" => $blkvalue, "txt" => $text ));
             $list = array_merge($entryList, $list);
         }        
-        $display_value=$value;
+        
+        $display_value=$this->getDisplayValue($value);
+        
         foreach ($list as $item){
         	if($item['val']==$value){
         		if(!preg_match("/\</si",$item['txt'])){
@@ -120,6 +122,7 @@ class DropDownList extends InputElement
             }
         	array_unshift($list,$defaultOpt);        	 
         }
+                
         $this->setValue($value);
         $display_value = strip_tags($display_value);
         
@@ -145,6 +148,44 @@ class DropDownList extends InputElement
         
         $sHTML .= "<script>$('".$formNameStr.$this->m_Name."_list').hide()</script>";
         return $sHTML;
+    }
+    
+    public function getDisplayValue($value)
+    {
+    	if($value===null)
+    	{
+    		return null;
+    	}
+    	$selectFrom = $this->m_SelectFrom;
+    	$selectFrom = substr($selectFrom,0,strpos($selectFrom,','));
+        
+    	$list= array();        
+        if (!$selectFrom) {
+        	$this->getSQLFromList($list);
+        }
+        else
+        {
+        	$this->getXMLFromList($list, $selectFrom);	        	
+        	if (!is_array($list) || count($list)==0){
+        		$this->getDOFromList($list, $selectFrom);        		
+        		if (!is_array($list) || count($list)==0){
+        			$this->getSimpleFromList($list, $selectFrom);
+        		}				
+        	}
+        	
+        }
+            
+    	foreach ($list as $item){
+        	if($item['val']==$value){
+        		if(!preg_match("/\</si",$item['txt'])){
+        			$display_value = $item['txt'];
+        		}else{
+        			$display_value = $item['val'];
+        		}
+        		break;
+        	}
+        }        
+    	return $display_value;
     }
     
     protected function renderList(){
