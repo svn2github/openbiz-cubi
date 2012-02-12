@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="Openbiz Collaboration" Version="1.1.6" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
+<Module Name="collab" Description="Openbiz Collaboration" Version="1.1.7" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -65,6 +65,7 @@
 				<MenuItem Name="Collab_Calendar.EventNew" Title="Create Event" Description=""  URL="{@home:url}/collab/event_new" Order="10" Access="collab_calendar.access" ></MenuItem>
 				<MenuItem Name="Collab_Calendar.EventDetail" Title="EventDetail" Description=""  URL="{@home:url}/collab/event_detail" Order="20" Access="collab_calendar.access" ></MenuItem>
 			</MenuItem>
+			<MenuItem Name="Collab_Calendar.AssignManage" Title="Event Assignment" Description=""  URL="{@home:url}/collab/event_assign" Order="13"  Access="collab_calendar.access" ></MenuItem>
 			<MenuItem Name="Collab_Calendar.Calendar" Title="Event Calendar" Description=""  URL="{@home:url}/collab/event_calendar" Order="15"  Access="collab_calendar.access" ></MenuItem>
 			<MenuItem Name="Collab_Calendar.TypeManage" Title="Event Type" Description=""  URL="{@home:url}/collab/event_type" Order="20"  Access="collab_calendar.access"></MenuItem>
 		</MenuItem>	
@@ -81,6 +82,7 @@
 			<MenuItem Name="Project.ProjectManage" Title="Project Manage" Description=""  URL="{@home:url}/collab/project_manage" Order="40" Access="collab_project.access" >
 				<MenuItem Name="Project.ProjectDetail" Title="Project Detail" Description=""  URL="{@home:url}/collab/project_detail" Order="10"  Access="collab_project.access" ></MenuItem>
 			</MenuItem>
+			<MenuItem Name="Project.AssignManage" Title="Project Assignment" Description=""  URL="{@home:url}/collab/project_assign" Access="collab_project.access"  Order="45" ></MenuItem>
 			<MenuItem Name="Project.Gantt" Title="Project Gantt Chart" Description=""  URL="{@home:url}/collab/project_gantt" Order="50" Access="collab_project.access">
 				<MenuItem Name="Project.GanttDetail" Title="Project Gantt Detail" Description=""  URL="{@home:url}/collab/project_gantt_detail" Order="50" Access="collab_project.access" />
 			</MenuItem>
@@ -94,10 +96,10 @@
 				<MenuItem Name="Task.Detail" Title="Task Detail" Description=""  URL="{@home:url}/collab/task_detail" Order="5"  Access="collab_task.access" ></MenuItem>				
 				<MenuItem Name="Task.New" Title="New Task" Description=""  URL="{@home:url}/collab/task_new" Order="15"  Access="collab_task.access" ></MenuItem>
 			</MenuItem>
+			<MenuItem Name="Task.AssignManage" Title="Task Assignment" Description=""  URL="{@home:url}/collab/task_assign" Order="43"  Access="collab_task.access" ></MenuItem>
 			<MenuItem Name="Task.Gantt" Title="Task Gantt Chart" Description=""  URL="{@home:url}/collab/task_gantt" Order="45"  Access="collab_task.access" ></MenuItem>
 			<MenuItem Name="Task.Statistics" Title="Task Statistics" Description=""  URL="{@home:url}/collab/task_statistics" Access="collab_task.access"  Order="48" ></MenuItem>
-			<MenuItem Name="Task.Timesheet" Title="Task Timesheet" Description=""  URL="{@home:url}/collab/task_timesheet" Order="50"  Access="collab_task.access"></MenuItem>
-			
+			<MenuItem Name="Task.Timesheet" Title="Task Timesheet" Description=""  URL="{@home:url}/collab/task_timesheet" Order="50"  Access="collab_task.access"></MenuItem>			
 			<MenuItem Name="Task.Type" Title="Task Type" Description=""  URL="{@home:url}/collab/task_type" Order="60"  Access="collab_task.access"></MenuItem>			
 		</MenuItem>
         <!-- worklog menus -->
@@ -131,7 +133,8 @@
         <MenuItem Name="Collab_Document" Title="Document" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_document" Order="60" Access="collab_document.access"  >
 			<MenuItem Name="Collab_Document.Manage" Title="Document Manage" Description=""  URL="{@home:url}/collab/document_manage" Access="collab_document.access" Order="10" >
 				<MenuItem Name="Collab_Document.Detail" Title="Document Detail" Description=""  URL="{@home:url}/collab/document_detail" Order="5"  Access="collab_document.access" ></MenuItem>
-			</MenuItem>			
+			</MenuItem>
+			<MenuItem Name="Collab_Document.AssignManage" Title="Document Assignment" Description=""  URL="{@home:url}/collab/document_assign" Access="collab_document.access"  Order="15" ></MenuItem>			
 			<MenuItem Name="Collab_Document.TypeManage" Title="Document Type" Description=""  URL="{@home:url}/collab/document_type" Access="collab_document.access"  Order="20" ></MenuItem>
 		</MenuItem>
         <!-- bookmark menus -->
@@ -153,7 +156,8 @@
     	<Module Name="menu"/>
     </Dependency>
         <ChangeLog>
-        <Version Name="1.1.6">
+        <Version Name="1.1.7">
+        	<Change Name="feature_116" Type="New_Feature" Status="Finished" PublishDate="2012-02-12" Description="added data assignment view"></Change>
         	<Change Name="feature_115" Type="New_Feature" Status="Finished" PublishDate="2012-02-10" Description="added task and document m-m relationship"></Change>
         	<Change Name="feature_115" Type="New_Feature" Status="Finished" PublishDate="2012-02-05" Description="added changelog feature for worklogs "></Change>
         	<Change Name="feature_114" Type="New_Feature" Status="Finished" PublishDate="2012-02-05" Description="added worklog and event m-m relationship"></Change>

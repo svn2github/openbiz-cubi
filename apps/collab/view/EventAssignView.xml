@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="EventAssignView" Description="Event Assignment Management" Class="EasyView"  Tab="" Access="collab_calendar.access" TemplateEngine="Smarty" TemplateFile="view_calendar.tpl">
+	<FormReferences>
+        <Reference Name="collab.calendar.form.EventAssignListForm"/>        
+    </FormReferences>
+</EasyView>

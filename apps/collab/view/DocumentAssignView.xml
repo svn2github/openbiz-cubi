@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="DocumentAssignView" Description="Document Assignment Management" Class="EasyView"  Tab="" TemplateEngine="Smarty"  Access="collab_document.access" TemplateFile="view_doc.tpl">
+   <FormReferences>
+   		<Reference Name="collab.document.form.DocumentAssignListForm"/>
+   </FormReferences>  
+</EasyView>

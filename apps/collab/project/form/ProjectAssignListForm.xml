@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProjectAssignListForm" Class="ProjectForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Project Assignment Management" Description="This module could help you manage project. You can put tasks under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_grid.tpl.html" EventName="PROJECT" MessageFile="Project.msg" Access="collab_project.access">
+    <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        <Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{RESOURCE_URL}/collab/project/images/icon_project_private.png"
+				MySharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared.png" 
+				MyAssignedImg="{RESOURCE_URL}/collab/project/images/icon_project_assigned.png"
+				MyDistributedImg="{RESOURCE_URL}/collab/project/images/icon_project_distributed.png" 
+				GroupSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_group.png"
+				OtherSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_other.png"
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
+		</Element>	
+
+        <Element Name="fld_title"  MaxLength="16" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>
+         
+        <Element Name="fld_starttime" Class="ColumnText" FieldName="start_time" Text="{date('Y-m-d H:i',strtotime(@:Elem[fld_starttime].Value))}"  Label="Start Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        </Element>
+         
+        <Element Name="fld_owner" Class="ColumnText" FieldName="owner_id" Text="{BizSystem::GetProfileName(@:Elem[fld_owner].Value,'short')}"  Label="Owner"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        </Element>        
+         
+        
+        <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" FieldName="status" Label="Status" Link="javascript:;" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        <EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateProjectStatus({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>         
+        </Element>
+ 		
+		<Element Name="fld_condition" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_condition_{@:Elem[fld_condition].Value}.png" FieldName="condition" Sortable="Y" Label="Cond" Link="javascript:;">		
+        	<EventHandler Name="fld_conditoin_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_condition,{@:Elem[fld_condition].Value},0,2)"/>         
+        </Element>
+        		
+		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Pri" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value},0,2)"/>		
+		</Element>
+		<!--
+        <Element Name="fld_importance" Class="ColumnBool" TrueImg="{RESOURCE_URL}/collab/project/images/icon_project_importance_yes.gif"  FalseImg="{RESOURCE_URL}/collab/project/images/icon_project_importance_no.gif" FieldName="importance" Sortable="Y" Label="Flag" Link="javascript:;">
+			<EventHandler Name="fld_importamce_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_importance,{@:Elem[fld_importance].Value})"/>		
+		</Element>
+		-->
+		<Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_type" Class="ColumnText"  Style="line-height:24px;" FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
+        
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(collab.project.form.ProjectNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+        <Element Name="btn_spacer" Class="Spacer" Width="10"></Element>        
+        
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=collab.project.form.ProjectEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_detail" Class="Button"   Text="Detail" CssClass="button_gray_m" Description="record detail">
+			<EventHandler Name="btn_update_onclick" Event="onclick" Function="EditRecord()" RedirectPage="form=collab.project.form.ProjectDetailForm&amp;fld:Id={@:Elem[fld_Id].Value}"    ContextMenu="Detail" />
+        </Element>
+        <Element Name="btn_spacer2" Class="Spacer" Width="10"></Element>
+        <Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)" >
+            <EventHandler Name="btn_copy_onclick" Event="onclick" EventLogMsg="" Function="CopyRecord()" RedirectPage="form=collab.project.form.ProjectCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element>
+                
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        </Element>
+        <Element Name="btn_purge" Class="Button" Text="Purge" CssClass="button_gray_m" >
+            <EventHandler Name="purge_onclick" Event="onclick" EventLogMsg="" Function="PurgeRecord()" ShortcutKey="Ctrl+Shift+Delete" ContextMenu="Purge"/>
+        </Element>
+        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
+            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+X" ContextMenu="Export"/>
+        </Element>
+       
+    </ActionPanel> 
+    <NavPanel>
+    	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
+        </Element>    
+        <Element Name="btn_first" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+    	<Element Name="group_filter"  BlankOption="All Groups" cssclass="input_select_m" Class="DropDownList" FieldName="" Label="" SelectFrom="system.do.GroupDO[name:Id]">
+            <EventHandler Name="groupfilter_onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+    	<Element Name="owner_filter"  BlankOption="All Users" cssclass="input_select_m" Class="DropDownList" FieldName="owner_id" Label="" SelectFrom="system.do.UserContactDO[display_name:Id],[group_id]='{@:Elem[group_filter].Value}'">
+            <EventHandler Name="ownerfilter_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>
+        <Element Name="btn_spacer_group" Class="Spacer" Width="10"></Element>
+        
+        <Element Name="status_selector" cssclass="input_select_m" BlankOption="All Status" Class="collab.lib.DataStatusFilter" FieldName="status" Label="" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" >
+            <EventHandler Name="status_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element> 
+        <Element Name="pri_selector" cssclass="input_select_m" BlankOption="All Priority" Class="DropDownList" FieldName="priority" Label="" SelectFrom="collab.project.lov.ProjectLOV(Priority)" >
+            <EventHandler Name="pri_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element> 
+        <Element Name="cond_selector" cssclass="input_select_m" BlankOption="All Condition" Class="DropDownList" FieldName="condition" Label="" SelectFrom="collab.project.lov.ProjectLOV(ProjectCondition)" >
+            <EventHandler Name="cond_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element> 
+    	<Element Name="type_selector" cssclass="input_select_m" BlankOption="All Types" Class="collab.lib.TypeSelector" FieldName="type_id" Label="" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" >
+            <EventHandler Name="type_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element> 
+        <Element Name="btn_spacer3" Class="Spacer" Width="10"></Element>
+        <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.project.do.ProjectDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" FieldName="name" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element>  
+    </SearchPanel>
+</EasyForm>
