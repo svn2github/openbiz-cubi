@@ -85,6 +85,8 @@ class ChangeLogWidgetForm extends EasyForm
 				$newClass = "LabelText";
 				if(preg_match('/Selector/si',$className)){
 					$newClass = "LabelList";
+				}elseif(preg_match('/List/si',$className)){
+					$newClass = "LabelList";
 				}
 				break;
 		}		
