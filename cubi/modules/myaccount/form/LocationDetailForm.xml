@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="LocationDetailForm" Class="ProfileForm" Icon="icon_my_profile.gif" SearchRule="[Id]='{@profile:profile_Id}'" FormType="" jsClass="jbForm" Title="My Locations " Description="Detailed information about my profile" BizDataObj="contact.do.ContactDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="location_edit.tpl.html" MessageFile="myaccount.ini" EventName="CONTACT" >
+    <DataPanel>
+    		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />	         	        	        
+			<Element Name="fld_locations"   ElementSet="Locations" Class="FormElement" FormReference="location.widget.LocationListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+	</DataPanel>
+    <ActionPanel>              
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(myaccount.form.LocationEditForm)"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_back" Class="LabelText" Text="Back" Link="{@home:url}/myaccount/my_profile" CssClass="button_gray_m"/>		
+         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

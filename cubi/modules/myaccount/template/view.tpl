@@ -12,6 +12,7 @@ $this->_tpl_vars['scripts'] = $includedScripts;
 
 $appendStyle = BizSystem::clientProxy()->getAppendedStyles();
 $appendStyle .= "\n"."
+<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
 <link rel=\"stylesheet\" href=\"$css_url/general.css\" type=\"text/css\" />
 <link rel=\"stylesheet\" href=\"$css_url/system_backend.css\" type=\"text/css\" />
 <link rel=\"stylesheet\" href=\"$css_url/system_menu_icons.css\" type=\"text/css\" />

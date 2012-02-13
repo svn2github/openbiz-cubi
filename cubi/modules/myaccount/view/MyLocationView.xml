@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="MyLocationView" Description="My Locations" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="myaccount.access">
+    <FormReferences>
+        <Reference Name="myaccount.form.LocationDetailForm"/>
+    </FormReferences>
+</EasyView>

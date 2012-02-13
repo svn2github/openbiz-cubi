@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="LocationEditForm" Class="contact.form.ContactForm" FormType="Edit" Icon="icon_my_profile.gif" jsClass="jbForm" SearchRule="[Id]='{@profile:profile_Id}'" Title="Edit My Locations" Description="Here you can edit personal contact locations" BizDataObj="contact.do.ContactSystemDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="location_edit.tpl.html"   MessageFile="myaccount.ini"  EventName="CONTACT">
+    <DataPanel>
+    		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="Y" />
+    		<Element Name="fld_related_locations"   ElementSet="Locations" Class="FormElement" FormReference="location.widget.LocationListEditForm" FieldName="" Label="" AllowURLParam="N" />	        	
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_w">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="SwitchForm(myaccount.form.LocationDetailForm)" RedirectPage="" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(myaccount.form.LocationDetailForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
