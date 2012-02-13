@@ -97,9 +97,10 @@
 				<MenuItem Name="Task.New" Title="New Task" Description=""  URL="{@home:url}/collab/task_new" Order="15"  Access="collab_task.access" ></MenuItem>
 			</MenuItem>
 			<MenuItem Name="Task.AssignManage" Title="Task Assignment" Description=""  URL="{@home:url}/collab/task_assign" Order="43"  Access="collab_task.access" ></MenuItem>
+			<MenuItem Name="Task.Timesheet" Title="Task Timesheet" Description=""  URL="{@home:url}/collab/task_timesheet" Order="44"  Access="collab_task.access"></MenuItem>
 			<MenuItem Name="Task.Gantt" Title="Task Gantt Chart" Description=""  URL="{@home:url}/collab/task_gantt" Order="45"  Access="collab_task.access" ></MenuItem>
 			<MenuItem Name="Task.Statistics" Title="Task Statistics" Description=""  URL="{@home:url}/collab/task_statistics" Access="collab_task.access"  Order="48" ></MenuItem>
-			<MenuItem Name="Task.Timesheet" Title="Task Timesheet" Description=""  URL="{@home:url}/collab/task_timesheet" Order="50"  Access="collab_task.access"></MenuItem>			
+						
 			<MenuItem Name="Task.Type" Title="Task Type" Description=""  URL="{@home:url}/collab/task_type" Order="60"  Access="collab_task.access"></MenuItem>			
 		</MenuItem>
         <!-- worklog menus -->

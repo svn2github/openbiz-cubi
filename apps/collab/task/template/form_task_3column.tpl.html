@@ -248,7 +248,7 @@ float:left;
 			         
 			         
 				        <td nowrap="nowrap" width="24" >{$row.fld_share}</td>
-				        <td width="80" >{$row.fld_title}</td>
+				        <td width="80" ><div style="width:80px;height:18px;overflow:hidden;">{$row.fld_title}</div></td>
 				        <td nowrap="nowrap" style="padding-left:3px;background-color:#EEEEEE;">{$row.fld_status|strip_tags}</td>				        
 				        <td nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}"></td>
 				           				           			                  
@@ -311,6 +311,58 @@ float:left;
 			{/if}
 		</td>
 	</tr>
+	<!-- Perviously Deferred -->
+	<tr>
+		<td class="task_list" colspan="3"  style="padding:3px;background-image:none;background-color:#f6f6f6;height:auto;width:auto;">
+			<span class="panel_title" style="background-color:#cccccc;height:auto;width:692px;">{t}Previously Deferred Status{/t}</span>
+			{if $form.dataGroup.prev.data|count  }
+				{foreach item=row from=$form.dataGroup.prev.data}
+			     <table border="0" cellpadding="0" cellspacing="0" style="width:172px;margin-right:3px;" class="form_table other_task" id="{$form.name}_data_table">	
+			         {if $row_style != ''}
+					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+								style="{$row_style}"										
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+					 {elseif $row_counter is odd}
+					   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					   			style="{$row_style}"
+					   			class="odd"  normal="odd" select="selected"								  
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+			         {else}
+						<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+								style="{$row_style}"
+								class="even"  normal="even" select="selected"								 								 
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+			         {/if}
+			         
+			         
+				        <td nowrap="nowrap" width="24" >{$row.fld_share}</td>
+				        <td width="80" ><div style="width:80px;height:18px;overflow:hidden;">{$row.fld_title}</div></td>
+				        <td nowrap="nowrap" style="padding-left:3px;background-color:#EEEEEE;">{$row.fld_status|strip_tags}</td>				        
+				        <td nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}"></td>
+				           				           			                  
+					{assign var=row_counter value=$row_counter+1}
+					</tr>
+					{if $row.fld_description}
+					<tr>						
+						<td class="task_desc" style="padding:0px;" nowrap="" colspan="3" >
+						<div style="padding-left:5px;">
+						{$row.fld_description}
+						</div>
+						</td>
+						<td nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}"></td>
+					</tr>
+					{/if}
+					</table>	
+			     {/foreach}
+			     
+			
+			{else}
+				<span class="not_found" style="padding:0px;text-align:left;text-indent:10px;">{t}-- No previously deferred tasks --{/t}</span>
+			{/if}
+		</td>
+	</tr>
+
+	
 </table>
 </div>
 
