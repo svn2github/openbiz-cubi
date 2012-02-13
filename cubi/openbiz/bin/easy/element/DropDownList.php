@@ -175,6 +175,10 @@ class DropDownList extends InputElement
         	
         }
             
+       	if(!is_array($list)||count($list)==0){
+       		return $value;
+       	}
+        
     	foreach ($list as $item){
         	if($item['val']==$value){
         		if(!preg_match("/\</si",$item['txt'])){
