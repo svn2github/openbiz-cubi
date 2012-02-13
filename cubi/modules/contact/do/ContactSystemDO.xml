@@ -51,6 +51,8 @@
     	<Join Name="JoinContactType"  ColumnRef="type_id" JoinType="LEFT JOIN" Column="id"  Table="contact_type"/>
     </TableJoins>
     <ObjReferences>
+        	<Object Name="location.do.LocationDO" Description="" Relationship="1-M" Table="location" CondColumn='type' CondValue='contact' Column="foreign_id" FieldRef="Id" />
+    
         	<Object Name="changelog.do.ChangeLogDO" Description="" Relationship="1-M" Table="changelog" CondColumn='type' CondValue='contact' Column="foreign_id" FieldRef="Id" />    
     </ObjReferences>
 </BizDataObj>

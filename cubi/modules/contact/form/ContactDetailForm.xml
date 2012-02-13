@@ -29,8 +29,10 @@
 	        <Element Name="fld_icq" Class="LabelText" ElementSet="Online Contact"  FieldName="icq" Label="ICQ"  AllowURLParam="N"/>    	        
 	        <Element Name="fld_skype" Class="LabelText" ElementSet="Online Contact"  FieldName="skype" Label="Skype"  AllowURLParam="N"/>    	        
 	        <Element Name="fld_yahoo" Class="LabelText" ElementSet="Online Contact"  FieldName="yahoo" Label="Yahoo"  AllowURLParam="N"/>
+     		
+     		<Element Name="fld_locations"   ElementSet="Locations" Class="FormElement" FormReference="location.widget.LocationListDetailForm" FieldName="" Label="" AllowURLParam="N" />
      	
-     		         <Element Name="fld_changelog"   ElementSet="ChangeLog" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetNoLeftForm" FieldName="" Label="" AllowURLParam="N" /> 
+     		<Element Name="fld_changelog"   ElementSet="ChangeLog" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetNoLeftForm" FieldName="" Label="" AllowURLParam="N" /> 
      	
      	
  	    	<Element Name="fld_misc" Class="RawData"  ElementSet="Miscellaneous" FieldName="misc" Label="Miscellaneous"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />                	      

@@ -29,6 +29,9 @@
 	        <Element Name="fld_icq" Class="InputText" ElementSet="Online Contact"  FieldName="icq" Label="ICQ"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
 	        <Element Name="fld_skype" Class="InputText" ElementSet="Online Contact"  FieldName="skype" Label="Skype"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
 	        <Element Name="fld_yahoo" Class="InputText" ElementSet="Online Contact"  FieldName="yahoo" Label="Yahoo"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+
+	    	<Element Name="fld_related_locations"   ElementSet="Locations" Class="FormElement" FormReference="location.widget.LocationListEditForm" FieldName="" Label="" AllowURLParam="N" />
+
      	
  	    	<Element Name="fld_misc" Class="Textarea"  ElementSet="Miscellaneous" FieldName="misc" Label="Miscellaneous"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />                	      
 	        <Element Name="fld_type_id" Class="common.lib.TypeSelector" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="contact.do.ContactTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" FieldName="type_id" Label="Contact Type"  AllowURLParam="N" />    	        	        

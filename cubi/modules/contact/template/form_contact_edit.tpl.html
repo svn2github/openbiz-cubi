@@ -10,6 +10,9 @@ table.input_row {
 	display:block;
 	
 }
+#location\.widget\.LocationNewForm table.input_row {
+	height:auto;		
+}
 </style>
 {/literal}
 	<div>
@@ -222,10 +225,38 @@ table.input_row {
 			init_elementset('{$form.name}','3');
 		</script>		
 		
+		
+		<!-- Locations Section -->
+		<div class="underline" >
+			<h2 class="element_set_title"><a id="element_set_btn_4" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','4')" >{t}Locations{/t}</a></h2>
+				<div id="element_set_panel_4" class="element_set_panel">
+				<table ><tr><td>		
+			{foreach item=item key=itemName from=$dataPanel}
+				{if $item.elementsetcode eq "Locations"}
+						
+					<table  id="{$itemName}_container" class="input_row"  style="height:auto;">								
+					<tr>
+						<td>				
+							
+							<span class="label_text" style="height:auto;" >{$item.element}</span>
+												
+						</td>
+					</tr>
+					</table>
+					
+				{/if}						
+			{/foreach}	
+			</td></tr></table>	
+			</div>		
+		</div>		
+		<script>
+			init_elementset('{$form.name}','4');
+		</script>
+		
 		<!-- Misc Section -->
 		<div class="underline" >
-			<h2 class="element_set_title"><a id="element_set_btn_4" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','4')" >{t}Miscellaneous{/t}</a></h2>
-				<div id="element_set_panel_4" class="element_set_panel">
+			<h2 class="element_set_title"><a id="element_set_btn_5" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','5')" >{t}Miscellaneous{/t}</a></h2>
+				<div id="element_set_panel_5" class="element_set_panel">
 				<table ><tr><td>		
 			{foreach item=item key=itemName from=$dataPanel}
 				{if $item.elementsetcode eq "Miscellaneous"}
@@ -286,13 +317,13 @@ table.input_row {
 			</div>		
 		</div>		
 		<script>
-			init_elementset('{$form.name}','4');
+			init_elementset('{$form.name}','5');
 		</script>		
 		{if $dataPanel.fld_changelog_comment.label}
 		<!-- Change Comment Section -->
 		<div class="underline" >
-			<h2 class="element_set_title"><a id="element_set_btn_5" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','5')" >{t}Change Comment{/t}</a></h2>
-				<div id="element_set_panel_5" class="element_set_panel">
+			<h2 class="element_set_title"><a id="element_set_btn_6" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','6')" >{t}Change Comment{/t}</a></h2>
+				<div id="element_set_panel_6" class="element_set_panel">
 				<table ><tr><td>		
 			{foreach item=item key=itemName from=$dataPanel}
 				{if $item.elementsetcode eq "Change Comment"}
@@ -323,7 +354,7 @@ table.input_row {
 			</div>		
 		</div>		
 		<script>
-			init_elementset('{$form.name}','5');
+			init_elementset('{$form.name}','6');
 		</script>			
 		{/if}
 		<div style="height:10px;"></div>
