@@ -44,7 +44,7 @@
 				<EventHandler Name="btn_manage_location_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventEditLocationForm,{@:Elem[fld_Id].Value})"   />
        		 </Element>  
 			 
-			<Element Name="fld_reminder" ElementSet="Reminder" DefaultValue="0" Class="LabelList" selectFrom="collab.lov.ReminderLOV(ReminderType)" FieldName="reminder" Label="Reminder" AllowURLParam="N" >
+			<Element Name="fld_reminder" ElementSet="Reminder" DefaultValue="0" Class="LabelList" selectFrom="collab.lov.ReminderLOV(NotifyTimeType)" FieldName="reminder" Label="Reminder" AllowURLParam="N" >
 				<EventHandler Name="fld_reminder_onclick" Event="onchange" Function="UpdateForm()"  />
 			</Element>
 			<Element Name="fld_reminder_time" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelList" selectFrom="collab.calendar.lov.EventLOV(ReminderTimeType)" FieldName="reminder_time" Label="Time Setting" AllowURLParam="N" />
