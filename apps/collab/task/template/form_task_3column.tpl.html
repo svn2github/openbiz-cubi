@@ -258,7 +258,7 @@ float:left;
 			<span class="panel_title other_status" style="background-color:#cccccc;height:auto;width:692px;">{t}Other Status{/t}</span>
 			{if $form.dataGroup.3.data|count ||  $form.dataGroup.4.data|count }
 				{foreach item=row from=$form.dataGroup.3.data}
-			     <table border="0" cellpadding="0" cellspacing="0" style="width:172px;margin-right:3px;" class="form_table other_task" id="{$form.name}_data_table">	
+			     <table border="0" cellpadding="0" cellspacing="0" style="width:172px;margin-right:2px;" class="form_table other_task" id="{$form.name}_data_table">	
 			         {if $row_style != ''}
 					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
 								style="{$row_style}"										
@@ -297,7 +297,7 @@ float:left;
 			     {/foreach}
 			     
 			     {foreach item=row from=$form.dataGroup.4.data}
-			     <table border="0" cellpadding="0" cellspacing="0" style="width:172px;margin-right:3px;" class="form_table other_task" id="{$form.name}_data_table">	
+			     <table border="0" cellpadding="0" cellspacing="0" style="width:172px;margin-right:2px;" class="form_table other_task" id="{$form.name}_data_table">	
 			         {if $row_style != ''}
 					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
 								style="{$row_style}"										
@@ -346,7 +346,7 @@ float:left;
 			<span class="panel_title perv_task" style="background-color:#cccccc;height:auto;width:692px;">{t}Previously Deferred Tasks{/t}</span>
 			{if $form.dataGroup.prev.data|count  }
 				{foreach item=row from=$form.dataGroup.prev.data}
-			     <table border="0" cellpadding="0" cellspacing="0" style="width:172px;margin-right:3px;" class="form_table other_task" id="{$form.name}_data_table">	
+			     <table border="0" cellpadding="0" cellspacing="0" style="width:172px;margin-right:2px;" class="form_table other_task" id="{$form.name}_data_table">	
 			         {if $row_style != ''}
 					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
 								style="{$row_style}"										
