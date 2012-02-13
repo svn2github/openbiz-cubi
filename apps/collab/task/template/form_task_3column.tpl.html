@@ -52,6 +52,35 @@ font-size:12px;
 {
 float:left;
 }
+
+.task_list .not_start
+{
+	background-image:url({/literal}{$resource_url}{literal}/collab/task/images/menu_row_bg.gif);
+	background-position:0px 0px;
+}
+
+.task_list .in_progress
+{
+	background-image:url({/literal}{$resource_url}{literal}/collab/task/images/menu_row_bg.gif);
+	background-position:0px -24px;
+}
+
+.task_list .completed
+{
+	background-image:url({/literal}{$resource_url}{literal}/collab/task/images/menu_row_bg.gif);
+	background-position:0px -48px;
+}
+.task_list .other_status
+{
+	background-image:url({/literal}{$resource_url}{literal}/collab/task/images/menu_row_bg.gif);
+	background-position:0px -72px;
+}
+
+.task_list .perv_task
+{
+	background-image:url({/literal}{$resource_url}{literal}/collab/task/images/menu_row_bg.gif);
+	background-position:0px -96px;
+}
 </style>
 {/literal}
 <div style="padding-left:25px;padding-right:40px;">
@@ -73,7 +102,7 @@ float:left;
 <table border="0" cellpadding="0" cellspacing="0" class="form_table" id="{$form.name}_data_table"  style="margin:0px;border-right:none;">
 	<tr>
 		<td class="task_list" width="170" style="padding:1px;padding-left:0px;background-image:none;background-color:#faf9f8;"  valign="top">
-			<span class="panel_title" style="background-color:#66c2ff;height:auto;">{t}Not Started{/t}</span>
+			<span class="panel_title not_start" style="background-color:#66c2ff;height:auto;">{t}Not Started{/t}</span>
 
 				 {if $form.dataGroup.0.data|count}
 			     {assign var=row_counter value=0}
@@ -125,7 +154,7 @@ float:left;
 
 		</td>
 		<td class="task_list" style="padding:1px;background-image:none;" valign="top">
-			<span class="panel_title" style="background-color:#ffb053;height:auto;">{t}In Progress{/t}</span>
+			<span class="panel_title in_progress" style="background-color:#ffb053;height:auto;">{t}In Progress{/t}</span>
 			{assign var=row_counter value=0}   
 				{if $form.dataGroup.1.data|count}           
 			     {foreach item=row from=$form.dataGroup.1.data}
@@ -174,7 +203,7 @@ float:left;
 			     {/if}
 		</td>
 		<td class="task_list" width="170" style="padding:1px;padding-right:0px;background-image:none;background-color:#faf9f8;"  valign="top">
-			<span class="panel_title" style="background-color:#7fff6b;height:auto;">{t}Completed{/t}</span>
+			<span class="panel_title completed" style="background-color:#7fff6b;height:auto;">{t}Completed{/t}</span>
 				{assign var=row_counter value=0}        
 				{if $form.dataGroup.2.data|count}    
 			     {foreach item=row from=$form.dataGroup.2.data}
@@ -226,7 +255,7 @@ float:left;
 	</tr>
 	<tr>
 		<td class="task_list" colspan="3"  style="padding:3px;background-image:none;background-color:#f6f6f6;height:auto;width:auto;">
-			<span class="panel_title" style="background-color:#cccccc;height:auto;width:692px;">{t}Other Status{/t}</span>
+			<span class="panel_title other_status" style="background-color:#cccccc;height:auto;width:692px;">{t}Other Status{/t}</span>
 			{if $form.dataGroup.3.data|count ||  $form.dataGroup.4.data|count }
 				{foreach item=row from=$form.dataGroup.3.data}
 			     <table border="0" cellpadding="0" cellspacing="0" style="width:172px;margin-right:3px;" class="form_table other_task" id="{$form.name}_data_table">	
@@ -314,7 +343,7 @@ float:left;
 	<!-- Perviously Deferred -->
 	<tr>
 		<td class="task_list" colspan="3"  style="padding:3px;background-image:none;background-color:#f6f6f6;height:auto;width:auto;">
-			<span class="panel_title" style="background-color:#cccccc;height:auto;width:692px;">{t}Previously Deferred Status{/t}</span>
+			<span class="panel_title perv_task" style="background-color:#cccccc;height:auto;width:692px;">{t}Previously Deferred Status{/t}</span>
 			{if $form.dataGroup.prev.data|count  }
 				{foreach item=row from=$form.dataGroup.prev.data}
 			     <table border="0" cellpadding="0" cellspacing="0" style="width:172px;margin-right:3px;" class="form_table other_task" id="{$form.name}_data_table">	
