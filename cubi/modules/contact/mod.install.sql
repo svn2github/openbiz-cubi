@@ -116,5 +116,5 @@ CREATE TABLE IF NOT EXISTS `contact_import` (
 ) ENGINE=Memory  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 update `contact` set `group_id`=1,`group_perm`=1,`other_perm`=0;
-update `contact_type` set `group_id`=1,`group_perm`=1,`other_perm`=0;
+update `contact_type` set `group_id`=1,`group_perm`=1,`other_perm`=1;
 update `contact` set `owner_id`=`create_by`;
