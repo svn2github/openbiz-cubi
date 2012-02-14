@@ -5,15 +5,15 @@
 	 
         
 		
-		<Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m">
+		<Element Name="btn_location_edit" Class="Button" Text="Edit" CssClass="button_gray_m">
             <EventHandler Name="btn_close_onclick" Event="onclick" Function="switchForm(location.widget.LocationEditForm,{@:Elem[fld_Id].Value})"/>
         </Element>
-		<Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
+		<Element Name="btn_location_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
             <EventHandler Name="btn_delete_onclick" Event="onclick" Function="DeleteLocation({@:Elem[fld_Id].Value})"/>
         </Element>
         
-        <Element Name="btn_spacer" Class="Spacer" width="10" />
-		<Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
+        <Element Name="btn_location_spacer" Class="Spacer" width="10" />
+		<Element Name="btn_location_close" Class="Button" Text="Close" CssClass="button_gray_m">
             <EventHandler Name="btn_close_onclick" Event="onclick" Function="close()"/>
         </Element>
     </ActionPanel> 

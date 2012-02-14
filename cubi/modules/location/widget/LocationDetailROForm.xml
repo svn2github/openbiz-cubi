@@ -8,8 +8,8 @@
         
     </DataPanel>
     <ActionPanel>	 
-        <Element Name="btn_spacer" Class="Spacer" width="10" />		
-		<Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
+        <Element Name="btn_location_spacer" Class="Spacer" width="10" />		
+		<Element Name="btn_location_close" Class="Button" Text="Close" CssClass="button_gray_m">
             <EventHandler Name="btn_close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
         </Element>
     </ActionPanel> 
