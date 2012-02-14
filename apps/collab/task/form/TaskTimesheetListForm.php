@@ -121,7 +121,7 @@ class TaskTimesheetListForm extends ChangeLogForm
         //added pervious other status tasks
         QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
         $dataPermSQLRule = BizSystem::GetService(DATAPERM_SERVICE)->buildSqlRule('update',true);
-        $searchRule =  "( [finish_time]<='$sel_date 00:00:00' ) AND ([status]=4 OR [status]=5) AND $dataPermSQLRule";
+        $searchRule =  "( [finish_time]<='$sel_date 00:00:00' ) AND ([status]!=2) AND $dataPermSQLRule";
         $dataObj->setOtherSQLRule("");
 		$dataObj->setLimit(0,0);
 		$dataObj->clearSearchRule();

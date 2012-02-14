@@ -343,7 +343,7 @@ float:left;
 	<!-- Perviously Deferred -->
 	<tr>
 		<td class="task_list" colspan="3"  style="padding:1px;background-image:none;background-color:#f6f6f6;height:auto;width:auto;">
-			<span class="panel_title perv_task" style="background-color:#cccccc;height:auto;width:694px;">{t}Previously Deferred Tasks{/t}</span>
+			<span class="panel_title perv_task" style="background-color:#cccccc;height:auto;width:694px;">{t}Previously Not Completed Tasks{/t}</span>
 			{if $form.dataGroup.prev.data|count  }
 				{foreach item=row from=$form.dataGroup.prev.data}
 			     <table border="0" cellpadding="0" cellspacing="0" style="width:172px;margin-right:2px;" class="form_table other_task" id="{$form.name}_data_table">	
@@ -386,7 +386,7 @@ float:left;
 			     
 			
 			{else}
-				<span class="not_found" style="padding:0px;text-align:left;text-indent:10px;">{t}-- No previously deferred tasks --{/t}</span>
+				<span class="not_found" style="padding:0px;text-align:left;text-indent:10px;">{t}-- No previously not completed tasks --{/t}</span>
 			{/if}
 		</td>
 	</tr>
