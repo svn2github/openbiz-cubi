@@ -39,6 +39,6 @@ CREATE TABLE `email_queue` (
 /*Data for the table `email_queue` */
 
 /* Insert Cronjob Task*/
-INSERT INTO `cronjob` (`id`, `name`, `minute`, `hour`, `day`, `month`, `weekday`, `command`, `sendmail`, `max_run`, `num_run`, `description`, `status`, `last_exec`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-(1, 'Sending Email Job', '*', '*', '*', '*', '*', '{APP_HOME}/bin/cronjob/run_svc.php  userEmailService sendEmailFromQueue', '', 1, 0, 'System Email Queue Service', 1, 1296586403, 1, '2011-02-01 10:24:31', 1, '2011-02-01 10:51:04');
+INSERT INTO `cronjob` ( `name`, `minute`, `hour`, `day`, `month`, `weekday`, `command`, `sendmail`, `max_run`, `num_run`, `description`, `status`, `last_exec`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+( 'Sending Email Job', '*', '*', '*', '*', '*', '{APP_HOME}/bin/cronjob/run_svc.php  userEmailService sendEmailFromQueue', '', 1, 0, 'System Email Queue Service', 1, 1296586403, 1, '2011-02-01 10:24:31', 1, '2011-02-01 10:51:04');
 
