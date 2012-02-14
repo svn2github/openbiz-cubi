@@ -146,9 +146,13 @@ margin-right:5px;
 		    	zIndex:10,
 		    	{/literal}
 				{if $row.fld_photo !=""}
+				{literal} 
 					content:"<div  style='float:left;width:120px;height:145px;'><div class='photo_frame'><image id='photo_placeholder' src='{/literal}{$app_url}{$row.fld_photo}{literal}' width='90' height='125'/></div></div><div style='float:left;height:145px;width:150px;'><div class='underline' style='height:55px;width:150px;padding:0px;'><span class=\"location_name\">{/literal}{$row.fld_display_name|addslashes}{literal}</span><span class=\"location_type\" style=\"background-color:#{/literal}{$row.fld_color}{literal}\">{/literal}{$row.fld_type}{literal}</span></div><span class=\"location_title\">{/literal}{$row.fld_title|addslashes}{literal}</span><p>{/literal}{$row.fld_description|addslashes}{literal}</p><span class=\"location_more\">{/literal}{$row.fld_more|addslashes}{literal}</span></div>"
+				{/literal}
 				{else}
+				{literal}
 					content:"<div  style='float:left;width:120px;height:145px;'><div class='photo_frame'><image id='photo_placeholder' src='{/literal}$image_url}/profile_photo_icon.gif{literal}' width='90' height='125'/></div></div><div style='float:left;height:145px;width:150px;'><div class='underline' style='height:55px;width:150px;padding:0px;'><span class=\"location_name\">{/literal}{$row.fld_display_name|addslashes}{literal}</span><span class=\"location_type\" style=\"background-color:#{/literal}{$row.fld_color}{literal}\">{/literal}{$row.fld_type}{literal}</span></div><span class=\"location_title\">{/literal}{$row.fld_title|addslashes}{literal}</span><p>{/literal}{$row.fld_description|addslashes}{literal}</p><span class=\"location_more\">{/literal}{$row.fld_more|addslashes}{literal}</span></div>"
+				{/literal}
 				{/if}
 				{literal} 
 		    });
