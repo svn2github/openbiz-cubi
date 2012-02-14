@@ -12,6 +12,9 @@ body, p, form, div, h1, h2,ul, li, pre{
 	font-family: Arial, Gadget, sans-serif;
 	line-height:18px;
 }
+input,select,option,label{
+	font-family: Arial, Gadget, sans-serif;
+}
 body{
 height:100%;
 width:100%;
