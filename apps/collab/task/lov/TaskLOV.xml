@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <Selection>
-   <RecurrenceType Value="0" text="Only once"/>
+   <RecurrenceType Value="0" text="No repeat"/>
    <RecurrenceType Value="1" text="Daily"/>
    <RecurrenceType Value="2" text="Weekly"/>
    <RecurrenceType Value="3" text="Monthly"/>
