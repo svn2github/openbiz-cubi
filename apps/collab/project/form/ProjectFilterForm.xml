@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectFilterForm" Class="ProjectForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Project Gantt View" Description="This module could help you manage project. You can put tasks under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="4" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_filter.tpl.html" EventName="PROJECT" MessageFile="Project.msg" Access="collab_project.access">
+<EasyForm Name="ProjectFilterForm" Class="ProjectForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Project Gantt View" Description="Click a project then you can see the Gantt chart of the project" BizDataObj="collab.project.do.ProjectDO" PageSize="4" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_filter.tpl.html" EventName="PROJECT" MessageFile="Project.msg" Access="collab_project.access">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
         <Element Name="fld_share" Class="ColumnShare" 
