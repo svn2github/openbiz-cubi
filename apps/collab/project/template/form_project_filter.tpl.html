@@ -19,11 +19,17 @@ margin-right:5px;
 <div style="padding-left:25px;padding-right:40px;">
 	<div>
 {include file="system_appbuilder_btn.tpl.html"}
-
-	
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+		<div style="float:left; width:600px;">
 		<h2>
 		{$form.title}
 		</h2> 
+		<p class="form_desc">{$form.description}</p>
+		</div>
+	</td></tr></table>
 
 	</div>
 {if  $actionPanel }	
