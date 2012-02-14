@@ -22,7 +22,7 @@
 		 or $item.type eq 'RawData'
 		 or $item.type eq 'attachment.element.AttachmentUploader'
 		 }
-			<table  id="{$itemName}_container" class="input_row">
+			<table  id="{$itemName}_container" class="input_row" style="height:auto;">
 			<tr>
 			<td style="width:80px;">	
 				<label style="text-align:left">{$item.label}</label>
@@ -36,7 +36,7 @@
 			</td>
 			</tr>
 			<tr><td colspan="2" align="left" >
-				<span class="label_textarea" style="width:655px;">{$item.element}</span>
+				<span class="label_textarea" style="width:655px;height:auto;">{$item.element}</span>
 							
 			</td></tr>
 			</table>		
