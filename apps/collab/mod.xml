@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="Openbiz Collaboration" Version="1.1.9" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
+<Module Name="collab" Description="Openbiz Collaboration" Version="1.2.0" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -56,6 +56,7 @@
                 <MenuItem Name="Collab_Contact.Company" Title="View Company" Description=""  URL="{@home:url}/collab/company_list"  Order="40" Access="contact.access"></MenuItem>
                 <MenuItem Name="Collab_Contact.ByType" Title="View By Contact Type" Description=""  URL="{@home:url}/collab/contact_type_list"  Order="50" Access="contact.access"></MenuItem>				
 			</MenuItem>
+			<MenuItem Name="Collab_Contact.Map" Title="Contact Map" Description=""  URL="{@home:url}/collab/contact_map"  Order="15" Access="contact.access"></MenuItem>
 			<MenuItem Name="Collab_Contact.Garbber" Title="Contact Grabber" Description=""  URL="{@home:url}/collab/contact_import"  Order="20" Access="contact.access"></MenuItem>
 			<MenuItem Name="Collab_Contact.Type" Title="Contact Type" Description=""  URL="{@home:url}/collab/contact_type"  Order="30" Access="contact.access" ></MenuItem>
 		</MenuItem>	
@@ -158,6 +159,9 @@
     	<Module Name="menu"/>
     </Dependency>
         <ChangeLog>
+        <Version Name="1.2.0">
+        	<Change Name="feature_120" Type="New_Feature" Status="Finished" PublishDate="2012-02-14" Description="added contact map feature"></Change>
+        </Version>
         <Version Name="1.1.9">
         	<Change Name="feature_119" Type="New_Feature" Status="Finished" PublishDate="2012-02-14" Description="added project task manager"></Change>
         	<Change Name="feature_117" Type="New_Feature" Status="Finished" PublishDate="2012-02-13" Description="enhancement task timesheet UI"></Change>
