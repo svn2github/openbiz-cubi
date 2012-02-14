@@ -1,0 +1,206 @@
+<form id='{$form.name}' name='{$form.name}'>
+{literal}
+<style>
+#main #right_panel .content table.input_row td .label_text{
+width:350px;
+}
+.action_panel{
+width:310px;
+}
+.search_panel{
+width:380px;
+}
+.search_panel select{
+float:left;
+margin-right:5px;
+}
+
+.location_name{
+	color: #006599;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 20px;
+	padding:0px;
+	margin:0px;
+	padding-bottom:5px;
+	display:block;
+}
+.location_name a{
+ text-decoration: none;
+}
+.location_type{
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 16px;
+	padding:0px;
+	margin:0px;
+	padding-left:5px;
+	padding-top:2px;
+	padding-bottom:2px;
+	display:block;
+}
+.location_title{
+	color: #006599;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 16px;
+	padding-top:10px;
+	margin:0px;
+	padding-bottom:5px;
+	display:block;
+}
+</style>
+{/literal}
+<div style="padding-left:25px;padding-right:40px;">
+	<div>
+{include file="system_appbuilder_btn.tpl.html"}
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+		<div style="float:left; width:600px;">
+		<h2>
+		{$form.title}
+		</h2> 
+		<p class="form_desc">{$form.description}</p>
+		</div>
+	</td></tr></table>
+	</div>
+{if $actionPanel or $searchPanel }	
+	<div class="form_header_panel">	
+		<div class="action_panel"  style="width:292px;">
+		{foreach item=elem from=$actionPanel}
+		    	{$elem.element}
+		{/foreach}
+		</div>
+		<div class="search_panel" style="width:398px;">
+		{foreach item=elem key=name from=$searchPanel}
+			{if $name=='qry_name' ||
+				 $name=='btn_dosearch' ||
+				 $name=='data_filter' ||
+				 $name=='type_selector'} 
+				{if $elem.label} {$elem.label} {/if} 
+				{$elem.element}
+			{/if} 
+		{/foreach}
+		</div>
+	</div>
+	<div class="form_header_panel" style="background-color:#dddddd;margin-top:2px;">	
+		<div class="action_panel" style="width:700px;">
+		
+		{foreach item=elem key=name from=$searchPanel}
+			{if $name!='qry_name' && 
+			 	$name!='btn_dosearch' &&
+			 	$name!='data_filter' &&
+			 	$name!='type_selector'} 
+				{if $elem.label} {$elem.label} {/if} 
+				{$elem.element}
+			{/if} 
+		{/foreach}
+		</div>
+	</div>
+{/if}	
+
+<div class="from_table_container">
+<!-- table start -->
+<table  id="{$form.name}_data_table">					
+</table>
+<div style="width:700px; height:500px;" id="map_contianer">
+
+	<div id="map_canvas" style="width:100%; height:100%;"  ></div>
+	{literal}
+ </div>	
+</div>
+
+
+	<script>
+		
+		var defaultZIndex=100;
+		setTimeout(function(){
+		{/literal}
+		{if $dataPanel.data|count >0}
+		 {foreach item=row name=locations from=$dataPanel.data}
+		 	{if $smarty.foreach.locations.first}
+		  	var myLatlng = new google.maps.LatLng({$row.fld_latitude},{$row.fld_longtitude});
+			var defaultZoom=13;		 	
+			{/if}
+		 {/foreach}
+		 {else}
+			var myLatlng = new google.maps.LatLng({$smarty.const.DEFAULT_LATITUDE},{$smarty.const.DEFAULT_LONGTITUDE});
+			var defaultZoom=10;
+		 {/if}
+		{literal}
+		var myOptions = {
+	      zoom: defaultZoom,
+		  center: myLatlng,		  	      
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	     }
+		
+		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	    {/literal}
+	    {foreach item=row name=locations from=$dataPanel.data}
+		{literal} 
+		
+			var myLatlng_{/literal}{$row.fld_location_id}{literal} = new google.maps.LatLng({/literal}{$row.fld_latitude}{literal},{/literal}{$row.fld_longtitude}{literal});
+		    var infowindow_{/literal}{$row.fld_location_id}{literal} = new google.maps.InfoWindow({
+		    	zIndex:10,
+		    	{/literal}
+				{if $row.fld_photo !=""}
+					{assign var=photo value=$app_url+$row.fld_photo}
+				{else}
+					{assign var=photo value=$image_url\/profile_photo_icon.gif}
+				{/if}
+				{literal} 
+		        content:"<div  style='float:left;width:120px;height:145px;'><div class='photo_frame'><image id='photo_placeholder' src='{/literal}{$photo}{literal}' width='90' height='125'/></div></div><div style='float:left;height:145px;width:150px;'><div class='underline' style='height:55px;width:150px;padding:0px;'><span class=\"location_name\">{/literal}{$row.fld_display_name|addslashes}{literal}</span><span class=\"location_type\" style=\"background-color:#{/literal}{$row.fld_color}{literal}\">{/literal}{$row.fld_type}{literal}</span></div><span class=\"location_title\">{/literal}{$row.fld_title|addslashes}{literal}</span><p>{/literal}{$row.fld_description|addslashes}{literal}</p><span class=\"location_more\">{/literal}{$row.fld_more|addslashes}{literal}</span></div>"						
+		    });
+	
+		    var marker_{/literal}{$row.fld_location_id}{literal} = new google.maps.Marker({
+		        position: myLatlng_{/literal}{$row.fld_location_id}{literal},
+		        map: map,				
+		        zIndex:10,
+		        title: '{/literal}{$row.fld_title|addslashes}{literal}'
+		    });		
+		    google.maps.event.addListener(marker_{/literal}{$row.fld_location_id}{literal}, 'click', function() {
+		    	infowindow_{/literal}{$row.fld_location_id}{literal}.open(map,marker_{/literal}{$row.fld_location_id}{literal});		    	
+		    	defaultZIndex+=10;
+		    	infowindow_{/literal}{$row.fld_location_id}{literal}.setZIndex(defaultZIndex);
+		    	marker_{/literal}{$row.fld_location_id}{literal}.setZIndex(defaultZIndex);
+		    });
+		    
+			google.maps.event.addListener(marker_{/literal}{$row.fld_location_id}{literal}, 'dblclick', function() {
+				 if (marker_{/literal}{$row.fld_location_id}{literal}.getAnimation() != null) {
+				    marker_{/literal}{$row.fld_location_id}{literal}.setAnimation(null);
+				  } else {
+				    marker_{/literal}{$row.fld_location_id}{literal}.setAnimation(google.maps.Animation.BOUNCE);
+				  }
+			});	
+			//infowindow_{/literal}{$row.fld_Id}{literal}.open(map,marker_{/literal}{$row.fld_location_id}{literal});
+		{/literal}
+		{/foreach}	
+		 {literal}
+		},100);
+	</script>
+	{/literal}
+	
+<span id='{$form.name}_selected_id' style="display:none">{$default_selected_id}</span>
+<!-- table end -->	
+
+	<div class="form_footer_panel">
+		<div class="ajax_indicator">
+			<div id='{$form.name}.load_disp' style="display:none" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
+		</div>
+		<div class="navi_panel">
+{if $navPanel}
+   {foreach item=elem from=$navPanel}
+   		{if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
+    	{$elem.element}
+   {/foreach}
+{/if}			
+		
+		</div>		
+	</div>
+	<div class="v_spacer"></div>
+</div>
+</form>

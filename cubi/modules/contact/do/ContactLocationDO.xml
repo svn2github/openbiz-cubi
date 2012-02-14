@@ -1,0 +1,64 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ContactLocationDO" Description="" DataPermControl="Y" Class="BizDataObj" DBName="Default" Table="contact" SearchRule="[location_type]='contact'" SortRule="[sortorder] ASC, [Id] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+        <BizField Name="Id" Column="id"     Type="Number"/>
+        <BizField Name="first_name" Column="first_name" Required="N" Length="255"  Type="Text"/>
+        <BizField Name="last_name" Column="last_name" Required="N" Length="255"  Type="Text"/>
+        <BizField Name="display_name" Column="display_name" Length="255"  Type="Text"/>
+        <BizField Name="company" Column="company" Required="Y" Length="255"  Type="Text"/>
+        <BizField Name="department" Column="department" Length="255"  Type="Text"/>
+        <BizField Name="position" Column="position" Length="255"  Type="Text"/>
+        <BizField Name="fast_index" Column="fast_index" Length="10"  Type="Text"/>
+        <BizField Name="photo" Column="photo" Length="255"  Type="Text"/>
+        <BizField Name="phone" Column="phone" Length="255"  Type="Text"/>
+        <BizField Name="mobile" Column="mobile" Length="255"  Type="Text"/>
+        <BizField Name="fax" Column="fax" Length="255"  Type="Text"/>
+        <BizField Name="zipcode" Column="zipcode" Length="255"  Type="Text"/>
+        <BizField Name="province" Column="province" Length="255"  Type="Text"/>
+        <BizField Name="city" Column="city" Length="255"  Type="Text"/>
+        <BizField Name="street" Column="street" Length="255"  Type="Text"/>
+        <BizField Name="country" Column="country" Length="255"  Type="Text"/>
+        <BizField Name="email" Column="email" Length="255"  Type="Text"/>
+        <BizField Name="webpage" Column="webpage" Length="255"  Type="Text"/>
+        <BizField Name="qq" Column="qq" Length="255"  Type="Text"/>
+        <BizField Name="icq" Column="icq" Length="255"  Type="Text"/>
+        <BizField Name="skype" Column="skype" Length="255"  Type="Text"/>
+        <BizField Name="yahoo" Column="yahoo" Length="255"  Type="Text"/>
+        <BizField Name="misc" Column="misc"   Type="Text"/>
+        <BizField Name="type_id" Column="type_id" ValueOnCreate="1"  Type="Number"/>
+        <BizField Name="type_name" Column="name"  Join="JoinContactType"/>
+		<BizField Name="type_color" Column="color"  Join="JoinContactType"/>
+        <BizField Name="sortorder" Column="sortorder"   Type="Number"/>
+        <BizField Name="user_id" Column="user_id"   Type="Number"/>
+        <BizField Name="published" Column="published"   Type="Number"/>
+        <BizField Name="default" Column="default"   Type="Number"/>
+        <BizField Name="access" Column="access" Length="255"  Type="Text"/>
+        <BizField Name="params" Column="params"   Type="Text"/>
+        <BizField Name="foreign_key" Column="foreign_key"   Type="Text"/>
+        <BizField Name="source" Column="source"   Type="Text"/>
+        
+        <BizField Name="owner_id" Column="owner_id" ValueOnCreate="{@profile:Id}"   Required="N" Type="Number"/>
+        <BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>
+        <BizField Name="group_perm" Column="group_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   Required="N" Type="Number"/>
+        <BizField Name="other_perm" Column="other_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"   Required="N" Type="Number"/>
+        
+        <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+        
+        <BizField Name="location_id" Column="id" Type="" Join="JoinContactLocation"/>
+        <BizField Name="location_type" Column="type" Type="" Join="JoinContactLocation"/>
+        <BizField Name="location_title" Column="title"  Join="JoinContactLocation"/>
+		<BizField Name="location_description" Column="description" Type=""  Join="JoinContactLocation"/>
+		
+		<BizField Name="longtitude" Column="longtitude" Type=""  Join="JoinContactLocation"/>		
+		<BizField Name="latitude" Column="latitude" Type=""  Join="JoinContactLocation"/>
+    </BizFieldList>
+    <TableJoins>
+    	<Join Name="JoinContactType"  ColumnRef="type_id" JoinType="LEFT JOIN" Column="id"  Table="contact_type"/>
+    	<Join Name="JoinContactLocation"  ColumnRef="id" JoinType="INNER JOIN" Column="foreign_id"  Table="location"/>
+    </TableJoins>
+    <ObjReferences>    	
+    </ObjReferences>
+</BizDataObj>
