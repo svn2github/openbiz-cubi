@@ -14,6 +14,9 @@ body, p, form, div, h1, h2,ul, li, pre{
 }
 input,select,option,label{
 	font-family: Arial, Gadget, sans-serif;
+}
+input,select,option{
+	font-family: Arial, Gadget, sans-serif;
 	font-size:11px;
 }
 body{
