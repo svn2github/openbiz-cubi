@@ -43,7 +43,7 @@
             <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(collab.task.widget.TaskNewForm)"/>
         </Element>
         <Element Name="btn_spacer" Class="Spacer" Width="10" ></Element>    
-        <Element Name="btn_pick" Class="Button" text="Pick Events" CssClass="button_gray_w">
+        <Element Name="btn_pick" Class="Button" text="Pick Tasks" CssClass="button_gray_w">
             <EventHandler Name="pick_onclick" Event="onclick" Function="LoadDialog(collab.task.widget.TaskMultiPickForm)"/>
         </Element>
         <Element Name="btn_remove" Class="Button" text="Remove" CssClass="button_gray_w">

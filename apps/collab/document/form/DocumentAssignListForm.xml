@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DocumentAssignListForm" Class="EasyForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif" FormType="List" jsClass="jbForm" Title="Document Assignment Management" Description="You can create documents and share it with your group mates." BizDataObj="collab.document.do.DocumentDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_document_grid.tpl.html" EventName="BOOKMARK" MessageFile="Documents.msg" Access="collab_document.access">
+<EasyForm Name="DocumentAssignListForm" Class="EasyForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif" FormType="List" jsClass="jbForm" Title="Document Assignment Management" Description="You can create documents and share it with your colleague." BizDataObj="collab.document.do.DocumentDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_document_grid.tpl.html" EventName="BOOKMARK" MessageFile="Documents.msg" Access="collab_document.access">
     <DataPanel>
           <Element Name="row_selections" Class="RowCheckbox" Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:"/>
