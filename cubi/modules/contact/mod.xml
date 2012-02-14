@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="contact" Description="contact management module" Version="0.4" OpenbizVersion="3.0" LoadHandler="contact.lib.ContactLoadHandler">
+<Module Name="contact" Description="contact management module" Version="0.5.1" OpenbizVersion="3.0" LoadHandler="contact.lib.ContactLoadHandler">
 	<ACL>
 		<Resource Name="contact">
 			<Action Name="access" Description="access my contact"/>
@@ -26,6 +26,10 @@
     	<Module Name="menu"/>
     </Dependency>
     <ChangeLog>
+    	<Version Name="0.5.1">
+    		<Change Name="feature_051" Type="Feature"  Status="Finished" PublishDate="2012-02-14" Description="Added display_name_mask field for save name display logic"></Change>
+    		<Change Name="feature_050" Type="Feature"  Status="Finished" PublishDate="2012-02-14" Description="Added contact map feature"></Change>
+    	</Version>
     	<Version Name="0.4">
     		<Change Name="feature_04" Type="Feature"  Status="Finished" PublishDate="2012-01-15" Description="Added support Microsoft Excel 2003 format file import"></Change>
     	</Version>
