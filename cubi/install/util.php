@@ -132,7 +132,7 @@ function loadModules()
 {   
 	include_once (MODULE_PATH."/system/lib/ModuleLoader.php");
 
-	$modules = array ('system','menu','contact');
+	$modules = array ('system','menu','contact','cronjob');
 	foreach (glob(MODULE_PATH.DIRECTORY_SEPARATOR."*") as $dir){
 		$modName = str_replace(MODULE_PATH.DIRECTORY_SEPARATOR,"",$dir);
 		if(!in_array($modName, $modules)) {
