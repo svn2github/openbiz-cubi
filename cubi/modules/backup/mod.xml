@@ -13,6 +13,7 @@
     </Menu>
     <Dependency>
     	<Module Name="system"/>
+    	<Module Name="cronjob"/>
     </Dependency>
     <ChangeLog>
     	<Version Name="0.5">

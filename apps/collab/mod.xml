@@ -157,6 +157,7 @@
     <Dependency>
     	<Module Name="system"/>
     	<Module Name="menu"/>
+    	<Module Name="cronjob"/>
     </Dependency>
         <ChangeLog>
         <Version Name="1.2.0">
