@@ -83,6 +83,7 @@
 				<MenuItem Name="Project.ProjectDetail" Title="Project Detail" Description=""  URL="{@home:url}/collab/project_detail" Order="10"  Access="collab_project.access" ></MenuItem>
 			</MenuItem>
 			<MenuItem Name="Project.AssignManage" Title="Project Assignment" Description=""  URL="{@home:url}/collab/project_assign" Access="collab_project.access"  Order="45" ></MenuItem>
+			<MenuItem Name="Project.TaskList" Title="Project Task List" Description=""  URL="{@home:url}/collab/project_task" Order="48" Access="collab_project.access" />
 			<MenuItem Name="Project.Gantt" Title="Project Gantt Chart" Description=""  URL="{@home:url}/collab/project_gantt" Order="50" Access="collab_project.access">
 				<MenuItem Name="Project.GanttDetail" Title="Project Gantt Detail" Description=""  URL="{@home:url}/collab/project_gantt_detail" Order="50" Access="collab_project.access" />
 			</MenuItem>
@@ -157,7 +158,8 @@
     	<Module Name="menu"/>
     </Dependency>
         <ChangeLog>
-        <Version Name="1.1.8">
+        <Version Name="1.1.9">
+        	<Change Name="feature_119" Type="New_Feature" Status="Finished" PublishDate="2012-02-14" Description="added project task manager"></Change>
         	<Change Name="feature_117" Type="New_Feature" Status="Finished" PublishDate="2012-02-13" Description="enhancement task timesheet UI"></Change>
         	<Change Name="feature_116" Type="New_Feature" Status="Finished" PublishDate="2012-02-12" Description="added data assignment view"></Change>
         	<Change Name="feature_115" Type="New_Feature" Status="Finished" PublishDate="2012-02-10" Description="added task and document m-m relationship"></Change>
