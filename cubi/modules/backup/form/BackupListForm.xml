@@ -23,7 +23,7 @@
             <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="GotoRestore()" RedirectPage="form=backup.form.BackupEditForm&amp;fld:Id={@:Elem[fld_Id].Value}"  ContextMenu="Restore"/>
         </Element>
         <Element Name="btn_download" Class="Button" Text="Download" CssClass="button_gray_w" Description="Download Backup">
-            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="Download()" FunctionType="Popup" RedirectPage="form=backup.form.BackupEditForm&amp;fld:Id={@:Elem[fld_Id].Value}"  ContextMenu="Download"/>
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="Download()" FunctionType="Popup"   ContextMenu="Download"/>
         </Element>
         <Element Name="btn_upload" Class="Button" Text="Upload" CssClass="button_gray_w" Description="Upload Backup">
             <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(backup.form.BackupUploadForm)"  ContextMenu="Upload"/>

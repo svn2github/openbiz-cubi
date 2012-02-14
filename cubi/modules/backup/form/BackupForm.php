@@ -175,20 +175,27 @@ class BackupForm extends EasyForm
 				$id=$selIds[0];
 			}
 			if(!$id){
+				$id=$this->m_RecordId;
+			}
+			if(!$id){
 				return;
 			}
 		}
 		$resultRecords = $this->fetchDataSet(); 
         foreach($resultRecords as $rec){
 	        if($rec["Id"]==$id){
-	        	$record = $rec;
+	        	$record = $rec;	        	
 	        	break;
 	        }
-        }
+        }        
         
-        $filename = $record["file"];        
-		header('Content-Disposition: attachment; filename="'.basename($filename).'"');
-        readfile($filename);
+        $filename = $record["file"];        		
+		if(is_file($filename)){
+			header("Content-Length: ".filesize($filename));
+			header('Content-Disposition: attachment; filename="'.basename($filename).'"');
+        	readfile($filename);
+		}else{
+		}
         return;
 	}
 	
