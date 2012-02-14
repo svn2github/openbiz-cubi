@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProjectTaskFilterForm" Class="ProjectForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Project Task List" Access="collab_project.access" inheritFrom="collab.project.form.ProjectFilterForm">
+   
+</EasyForm>
