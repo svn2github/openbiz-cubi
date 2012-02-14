@@ -15,7 +15,9 @@ body
 	/* Remove the background color to make it transparent */
 	background-color: #fff;
 }
-
+p{
+line-height:150%;
+}
 html
 {
 	/* #3658: [IE6] Editor document has horizontal scrollbar on long lines
