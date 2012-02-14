@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="LocationDetailForm" Class="ProfileForm" Icon="icon_my_profile.gif" SearchRule="[Id]='{@profile:profile_Id}'" FormType="" jsClass="jbForm" Title="My Locations " Description="Detailed information about my profile" BizDataObj="contact.do.ContactDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="location_edit.tpl.html" MessageFile="myaccount.ini" EventName="CONTACT" >
+<EasyForm Name="LocationDetailForm" Class="ProfileForm" Icon="icon_my_profile_map.gif" SearchRule="[Id]='{@profile:profile_Id}'" FormType="" jsClass="jbForm" Title="My Locations " Description="Detailed information about my profile" BizDataObj="contact.do.ContactDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="location_edit.tpl.html" MessageFile="myaccount.ini" EventName="CONTACT" >
     <DataPanel>
     		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />	         	        	        
 			<Element Name="fld_locations"   ElementSet="Locations" Class="FormElement" FormReference="location.widget.LocationListDetailForm" FieldName="" Label="" AllowURLParam="N" />
