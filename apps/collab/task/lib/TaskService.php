@@ -118,7 +118,7 @@ class TaskService
 		}
 		$fld_attr = $obj->getField($attr);			
 		$value = $fld_attr->m_Value?$fld_attr->m_Value:$fld_attr->m_OldValue;
-		if(!$task_id){								
+		if(!$value){								
 			$rec = $obj->getActiveRecord();
 			$value = $rec[$attr];
 		}
