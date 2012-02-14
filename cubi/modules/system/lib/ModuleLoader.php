@@ -478,7 +478,9 @@ class ModuleLoader
         if (!$skipDBChanges) $this->installModuleAsPackage($xml);
         
         // invoke upgrade SQL 
-        if (!$skipDBChanges) $this->upgradeSQLs($version, $modVersion);
+        if($version){//if installed, then upgrade, if not installed just fresh install, dont process upgradesql
+        	if (!$skipDBChanges) $this->upgradeSQLs($version, $modVersion);
+        }
         
         return true;
     }
