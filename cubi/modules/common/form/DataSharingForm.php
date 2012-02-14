@@ -5,6 +5,10 @@ class DataSharingForm extends EasyForm
 	protected  $m_LogDO = "changelog.do.ChangeLogDO";
 	public function fetchData()
 	{
+		if ($this->m_ActiveRecord != null){
+			return $this->m_ActiveRecord;
+		}
+            
 		$prtForm = $this->m_ParentFormName;
 		$prtFormObj = BizSystem::GetObject($prtForm);
 		$recId = $this->m_RecordId;
@@ -108,8 +112,24 @@ class DataSharingForm extends EasyForm
 		if($result['editable']==0){
 			$result['has_ref_data'] = 0;
 		}
+		
+		$this->m_RecordId = $result['Id'];
+		//$this->setActiveRecord($result);    	
+		
 		return $result;
 	}
+
+
+    protected function setActiveRecord($record)
+    {
+
+        $this->m_ActiveRecord = $this->fetchData();
+		if(is_array($record)){    	        
+	        foreach($record as $key=>$value){
+	        	$this->m_ActiveRecord[$key] = $record[$key];
+	        }        
+		}
+    }    
 	
 	public function ShareRecord()
 	{
