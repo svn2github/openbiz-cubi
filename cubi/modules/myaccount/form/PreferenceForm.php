@@ -121,7 +121,7 @@ class PreferenceForm extends EasyForm
             		"user_id" => $user_id,
             		"name"	  => $name,
             		"value"   => $value,
-	            	"section" => $element->m_ElementSet,
+	            	"section" => $element->m_ElementSetCode,
 	            	"type" 	  => $element->m_Class,	            
 	            );
 	            //check if its exsit
