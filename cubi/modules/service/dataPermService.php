@@ -79,7 +79,7 @@ class dataPermService
 	public function BuildSQLRule($type,$hasOwnerField=false)
 	{
 		if(BizSystem::allowUserAccess("data_manage.manage")){
-			return "";
+			return " TRUE ";
 		}
 		$sql_where = null;
 		$user_id = BizSystem::GetUserProfile('Id');
