@@ -14,8 +14,8 @@
 		
 		<Element Name="fld_title" Class="LabelText" FieldName="location_title" Label="Title"   />	        
         <Element Name="fld_description" Class="LabelTextarea" FieldName="location_description" Label="Description"   />
-        <Element Name="fld_longtitude" DefaultValue="{DEFAULT_LONGTITUDE}"  Class="LabelText" FieldName="longtitude" Label="Longtitude"   />
-		<Element Name="fld_latitude" DefaultValue="{DEFAULT_LATITUDE}" Class="LabelText" FieldName="latitude" Label="Latitude"   />
+        <Element Name="fld_longtitude" DefaultValue="{DEFAULT_LONGTITUDE}"  Class="RawData" FieldName="longtitude" Label="Longtitude"   />
+		<Element Name="fld_latitude" DefaultValue="{DEFAULT_LATITUDE}" Class="RawData" FieldName="latitude" Label="Latitude"   />
 		<Element Name="fld_more" Class="ColumnText" FieldName="" Text="More"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
          	<EventHandler Name="fld_more_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>						        
