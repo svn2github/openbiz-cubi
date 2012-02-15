@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DocumentEditForm" Class="EasyForm"  Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif" FormType="Edit" jsClass="jbForm" Title="Edit Document" Description="Edit selected document." BizDataObj="collab.document.do.DocumentDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="BOOKMARK" MessageFile="Documents.msg" Access="collab_document.access">
+<EasyForm Name="DocumentEditForm" Class="DocumentForm"  Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif" FormType="Edit" jsClass="jbForm" Title="Edit Document" Description="Edit selected document." BizDataObj="collab.document.do.DocumentDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_docs_edit.tpl.html" EventName="BOOKMARK" MessageFile="Documents.msg" Access="collab_document.access">
     <DataPanel>
 	<Element Name="fld_type_id" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.document.do.DocumentTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />
 	<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
@@ -12,7 +12,7 @@
 	</DataPanel>
     <ActionPanel>
     <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="" ShortcutKey="Ctrl+S" ContextMenu="Save" />
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="SaveDoc()" RedirectPage="" ShortcutKey="Ctrl+S" ContextMenu="Save" />
         </Element>
         <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
             <EventHandler Name="btn_close_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" ShortcutKey="Ctrl+Shift+S" RedirectPage="form=collab.document.form.DocumentDetailForm&amp;fld:Id={@collab.document.do.DocumentDO:Field[Id].Value}"  ContextMenu="Close" />
