@@ -115,7 +115,9 @@ class DataSharingForm extends EasyForm
 		
 		$this->m_RecordId = $result['Id'];
 		//$this->setActiveRecord($result);    	
-		
+		if(BizSystem::allowUserAccess("data_manage.manage")){
+			$result['editable'] = 1;
+		}
 		return $result;
 	}
 

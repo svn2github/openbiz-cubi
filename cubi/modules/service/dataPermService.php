@@ -6,6 +6,9 @@ class dataPermService
 	
 	public function CheckDataOwner($rec)
 	{
+		if(BizSystem::allowUserAccess("data_manage.manage")){
+			return true;
+		}
 		$user_id = BizSystem::GetUserProfile('Id');
 		if($rec['owner_id'])
 		{
@@ -23,6 +26,9 @@ class dataPermService
 	}
 	public function CheckDataPerm($rec,$permCode)
 	{
+		if(BizSystem::allowUserAccess("data_manage.manage")){
+			return true;
+		}
 		if($rec==null)
 		{
 			return true;
@@ -72,6 +78,9 @@ class dataPermService
 	
 	public function BuildSQLRule($type,$hasOwnerField=false)
 	{
+		if(BizSystem::allowUserAccess("data_manage.manage")){
+			return "";
+		}
 		$sql_where = null;
 		$user_id = BizSystem::GetUserProfile('Id');
 		$user_groups = BizSystem::GetUserProfile('groups');
