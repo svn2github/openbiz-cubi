@@ -51,7 +51,7 @@
         <Element Name="btn_edit"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
-		<Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
+		<Element Name="btn_copy" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
             <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=contact.form.ContactCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
         </Element> 
         <Element Name="btn_delete"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
