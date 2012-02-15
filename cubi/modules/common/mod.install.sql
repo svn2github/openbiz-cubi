@@ -1,0 +1,2 @@
+insert  into `role`(`name`,`description`,`status`,`default`,`startpage`) values ('Data Assigner','Can manage data assignment between groups',1,0,'/myaccount/my_profile');
+insert  into `role`(`name`,`description`,`status`,`default`,`startpage`) values ('Data Manager','Can manage all data in entire system',1,0,'/myaccount/my_profile');
