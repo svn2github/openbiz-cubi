@@ -63,6 +63,9 @@ class ChangeLogWidgetForm extends EasyForm
 			case "LabelList":
 			case "ColumnList":
 				$newClass = "LabelList";
+				$selectFrom = $metaArr["ATTRIBUTES"]['SELECTFROM'];
+				$selectFrom = substr($selectFrom,0,strpos($selectFrom,','));
+				$metaArr["ATTRIBUTES"]['SELECTFROM']=$selectFrom;
 				break;
 			
 			case "ColumnBool":
