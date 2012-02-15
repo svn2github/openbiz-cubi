@@ -40,6 +40,16 @@ class FileInput extends InputElement
 		$sHTML .= "<input type=\"file\" name='$this->m_Name' id=\"" . $this->m_Name ."\" value='$this->m_Value' $disabledStr $this->m_HTMLAttr $style $func />";
         return $sHTML;
     }
+    
+    public function getValue()
+    {
+    	if(!$this->m_Value)
+    	{
+    		$rec = $this->getFormObj()->getActiveRecord();
+    		$this->m_Value = $rec[$this->m_FieldName];
+    	}
+    	return parent::getValue();
+    }
 
 }
 
