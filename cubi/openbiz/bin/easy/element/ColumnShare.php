@@ -198,6 +198,9 @@ class ColumnShare extends ColumnText
 	       		$image_url = $this->m_MyDistributedImg;
 	       		break;	    
 	       	default:
+	       		if($this->m_DefaultImg=='{RESOURCE_URL}/common/images/icon_data_shared_other.gif'){
+	       			$this->m_DefaultImg = $this->m_OtherSharedImg;
+	       		}
 	       		$image_url = $this->m_DefaultImg;
 	       		break;   			       		
        }
