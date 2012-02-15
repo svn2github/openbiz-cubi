@@ -92,7 +92,9 @@ class TaskService
 			}
 		}		
 		if($update){
-			$taskRec->save();			
+			if($taskRec->getDataObj()->canUpdateRecord($taskRec)){
+				$taskRec->save();			
+			}
 		}		
 	}
 	
