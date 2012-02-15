@@ -94,6 +94,7 @@ class DataSharingForm extends EasyForm
 		
 		$result['data_record'] = str_replace("<br />","",$result['data_record']);
 		$result['owner_perm'] = 3;
+		$result['create_by'] = $dataRec['create_by'];
 		
 		$inputArr = $this->readInputRecord();
 		
@@ -112,11 +113,13 @@ class DataSharingForm extends EasyForm
 		if($result['editable']==0){
 			$result['has_ref_data'] = 0;
 		}
-		
 		$this->m_RecordId = $result['Id'];
 		//$this->setActiveRecord($result);    	
 		if(BizSystem::allowUserAccess("data_manage.manage")){
 			$result['editable'] = 1;
+			$result['data_manage'] = 1;
+		}else{
+			$result['data_manage'] = 0;
 		}
 		return $result;
 	}
@@ -203,6 +206,12 @@ class DataSharingForm extends EasyForm
 		
 		if(isset($recArr['owner_id'])){
 			$DataRec['owner_id']	= $recArr['owner_id'];
+		}
+		
+		if(isset($recArr['create_by'])){
+			$DataRec['create_by']	= $recArr['create_by'];
+			$DataRec['update_by']	= $recArr['create_by'];
+			$DataRec['update_time']	= date('Y-m-d H:i:s');
 		}
 		
 		$DataRec->save();
