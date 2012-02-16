@@ -11,10 +11,10 @@ class ContactForm extends ChangeLogForm
 
         //generate fast_index
         $svcobj=BizSystem::getService("service.chineseService");
-        if($svcobj->isChinese($recArr['first_name'])){
-        	$fast_index = $svcobj->Chinese2Pinyin($recArr['first_name']);
+        if($svcobj->isChinese($recArr['display_name'])){
+        	$fast_index = $svcobj->Chinese2Pinyin($recArr['display_name']);
         }else{
-        	$fast_index = $recArr['first_name'];
+        	$fast_index = $recArr['display_name'];
         }
         $recArr['fast_index'] = substr($fast_index,0,1); 
        
@@ -69,6 +69,19 @@ class ContactForm extends ChangeLogForm
 	{
 		$currentRec = $this->fetchData();
         $recArr = $this->readInputRecord();
+		$this->setActiveRecord($recArr);
+        
+		//generate fast_index
+        if($currentRec['display_name']!=$recArr['display_name']){
+		$svcobj=BizSystem::getService("service.chineseService");
+        if($svcobj->isChinese($recArr['display_name'])){
+        	$fast_index = $svcobj->Chinese2Pinyin($recArr['display_name']);
+        }else{
+        	$fast_index = $recArr['display_name'];
+        }
+        $recArr['fast_index'] = substr($fast_index,0,1); 
+        }
+		
         if($currentRec['user_id']!=0)
         {
         	$user_email = BizSystem::getObject("system.do.UserDO",1)->fetchById($currentRec['user_id'])->email;
@@ -97,7 +110,30 @@ class ContactForm extends ChangeLogForm
 	        
         }
         
-		parent::updateRecord();
+        if (count($recArr) != 0){
+            	
+	        try
+	        {
+	            $this->ValidateForm();
+	        }
+	        catch (ValidationException $e)
+	        {
+	            $this->processFormObjError($e->m_Errors);
+	            return;
+	        }
+	
+	        if ($this->_doUpdate($recArr, $currentRec) == false)
+	            return;
+        
+        }
+        // in case of popup form, close it, then rerender the parent form
+        if ($this->m_ParentFormName)
+        {
+            $this->close();
+            $this->renderParent();
+        }
+        
+        $this->processPostAction();
 	}
 
     protected function _checkDupEmail($email,$ignored_id=0)
