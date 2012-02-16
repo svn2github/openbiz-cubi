@@ -47,6 +47,10 @@ class cryptService
 
     public function encrypt($data, $key=null)
     {
+    	if(!function_exists("mcrypt_module_open"))
+    	{
+    		return $data;
+    	}
     	if($key==null){
     		$key = $this->m_DefaultKey;
     	}
@@ -66,6 +70,10 @@ class cryptService
 
     public function decrypt($data, $key=null)
     {
+    	if(!function_exists("mcrypt_module_open"))
+    	{
+    		return $data;
+    	}
    	 	if($key==null){
     		$key = $this->m_DefaultKey;
     	}    	
