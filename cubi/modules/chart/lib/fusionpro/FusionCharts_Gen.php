@@ -1265,7 +1265,7 @@ class FusionCharts{
 	    }	
 	    if ($this->encodeChars==true){
 		    $pattern="/%(?![\da-f]{2}|[\da-f]{4})/i";
-		    $strValue=preg_replace($pattern, "%25", $strValue);
+		   	$strValue=preg_replace($pattern, "%25", $strValue);
 			$strValue=str_replace("&","%26",$strValue);
 			$strValue=str_replace("'","%26apos;",$strValue);
 			$strValue=str_replace("\"","%26quot;",$strValue);
@@ -1275,12 +1275,19 @@ class FusionCharts{
 			
 			$strValue=str_replace("=","%3d",$strValue);
 		    $strValue=str_replace("+","%2b",$strValue);
-		
-		    $strValue=str_replace("¢","%a2",$strValue);
-		    $strValue=str_replace("£","%a3",$strValue);
-		    $strValue=str_replace("€","%E2%82%AC",$strValue);
-		    $strValue=str_replace("¥","%a5",$strValue);
-		    $strValue=str_replace("₣","%e2%82%a3",$strValue);
+			if(function_exists("mb_ereg_replace")){
+				$strValue=mb_ereg_replace("/¢/","%a2",$strValue);
+			    $strValue=mb_ereg_replace("/£/","%a3",$strValue);
+			    $strValue=mb_ereg_replace("/€/","%E2%82%AC",$strValue);
+			    $strValue=mb_ereg_replace("/¥/","%a5",$strValue);
+			    $strValue=mb_ereg_replace("/₣/","%e2%82%a3",$strValue);		
+			}else{
+			    $strValue=str_replace("¢","%a2",$strValue);
+			    $strValue=str_replace("£","%a3",$strValue);
+			    $strValue=str_replace("€","%E2%82%AC",$strValue);
+			    $strValue=str_replace("¥","%a5",$strValue);
+			    $strValue=str_replace("₣","%e2%82%a3",$strValue);
+			}
 	    }else{
 			$strValue=str_replace("'","&apos;",$strValue);
 			$strValue=str_replace("\"","&quot;",$strValue);
