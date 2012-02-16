@@ -1,3 +1,6 @@
 h1,h2,h3,.title{
 	font-family:"华文细黑";
 }
+label {
+width:55px;
+}
