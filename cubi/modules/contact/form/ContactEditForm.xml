@@ -9,7 +9,7 @@
 	        <Element Name="fld_department" Class="InputText" ElementSet="Profile" FieldName="department" Label="Department"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
 	        <Element Name="fld_position" Class="InputText" ElementSet="Profile" FieldName="position" Label="Position"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
 	        <Element Name="fld_photo_uploaded" Class="RawData"  ElementSet="Profile" FieldName="photo" Label="Select Photo"  AllowURLParam="N" CssClass="input_file"/>
-	        <Element Name="fld_photo" Class="ImageUploader"  ElementSet="Profile" UploadFolder="/contact" FieldName="photo" Label="Select Photo"  AllowURLParam="N" CssClass="input_file">
+	        <Element Name="fld_photo" Class="ImageUploader" PICWIDTH="90" PICHEIGHT="125" ElementSet="Profile" UploadFolder="/contact" FieldName="photo" Label="Select Photo"  AllowURLParam="N" CssClass="input_file">
 	        	<EventHandler Name="fld_photo_onchange" EventLogMsg="" Event="onchange" Function="js:updatePreviewPic()" />
 	        </Element>
      	
