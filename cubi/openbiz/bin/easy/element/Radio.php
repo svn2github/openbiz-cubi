@@ -45,9 +45,15 @@ class Radio extends OptionElement
 
         $value = $this->getValue()!='null' ? $this->getValue() : $this->getDefaultValue();
         
+        if($this->m_Width){
+        	
+        	$width = (int)$this->m_Width."px;";
+        }else{
+        	$width = "auto;";
+        }
         foreach ($fromList as $option) {        	
             $checkedStr = ($option['val'] == $value) ? "CHECKED" : "";
-            $sHTML .= "<label style=\"text-align:left;width:auto;\" class=\"radio_option\"><INPUT TYPE=RADIO NAME='".$this->m_Name."' ID=\"" . $this->m_Name ."_".$option['val']."\" VALUE=\"" . $option['val'] . "\" $checkedStr $disabledStr $style $this->m_HTMLAttr $func />" . $option['txt'] . "</label>";
+            $sHTML .= "<label style=\"text-align:left;width:$width\" class=\"radio_option\"><INPUT TYPE=RADIO NAME='".$this->m_Name."' ID=\"" . $this->m_Name ."_".$option['val']."\" VALUE=\"" . $option['val'] . "\" $checkedStr $disabledStr $style $this->m_HTMLAttr $func />" . $option['txt'] . "</label>";
         }
         
         return $sHTML;
