@@ -2,6 +2,9 @@
 	color: #CCCCCC;
 	font-style: italic;
 }
+table.input_row label.radio_option,.radio_option{
+	color: #666666;
+}
 .element_spacer{
 display:block;
 float:left;
