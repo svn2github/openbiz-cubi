@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="ViewSelectorLeftWidget" Class="common.widget.FormSelectorWidget"  DefaultSelectedForm="contact.form.ContactListForm" FormType="" jsClass="jbForm" Title="Contact View Mode" Description="" BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="widget_view_selector.tpl.html" >
     <DataPanel>        
-        <Element Name="fld_viewmode" Class="Radio" SelectFrom="contact.lov.ViewModeLOV(ViewMode)" FieldName="viewmode" Label=""  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:">
+        <Element Name="fld_viewmode" Class="Radio" SelectFrom="contact.lov.ViewModeLOV(ViewMode)" Width="170" FieldName="viewmode" Label=""  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:">
         	<EventHandler Name="fld_viewmode_onclick" Event="onclick" Function="switchViewMode()"   />
         </Element>	
     </DataPanel>
