@@ -196,9 +196,31 @@ class ImageUploader extends FileUploader
         }catch(Exception $e){}
         try{
 	        if(!$image){
-	        	$image = @imagecreatefrompng($sourceFileName);
+	        	$image = @imagecreatefromgif($sourceFileName);
 	        }
      	}catch(Exception $e){}
+    	try{
+	        if(!$image){
+	        	$image = @imagecreatefromwbmp($sourceFileName);
+	        }
+     	}catch(Exception $e){}
+    	
+    	try{
+	        if(!$image){
+	        	$image = @imagecreatefromxbm($sourceFileName);
+	        }
+     	}catch(Exception $e){}
+     	
+    
+    	try{
+	        if(!$image){
+	        	$image = @imagecreatefromxpm($sourceFileName);
+	        }
+     	}catch(Exception $e){}
+     	
+     	if(!$image){
+	    	return ;
+	    }
         imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $origWidth, $origHeight);
 
         return imagejpeg($image_p, $destFileName, $quality);
