@@ -186,7 +186,19 @@ class ImageUploader extends FileUploader
         }
 
         $image_p = imagecreatetruecolor($width, $height);
-        $image = imagecreatefromjpeg($sourceFileName);
+        try{
+        	$image = @imagecreatefromjpeg($sourceFileName);
+        }catch(Exception $e){}
+        try{
+	        if(!$image){
+	        	$image = @imagecreatefrompng($sourceFileName);
+	        }
+        }catch(Exception $e){}
+        try{
+	        if(!$image){
+	        	$image = @imagecreatefrompng($sourceFileName);
+	        }
+     	}catch(Exception $e){}
         imagecopyresampled($image_p, $image, 0, 0, 0, 0, $width, $height, $origWidth, $origHeight);
 
         return imagejpeg($image_p, $destFileName, $quality);
