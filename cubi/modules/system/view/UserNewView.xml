@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<EasyView Name="UserNewView" Description="User Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="User.Administer_Users">
+<EasyView Name="UserNewView" Description="User Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_map.tpl.html" Access="User.Administer_Users">
     <FormReferences>
         <Reference Name="system.form.UserNewForm"/>
     </FormReferences>

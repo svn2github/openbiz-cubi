@@ -112,7 +112,6 @@ CREATE TABLE `role` (
 insert  into `role`(`id`,`name`,`description`,`status`,`default`,`startpage`) values (1,'Cubi Administrator','System administrator',1,0,'/system/general_default');
 insert  into `role`(`id`,`name`,`description`,`status`,`default`,`startpage`) values (2,'Cubi Member','General registered users',1,1,'/myaccount/my_profile');
 insert  into `role`(`id`,`name`,`description`,`status`,`default`,`startpage`) values (3,'Cubi Guest','Guest users are unregistered users',1,0,'/system/general_default');
-
 /*Table structure for table `user` */
 
 
