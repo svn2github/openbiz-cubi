@@ -158,7 +158,10 @@ class ImageUploader extends FileUploader
      */
     protected function resizeImage($sourceFileName, $destFileName, $width, $height, $quality)
     {
-
+		if(!function_exists("imagejpeg"))
+		{
+			return ;
+		}
         if($width == 0)
         {
             $width = $height;
