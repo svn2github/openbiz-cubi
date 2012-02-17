@@ -47,10 +47,43 @@ class Radio extends OptionElement
         
         foreach ($fromList as $option) {        	
             $checkedStr = ($option['val'] == $value) ? "CHECKED" : "";
-            $sHTML .= "<label style=\"text-align:left;\"><INPUT TYPE=RADIO NAME='".$this->m_Name."' ID=\"" . $this->m_Name ."_".$option['val']."\" VALUE=\"" . $option['val'] . "\" $checkedStr $disabledStr $style $this->m_HTMLAttr $func />" . $option['txt'] . "</label>";
+            $sHTML .= "<label style=\"text-align:left;width:auto;\" class=\"radio_option\"><INPUT TYPE=RADIO NAME='".$this->m_Name."' ID=\"" . $this->m_Name ."_".$option['val']."\" VALUE=\"" . $option['val'] . "\" $checkedStr $disabledStr $style $this->m_HTMLAttr $func />" . $option['txt'] . "</label>";
         }
         
         return $sHTML;
+    }
+    
+    public function getStyle()
+    {
+    	 
+		$formobj = $this->getFormObj();    	
+        $htmlClass = Expression::evaluateExpression($this->m_cssClass, $formobj);
+        $htmlClass = "CLASS='$htmlClass'";
+        if(!$htmlClass){
+        	$htmlClass = null;
+        }
+        $style ='';
+         
+        if ($this->m_Height && $this->m_Height>=0)
+            $style .= "height:".$this->m_Height."px;";
+        if ($this->m_Style)
+            $style .= $this->m_Style;
+        if (!isset($style) && !$htmlClass)
+            return null;
+        if (isset($style))
+        {
+            
+            $style = Expression::evaluateExpression($style, $formobj);
+            $style = "STYLE='$style'";
+        }
+        if($formobj->m_Errors[$this->m_Name])
+        {
+      	    $htmlClass = "CLASS='".$this->m_cssErrorClass."'";
+        }
+        if ($htmlClass)
+            $style = $htmlClass." ".$style;
+        return $style;
+    	
     }
 }
 
