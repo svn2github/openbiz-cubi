@@ -9,7 +9,9 @@
 			<Element Name="fld_url" Link="{@:Elem[fld_url].Value}" Target="_Blank" width="500" ElementSet="General"  Class="LabelText" FieldName="url" Label="URL" />
 			<Element Name="fld_description" ElementSet="General"  Class="LabelText" FieldName="description" Label="Description" />				   
 	        			    
-			<Element Name="fld_sortorder" Class="LabelText" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />		     
+			<Element Name="fld_sortorder" Class="LabelText" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />
+			<Element Name="fld_published" Class="LabelList" ElementSet="Miscellaneous"  SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  />
+<Element Name="fld_published_others" Class="LabelList" ElementSet="Miscellaneous"  SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  />		     
 			<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>		        
 			<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
 			<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>		        
