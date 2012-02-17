@@ -6,7 +6,7 @@
       		  <Element Name="fld_description" ElementSet="General" Class="LabelText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         	<Element Name="fld_color_code" ElementSet="General" Class="ColorPicker" mode="viewOnly" FieldName="color" Label="Color Code" AllowURLParam="N">
        	</Element>
-			<Element Name="fld_published" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="published" Label="Published"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+			<Element Name="fld_published" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" /><Element Name="fld_published_other" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         	<Element Name="fld_sortorder" ElementSet="General" Class="LabelText" SelectFrom="common.lov.CommLOV(Order)"  FieldName="sortorder" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		        <Element Name="fld_create_by" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>
 		        <Element Name="fld_create_time" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>

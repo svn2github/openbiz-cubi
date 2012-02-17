@@ -36,7 +36,7 @@
  	    	<Element Name="fld_misc" Class="Textarea"  ElementSet="Miscellaneous" FieldName="misc" Label="Miscellaneous"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />                	      
 	        <Element Name="fld_type_id" Class="common.lib.TypeSelector" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="contact.do.ContactTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" FieldName="type_id" Label="Contact Type"  AllowURLParam="N" />    	        	        
 			<Element Name="fld_sortorder" Class="Listbox" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />
-	        <Element Name="fld_published" Class="Radio" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="1" FieldName="published" Label="Published"  />	
+	        <Element Name="fld_published" Class="Radio" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="1" FieldName="group_perm" Label="Group Share"  /><Element Name="fld_published_other" Class="Radio" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="0" FieldName="other_perm" Label="Other Group"  /><Element Name="fld_published_other" Class="Radio" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="0" FieldName="other_perm" Label="Other Group"  />	
            </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">

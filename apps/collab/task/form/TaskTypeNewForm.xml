@@ -4,7 +4,7 @@
         <Element Name="fld_name" DefaultValue="New Task Type" Class="InputText" FieldName="name" Label="Name"   />	
         <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	
         <Element Name="fld_color_code" Class="ColorPicker" mode="" FieldName="color" Label="Color Code"  AllowURLParam="N" />	        
-        <Element Name="fld_published" Class="Radio" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="1" FieldName="published" Label="Published"  />	
+        <Element Name="fld_published" Class="Listbox" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)"  DefaultValue="1" FieldName="group_perm" Label="Group Share"  /><Element Name="fld_published_other" Class="Listbox" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)"  DefaultValue="0" FieldName="other_perm" Label="Other Group"  />	
         <Element Name="fld_sortorder" Class="Listbox" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />	        	
     </DataPanel>
     <ActionPanel>

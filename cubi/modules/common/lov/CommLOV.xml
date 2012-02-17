@@ -27,7 +27,9 @@
 	<Order Text="95" Value="95"/>
 	<Order Text="100" Value="100"/>
 	
-	<Published Text="Public" Value="1"/>
+	<Published Text="Full Control" Value="3"/>
+	<Published Text="Editable" Value="2"/>
+	<Published Text="Visible" Value="1"/>
 	<Published Text="Private" Value="0"/>	
 	
 	<ReadStatusFilter Text="All Read" Value="1"/>
