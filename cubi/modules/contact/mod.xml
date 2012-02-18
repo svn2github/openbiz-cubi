@@ -3,6 +3,9 @@
 	<ACL>
 		<Resource Name="contact">
 			<Action Name="access" Description="access my contact"/>
+			<Action Name="view_level_1" Description="view level 1 protected field"/>
+			<Action Name="view_level_2" Description="view level 1 protected field"/>
+			<Action Name="view_level_3" Description="view level 1 protected field"/>
 		</Resource>
 	</ACL>
     <Menu>
@@ -26,6 +29,10 @@
     	<Module Name="menu"/>
     </Dependency>
     <ChangeLog>
+    	<Version Name="0.6">
+    		<Change Name="feature_061" Type="Feature"  Status="Finished" PublishDate="2012-02-18" Description="Custom fields has protect level control"></Change>
+    		<Change Name="feature_060" Type="Feature"  Status="Finished" PublishDate="2012-02-18" Description="Added custom field feature for contact"></Change>
+    	</Version>
     	<Version Name="0.5.1">
     		<Change Name="feature_051" Type="Feature"  Status="Finished" PublishDate="2012-02-14" Description="Added display_name_mask field for save name display logic"></Change>
     		<Change Name="feature_050" Type="Feature"  Status="Finished" PublishDate="2012-02-14" Description="Added contact map feature"></Change>
