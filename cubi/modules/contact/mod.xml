@@ -4,8 +4,8 @@
 		<Resource Name="contact">
 			<Action Name="access" Description="access my contact"/>
 			<Action Name="view_level_1" Description="view level 1 protected field"/>
-			<Action Name="view_level_2" Description="view level 1 protected field"/>
-			<Action Name="view_level_3" Description="view level 1 protected field"/>
+			<Action Name="view_level_2" Description="view level 2 protected field"/>
+			<Action Name="view_level_3" Description="view level 3 protected field"/>
 		</Resource>
 	</ACL>
     <Menu>
