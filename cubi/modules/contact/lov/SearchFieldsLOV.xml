@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>   
+   <Field Value="display_name" text="Display Name"/>   
+   <Field Value="company" text="Company"/>
+   <Field Value="department" text="Department"/>
+   <Field Value="position" text="Position"/>
+   <Field Value="phone" text="Phone"/>
+   <Field Value="mobile" text="Mobile"/>
+   <Field Value="fax" text="Fax"/>
+   <Field Value="zipcode" text="Zipcode"/>
+   <Field Value="province" text="Province"/>
+   <Field Value="city" text="City"/>
+   <Field Value="street" text="Street"/>
+   <Field Value="country" text="Country"/>
+   <Field Value="email" text="Email"/>
+   <Field Value="webpage" text="Webpage"/>
+   <Field Value="qq" text="QQ"/>
+   <Field Value="icq" text="Icq"/>
+   <Field Value="skype" text="Skype"/>
+   <Field Value="yahoo" text="Yahoo"/>
+   <Field Value="misc" text="Misc"/>
+</Selection>
