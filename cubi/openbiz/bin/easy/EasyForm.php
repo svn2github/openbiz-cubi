@@ -678,8 +678,9 @@ class EasyForm extends MetaObject implements iSessionObject
             $element = $this->getElement($elementName);
             $pickerMap = $element->m_PickerMap;
         }
-
+		$currentRecord = $this->readInputRecord();
         $pickerForm->setParentFormData($this->m_Name, $elementName, $pickerMap);
+        $pickerForm->m_ParentFormRecord = $currentRecord;
         BizSystem::clientProxy()->redrawForm("DIALOG", $pickerForm->render());
     }
     
