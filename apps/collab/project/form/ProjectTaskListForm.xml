@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectTaskListForm" Class="collab.task.form.TaskForm" TemplateFile="form_task_list.tpl.html"  PageSize="4"  Icon="" Title="" Description="" Access="collab_project.access" inheritFrom="collab.task.form.TaskListForm">
+<EasyForm Name="ProjectTaskListForm" Class="collab.task.form.TaskForm" TemplateFile="form_task_list.tpl.html"  PageSize="10"  Icon="" Title="" Description="" Access="collab_project.access" inheritFrom="collab.task.form.TaskListForm">
    
 </EasyForm>
