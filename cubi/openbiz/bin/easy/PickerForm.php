@@ -229,6 +229,26 @@ class PickerForm extends EasyForm
         	$parentForm->rerender();
         }else{
         	BizSystem::clientProxy()->updateFormElements($parentForm->m_Name, $updArray);
+        	foreach($updArray as $elemName=>$value)
+        	{
+        		$elem = $parentForm->getElement($elemName);
+        			$elemEvents = $elem->getEvents();
+        			foreach($elemEvents as $event=>$function)
+        			{
+        				if(strtolower($event)=='onchange')
+        				{
+        					
+	        				if(is_array($function)){
+								foreach($function as $f){
+									$function_str.=$f.";";
+								}
+							}else{
+								$function_str .= $function;
+							}
+        					BizSystem::clientProxy()->runClientScript("<script>$function_str</script>");		
+        				}
+        			} 
+        	}
         }                               
     }
 
