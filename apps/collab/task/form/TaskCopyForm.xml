@@ -11,6 +11,10 @@
 			<EventHandler Name="fld_parent_onchange" Event="onchange" Function="UpdateForm()"  />		
 		</Element>
 		 -->
+		<Element Name="fld_project" DefaultValueRename="N" DefaultValue="0" ElementSet="General" Description="This task will belong selected project" Class="Hidden" FieldName="project_id" Label="Project"  AllowURLParam="N" >
+		</Element>
+		<Element Name="fld_project_name"  Class="InputPicker" ElementSet="General" Description="This task will belong selected project" Enabled="N" UpdateForm="Y" ValuePicker="collab.project.widget.ProjectSinglePickForm" PickerMap="fld_project:fld_Id,fld_project_name:fld_title"  FieldName="project_name" Label="Project"  >    		
+    	</Element> 
 		<Element Name="fld_dependency" ElementSet="General" Description="{@:m_dependency_task_desc}"  Class="Listbox" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="collab.task.do.TaskListDO[title:Id]" AllowURLParam="N" >
 			<EventHandler Name="fld_dependency_onchange" Event="onchange" Function="UpdateForm()"  />
 		</Element>		

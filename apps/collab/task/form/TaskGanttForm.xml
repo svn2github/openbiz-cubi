@@ -132,8 +132,15 @@
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element> 
+        <!-- 
         <Element Name="fld_project" width="170" Class="Listbox" BlankOption="none,0" FieldName="project_id" DefaultValue="{@:m_ProjectID}" Label="Project" SelectFrom="collab.project.do.ProjectDO[name:Id]" AllowURLParam="N" >
         	<EventHandler Name="fld_project_onchange" Event="onchange" Function="RunSearch()" ShortcutKey="Enter"/>
-        </Element>  
+        </Element>
+        -->
+        
+		<Element Name="fld_project_id"  Class="InputPicker" Description="This task will belong selected project" Enabled="N" UpdateForm="N" ValuePicker="collab.project.widget.ProjectSinglePickForm" PickerMap="fld_project:fld_Id,fld_project_id:fld_title" DefaultValue="Default Project" DefaultValueRename="N" FieldName="" Label="Project" HTMLattr="style='border:none;height:18px;padding-left:10px;padding-right:10px;width:82px;'" CssClass="button_gray_w" CssHoverClass="button_gray_w" >
+			<EventHandler Name="fld_project_onchange" Event="onchange" Function="RunSearch()" ShortcutKey="Enter"/>    		
+    	</Element>   
+    	<Element Name="fld_project" DefaultValueRename="N" DefaultValue="0" Description="This task will belong selected project" Class="Hidden" FieldName="project_id" Label="Project"  AllowURLParam="N" ></Element>
     </SearchPanel>
 </EasyForm>

@@ -115,7 +115,6 @@ class GanttForm extends ChangeLogForm
 				$projectRec['project_name'] = $projectData['name'];		
 				$projectRec['project_color'] = $projectData['type_color'];	
 				$projectRec['project_start_time'] = $start_time = date('Y,m,d',strtotime($projectData['start_time']));
-								
 			}else{
 				$projectRec['project_id']='0';	
 				$projectRec['project_name'] = $this->getMessage("DEFAULT_PROJECT");		

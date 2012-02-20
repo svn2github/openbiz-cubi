@@ -3,6 +3,7 @@
 	<BizFieldList>
 		<BizField Name="Id" Column="id"     Type=""/>
 		<BizField Name="project_id" Column="project_id"  Required="N" Type=""/>
+		<BizField Name="project_name" Column="name" Join="JoinProject" />
 		<BizField Name="title" Column="title" Length="255"   Required="N" Type=""/>
 		<BizField Name="description" Column="description" Type=""/>
 		
@@ -51,6 +52,7 @@
 	</BizFieldList>
     <TableJoins>
 		<Join Name="JoinEventType" Table="task_type" Column="id" ColumnRef="type_id" JoinType="LEFT JOIN"/>    	
+		<Join Name="JoinProject" Table="project" Column="id" ColumnRef="project_id" JoinType="LEFT JOIN"/>
     </TableJoins>
     <ObjReferences>    	
     	<Object Name="changelog.do.ChangeLogDO" Description="" Relationship="1-M" Table="changelog" CondColumn='type' CondValue='task' Column="foreign_id" FieldRef="Id" />

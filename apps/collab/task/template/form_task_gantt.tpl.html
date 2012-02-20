@@ -18,6 +18,20 @@ width:380px;
 float:left;
 margin-right:5px;
 }
+.button_gray_w_focus{
+	background-image: url("{/literal}{$theme_url}{literal}/images/button_gray.gif");
+    background-position: -98px -20px;
+    background-repeat: no-repeat;
+    color: #666666;
+    display: block;
+    float: left;
+    height: 18px;
+    line-height: 20px;
+    margin-right: 3px;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+}
 </style>
 {/literal}
 <div style="padding-left:25px;padding-right:40px;padding-top:10px;">
@@ -27,6 +41,7 @@ margin-right:5px;
 		{foreach item=elem from=$actionPanel}
 		    	{$elem.element}
 		{/foreach}
+		{$searchPanel.fld_project_id.element}
 		{$searchPanel.fld_project.element}
 		</div>
 	</div>	
@@ -36,7 +51,7 @@ margin-right:5px;
 	<div class="form_header_panel" style="background-color:#efefef;padding-left:10px;margin-top:2px;width:690px;">			
 		<div class="search_panel" style="width:688px;">
 		{foreach item=elem key=name from=$searchPanel}
-			{if $name!='fld_project'}
+			{if $name!='fld_project' && $name!='fld_project_id'}
 				{if $elem.label} {$elem.label} {/if} 
 				{$elem.element}
 			{/if}
