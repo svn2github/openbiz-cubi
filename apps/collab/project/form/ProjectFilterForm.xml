@@ -63,21 +63,21 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
-    	<Element Name="data_filter"  BlankOption="All Data" cssclass="input_select_m" Class="common.element.ShareDataFilter" FieldName="create_by" Label="" SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
+    	<Element Name="data_filter_filter"  BlankOption="All Data" cssclass="input_select_m" Class="common.element.ShareDataFilter" FieldName="create_by" Label="" SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
             <EventHandler Name="datafilter_onchange" Event="onchange" Function="RunSearch()"/>
         </Element>
-        <Element Name="status_selector" cssclass="input_select_m" BlankOption="All Status" Class="collab.lib.DataStatusFilter" FieldName="status" Label="" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" >
+        <Element Name="status_selector_filter" cssclass="input_select_m" BlankOption="All Status" Class="collab.lib.DataStatusFilter" FieldName="status" Label="" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" >
             <EventHandler Name="status_selector_onchange" Event="onchange" Function="RunSearch()"/>
         </Element> 
-        <Element Name="pri_selector" cssclass="input_select_m" BlankOption="All Priority" Class="DropDownList" FieldName="priority" Label="" SelectFrom="collab.project.lov.ProjectLOV(Priority)" >
+        <Element Name="pri_selecto_filter" cssclass="input_select_m" BlankOption="All Priority" Class="DropDownList" FieldName="priority" Label="" SelectFrom="collab.project.lov.ProjectLOV(Priority)" >
             <EventHandler Name="pri_selector_onchange" Event="onchange" Function="RunSearch()"/>
         </Element> 
-    	<Element Name="type_selector" cssclass="input_select_m" BlankOption="All Types" Class="collab.lib.TypeSelector" FieldName="type_id" Label="" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" >
+    	<Element Name="type_selector_filter" cssclass="input_select_m" BlankOption="All Types" Class="collab.lib.TypeSelector" FieldName="type_id" Label="" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" >
             <EventHandler Name="type_selector_onchange" Event="onchange" Function="RunSearch()"/>
         </Element> 
-        <Element Name="btn_spacer3" Class="Spacer" Width="10"></Element>
-        <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.project.do.ProjectDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" FieldName="name" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
-        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+        <Element Name="btn_spacer3_filter" Class="Spacer" Width="10"></Element>
+        <Element Name="qry_name_filter"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.project.do.ProjectDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" FieldName="name" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+        <Element Name="btn_dosearch_filter" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>  
     </SearchPanel>
