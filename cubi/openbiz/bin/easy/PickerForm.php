@@ -36,6 +36,7 @@ class PickerForm extends EasyForm
      */
     public $m_PickerMap = "";
 
+    public $m_ParentFormRecord ;
     /**
      * Get/Retrieve Session data of this object
      *
@@ -47,6 +48,7 @@ class PickerForm extends EasyForm
         parent::getSessionVars($sessionContext);
         $sessionContext->getObjVar($this->m_Name, "ParentFormElemName", $this->m_ParentFormElemName);
         $sessionContext->getObjVar($this->m_Name, "PickerMap", $this->m_PickerMap);
+        $sessionContext->getObjVar($this->m_Name, "ParentFormRecord", $this->m_ParentFormRecord);
     }
 
     /**
@@ -60,6 +62,7 @@ class PickerForm extends EasyForm
         parent::setSessionVars($sessionContext);
         $sessionContext->setObjVar($this->m_Name, "ParentFormElemName", $this->m_ParentFormElemName);
         $sessionContext->setObjVar($this->m_Name, "PickerMap", $this->m_PickerMap);
+        $sessionContext->setObjVar($this->m_Name, "ParentFormRecord", $this->m_ParentFormRecord);
     }
 
     /**
@@ -190,8 +193,8 @@ class PickerForm extends EasyForm
     	
     	$parentForm = BizSystem::objectFactory()->getObject($this->m_ParentFormName);
     	$updArray = array();
-    	$updRec = array();
-    	
+    	$updRec = $this->m_ParentFormRecord;
+
     	foreach($recIdArr as $recId)
     	{
         	$rec = $this->getDataObj()->fetchById($recId);
@@ -219,12 +222,11 @@ class PickerForm extends EasyForm
 	            return;
     	}
     	
-        $this->close();	                                
-                
+        $this->close();	                                               
         $elem = $parentForm->getElement($this->m_ParentFormElemName);
         if($elem->m_UpdateForm=='Y'){
-        	$parentForm->setActiveRecord($updRec);
-        	$parentForm->updateForm();
+        	$parentForm->setActiveRecord($updRec);        	
+        	$parentForm->rerender();
         }else{
         	BizSystem::clientProxy()->updateFormElements($parentForm->m_Name, $updArray);
         }                               
