@@ -3,7 +3,7 @@
 	<BizFieldList>
 		<BizField Name="Id" Column="id"     Type=""/>
 		<BizField Name="project_id" Column="project_id"  Required="N" Type=""/>
-		<BizField Name="project_name" Column="name" Join="JoinProject" />
+		<BizField Name="project_name" Column="name" Alias="project_name" Join="JoinProject" />
 		<BizField Name="title" Column="title" Length="255"   Required="N" Type=""/>
 		<BizField Name="description" Column="description" Type=""/>
 		
