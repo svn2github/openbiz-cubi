@@ -116,7 +116,7 @@ class LabelText extends Element
     {
         $value = $this->m_Text ? $this->getText() : $this->m_Value;
         
-        if ($value == null || $value =="")
+        if ($value === null )//|| $value =="" why do we ignore empty?
             return "";
 
         $style = $this->getStyle();
@@ -138,7 +138,7 @@ class LabelText extends Element
 	        }
         }
         
-        if ($value!=null)
+        if ($value!==null)
         {
         	if($this->m_DisplayFormat)
         	{
