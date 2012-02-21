@@ -29,8 +29,8 @@
         </Element>      
     </ActionPanel> 
     <NavPanel>   
-      	<Element Name="btn_compose" Class="LabelText" text="" CssClass="icon_compose" Link="{@home:url}/collab/task_new"></Element>
-      	<Element Name="btn_graph" Class="LabelText" text="" CssClass="icon_gantt" Link="{@home:url}/collab/task_gantt"></Element>
+      	<Element Name="btn_compose" Class="LabelText" text=" " CssClass="icon_compose" Link="{@home:url}/collab/task_new"></Element>
+      	<Element Name="btn_graph" Class="LabelText" text=" " CssClass="icon_gantt" Link="{@home:url}/collab/task_gantt"></Element>
         <Element Name="btn_list" Class="LabelText" text=" " CssClass="icon_list" Link="{@home:url}/collab/task_manage"></Element> 	
     </NavPanel> 
     <SearchPanel>
