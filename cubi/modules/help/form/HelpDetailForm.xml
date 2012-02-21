@@ -4,7 +4,7 @@
 		        <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Category" AllowURLParam="N"/>
 		        <Element Name="fld_category_id" Class="LabelText" FieldName="category_name" Label="Category" AllowURLParam="N"/>
 		        <Element Name="fld_title" Class="LabelText" FieldName="title" Label="Title" AllowURLParam="N"/>
-		        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description" AllowURLParam="N"/>
+		        <Element Name="fld_description" Class="RawData" FieldName="description" Label="Description" AllowURLParam="N"/>
 		        <Element Name="fld_content" Class="HTMLPreview" Height="500" FieldName="content" Label="Content" AllowURLParam="N"/>
 	    </DataPanel>
     <ActionPanel>       

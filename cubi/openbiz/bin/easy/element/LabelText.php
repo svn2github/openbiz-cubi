@@ -147,7 +147,11 @@ class LabelText extends Element
         	if($this->m_Percent=='Y')
         	{
         		$value = sprintf("%.2f",$value*100).'%';
+        	}else{
+        		$value = htmlentities($value);
         	}
+        	
+        	
         	
             if ($this->m_Link)
             {

@@ -4,9 +4,9 @@
 			<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 		        <Element Name="fld_parent_id" Class="TreeLabelText" BLANKOPTION="-- Root --,0" SelectFrom="help.do.HelpCategoryDO[name:Id]" FieldName="parent_id" Label="Parent" AllowURLParam="N"/>
 		        <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
-		        <Element Name="fld_url_match" Class="LabelText" FieldName="url_match" Label="Url Match" AllowURLParam="N"/>
-		        <Element Name="fld_description" Class="LabelText" FieldName="description" Label="Description" AllowURLParam="N"></Element>		        
+		        <Element Name="fld_url_match" Class="LabelText" FieldName="url_match" Label="Url Match" AllowURLParam="N"/>		        		        
 		        <Element Name="fld_sortorder" Class="LabelText" FieldName="sort_order" Label="Sort Order" AllowURLParam="N"></Element>
+		        <Element Name="fld_description" Class="RawData" FieldName="description" Label="Description" AllowURLParam="N"></Element>
 	    </DataPanel>
     <ActionPanel>       
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
