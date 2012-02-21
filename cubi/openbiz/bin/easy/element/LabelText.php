@@ -148,7 +148,8 @@ class LabelText extends Element
         	{
         		$value = sprintf("%.2f",$value*100).'%';
         	}else{
-        		$value = htmlentities($value);
+        		$value = htmlentities($value, ENT_QUOTES, "UTF-8");
+        		
         	}
         	
         	
