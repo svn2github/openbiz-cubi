@@ -31,7 +31,7 @@
     <NavPanel>   
       	<Element Name="btn_compose" Class="LabelText" text="" CssClass="icon_compose" Link="{@home:url}/collab/task_new"></Element>
       	<Element Name="btn_graph" Class="LabelText" text="" CssClass="icon_gantt" Link="{@home:url}/collab/task_gantt"></Element>
-        <Element Name="btn_list" Class="LabelText" text="" CssClass="icon_list" Link="{@home:url}/collab/task_manage"></Element> 	
+        <Element Name="btn_list" Class="LabelText" text=" " CssClass="icon_list" Link="{@home:url}/collab/task_manage"></Element> 	
     </NavPanel> 
     <SearchPanel>
     	<Element Name="data_filter"  BlankOption="All Data" cssclass="input_select_m" Class="common.element.ShareDataFilter" FieldName="create_by" Label="" SelectFrom="common.lov.DataSharingLOV(DataFilter)" >

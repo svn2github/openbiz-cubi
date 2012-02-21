@@ -115,8 +115,7 @@ class LabelText extends Element
     public function render()
     {
         $value = $this->m_Text ? $this->getText() : $this->m_Value;
-        
-        if ($value === null )//|| $value =="" why do we ignore empty?
+        if ($value === null || $value ==="")// why do we ignore empty?
             return "";
 
         $style = $this->getStyle();

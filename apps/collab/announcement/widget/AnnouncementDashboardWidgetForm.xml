@@ -16,7 +16,7 @@
 		<Element Name="fld_type" Class="ColumnText"  Style="line-height:24px;" FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
     </DataPanel>
     <ActionPanel>
-		<Element Name="btn_markread" Class="LabelText" text="" CssClass="icon_list" Link="{@home:url}/collab/announcement_view"></Element> 
+		<Element Name="btn_markread" Class="LabelText" text=" " CssClass="icon_list" Link="{@home:url}/collab/announcement_view"></Element> 
     </ActionPanel> 
     <NavPanel>    	
     </NavPanel> 

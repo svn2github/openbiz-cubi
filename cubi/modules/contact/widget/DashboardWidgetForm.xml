@@ -25,7 +25,7 @@
         <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
             <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
         </Element>
-        <Element Name="btn_markread" Class="LabelText" text="" CssClass="icon_list" Link="{@home:url}/collab/contact_list"></Element>
+        <Element Name="btn_markread" Class="LabelText" text=" " CssClass="icon_list" Link="{@home:url}/collab/contact_list"></Element>
 	</ActionPanel>
     <NavPanel>
     </NavPanel> 
