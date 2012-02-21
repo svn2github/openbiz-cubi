@@ -27,7 +27,7 @@
          
     </DataPanel>
     <ActionPanel>
-         		<Element Name="btn_markread" Class="LabelText" text="&amp;nbsp;" CssClass="icon_list" Link="{@home:url}/collab/note_manage"></Element>
+         		<Element Name="btn_markread" Class="LabelText" text="" CssClass="icon_list" Link="{@home:url}/collab/note_manage"></Element>
 
     </ActionPanel> 
     <NavPanel>

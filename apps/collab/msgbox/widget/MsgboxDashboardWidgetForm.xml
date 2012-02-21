@@ -32,8 +32,8 @@
         
     </DataPanel>
     <ActionPanel>
-         <Element Name="btn_compose" Class="LabelText" text="&amp;nbsp;" CssClass="icon_compose" Link="{@home:url}/collab/message_compose"></Element>
-         <Element Name="btn_index" Class="LabelText" text="&amp;nbsp;" CssClass="icon_list" Link="{@home:url}/collab/message_inbox"></Element>
+         <Element Name="btn_compose" Class="LabelText" text="" CssClass="icon_compose" Link="{@home:url}/collab/message_compose"></Element>
+         <Element Name="btn_index" Class="LabelText" text="" CssClass="icon_list" Link="{@home:url}/collab/message_inbox"></Element>
    
     </ActionPanel> 
     <NavPanel>
