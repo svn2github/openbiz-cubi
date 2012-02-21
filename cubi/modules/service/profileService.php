@@ -221,7 +221,7 @@ class profileService
             $name = $rs['username'];
             $email = $rs['email'];
         	if($email){
-        		$name.=" &lt;$email&gt;";
+        		$name.=" <$email>";
         	}            
         }else{
         	$contact_rs = $contact_rs[0];
@@ -233,7 +233,7 @@ class profileService
         	}
         	$name = $contact_rs['display_name'];
         	if($email && $type=='full'){
-        		$name.=" &lt;$email&gt;";
+        		$name.=" <$email>";
         	}
         }
         return $name;
@@ -249,11 +249,8 @@ class profileService
         $rs = $do->fetchById($account_id);
         if (!$rs){
 			$msg = "-- Deleted User ( UID:$account_id ) --";
-			if(CLI){
-				return $msg;
-			}else{
-        		return "<span style='color:#AAAAAA'>$msg<span>";
-			}
+			return $msg;
+			
         }
         
         return $rs['email'];
