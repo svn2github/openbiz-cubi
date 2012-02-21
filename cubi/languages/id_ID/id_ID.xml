@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metafile version="1.5"  client="site" >
-	<name>Bahasa Indonesia</name>
+	<name>Indonesia</name>
 	<tag>id_ID</tag>
-	<version>1.0</version>
+	<version>01.01</version>
 	<creationDate>2012-01-29</creationDate>
 	<author>Agus Suhartono</author>
 	<authorEmail>agus@binexa.com</authorEmail>
 	<authorUrl>http://www.binexa.com</authorUrl>
-	<copyright>Copyright (C) 2005 - 2010 Open Source Matters. All rights reserved.</copyright>
-	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<copyright>Copyright (C) Openbiz Cubi. All rights reserved.</copyright>
+	<license>BSD License Style</license>
 	<description>Indonesia</description>
 </metafile>
