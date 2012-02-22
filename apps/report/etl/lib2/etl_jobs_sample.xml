@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ETL>
+	<DataSource>
+		<Database Name="db_test" Driver="Pdo_Mysql" Server="localhost" Port="3306" DBName="report" User="root" Password="root" Charset="utf8"/>
+    </DataSource>
+
+    <Job Name="queue1">
+		<Task Name="task1" class="EtlTask">
+			<Extract Class="FlatFileParser" Source="log_file_path" Regexp="regular expression pattern">
+				<Field Name="username" Class="ETLField_Extract" Key="username" Required="Y" Validation=""/>
+				<Field Name="email" Class="ETLField_Extract" Key="email" Required="Y" Validation="{@validate:email('[email]')}" /> 
+				<Field Name="datetime" Class="ETLField_Extract" Key="datetime" Required="Y" Validation="compare_date([datetime],'1970-01-01')" /> 
+			</Extract>
+			<Transform Class="BaseTransformer">
+				<Field Name="date" Class="ETLField_Transform" Value="getDate([datetime])" /> 
+			</Transform>
+			<Load Class="TableLoader" Target="db_test.register">
+				<Field Name="ld_username" Class="ETLField_Load" from="username" to="username"/>
+				<Field Name="ld_email" Class="ETLField_Load" from="email" to="email" /> 
+				<Field Name="ld_date" Class="ETLField_Load" from="date" to="date" /> 
+			</Load>
+		</Task>
+	</Job> 
+	
+</ETL>
