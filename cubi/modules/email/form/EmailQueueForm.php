@@ -100,9 +100,12 @@ class EmailQueueForm extends EasyForm
 		$emailSvc = BizSystem::getService(EMAIL_SERVICE);
 		for($i=0;$i<count($resultRecords);$i++)
 		{
+						
 			$account = $emailSvc->m_Accounts->get($resultRecords[$i]['sender']);						
-			$resultRecords[$i]['sender'] = "<a href=\"mailto:".$account->m_FromEmail."\" >".$account->m_FromName."</a>  ";
-			$resultRecords[$i]['recipient_name'] = "<a href=\"mailto:".$resultRecords[$i]['recipient']."\" >".$resultRecords[$i]['recipient_name']."</a>  ";
+			$resultRecords[$i]['sender'] = $account->m_FromName;
+			$resultRecords[$i]['sender_mail'] = $account->m_FromEmail;
+			$resultRecords[$i]['recipient_name'] = $resultRecords[$i]['recipient'];
+			$resultRecords[$i]['recipient_email'] = $resultRecords[$i]['recipient'];
 		}
  		return $resultRecords;
 	}
@@ -111,9 +114,13 @@ class EmailQueueForm extends EasyForm
 		$resultRecords = parent::fetchData();
 		$emailSvc = BizSystem::getService(EMAIL_SERVICE);
 
-		$account = $emailSvc->m_Accounts->get($resultRecords['sender']);						
-		$resultRecords['sender'] = "<a href=\"mailto:".$account->m_FromEmail."\" >".$account->m_FromName."</a> &lt;".$account->m_FromEmail."&gt;   ";
-		$resultRecords['recipient_name'] = "<a href=\"mailto:".$resultRecords['recipient']."\" >".$resultRecords['recipient_name']."</a> &lt;".$resultRecords['recipient']."&gt;   ";
+		$account = $emailSvc->m_Accounts->get($resultRecords['sender']);	
+		$resultRecords['sender'] = $account->m_FromName;
+		$resultRecords['sender_mail'] = $account->m_FromEmail;
+		$resultRecords['recipient_name'] = $resultRecords['recipient'];
+		$resultRecords['recipient_email'] = $resultRecords['recipient'];					
+		//$resultRecords['sender'] = "<a href=\"mailto:".$account->m_FromEmail."\" >".$account->m_FromName."</a> &lt;".$account->m_FromEmail."&gt;   ";
+		//$resultRecords['recipient_name'] = "<a href=\"mailto:".$resultRecords['recipient']."\" >".$resultRecords['recipient_name']."</a> &lt;".$resultRecords['recipient']."&gt;   ";
 
  		return $resultRecords;
 	}	

@@ -7,36 +7,46 @@ class EmailLogForm extends EasyForm
 		for($i=0;$i<count($resultRecords);$i++)
 		{
 			$account = $emailSvc->m_Accounts->get($resultRecords[$i]['sender']);						
-			$resultRecords[$i]['sender'] = "<a href=\"mailto:".$resultRecords[$i]['sender']."\" >".$resultRecords[$i]['sender_name']."</a>";
+			$resultRecords[$i]['sender_email'] = $resultRecords[$i]['sender'];
+			$resultRecords[$i]['sender'] = $resultRecords[$i]['sender_name'];			
 			$recipentArr = preg_split('/;/',$resultRecords[$i]['recipients']);
 			$resultRecords[$i]['recipients'] = "";
 			if(count($recipentArr)>2){
 				$spliter=";";
 			}
+			
 			foreach($recipentArr as $recipent){
 				preg_match("/(.*?)\<(.*?)\>/si", $recipent, $match);
 				if($match[1])
 				{
-					$resultRecords[$i]['recipients'].="<a href=\"mailto:".$match[2]."\">".$match[1]."</a>".$spliter;
+					$resultRecords[$i]['recipients'].=$match[1].$spliter;
+					$resultRecords[$i]['recipients_email'].=$match[2].$spliter;
 				}
 			} 
 		}
+		
  		return $resultRecords;
 	}
 
 	public function fetchData(){
 		$resultRecords = parent::fetchData();
 		$emailSvc = BizSystem::getService(EMAIL_SERVICE);
-
 		$account = $emailSvc->m_Accounts->get($resultRecords['sender']);						
-		$resultRecords['sender'] = "<a href=\"mailto:".$resultRecords['sender']."\" >".$resultRecords['sender_name']."</a> &lt;".$resultRecords['sender']."&gt;";
+		
+		$resultRecords['sender_email'] = $resultRecords['sender'];
+		$resultRecords['sender'] = $resultRecords['sender_name'];
+		
 		$recipentArr = preg_split('/;/',$resultRecords['recipients']);
 		$resultRecords['recipients'] = "";
+		if(count($recipentArr)>2){
+				$spliter=";";
+			}
 		foreach($recipentArr as $recipent){
 			preg_match("/(.*?)\<(.*?)\>/si", $recipent, $match);
 			if($match[1])
 			{
-				$resultRecords['recipients'].="<a href=\"mailto:".$match[2]."\">".$match[1]."</a> &lt;".$match[2]."&gt;;";
+				$resultRecords['recipients'].=$match[1].$spliter;
+				$resultRecords['recipients_email'].=$match[2].$spliter;
 			}
 		}
  		return $resultRecords;

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="EmailLogListForm" Icon="icon_email_log_l.gif" Class="EmailLogForm" FormType="List" jsClass="jbForm" Title="Manage Email Log" EventName="EMAIL_LOG" Description="Manage application email logs. Email logs record email activities." BizDataObj="email.do.EmailLogDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" MessageFile="">
     <DataPanel>    		 
-		     <Element Name="fld_timestamp" Class="ColumnText" FieldName="timestamp" Label="Timestamp" Sortable="Y"/>		     		     
-		     <Element Name="fld_sender" Class="ColumnText" FieldName="sender"  Label="Sender" Sortable="Y"/>
-		     <Element Name="fld_recipients" Class="ColumnText" FieldName="recipients"  Label="Recipient" Sortable="Y"/>
+		     <Element Name="fld_timestamp" Class="ColumnText" FieldName="timestamp" Label="Timestamp" Sortable="Y"/>
+		     <Element Name="fld_sender_email" Class="Hidden" Hidden="Y" FieldName="sender_email"  Label="Sender" Sortable="Y" />		     		     
+		     <Element Name="fld_sender" Class="ColumnText" FieldName="sender"  Label="Sender" Sortable="Y" Link="mailto:{@:Elem[fld_sender_email].Value}" />
+		     <Element Name="fld_recipients_email" Class="Hidden" Hidden="Y" FieldName="recipients_email"   />
+		     <Element Name="fld_recipients" Class="ColumnText" FieldName="recipients"  Label="Recipient" Sortable="Y" Link="mailto:{@:Elem[fld_recipients_email].Value}" />
 		     <Element Name="fld_subject" MaxLength="35" Class="ColumnText" FieldName="subject" Label="Subject"  Sortable="Y" Link="javascript:">
 		     	<EventHandler Name="btn_subject_onclick" Event="onclick" Function="SwitchForm(email.form.EmailLogDetailForm,{@:Elem[fld_Id].Value})"  />
 		     </Element>

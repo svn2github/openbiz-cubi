@@ -2,9 +2,12 @@
 <EasyForm Name="EmailQueueDetailForm" Class="EmailQueueForm" jsClass="jbForm" Title="Email Detail" Description="Detailed attributes of a given email" BizDataObj="email.do.EmailQueueDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html">
     <DataPanel>
     	 <Element Name="fld_Id" Class="LabelText" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y"/>   	 
-	     <Element Name="fld_create_time" Class="LabelText" FieldName="create_time" Label="Timestamp" Sortable="Y"/>		     
-	     <Element Name="fld_sender" Class="LabelText" FieldName="sender"  Label="Sender" Sortable="Y"/>
-	     <Element Name="fld_recipient_name" Class="LabelText" FieldName="recipient_name"  Label="Recipient" Sortable="Y"/>	     
+	     <Element Name="fld_create_time" Class="LabelText" FieldName="create_time" Label="Timestamp" Sortable="Y"/>		
+	     <Element Name="fld_sender_email" Class="Hidden" Hidden="Y" FieldName="sender_mail"  Label="Sender" Sortable="Y"/>
+	     <Element Name="fld_recipient_name" Class="ColumnText" FieldName="recipient_name"  Label="Recipient" Sortable="Y" Link="mailto:{@:Elem[fld_recipient_name].Value}"/>
+	          
+	     <Element Name="fld_sender" Class="LabelText" FieldName="sender"  Label="Sender" Sortable="Y" Link="mailto:{@:Elem[fld_sender_email].Value}"/>
+	     <Element Name="fld_recipient_name" Class="LabelText" FieldName="recipient_name"  Label="Recipient" Sortable="Y" Link="mailto:{@:Elem[fld_recipient_name].Value}"/>	     
 	     <Element Name="fld_status" Class="LabelText" FieldName="status" Label="Status" Sortable="Y"/>
 	     <Element Name="fld_sent_time" Class="LabelText" FieldName="sent_time" Label="Processed Time" Sortable="Y"/>
 		 <Element Name="fld_recipient" Class="Hidden" Hidden="Y" FieldName="recipient" Label="Recipient" Sortable="Y"/>

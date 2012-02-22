@@ -2,9 +2,10 @@
 <EasyForm Name="EmailQueueListForm" Icon="icon_email_queue_l.gif" Class="EmailQueueForm" FormType="List" jsClass="jbForm" EventName="EMAIL_QUEUE" Title="Manage Email Queue" Description="Manage application email queue. All emails are added into the email queue before sending out" BizDataObj="email.do.EmailQueueDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" MessageFile="">
     <DataPanel>
     		 <Element Name="row_selections" Class="RowCheckbox" FieldName="Id" Label=""/>
-		     <Element Name="fld_sender" Class="ColumnText" FieldName="sender"  Label="Sender" Sortable="Y"/>
-		     <Element Name="fld_recipient_name" Class="ColumnText" FieldName="recipient_name"  Label="Recipient" Sortable="Y"/>
-		     <Element Name="fld_subject" Class="ColumnText" FieldName="subject" Label="Subject"  Sortable="Y" Link="javascript:">
+    		 <Element Name="fld_sender_email" Class="Hidden" Hidden="Y" FieldName="sender_mail"  Label="Sender" Sortable="Y"/>
+		     <Element Name="fld_sender" Class="ColumnText" FieldName="sender"  Label="Sender" Sortable="Y" Link="mailto:{@:Elem[fld_sender_email].Value}"/>
+		     <Element Name="fld_recipient_name" Class="ColumnText" FieldName="recipient_name"  Label="Recipient" Sortable="Y" Link="mailto:{@:Elem[fld_recipient_name].Value}"/>
+		     <Element Name="fld_subject" MaxLength="25" Class="ColumnText" FieldName="subject" Label="Subject"  Sortable="Y" Link="javascript:">
 		     	<EventHandler Name="btn_subject_onclick" Event="onclick" Function="SwitchForm(email.form.EmailQueueDetailForm,{@:Elem[fld_Id].Value})"  />
 		     </Element>
 		     <Element Name="fld_status" Class="ColumnImage" Text="{RESOURCE_URL}/email/images/icon_email_{@:Elem[fld_status].Value}.png" FieldName="status" Label="Status" Sortable="Y"/>
