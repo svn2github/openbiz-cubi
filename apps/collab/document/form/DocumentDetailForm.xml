@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DocumentDetailForm" Class="EasyForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif" FormType="Detail" jsClass="jbForm" Title="Document Detail" Description="You can create a document and share it with your group mates." BizDataObj="collab.document.do.DocumentDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl" EventName="BOOKMARK" MessageFile="Documents.msg" Access="collab_document.access">
+<EasyForm Name="DocumentDetailForm" Class="EasyForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif" FormType="Detail" jsClass="jbForm" Title="Document Detail" Description="You can create a document and share it with your group mates." BizDataObj="collab.document.do.DocumentDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_tabs.tpl" EventName="BOOKMARK" MessageFile="Documents.msg" Access="collab_document.access">
     <DataPanel>
 			<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 			<Element Name="fld_form_title"  Class="LabelText" FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" />	
@@ -26,18 +26,34 @@
 		    			
 		<Element Name="fld_reversion" TabSet="Extra Information"   ElementSet="Reversion" Class="FormElement" FormReference="collab.document.widget.DocumentReversionListForm" FieldName="" Label="" AllowURLParam="N" />
 		
-		<Element Name="fld_related_docs" TabSet="Related Data"   ElementSet="Related" Class="FormElement" FormReference="collab.document.widget.DocumentListRelatedForm" FieldName="" Label="" AllowURLParam="N" />
-	    <Element Name="btn_manage_related" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Related" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
-			<EventHandler Name="btn_manage_related_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditRelatedForm,{@:Elem[fld_Id].Value})"   />
-       	</Element>     			
+    			
 	        			    
-			<Element Name="fld_sortorder" Class="LabelText" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />
-			<Element Name="fld_published" Class="LabelList" ElementSet="Miscellaneous"  SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  />
-<Element Name="fld_published_others" Class="LabelList" ElementSet="Miscellaneous"  SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  />		     
-			<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>		        
-			<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
-			<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>		        
-			<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+			<Element Name="fld_sortorder" TabSet="Extra Information" Class="LabelText" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />
+			<Element Name="fld_published" TabSet="Extra Information"  Class="LabelList" ElementSet="Miscellaneous"  SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  />
+			<Element Name="fld_published_others" TabSet="Extra Information"  Class="LabelList" ElementSet="Miscellaneous"  SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  />		     
+			<Element Name="fld_create_by" TabSet="Extra Information"  Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_create_time" TabSet="Extra Information"  Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
+			<Element Name="fld_update_by" TabSet="Extra Information"  Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_update_time" TabSet="Extra Information"  Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+		
+		
+		<Element Name="fld_related_docs" TabSet="Related Data"   ElementSet="Document" Class="FormElement" FormReference="collab.document.widget.DocumentListRelatedForm" FieldName="" Label="" AllowURLParam="N" />
+	    <Element Name="btn_manage_related" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Document" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_related_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditRelatedForm,{@:Elem[fld_Id].Value})"   />
+       	</Element>		
+		
+		<Element Name="fld_related_projects" TabSet="Related Data"   ElementSet="Project" Class="FormElement" FormReference="collab.project.widget.ProjectListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_related_tasks" TabSet="Related Data"   ElementSet="Task" Class="FormElement" FormReference="collab.task.widget.TaskListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_related_worklog" TabSet="Related Data"   ElementSet="Worklog" Class="FormElement" FormReference="collab.worklog.widget.WorklogListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		
+		<Element Name="fld_related_events" TabSet="Related Data"   ElementSet="Events" Class="FormElement" FormReference="collab.calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_related_contacts" TabSet="Related Data"   ElementSet="Contacts" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		
+		
+		
+       	
+       	
+       	
 	    </DataPanel>
     <ActionPanel>       
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">

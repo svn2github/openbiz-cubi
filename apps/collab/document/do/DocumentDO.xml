@@ -28,10 +28,18 @@
     	
     </TableJoins>
     <ObjReferences>
+    	<!-- 1-M -->
     	<Object Name="location.do.LocationDO" Description="" Relationship="1-M" Table="location" CondColumn='type' CondValue='document' Column="foreign_id" FieldRef="Id" />
         <Object Name="picture.do.PictureDO" Description="" Relationship="1-M" Table="picture" CondColumn='type' CondValue='document' Column="foreign_id" FieldRef="Id" />
         <Object Name="attachment.do.AttachmentDO" Description="" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='document' Column="foreign_id" FieldRef="Id" />
 		<Object Name="collab.document.do.DocumentReversionDO" Description="" Relationship="1-M" Table="document_reversion" Column="document_id" FieldRef="Id" />
+		<!-- M-M -->
 		<Object Name="collab.document.do.DocumentRefDO" Description="" Relationship="Self-Self" Table="document" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="document_related" XColumn1="document_id" XColumn2="related_id" XDataObj="collab.document.do.DocumentRelatedDO"/>
+		<Object Name="collab.calendar.do.EventDO" Description="" Relationship="M-M" Table="event" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="event_document" XColumn1="document_id" XColumn2="event_id" XDataObj="collab.document.do.DocumentEventDO"/>
+		<Object Name="collab.project.do.ProjectDO" Description="" Relationship="M-M" Table="project" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="project_document" XColumn1="document_id" XColumn2="project_id" XDataObj="collab.document.do.DocumentProjectDO"/>
+		<Object Name="collab.task.do.TaskDO" Description="" Relationship="M-M" Table="task" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="task_document" XColumn1="document_id" XColumn2="task_id" XDataObj="collab.document.do.DocumentTaskDO"/>
+		<Object Name="collab.worklog.do.WorkLogDO" Description="" Relationship="M-M" Table="work_log" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="work_log_document" XColumn1="document_id" XColumn2="worklog_id" XDataObj="collab.document.do.DocumentWorklogDO"/>
+		<Object Name="contact.do.ContactDO" Description="" Relationship="M-M" Table="contact" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="contact_document" XColumn1="document_id" XColumn2="contact_id" XDataObj="collab.document.do.DocumentContactDO"/>
+		
     </ObjReferences>
 </BizDataObj>

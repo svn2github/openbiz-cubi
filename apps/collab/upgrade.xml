@@ -195,6 +195,36 @@ CREATE TABLE `document_related` (
   KEY `related_id` (`related_id`),
   KEY `document_id` (`document_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `event_document`;
+CREATE TABLE `event_document` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `event_id` int(10) unsigned NOT NULL default '0',
+  `document_id` int(10) unsigned NOT NULL default '0',   
+  PRIMARY KEY  (`id`),
+  KEY `event_id` (`event_id`),
+  KEY `document_id` (`document_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `project_document`;
+CREATE TABLE `project_document` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `project_id` int(10) unsigned NOT NULL default '0',
+  `document_id` int(10) unsigned NOT NULL default '0',   
+  PRIMARY KEY  (`id`),
+  KEY `project_id` (`project_id`),
+  KEY `document_id` (`document_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `contact_document`;
+CREATE TABLE `contact_document` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `contact_id` int(10) unsigned NOT NULL default '0',
+  `document_id` int(10) unsigned NOT NULL default '0',   
+  PRIMARY KEY  (`id`),
+  KEY `contact_id` (`contact_id`),
+  KEY `document_id` (`document_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
         ]]></UpgradeSql>
     </Version>     
 </Upgrade>

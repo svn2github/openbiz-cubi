@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="DocumentWorklogDO" Description="" DataPermControl="N" Class="BizDataObj" DBName="Default" Table="work_log_document" SearchRule="" SortRule="" OtherSQLRule="" IdGeneration="Identity">
+	<BizFieldList>
+	    <BizField Name="Id" Column="id" Type=""/>
+        <BizField Name="worklog_id" Column="worklog_id" Type=""/>
+        <BizField Name="document_id" Column="document_id" Type=""/>
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
