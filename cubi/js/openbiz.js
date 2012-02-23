@@ -140,7 +140,20 @@ Openbiz.Form = Class.create(
     collectData: function()
     {
     	/*this.form.fire("Form:BeforePost",{formName:this.name});  // fire Form:BeforePost. observers can update values accordingly*/
-    	try{var formData = this.form.serialize();}catch(e){var formData=''};
+    	try {
+            var formData = this.form.serialize();
+        }
+        catch(e){
+            var formData='';
+            elements = this.form.select('input','textarea','select');
+            for( var i=0; i < elements.length; i++ ){
+                element = elements[i];
+                key = element.name; value = $(element).getValue();
+                if (key == "" || key == null) continue;
+                formData += key+"="+encodeURIComponent(value);
+                if (i < elements.length-1) formData += '&';
+            }
+        };
     	// TODO: add __url
         return formData;
     },
