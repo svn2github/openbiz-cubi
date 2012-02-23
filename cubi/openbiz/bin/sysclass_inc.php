@@ -71,11 +71,20 @@ abstract class MetaObject
     {
         $rootKeys = array_keys($xmlArr);
         $rootKey = $rootKeys[0];
-        $this->m_Name = isset($xmlArr[$rootKey]["ATTRIBUTES"]["NAME"]) ? $xmlArr[$rootKey]["ATTRIBUTES"]["NAME"] : null;
-        $this->m_Description = isset($xmlArr[$rootKey]["ATTRIBUTES"]["DESCRIPTION"]) ? $xmlArr[$rootKey]["ATTRIBUTES"]["DESCRIPTION"] : null;
-        $this->m_Package = isset($xmlArr[$rootKey]["ATTRIBUTES"]["PACKAGE"]) ? $xmlArr[$rootKey]["ATTRIBUTES"]["PACKAGE"] : null;
-        $this->m_Class = isset($xmlArr[$rootKey]["ATTRIBUTES"]["CLASS"]) ? $xmlArr[$rootKey]["ATTRIBUTES"]["CLASS"] : null;
-        $this->m_Access = isset($xmlArr[$rootKey]["ATTRIBUTES"]["ACCESS"]) ? $xmlArr[$rootKey]["ATTRIBUTES"]["ACCESS"] : null;
+        if ($rootKey != "ATTRIBUTES") {
+            $this->m_Name = isset($xmlArr[$rootKey]["ATTRIBUTES"]["NAME"]) ? $xmlArr[$rootKey]["ATTRIBUTES"]["NAME"] : null;
+            $this->m_Description = isset($xmlArr[$rootKey]["ATTRIBUTES"]["DESCRIPTION"]) ? $xmlArr[$rootKey]["ATTRIBUTES"]["DESCRIPTION"] : null;
+            $this->m_Package = isset($xmlArr[$rootKey]["ATTRIBUTES"]["PACKAGE"]) ? $xmlArr[$rootKey]["ATTRIBUTES"]["PACKAGE"] : null;
+            $this->m_Class = isset($xmlArr[$rootKey]["ATTRIBUTES"]["CLASS"]) ? $xmlArr[$rootKey]["ATTRIBUTES"]["CLASS"] : null;
+            $this->m_Access = isset($xmlArr[$rootKey]["ATTRIBUTES"]["ACCESS"]) ? $xmlArr[$rootKey]["ATTRIBUTES"]["ACCESS"] : null;
+        }
+        else {
+            $this->m_Name = isset($xmlArr["ATTRIBUTES"]["NAME"]) ? $xmlArr["ATTRIBUTES"]["NAME"] : null;
+            $this->m_Description = isset($xmlArr["ATTRIBUTES"]["DESCRIPTION"]) ? $xmlArr["ATTRIBUTES"]["DESCRIPTION"] : null;
+            $this->m_Package = isset($xmlArr["ATTRIBUTES"]["PACKAGE"]) ? $xmlArr["ATTRIBUTES"]["PACKAGE"] : null;
+            $this->m_Class = isset($xmlArr["ATTRIBUTES"]["CLASS"]) ? $xmlArr["ATTRIBUTES"]["CLASS"] : null;
+            $this->m_Access = isset($xmlArr["ATTRIBUTES"]["ACCESS"]) ? $xmlArr["ATTRIBUTES"]["ACCESS"] : null;
+        }
     }
     
     public function getModuleName($name)
@@ -147,6 +156,23 @@ abstract class MetaObject
         }
         return ALLOW;
     }
+    
+    protected function getElementObject(&$xmlArr, $defaultClassName, $parentObj=null)
+	{
+		// find the class attribute
+		$className = isset($xmlArr["ATTRIBUTES"]['CLASS']) ? $xmlArr["ATTRIBUTES"]['CLASS'] : $defaultClassName;
+		
+		if ((bool) strpos($className, "."))
+		{
+			$a_package_name = explode(".", $className);
+			$className		= array_pop($a_package_name);
+			$clsLoaded = BizSystem::loadClass($className, implode(".", $a_package_name));
+			if (!$clsLoaded) trigger_error("Cannot find the load class $className", E_USER_ERROR);
+		}
+		//echo "classname is $className\n";
+		$obj = new $className($xmlArr, $parentObj);
+		return $obj;
+	}
 }
 
 /**
