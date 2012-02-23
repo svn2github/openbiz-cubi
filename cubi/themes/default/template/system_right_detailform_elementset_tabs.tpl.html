@@ -238,6 +238,9 @@ color:#666666;
 	</script>
 	
 	</div></div></div>
+		<script>
+			init_elementset('{$form.name}','{$ts_counter}');
+		</script>	
 {assign var=ts_counter value=$ts_counter+1}
 {/foreach}
 <!-- tab set finished -->
