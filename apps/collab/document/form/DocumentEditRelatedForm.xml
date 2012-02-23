@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DocumentEditRelatedForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif" Title="Edit Document Locations" Description="This module could help you manage document locations" BizDataObj="collab.document.do.DocumentDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl" Access="collab_document.access">
+<EasyForm Name="DocumentEditRelatedForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif" Title="Edit Related Document" Description="This module could help you manage document locations" BizDataObj="collab.document.do.DocumentDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl" Access="collab_document.access">
     <DataPanel>
 		<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 			<Element Name="fld_form_title"  Class="LabelText" FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" />	
