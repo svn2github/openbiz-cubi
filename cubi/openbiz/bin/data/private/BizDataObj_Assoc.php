@@ -36,10 +36,15 @@ class BizDataObj_Assoc
      */
     public static function addRecord($dataObj, $recArr, &$isParentObjUpdated)
     {
-        if ($dataObj->m_Association["Relationship"] == "M-M" || $dataObj->m_Association["Relationship"] == "Self-Self")
+        if ($dataObj->m_Association["Relationship"] == "M-M"  )
         {
             $isParentObjUpdated = false;
             return self::_addRecordMtoM($dataObj, $recArr);
+        }
+        elseif($dataObj->m_Association["Relationship"] == "Self-Self")
+        {
+        	$isParentObjUpdated = false;
+            return self::_addRecordSelftoSelf($dataObj, $recArr);
         }
         elseif ($dataObj->m_Association["Relationship"] == "M-1"
                 || $dataObj->m_Association["Relationship"] == "1-1")
@@ -129,6 +134,12 @@ class BizDataObj_Assoc
         return true;
     }
 
+	private static function _addRecordSelftoSelf($dataObj, $recArr)
+    {
+        $result = self::_addRecordMtoM($dataObj, $recArr);        
+        return true;
+    }    
+    
     /**
      * Add record Many to One (M-1)
      * @param BizDataObj $dataObj
