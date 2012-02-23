@@ -98,7 +98,7 @@ class PickerForm extends EasyForm
             
         // if no parent elem or picker map, call AddToParent
         if (!$this->m_ParentFormElemName)
-        {
+        {        	
             $this->addToParent($selIds);
         }                
 
@@ -285,8 +285,9 @@ class PickerForm extends EasyForm
 			
 	        // add record to parent form's dataObj who is M-M or M-1/1-1 to its parent dataobj
 	        $ok = $parentForm->getDataObj()->addRecord($rec, $bPrtObjUpdated);
-	        if (!$ok)
+	        if (!$ok){	        	
 	            return $parentForm->processDataObjError($ok);
+	        }
     	}   
         
         $this->close();
