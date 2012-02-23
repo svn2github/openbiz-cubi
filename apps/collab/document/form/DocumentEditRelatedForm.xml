@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="DocumentEditRelatedForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif" Title="Edit Document Locations" Description="This module could help you manage document locations" BizDataObj="collab.document.do.DocumentDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl" Access="collab_document.access">
+    <DataPanel>
+		<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+			<Element Name="fld_form_title"  Class="LabelText" FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" />	
+			<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+			<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="collab.document.do.DocumentTypeDO[name:Id],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />
+			
+			<Element Name="fld_description" ElementSet="General"  Class="LabelTextarea" FieldName="description" Label="Description" />				   
+			
+		<Element Name="fld_related_docs"   ElementSet="Related Document" Class="FormElement" FormReference="collab.document.widget.DocumentListRelatedEditForm" FieldName="" Label="" AllowURLParam="N" />
+
+		
+		
+	    </DataPanel>
+    <ActionPanel>  
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="SwitchForm(collab.document.form.DocumentDetailForm,{@collab.document.do.DocumentDO:Field[Id].Value})"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        
+        
+        
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>    
+        
+        
+            
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

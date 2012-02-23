@@ -1,4 +1,37 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="DocumentPickerDO" Description="" DataPermControl="Y" Class="BizDataObj" inheritFrom="collab.document.do.DocumentDO">
-	
+<BizDataObj Name="DocumentPickerDO" Description="" DataPermControl="Y" Class="BizDataObj" DBName="Default" Table="document" SearchRule="" SortRule="[sortorder] ASC, [Id] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" Column="id"     Type=""/>
+		<BizField Name="title" Column="title" Length="255"   Required="N" Type=""/>
+		<BizField Name="description" Column="description" Type=""/>
+		<BizField Name="content" Column="content" Type=""/>
+		
+		<BizField Name="type_id" Column="type_id"  ValueOnCreate="1"  Required="N" Type=""/>
+		<BizField Name="type_color" Column="color"  Join="JoinType" />
+	    <BizField Name="type_name" Column="name" Join="JoinType" />
+   		
+		<BizField Name="sortorder" Column="sortorder"  ValueOnCreate="50"   Required="N" Type=""/>
+		
+		<BizField Name="owner_id" Column="owner_id" ValueOnCreate="{@profile:Id}"   Required="N" Type="Number"/>
+		<BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>
+        <BizField Name="group_perm" Column="group_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   Required="N" Type="Number"/>
+        <BizField Name="other_perm" Column="other_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"   Required="N" Type="Number"/>
+   		
+			        		    		
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+    <TableJoins>
+		<Join Name="JoinType" Table="document_type" Column="id" ColumnRef="type_id" JoinType="LEFT JOIN"/>
+    	
+    </TableJoins>
+    <ObjReferences>
+    	<Object Name="location.do.LocationDO" Description="" Relationship="1-M" Table="location" CondColumn='type' CondValue='document' Column="foreign_id" FieldRef="Id" />
+        <Object Name="picture.do.PictureDO" Description="" Relationship="1-M" Table="picture" CondColumn='type' CondValue='document' Column="foreign_id" FieldRef="Id" />
+        <Object Name="attachment.do.AttachmentDO" Description="" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='document' Column="foreign_id" FieldRef="Id" />
+		<Object Name="collab.document.do.DocumentReversionDO" Description="" Relationship="1-M" Table="document_reversion" Column="document_id" FieldRef="Id" />
+		<Object Name="collab.document.do.DocumentRefDO" Description="" Relationship="M-M" Table="document" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="document_related" XColumn1="document_id" XColumn2="related_id" XDataObj="collab.document.do.DocumentRelatedDO"/>
+    </ObjReferences>
 </BizDataObj>
