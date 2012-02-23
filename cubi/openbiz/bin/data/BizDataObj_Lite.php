@@ -220,6 +220,10 @@ class BizDataObj_Lite extends BizDataObj_Abstract
 
         return $this->m_CurrentRecord;
     }
+    
+    public function getRecordId(){
+    	return $this->m_RecordId;
+    }
 
     /**
      * Set the active record according to the record id

@@ -85,7 +85,7 @@ class ObjReference extends MetaObject
         $this->m_CondValue = isset($xmlArr["ATTRIBUTES"]["CONDVALUE"]) ? $xmlArr["ATTRIBUTES"]["CONDVALUE"] : null;
         $this->m_Condition = isset($xmlArr["ATTRIBUTES"]["CONDITION"]) ? $xmlArr["ATTRIBUTES"]["CONDITION"] : null;
         if ($this->m_CascadeDelete) $this->m_OnDelete = "Cascade";
-        if ($this->m_Relationship == "M-M")
+        if ($this->m_Relationship == "M-M" || $this->m_Relationship == "Self-Self")
         {
             $this->m_XTable = isset($xmlArr["ATTRIBUTES"]["XTABLE"]) ? $xmlArr["ATTRIBUTES"]["XTABLE"] : null;
             $this->m_XColumn1 = isset($xmlArr["ATTRIBUTES"]["XCOLUMN1"]) ? $xmlArr["ATTRIBUTES"]["XCOLUMN1"] : null;

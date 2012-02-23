@@ -237,7 +237,7 @@ class BizDataSql
             	$where .= " AND ".$assoc["Condition"]." ";
             }
         }
-        elseif ($assoc["Relationship"] == "M-M")
+        elseif ($assoc["Relationship"] == "M-M" || $assoc["Relationship"] == "Self-Self")
         {
             // ... INNER JOIN xtable TX ON TX.column2 = T0.column
             // WHERE ... Tx.column1 = 'PrtTableColumnValue'
@@ -256,8 +256,16 @@ class BizDataSql
                 $this->_tableJoins .= " INNER JOIN `$xtable` $xalias ON $xalias.$column2 = $mytable_col ";
                 $this->_tableAliasList[$xtable] = $xalias;
             }
+            
             // add a new where condition
-            $where = "$xalias.$column1 = '".$assoc["FieldRefVal"]."'";
+            if($assoc["Relationship"] == "Self-Self")
+            {   
+            	$columnId = $this->getTableColumn("", $assoc["ParentRecordIdColumn"]);             	
+            	$where = "($xalias.$column1 = '".$assoc["FieldRefVal"]."' OR $xalias.$column2 = '".$assoc["FieldRefVal"]."' ) AND $columnId != '".$assoc["FieldRefVal"]."'";
+            	$this->_tableJoins .=  " OR $xalias.$column1 = $mytable_col ";
+            }else{
+            	$where = "$xalias.$column1 = '".$assoc["FieldRefVal"]."'";
+            }
         }
 
         if (strlen($where) > 1)

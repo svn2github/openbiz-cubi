@@ -36,7 +36,7 @@ class BizDataObj_Assoc
      */
     public static function addRecord($dataObj, $recArr, &$isParentObjUpdated)
     {
-        if ($dataObj->m_Association["Relationship"] == "M-M")
+        if ($dataObj->m_Association["Relationship"] == "M-M" || $dataObj->m_Association["Relationship"] == "Self-Self")
         {
             $isParentObjUpdated = false;
             return self::_addRecordMtoM($dataObj, $recArr);
@@ -54,7 +54,7 @@ class BizDataObj_Assoc
         }
         else
         {
-            throw new BDOException("You cannot add a record in dataobj who doesn't have M-M or M-1 relationship with its parent object");
+            throw new BDOException("You cannot add a record in dataobj who doesn't have M-M or M-1 or Self-Self relationship with its parent object");
             return false;
         }
     }
@@ -187,7 +187,7 @@ class BizDataObj_Assoc
      */
     public static function removeRecord($dataObj, $recArr, &$isParentObjUpdated)
     {
-        if ($dataObj->m_Association["Relationship"] == "M-M")
+        if ($dataObj->m_Association["Relationship"] == "M-M" || $dataObj->m_Association["Relationship"] == "Self-Self")
         {
             $isParentObjUpdated = false;
             return self::_removeRecordMtoM($dataObj, $recArr);
@@ -204,7 +204,7 @@ class BizDataObj_Assoc
         }
         else
         {
-            throw new BDOException("You cannot add a record in dataobj who doesn't have M-M or M-1 relationship with its parent object");
+            throw new BDOException("You cannot add a record in dataobj who doesn't have M-M or M-1 or Self-Self relationship with its parent object");
             return false;
         }
     }

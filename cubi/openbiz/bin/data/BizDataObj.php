@@ -626,7 +626,7 @@ class BizDataObj extends BizDataObj_Lite
                 $table = $objRef->m_Table;
                 $column = $objRef->m_Column;
             }
-            else if ($objRef->m_Relationship == "M-M") {
+            else if ($objRef->m_Relationship == "M-M" || $objRef->m_Relationship == "Self-Self") {
                 $table = $objRef->m_XTable;
                 $column = $objRef->m_XColumn1;
             }

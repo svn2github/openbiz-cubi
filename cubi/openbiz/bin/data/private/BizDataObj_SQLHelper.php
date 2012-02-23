@@ -143,6 +143,11 @@ class BizDataObj_SQLHelper
             $asscObj = BizSystem::getObject($dataObj->m_Association["AsscObjName"]);
             $dataObj->m_Association["FieldRefVal"] = $asscObj->getFieldValue($dataObj->m_Association["FieldRef"]);
         }
+        
+        if($dataObj->m_Association["Relationship"]=="Self-Self")
+        {        	
+        	$dataObj->m_Association["ParentRecordIdColumn"] = $dataObj->getField("Id")->m_Column;
+        }
         $dataSqlObj->addAssociation($dataObj->m_Association);
 
         $querySQL = $dataSqlObj->getSqlStatement() . " ";
