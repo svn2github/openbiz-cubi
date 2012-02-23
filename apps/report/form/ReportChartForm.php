@@ -32,6 +32,9 @@ class ReportChartForm extends ReportForm
     
     protected function fetchDatasetByColumn()
     {
+    	$this->chartDataset = array();
+    	$this->chartCategory = array();
+    	
     	// query recordset first
 		$dataObj = $this->getDataObj();
 
