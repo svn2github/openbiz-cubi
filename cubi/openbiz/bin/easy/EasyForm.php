@@ -498,6 +498,7 @@ class EasyForm extends MetaObject implements iSessionObject
         $output['totalRecords'] = $this->m_TotalRecords;
         $output['description'] = str_replace('\n', "<br />", Expression::evaluateExpression($this->m_Description,$this));
         $output['elementSets'] = $this->getElementSet();
+        $output['tabSets'] = $this->getTabSet();
         $output['ActionElementSets'] = $this->getElementSet($this->m_ActionPanel);    
         if($output['icon'])
         {   
@@ -639,6 +640,50 @@ class EasyForm extends MetaObject implements iSessionObject
         }
         return $setArr;
     }
+    
+	public function getTabSet($panel = null)
+    {
+    	if(!$panel){
+    		$panel = $this->m_DataPanel;
+    	}
+    	$setArr = array();
+    	$tabSetArr = array();
+    	$panel->rewind();
+        while($panel->valid())    	    	
+        {      
+        	$elem = $panel->current();
+        	$panel->next();    
+        	if($elem->m_TabSet){
+        		//is it in array
+        		if(in_array($elem->m_TabSet,$setArr)){
+        			continue;
+        		}else{
+        			array_push($setArr,$elem->m_TabSet);
+        		}
+        	}          	                                  
+        }
+        foreach($setArr as $tabset)
+        {
+        	$elemSetArr = array();
+        	$panel->rewind();
+	        while($panel->valid())    	    	
+	        {      
+	        	$elem = $panel->current();
+	        	$panel->next();    
+	        	if($elem->m_ElementSet){
+	        		//is it in array
+	        		if( $elem->m_TabSet!= $tabset || 
+	        			in_array($elem->m_ElementSet,$elemSetArr)){
+	        			continue;
+	        		}else{
+	        			array_push($elemSetArr,$elem->m_ElementSet);
+	        		}
+	        	}          	                                  
+	        }
+	        $tabSetArr[$tabset] = $elemSetArr;
+        }
+        return $tabSetArr;
+    }    
 
     /**
      * Get error elements
