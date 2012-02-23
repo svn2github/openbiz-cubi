@@ -12,8 +12,8 @@
 		<Element Name="fld_creator" Hidden="{@:Elem[fld_data_manage].Value==1?'Y':'N'}" Class="LabelText"  ElementSet="Data Sharing" width="450" FieldName="creator_name" Label="Data Creator"  />
 		<Element Name="fld_creator_setting" Hidden="{@:Elem[fld_data_manage].Value==1?'N':'Y'}"  Class="Listbox" SelectFrom="system.do.UserContactDO[display_name:Id],[group_id]={@:Elem[fld_group_setting].Value}"  ElementSet="Data Sharing" FieldName="create_by" Label="Data Creator"  />
 		
-		<Element Name="fld_group" Hidden="{@:Elem[fld_editable].Value==1?'Y':'N'}"  Class="LabelText"  ElementSet="Data Sharing" Description="Data owner's group name " FieldName="group_name" Label="Group"  />    	
-    	<Element Name="fld_group_setting" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}"  Class="common.element.DataShareGroupList" SelectFrom="system.do.GroupDO[name:Id]" ElementSet="Data Sharing" Description="Data owner's group name " FieldName="group_id" Label="Group"  >
+		<Element Name="fld_group" Hidden="{@:Elem[fld_editable].Value==1?'Y':'N'}"  Class="LabelText"  ElementSet="Data Sharing" Description="Data owner's group name " FieldName="group_name" Label="Owner Group"  />    	
+    	<Element Name="fld_group_setting" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}"  Class="common.element.DataShareGroupList" SelectFrom="system.do.GroupDO[name:Id]" ElementSet="Data Sharing" Description="Data owner's group name " FieldName="group_id" Label="Owner Group"  >
     		<EventHandler Name="fld_group_setting_onchange" EventLogMsg="" Event="onchange" Function="UpdateForm()" />
     	</Element>
         
