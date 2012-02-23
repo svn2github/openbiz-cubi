@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ETL>
+	<DataSource>
+		<Database Name="db_test" Driver="Pdo_Mysql" Server="localhost" Port="3306" DBName="report" User="root" Password="root" Charset="utf8"/>
+    </DataSource>
+
+    <Job Name="job1">
+		<Task Name="task1" class="etl.lib.ETLTask">
+			<Extract Class="etl.lib.AccessLogParser" Source="C:/xampp/htdocs/gcubi/cubi/bin/etl/logs/apache_sample.log.20070410" Regexp='/^(\S+) \S+ \S+ \[([^\]]+)\] "([A-Z]+) ([^"]*) HTTP\S+" (\d+) (\d+) "[^"]*" "([^"]*)"/'>
+				<Field Name="client_ip" Class="etl.lib.ETLField_Extract" Required="Y" Validation=""/>
+				<Field Name="request_date" Class="etl.lib.ETLField_Extract" Required="Y" Validation="" /> 
+				<Field Name="protocol" Class="etl.lib.ETLField_Extract" Required="Y" Validation="" /> 
+                <Field Name="uri" Class="etl.lib.ETLField_Extract" Required="Y" Validation="" /> 
+                <Field Name="status_code" Class="etl.lib.ETLField_Extract" Required="Y" Validation="" /> 
+                <Field Name="bytes" Class="etl.lib.ETLField_Extract" Required="Y" Validation="" /> 
+                <Field Name="user_agent" Class="etl.lib.ETLField_Extract" Required="Y" Validation="" /> 
+			</Extract>
+			<Transform Class="etl.lib.BaseTransformer">
+				<Field Name="user_agent_cap" Class="etl.lib.ETLField_Transform" Function="{strtoupper(@:field[user_agent].Value)}" /> 
+			</Transform>
+			<Load Class="etl.lib.TableLoader" Target="db_test.access_log">
+				<Field Name="client_ip" Class="etl.lib.ETLField_Load" from="client_ip" to="client_ip"/>
+				<Field Name="request_date" Class="etl.lib.ETLField_Load" from="request_date" to="request_date" /> 
+				<Field Name="protocol" Class="etl.lib.ETLField_Load" from="protocol" to="protocol" /> 
+                <Field Name="uri" Class="etl.lib.ETLField_Load" from="uri" to="uri" /> 
+                <Field Name="status_code" Class="etl.lib.ETLField_Load" from="status_code" to="status_code" /> 
+                <Field Name="bytes" Class="etl.lib.ETLField_Load" from="bytes" to="bytes" /> 
+                <Field Name="user_agent" Class="etl.lib.ETLField_Load" from="user_agent" to="user_agent" /> 
+			</Load>
+		</Task>
+	</Job> 
+	
+</ETL>
