@@ -462,6 +462,16 @@ CREATE TABLE `document_reversion` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+
+DROP TABLE IF EXISTS `document_related`;
+CREATE TABLE `document_related` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `document_id` int(10) unsigned NOT NULL default '0',
+  `related_id` int(10) unsigned NOT NULL default '0',  
+  PRIMARY KEY  (`id`),
+  KEY `related_id` (`related_id`),
+  KEY `document_id` (`document_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 /*
 MySQL Data Transfer
 Source Host: localhost
