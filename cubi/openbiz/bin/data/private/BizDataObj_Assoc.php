@@ -187,10 +187,15 @@ class BizDataObj_Assoc
      */
     public static function removeRecord($dataObj, $recArr, &$isParentObjUpdated)
     {
-        if ($dataObj->m_Association["Relationship"] == "M-M" || $dataObj->m_Association["Relationship"] == "Self-Self")
+        if ($dataObj->m_Association["Relationship"] == "M-M")
         {
             $isParentObjUpdated = false;
             return self::_removeRecordMtoM($dataObj, $recArr);
+        }
+    	elseif ($dataObj->m_Association["Relationship"] == "Self-Self")
+        {
+            $isParentObjUpdated = false;
+            return self::_removeRecordSelftoSelf($dataObj, $recArr);
         }
         elseif ($dataObj->m_Association["Relationship"] == "M-1" || $dataObj->m_Association["Relationship"] == "1-1")
         {
@@ -241,6 +246,37 @@ class BizDataObj_Assoc
         return true;
     }
 
+   
+    private static function _removeRecordSelftoSelf($dataObj, $recArr)
+    {
+        // delete a record on XTable
+        $db = $dataObj->getDBConnection();
+
+        //TODO: delete using XDataObj if XDataObj is defined
+
+        $where = $dataObj->m_Association["XColumn1"] . "='" . $dataObj->m_Association["FieldRefVal"] . "'";
+        $where .= " AND " . $dataObj->m_Association["XColumn2"] . "='" . $recArr["Id"] . "'";
+        $sql = "DELETE FROM " . $dataObj->m_Association["XTable"] . " WHERE " . $where;
+
+		$where_2 = $dataObj->m_Association["XColumn2"] . "='" . $dataObj->m_Association["FieldRefVal"] . "'";
+        $where_2 .= " AND " . $dataObj->m_Association["XColumn1"] . "='" . $recArr["Id"] . "'";
+        $sql_2 = "DELETE FROM " . $dataObj->m_Association["XTable"] . " WHERE " . $where_2;
+
+        try
+        {
+            BizSystem::log(LOG_DEBUG, "DATAOBJ", "Associate Delete Sql = $sql");
+            $db->query($sql);
+            $db->query($sql_2);
+        }
+        catch (Exception $e)
+        {
+            BizSystem::log(LOG_ERR, "DATAOBJ", "Query Error: ".$e->getMessage());
+            throw new BDOException("Query Error: " . $e->getMessage());
+            return false;
+        }
+        return true;
+    }    
+    
     /**
      * Remove record many to one
      *
