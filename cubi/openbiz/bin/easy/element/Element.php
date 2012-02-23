@@ -44,6 +44,8 @@ class Element extends MetaObject implements iUIControl
     public $m_FormName;
     public $m_ElementSet;
     public $m_ElementSetCode;
+    public $m_TabSet;
+    public $m_TabSetCode;
     public $m_FieldName;
     public $m_Required = null;
     public $m_Validator = null;
@@ -92,6 +94,8 @@ class Element extends MetaObject implements iUIControl
         $this->m_HTMLAttr = isset($xmlArr["ATTRIBUTES"]["HTMLATTR"]) ? $xmlArr["ATTRIBUTES"]["HTMLATTR"] : null;
         $this->m_ElementSet = isset($xmlArr["ATTRIBUTES"]["ELEMENTSET"]) ? $xmlArr["ATTRIBUTES"]["ELEMENTSET"] : null;
         $this->m_ElementSetCode = isset($xmlArr["ATTRIBUTES"]["ELEMENTSET"]) ? $xmlArr["ATTRIBUTES"]["ELEMENTSET"] : null;          
+        $this->m_TabSet = isset($xmlArr["ATTRIBUTES"]["TABSET"]) ? $xmlArr["ATTRIBUTES"]["TABSET"] : null;
+        $this->m_TabSetCode = isset($xmlArr["ATTRIBUTES"]["TABSET"]) ? $xmlArr["ATTRIBUTES"]["TABSET"] : null;
         $this->m_Text = isset($xmlArr["ATTRIBUTES"]["TEXT"]) ? $xmlArr["ATTRIBUTES"]["TEXT"] : null;
         $this->m_Translatable = isset($xmlArr["ATTRIBUTES"]["TRANSLATABLE"]) ? $xmlArr["ATTRIBUTES"]["TRANSLATABLE"] : null;
         $this->m_FuzzySearch = isset($xmlArr["ATTRIBUTES"]["FUZZYSEARCH"]) ? $xmlArr["ATTRIBUTES"]["FUZZYSEARCH"] : null;
@@ -554,7 +558,9 @@ class Element extends MetaObject implements iUIControl
         if (!empty($this->m_DefaultValue) && !preg_match("/\{/si",$this->m_DefaultValue))
     		$this->m_DefaultValue = I18n::t($this->m_DefaultValue, $this->getTransKey('DefaultValue'), $module);
 		if (!empty($this->m_ElementSet))
-    		$this->m_ElementSet = I18n::t($this->m_ElementSet, $this->getTransKey('ElementSet'), $module);    		
+    		$this->m_ElementSet = I18n::t($this->m_ElementSet, $this->getTransKey('ElementSet'), $module);
+    	if (!empty($this->m_TabSet))
+    		$this->m_TabSet = I18n::t($this->m_TabSet, $this->getTransKey('TabSet'), $module);    		
     }
     
     protected function getTransKey($name)
