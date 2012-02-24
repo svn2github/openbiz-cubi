@@ -38,6 +38,8 @@
      	<Object Name="attachment.do.AttachmentDO" Description="" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='project' Column="foreign_id" FieldRef="Id" />
      	
      	<!-- M-M -->
+     	<Object Name="collab.project.do.ProjectRefDO" Description="" Relationship="Self-Self" Table="project" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="project_related" XColumn1="project_id" XColumn2="related_id" XDataObj="collab.project.do.ProjectRelatedDO"/>
+     	
      	<Object Name="contact.do.ContactDO" Description="" Relationship="M-M" Table="contact" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="project_contact" XColumn1="project_id" XColumn2="contact_id" XDataObj="collab.project.do.ProjectContactDO"/>
         <Object Name="collab.calendar.do.EventDO" Description="" Relationship="M-M" Table="event" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="project_event" XColumn1="project_id" XColumn2="event_id" XDataObj="collab.project.do.ProjectEventDO"/>        
         <Object Name="collab.document.do.DocumentDO" Description="" Relationship="M-M" Table="document" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="project_document" XColumn1="project_id" XColumn2="document_id" XDataObj="collab.project.do.ProjectDocumentDO"/>
