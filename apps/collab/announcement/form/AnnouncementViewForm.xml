@@ -9,8 +9,8 @@
 				FieldName="read_status" Label="Stat"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
 			<EventHandler Name="fld_read_onclick" Event="onclick" Function="MarkAsRead({@:Elem[fld_Id].Value})"/>		
 		</Element>	
-        <Element Name="fld_title" Class="ColumnText" Style="{@:Elem[fld_read].Value==1?'':'font-weight:bold;'}" MaxLength="40"  FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
-        	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.announcement.form.AnnouncementReadDetailForm,{@:Elem[fld_Id].Value})"   />
+        <Element Name="fld_title" Class="ColumnText" Style="{@:Elem[fld_read].Value==1?'':'font-weight:bold;'}" MaxLength="40"  FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N"  Link="{APP_INDEX}/collab/announcement_detail/{@:Elem[fld_Id].Value}"  Translatable="N" OnEventLog="N" >
+        	<!-- <EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.announcement.form.AnnouncementReadDetailForm,{@:Elem[fld_Id].Value})"   />-->
         </Element>	
         <Element Name="fld_description" Class="ColumnText"  MaxLength="35" FieldName="description"  Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         
