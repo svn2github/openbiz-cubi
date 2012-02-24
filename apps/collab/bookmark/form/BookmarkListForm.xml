@@ -14,11 +14,11 @@
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
 		<Element Name="fld_icon_data" Class="Hidden" Hidden="Y" FieldName="icon" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
-		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/collab/bookmark/icons/{@:Elem[fld_icon_data].Value}"  FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
-			<EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.bookmark.form.BookmarkDetailForm,{@:Elem[fld_Id].Value})"   />
+		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/collab/bookmark/icons/{@:Elem[fld_icon_data].Value}"  FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N"  Link="{APP_INDEX}/collab/bookmark_detail/{@:Elem[fld_Id].Value}" Translatable="N" OnEventLog="N" >
+			
 		</Element>
-        <Element Name="fld_title" Class="ColumnText" MaxLength="40"  FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
-        	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.bookmark.form.BookmarkDetailForm,{@:Elem[fld_Id].Value})"   />
+        <Element Name="fld_title" Class="ColumnText" MaxLength="40"  FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N"  Link="{APP_INDEX}/collab/bookmark_detail/{@:Elem[fld_Id].Value}" Translatable="N" OnEventLog="N" >
+        	<!-- <EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.bookmark.form.BookmarkDetailForm,{@:Elem[fld_Id].Value})"   />-->
         </Element>	
         <Element Name="fld_url" Class="ColumnText" Link="{@:Elem[fld_url].Value}" Target="_Blank" MaxLength="30" FieldName="url"  Label="URL"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         

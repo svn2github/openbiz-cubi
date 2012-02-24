@@ -142,7 +142,9 @@
 		</MenuItem>
         <!-- bookmark menus -->
         <MenuItem Name="Collab_Bookmark" Title="Bookmark" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_bookmark" Order="80" Access="collab_bookmark.access">
-			<MenuItem Name="Collab_Bookmark.Manage" Title="Bookmark Manage" Description=""  URL="{@home:url}/collab/bookmark_manage" Access="collab_bookmark.access" Order="10" ></MenuItem>			
+			<MenuItem Name="Collab_Bookmark.Manage" Title="Bookmark Manage" Description=""  URL="{@home:url}/collab/bookmark_manage" Access="collab_bookmark.access" Order="10" >
+				<MenuItem Name="Collab_Bookmark.Detail" Title="Bookmark Detail" Description=""  URL="{@home:url}/collab/bookmark_detail" Access="collab_bookmark.access"  Order="10" ></MenuItem>
+			</MenuItem>			
 			<MenuItem Name="Collab_Bookmark.TypeManage" Title="Bookmark Type" Description=""  URL="{@home:url}/collab/bookmark_type" Access="collab_bookmark.access"  Order="20" ></MenuItem>
 		</MenuItem>	
 		

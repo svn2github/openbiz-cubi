@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="BookmarkDetailView" Description="Bookmark Detail" Class="EasyView"  Tab="" TemplateEngine="Smarty"  Access="collab_bookmark.access" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="collab.bookmark.form.BookmarkDetailForm"/>
+   </FormReferences>  
+</EasyView>

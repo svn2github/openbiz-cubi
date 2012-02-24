@@ -30,8 +30,8 @@
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=collab.bookmark.form.BookmarkListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
-        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
-            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button_gray_m" Link="{APP_INDEX}/collab/bookmark_manage" >
+           <!--  <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />-->
         </Element>          
     </ActionPanel> 
     <NavPanel>
