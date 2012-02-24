@@ -260,11 +260,10 @@ class Resource
         $xmlFile = "/" . $xmlFile;
         
         // search in modules directory first
-        if (defined('TARGET_APP_HOME'))
-            $xmlFileList[]= TARGET_APP_HOME . $xmlFile;
         $xmlFileList[] = MODULE_PATH . $xmlFile;
         $xmlFileList[] = APP_HOME . $xmlFile;
         $xmlFileList[] = OPENBIZ_META . $xmlFile;
+        if (defined('MODULE_EX_PATH')) array_unshift($xmlFileList, MODULE_EX_PATH . $xmlFile);
         
         foreach ($xmlFileList as $xmlFileItem)
         {
@@ -295,7 +294,6 @@ class Resource
             $moduleName = $names[0];
         $packagePath = str_replace('.', '/', $packageName);
         
-        //TODO : this array can configure from cubi or other app
         $searchTpls = array(
             MODULE_PATH . "/$packagePath/template/$templateFile",
             dirname(MODULE_PATH . "/$packagePath") . "/template/$templateFile",
@@ -303,6 +301,7 @@ class Resource
             //MODULE_PATH."/common/template/$templateFile",
             $templateRoot . "/$templateFile"
         );
+        if (defined('MODULE_EX_PATH')) array_unshift($searchTpls, MODULE_EX_PATH . "/$packagePath/template/$templateFile");
         foreach ($searchTpls as $tplFile)
         {
             if (file_exists($tplFile))
@@ -344,6 +343,7 @@ class Resource
             // search in apphome/modules directory first, search in apphome/bin directory then
             $classFiles[0] = MODULE_PATH . "/" . $path . "/" . $classFile;
             $classFiles[1] = APP_HOME . "/bin/" . $path . "/" . $classFile;
+            if (defined('MODULE_EX_PATH')) array_unshift($classFiles, MODULE_EX_PATH . "/" . $path . "/" . $classFile);
             foreach ($classFiles as $classFile)
             {
                 if (file_exists($classFile))
