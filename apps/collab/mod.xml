@@ -107,7 +107,9 @@
 		</MenuItem>
         <!-- worklog menus -->
     	<MenuItem Name="Worklog" Title="Work Log" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_worklog" Order="40" Access="collab_worklog.access">
-			<MenuItem Name="Worklog.Manage" Title="Work Log Manage " Description=""  URL="{@home:url}/collab/worklog_manage" Order="40"  Access="collab_worklog.access" ></MenuItem>
+			<MenuItem Name="Worklog.Manage" Title="Work Log Manage " Description=""  URL="{@home:url}/collab/worklog_manage" Order="40"  Access="collab_worklog.access" >
+				<MenuItem Name="Worklog.Detail" Title="Work Log Detail " Description=""  URL="{@home:url}/collab/worklog_detail" Order="10"  Access="collab_worklog.access" ></MenuItem>
+			</MenuItem>
 			<MenuItem Name="Worklog.Statistics" Title="Work Statistics" Description=""  URL="{@home:url}/collab/worklog_statistics" Access="collab_worklog.access"  Order="50" ></MenuItem>
 		</MenuItem>	
         <!-- message box menus -->
