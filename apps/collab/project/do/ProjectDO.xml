@@ -31,6 +31,7 @@
     </TableJoins>
     <ObjReferences>
         <!-- 1-M -->
+        <Object Name="location.do.LocationDO" Description="" Relationship="1-M" Table="location" CondColumn='type' CondValue='project' Column="foreign_id" FieldRef="Id" />
         <Object Name="changelog.do.ChangeLogDO" Description="" Relationship="1-M" Table="changelog" CondColumn='type' CondValue='project' Column="foreign_id" FieldRef="Id" />    
     	<Object Name="picture.do.PictureDO" Description="" Relationship="1-M" Table="picture" CondColumn='type' CondValue='project' Column="foreign_id" FieldRef="Id" />
      	<Object Name="collab.task.do.TaskDO" Description="" Relationship="1-M" Table="task" Column="project_id" FieldRef="Id" />

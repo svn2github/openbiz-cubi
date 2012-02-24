@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectEditEventForm" Class="ProjectForm" FormType="Detail" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Edit Project Events" Description="This module could help you manage project. You can put events under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_detail_view.tpl.html" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
+<EasyForm Name="ProjectEditLocationForm" Class="ProjectForm" FormType="Detail" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Edit Project Locations" Description="This module could help you manage project. You can set up location informations for a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_detail_view.tpl.html" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
     <DataPanel>
 	    <Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 	       
@@ -21,7 +21,7 @@
 		</Element>		
 		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 		
-		<Element Name="fld_related_event"   ElementSet="Events" Class="FormElement" FormReference="collab.calendar.widget.EventListEditForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_related_location"   ElementSet="Locations" Class="FormElement" FormReference="location.widget.LocationListEditForm" FieldName="" Label="" AllowURLParam="N" />
 			        
     </DataPanel>
     <ActionPanel>

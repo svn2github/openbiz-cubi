@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectDetailForm" Class="ProjectForm" FormType="Detail" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Project Detail" Description="This module could help you manage project. You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_detail_view.tpl.html" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
+<EasyForm Name="ProjectDetailForm" Class="ProjectForm" FormType="Detail" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Project Detail" Description="This module could help you manage project. You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_detail_view_tabs.tpl.html" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
     <DataPanel>
 	    <Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 	       
@@ -20,44 +20,57 @@
 		</Element>
 		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 
-		<Element Name="fld_related_task"   ElementSet="Task" Class="FormElement" FormReference="collab.task.widget.TaskListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_task" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Task"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
-			<EventHandler Name="btn_manage_task_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectEditTaskForm,{@:Elem[fld_Id].Value})"   />
-        </Element>  
+ 
 
 		<Element Name="fld_related_budget"   ElementSet="Expenses" Class="FormElement" FormReference="collab.task.widget.TaskListBudgetForm" FieldName="" Label="" AllowURLParam="N" />
 		 
-		
-		<Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_attachment" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+		<!-- 1-M -->
+		<Element Name="fld_related_attachment"  TabSet="Extra Information" Access="attachment.access"  ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_attachment" TabSet="Extra Information"  Access="attachment.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
         
-         <Element Name="fld_related_picture"   ElementSet="Picture" Class="FormElement" FormReference="picture.widget.PictureListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_picture" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Picture"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+         <Element Name="fld_related_picture"  TabSet="Extra Information"  Access="picture.access"  ElementSet="Picture" Class="FormElement" FormReference="picture.widget.PictureListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_picture"   TabSet="Extra Information" Access="picture.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Picture"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectEditPictureForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
         
-		<Element Name="fld_related_events"   ElementSet="Events" Class="FormElement" FormReference="collab.calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_event" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Events" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+        <Element Name="fld_locations" Access="location.access"  TabSet="Extra Information" ElementSet="Locations" Class="FormElement" FormReference="location.widget.LocationListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_locations" Access="location.access"  TabSet="Extra Information" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Locations" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+				<EventHandler Name="btn_manage_location_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectEditLocationForm,{@:Elem[fld_Id].Value})"   />
+        </Element> 
+       		
+        
+        <Element Name="fld_changelog"  TabSet="Extra Information"  Access="changelog.access"  ElementSet="ChangeLog" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetForm" FieldName="" Label="" AllowURLParam="N" />
+
+			<!-- <Element Name="fld_sortorder" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  /> -->
+			<Element Name="fld_published" TabSet="Extra Information"  Class="LabelList" ElementSet="Misc"  SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  />
+			<Element Name="fld_published_others"  TabSet="Extra Information" Class="LabelList" ElementSet="Misc"  SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  />		     
+			<Element Name="fld_create_by"  TabSet="Extra Information" Class="LabelText" ElementSet="Misc" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_create_time"  TabSet="Extra Information" Class="LabelText" ElementSet="Misc" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
+			<Element Name="fld_update_by" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_update_time"  TabSet="Extra Information" Class="LabelText" ElementSet="Misc" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+		
+        
+        <!-- M-M -->
+        <Element Name="fld_related_task"   TabSet="Related Data"  Access="collab_task.access"  ElementSet="Task" Class="FormElement" FormReference="collab.task.widget.TaskListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_task"  TabSet="Related Data"  Access="collab_task.access"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Task"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_task_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectEditTaskForm,{@:Elem[fld_Id].Value})"   />
+        </Element> 
+        
+		<Element Name="fld_related_events"  TabSet="Related Data"  Access="collab_calendar.access"  ElementSet="Events" Class="FormElement" FormReference="collab.calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_event"  TabSet="Related Data" Access="collab_calendar.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Events" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_evnt_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectEditEventForm,{@:Elem[fld_Id].Value})"  />
         </Element> 
 		
-		<Element Name="fld_related_contacts"   ElementSet="Contacts" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_related_contacts"  TabSet="Related Data" Access="contact.access"  ElementSet="Contacts" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		    	
-		<Element Name="btn_manage_contact" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Contacts" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+		<Element Name="btn_manage_contact"  TabSet="Related Data" Access="contact.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Contacts" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_contact_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectEditContactForm,{@:Elem[fld_Id].Value})" />
         </Element>  		
-			         <Element Name="fld_changelog"   ElementSet="ChangeLog" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetForm" FieldName="" Label="" AllowURLParam="N" /> 
+			          
 		
-			<!-- <Element Name="fld_sortorder" Class="LabelText" ElementSet="Misc" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  /> -->
-			<Element Name="fld_published" Class="LabelList" ElementSet="Misc"  SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  />
-			<Element Name="fld_published_others" Class="LabelList" ElementSet="Misc"  SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  />		     
-			<Element Name="fld_create_by" Class="LabelText" ElementSet="Misc" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>		        
-			<Element Name="fld_create_time" Class="LabelText" ElementSet="Misc" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
-			<Element Name="fld_update_by" Class="LabelText" ElementSet="Misc" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>		        
-			<Element Name="fld_update_time" Class="LabelText" ElementSet="Misc" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
-		
+
 						        
     </DataPanel>
     <ActionPanel>
