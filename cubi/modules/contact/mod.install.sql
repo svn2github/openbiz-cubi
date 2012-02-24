@@ -115,6 +115,16 @@ CREATE TABLE IF NOT EXISTS `contact_import` (
   PRIMARY KEY  (`id`)
 ) ENGINE=Memory  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-update `contact` set `group_id`=1,`group_perm`=1,`other_perm`=0;
+DROP TABLE IF EXISTS `contact_related`;
+CREATE TABLE `contact_related` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `contact_id` int(10) unsigned NOT NULL default '0',
+  `related_id` int(10) unsigned NOT NULL default '0',  
+  PRIMARY KEY  (`id`),
+  KEY `related_id` (`related_id`),
+  KEY `contact_id` (`contact_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+update `contact` set `group_id`=1,`group_perm`=1,`other_perm`=1;
 update `contact_type` set `group_id`=1,`group_perm`=1,`other_perm`=1;
 update `contact` set `owner_id`=`create_by`;
