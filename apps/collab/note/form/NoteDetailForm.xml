@@ -6,7 +6,7 @@
 			<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 			<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="collab.note.do.NoteTypeDO[name:Id],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />
 			
-			<Element Name="fld_description" ElementSet="General"  Class="LabelText" FieldName="description" Label="Description" />				   
+			<Element Name="fld_description" ElementSet="General"  Class="LabelTextarea" FieldName="description" Label="Description" />				   
 	        			    
 			<Element Name="fld_sortorder" Class="LabelText" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />
 			<Element Name="fld_published" Class="LabelList" ElementSet="Miscellaneous"  SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  />
