@@ -302,14 +302,14 @@ margin-top:4px;
 	    </div>
 	    {literal}<script>setTimeout("$('noticeDiv').fade( {from: 1, to: 0});",3000);</script>{/literal}
 	{/if}
-
+		<div style="height:15px;">
+			<div id='{$form.name}.load_disp' style="display:none;">
+			<img  src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
+		</div>
 	</div>
 	
-		<div style="height:15px;">
-		<div id='{$form.name}.load_disp' style="display:none;">
-		<img  src="{$image_url}/form_ajax_loader.gif"/>
-		</div>
-		</div>
+		
 	
 </div>
 </form>
