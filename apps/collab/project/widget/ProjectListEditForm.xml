@@ -26,11 +26,11 @@
     </DataPanel>
 <ActionPanel>
 		<Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add">
-            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(collab.project.widget.DocumentNewForm)"/>
+            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(collab.project.widget.ProjectNewForm)"/>
         </Element>
         <Element Name="btn_spacer" Class="Spacer" Width="10" ></Element>    
-        <Element Name="btn_pick" Class="Button" text="Pick Docs" CssClass="button_gray_w">
-            <EventHandler Name="pick_onclick" Event="onclick" Function="LoadDialog(collab.project.widget.DocumentPickForm)"/>
+        <Element Name="btn_pick" Class="Button" text="Pick Projects" CssClass="button_gray_w">
+            <EventHandler Name="pick_onclick" Event="onclick" Function="LoadDialog(collab.project.widget.ProjectPickForm)"/>
         </Element>
         <Element Name="btn_remove" Class="Button" text="Remove" CssClass="button_gray_w">
             <EventHandler Name="remove_onclick" Event="onclick" Function="RemoveRecord()"/>
