@@ -8,7 +8,7 @@
 			
 			<Element Name="fld_description" ElementSet="General"  Class="LabelTextarea" FieldName="description" Label="Description" />				   
 			
-		<Element Name="fld_related_events"   ElementSet="Related Events" Class="FormElement" FormReference="collab.calendar.widget.EventListEditForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_related_events" Access="collab_calendar.access"  ElementSet="Related Events" Class="FormElement" FormReference="collab.calendar.widget.EventListEditForm" FieldName="" Label="" AllowURLParam="N" />
 
 		
 		

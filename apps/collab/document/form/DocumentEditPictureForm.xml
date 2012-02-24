@@ -8,7 +8,7 @@
 			
 			<Element Name="fld_description" ElementSet="General"  Class="LabelTextarea" FieldName="description" Label="Description" />				   
 			
-		<Element Name="fld_related_picture"   ElementSet="Picture" Class="FormElement" FormReference="picture.widget.PictureListEditForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_related_picture" Access="picture.access"  ElementSet="Picture" Class="FormElement" FormReference="picture.widget.PictureListEditForm" FieldName="" Label="" AllowURLParam="N" />
 
 		
 		
