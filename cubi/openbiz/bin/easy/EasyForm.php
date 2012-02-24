@@ -628,7 +628,7 @@ class EasyForm extends MetaObject implements iSessionObject
         {      
         	$elem = $panel->current();
         	$panel->next();    
-        	if($elem->m_ElementSet){
+        	if($elem->m_ElementSet && $elem->canDisplayed()){
         		//is it in array
         		if(in_array($elem->m_ElementSet,$setArr)){
         			continue;
@@ -653,12 +653,12 @@ class EasyForm extends MetaObject implements iSessionObject
         {      
         	$elem = $panel->current();
         	$panel->next();    
-        	if($elem->m_TabSet){
+        	if($elem->m_TabSet && $elem->canDisplayed()){
         		//is it in array
         		if(in_array($elem->m_TabSet,$setArr)){
         			continue;
         		}else{
-        			$setArr[$elem->m_TabSetCode]=$elem->m_TabSet;        			
+         			$setArr[$elem->m_TabSetCode]=$elem->m_TabSet;
         		}
         	}          	                                  
         }
@@ -670,7 +670,7 @@ class EasyForm extends MetaObject implements iSessionObject
 	        {      
 	        	$elem = $panel->current();
 	        	$panel->next();    
-	        	if($elem->m_ElementSet){
+	        	if($elem->m_ElementSet && $elem->canDisplayed()){
 	        		//is it in array
 	        		if( $elem->m_TabSetCode!= $tabsetCode || 
 	        			in_array($elem->m_ElementSet,$elemSetArr)){
