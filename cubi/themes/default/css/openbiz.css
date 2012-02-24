@@ -1782,7 +1782,7 @@ h2.element_set_title a:active{
 }
 h2.element_set_title a.expand{
 	background-image:url(../images/icon_expand.gif);
-	background-color:#efefef;	
+	background-color:#f5f5f5;	
 }
 h2.element_set_title a.shrink{
 	background-image:url(../images/icon_shrink.gif);
