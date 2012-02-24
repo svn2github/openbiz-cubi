@@ -47,7 +47,7 @@
         </Element>         
 		<Element Name="btn_spacer3" Class="Spacer" Width="10"></Element>
 		<Element Name="btn_print" Class="Button" Text="Print" CssClass="button_gray_m">
-            <EventHandler Name="print_onclick" Event="onclick" EventLogMsg="" Function="UpdateForm()" />
+            <EventHandler Name="print_onclick" Event="onclick" EventLogMsg="" Function="js:ganttChartControl.printToWindow();" />
         </Element>
         
     </ActionPanel> 

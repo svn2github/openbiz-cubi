@@ -46,10 +46,10 @@
         <Element Name="fld_viewmode" Class="Listbox" HTMLattr="style='float:left;display:block;'" DefaultValue="{@:m_ViewMode}" SelectFrom="collab.task.lov.GanttLOV(ViewMode)" Text="Print" style="margin-left:5px;" >
             <EventHandler Name="btn_viewmode_onclick" Event="onchange" EventLogMsg="" Function="switchMode()" />
         </Element>     
-         -->  
-		<Element Name="btn_spacer3" Class="Spacer" Width="10"></Element>
+        
+		<Element Name="btn_spacer3" Class="Spacer" Width="10"></Element> -->  
 		<Element Name="btn_print" Class="Button" Text="Print" CssClass="button_gray_m">
-            <EventHandler Name="print_onclick" Event="onclick" EventLogMsg="" Function="UpdateForm()" />
+            <EventHandler Name="print_onclick" Event="onclick" EventLogMsg="" Function="js:ganttChartControl.printToWindow();" />
         </Element>
         
     </ActionPanel> 

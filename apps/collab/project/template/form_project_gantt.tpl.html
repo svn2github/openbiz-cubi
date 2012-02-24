@@ -43,7 +43,6 @@ margin-right:5px;
 		</div>
 	</div>	
 {/if}		
-
 <div style="width:700px; height:500px; position:relative;" id="GanttDiv"></div>
 
 <script>
@@ -125,7 +124,7 @@ function createChartControl(htmlDiv1)
    	
    	{/literal}
  	ganttChartControl.loadData("{$app_url}/bin/controller.php?F=RPCInvoke&P0=["+formname+"]&P1=[renderGantt]&__this=btn_render_gantt:btn_render_gantt_onclick&",true,true);
-    // Build control on the page
+    // Build control on the page     
     {if $smarty.get.__this eq 'btn_print:print_onclick' }    
     ganttChartControl.printToWindow();
     {/if}
