@@ -31,8 +31,8 @@
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=collab.note.form.NoteListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
         <Element Name="btn_spacer_for_cancel" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Spacer" Width="10"></Element>
-        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
-            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        <Element Name="btn_cancel" Class="LabelText" Link="{APP_INDEX}/collab/note_manage" Text="Back" CssClass="button_gray_m">
+            <!-- <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />-->
         </Element>          
     </ActionPanel> 
     <NavPanel>

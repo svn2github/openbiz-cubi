@@ -14,8 +14,8 @@
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
 		
-        <Element Name="fld_title" Class="ColumnText" MaxLength="30"  FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
-        	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.note.form.NoteDetailForm,{@:Elem[fld_Id].Value})"   />
+        <Element Name="fld_title" Class="ColumnText" MaxLength="30"  FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N"   Link="{APP_INDEX}/collab/note_detail/{@:Elem[fld_Id].Value}"  Translatable="N" OnEventLog="N" >
+        	<!-- <EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.note.form.NoteDetailForm,{@:Elem[fld_Id].Value})"   />-->
         </Element>	
         <Element Name="fld_starttime" Class="ColumnText" FieldName="create_time"  Label="Create Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         
