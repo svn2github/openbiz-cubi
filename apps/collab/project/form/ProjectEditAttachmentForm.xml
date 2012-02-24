@@ -21,7 +21,7 @@
 		</Element>		
 		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 		
-		<Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListEditForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_related_attachment" Access="attachment.access"  ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListEditForm" FieldName="" Label="" AllowURLParam="N" />
 			        
     </DataPanel>
     <ActionPanel>

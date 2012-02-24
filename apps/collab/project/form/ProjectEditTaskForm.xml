@@ -21,7 +21,7 @@
 		</Element>		
 		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 		
-		<Element Name="fld_related_task"   ElementSet="Task" Class="FormElement" FormReference="collab.task.widget.TaskListEditForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_related_task"  Access="collab_task.access"  ElementSet="Task" Class="FormElement" FormReference="collab.task.widget.TaskListEditForm" FieldName="" Label="" AllowURLParam="N" />
 			        
     </DataPanel>
     <ActionPanel>
