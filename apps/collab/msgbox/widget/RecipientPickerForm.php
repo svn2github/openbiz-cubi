@@ -34,6 +34,24 @@ class RecipientPickerForm extends PickerForm
     	return (int)$recList->count();
     }
     
+    public function clearParent()
+    {
+    	$parentForm = BizSystem::objectFactory()->getObject($this->m_ParentFormName);
+    	$parentDo = BizSystem::getObject("collab.msgbox.do.MessageContactPickDO");
+    	
+    	$parentRec = $parentDo->fetchById($parentForm->m_RecordId);
+    	$parentRec = $parentRec->toArray();
+    	
+    	$recipientDo = BizSystem::getObject($this->m_RecipientDO,1);
+    	$recipientDo->deleteRecords("[message_id]='".$parentRec["Id"]."' AND [type]='".$this->m_RecipientType."'");
+    	$this->close();
+
+        $parentForm->rerender();
+		if($parentForm->m_ParentFormName){
+			$parentForm->renderParent();
+		}
+    }
+    
 	public function addToParent($recIds=null)
 	{
 		if(!is_array($recIds))

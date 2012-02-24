@@ -25,8 +25,13 @@
         <Element Name="btn_edit" Class="Button" text="Select" CssClass="button_gray_m">
             <EventHandler Name="onclick" Event="onclick" Function="PickToParent()"/>
         </Element>
+        
         <Element Name="btn_new" Class="Button" Text="Close" CssClass="button_gray_m">
             <EventHandler Name="onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+        <Element Name="btn_spacer2" Class="Spacer" width="10" />		
+        <Element Name="btn_clear" Class="Button" Text="Clear All" CssClass="button_gray_w">
+            <EventHandler Name="onclick" Event="onclick" Function="ClearParent()"/>
         </Element>
     </ActionPanel> 
     <NavPanel>
