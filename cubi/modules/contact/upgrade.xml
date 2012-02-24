@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<Upgrade>
+    <Version Name="0.6">
+        <UpgradeSql><![CDATA[
+DROP TABLE IF EXISTS `contact_related`;
+CREATE TABLE `contact_related` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `contact_id` int(10) unsigned NOT NULL default '0',
+  `related_id` int(10) unsigned NOT NULL default '0',  
+  PRIMARY KEY  (`id`),
+  KEY `related_id` (`related_id`),
+  KEY `contact_id` (`contact_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+        ]]></UpgradeSql>
+    </Version>       
+</Upgrade>

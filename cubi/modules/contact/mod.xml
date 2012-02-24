@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="contact" Description="contact management module" Version="0.5.1" OpenbizVersion="3.0" LoadHandler="contact.lib.ContactLoadHandler">
+<Module Name="contact" Description="contact management module" Version="0.6" OpenbizVersion="3.0" LoadHandler="contact.lib.ContactLoadHandler">
 	<ACL>
 		<Resource Name="contact">
 			<Action Name="access" Description="access my contact"/>
@@ -30,8 +30,9 @@
     </Dependency>
     <ChangeLog>
     	<Version Name="0.6">
-    		<Change Name="feature_061" Type="Feature"  Status="Finished" PublishDate="2012-02-18" Description="Custom fields has protect level control"></Change>
-    		<Change Name="feature_060" Type="Feature"  Status="Finished" PublishDate="2012-02-18" Description="Added custom field feature for contact"></Change>
+    		<Change Name="feature_062" Type="Feature"  Status="Finished" PublishDate="2012-02-18" Description="Custom fields has protect level control"></Change>
+    		<Change Name="feature_061" Type="Feature"  Status="Finished" PublishDate="2012-02-18" Description="Added custom field feature for contact"></Change>
+    		<Change Name="feature_060" Type="Feature"  Status="Finished" PublishDate="2012-02-24" Description="Added contact self to self reference "></Change>
     	</Version>
     	<Version Name="0.5.1">
     		<Change Name="feature_051" Type="Feature"  Status="Finished" PublishDate="2012-02-14" Description="Added display_name_mask field for save name display logic"></Change>
