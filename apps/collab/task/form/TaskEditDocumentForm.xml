@@ -31,7 +31,7 @@
 		
 		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 
-		<Element Name="fld_related_documents"   ElementSet="Docs" Class="FormElement" FormReference="collab.document.widget.DocumentListEditForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_related_documents" Access="collab_document.access"  ElementSet="Docs" Class="FormElement" FormReference="collab.document.widget.DocumentListEditForm" FieldName="" Label="" AllowURLParam="N" />
 
 	    </DataPanel>
     <ActionPanel>  

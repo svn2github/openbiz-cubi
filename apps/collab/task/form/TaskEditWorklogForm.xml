@@ -35,7 +35,7 @@
 		<Element Name="fld_finish_time"  ElementSet="Time"  Class="LabelText" FieldName="finish_time" Label="End Time"  AllowURLParam="Y" />
 		<Element Name="fld_workhour" ElementSet="Time" Class="LabelText" Text="{@:Elem[fld_workhour].Value} Hours" FieldName="total_workhour" Label="Time Budget"   AllowURLParam="N"  />
 		<Element Name="fld_actualhour" ElementSet="Time" Class="LabelText" Text="{@:Elem[fld_actualhour].Value} Hours" FieldName="actual_workhour" Label="Worked Hours"   AllowURLParam="N"  />
-		<Element Name="fld_work_log"   ElementSet="Time" Class="FormElement" FormReference="collab.worklog.widget.WorklogListEditForm" FieldName="" Label="" AllowURLParam="N" />		
+		<Element Name="fld_work_log" Access="collab_worklog.access"  ElementSet="Time" Class="FormElement" FormReference="collab.worklog.widget.WorklogListEditForm" FieldName="" Label="" AllowURLParam="N" />		
 
 	    </DataPanel>
     <ActionPanel>  

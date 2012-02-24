@@ -34,7 +34,7 @@
 		<Element Name="fld_budget" ElementSet="Expenses" Class="LabelText"  Text="$ {@:Elem[fld_budget].Value} Dollars"  FieldName="budget_cost" Label="Budget"  Description="unit in Dollars, total budget" AllowURLParam="N" />
 		<Element Name="fld_cost" ElementSet="Expenses" Class="LabelText"  Text="$ {@:Elem[fld_cost].Value} Dollars"  FieldName="actual_cost" Label="Expenses"  Description="unit in Dollars, actual spend cost" AllowURLParam="N" />
 		
-	    <Element Name="fld_budget_worklog"   ElementSet="Expenses" Class="FormElement" FormReference="collab.budget.widget.BudgetListEditForm" FieldName="" Label="" AllowURLParam="N" />
+	    <Element Name="fld_budget_worklog"  Access="collab_budget.access"  ElementSet="Expenses" Class="FormElement" FormReference="collab.budget.widget.BudgetListEditForm" FieldName="" Label="" AllowURLParam="N" />
 
 		
 		

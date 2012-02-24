@@ -33,7 +33,7 @@
 		
 		
 		
-	    <Element Name="fld_related_contacts"   ElementSet="Contacts" Class="FormElement" FormReference="contact.widget.ContactListEditForm" FieldName="" Label="" AllowURLParam="N" />
+	    <Element Name="fld_related_contacts" Access="contact.access"  ElementSet="Contacts" Class="FormElement" FormReference="contact.widget.ContactListEditForm" FieldName="" Label="" AllowURLParam="N" />
 
 		
 		
