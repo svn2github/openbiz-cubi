@@ -716,5 +716,86 @@ CREATE TABLE `task_budget` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
+
+DROP TABLE IF EXISTS `document_related`;
+CREATE TABLE `document_related` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `document_id` int(10) unsigned NOT NULL default '0',
+  `related_id` int(10) unsigned NOT NULL default '0',  
+  PRIMARY KEY  (`id`),
+  KEY `related_id` (`related_id`),
+  KEY `document_id` (`document_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `event_related`;
+CREATE TABLE `event_related` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `event_id` int(10) unsigned NOT NULL default '0',
+  `related_id` int(10) unsigned NOT NULL default '0',  
+  PRIMARY KEY  (`id`),
+  KEY `related_id` (`related_id`),
+  KEY `event_id` (`event_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `task_related`;
+CREATE TABLE `task_related` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `task_id` int(10) unsigned NOT NULL default '0',
+  `related_id` int(10) unsigned NOT NULL default '0',  
+  PRIMARY KEY  (`id`),
+  KEY `related_id` (`related_id`),
+  KEY `task_id` (`task_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `project_related`;
+CREATE TABLE `project_related` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `project_id` int(10) unsigned NOT NULL default '0',
+  `related_id` int(10) unsigned NOT NULL default '0',  
+  PRIMARY KEY  (`id`),
+  KEY `related_id` (`related_id`),
+  KEY `project_id` (`project_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `event_document`;
+CREATE TABLE `event_document` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `event_id` int(10) unsigned NOT NULL default '0',
+  `document_id` int(10) unsigned NOT NULL default '0',   
+  PRIMARY KEY  (`id`),
+  KEY `event_id` (`event_id`),
+  KEY `document_id` (`document_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `project_document`;
+CREATE TABLE `project_document` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `project_id` int(10) unsigned NOT NULL default '0',
+  `document_id` int(10) unsigned NOT NULL default '0',   
+  PRIMARY KEY  (`id`),
+  KEY `project_id` (`project_id`),
+  KEY `document_id` (`document_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `contact_document`;
+CREATE TABLE `contact_document` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `contact_id` int(10) unsigned NOT NULL default '0',
+  `document_id` int(10) unsigned NOT NULL default '0',   
+  PRIMARY KEY  (`id`),
+  KEY `contact_id` (`contact_id`),
+  KEY `document_id` (`document_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `project_event`;
+CREATE TABLE `project_event` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `project_id` int(10) unsigned NOT NULL default '0',
+  `event_id` int(10) unsigned NOT NULL default '0',   
+  PRIMARY KEY  (`id`),
+  KEY `project_id` (`project_id`),
+  KEY `event_id` (`event_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 insert  into `role`(`name`,`description`,`status`,`default`,`startpage`) values ('Collaboration Admin','Collaboration system administrator',1,0,'/collab/dashboard');
 insert  into `role`(`name`,`description`,`status`,`default`,`startpage`) values ('Collaboration Member','General Collaboration system member',1,1,'/collab/dashboard');

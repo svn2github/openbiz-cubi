@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TaskListRelatedEditForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="" Description="" BizDataObj="collab.task.do.TaskRefDO"  Access="collab_task.access" inheritFrom="collab.task.widget.TaskListEditForm" >  
+</EasyForm>
