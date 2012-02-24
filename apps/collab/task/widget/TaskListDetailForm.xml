@@ -12,8 +12,8 @@
 				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
 		</Element>	
 
-        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
-                        	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="ParentSwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   />         
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/task_detail/{@:Elem[fld_Id].Value}">         
+                        <!-- 	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="ParentSwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   /> -->         
         </Element>
         <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" FieldName="status" Label="Status"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         </Element>
