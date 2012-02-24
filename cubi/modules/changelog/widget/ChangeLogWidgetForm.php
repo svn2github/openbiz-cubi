@@ -82,9 +82,9 @@ class ChangeLogWidgetForm extends EasyForm
 				$newClass = "LabelImage";				
 				break;
 			default:				
-				$newClass = "LabelText";
-				if(preg_match('/Selector/si',$className)){
-					$newClass = "LabelList";
+				$newClass = "LabelText";				
+				if(preg_match('/Selector/si',$className)){					
+					$newClass = "LabelList";					
 				}elseif(preg_match('/List/si',$className)){
 					$newClass = "LabelList";
 				}
@@ -93,7 +93,9 @@ class ChangeLogWidgetForm extends EasyForm
 		
 		
 		$selectFrom = $metaArr["ATTRIBUTES"]['SELECTFROM'];
-		$selectFrom = substr($selectFrom,0,strpos($selectFrom,','));
+		if(strpos($selectFrom,',')){
+			$selectFrom = substr($selectFrom,0,strpos($selectFrom,','));
+		}		
 		$metaArr["ATTRIBUTES"]['SELECTFROM']=$selectFrom;		
 		$metaArr["ATTRIBUTES"]['CLASS'] = $newClass;
 		$metaArr["ATTRIBUTES"]['CSSCLASS']="";
