@@ -53,6 +53,8 @@
     	<Object Name="location.do.LocationDO" Description="" Relationship="1-M" Table="location" CondColumn='type' CondValue='event' Column="foreign_id" FieldRef="Id" />
     	
     	<!-- M-M -->
+    	<Object Name="collab.calendar.do.EventRefDO" Description="" Relationship="Self-Self" Table="event" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="event_related" XColumn1="event_id" XColumn2="related_id" XDataObj="collab.calendar.do.EventRelatedDO"/>
+    	
     	<Object Name="collab.project.do.ProjectDO" Description="" Relationship="M-M" Table="project" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="project_event" XColumn1="event_id" XColumn2="project_id" XDataObj="collab.calendar.do.EventProjectDO"/>
 		<Object Name="collab.task.do.TaskDO" Description="" Relationship="M-M" Table="task" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="task_event" XColumn1="event_id" XColumn2="task_id" XDataObj="collab.calendar.do.EventTaskDO"/>
     	

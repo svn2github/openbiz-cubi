@@ -60,6 +60,11 @@
        		  			
 			
 			<!-- M-M -->
+			<Element Name="fld_related_events" TabSet="Related Data"   ElementSet="Events" Class="FormElement" FormReference="collab.calendar.widget.EventListRelatedForm" FieldName="" Label="" AllowURLParam="N" />
+		    <Element Name="btn_manage_related" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Events" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+				<EventHandler Name="btn_manage_related_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventEditRelatedForm,{@:Elem[fld_Id].Value})"   />
+	       	</Element>			
+			
 			<Element Name="fld_related_projects" Access="collab_project.access"  TabSet="Related Data"   ElementSet="Project" Class="FormElement" FormReference="collab.project.widget.ProjectListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 			<Element Name="btn_manage_projects" Access="collab_project.access" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Project" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 				<EventHandler Name="btn_manage_projects_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventEditProjectForm,{@:Elem[fld_Id].Value})"   />

@@ -37,12 +37,12 @@
 			<Element Name="fld_update_time" TabSet="Extra Information"  Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
 		
 		
+		<!-- related data  -->
 		<Element Name="fld_related_docs" TabSet="Related Data"   ElementSet="Document" Class="FormElement" FormReference="collab.document.widget.DocumentListRelatedForm" FieldName="" Label="" AllowURLParam="N" />
 	    <Element Name="btn_manage_related" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Document" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_related_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditRelatedForm,{@:Elem[fld_Id].Value})"   />
        	</Element>		
 		
-		<!-- related data  -->
 		<Element Name="fld_related_projects" Access="collab_project.access"  TabSet="Related Data"   ElementSet="Project" Class="FormElement" FormReference="collab.project.widget.ProjectListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		<Element Name="btn_manage_projects" Access="collab_project.access" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Project" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_projects_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditProjectForm,{@:Elem[fld_Id].Value})"   />

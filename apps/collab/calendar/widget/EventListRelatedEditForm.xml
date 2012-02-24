@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventListRelatedEditForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="" Description="" BizDataObj="collab.calendar.do.EventRefDO"  Access="collab_calendar.access" inheritFrom="collab.calendar.widget.EventListEditForm" >  
+</EasyForm>
