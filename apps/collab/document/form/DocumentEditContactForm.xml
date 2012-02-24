@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DocumentEditRelatedForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif" Title="Edit Related Document" Description="This module could help you associate related document together" BizDataObj="collab.document.do.DocumentDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl" Access="collab_document.access">
+<EasyForm Name="DocumentEditContactForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif" Title="Edit Related Contacts" Description="This module could help you associate related contacts to this document" BizDataObj="collab.document.do.DocumentDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl" Access="collab_document.access">
     <DataPanel>
 		<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 			<Element Name="fld_form_title"  Class="LabelText" FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" />	
@@ -8,7 +8,7 @@
 			
 			<Element Name="fld_description" ElementSet="General"  Class="LabelTextarea" FieldName="description" Label="Description" />				   
 			
-		<Element Name="fld_related_docs"   ElementSet="Related Document" Class="FormElement" FormReference="collab.document.widget.DocumentListRelatedEditForm" FieldName="" Label="" AllowURLParam="N" />
+			<Element Name="fld_related_contacts"  ElementSet="Related Tasks" Class="FormElement" FormReference="contact.widget.ContactListEditForm" FieldName="" Label="" AllowURLParam="N" />
 
 		
 		

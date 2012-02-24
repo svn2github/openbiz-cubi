@@ -18,8 +18,8 @@
                 	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="ParentSwitchForm(collab.calendar.form.EventDetailForm,{@:Elem[fld_Id].Value})"   />        
         </Element>	
         <Element Name="fld_location" Class="ColumnText" FieldName="location" Label="Location"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
-        <Element Name="fld_description" MaxLength="20" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_starttime" Class="ColumnText" FieldName="start_time" Text="{date('Y-m-d H:i',strtotime(@:elem[fld_starttime].Value))}" Label="Start Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+		<Element Name="fld_type" Class="ColumnText" Style="line-height:24px;" FieldName="type_name" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>						        
         
     </DataPanel>
 <ActionPanel>
