@@ -12,8 +12,8 @@
 				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
 					
 		</Element>	 
-        <Element Name="fld_display_name" Class="ColumnText" FieldName="display_name" Label="Display Name" Sortable="Y" Link="javascript:;" >
-        	    <EventHandler Name="fld_display_name_onclick" Event="onclick" Function="parentSwitchForm(contact.form.ContactDetailForm,{@:Elem[fld_Id].Value})"/>
+        <Element Name="fld_display_name" Class="ColumnText" FieldName="display_name" Label="Display Name" Sortable="Y" Link="{APP_INDEX}/collab/contact_detail/{@:Elem[fld_Id].Value}" >
+        	  <!--    <EventHandler Name="fld_display_name_onclick" Event="onclick" Function="parentSwitchForm(contact.form.ContactDetailForm,{@:Elem[fld_Id].Value})"/> -->
         </Element>
         <Element Name="fld_phone" Class="ColumnText" FieldName="phone" Label="Phone" Sortable="Y"/>
         <Element Name="fld_mobile" Class="ColumnText" FieldName="mobile" Label="Mobile" Sortable="Y"/>
