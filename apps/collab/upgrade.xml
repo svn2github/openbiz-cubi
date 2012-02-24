@@ -184,7 +184,7 @@ CREATE TABLE `task_document` (
         ]]></UpgradeSql>
     </Version>      
 
-    <Version Name="1.2">
+    <Version Name="1.3">
         <UpgradeSql><![CDATA[
 DROP TABLE IF EXISTS `document_related`;
 CREATE TABLE `document_related` (
