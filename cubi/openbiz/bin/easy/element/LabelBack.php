@@ -10,8 +10,10 @@ class LabelBack extends LabelText
         $formobj = $this->getFormObj();
         $defaultLink= Expression::evaluateExpression($this->m_Link, $formobj);
         
-        if(isset($_SERVER['HTTP_REFERER'])){
-        	return $_SERVER['HTTP_REFERER'];
+        $viewRefferedPage = $this->getFormObj()->getViewObject()->m_RefferPage;
+        
+        if(isset($viewRefferedPage)){
+        	return $viewRefferedPage;
         }else{        
         	return $defaultLink;
         }

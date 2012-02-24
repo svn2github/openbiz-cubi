@@ -43,6 +43,7 @@ class EasyView extends MetaObject implements iSessionObject
     public $m_CacheLifeTime = 0;
     
     public $m_LastRenderedForm;
+    public $m_RefferPage;
 
     /**
      * Initialize EasyView with xml array
@@ -170,6 +171,7 @@ class EasyView extends MetaObject implements iSessionObject
     public function getSessionVars($sessionContext)
     {
         $sessionContext->getObjVar($this->m_Name, "LastRenderedForm", $this->m_LastRenderedForm);        
+        $sessionContext->getObjVar($this->m_Name, "RefferPage", $this->m_RefferPage);
     }
     
     /**
@@ -181,6 +183,7 @@ class EasyView extends MetaObject implements iSessionObject
     public function setSessionVars($sessionContext)
     {       
         $sessionContext->setObjVar($this->m_Name, "LastRenderedForm", $this->m_LastRenderedForm);
+        $sessionContext->setObjVar($this->m_Name, "RefferPage", $this->m_RefferPage);
     }
 
     /**
@@ -237,7 +240,11 @@ class EasyView extends MetaObject implements iSessionObject
 
         // check the "fld_..." arg in url and put it in the search rule
         $this->processRequest();
-
+    	if(isset($_SERVER['HTTP_REFERER'])){
+        	$this->m_RefferPage = $_SERVER['HTTP_REFERER'];
+        }else{        
+        	$this->m_RefferPage = null;
+        }
         return $this->_render();
     }
 
