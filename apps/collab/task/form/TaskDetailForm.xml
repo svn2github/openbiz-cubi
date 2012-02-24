@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="TaskDetailForm" Class="TaskForm" FormType="" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/task/images/icon_task_gantt.gif" Title="Task Detail" Description="This module could help you manage tasks." BizDataObj="collab.task.do.TaskDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_detail_view.tpl.html" EventName="TASK" MessageFile="Task.msg" Access="collab_task.access">
+<EasyForm Name="TaskDetailForm" Class="TaskForm" FormType="" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/task/images/icon_task_gantt.gif" Title="Task Detail" Description="This module could help you manage tasks." BizDataObj="collab.task.do.TaskDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_detail_view_tabs.tpl.html" EventName="TASK" MessageFile="Task.msg" Access="collab_task.access">
     <DataPanel>
 			<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 		<Element Name="fld_form_title"  Class="LabelText"   FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />
@@ -29,72 +29,78 @@
 		<Element Name="fld_dependency" ElementSet="General" Class="LabelList" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="collab.task.do.TaskListDO[title:Id]" AllowURLParam="N" />
 		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 		
+		<!-- 1-M -->
 		
-		
-		<Element Name="fld_start_time" ElementSet="Worklog"  Class="LabelText" FieldName="start_time" Label="Start Time"  AllowURLParam="Y" />
-		<Element Name="fld_finish_time"  ElementSet="Worklog"  Class="LabelText" FieldName="finish_time" Label="End Time"  AllowURLParam="Y" />
-		<Element Name="fld_workhour" ElementSet="Worklog" Class="LabelText" Text="{@:Elem[fld_workhour].Value} Hours" FieldName="total_workhour" Label="Time Budget"   AllowURLParam="N"  />
-		<Element Name="fld_actualhour" ElementSet="Worklog" Class="LabelText" Text="{@:Elem[fld_actualhour].Value} Hours" FieldName="actual_workhour" Label="Worked Hours"   AllowURLParam="N"  />
-		<Element Name="fld_work_log"   ElementSet="Worklog" Class="FormElement" FormReference="collab.worklog.widget.WorklogListDetailForm" FieldName="" Label="" AllowURLParam="N" />		
-		<Element Name="btn_manage_worklog" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Worklog" Class="Button" Style="color:#666666;margin-left:5px;margin-top:2px;" Text="Manage" CssClass="button_gray_w" Description="">
+		<Element Name="fld_start_time"   TabSet="Extra Information" Access="collab_worklog.access" ElementSet="Worklog"  Class="LabelText" FieldName="start_time" Label="Start Time"  AllowURLParam="Y" />
+		<Element Name="fld_finish_time"  TabSet="Extra Information"  Access="collab_worklog.access" ElementSet="Worklog"  Class="LabelText" FieldName="finish_time" Label="End Time"  AllowURLParam="Y" />
+		<Element Name="fld_workhour" TabSet="Extra Information"  Access="collab_worklog.access" ElementSet="Worklog" Class="LabelText" Text="{@:Elem[fld_workhour].Value} Hours" FieldName="total_workhour" Label="Time Budget"   AllowURLParam="N"  />
+		<Element Name="fld_actualhour" TabSet="Extra Information"  Access="collab_worklog.access" ElementSet="Worklog" Class="LabelText" Text="{@:Elem[fld_actualhour].Value} Hours" FieldName="actual_workhour" Label="Worked Hours"   AllowURLParam="N"  />
+		<Element Name="fld_work_log" TabSet="Extra Information"  Access="collab_worklog.access"  ElementSet="Worklog" Class="FormElement" FormReference="collab.worklog.widget.WorklogListDetailForm" FieldName="" Label="" AllowURLParam="N" />		
+		<Element Name="btn_manage_worklog" TabSet="Extra Information"  Access="collab_worklog.access"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Worklog" Class="Button" Style="color:#666666;margin-left:5px;margin-top:2px;" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_worklog_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditWorklogForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
         
-		<Element Name="fld_budget" ElementSet="Expenses" width="200" Class="LabelText"  Text="$ {@:Elem[fld_budget].Value} Dollars"  FieldName="budget_cost" Label="Budget"  Description="unit in Dollars, total budget" AllowURLParam="N" />
-		<Element Name="fld_cost" ElementSet="Expenses"  width="200" Class="LabelText"  Text="$ {@:Elem[fld_cost].Value} Dollars"  FieldName="actual_cost" Label="Expenses"  Description="unit in Dollars, actual spend cost" AllowURLParam="N" />
-		<Element Name="fld_financial_log"   ElementSet="Expenses" Class="FormElement" FormReference="collab.budget.widget.BudgetListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_financial" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}"  ElementSet="Expenses" Class="Button" Style="color:#666666;margin-left:5px;margin-top:2px;" Text="Manage" CssClass="button_gray_w" Description="">
+		<Element Name="fld_budget" TabSet="Extra Information"  Access="collab_budget.access" ElementSet="Expenses" width="200" Class="LabelText"  Text="$ {@:Elem[fld_budget].Value} Dollars"  FieldName="budget_cost" Label="Budget"  Description="unit in Dollars, total budget" AllowURLParam="N" />
+		<Element Name="fld_cost" TabSet="Extra Information"  Access="collab_budget.access" ElementSet="Expenses"  width="200" Class="LabelText"  Text="$ {@:Elem[fld_cost].Value} Dollars"  FieldName="actual_cost" Label="Expenses"  Description="unit in Dollars, actual spend cost" AllowURLParam="N" />
+		<Element Name="fld_financial_log" TabSet="Extra Information"  Access="collab_budget.access"  ElementSet="Expenses" Class="FormElement" FormReference="collab.budget.widget.BudgetListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_financial" TabSet="Extra Information"  Access="collab_budget.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}"  ElementSet="Expenses" Class="Button" Style="color:#666666;margin-left:5px;margin-top:2px;" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_financial_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditBudgetForm,{@:Elem[fld_Id].Value})"  />
         </Element> 
         
-        <Element Name="fld_related_document"   ElementSet="Docs" Class="FormElement" FormReference="collab.document.widget.DocumentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_document" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Docs"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
-			<EventHandler Name="btn_manage_document_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditDocumentForm,{@:Elem[fld_Id].Value})"   />
-        </Element>  
+
         
-		<Element Name="fld_related_attachment"   ElementSet="Atts" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_attachment" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Atts"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+		<Element Name="fld_related_attachment" TabSet="Extra Information"  Access="attachment.access"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_attachment" TabSet="Extra Information"  Access="attachment.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
         
-         <Element Name="fld_related_picture"   ElementSet="Pics" Class="FormElement" FormReference="picture.widget.PictureListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_picture" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Pics"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+         <Element Name="fld_related_picture" TabSet="Extra Information"  Access="picture.access" ElementSet="Picture" Class="FormElement" FormReference="picture.widget.PictureListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_picture" TabSet="Extra Information"  Access="picture.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Picture"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditPictureForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
         
-		<Element Name="fld_related_events"   ElementSet="Events" Class="FormElement" FormReference="collab.calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_event" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Events" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
-			<EventHandler Name="btn_manage_evnt_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditEventForm,{@:Elem[fld_Id].Value})"  />
-        </Element> 
 		
-		<Element Name="fld_related_contacts"   ElementSet="Contacts" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		    	
-		<Element Name="btn_manage_contact" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Contacts" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
-			<EventHandler Name="btn_manage_contact_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditContactForm,{@:Elem[fld_Id].Value})" />
-        </Element>   
 
-		<Element Name="fld_changelog"   ElementSet="Changes" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_changelog" TabSet="Extra Information"  Access="changelog.access"   ElementSet="Changes" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetForm" FieldName="" Label="" AllowURLParam="N" />
 
-			<Element Name="fld_reminder" ElementSet="Remind" DefaultValue="0" Class="LabelList" selectFrom="collab.lov.ReminderLOV(ReminderType)" FieldName="reminder" Label="Reminder" AllowURLParam="N" >
+			<Element Name="fld_reminder" TabSet="Extra Information"  ElementSet="Remind" DefaultValue="0" Class="LabelList" selectFrom="collab.lov.ReminderLOV(ReminderType)" FieldName="reminder" Label="Reminder" AllowURLParam="N" >
 				<EventHandler Name="fld_reminder_onclick" Event="onchange" Function="UpdateForm()"  />
 			</Element>
-			<Element Name="fld_reminder_time" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelList" selectFrom="collab.calendar.lov.EventLOV(ReminderTimeType)" FieldName="reminder_time" Label="Time Setting" AllowURLParam="N" />
-			<Element Name="fld_reminder_method_email" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelBool"  FieldName="reminder_method_email" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Email" AllowURLParam="N" />
-			<Element Name="fld_reminder_method_systray" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelBool"  FieldName="reminder_method_systray" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Systray" AllowURLParam="N" />
-			<Element Name="fld_reminder_method_sms" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelBool"  FieldName="reminder_method_sms" DefaultValue="0" SelectFrom="1" Label="Send SMS" AllowURLParam="N" />
+			<Element Name="fld_reminder_time" TabSet="Extra Information"  Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelList" selectFrom="collab.calendar.lov.EventLOV(ReminderTimeType)" FieldName="reminder_time" Label="Time Setting" AllowURLParam="N" />
+			<Element Name="fld_reminder_method_email" TabSet="Extra Information"  Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelBool"  FieldName="reminder_method_email" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Email" AllowURLParam="N" />
+			<Element Name="fld_reminder_method_systray" TabSet="Extra Information"  Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelBool"  FieldName="reminder_method_systray" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Systray" AllowURLParam="N" />
+			<Element Name="fld_reminder_method_sms" TabSet="Extra Information"  Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelBool"  FieldName="reminder_method_sms" DefaultValue="0" SelectFrom="1" Label="Send SMS" AllowURLParam="N" />
 			
-			<Element Name="btn_manage_reminder" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Remind"  Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Setting" CssClass="button_gray_w" Description="">
+			<Element Name="btn_manage_reminder" TabSet="Extra Information"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Remind"  Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Setting" CssClass="button_gray_w" Description="">
 				<EventHandler Name="btn_manage_reminder_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditReminderForm,{@:Elem[fld_Id].Value})"  />
 	        </Element>
 		
 		
-		<!-- 
-					<Element Name="fld_sortorder" Class="LabelText" ElementSet="Misc" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />		     
-			<Element Name="fld_create_by" Class="LabelText" ElementSet="Misc" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>		        
-			<Element Name="fld_create_time" Class="LabelText" ElementSet="Misc" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
-			<Element Name="fld_update_by" Class="LabelText" ElementSet="Misc" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>		        
-			<Element Name="fld_update_time" Class="LabelText" ElementSet="Misc" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
-		 -->
+		
+			<Element Name="fld_sortorder" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />		     
+			<Element Name="fld_published" TabSet="Extra Information"  Class="LabelList" ElementSet="Misc"  SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  />
+			<Element Name="fld_published_others"  TabSet="Extra Information" Class="LabelList" ElementSet="Misc"  SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  />		     
+			
+			<Element Name="fld_create_by" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_create_time" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
+			<Element Name="fld_update_by" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_update_time" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+		
+		<!-- M-M -->
+        <Element Name="fld_related_document"  TabSet="Related Data"  Access="collab_document.access"  ElementSet="Document" Class="FormElement" FormReference="collab.document.widget.DocumentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_document"  TabSet="Related Data"  Access="collab_document.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Document"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_document_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditDocumentForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  		
+		
+		<Element Name="fld_related_events"  TabSet="Related Data"   Access="collab_calendar.access"  ElementSet="Event" Class="FormElement" FormReference="collab.calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_event"  TabSet="Related Data"  Access="collab_calendar.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Event" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_evnt_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditEventForm,{@:Elem[fld_Id].Value})"  />
+        </Element> 
+		
+		<Element Name="fld_related_contacts"  TabSet="Related Data"  Access="contact.access"  ElementSet="Contact" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />		    	
+		<Element Name="btn_manage_contact"  TabSet="Related Data"  Access="contact.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Contact" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_contact_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditContactForm,{@:Elem[fld_Id].Value})" />
+        </Element>   
 		
 	    </DataPanel>
     <ActionPanel>  
