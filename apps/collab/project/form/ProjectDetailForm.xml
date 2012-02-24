@@ -107,7 +107,7 @@
             <EventHandler Name="purge_onclick" Event="onclick" EventLogMsg="" Function="PurgeRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=collab.project.form.ProjectListForm" ShortcutKey="Ctrl+Shift+Delete" ContextMenu="Purge" />
         </Element>    				
         <Element Name="btn_spacer_for_cancel" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Spacer" Width="10"></Element>
-        <Element Name="btn_back" Class="LabelText" Link="{APP_INDEX}/collab/project_manage" Text="Back" CssClass="button_gray_m">
+        <Element Name="btn_back" Class="LabelBack" Link="{APP_INDEX}/collab/project_manage" Text="Back" CssClass="button_gray_m">
 <!--             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />-->
         </Element>  
     </ActionPanel> 
