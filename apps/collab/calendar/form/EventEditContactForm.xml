@@ -18,7 +18,7 @@
 			</Element>
 			
     	
-    	<Element Name="fld_related_contacts"   ElementSet="Related Contacts" Class="FormElement" FormReference="contact.widget.ContactListEditForm" FieldName="" Label="" AllowURLParam="N" />
+    	<Element Name="fld_related_contacts" Access="contact.access"  ElementSet="Related Contacts" Class="FormElement" FormReference="contact.widget.ContactListEditForm" FieldName="" Label="" AllowURLParam="N" />
     	
     	
     </DataPanel>

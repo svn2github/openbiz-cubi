@@ -18,7 +18,7 @@
 			</Element>
 			
     	
-		<Element Name="fld_related_projects"   ElementSet="Related Projects" Class="FormElement" FormReference="collab.project.widget.ProjectListEditForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_related_projects"  Access="collab_project.access" ElementSet="Related Projects" Class="FormElement" FormReference="collab.project.widget.ProjectListEditForm" FieldName="" Label="" AllowURLParam="N" />
     	
     	
     </DataPanel>

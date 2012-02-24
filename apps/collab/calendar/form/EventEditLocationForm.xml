@@ -18,7 +18,7 @@
 			</Element>
 			
     	
-    	<Element Name="fld_related_locations"   ElementSet="Locations" Class="FormElement" FormReference="location.widget.LocationListEditForm" FieldName="" Label="" AllowURLParam="N" />
+    	<Element Name="fld_related_locations" Access="location.access"  ElementSet="Locations" Class="FormElement" FormReference="location.widget.LocationListEditForm" FieldName="" Label="" AllowURLParam="N" />
     	
     	
     </DataPanel>

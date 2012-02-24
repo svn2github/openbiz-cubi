@@ -18,7 +18,7 @@
 			</Element>
 			
     	
-    	<Element Name="fld_related_docs"   ElementSet="Related Documents" Class="FormElement" FormReference="collab.document.widget.DocumentListEditForm" FieldName="" Label="" AllowURLParam="N" />
+    	<Element Name="fld_related_docs"  Access="collab_document.access" ElementSet="Related Documents" Class="FormElement" FormReference="collab.document.widget.DocumentListEditForm" FieldName="" Label="" AllowURLParam="N" />
     	
     	
     </DataPanel>
