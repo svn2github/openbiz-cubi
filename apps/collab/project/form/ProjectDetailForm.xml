@@ -70,6 +70,11 @@
 		<Element Name="btn_manage_event"  TabSet="Related Data" Access="collab_calendar.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Event" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_evnt_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectEditEventForm,{@:Elem[fld_Id].Value})"  />
         </Element> 
+        
+        <Element Name="fld_related_docs"  TabSet="Related Data"  Access="collab_document.access"  ElementSet="Document" Class="FormElement" FormReference="collab.document.widget.DocumentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_docs"  TabSet="Related Data" Access="collab_document.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Document" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_evnt_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectEditDocumentForm,{@:Elem[fld_Id].Value})"  />
+        </Element> 
 		
 		<Element Name="fld_related_contacts"  TabSet="Related Data" Access="contact.access"  ElementSet="Contact" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		    	
