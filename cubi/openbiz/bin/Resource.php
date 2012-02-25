@@ -60,9 +60,6 @@ class Resource
                 {
                     $dirs = explode('.', $packageName);
                     $moduleName = $dirs[0];
-                    //for($i=0;$i<count($dirs)-1;$i++){
-                    //	$moduleName.="/".$dirs[$i];
-                    //}
                     $msgFile = MODULE_PATH . "/$moduleName/message/" . $messageFile;
                     if (is_file($msgFile))
                     {
@@ -252,19 +249,21 @@ class Resource
 
         // replace "." with "/"
         $xmlFile = str_replace(".", "/", $xmlFile);
+        // check the leading char '@'
+        $checkExtModule = true;
+        if (strpos($xmlFile, '@') === 0) {
+            $xmlFile = substr($xmlFile, 1);
+            $checkExtModule = false;
+        }
         $xmlFile .= ".xml";
-
-        //if (file_exists($xmlfile))
-        //   return $xmlfile;
-
         $xmlFile = "/" . $xmlFile;
         
         // search in modules directory first
         $xmlFileList[] = MODULE_PATH . $xmlFile;
         $xmlFileList[] = APP_HOME . $xmlFile;
         $xmlFileList[] = OPENBIZ_META . $xmlFile;
-        if (defined('MODULE_EX_PATH')) array_unshift($xmlFileList, MODULE_EX_PATH . $xmlFile);
-        
+        if ($checkExtModule && defined('MODULE_EX_PATH')) array_unshift($xmlFileList, MODULE_EX_PATH . $xmlFile);
+
         foreach ($xmlFileList as $xmlFileItem)
         {
             if (file_exists($xmlFileItem))
@@ -293,6 +292,12 @@ class Resource
         if (count($names) > 0)
             $moduleName = $names[0];
         $packagePath = str_replace('.', '/', $packageName);
+        // check the leading char '@'
+        $checkExtModule = true;
+        if (strpos($packagePath, '@') === 0) {
+            $packagePath = substr($packagePath, 1);
+            $checkExtModule = false;
+        }
         
         $searchTpls = array(
             MODULE_PATH . "/$packagePath/template/$templateFile",
@@ -301,7 +306,7 @@ class Resource
             //MODULE_PATH."/common/template/$templateFile",
             $templateRoot . "/$templateFile"
         );
-        if (defined('MODULE_EX_PATH')) array_unshift($searchTpls, MODULE_EX_PATH . "/$packagePath/template/$templateFile");
+        if ($checkExtModule && defined('MODULE_EX_PATH')) array_unshift($searchTpls, MODULE_EX_PATH . "/$packagePath/template/$templateFile");
         foreach ($searchTpls as $tplFile)
         {
             if (file_exists($tplFile))
@@ -340,10 +345,17 @@ class Resource
         if ($packageName)
         {
             $path = str_replace(".", "/", $packageName);
+            // check the leading char '@'
+            $checkExtModule = true;
+            if (strpos($path, '@') === 0) {
+                $path = substr($path, 1);
+                $checkExtModule = false;
+            }
+            
             // search in apphome/modules directory first, search in apphome/bin directory then
             $classFiles[0] = MODULE_PATH . "/" . $path . "/" . $classFile;
             $classFiles[1] = APP_HOME . "/bin/" . $path . "/" . $classFile;
-            if (defined('MODULE_EX_PATH')) array_unshift($classFiles, MODULE_EX_PATH . "/" . $path . "/" . $classFile);
+            if ($checkExtModule && defined('MODULE_EX_PATH')) array_unshift($classFiles, MODULE_EX_PATH . "/" . $path . "/" . $classFile);
             foreach ($classFiles as $classFile)
             {
                 if (file_exists($classFile))

@@ -142,6 +142,7 @@ class ObjectFactory
             // set object package
             $dotPos = strrpos($objName, ".");
             $package = $dotPos>0 ? substr($objName, 0, $dotPos) : null;
+            if (strpos($package, '@') === 0) $package = substr($package, 1);
             if (!$classPackage) $classPackage = $package;
             $xmlArr[$root]["ATTRIBUTES"]["PACKAGE"] = $package;
         }
