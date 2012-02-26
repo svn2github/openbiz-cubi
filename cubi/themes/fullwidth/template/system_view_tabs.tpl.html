@@ -27,49 +27,16 @@
 	<!--main warp-->
 	<div id="main_warp">	
 		<!--main-->
-		<div id="main" >
-			
+		<div id="main" >			
 			{include file='system_loader.tpl.html'}
-				<table id="main_content" border="0" cellpadding="0" cellspacing="0">
-					<tr><td><img src="{$image_url}/spacer.gif" style="height:15px;" /></td></tr>
+				<table id="main_content" border="0" cellpadding="0" cellspacing="10">
+					<tr><td><img src="{$image_url}/spacer.gif" style="height:0px;" /></td></tr>
 					<tr>
-						<td valign="top" style="width:18px;"><img src="{$image_url}/spacer.gif" style="width:18px;" /></td>
 						<td valign="top" id="left_panel">
 							{include file='system_left_panel.tpl.html'}					
 						</td>
 						<td valign="top" id="right_panel">
-							<!-- right block start -->
-							<div class="content_block">
-								<div class="header"></div>
-								<div class="content">	
-									<div>
-										<ul id="tabs_selector">
-											{foreach key=formname name=tabs item=formtitle from=$formtabs}	
-										    	{if $formname !='help.form.HelpBlockForm' and  
-										    		'/^menu\.widget\..*Menu$/si'|preg_match:$formname eq 0}							    
-										         <li id="tab_{$formname}" class="tab_link">
-										         	<a id="tab_link_{$formname}" href="javascript:" onclick="ShowTab('{$formname}');SwitchTab();">{$formtitle}</a>
-										         </li>
-										       {/if}
-										    {/foreach}										
-										</ul>
-														
-									{foreach key=formname item=form from=$forms}	
-								    	{if $formname !='help.form.HelpBlockForm' and  
-								    		'/^menu\.widget\..*Menu$/si'|preg_match:$formname eq 0}							    
-								         <div id="tab_form_{$formname}" class="tab_form" >
-								         	<div>
-								         	{$form}
-								         	</div>
-								         </div>
-								       {/if}
-								    {/foreach}	
-								    	
-									</div>									
-								</div>
-								<div class="footer"></div>														
-							</div>
-							<!-- right block end -->
+                                                        {include file='system_right_panel_tabs.tpl.html'}
 						</td>
 					</tr>
 			  </table>		  
