@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="ContactDO" Description="" DataPermControl="Y" Class="BizDataObj" DBName="Default" Table="contact" SearchRule="" SortRule="[sortorder] ASC, [Id] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+<BizDataObj Name="ContactRefDO" Description="" DataPermControl="Y" Class="BizDataObj" DBName="Default" Table="contact" SearchRule="" SortRule="[sortorder] ASC, [Id] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
 	<BizFieldList>
         <BizField Name="Id" Column="id"     Type="Number"/>
         <BizField Name="first_name" Column="first_name" Required="N" Length="255"  Type="Text"/>
@@ -51,15 +51,5 @@
     	<Join Name="JoinContactType"  ColumnRef="type_id" JoinType="LEFT JOIN" Column="id"  Table="contact_type"/>
     </TableJoins>
     <ObjReferences>
-    	<!-- 1-M -->
-    	<Object Name="location.do.LocationDO" Description="" Relationship="1-M" Table="location" CondColumn='type' CondValue='contact' Column="foreign_id" FieldRef="Id" />
-    	<Object Name="picture.do.PictureDO" Description="" Relationship="1-M" Table="picture" CondColumn='type' CondValue='contact' Column="foreign_id" FieldRef="Id" />
-    	<Object Name="changelog.do.ChangeLogDO" Description="" Relationship="1-M" Table="changelog" CondColumn='type' CondValue='contact' Column="foreign_id" FieldRef="Id" />
-    	<!-- M-M -->
-    	<Object Name="contact.do.ContactRefDO" Description="" Relationship="Self-Self" Table="contact" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="contact_related" XColumn1="contact_id" XColumn2="related_id" XDataObj="contact.do.ContactRelatedDO"/>
-    	<Object Name="collab.calendar.do.EventDO" Description="" Relationship="M-M" Table="event" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="event_contact" XColumn1="contact_id" XColumn2="event_id" XDataObj="collab.contact.do.ContactEventDO"/>
-    	<Object Name="collab.document.do.DocumentDO" Description="" Relationship="M-M" Table="document" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="document_contact" XColumn1="contact_id" XColumn2="document_id" XDataObj="collab.contact.do.ContactDocumentDO"/>
-    	<Object Name="collab.project.do.ProjectDO" Description="" Relationship="M-M" Table="project" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="project_contact" XColumn1="contact_id" XColumn2="project_id" XDataObj="collab.contact.do.ContactProjectDO"/>
-    	<Object Name="collab.task.do.TaskDO" Description="" Relationship="M-M" Table="task" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="task_contact" XColumn1="contact_id" XColumn2="task_id" XDataObj="collab.contact.do.ContactTaskDO"/>
     </ObjReferences>
 </BizDataObj>

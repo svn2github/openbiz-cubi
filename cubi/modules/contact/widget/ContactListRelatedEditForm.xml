@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ContactListRelatedEditForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="" Description="" BizDataObj="contact.do.ContactRefDO"  Access="contact.access" inheritFrom="contact.widget.ContactListEditForm" >  
+</EasyForm>
