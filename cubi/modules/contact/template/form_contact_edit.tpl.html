@@ -226,32 +226,7 @@ table.input_row {
 		</script>		
 		
 		
-		<!-- Locations Section -->
-		<div class="underline" >
-			<h2 class="element_set_title"><a id="element_set_btn_4" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','4')" >{t}Locations{/t}</a></h2>
-				<div id="element_set_panel_4" class="element_set_panel">
-				<table ><tr><td>		
-			{foreach item=item key=itemName from=$dataPanel}
-				{if $item.elementsetcode eq "Locations"}
-						
-					<table  id="{$itemName}_container" class="input_row"  style="height:auto;">								
-					<tr>
-						<td>				
-							
-							<span class="label_text" style="height:auto;" >{$item.element}</span>
-												
-						</td>
-					</tr>
-					</table>
-					
-				{/if}						
-			{/foreach}	
-			</td></tr></table>	
-			</div>		
-		</div>		
-		<script>
-			init_elementset('{$form.name}','4');
-		</script>
+		
 		
 		<!-- Misc Section -->
 		<div class="underline" >

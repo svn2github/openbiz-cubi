@@ -1,4 +1,5 @@
 <form id="{$form.name}" name="{$form.name}">
+<link rel="stylesheet" href="{$js_url}/jquery-ui/ui-openbiz/jquery.css" type="text/css" />
 {literal}
 <style>
 table.input_row label{
@@ -10,7 +11,7 @@ table.input_row label{
 }
 
 table.input_row {
-	height:26px;
+	height:auto;
 	display:block;
 }
 </style>
@@ -20,8 +21,8 @@ table.input_row {
 	<div>
 	
 	<div style="padding-left:10px;" >
-		<div class="underline " style="height:270px;" id="general">
-		<h2>{t}Contact Profile{/t}</h2>
+		<div class="underline " style="height:270px;width:680px;" id="general">
+		<h2 style="width:680px;">{t}Contact Profile{/t}</h2>
 		<div style="height:80px;">
 						{assign var=item value=$dataPanel.fld_display_name}		
 		<table  id="fld_display_name_container" style="width:648px;">										
@@ -137,8 +138,8 @@ table.input_row {
 		</div>
 
 		<!-- Phone Section -->
-		<div class="underline" >
-			<h2 class="element_set_title"><a id="element_set_btn_1" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','1')" >{t}Phone{/t}</a></h2>
+		<div class="underline" style="width:680px;">
+			<h2 style="width:680px;" class="element_set_title"><a id="element_set_btn_1" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','1')" >{t}Phone{/t}</a></h2>
 				<div id="element_set_panel_1" class="element_set_panel">
 				<table ><tr><td>		
 			{foreach name=phone item=item key=itemName from=$dataPanel}
@@ -167,8 +168,8 @@ table.input_row {
 		</script>
 		
 		<!-- Address Section -->
-		<div class="underline" >
-			<h2 class="element_set_title"><a id="element_set_btn_2" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','2')" >{t}Address{/t}</a></h2>
+		<div class="underline" style="width:680px;" >
+			<h2 style="width:680px;" class="element_set_title"><a id="element_set_btn_2" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','2')" >{t}Address{/t}</a></h2>
 				<div id="element_set_panel_2" class="element_set_panel">
 				<table ><tr><td>
 			{foreach name=address item=item key=itemName from=$dataPanel}
@@ -197,8 +198,8 @@ table.input_row {
 		</script>
 		
 		<!-- Online Contact Section -->
-		<div class="underline" >		
-			<h2 class="element_set_title"><a id="element_set_btn_3" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','3')" >{t}Online Contact{/t}</a></h2>
+		<div class="underline" style="width:680px;">		
+			<h2 style="width:680px;" class="element_set_title"><a id="element_set_btn_3" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','3')" >{t}Online Contact{/t}</a></h2>
 				<div id="element_set_panel_3" class="element_set_panel">
 				<table ><tr><td>
 			{foreach name=contact item=item key=itemName from=$dataPanel}				
@@ -227,88 +228,129 @@ table.input_row {
 		</script>		
 		
 
-		<!-- Locations Section -->
-		<div class="underline" >
-			<h2 class="element_set_title"><a id="element_set_btn_4" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','4')" >{t}Locations{/t}</a></h2>
-				<div id="element_set_panel_4" class="element_set_panel">
-				<table ><tr><td>		
-			{foreach item=item key=itemName from=$dataPanel}
-				{if $item.elementsetcode eq "Locations"}
-						
-					<table  id="{$itemName}_container" class="input_row"  style="height:auto;">								
-					<tr>
-						<td>				
-							
-							<span class="label_text" style="height:auto;" >{$item.element}</span>
-												
-						</td>
-					</tr>
-					</table>
-					
-				{/if}						
-			{/foreach}	
-			</td></tr></table>	
-			</div>		
-		</div>		
-		<script>
-			init_elementset('{$form.name}','4');
-		</script>		
-		
-		<!-- Misc Section -->
-		<div class="underline" >
-			<h2 class="element_set_title"><a id="element_set_btn_5" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','5')" >{t}Miscellaneous{/t}</a></h2>
-				<div id="element_set_panel_5" class="element_set_panel">
-				<table ><tr><td>		
-			{foreach item=item key=itemName from=$dataPanel}
-				{if $item.elementsetcode eq "Miscellaneous"}
-						
-					<table  id="{$itemName}_container" class="input_row">								
-					<tr>
-						<td >	
-							<label style="text-align:left; ">{$item.label}</label>
-						</td>
-						<td>				
-							
-							<span class="label_text" >{$item.element}</span>
-												
-						</td>
-					</tr>
-					</table>
-					
-				{/if}						
-			{/foreach}	
-			</td></tr></table>	
-			</div>		
-		</div>		
-		<script>
-			init_elementset('{$form.name}','5');
-		</script>		
-		
-		<!-- Change Comment Section -->
-		<div class="underline" >
-			<h2 class="element_set_title"><a id="element_set_btn_6" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','6')" >{t}ChangeLog{/t}</a></h2>
-				<div id="element_set_panel_6" style="padding-top:0px;" class="element_set_panel">
-				<table ><tr><td>		
-			{foreach item=item key=itemName from=$dataPanel}
-				{if $item.elementsetcode eq "ChangeLog"}
+	<!-- tab set start -->
+	{assign var=ts_counter value=1}
+	{foreach item=tabsetdata key=tabsetname name=tabs  from=$form.tabSets}	
+	{if $smarty.foreach.tabs.first}
+	<div id="element_tabset_{$ts_counter}" class=" " style="width:680px;padding:5px;">
+	{else}
+	<div id="element_tabset_{$ts_counter}" class="underline upline" style="width:680px;padding:5px;">
+	{/if}
+	<h2 class="element_set_title" style="width:680px;"><a id="element_set_btn_tab_{$ts_counter}" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','tab_{$ts_counter}')" >{$tabsetdata.SetName}</a></h2>						
+	<div id="element_set_panel_tab_{$ts_counter}">
+	<div style="padding-left:20px;display:none;" id="tabs_{$ts_counter}">	
+	<ul style="border-radius: none;">
+	{assign var=es_counter value=0}
+	{foreach item=setname name=elemsets  from=$tabsetdata.Elems}			
+		<li><a href="#element_set_panel_{$ts_counter}_{$es_counter}">{$setname}</a></li>		
+		{assign var=es_counter value=$es_counter+1}
+	{/foreach}
+	</ul>
+	{assign var=es_counter value=0}
+	{foreach item=setname name=elemsets  from=$tabsetdata.Elems}
 
-				<table  id="{$itemName}_container" class="input_row" style="height:auto;">
-				
+		{if true }
+		
+        <div id="element_set_panel_{$ts_counter}_{$es_counter}" class="ui-tabs-panel" style="padding-bottom:0px;">			
+		<div style="padding-bottom:15px;">
+		{assign var=es_elem_counter value=0}
+		{foreach item=item key=itemName from=$dataPanel}			
+			{if $item.elementset eq $setname AND $item.tabsetcode eq $tabsetname}
+			{if $item.type eq 'CKEditor' or $item.type eq 'RichText' 
+				or $item.type eq 'Textarea' or $item.type eq 'LabelTextarea'
+				or $item.type eq 'HTMLPreview'
+				or $item.type eq 'LabelTextarea' or $item.type eq 'LabelImage'
+				 or $item.type eq 'RawData'
+				 or $item.type eq 'IDCardReader'
+				 or $item.type eq 'FormElement'
+			}
+				<table  id="{$itemName}_container" class="input_row">
+				{if $item.label}
+				<tr>				
+				<td style="width:160px;">	
+					<label style="text-align:left;width:160px;">{$item.label}</label>
+				</td>				
+				<td>
+					{if $errors.$itemName}
+					<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+					{elseif $item.description}
+					<span class="input_desc" style="width:240px;">{$item.description}</span>			
+					{/if}
+				</td>
+				</tr>
+				{/if}
 				<tr><td colspan="2" align="center" >
 					<span class="label_textarea" style="{if $item.width}width:{$item.width+15}px;{else}{if $default_label_textarea_width}{$default_label_textarea_width}{else}width:655px;{/if}{/if}">{$item.element}</span>
 								
 				</td></tr>
 				</table>		
-			
-					
-				{/if}						
-			{/foreach}	
-			</td></tr></table>	
-			</div>		
-		</div>		
+			{else}
+				{if $item.type eq 'Hidden' }
+				<table  id="{$itemName}_container" class="input_row" style="display:none">
+				{else}
+					{if $es_elem_counter is odd}
+					<table   id="{$itemName}_container" class="input_row odd">
+					{else}
+					<table   id="{$itemName}_container" class="input_row ">
+					{/if}
+				{/if}					
+				<tr>
+				{if $item.label}
+				<td style="width:120px;" >	
+					<label style="text-align:left">{$item.label}</label>
+				</td>
+				{/if}
+				<td>
+				{if $item.type eq 'Checkbox' }
+					<span class="label_text" >{$item.element} {$item.description}</span>
+				{else}
+					<span class="label_text" style="float:left;{if $item.width}width:{$item.width}px;{else}{if $default_label_text_width}{$default_label_text_width}{else}width:270px;{/if}{/if}">{$item.element}</span>
+					{if $errors.$itemName}
+					<span class="input_error_msg" style="width:200px;">{$errors.$itemName}</span>
+					{elseif $item.description}
+					<span class="input_desc" style="width:200px;">{$item.description}</span>			
+					{/if}				
+				{/if}					
+					</td>
+				</tr>
+				</table>
+			{/if}
+			{assign var=es_elem_counter value=$es_elem_counter+1}					
+			{/if}
+		{/foreach}
+        	</div>
+	 			
+		</div>
+		{/if}
+
+
+	
+	{assign var=es_counter value=$es_counter+1}			
+	{/foreach}
+	
+	<script>
+	var formname = '{$form.name}';
+	{literal}
+	var c_{/literal}{$ts_counter}{literal} = new Cookies();		
+	var $tabs_{/literal}{$ts_counter}{literal} = $j( "#tabs_{/literal}{$ts_counter}{literal}" ).tabs({
+		select: function(event, ui)
+		{				
+			c_{/literal}{$ts_counter}{literal}.set(formname+'_lastTab_{/literal}{$ts_counter}{literal}',ui.panel.id);			
+		}
+	}).css({'padding-left':'0px','width':'680px','display':'block'});		
+	lastViewedTab_{/literal}{$ts_counter}{literal} = c_{/literal}{$ts_counter}{literal}.get(formname+'_lastTab_{/literal}{$ts_counter}{literal}');
+	$tabs_{/literal}{$ts_counter}{literal}.tabs('select','#'+lastViewedTab_{/literal}{$ts_counter}{literal});
+	{/literal}
+	</script>
+	
+	</div></div></div>
 		<script>
-			init_elementset('{$form.name}','6');
+			init_elementset('{$form.name}','tab_{$ts_counter}');
 		</script>	
+{assign var=ts_counter value=$ts_counter+1}
+{/foreach}
+<!-- tab set finished -->
+		
 		
 		<div style="height:10px;"></div>
 		<p class="input_row">
