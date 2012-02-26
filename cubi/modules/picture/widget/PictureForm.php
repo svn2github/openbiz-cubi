@@ -148,6 +148,9 @@ class PictureForm extends PickerForm
         foreach ($selIds as $id)
         {        	
             $dataRec = $this->getDataObj()->fetchById($id);
+            if(!$dataRec){
+            	continue;
+            }
             //remove file 
             $file = $dataRec['path'];
             @unlink($file);
