@@ -32,8 +32,8 @@
         <Element Name="btn_edit" Link="javascript:;" Class="LabelImage" Text="{RESOURCE_URL}/collab/calendar/images/icon_calendar_item_edit.png"   CssClass="button_gray_m" Description="edit record (Ctrl+E)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="js:closeAllTips();Openbiz.CallFunction(parentFormName+'.EditRecord({fx}@:Elem[fld_Id].Value{/fx})',{tx}{'type':'','target':'','evthdl':'btn_edit:btn_edit_onclick'}{/tx});" />
         </Element>
-		<Element Name="btn_detail" Link="javascript:;" Class="LabelImage" Text="{RESOURCE_URL}/collab/calendar/images/icon_calendar_item_detail.png"  CssClass="button_gray_m" Description="copy record (Ctrl+C)">
-            <EventHandler Name="btn_new_onclick" Event="onclick" Function="js:closeAllTips();Openbiz.CallFunction(parentFormName+'.SwitchForm(collab.calendar.form.EventDetailForm,{fx}@:Elem[fld_Id].Value{/fx})',{tx}{'type':'','target':'','evthdl':'lnk_detail:lnk_detail_onclick'}{/tx});" />
+		<Element Name="btn_detail" Link="{APP_INDEX}/collab/event_detail/{@:Elem[fld_Id].Value}" Class="LabelImage" Text="{RESOURCE_URL}/collab/calendar/images/icon_calendar_item_detail.png"  CssClass="button_gray_m" >
+            <!-- <EventHandler Name="btn_new_onclick" Event="onclick" Function="js:closeAllTips();Openbiz.CallFunction(parentFormName+'.SwitchForm(collab.calendar.form.EventDetailForm,{fx}@:Elem[fld_Id].Value{/fx})',{tx}{'type':'','target':'','evthdl':'lnk_detail:lnk_detail_onclick'}{/tx});" /> -->
         </Element> 
         <Element Name="btn_delete" Link="javascript:;" Class="LabelImage" Text="{RESOURCE_URL}/collab/calendar/images/icon_calendar_item_delete.gif"  CssClass="button_gray_m" Description="delete record (Delete)">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="js:closeAllTips();Openbiz.CallFunction(parentFormName+'.DeleteRecord({fx}@:Elem[fld_Id].Value{/fx})',{tx}{'type':'','target':'','evthdl':'btn_delete:del_onclick'}{/tx});" />
