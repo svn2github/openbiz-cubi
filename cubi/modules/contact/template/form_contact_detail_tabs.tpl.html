@@ -1,0 +1,330 @@
+<form id="{$form.name}" name="{$form.name}">
+{literal}
+<style>
+table.input_row label{
+	height:20px;
+}
+#general table.input_row {
+	height:30px;
+	display:block;
+}
+
+table.input_row {
+	height:26px;
+	display:block;
+}
+</style>
+{/literal}
+<div style="padding-left:25px; ">
+
+	<div>
+	
+	<div style="padding-left:10px;" >
+		<div class="underline " style="height:270px;" id="general">
+		<h2>{t}Contact Profile{/t}</h2>
+		<div style="height:80px;">
+						{assign var=item value=$dataPanel.fld_display_name}		
+		<table  id="fld_display_name_container" style="width:648px;">										
+			<tr>
+
+				<td rowspan="2" style="width:60px;">
+					{if $form.icon !='' }
+					<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+					{/if}
+				</td>
+				<td style="height:40px;">				
+					<span class="label_text" style="width:500px;padding:5px 5px 0px 5px;" >{$item.element}</span>					
+				</td>
+
+			</tr>
+			{assign var=item value=$dataPanel.fld_type_id}	
+			<tr>
+				<td style="height:18px;">				
+					<span class="label_text" style="width:648px;" >{$item.element}</span>					
+				</td>
+			</tr>
+	</table>
+	</div>
+		<div style="height:170px;" >
+		<div style="float:left; width:140px; height:150px; text-align:center; padding-top:0px;">
+				{assign var=item value=$dataPanel.fld_photo}
+											
+				<table id="fld_photo_container" class="input_row">								
+					<tr>
+						<td >	
+							<div class="photo_frame">
+							{if $dataPanel.fld_photo_uploaded.element !=""}
+								<image id="photo_placeholder" src="{$app_url}{$dataPanel.fld_photo_uploaded.element}" width="90" height="125"/>
+							{else}
+								<image id="photo_placeholder" src="{$image_url}/profile_photo_icon.gif" width="90" height="125"/>
+							{/if}								
+							</div>
+						</td>					
+					</tr>
+					
+				</table>
+		</div>
+		<div style="float:left;width:350px;padding-top:2px;">
+				{assign var=item value=$dataPanel.fld_first_name}					
+				<table  id="fld_first_name_container" class="input_row" >								
+				<tr>
+					<td >	
+						<label style="text-align:left; width:60px;">{$item.label}</label>
+					</td>
+					<td>				
+						<span class="label_text">{$item.element}</span>					
+					</td>
+				</tr>
+				</table>
+				
+				{assign var=item value=$dataPanel.fld_last_name}					
+				<table  id="fld_last_name_container" class="input_row" >								
+				<tr>
+					<td >	
+						<label style="text-align:left; width:60px;">{$item.label}</label>
+					</td>
+					<td>				
+						<span class="label_text">{$item.element}</span>					
+					</td>
+				</tr>
+				</table>
+				
+							
+				
+				{assign var=item value=$dataPanel.fld_company}					
+				<table  id="fld_company_container" class="input_row">								
+				<tr>
+					<td >	
+						<label style="text-align:left; width:60px;">{$item.label}</label>
+					</td>
+					<td>				
+						<span class="label_text" >{$item.element}</span>					
+					</td>
+				</tr>
+				</table>
+				
+
+		
+				{assign var=item value=$dataPanel.fld_department}					
+				<table  id="fld_department_container" class="input_row">								
+				<tr>
+					<td >	
+						<label style="text-align:left; width:60px;">{$item.label}</label>
+					</td>
+					<td>				
+						<span class="label_text">{$item.element}</span>					
+					</td>
+				</tr>
+				</table>
+				
+				{assign var=item value=$dataPanel.fld_position}					
+				<table  id="fld_position_container" class="input_row">								
+				<tr>
+					<td >	
+						<label style="text-align:left; width:60px;">{$item.label}</label>
+					</td>
+					<td>				
+						<span class="label_text">{$item.element}</span>					
+					</td>
+				</tr>
+				</table>
+		</div>
+		</div>
+
+
+				
+		
+		</div>
+
+		<!-- Phone Section -->
+		<div class="underline" >
+			<h2 class="element_set_title"><a id="element_set_btn_1" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','1')" >{t}Phone{/t}</a></h2>
+				<div id="element_set_panel_1" class="element_set_panel">
+				<table ><tr><td>		
+			{foreach name=phone item=item key=itemName from=$dataPanel}
+				{if $item.elementsetcode eq "Phone"}			
+					{if $smarty.foreach.phone.index is odd}
+					<table  id="{$itemName}_container" class="input_row" style="float:left;padding-right:70px;">
+					{else}
+					<table  id="{$itemName}_container" class="input_row" style="float:left;">
+					{/if}								
+					<tr>
+						<td >	
+							<label style="text-align:left;width:60px; ">{$item.label}</label>
+						</td>
+						<td>				
+							<span class="label_text" style="width:200px;">{$item.element}</span>					
+						</td>
+					</tr>
+					</table>
+				{/if}						
+			{/foreach}		
+			</td></tr></table>	
+			</div>	
+		</div>
+		<script>
+			init_elementset('{$form.name}','1');
+		</script>
+		
+		<!-- Address Section -->
+		<div class="underline" >
+			<h2 class="element_set_title"><a id="element_set_btn_2" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','2')" >{t}Address{/t}</a></h2>
+				<div id="element_set_panel_2" class="element_set_panel">
+				<table ><tr><td>
+			{foreach name=address item=item key=itemName from=$dataPanel}
+				{if $item.elementsetcode eq "Address"}			
+					{if $smarty.foreach.address.index is odd}
+					<table  id="{$itemName}_container" class="input_row" style="float:left">
+					{else}
+					<table  id="{$itemName}_container" class="input_row" style="float:left;padding-right:70px;">
+					{/if}								
+					<tr>
+						<td >	
+							<label style="text-align:left; width:60px;">{$item.label}</label>
+						</td>
+						<td>				
+							<span class="label_text" style="width:200px;">{$item.element}</span>					
+						</td>
+					</tr>
+					</table>
+				{/if}						
+			{/foreach}		
+				</td></tr></table>	
+			</div>
+		</div>
+		<script>
+			init_elementset('{$form.name}','2');
+		</script>
+		
+		<!-- Online Contact Section -->
+		<div class="underline" >		
+			<h2 class="element_set_title"><a id="element_set_btn_3" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','3')" >{t}Online Contact{/t}</a></h2>
+				<div id="element_set_panel_3" class="element_set_panel">
+				<table ><tr><td>
+			{foreach name=contact item=item key=itemName from=$dataPanel}				
+				{if $item.elementsetcode eq "Online Contact"}			
+					{if $smarty.foreach.contact.index is odd}
+					<table  id="{$itemName}_container" class="input_row" style="float:left;padding-right:70px;">
+					{else}
+					<table  id="{$itemName}_container" class="input_row" style="float:left;">
+					{/if}								
+					<tr>
+						<td >	
+							<label style="text-align:left; width:60px;">{$item.label}</label>
+						</td>
+						<td>				
+							<span class="label_text" style="width:200px;">{$item.element}</span>					
+						</td>
+					</tr>
+					</table>
+				{/if}						
+			{/foreach}	
+			</td></tr></table>	
+			</div>		
+		</div>
+		<script>
+			init_elementset('{$form.name}','3');
+		</script>		
+		
+
+		<!-- Locations Section -->
+		<div class="underline" >
+			<h2 class="element_set_title"><a id="element_set_btn_4" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','4')" >{t}Locations{/t}</a></h2>
+				<div id="element_set_panel_4" class="element_set_panel">
+				<table ><tr><td>		
+			{foreach item=item key=itemName from=$dataPanel}
+				{if $item.elementsetcode eq "Locations"}
+						
+					<table  id="{$itemName}_container" class="input_row"  style="height:auto;">								
+					<tr>
+						<td>				
+							
+							<span class="label_text" style="height:auto;" >{$item.element}</span>
+												
+						</td>
+					</tr>
+					</table>
+					
+				{/if}						
+			{/foreach}	
+			</td></tr></table>	
+			</div>		
+		</div>		
+		<script>
+			init_elementset('{$form.name}','4');
+		</script>		
+		
+		<!-- Misc Section -->
+		<div class="underline" >
+			<h2 class="element_set_title"><a id="element_set_btn_5" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','5')" >{t}Miscellaneous{/t}</a></h2>
+				<div id="element_set_panel_5" class="element_set_panel">
+				<table ><tr><td>		
+			{foreach item=item key=itemName from=$dataPanel}
+				{if $item.elementsetcode eq "Miscellaneous"}
+						
+					<table  id="{$itemName}_container" class="input_row">								
+					<tr>
+						<td >	
+							<label style="text-align:left; ">{$item.label}</label>
+						</td>
+						<td>				
+							
+							<span class="label_text" >{$item.element}</span>
+												
+						</td>
+					</tr>
+					</table>
+					
+				{/if}						
+			{/foreach}	
+			</td></tr></table>	
+			</div>		
+		</div>		
+		<script>
+			init_elementset('{$form.name}','5');
+		</script>		
+		
+		<!-- Change Comment Section -->
+		<div class="underline" >
+			<h2 class="element_set_title"><a id="element_set_btn_6" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','6')" >{t}ChangeLog{/t}</a></h2>
+				<div id="element_set_panel_6" style="padding-top:0px;" class="element_set_panel">
+				<table ><tr><td>		
+			{foreach item=item key=itemName from=$dataPanel}
+				{if $item.elementsetcode eq "ChangeLog"}
+
+				<table  id="{$itemName}_container" class="input_row" style="height:auto;">
+				
+				<tr><td colspan="2" align="center" >
+					<span class="label_textarea" style="{if $item.width}width:{$item.width+15}px;{else}{if $default_label_textarea_width}{$default_label_textarea_width}{else}width:655px;{/if}{/if}">{$item.element}</span>
+								
+				</td></tr>
+				</table>		
+			
+					
+				{/if}						
+			{/foreach}	
+			</td></tr></table>	
+			</div>		
+		</div>		
+		<script>
+			init_elementset('{$form.name}','6');
+		</script>	
+		
+		<div style="height:10px;"></div>
+		<p class="input_row">
+			
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+	</div>
+	
+		<div style="height:15px;">
+		<div id='{$form.name}.load_disp' style="display:none;">
+		<img  src="{$image_url}/form_ajax_loader.gif"/>
+		</div>
+		</div>
+	
+</div>
+
+</form>
