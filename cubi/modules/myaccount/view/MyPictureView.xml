@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="MyPictureView" Description="My Pictures" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_pics.tpl" Access="myaccount.access">
+    <FormReferences>
+        <Reference Name="myaccount.form.PictureDetailForm"/>
+    </FormReferences>
+</EasyView>
