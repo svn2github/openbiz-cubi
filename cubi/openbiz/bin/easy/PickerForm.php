@@ -151,7 +151,7 @@ class PickerForm extends EasyForm
 		    	}    
 		    	$recId = $parentDo->InsertRecord($recArr);	
 	    	}else{
-	    		$recId = $this->getDataObj()->InsertRecord($recArr);	    		
+	    		$recId = $this->getDataObj()->InsertRecord($recArr);	    			    		
 	    		$this->addToParent($recId);
 	    	}
         }                
@@ -282,6 +282,10 @@ class PickerForm extends EasyForm
 	        $do->clearSearchRule();	        	        
 	        $rec = $do->fetchById($recId);	
 			$do->m_BaseSearchRule = $baseSearchRule;
+			
+			if(!$rec){
+				$rec=BizSystem::getObject($do->m_Name,1)->fetchById($recId);
+			}
 			
 	        // add record to parent form's dataObj who is M-M or M-1/1-1 to its parent dataobj
 	        $ok = $parentForm->getDataObj()->addRecord($rec, $bPrtObjUpdated);
