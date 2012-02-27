@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ContactEditRelatedForm" Class="ContactForm" FormType="Edit"  Icon="icon_my_profile.gif" jsClass="jbForm" Title="Edit Related Contact" Description="Here you can associate related contacts to this contact" BizDataObj="contact.do.ContactDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_edit_related.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
+    <DataPanel>
+   		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="Y" />
+    			         	        	        
+	        <Element Name="fld_display_name" Class="LabelText"  FieldName="display_name" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;"  AllowURLParam="N" />
+			<Element Name="fld_type_id" Class="LabelText" BackgroundColor="{@:Elem[fld_color].Value}" Width="648"  ElementSet="Profile" FieldName="type_name" Label="Contact Type"  AllowURLParam="N" />
+			
+	        <Element Name="fld_first_name" Class="LabelText" ElementSet="Profile" FieldName="first_name" Label="Firstname"  AllowURLParam="N" />
+	        <Element Name="fld_last_name" Class="LabelText" ElementSet="Profile" FieldName="last_name" Label="Lastname"  AllowURLParam="N" />
+	        <Element Name="fld_company" Class="LabelText" ElementSet="Profile" FieldName="company" Label="Company"  AllowURLParam="N"/>    	        				        
+	        <Element Name="fld_department" Class="LabelText" ElementSet="Profile" FieldName="department" Label="Department"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_position" Class="LabelText" ElementSet="Profile" FieldName="position" Label="Position"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_photo_uploaded" Class="RawData"  ElementSet="Profile" FieldName="photo" Label="Select Photo"  AllowURLParam="N" CssClass="input_file"/>	        
+ 			<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+ 	        
+	    	<Element Name="fld_related"   ElementSet="Contacts" Class="FormElement" FormReference="contact.widget.ContactListRelatedEditForm" FieldName="" Label="" AllowURLParam="N" />
+    </DataPanel>
+    <ActionPanel>        
+    	<Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="SwitchForm(contact.form.ContactDetailForm,{@contact.do.ContactDO:Field[Id].Value})"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>    
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
