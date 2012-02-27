@@ -1,3 +1,16 @@
+.ui-state-hover .tab_label_count{
+background-color:#999999;
+}
+.ui-state-active .tab_label_count{
+background-color:#87c4d8;
+}
+.tab_label_count{
+color:#ffffff;
+padding-left:5px;
+padding-right:5px;
+background-color:#cccccc;
+font-weight:normal;
+}
 .greyTextItalics{
 	color: #CCCCCC;
 	font-style: italic;
