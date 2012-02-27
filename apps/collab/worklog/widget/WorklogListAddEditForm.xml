@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="WorklogListAddEditForm" Class="PickerForm" inheritFrom="collab.worklog.widget.WorklogListEditForm" Access="collab_worklog.access">
+
+	<ActionPanel>
+		<Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add">
+            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(collab.worklog.widget.WorklogAddForm)"/>
+        </Element>
+       
+    </ActionPanel> 
+    
+</EasyForm>

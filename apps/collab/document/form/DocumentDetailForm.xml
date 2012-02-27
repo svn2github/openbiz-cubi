@@ -52,8 +52,12 @@
 		<Element Name="btn_manage_tasks" Access="collab_task.access" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Task" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_tasks_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditTaskForm,{@:Elem[fld_Id].Value})"   />
        	</Element>	
+       	
 		<Element Name="fld_related_worklog" Access="collab_worklog.access"  TabSet="Related Data"   ElementSet="Worklog" Class="FormElement" FormReference="collab.worklog.widget.WorklogListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		
+		<Element Name="btn_manage_worklog" TabSet="Related Data" Access="collab_worklog.access"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Worklog" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_worklog_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditWorklogForm,{@:Elem[fld_Id].Value})" />
+       	</Element> 
+       	
 		<Element Name="fld_related_events" Access="collab_calendar.access"  TabSet="Related Data"   ElementSet="Events" Class="FormElement" FormReference="collab.calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		<Element Name="btn_manage_events" Access="collab_calendar.access" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Events" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_events_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditEventForm,{@:Elem[fld_Id].Value})"   />
