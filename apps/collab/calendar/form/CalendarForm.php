@@ -63,9 +63,9 @@ class CalendarForm extends ChangeLogNoCommentForm
     	$result = parent::outputAttrs();
     	$result['defaultView'] = $this->CalendarDefaultView;
     	$result['dayRange'] = $this->m_DayRange;
-    	$result['dayStart'] = $this->m_DayStart;        	
+    	$result['dayStart'] = $this->m_DayStart;    
     	$result['calYear'] = date('Y',strtotime($this->m_DayStart));
-    	$result['calMonth'] = (int)date('m',strtotime($this->m_DayStart))-1;
+    	$result['calMonth'] = (int)date('m',strtotime($this->m_DayStart));
     	$result['calDay'] = (int)date('d',strtotime($this->m_DayStart));
     	$result['defaultView'] = $this->CalendarDefaultView;
     	//$result['events'] = $this->renderEvents(false);
