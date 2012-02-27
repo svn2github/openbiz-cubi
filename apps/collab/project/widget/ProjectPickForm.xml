@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectPickForm" Class="PickerForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.gif"  FormType="List" jsClass="jbForm" Title="Please select a project" Description="To select a project click on a row and click to Select button" BizDataObj="collab.project.do.ProjectPickerDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_picker_w.tpl.html"  Access="collab_project.access" >
+<EasyForm Name="ProjectPickForm" Class="PickerForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png"  FormType="List" jsClass="jbForm" Title="Please select a project" Description="To select a project click on a row and click to Select button" BizDataObj="collab.project.do.ProjectPickerDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_picker_w.tpl.html"  Access="collab_project.access" >
     <DataPanel>
           		
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
