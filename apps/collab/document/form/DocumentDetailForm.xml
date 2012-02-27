@@ -88,7 +88,7 @@
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=collab.document.form.DocumentListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
         <Element Name="btn_spacer_for_cancel" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Spacer" Width="10"></Element>
-        <Element Name="btn_cancel" Class="LabelBack" Text="Back" CssClass="button_gray_m" Link="{APP_INDEX}/collab/document_manage">
+        <Element Name="btn_cancel" Class="LabelBack" Text="Back" CssClass="button_gray_m" Link="javascript:history.go(-2);">
            <!--  <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />-->
         </Element>          
     </ActionPanel> 
