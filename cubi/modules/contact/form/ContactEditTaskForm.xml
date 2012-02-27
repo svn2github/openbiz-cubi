@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ContactEditPictureForm" Class="ContactForm" FormType="Edit"  Icon="icon_my_profile.gif" jsClass="jbForm" Title="Edit Contact Pictures" Description="Here you can edit this contact's pictures" BizDataObj="contact.do.ContactDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_edit_related.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
+<EasyForm Name="ContactEditTaskForm" Class="ContactForm" FormType="Edit"  Icon="icon_my_profile.gif" jsClass="jbForm" Title="Edit Contact Tasks" Description="Here you can associate related tasks to this contact" BizDataObj="contact.do.ContactDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_edit_related.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>
    		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="Y" />
     			         	        	        
@@ -14,7 +14,7 @@
 	        <Element Name="fld_photo_uploaded" Class="RawData"  ElementSet="Profile" FieldName="photo" Label="Select Photo"  AllowURLParam="N" CssClass="input_file"/>	        
  			<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
  	        
-	    	<Element Name="fld_related_pictures"   ElementSet="Pictures" Class="FormElement" FormReference="picture.widget.PictureListEditForm" FieldName="" Label="" AllowURLParam="N" />
+	    	<Element Name="fld_related_tasks"   ElementSet="Tasks" Class="FormElement" FormReference="collab.task.widget.TaskListEditForm" FieldName="" Label="" AllowURLParam="N" />
     </DataPanel>
     <ActionPanel>        
     	<Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">

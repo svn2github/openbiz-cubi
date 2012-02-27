@@ -41,6 +41,11 @@
 				<EventHandler Name="btn_manage_picture_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactEditPictureForm,{@:Elem[fld_Id].Value})"   />
 	        </Element> 
      		
+     		<Element Name="fld_related_attachment" Access="attachment.access" TabSet="Extra Information"  ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+			<Element Name="btn_manage_attachment" Access="attachment.access" TabSet="Extra Information" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+				<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
+	        </Element> 
+     		
      		<Element Name="fld_changelog" TabSet="Extra Information" Access="changelog.access"  ElementSet="ChangeLog" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetForm" FieldName="" Label="" AllowURLParam="N" />      	
      	
  	    	<Element Name="fld_misc" TabSet="Extra Information" Class="RawData"  ElementSet="Miscellaneous" FieldName="misc" Label="Miscellaneous"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />                	      
