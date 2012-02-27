@@ -32,12 +32,13 @@ class FormElement extends InputElement
         	$elem = $panel->current();
         	$panel->next();    
         	if($elem->m_ElementSet && $elem->canDisplayed()){        		
-        		if($elem->m_ElementSet == $my_elementset && !preg_match("/\[[0-9].*\]/si",$elem->m_ElementSet)){
-        			$elem->m_ElementSet.=" [$count] ";
+        		if($elem->m_ElementSet == $my_elementset && !preg_match("/tab_label_count/si",$elem->m_ElementSet)){
+        			$elem->m_ElementSet.=" <span class=\"tab_label_count\">$count</span>";
         		}
         	}          	                                  
         }
     }
+    
 
     /**
      * Draw the element according to the mode
