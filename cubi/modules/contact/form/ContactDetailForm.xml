@@ -54,12 +54,12 @@
 	        <Element Name="fld_update_time" TabSet="Extra Information" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
 		        
 		    <!-- M-M -->
-		    <!-- 
-		    <Element Name="fld_related_contacts" Access="contact.access" TabSet="Related Data"   ElementSet="Contacts" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		    
+		    <Element Name="fld_related_contacts" Access="contact.access" TabSet="Related Data"   ElementSet="Contacts" Class="FormElement" FormReference="contact.widget.ContactListRelatedForm" FieldName="" Label="" AllowURLParam="N" />
 			<Element Name="btn_manage_contacts" Access="contact.access" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Contacts" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
-				<EventHandler Name="btn_manage_contacts_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditContactForm,{@:Elem[fld_Id].Value})"   />
+				<EventHandler Name="btn_manage_contacts_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactEditRelatedForm,{@:Elem[fld_Id].Value})"   />
 	       	</Element>
-	       	 -->
+	       	
 		    <Element Name="fld_related_docs" TabSet="Related Data"   ElementSet="Document" Class="FormElement" FormReference="collab.document.widget.DocumentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		    <Element Name="btn_manage_related" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Document" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 				<EventHandler Name="btn_manage_related_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactEditDocumentForm,{@:Elem[fld_Id].Value})"   />
