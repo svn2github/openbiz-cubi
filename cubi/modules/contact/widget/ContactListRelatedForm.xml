@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ContactListRelatedForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="" Description="" BizDataObj="contact.do.ContactRefDO" inheritFrom="contact.widget.ContactListDetailForm"  Access="contact.access" >
+<EasyForm Name="ContactListRelatedForm" PageSize="-1" Class="EasyForm" FormType="List" jsClass="jbForm" Title="" Description="" BizDataObj="contact.do.ContactRefDO" inheritFrom="contact.widget.ContactListDetailForm"  Access="contact.access" >
 
 
 </EasyForm>

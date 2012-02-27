@@ -58,7 +58,7 @@
     	<!-- M-M -->
     	<Object Name="contact.do.ContactRefDO" Description="" Relationship="Self-Self" Table="contact" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="contact_related" XColumn1="contact_id" XColumn2="related_id" XDataObj="contact.do.ContactRelatedDO"/>
     	<Object Name="collab.calendar.do.EventDO" Description="" Relationship="M-M" Table="event" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="event_contact" XColumn1="contact_id" XColumn2="event_id" XDataObj="collab.contact.do.ContactEventDO"/>
-    	<Object Name="collab.document.do.DocumentDO" Description="" Relationship="M-M" Table="document" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="document_contact" XColumn1="contact_id" XColumn2="document_id" XDataObj="collab.contact.do.ContactDocumentDO"/>
+    	<Object Name="collab.document.do.DocumentDO" Description="" Relationship="M-M" Table="document" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="contact_document" XColumn1="contact_id" XColumn2="document_id" XDataObj="collab.contact.do.ContactDocumentDO"/>
     	<Object Name="collab.project.do.ProjectDO" Description="" Relationship="M-M" Table="project" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="project_contact" XColumn1="contact_id" XColumn2="project_id" XDataObj="collab.contact.do.ContactProjectDO"/>
     	<Object Name="collab.task.do.TaskDO" Description="" Relationship="M-M" Table="task" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="task_contact" XColumn1="contact_id" XColumn2="task_id" XDataObj="collab.contact.do.ContactTaskDO"/>
     </ObjReferences>
