@@ -7,7 +7,36 @@ class FormElement extends InputElement
     protected function readMetaData(&$xmlArr)
     {
         parent::readMetaData($xmlArr);
-        $this->m_FormReference = isset($xmlArr["ATTRIBUTES"]["FORMREFERENCE"]) ? $xmlArr["ATTRIBUTES"]["FORMREFERENCE"] : null;
+        $this->m_FormReference = isset($xmlArr["ATTRIBUTES"]["FORMREFERENCE"]) ? $xmlArr["ATTRIBUTES"]["FORMREFERENCE"] : null;        
+    }
+    
+    public function FormRecordCount()
+    {
+    	$formElementObj = BizSystem::GetObject($this->m_FormReference);
+    	if(strtolower($formElementObj->m_FormType)!='list'){
+    		return;
+    	}
+    	
+    	$count = (int)$formElementObj->getDataObj()->count();
+    	if($count<0){
+    		return;
+    	}
+    	
+    	$my_elementset = $this->m_ElementSet;
+    	
+    	//update other elements
+    	$panel = $this->getFormObj()->m_DataPanel;
+    	$panel->rewind();
+        while($panel->valid())    	    	
+        {      
+        	$elem = $panel->current();
+        	$panel->next();    
+        	if($elem->m_ElementSet && $elem->canDisplayed()){        		
+        		if($elem->m_ElementSet == $my_elementset && !preg_match("/\[[0-9].*\]/si",$elem->m_ElementSet)){
+        			$elem->m_ElementSet.=" [$count] ";
+        		}
+        	}          	                                  
+        }
     }
 
     /**
@@ -16,7 +45,7 @@ class FormElement extends InputElement
      * @return string HTML text
      */
     public function render()
-    {
+    {    	
         if(!$this->m_FormReference)
         {
         	return null;
@@ -35,6 +64,7 @@ class FormElement extends InputElement
         }
     	$sHTML = $formElementObj->render();
     	$formObj->setDataObj($formDataObj);
+    	$this->FormRecordCount();
         return $sHTML;
     }
 
