@@ -16,7 +16,7 @@
 	      
 	    <Element Name="fld_related_picture" Access="picture.access" TabSet="Extra Information"  ElementSet="Picture" Class="FormElement" FormReference="picture.widget.PictureListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		<Element Name="btn_manage_picture" Access="picture.access" TabSet="Extra Information" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Picture"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
-			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditPictureForm,{@:Elem[fld_Id].Value})"   />
+			<EventHandler Name="btn_manage_picture_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentEditPictureForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
 	     
 		<Element Name="fld_locations"  Access="location.access" TabSet="Extra Information" ElementSet="Locations" Class="FormElement" FormReference="location.widget.LocationListDetailForm" FieldName="" Label="" AllowURLParam="N" />
