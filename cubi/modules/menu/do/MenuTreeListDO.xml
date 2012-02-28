@@ -5,7 +5,7 @@
    		<BizField Name="title" Column="title" Length="255"    Type="Text"/>
    		<BizField Name="PId" Column="parent" Length="255"   Required="N" Type="Text"/>		
 		<BizField Name="description" Column="description"   Type="Text"/>
-		<BizField Name="published" Column="published"    Required="Y" Type="Number"/>		
+		<BizField Name="published" Column="published"     Type="Number"/>		
 		<BizField Name="sortorder" Column="ordering"    Required="N" Type="Number"/>
 	
 			   		

@@ -11,7 +11,7 @@
 		<BizField Name="description" Column="description"   Type="Text"/>		
 		<BizField Name="view" Column="view"    Required="N" Type="Text"/>
 		<BizField Name="type" Column="type" Length="50"   Required="N" Type="Text"/>
-		<BizField Name="published" Column="published"    Required="Y" Type="Number"/>
+		<BizField Name="published" Column="published"     Type="Number"/>
 		<BizField Name="parent" Column="parent" Length="255"   Required="N" Type="Text"/>
 		<BizField Name="sortorder" Column="ordering"    Required="N" Type="Number"/>
 		<BizField Name="access" Column="access"    Required="N" Type="Number"/>
