@@ -36,7 +36,7 @@ class DatabaseForm extends EasyForm
     }	
 	
 	public function fetchData(){
-		if ($this->m_FormType == "NEW")
+		if (strtoupper($this->m_FormType) == "NEW")
             return $this->getNewRule();
             
 		$file = APP_HOME.DIRECTORY_SEPARATOR.$this->m_ConfigFile;
@@ -258,7 +258,7 @@ class DatabaseForm extends EasyForm
         		$this->removeNode($id);    
 			}        
         }
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();
@@ -278,7 +278,7 @@ class DatabaseForm extends EasyForm
         {
             $this->testConnStatus($id);            
         }
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();

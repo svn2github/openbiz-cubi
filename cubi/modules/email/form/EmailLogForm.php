@@ -75,7 +75,7 @@ class EmailLogForm extends EasyForm
            return;
         }
        
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();

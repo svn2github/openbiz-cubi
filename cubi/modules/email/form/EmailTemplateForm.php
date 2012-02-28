@@ -36,7 +36,7 @@ class EmailTemplateForm extends EasyForm
     }	
 	
 	public function fetchData(){
-		if ($this->m_FormType == "NEW")
+		if (strtoupper($this->m_FormType) == "NEW")
             return $this->getNewRule();
             
 		$file = MODULE_PATH.DIRECTORY_SEPARATOR."service".DIRECTORY_SEPARATOR.$this->m_ConfigFile;
@@ -286,7 +286,7 @@ class EmailTemplateForm extends EasyForm
         {
             $this->removeNode($id);            
         }
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();

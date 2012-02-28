@@ -111,7 +111,7 @@ class ThemeForm extends EasyForm
         		$this->DeleteThemePack($id);
         	}            
         }
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();
@@ -119,7 +119,7 @@ class ThemeForm extends EasyForm
     }
     	
 	public function fetchData(){
-		if ($this->m_FormType == "NEW")
+		if (strtoupper($this->m_FormType) == "NEW")
             return $this->getNewTheme();
                         
 		preg_match("/\[(.*?)\]=\'(.*?)\'/si",$this->m_FixSearchRule,$match);

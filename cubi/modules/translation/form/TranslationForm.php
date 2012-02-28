@@ -112,7 +112,7 @@ class TranslationForm extends EasyForm
         	$filename = $resultArr[$id]["path"];
         	@unlink($filename);
         }
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();

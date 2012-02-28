@@ -40,7 +40,7 @@ class EmailQueueForm extends EasyForm
                 return;
             }
         }
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();
@@ -63,7 +63,7 @@ class EmailQueueForm extends EasyForm
            return;
         }
        
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();
@@ -87,7 +87,7 @@ class EmailQueueForm extends EasyForm
            return;
         }
        
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();

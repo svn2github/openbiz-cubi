@@ -159,7 +159,7 @@ class BackupForm extends EasyForm
 	        }                	        	
         }
         
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();

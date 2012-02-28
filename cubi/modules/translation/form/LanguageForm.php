@@ -92,7 +92,7 @@ class LanguageForm extends EasyForm
         {
             $this->DeleteLangPack($id);            
         }
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();
@@ -100,7 +100,7 @@ class LanguageForm extends EasyForm
     }
     	
 	public function fetchData(){
-		if ($this->m_FormType == "NEW")
+		if (strtoupper($this->m_FormType) == "NEW")
             return $this->getNewLang();
                         
 		preg_match("/\[(.*?)\]=\'(.*?)\'/si",$this->m_FixSearchRule,$match);
