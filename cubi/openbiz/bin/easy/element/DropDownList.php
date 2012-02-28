@@ -83,12 +83,12 @@ class DropDownList extends InputElement
         if($this->m_ReadOnly=='Y')
         {
 	        $display_input = "style=\"display:none;\"";
-	        $display_span = "style=\"position:absolute;\"";
+	        $display_span = "style=\"position:;\"";
         }
         else
         {
 	        $display_span = "style=\"display:none;\"";
-	        $display_input = "style=\"position:absolute;\"";
+	        $display_input = "style=\"position:;\"";
         }
         $list = $this->getList();
         if ($this->m_BlankOption) // ADD a blank option
