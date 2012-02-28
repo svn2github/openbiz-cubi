@@ -6,7 +6,7 @@
 	    <BizField Name="description" Column="description"    Required="Y" Type=""/>
 	    <BizField Name="color" Column="color"  Type="Text"/>
 	    <BizField Name="sortorder" Column="sortorder"    Required="Y" Type=""/>
-	    <BizField Name="published" Column="published"    Required="Y" Type=""/>
+	    <BizField Name="published" Column="published"     Type=""/>
 	    
 	    <BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>
         <BizField Name="group_perm" Column="group_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   Required="N" Type="Number"/>
