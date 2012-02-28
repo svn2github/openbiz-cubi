@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ExtendDataDO" Description="" Class="BizDataObj" DBName="Default" Table="extend_data" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="" CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" Column="id"     Type=""/>
+   		<BizField Name="module" Column="module" Length="255"    Type="Text"/>
+   		<BizField Name="type_id" Column="type_id"  Type="Number"/>
+   		<BizField Name="record_id" Column="record_id"  Type="Number"/>
+   		
+   		<BizField Name="field_1" Column="field_1" />
+   		<BizField Name="field_2" Column="field_2" />
+   		<BizField Name="field_3" Column="field_3" />
+   		<BizField Name="field_4" Column="field_4" />
+   		<BizField Name="field_5" Column="field_5" />
+   		<BizField Name="field_6" Column="field_6" />
+   		<BizField Name="field_7" Column="field_7" />
+   		<BizField Name="field_8" Column="field_8" />
+   		<BizField Name="field_9" Column="field_9" />
+   		<BizField Name="field_10" Column="field_10" />
+   		<BizField Name="field_11" Column="field_11" />
+   		<BizField Name="field_12" Column="field_12" />
+   		<BizField Name="field_13" Column="field_13" />
+   		<BizField Name="field_14" Column="field_14" />
+   		<BizField Name="field_15" Column="field_15" />
+   		<BizField Name="field_16" Column="field_16" />
+   		<BizField Name="field_17" Column="field_17" />
+   		<BizField Name="field_18" Column="field_18" />
+   		<BizField Name="field_19" Column="field_19" />
+   		<BizField Name="field_20" Column="field_20" />
+   		
+   		
+   		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+   		
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
