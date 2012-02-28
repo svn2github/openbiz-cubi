@@ -226,7 +226,8 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
 
         $this->m_CacheLifeTime = isset($xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["CACHELIFETIME"]) ? $xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["CACHELIFETIME"] : "0";
         $this->m_Name = $this->prefixPackage($this->m_Name);
-        $this->m_InheritFrom = $this->prefixPackage($this->m_InheritFrom);
+        if ($this->m_InheritFrom == '@sourceMeta') $this->m_InheritFrom = '@'.$this->m_Name;
+        else $this->m_InheritFrom = $this->prefixPackage($this->m_InheritFrom);
 
         // build BizRecord
         $this->m_BizRecord = new BizRecord($xmlArr["BIZDATAOBJ"]["BIZFIELDLIST"]["BIZFIELD"],"BizField",$this);

@@ -161,7 +161,8 @@ class EasyForm extends MetaObject implements iSessionObject
 		$this->m_DefaultFixSearchRule = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["SEARCHRULE"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["SEARCHRULE"] : null;
         
         $this->m_Name = $this->prefixPackage($this->m_Name);
-        $this->m_InheritFrom = $this->prefixPackage($this->m_InheritFrom);
+        if ($this->m_InheritFrom == '@sourceMeta') $this->m_InheritFrom = '@'.$this->m_Name;
+        else $this->m_InheritFrom = $this->prefixPackage($this->m_InheritFrom);
         $this->m_DataObjName = $this->prefixPackage($xmlArr["EASYFORM"]["ATTRIBUTES"]["BIZDATAOBJ"]);
 
         if (isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["DIRECTMETHOD"]))
