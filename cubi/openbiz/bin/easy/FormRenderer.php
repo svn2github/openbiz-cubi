@@ -72,7 +72,7 @@ class FormRenderer
         $tplAttributes['module'] = $formObj->getModuleName($formObj->m_Name);
         
         // if the $formobj form type is list render table, otherwise render record
-        if ($formObj->m_FormType == 'LIST') {
+        if (strtoupper($formObj->m_FormType) == 'LIST') {
             $recordSet = $formObj->fetchDataSet();
             $tplAttributes['dataPanel'] = $formObj->m_DataPanel->renderTable($recordSet);
         } else {

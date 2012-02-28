@@ -193,7 +193,7 @@ class EasyForm extends MetaObject implements iSessionObject
             $arr = explode (".", $this->m_Access);
             $this->m_Resource = $arr[0];
         }
-        if ($this->m_jsClass == "jbForm" && $this->m_FormType == "LIST") $this->m_jsClass = "Openbiz.TableForm";
+        if ($this->m_jsClass == "jbForm" && strtoupper($this->m_FormType) == "LIST") $this->m_jsClass = "Openbiz.TableForm";
         if ($this->m_jsClass == "jbForm") $this->m_jsClass = "Openbiz.Form";
         
 		$this->translate();	// translate for multi-language support
@@ -921,7 +921,7 @@ class EasyForm extends MetaObject implements iSessionObject
         $dataObj = $this->getDataObj();
         if ($dataObj == null) return;
 
-        if ($this->m_FormType == "NEW")
+        if (strtoupper($this->m_FormType) == "NEW")
             return $this->getNewRecord();
 		
         if (!$this->m_FixSearchRule && !$this->m_SearchRule)
@@ -1198,7 +1198,7 @@ class EasyForm extends MetaObject implements iSessionObject
             {
             	$formObj->m_ErrorMessage = $this->getMessage("FORM_OPERATION_NOT_PERMITTED",$formObj->m_Name);
          
-        		if ($this->m_FormType == "LIST"){
+        		if (strtoupper($this->m_FormType) == "LIST"){
         			BizSystem::log(LOG_ERR, "DATAOBJ", "DataObj error = ".$errorMsg);
         			BizSystem::clientProxy()->showClientAlert($formObj->m_ErrorMessage);
         		}else{
@@ -1247,7 +1247,7 @@ class EasyForm extends MetaObject implements iSessionObject
             if(!$this->canDeleteRecord($dataRec))
             {
             	$this->m_ErrorMessage = $this->getMessage("FORM_OPERATION_NOT_PERMITTED",$this->m_Name);         
-        		if ($this->m_FormType == "LIST"){
+        		if (strtoupper($this->m_FormType) == "LIST"){
         			BizSystem::log(LOG_ERR, "DATAOBJ", "DataObj error = ".$errorMsg);
         			BizSystem::clientProxy()->showClientAlert($this->m_ErrorMessage);
         		}else{
@@ -1267,7 +1267,7 @@ class EasyForm extends MetaObject implements iSessionObject
                 return;
             }
         }
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();
@@ -1350,7 +1350,7 @@ class EasyForm extends MetaObject implements iSessionObject
      */
     public function saveRecord()
     {
-        if ($this->m_FormType == "NEW")
+        if (strtoupper($this->m_FormType) == "NEW")
         {
             $this->insertRecord();
         }

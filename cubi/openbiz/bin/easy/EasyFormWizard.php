@@ -205,7 +205,7 @@ class EasyFormWizard extends EasyForm
         // commit the form input. call SaveRecord()
         $recArr = $this->m_ActiveRecord;
 
-        if ($this->m_FormType == "NEW")
+        if (strtoupper($this->m_FormType) == "NEW")
             $dataRec = new DataRecord(null, $this->getDataObj());
         else
         {
