@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ContactPhotoGridForm" Class="ContactForm" Icon="{RESOURCE_URL}/contact/images/icon_photos.png" FormType="List" jsClass="jbForm" Title="Photo Grid" Description="Telephone directory (also called a telephone book and phone book)\n is a listing of telephone." BizDataObj="contact.do.ContactDO" PageSize="12" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_photo_grid.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
+<EasyForm Name="ContactPhotoGridForm" Class="ContactForm" Icon="{RESOURCE_URL}/contact/images/icon_photos.png" FormType="List" jsClass="jbForm" Title="Photo Grid" Description="This is a Photo Grid view of your contacts that will help you quick check your contacts as picture wall." BizDataObj="contact.do.ContactDO" PageSize="12" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_photo_grid.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>
        
 

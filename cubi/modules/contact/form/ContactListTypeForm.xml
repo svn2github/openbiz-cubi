@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ContactListTypeForm" Class="ContactFormGrouping" Icon="{RESOURCE_URL}/contact/images/icon_type_list.gif" GroupBy="[type_name:type_id]" FormType="List" jsClass="jbForm" Title="Group by Contact Type" Description="Telephone directory (also called a telephone book and phone book) is a listing of telephone subscribers in a geographical area or subscribers to services provided by the organization that publishes the directory" BizDataObj="contact.do.ContactDO" PageSize="5" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_list_grouping.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
+<EasyForm Name="ContactListTypeForm" Class="ContactFormGrouping" Icon="{RESOURCE_URL}/contact/images/icon_type_list.gif" GroupBy="[type_name:type_id]" FormType="List" jsClass="jbForm" Title="Group by Contact Type" Description="The view displays your contacts  as types you had defined" BizDataObj="contact.do.ContactDO" PageSize="5" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_list_grouping.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="ID"/>
