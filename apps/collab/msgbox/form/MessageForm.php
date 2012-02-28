@@ -209,7 +209,7 @@ class MessageForm extends EasyForm
         
         $this->m_Notices[] = $this->getMessage("MESSAGE_HAS_BEEN_SENT");
 
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();
@@ -243,7 +243,7 @@ class MessageForm extends EasyForm
         
         $this->m_Notices[] = $this->getMessage("MESSAGE_HAS_BEEN_DELETED");
         
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();

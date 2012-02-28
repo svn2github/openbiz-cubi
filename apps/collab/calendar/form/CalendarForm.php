@@ -449,7 +449,7 @@ class CalendarForm extends ChangeLogNoCommentForm
             if(!$this->canDeleteRecord($dataRec))
             {
             	$this->m_ErrorMessage = $this->getMessage("FORM_OPEATION_NOT_PERMITTED",$this->m_Name);         
-        		if ($this->m_FormType == "LIST"){
+        		if (strtoupper($this->m_FormType) == "LIST"){
         			BizSystem::log(LOG_ERR, "DATAOBJ", "DataObj error = ".$errorMsg);
         			BizSystem::clientProxy()->showClientAlert($this->m_ErrorMessage);
         			$this->rerender();
@@ -470,7 +470,7 @@ class CalendarForm extends ChangeLogNoCommentForm
                 return;
             }
         }
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();

@@ -86,7 +86,7 @@ class ProjectForm extends ChangeLogForm
             if(!$this->canDeleteRecord($dataRec))
             {
             	$this->m_ErrorMessage = $this->getMessage("FORM_OPERATION_NOT_PERMITTED",$this->m_Name);         
-        		if ($this->m_FormType == "LIST"){
+        		if (strtoupper($this->m_FormType) == "LIST"){
         			BizSystem::log(LOG_ERR, "DATAOBJ", "DataObj error = ".$errorMsg);
         			BizSystem::clientProxy()->showClientAlert($this->m_ErrorMessage);
         		}else{
@@ -107,7 +107,7 @@ class ProjectForm extends ChangeLogForm
                 return;
             }
         }
-        if ($this->m_FormType == "LIST")
+        if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
 
         $this->runEventLog();
