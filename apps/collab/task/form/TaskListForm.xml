@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="TaskListForm" Class="TaskForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/task/images/icon_task_gantt.gif" Title="Task Management" Description="This module could help you manage tasks." BizDataObj="collab.task.do.TaskDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_grid.tpl.html" EventName="TASK" MessageFile="Task.msg" Access="collab_task.access">
+<EasyForm Name="TaskListForm" Class="TaskForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/task/images/icon_task_gantt.gif" Title="Task Management" Description="This module could help you manage tasks \n Tasks display order by priority then created time" BizDataObj="collab.task.do.TaskDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_grid.tpl.html" EventName="TASK" MessageFile="Task.msg" Access="collab_task.access">
     <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
