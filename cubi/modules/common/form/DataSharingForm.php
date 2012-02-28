@@ -139,6 +139,10 @@ class DataSharingForm extends EasyForm
 	public function ShareRecord()
 	{
 		$prtForm = $this->m_ParentFormName;
+		if(!$prtForm)
+		{
+			return ;
+		}
 		$prtFormObj = BizSystem::GetObject($prtForm);
 		$recId = $this->m_RecordId;
 		$dataObj = $prtFormObj->getDataObj();
