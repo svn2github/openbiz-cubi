@@ -56,12 +56,12 @@ class ColumnBar extends ColumnText
         if($width>0){
         	$width-=2;
         }
-	if(!preg_match("/MSIE 6/si",$_SERVER['HTTP_USER_AGENT'])){
-		$bar_overlay="<span class=\"bar_data_bg\" style=\"".$bgcolor_str."height:".$height."px;width:".$width_bar."px;\"></span>";
-		$bar = "<span class=\"bar_data\" style=\"".$bgcolor_str."height:".$height."px;width:".$width_bar."px;\"></span>";
-	}else{
-		$bar = "<span class=\"bar_data\" style=\"".$bgcolor_str."height:".$height."px;width:".$width_bar."px;opacity: 0.4;filter: alpha(opacity=40);\"></span>";
-	}
+		if(!preg_match("/MSIE 6/si",$_SERVER['HTTP_USER_AGENT'])){
+			$bar_overlay="<span class=\"bar_data_bg\" style=\"".$bgcolor_str."height:".$height."px;width:".$width_bar."px;\"></span>";
+			$bar = "<span class=\"bar_data\" style=\"".$bgcolor_str."height:".$height."px;width:".$width_bar."px;\"></span>";
+		}else{
+			$bar = "<span class=\"bar_data\" style=\"".$bgcolor_str."height:".$height."px;width:".$width_bar."px;opacity: 0.4;filter: alpha(opacity=40);\"></span>";
+		}
         $sHTML = "
     	<span id=\"$id\" $func $style >
     		
