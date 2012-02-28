@@ -14,7 +14,9 @@ class DisplayNameBox extends Listbox
 	}	
 	
 	public function translateValue($value){
-		$rec = $this->getFormObj()->getActiveRecord();
+		if(strtoupper($this->getFormObj()->m_FormType) !='NEW'){
+			$rec = $this->getFormObj()->getActiveRecord();
+		}
 		$firstname 	= $rec['first_name'];
 		$lastname 	= $rec['last_name'];
 		$company 	= $rec['company'];
