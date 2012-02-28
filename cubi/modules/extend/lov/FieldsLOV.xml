@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <Field Value="field_1" text="Field #1"/>
+   <Field Value="field_2" text="Field #2"/>
+   <Field Value="field_3" text="Field #3"/>
+   <Field Value="field_4" text="Field #4"/>
+   <Field Value="field_5" text="Field #5"/>
+   <Field Value="field_6" text="Field #6"/>
+   <Field Value="field_7" text="Field #7"/>
+   <Field Value="field_8" text="Field #8"/>
+   <Field Value="field_9" text="Field #9"/>
+   <Field Value="field_10" text="Field #10"/>
+   <Field Value="field_11" text="Field #11"/>
+   <Field Value="field_12" text="Field #12"/>
+   <Field Value="field_13" text="Field #13"/>
+   <Field Value="field_14" text="Field #14"/>
+   <Field Value="field_15" text="Field #15"/>
+   <Field Value="field_16" text="Field #16"/>
+   <Field Value="field_17" text="Field #17"/>
+   <Field Value="field_18" text="Field #18"/>
+   <Field Value="field_19" text="Field #19"/>
+   <Field Value="field_20" text="Field #20"/>
+</Selection>
