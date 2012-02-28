@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="contact" Description="contact management module" Version="0.1" OpenbizVersion="3.0" >
+	<ACL>
+		<Resource Name="extend">
+			<Action Name="access" Description="access extend fields"/>
+		</Resource>
+	</ACL>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+    <ChangeLog>
+		<Version Name="0.1">
+    		<Change Name="feature_01.1" Type="Security"  Status="Finished" PublishDate="2011-04-18" Description="Added access control attribute on form level."></Change>    		    		
+    	</Version>
+    </ChangeLog>        
+</Module>
