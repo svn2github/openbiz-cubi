@@ -9,12 +9,12 @@
 				<h2 style="width:110px;">{$form.title}</h2>
 				<p style="font-size:11px;">{$form.description}</p>
 			</div>
-			<div style="float:left;width:100px;height:30px;padding-top:3px;">
+			<div style="float:left;width:100px;height:30px;padding-top:3px;overflow:hidden;">
 				{foreach item=elem from=$searchPanel}
 			    	{$elem.element}
 				{/foreach}
 			</div>
-			<div class="actions" style="padding-top:0px;width:75px;overflow:hidden;">
+			<div class="actions" style="padding-top:0px;width:75px;overflow:hidden;height:30px;">
 				{foreach item=elem from=$navPanel}
 			    	{$elem.element}
 				{/foreach}
