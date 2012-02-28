@@ -1615,7 +1615,7 @@ padding: 5px;
 	border:1px solid #dddddd;
 }
 .column_bar .bar_data{	
-	
+	float:left;
 	position:absolute;	
 }
 .column_bar .bar_data_bg{	
@@ -1623,6 +1623,7 @@ padding: 5px;
 	opacity: 0.4;
 	filter: alpha(opacity=40);
 	position:absolute;	
+	float:left;
 }
 
 .input_file{
