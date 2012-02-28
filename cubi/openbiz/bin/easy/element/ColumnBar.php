@@ -56,13 +56,19 @@ class ColumnBar extends ColumnText
         if($width>0){
         	$width-=2;
         }
-    	$sHTML = "
+	if(!preg_match("/MSIE 6/si",$_SERVER['HTTP_USER_AGENT'])){
+		$bar_overlay="<span class=\"bar_data_bg\" style=\"".$bgcolor_str."height:".$height."px;width:".$width_bar."px;\"></span>";
+		$bar = "<span class=\"bar_data\" style=\"".$bgcolor_str."height:".$height."px;width:".$width_bar."px;\"></span>";
+	}else{
+		$bar = "<span class=\"bar_data\" style=\"".$bgcolor_str."height:".$height."px;width:".$width_bar."px;opacity: 0.4;filter: alpha(opacity=40);\"></span>";
+	}
+        $sHTML = "
     	<span id=\"$id\" $func $style >
     		
     		<span class=\"bar_bg\" style=\"height:".$height."px;width:".$width."px;\">
     			
-    		<span class=\"bar_data\" style=\"".$bgcolor_str."height:".$height."px;width:".$width_bar."px;\"></span>	
-    		<span class=\"bar_data_bg\" style=\"".$bgcolor_str."height:".$height."px;width:".$width_bar."px;\"></span>	
+    		$bar_overlay
+    		$bar	    		    			
     		</span>
     		<span class=\"value\">$value".$this->m_DisplayUnit."</span>
     	</span>
