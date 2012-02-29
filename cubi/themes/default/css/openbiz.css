@@ -1530,11 +1530,15 @@ span.input_select_w_hover{
 .div_input_select_m .dropdownlist  li{
 	width:156px; /*76px;*/
 }
+.div_input_select_m .dropdownlist  li img{	
+}
 .div_input_select_m .dropdownlist  li span{
 	width:auto; /*55px;*/
-	display:block;
-	float:left;
+	display:inline;
 	overflow:hidden;
+	padding:0px;
+	margin:0px;
+	line-height:18px;
 }
 .div_input_select_m .dropdownlist  li.selected{
 	background-image:url(../images/dropdownlist_bg_w.gif);	
