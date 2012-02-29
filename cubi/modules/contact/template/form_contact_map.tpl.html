@@ -68,12 +68,12 @@ margin-right:5px;
 	</div>
 {if $actionPanel or $searchPanel }	
 	<div class="form_header_panel">	
-		<div class="action_panel"  style="width:292px;">
+		<div class="action_panel"  style="width:292px;overflow:hidden;padding-left:10px;">
 		{foreach item=elem from=$actionPanel}
 		    	{$elem.element}
 		{/foreach}
 		</div>
-		<div class="search_panel" style="width:398px;">
+		<div class="search_panel" style="width:398px;overflow:hidden;">
 		{foreach item=elem key=name from=$searchPanel}
 			{if $name=='qry_name' ||
 				 $name=='btn_dosearch' ||
@@ -86,7 +86,7 @@ margin-right:5px;
 		</div>
 	</div>
 	<div class="form_header_panel" style="background-color:#dddddd;margin-top:2px;">	
-		<div class="action_panel" style="width:700px;">
+		<div class="action_panel" style="width:690px;padding-left:10px;">
 		
 		{foreach item=elem key=name from=$searchPanel}
 			{if $name!='qry_name' && 
