@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="WorklogNewForm" Class="WorklogForm" Icon="{RESOURCE_URL}/collab/worklog/images/icon_worklog.gif" FormType="New" jsClass="jbForm" Title="New Work Log" Description="Please fill in below field to create a new work log. \n You can write work log for tasks or stand alone task." BizDataObj="collab.worklog.do.WorkLogDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl"  Access="collab_worklog.access">
+<EasyForm Name="WorklogNewForm" Class="WorklogForm" Icon="{RESOURCE_URL}/collab/worklog/images/icon_worklog.gif" FormType="New" jsClass="jbForm" Title="New Work Log" Description="Please fill in below field to create a new work log. " BizDataObj="collab.worklog.do.WorkLogDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl"  Access="collab_worklog.access">
     <DataPanel>
         <Element Name="fld_task_id" Class="Hidden" FieldName="task_id" Label="Related Task"   />
     	<Element Name="fld_task_name" Class="InputPicker" Enabled="N" UpdateForm="Y" ValuePicker="collab.task.widget.TaskSinglePickForm" PickerMap="fld_task_id:fld_Id,fld_task_name:fld_title,fld_progress_update:fld_progress" FieldName="task_title" Label="Related Task"  >    		

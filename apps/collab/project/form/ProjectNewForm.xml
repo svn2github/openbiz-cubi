@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectNewForm" Class="ProjectForm" FormType="New" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="New Project" Description="This module could help you manage project. You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
+<EasyForm Name="ProjectNewForm" Class="ProjectForm" FormType="New" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="New Project" Description="Please input the information about of project's budget, start time and so on." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
     <DataPanel>
 	       
 		<Element Name="fld_type_id" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" />			    

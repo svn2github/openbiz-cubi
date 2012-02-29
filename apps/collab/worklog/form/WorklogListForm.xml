@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="WorklogListForm" Class="EasyFormGrouping" GroupBy="[work_date:work_date]" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/worklog/images/icon_worklog.gif" Title="Work Log Management" Description="This module could help you manage worklogs. \n You can write work log for tasks or stand alone task." BizDataObj="collab.worklog.do.WorkLogGroupingDO"  PageSize="5" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid_grouping.tpl"  Access="collab_worklog.access">
+<EasyForm Name="WorklogListForm" Class="EasyFormGrouping" GroupBy="[work_date:work_date]" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/worklog/images/icon_worklog.gif" Title="Work Log Management" Description="Here are all the work log list view." BizDataObj="collab.worklog.do.WorkLogGroupingDO"  PageSize="5" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid_grouping.tpl"  Access="collab_worklog.access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
