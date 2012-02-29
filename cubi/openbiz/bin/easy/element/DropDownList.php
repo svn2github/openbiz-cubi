@@ -127,7 +127,9 @@ class DropDownList extends InputElement
         $display_value = strip_tags($display_value);
         
         	$onchange_func = $this->getOnChangeFunction();
-	        $sHTML .= "<div $display_span>";
+	        $sHTML .= $optionList;
+        	$sHTML .= "<div $display_span>";
+	        
 	        $sHTML .= "<span ID=\"span_" . $formNameStr.$this->m_Name ."\"  $this->m_HTMLAttr $style
 		        			onclick=\"if($('".$formNameStr.$this->m_Name."_list').visible()){\$('".$formNameStr.$this->m_Name."_list').hide();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssClass."'}else{\$('".$formNameStr.$this->m_Name."_list').show();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssFocusClass."'}\"
 		        			onmouseover=\"$('span_".$formNameStr.$this->m_Name."').className='".$this->m_cssHoverClass."'\"
@@ -143,7 +145,7 @@ class DropDownList extends InputElement
 		        			/>";
 	        $sHTML .= "<INPUT NAME=\"" . $formNameStr.$this->m_Name . "\" ID=\"" . $formNameStr.$this->m_Name ."_hidden\" VALUE=\"" . $value . "\" type=\"hidden\" $func />";	        
 	        $sHTML .= "</div>";	        
-        	$sHTML .= $optionList;
+        	
         $sHTML .= "</div>";
         
         $sHTML .= "<script>$('".$formNameStr.$this->m_Name."_list').hide()</script>";
@@ -237,7 +239,7 @@ class DropDownList extends InputElement
     	    else{
     	    	$li_option_value =$txt ;
     	    }
-    		$sHTML .= "<li
+    		$sHTML .= "<li 
 				onmouseover=\"this.className='selected'\"
 				onmouseout=\"this.className=''\"
 				onclick=\"$('".$formNameStr.$this->m_Name."_list').hide();
