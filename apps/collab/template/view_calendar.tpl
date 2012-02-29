@@ -19,6 +19,7 @@ $includedScripts.="
 <script type='text/javascript' src='$js_url/jquery.qtip-1.0.0-rc3.min.js'></script>
 <script>try{var \$j=jQuery.noConflict();}catch(e){}</script>
 <script type='text/javascript' src='$js_url/Openbiz.CalendarForm.js'></script>
+<script type='text/javascript' src='".RESOURCE_URL."/collab/task/js/task.js'></script>
 <script type='text/javascript' src='".RESOURCE_URL."/collab/js/fullcalendar/fullcalendar.js'></script>
 <link rel='stylesheet' href='".RESOURCE_URL."/collab/js/fullcalendar/fullcalendar.css' type='text/css' />
 <style>
