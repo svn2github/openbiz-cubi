@@ -29,7 +29,7 @@ table.input_row {
 		<div style="height:15px;"></div>
 		{/if}
 	<div style="padding-left:10px;" >
-		<div class="underline upline" style="height:230px;">
+		<div class="underline upline" style="height:230px;overflow:hidden;">
 		<h2>{t}General Profile{/t}</h2>
 		<div style="float:left; width:140px; height:150px; text-align:center; padding-top:10px;">
 				{assign var=item value=$dataPanel.fld_photo}
@@ -57,7 +57,7 @@ table.input_row {
 		<div style="float:left;width:350px;">
 				{$dataPanel.fld_Id.element}
 				{assign var=item value=$dataPanel.fld_first_name}					
-				<table  id="fld_first_name_container" class="input_row">								
+				<table  id="fld_first_name_container" class="input_row" style="height:30px;"  >								
 				<tr>
 					<td >	
 						<label style="text-align:left; width:60px;">{$item.label}</label>
@@ -69,7 +69,7 @@ table.input_row {
 				</table>
 				
 				{assign var=item value=$dataPanel.fld_last_name}					
-				<table  id="fld_last_name_container" class="input_row">								
+				<table  id="fld_last_name_container" class="input_row" style="height:30px;"  >								
 				<tr>
 					<td >	
 						<label style="text-align:left; width:60px;">{$item.label}</label>
@@ -81,7 +81,7 @@ table.input_row {
 				</table>
 				
 				{assign var=item value=$dataPanel.fld_company}					
-				<table  id="fld_company_container" class="input_row">								
+				<table  id="fld_company_container" class="input_row" style="height:30px;"  >								
 				<tr>
 					<td >	
 						<label style="text-align:left; width:60px;">{$item.label}</label>
@@ -93,7 +93,7 @@ table.input_row {
 				</table>
 				
 				{assign var=item value=$dataPanel.fld_display_name}					
-				<table  id="fld_display_name_container" class="input_row">								
+				<table  id="fld_display_name_container" class="input_row" style="height:30px;"  >								
 				<tr>
 					<td >	
 						<label style="text-align:left; width:60px;">{$item.label}</label>
@@ -105,7 +105,7 @@ table.input_row {
 				</table>
 		
 				{assign var=item value=$dataPanel.fld_department}					
-				<table  id="fld_department_container" class="input_row">								
+				<table  id="fld_department_container" class="input_row" style="height:30px;"  >								
 				<tr>
 					<td >	
 						<label style="text-align:left; width:60px;">{$item.label}</label>
@@ -117,7 +117,7 @@ table.input_row {
 				</table>
 				
 				{assign var=item value=$dataPanel.fld_position}					
-				<table  id="fld_position_container" class="input_row">								
+				<table  id="fld_position_container" class="input_row" style="height:30px;"  >								
 				<tr>
 					<td >	
 						<label style="text-align:left; width:60px;">{$item.label}</label>
