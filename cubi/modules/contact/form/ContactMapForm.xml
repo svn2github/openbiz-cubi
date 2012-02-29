@@ -12,7 +12,8 @@
 		<Element Name="fld_color" Class="RawData" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_type" Class="RawData"  FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		
-		<Element Name="fld_title" Class="LabelText" FieldName="location_title" Label="Title"   />	        
+		<Element Name="fld_title" Class="LabelText" FieldName="location_title" Label="Title"   />
+		<Element Name="fld_title_raw" Class="RawData" FieldName="location_title" Label="Title"   />	        
         <Element Name="fld_description" Class="LabelTextarea" FieldName="location_description" Label="Description"   />
         <Element Name="fld_longtitude" DefaultValue="{DEFAULT_LONGTITUDE}"  Class="RawData" FieldName="longtitude" Label="Longtitude"   />
 		<Element Name="fld_latitude" DefaultValue="{DEFAULT_LATITUDE}" Class="RawData" FieldName="latitude" Label="Latitude"   />
