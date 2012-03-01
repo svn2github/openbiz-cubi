@@ -17,6 +17,7 @@ class GanttForm extends ChangeLogForm
         parent::getSessionVars($sessionContext);
     	$sessionContext->getObjVar($this->m_Name, "ViewMode", $this->m_ViewMode);
     	$sessionContext->getObjVar($this->m_Name, "ProjectID", $this->m_ProjectID);
+    	$sessionContext->getObjVar($this->m_Name, "ProjectIDs", $this->m_ProjectIDs);
     }
 
     public function setSessionVars($sessionContext)
@@ -24,6 +25,7 @@ class GanttForm extends ChangeLogForm
     	parent::setSessionVars($sessionContext);
         $sessionContext->setObjVar($this->m_Name, "ViewMode", $this->m_ViewMode);
         $sessionContext->setObjVar($this->m_Name, "ProjectID", $this->m_ProjectID);
+        $sessionContext->setObjVar($this->m_Name, "ProjectIDs", $this->m_ProjectIDs);
     }	
 
     public function UpdateTaskTime(){
@@ -89,8 +91,51 @@ class GanttForm extends ChangeLogForm
     
     public function runSearch()
     {
-    	$this->m_ProjectID=$_POST['fld_project'];
+    	if(strpos($_POST['fld_project'],";")){
+    		$this->m_ProjectID=$this->earliestProjectId($_POST['fld_project']);
+    	}else{
+    		$this->m_ProjectID=$_POST['fld_project'];
+    	}
+    	$this->m_ProjectIDs=$_POST['fld_project'];
     	$result = parent::runSearch();
+    }
+    
+    public function earliestProjectId($ids)
+    {
+    	$proj_ids = explode(";", $ids);
+		$searchRule = " ( TRUE ";
+		foreach($proj_ids as $id)
+		{
+			$searchRule .= " OR [Id] = '$id' ";
+		}
+		$searchRule .= " ) ";
+		
+		$projects = BizSystem::getObject("collab.project.do.ProjectDO",1)->directfetch($searchRule,0,0,"[start_time] ASC");
+		$project_id = $projects[0]['Id'];
+		return $project_id;
+    }
+    
+	public function getProjectName($ids)
+    {
+    	$proj_ids = explode(";", $ids);
+		$searchRule = " ( FALSE ";
+		foreach($proj_ids as $id)
+		{
+			$searchRule .= " OR [Id] = '$id' ";
+		}
+		$searchRule .= " ) ";
+		
+		$projects = BizSystem::getObject("collab.project.do.ProjectDO",1)->directfetch($searchRule,0,0,"[start_time] ASC");
+		foreach($projects as $project){
+			$project_name = $project['name'];
+			$project_shortname = substr($project_name,0,strpos($project_name,'-'));
+			if($project_shortname)
+			{
+				$project_name = $project_shortname;
+			}
+			$proj_name .=$project_name.";";
+		}
+		return $proj_name;
     }
     
 	public function renderGantt()
@@ -112,7 +157,12 @@ class GanttForm extends ChangeLogForm
 			{
 				$projectRec['project_id']=$default_project_id;	
 				$projectData = BizSystem::getObject("collab.project.do.ProjectDO",1)->fetchById($projectRec['project_id']); 
-				$projectRec['project_name'] = $projectData['name'];		
+				$projectRec['project_name'] = $projectData['name'];	
+				
+				if(strpos($this->m_ProjectIDs,";")){
+					$projectRec['project_name'] = $this->getProjectName($this->m_ProjectIDs);
+				}
+				
 				$projectRec['project_color'] = $projectData['type_color'];	
 				$projectRec['project_start_time'] = $start_time = date('Y,m,d',strtotime($projectData['start_time']));
 			}else{
