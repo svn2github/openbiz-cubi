@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="TaskGanttDO" Description="" DataPermControl="Y" Class="BizDataTree" DBName="Default" Table="task" SearchRule="" SortRule="[start_time] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+<BizDataObj Name="TaskGanttDO" Description="" DataPermControl="Y" Class="BizDataTree" DBName="Default" Table="task" SearchRule="" SortRule="[project_id] ASC, [start_time] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
 	<BizFieldList>
 		<BizField Name="Id" Column="id"     Type=""/>
 		<BizField Name="PId" Column="parent_task_id" Type=""/>
