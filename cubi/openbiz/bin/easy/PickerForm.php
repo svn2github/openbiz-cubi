@@ -202,26 +202,31 @@ class PickerForm extends EasyForm
 	        // get the picker map of the control
 	        if ($this->m_PickerMap)
 	        {
-	            $pickerList = $this->_parsePickerMap($this->m_PickerMap);
+	            $pickerList = $this->_parsePickerMap($this->m_PickerMap);	            
 	            foreach ($pickerList as $ctrlPair)
 	            {
 	                $this_ctrl = $this->getElement($ctrlPair[1]);
 	                if (!$this_ctrl)
 	                    continue;
+	                	                
 	                $this_ctrl_val = $rec[$this_ctrl->m_FieldName];
 	                $other_ctrl = $parentForm->getElement($ctrlPair[0]);
 	                if ($other_ctrl)
 	                {
-						
-	                	$updArray[$other_ctrl->m_Name] = $this_ctrl_val;
-	                	$updRec[$other_ctrl->m_FieldName] = $this_ctrl_val;
+	                	if(!$updArray[$other_ctrl->m_Name]){
+	                		$updArray[$other_ctrl->m_Name] = $this_ctrl_val;
+	                		$updRec[$other_ctrl->m_FieldName] = $this_ctrl_val;	
+	                	}else{
+	                		$updArray[$other_ctrl->m_Name] .= ';'.$this_ctrl_val;
+	                		$updRec[$other_ctrl->m_FieldName] .= ';'.$this_ctrl_val;
+	                	}
 	                }
-	            }
+	            }	            
 	        }
 	        else
 	            return;
     	}
-    	
+    	    	
         $this->close();	                                               
         $elem = $parentForm->getElement($this->m_ParentFormElemName);
         if($elem->m_UpdateForm=='Y'){
