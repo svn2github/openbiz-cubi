@@ -8,10 +8,14 @@ class FormElement extends InputElement
     {
         parent::readMetaData($xmlArr);
         $this->m_FormReference = isset($xmlArr["ATTRIBUTES"]["FORMREFERENCE"]) ? $xmlArr["ATTRIBUTES"]["FORMREFERENCE"] : null;        
+        $this->m_RenameElementSet = isset($xmlArr["ATTRIBUTES"]["RENAMEELEMENTSET"]) ? $xmlArr["ATTRIBUTES"]["RENAMEELEMENTSET"] : 'Y';
     }
     
     public function FormRecordCount()
     {
+    	if(strtoupper($this->m_RenameElementSet)!='Y'){
+    		return;
+    	}
     	$formElementObj = BizSystem::GetObject($this->m_FormReference);
     	if(strtolower($formElementObj->m_FormType)!='list'){
     		return;
