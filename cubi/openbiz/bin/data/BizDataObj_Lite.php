@@ -554,6 +554,9 @@ class BizDataObj_Lite extends BizDataObj_Abstract
      */
     protected function _fetch_record(&$resultSet)
     {
+    	if(!is_array($resultSet)){
+    		return null;
+    	}
         if ($sqlArr = current($resultSet))
         {
             $this->m_CurrentRecord = $this->m_BizRecord->convertSqlArrToRecArr($sqlArr);
