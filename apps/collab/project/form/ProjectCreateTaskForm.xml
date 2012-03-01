@@ -22,7 +22,7 @@
 		</Element>
 		<Element Name="fld_shortname" Hidden="{@:Elem[fld_use_template].Value=='1'?'N':'Y'}" width="203" ElementSet="Import Tasks" Class="InputText" FieldName="shortname" Label="Task Prefix"  Description="Will add this prefix to new tasks" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>						
 		
-		<Element Name="fld_tasks"  Hidden="{@:Elem[fld_use_template].Value=='1'?'N':'Y'}" ElementSet="Import Tasks" Class="FormElement" FormReference="collab.project.widget.ProjectTemplateListForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_tasks"  Hidden="{@:Elem[fld_use_template].Value=='1'?'N':'Y'}" ElementSet="Import Tasks" Class="FormElement" RenameElementSet="N" FormReference="collab.project.widget.ProjectTemplateListForm" FieldName="" Label="" AllowURLParam="N" />
 			        
     </DataPanel>
     <ActionPanel>
