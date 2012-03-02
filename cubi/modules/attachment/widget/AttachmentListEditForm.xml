@@ -21,7 +21,7 @@
             <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentNewForm)"/>
         </Element>
         <Element Name="btn_edit" Class="Button" text="Edit" CssClass="button_gray_m">
-            <EventHandler Name="delete_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentEditForm)"/>
+            <EventHandler Name="delete_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentEditForm,,1)"/>
         </Element>
          <Element Name="btn_delete" Class="Button" text="Delete" CssClass="button_gray_m">
             <EventHandler Name="delete_onclick" Event="onclick" Function="DeleteRecord()"/>
