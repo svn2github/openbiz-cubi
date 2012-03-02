@@ -116,5 +116,10 @@ class ExtendDataEditForm extends EasyForm
 		}
 		return parent::render();
 	}
+	
+	public function setValue($value){
+		$rec = $this->readInputRecord();
+		var_dump($rec);exit;
+	}
 }
 ?>
