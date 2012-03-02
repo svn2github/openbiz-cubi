@@ -179,10 +179,9 @@ class GanttForm extends ChangeLogForm
 			}				 		
 			$tasks = $this->renderTaskList($recList);
 			
-			if($default_project_id=='0')
-			{											
-				$projectRec['project_start_time'] = $this->getProjectStartTime($recList);
-			}		
+													
+			$projectRec['project_start_time'] = $this->getProjectStartTime($recList);
+				
 						
 			echo "<project id = \"".$projectRec['project_id']."\" name = \"".$projectRec['project_name']."\" startdate = \"".$projectRec['project_start_time']."\" color=\"".$projectRec['project_color']."\">";	
 			echo $tasks;
