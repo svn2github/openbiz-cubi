@@ -165,7 +165,7 @@ class GanttForm extends ChangeLogForm
 				
 				
 				$projectRec['project_color'] = $projectData['type_color'];	
-				$projectRec['project_start_time'] = $start_time = date('Y,m,d',strtotime($projectData['start_time']));
+				$projectRec['project_start_time'] = $start_time = date('Y,n,d',strtotime($projectData['start_time']));
 			}else{
 				$projectRec['project_id']='0';	
 				$projectRec['project_name'] = $this->getMessage("DEFAULT_PROJECT");		
@@ -200,7 +200,7 @@ class GanttForm extends ChangeLogForm
 			$start_time_arr[] = strtotime($task['start_time']);
 		}
 		sort($start_time_arr,SORT_NUMERIC);				
-		$start_time = date('Y,m,d',$start_time_arr[0]);
+		$start_time = date('Y,n,d',$start_time_arr[0]);
 		return  $start_time;
 	}
 	
@@ -246,7 +246,7 @@ class GanttForm extends ChangeLogForm
 			$taskRec = $rec->m_Record;			
 			$task_id = $taskRec['Id'];
 			$task_name = $taskRec['title'];
-			$task_start_time = date('Y,m,d',strtotime($taskRec['start_time']));
+			$task_start_time = date('Y,n,d',strtotime($taskRec['start_time']));
 			$task_time_budget = $taskRec['total_workhour'];
 			$task_progress = $taskRec['progress'];
 			$task_color = $taskRec['type_color'];
