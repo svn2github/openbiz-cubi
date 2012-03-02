@@ -47,6 +47,7 @@
              or $item.type eq 'IDCardReader'
              }
                 <table  id="{$itemName}_container" class="input_row">
+                {if $item.label}
                 <tr>
                 <td style="width:80px;">	
                     <label style="text-align:left">{$item.label}</label>
@@ -59,6 +60,7 @@
                     {/if}
                 </td>
                 </tr>
+                {/if}
                 <tr><td colspan="2" align="center" >
                     <span class="label_textarea" style="width:655px;">{$item.element}</span>
                                 
