@@ -11,7 +11,7 @@ class ExtendFieldTranslateForm extends PickerForm
 		$this->m_ActiveRecord = null;
 		$result = parent::fetchData();
 		
-		$lang = BizSystem::ClientProxy()->getFormInputs("fld_lang");;
+		$lang = BizSystem::ClientProxy()->getFormInputs("fld_lang");
 		$lang?$lang:$lang=I18n::getCurrentLangCode();
 		$setting_id = $result["Id"];
 		

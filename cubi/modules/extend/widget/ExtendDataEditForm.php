@@ -9,8 +9,9 @@ class ExtendDataEditForm extends EasyForm
 	{
 		$prtRec = BizSystem::getObject($this->m_ParentFormName)->getActiveRecord();		
 		$record_id = (int)$prtRec['Id'];		
-		$do = $this->getDataObj();
-		$rec = $do->fetchOne("[record_id]='$record_id'");
+		$do = BizSystem::getObject($this->getDataObj()->m_Name,1);
+		$searchRule = $this->getSettingSearchRule();
+		$rec = $do->fetchOne($searchRule."AND [record_id]='$record_id'");
 		if($rec){
 			$recArr = $rec->toArray();
 		}else{
@@ -48,15 +49,30 @@ class ExtendDataEditForm extends EasyForm
 		return $elemArr;
 	}
 	
-	public function render()
+	public function getSettingSearchRule()
 	{
-				
 		$do = $this->getDataObj();
 		$cond_column	= $do->m_Association['CondColumn'];
 		$cond_value		= $do->m_Association['CondValue'];
 		$column_name	= $do->m_Association['Column'];
 		$column_value	= $do->m_Association['FieldRefVal']; 
+		
+		
+		$recArr = BizSystem::getObject($this->m_ParentFormName)->readInputRecord();
+		$type_id = $recArr['type_id'];
+		if($type_id)
+		{
+			$column_value = $type_id;
+		}
+		
 		$searchRule = "`$cond_column` = '$cond_value' AND `$column_name`='$column_value'";
+		return $searchRule;	
+	}
+	
+	public function render()
+	{
+						
+		$searchRule = $this->getSettingSearchRule();
 		
 		$fieldsDO = BizSystem::getObject($this->m_ExtendSettingDO,1);
 		$fieldRecs = $fieldsDO->directfetch($searchRule);
