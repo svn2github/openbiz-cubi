@@ -25,11 +25,7 @@
          <Element Name="btn_delete" Class="Button" text="Delete" CssClass="button_gray_m">
             <EventHandler Name="delete_onclick" Event="onclick" Function="DeleteRecord()"/>
         </Element>
-         <Element Name="btn_spacer" Class="Spacer" width="10" />		
-         
-         <Element Name="btn_refresh" Class="Button" text="Refresh" CssClass="button_gray_w">
-            <EventHandler Name="btn_refresh_onclick" Event="onclick" Function="UpdateForm()"/>
-        </Element>      
+            
     </ActionPanel> 
     <NavPanel>
     	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
