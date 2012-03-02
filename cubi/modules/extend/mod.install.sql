@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `extend_setting` (
   `field` varchar(255) NOT NULL,
   `label` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
+  `defaultvalue` VARCHAR( 255 ) NOT NULL,
   `options` longtext NOT NULL,
   `sortorder` int(11) NOT NULL,
   `access` varchar(255) NOT NULL,
@@ -52,4 +53,22 @@ CREATE TABLE IF NOT EXISTS `extend_setting` (
   `create_time` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `module` (`module`,`type_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+DROP TABLE IF EXISTS `extend_setting_translate`;
+CREATE TABLE IF NOT EXISTS `extend_setting_translate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `setting_id` int(11) NOT NULL,
+  `lang` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `defaultvalue` VARCHAR( 255 ) NOT NULL,
+  `options` longtext NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` datetime NOT NULL,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `lang` (`lang`,`setting_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="contact" Description="contact management module" Version="0.1" OpenbizVersion="3.0" >
+<Module Name="contact" Description="contact management module" Version="0.2" OpenbizVersion="3.0" >
 	<ACL>
 		<Resource Name="extend">
 			<Action Name="access" Description="access extend fields"/>
@@ -10,8 +10,11 @@
     	<Module Name="menu"/>
     </Dependency>
     <ChangeLog>
+    	<Version Name="0.2">
+    		<Change Name="feature_02.1" Type="Feature"  Status="Finished" PublishDate="2012-03-02" Description="Added default value supports."></Change>    		    		
+    	</Version>
 		<Version Name="0.1">
-    		<Change Name="feature_01.1" Type="Security"  Status="Finished" PublishDate="2011-04-18" Description="Added access control attribute on form level."></Change>    		    		
+    		<Change Name="feature_01.1" Type="Feature"  Status="Finished" PublishDate="2012-02-26" Description="Added access control attribute on form level."></Change>    		    		
     	</Version>
     </ChangeLog>        
 </Module>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ExtendSettingTranslateForm" Class="ExtendFieldForm" Icon="{RESOURCE_URL}/extend/images/icon_extend.png" FormType="Edit" jsClass="jbForm" Title="Edit Custom Field" Description="You can setup custom fields for selected type of data." BizDataObj="extend.do.ExtendSettingDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_field_quick_translate.tpl.html"  Access="extend.access">
+    <DataPanel>        
+        <Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       
+       
+        <Element Name="fld_label_org" ElementSet="General"  Class="LabelText" FieldName="label" Label="Field Label"   />
+        <Element Name="fld_label" ElementSet="General" DefaultValue="New Field" Class="InputText" FieldName="label" Label="Field Label"   />
+		
+		<Element Name="fld_desc_org" ElementSet="General"  Class="LabelText" FieldName="description" Label="Description"   />
+        <Element Name="fld_desc" ElementSet="General"  Class="InputText" FieldName="description" Label="Description"   />
+		
+		<Element Name="fld_options_org" ElementSet="Config" Hidden="{@:Elem[fld_control].Value!='Listbox' &amp;&amp; @:Elem[fld_control].Value!='DropDownList'?'Y':'N'  }"  Class="LabelText" FieldName="options" Label="Options"   />
+		<Element Name="fld_options" ElementSet="Config" Hidden="{@:Elem[fld_control].Value!='Listbox' &amp;&amp; @:Elem[fld_control].Value!='DropDownList'?'Y':'N'  }"  Class="InputText" FieldName="options" Label="Options"   />
+				
+		<Element Name="fld_defaultvalue_org" ElementSet="Config"  Class="LabelText" FieldName="defaultvalue" Label="Default Value"   />
+		<Element Name="fld_defaultvalue" ElementSet="Config"  Class="InputText" FieldName="defaultvalue" Label="Default Value"   />
+
+        
+    </DataPanel>
+    <ActionPanel> 
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="btn_save_onclick" Event="onclick" Function="UpdateRecord()"  RedirectPage="form=extend.widget.ExtendSettingDetailForm&amp;fld:Id={@extend.do.ExtendSettingDO:Field[Id].Value}" />
+        </Element>
+        <Element Name="Spacer" Class="Spacer" Width="10" />
+        <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

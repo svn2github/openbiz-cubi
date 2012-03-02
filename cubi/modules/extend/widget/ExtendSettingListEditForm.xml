@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ExtendSettingListEditForm" Class="ExtendSettingForm" FormType="List" jsClass="jbForm" Icon="" BizDataObj="extend.do.ExtendSettingDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_in_tab.tpl.html"  Access="attachment.access">
+<EasyForm Name="ExtendSettingListEditForm" Class="ExtendSettingForm" FormType="List" jsClass="jbForm" Icon="" BizDataObj="extend.do.ExtendSettingDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_in_tab.tpl.html"  Access="extend.access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>                
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
@@ -22,10 +22,17 @@
 		<Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add">
             <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(extend.widget.ExtendSettingNewForm)"/>
         </Element>
-        <Element Name="btn_edit" Class="Button" text="Edit" CssClass="button_gray_m">
+       
+		
+		<Element Name="btn_edit" Class="Button" text="Edit" CssClass="button_gray_m">
             <EventHandler Name="delete_onclick" Event="onclick" Function="LoadDialog(extend.widget.ExtendSettingEditForm)"/>
         </Element>
-         <Element Name="btn_delete" Class="Button" text="Delete" CssClass="button_gray_m">
+       
+	   	<Element Name="btn_translate" Class="Button" text="Translate" CssClass="button_gray_w">
+            <EventHandler Name="translate_onclick" Event="onclick" Function="LoadDialog(extend.widget.ExtendSettingTranslateForm)"/>
+        </Element>
+	   
+	     <Element Name="btn_delete" Class="Button" text="Delete" CssClass="button_gray_m">
             <EventHandler Name="delete_onclick" Event="onclick" Function="DeleteRecord()"/>
         </Element>
             

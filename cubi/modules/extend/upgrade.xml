@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="no"?>
+<Upgrade>
+    <Version Name="0.1">
+    </Version>
+    <Version Name="0.2">
+        <UpgradeSql><![CDATA[
+        ALTER TABLE `extend_setting` ADD `defaultvalue` VARCHAR( 255 ) NOT NULL AFTER `description`;
+		
+		DROP TABLE IF EXISTS `extend_setting_translate`;
+		CREATE TABLE IF NOT EXISTS `extend_setting_translate` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `setting_id` int(11) NOT NULL,
+		  `lang` varchar(255) NOT NULL,
+		  `label` varchar(255) NOT NULL,
+		  `description` varchar(255) NOT NULL,
+		  `defaultvalue` VARCHAR( 255 ) NOT NULL,
+		  `options` longtext NOT NULL,
+		  `update_by` int(11) NOT NULL,
+		  `update_time` datetime NOT NULL,
+		  `create_by` int(11) NOT NULL,
+		  `create_time` datetime NOT NULL,
+		  PRIMARY KEY (`id`),
+		  KEY `lang` (`lang`,`setting_id`)
+		) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+ 
+        ]]></UpgradeSql>
+    </Version>
+</Upgrade>

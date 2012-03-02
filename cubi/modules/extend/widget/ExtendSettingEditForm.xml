@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ExtendSettingEditForm" Class="ExtendFieldForm" Icon="{RESOURCE_URL}/extend/images/icon_extend.png" FormType="Edit" jsClass="jbForm" Title="Edit Custom Field" Description="You can setup custom fields for selected type of data." BizDataObj="extend.do.ExtendSettingDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_field_quick_edit.tpl.html"  Access="attachment.access">
+<EasyForm Name="ExtendSettingEditForm" Class="ExtendFieldForm" Icon="{RESOURCE_URL}/extend/images/icon_extend.png" FormType="Edit" jsClass="jbForm" Title="Edit Custom Field" Description="You can setup custom fields for selected type of data." BizDataObj="extend.do.ExtendSettingDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_field_quick_edit.tpl.html"  Access="extend.access">
     <DataPanel>        
         <Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       
         <Element Name="fld_label" ElementSet="General" DefaultValue="New Field" Class="InputText" FieldName="label" Label="Field Label"   />
@@ -9,6 +9,7 @@
 			<EventHandler Name="fld_control_onchange" Event="onchange" Function="UpdateForm()"/>        
         </Element>
         <Element Name="fld_options" ElementSet="Config" Hidden="{@:Elem[fld_control].Value!='Listbox' &amp;&amp; @:Elem[fld_control].Value!='DropDownList'?'Y':'N'  }"  Class="InputText" FieldName="options" Label="Options"   />
+		<Element Name="fld_defaultvalue" ElementSet="Config"  Class="InputText" FieldName="defaultvalue" Label="Default Value"   />
         <Element Name="fld_access" ElementSet="Misc"  Class="Listbox" SelectFrom="contact.lov.ExtendPermLOV(Access)" FieldName="access" Label="Permission"   />
         <Element Name="fld_sortorder" ElementSet="Misc" DefaultValue="50" DefaultValueRename="N" Class="Listbox" SelectFrom="common.lov.CommLOV(Order)" FieldName="sortorder" Label="Sort Order"  AllowURLParam="N" />
     </DataPanel>

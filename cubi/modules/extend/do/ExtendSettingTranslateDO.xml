@@ -1,20 +1,15 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="ExtendSettingDO" Description="" Class="BizDataObj" DBName="Default" Table="extend_setting" SortRule="[sortorder] ASC, [Id] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="" CacheLifeTime="0">
+<BizDataObj Name="ExtendSettingTranslateDO" Description="" Class="BizDataObj" DBName="Default" Table="extend_setting_translate" SortRule="[sortorder] ASC, [Id] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="" CacheLifeTime="0">
 	<BizFieldList>
 		<BizField Name="Id" Column="id"     Type=""/>
-   		<BizField Name="module" Column="module" Length="255"    Type="Text"/>
-   		<BizField Name="type_id" Column="type_id"  Type="Number"/>
+   		<BizField Name="setting_id" Column="setting_id"  Type="Number"/>
    		
-   		<BizField Name="class" Column="class" />
-   		<BizField Name="field" Column="field" Required="Y" />
+   		<BizField Name="lang" Column="lang" />
    		<BizField Name="label" Column="label" />
    		<BizField Name="description" Column="description" />
 		<BizField Name="defaultvalue" Column="defaultvalue" />
    		<BizField Name="options" Column="options" />
-   		<BizField Name="sortorder" Column="sortorder" />
-   		<BizField Name="access" Column="access" />
-   		
-   		
+   		   		
    		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
         <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
         <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
