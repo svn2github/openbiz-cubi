@@ -6,7 +6,7 @@
    		<BizField Name="type_id" Column="type_id"  Type="Number"/>
    		
    		<BizField Name="class" Column="class" />
-   		<BizField Name="field" Column="field" />
+   		<BizField Name="field" Column="field" Required="Y" />
    		<BizField Name="label" Column="label" />
    		<BizField Name="description" Column="description" />
    		<BizField Name="options" Column="options" />
