@@ -74,6 +74,23 @@ class FormElement extends InputElement
         return $sHTML;
     }
 
+    public function setValue($value)
+    {
+    	$formElementObj = BizSystem::GetObject($this->m_FormReference);
+    	if(method_exists($formElementObj, "setValue"))
+    	{
+    		$formElementObj->setValue($value);
+    	}
+    }
+    
+    public function getValue()
+    {
+    	$formElementObj = BizSystem::GetObject($this->m_FormReference);
+    	if(method_exists($formElementObj, "getValue"))
+    	{
+    		$formElementObj->getValue();
+    	}
+    }    
 }
 
 ?>
