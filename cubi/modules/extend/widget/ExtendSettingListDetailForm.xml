@@ -3,15 +3,14 @@
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
         <Element Name="fld_icon" Class="ColumnImage" 
-				Text="{RESOURCE_URL}/attachment/images/icon_attachment_private.png"
-				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">							
+				Text="{RESOURCE_URL}/extend/images/icon_field_private.png"
+				FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">							
 		</Element>
-        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
-        	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentDetailROForm,{@:Elem[fld_Id].Value})"/>
-        </Element>
-        <Element Name="fld_filename" MaxLength="20" Class="ColumnText" FieldName="filename" Label="Filename" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_filesize" Class="ColumnText" FieldName="filesize" Text="{tx}@util:format_bytes(@:Elem[fld_filesize].Value){/tx}" Label="Filesize" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
-        <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Timestamp"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_download" Class="ColumnText" FieldName="download_count" Label="Downloads" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_class" Class="ColumnText" FieldName="class" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_label" Class="ColumnText" FieldName="label" Label="Label"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+        </Element>        
+        <Element Name="fld_description" MaxLength="30" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_access" Class="ColumnText" FieldName="access" Label="Access Level" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+          		                
     </DataPanel>
 </EasyForm>
