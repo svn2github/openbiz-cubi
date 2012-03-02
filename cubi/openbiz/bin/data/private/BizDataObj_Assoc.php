@@ -180,7 +180,8 @@ class BizDataObj_Assoc
     		$newRecArr[$cond_field] = $cond_value;
     	}    	
     	
-    	$ok = $dataObj->updateRecord($newRecArr,$recArr);
+    	$newDO = BizSystem::getObject($dataObj->m_Name,1);
+    	$ok = $newDO->updateRecord($newRecArr,$recArr);
     	
         if ($ok == false)
             return false;
@@ -328,8 +329,8 @@ class BizDataObj_Assoc
     	{
     		$cond_field = $dataObj->getFieldNameByColumn($cond_column);
     		$newRecArr[$cond_field] = $cond_value;
-    	}  
-        $ok = $dataObj->updateRecord($newRecArr,$recArr);
+    	}      	
+        $ok = BizSystem::getObject($dataObj->m_Name,1)->updateRecord($newRecArr,$recArr);
         if ($ok == false)
             return false;
         // requery on this object        
