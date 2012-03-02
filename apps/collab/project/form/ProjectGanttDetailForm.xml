@@ -42,10 +42,12 @@
     </DataPanel>
     <ActionPanel>
 
-                
+        <Element Name="btn_detail_view"  Class="LabelText" Text="Detail View" CssClass="button_gray_w" Description="" Link="{@home:url}/collab/project_detail/{$_GET['fld:Id']}">
+        </Element>      
+    		<Element Name="btn_spacer3" Class="Spacer" width="10" />		
+            
         <Element Name="btn_cancel" Class="LabelText"  Text="Back" CssClass="button_gray_m" Link="{@home:url}/collab/project_gantt">
         </Element>         
-		<Element Name="btn_spacer3" Class="Spacer" Width="10"></Element>
 		<Element Name="btn_print" Class="Button" Text="Print" CssClass="button_gray_m">
             <EventHandler Name="print_onclick" Event="onclick" EventLogMsg="" Function="js:ganttChartControl.printToWindow();" />
         </Element>
