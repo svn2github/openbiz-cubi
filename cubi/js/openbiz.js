@@ -150,6 +150,7 @@ Openbiz.Form = Class.create(
                 element = elements[i];
                 key = element.name; value = $(element).getValue();
                 if (key == "" || key == null) continue;
+                if (value == null) continue;
                 formData += key+"="+encodeURIComponent(value);
                 if (i < elements.length-1) formData += '&';
             }
