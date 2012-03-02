@@ -1,0 +1,58 @@
+<div id="{$form.name}" name="{$form.name}">
+	{foreach item=item key=itemName from=$dataPanel}
+		{if $item.type eq 'CKEditor' 
+		 or $item.type eq 'FormElement' 
+		 or $item.type eq 'RichText' 
+		 or $item.type eq 'Textarea'  
+		 or $item.type eq 'RawData'
+		 or $item.type eq 'HTMLPreview'
+		 or $item.type eq 'LabelImage'
+		 or $item.type eq 'IDCardReader'
+		 }
+			<table  id="{$itemName}_container" class="input_row">
+			<tr>
+			<td style="width:80px;">	
+				<label style="text-align:left">{$item.label}</label>
+			</td>
+			<td>
+				{if $errors.$itemName}
+				<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+				{elseif $item.description}
+				<span class="input_desc" style="width:240px;">{$item.description}</span>			
+				{/if}
+			</td>
+			</tr>
+			<tr><td colspan="2" align="center" >
+				<span class="label_textarea" style="width:655px;">{$item.element}</span>
+							
+			</td></tr>
+			</table>		
+		{else}
+			{if $item.type eq 'Hidden' }
+			<table  id="{$itemName}_container" class="input_row" style="display:none">
+			{else}
+			<table  id="{$itemName}_container" class="input_row">
+			{/if}					
+			<tr>
+			<td >			
+				<label style="text-align:left;">{$item.label}</label>			
+			</td>
+			<td>
+			{if $item.type eq 'Checkbox' }
+				<span class="label_text" >{$item.element} {$item.description}</span>
+            {elseif $item.type|substr:0:5 eq 'Label'}
+                <span>{$item.element}</span>    
+			{else}
+				<span class="label_text" style="{if $item.width}width:{$item.width+15}px;{/if}">{$item.element}</span>
+				{if $errors.$itemName}
+				<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+				{elseif $item.description}
+				<span class="input_desc" style="width:240px;">{$item.description}</span>			
+				{/if}				
+			{/if}
+			</td>
+			</tr>
+			</table>
+		{/if}
+	{/foreach}	
+</div>
