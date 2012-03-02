@@ -731,11 +731,13 @@ class EasyForm extends MetaObject implements iSessionObject
         BizSystem::clientProxy()->redrawForm("DIALOG", $pickerForm->render());
     }
     
-    public function loadDialog($formName, $id=null)
+    public function loadDialog($formName, $id=null,$transId=false)
     {
     	$paramFields = array();
         if ($id!=null)
             $paramFields["Id"] = $id;
+        if ($transId!=false)
+            $paramFields["Id"] = $this->m_RecordId;
         $this->_showForm($formName, "Dialog", $paramFields);
     }
 
