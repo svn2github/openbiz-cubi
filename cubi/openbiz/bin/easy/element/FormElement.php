@@ -68,9 +68,17 @@ class FormElement extends InputElement
                 if ($dataObj)
                     $formObj->setDataObj($dataObj);                
         }
-    	$sHTML = $formElementObj->render();
+    	$sHTML = $formElementObj->render();    	
     	$formObj->setDataObj($formDataObj);
     	$this->FormRecordCount();
+    	
+    	$hiddenArr = $this->m_XMLMeta;
+    	$hiddenArr['ATTRIBUTES']['CLASS']='Hidden';
+    	$hiddenArr['VALUE']='FormElement';
+    	$hiddenElem = new Hidden($hiddenArr,null);
+    	if($sHTML){
+    	$sHTML .= $hiddenElem->render();
+    	}
         return $sHTML;
     }
 
