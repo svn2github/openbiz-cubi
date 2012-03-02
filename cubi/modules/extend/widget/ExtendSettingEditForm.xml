@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ExtendSettingNewForm" Class="ExtendFieldForm" Icon="{RESOURCE_URL}/extend/images/icon_extend.png" FormType="New" jsClass="jbForm" Title="New Custom Field" Description="You can setup custom fields for selected type of data." BizDataObj="extend.do.ExtendSettingDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_field_quick_edit.tpl.html"  Access="attachment.access">
+<EasyForm Name="ExtendSettingEditForm" Class="ExtendFieldForm" Icon="{RESOURCE_URL}/extend/images/icon_extend.png" FormType="Edit" jsClass="jbForm" Title="Edit Custom Field" Description="You can setup custom fields for selected type of data." BizDataObj="extend.do.ExtendSettingDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_field_quick_edit.tpl.html"  Access="attachment.access">
     <DataPanel>        
+        <Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       
         <Element Name="fld_label" ElementSet="General" DefaultValue="New Field" Class="InputText" FieldName="label" Label="Field Label"   />
         <Element Name="fld_desc" ElementSet="General"  Class="InputText" FieldName="description" Label="Description"   />
         <Element Name="fld_field" ElementSet="Config"  Class="extend.element.FieldListbox" SelectFrom="extend.lov.FieldsLOV(Field)" FieldName="field" Label="Storage"   />
@@ -13,7 +14,7 @@
     </DataPanel>
     <ActionPanel> 
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="btn_save_onclick" Event="onclick" Function="insertToParent()"/>
+            <EventHandler Name="btn_save_onclick" Event="onclick" Function="UpdateRecord()"  RedirectPage="form=extend.widget.ExtendSettingDetailForm&amp;fld:Id={@extend.do.ExtendSettingDO:Field[Id].Value}" />
         </Element>
         <Element Name="Spacer" Class="Spacer" Width="10" />
         <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">

@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <Access Value="contact.access" text="Contact Access Default"/>
+   <Access Value="contact.view_level_1" text="Contact Access Level 1"/>
+   <Access Value="contact.view_level_2" text="Contact Access Level 2"/>
+   <Access Value="contact.view_level_3" text="Contact Access Level 3"/>
+</Selection>

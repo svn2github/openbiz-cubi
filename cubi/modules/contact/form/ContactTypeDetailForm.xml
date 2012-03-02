@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="ContactTypeDetailForm" Class="EasyForm" Icon="{RESOURCE_URL}/contact/images/icon_contact_type.png"  FormType="Detail" jsClass="jbForm" Title="Contact Type Detail" Description="Detailed contact type information." BizDataObj="contact.do.ContactTypeDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>
-    		<Element Name="fld_Id" ElementSet="General" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />	         	        	        
-			<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
-      		  <Element Name="fld_description" ElementSet="General" Class="LabelText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
-        	<Element Name="fld_color_code" ElementSet="General" Class="ColorPicker" mode="viewOnly" FieldName="color" Label="Color Code" AllowURLParam="N">
-       	</Element>
-			<Element Name="fld_published" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" /><Element Name="fld_published_other" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
-        	<Element Name="fld_sortorder" ElementSet="General" Class="LabelText" SelectFrom="common.lov.CommLOV(Order)"  FieldName="sortorder" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		        <Element Name="fld_create_by" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>
-		        <Element Name="fld_create_time" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
-		        <Element Name="fld_update_by" ElementSet="Miscellaneous" Class="LabelText" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>
-		        <Element Name="fld_update_time" ElementSet="Miscellaneous" Class="LabelText" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
-	    </DataPanel>
-    <ActionPanel>       
+   		<Element Name="fld_Id" ElementSet="General" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />	         	        	        
+		<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+     		  <Element Name="fld_description" ElementSet="General" Class="LabelText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+       	<Element Name="fld_color_code" ElementSet="General" Class="ColorPicker" mode="viewOnly" FieldName="color" Label="Color Code" AllowURLParam="N">
+      		</Element>
+		<Element Name="fld_published" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" /><Element Name="fld_published_other" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+       	<Element Name="fld_sortorder" ElementSet="General" Class="LabelText" SelectFrom="common.lov.CommLOV(Order)"  FieldName="sortorder" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+    
+    	<Element Name="fld_extend_setting" Access="extend.access" AccessSelectFrom="contact.lov.ExtendPermLOV(Access)" ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendSettingListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+    
+        <Element Name="fld_create_by" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>
+        <Element Name="fld_create_time" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
+        <Element Name="fld_update_by" ElementSet="Miscellaneous" Class="LabelText" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>
+        <Element Name="fld_update_time" ElementSet="Miscellaneous" Class="LabelText" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+	</DataPanel>
+    <ActionPanel>      
+    	<Element Name="btn_custom" Class="Button" Text="Custom" CssClass="button_gray_w">
+            <EventHandler Name="btn_custom_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactTypeCustomForm,{@:Elem[fld_Id].Value})"/>
+        </Element>
+        
+		<Element Name="btn_spacer" Class="Spacer" width="10" /> 
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactTypeNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
         </Element>          

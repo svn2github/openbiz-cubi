@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ExtendSettingDetailForm" Class="ExtendFieldForm" Icon="{RESOURCE_URL}/extend/images/icon_extend.png" FormType="Detail" jsClass="jbForm" Title="Custom Field Detail" Description="You can setup custom fields for selected type of data." BizDataObj="extend.do.ExtendSettingDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_field_quick_edit.tpl.html"  Access="attachment.access">
+    <DataPanel>        
+        <Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       
+        <Element Name="fld_label" ElementSet="General"  Class="LabelText" FieldName="label" Label="Field Label"   />
+        <Element Name="fld_desc" ElementSet="General"  Class="LabelText" FieldName="description" Label="Description"   />
+        <Element Name="fld_field" ElementSet="Config"  Class="LabelList" SelectFrom="extend.lov.FieldsLOV(Field)" FieldName="field" Label="Storage"   />
+        <Element Name="fld_control" ElementSet="Config"  Class="LabelList" SelectFrom="extend.lov.FieldsLOV(Control)" FieldName="class" Label="Data Type"   >
+			<EventHandler Name="fld_control_onchange" Event="onchange" Function="UpdateForm()"/>        
+        </Element>
+        <Element Name="fld_options" ElementSet="Config" Hidden="{@:Elem[fld_control].Value!='Listbox' &amp;&amp; @:Elem[fld_control].Value!='DropDownList'?'Y':'N'  }"  Class="LabelText" FieldName="options" Label="Options"   />
+        <Element Name="fld_access" ElementSet="Misc"  Class="LabelList" SelectFrom="contact.lov.ExtendPermLOV(Access)" FieldName="access" Label="Permission"   />
+        <Element Name="fld_sortorder" ElementSet="Misc" DefaultValue="50" DefaultValueRename="N" Class="LabelList" SelectFrom="common.lov.CommLOV(Order)" FieldName="sortorder" Label="Sort Order"  AllowURLParam="N" />
+    </DataPanel>
+    <ActionPanel> 
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="switchForm(extend.widget.ExtendSettingEditForm,{@:Elem[fld_Id].Value})"/>
+        </Element>
+        <Element Name="Spacer" Class="Spacer" Width="10" />
+        <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
