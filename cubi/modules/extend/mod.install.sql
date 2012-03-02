@@ -56,8 +56,8 @@ CREATE TABLE IF NOT EXISTS `extend_setting` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
-DROP TABLE IF EXISTS `extend_setting_translate`;
-CREATE TABLE IF NOT EXISTS `extend_setting_translate` (
+DROP TABLE IF EXISTS `extend_setting_translation`;
+CREATE TABLE IF NOT EXISTS `extend_setting_translation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `setting_id` int(11) NOT NULL,
   `lang` varchar(255) NOT NULL,

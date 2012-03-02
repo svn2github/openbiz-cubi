@@ -3,7 +3,7 @@
     <DataPanel>        
         <Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       
 		<Element Name="fld_control" ElementSet="General"  Class="Hidden" SelectFrom="extend.lov.FieldsLOV(Control)" FieldName="class" Label="Data Type"   />       
-	   <Element Name="fld_lang" ElementSet="General" DefaultValue="{DEFAULT_LANGUAGE}" ReadOnly="Y"  FieldName="lang" Label="Language" Class="myaccount.form.LanguageSelector"  >
+	   <Element Name="fld_lang" ElementSet="General" DefaultValue="{I18n::getCurrentLangCode()}" ReadOnly="Y"  FieldName="lang" Label="Language" Class="myaccount.form.LanguageSelector"  >
 	        <EventHandler Name="lang_onchange" Event="onchange" Function="UpdateForm()" />	        	
 	  </Element>
 	   

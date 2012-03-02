@@ -2,7 +2,7 @@
 class ExtendFieldTranslateForm extends PickerForm
 {
 
-	protected $m_TranslateDO = "extend.do.ExtendSettingTranslateDO";
+	protected $m_TranslateDO = "extend.do.ExtendSettingTranslationDO";
 		
 	
 	public function fetchData()
@@ -12,7 +12,7 @@ class ExtendFieldTranslateForm extends PickerForm
 		$result = parent::fetchData();
 		
 		$lang = BizSystem::ClientProxy()->getFormInputs("fld_lang");;
-		$lang?$lang:$lang=DEFAULT_LANGUAGE;
+		$lang?$lang:$lang=I18n::getCurrentLangCode();
 		$setting_id = $result["Id"];
 		
 		$transDO = BizSystem::getObject($this->m_TranslateDO,1);

@@ -1,7 +1,9 @@
 <?php 
 class ExtendDataEditForm extends EasyForm
 {
-	protected $m_ExtendSettingDO = "extend.do.ExtendSettingDO";
+	protected $m_ExtendSettingDO 			= "extend.do.ExtendSettingDO";
+	protected $m_ExtendSettingTranslationDO = "extend.do.ExtendSettingTranslationDO";
+	protected $m_ExtendSettingOptionDO 		= "extend.do.ExtendSettingOptionDO";
 	
 	public function getExtendData()
 	{
@@ -15,6 +17,35 @@ class ExtendDataEditForm extends EasyForm
 			$recArr = array();
 		}
 		return $recArr;
+	}
+	
+	public function translateElemArr($elemArr,$setting_id)
+	{
+		$lang = I18n::getCurrentLangCode();
+
+		if(!$lang){
+			return $elemArr;
+		}
+		$setting_id = (int)$setting_id;
+		
+		$transDO = BizSystem::getObject($this->m_ExtendSettingTranslationDO,1);
+		$transRec = $transDO->fetchOne("[setting_id]='$setting_id'");
+		if(!$transRec)
+		{
+			return $elemArr;
+		}
+		$elemArr['LABEL']		 = $transRec['label'];
+		$elemArr['DESCRIPTION']	 = $transRec['description'];
+		$elemArr['DEFAULTVALUE'] = $transRec['defaultvalue'];
+		if($elemArr['SELECTFROM'])
+		{
+			$transOptDO = BizSystem::getObject($this->m_ExtendSettingOptionDO,1);
+			$opts = $transOptDO->directfetch("[setting_id]='".$setting_id."' AND [lang]='$lang'");			
+			if($opts && $opts->count()>0){
+				$elemArr['SELECTFROM'] = $this->m_ExtendSettingOptionDO."[text:value],[setting_id]='".$setting_id."' AND [lang]='$lang' ";				
+			}
+		}
+		return $elemArr;
 	}
 	
 	public function render()
@@ -48,9 +79,11 @@ class ExtendDataEditForm extends EasyForm
 			);
 			
 			if($field['options']){
-				$elemArr['SELECTFROM']= "extend.do.ExtendSettingOptionDO[text:Value],[setting_id]='".$field['Id']."' AND lang='' ";
+				$elemArr['SELECTFROM']= $this->m_ExtendSettingOptionDO."[text:value],[setting_id]='".$field['Id']."' AND [lang]='' ";
 			}
 			
+			$elemArr = $this->translateElemArr($elemArr,$field['Id']);
+
 			$fieldArr = array(
 				"ATTRIBUTES" 	=>	$elemArr,
 				"VALUE"			=>	$extData[$field['field']]
