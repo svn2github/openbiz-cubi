@@ -5,12 +5,12 @@
         <Element Name="fld_icon" Class="ColumnImage" 
 				Text="{RESOURCE_URL}/extend/images/icon_field_private.png"
 				FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">							
-		</Element>
-        <Element Name="fld_class" Class="ColumnText" FieldName="class" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+		</Element>        
         <Element Name="fld_label" Class="ColumnText" FieldName="label" Label="Label"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
-        </Element>        
+        </Element>
+        <Element Name="fld_class"  Class="ColumnList" SelectFrom="extend.lov.FieldsLOV(Control)"  FieldName="class" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>        
         <Element Name="fld_description" MaxLength="30" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_access" Class="ColumnText" FieldName="access" Label="Access Level" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_access" Class="ColumnList" SelectFrom="{@:m_AccessSelectFrom}" FieldName="access" Label="Access Level" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
           		                
     </DataPanel>
 </EasyForm>

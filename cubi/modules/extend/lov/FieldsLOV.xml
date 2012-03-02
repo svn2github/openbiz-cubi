@@ -20,4 +20,10 @@
    <Field Value="field_18" text="Field #18"/>
    <Field Value="field_19" text="Field #19"/>
    <Field Value="field_20" text="Field #20"/>
+   
+   <Control Value="InputText" text="InputText"/>
+   <Control Value="Textarea" text="Textarea"/>
+   <Control Value="Listbox" text="Listbox"/>
+   <Control Value="DropDownList" text="DropDownList"/>
+   <Control Value="LabelBool" text="Bool"/>
 </Selection>

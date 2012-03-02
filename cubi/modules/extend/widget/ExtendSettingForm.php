@@ -2,6 +2,7 @@
 class ExtendSettingForm extends EasyForm
 {
 	public $m_ParentFormElementMeta;
+	public $m_AccessSelectFrom;
 	
 	public function getSessionVars($sessionContext)
     {
@@ -13,7 +14,13 @@ class ExtendSettingForm extends EasyForm
     {
         $sessionContext->setObjVar($this->m_Name, "ParentFormElementMeta", $this->m_ParentFormElementMeta);
         return parent::setSessionVars($sessionContext);       
-    }	
+    }
+
+    public function fetchDataSet()
+    {
+    	$this->m_AccessSelectFrom = $this->m_ParentFormElementMeta["ATTRIBUTES"]['ACCESSSELECTFROM'];
+    	return parent::fetchDataSet();
+    }
 	
 }
 ?>
