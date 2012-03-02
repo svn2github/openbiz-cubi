@@ -126,5 +126,16 @@
 		</div>
 </div>
 </form>
-
-<script>Openbiz.Window.centerDialog(450,480); </script>
+{if $dataPanel.fld_options}
+	{if $notices}
+	<script>Openbiz.Window.centerDialog(450,560); </script>
+	{else}
+	<script>Openbiz.Window.centerDialog(450,530); </script>
+	{/if}
+{else}
+	{if $notices}
+	<script>Openbiz.Window.centerDialog(450,500); </script>
+	{else}
+	<script>Openbiz.Window.centerDialog(450,470); </script>
+	{/if}
+{/if}	

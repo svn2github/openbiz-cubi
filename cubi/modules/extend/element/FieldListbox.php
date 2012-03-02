@@ -18,7 +18,7 @@ class FieldListbox extends Listbox
     }
     
     protected function getUsedFields(){
-    	$ds = $this->getFormObj()->getDataObj()->fetch();
+    	$ds = $this->getFormObj()->getDataObj()->directfetch();
     	$fields = array();
     	foreach($ds as $record)
     	{

@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ExtendSettingOptionDO" Description="" Class="BizDataObj" DBName="Default" Table="extend_setting_option" SortRule="[Id] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="" CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" Column="id"     Type=""/>
+   		<BizField Name="setting_id" Column="setting_id"  Type="Number"/>   		
+   		<BizField Name="lang" Column="lang" />
+   		<BizField Name="text" Column="text" />
+   		<BizField Name="value" Column="value" />
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

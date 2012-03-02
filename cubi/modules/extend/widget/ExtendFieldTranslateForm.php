@@ -89,6 +89,8 @@ class ExtendFieldTranslateForm extends PickerForm
            	$dataRec[$k] = $v; // or $dataRec->$k = $v;
         }
 
+        BizSystem::getObject("extend.widget.ExtendSettingDetailForm",1)->processOptions($inputRecord['_options'], $setting_id, $lang);
+        
         try
         {
             $dataRec->save();
@@ -115,5 +117,6 @@ class ExtendFieldTranslateForm extends PickerForm
         $this->runEventLog();
         return true;
     }
+    
 }
 ?>
