@@ -23,9 +23,12 @@ class MessageForm extends EasyForm
 		}
 		else
 		{		
-			if($this->m_RecordId)
+			if($_GET['fld:Id'])
 			{
 				//$this->m_BaseSearchRule = "[Id]='$this->m_RecordId'";	
+				$this->m_ActiveRecord = $this->getDataObj()->fetchOne("[Id]='".(int)$_GET['fld:Id']."'")->toArray();
+			}elseif($this->m_RecordId)
+			{
 				$this->m_ActiveRecord = $this->getDataObj()->fetchOne("[Id]='$this->m_RecordId'")->toArray();
 			}
 			else
