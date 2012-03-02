@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ExtendSettingTranslateForm" Class="ExtendFieldTranslateForm" Icon="{RESOURCE_URL}/extend/images/icon_extend.png" FormType="Edit" jsClass="jbForm" Title="Edit Custom Field" Description="You can setup custom fields for selected type of data." BizDataObj="extend.do.ExtendSettingDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_field_quick_translate.tpl.html"  Access="extend.access">
+<EasyForm Name="ExtendSettingTranslateForm" Class="ExtendFieldTranslateForm" Icon="{RESOURCE_URL}/extend/images/icon_extend.png" FormType="Edit" jsClass="jbForm" Title="Edit Custom Field" Description="You can setup custom fields for selected type of data." BizDataObj="extend.do.ExtendSettingDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_field_quick_translate.tpl.html" MessageFile="extend.ini" Access="extend.access">
     <DataPanel>        
         <Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       
 		<Element Name="fld_control" ElementSet="General"  Class="Hidden" SelectFrom="extend.lov.FieldsLOV(Control)" FieldName="class" Label="Data Type"   />       

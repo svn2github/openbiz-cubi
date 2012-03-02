@@ -4,8 +4,10 @@ class ExtendFieldTranslateForm extends PickerForm
 
 	protected $m_TranslateDO = "extend.do.ExtendSettingTranslateDO";
 		
+	
 	public function fetchData()
 	{
+		
 		$this->m_ActiveRecord = null;
 		$result = parent::fetchData();
 		
@@ -20,10 +22,40 @@ class ExtendFieldTranslateForm extends PickerForm
 			foreach($currentRecord as $field => $value)
 			{
 				$result['_'.$field]=$value;
-			}
-			
-		}		
+			}			
+		}else{
+			$result['_label'] = "";
+			$result['_options'] = "";
+			$result['_description'] = "";
+			$result['_defaultvalue'] = "";
+		}	
 		return $result;
+	}
+	
+	public function updateRecord()
+	{
+        $currentRec = $this->fetchData();
+        $recArr = $this->readInputRecord();
+        $this->setActiveRecord($recArr);
+        if (count($recArr) != 0){
+            	
+	        try
+	        {
+	            $this->ValidateForm();
+	        }
+	        catch (ValidationException $e)
+	        {
+	            $this->processFormObjError($e->m_Errors);
+	            return;
+	        }
+	
+	        if ($this->_doUpdate($recArr, $currentRec) == false)
+	            return;
+        
+        }
+		
+		$this->m_Notices[]=$this->getMessage("TRANS_SAVED_MSG", $recArr['lang']) ;        
+		$this->rerender();
 	}
 	
 	protected function _doUpdate($inputRecord, $currentRecord)

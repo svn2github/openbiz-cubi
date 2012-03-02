@@ -23,13 +23,16 @@
             <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(extend.widget.ExtendSettingNewForm)"/>
         </Element>
        
+	   <Element Name="btn_detail" Class="Button" text="Detail" CssClass="button_gray_m">
+            <EventHandler Name="detail_onclick" Event="onclick" Function="LoadDialog(extend.widget.ExtendSettingDetailForm,,1)"/>
+        </Element>
 		
 		<Element Name="btn_edit" Class="Button" text="Edit" CssClass="button_gray_m">
-            <EventHandler Name="delete_onclick" Event="onclick" Function="LoadDialog(extend.widget.ExtendSettingEditForm)"/>
+            <EventHandler Name="delete_onclick" Event="onclick" Function="LoadDialog(extend.widget.ExtendSettingEditForm,,1)"/>
         </Element>
        
 	   	<Element Name="btn_translate" Class="Button" text="Translate" CssClass="button_gray_w">
-            <EventHandler Name="translate_onclick" Event="onclick" Function="LoadDialog(extend.widget.ExtendSettingTranslateForm)"/>
+            <EventHandler Name="translate_onclick" Event="onclick" Function="LoadDialog(extend.widget.ExtendSettingTranslateForm,,1)"/>
         </Element>
 	   
 	     <Element Name="btn_delete" Class="Button" text="Delete" CssClass="button_gray_m">
