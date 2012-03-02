@@ -24,5 +24,6 @@
     <TableJoins>
     </TableJoins>
     <ObjReferences>
+    	<Object Name="extend.do.ExtendSettingTranslateDO" Description="" Relationship="1-M" Table="extend_setting_translate"  Column="setting_id" FieldRef="Id" />
     </ObjReferences>
 </BizDataObj>

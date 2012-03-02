@@ -58,11 +58,9 @@
 				<table  id="{$itemName}_container" class="input_row">
 				{/if}					
 				<tr>
-				{if $item.label}
 				<td >	
 					<label style="text-align:left">{$item.label}</label>
 				</td>
-				{/if}
 				<td>
 				{if $item.type eq 'Checkbox' }
 					<span class="label_text" >{$item.element} {$item.description}</span>
@@ -128,8 +126,5 @@
 		</div>
 </div>
 </form>
-{if $errors}
-<script>Openbiz.Window.centerDialog(450,500); </script>
-{else}
-<script>Openbiz.Window.centerDialog(450,450); </script>
-{/if}
+
+<script>Openbiz.Window.centerDialog(450,480); </script>

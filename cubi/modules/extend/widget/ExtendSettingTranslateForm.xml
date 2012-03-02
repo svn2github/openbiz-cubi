@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ExtendSettingTranslateForm" Class="ExtendFieldForm" Icon="{RESOURCE_URL}/extend/images/icon_extend.png" FormType="Edit" jsClass="jbForm" Title="Edit Custom Field" Description="You can setup custom fields for selected type of data." BizDataObj="extend.do.ExtendSettingDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_field_quick_translate.tpl.html"  Access="extend.access">
+<EasyForm Name="ExtendSettingTranslateForm" Class="ExtendFieldTranslateForm" Icon="{RESOURCE_URL}/extend/images/icon_extend.png" FormType="Edit" jsClass="jbForm" Title="Edit Custom Field" Description="You can setup custom fields for selected type of data." BizDataObj="extend.do.ExtendSettingDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_field_quick_translate.tpl.html"  Access="extend.access">
     <DataPanel>        
         <Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       
-       
-        <Element Name="fld_label_org" ElementSet="General"  Class="LabelText" FieldName="label" Label="Field Label"   />
-        <Element Name="fld_label" ElementSet="General" DefaultValue="New Field" Class="InputText" FieldName="label" Label="Field Label"   />
+		<Element Name="fld_control" ElementSet="General"  Class="Hidden" SelectFrom="extend.lov.FieldsLOV(Control)" FieldName="class" Label="Data Type"   />       
+	   <Element Name="fld_lang" ElementSet="General" DefaultValue="{DEFAULT_LANGUAGE}" ReadOnly="Y"  FieldName="lang" Label="Language" Class="myaccount.form.LanguageSelector"  >
+	        <EventHandler Name="lang_onchange" Event="onchange" Function="UpdateForm()" />	        	
+	  </Element>
+	   
+        <Element Name="fld_label_org" ElementSet="Translation"  Class="LabelText" FieldName="label" Label="Field Label"   />
+        <Element Name="fld_label" ElementSet="Translation"  Class="InputText" FieldName="_label" Label=""   />
 		
-		<Element Name="fld_desc_org" ElementSet="General"  Class="LabelText" FieldName="description" Label="Description"   />
-        <Element Name="fld_desc" ElementSet="General"  Class="InputText" FieldName="description" Label="Description"   />
+		<Element Name="fld_desc_org" ElementSet="Translation_2"  Class="LabelText" FieldName="description" Label="Description"   />
+        <Element Name="fld_desc" ElementSet="Translation_2"  Class="InputText" FieldName="_description" Label=""   />
 		
-		<Element Name="fld_options_org" ElementSet="Config" Hidden="{@:Elem[fld_control].Value!='Listbox' &amp;&amp; @:Elem[fld_control].Value!='DropDownList'?'Y':'N'  }"  Class="LabelText" FieldName="options" Label="Options"   />
-		<Element Name="fld_options" ElementSet="Config" Hidden="{@:Elem[fld_control].Value!='Listbox' &amp;&amp; @:Elem[fld_control].Value!='DropDownList'?'Y':'N'  }"  Class="InputText" FieldName="options" Label="Options"   />
+		<Element Name="fld_options_org" Hidden="{@:Elem[fld_control].Value!='Listbox' &amp;&amp; @:Elem[fld_control].Value!='DropDownList'?'Y':'N'  }" ElementSet="Translation_3"  Class="LabelText" FieldName="options" Label="Options"   />
+		<Element Name="fld_options" Hidden="{@:Elem[fld_control].Value!='Listbox' &amp;&amp; @:Elem[fld_control].Value!='DropDownList'?'Y':'N'  }" ElementSet="Translation_3"  Class="InputText" FieldName="_options" Label=""   />
 				
-		<Element Name="fld_defaultvalue_org" ElementSet="Config"  Class="LabelText" FieldName="defaultvalue" Label="Default Value"   />
-		<Element Name="fld_defaultvalue" ElementSet="Config"  Class="InputText" FieldName="defaultvalue" Label="Default Value"   />
+		<Element Name="fld_defaultvalue_org" ElementSet="Translation_4"  Class="LabelText" FieldName="defaultvalue" Label="Default Value"   />
+		<Element Name="fld_defaultvalue" ElementSet="Translation_4"  Class="InputText" FieldName="_defaultvalue" Label=""   />
 
         
     </DataPanel>
     <ActionPanel> 
-        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="btn_save_onclick" Event="onclick" Function="UpdateRecord()"  RedirectPage="form=extend.widget.ExtendSettingDetailForm&amp;fld:Id={@extend.do.ExtendSettingDO:Field[Id].Value}" />
+        <Element Name="btn_save_trans" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="btn_save_onclick" Event="onclick" Function="UpdateRecord()"  RedirectPage="" />
         </Element>
         <Element Name="Spacer" Class="Spacer" Width="10" />
+		<Element Name="btn_back" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_back_onclick" Event="onclick" Function="SwitchForm(extend.widget.ExtendSettingDetailForm,{@:Elem[fld_Id].Value})"/>
+        </Element>
         <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
             <EventHandler Name="btn_close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
         </Element>

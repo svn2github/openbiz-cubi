@@ -18,6 +18,9 @@
             <EventHandler Name="btn_save_onclick" Event="onclick" Function="UpdateRecord()"  RedirectPage="form=extend.widget.ExtendSettingDetailForm&amp;fld:Id={@extend.do.ExtendSettingDO:Field[Id].Value}" />
         </Element>
         <Element Name="Spacer" Class="Spacer" Width="10" />
+		<Element Name="btn_back" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_back_onclick" Event="onclick" Function="SwitchForm(extend.widget.ExtendSettingDetailForm,{@:Elem[fld_Id].Value})"/>
+        </Element>		
         <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
             <EventHandler Name="btn_close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
         </Element>
