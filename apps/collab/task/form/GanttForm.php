@@ -152,16 +152,17 @@ class GanttForm extends ChangeLogForm
 			$default_project_id=0;		
 		}
 		$this->m_outputIds = array();
-
+		
+		$proj_ids = explode(";", $this->m_ProjectIDs);
+		foreach($proj_ids as $default_project_id)
+		{
+			
 			if($default_project_id)
 			{
 				$projectRec['project_id']=$default_project_id;	
 				$projectData = BizSystem::getObject("collab.project.do.ProjectDO",1)->fetchById($projectRec['project_id']); 
 				$projectRec['project_name'] = $projectData['name'];	
 				
-				if(strpos($this->m_ProjectIDs,";")){
-					$projectRec['project_name'] = $this->getProjectName($this->m_ProjectIDs);
-				}
 				
 				$projectRec['project_color'] = $projectData['type_color'];	
 				$projectRec['project_start_time'] = $start_time = date('Y,m,d',strtotime($projectData['start_time']));
@@ -172,7 +173,7 @@ class GanttForm extends ChangeLogForm
 				
 			}
 			
-			$recList = $this->fetchDataSet();		
+			$recList = $this->fetchDataSet($default_project_id);		
 			foreach($recList as $rec){
 				$this->m_outputIds[] = $rec['Id'];	
 			}				 		
@@ -187,7 +188,7 @@ class GanttForm extends ChangeLogForm
 			echo $tasks;
 			echo "</project>";	
 		 
-
+		}
 		echo "</projects>";		
 		exit;
 		
@@ -304,7 +305,10 @@ class GanttForm extends ChangeLogForm
         }
         else
             $searchRule = $this->m_SearchRule;
-
+		
+        if($project_id){
+        	$searchRule .= "AND [project_id]=$project_id";
+        }
         
         $dataObj->setSearchRule($searchRule);
         if($this->m_StartItem>1)
