@@ -3,7 +3,7 @@
     <DataPanel>        
         <Element Name="fld_label" ElementSet="General" DefaultValue="New Field" Class="InputText" FieldName="label" Label="Field Label"   />
         <Element Name="fld_desc" ElementSet="General"  Class="InputText" FieldName="description" Label="Description"   />
-        <Element Name="fld_field" ElementSet="Config"  Class="Listbox" SelectFrom="extend.lov.FieldsLOV(Field)" FieldName="field" Label="Storage"   />
+        <Element Name="fld_field" ElementSet="Config"  Class="extend.element.FieldListbox" SelectFrom="extend.lov.FieldsLOV(Field)" FieldName="field" Label="Storage"   />
         <Element Name="fld_control" ElementSet="Config"  Class="Listbox" SelectFrom="extend.lov.FieldsLOV(Control)" FieldName="class" Label="Data Type"   >
 			<EventHandler Name="fld_control_onchange" Event="onchange" Function="UpdateForm()"/>        
         </Element>
