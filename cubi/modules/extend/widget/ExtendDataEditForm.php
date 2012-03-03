@@ -170,7 +170,7 @@ class ExtendDataEditForm extends EasyForm
 	}
 	
 	public function setValue($value){		
-		if(strtolower($_GET['P1'])!='[updaterecord]'){
+		if(strtolower($_GET['P1'])=='[updateform]'){
 			return;
 		}
 		
@@ -190,10 +190,10 @@ class ExtendDataEditForm extends EasyForm
 		
 		$recArr[$cond_column] = $cond_value;
 		$recArr[$column_name] = $column_value;
-		$recArr['record_id'] = $record_id;
-
-
+		$recArr['record_id'] = $record_id;				
+		
 		$oldRec = BizSystem::getObject($do->m_Name,1)->fetchOne($this->m_SearchRule." AND [record_id]='$record_id'" );
+
 		if($oldRec){
 			$oldRec = $oldRec->toArray();						
 			$recArr['Id'] = $oldRec['Id'];
