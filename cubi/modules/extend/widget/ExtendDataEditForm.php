@@ -99,7 +99,7 @@ class ExtendDataEditForm extends EasyForm
 		
 		$extData = $this->getExtendData();
 		
-		$i=0;
+		
 		foreach ($fieldRecs as $field){
 			$elemArr = array(
 				"NAME" 			=> "extend_field_".$field['Id'],
@@ -122,10 +122,11 @@ class ExtendDataEditForm extends EasyForm
 				"VALUE"			=>	$extData[$field['field']]
 			);
 			
-			$fieldArr = $this->configElemArr($fieldArr);
+			$fieldArr = $this->configElemArr($fieldArr);			
+			if(BizSystem::allowUserAccess($elemArr['ACCESS'])){
+				$xmlArr[] = $fieldArr;
+			}
 			
-			$xmlArr[$i] = $fieldArr;
-			$i++;
 		}
 		if(count($xmlArr)==1){
 				$xmlArr=$xmlArr[0];
@@ -142,7 +143,7 @@ class ExtendDataEditForm extends EasyForm
 				$elemArr['ATTRIBUTES']['CLASS']="DropDownList";
 				$elemArr['ATTRIBUTES']['SELECTFROM']="common.lov.CommLOV(EnableStatus)";
 				break;
-		}
+		}		
 		return $elemArr;
 	}
 	
@@ -158,12 +159,13 @@ class ExtendDataEditForm extends EasyForm
 		
 		$rec = array();
 		foreach ($fieldRecs as $field){
-			$elem_name = "extend_field_".$field['Id'];
-			$field_name = $field['field'];
-			$field_value = BizSystem::ClientProxy()->getFormInputs($elem_name);
-			$rec[$field_name]=$field_value;
+			if(BizSystem::allowUserAccess($field['access'])){
+				$elem_name = "extend_field_".$field['Id'];
+				$field_name = $field['field'];
+				$field_value = BizSystem::ClientProxy()->getFormInputs($elem_name);
+				$rec[$field_name]=$field_value;
+			}
 		}
-		
 		return $rec;
 	}
 	
