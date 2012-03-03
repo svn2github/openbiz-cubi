@@ -169,7 +169,7 @@ class ExtendDataEditForm extends EasyForm
 		return $rec;
 	}
 	
-	public function setValue($value){		
+	public function setValue($value){	
 		if(strtolower($_GET['P1'])=='[updateform]'){
 			return;
 		}
