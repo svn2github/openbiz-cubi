@@ -37,7 +37,9 @@
 		{assign var=es_elem_counter value=0}
 		{foreach item=item key=itemName from=$dataPanel}
 			{if $item.elementset eq $setname}
-            {if $item.type eq 'CKEditor' 
+			{if  $item.type eq 'FormElement' }
+			{$item.element}
+            {elseif $item.type eq 'CKEditor' 
              or $item.type eq 'RichText' 
              or $item.type eq 'HTMLPreview'
              or $item.type eq 'FormElement' 
