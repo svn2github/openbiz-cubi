@@ -634,7 +634,9 @@ class EasyForm extends MetaObject implements iSessionObject
         		if(in_array($elem->m_ElementSet,$setArr)){
         			continue;
         		}else{
-        			array_push($setArr,$elem->m_ElementSet);
+        			if($elem->render()){
+        				array_push($setArr,$elem->m_ElementSet);
+        			}
         		}
         	}  
         	                                  
