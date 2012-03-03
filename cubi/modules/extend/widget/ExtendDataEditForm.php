@@ -33,7 +33,7 @@ class ExtendDataEditForm extends EasyForm
 		$setting_id = (int)$setting_id;
 		
 		$transDO = BizSystem::getObject($this->m_ExtendSettingTranslationDO,1);
-		$transRec = $transDO->fetchOne("[setting_id]='$setting_id'");
+		$transRec = $transDO->fetchOne("[setting_id]='$setting_id' AND [lang]='$lang'");
 		if(!$transRec)
 		{
 			return $elemArr;
