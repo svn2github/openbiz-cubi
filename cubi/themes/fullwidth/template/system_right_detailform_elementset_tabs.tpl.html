@@ -59,7 +59,9 @@ color:#666666;
 		{foreach item=item key=itemName from=$dataPanel}
 		{if $es_counter eq 0 }		
 			{if $item.elementset eq $setname}
-			{if $item.type eq 'CKEditor' or $item.type eq 'RichText' 
+			{if $item.type eq 'FormElement'}
+				{$item.element}
+			{elseif $item.type eq 'CKEditor' or $item.type eq 'RichText' 
 				or $item.type eq 'Textarea' or $item.type eq 'LabelTextarea'
 				or $item.type eq 'HTMLPreview'
 				or $item.type eq 'LabelTextarea' or $item.type eq 'LabelImage'
