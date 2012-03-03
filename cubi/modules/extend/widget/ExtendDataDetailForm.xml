@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ExtendDataDetailForm" Class="ExtendDataDetailForm"  FormType="Edit" jsClass="jbForm"  BizDataObj="extend.do.ExtendDataDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_data_edit.tpl.html"  Access="extend.access">
+    <DataPanel>        
+	</DataPanel>
+    <ActionPanel>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

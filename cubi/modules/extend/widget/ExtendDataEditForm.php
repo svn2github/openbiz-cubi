@@ -60,7 +60,7 @@ class ExtendDataEditForm extends EasyForm
 		
 		$elem_name = BizSystem::getObject($this->m_ParentFormName)->m_DataPanel->getByField('type_id')->m_Name;		
 		$type_id = BizSystem::ClientProxy()->getFormInputs($elem_name);;
-		if($type_id)
+		if($elem_name && $type_id)
 		{
 			$column_value = $type_id;
 		}
@@ -70,7 +70,7 @@ class ExtendDataEditForm extends EasyForm
 	}
 	
 	public function render()
-	{						
+	{					
 		if(!$this->m_DataPanel->count())
 		{		
 			$this->m_DataPanel = new Panel($this->configDataPanel(),"",$this);
@@ -86,7 +86,7 @@ class ExtendDataEditForm extends EasyForm
 		$searchRule = $this->getSettingSearchRule();
 		
 		$fieldsDO = BizSystem::getObject($this->m_ExtendSettingDO,1);
-		$fieldRecs = $fieldsDO->directfetch($searchRule);
+		$fieldRecs = $fieldsDO->directfetch($searchRule);				
 		
 		if(!$fieldRecs->count()){
 			return ;
@@ -115,6 +115,9 @@ class ExtendDataEditForm extends EasyForm
 				"ATTRIBUTES" 	=>	$elemArr,
 				"VALUE"			=>	$extData[$field['field']]
 			);
+			
+			$fieldArr = $this->configElemArr($fieldArr);
+			
 			$xmlArr[$i] = $fieldArr;
 			$i++;
 		}
@@ -122,6 +125,19 @@ class ExtendDataEditForm extends EasyForm
 				$xmlArr=$xmlArr[0];
 		}
 		return $xmlArr;	
+	}
+	
+	public function configElemArr($elemArr)
+	{
+		switch($elemArr['ATTRIBUTES']['CLASS'])
+		{
+			
+			case "LabelBool":
+				$elemArr['ATTRIBUTES']['CLASS']="DropDownList";
+				$elemArr['ATTRIBUTES']['SELECTFROM']="common.lov.CommLOV(EnableStatus)";
+				break;
+		}
+		return $elemArr;
 	}
 	
 	public function readInputExtendRecord()
