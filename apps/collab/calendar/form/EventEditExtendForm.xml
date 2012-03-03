@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventEditExtendForm" Class="EasyForm" Icon="{RESOURCE_URL}/collab/calendar/images/icon_calendar_list.gif"  FormType="Edit" jsClass="jbForm" Title="Edit Event Extend Fields" Description="Here you can edit extend fields for selected type of event" BizDataObj="collab.calendar.do.EventDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_event_edit_extend.tpl.html" EventName="CALENDAR" MessageFile="Event.msg"  Access="collab_calendar.access" >
+    <DataPanel>
+		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
+
+			<Element Name="fld_form_title" ElementSet="" Class="LabelText" FieldName="subject" Label="Subject" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />    	        
+		    <Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		    <Element Name="fld_form_description" ElementSet="" BackgroundColor="{@:Elem[fld_color].Value}" Width="600" Class="LabelText" FieldName="type_name" Label="Type" KeepCookie="Y" SelectFrom="collab.calendar.do.EventTypeDO[name:Id],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />			    
+	        <Element Name="fld_location" ElementSet="General" Class="LabelText" FieldName="location" Label="Location"  AllowURLParam="N" />
+			<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+			
+
+			<Element Name="fld_start_time" ElementSet="General" DefaultValue="{date('Y-m-d H:i:s')}" Class="LabelText" FieldName="start_time" Label="Start Time"  AllowURLParam="N" />
+			<Element Name="fld_end_time"  ElementSet="General" DefaultValue="{date('Y-m-d H:i:s',time()+7200)}" Class="LabelText" FieldName="end_time" Label="End Time"  AllowURLParam="N" />
+
+			<Element Name="fld_recurrence" ElementSet="General" Class="LabelList" selectFrom="collab.calendar.lov.EventLOV(RecurrenceType)" FieldName="recurrence" Label="Recurrence"  AllowURLParam="N" />
+			<Element Name="fld_all_day" ElementSet="General" Class="LabelBool" FieldName="all_day" Label="All Day" DefaultValue="0" SelectFrom="1" Description="All day event" AllowURLParam="N" >
+			</Element>
+			
+			<Element Name="fld_type_id" ElementSet="Data Type" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.calendar.do.EventTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" >
+				<EventHandler Name="fld_type_id_onchange" Event="onchange" Function="UpdateForm()" />
+			</Element>	
+    	
+   			<Element Name="fld_extend_fields"   ElementSet="Extend Fileds"  Class="FormElement" FormReference="extend.widget.ExtendDataEditForm" FieldName="extend" Label="" AllowURLParam="N" />
+
+    	
+    	
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=collab.calendar.form.EventDetailForm&amp;fld:Id={@collab.calendar.do.EventDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
