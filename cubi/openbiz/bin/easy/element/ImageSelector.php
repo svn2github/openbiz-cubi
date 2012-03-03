@@ -59,7 +59,15 @@ class ImageSelector extends OptionElement
 	    	}
 	        if($this->m_Height){
 	    		$height_str = " height=\"".$this->m_Height."\" ";
-	    	}            
+	    	}          
+	    	$image_url = $option['pic'];
+	    	if(preg_match("/\{.*\}/si",$image_url))
+	        {
+	        	$formobj = $this->getFormObj();
+	        	$image_url =  Expression::evaluateExpression($image_url, $formobj);
+	        }else{
+	        	$image_url = Resource::getImageUrl()."/".$image_url;
+	        }   
             $sHTML .= "<a title=\"" . $option['txt'] . "\" 
             				href=\"javascript:;\"
             				class=\"$selectedStr\"
@@ -70,7 +78,7 @@ class ImageSelector extends OptionElement
             			>
             			<img
             			    $width_str $height_str
-            			    src=\"".$option['pic']."\" 
+            			    src=\"".$image_url."\" 
             				title=\"" . $option['txt'] . "\" 
             				 /></a>";
             
