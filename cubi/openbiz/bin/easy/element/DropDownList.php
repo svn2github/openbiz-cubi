@@ -222,7 +222,7 @@ class DropDownList extends InputElement
     		if($pic){
     			if(preg_match('/\{.*\}/si',$pic)){
     				$pic = Expression::evaluateExpression($pic,null);
-    			}else{
+    			}elseif(!preg_match('/\//si',$pic)){
         			$pic = Resource::getImageUrl()."/".$pic;
         		} 
     			$str_pic="<img src=\"$pic\" />";
