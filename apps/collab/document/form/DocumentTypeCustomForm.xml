@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="DocumentTypeCustomForm" FormType="Edit" Class="DocumentTypeForm" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document_type.png" Title="Custom Document Type" Description="Your can setup custom fields for this type of documents." BizDataObj="collab.document.do.DocumentTypeDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl"  MessageFile="DocumentType.msg" Access="collab_document.access">
+    <DataPanel>
+			<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+			
+			<Element Name="fld_form_title"  Class="LabelText" FieldName="name" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" />	
+			<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+			<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="description" Label="" KeepCookie="Y" AllowURLParam="N" />
+			
+			<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+     		<Element Name="fld_description" ElementSet="General" Class="LabelText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+    		<Element Name="fld_color_code" ElementSet="General" Class="ColorPicker" mode="viewOnly" FieldName="color" Label="Color Code" AllowURLParam="N"></Element>
+    	
+			
+			<Element Name="fld_extend_setting" Access="extend.access"  ElementSet="Extend Fields" Class="FormElement" AccessSelectFrom="collab.document.lov.ExtendPermLOV(Access)" FormReference="extend.widget.ExtendSettingListEditForm" FieldName="" Label="" AllowURLParam="N" />     		
+	</DataPanel>
+    <ActionPanel>   
+		<Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=collab.document.form.DocumentTypeDetailForm&amp;fld:Id={@collab.document.do.DocumentTypeDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentTypeListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>        
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

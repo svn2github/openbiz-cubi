@@ -33,6 +33,9 @@
         <Object Name="picture.do.PictureDO" Description="" Relationship="1-M" Table="picture" CondColumn='type' CondValue='document' Column="foreign_id" FieldRef="Id" />
         <Object Name="attachment.do.AttachmentDO" Description="" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='document' Column="foreign_id" FieldRef="Id" />
 		<Object Name="collab.document.do.DocumentReversionDO" Description="" Relationship="1-M" Table="document_reversion" Column="document_id" FieldRef="Id" />
+		
+		<Object Name="extend.do.ExtendDataDO" Relationship="1-M" Table="extend_data" CondColumn='module' CondValue='document' Column="type_id" FieldRef="type_id" Column2="record_id" FieldRef2="Id" onDelete="Cascade"/>
+		
 		<!-- M-M -->
 		<Object Name="collab.document.do.DocumentRefDO" Description="" Relationship="Self-Self" Table="document" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="document_related" XColumn1="document_id" XColumn2="related_id" XDataObj="collab.document.do.DocumentRelatedDO"/>
 		<Object Name="collab.calendar.do.EventDO" Description="" Relationship="M-M" Table="event" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="event_document" XColumn1="document_id" XColumn2="event_id" XDataObj="collab.document.do.DocumentEventDO"/>

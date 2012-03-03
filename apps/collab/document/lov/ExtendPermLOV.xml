@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <Access Value="collab_document.access" text="Default Document Access Level"/>
+   <Access Value="collab_document.view_level_1" text="Document Access Level 1"/>
+   <Access Value="collab_document.view_level_2" text="Document Access Level 2"/>
+   <Access Value="collab_document.view_level_3" text="Document Access Level 3"/>
+</Selection>

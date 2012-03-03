@@ -1,11 +1,14 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="Openbiz Collaboration" Version="1.3" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
+<Module Name="collab" Description="Openbiz Collaboration" Version="1.4" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
 		</Resource>
         <Resource Name="collab_calendar">
 			<Action Name="access" Description="access and manage event"/>
+			<Action Name="view_level_1" Description="Event Access Level 1"/>
+			<Action Name="view_level_2" Description="Event Access Level 2"/>
+			<Action Name="view_level_3" Description="Event Access Level 3"/>
 		</Resource>
         <Resource Name="collab_note">
 			<Action Name="access" Description="access notes"/>
@@ -16,6 +19,9 @@
         <Resource Name="collab_task">
 			<Action Name="access" Description="access task"/>
 			<Action Name="report" Description="view task statistics report"/>
+			<Action Name="view_level_1" Description="Task Access Level 1"/>
+			<Action Name="view_level_2" Description="Task Access Level 2"/>
+			<Action Name="view_level_3" Description="Task Access Level 3"/>
 		</Resource>
 		<Resource Name="collab_budget">
 			<Action Name="access" Description="access billing information"/>
@@ -31,12 +37,19 @@
 		</Resource>
         <Resource Name="collab_document">
 			<Action Name="access" Description="access and manage document"/>
+			<Action Name="view_level_1" Description="Document Access Level 1"/>
+			<Action Name="view_level_2" Description="Document Access Level 2"/>
+			<Action Name="view_level_3" Description="Document Access Level 3"/>
 		</Resource>
         <Resource Name="collab_bookmark">
 			<Action Name="access" Description="access and manage bookmark"/>
 		</Resource>
 		<Resource Name="collab_project">
 			<Action Name="access" Description="access and manage project"/>
+			<Action Name="report" Description="view task statistics report"/>
+			<Action Name="view_level_1" Description="Project Access Level 1"/>
+			<Action Name="view_level_2" Description="Project Access Level 2"/>
+			<Action Name="view_level_3" Description="Project Access Level 3"/>
 		</Resource>
 		<Resource Name="collab_statistics">
 			<Action Name="access" Description="access collaboration system statistics"/>
@@ -164,6 +177,9 @@
     	<Module Name="cronjob"/>
     </Dependency>
         <ChangeLog>
+        <Version Name="1.3.0">
+        	<Change Name="feature_130" Type="New_Feature" Status="Finished" PublishDate="2012-03-03" Description="added extend fields support"></Change>
+        </Version>
         <Version Name="1.2.0">
         	<Change Name="feature_120" Type="New_Feature" Status="Finished" PublishDate="2012-02-14" Description="added contact map feature"></Change>
         </Version>
