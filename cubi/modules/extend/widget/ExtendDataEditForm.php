@@ -5,6 +5,24 @@ class ExtendDataEditForm extends EasyForm
 	protected $m_ExtendSettingTranslationDO = "extend.do.ExtendSettingTranslationDO";
 	protected $m_ExtendSettingOptionDO 		= "extend.do.ExtendSettingOptionDO";
 	
+	public function getSessionVars($sessionContext)
+    {
+        parent::getSessionVars($sessionContext);
+    	$sessionContext->getObjVar($this->m_Name, "ParentFormElementMeta", $this->m_ParentFormElementMeta);
+    }
+
+    /**
+     * Save object variable to session context
+     *
+     * @param SessionContext $sessionContext
+     * @return void
+     */
+    public function setSessionVars($sessionContext)
+    {
+    	parent::setSessionVars($sessionContext);
+        $sessionContext->setObjVar($this->m_Name, "ParentFormElementMeta", $this->m_ParentFormElementMeta);        
+    }
+	
 	public function getExtendData()
 	{
 		$prtRec = BizSystem::getObject($this->m_ParentFormName)->getActiveRecord();		
