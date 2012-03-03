@@ -87,7 +87,7 @@ class FormElement extends InputElement
     	$formElementObj = BizSystem::GetObject($this->m_FormReference);
     	if(method_exists($formElementObj, "setValue"))
     	{
-    		$formElementObj->setValue($value);
+    		return $formElementObj->setValue($value);
     	}
     }
     
@@ -96,7 +96,7 @@ class FormElement extends InputElement
     	$formElementObj = BizSystem::GetObject($this->m_FormReference);
     	if(method_exists($formElementObj, "getValue"))
     	{
-    		$formElementObj->getValue();
+    		return $formElementObj->getValue();
     	}
     }    
 }
