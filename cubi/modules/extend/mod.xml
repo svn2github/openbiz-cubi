@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="contact" Description="contact management module" Version="0.2" OpenbizVersion="3.0" >
+<Module Name="contact" Description="contact management module" Version="0.3" OpenbizVersion="3.0"  LoadHandler="attachment.lib.AttachmentLoadHandler">
 	<ACL>
 		<Resource Name="extend">
 			<Action Name="access" Description="access extend fields"/>
@@ -10,6 +10,9 @@
     	<Module Name="menu"/>
     </Dependency>
     <ChangeLog>
+    	<Version Name="0.3">
+    		<Change Name="feature_03.1" Type="Feature"  Status="Finished" PublishDate="2012-03-03" Description="Added module loader for extend module."></Change>    		    		
+    	</Version>
     	<Version Name="0.2">
     		<Change Name="feature_02.1" Type="Feature"  Status="Finished" PublishDate="2012-03-02" Description="Added default value supports."></Change>    		    		
     	</Version>
