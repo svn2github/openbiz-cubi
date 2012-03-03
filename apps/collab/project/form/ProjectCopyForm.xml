@@ -13,7 +13,7 @@
     </DataPanel>
     <ActionPanel>
     	<Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectDetailForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ContextMenu="Save"   />
+            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectEditExtendForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ContextMenu="Save"   />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
