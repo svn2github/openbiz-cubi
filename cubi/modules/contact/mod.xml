@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="contact" Description="contact management module" Version="0.6" OpenbizVersion="3.0" LoadHandler="contact.lib.ContactLoadHandler">
+<Module Name="contact" Description="contact management module" Version="0.7" OpenbizVersion="3.0" LoadHandler="contact.lib.ContactLoadHandler">
 	<ACL>
 		<Resource Name="contact">
 			<Action Name="access" Description="access my contact"/>
@@ -29,6 +29,9 @@
     	<Module Name="menu"/>
     </Dependency>
     <ChangeLog>
+    	<Version Name="0.7">
+    		<Change Name="feature_071" Type="Feature"  Status="Finished" PublishDate="2012-03-03" Description="support extend fields feature"></Change>    		
+    	</Version>
     	<Version Name="0.6">
     		<Change Name="feature_062" Type="Feature"  Status="Finished" PublishDate="2012-02-18" Description="Custom fields has protect level control"></Change>
     		<Change Name="feature_061" Type="Feature"  Status="Finished" PublishDate="2012-02-18" Description="Added custom field feature for contact"></Change>
