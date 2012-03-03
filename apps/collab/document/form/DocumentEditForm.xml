@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="DocumentEditForm" Class="DocumentForm"  Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif" FormType="Edit" jsClass="jbForm" Title="Edit Document" Description="Edit selected document." BizDataObj="collab.document.do.DocumentDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_docs_edit.tpl.html" EventName="BOOKMARK" MessageFile="Documents.msg" Access="collab_document.access">
     <DataPanel>
-	<Element Name="fld_type_id" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.document.do.DocumentTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />
+	<Element Name="fld_type_id" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.document.do.DocumentTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" >
+		<EventHandler Name="fld_type_id_onchange" Event="onchange" Function="UpdateForm()" />
+	</Element>	
 	<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
-    <Element Name="fld_title" Class="InputText" FieldName="title" Label="Title"   />	
-    <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	
+    <Element Name="fld_title" Class="InputText" FieldName="title" Label="Title"   />
+    	
+	
+	<Element Name="fld_extend_fields"   Class="FormElement" FormReference="extend.widget.ExtendDataEditForm" FieldName="extend" Label="" AllowURLParam="N" />
+	
+    <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />			
     <Element Name="fld_content" Class="CKEditor" mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="content" Label="Content" />	
 	   				 
 	<Element Name="fld_sortorder" Class="Listbox" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />	               

@@ -25,7 +25,9 @@
 		
 	<div class="detail_form_panel_padding">
 	{foreach item=item key=itemName from=$dataPanel}
-		{if $item.type eq 'CKEditor' 
+		{if $item.type eq 'FormElement'}
+			<div>{$item.element}</div>
+		{elseif $item.type eq 'CKEditor' 
 		 or $item.type eq 'FormElement' 
 		 or $item.type eq 'RichText' 
 		 or $item.type eq 'Textarea'  
@@ -35,6 +37,7 @@
 		 or $item.type eq 'IDCardReader'
 		 }
 			<table  id="{$itemName}_container" class="input_row">
+			{if $item.label}
 			<tr>
 			<td style="width:80px;">	
 				<label style="text-align:left">{$item.label}</label>
@@ -47,11 +50,12 @@
 				{/if}
 			</td>
 			</tr>
+			{/if}
 			<tr><td colspan="2" align="center" >
 				<span class="label_textarea" style="width:655px;">{$item.element}</span>
 							
 			</td></tr>
-			</table>		
+			</table>	
 		{else}
 			{if $item.type eq 'Hidden' }
 			<table  id="{$itemName}_container" class="input_row" style="display:none">
