@@ -167,7 +167,7 @@ class ExtendDataEditForm extends EasyForm
 		return $rec;
 	}
 	
-	public function setValue($value){
+	public function setValue($value){		
 		if(strtolower($_GET['P1'])!='[updaterecord]'){
 			return;
 		}
@@ -191,14 +191,13 @@ class ExtendDataEditForm extends EasyForm
 		$recArr['record_id'] = $record_id;
 
 
-		$oldRec = $do->fetchOne($this->m_SearchRule." AND [record_id]='$record_id'" );
+		$oldRec = BizSystem::getObject($do->m_Name,1)->fetchOne($this->m_SearchRule." AND [record_id]='$record_id'" );
 		if($oldRec){
 			$oldRec = $oldRec->toArray();						
 			$recArr['Id'] = $oldRec['Id'];
 			$extendId = $this->getDataObj()->updateRecord($recArr,$oldRec);
-			
 		}else{		
-			$extendId = $this->getDataObj()->insertRecord($recArr);
+			$extendId = $this->getDataObj()->insertRecord($recArr);			
 		}
 		return true;
 		

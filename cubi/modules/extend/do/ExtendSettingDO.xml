@@ -24,6 +24,7 @@
     <TableJoins>
     </TableJoins>
     <ObjReferences>
-    	<Object Name="extend.do.ExtendSettingTranslateDO" Description="" Relationship="1-M" Table="extend_setting_translate"  Column="setting_id" FieldRef="Id" />
+    	<Object Name="extend.do.ExtendSettingTranslateDO" Description="" Relationship="1-M" Table="extend_setting_translate"  Column="setting_id" FieldRef="Id" onDelete="Cascade" />
+		<Object Name="extend.do.ExtendSettingOptionDO" Description="" Relationship="1-M" Table="extend_setting_option"  Column="setting_id" FieldRef="Id" onDelete="Cascade" />
     </ObjReferences>
 </BizDataObj>
