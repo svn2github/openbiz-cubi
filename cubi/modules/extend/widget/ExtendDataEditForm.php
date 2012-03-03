@@ -175,6 +175,14 @@ class ExtendDataEditForm extends EasyForm
 			|| $_GET['P1']==''){
 			return;
 		}
+		if(!$this->m_ParentFormName)
+		{
+			return ;
+		}
+		if($this->m_Saved)
+		{
+			return ;
+		}
 		
 		$recArr = $this->readInputExtendRecord();
 		$do = $this->getDataObj();
@@ -185,9 +193,9 @@ class ExtendDataEditForm extends EasyForm
 		$column_value	= $do->m_Association['FieldRefVal']; 
 				
 		$elem_name = BizSystem::getObject($this->m_ParentFormName)->m_DataPanel->getByField($column_name)->m_Name;
-		
-		$column_value = BizSystem::ClientProxy()->getFormInputs($elem_name);
-		
+		if($elem_name){
+			$column_value = BizSystem::ClientProxy()->getFormInputs($elem_name);
+		}
 		$record_id = BizSystem::getObject($this->m_ParentFormName)->m_RecordId;
 		
 		$recArr[$cond_column] = $cond_value;
@@ -195,7 +203,6 @@ class ExtendDataEditForm extends EasyForm
 		$recArr['record_id'] = $record_id;				
 		
 		$oldRec = BizSystem::getObject($do->m_Name,1)->fetchOne($this->m_SearchRule." AND [record_id]='$record_id'" );
-
 		if($oldRec){
 			$oldRec = $oldRec->toArray();						
 			$recArr['Id'] = $oldRec['Id'];
@@ -203,6 +210,7 @@ class ExtendDataEditForm extends EasyForm
 		}else{		
 			$extendId = $this->getDataObj()->insertRecord($recArr);			
 		}
+		$this->m_Saved = true;
 		return true;
 		
 	}
