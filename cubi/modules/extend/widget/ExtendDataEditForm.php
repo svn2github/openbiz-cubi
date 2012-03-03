@@ -11,8 +11,9 @@ class ExtendDataEditForm extends EasyForm
 		$record_id = (int)$prtRec['Id'];		
 		$do = BizSystem::getObject($this->getDataObj()->m_Name,1);
 		$searchRule = $this->getSettingSearchRule();
-		$rec = $do->fetchOne($searchRule."AND [record_id]='$record_id'");
-		if($rec){
+		$do->clearSearchRule();
+		$rec = $do->directfetch($searchRule."AND [record_id]='$record_id'");
+		if($rec[0]){
 			$recArr = $rec->toArray();
 		}else{
 			$recArr = array();
@@ -57,21 +58,31 @@ class ExtendDataEditForm extends EasyForm
 		$column_name	= $do->m_Association['Column'];
 		$column_value	= $do->m_Association['FieldRefVal']; 
 		
-		
-		$recArr = BizSystem::getObject($this->m_ParentFormName)->readInputRecord();
-		$type_id = $recArr['type_id'];
+		$elem_name = BizSystem::getObject($this->m_ParentFormName)->m_DataPanel->getByField('type_id')->m_Name;		
+		$type_id = BizSystem::ClientProxy()->getFormInputs($elem_name);;
 		if($type_id)
 		{
 			$column_value = $type_id;
 		}
-		
-		$searchRule = "`$cond_column` = '$cond_value' AND `$column_name`='$column_value'";
+		$searchRule = "`$cond_column` = '$cond_value' AND `$column_name`='$column_value'";		
+		$this->m_SearchRule = $searchRule;
 		return $searchRule;	
 	}
 	
 	public function render()
+	{						
+		if(!$this->m_DataPanel->count())
+		{		
+			$this->m_DataPanel = new Panel($this->configDataPanel(),"",$this);
+		}	
+		if(!$this->m_DataPanel->count()){
+			return "";
+		}
+		return parent::render();
+	}
+	
+	public function configDataPanel()
 	{
-						
 		$searchRule = $this->getSettingSearchRule();
 		
 		$fieldsDO = BizSystem::getObject($this->m_ExtendSettingDO,1);
@@ -107,19 +118,73 @@ class ExtendDataEditForm extends EasyForm
 			$xmlArr[$i] = $fieldArr;
 			$i++;
 		}
-		if(!$this->m_DataPanel->count())
-		{
-			if(count($xmlArr)==1){
+		if(count($xmlArr)==1){
 				$xmlArr=$xmlArr[0];
-			}
-			$this->m_DataPanel = new Panel($xmlArr,"",$this);
 		}
-		return parent::render();
+		return $xmlArr;	
+	}
+	
+	public function readInputExtendRecord()
+	{		
+		$searchRule = $this->m_SearchRule;		
+		$fieldsDO = BizSystem::getObject($this->m_ExtendSettingDO,1);
+		$fieldRecs = $fieldsDO->directfetch($searchRule);
+		
+		if(!$fieldRecs->count()){
+			return ;
+		}
+		
+		$rec = array();
+		foreach ($fieldRecs as $field){
+			$elem_name = "extend_field_".$field['Id'];
+			$field_name = $field['field'];
+			$field_value = BizSystem::ClientProxy()->getFormInputs($elem_name);
+			$rec[$field_name]=$field_value;
+		}
+		
+		return $rec;
 	}
 	
 	public function setValue($value){
-		$rec = $this->readInputRecord();
-		var_dump($rec);exit;
+		if(strtolower($_GET['P1'])!='[updaterecord]'){
+			return;
+		}
+		
+		$recArr = $this->readInputExtendRecord();
+		$do = $this->getDataObj();
+		
+		$cond_column	= $do->m_Association['CondColumn'];
+		$cond_value		= $do->m_Association['CondValue'];
+		$column_name	= $do->m_Association['Column'];
+		$column_value	= $do->m_Association['FieldRefVal']; 
+				
+		$elem_name = BizSystem::getObject($this->m_ParentFormName)->m_DataPanel->getByField('type_id')->m_Name;
+		
+		$column_value = BizSystem::ClientProxy()->getFormInputs($elem_name);
+		
+		$record_id = BizSystem::getObject($this->m_ParentFormName)->m_RecordId;
+		
+		$recArr[$cond_column] = $cond_value;
+		$recArr[$column_name] = $column_value;
+		$recArr['record_id'] = $record_id;
+
+
+		$oldRec = $do->fetchOne($this->m_SearchRule." AND [record_id]='$record_id'" );
+		if($oldRec){
+			$oldRec = $oldRec->toArray();						
+			$recArr['Id'] = $oldRec['Id'];
+			$extendId = $this->getDataObj()->updateRecord($recArr,$oldRec);
+			
+		}else{		
+			$extendId = $this->getDataObj()->insertRecord($recArr);
+		}
+		return true;
+		
+	}
+	
+	public function getValue()
+	{
+		return null;
 	}
 }
 ?>
