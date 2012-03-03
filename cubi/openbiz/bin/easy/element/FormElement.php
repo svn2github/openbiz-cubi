@@ -43,8 +43,6 @@ class FormElement extends InputElement
         }
     }
     
-
-
     /**
      * Draw the element according to the mode
      *
@@ -71,7 +69,15 @@ class FormElement extends InputElement
         }
     	$sHTML = $formElementObj->render();    	
     	$formObj->setDataObj($formDataObj);
-    	$this->FormRecordCount();    	
+    	$this->FormRecordCount();    
+    	if(strlen($sHTML))
+    	{
+    		$this->m_Hidden = "N";
+    	}
+    	else
+    	{
+    		$this->m_Hidden = "Y";
+    	}
         return $sHTML;
     }
 
