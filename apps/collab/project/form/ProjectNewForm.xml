@@ -16,7 +16,7 @@
     </DataPanel>
     <ActionPanel>
     	<Element Name="btn_save" Class="Button" Text="Next Step" CssClass="button_gray_w">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectCreateTaskForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Next" />
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.project.form.ProjectEditExtendForm&amp;fld:Id={@collab.project.do.ProjectDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Next" />
         </Element>
 		<Element Name="btn_spacer" Class="Spacer" width="10" />
         

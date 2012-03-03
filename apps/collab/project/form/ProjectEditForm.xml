@@ -2,9 +2,15 @@
 <EasyForm Name="ProjectEditForm" Class="changelog.form.ChangeLogForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Edit Project" Description="Please input the information of the project's budget, start time and so on." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
     <DataPanel>
 	    <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
-		<Element Name="fld_type_id" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" />			    
+	    		
+		<Element Name="fld_type_id" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" >
+			<EventHandler Name="fld_type_id_onchange" Event="onchange" Function="UpdateForm()" />
+		</Element>			    
         <Element Name="fld_name" ElementSet="General" Class="InputText" DefaultValue="New Project" FieldName="name" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
 		<Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+
+		<Element Name="fld_extend_fields" ElementSet="Extend Fields"   Class="FormElement" FormReference="extend.widget.ExtendDataEditForm" FieldName="extend" Label="" AllowURLParam="N" />
+
 
 		<Element Name="fld_budget" ElementSet="Budget" Class="InputText" FieldName="budget_cost" Label="Budget"  Description="unit in Dollars, total budget" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>						
 						

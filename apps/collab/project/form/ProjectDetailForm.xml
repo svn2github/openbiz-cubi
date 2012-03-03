@@ -20,6 +20,8 @@
 		</Element>
 		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 
+		<Element Name="fld_extend_fields"   ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N" />
+
  
 
 		<Element Name="fld_related_budget"   ElementSet="Expenses" Class="FormElement" FormReference="collab.task.widget.TaskListBudgetForm" FieldName="" Label="" AllowURLParam="N" />
