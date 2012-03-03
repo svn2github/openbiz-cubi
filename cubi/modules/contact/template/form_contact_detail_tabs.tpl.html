@@ -227,7 +227,19 @@ table.input_row {
 			init_elementset('{$form.name}','3');
 		</script>		
 		
-
+		{if $dataPanel.fld_extend_fields.element}
+		<!-- Ext Fields Section -->		
+		<div class="underline" >		
+			<h2 class="element_set_title"><a id="element_set_btn_ext" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','ext')" >{$dataPanel.fld_extend_fields.elementset}</a></h2>
+				<div id="element_set_panel_ext" class="element_set_panel">
+				{$dataPanel.fld_extend_fields.element}
+			</div>		
+		</div>
+		<script>
+			init_elementset('{$form.name}','ext');
+		</script>		
+		{/if}
+		
 	<!-- tab set start -->
 	{assign var=ts_counter value=1}
 	{foreach item=tabsetdata key=tabsetname name=tabs  from=$form.tabSets}	
