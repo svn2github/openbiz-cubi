@@ -229,6 +229,11 @@ class BizDataSql
             $mytable_col = $this->getTableColumn(null, $assoc["Column"]);
             // construct table.column = 'field value'
             $where = $mytable_col." = '".$assoc["FieldRefVal"]."'";
+            
+            $mytable_col2 = $this->getTableColumn(null, $assoc["Column2"]);
+            if($assoc["Column2"]){
+            	$where .= " AND ".$mytable_col2." = '".$assoc["FieldRefVal2"]."'";
+            }
             $mytable_cond_col = $this->getTableColumn(null, $assoc["CondColumn"]);
             if($assoc["CondColumn"]){
             	$where .= " AND $mytable_cond_col ='".$assoc["CondValue"]."' ";

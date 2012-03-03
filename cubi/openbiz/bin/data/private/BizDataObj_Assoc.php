@@ -171,6 +171,15 @@ class BizDataObj_Assoc
     	
     	$newRecArr["Id"] = $recArr["Id"];    	
 		$newRecArr[$field] = $parentRefVal;
+		
+		$column2 = $dataObj->m_Association['Column2'];
+    	$field2 = $dataObj->getFieldNameByColumn($column2);
+    	    	
+    	$parentRefVal2 = $dataObj->m_Association["FieldRefVal2"];
+    	if($column2)
+    	{
+    		$newRecArr[$field2] = $parentRefVal2;
+    	}
     	
     	$cond_column = $dataObj->m_Association['CondColumn'];
     	$cond_value = $dataObj->m_Association['CondValue'];
@@ -319,8 +328,15 @@ class BizDataObj_Assoc
     	$column = $dataObj->m_Association['Column'];
     	$field = $dataObj->getFieldNameByColumn($column);
     	    	    	
+    	$column2 = $dataObj->m_Association['Column2'];
+    	$field2 = $dataObj->getFieldNameByColumn($column2);
+    	
     	$newRecArr["Id"] = $recArr["Id"];
 		$newRecArr[$field] = '';
+		
+		if($field2){
+			$newRecArr[$field2] = '';
+		}
 		
     	$cond_column = $dataObj->m_Association['CondColumn'];
     	$cond_value = $dataObj->m_Association['CondValue'];    	

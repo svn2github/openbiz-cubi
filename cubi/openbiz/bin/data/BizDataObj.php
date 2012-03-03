@@ -625,6 +625,7 @@ class BizDataObj extends BizDataObj_Lite
             if ($objRef->m_Relationship == "1-M" || $objRef->m_Relationship == "1-1") {
                 $table = $objRef->m_Table;
                 $column = $objRef->m_Column;
+                $column2 = $objRef->m_Column2;
             }
             else if ($objRef->m_Relationship == "M-M" || $objRef->m_Relationship == "Self-Self") {
                 $table = $objRef->m_XTable;
@@ -632,21 +633,36 @@ class BizDataObj extends BizDataObj_Lite
             }
             $refField = $this->getField($objRef->m_FieldRef);
             $fieldVal = $this->getFieldValue($objRef->m_FieldRef);
-            if (!$fieldVal) return;
+            
+            $fieldVal2 = $this->getFieldValue($objRef->m_FieldRef2);
+            if (!$fieldVal) return;      
+            if($column2){     
+            	if (!$fieldVal2) return;
+            }
 
             $db = $this->getDBConnection("WRITE");
             // get the cascade action sql
             if ($cascadeType=='Delete') {
                 if ($objRef->m_OnDelete == "Cascade") {
                     $sql = "DELETE FROM ".$table." WHERE ".$column."='".$fieldVal."'";
+                    if($column2 && $fieldVal2){
+                    	$sql .= " AND ".$column2."='".$fieldVal2."'"; 	
+                    }
                 }
                 else if ($objRef->m_OnDelete == "SetNull") {
                     $sql = "UPDATE ".$table." SET $column=null WHERE ".$column."='".$fieldVal."'";
+                	if($column2 && $fieldVal2){
+                    	$sql .= " AND ".$column2."='".$fieldVal2."'"; 	
+                    }
                 }
                 else if ($objRef->m_OnDelete == "Restrict") {
                     // check if objRef has records
-                    $refObj = $this->getRefObject($objRef->m_Name);                    
-                    if (count($refObj->directFetch("`$column`='".$refField->m_Value."'",1)) == 1) {
+                    $refObj = $this->getRefObject($objRef->m_Name);  
+                	$sql = "`$column`='".$refField->m_Value."'";
+                    if($column2 && $fieldVal2){
+                    	$sql .= " AND ".$column2."='".$fieldVal2."'"; 	
+                    }                  
+                    if (count($refObj->directFetch($sql,1)) == 1) {
                         throw new BDOException($this->getMessage("DATA_UNABLE_DEL_REC_CASCADE",array($objRef->m_Name)));
                     }
                     return;
@@ -658,14 +674,24 @@ class BizDataObj extends BizDataObj_Lite
                 
                 if ($objRef->m_OnUpdate == "Cascade") {
                     $sql = "UPDATE ".$table." SET $column='".$refField->m_Value."' WHERE ".$column."='".$refField->m_OldValue."'";
+               	 	if($column2 && $fieldVal2){
+                    	$sql .= " AND ".$column2."='".$fieldVal2."'"; 	
+                    }
                 }
                 else if ($objRef->m_OnUpdate == "SetNull") {
                     $sql = "UPDATE ".$table." SET $column=null WHERE ".$column."='".$refField->m_OldValue."'";
+                	if($column2 && $fieldVal2){
+                    	$sql .= " AND ".$column2."='".$fieldVal2."'"; 	
+                    }
                 }
                 else if ($objRef->m_OnUpdate == "Restrict") {
                     // check if objRef has records
                     $refObj = BizSystem::getObject($objRef->m_Name);
-                    if (count($refObj->directFetch("[".$objRef->m_FieldRef."]='".$refField->m_OldValue."'",1)) == 1) {
+					$sql = "[".$objRef->m_FieldRef."]='".$refField->m_OldValue."'";
+                    if($column2 && $fieldVal2){
+                    	$sql .= " AND ".$column2."='".$fieldVal2."'"; 	
+                    }
+                    if (count($refObj->directFetch($sql,1)) == 1) {
                         throw new BDOException($this->getMessage("DATA_UNABLE_UPD_REC_CASCADE",array($objRef->m_Name)));
                     }
                     return;
