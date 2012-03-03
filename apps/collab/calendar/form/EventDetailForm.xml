@@ -20,6 +20,9 @@
 			<Element Name="fld_allday" ElementSet="General" Class="Hidden"  FieldName="all_day" />
 			<Element Name="fld_repeat" ElementSet="General" Class="Hidden"  FieldName="recurrence" />
 			
+			<Element Name="fld_extend_fields"   ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N" />
+
+			
 			<!-- 1-M -->
 			<Element Name="fld_locations" Access="location.access"  TabSet="Extra Information" ElementSet="Locations" Class="FormElement" FormReference="location.widget.LocationListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 			<Element Name="btn_manage_locations" Access="location.access"  TabSet="Extra Information" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Locations" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
