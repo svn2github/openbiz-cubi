@@ -39,8 +39,8 @@
 
 	    </DataPanel>
     <ActionPanel>  
-        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="SwitchForm(collab.task.form.TaskDetailForm,{@collab.task.do.TaskDO:Field[Id].Value})"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        <Element Name="btn_finish" Class="Button" Text="Next Step" CssClass="button_gray_w">
+            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="UpdateRecord()" RedirectPage="{APP_INDEX}/collab/task_detail/{@collab.task.do.TaskDO:Field[Id].Value}"  ContextMenu="Quick Finish"   />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
