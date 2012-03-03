@@ -14,7 +14,7 @@ class ExtendDataEditForm extends EasyForm
 		$do->clearSearchRule();
 		$rec = $do->directfetch($searchRule."AND [record_id]='$record_id'");
 		if($rec[0]){
-			$recArr = $rec->toArray();
+			$recArr = $rec[0];
 		}else{
 			$recArr = array();
 		}
@@ -69,8 +69,13 @@ class ExtendDataEditForm extends EasyForm
 		return $searchRule;	
 	}
 	
+	public function fetchData()
+	{
+		return $this->getExtendData();
+	}
+	
 	public function render()
-	{					
+	{						
 		if(!$this->m_DataPanel->count())
 		{		
 			$this->m_DataPanel = new Panel($this->configDataPanel(),"",$this);
@@ -93,6 +98,7 @@ class ExtendDataEditForm extends EasyForm
 		}
 		
 		$extData = $this->getExtendData();
+		
 		$i=0;
 		foreach ($fieldRecs as $field){
 			$elemArr = array(
