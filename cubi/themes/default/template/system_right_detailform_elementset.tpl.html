@@ -38,7 +38,7 @@
 		{foreach item=item key=itemName from=$dataPanel}
 			{if $item.elementset eq $setname}
 			{if  $item.type eq 'FormElement' }
-			{$item.element}
+			<div>{$item.element}</div>
             {elseif $item.type eq 'CKEditor' 
              or $item.type eq 'RichText' 
              or $item.type eq 'HTMLPreview'
