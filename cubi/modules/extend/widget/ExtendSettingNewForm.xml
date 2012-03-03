@@ -9,7 +9,7 @@
         </Element>        
 		<Element Name="fld_options" ElementSet="Config" Hidden="{@:Elem[fld_control].Value!='Listbox' &amp;&amp; @:Elem[fld_control].Value!='DropDownList'?'Y':'N'  }"  Class="InputText" FieldName="options" Label="Options"   />
         <Element Name="fld_defaultvalue" ElementSet="Config"  Class="InputText" FieldName="defaultvalue" Label="Default Value"   />
-		<Element Name="fld_access" ElementSet="Misc"  Class="Listbox" SelectFrom="contact.lov.ExtendPermLOV(Access)" FieldName="access" Label="Permission"   />
+		<Element Name="fld_access" ElementSet="Misc"  Class="extend.element.AccessList"  FieldName="access" Label="Permission"   />
         <Element Name="fld_sortorder" ElementSet="Misc" DefaultValue="50" DefaultValueRename="N" Class="Listbox" SelectFrom="common.lov.CommLOV(Order)" FieldName="sortorder" Label="Sort Order"  AllowURLParam="N" />
     </DataPanel>
     <ActionPanel> 
