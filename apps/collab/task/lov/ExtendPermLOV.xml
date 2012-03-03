@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <Access Value="collab_task.access" text="Default Task Access Level"/>
+   <Access Value="collab_task.view_level_1" text="Task Access Level 1"/>
+   <Access Value="collab_task.view_level_2" text="Task Access Level 2"/>
+   <Access Value="collab_task.view_level_3" text="Task Access Level 3"/>
+</Selection>

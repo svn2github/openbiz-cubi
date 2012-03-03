@@ -19,5 +19,6 @@
     <TableJoins>
     </TableJoins>
     <ObjReferences>
+    	<Object Name="extend.do.ExtendSettingDO" Relationship="1-M" Table="extend_setting" CondColumn='module' CondValue='task' Column="type_id" FieldRef="Id" onDelete="Cascade"/>    	
     </ObjReferences>
 </BizDataObj>
