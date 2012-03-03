@@ -130,6 +130,15 @@ margin-top:4px;
 			</tr> 
 			</table>					
 	</div>
+	
+	{if $dataPanel.fld_extend_fields.element}
+	<div id="element_tabset_ext" class="underline upline" style="width:680px;padding-top:10px;padding-bottom:10px;padding-left:0px;">
+		<div id="element_set_panel_ext">
+		{$dataPanel.fld_extend_fields.element}
+		</div>
+	</div>
+	{/if}
+	
 	<div style="padding-left:20px;display:none" id="tabs">
 	<ul style="border-radius: none;">
 	{assign var=es_counter value=0}
