@@ -3,8 +3,11 @@
    <Status Value="1" text="Active"/>
    <Status Value="0" text="Inactive"/>
 
-   <EnableStatus Value="1" text="Enable"/>
-   <EnableStatus Value="0" text="Disable"/>
+   <EnableStatus  Picture="flag_y.gif" Value="1" text="Enable"/>
+   <EnableStatus Picture="flag_n.gif" Value="0" text="Disable"/>
+   
+   <Bool Picture="flag_y.gif" Value="1" text="Enable"/>
+   <Bool Picture="flag_n.gif" Value="0" text="Disable"/>   
    
 	<Order Text="5" Value="5"/>  
 	<Order Text="10" Value="10"/>
