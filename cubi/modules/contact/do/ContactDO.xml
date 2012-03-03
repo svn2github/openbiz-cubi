@@ -57,7 +57,7 @@
     	<Object Name="attachment.do.AttachmentDO" Description="" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='contact' Column="foreign_id" FieldRef="Id" />
     	<Object Name="changelog.do.ChangeLogDO" Description="" Relationship="1-M" Table="changelog" CondColumn='type' CondValue='contact' Column="foreign_id" FieldRef="Id" />
 		
-		<Object Name="extend.do.ExtendDataDO" Relationship="1-M" Table="extend_data" CondColumn='module' CondValue='contact' Column="type_id" FieldRef="type_id" onDelete="Restrict"/>
+		<Object Name="extend.do.ExtendDataDO" Relationship="1-M" Table="extend_data" CondColumn='module' CondValue='contact' Column="type_id" FieldRef="type_id" Column2="record_id" FieldRef2="Id" onDelete="Cascade"/>
 		
     	<!-- M-M -->
     	<Object Name="contact.do.ContactRefDO" Description="" Relationship="Self-Self" Table="contact" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="contact_related" XColumn1="contact_id" XColumn2="related_id" XDataObj="contact.do.ContactRelatedDO"/>
