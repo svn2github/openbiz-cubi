@@ -170,7 +170,9 @@ class ExtendDataEditForm extends EasyForm
 	}
 	
 	public function setValue($value){	
-		if(strtolower($_GET['P1'])=='[updateform]'){
+		if(	strtolower($_GET['P1'])=='[updateform]' 
+			|| strtolower($_GET['P1'])=='[switchform]'
+			|| $_GET['P1']==''){
 			return;
 		}
 		
