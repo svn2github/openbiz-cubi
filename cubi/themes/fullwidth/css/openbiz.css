@@ -864,7 +864,7 @@ p.input_row .label_text{
 }
 table.input_row{
 padding-bottom:2px;
-
+line-height:24px;
 }
 
 table.input_row td{
