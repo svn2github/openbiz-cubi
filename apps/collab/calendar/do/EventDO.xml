@@ -52,6 +52,8 @@
     	<Object Name="changelog.do.ChangeLogDO" Description="" Relationship="1-M" Table="changelog" CondColumn='type' CondValue='event' Column="foreign_id" FieldRef="Id" />
     	<Object Name="location.do.LocationDO" Description="" Relationship="1-M" Table="location" CondColumn='type' CondValue='event' Column="foreign_id" FieldRef="Id" />
     	
+		<Object Name="extend.do.ExtendDataDO" Relationship="1-M" Table="extend_data" CondColumn='module' CondValue='event' Column="type_id" FieldRef="type_id" Column2="record_id" FieldRef2="Id" onDelete="Cascade"/>
+		
     	<!-- M-M -->
     	<Object Name="collab.calendar.do.EventRefDO" Description="" Relationship="Self-Self" Table="event" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="event_related" XColumn1="event_id" XColumn2="related_id" XDataObj="collab.calendar.do.EventRelatedDO"/>
     	

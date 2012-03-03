@@ -20,6 +20,7 @@
     <TableJoins>
     </TableJoins>
     <ObjReferences>
-        <Object Name="collab.calendar.do.EventDO" Relationship="1-M" Table="calender" Column="type_id" FieldRef="Id" onDelete="Restrict"/>    
+        <Object Name="collab.calendar.do.EventDO" Relationship="1-M" Table="calender" Column="type_id" FieldRef="Id" onDelete="Restrict"/>
+		<Object Name="extend.do.ExtendSettingDO" Relationship="1-M" Table="extend_setting" CondColumn='module' CondValue='event' Column="type_id" FieldRef="Id" onDelete="Cascade"/>    
     </ObjReferences>
 </BizDataObj>

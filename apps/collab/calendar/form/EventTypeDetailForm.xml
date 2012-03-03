@@ -8,22 +8,30 @@
        	</Element>
         	<Element Name="fld_published" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" /><Element Name="fld_published_other" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         	<Element Name="fld_sortorder" ElementSet="General"  Class="LabelText" SelectFrom="common.lov.CommLOV(Order)"  FieldName="sortorder" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		    <Element Name="fld_create_by" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>
+		    
+			<Element Name="fld_extend_setting" Access="extend.access" AccessSelectFrom="collab.calendar.lov.ExtendPermLOV(Access)" ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendSettingListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+			
+			<Element Name="fld_create_by" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>
 		    <Element Name="fld_create_time" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
 		    <Element Name="fld_update_by" ElementSet="Miscellaneous" Class="LabelText" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>
 		    <Element Name="fld_update_time" ElementSet="Miscellaneous" Class="LabelText" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
 	</DataPanel>
-    <ActionPanel>       
+    <ActionPanel>      
+		<Element Name="btn_custom" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button" Text="Custom" CssClass="button_gray_w">
+            <EventHandler Name="btn_custom_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventTypeCustomForm,{@:Elem[fld_Id].Value})"/>
+        </Element>
+		<Element Name="btn_spacer"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Spacer" width="10" />
+		     
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventTypeNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
         </Element>          
-        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+        <Element Name="btn_edit" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}"  Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventTypeEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
-		<Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
+		<Element Name="btn_copy" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}"  Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
             <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=collab.calendar.form.EventTypeCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
         </Element> 
-        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+        <Element Name="btn_delete" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}"  Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=collab.calendar.form.EventTypeListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">

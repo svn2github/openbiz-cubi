@@ -18,7 +18,7 @@
             <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=collab.task.form.TaskTypeDetailForm&amp;fld:Id={@collab.task.do.TaskTypeDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
-            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectTypeListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskTypeListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
         </Element>     
     </ActionPanel> 
     <NavPanel>
