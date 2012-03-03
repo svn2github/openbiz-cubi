@@ -164,7 +164,8 @@ class Panel extends MetaIterator implements iUIControl
     public function getByField($fieldName)
     {
         /* @var $elem Element */
-        foreach ($this->m_var as $elem)
+    	$elems =  $this->m_var;
+        foreach ($elems as $elem)
         {
             if($elem->m_FieldName == $fieldName && $elem->m_Class!='RowCheckbox')
             {
