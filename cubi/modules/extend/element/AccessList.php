@@ -2,7 +2,12 @@
 class AccessList extends Listbox
 {
 	public function getSelectFrom(){
-		return BizSystem::getObject($this->getFormObj()->m_ParentFormName)
+		$formname = $this->getFormObj()->m_ParentFormName;
+		if(!$formname)
+		{
+			$formname = "extend.widget.ExtendSettingEditForm";
+		}				
+		return BizSystem::getObject($formname)
 					->m_ParentFormElementMeta['ATTRIBUTES']['ACCESSSELECTFROM'];
 	}
 }
