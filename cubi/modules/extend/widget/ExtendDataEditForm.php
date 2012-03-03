@@ -58,7 +58,7 @@ class ExtendDataEditForm extends EasyForm
 		$column_name	= $do->m_Association['Column'];
 		$column_value	= $do->m_Association['FieldRefVal']; 
 		
-		$elem_name = BizSystem::getObject($this->m_ParentFormName)->m_DataPanel->getByField('type_id')->m_Name;		
+		$elem_name = BizSystem::getObject($this->m_ParentFormName)->m_DataPanel->getByField($column_name)->m_Name;		
 		$type_id = BizSystem::ClientProxy()->getFormInputs($elem_name);;
 		if($elem_name && $type_id)
 		{
@@ -174,7 +174,7 @@ class ExtendDataEditForm extends EasyForm
 		$column_name	= $do->m_Association['Column'];
 		$column_value	= $do->m_Association['FieldRefVal']; 
 				
-		$elem_name = BizSystem::getObject($this->m_ParentFormName)->m_DataPanel->getByField('type_id')->m_Name;
+		$elem_name = BizSystem::getObject($this->m_ParentFormName)->m_DataPanel->getByField($column_name)->m_Name;
 		
 		$column_value = BizSystem::ClientProxy()->getFormInputs($elem_name);
 		
