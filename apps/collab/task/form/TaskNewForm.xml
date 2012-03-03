@@ -57,11 +57,8 @@
 		<Element Name="fld_published" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="1" FieldName="group_perm" Label="Group Share"  /><Element Name="fld_published_other" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="0" FieldName="other_perm" Label="Other Group"  /><Element Name="fld_published_other" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="0" FieldName="other_perm" Label="Other Group"  />				        
     </DataPanel>
     <ActionPanel>
-    	<Element Name="btn_finish" Class="Button" Text="Quick Finish" CssClass="button_gray_w">
-            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.task.form.TaskDetailForm&amp;fld:Id={@collab.task.do.TaskDO:Field[Id].Value}"  ContextMenu="Quick Finish"   />
-        </Element>
-        <Element Name="btn_save" Class="Button" Text="Next" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.task.form.TaskEditContactForm&amp;fld:Id={@collab.task.do.TaskDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Next" />
+    	<Element Name="btn_finish" Class="Button" Text="Next Step" CssClass="button_gray_w">
+            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=collab.task.form.TaskEditExtendForm&amp;fld:Id={@collab.task.do.TaskDO:Field[Id].Value}"  ContextMenu="Quick Finish"   />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>

@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="TaskEditForm" Class="TaskForm" FormType="Edit" jsClass="jbForm"  Icon="{RESOURCE_URL}/collab/task/images/icon_task_gantt.gif" Title="Edit task" Description="You can modify general task setting in below form." BizDataObj="collab.task.do.TaskDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="TASK" MessageFile="Task.msg" Access="collab_task.access">
     <DataPanel>
-	<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
-   		<Element Name="fld_type_id" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.task.do.TaskTypeDO[name:Id:color]" AllowURLParam="N" />			    
+		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error" />		
+   		<Element Name="fld_type_id" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.task.do.TaskTypeDO[name:Id:color]" AllowURLParam="N" >
+   			<EventHandler Name="fld_type_id_onchange" Event="onchange" Function="UpdateForm()" />
+		</Element>			    
         <Element Name="fld_title" ElementSet="General" Class="InputText" DefaultValue="New Task" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
 		<Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+		
+		<Element Name="fld_extend_fields"   ElementSet="Extend Fields"  Class="FormElement" FormReference="extend.widget.ExtendDataEditForm" FieldName="extend" Label="" AllowURLParam="N" />
+
+		
 		<Element Name="fld_project" DefaultValueRename="N" DefaultValue="0" ElementSet="General" Description="This task will belong selected project" Class="Hidden" FieldName="project_id" Label="Project"  AllowURLParam="N" >
 		</Element>
 		<Element Name="fld_project_name"  Class="InputPicker" ElementSet="General" Description="This task will belong selected project" Enabled="N" UpdateForm="Y" ValuePicker="collab.project.widget.ProjectSinglePickForm" PickerMap="fld_project:fld_Id,fld_project_name:fld_title"  FieldName="project_name" Label="Project"  >    		

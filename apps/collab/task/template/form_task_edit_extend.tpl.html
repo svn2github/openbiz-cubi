@@ -156,135 +156,26 @@ margin-top:4px;
 			</table>					
 	</div>
 
-	{if $dataPanel.fld_extend_fields.element}
-	<div id="element_tabset_ext" class=" upline" style="width:680px;padding-top:10px;padding-bottom:10px;">
-		<h2 class="element_set_title" style="width:680px;"><a id="element_set_btn_ext" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','ext')" >{$dataPanel.fld_extend_fields.elementset}</a></h2>
-		<div id="element_set_panel_ext">
-		{$dataPanel.fld_extend_fields.element}
-		</div>
-	</div>
-	<script>
-			init_elementset('{$form.name}','ext');
-	</script>	
-	{/if}
 	
 
-<!-- tab set start -->
-	{assign var=ts_counter value=1}
-	{foreach item=tabsetdata key=tabsetname name=tabs  from=$form.tabSets}	
-	{if $smarty.foreach.tabs.first}
-	<div id="element_tabset_{$ts_counter}" class=" upline" style="width:680px;padding-top:10px;padding-bottom:10px;">
-	{else}
-	<div id="element_tabset_{$ts_counter}" class="underline upline" style="width:680px;padding-top:10px;padding-bottom:10px;">
-	{/if}
-	<h2 class="element_set_title" style="width:680px;"><a id="element_set_btn_{$ts_counter}" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','{$ts_counter}')" >{$tabsetdata.SetName}</a></h2>						
-	<div id="element_set_panel_{$ts_counter}">
-	<div style="padding-left:20px;display:none;" id="tabs_{$ts_counter}">	
-	<ul style="border-radius: none;">
-	{assign var=es_counter value=0}
-	{foreach item=setname name=elemsets  from=$tabsetdata.Elems}			
-		<li><a href="#element_set_panel_{$ts_counter}_{$es_counter}">{$setname}</a></li>		
-		{assign var=es_counter value=$es_counter+1}
-	{/foreach}
-	</ul>
-	{assign var=es_counter value=0}
-	{foreach item=setname name=elemsets  from=$tabsetdata.Elems}
-
-		{if $es_counter eq 0 AND $ts_counter eq 1}	
-		<div id="element_set_panel_{$ts_counter}_{$es_counter}" class="ui-tabs-panel" style="padding-bottom:0px;">			
-		<div style="padding-bottom:15px;">
+<!-- Misc Section -->
+		<div class="underline upline" >
+				<div id="element_set_panel_5" class="element_set_panel">
+				<table ><tr><td>		
+			{foreach item=item key=itemName from=$dataPanel}
+				{if $item.elementsetcode eq "Data Type"}
 						
-			{assign var=item value=$dataPanel.fld_workhour}		
-			<table  class="input_row">				
-			<tr>	
-				<td style="width:60px;">			
-					<label style="text-align:left;">{$item.label}</label>			
-				</td>
-				<td>
-					<span class="label_text" style="width:100px;">{$item.element}</span>
-				</td>
-			{assign var=item value=$dataPanel.fld_start_time}	
-			
-				<td style="width:60px;">			
-					<label style="text-align:left;">{$item.label}</label>			
-				</td>
-				<td>
-					<span class="label_text" style="width:150px;">{$item.element}</span>
-				</td>					
-		
-			</tr> 
-			</table>	
-			
-			
-			{assign var=item value=$dataPanel.fld_actualhour}	
-			<table  class="input_row odd">				
-			<tr>	
-				<td style="width:60px;" >			
-					<label style="text-align:left;">{$item.label}</label>			
-				</td>
-				<td>
-					<span class="label_text" style="width:100px;">{$item.element}</span>
-				</td>
-			{assign var=item value=$dataPanel.fld_finish_time}				
-			
-				<td style="width:60px;">			
-					<label style="text-align:left;">{$item.label}</label>			
-				</td>
-				<td>
-					<span class="label_text" style="width:150px;">{$item.element}</span>
-				</td>					
-		
-			</tr> 
-			</table>	
-				
-			{assign var=item value=$dataPanel.fld_work_log}	
-			<table  class="input_row">
-			<tr><td align="center" >
-				<span class="label_textarea" style="{if $item.width}width:{$item.width+15}px;{else}{if $default_label_textarea_width}{$default_label_textarea_width}{else}width:655px;{/if}{/if}">{$item.element}</span>								
-			</td></tr>
-			</table>
-		
-			{if $dataPanel.btn_manage_worklog}
-			{assign var=item value=$dataPanel.btn_manage_worklog}	
-			<table  class="input_row odd">				
-			<tr>	
-				
-				<td>
-					<span class="label_text" style="width:150px;">{$item.element}</span>
-				</td>
-			
-				<td style="width:60px;">			
-					<label style="text-align:left;"></label>			
-				</td>
-				<td>
-					<span class="label_text" style="width:150px;"></span>
-				</td>					
-		
-			</tr> 
-			</table>	
-			{/if}
-			</div></div>
-		{else}
-		
-        <div id="element_set_panel_{$ts_counter}_{$es_counter}" class="ui-tabs-panel" style="padding-bottom:0px;">			
-		<div style="padding-bottom:15px;">
-		{assign var=es_elem_counter value=0}
-		{foreach item=item key=itemName from=$dataPanel}			
-			{if $item.elementset eq $setname AND $item.tabsetcode eq $tabsetname}
-			{if $item.type eq 'CKEditor' or $item.type eq 'RichText' 
+				{if $item.type eq 'CKEditor' or $item.type eq 'RichText' 
 				or $item.type eq 'Textarea' or $item.type eq 'LabelTextarea'
-				or $item.type eq 'HTMLPreview'
 				or $item.type eq 'LabelTextarea' or $item.type eq 'LabelImage'
 				 or $item.type eq 'RawData'
 				 or $item.type eq 'IDCardReader'
-				 or $item.type eq 'FormElement'
-			}
-				<table  id="{$itemName}_container" class="input_row">
-				{if $item.label}
-				<tr>				
-				<td style="width:160px;">	
-					<label style="text-align:left;width:160px;">{$item.label}</label>
-				</td>				
+				}
+				<table  id="{$itemName}_container" class="input_row" style="height:auto;">
+				<tr>
+				<td style="width:80px;">	
+					<label style="text-align:left">{$item.label}</label>
+				</td>
 				<td>
 					{if $errors.$itemName}
 					<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
@@ -293,7 +184,6 @@ margin-top:4px;
 					{/if}
 				</td>
 				</tr>
-				{/if}
 				<tr><td colspan="2" align="center" >
 					<span class="label_textarea" style="{if $item.width}width:{$item.width+15}px;{else}{if $default_label_textarea_width}{$default_label_textarea_width}{else}width:655px;{/if}{/if}">{$item.element}</span>
 								
@@ -303,68 +193,42 @@ margin-top:4px;
 				{if $item.type eq 'Hidden' }
 				<table  id="{$itemName}_container" class="input_row" style="display:none">
 				{else}
-					{if $es_elem_counter is odd}
-					<table   id="{$itemName}_container" class="input_row odd">
-					{else}
-					<table   id="{$itemName}_container" class="input_row ">
-					{/if}
+				<table  id="{$itemName}_container" class="input_row">
 				{/if}					
 				<tr>
-				{if $item.label}
-				<td style="width:120px;" >	
+				<td >	
 					<label style="text-align:left">{$item.label}</label>
 				</td>
-				{/if}
 				<td>
 				{if $item.type eq 'Checkbox' }
 					<span class="label_text" >{$item.element} {$item.description}</span>
 				{else}
-					<span class="label_text" style="float:left;{if $item.width}width:{$item.width}px;{else}{if $default_label_text_width}{$default_label_text_width}{else}width:270px;{/if}{/if}">{$item.element}</span>
+					<span class="label_text" style="float:left;{if $item.width}width:{$item.width}px;{else}{if $default_label_text_width}{$default_label_text_width}{else}width:250px;{/if}{/if}">{$item.element}</span>
 					{if $errors.$itemName}
-					<span class="input_error_msg" style="width:200px;">{$errors.$itemName}</span>
+					<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
 					{elseif $item.description}
-					<span class="input_desc" style="width:200px;">{$item.description}</span>			
+					<span class="input_desc" style="width:240px;">{$item.description}</span>			
 					{/if}				
 				{/if}					
 					</td>
 				</tr>
 				</table>
 			{/if}
-			{assign var=es_elem_counter value=$es_elem_counter+1}					
-			{/if}
-		{/foreach}
-        	</div>
-	 			
+					
+				{/if}						
+			{/foreach}	
+			</td></tr></table>	
+			</div>		
+		</div>		
+		
+		{if $dataPanel.fld_extend_fields.element}
+		<!-- Ext Fields Section -->		
+		<div class="underline" >		
+				<div id="element_set_panel_ext" class="element_set_panel">
+				{$dataPanel.fld_extend_fields.element}
+			</div>		
 		</div>
-		{/if}
-
-
-	
-	{assign var=es_counter value=$es_counter+1}			
-	{/foreach}
-	
-	<script>
-	var formname = '{$form.name}';
-	{literal}
-	var c_{/literal}{$ts_counter}{literal} = new Cookies();		
-	var $tabs_{/literal}{$ts_counter}{literal} = $j( "#tabs_{/literal}{$ts_counter}{literal}" ).tabs({
-		select: function(event, ui)
-		{				
-			c_{/literal}{$ts_counter}{literal}.set(formname+'_lastTab_{/literal}{$ts_counter}{literal}',ui.panel.id);			
-		}
-	}).css({'padding-left':'0px','width':'680px','display':'block'});		
-	lastViewedTab_{/literal}{$ts_counter}{literal} = c_{/literal}{$ts_counter}{literal}.get(formname+'_lastTab_{/literal}{$ts_counter}{literal}');
-	$tabs_{/literal}{$ts_counter}{literal}.tabs('select','#'+lastViewedTab_{/literal}{$ts_counter}{literal});
-	{/literal}
-	</script>
-	
-	</div></div></div>
-		<script>
-			init_elementset('{$form.name}','{$ts_counter}');
-		</script>	
-{assign var=ts_counter value=$ts_counter+1}
-{/foreach}
-<!-- tab set finished -->
+		{/if}	
 
 		<div style="height:10px;"></div>
 	 	{if $actionPanel|@count > 0}
