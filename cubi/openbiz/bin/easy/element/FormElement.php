@@ -34,12 +34,12 @@ class FormElement extends InputElement
         while($panel->valid())    	    	
         {      
         	$elem = $panel->current();
-        	$panel->next();    
-        	if($elem->m_ElementSet && $elem->canDisplayed()){        		
+        	if($elem->m_ElementSet ){        		
         		if($elem->m_ElementSet == $my_elementset && !preg_match("/tab_label_count/si",$elem->m_ElementSet)){
         			$elem->m_ElementSet.=" <span class=\"tab_label_count\">$count</span>";
         		}
-        	}          	                                  
+        	}     
+        	$panel->next();        	                                  
         }
     }
     
