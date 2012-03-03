@@ -37,6 +37,8 @@
      	<Object Name="collab.task.do.TaskDO" Description="" Relationship="1-M" Table="task" Column="project_id" FieldRef="Id" />
      	<Object Name="attachment.do.AttachmentDO" Description="" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='project' Column="foreign_id" FieldRef="Id" />
      	
+		<Object Name="extend.do.ExtendDataDO" Relationship="1-M" Table="extend_data" CondColumn='module' CondValue='project' Column="type_id" FieldRef="type_id" Column2="record_id" FieldRef2="Id" onDelete="Cascade"/>
+		
      	<!-- M-M -->
      	<Object Name="collab.project.do.ProjectRefDO" Description="" Relationship="Self-Self" Table="project" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="project_related" XColumn1="project_id" XColumn2="related_id" XDataObj="collab.project.do.ProjectRelatedDO"/>
      	

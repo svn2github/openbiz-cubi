@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <Access Value="collab_project.access" text="Default Project Access Level"/>
+   <Access Value="collab_project.view_level_1" text="Project Access Level 1"/>
+   <Access Value="collab_project.view_level_2" text="Project Access Level 2"/>
+   <Access Value="collab_project.view_level_3" text="Project Access Level 3"/>
+</Selection>
