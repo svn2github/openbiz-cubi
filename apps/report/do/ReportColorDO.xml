@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="ReportColorDO" Description="" Class="BizDataObj" DBName="Default" Table="report_color" SearchRule="" SortRule="[sort_order] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="120">
+<BizDataObj Name="ReportColorDO" Description="" Class="BizDataObj" DBName="Default" Table="report_color" SearchRule="" SortRule="[sort_order] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
 	<BizFieldList>
         <BizField Name="Id" Column="id"     Type="Number"/>
         <BizField Name="name" Column="name" Length="100"   Required="N" Type="Text"/>
