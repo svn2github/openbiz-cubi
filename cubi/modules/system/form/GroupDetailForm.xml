@@ -26,7 +26,7 @@
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(system.form.GroupEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
-            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=system.form.GroupListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="{APP_INDEX}/system/group_list" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(system.form.GroupListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
