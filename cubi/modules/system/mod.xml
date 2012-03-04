@@ -39,14 +39,14 @@
 	    			<MenuItem Name="System.Role.Detail" Title="Role Detail" Description="" URL="/system/role_detail" Order="10"/>
 	    		</MenuItem>
 	    	</MenuItem>
-	    	<MenuItem Name="System.Module" Title="Module" Description="Modules Management" IconImage="spacer.gif" IconCssClass="icon_module" Order="14">
+	    	<MenuItem Name="System.Module" Title="Module" Description="Modules Management" IconImage="spacer.gif" IconCssClass="icon_module" Order="16">
 	    		<MenuItem Name="System.Modules.List" Title="Module Management" Description="" URL="/system/module_list" Order="10">
 	    			<MenuItem Name="System.Modules.Detail" Title="Module Detail" Description="" URL="/system/module_detail" Order="10"/>
 	    		</MenuItem>
 	    		<MenuItem Name="System.Modules.ChangeLog" Title="Change Logs" Description="" URL="/system/module_change_log" Order="20">
 	    		</MenuItem>
 	    	</MenuItem>
-            <MenuItem Name="System.Group" Title="Group" Description="Group Management Module" IconImage="spacer.gif" IconCssClass="icon_group" Order="16">
+            <MenuItem Name="System.Group" Title="Group" Description="Group Management Module" IconImage="spacer.gif" IconCssClass="icon_group" Order="14">
 	    		<MenuItem Name="System.Group.List" Title="Group Management" Description="" URL="/system/group_list" Order="10">
 						<MenuItem Name="System.Group.Detail" Title="Group Detail" Description="" URL="/system/group_detail" Order="10"/>
 	    		</MenuItem>
