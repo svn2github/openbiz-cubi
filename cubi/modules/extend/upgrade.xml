@@ -4,7 +4,7 @@
     </Version>
     <Version Name="0.2">
         <UpgradeSql><![CDATA[
-        ALTER TABLE `extend_setting` ADD `defaultvalue` VARCHAR( 255 ) NOT NULL AFTER `description`;
+        ALTER TABLE `extend_setting` ADD `defaultvalue` VARCHAR( 255 ) NULL AFTER `description`;
 		
 		DROP TABLE IF EXISTS `extend_setting_translation`;
 		CREATE TABLE IF NOT EXISTS `extend_setting_translation` (
