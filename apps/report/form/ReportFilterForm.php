@@ -41,7 +41,7 @@ class ReportFilterForm extends ReportForm
         $searchRule = "";
         foreach ($this->m_DataPanel as $element)
         {
-            if (!$element->m_FieldName)
+	   if (!$element->m_FieldName)
                 continue;
 
             $value = BizSystem::clientProxy()->getFormInputs($element->m_Name);
@@ -58,22 +58,22 @@ class ReportFilterForm extends ReportForm
 	                if ($searchRule == "")
 	                    $searchRule .= $searchStr;
 	                else
-	                    $searchRule .= " OR " . $searchStr;
+	                    $searchRule .= " AND " . $searchStr;
 	            }
             }     
             if ($searchBaseRule == "("){
             	$searchBaseRule.=$searchRule .") ";
             }else{
             	$searchBaseRule.=$searchRule.") AND ";
-            	$searchRule = "";
-            }       
+            	$searchBaseRule = "";
+            }
         }
         if (empty($searchRule)) 
             return;
         if (substr($searchBaseRule, -4) == 'AND ')
             $searchRule = substr($searchBaseRule, 0, -4);
 		$searchRuleBindValues = QueryStringParam::getBindValues();
-		// redraw all forms other than this filter form
+	// redraw all forms other than this filter form
 	foreach ($viewObj->m_FormRefs as $formRef)
         {
             $formName = $formRef->m_Name;
