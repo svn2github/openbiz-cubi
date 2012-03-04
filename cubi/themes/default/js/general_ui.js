@@ -164,15 +164,13 @@ function control_elementset(formName,id,action)
 {
 	switch(action){
 	case "hide":		
-		$('element_set_panel_'+id).style.position="absolute";
-		$('element_set_panel_'+id).style.left="-10000px";
+		setTimeout("$('element_set_panel_"+id+"').style.display = 'none'",100);		
 		$('element_set_btn_'+id).className='expand';			
 		break;
 	case "show":
 		default:		
-		if($('element_set_panel_'+id).style.position=="absolute"){
-			$('element_set_panel_'+id).style.position="static";
-			$('element_set_panel_'+id).style.left="";
+		if($('element_set_panel_'+id).style.display=="none"){
+			$('element_set_panel_'+id).style.display = 'block';
 			$('element_set_panel_'+id).fade({duration: 0.5,from: 0.5, to: 1}); 
 			$('element_set_btn_'+id).className='shrink';
 		}
