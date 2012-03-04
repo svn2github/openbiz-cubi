@@ -5,8 +5,8 @@
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(system.form.GroupDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
-                <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" Link="javascript:">
-         		<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(system.form.GroupDetailForm,{@:Elem[fld_Id].Value})"   />
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" Link="{APP_INDEX}/system/group_detail/{@:Elem[fld_Id].Value}" >
+        <!-- 		<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(system.form.GroupDetailForm,{@:Elem[fld_Id].Value})"   /> -->
         </Element>
                 <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y"/>
 				<Element Name="fld_status" Class="ColumnBool" FieldName="status" Sortable="Y" Label="Active" Link="javascript:;">
