@@ -101,7 +101,7 @@ class EasyFormTree extends EasyForm
     	foreach ($tree->m_Record as $key=>$value){
     		$treeNodeArray[$key] = $value;    		
     	}
-    	$treeNodeArray[$this->m_TitleField] = "+ ".str_repeat("&nbsp;-&nbsp;-&nbsp;-&nbsp;-", $level)." ".$treeNodeArray[$this->m_TitleField];
+    	$treeNodeArray[$this->m_TitleField] = "+ ".str_repeat("- - - -", $level)." ".$treeNodeArray[$this->m_TitleField];
     	
     	array_push($array, $treeNodeArray);
     	$level++;   
