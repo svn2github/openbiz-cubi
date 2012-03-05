@@ -100,8 +100,10 @@
 				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Backup{/t}</a>
 			{php} } {/php}
 			
-			<a href="{$app_index}/email/email_log_list" class="icon_update">
+			{php} if(BizSystem::allowUserAccess('system_update.manage')){ {/php}	
+			<a href="{$app_index}/package/local_package_list" class="icon_update">
 				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}Update{/t}</a>
+			{php} } {/php}
 			
 			{php} if(BizSystem::allowUserAccess('websvc.websvc.Access')){ {/php}		
 			<a href="{$app_index}/websvc/websvc_list" class="icon_webservice">
