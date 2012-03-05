@@ -6,7 +6,7 @@ class ModuleService
 	public function isModuleInstalled($module)
 	{
 		$do = BizSystem::getObject($this->m_ModuleDO);
-		$modRec = $do->fetchOne("[module]='$module'");
+		$modRec = $do->fetchOne("[name]='$module'");
 		if($modRec)
 		{
 			return true;
