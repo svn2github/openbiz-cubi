@@ -26,4 +26,6 @@
    <Control Value="Listbox" text="Listbox"/>
    <Control Value="DropDownList" text="DropDownList"/>
    <Control Value="LabelBool" text="Bool"/>
+   <Control Value="InputDate" text="Date"/>
+   <Control Value="InputDatetime" text="DateTime"/>
 </Selection>

@@ -7,6 +7,8 @@ class ExtendDataDetailForm extends ExtendDataEditForm
 		switch($elemArr['ATTRIBUTES']['CLASS'])
 		{
 			case "InputText":
+			case "InputDate":
+			case "InputDatetime":
 				$elemArr['ATTRIBUTES']['CLASS']="LabelText";
 				break;
 			case "Textarea":
