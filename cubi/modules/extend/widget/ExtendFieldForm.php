@@ -10,10 +10,71 @@ class ExtendFieldForm extends PickerForm
     }
 	
     
-    protected function _doInsert($inputRecord)
-    {
-    	$recordId = parent::_doInsert($inputRecord);
-    	$this->processOptions($inputRecord['options'], $recordId);
+    public function insertToParent()
+    {	
+    	    	
+    	$recArr = $this->readInputRecord();
+        $this->setActiveRecord($recArr);
+        if (count($recArr) == 0)
+            return;
+
+        try
+        {
+            $this->ValidateForm();
+        }
+        catch (ValidationException $e)
+        {
+            $this->processFormObjError($e->m_Errors);
+            return;
+        }
+        
+
+        if (!$this->m_ParentFormElemName)
+        {
+        	//its only supports 1-m assoc now	        	        
+	        $parentForm = BizSystem::objectFactory()->getObject($this->m_ParentFormName);
+        	//$parentForm->getDataObj()->clearSearchRule();
+	        $parentDo = $parentForm->getDataObj();
+	        
+	        $column = $parentDo->m_Association['Column'];
+	    	$field = $parentDo->getFieldNameByColumn($column);	    	    	
+	    	$parentRefVal = $parentDo->m_Association["FieldRefVal"];
+	    	
+			$recArr[$field] = $parentRefVal;
+	    	if($parentDo->m_Association['Relationship']=='1-M'){	    			    	
+		    	$cond_column = $parentDo->m_Association['CondColumn'];
+		    	$cond_value = $parentDo->m_Association['CondValue'];
+		    	if($cond_column)
+		    	{
+		    		$cond_field = $parentDo->getFieldNameByColumn($cond_column);
+		    		$recArr[$cond_field] = $cond_value;
+		    	}    
+		    	$recId = $parentDo->InsertRecord($recArr);	
+	    	}else{
+	    		$recId = $this->getDataObj()->InsertRecord($recArr);	    			    		
+	    		$this->addToParent($recId);
+	    	}
+	    	
+	    	$this->processOptions($recArr['options'], $recId);
+        }                
+
+        if ($this->m_ParentFormElemName && $this->m_PickerMap)
+        {
+            return ; //not supported yet
+        }
+       
+        
+        $selIds[] = $recId;
+        
+        $this->close();	      
+        if($parentForm->m_ParentFormName){
+        	$parentParentForm = BizSystem::objectFactory()->getObject($parentForm->m_ParentFormName);
+        	$parentParentForm->rerender();
+        }
+        else
+        {       
+        	$parentForm->rerender();
+        }
     	return $recordId;
     }
     
