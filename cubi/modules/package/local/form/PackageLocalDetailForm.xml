@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="PackageLocalDetailForm" Class="PackageLocalForm" FormType="" jsClass="Openbiz.PackageForm" Title="Package Detail" Description="" BizDataObj="package.local.do.PackageLocalDO" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl.html" EventName="" MessageFile="">
+<EasyForm Name="PackageLocalDetailForm" Class="PackageLocalForm" FormType="" jsClass="Openbiz.PackageForm" Title="Package Detail" Description="" BizDataObj="package.local.do.PackageLocalDO" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl.html" EventName="" MessageFile=""  Access="system_update.manage">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
        	<Element Name="fld_package_id" ElementSet="General" Class="LabelText" FieldName="package_id" Label="Package ID" AllowURLParam="N"/>

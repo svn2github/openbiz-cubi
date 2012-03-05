@@ -1,15 +1,12 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="package" Description="local package management module" Version="0.2" OpenbizVersion="2.4">
+<Module Name="package" Description="system update management module" Version="0.2" OpenbizVersion="2.4">
 	<ACL>
-		<Resource Name="PackageLocal">
-            <Action Name="Access" Description="Access PackageLocal"/>
-            <Action Name="Manage" Description="Manage PackageLocal"/>
+		<Resource Name="system_update">
+            <Action Name="manage" Description="Manage System Update"/>
 		</Resource>
     </ACL>
     <Menu>
-        <MenuItem Name="PackageAdmin" Title="Package" Description="Local Cubi packages management" Parent="System" Order="100">
-            <MenuItem Name="Package.Mine" Title="My Packages" Description=""  URL="/package/local_package_list" Order="10"/>
-		</MenuItem>	
+            <MenuItem Name="Package.Mine" Title="System Update" Description=""  Parent="System.Setting"  URL="/package/local_package_list" Order="100"/>
     </Menu>
     <Dependency>
     	<Module Name="system"/>
