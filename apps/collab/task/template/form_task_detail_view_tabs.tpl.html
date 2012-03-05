@@ -217,7 +217,7 @@ margin-top:4px;
 			
 			
 			{assign var=item value=$dataPanel.fld_actualhour}	
-			<table  class="input_row odd" style="margin-bottom:-5px;">				
+			<table  class="input_row odd" >				
 			<tr>	
 				<td style="width:60px;" >			
 					<label style="text-align:left;">{$item.label}</label>			
@@ -271,7 +271,7 @@ margin-top:4px;
 			
 			
 			{assign var=item value=$dataPanel.fld_budget}	
-			<table  class="input_row odd" style="margin-bottom:-5px;">				
+			<table  class="input_row odd" >				
 			<tr>	
 				<td style="width:60px;" >			
 					<label style="text-align:left;">{$item.label}</label>			
@@ -289,15 +289,15 @@ margin-top:4px;
 			</tr> 
 			</table>	
 				
-			{assign var=item value=$dataPanel.fld_work_log}	
+			{assign var=item value=$dataPanel.fld_financial_log}	
 			<table  class="input_row">
 			<tr><td align="center" >
 				<span class="label_textarea" style="{if $item.width}width:{$item.width+15}px;{else}{if $default_label_textarea_width}{$default_label_textarea_width}{else}width:655px;{/if}{/if}">{$item.element}</span>								
 			</td></tr>
 			</table>
 		
-			{if $dataPanel.btn_manage_worklog}
-			{assign var=item value=$dataPanel.btn_manage_worklog}	
+			{if $dataPanel.btn_manage_financial}
+			{assign var=item value=$dataPanel.btn_manage_financial}	
 			<table  class="input_row odd">				
 			<tr>	
 				
