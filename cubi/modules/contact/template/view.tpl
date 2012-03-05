@@ -4,6 +4,7 @@ $this->assign('header_background_image', $header_background_image);
 
 BizSystem::clientProxy()->includeColorPickerScripts();
 BizSystem::clientProxy()->includeCKEditorScripts();
+BizSystem::clientProxy()->includeCalendarScripts();
 $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 $includedScripts.="\n"."
 <script type='text/javascript' src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
