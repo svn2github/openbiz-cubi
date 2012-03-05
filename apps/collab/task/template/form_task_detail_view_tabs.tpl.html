@@ -264,6 +264,61 @@ margin-top:4px;
 			</table>	
 			{/if}
 			</div></div>
+		{elseif $es_counter eq 1 AND $ts_counter eq 1}	
+		<div id="element_set_panel_{$ts_counter}_{$es_counter}" class="ui-tabs-panel" style="padding-bottom:0px;">			
+		<div style="padding-bottom:15px;">
+						
+			
+			
+			
+			{assign var=item value=$dataPanel.fld_budget}	
+			<table  class="input_row ">				
+			<tr>	
+				<td style="width:60px;" >			
+					<label style="text-align:left;">{$item.label}</label>			
+				</td>
+				<td>
+					<span class="label_text" style="width:100px;">{$item.element}</span>
+				</td>
+			{assign var=item value=$dataPanel.fld_cost}				
+			
+				<td style="width:60px;">			
+					<label style="text-align:left;">{$item.label}</label>			
+				</td>
+				<td>
+					<span class="label_text" style="width:150px;">{$item.element}</span>
+				</td>					
+		
+			</tr> 
+			</table>	
+				
+			{assign var=item value=$dataPanel.fld_work_log}	
+			<table  class="input_row">
+			<tr><td align="center" >
+				<span class="label_textarea" style="{if $item.width}width:{$item.width+15}px;{else}{if $default_label_textarea_width}{$default_label_textarea_width}{else}width:655px;{/if}{/if}">{$item.element}</span>								
+			</td></tr>
+			</table>
+		
+			{if $dataPanel.btn_manage_worklog}
+			{assign var=item value=$dataPanel.btn_manage_worklog}	
+			<table  class="input_row odd">				
+			<tr>	
+				
+				<td>
+					<span class="label_text" style="width:150px;">{$item.element}</span>
+				</td>
+			
+				<td style="width:60px;">			
+					<label style="text-align:left;"></label>			
+				</td>
+				<td>
+					<span class="label_text" style="width:150px;"></span>
+				</td>					
+		
+			</tr> 
+			</table>	
+			{/if}
+			</div></div>
 		{else}
 		
         <div id="element_set_panel_{$ts_counter}_{$es_counter}" class="ui-tabs-panel" style="padding-bottom:0px;">			
