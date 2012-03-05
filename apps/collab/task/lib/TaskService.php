@@ -87,8 +87,13 @@ class TaskService
 			}
 			elseif((int)$status_prev!=1)
 			{
-				$update = true;
+				$update = true;								
 				$taskRec['status']=1;
+			}
+			
+			if($status_prev!=$status_new && $status_new==2){
+				$update = true;				
+				$taskRec['progress']=100;
 			}
 		}		
 		if($update){
