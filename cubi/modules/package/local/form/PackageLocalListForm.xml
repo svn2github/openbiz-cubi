@@ -20,11 +20,8 @@
         
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_reload" Class="Button" Text="Refresh" CssClass="button_gray_w" Access="PackageLocal.Manage">
+        <Element Name="btn_reload" Class="Button" Text="Refresh" CssClass="button_gray_w" Access="system_update.manage">
             <EventHandler Name="reload_onclick" Event="onclick" EventLogMsg="" Function="Reload()"/>
-        </Element> 
-        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_w" Access="PackageLocal.Manage">
-            <EventHandler Name="delete_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()"/>
         </Element> 
     </ActionPanel> 
     <NavPanel>
