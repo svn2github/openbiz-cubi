@@ -66,7 +66,7 @@ class ExtendDataEditForm extends EasyForm
 		{
 			$column_value = $type_id;
 		}
-		$searchRule = "`$cond_column` = '$cond_value' AND `$column_name`='$column_value'";		
+		$searchRule = "[$cond_column] = '$cond_value' AND [$column_name]='$column_value'";
 		$this->m_SearchRule = $searchRule;
 		return $searchRule;	
 	}
@@ -151,6 +151,7 @@ class ExtendDataEditForm extends EasyForm
 	
 	public function readInputExtendRecord()
 	{		
+		
 		$searchRule = $this->m_SearchRule;		
 		$fieldsDO = BizSystem::getObject($this->m_ExtendSettingDO,1);
 		$fieldRecs = $fieldsDO->directfetch($searchRule);
@@ -213,6 +214,23 @@ class ExtendDataEditForm extends EasyForm
 			$extendId = $this->getDataObj()->insertRecord($recArr);			
 		}
 		$this->m_Saved = true;
+		
+		//if installed changelog then save change log
+		
+		if(BizSystem::getService("system.lib.ModuleService")->isModuleInstalled("changelog")){
+			
+			$formObj = BizSystem::getObject($this->m_ParentFormName);
+			$panel = clone $this->m_DataPanel;
+			if(!is_array($oldRec)){
+				$outputRecord = array();
+			}else{
+				$outputRecord = $oldRec;
+			}
+			$inputRecord = $recArr;
+			BizSystem::getService("changelog.lib.ChangeLogService")
+						->LogDataChanges($formObj,$inputRecord,$outputRecord,null,$panel);
+			
+		}
 		return true;
 		
 	}
