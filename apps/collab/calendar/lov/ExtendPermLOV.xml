@@ -1,7 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<Selection>
-   <Access Value="collab_calendar.access" text="Default Event Access Level"/>
-   <Access Value="collab_calendar.view_level_1" text="Event Access Level 1"/>
-   <Access Value="collab_calendar.view_level_2" text="Event Access Level 2"/>
-   <Access Value="collab_calendar.view_level_3" text="Event Access Level 3"/>
-</Selection>

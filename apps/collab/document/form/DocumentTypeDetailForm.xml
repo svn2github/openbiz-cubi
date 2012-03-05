@@ -9,7 +9,7 @@
         	<Element Name="fld_published" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" /><Element Name="fld_published_other" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         	<Element Name="fld_sortorder" ElementSet="General"  Class="LabelText" SelectFrom="common.lov.CommLOV(Order)"  FieldName="sortorder" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 			
-			<Element Name="fld_extend_setting" Access="extend.access" AccessSelectFrom="collab.document.lov.ExtendPermLOV(Access)" ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendSettingListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+			<Element Name="fld_extend_setting" Access="extend.access" AccessSelectFrom="collab.document.lov.DocumentExtendPermLOV(DocumentAccess)" ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendSettingListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 			
 		    <Element Name="fld_create_by" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>
 		    <Element Name="fld_create_time" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>

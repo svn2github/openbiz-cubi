@@ -12,7 +12,7 @@
     		<Element Name="fld_color_code" ElementSet="General" Class="ColorPicker" mode="viewOnly" FieldName="color" Label="Color Code" AllowURLParam="N"></Element>
     	
 			
-			<Element Name="fld_extend_setting" Access="extend.access"  ElementSet="Extend Fields" Class="FormElement" AccessSelectFrom="collab.document.lov.ExtendPermLOV(Access)" FormReference="extend.widget.ExtendSettingListEditForm" FieldName="" Label="" AllowURLParam="N" />     		
+			<Element Name="fld_extend_setting" Access="extend.access"  ElementSet="Extend Fields" Class="FormElement" AccessSelectFrom="collab.document.lov.DocumentExtendPermLOV(DocumentAccess)" FormReference="extend.widget.ExtendSettingListEditForm" FieldName="" Label="" AllowURLParam="N" />     		
 	</DataPanel>
     <ActionPanel>   
 		<Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
