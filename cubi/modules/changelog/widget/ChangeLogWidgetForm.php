@@ -24,6 +24,13 @@ class ChangeLogWidgetForm extends EasyForm
 			{
 				$elemObjMeta = $data[$key]['element'];
 				$elemObjMeta = $this->replaceElementClass($elemObjMeta);
+				if($elemObjMeta["ATTRIBUTES"]['FIELDTYPE']=='ExtendField')
+				{
+					$extendSettingId = (int)str_replace("extend_field_", $replace, $elemObjMeta["ATTRIBUTES"]['NAME']);
+					$elemObjMeta["ATTRIBUTES"] = BizSystem::getService("extend.lib.ExtendFieldService")->translateElemArr($elemObjMeta["ATTRIBUTES"],$extendSettingId);
+					
+				}
+				
 				$objName = $elemObjMeta["ATTRIBUTES"]['CLASS'];
 				
 				$formObj = BizSystem::getObject($this->m_ParentFormName);
