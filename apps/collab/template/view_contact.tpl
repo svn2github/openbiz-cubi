@@ -8,6 +8,8 @@ $css_url = $this->_tpl_vars['css_url'];
 
 BizSystem::clientProxy()->includeColorPickerScripts();
 BizSystem::clientProxy()->includeCKEditorScripts();
+BizSystem::clientProxy()->includeCalendarScripts();
+
 $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 $includedScripts .= "
 <script type='text/javascript' src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
