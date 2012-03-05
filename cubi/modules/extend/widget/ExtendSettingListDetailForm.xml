@@ -10,7 +10,7 @@
         </Element>
         <Element Name="fld_class"  Class="ColumnList" SelectFrom="extend.lov.FieldsLOV(Control)"  FieldName="class" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>        
         <Element Name="fld_description" MaxLength="30" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_access" Class="ColumnList" SelectFrom="{@:m_AccessSelectFrom}" FieldName="access" Label="Access Level" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_access" Class="extend.element.AccessColumnList" SelectFrom="{@:m_AccessSelectFrom}" FieldName="access" Label="Access Level" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
           		                
     </DataPanel>
 </EasyForm>

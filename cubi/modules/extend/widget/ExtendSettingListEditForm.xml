@@ -12,7 +12,7 @@
         </Element>    
         <Element Name="fld_class" Class="ColumnList" SelectFrom="extend.lov.FieldsLOV(Control)" FieldName="class" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
         <Element Name="fld_description" MaxLength="10" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_access" Class="ColumnList" SelectFrom="{@:m_AccessSelectFrom}" FieldName="access" Label="Access Level" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_access" Class="extend.element.AccessColumnList" SelectFrom="{@:m_AccessSelectFrom}" FieldName="access" Label="Access Level" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
         <Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sortorder" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})" />
         	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value+5})" />
