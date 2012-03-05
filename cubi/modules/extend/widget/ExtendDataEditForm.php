@@ -30,14 +30,16 @@ class ExtendDataEditForm extends EasyForm
 	
 	public function getSettingSearchRule()
 	{
-		if($this->m_SearchRule){
-			return $this->m_SearchRule;
-		}
+		
 		$do = $this->getDataObj();
 		$cond_column	= $do->m_Association['CondColumn'];
 		$cond_value		= $do->m_Association['CondValue'];
 		$column_name	= $do->m_Association['Column'];
 		$column_value	= $do->m_Association['FieldRefVal']; 
+		
+		if(!$column_name){
+			return $this->m_SearchRule;
+		}
 		
 		$elem_name = BizSystem::getObject($this->m_ParentFormName)->m_DataPanel->getByField($column_name)->m_Name;		
 		$type_id = BizSystem::ClientProxy()->getFormInputs($elem_name);;
@@ -70,7 +72,6 @@ class ExtendDataEditForm extends EasyForm
 	public function configDataPanel($translate=true)
 	{
 		$searchRule = $this->getSettingSearchRule();
-		
 		$fieldsDO = BizSystem::getObject($this->m_ExtendSettingDO,1);
 		$fieldRecs = $fieldsDO->directfetch($searchRule);				
 		
