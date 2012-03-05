@@ -12,9 +12,9 @@ define('APP_HOME',dirname(dirname(__FILE__)));
 
 /* website url. please change the localhost to real url */
 if(isset($_SERVER["HTTP_HOST"])){
-	define('SITE_URL','http://'.$_SERVER["HTTP_HOST"].'/');
+	define('SITE_URL','http://dev.openbiz.cn/cubi');
 }else{
-	define('SITE_URL','http://localhost/');
+	define('SITE_URL','http://dev.openbiz.cn/cubi');
 }
 
 /* APP_URL is /a/b in case of http://host/a/b/index.php?... */
@@ -110,7 +110,7 @@ define('CACHE_DATA_PATH', APP_HOME.DIRECTORY_SEPARATOR."files".DIRECTORY_SEPARAT
    application system level constances
  ****************************************************************************/
 /* whether print debug infomation or not */
-define("DEBUG", 0);
+define("DEBUG", 1);
 
 /* check whether user logged in */
 define("CHECKUSER", "Y");
@@ -162,7 +162,7 @@ define ('DENY', 0);
 define ('ALLOW', 1);
 define ('ALLOW_OWNER', 2);
 
-define('APPBUILDER','1'); // 0: hidden, 1: show
+define('APPBUILDER','0'); // 0: hidden, 1: show
 
 // load default theme
 if( @isset($_GET['theme'])) {
