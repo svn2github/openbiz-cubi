@@ -348,9 +348,11 @@ class ReminderService
 		
 		if($reminder_prev!=$reminder_new || $recurrence_prev!=$recurrence_new){
 			$rec = BizSystem::getObject("collab.calendar.do.EventSystemDO",1)->fetchByID($Id);
-			$rec->reminder_status=0;
-			$rec->reminder_lasttime='';
-			$rec->save();
+			if($rec){
+				$rec->reminder_status=0;
+				$rec->reminder_lasttime='';
+				$rec->save();
+			}
 		}
 		
 		$notify_prev = $eventDO->getField('notify_contacts')->m_OldValue;
