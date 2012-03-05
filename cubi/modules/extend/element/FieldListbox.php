@@ -9,7 +9,7 @@ class FieldListbox extends Listbox
 		{
 			foreach($usedFields as $field)
 			{
-				if($list[$i]['val']==$field)
+				if($list[$i]['val']==$field && $list[$i]['val']!=$this->m_Value)
 				{
 					unset($list[$i]);
 				}
