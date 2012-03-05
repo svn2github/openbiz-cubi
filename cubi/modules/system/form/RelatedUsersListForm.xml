@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="RelatedUsersListForm" Icon="icon_user_list.gif" Class="UserForm" FormType="List" jsClass="jbForm" Title="Associated Users Management" Description="Manage user accounts who associated with selected record" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html"  Access="User.Administer_Users">
     <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>            
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y"/>
         <Element Name="fld_username" Class="ColumnText" FieldName="username" Label="Username" Link="{@home:url}/system/user_detail/{@:Elem[fld_Id].Value}" Sortable="Y"/>
         <Element Name="fld_email" Class="ColumnText" FieldName="email" Label="Email" Sortable="Y"/>
@@ -13,7 +14,7 @@
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add">
-            <EventHandler Name="onclick" Event="onclick" Function="LoadDialog(system.form.UserPickForm)"/>
+            <EventHandler Name="onclick" Event="onclick" Function="LoadDialog(system.form.UserMultiPickForm)"/>
         </Element>
         <Element Name="btn_remove" Class="Button" Text="Delete" CssClass="button_gray_m">
             <EventHandler Name="onclick" Event="onclick" Function="RemoveRecord()"/>
