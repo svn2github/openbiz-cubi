@@ -6,16 +6,16 @@
          	<!-- <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(system.form.GroupDetailForm,{@:Elem[fld_Id].Value})"   />-->
         </Element>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" Link="{APP_INDEX}/system/group_detail/{@:Elem[fld_Id].Value}" >
-        <!-- 		<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(system.form.GroupDetailForm,{@:Elem[fld_Id].Value})"   /> -->
+       		<!-- <EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(system.form.GroupDetailForm,{@:Elem[fld_Id].Value})"   /> -->
         </Element>
-                <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y"/>
-				<Element Name="fld_status" Class="ColumnBool" FieldName="status" Sortable="Y" Label="Active" Link="javascript:;">
-					<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
-				</Element>
+        <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y"/>
+		<Element Name="fld_status" Class="ColumnBool" FieldName="status" Sortable="Y" Label="Active" Link="javascript:;">
+			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
+		</Element>
         <Element Name="fld_default" Class="ColumnBool" FieldName="default" Sortable="Y" Label="Default" Link="javascript:;">
 			<EventHandler Name="fld_default_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_default,{@:Elem[fld_default].Value})"/>		
 		</Element>									
-				<Element Name="fld_createtime" Class="ColumnText" FieldName="create_time" Label="Create Time"  Sortable="Y"/>
+		<Element Name="fld_createtime" Class="ColumnText" FieldName="create_time" Label="Create Time"  Sortable="Y"/>
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
