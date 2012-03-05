@@ -1,0 +1,3 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="ChangeLogService" Package="changelog.lib" Class="ChangeLogService">	
+</PluginService>
