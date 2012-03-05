@@ -91,7 +91,7 @@ class ExtendDataEditForm extends EasyForm
 		return parent::render();
 	}
 	
-	public function configDataPanel()
+	public function configDataPanel($translate=true)
 	{
 		$searchRule = $this->getSettingSearchRule();
 		
@@ -113,15 +113,17 @@ class ExtendDataEditForm extends EasyForm
 				"FIELDNAME"		=>	$field['field'],
 				"ACCESS" 		=>	$field['access'],
 				"DESCRIPTION"	=>	$field['description'],
-				"DEFAULTVALUE"	=>	$field['defaultvalue'],				
+				"DEFAULTVALUE"	=>	$field['defaultvalue'],	
+				"FIELDTYPE"		=>	'ExtendField',						
 			);
 			
 			if($field['options']){
 				$elemArr['SELECTFROM']= $this->m_ExtendSettingOptionDO."[text:value],[setting_id]='".$field['Id']."' AND [lang]='' ";
 			}
 			
-			$elemArr = $this->translateElemArr($elemArr,$field['Id']);
-
+			if($translate){
+				$elemArr = $this->translateElemArr($elemArr,$field['Id']);
+			}
 			$fieldArr = array(
 				"ATTRIBUTES" 	=>	$elemArr,
 				"VALUE"			=>	$extData[$field['field']]
@@ -223,13 +225,14 @@ class ExtendDataEditForm extends EasyForm
 		if(BizSystem::getService("system.lib.ModuleService")->isModuleInstalled("changelog")){
 			
 			$formObj = BizSystem::getObject($this->m_ParentFormName);
-			$panel = clone $this->m_DataPanel;
+			$panel = new Panel($this->configDataPanel($translate = false),"",$this);
 			if(!is_array($oldRec)){
 				$outputRecord = array();
 			}else{
 				$outputRecord = $oldRec;
-			}
+			}			
 			$inputRecord = $recArr;
+			$inputRecord['Id'] = $outputRecord['Id'] = $record_id;
 			BizSystem::getService("changelog.lib.ChangeLogService")
 						->LogDataChanges($formObj,$inputRecord,$outputRecord,null,$panel);
 			
