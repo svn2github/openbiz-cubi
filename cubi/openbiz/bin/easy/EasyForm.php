@@ -103,7 +103,7 @@ class EasyForm extends MetaObject implements iSessionObject
     protected $m_DefaultFixSearchRule = null;
     protected $m_SearchRuleBindValues;
     protected $m_Referer = "";
-    protected $m_MessageFile = null;
+    public $m_MessageFile = null;
     protected $m_hasError = false;
     protected $m_ValidateErrors = array();
 
