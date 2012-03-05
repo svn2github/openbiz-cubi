@@ -29,7 +29,8 @@ class CollabLoadHandler implements ModuleLoadHandler
 	    	
 		    if(
 		    	($actionRec['action']=='manage' && $actionRec['resource']=='collab_announcement') ||
-		     	($actionRec['action']=='access' && $actionRec['resource']=='collab_statistics')
+		     	($actionRec['action']=='access' && $actionRec['resource']=='collab_statistics') ||
+		     	preg_match("/view_level_/si",$actionRec['action'])
 		     ){
 		     	continue;
 		     }
