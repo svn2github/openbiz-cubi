@@ -271,7 +271,7 @@ margin-top:4px;
 			
 			
 			{assign var=item value=$dataPanel.fld_budget}	
-			<table  class="input_row ">				
+			<table  class="input_row odd">				
 			<tr>	
 				<td style="width:60px;" >			
 					<label style="text-align:left;">{$item.label}</label>			
@@ -279,23 +279,13 @@ margin-top:4px;
 				<td style="width:180px;">
 					<span class="label_text" style="width:100px;">{$item.element}</span>
 				</td>
-				<td>
-					<span class="label_text" >{$item.description}</span>
-				</td>
-			</table>
-			
-			<table  class="input_row odd">
-			{assign var=item value=$dataPanel.fld_cost}				
-			
+	
 				<td style="width:60px;">			
 					<label style="text-align:left;">{$item.label}</label>			
 				</td>
 				<td style="width:180px;">
 					<span class="label_text" style="width:100px;">{$item.element}</span>
-				</td>					
-				<td>
-					<span class="label_text" >{$item.description}</span>
-				</td>
+				</td>	
 			</tr> 
 			</table>	
 				
