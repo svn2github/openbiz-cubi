@@ -54,6 +54,9 @@ class ExtendDataEditForm extends EasyForm
 	
 	public function getSettingSearchRule()
 	{
+		if($this->m_SearchRule){
+			return $this->m_SearchRule;
+		}
 		$do = $this->getDataObj();
 		$cond_column	= $do->m_Association['CondColumn'];
 		$cond_value		= $do->m_Association['CondValue'];
@@ -152,7 +155,7 @@ class ExtendDataEditForm extends EasyForm
 	public function readInputExtendRecord()
 	{		
 		
-		$searchRule = $this->m_SearchRule;		
+		$searchRule = $this->m_SearchRule;
 		$fieldsDO = BizSystem::getObject($this->m_ExtendSettingDO,1);
 		$fieldRecs = $fieldsDO->directfetch($searchRule);
 		
