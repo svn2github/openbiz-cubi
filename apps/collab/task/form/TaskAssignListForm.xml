@@ -131,7 +131,7 @@ Tasks display order by priority then created time" BizDataObj="collab.task.do.Ta
             <EventHandler Name="type_selector_onchange" Event="onchange" Function="RunSearch()"/>
         </Element> 
         <Element Name="btn_spacer3" Class="Spacer" Width="10"></Element>
-        <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.task.do.TaskDO[title],[title] like '%{$_POST['qry_name']}%' GROUP BY [title]" FieldName="title" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+        <Element Name="qry_name"  Class="common.element.RecordFuzzySearchList" SearchFields="collab.task.lov.SearchFieldsLOV(Field)" FuzzySearch="Y" SelectFrom="collab.task.do.TaskDO[title],[title] like '%{$_POST['qry_name']}%' GROUP BY [title]" FieldName="title" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>  

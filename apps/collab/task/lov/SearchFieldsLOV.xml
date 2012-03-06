@@ -1,0 +1,5 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>   
+   <Field Value="title" text="Name"/>   
+   <Field Value="description" text="Description"/>
+</Selection>

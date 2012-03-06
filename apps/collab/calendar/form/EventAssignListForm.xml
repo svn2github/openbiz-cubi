@@ -92,7 +92,7 @@
             <EventHandler Name="ownerfilter_onchange" Event="onchange" Function="RunSearch()"/>
         </Element>
         
-         <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.calendar.do.EventDO[subject],[subject] like '%{$_POST['qry_name']}%' GROUP BY [subject]" FieldName="subject" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+         <Element Name="qry_name"  Class="common.element.RecordFuzzySearchList" SearchFields="collab.calendar.lov.SearchFieldsLOV(Field)"  FuzzySearch="Y" SelectFrom="collab.calendar.do.EventDO[subject],[subject] like '%{$_POST['qry_name']}%' GROUP BY [subject]" FieldName="subject" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>   

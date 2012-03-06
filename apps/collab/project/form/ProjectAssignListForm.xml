@@ -117,7 +117,7 @@
             <EventHandler Name="type_selector_onchange" Event="onchange" Function="RunSearch()"/>
         </Element> 
         <Element Name="btn_spacer3" Class="Spacer" Width="10"></Element>
-        <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.project.do.ProjectDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" FieldName="name" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+        <Element Name="qry_name"  Class="common.element.RecordFuzzySearchList" SearchFields="collab.project.lov.SearchFieldsLOV(Field)"  FuzzySearch="Y" SelectFrom="collab.project.do.ProjectDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" FieldName="name" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>  
