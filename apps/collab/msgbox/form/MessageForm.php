@@ -12,7 +12,7 @@ class MessageForm extends EasyForm
 	public function fetchData()
 	{						
 		if($_GET["F"]!='RPCInvoke')
-		{		
+		{					
 			$dataRec = new DataRecord(null, $this->getDataObj());
 	        $dataRec["subject"] = "";
 			$dataRec["send_status"] = "draft";
@@ -31,7 +31,6 @@ class MessageForm extends EasyForm
 				$this->getDataObj()->setActiveRecordId($this->m_RecordId);
 			}elseif($this->m_RecordId)
 			{
-				
 				$rec = $this->getDataObj()->fetchOne("[Id]='$this->m_RecordId'");
 				$this->getDataObj()->setActiveRecordId($this->m_RecordId);
 			
@@ -43,12 +42,15 @@ class MessageForm extends EasyForm
 				$this->m_ActiveRecord = $rec->toArray();
 				
 			}
-			else
+			elseif($_GET['P2'])
 			{
+				$this->m_RecordId =(int)substr($_GET['P2'],1,strlen($_GET['P2'])-1);
 				//$this->m_BaseSearchRule = "";
+				$this->m_ActiveRecord = $this->getDataObj()->fetchOne("[Id]='".(int)$this->m_RecordId."'")->toArray();
+				$this->getDataObj()->setActiveRecordId($this->m_RecordId);
 			}	
 		}
-		
+		;
  		$result = parent::fetchData();
  		if($result['send_status']=='draft'){
  			$result["type_color"] = 'afe8fb'; 				
