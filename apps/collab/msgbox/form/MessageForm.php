@@ -29,7 +29,17 @@ class MessageForm extends EasyForm
 				$this->m_ActiveRecord = $this->getDataObj()->fetchOne("[Id]='".(int)$_GET['fld:Id']."'")->toArray();
 			}elseif($this->m_RecordId)
 			{
-				$this->m_ActiveRecord = BizSystem::getObject("collab.msgbox.do.MessageDO")->fetchOne("[Id]='$this->m_RecordId'")->toArray();
+				
+				$rec = $this->getDataObj()->fetchOne("[Id]='$this->m_RecordId'");
+				$this->getDataObj()->setActiveRecordId($this->m_RecordId);
+			
+				if(!$rec)
+				{
+					$rec = BizSystem::getObject("collab.msgbox.do.MessageDO")->fetchOne("[Id]='$this->m_RecordId'");
+					BizSystem::getObject("collab.msgbox.do.MessageDO")->setActiveRecordId($this->m_RecordId);
+				}
+				$this->m_ActiveRecord = $rec->toArray();
+				
 			}
 			else
 			{
@@ -256,7 +266,7 @@ class MessageForm extends EasyForm
 	public function fetchDataSet()
 	{		
 		//clean complete empty message drafts
-		$this->getDataObj()->deleteRecords("[subject]='' AND [content] is NULL");	
+		BizSystem::getObject("collab.msgbox.do.MessageDO")->deleteRecords("[subject]='' AND [content] is NULL");	
 		$resultSet = parent::fetchDataSet();
 		$recordSet = array();
 		$svc = BizSystem::getService("collab.msgbox.lib.messageService");
