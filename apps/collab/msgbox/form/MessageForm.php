@@ -27,6 +27,7 @@ class MessageForm extends EasyForm
 			{
 				//$this->m_BaseSearchRule = "[Id]='$this->m_RecordId'";	
 				$this->m_ActiveRecord = $this->getDataObj()->fetchOne("[Id]='".(int)$_GET['fld:Id']."'")->toArray();
+				$this->m_RecordId =(int)$_GET['fld:Id'];
 				$this->getDataObj()->setActiveRecordId($this->m_RecordId);
 			}elseif($this->m_RecordId)
 			{
