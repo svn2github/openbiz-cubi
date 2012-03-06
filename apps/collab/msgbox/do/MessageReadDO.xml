@@ -2,6 +2,8 @@
 <BizDataObj Name="MessageReadDO" Description="" Class="BizDataObj" DBName="Default" Table="message" SearchRule="[send_status]='sent'" SortRule=""  inheritFrom="collab.msgbox.do.MessageDO">
     <BizFieldList>
         <BizField Name="display_name" Column="display_name" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="sender_position" Column="position" Length="255"  Type="Text" Join="JoinContact" />
+        <BizField Name="sender_photo" Column="photo" Length="255"  Type="Text" Join="JoinContact" />
 	</BizFieldList>
 	<TableJoins>
     	<Join Name="JoinContact" Table="contact" Column="user_id" ColumnRef="create_by" JoinType="RIGHT JOIN"/>        	

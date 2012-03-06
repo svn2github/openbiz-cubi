@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="MessageReceivedDetailForm" Class="MessageReceivedForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_list.png"  FormType="Detail" jsClass="jbForm" Title="Recevied Message Detail" Description="You can review the received message." BizDataObj="collab.msgbox.do.MessageReadDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl"  MessageFile="Message.msg" Access="collab_msgbox.access">
+<EasyForm Name="MessageReceivedDetailForm" Class="MessageReceivedForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_list.png"  FormType="Detail" jsClass="jbForm" Title="Recevied Message Detail" Description="You can review the received message." BizDataObj="collab.msgbox.do.MessageReadDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="recevied_message_detail.tpl.html"  MessageFile="Message.msg" Access="collab_msgbox.access">
     <DataPanel>
 			<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 			<Element Name="fld_form_title"  Class="LabelText" FieldName="subject" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" />	
@@ -7,6 +7,9 @@
 			<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="" AllowURLParam="N" />
 			
 			<Element Name="fld_sender" ElementSet="General"  Class="LabelText" FieldName="display_name" Label="Send From" Description="" />
+			<Element Name="fld_sender_pic" ElementSet="General"  Class="RawData" FieldName="sender_photo" Label="Send From" Description="" />
+			<Element Name="fld_sender_position" ElementSet="General"  Class="RawData" FieldName="sender_position" Label="Position" Description="" />
+			<Element Name="fld_send_time" ElementSet="General"  Class="LabelText" FieldName="update_time" Label="Received Time" Description="" />
 			
 			<Element Name="fld_recipient_to" ElementSet="General"  Class="LabelText" FieldName="recipient_to" Label="Send To" Description="Select message recipients from contact list" />
 			<Element Name="fld_recipient_cc" ElementSet="General"  Class="LabelText" FieldName="recipient_cc" Label="Send CC" Description="Contacts can also get this message" />
