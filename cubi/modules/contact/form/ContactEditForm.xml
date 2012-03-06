@@ -34,7 +34,7 @@
      	 
      	
  	    	<Element Name="fld_misc" Class="Textarea"  ElementSet="Miscellaneous" FieldName="misc" Label="Miscellaneous"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />                	      
-	        <Element Name="fld_type_id" Class="common.lib.TypeSelector" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="contact.do.ContactTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" FieldName="type_id" Label="Contact Type"  AllowURLParam="N" >
+	        <Element Name="fld_type_id" Class="common.lib.TypeSelector" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="contact.do.ContactTypeDO[name:Id:color],[create_by]='{@profile:Id}'" FieldName="type_id" Label="Contact Type"  AllowURLParam="N" >
 				<EventHandler Name="fld_type_id_onchange" Event="onchange" Function="UpdateForm()" />
 			</Element>	        	    	        	        
 			<Element Name="fld_sortorder" Class="Listbox" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />
