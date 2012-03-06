@@ -2,7 +2,7 @@
 <EasyForm Name="MessageReceivedDetailForm" Class="MessageReceivedForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_list.png"  FormType="Detail" jsClass="jbForm" Title="Recevied Message Detail" Description="You can review the received message." BizDataObj="collab.msgbox.do.MessageReadDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="recevied_message_detail.tpl.html"  MessageFile="Message.msg" Access="collab_msgbox.access">
     <DataPanel>
 			<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-			<Element Name="fld_form_title"  Class="LabelText" FieldName="subject" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" />	
+			<Element Name="fld_form_title"  Class="LabelText" FieldName="subject" Label="" Width="500" style="font-size:24px;line-height:24px;" />	
 			<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 			<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="" AllowURLParam="N" />
 			
