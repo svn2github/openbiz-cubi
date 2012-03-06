@@ -29,7 +29,7 @@ class MessageForm extends EasyForm
 				$this->m_ActiveRecord = $this->getDataObj()->fetchOne("[Id]='".(int)$_GET['fld:Id']."'")->toArray();
 			}elseif($this->m_RecordId)
 			{
-				$this->m_ActiveRecord = $this->getDataObj()->fetchOne("[Id]='$this->m_RecordId'")->toArray();
+				$this->m_ActiveRecord = BizSystem::getObject($this->getDataObj()->m_Name,1)->fetchOne("[Id]='$this->m_RecordId'")->toArray();
 			}
 			else
 			{
