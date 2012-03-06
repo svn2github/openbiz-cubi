@@ -14,7 +14,7 @@
 			<Element Name="fld_recipient_to" ElementSet="General"  Class="LabelText" FieldName="recipient_to" Label="Send To" Description="Select message recipients from contact list" />
 			<Element Name="fld_recipient_cc" ElementSet="General"  Class="LabelText" FieldName="recipient_cc" Label="Send CC" Description="Contacts can also get this message" />
 			
-			<Element Name="fld_description" ElementSet="General"  Class="HTMLPreview" Height="400"  FieldName="content" Label="Content" />				   
+			<Element Name="fld_description" ElementSet="General"  Class="HTMLPreview" Height="250"  FieldName="content" Label="Content" />				   
 	        	
 	        	
 	        <Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
