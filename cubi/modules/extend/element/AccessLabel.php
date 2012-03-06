@@ -5,7 +5,7 @@ class AccessLabel extends LabelList
 		$formname = $this->getFormObj()->m_ParentFormName;
 		if(!$formname)
 		{
-			$formname = "extend.widget.ExtendSettingEditForm";
+			$formname = "extend.widget.ExtendSettingListEditForm";
 		}		
 		return BizSystem::getObject($formname)
 					->m_ParentFormElementMeta['ATTRIBUTES']['ACCESSSELECTFROM'];
