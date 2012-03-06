@@ -99,6 +99,7 @@ color:#666666;
 			&& $itemName != 'fld_sender_position'
 			&& $itemName != 'fld_recipient_cc'
 			&& $itemName != 'fld_recipient_to'
+			&& $itemName != 'fld_recipient_bcc'
 			}
 			{if $item.type eq 'CKEditor' or $item.type eq 'RichText' 
 				or $item.type eq 'Textarea' or $item.type eq 'LabelTextarea'
@@ -189,7 +190,20 @@ color:#666666;
 				</td>
 			</tr>
 		</table>				
-				
+		{if $dataPanel.fld_recipient_bcc.label}
+		<table  id="recp_cc_container" class="input_row">							
+			<tr>
+				<td >	
+					<label style="text-align:left">{$dataPanel.fld_recipient_bcc.label}</label>
+				</td>
+				<td >	
+					<span class="label_text" style="width:240px;" >{$dataPanel.fld_recipient_bcc.element}</span> 
+					<span class="input_desc" style="width:240px;">{$dataPanel.fld_recipient_bcc.description}</span>
+					
+				</td>
+			</tr>
+		</table>	
+		{/if}	
 	</div>			
 			
 			

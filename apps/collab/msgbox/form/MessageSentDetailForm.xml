@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="MessageSentDetailForm" Class="MessageDraftEditForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_outbox.png"  FormType="Detail" jsClass="jbForm" Title="Message Detail" Description="You can review the message." BizDataObj="collab.msgbox.do.MessageReadDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl"  MessageFile="Message.msg" Access="collab_msgbox.access">
+<EasyForm Name="MessageSentDetailForm" Class="MessageDraftEditForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_outbox.png"  FormType="Detail" jsClass="jbForm" Title="Message Detail" Description="You can review the message." BizDataObj="collab.msgbox.do.MessageReadDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="recevied_message_detail.tpl.html"  MessageFile="Message.msg" Access="collab_msgbox.access">
     <DataPanel>
 			<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 			<Element Name="fld_form_title"  Class="LabelText" FieldName="subject" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" />	
 			<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 			<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="send_status_display" Label="" KeepCookie="Y" SelectFrom="" AllowURLParam="N" />
+			
+			<Element Name="fld_sender" ElementSet="General"  Class="LabelText" FieldName="display_name" Label="Send From" Description="" />
+			<Element Name="fld_sender_pic" ElementSet="General"  Class="RawData" FieldName="sender_photo" Label="Send From" Description="" />
+			<Element Name="fld_sender_position" ElementSet="General"  Class="RawData" FieldName="sender_position" Label="Position" Description="" />
+			<Element Name="fld_send_time" ElementSet="General"  Class="LabelText" FieldName="update_time" Label="Received Time" Description="" />
+			
 			
 			<Element Name="fld_recipient_to" ElementSet="General"  Class="LabelText" FieldName="recipient_to" Label="Send To" Description="Select message recipients from contact list" />
 			<Element Name="fld_recipient_cc" ElementSet="General"  Class="LabelText" FieldName="recipient_cc" Label="Send CC" Description="Contacts can also get this message" />

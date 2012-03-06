@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="MessageDraftDetailForm" Class="MessageDraftEditForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_outbox.png"  FormType="Detail" jsClass="jbForm" Title="Message Detail" Description="You can review the message." BizDataObj="collab.msgbox.do.MessageDraftDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl"  MessageFile="Message.msg" Access="collab_msgbox.access">
+<EasyForm Name="MessageDraftDetailForm" Class="MessageDraftEditForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_outbox.png"  FormType="Detail" jsClass="jbForm" Title="Draft Message Detail" Description="You can review the message." BizDataObj="collab.msgbox.do.MessageDraftDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl"  MessageFile="Message.msg" Access="collab_msgbox.access">
     <DataPanel>
 			<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 			<Element Name="fld_form_title"  Class="LabelText" FieldName="subject" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" />	
