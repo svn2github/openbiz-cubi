@@ -76,7 +76,7 @@
     	<Element Name="type_selector" cssclass="input_select_m" BlankOption="All Types" Class="collab.lib.TypeSelector" FieldName="type_id" Label="" SelectFrom="collab.task.do.TaskTypeDO[name:Id:color]" >
             <EventHandler Name="type_selector_onchange" Event="onchange" Function="RunSearch()"/>
         </Element> 
-        <Element Name="qry_name"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="collab.task.do.TaskDO[title],[title] like '%{$_POST['qry_name']}%' GROUP BY [title]" FieldName="title" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+        <Element Name="qry_name" Class="common.element.RecordFuzzySearchList" SearchFields="collab.task.lov.SearchFieldsLOV(Field)" FuzzySearch="Y" SelectFrom="collab.task.do.TaskDO[title],[title] like '%{$_POST['qry_name']}%' GROUP BY [title]" FieldName="title" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element> 		   
