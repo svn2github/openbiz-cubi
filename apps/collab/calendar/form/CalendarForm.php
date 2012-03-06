@@ -65,7 +65,7 @@ class CalendarForm extends ChangeLogNoCommentForm
     	$result['dayRange'] = $this->m_DayRange;
     	$result['dayStart'] = $this->m_DayStart;    
     	$result['calYear'] = date('Y',strtotime($this->m_DayStart));
-    	if(date('j',time)>=15){
+    	if(date('j',time())>=15){
 	    	$result['calMonth'] = (int)date('m',strtotime($this->m_DayStart));
 	    	$result['calDay'] = (int)date('d',strtotime($this->m_DayStart));
     	}else{
