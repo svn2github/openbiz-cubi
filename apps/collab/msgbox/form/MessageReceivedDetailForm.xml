@@ -20,9 +20,9 @@
 	        <Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 	        <Element Name="fld_readlog"   ElementSet="View Log" Class="FormElement" FormReference="collab.msgbox.form.MessageReadLogForm" FieldName="" Label="" AllowURLParam="N" />
 	        		    
-			<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}"  Link="{APP_INDEX}/collab/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_create_by].Value)}"AllowURLParam="N"/>		        
 			<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
-			<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}"  Link="{APP_INDEX}/collab/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>		        
 			<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
         
         	
