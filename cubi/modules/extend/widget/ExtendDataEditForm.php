@@ -210,6 +210,20 @@ class ExtendDataEditForm extends EasyForm
 			}			
 			$inputRecord = $recArr;
 			$inputRecord['Id'] = $outputRecord['Id'] = $record_id;
+			foreach($inputRecord as $key=>$value)
+			{
+				if(!preg_match("/extend_field_/si",$key))
+				{
+					unset($inputRecord[$key]);
+				}	
+			}
+			foreach($outputRecord as $key=>$value)
+			{
+				if(!preg_match("/extend_field_/si",$key))
+				{
+					unset($outputRecord[$key]);
+				}	
+			}
 			BizSystem::getService("changelog.lib.ChangeLogService")
 						->LogDataChanges($formObj,$inputRecord,$outputRecord,null,$panel);
 			
