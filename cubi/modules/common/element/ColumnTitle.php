@@ -5,7 +5,7 @@ class ColumnTitle extends ColumnText
 	{
 		$rec = $this->getFormObj()->getActiveRecord();
 		$id = $rec["Id"];
-		$id_display = "<span style='color:#aaaaaa; padding-right:5px;width:10px;height:20px;margin-right:5px;' >$id</span>";
+		$id_display = "<span class=\"title_id\" >$id</span>";
 		return $id_display;
 	}
 	
