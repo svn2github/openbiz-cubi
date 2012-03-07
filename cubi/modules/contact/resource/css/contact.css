@@ -136,7 +136,7 @@
 	overflow:hidden;
 	
 }
-.card_list_grid .grid_cell_footer .more{
+.card_list_grid .grid_cell_footer .more a{
 	font-size:12px;
 	line-height:16px;
 	display:block;
