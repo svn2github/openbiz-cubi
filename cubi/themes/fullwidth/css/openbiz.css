@@ -1,6 +1,6 @@
 /* styles for title_id start */
 .form_table td span.title_id{
-background-color:#fefefe;color:#999999; text-align:center; padding-right:2px;padding-left:2px;width:14px;height:24px;margin-right:5px;
+background-color:#fefefe;color:#999999; text-align:center; padding-right:3px;padding-left:2px;width:auto;;height:24px;margin-right:5px;
 }
 .form_table .odd td span.title_id{
 background-color:#efefef;
