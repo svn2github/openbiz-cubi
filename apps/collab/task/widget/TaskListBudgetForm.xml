@@ -6,7 +6,7 @@
 				Text="{RESOURCE_URL}/collab/budget/images/icon_budget_out.gif"
 				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">				
 		</Element>
-        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+        <Element Name="fld_title" Class="common.element.ColumnTitle" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
         	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="ParentSwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   />         
         </Element>
         <Element Name="fld_budget"  Text="$ {@:Elem[fld_budget].Value}"  Class="ColumnText"  FieldName="budget_cost" Label="Budget"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>

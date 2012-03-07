@@ -14,7 +14,7 @@
 				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
-        <Element Name="fld_subject" Class="ColumnText" FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
+        <Element Name="fld_subject" Class="common.element.ColumnTitle" FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
                 	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="ParentSwitchForm(collab.calendar.form.EventDetailForm,{@:Elem[fld_Id].Value})"   />        
         </Element>	
         <Element Name="fld_location" Class="ColumnText" FieldName="location" Label="Location"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	

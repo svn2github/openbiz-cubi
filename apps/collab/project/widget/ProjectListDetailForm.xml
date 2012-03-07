@@ -5,7 +5,7 @@
         <Element Name="fld_share" Class="ColumnShare" MyPrivateImg="{RESOURCE_URL}/collab/project/images/icon_project_private.png" MySharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared.png" MyAssignedImg="{RESOURCE_URL}/collab/project/images/icon_project_assigned.png" MyDistributedImg="{RESOURCE_URL}/collab/project/images/icon_project_distributed.png" GroupSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_group.png" OtherSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_other.png" FieldName="create_by" Label="Share" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
  		</Element>	
 		
-        <Element Name="fld_title"  MaxLength="16" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/project_detail/{@:Elem[fld_Id].Value}">         
+        <Element Name="fld_title"  MaxLength="16" Class="common.element.ColumnTitle" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/project_detail/{@:Elem[fld_Id].Value}">         
         	<!-- <EventHandler Name="fld_Id_onclick" Event="onclick" Function="ParentSwitchForm(collab.project.form.ProjectDetailForm,{@:Elem[fld_Id].Value})"   /> -->
         </Element>
          
