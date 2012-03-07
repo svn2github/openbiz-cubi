@@ -240,6 +240,29 @@ class profileService
     }
     
     
+	public function GetProfileId($account_id){
+    	$do = BizSystem::getObject($this->m_userDataObj);
+        if (!$do)
+            return "";
+		if($account_id==0)
+		{
+			$profile_id = 0;			
+			return $profile_id;
+		}        
+        $rs = $do->fetchById($account_id);
+        if (!$rs){
+			$profile_id = 0;			
+			return $profile_id;			
+        }
+        $contact_do = BizSystem::getObject($this->m_contactObj);
+        $contact_rs = $contact_do->directFetch("[user_id]='$account_id'", 1);
+        if (count($contact_rs)>0){        	                  
+        	$contact_rs = $contact_rs[0];        	
+        	$profile_id = $contact_rs['Id'];
+        }
+        return $profile_id;
+    }    
+    
 	public function GetProfileEmail($account_id){
     	$do = BizSystem::getObject($this->m_userDataObj);
         if (!$do)
