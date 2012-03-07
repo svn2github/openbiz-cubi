@@ -1,5 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <Selection>   
+   <Field Value="Id" text="ID"/>
    <Field Value="display_name" text="Display Name"/>   
    <Field Value="company" text="Company"/>
    <Field Value="department" text="Department"/>
