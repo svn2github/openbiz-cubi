@@ -84,7 +84,7 @@
 			<Element Name="fld_published" TabSet="Extra Information"  Class="LabelList" ElementSet="Misc"  SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  />
 			<Element Name="fld_published_others"  TabSet="Extra Information" Class="LabelList" ElementSet="Misc"  SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  />		     
 			
-			<Element Name="fld_create_by" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}"  Link="{APP_INDEX}/collab/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_create_by].Value)}"AllowURLParam="N"/>		        
+			<Element Name="fld_create_by" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}"  Link="{APP_INDEX}/collab/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>		        
 			<Element Name="fld_create_time" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
 			<Element Name="fld_update_by" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}"  Link="{APP_INDEX}/collab/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>		        
 			<Element Name="fld_update_time" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
