@@ -1,3 +1,18 @@
+/* styles for title_id start */
+.form_table td span.title_id{
+background-color:#fefefe;color:#999999; text-align:center; padding-right:2px;padding-left:2px;width:14px;height:24px;margin-right:5px;
+}
+.form_table .odd td span.title_id{
+background-color:#efefef;
+}
+.form_table .selected td span.title_id{
+background-color:#00b2dd;color:#ffffff; 
+}
+.form_table .hover td span.title_id{
+background-color:#88e3fe;color:#ffffff; 
+}
+/* styles for title_id end */
+
 .ui-state-hover .tab_label_count{
 background-color:#999999;
 }
