@@ -7,7 +7,7 @@
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
 		
-        <Element Name="fld_title" MaxLength="20" Class="ColumnText" FieldName="title" Label="Title" Link="{APP_INDEX}/collab/document_detail/{@:Elem[fld_Id].Value}" Sortable="Y">
+        <Element Name="fld_title" MaxLength="20" Class="common.element.ColumnTitle" FieldName="title" Label="Title" Link="{APP_INDEX}/collab/document_detail/{@:Elem[fld_Id].Value}" Sortable="Y">
         	<!-- <EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentDetailForm,{@:Elem[fld_Id].Value})"/>-->
         </Element>	
 		<Element Name="fld_starttime" Class="ColumnText" FieldName="create_time" Text="{date('Y-m-d H:i',strtotime(@:Elem[fld_starttime].Value))}"  Label="Create Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >

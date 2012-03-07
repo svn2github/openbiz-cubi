@@ -17,7 +17,7 @@ Tasks display order by priority then created time" BizDataObj="collab.task.do.Ta
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
 
-        <Element Name="fld_title" MaxLength="16"  Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/task_detail/{@:Elem[fld_Id].Value}">         
+        <Element Name="fld_title" MaxLength="16"  Class="common.element.ColumnTitle" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/task_detail/{@:Elem[fld_Id].Value}">         
          	<!--  <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   /> -->
         </Element>
         

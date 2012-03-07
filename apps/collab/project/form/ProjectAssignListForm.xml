@@ -14,7 +14,7 @@
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
 
-        <Element Name="fld_title"  MaxLength="16" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/project_detail/{@:Elem[fld_Id].Value}">         
+        <Element Name="fld_title"  MaxLength="16" Class="common.element.ColumnTitle" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/project_detail/{@:Elem[fld_Id].Value}">         
          	<!-- <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectDetailForm,{@:Elem[fld_Id].Value})"   />-->
         </Element>
          
