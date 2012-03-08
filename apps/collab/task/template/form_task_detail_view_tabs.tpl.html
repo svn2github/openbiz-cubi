@@ -29,6 +29,7 @@ margin-top:4px;
 <div style="padding-left:35px; padding-right:30px;">
 {include file="system_appbuilder_btn.tpl.html"}
 	<div style="padding-left:0px;" >
+
 	<h2>{$form.title}</h2>
 	<table><tr><td>
 		{if $form.icon !='' }
@@ -51,6 +52,7 @@ margin-top:4px;
 		</div>
 	</td></tr></table>
 	</div>
+
 	<div class="element_set_panel">
 			{assign var=item value=$dataPanel.fld_total_progress}	
 			<table  class="input_row">				
@@ -156,6 +158,8 @@ margin-top:4px;
 			</table>					
 	</div>
 
+	
+
 	{if $dataPanel.fld_extend_fields.element}
 	<div id="element_tabset_ext" class=" upline" style="width:680px;padding-top:10px;padding-bottom:10px;">
 		<h2 class="element_set_title" style="width:680px;"><a id="element_set_btn_ext" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','ext')" >{$dataPanel.fld_extend_fields.elementset}</a></h2>
@@ -168,6 +172,18 @@ margin-top:4px;
 	</script>	
 	{/if}
 	
+
+	{if $dataPanel.fld_project_intro.element}
+	<div id="element_tabset_proj" class=" upline" style="width:680px;margin-top:0px;padding-top:10px;padding-bottom:5px;">		
+		<h2 class="element_set_title" style="width:680px;"><a id="element_set_btn_proj" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','proj')" >{$dataPanel.fld_project_intro.elementset}</a></h2>
+		<div id="element_set_panel_proj">
+		{$dataPanel.fld_project_intro.element}
+		</div>
+	</div>
+	<script>
+			init_elementset('{$form.name}','proj');
+	</script>	
+	{/if}
 
 <!-- tab set start -->
 	{assign var=ts_counter value=1}

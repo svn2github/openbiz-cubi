@@ -6,6 +6,9 @@
 		<Element Name="fld_form_title"  Class="LabelText"   FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />
 				    <Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="collab.task.do.TaskTypeDO[name:Id:color]" AllowURLParam="N" />		
+
+
+		<Element Name="fld_project_intro" ElementSet="Project Information" Class="FormElement" FormReference="collab.project.widget.ProjectBriefForm" FieldName="" Label="" AllowURLParam="N" />
 					    
             	        		
 		<Element Name="fld_status" ElementSet="General" Class="LabelList" FieldName="status" Label="Status" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" AllowURLParam="N" />
