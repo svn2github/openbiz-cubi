@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProjectBriefForm" Class="ProjectBriefForm" FormType="Detail" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Project Information" Description="This module could help you manage project. You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_brief_widget.tpl.html" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
+    <DataPanel>
+	    <Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+		<Element Name="fld_form_title"  Class="LabelText"   FieldName="name" Label="Project"  AllowURLParam="N" Link="{APP_INDEX}/collab/project_detail/{@:Elem[fld_Id].Value}" />
+		<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_form_description"  Width="648" Class="LabelText" FieldName="type_name" Label="Type" KeepCookie="Y" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" />		
+		
+		<Element Name="fld_budget" ElementSet="General" width="200" Class="LabelText"  Text="$ {@:Elem[fld_budget].Value} Dollars"  FieldName="budget_cost" Label="Budget"  AllowURLParam="N" />
+		<Element Name="fld_spend_progress" Color="ffAA00" ElementSet="General" Class="LabelBar" Width="300" height="14"  DisplayUnit="%" MaxValue="100" FieldName="cost_spend_bar" Label="Expenses"  AllowURLParam="N" />
+		<Element Name="fld_starttime" ElementSet="General" Class="LabelText" FieldName="start_time" Label="Start Time" AllowURLParam="N" />
+		<Element Name="fld_status" ElementSet="General" Class="LabelList" FieldName="status" Label="Status" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" AllowURLParam="N" />		
+		<Element Name="fld_condition" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_condition_{@:Elem[fld_condition].Value}.png" FieldName="condition" Sortable="Y" Label="Condition" >		
+        </Element>
+        		
+		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Priority">
+		</Element>	
+		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+		        
+    </DataPanel>
+    <ActionPanel>
+        
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,72 @@
+<form id="{$form.name}" name="{$form.name}">
+
+	
+	<div  style="padding-bottom:0px;padding-top:5px;">
+			{assign var=item value=$dataPanel.fld_form_title}	
+			<table  class="input_row">				
+			<tr>	
+				<td >			
+					<label style="text-align:left;">{$item.label}</label>			
+				</td>
+						
+				<td>
+					<span class="label_text" style="width:300px;">{$item.element}</span>
+				</td>			
+				{assign var=item value=$dataPanel.fld_form_description}
+			
+				<td >			
+					<label style="text-align:left;width:60px;">{$item.label}</label>			
+				</td>
+				<td>
+					<span class="label_text" style="width:150px;">{$item.element}</span>
+				</td>	
+			</tr> 
+			</table>
+	
+	
+			{assign var=item value=$dataPanel.fld_starttime}	
+			<table  class="input_row">				
+			<tr>	
+				<td >			
+					<label style="text-align:left;">{$item.label}</label>			
+				</td>
+						
+				<td>
+					<span class="label_text" style="width:300px;">{$item.element}</span>
+				</td>			
+				{assign var=item value=$dataPanel.fld_priority}
+			
+				<td >			
+					<label style="text-align:left;width:60px;">{$item.label}</label>			
+				</td>
+				<td>
+					<span class="label_text" style="width:150px;">{$item.element}</span>
+				</td>	
+			</tr> 
+			</table>
+					
+					
+
+
+			
+			<table  class="input_row">				
+			<tr>	
+				{assign var=item value=$dataPanel.fld_status}	
+				
+				<td >			
+					<label style="text-align:left;">{$item.label}</label>			
+				</td>
+				<td>
+					<span class="label_textarea" style="width:300px;">{$item.element}</span>
+				</td>	
+				{assign var=item value=$dataPanel.fld_condition}
+				<td >			
+					<label style="text-align:left;width:60px;">{$item.label}</label>			
+				</td>
+				<td>
+					<span class="label_text" style="width:150px;">{$item.element}</span>
+				</td>				
+			</tr> 
+			</table>		
+</div>
+</form>
