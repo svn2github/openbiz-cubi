@@ -38,6 +38,7 @@ class LabelList extends OptionElement
     protected function readMetaData(&$xmlArr)
     {
         parent::readMetaData($xmlArr);
+        $this->m_Link = isset($xmlArr["ATTRIBUTES"]["LINK"]) ? $xmlArr["ATTRIBUTES"]["LINK"] : null;
         $this->m_BlankOption = isset($xmlArr["ATTRIBUTES"]["BLANKOPTION"]) ? $xmlArr["ATTRIBUTES"]["BLANKOPTION"] : null;
     }    
     /**
@@ -84,9 +85,9 @@ class LabelList extends OptionElement
         	$selectedStr = $this->m_BlankOption;
         }
 
-        if ($this->m_Link)
+        if ($this->getLink())
         {
-            $link = $this->getLink();
+            $link = $this->getLink();            
             $sHTML = "<a id=\"$id\" href=\"$link\" $func $style>" . $selectedStr . "</a>";
         }
         else
