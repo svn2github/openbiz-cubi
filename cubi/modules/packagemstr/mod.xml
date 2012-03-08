@@ -12,7 +12,7 @@
     </ACL>
     <Menu>
         <MenuItem Name="MasterPackageAdmin" Title="Master Packages" Parent="System" Order="101">
-			<MenuItem Name="PackageMstr.Master" Title="Master Packages" Description=""  URL="/packagemstr/package_master_list" Order="20"/>
+			<MenuItem Name="PackageMstr.Master" Title="Packages Repository" Description=""  URL="/packagemstr/package_master_list" Order="20"/>
             <MenuItem Name="PackageMstr.Category" Title="Package Category" Description=""  URL="/packagemstr/package_category_list" Order="40"/>
 		</MenuItem>	
     </Menu>
