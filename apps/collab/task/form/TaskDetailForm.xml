@@ -94,10 +94,12 @@
 			<Element Name="fld_update_time" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
 		
 		<!-- M-M -->
-		<Element Name="fld_related_tasks" TabSet="Related Data"   ElementSet="Task" Class="FormElement" FormReference="collab.task.widget.TaskListRelatedForm" FieldName="" Label="" AllowURLParam="N" />
-	    <Element Name="btn_manage_related" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Task" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+		<Element Name="fld_related_tasks" TabSet="Related Data"   ElementSet="Related Tasks" Class="FormElement" FormReference="collab.task.widget.TaskListRelatedForm" FieldName="" Label="" AllowURLParam="N" />
+	    <Element Name="btn_manage_related" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Related Tasks" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_related_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditRelatedForm,{@:Elem[fld_Id].Value})"   />
        	</Element>
+		
+		<Element Name="fld_restricted_tasks" TabSet="Related Data"   ElementSet="Restricted Tasks" Class="FormElement" FormReference="collab.task.widget.TaskListRestrictedForm" FieldName="" Label="" AllowURLParam="N" />
 		
         <Element Name="fld_related_document"  TabSet="Related Data"  Access="collab_document.access"  ElementSet="Document" Class="FormElement" FormReference="collab.document.widget.DocumentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		<Element Name="btn_manage_document"  TabSet="Related Data"  Access="collab_document.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Document"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
