@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="UserStatDO" Description="" Class="BizDataObj" DBName="Default" Table="user" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity"  CacheLifeTime="0">
+	<BizFieldList>
+	    <BizField Name="Id" Column="id" Type=""/>
+        <BizField Name="username" Column="username" Type=""/>
+        <BizField Name="password" Column="password" Type=""/>
+        <BizField Name="enctype" Column="enctype"/>        
+        <BizField Name="smartcard" Column="smartcard" Type=""/>
+        <BizField Name="email" Column="email" Type=""/>
+        <BizField Name="status" Column="status" Type=""/>
+        <BizField Name="lastlogin" Column="lastlogin" Type="Datetime"/>
+        <BizField Name="lastlogout" Column="lastlogout" Type="Datetime"/>
+        <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+    </BizFieldList>
+    <ObjReferences>
+    	    <Object Name="collab.statistics.do.ContactDO" Relationship="1-M" Table="contact" Column="user_id" FieldRef="Id" onDelete="SetNull"/>    
+    </ObjReferences>
+</BizDataObj>

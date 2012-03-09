@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="UserProfileForm" Class="EasyForm" FormType="" Icon="icon_my_profile.gif" jsClass="jbForm" BizDataObj="collab.statistics.do.ContactDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_detail_tabs.tpl.html" EventName="CONTACT" MessageFile=""  Access="contact.access">
+    <DataPanel>
+    		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="Y" />
+    			         	        	        
+	        <Element Name="fld_display_name" Class="LabelText"  FieldName="display_name" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;"  AllowURLParam="N" />
+			<Element Name="fld_type_id" Class="LabelText" BackgroundColor="{@:Elem[fld_color].Value}" Width="648"  ElementSet="Profile" FieldName="type_name" Label="Contact Type"  AllowURLParam="N" />
+			
+	        <Element Name="fld_first_name" Class="LabelText" ElementSet="Profile" FieldName="first_name" Label="Firstname"  AllowURLParam="N" />
+	        <Element Name="fld_last_name" Class="LabelText" ElementSet="Profile" FieldName="last_name" Label="Lastname"  AllowURLParam="N" />
+	        <Element Name="fld_company" Class="LabelText" ElementSet="Profile" FieldName="company" Label="Company"  AllowURLParam="N"/>    	        				        
+	        <Element Name="fld_department" Class="LabelText" ElementSet="Profile" FieldName="department" Label="Department"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_position" Class="LabelText" ElementSet="Profile" FieldName="position" Label="Position"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_photo_uploaded" Class="RawData"  ElementSet="Profile" FieldName="photo" Label="Select Photo"  AllowURLParam="N" CssClass="input_file"/>	        
+     	
+ 	        <Element Name="fld_phone" Class="LabelText" ElementSet="Phone" FieldName="phone" Label="Phone"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_mobile" Class="LabelText" ElementSet="Phone" FieldName="mobile" Label="Mobile"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_fax" Class="LabelText" ElementSet="Phone" FieldName="fax" Label="Fax"  AllowURLParam="N"/>
+          
+ 	        <Element Name="fld_country" Class="LabelText" ElementSet="Address" FieldName="country" Label="Country"  AllowURLParam="N"/>
+			<Element Name="fld_province" Class="LabelText" ElementSet="Address" FieldName="province" Label="Province"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_city" Class="LabelText" ElementSet="Address" FieldName="city" Label="City"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_street" Class="LabelText" ElementSet="Address" FieldName="street" Label="Street"  AllowURLParam="N"/>		
+			<Element Name="fld_zipcode" Class="LabelText" ElementSet="Address" FieldName="zipcode" Label="Zipcode"  AllowURLParam="N"/>
+ 		
+	        <Element Name="fld_email" Class="LabelText"  ElementSet="Online Contact" FieldName="email" Label="Email"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_webpage" Class="LabelText" ElementSet="Online Contact"  FieldName="webpage" Label="Webpage"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_qq" Class="LabelText" ElementSet="Online Contact"  FieldName="qq" Label="QQ"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_icq" Class="LabelText" ElementSet="Online Contact"  FieldName="icq" Label="ICQ"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_skype" Class="LabelText" ElementSet="Online Contact"  FieldName="skype" Label="Skype"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_yahoo" Class="LabelText" ElementSet="Online Contact"  FieldName="yahoo" Label="Yahoo"  AllowURLParam="N"/>
+     		
+			<Element Name="fld_extend_fields"   ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N" />
+			<Element Name="fld_color" TabSet="Extra Information" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	        	            	        	        
+			
+	       		
+
+	    </DataPanel>
+   
+</EasyForm>

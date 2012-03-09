@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="UserStatFilterForm" Class="UserStatFilterForm" FormType="Detail" Width="700" Height="300" jsClass="Openbiz.Form" Title="User Data Statistics" BizDataObj="collab.statistics.do.UserStatDO" TemplateEngine="Smarty" PageSize="100" TemplateFile="system_right_chartform.tpl.html"  Access="collab_statistics.access">
+
+    <SearchPanel>        
+        <Element Name="session_group_filter"   cssclass="input_select_m" Class="DropDownList" FieldName="" Label="User" SelectFrom="system.do.GroupDO[name:Id]">
+            <EventHandler Name="groupfilter_onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+    	<Element Name="session_uid"   cssclass="input_select_m" Class="DropDownList" FieldName="username" Label="" SelectFrom="system.do.UserContactDO[display_name:username],[group_id]='{@:Elem[session_group_filter].Value}'">
+            <EventHandler Name="ownerfilter_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>
+        
+        <Element Name="btn_spacer2" Class="Spacer" Width="10"></Element>
+        
+        <Element Name="year_selector" cssclass="input_select_m" DefaultValue="{@:m_Year}"   Class="DropDownList" SelectFrom="collab.task.lov.TimesheetLOV(Year)" FieldName="year" Label="Date"  >
+            <EventHandler Name="year_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element> 
+        <Element Name="month_selector" cssclass="input_select" DefaultValue="{@:m_Month}" Class="DropDownList" SelectFrom="collab.task.lov.TimesheetLOV(Month)" FieldName="month" Label="" >
+            <EventHandler Name="month_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>
+      
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element> 
+    		
+    </SearchPanel> 
+    <NavPanel>
+    </NavPanel> 
+</EasyForm>

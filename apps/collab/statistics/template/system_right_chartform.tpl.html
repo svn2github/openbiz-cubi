@@ -1,5 +1,5 @@
 <form id='{$form.name}' name='{$form.name}'>
-<div style="padding-left:25px;padding-right:40px;">
+<div style="padding-left:25px;padding-right:40px;padding-bottom:5px;">
 	<table><tr><td>
 		{if $form.icon !='' }
 		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
@@ -27,19 +27,12 @@
 		    	{$elem.element}
 		{/foreach}
 					<div id='{$form.name}.load_disp' style="float:left;display:none;padding-top:6px;padding-left:10px;" >
-				<img src="{$image_url}/form_ajax_loader.gif"/>
-			</div>
+						<img src="{$image_url}/form_ajax_loader.gif"/>
+					</div>
 				</div>
 				
 	</div>
 {/if}
-{if $form.totalRecords eq 0}
-<div style="width:{$form.width}px;height:30px;">
-	<span style="display:block;padding:10px;color:#999999;">{t}-- No data found this specified date range. --{/t}</span>
-</div>
-{else}
-<div style="width:{$form.width}px;height:{$form.height}px;">{$form.data}</div>	 
-{/if}
-</div>
-<div>{$dataPanel.fld_detail_form.element}</div>
+</div></div>
+
 </form>
