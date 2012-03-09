@@ -31,7 +31,7 @@ color:#666666;
 <div style="padding-left:35px; padding-right:30px;">
 {include file="system_appbuilder_btn.tpl.html"}
 	<div style="padding-left:0px;" >
-	<h2>{$form.title}</h2>
+	<h2><span class="title_id" style="margin-right:10px;">{$form.currentRecordId}</span>{$form.title}</h2>
 	<table><tr><td>
 		{if $form.icon !='' }
 		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>

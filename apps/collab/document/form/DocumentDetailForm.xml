@@ -2,7 +2,7 @@
 <EasyForm Name="DocumentDetailForm" Class="EasyForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif" FormType="Detail" jsClass="jbForm" Title="Document Detail" Description="You can create a document and share it with your group mates." BizDataObj="collab.document.do.DocumentDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_tabs.tpl" EventName="BOOKMARK" MessageFile="Documents.msg" Access="collab_document.access">
     <DataPanel>
 			<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-			<Element Name="fld_form_title"  Class="common.element.ColumnTitle" FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" />	
+			<Element Name="fld_form_title"  Class="LabelText" FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" />	
 			<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 			<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="collab.document.do.DocumentTypeDO[name:Id],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />
 			<Element Name="fld_extend_fields"   ElementSet="General" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N" />

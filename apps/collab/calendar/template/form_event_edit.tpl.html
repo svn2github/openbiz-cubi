@@ -24,7 +24,7 @@ line-height:24px;
 {include file="system_appbuilder_btn.tpl.html"}
 	
 	<div style="padding-left:0px;height:125px;" >
-	<h2>{$form.title}</h2>
+	<h2><span class="title_id" style="margin-right:10px;">{$form.currentRecordId}</span>{$form.title}</h2>
 	<table><tr><td>
 		{if $form.icon !='' }
 		<div class="form_icon" style="padding:0px;width:90px;padding-top:5px;"><img  src="{$form.icon}" border="0" /></div>

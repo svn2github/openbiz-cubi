@@ -30,13 +30,13 @@ margin-top:4px;
 {include file="system_appbuilder_btn.tpl.html"}
 	<div style="padding-left:0px;" >
 
-	<h2>{$form.title}</h2>
+	<h2><span class="title_id" style="margin-right:10px;">{$form.currentRecordId}</span>{$form.title}</h2>
 	<table><tr><td>
 		{if $form.icon !='' }
 		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
 		{/if}
 	
-		<div style="float:left; width:600px;padding-top:0px;">
+		<div style="float:left; width:600px;padding-top:8px;">
 			{if $dataPanel.fld_form_title.element}
 			<h1 style="padding-bottom:5px;">
 			{$dataPanel.fld_form_title.element}
