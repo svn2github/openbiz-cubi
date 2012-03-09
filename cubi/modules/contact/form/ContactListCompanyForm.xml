@@ -14,7 +14,7 @@
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>
 		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" Link="javascript:" />
-        <Element Name="fld_display_name" Class="LabelText" FieldName="display_name" Label="Contact Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/contact_detail/{@:Elem[fld_Id].Value}">         
+        <Element Name="fld_display_name" Class="ColumnText" FieldName="display_name" Label="Contact Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/contact_detail/{@:Elem[fld_Id].Value}">         
          	<!--  <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactDetailForm,{@:Elem[fld_Id].Value})"   />-->
         </Element>	
         <Element Name="fld_company" Class="ColumnText" FieldName="company" Label="Company"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
