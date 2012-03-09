@@ -67,6 +67,11 @@
        		  			
 			
 			<!-- M-M -->
+			<Element Name="fld_related_worklog" Access="collab_worklog.access"  TabSet="Related Data"   ElementSet="Worklog" Class="FormElement" FormReference="collab.worklog.widget.WorklogListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+			<Element Name="btn_manage_worklog" TabSet="Related Data" Access="collab_worklog.access"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Worklog" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+				<EventHandler Name="btn_manage_worklog_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventEditWorklogForm,{@:Elem[fld_Id].Value})" />
+       		 </Element> 
+			
 			<Element Name="fld_related_events" TabSet="Related Data"   ElementSet="Events" Class="FormElement" FormReference="collab.calendar.widget.EventListRelatedForm" FieldName="" Label="" AllowURLParam="N" />
 		    <Element Name="btn_manage_related" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Events" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 				<EventHandler Name="btn_manage_related_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventEditRelatedForm,{@:Elem[fld_Id].Value})"   />
@@ -82,10 +87,7 @@
 				<EventHandler Name="btn_manage_tasks_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventEditTaskForm,{@:Elem[fld_Id].Value})"   />
 	       	</Element>	
 			
-			<Element Name="fld_related_worklog" Access="collab_worklog.access"  TabSet="Related Data"   ElementSet="Worklog" Class="FormElement" FormReference="collab.worklog.widget.WorklogListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-			<Element Name="btn_manage_worklog" TabSet="Related Data" Access="collab_worklog.access"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Worklog" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
-				<EventHandler Name="btn_manage_worklog_onclick" Event="onclick" Function="SwitchForm(collab.calendar.form.EventEditWorklogForm,{@:Elem[fld_Id].Value})" />
-       		 </Element> 
+			
 			
 			<Element Name="fld_related_docs"  TabSet="Related Data" Access="collab_document.access"  ElementSet="Document" Class="FormElement" FormReference="collab.document.widget.DocumentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 			<Element Name="btn_manage_docs" TabSet="Related Data" Access="collab_document.access"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Document" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
