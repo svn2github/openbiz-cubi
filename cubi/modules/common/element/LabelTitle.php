@@ -5,7 +5,7 @@ class LabelTitle extends LabelText
 	{
 		$rec = $this->getFormObj()->getActiveRecord();
 		$id = $rec["Id"];
-		$id_display = "<span class=\"title_id\" >$id</span>";
+		$id_display = "<span class=\"title_id\" style='margin-left:10px;' >$id</span>";
 		return $id_display;
 	}
 	
