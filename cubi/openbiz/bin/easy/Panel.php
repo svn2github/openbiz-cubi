@@ -134,7 +134,9 @@ class Panel extends MetaIterator implements iUIControl
     	if(!$recArr)
     		return ;
     		
-    	$this->getFormObj()->m_ActiveRecord = $recArr;
+    	foreach($recArr as $key=>$value){	        	
+	       	$this->getFormObj()->m_ActiveRecord[$key] = $recArr[$key];
+	    }     	
     	
         // reset elements first to avoid use stale data
         foreach ($this->m_var as $elem)
