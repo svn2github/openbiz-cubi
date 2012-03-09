@@ -22,7 +22,8 @@ table.input_row {
 	
 	<div style="padding-left:10px;" >
 		<div class="underline " style="height:280px;width:680px;" id="general">
-		<h2 style="width:680px;">{t}Contact Profile{/t}</h2>
+		<h2 style="width:680px;"><span class="title_id" style="margin-right:10px;">{$form.currentRecordId}</span>{t}Contact Profile{/t}</h2>				
+		
 		<div style="height:80px;">
 						{assign var=item value=$dataPanel.fld_display_name}		
 		<table  id="fld_display_name_container" style="width:678px;">										

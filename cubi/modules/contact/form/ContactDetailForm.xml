@@ -3,7 +3,7 @@
     <DataPanel>
     		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="Y" />
     			         	        	        
-	        <Element Name="fld_display_name" Class="common.element.ColumnTitle"  FieldName="display_name" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;"  AllowURLParam="N" />
+	        <Element Name="fld_display_name" Class="LabelText"  FieldName="display_name" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;"  AllowURLParam="N" />
 			<Element Name="fld_type_id" Class="LabelText" BackgroundColor="{@:Elem[fld_color].Value}" Width="648"  ElementSet="Profile" FieldName="type_name" Label="Contact Type"  AllowURLParam="N" />
 			
 	        <Element Name="fld_first_name" Class="LabelText" ElementSet="Profile" FieldName="first_name" Label="Firstname"  AllowURLParam="N" />
