@@ -2,8 +2,7 @@
 <EasyForm Name="ContactPickForm" Class="PickerForm" Icon="{RESOURCE_URL}/contact/images/icon_phonebook.gif"  FormType="List" jsClass="jbForm" Title="Please select a contact" Description="To selec a contact, click on a row and click to Select button" BizDataObj="contact.do.ContactPickerDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_picker.tpl.html"  Access="contact.access" >
     <DataPanel>
        <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>    
-        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Contact Id" Sortable="Y"/>
-        <Element Name="fld_share" Class="ColumnShare" 
+         <Element Name="fld_share" Class="ColumnShare" 
 				MyPrivateImg="{RESOURCE_URL}/contact/images/icon_contact.gif"
 				MySharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared.gif"
 				MyAssignedImg="{RESOURCE_URL}/contact/images/icon_contact_assigned.gif"
@@ -13,8 +12,10 @@
 				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
 					
 		</Element>	 
-        <Element Name="fld_display_name" Class="common.element.ColumnTitle" FieldName="display_name" Label="Display Name" Sortable="Y"/>
-        <Element Name="fld_phone" Class="ColumnText" FieldName="phone" Label="Phone" Sortable="Y"/>
+		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        <Element Name="fld_display_name" Class="ColumnText" FieldName="display_name" Label="Contact Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/contact_detail/{@:Elem[fld_Id].Value}">         
+         	<!--  <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactDetailForm,{@:Elem[fld_Id].Value})"   />-->
+        </Element>	        <Element Name="fld_phone" Class="ColumnText" FieldName="phone" Label="Phone" Sortable="Y"/>
         <Element Name="fld_mobile" Class="ColumnText" FieldName="mobile" Label="Mobile" Sortable="Y"/>
         <Element Name="fld_email" Class="ColumnText" FieldName="email" Label="Email" Sortable="Y"/>
         <Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
