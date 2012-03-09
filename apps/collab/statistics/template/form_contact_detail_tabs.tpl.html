@@ -216,7 +216,7 @@ table.input_row {
 	{assign var=ts_counter value=1}
 	{foreach item=tabsetdata key=tabsetname name=tabs  from=$form.tabSets}	
 	{if $smarty.foreach.tabs.first}
-	<div id="element_tabset_{$ts_counter}" class=" " style="width:680px;padding:5px;">
+	<div id="element_tabset_{$ts_counter}" class="underline " style="width:680px;padding:5px;">
 	{else}
 	<div id="element_tabset_{$ts_counter}" class="underline upline" style="width:680px;padding:5px;">
 	{/if}
