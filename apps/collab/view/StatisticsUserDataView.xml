@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="StatisticsUserDataView" Description="User Data Statistics" Class="EasyView" Tab="" Access="collab_statistics.access" TemplateEngine="Smarty" TemplateFile="view_statistics.tpl">
+   <FormReferences>
+   		<Reference Name="collab.statistics.form.UserStatFilterForm" subforms="collab.statistics.form.UserProfileForm"/>
+   		<Reference Name="collab.statistics.form.UserProfileForm" />
+   </FormReferences>
+</EasyView>
