@@ -35,6 +35,7 @@
 			
 	       	<Element Name="fld_related_contacts" Access="contact.access" TabSet="Related Data"   ElementSet="Contact" Class="FormElement" FormReference="collab.statistics.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 	       	<Element Name="fld_related_documents" Access="collab_document.access" TabSet="Related Data"   ElementSet="Document" Class="FormElement" FormReference="collab.statistics.widget.DocumentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+	       	<Element Name="fld_related_projects" Access="collab_project.access" TabSet="Related Data"   ElementSet="Project" Class="FormElement" FormReference="collab.statistics.widget.ProjectListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 				
 
 	    </DataPanel>

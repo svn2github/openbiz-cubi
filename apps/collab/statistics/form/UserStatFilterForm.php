@@ -20,7 +20,11 @@ class UserStatFilterForm extends EasyForm
 		return $result;
 	}
 	
-	
+	public function render(){
+		$result = parent::render();
+		$this->selectRecord(BizSystem::getUserProfile("profile_Id"));
+		return $result;
+	}
     public function getSessionVars($sessionContext)
     {    	
     	$sessionContext->getObjVar($this->m_Name, "Year", $this->m_Year);
