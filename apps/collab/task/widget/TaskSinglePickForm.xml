@@ -11,7 +11,9 @@
 				OtherSharedImg="{RESOURCE_URL}/collab/task/images/icon_task_shared_other.png"
 				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
 		</Element>	
-        <Element Name="fld_title" MaxLength="16"  Class="common.element.ColumnTitle" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
+		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+		
+        <Element Name="fld_title" MaxLength="16"  Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N"  Link="javascript:" Translatable="N" OnEventLog="N" >
         </Element>	
         <Element Name="fld_progress" Class="ColumnBar" Width="120" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:180px" MaxValue="100" FieldName="progress" Label="Progress"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
         </Element>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="ProjectSinglePickForm" Class="ProjectSinglePickForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png"  Title="Please select a project" Description="To selec a project click on a row and click to Select button" BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_picker_w.tpl.html" EventName="PROJECT" MessageFile="Project.msg" Access="collab_project.access">
     <DataPanel>
-        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label=" Id" Sortable="Y"/>
-        <Element Name="fld_share" Class="ColumnShare" 
+         <Element Name="fld_share" Class="ColumnShare" 
 				MyPrivateImg="{RESOURCE_URL}/collab/project/images/icon_project_private.png"
 				MySharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared.png" 
 				MyAssignedImg="{RESOURCE_URL}/collab/project/images/icon_project_assigned.png"
@@ -11,8 +10,9 @@
 				OtherSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_other.png"
 				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
 		</Element>	
+		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" Link="javascript:" />
 
-        <Element Name="fld_title"  MaxLength="16" Class="common.element.ColumnTitle" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+        <Element Name="fld_title"  MaxLength="16" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
         </Element>
          
         <Element Name="fld_desc"  MaxLength="16" Class="ColumnText" FieldName="description" Label="Description" Maxlenght="20"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="">         
