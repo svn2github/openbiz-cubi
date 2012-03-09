@@ -52,5 +52,8 @@
     </TableJoins>
     <ObjReferences>
 		<Object Name="extend.do.ExtendDataDO" Relationship="1-M" Table="extend_data" CondColumn='module' CondValue='contact' Column="type_id" FieldRef="type_id" Column2="record_id" FieldRef2="Id" onDelete="Cascade"/>
+		<Object Name="collab.statistics.do.RelatedContactDO" Relationship="1-M" Table="contact"  Column="owner_id" FieldRef="user_id"  onDelete="Cascade"/>
+		<Object Name="collab.statistics.do.RelatedDocumentDO" Relationship="1-M" Table="document"  Column="owner_id" FieldRef="user_id"  onDelete="Cascade"/>
+		
     </ObjReferences>
 </BizDataObj>

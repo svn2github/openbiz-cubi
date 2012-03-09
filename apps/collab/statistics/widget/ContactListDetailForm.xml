@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ContactListDetailForm" Class="EasyForm" FormType="List" jsClass="jbForm" BizDataObj="collab.statistics.do.RelatedContactDO"   PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html" inheritFrom="contact.widget.ContactListDetailForm" Access="contact.access">
+</EasyForm>
