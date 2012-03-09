@@ -55,6 +55,7 @@
 		<Object Name="collab.statistics.do.RelatedContactDO" Relationship="1-M" Table="contact"  Column="owner_id" FieldRef="user_id"  onDelete="Cascade"/>
 		<Object Name="collab.statistics.do.RelatedDocumentDO" Relationship="1-M" Table="document"  Column="owner_id" FieldRef="user_id"  onDelete="Cascade"/>
 		<Object Name="collab.statistics.do.RelatedProjectDO" Relationship="1-M" Table="project"  Column="owner_id" FieldRef="user_id"  onDelete="Cascade"/>
+		<Object Name="collab.statistics.do.RelatedTaskDO" Relationship="1-M" Table="task"  Column="owner_id" FieldRef="user_id"  onDelete="Cascade"/>
 		
     </ObjReferences>
 </BizDataObj>
