@@ -3,7 +3,7 @@
     <DataPanel>
 			<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
 			<Element Name="fld_dependency_id" Hidden="Y" Class="LabelText" FieldName="dependency_task_id" Label="Id" AllowURLParam="Y"/>
-		<Element Name="fld_form_title"  Class="LabelText"   FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />
+		<Element Name="fld_form_title"  Class="common.element.ColumnTitle"   FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />
 				    <Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="collab.task.do.TaskTypeDO[name:Id:color]" AllowURLParam="N" />		
 
@@ -30,7 +30,7 @@
 		</Element>
 		
 		<Element Name="fld_parent" ElementSet="General" Class="LabelList" BlankOption="none" FieldName="parent_task_id" Label="Parent Task" SelectFrom="collab.task.do.TaskListDO[title:Id]" AllowURLParam="N" />
-		<Element Name="fld_dependency" ElementSet="General" Class="LabelList" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="collab.task.do.TaskListDO[title:Id]" AllowURLParam="N" Link="{@:Elem[fld_dependency_id].Value?@:Elem[fld_dependency_id].Value:''}" />
+		<Element Name="fld_dependency" ElementSet="General" Class="collab.task.element.LabelDependencyList" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="collab.task.do.TaskListDO[title:Id]" AllowURLParam="N" Link="{@:Elem[fld_dependency_id].Value?@:Elem[fld_dependency_id].Value:''}" />
 		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 		
 		<Element Name="fld_extend_fields"   ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N" />

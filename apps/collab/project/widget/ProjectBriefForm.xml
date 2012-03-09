@@ -2,7 +2,7 @@
 <EasyForm Name="ProjectBriefForm" Class="ProjectBriefForm" FormType="Detail" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Project Information" Description="This module could help you manage project. You can put projects under a project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_brief_widget.tpl.html" EventName="Project" MessageFile="Project.msg" Access="collab_project.access">
     <DataPanel>
 	    <Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-		<Element Name="fld_form_title"  Class="LabelText"   FieldName="name" Label="Project"  AllowURLParam="N" Link="{APP_INDEX}/collab/project_detail/{@:Elem[fld_Id].Value}" />
+		<Element Name="fld_form_title"  Class="common.element.ColumnTitle"   FieldName="name" Label="Project"  AllowURLParam="N" Link="{APP_INDEX}/collab/project_detail/{@:Elem[fld_Id].Value}" />
 		<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_form_description"  Width="648" Class="LabelText" FieldName="type_name" Label="Type" KeepCookie="Y" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" />		
 		
