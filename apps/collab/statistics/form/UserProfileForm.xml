@@ -33,13 +33,13 @@
 			<Element Name="fld_extend_fields"   ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N" />
 			<Element Name="fld_color" TabSet="Extra Information" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	        	            	        	        
 			
-	       	<Element Name="fld_related_projects" Access="collab_project.access" TabSet="Related Data"   ElementSet="Project" Class="FormElement" FormReference="collab.statistics.widget.ProjectListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+	       	<Element Name="fld_related_projects" Access="collab_project.access" TabSet="Assigned Data"   ElementSet="Project" Class="FormElement" FormReference="collab.statistics.widget.ProjectListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 	       	
-	       	<Element Name="fld_related_tasks" Access="collab_task.access" TabSet="Related Data"   ElementSet="Task" Class="FormElement" FormReference="collab.statistics.widget.TaskListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+	       	<Element Name="fld_related_tasks" Access="collab_task.access" TabSet="Assigned Data"   ElementSet="Task" Class="FormElement" FormReference="collab.statistics.widget.TaskListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 	       	
-	       	<Element Name="fld_related_events" Access="collab_calendar.access" TabSet="Related Data"   ElementSet="Event" Class="FormElement" FormReference="collab.statistics.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-	       	<Element Name="fld_related_documents" Access="collab_document.access" TabSet="Related Data"   ElementSet="Document" Class="FormElement" FormReference="collab.statistics.widget.DocumentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-			<Element Name="fld_related_contacts" Access="contact.access" TabSet="Related Data"   ElementSet="Contact" Class="FormElement" FormReference="collab.statistics.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+	       	<Element Name="fld_related_events" Access="collab_calendar.access" TabSet="Assigned Data"   ElementSet="Event" Class="FormElement" FormReference="collab.statistics.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+	       	<Element Name="fld_related_documents" Access="collab_document.access" TabSet="Assigned Data"   ElementSet="Document" Class="FormElement" FormReference="collab.statistics.widget.DocumentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+			<Element Name="fld_related_contacts" Access="contact.access" TabSet="Assigned Data"   ElementSet="Contact" Class="FormElement" FormReference="collab.statistics.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 				
 
 	    </DataPanel>
