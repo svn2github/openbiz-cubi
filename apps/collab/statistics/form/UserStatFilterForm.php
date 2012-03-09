@@ -16,13 +16,18 @@ class UserStatFilterForm extends EasyForm
 
 		$recId = $this->getDataObj()->fetchOne("[username]='".$data['username']."'")->Id;		
 		$this->selectRecord($recId);
-		
+		$this->m_RecordId = $recId;
 		return $result;
 	}
 	
 	public function render(){
 		$result = parent::render();
-		$this->selectRecord(BizSystem::getUserProfile("profile_Id"));
+		if($this->m_RecordId){
+			$recId= $this->m_RecordId;
+		}else{
+			$recId=BizSystem::getUserProfile("profile_Id");
+		}
+		$this->selectRecord($recId);
 		return $result;
 	}
     public function getSessionVars($sessionContext)
