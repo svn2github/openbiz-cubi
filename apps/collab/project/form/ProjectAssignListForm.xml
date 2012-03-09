@@ -2,7 +2,6 @@
 <EasyForm Name="ProjectAssignListForm" Class="ProjectForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Project Assignment Management" Description="This is a project list view. You can put your tasks under the belonged project." BizDataObj="collab.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_grid.tpl.html" EventName="PROJECT" MessageFile="Project.msg" Access="collab_project.access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
         <Element Name="fld_share" Class="ColumnShare" 
 				MyPrivateImg="{RESOURCE_URL}/collab/project/images/icon_project_private.png"
 				MySharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared.png" 
@@ -13,8 +12,8 @@
 				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
-
-        <Element Name="fld_title"  MaxLength="16" Class="common.element.ColumnTitle" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/project_detail/{@:Elem[fld_Id].Value}">         
+		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        <Element Name="fld_title"  MaxLength="16" Class="LabelText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/project_detail/{@:Elem[fld_Id].Value}">         
          	<!-- <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectDetailForm,{@:Elem[fld_Id].Value})"   />-->
         </Element>
          

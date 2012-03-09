@@ -3,7 +3,7 @@
     <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        
         <Element Name="fld_type_id" Class="Hidden" Hidden="Y"   FieldName="type_id" Label="Type Id" Sortable="Y" AllowURLParam="Y"/>
         <Element Name="fld_share" Class="ColumnShare" 
 				MyPrivateImg="{RESOURCE_URL}/collab/task/images/icon_task_private.png"
@@ -15,8 +15,8 @@
 				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
-
-        <Element Name="fld_title" MaxLength="16"  Class="common.element.ColumnTitle" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/task_detail/{@:Elem[fld_Id].Value}">         
+		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        <Element Name="fld_title" MaxLength="16"  Class="LabelText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/task_detail/{@:Elem[fld_Id].Value}">         
          	<!-- <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   />-->
         </Element>
         <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" FieldName="status" Label="Status" Link="javascript:;" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >

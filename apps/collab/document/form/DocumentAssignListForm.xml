@@ -2,12 +2,12 @@
 <EasyForm Name="DocumentAssignListForm" Class="EasyForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif" FormType="List" jsClass="jbForm" Title="Document Assignment Management" Description="You can create documents and share it with your colleague." BizDataObj="collab.document.do.DocumentDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_document_grid.tpl.html" EventName="BOOKMARK" MessageFile="Documents.msg" Access="collab_document.access">
     <DataPanel>
           <Element Name="row_selections" Class="RowCheckbox" Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:"/>
         <Element Name="fld_share" Class="ColumnShare" MyPrivateImg="{RESOURCE_URL}/collab/document/images/icon_document_private.png" MySharedImg="{RESOURCE_URL}/collab/document/images/icon_document_shared.png" MyAssignedImg="{RESOURCE_URL}/collab/document/images/icon_document_assigned.png" MyDistributedImg="{RESOURCE_URL}/collab/document/images/icon_document_distributed.png" GroupSharedImg="{RESOURCE_URL}/collab/document/images/icon_document_shared_group.png" OtherSharedImg="{RESOURCE_URL}/collab/document/images/icon_document_shared_other.png" FieldName="create_by" Label="Share" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
 		
-        <Element Name="fld_title" MaxLength="20" Class="common.element.ColumnTitle" FieldName="title" Label="Title" Link="{APP_INDEX}/collab/document_detail/{@:Elem[fld_Id].Value}" Sortable="Y">
+		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" Link="javascript:" />		
+        <Element Name="fld_title" MaxLength="20" Class="LabelText" FieldName="title" Label="Title" Link="{APP_INDEX}/collab/document_detail/{@:Elem[fld_Id].Value}" Sortable="Y">
         	<!-- <EventHandler Name="fld_subject_onclick" Event="onclick" Function="SwitchForm(collab.document.form.DocumentDetailForm,{@:Elem[fld_Id].Value})"/>-->
         </Element>	
 		<Element Name="fld_starttime" Class="ColumnText" FieldName="create_time" Text="{date('Y-m-d H:i',strtotime(@:Elem[fld_starttime].Value))}"  Label="Create Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
