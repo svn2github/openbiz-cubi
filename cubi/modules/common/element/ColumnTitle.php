@@ -11,7 +11,12 @@ class ColumnTitle extends ColumnText
 	
 	public function render(){
 		$sHTML = parent::render();
-		$sHTML = $this->getIDPrefix().$sHTML;
+		if($this->m_FieldName!='Id'){
+			$sHTML = $this->getIDPrefix().$sHTML;
+		}
+		else{
+			$sHTML = $this->getIDPrefix();
+		}
 		return $sHTML;
 	}
 }
