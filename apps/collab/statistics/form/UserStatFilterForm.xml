@@ -17,10 +17,17 @@
         <Element Name="month_selector" cssclass="input_select" DefaultValue="{@:m_Month}" Class="DropDownList" SelectFrom="collab.task.lov.TimesheetLOV(Month)" FieldName="month" Label="" >
             <EventHandler Name="month_selector_onchange" Event="onchange" Function="RunSearch()"/>
         </Element>
-      
+      	
+
+      	
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element> 
+    		
+      	<Element Name="btn_spacer3" Class="Spacer" Width="10"></Element>
+      	<Element Name="btn_dosearch_viewall" Class="Button" text="View All" CssClass="button_gray_w">
+            <EventHandler Name="search_viewall_onclick" Event="onclick" Function="ViewAll()" />
+        </Element>     		
     		
     </SearchPanel> 
     <NavPanel>
