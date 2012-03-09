@@ -926,27 +926,31 @@ class EasyForm extends MetaObject implements iSessionObject
         if (strtoupper($this->m_FormType) == "NEW")
             return $this->getNewRecord();
 		
-        if (!$this->m_FixSearchRule && !$this->m_SearchRule)
-        	return array();
-        
-    	QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
-        
-        	
-        if ($this->m_RefreshData)   $dataObj->resetRules();
-        else $dataObj->clearSearchRule();
-
-        if ($this->m_FixSearchRule)
-        {
-            if ($this->m_SearchRule)
-                $searchRule = $this->m_SearchRule . " AND " . $this->m_FixSearchRule;
-            else
-                $searchRule = $this->m_FixSearchRule;
+        if (!$this->m_FixSearchRule && !$this->m_SearchRule){ 
+        	//if its a default sub form,even no search rule, but can still fetch a default record 
+        	if(!is_array($this->getDataObj()->m_Association)){
+        		//only if its a default sub form and without any association then return emply array
+        		return array();
+        	}
+        }else{	
+	    	QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
+	        
+	        	
+	        if ($this->m_RefreshData)   $dataObj->resetRules();
+	        else $dataObj->clearSearchRule();
+	
+	        if ($this->m_FixSearchRule)
+	        {
+	            if ($this->m_SearchRule)
+	                $searchRule = $this->m_SearchRule . " AND " . $this->m_FixSearchRule;
+	            else
+	                $searchRule = $this->m_FixSearchRule;
+	        }
+	        
+	        $dataObj->setSearchRule($searchRule);
+	        QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
+	        $dataObj->setLimit(1);
         }
-
-        $dataObj->setSearchRule($searchRule);
-        QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
-        $dataObj->setLimit(1);
-
         $resultRecords = $dataObj->fetch();
 
         $this->m_RecordId = $resultRecords[0]['Id'];
