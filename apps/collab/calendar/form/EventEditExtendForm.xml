@@ -3,7 +3,7 @@
     <DataPanel>
 		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
 
-			<Element Name="fld_form_title" ElementSet="" Class="LabelText" FieldName="subject" Label="Subject" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />    	        
+			<Element Name="fld_form_title" ElementSet="" Class="common.element.ColumnTitle" FieldName="subject" Label="Subject" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />    	        
 		    <Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		    <Element Name="fld_form_description" ElementSet="" BackgroundColor="{@:Elem[fld_color].Value}" Width="600" Class="LabelText" FieldName="type_name" Label="Type" KeepCookie="Y" SelectFrom="collab.calendar.do.EventTypeDO[name:Id],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />			    
 	        <Element Name="fld_location" ElementSet="General" Class="LabelText" FieldName="location" Label="Location"  AllowURLParam="N" />

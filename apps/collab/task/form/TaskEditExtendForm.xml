@@ -2,7 +2,7 @@
 <EasyForm Name="TaskEditExtendForm" Class="TaskForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/task/images/icon_task_gantt.gif" Title="Edit Task Extend Fields" Description="Here you can edit extend fields for selected type of task" BizDataObj="collab.task.do.TaskDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_edit_extend.tpl.html" EventName="TASK" MessageFile="Task.msg" Access="collab_task.access">
     <DataPanel>
 		<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-		<Element Name="fld_form_title"  Class="LabelText"   FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />
+		<Element Name="fld_form_title"  Class="common.element.ColumnTitle"   FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />
 				    <Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="collab.task.do.TaskTypeDO[name:Id:color]" AllowURLParam="N" />		
 					    
