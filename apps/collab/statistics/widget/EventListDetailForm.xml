@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventListDetailForm" Class="EasyForm" FormType="List" jsClass="jbForm" BizDataObj="collab.statistics.do.RelatedEventDO"   PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html" inheritFrom="collab.calendar.widget.EventListDetailForm" Access="collab_calendar.access">
+</EasyForm>
