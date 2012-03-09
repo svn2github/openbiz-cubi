@@ -14,7 +14,10 @@ class ExtendDataEditForm extends EasyForm
 		$do = BizSystem::getObject($this->getDataObj()->m_Name,1);
 		$searchRule = $this->getSettingSearchRule();
 		$do->clearSearchRule();
-		$rec = $do->directfetch($searchRule."AND [record_id]='$record_id'");
+		if(!$searchRule){
+			$searchRule = "TRUE ";
+		}
+		$rec = $do->directfetch($searchRule." AND [record_id]='$record_id'");
 		if($rec[0]){
 			$recArr = $rec[0];
 		}else{
