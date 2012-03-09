@@ -1584,8 +1584,8 @@ class EasyForm extends MetaObject implements iSessionObject
     {
         // read the input to form controls
         //@todo: read inputs but should be skipp uploaders elements
-        $recArr = $this->readInputRecord();
-        $this->setActiveRecord($recArr);
+        $recArr = $this->readInputRecord();        
+        $this->setActiveRecord($recArr);        
         $this->rerender();
     }
 
@@ -2231,13 +2231,15 @@ $('".$this->m_Name."').observe('click',Openbiz.Menu.hide);
         	(strtoupper($this->m_FormType) == 'EDIT' || $this->m_FormType==null )){     
         		if($this->getDataObj()){   	
         			$this->m_ActiveRecord = $this->getDataObj()->fetchById($this->m_RecordId)->toArray();
-        		}
+        		}        		
         }
 		if(is_array($record)){    	        
 	        foreach($record as $key=>$value){
+	        	if($key=='extend')continue;
 	        	$this->m_ActiveRecord[$key] = $record[$key];
 	        }        
 		}
+		
     }
 
     /**
