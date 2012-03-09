@@ -5,7 +5,10 @@ class LabelDependencyList extends LabelList
 	{
 		$rec = $this->getFormObj()->getActiveRecord();
 		$id = $rec[$this->m_FieldName];
-		$id_display = "<span class=\"title_id\" >$id</span>";
+		$id_display="";
+		if($id){
+			$id_display = "<span class=\"title_id\" >$id</span>";
+		}
 		return $id_display;
 	}
 	
