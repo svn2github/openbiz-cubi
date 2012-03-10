@@ -74,9 +74,9 @@ background-color:#f8f8f8;
          	{if $cell_name != $row_style_name}
 				{if $cell_name == 'fld_type'} 
          			{if $row_style != ''}
-         				{assign var=row_bgcolor value=border-right-width:6px;border-right-style:solid;border-right-color:#$row_style;}
+         				{assign var=row_bgcolor value=padding-right:6px;border-right-width:6px;border-right-style:solid;border-right-color:#$row_style;}
          			{else}
-         				{assign var=row_bgcolor value=border-right-width:6px;border-right-style:solid;border-right-color:#ffffff;}
+         				{assign var=row_bgcolor value=padding-right:6px;border-right-width:6px;border-right-style:solid;border-right-color:#ffffff;}
          			{/if}
 					 <td {$col_class} style="{$row_bgcolor}" nowrap="nowrap" >{$cell}</td>
          		{else}
