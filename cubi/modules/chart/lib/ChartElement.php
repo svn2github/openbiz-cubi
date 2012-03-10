@@ -22,7 +22,7 @@
  * @copyright Copyright (c) 2005-2009
  * @access public
  */
-class ChartElement extends MetaObject implements iUIControl
+class ChartElement extends Element
 {
     public $chart;
     public $fieldName;
@@ -30,6 +30,9 @@ class ChartElement extends MetaObject implements iUIControl
 	public $key;
 	public $attrs, $attrList;
 	public $style, $styleList;
+	
+	public $m_Value;
+	public $m_Text;
 	
     function __construct(&$xmlArr, $formObj)
     {
@@ -48,6 +51,7 @@ class ChartElement extends MetaObject implements iUIControl
     protected function readMetaData(&$xmlArr)
     {
         $this->m_Name = isset($xmlArr["ATTRIBUTES"]["NAME"]) ? $xmlArr["ATTRIBUTES"]["NAME"] : null;
+        $this->m_Text = isset($xmlArr["ATTRIBUTES"]["TEXT"]) ? $xmlArr["ATTRIBUTES"]["TEXT"] : null;
         $this->m_Class = isset($xmlArr["ATTRIBUTES"]["CLASS"]) ? $xmlArr["ATTRIBUTES"]["CLASS"] : null;
         $this->fieldName = isset($xmlArr["ATTRIBUTES"]["FIELDNAME"]) ? $xmlArr["ATTRIBUTES"]["FIELDNAME"] : null;
         $this->key = isset($xmlArr["ATTRIBUTES"]["LABEL"]) ? $xmlArr["ATTRIBUTES"]["LABEL"] : null;
@@ -70,6 +74,20 @@ class ChartElement extends MetaObject implements iUIControl
     		$this->chart = $this->getChartObj();
     	}
     	return $this->chart;
+    }
+
+    
+    public function getValue()
+    {
+    	if($this->getText())
+    	{
+    		$value = $this->getText();
+    	}
+    	else
+    	{
+    		$value=$this->m_Value;	
+    	}    	
+    	return $value;
     }
     
     protected function getChartObj()

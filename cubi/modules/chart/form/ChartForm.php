@@ -111,27 +111,29 @@ class ChartForm extends EasyForm
             if (!$arr) break;
             foreach ($this->m_DataPanel as $element)
             {            	
-            	if ($element->fieldName && isset($arr[$element->fieldName]))
+            	$element->m_Value = $arr[$element->fieldName];
+            	$value = $element->getValue();            	
+            	if ($element->fieldName && isset($value))
             	{	            	            			            		
             		switch($element->m_Class)
             		{
             			case "chart.lib.ChartColor":
-            				$this->chartColorset[] = $arr[$element->fieldName];            				
+            				$this->chartColorset[] = $value;            				
             				break;
             			case "chart.lib.ChartDataId":
-            				$this->chartIdset[] = $arr[$element->fieldName];
+            				$this->chartIdset[] = $value;
             				break;
             			case "chart.lib.ChartDescription":
-            				$this->chartDescset[] = $arr[$element->fieldName];
+            				$this->chartDescset[] = $value;
             				break;
             			case "chart.lib.ChartColor":
-            				$this->chartColorset[] = $arr[$element->fieldName];
+            				$this->chartColorset[] = $value;
             				break;
             			case "chart.lib.ChartCategory":
-            				$this->chartCategory[] = $arr[$element->fieldName];
+            				$this->chartCategory[] = $value;
             				break;
             			case "chart.lib.ChartData":
-            				$this->chartDataset[$element->key][] 	 = $arr[$element->fieldName];
+            				$this->chartDataset[$element->key][] 	 = $value;
             		    	$this->chartDataAttrset[$element->key] = $element->attrs;
             				break;
             		}
