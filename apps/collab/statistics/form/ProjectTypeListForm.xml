@@ -6,7 +6,7 @@
 				FieldName="Id" Label="Icon"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
 		</Element>	     	
         <Element Name="fld_Id" Class="ColumnHidden" Hidden="Y" FieldName="Id" Label="Type ID"/>        
-        <Element Name="fld_name" Class="ColumnText" FieldName="type_name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_URL}/collab/project_manage" ></Element>        
+        <Element Name="fld_name" Class="ColumnText" FieldName="type_name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/statistics_user_data/{@collab.statistics.form.ProjectOwnerReportForm:m_RecordId}"  ></Element>        
         <Element Name="fld_description"  MaxLength="30"  Class="ColumnText" FieldName="type_description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_count" Class="ColumnText" FieldName="type_count" Label="Count" Text="{@:Elem[fld_count].Value} items" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
         <Element Name="fld_percent" Class="ColumnBar" Width="120" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:170px" MaxValue="100" FieldName="type_percent" Label="Percent"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
