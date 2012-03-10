@@ -48,6 +48,13 @@ class UserStatFilterForm extends EasyForm
 		$searchRule = "( ([start_time] > '$start_time' AND [start_time]<'$end_time' ) OR ( [start_time]<'$start_time' AND [status]!=2 ) )";	
 		BizSystem::getObject("collab.statistics.widget.ProjectListDetailForm")->m_FixSearchRule=$searchRule;
 		
+		//for filter only start time in selected range and start at before still not finished
+		//$searchRule = "( ([start_time] <= '$end_time' AND [finish_time]>'$start_time' ) OR ( [start_time]<'$start_time' AND [status]!=2 ) )";	
+		$searchRule = "( ([start_time] <= '$end_time' AND [finish_time]>'$start_time' )  )";
+		BizSystem::getObject("collab.statistics.widget.TaskListDetailForm")->m_FixSearchRule=$searchRule;
+		
+		$searchRule = "( ([start_time] <= '$end_time' AND [end_time]>'$start_time' )  )";
+		BizSystem::getObject("collab.statistics.widget.EventListDetailForm")->m_FixSearchRule=$searchRule;
 	}
 	
 	public function ViewAll()
