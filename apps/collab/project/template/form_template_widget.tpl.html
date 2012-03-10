@@ -1,19 +1,16 @@
-</form>
-<form id='{$form.name}' name='{$form.name}'>
-
+<div id='{$form.name}' name='{$form.name}'>
 
 		<h3 style="width:640px;">{$form.title}</h3>
-			
-<div class="form_header_panel" style="width:640px;">	
-		<div class="action_panel" style="width:600px;"  >
-		{foreach item=elem key=name from=$searchPanel}
-			
-				{if $elem.label} {$elem.label} {/if} 
-				{$elem.element}
-			
-		{/foreach}
-		</div>
-</div>	
+		<div class="form_header_panel" style="width:640px;">	
+				<div class="action_panel" style="width:600px;"  >
+				{foreach item=elem key=name from=$searchPanel}
+					
+						{if $elem.label} {$elem.label} {/if} 
+						{$elem.element}
+					
+				{/foreach}
+				</div>
+		</div>	
 
 <div class="from_table_container" style="width:640px;">
 <!-- table start -->
@@ -115,8 +112,8 @@
 </table>
 </div>
 
-<span id='{$form.name}_selected_id' style="display:none">{$default_selected_id}</span>
-<!-- table end -->	
+	<span id='{$form.name}_selected_id' style="display:none">{$default_selected_id}</span>
+	<!-- table end -->	
 
 	<div class="form_footer_panel" style="width:640px;">
 		<div class="ajax_indicator" style="width:130px;">
@@ -125,12 +122,12 @@
 			</div>
 		</div>
 		<div class="navi_panel" style="width:460px;">
-{if $navPanel}
-   {foreach item=elem from=$navPanel}
-   		{if $elem.label} <label style="width:68px;color:#666666;">{$elem.label}</label>{/if}
-    	{$elem.element}
-   {/foreach}
-{/if}			
+		{if $navPanel}
+		   {foreach item=elem from=$navPanel}
+		   		{if $elem.label} <label style="width:68px;color:#666666;">{$elem.label}</label>{/if}
+		    	{$elem.element}
+		   {/foreach}
+		{/if}			
 		
 		</div>		
 	</div>
