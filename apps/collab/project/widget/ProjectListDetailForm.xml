@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="ProjectListDetailForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="" Description="" BizDataObj="collab.project.do.ProjectDO" PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="collab_project.access" >
     <DataPanel>           
-         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:"/>
         <Element Name="fld_share" Class="ColumnShare" MyPrivateImg="{RESOURCE_URL}/collab/project/images/icon_project_private.png" MySharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared.png" MyAssignedImg="{RESOURCE_URL}/collab/project/images/icon_project_assigned.png" MyDistributedImg="{RESOURCE_URL}/collab/project/images/icon_project_distributed.png" GroupSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_group.png" OtherSharedImg="{RESOURCE_URL}/collab/project/images/icon_project_shared_other.png" FieldName="create_by" Label="Share" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
  		</Element>	
-		
-        <Element Name="fld_title"  MaxLength="16" Class="common.element.ColumnTitle" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/project_detail/{@:Elem[fld_Id].Value}">         
+		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y"/>
+
+        <Element Name="fld_title"  MaxLength="16" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/project_detail/{@:Elem[fld_Id].Value}">         
         	<!-- <EventHandler Name="fld_Id_onclick" Event="onclick" Function="ParentSwitchForm(collab.project.form.ProjectDetailForm,{@:Elem[fld_Id].Value})"   /> -->
         </Element>
          
-        <Element Name="fld_desc"  MaxLength="16" Class="ColumnText" FieldName="description" Label="Description" Maxlenght="20"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="">         
-        </Element>
          
         
         <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" FieldName="status" Label="Status" Link="javascript:;" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         </Element>
  		
-		<Element Name="fld_condition" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_condition_{@:Elem[fld_condition].Value}.png" FieldName="condition" Sortable="Y" Label="Cond" Link="javascript:;">		
+		<Element Name="fld_condition" ElementSet="General"  Class="ColumnImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_condition_{@:Elem[fld_condition].Value}.png" FieldName="condition" Sortable="Y" Label="Cond" Link="javascript:;">		
         </Element>
         		
-		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Pri" Link="javascript:;">
+		<Element Name="fld_priority" ElementSet="General"  Class="ColumnImage" Text="{RESOURCE_URL}/collab/project/images/icon_project_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Pri" Link="javascript:;">
 		</Element>
-        
+        <Element Name="fld_type" Class="ColumnText" Style="line-height:24px;" FieldName="type_name" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>						        
+
     </DataPanel>
     <ActionPanel>
     </ActionPanel> 

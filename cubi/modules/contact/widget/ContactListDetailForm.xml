@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="ContactListDetailForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="" Description="" BizDataObj="contact.do.ContactDO" PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="contact.access" >
     <DataPanel>           
-        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Contact Id" Sortable="Y"/>
         <Element Name="fld_share" Class="ColumnShare" 
 				MyPrivateImg="{RESOURCE_URL}/contact/images/icon_contact.gif"
 				MySharedImg="{RESOURCE_URL}/contact/images/icon_contact_shared.gif"
@@ -12,12 +11,15 @@
 				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
 					
 		</Element>	 
-        <Element Name="fld_display_name" Class="common.element.ColumnTitle" FieldName="display_name" Label="Display Name" Sortable="Y" Link="{APP_INDEX}/collab/contact_detail/{@:Elem[fld_Id].Value}" >
+		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y"/>
+				
+        <Element Name="fld_display_name" Class="ColumnText" FieldName="display_name" Label="Display Name" Sortable="Y" Link="{APP_INDEX}/collab/contact_detail/{@:Elem[fld_Id].Value}" >
         	  <!--    <EventHandler Name="fld_display_name_onclick" Event="onclick" Function="parentSwitchForm(contact.form.ContactDetailForm,{@:Elem[fld_Id].Value})"/> -->
         </Element>
-        <Element Name="fld_phone" Class="ColumnText" FieldName="phone" Label="Phone" Sortable="Y"/>
+        <Element Name="fld_company" Maxlength="8" Class="ColumnText" FieldName="company" Label="Company" Sortable="Y"/>
+		<Element Name="fld_phone" Class="ColumnText" FieldName="phone" Label="Phone" Sortable="Y"/>
         <Element Name="fld_mobile" Class="ColumnText" FieldName="mobile" Label="Mobile" Sortable="Y"/>
-        <Element Name="fld_email" Class="ColumnText" FieldName="email" Label="Email" Sortable="Y"/>
+		<Element Name="fld_type"  Maxlength="8" Class="ColumnText" Style="line-height:24px;" FieldName="type_name" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>						        
     </DataPanel>
     <ActionPanel>
     </ActionPanel> 

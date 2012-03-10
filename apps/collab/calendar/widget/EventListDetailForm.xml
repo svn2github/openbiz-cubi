@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="EventListDetailForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="" Description="" BizDataObj="collab.calendar.do.EventDO" PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="collab_calendar.access" >
     <DataPanel>           
-        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Contact Id" Sortable="Y"/>
         <Element Name="fld_share" Class="ColumnShare" 
 				MyPrivateImg="{RESOURCE_URL}/collab/calendar/images/icon_event_private.gif"
 				MySharedImg="{RESOURCE_URL}/collab/calendar/images/icon_event_shared.gif" 
@@ -11,7 +10,8 @@
 				OtherSharedImg="{RESOURCE_URL}/collab/calendar/images/icon_event_shared_other.gif"
 				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
  		</Element>	
-        <Element Name="fld_subject" Class="common.element.ColumnTitle" FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="{APP_INDEX}/collab/event_detail/{@:Elem[fld_Id].Value}" Translatable="N" OnEventLog="N" >
+		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y"/>
+        <Element Name="fld_subject" Class="ColumnText" FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="{APP_INDEX}/collab/event_detail/{@:Elem[fld_Id].Value}" Translatable="N" OnEventLog="N" >
                 	<!-- <EventHandler Name="fld_subject_onclick" Event="onclick" Function="ParentSwitchForm(collab.calendar.form.EventDetailForm,{@:Elem[fld_Id].Value})"   />-->        
         </Element>	
         <Element Name="fld_location" Class="ColumnText" FieldName="location" Label="Location"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
