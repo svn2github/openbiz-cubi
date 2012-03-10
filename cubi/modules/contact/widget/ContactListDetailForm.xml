@@ -19,7 +19,8 @@
         <Element Name="fld_company" Maxlength="8" Class="ColumnText" FieldName="company" Label="Company" Sortable="Y"/>
 		<Element Name="fld_phone" Class="ColumnText" FieldName="phone" Label="Phone" Sortable="Y"/>
         <Element Name="fld_mobile" Class="ColumnText" FieldName="mobile" Label="Mobile" Sortable="Y"/>
-		<Element Name="fld_type"  Maxlength="8" Class="ColumnText" Style="line-height:24px;" FieldName="type_name" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>						        
+		<Element Name="fld_type"  Maxlength="8" Class="ColumnText" Style="line-height:24px;" FieldName="type_name" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
+		<Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
     </DataPanel>
     <ActionPanel>
     </ActionPanel> 
