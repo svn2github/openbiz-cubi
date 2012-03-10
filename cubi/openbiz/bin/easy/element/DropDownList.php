@@ -243,8 +243,7 @@ class DropDownList extends InputElement
     	    }
     	    
     	    if($val==$value)
-    	    {
-    	    	
+    	    {    	    	
     	    	$option_item_style=" class='selected' ";
     	    }else{
     	    	$option_item_style=" onmouseover=\"this.className='hover'\" onmouseout=\"this.className=''\" ";
