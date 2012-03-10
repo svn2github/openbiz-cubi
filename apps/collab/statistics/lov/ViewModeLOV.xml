@@ -10,4 +10,10 @@
    <TypeViewMode Value="collab.statistics.form.AnnouncementTypeReportForm" text="Announcement Stat"/>
    <TypeViewMode Value="collab.statistics.form.NoteTypeReportForm" text="Note Statistics"/>
  	-->
+	
+   <OwnerViewMode Value="collab.statistics.form.ContactOwnerReportForm" text="Contact Statistics"/>
+   <OwnerViewMode Value="collab.statistics.form.EventOwnerReportForm" text="Event Statistics"/>
+   <OwnerViewMode Value="collab.statistics.form.ProjectOwnerReportForm" text="Project Statistics"/>
+   <OwnerViewMode Value="collab.statistics.form.TaskOwnerReportForm" text="Task Statistics"/>
+   <OwnerViewMode Value="collab.statistics.form.DocumentOwnerReportForm" text="Document Statistics"/>	
 </Selection>
