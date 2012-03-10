@@ -11,5 +11,6 @@
         	<Join Name="JoinProjectType"  ColumnRef="type_id" JoinType="LEFT JOIN" Column="id"  Table="project_type"/>    
     </TableJoins>
     <ObjReferences>
+   	    	<Object Name="collab.statistics.do.ProjectUserStatDO" Relationship="1-M" Table="project"  Column="type_id" FieldRef="Id"  onDelete="Cascade"/>    	
     </ObjReferences>
 </BizDataObj>

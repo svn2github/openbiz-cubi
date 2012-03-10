@@ -11,5 +11,6 @@
         	<Join Name="JoinDocumentType"  ColumnRef="type_id" JoinType="LEFT JOIN" Column="id"  Table="document_type"/>    
     </TableJoins>
     <ObjReferences>
+   	    	<Object Name="collab.statistics.do.DocumentUserStatDO" Relationship="1-M" Table="document"  Column="type_id" FieldRef="Id"  onDelete="Cascade"/>
     </ObjReferences>
 </BizDataObj>

@@ -11,5 +11,6 @@
         	<Join Name="JoinTaskType"  ColumnRef="type_id" JoinType="LEFT JOIN" Column="id"  Table="task_type"/>    
     </TableJoins>
     <ObjReferences>
+   	    	<Object Name="collab.statistics.do.TaskUserStatDO" Relationship="1-M" Table="task"  Column="type_id" FieldRef="Id"  onDelete="Cascade"/>    	
     </ObjReferences>
 </BizDataObj>

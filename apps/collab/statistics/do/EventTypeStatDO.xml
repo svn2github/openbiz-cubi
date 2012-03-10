@@ -11,5 +11,6 @@
         	<Join Name="JoinEventType"  ColumnRef="type_id" JoinType="LEFT JOIN" Column="id"  Table="event_type"/>    
     </TableJoins>
     <ObjReferences>
+   	    	<Object Name="collab.statistics.do.EventUserStatDO" Relationship="1-M" Table="event"  Column="type_id" FieldRef="Id"  onDelete="Cascade"/>    	
     </ObjReferences>
 </BizDataObj>

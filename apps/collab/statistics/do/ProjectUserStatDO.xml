@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ProjectUserStatDO" Description="" Class="BizDataObj" DBName="Default" Table="project" SearchRule="[Id] >0" SortRule="" OtherSQLRule="GROUP BY [Id]" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+        <BizField Name="Id" Column="owner_id" Type="Number"/>
+        <BizField Name="type_count" SQLExpr="COUNT(*)"/>        
+	</BizFieldList>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
