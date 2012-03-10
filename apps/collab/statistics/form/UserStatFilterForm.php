@@ -14,10 +14,40 @@ class UserStatFilterForm extends EasyForm
 		unset( $_POST['month_selector'] );
 		//$result = parent::runSearch();
 
-		$recId = $this->getDataObj()->fetchOne("[username]='".$data['username']."'")->Id;		
+		$this->m_SearchPanel->get('year_selector')->setValue($this->m_Year);
+		$this->m_SearchPanel->get('month_selector')->setValue($this->m_Month); 
+		
+		$this->processFilter();
+		
+		$recId = $this->getDataObj()->fetchOne("[username]='".$data['username']."'")->Id;						
 		$this->selectRecord($recId);
 		$this->m_RecordId = $recId;
+		
+		$this->rerender(1,0);
 		return $result;
+	}
+	
+	public function processFilter(){
+		$start_time = $this->m_Year.'-'.$this->m_Month.'-01 00:00:00';
+		if((int)$this->m_Month==12)
+		{
+			$end_time = ($this->m_Year+1).'-01-01 00:00:00';
+		}
+		else
+		{
+			$end_time = $this->m_Year.'-'.((int)$this->m_Month+1).'-01 00:00:00';
+		}
+		
+		
+		//for filter create time
+		$searchRule = "[create_time] > '$start_time' AND [create_time]<'$end_time' ";		
+		BizSystem::getObject("collab.statistics.widget.ContactListDetailForm")->m_FixSearchRule=$searchRule;
+		BizSystem::getObject("collab.statistics.widget.DocumentListDetailForm")->m_FixSearchRule=$searchRule;
+		
+		//for filter only start time in selected range and start at before still not finished
+		$searchRule = "( ([start_time] > '$start_time' AND [start_time]<'$end_time' ) OR ( [start_time]<'$start_time' AND [status]!=2 ) )";	
+		BizSystem::getObject("collab.statistics.widget.ProjectListDetailForm")->m_FixSearchRule=$searchRule;
+		
 	}
 	
 	public function ViewAll()
@@ -41,7 +71,7 @@ class UserStatFilterForm extends EasyForm
 	public function fetchData()
 	{
 		$result = parent::fetchData();
-		$this->m_SearchPanel->get('session_uid')->setValue($result['username']); 
+		$this->m_SearchPanel->get('session_uid')->setValue($result['username']);
 		return $result;
 	}
 	
