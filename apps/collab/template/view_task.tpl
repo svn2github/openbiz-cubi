@@ -33,7 +33,7 @@ width:292px;
 width:398px;
 }
 .form_table td span.column_bar{
-padding-top:5px;
+padding-top:0px;
 }
 .form_table td span.column_bar .value{
 width:auto;
