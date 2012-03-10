@@ -1,0 +1,3 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="StatisticsOwnerView" Description="Data Owner Statistics" Class="collab.view.SelectorView" FromSelecotr="collab.statistics.widget.OwnerViewSelectorLeftWidget" Tab="" Access="collab_statistics.access" TemplateEngine="Smarty" TemplateFile="view_statistics.tpl">
+</EasyView>

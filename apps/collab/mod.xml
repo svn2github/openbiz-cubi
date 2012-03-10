@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="collab" Description="Openbiz Collaboration" Version="1.5" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
+<Module Name="collab" Description="Openbiz Collaboration" Version="1.5.1" OpenbizVersion="3.0"  LoadHandler="collab.lib.CollabLoadHandler">
 	<ACL>
 		<Resource Name="collab">
 			<Action Name="access" Description="access my collaboration dashboard"/>
@@ -166,10 +166,12 @@
 		 <!-- statistics menus -->
         <MenuItem Name="Collab_Statistics" Title="Statistics" Parent="collab" Description="" IconImage="spacer.gif" IconCssClass="icon_statistics" Order="110" Access="collab_statistics.access">
 			<MenuItem Name="Collab_Statistics.TypeStat" Title="Data Type Statistics" Description=""  URL="{@home:url}/collab/statistics_type" Access="collab_statistics.access" Order="10" ></MenuItem>			
+			<MenuItem Name="Collab_Statistics.OwnerStat" Title="Data Owner Statistics" Description=""  URL="{@home:url}/collab/statistics_owner" Access="collab_statistics.access" Order="14" ></MenuItem>
+			<MenuItem Name="Collab_Statistics.UserDataStat" Title="User Data Statistics" Description=""  URL="{@home:url}/collab/statistics_user_data" Access="collab_statistics.access"  Order="18" ></MenuItem>
 			<MenuItem Name="Collab_Statistics.ProjectStat" Title="Project Statistics" Description=""  URL="{@home:url}/collab/statistics_project" Access="collab_statistics.access"  Order="20" ></MenuItem>
 			<MenuItem Name="Collab_Statistics.TaskStat" Title="Task Statistics" Description=""  URL="{@home:url}/collab/statistics_task" Access="collab_statistics.access"  Order="30" ></MenuItem>
 			<MenuItem Name="Collab_Statistics.WorkStat" Title="Work Statistics" Description=""  URL="{@home:url}/collab/statistics_work" Access="collab_statistics.access"  Order="40" ></MenuItem>
-			<MenuItem Name="Collab_Statistics.UserDataStat" Title="User Data Statistics" Description=""  URL="{@home:url}/collab/statistics_user_data" Access="collab_statistics.access"  Order="50" ></MenuItem>
+			
 		</MenuItem>	
     </Menu>
     <Dependency>
