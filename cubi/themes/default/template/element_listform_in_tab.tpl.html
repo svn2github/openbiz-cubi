@@ -69,11 +69,8 @@ color:#666666;
      	 	{assign var=row_style value=''}
      	 {/if}
      	 
-         {if $row_style != ''}
-		 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
-					style="{$row_style}"										
-					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
-		 {elseif $form.currentRecordId == $dataPanel.ids[$row_counter]}  
+         
+		 {if $form.currentRecordId == $dataPanel.ids[$row_counter]}  
          {assign var=default_selected_id value=$dataPanel.ids[$row_counter]}       	
 			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
 					style="{$row_style}"
