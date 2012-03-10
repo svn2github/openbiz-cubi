@@ -4,7 +4,16 @@ class ViewSelectorLeftWidget extends EasyForm
 	public $viewMode;
 	public $lastViewMode;
 	
-	private $_DefaultViewMode='collab.statistics.form.ContactTypeReportForm';
+	private $_DefaultViewMode='';
+	
+	
+	
+	protected function readMetadata(&$xmlArr)
+    {
+        parent::readMetaData($xmlArr);
+        $this->_DefaultViewMode = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["DEFAULTSELECTEDFORM"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["DEFAULTSELECTEDFORM"] : null;        
+    }
+	
 	
 	public function getViewMode()
 	{
