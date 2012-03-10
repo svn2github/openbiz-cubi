@@ -1,3 +1,49 @@
+/* styles for lite_table */
+.lite_table .form_table .hover td span.title_id{
+	background-color:#cccccc; 
+}
+.lite_table .form_table .selected td span.title_id{
+	background-color:#cccccc; 
+}
+.lite_table .form_table .hover td{
+	background-color: #efefef;
+	background-image:none;
+	border-bottom:1px solid #cccccc;
+}
+.lite_table .form_table .selected td.row_header
+{
+	background-image:none;
+	border-bottom:1px solid #aaaaaa;
+}
+.lite_table .form_table .selected td{
+	background-color: #EEEEEE;
+	background-image:none;
+	border-bottom:1px solid #aaaaaa;
+	border-right:1px solid #cccccc;
+}
+.form_table th.table_header_lite 
+{
+	border-bottom:1px solid #eeeeee;
+}
+.form_table th.table_header_lite a
+{
+	background-color: #EFEFEF;
+    background-image: none;
+    border-color: #CCCCCC;
+    color: #AAAAAA;
+	border-right:none;
+}
+.form_table th.table_header_lite a:hover{
+	background-color: #E0E0E0;
+	color:#666666;
+}
+.form_table th.table_header_lite a.current
+{
+	background-color: #DFDFDF;
+}
+
+
+
 /* styles for title_id start */
 span.title_id{
 background-color:#cccccc;color:#ffffff; text-align:center; padding-right:3px;padding-left:3px;width:auto;;height:24px;margin-right:5px;
