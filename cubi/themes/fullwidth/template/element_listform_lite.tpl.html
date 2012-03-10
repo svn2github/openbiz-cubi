@@ -39,33 +39,26 @@ background-color:#f8f8f8;
      	 {/if}
      	 
         
-		 {if $form.currentRecordId == $dataPanel.ids[$row_counter]}  
-         {assign var=default_selected_id value=$dataPanel.ids[$row_counter]}       	
+		
+         {if $row_counter == 0 and $form.currentRecordId == ""}
+         {assign var=default_selected_id value=$dataPanel.ids[$row_counter]}    
 			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
 					style="{$row_style}"
 					class="selected"  normal="even" select="selected"
 					onmouseover="if(this.className!='selected')this.className='hover'" 
 					onmouseout="if(this.className!='selected')this.className='even'" 
 					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
-         {elseif $row_counter == 0 and $form.currentRecordId == ""}
-         {assign var=default_selected_id value=$dataPanel.ids[$row_counter]}    
-			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
-					style="{$row_style}"
-					class="selected"  normal="even" select="even"
-					onmouseover="if(this.className!='selected')this.className='hover'" 
-					onmouseout="if(this.className!='selected')this.className='even'" 
-					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
           {elseif $row_counter is odd}
 		   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
 		   			style="{$row_style}"
-		   			class="odd"  normal="odd" select="odd"
+		   			class="odd"  normal="odd" select="selected"
 					onmouseover="if(this.className!='selected')this.className='hover'" 
 					onmouseout="if(this.className!='selected')this.className='even'" 
 					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
          {else}
 			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
 					style="{$row_style}"
-					class="even"  normal="even" select="even"
+					class="even"  normal="even" select="selected"
 					onmouseover="if(this.className!='selected')this.className='hover'" 
 					onmouseout="if(this.className!='selected')this.className='even'" 
 					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
