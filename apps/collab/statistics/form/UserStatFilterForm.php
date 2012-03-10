@@ -22,9 +22,17 @@ class UserStatFilterForm extends EasyForm
 	
 	public function render(){
 		$result = parent::render();
-		if($this->m_RecordId){
+		
+		if($_GET['fld:Id'])
+		{
+			$recId= $_GET['fld:Id'];
+		}
+		elseif($this->m_RecordId)
+		{		
 			$recId= $this->m_RecordId;
-		}else{
+		}
+		else
+		{
 			$recId=BizSystem::getUserProfile("profile_Id");
 		}
 		$this->selectRecord($recId);
