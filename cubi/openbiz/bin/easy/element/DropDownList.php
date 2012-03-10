@@ -241,9 +241,16 @@ class DropDownList extends InputElement
     	    else{
     	    	$li_option_value =$txt ;
     	    }
-    		$sHTML .= "<li 
-				onmouseover=\"this.className='selected'\"
-				onmouseout=\"this.className=''\"
+    	    
+    	    if($val==$value)
+    	    {
+    	    	
+    	    	$option_item_style=" class='selected' ";
+    	    }else{
+    	    	$option_item_style=" onmouseover=\"this.className='hover'\" onmouseout=\"this.className=''\" ";
+    	    }
+    	    
+    		$sHTML .= "<li $option_item_style				
 				onclick=\"$('".$formNameStr.$this->m_Name."_list').hide();
 							$('".$formNameStr.$this->m_Name."').setValue('".addslashes($display_value)."');
 							$('".$formNameStr.$this->m_Name."_hidden').setValue('".addslashes($val)."');
