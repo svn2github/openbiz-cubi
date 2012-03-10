@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="UserStatFilterForm" Class="UserStatFilterForm" FormType="Detail" Width="700" Height="300" jsClass="Openbiz.Form" Title="User Data Statistics" BizDataObj="collab.statistics.do.UserStatDO" TemplateEngine="Smarty" PageSize="100" TemplateFile="system_right_filterform.tpl.html"  Access="collab_statistics.access">
 
+    <DataPanel>    		     	
+        <Element Name="fld_Id" Class="ColumnHidden" Hidden="Y" FieldName="Id" Label="User ID"/>            
+    </DataPanel>
+
     <SearchPanel>        
         <Element Name="session_group_filter"   cssclass="input_select_m" Class="DropDownList" FieldName="" Label="User" SelectFrom="system.do.GroupDO[name:Id]">
             <EventHandler Name="groupfilter_onchange" Event="onchange" Function="UpdateForm()"/>

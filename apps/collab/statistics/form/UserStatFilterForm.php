@@ -20,6 +20,32 @@ class UserStatFilterForm extends EasyForm
 		return $result;
 	}
 	
+	public function ViewAll()
+	{
+		$data = $this->readInputRecord();
+		$recId = $this->getDataObj()->fetchOne("[username]='".$data['username']."'")->Id;
+		$this->m_RecordId = $recId;
+		
+		$defaultSearchRule = "";
+		BizSystem::getObject("collab.statistics.widget.ContactListDetailForm")->m_FixSearchRule=$defaultSearchRule;
+		BizSystem::getObject("collab.statistics.widget.DocumentListDetailForm")->m_FixSearchRule=$defaultSearchRule;
+		BizSystem::getObject("collab.statistics.widget.EventListDetailForm")->m_FixSearchRule=$defaultSearchRule;
+		BizSystem::getObject("collab.statistics.widget.ProjectListDetailForm")->m_FixSearchRule=$defaultSearchRule;
+		BizSystem::getObject("collab.statistics.widget.TaskListDetailForm")->m_FixSearchRule=$defaultSearchRule;
+		
+				
+		$this->selectRecord($recId);
+		
+	}
+	
+	public function fetchData()
+	{
+		$result = parent::fetchData();
+		$this->m_SearchPanel->get('session_uid')->setValue($result['username']); 
+		return $result;
+	}
+	
+	
 	public function render(){
 		$result = parent::render();
 		
@@ -34,6 +60,14 @@ class UserStatFilterForm extends EasyForm
 		else
 		{
 			$recId=BizSystem::getUserProfile("profile_Id");
+		}
+		
+		if(!$this->m_Month){
+			$this->m_Month = date('m');
+		}
+		
+		if(!$this->m_Year){
+			$this->m_Year = date('Y');
 		}
 		$this->selectRecord($recId);
 		return $result;
