@@ -11,7 +11,11 @@ class ProjectBriefForm extends EasyForm
 		if($rec['project_id'])
 		{
 			$rec = $this->getDataObj()->fetchById($rec['project_id']);
-			return $rec->toArray();
+			if($rec){
+				return $rec->toArray();
+			}else{
+				return false;
+			}
 		}
 		return false;		
 	}
