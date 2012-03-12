@@ -36,6 +36,8 @@ class LabelText extends Element
     public $m_Target;
     public $m_MaxLength;
     public $m_Percent;
+    
+    public $m_StripTags;
     /**
      * Read array meta data, and store to meta object
      *
@@ -54,6 +56,7 @@ class LabelText extends Element
         $this->m_MaxLength = isset($xmlArr["ATTRIBUTES"]["MAXLENGTH"]) ? $xmlArr["ATTRIBUTES"]["MAXLENGTH"] : null;
         $this->m_Percent = isset($xmlArr["ATTRIBUTES"]["PERCENT"]) ? $xmlArr["ATTRIBUTES"]["PERCENT"] : "N";
         $this->m_DisplayFormat = isset($xmlArr["ATTRIBUTES"]["DISPLAYFORMAT"]) ? $xmlArr["ATTRIBUTES"]["DISPLAYFORMAT"] : null;
+        $this->m_StripTags = isset($xmlArr["ATTRIBUTES"]["STRIPTAGS"]) ? $xmlArr["ATTRIBUTES"]["STRIPTAGS"] : "N";
     }
 
     /**
@@ -147,8 +150,14 @@ class LabelText extends Element
         	{
         		$value = sprintf("%.2f",$value*100).'%';
         	}else{
-        		$value = htmlentities($value, ENT_QUOTES, "UTF-8");
-        		
+        		if(strtoupper($this->m_StripTags) =='Y')
+        		{
+        			$value = strip_tags($value);
+        		}
+        		else
+        		{
+        			$value = htmlentities($value, ENT_QUOTES, "UTF-8");	
+        		}        		        		
         	}
         	
         	
