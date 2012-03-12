@@ -2,7 +2,7 @@
 <EasyForm Name="HelpCategoryDetailForm" Class="HelpCategoryForm" Icon="icon_help_l.gif" FormType="" jsClass="jbForm" Title="Help Category Details" Description="Detailed information of Help Category Item." BizDataObj="help.do.HelpCategoryDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="HELP_CATEGORY" MessageFile="HelpCategory.msg">
     <DataPanel>
 			<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-		        <Element Name="fld_parent_id" Class="TreeLabelText" BLANKOPTION="-- Root --,0" SelectFrom="help.do.HelpCategoryDO[name:Id]" FieldName="parent_id" Label="Parent" AllowURLParam="N"/>
+		        <Element Name="fld_parent_id" Class="LabelList" BLANKOPTION="-- Root --" SelectFrom="help.do.HelpCategoryDO[name:Id]" FieldName="parent_id" Label="Parent" AllowURLParam="N"/>
 		        <Element Name="fld_name" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
 		        <Element Name="fld_url_match" Class="LabelText" FieldName="url_match" Label="Url Match" AllowURLParam="N"/>		        		        
 		        <Element Name="fld_sortorder" Class="LabelText" FieldName="sort_order" Label="Sort Order" AllowURLParam="N"></Element>
