@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="CategoryListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Package Category Management" Description="" BizDataObj="repository.category.do.CategoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="Repository.Manage">
+<EasyForm Name="CategoryListForm" Icon="{RESOURCE_URL}/repository/images/repo_category.gif" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Repository Category Management" Description="Category can manage type of applications. You can put applications in different categories. " BizDataObj="repository.category.do.CategoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="Repository.Manage">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N"/>
