@@ -28,7 +28,7 @@
 		<div class="search_panel" >		
 			{foreach item=elem from=$searchPanel}
 				{if $elem.type!='InputDateRangePicker'}
-					{if $elem.label} {$elem.label} {/if} {$elem.element}
+					{if $elem.label}<span style="float:left;padding-right:5px;line-height:20px">{$elem.label}</span> {/if} {$elem.element}
 				{/if}
 			{/foreach}
 		</div>
