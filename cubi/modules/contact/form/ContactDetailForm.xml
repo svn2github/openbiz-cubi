@@ -89,6 +89,11 @@
 
 	    </DataPanel>
     <ActionPanel>       
+        <Element Name="btn_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button"   Text="Share" CssClass="button_gray_m" Description="Share or Assign Data">
+			<EventHandler Name="btn_update_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+        <Element Name="btn_spacer_for_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Spacer" Width="10"></Element>
+       
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
         </Element>          
@@ -106,6 +111,7 @@
             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
         </Element>
          -->  
+         <Element Name="btn_spacer_for_cancel"  Class="Spacer" Width="10"></Element>
          <Element Name="btn_back" Class="LabelText" Text="Back" CssClass="button_gray_m" Link="{APP_INDEX}/collab/contact_list">
         </Element>       
     </ActionPanel> 
