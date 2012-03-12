@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="RepositoryCategoryListView" Description="Repository Category Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Repository.Manage">
+   <FormReferences>
+   		<Reference Name="repository.category.form.CategoryListForm"/>
+   </FormReferences>    
+</EasyView>
