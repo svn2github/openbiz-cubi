@@ -81,7 +81,7 @@ class ModuleForm extends EasyForm
             $this->m_Errors[] = nl2br($this->GetMessage("MODULE_LOAD_ERROR")."\n".$loader->errors."\n".$loader->logs);
         }
         else {
-            $this->m_Notices[] = $this->GetMessage("MODULE_LOAD_COMPLETE");	//." ".$loader->logs;
+            $this->m_Notices[] = $this->GetMessage("MODULE_LOAD_COMPLETE",$module);	//." ".$loader->logs;
         }
 		
         $roles = BizSystem::getUserProfile("roles");
