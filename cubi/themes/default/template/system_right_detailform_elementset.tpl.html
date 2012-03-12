@@ -84,7 +84,7 @@
                 {elseif $item.type|substr:0:5 eq 'Label'}
                     <span>{$item.element}</span>    
                 {else}
-                    <span class="label_text" style="{if $item.width}width:{$item.width+15}px;{/if}">{$item.element}</span>
+                    <span class="label_text" style="{if $item.width}width:{$item.width+15}px;{/if}{if $item.type eq 'TreeLabelText'}height:auto;{/if}">{$item.element}</span>
                     {if $errors.$itemName}
                     <span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
                     {elseif $item.description}
