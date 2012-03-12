@@ -2,7 +2,7 @@
 <EasyForm Name="PackageCategoryListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Package Category Management" Description="" BizDataObj="packagemstr.category.do.PackageCategoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="PackageCategory.Access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N"/>
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N"/>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Link="javascript:" Sortable="Y">
             <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(packagemstr.category.form.PackageCategoryDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>

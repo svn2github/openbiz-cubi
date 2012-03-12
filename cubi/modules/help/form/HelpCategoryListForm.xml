@@ -3,7 +3,7 @@
     <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />         
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />         
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:" >	
         <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(help.form.HelpCategoryDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>

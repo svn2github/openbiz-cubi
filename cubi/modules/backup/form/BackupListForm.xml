@@ -2,7 +2,7 @@
 <EasyForm Name="BackupListForm" Class="BackupForm" Icon="{RESOURCE_URL}/backup/images/icon_backup_list.gif" FormType="List" jsClass="jbForm" Title="Backup Management" Description="Database backup management could help you backup or restore your system database with simply one click. \n It could prevent your data lost by any mistake." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="backup.Access_Backup">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox" Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="ColumnText" Hidden="Y" FieldName="Id" Label="ID"  AllowURLParam="N" />   
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="Y" FieldName="Id" Label="ID"  AllowURLParam="N" />   
 		<Element Name="fld_filetype" Class="ColumnText" Hidden="Y" FieldName="type" Label="ID"  AllowURLParam="N" />
         <Element Name="fld_icon" Class="ColumnImage" FieldName="" Text="{RESOURCE_URL}/backup/images/icon_backup_{@:Elem[fld_filetype].Value}.gif" Label="Icon"  AllowURLParam="N" Link="javascript:">
        			     <EventHandler Name="fld_icon_onclick" Event="onclick" Function="SwitchForm(backup.form.BackupDetailForm,{@:Elem[fld_Id].Value})"/>

@@ -2,7 +2,7 @@
 <EasyForm Name="RolePickForm" Icon="icon_roles.gif" Class="PickerForm" FormType="List" jsClass="jbForm" Title="Please select a role for the user" Description="To selec a role to a user, click on a row and click to Select button" BizDataObj="system.do.RolePickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_pickform.tpl.html">
     <DataPanel>
 		<Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>        
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y"/>
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y"/>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Sortable="Y"/>
         <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y"/>
         <Element Name="fld_status" Class="ColumnBool" FieldName="status" Sortable="Y" Label="Active" Link="javascript:;">

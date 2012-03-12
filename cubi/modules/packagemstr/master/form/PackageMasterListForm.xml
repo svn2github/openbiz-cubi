@@ -2,7 +2,7 @@
 <EasyForm Name="PackageMasterListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Package Management" Description="" BizDataObj="packagemstr.master.do.PackageMasterDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="PackageMaster.Access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:">         
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(packagemstr.master.form.PackageMasterDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
         <Element Name="fld_package_id" Class="ColumnText" FieldName="package_id" Label="Package Id"  Sortable="Y" Link="javascript:">

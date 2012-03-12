@@ -2,7 +2,7 @@
 <EasyForm Name="SessionListForm" Icon="{RESOURCE_URL}/system/images/icon_session.gif" Class="SessionListForm" FormType="List" jsClass="jbForm" Title="Session Management" Description="You can view and manage user sessions in below form." BizDataObj="system.do.SessionDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" access="Session.Administer_Session">
     <DataPanel>
     	<Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="ColumnText" Hidden="Y" FieldName="Id" Label="Session Id" Sortable="Y"/>
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="Y" FieldName="Id" Label="Session Id" Sortable="Y"/>
         <Element Name="fld_link" Class="ColumnText" Hidden="Y" FieldName="link" Label="Link" Sortable="Y"/>
         <Element Name="fld_user" Class="ColumnText" FieldName="user_id" Label="User" Link="{@:Elem[fld_link].Value}" MaxLength="20" Text="{BizSystem::GetProfileName(@:Elem[fld_user].Value)}"  Sortable="Y"/>
         <Element Name="fld_last_url" Class="ColumnText" FieldName="last_url" link="{@:Elem[fld_last_url].Value}" target="_blank" Label="Last Request" MaxLength="35" Sortable="Y"/>

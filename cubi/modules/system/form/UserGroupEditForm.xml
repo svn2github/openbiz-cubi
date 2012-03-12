@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="UserGroupEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit User Group" Description="" BizDataObj="system.do.UserGroupDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
     <DataPanel>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id"/>
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="Id"/>
         <Element Name="fld_user_id" Class="InputText" FieldName="user_id" Label="User Id" Hidden="Y"/>
         <Element Name="fld_group_id" Class="Listbox" FieldName="group_id" Label="Group"  SelectFrom="system.do.GroupDO[name:Id]"/>
         <Element Name="fld_default" Class="Checkbox" FieldName="default" Label="Default" SelectFrom="1" DefaultValue="0" />

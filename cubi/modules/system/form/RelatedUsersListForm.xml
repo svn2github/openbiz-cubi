@@ -2,7 +2,7 @@
 <EasyForm Name="RelatedUsersListForm" Icon="icon_user_list.gif" Class="UserForm" FormType="List" jsClass="jbForm" Title="Associated Users Management" Description="Manage user accounts who associated with selected record" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html"  Access="User.Administer_Users">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>            
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y"/>
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y"/>
         <Element Name="fld_username" Class="ColumnText" FieldName="username" Label="Username" Link="{@home:url}/system/user_detail/{@:Elem[fld_Id].Value}" Sortable="Y"/>
         <Element Name="fld_email" Class="ColumnText" FieldName="email" Label="Email" Sortable="Y"/>
 		<Element Name="fld_smartcard" Class="ColumnBool" TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" FieldName="smartcard" Text="{@:Elem[fld_smartcard].Value}" Sortable="Y" Label="ID Card" >				

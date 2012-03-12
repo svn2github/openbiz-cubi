@@ -3,7 +3,7 @@
     <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N"/>                  	
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N"/>                  	
         <Element Name="fld_category_id" Class="Hidden" Hidden="Y" FieldName="c" Label="Category ID"  Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />
         <Element Name="fld_category_name" Class="ColumnText" FieldName="category_name" Label="Category"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         <Element Name="fld_title" Class="ColumnText"  MaxLength="30" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:">
