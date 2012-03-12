@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ApplicationDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Title="Package Detail" Description="" BizDataObj="repository.application.do.ApplicationDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
+<EasyForm Name="ApplicationDetailForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif"  Class="EasyForm" FormType="" jsClass="jbForm" Title="Repository Application Detail" Description="This module can manage repositroy applications " BizDataObj="repository.application.do.ApplicationDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
        	<Element Name="fld_package_id" ElementSet="General" Class="LabelText" FieldName="package_id" Label="Package Id" AllowURLParam="N"/>

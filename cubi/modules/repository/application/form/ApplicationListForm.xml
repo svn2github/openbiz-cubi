@@ -6,8 +6,8 @@
          	
         </Element>
              
-        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Package" Sortable="Y"  Link="javascript:" >
-        	<EventHandler Name="fld_package_id_onclick" Event="onclick" Function="SwitchForm(repository.application.form.ApplicationDetailForm,{@:Elem[fld_Id].Value})"  />
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Package" Sortable="Y"  Link="{APP_INDEX}/repository/repository_application_detail/{@:Elem[fld_Id].Value}" >
+        	<!--  <EventHandler Name="fld_package_id_onclick" Event="onclick" Function="SwitchForm(repository.application.form.ApplicationDetailForm,{@:Elem[fld_Id].Value})"  />-->
         </Element>
         <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y"/>
         <Element Name="fld_category_name" Class="ColumnText" FieldName="category_name" Label="Category"  Sortable="Y"/>

@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="RepositoryApplicationDetailView" Description="Repository Application Detail" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Repository.Manage">
+   <FormReferences>
+   		<Reference Name="repository.application.form.ApplicationDetailForm"/>
+   </FormReferences>    
+</EasyView>
