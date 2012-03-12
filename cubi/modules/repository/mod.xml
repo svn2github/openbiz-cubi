@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="repository" Description="App market repository" Version="0.1" OpenbizVersion="2.4">
+	<ACL>
+        <Resource Name="Repository">
+            <Action Name="Manage" Description="Manage App Market Repository"/>            
+		</Resource>
+    </ACL>
+    <Menu>
+        <MenuItem Name="Repository" Title="App Repository" Parent="System" Order="101">			
+            <MenuItem Name="Repository.Category" 	Title="Repository Category" 	Description=""  URL="/repository/repository_category_list" Order="20"/>
+            <MenuItem Name="Repository.Application" Title="Repository Application" 	Description=""  URL="/repository/repository_app_list" Order="40"/>
+            <MenuItem Name="Repository.InstallLog"	Title="Client Install Log" 		Description=""  URL="/repository/client_install_log" Order="50"/>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+</Module>
