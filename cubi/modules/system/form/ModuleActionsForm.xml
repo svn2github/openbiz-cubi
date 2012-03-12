@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="ModuleActionsForm" Class="EasyForm" Icon="icon_modules_action_l.gif" FormType="List" jsClass="jbForm" Title="Module Actions" Description="List the actions of current module, defined at module's mod.xml file.\nTo refresh the list , please click reload button above." BizDataObj="system.do.AclActionDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
     <DataPanel>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" />
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" />
         <Element Name="fld_module" Class="ColumnText" FieldName="module" Label="Module" Sortable="Y"/>
         <Element Name="fld_resource" Class="ColumnText" FieldName="resource" Label="Resource" Sortable="Y"/>
         <Element Name="fld_action" Class="ColumnText" FieldName="action" Label="Action" Sortable="Y"/>

@@ -2,7 +2,7 @@
 <EasyForm Name="GroupListForm" Class="EasyForm"  Icon="icon_group_list.gif" FormType="List" jsClass="jbForm" Title="Group Management" Description="User Group controls users data level visibility in the system." BizDataObj="system.do.GroupDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" EventName="" MessageFile="">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" >         
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" >         
          	<!-- <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(system.form.GroupDetailForm,{@:Elem[fld_Id].Value})"   />-->
         </Element>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" Link="{APP_INDEX}/system/group_detail/{@:Elem[fld_Id].Value}" >

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="ModuleListForm" Icon="icon_modules_l.gif" Class="ModuleForm" FormType="List" jsClass="jbForm" Title="Module Management" Description="Manage modules in the application. A modules is a component implementing certain business logic. \nThe module metadata are located at app/modules/module_name folder" BizDataObj="system.do.ModuleDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" MessageFile="system.msg">
     <DataPanel>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y"/>
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y"/>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Sortable="Y" Link="{@home:url}/system/module_detail/{@:Elem[fld_Id].Value}"/>
         <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y"></Element>
         <Element Name="fld_status" Class="ColumnBool" FieldName="status" Sortable="Y" Label="Active" Link="javascript:;">

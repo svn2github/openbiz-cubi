@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="RoleListForm" Icon="icon_roles.gif" Class="RoleListForm" FormType="List" jsClass="jbForm" Title="Role Management" Description="Manage user roles in the application. Role is used in the application to control user permissions" BizDataObj="system.do.RoleDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
     <DataPanel>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Role Id" Sortable="Y"/>
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y"/>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Link="{@home:url}/system/role_detail/{@:Elem[fld_Id].Value}" Sortable="Y"/>
         <Element Name="fld_startpage" Class="ColumnText" FieldName="startpage" Label="Start Page" Sortable="Y"/>
         <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y"/>
