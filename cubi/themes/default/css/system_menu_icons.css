@@ -97,6 +97,10 @@
 {
 	background-position:left -334px;
 }
+#main #left_panel .content .system .icon_websvc
+{
+	background-position:left -350px;
+}
 #main #left_panel .content .system .icon_repository
 {
 	background-position:left -366px;
@@ -211,6 +215,11 @@
 #main #left_panel .content .system a.current .icon_system,
 #main #left_panel .content .system a:active .icon_system{
 	background-position:right -318px;
+}
+#main #left_panel .content .system a:hover .icon_websvc,
+#main #left_panel .content .system a.current .icon_websvc,
+#main #left_panel .content .system a:active .icon_websvc{
+	background-position:right -350px;
 }
 #main #left_panel .content .system a:hover .icon_repository,
 #main #left_panel .content .system a.current .icon_repository,
