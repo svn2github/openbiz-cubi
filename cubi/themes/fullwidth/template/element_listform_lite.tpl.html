@@ -38,17 +38,8 @@ background-color:#f8f8f8;
      	 	{assign var=row_style value=''}
      	 {/if}
      	 
-        
-		
-         {if $row_counter == 0 and $form.currentRecordId == ""}
-         {assign var=default_selected_id value=$dataPanel.ids[$row_counter]}    
-			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
-					style="{$row_style}"
-					class="selected"  normal="even" select="selected"
-					onmouseover="if(this.className!='selected')this.className='hover'" 
-					onmouseout="if(this.className!='selected')this.className='even'" 
-					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
-          {elseif $row_counter is odd}
+
+          {if $row_counter is odd}
 		   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
 		   			style="{$row_style}"
 		   			class="odd"  normal="odd" select="selected"
