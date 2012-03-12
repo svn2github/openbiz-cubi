@@ -9,7 +9,7 @@
         <Element Name="fld_title" Class="ColumnText"  MaxLength="30" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:">
         <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(help.form.HelpDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>	
-        <Element Name="fld_description" MaxLength="30" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_description" MaxLength="30" StripTags="Y" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sort_order" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})" />
         	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value+5})" />
