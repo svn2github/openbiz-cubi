@@ -12,8 +12,8 @@ CREATE TABLE IF NOT EXISTS `repo_install_log` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
-DROP TABLE IF EXISTS `repo_app`;
-CREATE TABLE IF NOT EXISTS `repo_app` (
+DROP TABLE IF EXISTS `repo_application`;
+CREATE TABLE IF NOT EXISTS `repo_application` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `package_id` varchar(64) NOT NULL,
   `name` varchar(64) NOT NULL,
