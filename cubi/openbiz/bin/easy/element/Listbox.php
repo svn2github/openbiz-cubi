@@ -49,8 +49,9 @@ class Listbox extends OptionElement
     {
         $fromList = array();
         $this->getFromList($fromList);
-        $value = $this->getValue()?$this->getValue():$this->getDefaultValue();
+        $value = $this->getValue()!==null?$this->getValue():$this->getDefaultValue();
         $valueArray = explode(',', $value);
+        
         $disabledStr = ($this->getEnabled() == "N") ? "DISABLED=\"true\"" : "";
         $style = $this->getStyle();
         $func = $this->getFunction();
