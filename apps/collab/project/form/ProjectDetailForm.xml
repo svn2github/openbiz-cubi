@@ -89,9 +89,16 @@
 						        
     </DataPanel>
     <ActionPanel>
+    
         <Element Name="btn_gantt_view"  Class="LabelText" Text="Gantt View" CssClass="button_gray_w" Description="" Link="{@home:url}/collab/project_gantt_detail/{@:Elem[fld_Id].Value}">
         </Element>      
     		<Element Name="btn_spacer" Class="Spacer" width="10" />		
+    
+    <Element Name="btn_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button"   Text="Share" CssClass="button_gray_m" Description="Share or Assign Data">
+			<EventHandler Name="btn_update_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+        <Element Name="btn_spacer_for_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Spacer" Width="10"></Element>
+          
     
  		<Element Name="btn_new" Class="Button"   Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(collab.project.form.ProjectNewForm)"  ShortcutKey="Insert" ContextMenu="New" />

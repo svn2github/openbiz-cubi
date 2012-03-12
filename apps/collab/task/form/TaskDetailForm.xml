@@ -126,11 +126,13 @@
           
         
     
-        
+        <Element Name="btn_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button"   Text="Share" CssClass="button_gray_m" Description="update status (Ctrl+U)">
+			<EventHandler Name="btn_update_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+        <Element Name="btn_spacer_for_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Spacer" Width="10"></Element>
         <Element Name="btn_new" Class="Button"   Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
         </Element>     
-        <Element Name="btn_spacer_for_add" Class="Spacer" Width="10"></Element>
         <Element Name="btn_update" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button"   Text="Update" CssClass="button_gray_m" Description="update status (Ctrl+U)">
 			<EventHandler Name="btn_update_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskUpdateStatusForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+U" ContextMenu="Update Status" />
         </Element>     
@@ -144,7 +146,7 @@
         <Element Name="btn_delete" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button"   Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=collab.task.form.TaskListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
-        <Element Name="btn_spacer_for_cancel" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Spacer" Width="10"></Element>
+        <Element Name="btn_spacer_for_cancel"  Class="Spacer" Width="10"></Element>
         <Element Name="btn_cancel"  Class="LabelBack"  Text="Back" CssClass="button_gray_m" Link="{APP_INDEX}/collab/task_manage">
             <!-- <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />-->
         </Element>         

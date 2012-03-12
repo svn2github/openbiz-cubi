@@ -46,6 +46,12 @@
         </Element>      
     		<Element Name="btn_spacer3" Class="Spacer" width="10" />		
             
+<Element Name="btn_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button"   Text="Share" CssClass="button_gray_m" Description="Share or Assign Data">
+			<EventHandler Name="btn_update_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+        <Element Name="btn_spacer_for_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Spacer" Width="10"></Element>
+                      
+            
         <Element Name="btn_cancel" Class="LabelText"  Text="Back" CssClass="button_gray_m" Link="{@home:url}/collab/project_gantt">
         </Element>         
 		<Element Name="btn_print" Class="Button" Text="Print" CssClass="button_gray_m">

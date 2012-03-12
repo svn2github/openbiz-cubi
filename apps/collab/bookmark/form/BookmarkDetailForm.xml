@@ -18,18 +18,24 @@
 			<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
 	    </DataPanel>
     <ActionPanel>       
+    <Element Name="btn_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button"   Text="Share" CssClass="button_gray_m" Description="Share or Assign Data">
+			<EventHandler Name="btn_update_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+        <Element Name="btn_spacer_for_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Spacer" Width="10"></Element>
+          
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(collab.bookmark.form.BookmarkNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
         </Element>          
-        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+        <Element Name="btn_edit" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(collab.bookmark.form.BookmarkEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
-		<Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
+		<Element Name="btn_copy" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
             <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=collab.bookmark.form.BookmarkCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
         </Element> 
-        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+        <Element Name="btn_delete" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=collab.bookmark.form.BookmarkListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
+        <Element Name="btn_spacer_for_cancel"  Class="Spacer" Width="10"></Element>
         <Element Name="btn_cancel" Class="LabelBack" Text="Back" CssClass="button_gray_m" Link="{APP_INDEX}/collab/bookmark_manage" >
            <!--  <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />-->
         </Element>          
