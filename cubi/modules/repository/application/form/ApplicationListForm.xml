@@ -2,21 +2,20 @@
 <EasyForm Name="ApplicationListForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Repository Applications" Description="This module can manage repositroy applications " BizDataObj="repository.application.do.ApplicationDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="Repository.Manage">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" Link="javascript:">         
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N">         
          	
         </Element>
              
-        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Package" Sortable="Y">
-        	<EventHandler Name="fld_package_id_onclick" Event="onclick" Function="SwitchForm(repository.application.form.ApplicationDetailForm,{@:Elem[fld_Id].Value})"   />
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Package" Sortable="Y"  Link="javascript:" >
+        	<EventHandler Name="fld_package_id_onclick" Event="onclick" Function="SwitchForm(repository.application.form.ApplicationDetailForm,{@:Elem[fld_Id].Value})"  />
         </Element>
         <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y"/>
         <Element Name="fld_category_name" Class="ColumnText" FieldName="category_name" Label="Category"  Sortable="Y"/>
-        <Element Name="fld_version" Class="ColumnText" FieldName="version" Label="Version"  Sortable="Y"/>
         <!--<Element Name="fld_pltfm_ver" Class="ColumnText" FieldName="pltfm_ver" Label="Pltfm Ver"  Sortable="Y"/>-->
-        <!--<Element Name="fld_author" Class="ColumnText" FieldName="author" Label="Author"  Sortable="Y"/>-->
+        <Element Name="fld_author" Class="ColumnText" FieldName="author" Label="Author"  Sortable="Y"/>
         <!--<Element Name="fld_file" Class="ColumnText" FieldName="file" Label="File"  Sortable="Y"/>-->
-        <Element Name="fld_status" Class="ColumnList" FieldName="status" Label="Status"  Sortable="Y" SelectFrom="common.lov.CommLOV(Status)"/>
-        <Element Name="fld_release_time" Class="ColumnText" FieldName="release_time" Label="Release Time"  Sortable="Y"/>
+        <Element Name="fld_status" Class="ColumnBool" FieldName="status" Label="Status"  Sortable="Y" SelectFrom="common.lov.CommLOV(Status)"/>
+        <Element Name="fld_release_time" Class="ColumnText" Text="{date('Y-m-d',strtotime(@:Elem[fld_release_time].Value))}" FieldName="release_time" Label="Release Date"  Sortable="Y"/>
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" Access="Repository.Manage">
@@ -58,7 +57,12 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
-			<Element Name="qry_package_id" Class="AutoSuggest" SelectFrom="repository.application.do.ApplicationDO[package_id],[package_id] like '%{@:Elem[qry_package_id].Value}%' GROUP BY [package_id]" FuzzySearch="Y" FieldName="package_id" Label="" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
+        <Element Name="fld_cat_id"  width="145" ElementSet="Advanced" Class="TreeListbox" style="float:left;" SelectFrom="repository.category.do.CategoryDO[name:Id]" FieldName="category_id" Label="Category"  Description="Category of this application" >
+        	<EventHandler Name="sfld_cat_id_onchange" Event="onchange" Function="RunSearch()" />
+        </Element>
+    	<Element Name="btn_spacer" Class="Spacer" width="10" />	
+    
+		<Element Name="qry_name" Class="AutoSuggest" SelectFrom="repository.application.do.ApplicationDO[name],[name] like '%{@:Elem[qry_name].Value}%' GROUP BY [name]" FuzzySearch="Y" FieldName="name" Label="" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>	
