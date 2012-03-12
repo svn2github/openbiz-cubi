@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `repo_application` (
   `package_id` varchar(64) NOT NULL,
   `name` varchar(64) NOT NULL,
   `type` varchar(64) NOT NULL,
-  `categroy_id` int(64) NOT NULL,
+  `category_id` int(64) NOT NULL,
   `author` varchar(128) NOT NULL,
   `description` text,
   `status` int(2) DEFAULT NULL,

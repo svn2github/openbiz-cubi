@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ApplicationDO" Description="" Class="BizDataObj" DBName="Default" Table="repo_application" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="PackageCategory.Manage" UpdateCondition="PackageCategory.Manage" DeleteCondition="PackageCategory.Manage">
+	<BizFieldList>
+        <BizField Name="Id" Column="id" Type="Number"/>
+        <BizField Name="package_id" Column="package_id" Length="255" Required="Y" Type="Text"/>
+        <BizField Name="name" Column="name" Length="64" Required="Y" Type="Text"/>
+        <BizField Name="type" Column="type" Length="64" Required="Y" Type="Text"/>
+        <BizField Name="category_id" Column="category_id" Length="64" Required="Y" Type="Text"/>
+        <BizField Name="category_name" Column="name" Join="join_package_category"/>
+        <BizField Name="author" Column="author" Length="128" Required="Y" Type="Text"/>
+        <BizField Name="description" Column="description" Required="N" Type="Text"/>
+        <BizField Name="status" Column="status" Required="N" Type="Number"/>
+        <BizField Name="release_time" Column="release_time" Required="N" Type="Datetime"/>
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>		
+		<BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+    </BizFieldList>
+    <TableJoins>    
+        <Join Name="join_package_category" Table="repo_category" Column="id" ColumnRef="category_id" JoinType="INNER JOIN"/>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
