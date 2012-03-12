@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="LicActcodeNewForm" Class="LicActCodeForm" FormType="New" jsClass="jbForm" Title="New Lic Actcode" Description="" BizDataObj="license.do.LicActcodeDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_activation_code" Class="LabelText" FieldName="activation_code" Label="Activation Code" Text="Auto genreted code"/>
+        <Element Name="fld_sku" Class="InputText" FieldName="sku" Label="Package" />
+        <Element Name="fld_policy_id" Class="InputText" FieldName="policy_id" Label="Policy" />
+        <Element Name="fld_start_time" Class="InputDatetime" DateFormat="%Y-%m-%d %H:%M:%S" FieldName="start_time" Label="Start Time" DefaultValue="{date('Y-m-d')}" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_end_time" Class="InputDatetime" DateFormat="%Y-%m-%d %H:%M:%S" FieldName="end_time" Label="End Time" DefaultValue="{date('Y-m-d',time()+30*24*3600)}" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_status" Class="InputText" FieldName="status" Label="Status" DefaultValue="1"  />
+        <Element Name="fld_max_use" Class="InputText" FieldName="max_use" Label="Max Use" DefaultValue="1"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_cur_use" Class="InputText" FieldName="cur_use" Label="Cur Use" DefaultValue="0"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"/>
+        </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=license.form.LicActcodeDetailForm&amp;fld:Id={@license.do.LicActcodeDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

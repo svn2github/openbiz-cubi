@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="LicActcodeListView" Description="license" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="license.Access">
+   <FormReferences>
+   		<Reference Name="license.form.LicActcodeListForm"/>
+   </FormReferences>
+</EasyView>

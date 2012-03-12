@@ -1,0 +1,2 @@
+<MenuWidget Name="LeftMenu" Title="License" Class="menu.widget.MenuWidget" CssCLass="license" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='License'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="vertical_menu.tpl" CacheLifeTime="0">
+</MenuWidget>

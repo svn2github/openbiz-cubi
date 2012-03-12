@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="LicActcodeDO" Description="" Class="BizDataObj" DBName="Default" Table="lic_actcode" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="activation_code;" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="license.Manage" UpdateCondition="license.Manage" DeleteCondition="license.Manage">
+	<BizFieldList>
+        <BizField Name="Id" Column="id"     Type="Number"/>
+        <BizField Name="activation_code" Column="activation_code" Length="64"   Required="Y" Type="Text"/>
+        <BizField Name="sku" Column="sku"    Required="Y" Type="Text"/>
+        <BizField Name="policy_id" Column="policy_id"    Required="Y" Type="Number"/>
+        <BizField Name="status" Column="status"    Required="N" Type="Number"/>
+        <BizField Name="description" Column="description" Length="255"   Required="N" Type="Text"/>
+        <BizField Name="start_time" Column="start_time"    Required="N" Type="Datetime"/>
+        <BizField Name="end_time" Column="end_time"    Required="N" Type="Datetime"/>
+        <BizField Name="max_use" Column="max_use"    Required="N" Type="Number"/>
+        <BizField Name="cur_use" Column="cur_use"    Required="N" Type="Number"/>
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time" Column="create_time"  Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>		
+		<BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
