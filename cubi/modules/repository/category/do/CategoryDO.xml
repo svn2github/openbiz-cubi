@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="CategoryDO" Description="" Class="BizDataTree" DBName="Default" Table="repo_category" SearchRule="" SortRule="[sort_order] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="PackageCategory.Manage" UpdateCondition="PackageCategory.Manage" DeleteCondition="PackageCategory.Manage">
+	<BizFieldList>
+        <BizField Name="Id" Column="id" Type="Number"/>
+        <BizField Name="parent_id" Column="parent_id" Required="N" Type="Number"/>
+        <BizField Name="PId" Column="parent_id" Required="N" Type="Number"/>
+        <BizField Name="name" Column="name" Length="255" Required="Y" Type="Text"/>
+        <BizField Name="description" Column="description" Required="N" Type="Text"/>
+        <BizField Name="attrs" Column="attrs" Required="N" Type="Text"/>
+        <BizField Name="publish" Column="publish" Required="N" Type="Number"/>
+        <BizField Name="sort_order" Column="sort_order" Required="Y" Type="Number"/>
+		<BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>		
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    	<Object Name="repository.application.do.ApplicationDO" Relationship="1-M" Table="repo_application" Column="cat_id" FieldRef="Id" CascadeDelete="Y"/>
+    </ObjReferences>
+</BizDataObj>

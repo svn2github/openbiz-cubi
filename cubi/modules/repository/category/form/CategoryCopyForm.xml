@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="CategoryCopyForm" Class="EasyForm" FormType="Copy" jsClass="jbForm" Title="Copy Package Category" Description="" BizDataObj="repository.category.do.CategoryDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+		<Element Name="fld_parent_id" Class="TreeListbox" FieldName="parent_id" Label="Parent Id" BLANKOPTION="-- Root --,0" SelectFrom="repository.category.do.CategoryDO[name:Id]"/>
+		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"/>            
+		<!--<Element Name="fld_attrs" Class="Textarea" FieldName="attrs" Label="Attrs" />-->            
+		<Element Name="fld_publish" Class="Checkbox" FieldName="publish" Label="Publish" SelectFrom="1" DefaultValue="0" />
+    	<Element Name="fld_sort_order" Class="Listbox"  SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sort_order" Label="Ordering"  AllowURLParam="N" />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=repository.category.form.CategoryDetailForm&amp;fld:Id={@repository.category.do.CategoryDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
