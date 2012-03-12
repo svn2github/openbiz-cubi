@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="UserPickForm" Class="PickerForm" Icon="icon_user_list.gif" FormType="List" jsClass="jbForm" Title="Please select a user" Description="To selec a user, click on a row and click to Select button" BizDataObj="system.do.UserPickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_pickform.tpl.html">
     <DataPanel>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="User Id" Sortable="Y"/>
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="User ID" Sortable="Y"/>
         <Element Name="fld_username" Class="ColumnText" FieldName="username" Label="Username" Sortable="Y" Link="javascript:;"/>
         <Element Name="fld_email" Class="ColumnText" FieldName="email" Label="Email" Sortable="Y"/>
 		<Element Name="fld_smartcard" Class="ColumnBool" TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" FieldName="smartcard" Text="{@:Elem[fld_smartcard].Value}" Sortable="Y" Label="ID Card" >				
