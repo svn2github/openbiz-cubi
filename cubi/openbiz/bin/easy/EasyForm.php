@@ -268,7 +268,11 @@ class EasyForm extends MetaObject implements iSessionObject
         $message = isset($this->m_Messages[$messageId]) ? $this->m_Messages[$messageId] : constant($messageId);
         //$message = I18n::getInstance()->translate($message);
         $message = I18n::t($message, $messageId, $this->getModuleName($this->m_Name));        
-        return @vsprintf($message,$params);
+        $msg = @vsprintf($message,$params);
+        if(!$msg){ //maybe in translation missing some %s can cause it returns null
+        	$msg = $message;
+        }
+        return $msg;
     }
 
     public function canDisplayForm()
