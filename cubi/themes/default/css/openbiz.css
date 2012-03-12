@@ -1,3 +1,29 @@
+/* styles for button_gray_share */
+.button_gray_share{
+	width:72px;
+	height:20px;
+	color:#666666;
+	background-image:url(../images/button_share.gif);
+	background-position:0px top;
+	background-repeat:no-repeat;
+	overflow:hidden;
+	display:block;
+	float:left;
+	text-indent:28px;
+	text-decoration:none;
+	line-height:20px;
+	margin-right:3px;
+}
+.button_gray_share:hover{
+	background-position:0px -20px;
+	color:#454545;
+}
+.button_gray_share:active{
+	background-position:0px bottom;
+	color:#666666;
+}
+
+
 /* styles for lite_table */
 .lite_table .form_table .hover td span.title_id{
 	background-color:#cccccc; 
