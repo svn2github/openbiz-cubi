@@ -4,7 +4,7 @@
         <Element Name="fld_package_id" Class="InputText" FieldName="package_id" Label="Package Id"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         <Element Name="fld_name" Class="InputText" FieldName="name" Label="Name" DefaultValue="New Package"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         <Element Name="fld_type" Class="Listbox" FieldName="type" Label="Type" SelectFrom="package.lov.PackageLOV(PackageType)"/>
-        <Element Name="fld_cat_id" Class="Listbox" FieldName="cat_id" Label="Category" SelectFrom="repository.category.do.PackageCategoryDO[name:Id]"/>
+        <Element Name="fld_cat_id" Class="Listbox" FieldName="cat_id" Label="Category" SelectFrom="repository.category.do.CategoryDO[name:Id]"/>
         <Element Name="fld_version" Class="InputText" FieldName="version" Label="Version"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         <Element Name="fld_pltfm_ver" Class="InputText" FieldName="pltfm_ver" Label="Pltfm Ver"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         <Element Name="fld_author" Class="InputText" FieldName="author" Label="Author"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
