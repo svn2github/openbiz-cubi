@@ -5,7 +5,7 @@
 		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
 		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"/>            
 		<!--<Element Name="fld_attrs" Class="Textarea" FieldName="attrs" Label="Attrs" />-->            
-		<Element Name="fld_publish" Class="Checkbox" FieldName="publish" Label="Publish" SelectFrom="1" DefaultValue="0" />
+		<Element Name="fld_publish" Class="Listbox" SelectFrom="common.lov.CommLOV(Bool)" FieldName="publish" Label="Publish"  />
     	<Element Name="fld_sort_order" Class="Listbox"  SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sort_order" Label="Ordering"  AllowURLParam="N" />
     </DataPanel>
     <ActionPanel>

@@ -2,14 +2,16 @@
 <EasyForm Name="CategoryListForm" Icon="{RESOURCE_URL}/repository/images/repo_category.gif" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Repository Category Management" Description="Category can manage type of applications. You can put applications in different categories. " BizDataObj="repository.category.do.CategoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="Repository.Manage">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N"/>
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N"/>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Link="javascript:" Sortable="Y">
             <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(repository.category.form.CategoryDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
         <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y"/>
         <!--<Element Name="fld_attrs" Class="ColumnText" FieldName="attrs" Label="Attrs"  Sortable="Y"/>-->
-        <Element Name="fld_publish" Class="ColumnText" FieldName="publish" Label="Publish"  Sortable="Y"/>
-        <Element Name="fld_sort_order" Class="ColumnSorting" FieldName="sort_order" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+  		<Element Name="fld_status" Class="ColumnBool" FieldName="publish" Sortable="Y" Label="Active" Link="javascript:;">
+			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
+		</Element>
+		    <Element Name="fld_sort_order" Class="ColumnSorting" FieldName="sort_order" Label="Ordering"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sort_order,{@:Elem[fld_sort_order].Value-5})" />
         	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sort_order,{@:Elem[fld_sort_order].Value+5})" />
         </Element>        	
