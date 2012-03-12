@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <PackageStatus Value="0" text="Not installed"/>
+   <PackageStatus Value="1" text="Installed"/>
+   <PackageStatus Value="2" text="Downloading"/>
+   <PackageStatus Value="3" text="Installing"/>
+   
+   <PackageType Value="Module" text="Module" Picture="{RESOURCE_URL}/package/images/icon_type_module.png"/>
+   <PackageType Value="Application" text="Application" Picture="{RESOURCE_URL}/package/images/icon_type_app.png"/>
+   <PackageType Value="Theme" text="Theme" Picture="{RESOURCE_URL}/package/images/icon_type_theme.png"/>
+   <PackageType Value="Language" text="Language" Picture="{RESOURCE_URL}/package/images/icon_type_language.png"/>
+   <PackageType Value="System" text="System" Picture="{RESOURCE_URL}/package/images/icon_type_system.png"/>
+</Selection>
