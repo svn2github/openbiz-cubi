@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="WebsvcEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit Websvc" Description="" BizDataObj="websvc.do.WebsvcDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+<EasyForm Name="WebsvcEditForm" Class="EasyForm"  Icon="{RESOURCE_URL}/websvc/images/icon_webservices_edit.gif"  FormType="Edit" jsClass="jbForm" Title="Edit Websvc Account"  Description="This module manages users who have permission to access Webservices" BizDataObj="websvc.do.WebsvcDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_user_id" Class="InputText" Enabled="N" FieldName="user_id" Label="user Id"/>
-		<Element Name="fld_username" Class="InputPicker" FieldName="username" Label="username" ValuePicker="system.form.UserPickForm" PickerMap="fld_user_id:fld_Id,fld_username:fld_username"/>
+		<Element Name="fld_user_id" Class="LabelText" Enabled="N" FieldName="user_id" Label="User" Text="{BizSystem::GetProfileName(@:Elem[fld_user_id].Value)}"/>
 		<Element Name="fld_api_key" ElementSet="General" Class="LabelText" FieldName="api_key" Label="Api Key" AllowURLParam="N"/>
        	<Element Name="fld_secret" ElementSet="General" Class="LabelText" FieldName="secret" Label="Secret" AllowURLParam="N"/>
 		<Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status"   AllowURLParam="N" SelectFrom="common.lov.CommLOV(Status)"/>

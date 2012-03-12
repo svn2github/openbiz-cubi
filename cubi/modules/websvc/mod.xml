@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="websvc" Description="websvc module" Version="0.4" OpenbizVersion="3.0">
+<Module Name="websvc" Description="websvc module" Version="0.5" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="websvc">
 			<Action Name="Access" Description="Access Websvc Module Dashboard"/>
@@ -10,11 +10,16 @@
 		</Resource>
     </ACL>
     <Menu>
-		<MenuItem Name="Websvc.Websvc" Title="Web Services" Description="Web service administration" URL="" Parent="System" Order="100">
+		<MenuItem Name="Websvc.Websvc" IconImage="spacer.gif" IconCssClass="icon_websvc"  Title="Web Services" Description="Web service administration" URL="" Parent="System" Order="100">
 			<MenuItem Name="Websvc.Websvc.List" Title="Web Service Admin" Description=""  URL="{@home:url}/websvc/websvc_list" Order="10"/>
 		</MenuItem>	
     </Menu>
     <Dependency>
     	<Module Name="system"/>
     </Dependency>
+    <ChangeLog>
+    	<Version Name="0.5">
+	    	<Change Name="feature_05" Type="Enhancement"  Status="Finished" PublishDate="2012-03-12" Description="Enhanced UI for webservice module"></Change>
+	    </Version>
+    </ChangeLog>    
 </Module>

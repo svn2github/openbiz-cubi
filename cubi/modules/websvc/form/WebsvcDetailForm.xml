@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="WebsvcDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Title="Websvc Detail" Description="" BizDataObj="websvc.do.WebsvcDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
+<EasyForm Name="WebsvcDetailForm" Class="EasyForm" FormType=""  Icon="{RESOURCE_URL}/websvc/images/icon_webservices.gif"  jsClass="jbForm" Title="Websvc Account Detail"  Description="This module manages users who have permission to access Webservices" BizDataObj="websvc.do.WebsvcDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-       	<Element Name="fld_user_id" ElementSet="General" Class="LabelText" FieldName="user_id" Label="User Id" AllowURLParam="N"/>
-        <Element Name="fld_username" ElementSet="General" Class="LabelText" FieldName="username" Label="User Name" AllowURLParam="N"/>
+       	<Element Name="fld_user_id" ElementSet="General" Class="LabelText" FieldName="user_id" Label="User" Text="{BizSystem::GetProfileName(@:Elem[fld_user_id].Value)}" AllowURLParam="N"/>
        	<Element Name="fld_api_key" ElementSet="General" Class="LabelText" FieldName="api_key" Label="Api Key" AllowURLParam="N"/>
        	<Element Name="fld_secret" ElementSet="General" Class="LabelText" FieldName="secret" Label="Secret" AllowURLParam="N"/>
-       	<Element Name="fld_status" ElementSet="General" Class="LabelText" FieldName="status" Label="Status" AllowURLParam="N"/>
+       	<Element Name="fld_status" ElementSet="General" Class="LabelBool"  FieldName="status" Label="Status" AllowURLParam="N"/>
         <Element Name="fld_description" ElementSet="General" Class="LabelText" FieldName="description" Label="Description"   AllowURLParam="N"/>
        	<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>       	
        	<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time"  AllowURLParam="N"/>       	
