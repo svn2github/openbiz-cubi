@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="WebsvcDetailForm" Class="EasyForm" FormType=""  Icon="{RESOURCE_URL}/websvc/images/icon_webservices.gif"  jsClass="jbForm" Title="Websvc Account Detail"  Description="This module manages users who have permission to access Webservices" BizDataObj="websvc.do.WebsvcDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
+<EasyForm Name="WebsvcDetailForm" Class="EasyForm" FormType=""  Icon="{RESOURCE_URL}/websvc/images/icon_webservices.gif"  jsClass="jbForm" Title="Web Service Account Detail"  Description="This module manages users who have permission to access Webservices" BizDataObj="websvc.do.WebsvcDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
        	<Element Name="fld_user_id" ElementSet="General" Class="LabelText" FieldName="user_id" Label="User" Text="{BizSystem::GetProfileName(@:Elem[fld_user_id].Value)}" AllowURLParam="N"/>
