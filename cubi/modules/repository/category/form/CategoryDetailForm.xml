@@ -2,7 +2,7 @@
 <EasyForm Name="CategoryDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Icon="{RESOURCE_URL}/repository/images/repo_category.gif"  Title="Package Category Detail" Description="Category can manage type of applications. You can put applications in different categories." BizDataObj="repository.category.do.CategoryDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-       	<Element Name="fld_parent_id" ElementSet="General" Class="TreeLabelText" FieldName="parent_id" Label="Parent Id" BLANKOPTION="-- Root --,0" SelectFrom="repository.category.do.CategoryDO[name:Id]"/>
+       	<Element Name="fld_parent_id" ElementSet="General" Class="LabelList" FieldName="parent_id" Label="Parent" BLANKOPTION="-- Root --" SelectFrom="repository.category.do.CategoryDO[name:Id]"/>
        	<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
        	<Element Name="fld_description" ElementSet="General" Class="LabelText" FieldName="description" Label="Description" AllowURLParam="N"/>
        	<Element Name="fld_attrs" ElementSet="General" Class="LabelText" FieldName="attrs" Label="Attrs" AllowURLParam="N"/>
