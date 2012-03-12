@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="CategoryListForm" Icon="{RESOURCE_URL}/repository/images/repo_category.gif" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Repository Category Management" Description="Category can manage type of applications. You can put applications in different categories. " BizDataObj="repository.category.do.CategoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="Repository.Manage">
+<EasyForm Name="CategoryListForm" Icon="{RESOURCE_URL}/repository/images/repo_category.gif" Class="EasyFormTree" TitleField="name" RootSearchRule="[PId]=0"  FormType="List" jsClass="jbForm" Title="Repository Category Management" Description="Category can manage type of applications. You can put applications in different categories. " BizDataObj="repository.category.do.CategoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="Repository.Manage">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N"/>
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Link="javascript:" Sortable="Y">
             <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(repository.category.form.CategoryDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
-        <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y"/>
+        <Element Name="fld_description" MaxLength="15" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y"/>
         <!--<Element Name="fld_attrs" Class="ColumnText" FieldName="attrs" Label="Attrs"  Sortable="Y"/>-->
   		<Element Name="fld_status" Class="ColumnBool" FieldName="publish" Sortable="Y" Label="Active" Link="javascript:;">
 			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
@@ -56,9 +56,11 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
+    <!-- 
         <Element Name="qry_name" Class="InputText" FuzzySearch="Y" FieldName="name" Label="" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
-        </Element>	
+        </Element>
+        -->	
     </SearchPanel>
 </EasyForm>
