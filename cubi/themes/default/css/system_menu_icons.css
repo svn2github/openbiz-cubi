@@ -93,6 +93,14 @@
 #main #nav .icon_group{
 	background-position:left -318px;
 }
+#main #left_panel .content .system .icon_market
+{
+	background-position:left -334px;
+}
+#main #left_panel .content .system .icon_repository
+{
+	background-position:left -366px;
+}
 /* --for hovers */
 #main #left_panel .content .system a:hover .icon_user,
 #main #left_panel .content .system a.current .icon_user,
@@ -203,4 +211,9 @@
 #main #left_panel .content .system a.current .icon_system,
 #main #left_panel .content .system a:active .icon_system{
 	background-position:right -318px;
+}
+#main #left_panel .content .system a:hover .icon_repository,
+#main #left_panel .content .system a.current .icon_repository,
+#main #left_panel .content .system a:active .icon_repository{
+	background-position:right -366px;
 }
