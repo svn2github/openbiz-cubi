@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ApplicationEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit Package" Description="" BizDataObj="repository.application.do.ApplicationDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+<EasyForm Name="ApplicationEditForm" Class="EasyForm" Icon="{RESOURCE_URL}/repository/images/repo_application_edit.gif"  FormType="Edit" jsClass="jbForm" Title="Edit Application" Description="Publish a new application , Allow other Cubi platfrom user to download it." BizDataObj="repository.application.do.ApplicationDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
-		<Element Name="fld_package_id" Class="InputText" FieldName="package_id" Label="Package Id"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_type" Class="Listbox" FieldName="type" Label="Type" SelectFrom="package.lov.PackageLOV(PackageType)"/>
-		<Element Name="fld_cat_id" Class="Listbox" FieldName="cat_id" Label="Category" SelectFrom="repository.category.do.CategoryDO[name:Id]"/>
-		<Element Name="fld_version" Class="InputText" FieldName="version" Label="Version"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_pltfm_ver" Class="InputText" FieldName="pltfm_ver" Label="Pltfm Ver"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_author" Class="InputText" FieldName="author" Label="Author"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_file" Class="InputText" FieldName="file" Label="File"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"  />            
-		<Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(Status)"/>
-		<Element Name="fld_release_time" Class="InputDatetime" DateFormat="%Y-%m-%d %H:%M:%S" FieldName="release_time" Label="Release Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_repository" Class="Textarea" FieldName="repository" Label="Repository" />            
-    </DataPanel>
+        <Element Name="fld_name" ElementSet="General" Class="InputText" FieldName="name" Label="Name" DefaultValue="New Package"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  />            
+        
+        <Element Name="fld_package_id" ElementSet="Advanced" Class="InputText" FieldName="package_id" Label="Package ID" Description="e.g com.application.Collab" DefaultValue="com.application.NewApp" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>        
+        <Element Name="fld_type"   width="186"	ElementSet="Advanced" Class="Listbox" FieldName="type" Label="Type" SelectFrom="package.lov.PackageLOV(PackageType)"  Description="Type of this application" />
+        <Element Name="fld_cat_id"  width="186" ElementSet="Advanced" Class="TreeListbox"  SelectFrom="repository.category.do.CategoryDO[name:Id]" FieldName="category_id" Label="Category"  Description="Category of this application" />
+        <Element Name="fld_author"  ElementSet="Advanced" Class="InputText" FieldName="author" Label="Author" DefaultValue="{BizSystem::GetProfileName(@profile:Id,'short')}"  Description="e.g Openbiz LLC" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        
+        <Element Name="fld_release_time" ElementSet="Publish" Class="InputDatetime" DateFormat="%Y-%m-%d %H:%M:%S" DefaultValue="{date('Y-m-d H:i:s')}" FieldName="release_time" Label="Release Time" Description="The App will invisible until release time" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_status"  width="215" ElementSet="Publish" Class="Listbox" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(Status)" Description="Control the App viewable or not" />
+            </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
             <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=repository.application.form.ApplicationDetailForm&amp;fld:Id={@repository.application.do.ApplicationDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
