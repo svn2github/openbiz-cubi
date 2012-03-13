@@ -9,11 +9,10 @@ class DataShareGroupList extends Listbox
     		$groups=BizSystem::getUserProfile("groups");
     		if($groups){
     			$ids = implode(",", $groups);
+    			$selectFrom = $this->m_SelectFrom . ",[Id] IN ($ids)";
     		}else{
-    			$ids = "";
-    		}
-    		
-			$selectFrom = $this->m_SelectFrom . ",[Id] IN ($ids)";
+    			$selectFrom = $this->m_SelectFrom;
+    		}    		
 		}else{
 			$selectFrom = $this->m_SelectFrom;
 		}
