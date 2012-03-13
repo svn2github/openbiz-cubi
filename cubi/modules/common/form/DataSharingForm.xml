@@ -19,7 +19,7 @@
         
 		
 		<Element Name="fld_owner"  Class="LabelText" Hidden="{@:Elem[fld_editable].Value==1?'Y':'N'}" ElementSet="Data Sharing" width="450" FieldName="owner_name" Label="Data Owner"  />  		
-		<Element Name="fld_owner_setting" Hidden="{@:Elem[fld_editable].Value==1 &amp;&amp; @:Elem[fld_has_owner_field].Value=='1'?'N':'Y'}" Class="common.element.DataShareUserList" SelectFrom="system.do.UserContactDO[display_name:Id],[group_id]={@:Elem[fld_group_setting].Value}"  ElementSet="Data Sharing" FieldName="owner_id" Label="Data Owner"  >			
+		<Element Name="fld_owner_setting" Hidden="{@:Elem[fld_editable].Value==1 &amp;&amp; @:Elem[fld_has_owner_field].Value=='1'?'N':'Y'}" Class="common.element.DataShareUserList" SelectFrom="system.do.UserContactDO[display_name:Id],[group_id]='{@:Elem[fld_group_setting].Value}'"  ElementSet="Data Sharing" FieldName="owner_id" Label="Data Owner"  >			
 		</Element>
     	<Element Name="fld_owner_perm"  Hidden="{@:Elem[fld_editable].Value==1?'Y':'N'}"  Class="LabelList"  SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Data permission for owner " FieldName="owner_perm" Label="Owner Perm"  />
     	<Element Name="fld_owner_perm_setting"  Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}"  Class="Listbox"  SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Data permission for owner " FieldName="owner_perm" Label="Owner Perm"  />
