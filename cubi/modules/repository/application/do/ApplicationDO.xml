@@ -21,5 +21,6 @@
         <Join Name="join_package_category" Table="repo_category" Column="id" ColumnRef="category_id" JoinType="INNER JOIN"/>
     </TableJoins>
     <ObjReferences>
+            <Object Name="picture.do.PictureDO" Description="" Relationship="1-M" Table="picture" CondColumn='type' CondValue='application' Column="foreign_id" FieldRef="Id" />        
     </ObjReferences>
 </BizDataObj>
