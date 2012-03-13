@@ -7,7 +7,11 @@ class DataShareGroupList extends Listbox
         $formobj = $this->getFormObj();
     	if(!BizSystem::allowUserAccess("data_assign.assign_to_other")){
     		$groups=BizSystem::getUserProfile("groups");
-    		$ids = implode(",", $groups);
+    		if($groups){
+    			$ids = implode(",", $groups);
+    		}else{
+    			$ids = "";
+    		}
     		
 			$selectFrom = $this->m_SelectFrom . ",[Id] IN ($ids)";
 		}else{
