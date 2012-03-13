@@ -2,18 +2,17 @@
 <EasyForm Name="ApplicationDetailForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif"  Class="EasyForm" FormType="" jsClass="jbForm" Title="Repository Application Detail" Description="This module can manage repositroy applications " BizDataObj="repository.application.do.ApplicationDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-       	<Element Name="fld_package_id" ElementSet="General" Class="LabelText" FieldName="package_id" Label="Package Id" AllowURLParam="N"/>
-       	<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
-       	<Element Name="fld_type" Class="LabelText" FieldName="type" Label="Type" AllowURLParam="N"/>
-        <Element Name="fld_category_name" ElementSet="General" Class="LabelText" FieldName="category_name" Label="Category"  Sortable="Y"/>
-       	<Element Name="fld_version" ElementSet="General" Class="LabelText" FieldName="version" Label="Version" AllowURLParam="N"/>
-       	<Element Name="fld_pltfm_ver" ElementSet="General" Class="LabelText" FieldName="pltfm_ver" Label="Pltfm Ver" AllowURLParam="N"/>
-       	<Element Name="fld_author" ElementSet="General" Class="LabelText" FieldName="author" Label="Author" AllowURLParam="N"/>
-       	<Element Name="fld_file" ElementSet="General" Class="LabelText" FieldName="file" Label="File" AllowURLParam="N"/>
-       	<Element Name="fld_description" ElementSet="General" Class="LabelText" FieldName="description" Label="Description" AllowURLParam="N"/>
-       	<Element Name="fld_status" ElementSet="General" Class="LabelList" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(Status)"/>
-       	<Element Name="fld_release_time" ElementSet="General" Class="LabelText" FieldName="release_time" Label="Release Time" AllowURLParam="N"/>
-       	<Element Name="fld_repository" ElementSet="General" Class="LabelText" FieldName="repository" Label="Repository" AllowURLParam="N"/>
+       	<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" DefaultValue="New Package"  AllowURLParam="N" />
+        <Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  />            
+        
+        <Element Name="fld_package_id" ElementSet="Advanced" Class="LabelText" FieldName="package_id" Label="Package ID" Description="e.g com.application.Collab" DefaultValue="com.application.NewApp" AllowURLParam="N" />        
+        <Element Name="fld_type"   width="186"	ElementSet="Advanced" Class="LabelList" FieldName="type" Label="Type" SelectFrom="package.lov.PackageLOV(PackageType)"  Description="Type of this application" />
+        <Element Name="fld_cat_id"  width="186" ElementSet="Advanced" Class="LabelList"  SelectFrom="repository.category.do.CategoryDO[name:Id]" FieldName="category_id" Label="Category"  Description="Category of this application" />
+        <Element Name="fld_author"  ElementSet="Advanced" Class="LabelText" FieldName="author" Label="Author" DefaultValue="{BizSystem::GetProfileName(@profile:Id,'short')}"  Description="e.g Openbiz LLC" AllowURLParam="N" />
+        
+        <Element Name="fld_release_time" ElementSet="Publish" Class="LabelText" DateFormat="%Y-%m-%d %H:%M:%S" DefaultValue="{date('Y-m-d H:i:s')}" FieldName="release_time" Label="Release Time" Description="The App will invisible until release time" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
+        <Element Name="fld_status"  width="215" ElementSet="Publish" Class="LabelList" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(Status)" Description="Control the App viewable or not" />
+        
        	<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>       	
        	<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>       	
        	<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By" Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>       	

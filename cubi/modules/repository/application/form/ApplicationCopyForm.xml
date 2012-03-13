@@ -2,6 +2,7 @@
 <EasyForm Name="ApplicationCopyForm"  Icon="{RESOURCE_URL}/repository/images/repo_application_add.gif" Class="EasyForm" FormType="Copy" jsClass="jbForm" Title="Copy Application" Description="Publish a new application , Allow other Cubi platfrom user to download it." BizDataObj="repository.application.do.ApplicationDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
     <DataPanel>
         <Element Name="fld_name" ElementSet="General" Class="InputText" FieldName="name" Label="Name" DefaultValue="New Package"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_icon" Class="ImageUploader"  ElementSet="General"  UploadFolder="/application" FieldName="icon" Label="App Icon"  AllowURLParam="N" ></Element>
         <Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  />            
         
         <Element Name="fld_package_id" ElementSet="Advanced" Class="InputText" FieldName="package_id" Label="Package ID" Description="e.g com.application.Collab" DefaultValue="com.application.NewApp" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>        
