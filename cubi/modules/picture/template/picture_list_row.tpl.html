@@ -68,9 +68,10 @@ padding:5px 10px 10px 10px;
 <script type="text/javascript">
 	$('slideshow').style.display='none';
 	$('wrapper').style.display='block';
-	var slideshow=new TINY.slideshow("slideshow");
 	
-		slideshow.auto=false;
+		var slideshow=new TINY.slideshow("slideshow");
+		
+		slideshow.auto=true;
 		slideshow.speed=5;
 		slideshow.link="linkhover";
 		slideshow.info="information";
@@ -81,7 +82,6 @@ padding:5px 10px 10px 10px;
 		slideshow.spacing=5;
 		slideshow.active="#fff";
 		slideshow.init("slideshow","image","imgprev","imgnext","imglink");
-	
 </script>
 {/literal}
 
