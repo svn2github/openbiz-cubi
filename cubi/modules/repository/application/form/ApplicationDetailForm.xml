@@ -30,10 +30,9 @@
         </Element> 
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})" RedirectPage="form=repository.application.form.ApplicationListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
-        </Element>
-        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
-            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()" ShortcutKey="Escape" ContextMenu="Cancel"/>
-        </Element>         
+        </Element> 
+        <Element Name="btn_cancel" Class="LabelBack" Link="Javascript:history(-1);" Text="Back" CssClass="button_gray_m" />
+        
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 

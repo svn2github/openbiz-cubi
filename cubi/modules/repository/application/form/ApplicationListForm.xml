@@ -5,7 +5,8 @@
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N">         
          	
         </Element>
-             
+         <Element Name="fld_icon" Class="ColumnImage" FieldName="icon" Label="Icon"  Sortable="Y"  Height="22" >
+        </Element>     
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Package" Sortable="Y"  Link="{APP_INDEX}/repository/repository_application_detail/{@:Elem[fld_Id].Value}" >
         	<!--  <EventHandler Name="fld_package_id_onclick" Event="onclick" Function="SwitchForm(repository.application.form.ApplicationDetailForm,{@:Elem[fld_Id].Value})"  />-->
         </Element>

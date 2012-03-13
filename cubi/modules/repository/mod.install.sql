@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS `repo_application` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `package_id` varchar(64) NOT NULL,
   `name` varchar(64) NOT NULL,
+  `icon` varchar(255) NOT NULL,
   `type` varchar(64) NOT NULL,
   `category_id` int(64) NOT NULL,
   `author` varchar(128) NOT NULL,
@@ -29,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `repo_application` (
   `update_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `package_id` (`package_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
 

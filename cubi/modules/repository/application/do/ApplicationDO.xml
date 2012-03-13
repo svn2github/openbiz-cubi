@@ -4,6 +4,7 @@
         <BizField Name="Id" Column="id" Type="Number"/>
         <BizField Name="package_id" Column="package_id" Length="255" Required="Y" Type="Text"/>
         <BizField Name="name" Column="name" Length="64" Required="Y" Type="Text"/>
+        <BizField Name="icon" Column="icon" Length="255"  Type="Text"/>
         <BizField Name="type" Column="type" Length="64" Required="Y" Type="Text"/>
         <BizField Name="category_id" Column="category_id" Length="64" Required="Y" Type="Text"/>
         <BizField Name="category_name" Column="name" Join="join_package_category"/>
