@@ -1,0 +1,109 @@
+<div id='{$form.name}' name='{$form.name}'>
+<link rel="stylesheet" href="{$resource_url}/picture/css/style.css" />
+<style>
+{literal}
+.picture_item{
+border-bottom:1px solid #d6d6d6;
+padding:10px;
+width:620px;
+overflow:hidden;
+}
+.picture_item img{
+margin-bottom:10px;
+max-width:600px;
+}
+.picture_title{
+font-size:14px;
+line-height:20px;
+}
+.picture_attr{
+background-color:#f8f8f8;
+display:block;
+padding:5px 10px 10px 10px;
+}
+{/literal}
+</style>
+<div style="padding-left:0px;padding-right:0px;">
+<table></table>
+{if $dataPanel.data|count >0}
+<div class="from_table_container" style="width:652px;">
+<!-- table start -->
+
+
+
+
+	<ul id="slideshow">
+		{foreach item=row from=$dataPanel.data}
+		<li>
+			<h3>{$row.fld_title}</h3>
+			<span>{$row.fld_url}</span>
+			<p>{$row.fld_description} 
+			{if $row.fld_description}<br/>{/if}
+			{$row.fld_create_time}</p>
+			<a href="{$row.fld_url}" target="_blank"><img src="{$row.fld_url}" alt="{$row.fld_title}" width="90" height="72"/></a>
+		</li>
+		{/foreach}
+	</ul>
+	<div id="wrapper">
+		<div id="fullsize">
+			<div id="imgprev" class="imgnav" title="Previous Image"></div>
+			<div id="imglink"></div>
+			<div id="imgnext" class="imgnav" title="Next Image"></div>
+			<div id="image" ></div>
+			<div id="information">
+				<h3></h3>
+				<p></p>
+			</div>
+		</div>
+		<div id="thumbnails">
+			<div id="slideleft" title="Slide Left"></div>
+			<div id="slidearea">
+				<div id="slider"></div>
+			</div>
+			<div id="slideright" title="Slide Right"></div>
+		</div>
+	</div>
+<script type="text/javascript" src="{$resource_url}/picture/js/script.js"></script>
+{literal}
+<script type="text/javascript">
+	$('slideshow').style.display='none';
+	$('wrapper').style.display='block';
+	var slideshow=new TINY.slideshow("slideshow");
+	
+		slideshow.auto=false;
+		slideshow.speed=5;
+		slideshow.link="linkhover";
+		slideshow.info="information";
+		slideshow.thumbs="slider";
+		slideshow.left="slideleft";
+		slideshow.right="slideright";
+		slideshow.scrollSpeed=4;
+		slideshow.spacing=5;
+		slideshow.active="#fff";
+		slideshow.init("slideshow","image","imgprev","imgnext","imglink");
+	
+</script>
+{/literal}
+
+{if $navPanel}
+<div class="form_footer_panel" style="width:640px;">
+		<div class="ajax_indicator" style="width:130px;">
+			<div id='{$form.name}.load_disp' style="display:none" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
+		</div>
+		<div class="navi_panel"  style="width:460px;">
+   {foreach item=elem from=$navPanel}
+   		{if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
+    	{$elem.element}
+   {/foreach}				
+		</div>		
+	</div>
+{/if}		
+</div>
+{else}
+<div style="background-color:#f8f8f8;padding:10px;">
+{t}-- No related pictures --{/t}
+</div>
+{/if}
+</div>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="PictureListRowForm" Class="PictureForm" BizDataObj="picture.do.PictureDO"  inheritFrom="picture.widget.PictureListDetailForm" TemplateFile="picture_list_row.tpl.html"  Access="picture.access">
+
+</EasyForm>

@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="picture" Description="pictures management module" Version="0.11" OpenbizVersion="3.0" Author="Jixian"  LoadHandler="picture.lib.PictureLoadHandler">
+<Module Name="picture" Description="pictures management module" Version="0.2" OpenbizVersion="3.0" Author="Jixian"  LoadHandler="picture.lib.PictureLoadHandler">
 	<ACL>
 		<Resource Name="picture">
 			<Action Name="access" Description="access pictures"/>
@@ -10,6 +10,9 @@
     	<Module Name="menu"/>
     </Dependency>
     <ChangeLog>
+    	<Version Name="0.2">
+	    	<Change Name="feature_02" Type="New_Feature"  Status="Finished" PublishDate="2012-03-13" Description="added javascript slider feature"></Change>
+	    </Version>
 		<Version Name="0.1">
 	    	<Change Name="feature_01" Type="New_Feature"  Status="Finished" PublishDate="2012-01-16" Description="replaced a default icon"></Change>
 	    </Version>
