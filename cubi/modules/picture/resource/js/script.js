@@ -4,7 +4,7 @@ var TINY={};
 TINY.slideshow=function(n){
 	this.infoSpeed=this.imgSpeed=this.speed=10;
 	this.thumbOpacity=this.navHover=50;
-	this.navOpacity=25;
+	this.navOpacity=50;
 	this.scrollSpeed=5;
 	this.letterbox='#000';
 	this.n=n;

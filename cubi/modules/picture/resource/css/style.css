@@ -19,5 +19,5 @@
 #slideright {float:right; width:20px; height:81px; background:#ddd url(../images/scroll-right.gif) center center no-repeat}
 #slideright:hover {background-color:#ccc}
 #slidearea {float:left; position:relative; width:590px; margin-left:5px; height:81px; overflow:hidden}
-#slider {position:absolute; left:0; height:81px}
-#slider img {cursor:pointer; border:1px solid #666; padding:2px}
+#slider {position:absolute; left:0; height:81px; background-color:#f0f0f0}
+#slider img {cursor:pointer; border:2px solid #ccc; padding:2px}
