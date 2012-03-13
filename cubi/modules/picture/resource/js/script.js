@@ -119,7 +119,7 @@ TINY.slideshow.prototype={
 			this.q.style.cursor='default'
 		}
 		var m=this.f.getElementsByTagName('img');
-		if(m.length>2){
+		if(m.length>=2){
 			this.f.removeChild(m[0])
 		}
 	},
