@@ -3,10 +3,10 @@
     <DataPanel>
     </DataPanel>
     <ActionPanel>
-    	<Element Name="btn_pdf" Class="Button" Text="PDF" CssClass="button_gray_m">
+    	<!--<Element Name="btn_pdf" Class="Button" Text="PDF" CssClass="button_gray_m">
             <EventHandler Name="btn_pdf_onclick" Event="onclick" Function="js:ExportCharts()" />
-        </Element> 
-        <Element Name="btn_print" Class="LabelText" Text="Print" CssClass="button_gray_m" link="../report_print/{$_GET['fld:Id']}" target="_blank"></Element> 		
+        </Element> -->
+        <Element Name="btn_print" Class="LabelText" Text="Print" CssClass="button_gray_m" link="../report_print/{$_GET['fld:Id']}" target="_blank"></Element>
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 

@@ -1,6 +1,6 @@
 <div align="left" style="padding:20px">
     <div id="pivot">
-		<fieldset>
+		<fieldset style="width:400px; color:black">
             <legend style="font-size:16px; font-weight:bold">Pivot table Settings</legend>
             <table><tr>
             <td>Aggregate function:</td><td><select id="pivot_agg"></select></td>
@@ -82,7 +82,10 @@ echo "var myChart = new FusionCharts( \"$swf\", \"pivot_chart1\", \"$chartWidth\
 		var data_txt = "";
 		i = 0; j = 0;
 		for (i=0; i<dim_x; i++) {
-			data_txt += "<dataset seriesName='"+textX[i]+"'>";
+			if (textX[i]) 
+				data_txt += "<dataset seriesName='"+textX[i]+"'>";
+			else
+				data_txt += "<dataset>";
 			for (j=0; j<dim_y; j++) {
 				data_txt += "<set value='"+data[i][j]+"'/>";
 			}

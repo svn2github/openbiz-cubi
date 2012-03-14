@@ -1,22 +1,23 @@
 <?xml version="1.0" standalone="no"?>
 <BizDataObj Name="ReportDoDO" Description="" Class="BizDataObj" DBName="Default" Table="report_do" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="name,db_id" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
 	<BizFieldList>
-    		<BizField Name="Id" Column="id"     Type="Number"/>
-    		<BizField Name="name" Column="name" Length="100"   Required="Y" Type="Text"/>
-    		<BizField Name="table" Column="table" Length="100"   Required="Y" Type="Text"/>
-    		<BizField Name="db_id" Column="db_id"    Required="Y" Type="Number"/>
-    		<BizField Name="search_rule" Column="search_rule" Length="255"   Required="N" Type="Text"/>
-    		<BizField Name="sort_rule" Column="sort_rule" Length="255"   Required="N" Type="Text"/>
-    		<BizField Name="group_by" Column="group_by" Length="255"   Required="N" Type="Text"/>
-    		
-    		<BizField Name="database" Join="report_db" Column="db_name"   />
-    		<BizField Name="server" Join="report_db" Column="server"   />
-    		<BizField Name="port" Join="report_db" Column="port"   />
-    		<BizField Name="username" Join="report_db" Column="username"   />
-    		<BizField Name="password" Encrypted="Y" Join="report_db" Column="password"   />
-    		<BizField Name="driver" Join="report_db" Column="driver"   /> 
-    		
-    		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="Id" Column="id"     Type="Number"/>
+		<BizField Name="name" Column="name" Length="100"   Required="Y" Type="Text"/>
+		<BizField Name="table" Column="table" Length="100"   Required="Y" Type="Text"/>
+		<BizField Name="db_id" Column="db_id"    Required="Y" Type="Number"/>
+		<BizField Name="search_rule" Column="search_rule" Length="255"   Required="N" Type="Text"/>
+		<BizField Name="sort_rule" Column="sort_rule" Length="255"   Required="N" Type="Text"/>
+		<BizField Name="group_by" Column="group_by" Length="255"   Required="N" Type="Text"/>
+		
+		<BizField Name="database" Join="report_db" Column="db_name"   />
+		<BizField Name="db_name" Join="report_db" Column="db_name"   />
+		<BizField Name="server" Join="report_db" Column="server"   />
+		<BizField Name="port" Join="report_db" Column="port"   />
+		<BizField Name="username" Join="report_db" Column="username"   />
+		<BizField Name="password" Encrypted="Y" Join="report_db" Column="password"   />
+		<BizField Name="driver" Join="report_db" Column="driver"   /> 
+		
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
         <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
         <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
         <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>   		

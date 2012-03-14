@@ -66,6 +66,7 @@ CREATE TABLE IF NOT EXISTS `report_do_field` (
   `sql_expr` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `type` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `format` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `create_by` int(11) NOT NULL DEFAULT '1',
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL DEFAULT '1',
@@ -76,6 +77,28 @@ CREATE TABLE IF NOT EXISTS `report_do_field` (
 /*Data for the table `report_do_field` */
 
 insert  into `report_do_field`(`id`,`name`,`do_id`,`column`,`sql_expr`,`type`,`format`,`create_by`,`create_time`,`update_by`,`update_time`) values (1,'Id',1,'id',NULL,'Number',NULL,1,'2011-07-17 23:22:24',1,'2011-07-17 23:22:24'),(2,'Name',1,'name',NULL,'Text',NULL,1,'2011-07-17 23:22:24',1,'2011-07-17 23:22:24'),(3,'Division',1,'division',NULL,'Text',NULL,1,'2011-07-17 23:22:24',1,'2011-07-17 23:22:24'),(4,'Product',1,'product',NULL,'Text',NULL,1,'2011-07-17 23:22:24',1,'2011-07-17 23:22:24'),(5,'Year',1,'year',NULL,'Text',NULL,1,'2011-07-17 23:22:24',1,'2011-07-17 23:22:24'),(6,'Revenue',1,'revenue',NULL,'Number',NULL,1,'2011-07-17 23:22:24',1,'2011-07-17 23:22:24'),(7,'Cost',1,'cost',NULL,'Number',NULL,1,'2011-07-17 23:22:24',1,'2011-07-17 23:22:24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure `report_do_join`
+--
+
+CREATE TABLE `report_do_join` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `do_id` int(11) NOT NULL,
+  `table` varchar(100) DEFAULT NULL,
+  `column` varchar(100) DEFAULT NULL,
+  `jointype` varchar(50) DEFAULT NULL,
+  `columnref` varchar(100) DEFAULT NULL,
+  `joinref` varchar(100) DEFAULT NULL,
+  `create_by` int(11) NOT NULL DEFAULT '1',
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL DEFAULT '1',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 

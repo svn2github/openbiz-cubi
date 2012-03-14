@@ -20,6 +20,9 @@
 		<Element Name="fld_defaultsearchrule" ElementSet="Form Type" Class="InputText" DefaultValue="" FieldName="default_searchrule" Label="Default Search Rule" />
         <Element Name="fld_pagesize" ElementSet="Form Type" Class="InputText" DefaultValue="10" FieldName="_PageSize" Label="Page Size" />
 
+        <Element Name="fld_usepivot" ElementSet="Form Type" Class="Checkbox" DefaultValue="0" SelectFrom="1" FieldName="_UsePivot" Label="Enable Pivot Table" />                
+		<Element Name="fld_pivot_limit" ElementSet="Form Type" Class="InputText" DefaultValue="1000" FieldName="_PivotLimit" Label="Pivot Records Limit" />
+		
         <Element Name="fld_show_label" ElementSet="Form Type" Class="Checkbox" DefaultValue="1" SelectFrom="1|0"  Text="Config the data names will be displayed" FieldName="_shownames" Label="Show Label" />
         <Element Name="fld_show_value" ElementSet="Form Type" Class="Checkbox" DefaultValue="1" SelectFrom="1|0"  Text="Config the data value will be displayed" FieldName="_showValues" Label="Show Value" />
         <Element Name="fld_show_hover_cap" ElementSet="Form Type" Class="Checkbox" DefaultValue="1" SelectFrom="1|0"  Text="Show/hide hover caption box" FieldName="_showhovercap" Label="Hover Caption" />

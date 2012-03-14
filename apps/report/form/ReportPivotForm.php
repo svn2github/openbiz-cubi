@@ -44,23 +44,23 @@ class ReportPivotForm extends EasyForm
         $pivotView->render();
     }
 
-public function showFilterForm()
-{
-	$viewObj = $this->getViewObject();
-        $viewObj->reload();
-	foreach ($viewObj->m_FormRefs as $formRef)
-        {
-            $formName = $formRef->m_Name;
-            //echo "$formName, ".$thisForm->m_Name."<br/>";
-            if ($formName == $this->m_Name)
-                continue;
-            $formObj = BizSystem::objectFactory()->getObject($formName);
-            if ($formObj->m_Type=='filter') // ($formObj->m_DataObjName == $this->m_DataObjName && $formObj->m_Type=='table')
-            {
-                break;
-            }
-        }
-	BizSystem::clientProxy()->redrawForm($this->m_Name, $formObj->render());
-}
+	public function showFilterForm()
+	{
+		$viewObj = $this->getViewObject();
+			$viewObj->reload();
+		foreach ($viewObj->m_FormRefs as $formRef)
+		{
+			$formName = $formRef->m_Name;
+			//echo "$formName, ".$thisForm->m_Name."<br/>";
+			if ($formName == $this->m_Name)
+				continue;
+			$formObj = BizSystem::objectFactory()->getObject($formName);
+			if ($formObj->m_Type=='filter') // ($formObj->m_DataObjName == $this->m_DataObjName && $formObj->m_Type=='table')
+			{
+				break;
+			}
+		}
+		BizSystem::clientProxy()->redrawForm($this->m_Name, $formObj->render());
+	}
 }
 ?>

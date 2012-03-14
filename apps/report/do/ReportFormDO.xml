@@ -8,6 +8,7 @@
 		<BizField Name="do_name"  Column="name" Join="report_do" />
 		<BizField Name="view_id" Column="view_id"    Required="Y" Type="Number"/>
 		<BizField Name="view_name" Column="title"  Join="report_view"/>
+		<BizField Name="db_id" Column="default_db_id"  Join="report_view"/>
 		<BizField Name="title" Column="title" Length="100"   Required="Y" Type="Text"/>
 		<BizField Name="type" Column="type" Length="100"   Required="N" Type="Text"/>
         <BizField Name="subtype" Column="subtype" Type="Text"/>

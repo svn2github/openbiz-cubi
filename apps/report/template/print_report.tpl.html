@@ -43,47 +43,44 @@ $this->_tpl_vars['style_sheets'] = $appendStyle;
 
 <body style="background-color:#ffffff" >
 <div align="center" id="body_warp" style="padding:35px; padding-top:10px;">
-		<!--main-->
-		<div id="main" style="width:auto;" >
-				<table id="main_content"  style="width:auto;background-color:#ffffff;"  border="0" cellpadding="0" cellspacing="0">
-					<tr>
+	<!--main-->
+	<div id="main" style="width:auto;" >
+		<table id="main_content"  style="width:auto;background-color:#ffffff;"  border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td valign="top" id="right_panel" >
+				<a title="Send to printer" href="javascript:FusionCharts.printManager.managedPrint();" style="float:right;margin-right:30px; margin-top:10px;" onclick=""><img src="{$image_url}/icon_printer.gif"/></a>
+					<!-- right block start -->
+					<div class="content_block">
+						<div class="header"></div>
+						<div class="content">	
+							<div>
 
-						<td valign="top" id="right_panel" >
-							<!-- right block start -->
-							<div class="content_block">
-								<div class="header"></div>
-								<div class="content">	
+												
+							{foreach key=formname item=form from=$forms}	
+								{if $formname !='help.form.HelpBlockForm' and  
+									$formname !='report.folder.form.FolderTree' and
+									'/^menu\.widget\..*Menu$/si'|preg_match:$formname eq 0}							    
 									<div>
-
-														
-									{foreach key=formname item=form from=$forms}	
-								    	{if $formname !='help.form.HelpBlockForm' and  
-								    		$formname !='report.folder.form.FolderTree' and
-								    		'/^menu\.widget\..*Menu$/si'|preg_match:$formname eq 0}							    
-								         	<div>
-								         	{$form}
-								         	</div>
-								       {/if}
-								    {/foreach}	
-								    	
-									</div>									
-								</div>
-								<div class="footer"></div>														
-							</div>
-							<!-- right block end -->
-						</td>
-					</tr>
-			  </table>		  
-			</div>
-			<!--main-->
-		
-		<!--footer-->
-
-		<!-- footer end -->
-	
+									{$form}
+									</div>
+							   {/if}
+							{/foreach}	
+								
+							</div>									
+						</div>
+						<div class="footer"></div>														
+					</div>
+					<!-- right block end -->
+				</td>
+			</tr>
+		</table>		  
 	</div>
-</div>
+	<!--main-->
+	
+	<!--footer-->
 
+	<!-- footer end -->
+</div>
 
 </body>
 </html>

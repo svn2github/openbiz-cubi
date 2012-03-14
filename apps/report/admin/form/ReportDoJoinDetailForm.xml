@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportDoJoinDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Title="Table Join Detail" Description="" BizDataObj="report.admin.do.ReportDoJoinDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
+    <DataPanel>
+		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+       	<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
+       	<!--<Element Name="fld_do_id" ElementSet="General" Class="LabelText" FieldName="do_id" Label="Do Id" AllowURLParam="N"/>-->
+       	<Element Name="fld_table" ElementSet="General" Class="LabelText" FieldName="table" Label="Table to join" AllowURLParam="N"/>
+       	<Element Name="fld_column" ElementSet="General" Class="LabelText" FieldName="column" Label="Join Column" AllowURLParam="N"/>
+       	<Element Name="fld_jointype" ElementSet="General" Class="LabelText" FieldName="jointype" Label="Join Type" AllowURLParam="N"/>
+       	<Element Name="fld_columnref" ElementSet="General" Class="LabelText" FieldName="columnref" Label="Reference Column" AllowURLParam="N"/>
+       	<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>       	
+       	<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time"  AllowURLParam="N"/>       	
+       	<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By" Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>       	
+       	<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time"  AllowURLParam="N"/>       	
+    </DataPanel>
+    <ActionPanel>       
+        <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportDoJoinNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
+        </Element>          
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportDoJoinEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+		<Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
+            <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=report.admin.form.ReportDoJoinCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element> 
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=report.admin.form.ReportDoJoinListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

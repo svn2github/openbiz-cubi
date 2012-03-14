@@ -3,10 +3,12 @@
     <DataPanel>
 	<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
 <Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-        <Element Name="fld_database" Class="report.admin.form.DataSourceListbox" FieldName="db_id" Label="Database"  AllowURLParam="N" >
+        <!--<Element Name="fld_database" Class="report.admin.form.DataSourceListbox" FieldName="db_id" Label="Database"  AllowURLParam="N" >
         	<EventHandler Name="fld_database_onchange"  Event="onchange" Function="UpdateForm()"  />
-        </Element>
-        <Element Name="fld_table" Class="report.admin.form.TableListbox" FieldName="table" Label="Table"  AllowURLParam="N" />    	            	        
+        </Element>-->
+		<Element Name="fld_db_id" Class="LabelList" FieldName="db_id" Label="Database" SelectFrom="report.admin.do.ReportDbDO[name:Id]">
+		</Element>
+        <Element Name="fld_table" Class="LabelText" FieldName="table" Label="Table" AllowURLParam="N" />    	            	        
         <Element Name="fld_search_rule" Class="InputText" FieldName="search_rule" Label="Search Rule"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
         <Element Name="fld_sort_rule" Class="InputText" FieldName="sort_rule" Label="Sort Rule"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
         <Element Name="fld_group_by" Class="InputText" FieldName="group_by" Label="Group By"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>

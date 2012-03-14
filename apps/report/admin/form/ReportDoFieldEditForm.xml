@@ -3,10 +3,13 @@
     <DataPanel>
 	<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
         <Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	                    	            
-	    <Element Name="fld_do_id" Class="Listbox" SelectFrom="report.admin.do.ReportDoDO[name:Id],[db_id]={@:Elem[db_id].Value}" FieldName="do_id" Label="Data Table"  AllowURLParam="N" >
-	    	<EventHandler Name="fld_do_onchange" Event="onchange" Function="UpdateForm()" />
-	    </Element>
-        <Element Name="fld_column" Class="report.admin.form.ColumListbox" FieldName="column" Label="Column"  AllowURLParam="N" />    	      
+	    <Element Name="fld_do_id" Class="InputText" FieldName="do_id" Label="DO id"/>
+        <Element Name="fld_column" Class="report.admin.form.DataObjListbox" FieldName="column" Label="Column" SelectFrom="columns({@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, db_id)},{@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, table)})" Hidden="{(@:Element[fld_join_id].Value)==''?'N':'Y'}" />
+		
+		<Element Name="fld_join_id" Class="Listbox" FieldName="join_id" Label="Join" SelectFrom="report.admin.do.ReportDoJoinDO[name:Id],[do_id]={@:Elem[fld_do_id].Value}" BlankOption="Select a join">
+			<EventHandler Name="fld_join_onchange" Event="onchange" Function="UpdateForm()" />
+		</Element>
+		<Element Name="fld_join_column" Class="report.admin.form.DataObjListbox" FieldName="column" Label="Join Column" SelectFrom="columns({@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, db_id)},{@query:FetchField(report.do.ReportDoJoinDO, [Id]=@:Element[fld_join_id].Value, table)})" Hidden="{(@:Element[fld_join_id].Value)==''?'Y':'N'}" />  	      
 		<Element Name="fld_type" Class="Listbox" SelectFrom="report.admin.lov.DataFieldType(DataType)" FieldName="type" Label="Type"  AllowURLParam="N"/>        
 		<Element Name="fld_format" Class="InputText" FieldName="format" Label="Format"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         <Element Name="fld_sql_expr" Class="InputText" FieldName="sql_expr" Label="Sql Expr"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	                    	       

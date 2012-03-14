@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="report" Description="report module" Author="Jixian, Rocky" Version="0.9.0" OpenbizVersion="3.0">
+<Module Name="report" Description="report module" Author="Jixian, Rocky" Version="0.4.1" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="Report">
 			<Action Name="AdminReport" Description="Manage reports for the application"/>
@@ -12,6 +12,7 @@
             <MenuItem Name="System.Report" Title="Report Admin" Description="Report Management" IconImage="spacer.gif" IconCssClass="icon_report" Order="10">			
                 <MenuItem Name="System.Report.ReportList" Title="Manage Reports" Description=""  URL="/report/report_list" Order="20"/>
                 <MenuItem Name="System.Report.ReportDbs" Title="Manage Databases" Description=""  URL="/report/report_dbs" Order="30"/>
+				<MenuItem Name="System.Report.ReportDos" Title="Manage Tables" Description=""  URL="/report/report_dos" Order="35"/>
                 <MenuItem Name="System.Report.ReportColor" Title="Manage Color" Description=""  URL="/report/report_color" Order="40"/>
                 <MenuItem Name="System.Report.ReportMap" Title="Manage Map" Description=""  URL="/report/map_list" Order="50"/>
             </MenuItem>		

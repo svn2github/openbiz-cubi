@@ -2,14 +2,18 @@
 <BizDataObj Name="ReportDoFieldDO" Description="" Class="BizDataObj" DBName="Default" Table="report_do_field" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="name,do_id" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
 	<BizFieldList>
     	<BizField Name="Id" Column="id"     Type="Number"/>
-    		<BizField Name="name" Column="name" Length="100"   Required="Y" Type="Text"/>
-    		<BizField Name="do_id" Column="do_id"    Required="Y" Type="Number"/>
-    		<BizField Name="datatable" Join="report_do" Column="table" />
-    		<BizField Name="db_id" Join="report_do" Column="db_id" />
-    		<BizField Name="column" Column="column" Length="100"   Required="N" Type="Text"/>
-    		<BizField Name="sql_expr" Column="sql_expr" Length="200"   Required="N" Type="Text"/>
-    		<BizField Name="type" Column="type" Length="50"   Required="N" Type="Text"/>
-    		<BizField Name="format" Column="format" Length="50"   Required="N" Type="Text"/>
+		<BizField Name="name" Column="name" Length="100"   Required="Y" Type="Text"/>
+		<BizField Name="do_id" Column="do_id"    Required="Y" Type="Number"/>
+		<BizField Name="join_id" Column="join_id" />
+		<BizField Name="doname" Join="report_do" Column="name" />
+		<BizField Name="datatable" Join="report_do" Column="table" />
+		<BizField Name="db_id" Join="report_do" Column="db_id" />
+		<BizField Name="join_name" Join="report_do_join" Column="name" />
+		<BizField Name="column" Column="column" Length="100"   Required="N" Type="Text"/>
+		<BizField Name="sql_expr" Column="sql_expr" Length="200"   Required="N" Type="Text"/>
+		<BizField Name="type" Column="type" Length="50"   Required="N" Type="Text"/>
+		<BizField Name="format" Column="format" Length="50"   Required="N" Type="Text"/>
+		<BizField Name="value" Column="value" Length="255"   Required="N" Type="Text"/>
 		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
         <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
         <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
@@ -17,6 +21,7 @@
 	</BizFieldList>
     <TableJoins>
     	<Join Name="report_do" Table="report_do" Column="id" ColumnRef="do_id" JoinType="INNER JOIN"/>
+		<Join Name="report_do_join" Table="report_do_join" Column="id" ColumnRef="join_id" JoinType="LEFT JOIN"/>
     </TableJoins>
     <ObjReferences>
     </ObjReferences>

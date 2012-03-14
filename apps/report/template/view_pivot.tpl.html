@@ -55,6 +55,7 @@ $this->_tpl_vars['style_sheets'] = $appendStyle;
 	<!--main warp-->
 	<div id="main_warp">	
         <div id="main_content">
+		<a title="Send to printer" href="javascript:FusionCharts.printManager.managedPrint();" style="float:right;margin-right:15px; margin-top:10px;" onclick=""><img src="{$image_url}/icon_printer.gif"/></a>
 		<!--main pivot form html -->
         {foreach key=formname item=form from=$forms}						    
             <div>{$form}</div>

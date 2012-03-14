@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="ReportDoFieldDetailForm" Class="ReportDoFieldForm" Icon="icon_row.gif" FormType="" jsClass="jbForm" Title="Data Field Detail" Description="Below list is all data fields inside selected data object.\nA data field of object is default mapping to a table column or specified SQL expresion." BizDataObj="report.admin.do.ReportDoFieldDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl.html" EventName="REPORT_DO_FIELD" >
     <DataPanel>
-			<Element Name="fld_Id" Hidden="Y" ElementSet="General" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-		        <Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
-		        <Element Name="fld_do_id" ElementSet="General" Class="LabelText" FieldName="datatable" Label="Data Table" AllowURLParam="N"/>
-		        <Element Name="fld_column" ElementSet="General" Class="LabelText" FieldName="column" Label="Column" AllowURLParam="N"/>		        
-		        <Element Name="fld_type" ElementSet="General" Class="LabelText" FieldName="type" Label="Type" AllowURLParam="N"/>
-		        <Element Name="fld_sql_expr" ElementSet="General" Class="LabelText" FieldName="sql_expr" Label="Sql Expr" AllowURLParam="N"/>
-		        <Element Name="fld_format" ElementSet="General" Class="LabelText" FieldName="format" Label="Format" AllowURLParam="N"/>
- 				
- 				<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>
-		        <Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
-		        <Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>
-		        <Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
-    			  
-
+		<Element Name="fld_Id" Hidden="Y" ElementSet="General" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+		<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
+		<Element Name="fld_do_id" ElementSet="General" Class="LabelText" FieldName="datatable" Label="Data Table" AllowURLParam="N"/>
+		<Element Name="fld_join" ElementSet="General" Class="LabelText" FieldName="join_name" Label="Join"  />	
+		<Element Name="fld_column" ElementSet="General" Class="LabelText" FieldName="column" Label="Column" AllowURLParam="N"/>		        
+		<Element Name="fld_type" ElementSet="General" Class="LabelText" FieldName="type" Label="Type" AllowURLParam="N"/>
+		<Element Name="fld_sql_expr" ElementSet="General" Class="LabelText" FieldName="sql_expr" Label="Sql Expr" AllowURLParam="N"/>
+		<Element Name="fld_format" ElementSet="General" Class="LabelText" FieldName="format" Label="Format" AllowURLParam="N"/>
+		
+		<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>
+		<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
+		<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>
+		<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
 	    </DataPanel>
     <ActionPanel>       
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">

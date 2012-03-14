@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="ReportDoListForm" Icon="icon_table.gif" Class="ReportDoForm" FormType="List" jsClass="jbForm" Title="Data Table : {@report.admin.do.ReportDbDO:Field[name].Value}" Description="Below list is the data tables inside of selected data source.\nIn the reporting system each Data Object is based on a data table." BizDataObj="report.admin.do.ReportDoDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="REPORT_DO" >
     <DataPanel>
-         <Element Name="fld_action" Class="ColumnText" FieldName="" Label="Ex" Text=" " CssClass="icon_expand" Link="javascript:ShowTab('report.admin.form.ReportDoFieldListForm','{@:m_Name}',{@:Elem[fld_Id].Value});" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N"/>
-        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:">	
-         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportDoDetailForm,{@:Elem[fld_Id].Value})"   />
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="{@home:url}/report/report_do_detail/{@:Elem[fld_Id].Value}">	
         </Element>
         <Element Name="fld_database" Class="ColumnText" FieldName="database" Label="Database"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_table" Class="ColumnText" FieldName="table" Label="Table"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
@@ -48,6 +46,9 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
+		<Element Name="db_selector" BlankOption="All databases" Class="Listbox" FieldName="db_id" Label="" SelectFrom="report.do.ReportDbDO[name:Id]" Style="float:left;margin-right:4px" Width="150">
+            <EventHandler Name="db_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>
         <Element Name="qry_table_name" Class="AutoSuggest" SelectFrom="report.admin.do.ReportDoDO[name],[name] like '%{@:Elem[qry_table_name].Value}%' AND [db_id]='{@:Elem[db_id].Value}' GROUP BY [name]" FuzzySearch="Y" FieldName="name" Label="" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>

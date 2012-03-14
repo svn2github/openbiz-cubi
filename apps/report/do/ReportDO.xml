@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<BizDataObj Name="ReportDO" Description="" Class="ReportDO" DBName="Default" Table="" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" IdGeneration="Identity" CacheLifeTime="0">
+<BizDataObj Name="ReportDO" Description="" Class="ReportDO" DBName="Default" Table="" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" IdGeneration="Identity" CacheLifeTime="">
 	<BizFieldList>
    	</BizFieldList>
     <TableJoins>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportDoJoinNewForm" Class="EasyForm" FormType="New" jsClass="jbForm" Title="New Table Join" Description="" BizDataObj="report.admin.do.ReportDoJoinDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_name" Class="InputText" FieldName="name" Label="Name" DefaultValue="New Table Join Name" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_do_id" Class="Hidden" FieldName="do_id" Label="Do Id"  CssClass="input_text"/>
+		<Element Name="fld_table" Class="report.admin.form.DataObjListbox" FieldName="table" Label="Table to join" SelectFrom="tables({@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, db_id)})" BlankOption="Select a table to join">
+			<EventHandler Name="fld_table_onchange" Event="onchange" Function="UpdateForm()" />
+		</Element>
+		<Element Name="fld_column" Class="report.admin.form.DataObjListbox" FieldName="column" Label="Join Column" SelectFrom="columns({@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, db_id)},{@:Elem[fld_table].Value})" Description="Foreign key column in join table" />    
+        <Element Name="fld_jointype" Class="Listbox" FieldName="jointype" Label="Join Type"  SelectFrom="report.admin.lov.JoinType(JoinType)"/>
+		<Element Name="fld_columnref_1" Class="report.admin.form.DataObjListbox" FieldName="columnref" Label="Reference Column" SelectFrom="columns({@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, db_id)},{@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, table)})" Hidden="{(@:Element[fld_joinref].Value)==''?'N':'Y'}" Description="Key column in base table" />
+		
+		<Element Name="fld_joinref" Class="Listbox" FieldName="joinref" Label="Reference Join" SelectFrom="report.admin.do.ReportDoJoinDO[name],[do_id]={@:Elem[fld_do_id].Value}" BlankOption="Select a reference join" Description="Used in cascade join">
+			<EventHandler Name="fld_joinref_onchange" Event="onchange" Function="UpdateForm()" />
+		</Element>
+		<Element Name="fld_columnref_2" Class="report.admin.form.DataObjListbox" FieldName="columnref" Label="Reference Column" SelectFrom="columns({@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, db_id)},{@query:FetchField(report.do.ReportDoJoinDO, [name]=@:Element[fld_joinref].Value, table)})" Hidden="{(@:Element[fld_joinref].Value)==''?'Y':'N'}" Description="Key column in reference join table" />
+        </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=report.admin.form.ReportDoJoinDetailForm&amp;fld:Id={@report.admin.do.ReportDoJoinDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

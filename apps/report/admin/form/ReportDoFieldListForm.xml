@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReportDoFieldListForm" Icon="icon_row.gif" Class="ReportDoFieldForm" FormType="List" jsClass="jbForm" Title="Data Field : {@report.admin.do.ReportDbDO:Field[name].Value} > {@report.admin.do.ReportDoDO:Field[name].Value}" Description="Below list is all data fields inside selected data object.\nA data field of object is default mapping to a table column or specified SQL expresion." BizDataObj="report.admin.do.ReportDoFieldDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="REPORT_DO_FIELD" >
+<EasyForm Name="ReportDoFieldListForm" Icon="icon_row.gif" Class="ReportDoFieldForm" FormType="List" jsClass="jbForm" Title="Data Table Field" Description="Below list is all data fields inside selected data object.\nA data field of object is default mapping to a table column or specified SQL expresion." BizDataObj="report.admin.do.ReportDoFieldDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="REPORT_DO_FIELD" >
     <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
@@ -8,6 +8,7 @@
  			<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportDoFieldDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>        
         <Element Name="fld_table" Class="ColumnText" FieldName="datatable" Label="Table"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_join" Class="ColumnText" FieldName="join_name" Label="Join"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         <Element Name="fld_column" Class="ColumnText" FieldName="column" Label="Column"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	        	
         <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
         <Element Name="fld_format" Class="ColumnText" FieldName="format" Label="Format"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	

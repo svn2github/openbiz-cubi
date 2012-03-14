@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReportDoJoinEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit Table Join" Description="" BizDataObj="report.admin.do.ReportDoJoinDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name" />
+		<Element Name="fld_do_id" Class="Hidden" FieldName="do_id" Label="Do Id" />
+		<Element Name="fld_table" Class="report.admin.form.DataObjListbox" FieldName="table" Label="Table to join" SelectFrom="tables({@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, db_id)})" BlankOption="Select a table to join">
+			<EventHandler Name="fld_table_onchange" Event="onchange" Function="UpdateForm()" />
+		</Element>
+		<Element Name="fld_column" Class="report.admin.form.DataObjListbox" FieldName="column" Label="Join Column" SelectFrom="columns({@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, db_id)},{@:Elem[fld_table].Value})" Description="Foreign key column in join table" />    
+        <Element Name="fld_jointype" Class="Listbox" FieldName="jointype" Label="Join Type"  SelectFrom="report.admin.lov.JoinType(JoinType)"/>
+		<Element Name="fld_columnref" Class="report.admin.form.DataObjListbox" FieldName="columnref" Label="Reference Column" SelectFrom="columns({@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, db_id)},{@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, table)})" Description="Key column in base table" />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=report.admin.form.ReportDoJoinDetailForm&amp;fld:Id={@report.admin.do.ReportDoJoinDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

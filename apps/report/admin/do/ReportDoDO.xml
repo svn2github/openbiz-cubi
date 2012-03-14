@@ -6,5 +6,6 @@
     </TableJoins>
     <ObjReferences>
         <Object Name="report.admin.do.ReportDoFieldDO" Description="" Relationship="1-M" Table="report_do_field" Column="do_id" FieldRef="Id" CascadeDelete="Y"/>
+		<Object Name="report.admin.do.ReportDoJoinDO" Description="" Relationship="1-M" Table="report_do_join" Column="do_id" FieldRef="Id" CascadeDelete="Y"/>
     </ObjReferences>
 </BizDataObj>

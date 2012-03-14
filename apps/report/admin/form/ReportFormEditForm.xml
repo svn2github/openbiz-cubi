@@ -6,8 +6,9 @@
         <Element Name="fld_desc" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"/>
         <Element Name="fld_view_id" ElementSet="General" Class="Listbox" SelectFrom="report.do.ReportViewDO[title:Id]}'" DefaultValue="{@report.admin.do.ReportViewDO:Field[Id].Value}" FieldName="view_id" Label="Report Page"  AllowURLParam="N"/>
         <Element Name="fld_sortorder" ElementSet="General" Class="Listbox" SelectFrom="report.admin.lov.SortOrder(Order)" FieldName="sortorder" Label="Sort Order"  AllowURLParam="N" />
-			                    	        
-        <Element Name="fld_do_id" ElementSet="Data Source" Class="Listbox" SelectFrom="report.admin.do.ReportDoDO[name:Id],db_id={@report.admin.do.ReportViewDO:Field[db_id].Value}" FieldName="do_id" Label="Data Table"  AllowURLParam="N" />    	                    	        
+
+        <Element Name="fld_db_id" ElementSet="Data Source" Class="Hidden" FieldName="db_id" Label="Database"  AllowURLParam="N" />
+		<Element Name="fld_do_id" ElementSet="Data Source" Class="Listbox" SelectFrom="report.admin.do.ReportDoDO[name:Id],db_id={@:Elem[fld_db_id].Value}" FieldName="do_id" Label="Data Table"  AllowURLParam="N" />
         
         <Element Name="fld_type" ElementSet="Form Type" Class="Listbox" SelectFrom="report.admin.lov.FormType(FormType)" FieldName="type" Label="Form Type"  AllowURLParam="N" >
         	<EventHandler Name="fld_type_onchange" Event="onchange" Function="js:showConfigOptions(this.value)" />
