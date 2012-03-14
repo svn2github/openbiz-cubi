@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ReleaseDO" Description="" DataPermControl="N" Class="BizDataObj" DBName="Default" Table="repo_release" SearchRule="" SortRule="[Id] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" Column="id"     Type=""/>
+		<BizField Name="app_id" Column="app_id"     Type=""/>
+		<BizField Name="version" Column="version" />
+		<BizField Name="pltfm_ver" Column="pltfm_ver" />
+		<BizField Name="description" Column="description" Type=""/>
+		
+		<BizField Name="filename" Column="filename" Type=""/>		
+		<BizField Name="filesize" Column="filesize" Type=""/>
+		<BizField Name="path" Column="path" Type=""/>
+		<BizField Name="url" Column="url" Type=""/>				
+		<BizField Name="sha256" Column="sha256" Type=""/>
+		<BizField Name="md5" Column="md5" Type=""/>
+   		
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
