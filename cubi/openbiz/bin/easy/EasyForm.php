@@ -879,9 +879,9 @@ class EasyForm extends MetaObject implements iSessionObject
         {
             $dataObj->setLimit($this->m_Range, ($this->m_CurrentPage-1)*$this->m_Range);
         }      
-        if($this->m_SortRule)
+        if($this->m_SortRule && $this->m_SortRule != $this->getDataObj()->m_SortRule)
         {
-        	$dataObj->setSortRule($this->m_SortRule);
+        		$dataObj->setSortRule($this->m_SortRule);
         }          
         $resultRecords = $dataObj->fetch();
         $this->m_TotalRecords = $dataObj->count();
@@ -1024,6 +1024,7 @@ class EasyForm extends MetaObject implements iSessionObject
 
         // move to 1st page
         $this->m_CurrentPage = 1;
+        $this->m_SortRule = "";
 
         $this->rerender();
     }
