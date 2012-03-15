@@ -71,6 +71,8 @@
 /* styles for title_id start */
 span.title_id{
 background-color:#cccccc;color:#ffffff; text-align:center; padding-right:3px;padding-left:3px;width:auto;;height:24px;margin-right:5px;
+-moz-border-radius: 4px;
+border-radius: 4px;
 }
 h2  span.title_id{
 background-color:#5ebad9;color:#ffffff; text-align:center; padding-right:10px;padding-left:10px;width:auto;;margin-right:5px;
@@ -104,6 +106,8 @@ padding-left:5px;
 padding-right:5px;
 background-color:#cccccc;
 font-weight:normal;
+-moz-border-radius: 3px;
+border-radius:3px;
 }
 
 .greyTextItalics{
