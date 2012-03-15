@@ -213,7 +213,7 @@ class DropDownList extends InputElement
             $list = array_merge($entryList, $list);
         }    	
     	
-    	$value = $this->m_Value ? $this->m_Value : $this->getText();
+    	$value = $this->m_Value!==null ? $this->m_Value : $this->getText();
     	$sHTML = "<ul style=\"display:none;z-index:50\" id=\"".$formNameStr.$this->m_Name."_list\" class=\"dropdownlist\">";
     	foreach($list as $item){
     		$val = $item['val'];
@@ -241,6 +241,7 @@ class DropDownList extends InputElement
     	    else{
     	    	$li_option_value =$txt ;
     	    }
+    	    
     	    
     	    if($val==$value)
     	    {    	    	
