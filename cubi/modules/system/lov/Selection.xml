@@ -10,4 +10,7 @@
    
    <Default Value="1" text="Enable"/>
    <Default Value="0" text="Disable"/>   
+   
+   <SessionRestrict Value="0" text="Allow Concurrent Session "/>
+   <SessionRestrict Value="1" text="Limited to Single Session"/>      
 </Selection>
