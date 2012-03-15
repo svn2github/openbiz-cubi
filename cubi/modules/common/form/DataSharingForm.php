@@ -363,5 +363,21 @@ class DataSharingForm extends EasyForm
 		}
 		
 	}	
+	
+	public function getSessionVars($sessionContext)
+    {
+        $sessionContext->getObjVar("DataSharingForm", "RecordId", $this->m_RecordId);
+        $sessionContext->getObjVar("DataSharingForm", "ParentFormName", $this->m_ParentFormName);
+        return parent::getSessionVars($sessionContext);
+    }
+
+    public function setSessionVars($sessionContext)
+    {
+        $sessionContext->setObjVar("DataSharingForm", "RecordId", $this->m_RecordId);
+    	$sessionContext->setObjVar("DataSharingForm", "ParentFormName", $this->m_ParentFormName);
+        return parent::setSessionVars($sessionContext);       
+    }
+	
+
 }
 ?>

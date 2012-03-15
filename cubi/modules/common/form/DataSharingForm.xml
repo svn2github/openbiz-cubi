@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DataSharingForm" Icon="{RESOURCE_URL}/common/images/icon_data_sharing.gif" Class="DataSharingForm" FormType="Edit" jsClass="jbForm" Title="Data Sharing" Description="Share your data with your group members or others users." BizDataObj="" TemplateEngine="Smarty" TemplateFile="data_sharing_form.tpl.html" >
+<EasyForm Name="DataSharingForm" Icon="{RESOURCE_URL}/common/images/icon_data_sharing.gif" Class="DataACLForm" FormType="Edit" jsClass="jbForm" Title="Data Sharing" Description="Share your data with your group members or others users." BizDataObj="" TemplateEngine="Smarty" TemplateFile="data_sharing_form.tpl.html" >
     <DataPanel>
     	
     	<Element Name="fld_data_record"  Class="LabelText"  ElementSet="Data Sharing"  FieldName="data_record" Label="" Width="400" style="font-size:20px;color:#333333;line-height:24px;" />
@@ -34,11 +34,21 @@
          		
     </DataPanel>
     <ActionPanel>
+    	
+        
+        
+        
     	<Element Name="btn_ok" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}" Class="Button" Text="OK" CssClass="button_gray_m">
             <EventHandler Name="btn_ok_onclick" EventLogMsg="" Event="onclick" Function="ShareRecord()" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
         </Element>
 		<Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+        
+        <Element Name="btn_spacer" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}"  Class="Spacer" width="10" />		
+        
+        <Element Name="btn_adv" Hidden="{@:Elem[fld_editable].Value==1?'N':'Y'}" Class="Button" Text="Advanced" CssClass="button_gray_w">
+            <EventHandler Name="btn_adv_onclick" EventLogMsg="" Event="onclick" Function="SwitchForm(common.form.DataACLForm)"/>
         </Element>
     </ActionPanel> 
     <NavPanel>
