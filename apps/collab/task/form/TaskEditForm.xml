@@ -42,7 +42,7 @@
 		<Element Name="fld_workhours" ElementSet="Time" Class="InputText" DefaultValue="2" FieldName="total_workhour" Label="Time Budget"  Description="unit in Hours, total work hours as planned" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus">
 			<EventHandler Name="fld_workhours_onchange" Event="onchange" Function="js:calcFinishTime()"  />
 		</Element>
-		<Element Name="fld_budget" ElementSet="Budget" Class="InputText" FieldName="budget_cost" Label="Budget"  Description="unit in Dollars, total budget" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_budget" ElementSet="Budget" Class="InputText" FieldName="budget_cost" Label="Budget"  Description="unit in {DEFAULT_CURRENCY}, total budget" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
 		<Element Name="fld_published" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="1" FieldName="group_perm" Label="Group Share"  /><Element Name="fld_published_other" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="0" FieldName="other_perm" Label="Other Group"  /><Element Name="fld_published_other" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="0" FieldName="other_perm" Label="Other Group"  />
 	</DataPanel>
     <ActionPanel>

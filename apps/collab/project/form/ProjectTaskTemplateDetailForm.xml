@@ -21,7 +21,7 @@
 
 		<Element Name="fld_workhours" ElementSet="Time" Class="LabelText"  FieldName="during_days" Text="{@:Elem[fld_workhours].Value} Days" Required="Y" Label="During Days"  Description="how many days the task will takes" AllowURLParam="N" >
 		</Element>
-		<Element Name="fld_budget" ElementSet="Budget" Class="LabelText" FieldName="budget_cost" Label="Budget" Text="$ {@:Elem[fld_budget].Value}"  Description="unit in Dollars, total budget" AllowURLParam="N" />
+		<Element Name="fld_budget" ElementSet="Budget" Class="LabelText" FieldName="budget_cost" Label="Budget" Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_budget].Value}"  Description="unit in {DEFAULT_CURRENCY}, total budget" AllowURLParam="N" />
         
 			
 		    <Element Name="fld_create_by" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}"  Link="{APP_INDEX}/collab/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>

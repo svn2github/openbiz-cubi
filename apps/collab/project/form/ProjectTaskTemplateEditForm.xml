@@ -24,7 +24,7 @@
 
 		<Element Name="fld_workhours" ElementSet="Time" Class="InputText"  FieldName="during_days" Required="Y" Label="During Days"  Description="how many days the task will takes" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus">
 		</Element>
-		<Element Name="fld_budget" ElementSet="Budget" Class="InputText" FieldName="budget_cost" Label="Budget"  Description="unit in Dollars, total budget" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_budget" ElementSet="Budget" Class="InputText" FieldName="budget_cost" Label="Budget"  Description="unit in {DEFAULT_CURRENCY}, total budget" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         	      				  					
         	
     </DataPanel>

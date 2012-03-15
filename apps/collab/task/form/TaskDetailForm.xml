@@ -47,8 +47,8 @@
 			<EventHandler Name="btn_manage_worklog_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditWorklogForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
         
-		<Element Name="fld_budget" TabSet="Extra Information"  Access="collab_budget.access" ElementSet="Expenses" width="200" Class="LabelText"  Text="$ {@:Elem[fld_budget].Value} Dollars"  FieldName="budget_cost" Label="Budget"  Description="unit in Dollars, total budget" AllowURLParam="N" />
-		<Element Name="fld_cost" TabSet="Extra Information"  Access="collab_budget.access" ElementSet="Expenses"  width="200" Class="LabelText"  Text="$ {@:Elem[fld_cost].Value} Dollars"  FieldName="actual_cost" Label="Expenses"  Description="unit in Dollars, actual spend cost" AllowURLParam="N" />
+		<Element Name="fld_budget" TabSet="Extra Information"  Access="collab_budget.access" ElementSet="Expenses" width="200" Class="LabelText"  Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_budget].Value)}"  FieldName="budget_cost" Label="Budget"  Description="unit in {DEFAULT_CURRENCY}, total budget" AllowURLParam="N" />
+		<Element Name="fld_cost" TabSet="Extra Information"  Access="collab_budget.access" ElementSet="Expenses"  width="200" Class="LabelText"  Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_cost].Value)}"  FieldName="actual_cost" Label="Expenses"  Description="unit in {DEFAULT_CURRENCY}, actual spend cost" AllowURLParam="N" />
 		<Element Name="fld_financial_log" TabSet="Extra Information"  Access="collab_budget.access"  ElementSet="Expenses" Class="FormElement" FormReference="collab.budget.widget.BudgetListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		<Element Name="btn_manage_financial" TabSet="Extra Information"  Access="collab_budget.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}"  ElementSet="Expenses" Class="Button" Style="color:#666666;margin-left:5px;margin-top:2px;" Text="Manage" CssClass="button_gray_w" Description="">
 			<EventHandler Name="btn_manage_financial_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskEditBudgetForm,{@:Elem[fld_Id].Value})"  />

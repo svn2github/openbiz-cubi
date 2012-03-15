@@ -14,7 +14,7 @@
         </Element>
         <Element Name="fld_start_time"   Class="ColumnText" FieldName="start_date" Label="Start Date" Text="After {@:Elem[fld_start_time].Value} Days "  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
 		<Element Name="fld_workhour"    Class="ColumnText" FieldName="during_days" Text="{@:Elem[fld_workhour].Value} Days" Label="During Days"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_budget"    Class="ColumnText" FieldName="budget_cost" Text="$ {@:Elem[fld_budget].Value}" Label="Budget"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_budget"    Class="ColumnText" FieldName="budget_cost" Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_budget].Value}" Label="Budget"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
       
 		
         <Element Name="fld_priority_value" Class="Hidden" Hidden="Y" FieldName="priority"  />

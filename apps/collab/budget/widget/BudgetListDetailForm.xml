@@ -10,7 +10,7 @@
                 	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(collab.budget.widget.BudgetDetailROForm,{@:Elem[fld_Id].Value})"/>        
         </Element>
         <Element Name="fld_description" MaxLength="30" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_credit" Class="ColumnText" FieldName="credit" Label="Credit" Text="$ {@:Elem[fld_credit].Value}" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
+        <Element Name="fld_credit" Class="ColumnText" FieldName="credit" Label="Credit" Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value)}" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
         <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Timestamp"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
     </DataPanel>
 </EasyForm>

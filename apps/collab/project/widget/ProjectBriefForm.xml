@@ -6,7 +6,7 @@
 		<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_form_description"  Width="648" Class="LabelText" FieldName="type_name" Label="Type" KeepCookie="Y" SelectFrom="collab.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" />		
 		
-		<Element Name="fld_budget" ElementSet="General" width="200" Class="LabelText"  Text="$ {@:Elem[fld_budget].Value} Dollars"  FieldName="budget_cost" Label="Budget"  AllowURLParam="N" />
+		<Element Name="fld_budget" ElementSet="General" width="200" Class="LabelText"  Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_budget].Value)}"  FieldName="budget_cost" Label="Budget"  AllowURLParam="N" />
 		<Element Name="fld_spend_progress" Color="ffAA00" ElementSet="General" Class="LabelBar" Width="300" height="14"  DisplayUnit="%" MaxValue="100" FieldName="cost_spend_bar" Label="Expenses"  AllowURLParam="N" />
 		<Element Name="fld_starttime" ElementSet="General" Class="LabelText" FieldName="start_time" Label="Start Time" AllowURLParam="N" />
 		<Element Name="fld_status" ElementSet="General" Class="LabelList" FieldName="status" Label="Status" SelectFrom="collab.project.lov.ProjectLOV(ProjectStatus)" AllowURLParam="N" />		

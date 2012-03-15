@@ -2,7 +2,7 @@
 <EasyForm Name="BudgetNewForm" Class="BudgetForm" Icon="{RESOURCE_URL}/collab/budget/images/icon_budget.png" FormType="New" jsClass="jbForm" Title="New Spend Record" Description="Please fill in below field to create credit record." BizDataObj="collab.budget.do.BudgetPickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_budget_quick_add.tpl.html"  Access="collab_budget.manage">
     <DataPanel>        
         <Element Name="fld_title" DefaultValue="New Credit Record" Class="InputText" FieldName="title" Label="Title"   />	
-        <Element Name="fld_credit" Class="InputText"  DefaultValue="0" FieldName="credit" Label="Credit" Description="Credit amount, unit in Dollars" />
+        <Element Name="fld_credit" Class="InputText"  DefaultValue="0" FieldName="credit" Label="Credit" Description="Credit amount, unit in {DEFAULT_CURRENCY}" />
         <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	        	
     </DataPanel>
     <ActionPanel>

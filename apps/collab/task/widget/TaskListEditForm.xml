@@ -19,7 +19,7 @@
         
     
         <Element Name="fld_start_time" Class="ColumnText"  FieldName="start_time" Label="Start Time" Text="{date('Y-m-d',strtotime(@:Elem[fld_start_time].Value))}"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_budget" Class="LabelText"  Text="$ {@:Elem[fld_budget].Value}"  FieldName="budget_cost" Label="Budget"   AllowURLParam="N" />
+        <Element Name="fld_budget" Class="LabelText"  Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_budget].Value}"  FieldName="budget_cost" Label="Budget"   AllowURLParam="N" />
         
         <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" FieldName="status" Label="Status" Link="javascript:;" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         <EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateTaskStatus({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>         

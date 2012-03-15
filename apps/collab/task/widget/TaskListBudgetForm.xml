@@ -9,8 +9,8 @@
         <Element Name="fld_title" Class="common.element.ColumnTitle" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
         	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="ParentSwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   />         
         </Element>
-        <Element Name="fld_budget"  Text="$ {@:Elem[fld_budget].Value}"  Class="ColumnText"  FieldName="budget_cost" Label="Budget"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_spend"  Text="$ {@:Elem[fld_spend].Value}"  Class="ColumnText"  FieldName="budget_spend" Label="Expenses"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_budget"  Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_budget].Value}"  Class="ColumnText"  FieldName="budget_cost" Label="Budget"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_spend"  Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_spend].Value}"  Class="ColumnText"  FieldName="budget_spend" Label="Expenses"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		
         <Element Name="fld_progress" Class="ColumnBar" Width="150" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:230px" MaxValue="100" FieldName="budget_precent" Label="Expenses"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
         </Element>
