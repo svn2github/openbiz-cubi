@@ -1,4 +1,4 @@
-DROP TABLE `lic_actcode`;
+DROP TABLE  IF EXISTS `lic_actcode`;
 CREATE TABLE `lic_actcode` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `activation_code` VARCHAR(64) NOT NULL,
