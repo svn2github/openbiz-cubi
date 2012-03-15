@@ -876,7 +876,7 @@ width:1000px;
 	border-top-width: 1px;
 	border-top-style: solid;
 	border-top-color: #CCC;
-	-moz-border-image: url(../images/upline.png)  0 1  stretch ;
+	/*-moz-border-image: url(../images/upline.png)  0 1  stretch ;*/
 }
 .photo_frame{
 	background-image:url(../images/profile_photo_bg.gif);
