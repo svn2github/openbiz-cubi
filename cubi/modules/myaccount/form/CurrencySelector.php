@@ -10,7 +10,7 @@ class CurrencySelector extends Listbox{
 		$current_currency = DEFAULT_CURRENCY;		
 		
 		require_once('Zend/Currency.php');
-		$currency = new Zend_Currency('CNY',$current_locale);
+		$currency = new Zend_Currency(DEFAULT_LANGUAGE,$current_locale);
 		$currencyList = $currency->getCurrencyList();
     	foreach ($currencyList as $currency_code => $country){
     		
