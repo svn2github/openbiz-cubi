@@ -8,7 +8,7 @@ class CurrencySelector extends Listbox{
 		$locale = new Zend_Locale($current_locale);
 			
 		$current_currency = DEFAULT_CURRENCY;		
-		if($current_currency){
+		if(!$current_currency){
 			$current_currency = "USD";
 		}
 		require_once('Zend/Currency.php');
