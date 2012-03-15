@@ -63,6 +63,9 @@
     <Dependency>
     </Dependency>
     <ChangeLog>
+    	<Version Name="1.1">
+	    	<Change Name="feature_11" Type="New_Feature"  Status="Finished" PublishDate="2012-03-15" Description="Added multi currency supports"></Change>
+	    </Version>
     	<Version Name="1.0">
 	    	<Change Name="feature_19" Type="New_Feature"  Status="Finished" PublishDate="2012-03-04" Description="Role and group detail views can show associated users"></Change>
 	    </Version>
