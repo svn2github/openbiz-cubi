@@ -17,7 +17,7 @@ class CurrencySelector extends Listbox{
     				$display_name = $currency->getName($currency_code,$current_locale);
     				if($display_name){    					
 			    		array_push($list,array("val"=>$currency_code,
-			    								"txt"=>$display_name
+			    								"txt"=>"$currency_code - $display_name"
 			    		));
     				}
     		
