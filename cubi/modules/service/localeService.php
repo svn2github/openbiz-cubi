@@ -7,7 +7,7 @@ class localeService
 		require_once('Zend/Locale.php');
 		$locale = new Zend_Locale($current_locale);
 		$display_name = Zend_Locale::getTranslation(DEFAULT_LANGUAGE,'language',$current_locale);		
-		return $display_name." ( ".DEFAULT_LANGUAGE." )";
+		return $display_name;
 	}
 }
 ?>
