@@ -1899,6 +1899,7 @@ h2.element_set_title a{
 	display:block;
 	line-height:28px;
 	color:#149BC8;
+	-moz-border-radius: 6px;border-radius: 6px;	
 }
 h2.element_set_title a:hover{		
 	background-position:5px -22px;	
