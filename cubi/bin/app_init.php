@@ -119,6 +119,7 @@ define("TIMEOUT", 86400);  // 86400 = 1 day
 
 //I18n
 //define('DEFAULT_LANGUAGE','en_US');
+define('DEFAULT_CURRENCY','en_US');
 define('DEFAULT_LANGUAGE','en_US');
 define("LANGUAGE_PATH", APP_HOME.DIRECTORY_SEPARATOR."languages");
 /*define locale to be set in typemanager.php depending on selected language */
