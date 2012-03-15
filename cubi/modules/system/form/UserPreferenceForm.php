@@ -153,8 +153,15 @@ class UserPreferenceForm extends EasyForm
             			$data = file_get_contents($config_file);	            			
             			$data = preg_replace("/define\([\'\\\"]{1}SITE_URL[\'\\\"]{1}.*?\)\;/i","define('SITE_URL','$value');",$data);	            			
             			@file_put_contents($config_file,$data);
-            		
-	            		break;	            		
+	            		break;	   	            		    
+	            	case "sessionstrict":
+						//update default theme SESSION_STRICT
+	            		if($value!=SESSION_STRICT){
+	            			$data = file_get_contents($config_file);	            			
+	            			$data = preg_replace("/define\([\'\\\"]{1}SESSION_STRICT[\'\\\"]{1}.*?\)\;/i","define('SESSION_STRICT','$value');",$data);	            			
+	            			@file_put_contents($config_file,$data);
+	            		}
+	            		break;	     		
 	            	case "language":
 	            	    if($value!=DEFAULT_LANGUAGE){
 	            			//update default theme DEFAULT_LANGUAGE

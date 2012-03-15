@@ -4,6 +4,8 @@
         <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>
 		<Element Name="fld_siteurl"  Class="LabelText" ElementSet="General" FieldName="_siteurl" Label="Site URL"   />
         <Element Name="fld_theme"  Class="LabelText" ElementSet="General" label="Default Theme"  FieldName="_theme" Description=""   />
+        <Element Name="fld_session" ReadOnly="Y" Class="LabelList"  SelectFrom="system.lov.Selection(SessionRestrict)"  ElementSet="General" FieldName="_sessionstrict" Label="Session Strict"   />
+        
         <Element Name="fld_appbuilder"  Class="LabelBool" ElementSet="General" label="AppBuilder"  FieldName="_appbuilder" Description=""   />
         
 		<Element Name="fld_language"  Class="LabelText" Text="{BizSystem::GetObject('service.localeService')->getDefaultLangName()}"  ElementSet="Localization" FieldName="_language" Label="Default Language"   />
