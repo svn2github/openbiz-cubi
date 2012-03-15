@@ -8,7 +8,7 @@
 		</Element>
         <Element Name="fld_form"  Class="RawData" FieldName="form" Label="Form"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_data"  Class="RawData" FieldName="data" Label="Data"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-        <Element Name="fld_comment"  Class="ColumnText" FieldName="comment" Label="Comment"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_comment"  Class="ColumnText" Style="height:auto;" FieldName="comment" Label="Comment"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Change Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
         <Element Name="fld_create_by" Class="ColumnText" FieldName="create_by" Label="Change By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>
     </DataPanel>
