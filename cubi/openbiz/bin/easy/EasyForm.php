@@ -100,6 +100,9 @@ class EasyForm extends MetaObject implements iSessionObject
     public $m_FormInputs = null;
     public $m_SearchRule = null;
     public $m_FixSearchRule = null; // FixSearchRule is the search rule always applying on the search
+    
+    public $m_SortRule = null;
+    
     protected $m_DefaultFixSearchRule = null;
     protected $m_SearchRuleBindValues;
     protected $m_Referer = "";
@@ -158,6 +161,7 @@ class EasyForm extends MetaObject implements iSessionObject
         $this->m_FormType = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["FORMTYPE"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["FORMTYPE"] : null;
         $this->m_Range = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["PAGESIZE"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["PAGESIZE"] : $this->m_Range;
         $this->m_FixSearchRule = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["SEARCHRULE"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["SEARCHRULE"] : null;
+        $this->m_SortRule = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["SORTRULE"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["SORTRULE"] : null;
 		$this->m_DefaultFixSearchRule = isset($xmlArr["EASYFORM"]["ATTRIBUTES"]["SEARCHRULE"]) ? $xmlArr["EASYFORM"]["ATTRIBUTES"]["SEARCHRULE"] : null;
         
         $this->m_Name = $this->prefixPackage($this->m_Name);
@@ -866,7 +870,7 @@ class EasyForm extends MetaObject implements iSessionObject
         else
             $searchRule = $this->m_SearchRule;
 
-        $dataObj->setSearchRule($searchRule);
+        $dataObj->setSearchRule($searchRule);        
         if($this->m_StartItem>1)
         {
             $dataObj->setLimit($this->m_Range, $this->m_StartItem);
@@ -874,7 +878,11 @@ class EasyForm extends MetaObject implements iSessionObject
         else
         {
             $dataObj->setLimit($this->m_Range, ($this->m_CurrentPage-1)*$this->m_Range);
-        }                
+        }      
+        if($this->m_SortRule)
+        {
+        	$dataObj->setSortRule($this->m_SortRule);
+        }          
         $resultRecords = $dataObj->fetch();
         $this->m_TotalRecords = $dataObj->count();
         if ($this->m_Range && $this->m_Range > 0)
