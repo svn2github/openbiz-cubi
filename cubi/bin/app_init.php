@@ -130,6 +130,11 @@ define("LANGUAGE_PATH", APP_HOME.DIRECTORY_SEPARATOR."languages");
 define('DEFAULT_LATITUDE','39.92');
 define('DEFAULT_LONGTITUDE','116.46');
 
+
+//session strict 
+//0=allow concurrent session
+//1=limited to single session
+define('SESSION_STRICT','0');
 // login page
 define('USER_LOGIN_VIEW', "user.view.LoginView");
 
