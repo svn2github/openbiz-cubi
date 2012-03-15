@@ -51,7 +51,14 @@ class SessionDBHandler {
         $last_url = $_SERVER["REQUEST_URI"];
         $update_time = date("Y-m-d H:i:s");
         
+        
         try {
+        	if(SESSION_STRICT==1){
+		      	//limited to single session delete prev sessions
+		      	$sql = "DELETE FROM `session` WHERE `id`!='$sessionID' AND `user_id`='$user_id' ;";
+		       	$this->sessionDb->query($sql);
+		    }  
+        	
             if ($this->initSessionData == null) {
                 //echo "insert session data";
                 $create_time = date("Y-m-d H:i:s");
@@ -63,6 +70,7 @@ class SessionDBHandler {
                 											'last_url'=>$last_url,
                 											'create_time'=>$create_time,
                 											'update_time'=>$update_time));
+      
             }
             else {
                 if ($this->initSessionData == $data) {
