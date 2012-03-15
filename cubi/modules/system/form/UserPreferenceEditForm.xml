@@ -3,14 +3,19 @@
     <DataPanel>
         <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>   
 		<Element Name="fld_siteurl" ReadOnly="Y" Class="InputText" ElementSet="General" FieldName="_siteurl" Label="Site URL"   />     
-		<Element Name="fld_language" ReadOnly="Y" Class="myaccount.form.LanguageSelector" ElementSet="General" FieldName="_language" Label="Language" CssClass="input_select_w" CssFocusClass="input_select_w_focus" CssHoverClass="input_select_w_hover"  />		
+
         <Element Name="fld_theme" ReadOnly="Y" Class="myaccount.form.ThemeSelector" ElementSet="General" label="Theme"  FieldName="_theme" Description="" CssClass="input_select_w" CssFocusClass="input_select_w_focus" CssHoverClass="input_select_w_hover"  />
 		<Element Name="fld_appbuilder"  Class="DropDownList" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="General" Description="" FieldName="_appbuilder" Label="App Builder"  />
 		
-		<Element Name="fld_continent" ReadOnly="Y" Class="myaccount.form.ContinentSelector" ElementSet="Timezone" Description="" FieldName="_continent" Label="Continent" BlankOption="---">
+		<Element Name="fld_language" ReadOnly="Y" Class="myaccount.form.LanguageSelector" ElementSet="Localization" FieldName="_language" Label="Default Language" CssClass="input_select_w" CssFocusClass="input_select_w_focus" CssHoverClass="input_select_w_hover"  />		
+		<Element Name="fld_continent" ReadOnly="Y" Class="myaccount.form.ContinentSelector" ElementSet="Localization" Description="" FieldName="_continent" Label="Continent" BlankOption="---">
 			<EventHandler Name="fld_continent_onclick" Event="onchange" EventLogMsg=""  Function="UpdateForm()" />
 		</Element>		
-		<Element Name="fld_timezone" ReadOnly="Y" Class="myaccount.form.TimezoneSelector" continent="{@:Elem[fld_continent].Value}" ElementSet="Timezone" Description="" FieldName="_timezone" Label="Timezone" BlankOption="---"/>
+		<Element Name="fld_timezone" ReadOnly="Y" Class="myaccount.form.TimezoneSelector" continent="{@:Elem[fld_continent].Value}" ElementSet="Localization" Description="" FieldName="_timezone" Label="Timezone" BlankOption="---"/>
+		<Element Name="fld_currency" ReadOnly="Y" Class="myaccount.form.CurrencySelector" ElementSet="Localization" FieldName="_currency" Label="Default Currency"  />
+		
+		
+		
 		<Element Name="fld_smartcard_auth"  Class="DropDownList" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="Login" FieldName="_smartcard_auth" Label="SmartCard Auth"   />
 		<Element Name="fld_anti_spam"  Class="DropDownList" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="Login" FieldName="_anti_spam" Label="Anti Spam"   />		
         <Element Name="fld_session_lang"  Class="DropDownList" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="Login" label="Language Selector"  FieldName="_language_selector"  />

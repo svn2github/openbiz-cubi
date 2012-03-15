@@ -157,12 +157,20 @@ class UserPreferenceForm extends EasyForm
 	            		break;	            		
 	            	case "language":
 	            	    if($value!=DEFAULT_LANGUAGE){
-	            			//update default theme DEFAULT_THEME_NAME
+	            			//update default theme DEFAULT_LANGUAGE
 	            			$data = file_get_contents($config_file);	            			
 	            			$data = preg_replace("/define\([\'\\\"]{1}DEFAULT_LANGUAGE[\'\\\"]{1}.*?\)\;/i","define('DEFAULT_LANGUAGE','$value');",$data);	            			
 	            			@file_put_contents($config_file,$data);	            			
 	            		}
 	            		break;
+	            	case "currency":
+	            	    if($value!=DEFAULT_CURRENCY){
+	            			//update default theme DEFAULT_DEFAULT_CURRENCY
+	            			$data = file_get_contents($config_file);	            			
+	            			$data = preg_replace("/define\([\'\\\"]{1}DEFAULT_CURRENCY[\'\\\"]{1}.*?\)\;/i","define('DEFAULT_CURRENCY','$value');",$data);	            			
+	            			@file_put_contents($config_file,$data);	            			
+	            		}
+	            		break;	
 	            	case "appbuilder":
 	            	    if($value!=APPBUILDER){	            			
 	            			$data = file_get_contents($config_file);	            			
