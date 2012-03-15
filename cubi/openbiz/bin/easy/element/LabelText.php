@@ -177,7 +177,7 @@ class LabelText extends Element
             {
             	$bgcolor = $this->getBackgroundColor();
             	if($bgcolor){
-            	$sHTML = "<div style=\"background-color:#".$bgcolor.";text-indent:10px;\" >$sHTML</div>";
+            	$sHTML = "<div style=\"background-color:#".$bgcolor.";text-indent:10px;-moz-border-radius: 4px;border-radius: 4px;\" >$sHTML</div>";
             	}
             }
         }
