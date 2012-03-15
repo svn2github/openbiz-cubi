@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="TaskListDetailForm" Class="TaskWidgetForm" FormType="List" jsClass="jbForm" BizDataObj="collab.task.do.TaskDO"   PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="collab_task.access">
+<EasyForm Name="TaskListDetailForm" Class="TaskWidgetForm" FormType="List" SortRule="[start_time] ASC" jsClass="jbForm" BizDataObj="collab.task.do.TaskDO"   PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="collab_task.access">
     <DataPanel>
         <Element Name="fld_share" Class="ColumnShare" 
 				MyPrivateImg="{RESOURCE_URL}/collab/task/images/icon_task_private.png"
