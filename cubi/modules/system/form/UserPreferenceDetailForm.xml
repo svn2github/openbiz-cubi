@@ -7,9 +7,9 @@
         <Element Name="fld_appbuilder"  Class="LabelBool" ElementSet="General" label="AppBuilder"  FieldName="_appbuilder" Description=""   />
         
 		<Element Name="fld_language"  Class="LabelText" ElementSet="Localization" FieldName="_language" Label="Default Language"   />
-        <Element Name="fld_continent"  Class="LabelText" ElementSet="Localization" Description="" FieldName="_continent" Label="Continent"  />
+        <Element Name="fld_continent"  Class="LabelText" ElementSet="Localization" Description="" FieldName="_continent" Label="Default Continent"  />
 		<Element Name="fld_timezone"  Class="LabelText" ElementSet="Localization" Description="" FieldName="_timezone" Label="Default Timezone"  />		
-		<Element Name="fld_currency"  Class="LabelText" ElementSet="Localization" FieldName="_currency" Label="Default Currency"   />
+		<Element Name="fld_currency"  Class="LabelText" Text="{BizSystem::GetObject('service.currencyService')->getName(@:Elem[fld_currency].Value)}" ElementSet="Localization" FieldName="_currency" Label="Default Currency"   />
 
 
 		<Element Name="fld_smartcard_auth"  Class="LabelBool" ElementSet="Login"  TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" FieldName="_smartcard_auth" Label="SmartCard Auth"   />
