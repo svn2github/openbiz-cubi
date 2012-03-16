@@ -125,6 +125,7 @@ class EasyForm extends MetaObject implements iSessionObject
     public $m_AutoRefresh=0;
     
     public $m_ReferenceFormName; //switch from which form
+    protected $m_RecordAllowAccess = true;
 
     /**
      * Initialize BizForm with xml array
@@ -139,6 +140,21 @@ class EasyForm extends MetaObject implements iSessionObject
         $this->inheritParentObj();
     }
 
+    public function allowAccess($access=null)
+    {
+    	$this->fetchData();    	
+    	if(!$this->m_RecordAllowAccess)
+    	{
+    		/**
+    		 * if the record is now allowed to access, then deny form render
+    		 * instead of display an empty form
+    		 */
+    		return false; 
+    	}
+    	$result = parent::allowAccess($access);    	
+    	return $result ;
+    }
+    
     /**
      * Read array meta data, and store to meta object
      *
@@ -964,6 +980,10 @@ class EasyForm extends MetaObject implements iSessionObject
 	        $dataObj->setLimit(1);
         }
         $resultRecords = $dataObj->fetch();
+		if(!count($resultRecords))
+		{
+			$this->m_RecordAllowAccess=false;
+		}
 
         $this->m_RecordId = $resultRecords[0]['Id'];
         $this->setActiveRecord($resultRecords[0]);    	
