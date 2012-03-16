@@ -16,10 +16,26 @@
 	<br/>
 	<div style="padding-left:10px;">
 
+		<table class="input_row">
+		<tr>		
+		<td >	
+			<label style="text-align:left;line-height:24px;font-size:20px;color:#333333;line-height:24px;width:400px;">{$record.data_record}</label>
+		</td>
+		</tr>
+		</table>
 
-<div class="from_table_container" style="width:640px;">
+<div class="from_table_container" style="width:550px;">
+	<div class="form_header_panel" style="width:550px;">					
+		<div class="action_panel" style="width:540px;">
+		{foreach item=elem from=$searchPanel}
+			{if $elem.label} <span style="float:left;padding-right:10px;line-height:22px;">{$elem.label}</span> {/if} {$elem.element}
+		{/foreach}
+		</div>
+	</div>
+
+
 <!-- table start -->
-<table border="0" cellpadding="0" cellspacing="0" class="form_table" style="width:640px;" id="{$form.name}_data_table">
+<table border="0" cellpadding="0" cellspacing="0" class="form_table" style="width:550px;" id="{$form.name}_data_table">
 	<thead>		
      {foreach item=cell key=elems_name from=$dataPanel.elems}	
      	{if $cell.type=='ColumnStyle'}
@@ -103,6 +119,15 @@
 							
 </table>
 </div>
+
+	<div class="form_footer_panel" style="width:550px;">
+		<div class="ajax_indicator" style="width:130px;">
+			<div id='{$form.name}.load_disp' style="display:none" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
+		</div>
+		
+	</div>
 		
 		<div style="height:10px;"></div>
 		<p class="input_row" style="height:28px;">
@@ -122,12 +147,5 @@
 </div>
 
 </form>
-{if $dataPanel.fld_owner_setting || $dataPanel.fld_owner}
+
 <script>Openbiz.Window.centerDialog(635,475); </script>
-{else}
-	{if $dataPanel.fld_update_ref_data}
-		<script>Openbiz.Window.centerDialog(635,470); </script>
-	{else}
-		<script>Openbiz.Window.centerDialog(635,470); </script>
-	{/if}
-{/if}

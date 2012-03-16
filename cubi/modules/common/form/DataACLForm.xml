@@ -26,5 +26,19 @@
     <NavPanel>
     </NavPanel> 
     <SearchPanel>
+        <Element Name="fld_acl_group_filter"   cssclass="input_select_m" Class="DropDownList" FieldName="" Label="" SelectFrom="system.do.GroupDO[name:Id]">
+            <EventHandler Name="groupfilter_onchange" Event="onchange" Function="UpdateForm()"/>
+        </Element>
+    	<Element Name="fld_acl_uid"   cssclass="input_select_m" Class="DropDownList" FieldName="user_name" Label="" SelectFrom="system.do.UserContactDO[display_name:username],[group_id]='{@:Elem[fld_acl_group_filter].Value}'">
+        </Element>
+        <Element Name="fld_acl_perm"   Class="DropDownList"  SelectFrom="system.lov.DataPermLOV(AclPerm)" FieldName="user_perm"   />
+        
+        <Element Name="btn_add" Class="Button" Text="Add" CssClass="button_gray_add">
+            <EventHandler Name="btn_add_onclick" EventLogMsg="" Event="onclick" Function="AddAcl()"  />
+        </Element>
+        <Element Name="btn_spacer" Class="Spacer" width="10" />	
+         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
+            <EventHandler Name="btn_del_onclick" EventLogMsg="" Event="onclick" Function="DelAcl()"  />
+        </Element>
     </SearchPanel>
 </EasyForm>
