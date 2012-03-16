@@ -2,6 +2,10 @@
 <Selection>
    <OwnerPerm Value="3" text="Full Control"/>
    
+   <ACLPerm Value="1" text="Read Only"/>
+   <ACLPerm Value="2" text="Read and Modify"/>
+   <ACLPerm Value="3" text="Full Control"/>
+   
    <GroupPerm Value="0" text="Invisible"/>
    <GroupPerm Value="1" text="Read Only"/>
    <GroupPerm Value="2" text="Read and Modify"/>
