@@ -14,8 +14,12 @@ class localeService
 		{
 			return $display_name;
 		}
-		else{		
-			return $lang;
+		else{	
+			if($lang){	
+				return $lang;
+			}else{
+				return DEFAULT_LANGUAGE;
+			}
 		}
 	}
 }
