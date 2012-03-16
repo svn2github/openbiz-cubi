@@ -4,7 +4,7 @@ class localeService
 	public function getDefaultLangName($lang=null)
 	{
 		if($lang=null){
-			$lang - DEFAULT_LANGUAGE;
+			$lang = DEFAULT_LANGUAGE;
 		}
 		$current_locale = I18n::getCurrentLangCode();		
 		require_once('Zend/Locale.php');
