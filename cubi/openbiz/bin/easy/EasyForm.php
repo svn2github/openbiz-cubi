@@ -142,7 +142,6 @@ class EasyForm extends MetaObject implements iSessionObject
 
     public function allowAccess($access=null)
     {
-    	$this->fetchData();    	
     	if(!$this->m_RecordAllowAccess)
     	{
     		/**
@@ -1900,7 +1899,8 @@ class EasyForm extends MetaObject implements iSessionObject
                     $formObj->setDataObj($dataObj);
             }
         }
-
+		if (!$this->allowAccess())
+            return "";
         return $renderedHTML;
     }
 
