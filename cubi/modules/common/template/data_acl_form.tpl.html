@@ -121,12 +121,20 @@
 </div>
 
 	<div class="form_footer_panel" style="width:550px;">
-		<div class="ajax_indicator" style="width:130px;">
+		<div class="ajax_indicator" style="width:70px;padding-top:10px;">
 			<div id='{$form.name}.load_disp' style="display:none" >
 				<img src="{$image_url}/form_ajax_loader.gif"/>
 			</div>
 		</div>
+		<div class="navi_panel" style="width:430px;">
+{if $navPanel}
+   {foreach item=elem from=$navPanel}
+   		{if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
+    	{$elem.element}
+   {/foreach}
+{/if}			
 		
+		</div>			
 	</div>
 		
 		<div style="height:10px;"></div>
