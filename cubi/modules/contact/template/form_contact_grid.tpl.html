@@ -140,11 +140,21 @@ margin-right:5px;
          		{assign var=col_class value=' '}
          	{/if}
          	{if $cell_name != $row_style_name}
+
          		{if $cell_name == 'fld_type'} 
+	         		{php}
+	         		$IE6 = strstr($_SERVER['HTTP_USER_AGENT'], 'MSIE 6') ? true : false ;
+	         		if($IE6){
+	         		{/php}
+	         			{assign var=bg_img value=none;}
+	         		{php}}else{{/php}
+	         			{assign var=bg_img value=url($theme_url/images/table_row_td_trans_bg.png);}
+	         		{php}}{/php}
+	         		
          			{if $col_style != ''}
-         				{assign var=row_bgcolor value=background-color:#$col_style;background-image:none;}
+         				{assign var=row_bgcolor value=background-color:#$col_style;background-image:$bg_img}
          			{else}
-         				{assign var=row_bgcolor value=background-color:#ffffff;background-image:none;}
+         				{assign var=row_bgcolor value=background-color:#ffffff;background-image:$bg_img}
          			{/if}
          		{else}
          			{assign var=row_bgcolor value=''}
