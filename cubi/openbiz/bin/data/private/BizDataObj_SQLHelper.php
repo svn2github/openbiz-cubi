@@ -115,7 +115,7 @@ class BizDataObj_SQLHelper
         {
 	        $svcObj = BizSystem::GetService(DATAPERM_SERVICE);
 	        $hasOwnerField = $this->_hasOwnerField($dataObj);
-	        $dataPermSQLRule = $svcObj->buildSqlRule('select',$hasOwnerField);
+	        $dataPermSQLRule = $svcObj->buildSqlRule($dataObj,'select',$hasOwnerField);
 	        $sqlSearchRule = $this->_ruleToSql($dataObj, $dataPermSQLRule);
 	        $dataSqlObj->addSqlWhere($sqlSearchRule);
         }
@@ -230,7 +230,7 @@ class BizDataObj_SQLHelper
         {
 	        $svcObj = BizSystem::GetService(DATAPERM_SERVICE);
 	        $hasOwnerField = $this->_hasOwnerField($dataObj);
-	        $dataPermSQLRule = $svcObj->buildSqlRule('update',$hasOwnerField);
+	        $dataPermSQLRule = $svcObj->buildSqlRule($dataObj,'update',$hasOwnerField);
 	        $sqlSearchRule = $this->_convertSqlExpressionWithoutPrefix($dataObj, $dataPermSQLRule);
 	        if($whereStr!='')
 	        {
@@ -259,7 +259,7 @@ class BizDataObj_SQLHelper
         {
 	        $svcObj = BizSystem::GetService(DATAPERM_SERVICE);
 	        $hasOwnerField = $this->_hasOwnerField($dataObj);
-	        $dataPermSQLRule = $svcObj->buildSqlRule('update',$hasOwnerField);
+	        $dataPermSQLRule = $svcObj->buildSqlRule($dataObj,'update',$hasOwnerField);
 	        $sqlSearchRule = $this->_convertSqlExpressionWithoutPrefix($dataObj, $dataPermSQLRule);
 	        if($whereStr!='')
 	        {
@@ -288,7 +288,7 @@ class BizDataObj_SQLHelper
         {
 	        $svcObj = BizSystem::GetService(DATAPERM_SERVICE);
 	        $hasOwnerField = $this->_hasOwnerField($dataObj);
-	        $dataPermSQLRule = $svcObj->buildSqlRule('delete',$hasOwnerField);
+	        $dataPermSQLRule = $svcObj->buildSqlRule($dataObj,'delete',$hasOwnerField);
 	        $sqlSearchRule = $this->_convertSqlExpressionWithoutPrefix($dataObj, $dataPermSQLRule);
 	        if($whereStr!='')
 	        {
@@ -315,7 +315,7 @@ class BizDataObj_SQLHelper
         {
 	        $svcObj = BizSystem::GetService(DATAPERM_SERVICE);
 	        $hasOwnerField = $this->_hasOwnerField($dataObj);
-	        $dataPermSQLRule = $svcObj->buildSqlRule('delete',$hasOwnerField);
+	        $dataPermSQLRule = $svcObj->buildSqlRule($dataObj,'delete',$hasOwnerField);
 	        $sqlSearchRule = $this->_convertSqlExpressionWithoutPrefix($dataObj, $dataPermSQLRule);
 	        if($whereStr!='')
 	        {

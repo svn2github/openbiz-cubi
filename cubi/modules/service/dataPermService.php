@@ -76,7 +76,7 @@ class dataPermService
 		return false;
 	}
 	
-	public function BuildSQLRule($type,$hasOwnerField=false)
+	public function BuildSQLRule($dataObj,$type,$hasOwnerField=false)
 	{
 		if(BizSystem::allowUserAccess("data_manage.manage")){
 			return " TRUE ";
@@ -118,12 +118,29 @@ class dataPermService
 			}
 			$sql_where .= " FALSE ) )";
 		}
-		$sql_where .= " OR [other_perm] $perm_limit  )";
+		$sql_where .= " OR [other_perm] $perm_limit ";
+
+		
+		$aclDO = BizSystem::getObject("common.do.DataACLDO");
+		if($aclDO){
+			$acl_table = $aclDO->m_MainTable;
+			$record_table = $dataObj->m_MainTable;
+			$record_id_field = $dataObj->getField("Id")->m_Column;
+			$sql_where .=" OR (
+								SELECT COUNT(*) FROM `$acl_table` WHERE 							 
+								`$acl_table`.`user_id`='$user_id' AND
+								`$acl_table`.`record_table` = '$record_table' AND
+								`$acl_table`.`record_id` = `T0`.`$record_id_field`
+								 )";
+			$sql_where .=" )";
+			
+		}
+		
 		return $sql_where;
 	}
 	
 	
-	public function getReadableUserList($recArr)
+	public function getReadableUserList($recArr,$dataObj=null)
 	{
 		$recId 		= $recArr['Id'];
 		$creatorId 	= $recArr['create_by'];
@@ -167,11 +184,32 @@ class dataPermService
 				}				
 			}
 		}
+		
+		//merge acl user list into this list
+		$aclDO = BizSystem::getObject("common.do.DataACLDO");
+		if($aclDO && $dataObj){
+			$acl_table = $aclDO->m_MainTable;
+			$record_table = $dataObj->m_MainTable;
+			$record_id = $recId;
+			$searchRule = "
+				[record_table]='$record_table' AND
+				[record_id] = '$recId' AND
+				[user_perm] >=1
+			";
+			
+			$aclList = $aclDO->directfetch($searchRule);
+			foreach($aclList as $aclRec)
+			{
+				$user_id = $aclRec['user_id'];
+				$userListArr[$user_id] = $user_id;
+			}
+		}
+		
 		return $userListArr;
 		
 	}
 	
-	public function getEditableUserList($recArr)
+	public function getEditableUserList($recArr,$dataObj=null)
 	{
 		$recId 		= $recArr['Id'];
 		$creatorId 	= $recArr['create_by'];
@@ -213,6 +251,26 @@ class dataPermService
 				{
 					$userListArr[$user_id] = $user_id;
 				}				
+			}
+		}
+		
+		//merge acl user list into this list
+		$aclDO = BizSystem::getObject("common.do.DataACLDO");
+		if($aclDO && $dataObj){
+			$acl_table = $aclDO->m_MainTable;
+			$record_table = $dataObj->m_MainTable;
+			$record_id = $recId;
+			$searchRule = "
+				[record_table]='$record_table' AND
+				[record_id] = '$recId' AND
+				[user_perm] >=2
+			";
+			
+			$aclList = $aclDO->directfetch($searchRule);
+			foreach($aclList as $aclRec)
+			{
+				$user_id = $aclRec['user_id'];
+				$userListArr[$user_id] = $user_id;
 			}
 		}
 		return $userListArr;

@@ -43,7 +43,7 @@ class ReminderService
 			/**
 			 * do remind uesrs
 			 */
-			$userList = BizSystem::getService(DATAPERM_SERVICE)->getEditableUserList($taskRec);
+			$userList = BizSystem::getService(DATAPERM_SERVICE)->getEditableUserList($taskRec,$taskDO);
 			foreach ($userList as $user_id)
 			{
 				$emailSvc->SendEmailToUser("TaskRemindEmail",$user_id,$taskRec);
@@ -75,7 +75,7 @@ class ReminderService
 		{
 			if($taskRec['reminder']==1){
 				//if task reminder is On then notice all editable users
-				$userList = BizSystem::getService(DATAPERM_SERVICE)->getEditableUserList($taskRec);
+				$userList = BizSystem::getService(DATAPERM_SERVICE)->getEditableUserList($taskRec,$taskDO);
 				foreach ($userList as $user_id)
 				{
 					$taskRec['delay_mins'] = $delay_mins;
@@ -108,7 +108,7 @@ class ReminderService
 			 * do remind uesrs
 			 */
 			if($taskRec['recurrence']==0){
-				$userList = BizSystem::getService(DATAPERM_SERVICE)->getReadableUserList($taskRec);
+				$userList = BizSystem::getService(DATAPERM_SERVICE)->getReadableUserList($taskRec,$taskDO);
 				foreach ($userList as $user_id)
 				{
 					$emailSvc->SendEmailToUser("EventRemindEmail",$user_id,$taskRec);
@@ -124,7 +124,7 @@ class ReminderService
 			if($taskRec['recurrence']>0){
 				if($this->_isNeedRemind($taskRec))
 				{
-					$userList = BizSystem::getService(DATAPERM_SERVICE)->getReadableUserList($taskRec);
+					$userList = BizSystem::getService(DATAPERM_SERVICE)->getReadableUserList($taskRec,$taskDO);
 					$taskNextRec = $this->_getNextRepeatTime($taskRec);
 					foreach ($userList as $user_id)
 					{
