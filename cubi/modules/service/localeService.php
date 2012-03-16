@@ -3,9 +3,16 @@ class localeService
 {
 	public function getDefaultLangName($lang=null)
 	{
-		if($lang=null){
-			$lang = DEFAULT_LANGUAGE;
+		if($lang==null){
+			$do = BizSystem::getObject("myaccount.do.PreferenceDO",1);
+			$rec = $do->fetchOne("[user_id]='0' AND [name]='language'");
+			if($rec){
+				$lang = $rec['value'];
+			}else{
+				$lang = DEFAULT_LANGUAGE;
+			}
 		}
+		
 		$current_locale = I18n::getCurrentLangCode();		
 		require_once('Zend/Locale.php');
 		$locale = new Zend_Locale($current_locale);
