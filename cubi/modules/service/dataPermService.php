@@ -161,9 +161,9 @@ class dataPermService
 								`$acl_table`.`record_table` = '$record_main_table' AND
 								`$acl_table`.`record_id` = `$record_table`.`$record_id_field`
 								 )";
-			$sql_where .=" )";
+			
 		}
-		
+		$sql_where .=" )";
 		return $sql_where;
 	}
 	
