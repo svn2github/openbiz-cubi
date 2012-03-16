@@ -16,7 +16,7 @@
 			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>	
 		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" Link="javascript:" />
-        <Element Name="fld_title" MaxLength="16"  Class="LabelText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/task_detail/{@:Elem[fld_Id].Value}">         
+        <Element Name="fld_title" MaxLength="16"  Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/collab/task_detail/{@:Elem[fld_Id].Value}">         
          	<!-- <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(collab.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   />-->
         </Element>
         <Element Name="fld_status" Class="ColumnList" SelectFrom="collab.task.lov.TaskLOV(TaskStatus)" FieldName="status" Label="Status" Link="javascript:;" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
