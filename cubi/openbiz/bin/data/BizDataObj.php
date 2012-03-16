@@ -163,7 +163,7 @@ class BizDataObj extends BizDataObj_Lite
 	        {
 	        	$record = $this->getActiveRecord();
 	        }
-	        $result = $svcObj->checkDataPerm($record,2);
+	        $result = $svcObj->checkDataPerm($record,2,$this);
 	        if($result == false)
 	        {
 	        	return false;
@@ -197,7 +197,7 @@ class BizDataObj extends BizDataObj_Lite
 	        {
 	        	$record = $this->getActiveRecord();
 	        }
-	        $result = $svcObj->checkDataPerm($record,3);
+	        $result = $svcObj->checkDataPerm($record,3,$this);
 	        if($result == false)
 	        {
 	        	return false;

@@ -117,6 +117,11 @@ class DataSharingForm extends EasyForm
 		$result['refer_url'] = SITE_URL;
 		
 		if($result['editable']==0){
+			$svcObj = BizSystem::GetService(DATAPERM_SERVICE);
+	        $result['editable'] = $svcObj->checkDataPerm($dataRec,3,$dataObj);
+		}
+		
+		if($result['editable']==0){
 			$result['has_ref_data'] = 0;
 		}
 		$this->m_RecordId = $result['Id'];

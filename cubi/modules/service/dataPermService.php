@@ -24,7 +24,7 @@ class dataPermService
 		}
 		return false;
 	}
-	public function CheckDataPerm($rec,$permCode)
+	public function CheckDataPerm($rec,$permCode,$dataObj=null)
 	{
 		if(BizSystem::allowUserAccess("data_manage.manage")){
 			return true;
@@ -70,6 +70,26 @@ class dataPermService
 				{
 					return true;
 				}
+			}
+		}
+		
+		
+		//merge acl user list into this list
+		$aclDO = BizSystem::getObject("common.do.DataACLDO");
+		if($aclDO && $dataObj){
+			$acl_table = $aclDO->m_MainTable;
+			$record_table = $dataObj->m_MainTable;
+			$record_id = $rec['Id'];
+			$permCode = (int)$permCode;
+			$searchRule = "
+				[record_table]='$record_table' AND
+				[record_id] = '$record_id' AND
+				[user_id] = '$user_id' AND
+				[user_perm] >= $permCode
+			";
+			$aclList = $aclDO->directfetch($searchRule);
+			if(count($aclList)){
+				return true;
 			}
 		}
 		
@@ -193,7 +213,7 @@ class dataPermService
 			$record_id = $recId;
 			$searchRule = "
 				[record_table]='$record_table' AND
-				[record_id] = '$recId' AND
+				[record_id] = '$record_id' AND
 				[user_perm] >=1
 			";
 			
@@ -262,7 +282,7 @@ class dataPermService
 			$record_id = $recId;
 			$searchRule = "
 				[record_table]='$record_table' AND
-				[record_id] = '$recId' AND
+				[record_id] = '$record_id' AND
 				[user_perm] >=2
 			";
 			

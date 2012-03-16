@@ -299,7 +299,7 @@ class EasyForm extends MetaObject implements iSessionObject
         			break;        		      		
         	}
 	        $svcObj = BizSystem::GetService(DATAPERM_SERVICE);
-	        $result = $svcObj->checkDataPerm($this->fetchData(),$permCode);
+	        $result = $svcObj->checkDataPerm($this->fetchData(),$permCode,$this->getDataObj());
 	        if($result == false)
 	        {
 	        	return false;
@@ -314,7 +314,7 @@ class EasyForm extends MetaObject implements iSessionObject
     	if($this->getDataObj()->m_DataPermControl=='Y')
         {        	        	
 	        $svcObj = BizSystem::GetService(DATAPERM_SERVICE);
-	        $result = $svcObj->checkDataPerm($rec,3);
+	        $result = $svcObj->checkDataPerm($rec,3,$this->getDataObj());
 	        if($result == false)
 	        {
 	        	return false;
