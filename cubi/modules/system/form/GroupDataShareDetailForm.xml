@@ -3,7 +3,7 @@
     <DataPanel>
         <Element Name="fld_data_share"  Class="LabelBool" DefaultValue="{GROUP_DATA_SHARE}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="General" Description="" FieldName="_group_data_share" Label="Data Sharing"  >
         </Element>
-        <Element Name="fld_data_acl"  Class="LabelBool" DefaultValue="{DATA_ACL}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="General" Description="" FieldName="_data_acl" Label="Data ACL"  >
+        <Element Name="fld_data_acl"  Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}"  Class="LabelBool" DefaultValue="{DATA_ACL}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="General" Description="" FieldName="_data_acl" Label="Data ACL"  >
         </Element>
         <Element Name="fld_owner_perm" Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}" Class="LabelList" DefaultValue="{DEFAULT_OWNER_PERM}" SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Default permission for data owner " FieldName="_owner_perm" Label="Owner Perm"  />
         <Element Name="fld_group_perm" Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}"  Class="LabelList" DefaultValue="{DEFAULT_GROUP_PERM}" SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing" Description="Default permission for owner group's users" FieldName="_group_perm" Label="Group Perm"  />
