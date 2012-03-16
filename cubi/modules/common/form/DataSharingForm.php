@@ -3,6 +3,17 @@ class DataSharingForm extends EasyForm
 {
 	public $m_hasOwnerField = false;
 	protected  $m_LogDO = "changelog.do.ChangeLogDO";
+	
+	public function SetPrtRecordId($id)
+	{
+		
+		if($id)
+		{
+			$this->m_ParentRecordId = $id;
+		}
+		return;
+	}
+	
 	public function fetchData()
 	{
 		if ($this->m_ActiveRecord != null){
@@ -12,10 +23,7 @@ class DataSharingForm extends EasyForm
 		$prtForm = $this->m_ParentFormName;
 		$prtFormObj = BizSystem::GetObject($prtForm);
 		
-		if(!$this->m_ParentRecordId)
-		{
-			$this->m_ParentRecordId = $this->m_RecordId;
-		}
+		$this->SetPrtRecordId($this->m_RecordId);
 		
 		$recId = $this->m_ParentRecordId;
 		$dataObj = $prtFormObj->getDataObj();
@@ -118,7 +126,7 @@ class DataSharingForm extends EasyForm
 		
 		if($result['editable']==0){
 			$svcObj = BizSystem::GetService(DATAPERM_SERVICE);
-	        $result['editable'] = $svcObj->checkDataPerm($dataRec,3,$dataObj);
+	        $result['editable'] = (int)$svcObj->checkDataPerm($dataRec,3,$dataObj);
 		}
 		
 		if($result['editable']==0){

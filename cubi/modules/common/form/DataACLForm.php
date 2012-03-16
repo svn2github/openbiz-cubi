@@ -4,6 +4,11 @@ class DataACLForm extends DataSharingForm
 {
 	public $m_AclDO = "common.do.DataACLDO";
 	
+	public function SetPrtRecordId($id)
+	{		
+		return;
+	}
+	
 	public function fetchDataSet()
 	{
 		$prtRecord = $this->fetchData();
