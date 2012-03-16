@@ -950,3 +950,7 @@ Element.prototype.triggerEvent = function(eventName)
     if (this.fireEvent)
         return this.fireEvent('on' + eventName);
 }
+
+function jq(myid) { 
+   return '#' + myid.replace(/(:|\.)/g,'\\$1');
+}
