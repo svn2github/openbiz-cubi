@@ -11,7 +11,13 @@ class DataSharingForm extends EasyForm
             
 		$prtForm = $this->m_ParentFormName;
 		$prtFormObj = BizSystem::GetObject($prtForm);
-		$recId = $this->m_RecordId;
+		
+		if(!$this->m_ParentRecordId)
+		{
+			$this->m_ParentRecordId = $this->m_RecordId;
+		}
+		
+		$recId = $this->m_ParentRecordId;
 		$dataObj = $prtFormObj->getDataObj();
 		$dataRec = $dataObj->fetchById($recId);		
 		
@@ -114,6 +120,7 @@ class DataSharingForm extends EasyForm
 			$result['has_ref_data'] = 0;
 		}
 		$this->m_RecordId = $result['Id'];
+		$this->m_ParentRecordId = $result['Id'];
 		//$this->setActiveRecord($result);    	
 		if(BizSystem::allowUserAccess("data_manage.manage")){
 			$result['editable'] = 1;
@@ -144,7 +151,7 @@ class DataSharingForm extends EasyForm
 			return ;
 		}
 		$prtFormObj = BizSystem::GetObject($prtForm);
-		$recId = $this->m_RecordId;
+		$recId = $this->m_ParentRecordId;
 		$dataObj = $prtFormObj->getDataObj();
 		$dataRec = $dataObj->fetchById($recId);
 		
@@ -366,18 +373,25 @@ class DataSharingForm extends EasyForm
 	
 	public function getSessionVars($sessionContext)
     {
-        $sessionContext->getObjVar("DataSharingForm", "RecordId", $this->m_RecordId);
+        $sessionContext->getObjVar("DataSharingForm", "ParentRecordId", $this->m_ParentRecordId);
         $sessionContext->getObjVar("DataSharingForm", "ParentFormName", $this->m_ParentFormName);
         return parent::getSessionVars($sessionContext);
     }
 
     public function setSessionVars($sessionContext)
     {
-        $sessionContext->setObjVar("DataSharingForm", "RecordId", $this->m_RecordId);
+        $sessionContext->setObjVar("DataSharingForm", "ParentRecordId", $this->m_ParentRecordId);
     	$sessionContext->setObjVar("DataSharingForm", "ParentFormName", $this->m_ParentFormName);
         return parent::setSessionVars($sessionContext);       
     }
 	
+    public function outputAttrs()
+    {
+    	$result = parent::outputAttrs();
+    	$rec = $this->fetchData();
+    	$result['record'] = $rec;
+    	return $result;
+    }
 
 }
 ?>
