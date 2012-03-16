@@ -126,9 +126,9 @@ margin-right:5px;
          	{if $cell_name != $row_style_name}
          		{if $cell_name == 'fld_type'} 
          			{if $col_style != ''}
-         				{assign var=row_bgcolor value=background-color:#$col_style;background-image:none;}
+         				{assign var=row_bgcolor value=background-color:#$col_style;background-image:url($theme_url/images/table_row_td_trans_bg.png);}
          			{else}
-         				{assign var=row_bgcolor value=background-color:#ffffff;background-image:none;}
+         				{assign var=row_bgcolor value=background-color:#ffffff;background-image:url($theme_url/images/table_row_td_trans_bg.png);}
          			{/if}
          		{else}
          			{assign var=row_bgcolor value=''}
