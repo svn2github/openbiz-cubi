@@ -144,13 +144,21 @@ class dataPermService
 		$aclDO = BizSystem::getObject("common.do.DataACLDO");
 		if($aclDO){
 			$acl_table = $aclDO->m_MainTable;
-			$record_table = $dataObj->m_MainTable;
+			if($type=='select')
+			{
+				$record_table = "T0";
+			}
+			else
+			{
+				$record_table = $dataObj->m_MainTable;	
+			}
+			
 			$record_id_field = $dataObj->getField("Id")->m_Column;
 			$sql_where .=" OR (
 								SELECT COUNT(*) FROM `$acl_table` WHERE 							 
 								`$acl_table`.`user_id`='$user_id' AND
 								`$acl_table`.`record_table` = '$record_table' AND
-								`$acl_table`.`record_id` = `T0`.`$record_id_field`
+								`$acl_table`.`record_id` = `$record_table`.`$record_id_field`
 								 )";
 			$sql_where .=" )";
 			
