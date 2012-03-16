@@ -13,6 +13,13 @@ class DataACLForm extends DataSharingForm
 	{
 		$prtRecord = $this->fetchData();
 		$this->m_Editable = $prtRecord['editable'];
+		
+		$prtForm = $this->m_ParentFormName;
+		$prtFormObj = BizSystem::GetObject($prtForm);
+		
+		$record_table = $prtFormObj->getDataObj()->m_MainTable;
+		$record_id = $this->m_ParentRecordId;
+		$this->m_SearchRule = "[record_table]='$record_table' AND [record_id]='$record_id'";
 		$result =  parent::fetchDataSet();
 		return $result;
 	}
