@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReportFormElementListForm" Class="ReportFormElementForm" Icon="icon_report_element.gif" FormType="List" jsClass="jbForm" Title="Report Element : {@report.admin.do.ReportViewDO:Field[title].Value} > {@report.admin.do.ReportFormDO:Field[title].Value}" Description="Report Element defines data mapping from data source to report forms. \n Each element could be a dataset for chart axies or data tables." BizDataObj="report.admin.do.ReportFormElementDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="REPORT_FORM_ELEMENT" >
+<EasyForm Name="ReportFormElementListForm" Class="ReportFormElementForm" Icon="icon_report_element.gif" FormType="List" jsClass="jbForm" Title="Report Form Elements" Description="Report Element defines data mapping from data source to report forms. \n Each element could be a dataset for chart axies or data tables." BizDataObj="report.admin.do.ReportFormElementDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="REPORT_FORM_ELEMENT" >
     <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>

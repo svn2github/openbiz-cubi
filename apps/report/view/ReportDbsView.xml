@@ -1,8 +1,6 @@
 <?xml version="1.0" standalone="no"?>
-<EasyView Name="ReportDbsView" Description="Manage Report Data Source" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_tabs.tpl" Access="Report.AdminReport">
+<EasyView Name="ReportDbsView" Description="Manage Report Data Source" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_data.tpl" Access="Report.AdminReport">
    <FormReferences>
-   		<Reference Name="report.admin.form.ReportDbListForm" SubForms="report.admin.form.ReportDoListForm" Description="Data Source"/>
-   		<Reference Name="report.admin.form.ReportDoListForm" SubForms="report.admin.form.ReportDoFieldListForm" Description="Data Table"/>
-   		<Reference Name="report.admin.form.ReportDoFieldListForm" Description="Data Field"/>   		
+   		<Reference Name="report.admin.form.ReportDbListForm" SubForms="report.admin.form.ReportDoListForm" Description="Data Source"/>  		
    </FormReferences>    
 </EasyView>

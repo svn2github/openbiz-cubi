@@ -62,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `report_do_field` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `do_id` int(11) NOT NULL,
+  `join_id` int(11) DEFAULT NULL,
   `column` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sql_expr` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `type` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -84,22 +85,24 @@ insert  into `report_do_field`(`id`,`name`,`do_id`,`column`,`sql_expr`,`type`,`f
 -- Table structure `report_do_join`
 --
 
-CREATE TABLE `report_do_join` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `do_id` int(11) NOT NULL,
-  `table` varchar(100) DEFAULT NULL,
-  `column` varchar(100) DEFAULT NULL,
-  `jointype` varchar(50) DEFAULT NULL,
-  `columnref` varchar(100) DEFAULT NULL,
-  `joinref` varchar(100) DEFAULT NULL,
-  `create_by` int(11) NOT NULL DEFAULT '1',
-  `create_time` datetime NOT NULL,
-  `update_by` int(11) NOT NULL DEFAULT '1',
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `report_do_join`;
 
+CREATE TABLE `report_do_join` (
+   `id` int(11) NOT NULL AUTO_INCREMENT,
+   `name` varchar(100) NOT NULL,
+   `do_id` int(11) NOT NULL,
+   `table` varchar(100) DEFAULT NULL,
+   `column` varchar(100) DEFAULT NULL,
+   `jointype` varchar(50) DEFAULT NULL,
+   `columnref` varchar(100) DEFAULT NULL,
+   `joinref` varchar(100) DEFAULT NULL,
+   `create_by` int(11) NOT NULL DEFAULT '1',
+   `create_time` datetime NOT NULL,
+   `update_by` int(11) NOT NULL DEFAULT '1',
+   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+   PRIMARY KEY (`id`)
+ ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ 
 -- --------------------------------------------------------
 
 --
@@ -274,3 +277,27 @@ insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, 
 insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('10','2002 East HDTV Sales','East','HDTV','2002','650390','390380');
 insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('11','2002 West SDTV Sales','West','SDTV','2002','669100','330400');
 insert into `report_sample_sales` (`id`, `name`, `division`, `product`, `year`, `revenue`, `cost`) values('12','2002 East SDTV Sales','East','SDTV','2002','512200','211040');
+
+DROP TABLE IF EXISTS `report_sample_prod`;
+CREATE TABLE `report_sample_prod` (
+   `id` int(11) NOT NULL AUTO_INCREMENT,
+   `sku` varchar(64) NOT NULL,
+   `name` varchar(100) NOT NULL,
+   `description` varchar(255) NOT NULL,
+   PRIMARY KEY (`id`)
+ ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+insert  into `report_sample_prod` (`id`, `sku`, `name`, `description`) values('1','HD-1','HDTV','High Definition Television');
+insert  into `report_sample_prod` (`id`, `sku`, `name`, `description`) values('2','SD-1','SDTV','Standard Definition Television');
+
+DROP TABLE IF EXISTS `report_sample_prod_price`;
+CREATE TABLE `report_sample_prod_price` (
+   `id` INT(11) NOT NULL AUTO_INCREMENT,
+   `sku` VARCHAR(64) NOT NULL,
+   `price` FLOAT NOT NULL,
+   `currency` VARCHAR(10) NOT NULL,
+   PRIMARY KEY (`id`)
+ ) ENGINE=MYISAM DEFAULT CHARSET=utf8;
+ 
+insert  into `report_sample_prod_price` (`id`, `sku`, `price`, `currency`) values('1','HD-1','1200','USD');
+insert  into `report_sample_prod_price` (`id`, `sku`, `price`, `currency`) values('2','SD-1','800','USD');

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReportFormEditForm" Class="ReportFormForm" Icon="icon_report_form.gif" FormType="Edit" jsClass="jbForm" Title="Edit Report Form" Description="Report Form could be chart form or data tables for contains report data. \nEach form has to be mounted onto report pages." BizDataObj="report.admin.do.ReportFormDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_reportform.tpl.html" EventName="REPORT_FORM" >
+<EasyForm Name="ReportFormEditForm" Class="ReportFormForm" Icon="icon_report_form.gif" FormType="Edit" jsClass="jbForm" Title="Edit Report Form #{@:Elem[fld_Id].Value}" Description="Report Form could be chart form or data tables for contains report data. \nEach form has to be mounted onto report pages." BizDataObj="report.admin.do.ReportFormDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_reportform.tpl.html" EventName="REPORT_FORM" >
     <DataPanel>
-	<Element Name="fld_Id" ElementSet="General" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
-        <Element Name="fld_title" ElementSet="General" Class="InputText" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	                
+		<Element Name="fld_Id" ElementSet="Top" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N"/>
+        <Element Name="fld_title" ElementSet="Top" Class="InputText" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	                
         <Element Name="fld_desc" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"/>
         <Element Name="fld_view_id" ElementSet="General" Class="Listbox" SelectFrom="report.do.ReportViewDO[title:Id]}'" DefaultValue="{@report.admin.do.ReportViewDO:Field[Id].Value}" FieldName="view_id" Label="Report Page"  AllowURLParam="N"/>
         <Element Name="fld_sortorder" ElementSet="General" Class="Listbox" SelectFrom="report.admin.lov.SortOrder(Order)" FieldName="sortorder" Label="Sort Order"  AllowURLParam="N" />
 
-        <Element Name="fld_db_id" ElementSet="Data Source" Class="Hidden" FieldName="db_id" Label="Database"  AllowURLParam="N" />
+        <Element Name="fld_db_id" ElementSet="Data Source" Class="LabelText" FieldName="db_id" Label="Database"  AllowURLParam="N" />
 		<Element Name="fld_do_id" ElementSet="Data Source" Class="Listbox" SelectFrom="report.admin.do.ReportDoDO[name:Id],db_id={@:Elem[fld_db_id].Value}" FieldName="do_id" Label="Data Table"  AllowURLParam="N" />
         
         <Element Name="fld_type" ElementSet="Form Type" Class="Listbox" SelectFrom="report.admin.lov.FormType(FormType)" FieldName="type" Label="Form Type"  AllowURLParam="N" >
@@ -33,45 +33,45 @@
         <Element Name="fld_show_number_scale" ElementSet="Form Type" Class="Checkbox"  DefaultValue="0" SelectFrom="1"  Text="Display real number or scaled" FieldName="_formatNumberScale" Label="Number Scale" />
         
 
-        <Element Name="fld_subtype" ElementSet="Form Parameters" Class="Listbox"  SelectFrom="report.admin.lov.FormType(SubType)" FieldName="subtype" Label="SubType" >
+        <Element Name="fld_subtype" ElementSet="Chart Parameters" Class="Listbox"  SelectFrom="report.admin.lov.FormType(SubType)" FieldName="subtype" Label="SubType" >
         	<EventHandler Name="fld_subtype_onchange" Event="onchange" Function="js:showSubConfigOptions(this.value)" />
         </Element>
         
         <!-- options for pies  -->
-        <Element Name="fld_show_percentage_value" ElementSet="Form Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"   Text="Show percentage values or actual values" FieldName="_showPercentageValues" Label="Value Type" />
-        <Element Name="fld_show_percentage_in_label" ElementSet="Form Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1" Text="Show percentage values in the labels" FieldName="_showPercentageInLabel" Label="Show In Label" />        
+        <Element Name="fld_show_percentage_value" ElementSet="Chart Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"   Text="Show percentage values or actual values" FieldName="_showPercentageValues" Label="Value Type" />
+        <Element Name="fld_show_percentage_in_label" ElementSet="Chart Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1" Text="Show percentage values in the labels" FieldName="_showPercentageInLabel" Label="Show In Label" />        
         <!-- options for 3D pie  -->
-        <Element Name="fld_show_pie_radius" ElementSet="Form Parameters" Class="InputText" FieldName="_pieRadius" Label="Pie Radius" />        
-        <Element Name="fld_show_pie_y_scale" ElementSet="Form Parameters" Class="InputText"  FieldName="_pieYScale" Label="Pie Y-Scale" />
-        <Element Name="fld_show_pie_slice_depth" ElementSet="Form Parameters" Class="InputText"  FieldName="_pieSliceDepth" Label="Slice Depth" />
+        <Element Name="fld_show_pie_radius" ElementSet="Chart Parameters" Class="InputText" FieldName="_pieRadius" Label="Pie Radius" />        
+        <Element Name="fld_show_pie_y_scale" ElementSet="Chart Parameters" Class="InputText"  FieldName="_pieYScale" Label="Pie Y-Scale" />
+        <Element Name="fld_show_pie_slice_depth" ElementSet="Chart Parameters" Class="InputText"  FieldName="_pieSliceDepth" Label="Slice Depth" />
         <!-- options for 2D pie  -->
-        <Element Name="fld_show_shadow" ElementSet="Form Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"   Text="Set the pie shadow would be shown or not" FieldName="_showShadow" Label="Show Shadow" />
-        <Element Name="fld_show_animation" ElementSet="Form Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"   Text="Set whether the animation is to be played " FieldName="_animation" Label="Animation" />
+        <Element Name="fld_show_shadow" ElementSet="Chart Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"   Text="Set the pie shadow would be shown or not" FieldName="_showShadow" Label="Show Shadow" />
+        <Element Name="fld_show_animation" ElementSet="Chart Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"   Text="Set whether the animation is to be played " FieldName="_animation" Label="Animation" />
    
    
    
    		<!-- options for column  -->
-   		<Element Name="fld_show_limits" ElementSet="Form Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"  Text="Show/hide the chart limit textboxes" FieldName="_showLimits" Label="Show Limit" />
-   		<Element Name="fld_show_rotate_name" ElementSet="Form Parameters" Class="Checkbox"  DefaultValue="0" SelectFrom="1"  Text="Category name text boxes would be rotated or not" FieldName="_rotateNames" Label="Rotate Names" />
-    	<Element Name="fld_show_column_shadow" ElementSet="Form Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"   Text="2D shadow for the columns would be shown or not" FieldName="_showColumnShadow" Label="Col Shadow" />
-   		<Element Name="fld_show_bar_shadow" ElementSet="Form Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"   Text="2D shadow for the bars would be shown or not" FieldName="_showBarShadow" Label="Bar Shadow" />
-   		<Element Name="fld_y_min_value" ElementSet="Form Parameters" Class="InputText"   FieldName="_yAxisMinValue" Label="Y Min Value" />
-   		<Element Name="fld_y_max_value" ElementSet="Form Parameters" Class="InputText"   FieldName="_yAxisMaxValue" Label="Y Max Value" />
+   		<Element Name="fld_show_limits" ElementSet="Chart Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"  Text="Show/hide the chart limit textboxes" FieldName="_showLimits" Label="Show Limit" />
+   		<Element Name="fld_show_rotate_name" ElementSet="Chart Parameters" Class="Checkbox"  DefaultValue="0" SelectFrom="1"  Text="Category name text boxes would be rotated or not" FieldName="_rotateNames" Label="Rotate Names" />
+    	<Element Name="fld_show_column_shadow" ElementSet="Chart Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"   Text="2D shadow for the columns would be shown or not" FieldName="_showColumnShadow" Label="Col Shadow" />
+   		<Element Name="fld_show_bar_shadow" ElementSet="Chart Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"   Text="2D shadow for the bars would be shown or not" FieldName="_showBarShadow" Label="Bar Shadow" />
+   		<Element Name="fld_y_min_value" ElementSet="Chart Parameters" Class="InputText"   FieldName="_yAxisMinValue" Label="Y Min Value" />
+   		<Element Name="fld_y_max_value" ElementSet="Chart Parameters" Class="InputText"   FieldName="_yAxisMaxValue" Label="Y Max Value" />
    		   		   		
 
     	
    
    		<!-- options for line  -->
-   		<Element Name="fld_show_anchor" ElementSet="Form Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"  Text="Anchors would be shown on the chart or not" FieldName="_showAnchors" Label="Show Anchors" />
-   		<Element Name="fld_show_anchor_radius" ElementSet="Form Parameters" Class="InputText"  FieldName="_anchorRadius" Label="Anchors Radius" />
+   		<Element Name="fld_show_anchor" ElementSet="Chart Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"  Text="Anchors would be shown on the chart or not" FieldName="_showAnchors" Label="Show Anchors" />
+   		<Element Name="fld_show_anchor_radius" ElementSet="Chart Parameters" Class="InputText"  FieldName="_anchorRadius" Label="Anchors Radius" />
    		
    		
    		<!-- options for area  -->
-   		<Element Name="fld_show_area_border" ElementSet="Form Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"  Text="Border over the area would be shown or not" FieldName="_showAreaBorder" Label="Area Border" />
-   		<Element Name="fld_show_area_alpha" ElementSet="Form Parameters" Class="InputText"   FieldName="_areaAlpha" Label="Area Alpha" />
+   		<Element Name="fld_show_area_border" ElementSet="Chart Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"  Text="Border over the area would be shown or not" FieldName="_showAreaBorder" Label="Area Border" />
+   		<Element Name="fld_show_area_alpha" ElementSet="Chart Parameters" Class="InputText"   FieldName="_areaAlpha" Label="Area Alpha" />
    		
    		<!-- options for Multi-series  -->
-   		<Element Name="fld_show_legend" ElementSet="Form Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"   Text="Legend would be displayed" FieldName="_showLegend" Label="Show Legend" />
+   		<Element Name="fld_show_legend" ElementSet="Chart Parameters" Class="Checkbox" DefaultValue="0" SelectFrom="1"   Text="Legend would be displayed" FieldName="_showLegend" Label="Show Legend" />
     	
         <Element Name="fld_attrs" ElementSet="Form Type" Class="Hidden" FieldName="attrs" Label="Attributes"/>   
             
@@ -81,7 +81,7 @@
             <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=report.admin.form.ReportFormDetailForm&amp;fld:Id={@report.admin.do.ReportFormDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
-            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportFormListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
         </Element>
     </ActionPanel> 
     <NavPanel>

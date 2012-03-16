@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReportDoDetailForm" Class="ReportDoForm" Icon="icon_table.gif" FormType="" jsClass="jbForm" Title="Data Table Detail" Description="Below list is the data tables inside of selected data source.\nIn the reporting system each Data Object is based on a data table." BizDataObj="report.admin.do.ReportDoDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl.html" EventName="REPORT_DO" >
+<EasyForm Name="ReportDoDetailForm" Class="ReportDoForm" Icon="icon_table.gif" FormType="" jsClass="jbForm" Title="Data Table #{@:Elem[fld_Id].Value}" Description="Below list is the data tables inside of selected data source.\nIn the reporting system each Data Object is based on a data table." BizDataObj="report.admin.do.ReportDoDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_tab.tpl" EventName="REPORT_DO" >
     <DataPanel>
-			<Element Name="fld_Id" Hidden="Y" ElementSet="General" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-		        <Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
-		        <Element Name="fld_table" ElementSet="General" Class="LabelText" FieldName="table" Label="Table" AllowURLParam="N"/>
-		        <Element Name="fld_database" ElementSet="General" Class="LabelText" FieldName="database" Label="Database" AllowURLParam="N"/>
-		        <Element Name="fld_search_rule" ElementSet="General" Class="LabelText" FieldName="search_rule" Label="Search Rule" AllowURLParam="N"/>
-		        <Element Name="fld_sort_rule" ElementSet="General" Class="LabelText" FieldName="sort_rule" Label="Sort Rule" AllowURLParam="N"/>
-		        <Element Name="fld_group_by" ElementSet="General" Class="LabelText" FieldName="group_by" Label="Group By" AllowURLParam="N"/>
+		<Element Name="fld_Id" Hidden="Y" ElementSet="Top" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+		<Element Name="fld_name" ElementSet="Top" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
+		<Element Name="fld_table" ElementSet="General" Class="LabelText" FieldName="table" Label="Table" AllowURLParam="N"/>
+		<Element Name="fld_database" ElementSet="General" Class="LabelText" FieldName="database" Label="Database" AllowURLParam="N"/>
+		<Element Name="fld_search_rule" ElementSet="General" Class="LabelText" FieldName="search_rule" Label="Search Rule" AllowURLParam="N"/>
+		<Element Name="fld_sort_rule" ElementSet="General" Class="LabelText" FieldName="sort_rule" Label="Sort Rule" AllowURLParam="N"/>
+		<Element Name="fld_group_by" ElementSet="General" Class="LabelText" FieldName="group_by" Label="Group By" AllowURLParam="N"/>
 
- <Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>
-		        <Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
-		        <Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>
-		        <Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
-    			  
-
-	    </DataPanel>
+		<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>
+		<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
+		<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>
+		<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+	</DataPanel>
     <ActionPanel>       
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportDoNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
@@ -30,7 +28,7 @@
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=report.admin.form.ReportDoListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
-            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportDoListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="js:history.go(-1)"  ShortcutKey="Escape" ContextMenu="Cancel" />
         </Element>         
     </ActionPanel> 
     <NavPanel>

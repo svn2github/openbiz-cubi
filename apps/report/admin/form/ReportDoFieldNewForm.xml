@@ -12,7 +12,7 @@
 		<Element Name="fld_join_id" Class="Listbox" FieldName="join_id" Label="Join" SelectFrom="report.admin.do.ReportDoJoinDO[name:Id],[do_id]={@:Elem[fld_do_id].Value}" BlankOption="Select a join">
 			<EventHandler Name="fld_join_onchange" Event="onchange" Function="UpdateForm()" />
 		</Element>
-		<Element Name="fld_join_column" Class="report.admin.form.DataObjListbox" FieldName="column" Label="Join Column" SelectFrom="columns({@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, db_id)},{@query:FetchField(report.do.ReportDoJoinDO, [Id]=@:Element[fld_join_id].Value, table)})" Hidden="{(@:Element[fld_join_id].Value)==''?'Y':'N'}" />
+		<Element Name="fld_join_column" Class="report.admin.form.DataObjListbox" FieldName="column" Label="Join Column" SelectFrom="columns({@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, db_id)},{@query:FetchField(report.admin.do.ReportDoJoinDO, [Id]=@:Element[fld_join_id].Value, table)})" Hidden="{(@:Element[fld_join_id].Value)==''?'Y':'N'}" />
 		
 		<Element Name="fld_type" Class="Listbox" SelectFrom="report.admin.lov.DataFieldType(DataType)" FieldName="type" Label="Type"  AllowURLParam="N"/>        
 		<Element Name="fld_format" Class="InputText" FieldName="format" Label="Format"  AllowURLParam="N" CssClass="input_text"/>

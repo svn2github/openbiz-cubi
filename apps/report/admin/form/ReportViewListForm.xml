@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="ReportViewListForm" Class="ReportViewForm" Icon="icon_report_page.gif" FormType="List" jsClass="jbForm" Title="Report Page " Description="Report Page is a container of report forms and charts.\n Each page could contains multi form and charts." BizDataObj="report.admin.do.ReportViewDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="REPORT_VIEW" >
     <DataPanel>
-		<Element Name="fld_action" Class="ColumnText"  FieldName="" Label="Ex" Text=" " CssClass="icon_expand" Link="javascript:ShowTab('report.admin.form.ReportFormListForm','{@:m_Name}',{@:Elem[fld_Id].Value});" AllowURLParam="N" Translatable="N" OnEventLog="N" />                
-
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />                  	
-        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title" Sortable="Y" AllowURLParam="N" Link="javascript:">
-        	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportViewDetailForm,{@:Elem[fld_Id].Value})"   />
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title" Sortable="Y" AllowURLParam="N" Link="{@home:url}/report/report_detail/{@:Elem[fld_Id].Value}">
         </Element>
         <Element Name="fld_group_name" Class="ColumnText" FieldName="group_name" Label="Group"  Sortable="Y" /> 
         <Element Name="fld_desc" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y" />       	        

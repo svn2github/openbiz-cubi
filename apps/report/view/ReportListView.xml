@@ -1,9 +1,9 @@
 <?xml version="1.0" standalone="no"?>
-<EasyView Name="ReportListView" viewset="ReportAdmin" Description="Manage Report Pages" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_tabs.tpl" Access="Report.AdminReport">
+<EasyView Name="ReportListView" viewset="ReportAdmin" Description="Manage Report Pages" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_data.tpl" Access="Report.AdminReport">
    <FormReferences>
    		<Reference Name="report.admin.form.ReportViewListForm" SubForms="report.admin.form.ReportFormListForm" Description="Report Page"/>
-   		<Reference Name="report.admin.form.ReportFormListForm" SubForms="report.admin.form.ReportFormElementListForm" Description="Report Form"/>
-   		<Reference Name="report.admin.form.ReportFormElementListForm" Description="Report Element"/>
+   		<!--<Reference Name="report.admin.form.ReportFormListForm" SubForms="report.admin.form.ReportFormElementListForm" Description="Report Form"/>
+   		<Reference Name="report.admin.form.ReportFormElementListForm" Description="Report Element"/>-->
    </FormReferences>
    
 </EasyView>

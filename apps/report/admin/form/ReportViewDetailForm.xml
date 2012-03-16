@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReportViewDetailForm" Class="ReportViewForm" Icon="icon_report_page.gif" FormType="" jsClass="jbForm" Title="Details of Report" Description="Report Page is a container of report forms and charts.\n Each page could contains multi form and charts." BizDataObj="report.admin.do.ReportViewDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl.html" EventName="REPORT_VIEW" >
+<EasyForm Name="ReportViewDetailForm" Class="ReportViewForm" Icon="icon_report_page.gif" FormType="" jsClass="jbForm" Title="Report #{@:Elem[fld_Id].Value}" Description="Report Page is a container of report forms and charts.\n Each page could contains multi form and charts." BizDataObj="report.admin.do.ReportViewDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_tab.tpl" EventName="REPORT_VIEW" >
     <DataPanel>
 		<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-        <Element Name="fld_title" ElementSet="General" Class="LabelText" FieldName="title" Label="Title"  AllowURLParam="N"  />
+        <Element Name="fld_title" ElementSet="Top" Class="LabelText" FieldName="title" Label="Title"  AllowURLParam="N"  />
         <Element Name="fld_group_name" ElementSet="General" Class="LabelText" FieldName="group_name" Label="Group" /> 
 		<Element Name="fld_description" ElementSet="General"  Class="LabelText" FieldName="description" Label="Description"  AllowURLParam="N"/>
     	<Element Name="fld_sortorder" ElementSet="General"  Class="LabelText" FieldName="sortorder" Label="Sort Order"  AllowURLParam="N" />
@@ -27,7 +27,7 @@
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=report.admin.form.ReportViewListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
-            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportViewListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="js:history.go(-1)"  ShortcutKey="Escape" ContextMenu="Cancel" />
         </Element>         
     </ActionPanel> 
     <NavPanel>

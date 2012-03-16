@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ReportFormDetailView" viewset="ReportAdmin" Description="Manage Report Pages" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_admin_report.tpl" Access="Report.AdminReport">
+   <FormReferences>
+   		<Reference Name="report.admin.form.ReportFormDetailForm" SubForms="report.admin.form.ReportFormElementListForm" Description="Report Form"/>
+   		<Reference Name="report.admin.form.ReportFormElementListForm" Description="Report Element"/>
+   </FormReferences>
+   
+</EasyView>

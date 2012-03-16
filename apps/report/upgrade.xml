@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="no"?>
+<Upgrade>
+    <Version Name="0.9.2">
+        <UpgradeSql><![CDATA[
+ALTER TABLE `report_do_field` ADD COLUMN `join_id` INT(11) NULL AFTER `do_id`; 
+ALTER TABLE `report_do_field` ADD COLUMN `value` VARCHAR(255) NULL AFTER `format`; 
+DROP TABLE IF EXISTS `report_do_join`;
+CREATE TABLE `report_do_join` (
+   `id` int(11) NOT NULL AUTO_INCREMENT,
+   `name` varchar(100) NOT NULL,
+   `do_id` int(11) NOT NULL,
+   `table` varchar(100) DEFAULT NULL,
+   `column` varchar(100) DEFAULT NULL,
+   `jointype` varchar(50) DEFAULT NULL,
+   `columnref` varchar(100) DEFAULT NULL,
+   `joinref` varchar(100) DEFAULT NULL,
+   `create_by` int(11) NOT NULL DEFAULT '1',
+   `create_time` datetime NOT NULL,
+   `update_by` int(11) NOT NULL DEFAULT '1',
+   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+   PRIMARY KEY (`id`)
+ ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `report_sample_prod`;
+CREATE TABLE `report_sample_prod` (
+   `id` int(11) NOT NULL AUTO_INCREMENT,
+   `sku` varchar(64) NOT NULL,
+   `name` varchar(100) NOT NULL,
+   `description` varchar(255) NOT NULL,
+   PRIMARY KEY (`id`)
+ ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+insert  into `report_sample_prod` (`id`, `sku`, `name`, `description`) values('1','HD-1','HDTV','High Definition Television');
+insert  into `report_sample_prod` (`id`, `sku`, `name`, `description`) values('2','SD-1','SDTV','Standard Definition Television');
+DROP TABLE IF EXISTS `report_sample_prod_price`;
+CREATE TABLE `report_sample_prod_price` (
+   `id` INT(11) NOT NULL AUTO_INCREMENT,
+   `sku` VARCHAR(64) NOT NULL,
+   `price` FLOAT NOT NULL,
+   `currency` VARCHAR(10) NOT NULL,
+   PRIMARY KEY (`id`)
+ ) ENGINE=MYISAM DEFAULT CHARSET=utf8;
+insert  into `report_sample_prod_price` (`id`, `sku`, `price`, `currency`) values('1','HD-1','1200','USD');
+insert  into `report_sample_prod_price` (`id`, `sku`, `price`, `currency`) values('2','SD-1','800','USD');
+        ]]></UpgradeSql>
+    </Version>
+</Upgrade>

@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="ReportFormElementDO" Description="" Class="BizDataObj" DBName="Default" Table="report_form_element" SearchRule="" SortRule="[sortorder] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+<BizDataObj Name="ReportFormElementDO" Description="" Class="BizDataObj" DBName="Default" Table="report_form_element" SearchRule="" SortRule="[sortorder] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="120">
 	<BizFieldList>
 		<BizField Name="Id" Column="id"     Type="Number"/>
     		<BizField Name="name" Column="name" Length="100"   Required="N" Type="Text"/>
