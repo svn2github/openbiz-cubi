@@ -4,6 +4,10 @@
         <Element Name="fld_data_share"  Class="Radio" DefaultValue="{GROUP_DATA_SHARE}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="General" Description="" FieldName="_group_data_share" Label="Data Sharing"  >
         	<EventHandler Name="fld_data_share_onupdate" Event="onchange" Function="UpdateForm()"  />
         </Element>
+        <Element Name="fld_data_acl"  Class="Radio" DefaultValue="{DATA_ACL}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="General" Description="" FieldName="_data_acl" Label="Data ACL"  >
+        	<EventHandler Name="fld_data_share_onupdate" Event="onchange" Function="UpdateForm()"  />
+        </Element>
+        
         <Element Name="fld_owner_perm" Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}" Description="Default permission for data owner " Class="DropDownList" DefaultValue="{DEFAULT_OWNER_PERM}" SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing"  FieldName="_owner_perm" Label="Owner Perm"  />
         <Element Name="fld_group_perm" Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}" Description="Default permission for owner group's users" Class="DropDownList" DefaultValue="{DEFAULT_GROUP_PERM}" SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing"   FieldName="_group_perm" Label="Group Perm"  />
 		<Element Name="fld_other_perm"  Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}" Description="Default permission for other users " Class="DropDownList" DefaultValue="{DEFAULT_OTHER_PERM}" SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" FieldName="_other_perm" Label="Other Perm"  />		
