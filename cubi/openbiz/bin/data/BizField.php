@@ -8,7 +8,7 @@
  * with this package in the file LICENSE.txt.
  *
  * @package   openbiz.bin.data
- * @copyright Copyright (c) 2005-2011, Rocky Swen
+ * @copyright Copyright &copy; 2005-2009, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
  * @version   $Id: BizField.php 2553 2010-11-21 08:36:48Z mr_a_ton $
@@ -152,7 +152,8 @@ class BizField extends MetaObject
     {
         $ret = parent::getProperty($propertyName);
         if ($ret) return $ret;
-        if ($propertyName == "Value") return $this->getValue();
+        //if ($propertyName == "Value") return $this->getValue();
+		if ($propertyName == "Value") return $this->lookupValue();
         return $this->$propertyName;
     }
 
@@ -223,6 +224,18 @@ class BizField extends MetaObject
         return 'null';
     }
 
+	/**
+     * Lookup the value of the field. Typically used in expression @:Field[name].Value
+     *
+     * @param boolean $formatted true if want to get the formatted value
+     * @return mixed string or number depending on the field type
+     */ 
+	public function lookupValue()
+	{
+		$this->getDataObj()->getActiveRecord();
+		return $this->getValue();
+	}
+	
     /**
      * Get the value of the field.
      *
@@ -233,7 +246,7 @@ class BizField extends MetaObject
     {
         // need to ensure that value are retrieved from source/cache
         //if ($this->getDataObj()->CheckDataRetrieved() == false)    	
-        $this->getDataObj()->getActiveRecord();
+        //$this->getDataObj()->getActiveRecord();
         $value = stripcslashes($this->m_Value);
 
         $value = $this->m_Value;
