@@ -24,6 +24,7 @@ class dataPermService
 		}
 		return false;
 	}
+	
 	public function CheckDataPerm($rec,$permCode,$dataObj=null)
 	{
 		if(BizSystem::allowUserAccess("data_manage.manage")){
@@ -76,7 +77,7 @@ class dataPermService
 		
 		//merge acl user list into this list
 		$aclDO = BizSystem::getObject("common.do.DataACLDO");
-		if($aclDO && $dataObj){
+		if($aclDO && $dataObj  && DATA_ACL){
 			$acl_table = $aclDO->m_MainTable;
 			$record_table = $dataObj->m_MainTable;
 			$record_id = $rec['Id'];
@@ -142,7 +143,7 @@ class dataPermService
 
 		
 		$aclDO = BizSystem::getObject("common.do.DataACLDO");
-		if($aclDO){
+		if($aclDO && DATA_ACL){
 			$acl_table = $aclDO->m_MainTable;
 			if($type=='select')
 			{
@@ -215,7 +216,7 @@ class dataPermService
 		
 		//merge acl user list into this list
 		$aclDO = BizSystem::getObject("common.do.DataACLDO");
-		if($aclDO && $dataObj){
+		if($aclDO && $dataObj  && DATA_ACL){
 			$acl_table = $aclDO->m_MainTable;
 			$record_table = $dataObj->m_MainTable;
 			$record_id = $recId;
@@ -284,7 +285,7 @@ class dataPermService
 		
 		//merge acl user list into this list
 		$aclDO = BizSystem::getObject("common.do.DataACLDO");
-		if($aclDO && $dataObj){
+		if($aclDO && $dataObj  && DATA_ACL){
 			$acl_table = $aclDO->m_MainTable;
 			$record_table = $dataObj->m_MainTable;
 			$record_id = $recId;
