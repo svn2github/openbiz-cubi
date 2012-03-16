@@ -27,10 +27,10 @@
 	<div class="detail_form_panel_padding" >
 	{assign var=es_counter value=0}
 	{foreach item=setname name=elemsets  from=$form.elementSets}
-		{if $smarty.foreach.elemsets.first}
+		{if $smarty.foreach.elemsets.last}
 		<div id="element_set_{$es_counter}" class="underline upline">
 		{else}
-		<div id="element_set_{$es_counter}" class="underline">
+		<div id="element_set_{$es_counter}" class="upline ">
 		{/if}
 		<h2 class="element_set_title"><a id="element_set_btn_{$es_counter}" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','{$es_counter}')" >{$setname}</a></h2>
 			<div id="element_set_panel_{$es_counter}" class="element_set_panel">
