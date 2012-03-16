@@ -873,10 +873,13 @@ width:1000px;
 	padding-bottom:5px;
 	padding-top:5px;
 	width:650px;
-	border-top-width: 1px;
+	border-top-width: 0px;
 	border-top-style: solid;
 	border-top-color: #CCC;
 	/*-moz-border-image: url(../images/upline.png)  0 1  stretch ;*/
+	background-image:url(../images/upline.png);
+	background-repeat:no-repeat;
+	background-position:center top ;
 }
 .photo_frame{
 	background-image:url(../images/profile_photo_bg.gif);
