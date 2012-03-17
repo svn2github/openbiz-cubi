@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReleaseDetailROForm" Class="ReleaseForm" Icon="{RESOURCE_URL}/release/images/icon_release.png" FormType="Detail" jsClass="jbForm" Title="Release Detail" Description="You can click to downlaod release, and use checksum value to confirm file is intact." BizDataObj="release.do.ReleasePickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_release_quick_detail.tpl.html"  Access="release.access">
+<EasyForm Name="ReleaseDetailROForm" Class="ReleaseForm" Icon="{RESOURCE_URL}/release/images/icon_release.png" FormType="Detail" jsClass="jbForm" Title="Release Detail" Description="You can click to downlaod release, and use checksum value to confirm file is intact." BizDataObj="release.do.ReleasePickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_release_quick_detail.tpl.html"  Access="Repository.Manage">
     <DataPanel>        
     	<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>   
         <Element Name="fld_title" Class="LabelText" FieldName="title" Label="Title"   />	        

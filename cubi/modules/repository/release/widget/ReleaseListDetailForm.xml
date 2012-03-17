@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReleaseListDetailForm" Class="ReleaseForm" FormType="List" jsClass="jbForm" BizDataObj="repository.release.do.ReleaseDO"   PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="release.access">
+<EasyForm Name="ReleaseListDetailForm" Class="ReleaseForm" FormType="List" jsClass="jbForm" BizDataObj="repository.release.do.ReleaseDO"   PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="Repository.Manage">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
         <Element Name="fld_icon" Class="ColumnImage" 
