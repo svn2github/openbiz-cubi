@@ -85,7 +85,7 @@ p.input_row {
 	background-position:left top;
 }
 .loader_box{
-background-image:url(../images/loading_bg.gif);
+background-image:url(../images/loading_bg.png);
 background-repeat:no-repeat;
 background-position:left top;
 display:block;
