@@ -104,8 +104,9 @@ class BackupForm extends EasyForm
 			"filename" 	=> basename($filename),
 			"filesize" 	=> $this->format_bytes(filesize($filename)),
 			"update_time" => date("Y-m-d H:i:s",filemtime($filename)),
+			"timestamp" => filemtime($filename),
 			);
-			array_push($resultRecords,$record);
+			$resultRecords[filemtime($filename)]=$record;
 		}		
 		foreach(glob($this->m_Folder.DIRECTORY_SEPARATOR."*.sql") as $filename){
 			$record = array(
@@ -115,13 +116,15 @@ class BackupForm extends EasyForm
 			"filename" 	=> basename($filename),
 			"filesize" 	=> $this->format_bytes(filesize($filename)),
 			"update_time" => date("Y-m-d H:i:s",filemtime($filename)),
+			"timestamp" => filemtime($filename),
 			);
-			array_push($resultRecords,$record);
+			$resultRecords[filemtime($filename)]=$record;			
 		}	
 		}catch(Exception $e)
 		{
 			
-		}	
+		}
+		krsort($resultRecords);
 		return $resultRecords;
 	}
 	
