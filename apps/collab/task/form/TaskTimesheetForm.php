@@ -33,7 +33,7 @@ class TaskTimesheetForm extends ChangeLogForm
 	{		
 		$this->calcDateRange();
 		$svcObj = BizSystem::GetService(DATAPERM_SERVICE);
-	    $dataPermSQLRule = $svcObj->buildSqlRule('update',true);
+	    $dataPermSQLRule = $svcObj->buildSqlRule($this->getDataObj(),'update',true,true);
 	    $this->m_FixSearchRule = $dataPermSQLRule;				
 		return array();
 	}  
@@ -122,7 +122,7 @@ class TaskTimesheetForm extends ChangeLogForm
 		) 
 		";
 		$svcObj = BizSystem::GetService(DATAPERM_SERVICE);
-	    $dataPermSQLRule = $svcObj->buildSqlRule('update',true);
+	    $dataPermSQLRule = $svcObj->buildSqlRule($this->getDataObj(),'update',true,true);
 	    $searchRule .= ' AND '.$dataPermSQLRule;	
 	    
 		$recs = BizSystem::getObject('collab.task.do.TaskStatDO',1)->directfetch($searchRule);

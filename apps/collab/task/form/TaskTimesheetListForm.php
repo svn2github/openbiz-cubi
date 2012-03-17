@@ -120,7 +120,7 @@ class TaskTimesheetListForm extends ChangeLogForm
         
         //added pervious other status tasks
         QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
-        $dataPermSQLRule = BizSystem::GetService(DATAPERM_SERVICE)->buildSqlRule('update',true);
+        $dataPermSQLRule = BizSystem::GetService(DATAPERM_SERVICE)->buildSqlRule($this->getDataObj(),'update',true,true);
         $searchRule =  "( [finish_time]<='$sel_date 00:00:00' ) AND ([status]!=2) AND $dataPermSQLRule";
         $dataObj->setOtherSQLRule("");
 		$dataObj->setLimit(0,0);
@@ -142,7 +142,7 @@ class TaskTimesheetListForm extends ChangeLogForm
     {
     	$output = parent::outputAttrs(); 
     	$svcObj = BizSystem::GetService(DATAPERM_SERVICE);
-	    $dataPermSQLRule = $svcObj->buildSqlRule('update',true);
+	    $dataPermSQLRule = $svcObj->buildSqlRule($this->getDataObj(),'update',true,true);
 	    $this->m_FixSearchRule = $dataPermSQLRule;   	
     	$output['dataGroup'] = $this->fetchDataGroup();
     	return $output;	
