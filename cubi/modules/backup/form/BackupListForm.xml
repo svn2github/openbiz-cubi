@@ -13,7 +13,7 @@
         <Element Name="fld_filesize" Class="ColumnText" FieldName="filesize" Label="Filesize"  >            
         </Element>
 
-		<Element Name="fld_updatedate" Class="ColumnText" FieldName="update_time" Label="Update Time"  />
+		<Element Name="fld_updatedate" Class="ColumnText" FieldName="update_time" Label="Create Time"  />
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Backup" CssClass="button_gray_w" Description="New Backup (Insert)">
