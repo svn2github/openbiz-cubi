@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReleaseDetailROForm" Class="ReleaseForm" Icon="{RESOURCE_URL}/release/images/icon_release.png" FormType="Detail" jsClass="jbForm" Title="Release Detail" Description="You can click to downlaod release, and use checksum value to confirm file is intact." BizDataObj="release.do.ReleasePickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_release_quick_detail.tpl.html"  Access="release.access">
+    <DataPanel>        
+    	<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>   
+        <Element Name="fld_title" Class="LabelText" FieldName="title" Label="Title"   />	        
+        <Element Name="fld_description" Class="LabelTextarea" FieldName="description" Label="Description"   />
+        <Element Name="fld_filename" Class="LabelText" FieldName="filename" Label="Filename"   />
+        <Element Name="fld_filesize" Class="LabelText" FieldName="filesize" Text="{@util:format_bytes(@:Elem[fld_filesize].Value)}" Label="Filesize"   />
+        <Element Name="fld_md5" Class="LabelText" FieldName="md5" Label="MD5"   />
+        <Element Name="fld_sha256" Class="LabelText" FieldName="sha256" Label="SHA256"   />
+    </DataPanel>
+    <ActionPanel>	 
+        <Element Name="btn_download" Class="Button" Text="Download" CssClass="button_gray_w">
+            <EventHandler Name="btn_download_onclick" Event="onclick" FunctionType="Page" Function="FileDownload({@:Elem[fld_Id].Value})"/>
+        </Element>
+		<Element Name="btn_spacer" Class="Spacer" width="10" />		
+		<Element Name="btn_showlog" Class="Button" Text="Log" CssClass="button_gray_m">
+            <EventHandler Name="btn_showlog_onclick" Event="onclick" Function="switchForm(repositiory.release.widget.ReleaseDownloadLogForm,release_id={@:Elem[fld_Id].Value})"/>
+        </Element>	
+        <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

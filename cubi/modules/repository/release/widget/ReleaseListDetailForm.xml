@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReleaseListDetailForm" Class="ReleaseForm" FormType="List" jsClass="jbForm" BizDataObj="repository.release.do.ReleaseDO"   PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="release.access">
+    <DataPanel>
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        <Element Name="fld_icon" Class="ColumnImage" 
+				Text="{RESOURCE_URL}/release/images/icon_release_private.png"
+				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">							
+		</Element>
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+        	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(repositiory.release.widget.ReleaseDetailROForm,{@:Elem[fld_Id].Value})"/>
+        </Element>
+        <Element Name="fld_filename" MaxLength="20" Class="ColumnText" FieldName="filename" Label="Filename" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_filesize" Class="ColumnText" FieldName="filesize" Text="{tx}@util:format_bytes(@:Elem[fld_filesize].Value){/tx}" Label="Filesize" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
+        <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Timestamp"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_download" Class="ColumnText" FieldName="download_count" Label="Downloads" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+    </DataPanel>
+</EasyForm>

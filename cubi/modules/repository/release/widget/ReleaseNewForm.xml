@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReleaseNewForm" Class="ReleaseForm" Icon="{RESOURCE_URL}/release/images/icon_release.png" FormType="New" jsClass="jbForm" Title="New Release" Description="Please select files from your computer to upload releases." BizDataObj="release.do.ReleasePickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_release_quick_add.tpl.html"  Access="release.access">
+    <DataPanel>        
+        <Element Name="fld_title" DefaultValue="New Release" Class="InputText" FieldName="title" Label="Title"   />	
+        <Element Name="fld_releases" Class="release.element.ReleaseUploader" FieldName="file" Label="Files" />
+    </DataPanel>
+    <ActionPanel>
+	    <Element Name="btn_upload_file" Class="Hidden" >
+            <EventHandler Name="upload_onclick" EventLogMsg="" Event="onclick" Function="uploadFile()"  />
+        </Element>
+        <Element Name="btn_check_file" Class="Hidden" >
+            <EventHandler Name="check_onclick" EventLogMsg="" Event="onclick" Function="checkFile()"  />
+        </Element> 
+        <Element Name="btn_upload" Class="Button" Text="Upload" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="js:$j('#fld_releases').uploadifyUpload()"   ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>        
+        <Element Name="btn_clear" Class="Button" Text="Clear" CssClass="button_gray_m">
+            <EventHandler Name="btn_clear_onclick" Event="onclick" Function="js:$j('#fld_releases').uploadifyClearQueue()"/>
+        </Element>
+        <Element Name="Spacer" Class="Spacer" Width="10" />
+        <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
