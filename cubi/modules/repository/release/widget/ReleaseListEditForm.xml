@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReleaseListEditForm" Class="ReleaseForm" FormType="List" jsClass="jbForm" Icon="" BizDataObj="release.do.ReleaseDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_in_tab.tpl.html"  Access="Repository.Manage">
+<EasyForm Name="ReleaseListEditForm" Class="ReleaseForm" FormType="List" jsClass="jbForm" Icon="" BizDataObj="repository.release.do.ReleaseDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_in_tab.tpl.html"  Access="Repository.Manage">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>        
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
@@ -8,7 +8,7 @@
 				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">				
 		</Element>
         <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
-                	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(repositiory.release.widget.ReleaseDetailForm,{@:Elem[fld_Id].Value})"/>        
+                	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(repository.release.widget.ReleaseDetailForm,{@:Elem[fld_Id].Value})"/>        
         </Element>
         <Element Name="fld_filename" MaxLength="20" Class="ColumnText" FieldName="filename" Label="Filename" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
         <Element Name="fld_filesize" Class="ColumnText" FieldName="filesize" Text="{tx}@util:format_bytes(@:Elem[fld_filesize].Value){/tx}"  Label="Filesize" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
@@ -18,10 +18,10 @@
     </DataPanel>
 	<ActionPanel>
 		<Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add">
-            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(repositiory.release.widget.ReleaseNewForm)"/>
+            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(repository.release.widget.ReleaseNewForm)"/>
         </Element>
         <Element Name="btn_edit" Class="Button" text="Edit" CssClass="button_gray_m">
-            <EventHandler Name="delete_onclick" Event="onclick" Function="LoadDialog(repositiory.release.widget.ReleaseEditForm,,1)"/>
+            <EventHandler Name="delete_onclick" Event="onclick" Function="LoadDialog(repository.release.widget.ReleaseEditForm,,1)"/>
         </Element>
          <Element Name="btn_delete" Class="Button" text="Delete" CssClass="button_gray_m">
             <EventHandler Name="delete_onclick" Event="onclick" Function="DeleteRecord()"/>

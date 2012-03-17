@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReleaseDetailForm" Class="ReleaseForm" inheritFrom="repositiory.release.widget.ReleaseDetailROForm"  Access="Repository.Manage">
+<EasyForm Name="ReleaseDetailForm" Class="ReleaseForm" inheritFrom="repository.release.widget.ReleaseDetailROForm"  Access="Repository.Manage">
 
     <ActionPanel>
 	 
@@ -9,10 +9,10 @@
         
 		<Element Name="btn_spacer" Class="Spacer" width="10" />
 		<Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m">
-            <EventHandler Name="btn_close_onclick" Event="onclick" Function="switchForm(repositiory.release.widget.ReleaseEditForm,{@:Elem[fld_Id].Value})"/>
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="switchForm(repository.release.widget.ReleaseEditForm,{@:Elem[fld_Id].Value})"/>
         </Element>
         <Element Name="btn_showlog" Class="Button" Text="Log" CssClass="button_gray_m">
-            <EventHandler Name="btn_showlog_onclick" Event="onclick" Function="switchForm(repositiory.release.widget.ReleaseDownloadLogForm,,release_id={@:Elem[fld_Id].Value})"/>
+            <EventHandler Name="btn_showlog_onclick" Event="onclick" Function="switchForm(repository.release.widget.ReleaseDownloadLogForm,,release_id={@:Elem[fld_Id].Value})"/>
         </Element>
         <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
             <EventHandler Name="btn_close_onclick" Event="onclick" Function="close()"/>

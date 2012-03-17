@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ApplicationEditScreenshotForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif"  Class="EasyForm" FormType="" jsClass="jbForm" Title="Edit Application Screenshot" Description="This module can manage repositroy applications " BizDataObj="repository.application.do.ApplicationDO" TemplateEngine="Smarty" TemplateFile="app_detail.tpl.html" EventName="" MessageFile="">
+<EasyForm Name="ApplicationEditReleaseForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif"  Class="EasyForm" FormType="" jsClass="jbForm" Title="Edit Application Release" Description="This module can manage repositroy applications " BizDataObj="repository.application.do.ApplicationDO" TemplateEngine="Smarty" TemplateFile="app_detail.tpl.html" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
        	<Element Name="fld_icon" Class="RawData"  ElementSet="General"  FieldName="icon" Label="App Icon"  AllowURLParam="N" ></Element>       	
@@ -16,7 +16,7 @@
         
         
         
-		<Element Name="fld_related_picture" Access="picture.access"  ElementSet="Screenshots" Class="FormElement" FormReference="picture.widget.PictureListEditForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_related_picture" Access="picture.access"  ElementSet="Version Release" Class="FormElement" FormReference="repository.release.widget.ReleaseListEditForm" FieldName="" Label="" AllowURLParam="N" />
 
         
         
