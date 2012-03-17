@@ -3,13 +3,15 @@
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>        
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
-        <Element Name="fld_icon" Class="ColumnImage" 
-				Text="{RESOURCE_URL}/release/images/icon_release_private.png"
-				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">				
+       <Element Name="fld_icon" Class="ColumnImage" 
+				Text="{RESOURCE_URL}/repository/images/repo_application.gif" Height="24"
+				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">							
 		</Element>
-        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
-                	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(repository.release.widget.ReleaseDetailForm,{@:Elem[fld_Id].Value})"/>        
+       <Element Name="fld_title" Class="ColumnText" FieldName="version" Label="Version" Text="Version {@:Elem[fld_title].Value}"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+        	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(repository.release.widget.ReleaseDetailForm,{@:Elem[fld_Id].Value})"/>
         </Element>
+        <Element Name="fld_platform" Class="ColumnList" FieldName="pltfm_ver" SelectFrom="repository.lov.PlatformLOV(Platform)" Label="Platform"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        
         <Element Name="fld_filename" MaxLength="20" Class="ColumnText" FieldName="filename" Label="Filename" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
         <Element Name="fld_filesize" Class="ColumnText" FieldName="filesize" Text="{tx}@util:format_bytes(@:Elem[fld_filesize].Value){/tx}"  Label="Filesize" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
 		<Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Timestamp"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>

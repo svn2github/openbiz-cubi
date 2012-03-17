@@ -2,8 +2,8 @@
 <EasyForm Name="ReleaseDetailROForm" Class="ReleaseForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif" FormType="Detail" jsClass="jbForm" Title="Release Detail" Description="You can click to downlaod release, and use checksum value to confirm file is intact." BizDataObj="repository.release.do.ReleaseDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_release_quick_detail.tpl.html"  Access="Repository.Manage">
     <DataPanel>        
     	<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>   
-        <Element Name="fld_title" Class="LabelText" FieldName="title" Label="Title"   />	        
-        <Element Name="fld_description" Class="LabelTextarea" FieldName="description" Label="Description"   />
+        <Element Name="fld_version" Class="LabelText" FieldName="version" Label="Version" Text="Version {@:Elem[fld_version].Value}"    />	        
+        <Element Name="fld_platform" Class="LabelList" FieldName="pltfm_ver" Label="Platform"  SelectFrom="repository.lov.PlatformLOV(Platform)"   />	        
         <Element Name="fld_filename" Class="LabelText" FieldName="filename" Label="Filename"   />
         <Element Name="fld_filesize" Class="LabelText" FieldName="filesize" Text="{@util:format_bytes(@:Elem[fld_filesize].Value)}" Label="Filesize"   />
         <Element Name="fld_md5" Class="LabelText" FieldName="md5" Label="MD5"   />
