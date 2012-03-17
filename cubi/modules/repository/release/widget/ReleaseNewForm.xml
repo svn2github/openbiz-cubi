@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReleaseNewForm" Class="ReleaseForm" Icon="{RESOURCE_URL}/release/images/icon_release.png" FormType="New" jsClass="jbForm" Title="New Release" Description="Please select files from your computer to upload releases." BizDataObj="repository.release.do.ReleaseDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_release_quick_add.tpl.html"  Access="Repository.Manage">
+<EasyForm Name="ReleaseNewForm" Class="ReleaseForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif" FormType="New" jsClass="jbForm" Title="New Release" Description="Please select a package from your computer to upload" BizDataObj="repository.release.do.ReleaseDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_release_quick_add.tpl.html"  Access="Repository.Manage">
     <DataPanel>        
-        <Element Name="fld_title" DefaultValue="New Release" Class="InputText" FieldName="title" Label="Title"   />	
-        <Element Name="fld_releases" Class="release.element.ReleaseUploader" FieldName="file" Label="Files" />
+        <Element Name="fld_version"  Class="InputText" FieldName="version" Label="Version"   />	
+        <Element Name="fld_pltfm_ver"  Class="Listbox" SelectFrom="repository.lov.PlatformLOV(Platform)" FieldName="pltfm_ver" Label="Platform"   />
+        <Element Name="fld_releases" Class="repository.release.element.ReleaseUploader" FieldName="file" Label="Package" />
     </DataPanel>
     <ActionPanel>
 	    <Element Name="btn_upload_file" Class="Hidden" >

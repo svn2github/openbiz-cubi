@@ -10,15 +10,10 @@ class ReleaseForm extends PickerForm
 		
 		$upload_user_dir = BizSystem::getUserProfile("Id");						
 		$upload_user_dir = (int)$upload_user_dir;
-		$upload_dir = "common";
+		$upload_dir = "app_release";
 		
 		try {
-            $parentForm = BizSystem::getObject($this->m_ParentFormName);		
-            $cond_value = $parentForm->getDataObj()->m_Association['CondValue'];
-            if($cond_value)
-            {
-                $upload_dir = $cond_value;
-            }
+
                                 
             if(!file_exists(PUBLIC_UPLOAD_PATH.DIRECTORY_SEPARATOR.$this->m_BasePath.DIRECTORY_SEPARATOR.$upload_dir.DIRECTORY_SEPARATOR.$upload_user_dir)) {
                 @mkdir(PUBLIC_UPLOAD_PATH.DIRECTORY_SEPARATOR.$this->m_BasePath.DIRECTORY_SEPARATOR.$upload_dir.DIRECTORY_SEPARATOR.$upload_user_dir,0777,true);

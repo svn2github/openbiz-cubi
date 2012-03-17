@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <Platform Value="3.0" text="Openbiz Cubi v3.0"/>
+   <Platform Value="2.4" text="Openbiz Cubi v2.4"/>
+   <Platform Value="2.3" text="Openbiz Cubi v2.3"/>
+   <Platform Value="2.0" text="Openbiz Cubi v2.0"/>   
+</Selection>
