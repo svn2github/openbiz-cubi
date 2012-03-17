@@ -97,7 +97,7 @@ class dataPermService
 		return false;
 	}
 	
-	public function BuildSQLRule($dataObj,$type,$hasOwnerField=false)
+	public function BuildSQLRule($dataObj,$type,$hasOwnerField=false,$alias=false)
 	{
 		if(BizSystem::allowUserAccess("data_manage.manage")){
 			return " TRUE ";
@@ -145,7 +145,7 @@ class dataPermService
 		$aclDO = BizSystem::getObject("common.do.DataACLDO");
 		if($aclDO && DATA_ACL){			
 			$acl_table = $aclDO->m_MainTable;
-			if($type=='select')
+			if($type=='select' || $alias==true)
 			{
 				$record_table = "T0";
 			}
