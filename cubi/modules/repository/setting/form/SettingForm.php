@@ -106,7 +106,7 @@ class SettingForm extends EasyForm
         }
 		
         // new save logic
-        $user_id = BizSystem::getUserProfile("Id");
+        $user_id = 0;
         $prefDo = $this->getDataObj();
         
         foreach ($this->m_DataPanel as $element)
@@ -137,10 +137,7 @@ class SettingForm extends EasyForm
             }
         }
         
-		//reload profile
-		BizSystem::getService(PROFILE_SERVICE)->InitProfile(BizSystem::getUserProfile("username"));
-        
-
+		
         // in case of popup form, close it, then rerender the parent form
         if ($this->m_ParentFormName)
         {

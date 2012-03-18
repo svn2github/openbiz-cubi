@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="SettingEditForm" Class="SettingForm" FormType="Edit" Icon="icon_my_preference.gif" jsClass="jbForm"  SearchRule="[user_id]='{@profile:Id}'" Title="Edit My Perference" Description="You can custom your personal setting in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl">
+<EasyForm Name="SettingEditForm" Class="SettingForm" FormType="Edit" Icon="{RESOURCE_URL}/repository/images/repo_application.gif" jsClass="jbForm"  SearchRule="[user_id]='0'" Title="Edit Repository Setting" Description="You can setup yoru repository setting for publish your apps." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl">
     <DataPanel>
         <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>
-        <Element Name="fld_username"  Class="LabelText" ElementSet="General" FieldName="" Text="{@profile:username}" Label="Username"  CssClass=""/>        
-		<Element Name="fld_language" ReadOnly="Y"  Class="LanguageSelector" ElementSet="General" FieldName="_language" Label="Language" CssClass="input_select_w" CssFocusClass="input_select_w_focus" CssHoverClass="input_select_w_hover" Description="My default language" />		
-        <Element Name="fld_theme" ReadOnly="Y" Class="ThemeSelector" ElementSet="General" label="Theme"  FieldName="_theme" CssClass="input_select_w" CssFocusClass="input_select_w_focus" CssHoverClass="input_select_w_hover" Description="My default theme" />
-		<Element Name="fld_continent" ReadOnly="Y" Class="myaccount.form.ContinentSelector" ElementSet="Timezone" Description="" FieldName="_continent" Label="Continent" BlankOption="---">
-			<EventHandler Name="fld_continent_onclick" Event="onchange" EventLogMsg=""  Function="UpdateForm()" />
-		</Element>		
-		<Element Name="fld_timezone" ReadOnly="Y" Class="myaccount.form.TimezoneSelector" continent="{@:Elem[fld_continent].Value}" ElementSet="Timezone" FieldName="_timezone" Label="Timezone" BlankOption="---" Description="My default timezone" />
-        <Element Name="fld_owner_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Default permission for my data " FieldName="_owner_perm" Label="Owner Perm"  />
-        <Element Name="fld_group_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing" Description="Default permission for my group's users" FieldName="_group_perm" Label="Group Perm"  />
-		<Element Name="fld_other_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" Description="Default permission for other users " FieldName="_other_perm" Label="Other Perm"  />		
-         
+        <Element Name="fld_uid"  Class="InputText" ElementSet="General" label="Global ID"  FieldName="_repo_uid" Description="Unique ID of this repository"   />
+        <Element Name="fld_name"  Class="InputText" ElementSet="General" FieldName="_repo_name" Label="Name"  Description="Display name of this repository"   />        
+		<Element Name="fld_desc"  Class="Textarea" ElementSet="General" FieldName="_repo_desc" Label="Description"  Description="Description of this repository" />		
+
+		<Element Name="fld_weburl"  Class="InputText" ElementSet="Support Information" FieldName="_repo_website" Description="" Label="Website"  />
+		<Element Name="fld_contact"  Class="InputText" ElementSet="Support Information" FieldName="_repo_contact" Description="" Label="Contact"  />
+		<Element Name="fld_email"  Class="InputText" ElementSet="Support Information" FieldName="_repo_email" Description="" Label="Email"  />
+		<Element Name="fld_phone"  Class="InputText" ElementSet="Support Information" FieldName="_repo_phone" Description="" Label="Phone"  />
+ 
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_w">
-            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=myaccount.form.PreferenceDetailForm" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=repository.setting.form.SettingDetailForm" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
