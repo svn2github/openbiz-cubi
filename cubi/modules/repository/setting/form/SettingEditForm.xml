@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="SettingEditForm" Class="SettingForm" FormType="Edit" Icon="icon_my_preference.gif" jsClass="jbForm"  SearchRule="[user_id]='{@profile:Id}'" Title="Edit My Perference" Description="You can custom your personal setting in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl">
+    <DataPanel>
+        <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>
+        <Element Name="fld_username"  Class="LabelText" ElementSet="General" FieldName="" Text="{@profile:username}" Label="Username"  CssClass=""/>        
+		<Element Name="fld_language" ReadOnly="Y"  Class="LanguageSelector" ElementSet="General" FieldName="_language" Label="Language" CssClass="input_select_w" CssFocusClass="input_select_w_focus" CssHoverClass="input_select_w_hover" Description="My default language" />		
+        <Element Name="fld_theme" ReadOnly="Y" Class="ThemeSelector" ElementSet="General" label="Theme"  FieldName="_theme" CssClass="input_select_w" CssFocusClass="input_select_w_focus" CssHoverClass="input_select_w_hover" Description="My default theme" />
+		<Element Name="fld_continent" ReadOnly="Y" Class="myaccount.form.ContinentSelector" ElementSet="Timezone" Description="" FieldName="_continent" Label="Continent" BlankOption="---">
+			<EventHandler Name="fld_continent_onclick" Event="onchange" EventLogMsg=""  Function="UpdateForm()" />
+		</Element>		
+		<Element Name="fld_timezone" ReadOnly="Y" Class="myaccount.form.TimezoneSelector" continent="{@:Elem[fld_continent].Value}" ElementSet="Timezone" FieldName="_timezone" Label="Timezone" BlankOption="---" Description="My default timezone" />
+        <Element Name="fld_owner_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Default permission for my data " FieldName="_owner_perm" Label="Owner Perm"  />
+        <Element Name="fld_group_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing" Description="Default permission for my group's users" FieldName="_group_perm" Label="Group Perm"  />
+		<Element Name="fld_other_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" Description="Default permission for other users " FieldName="_other_perm" Label="Other Perm"  />		
+         
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_w">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=myaccount.form.PreferenceDetailForm" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

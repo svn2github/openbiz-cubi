@@ -10,8 +10,10 @@
             <MenuItem Name="Repository.Category" 	Title="Repository Category" 	Access="Repository.Manage"  Description=""  URL="/repository/repository_category_list" Order="20"/>
             <MenuItem Name="Repository.Application" Title="Repository Application" 	Access="Repository.Manage"  Description=""  URL="/repository/repository_application_list" Order="40">
             	<MenuItem Name="Repository.ApplicationDetail" 	Title="Application Detail" 	Access="Repository.Manage"  Description=""  URL="/repository/repository_application_detail" Order="20"/>
-            </MenuItem>
-            <MenuItem Name="Repository.InstallLog"	Title="Client Install Log" 		Access="Repository.Manage"  Description=""  URL="/repository/client_install_log" Order="50"/>
+            </MenuItem>            
+            <MenuItem Name="Repository.Setting"	Title="Repository Setting" 		Access="Repository.Manage"  Description=""  URL="/repository/repository_setting" Order="60"/>
+            <MenuItem Name="Repository.InstallLog"	Title="Client Install Log" 		Access="Repository.Manage"  Description=""  URL="/repository/client_install_log" Order="80"/>
+            
 		</MenuItem>	
     </Menu>
     <Dependency>

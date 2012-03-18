@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="SettingDetailForm" Class="SettingForm" FormType="" Icon="icon_my_preference.gif" jsClass="jbForm" SearchRule="[user_id]='{@profile:Id}'" Title="My Preference" Description="You can custom your personal setting in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl">
+    <DataPanel>
+        <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>
+        <Element Name="fld_username"  Class="LabelText" ElementSet="General" FieldName="" Text="{@profile:username}" Label="Username"  CssClass=""/>        
+		<Element Name="fld_language"  Class="LabelText" ElementSet="General" FieldName="_language" Label="Language"  Description="My default language" />		
+        <Element Name="fld_theme"  Class="LabelText" ElementSet="General" label="Theme"  FieldName="_theme" Description="My default theme"   />
+		<Element Name="fld_continent"  Class="LabelText" ElementSet="Timezone" FieldName="_continent" Description="" Label="Continent"  />
+		<Element Name="fld_timezone"  Class="LabelText" ElementSet="Timezone"  FieldName="_timezone"  Description="My default timezone" Label="Timezone"  />		
+        <Element Name="fld_owner_perm"  Class="LabelList" SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Default permission for my data " FieldName="_owner_perm" Label="Owner Perm"  />
+        <Element Name="fld_group_perm"  Class="LabelList" SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing" Description="Default permission for my group's users" FieldName="_group_perm" Label="Group Perm"  />
+		<Element Name="fld_other_perm"  Class="LabelList" SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" Description="Default permission for other users " FieldName="_other_perm" Label="Other Perm"  />		
+        
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(myaccount.form.PreferenceEditForm)"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_back" Class="LabelText" Text="Back" Link="{@home:url}/myaccount/my_preference" CssClass="button_gray_m"/>		
+         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
