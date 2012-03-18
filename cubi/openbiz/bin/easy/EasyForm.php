@@ -847,14 +847,17 @@ class EasyForm extends MetaObject implements iSessionObject
     {
         if ($cleanActualRule)
             $this->m_FixSearchRule = $this->m_DefaultFixSearchRule;
-
+            
         if ($this->m_FixSearchRule && $rule)
-        {
+        {        	
             if (strpos($this->m_FixSearchRule, $rule) === false)
+            {
                 $this->m_FixSearchRule = $this->m_FixSearchRule . " AND " . $rule;
+            }
         }
-        if (!$this->m_FixSearchRule && $rule)
+        if (!$this->m_FixSearchRule && $rule){
             $this->m_FixSearchRule = $rule;
+        }
     }
 
     /**
@@ -1224,9 +1227,9 @@ class EasyForm extends MetaObject implements iSessionObject
  	      	     	$formObj->m_ReferenceFormName = $this->m_Name;
     			} 
             }
-            foreach($paramFields as $fieldName=>$val){
+            foreach($paramFields as $fieldName=>$val){            	
             	$formObj->m_FormParams[$fieldName] = $val;
-                $formObj->setFixSearchRule("[$fieldName]='$val'");
+                $formObj->setFixSearchRule("[$fieldName]='$val'",false);                
                 if($fieldName=="Id"){
                 	$formObj->setRecordId($val);
                 }
