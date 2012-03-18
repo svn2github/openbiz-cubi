@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="SettingDetailForm" Class="SettingForm" FormType="" Icon="{RESOURCE_URL}/repository/images/repo_application.gif" jsClass="jbForm" SearchRule="[user_id]='0'" Title="Repository Setting" Description="You can setup yoru repository setting for publish your apps." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl">
     <DataPanel>
-
         <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>
-        <Element Name="fld_uid"  Class="LabelText" ElementSet="General" label="Unique ID"  FieldName="_repo_uid" Description="Unique ID of this repository"   />
         <Element Name="fld_name"  Class="LabelText" ElementSet="General" FieldName="_repo_name" Label="Name"  CssClass=""/>        
 		<Element Name="fld_desc"  Class="LabelTextarea" ElementSet="General" FieldName="_repo_desc" Label="Description"   />		
+        <Element Name="fld_uid"  Class="LabelText" ElementSet="General" label="Unique ID"  FieldName="_repo_uid" Description="Unique ID of this repository"   />
 
 		<Element Name="fld_weburl"  Class="LabelText" ElementSet="Support Information" FieldName="_repo_website" Description="" Label="Website"  />
 		<Element Name="fld_contact"  Class="LabelText" ElementSet="Support Information" FieldName="_repo_contact" Description="" Label="Contact"  />
