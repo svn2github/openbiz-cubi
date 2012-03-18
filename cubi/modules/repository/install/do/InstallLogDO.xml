@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="InstallLogDO" Description="" DataPermControl="N" Class="BizDataObj" DBName="Default" Table="repo_install_log" SearchRule="" SortRule="[Id] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" 			Column="id"     Type=""/>
+		<BizField Name="app_id" 		Column="app_id"     Type=""/>
+		<BizField Name="release_id" 	Column="release_id" />
+		<BizField Name="remote_ip" 		Column="remote_ip" />
+		<BizField Name="remote_siteurl" Column="remote_siteurl" Type=""/>
+		<BizField Name="remote_operator" Column="remote_operator" Type=""/>
+
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+       	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

@@ -197,15 +197,7 @@ class ReleaseForm extends PickerForm
 		$file_source = $dataRec['path'];
 		$file_name = $dataRec['filename'];
 		
-		$dataRec['download_count'] = (int)$dataRec['download_count']+1;		
-		$this->getDataObj()->updateRecord($dataRec);
-				
-		$logRec=array(
-			"user_id" => BizSystem::getUserProfile("Id"),
-			"attachment_id" => $id,
-			"timestamp" => date('Y-m-d H:i:s')
-		);
-		BizSystem::getObject("attachment.do.AttachmentDownloadLogDO")->insertRecord($logRec);
+					
 		
      	$object = new httpdownload();
      	$object->filename=$file_name;

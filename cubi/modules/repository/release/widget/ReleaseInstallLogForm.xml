@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ReleaseInstallLogForm" Class="ReleaseForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif" Title="Release Install Log" Description="You can view current release downlaod logs." FormType="List" jsClass="jbForm" BizDataObj="repository.install.do.InstallLogDO"   PageSize="5" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_release_install_log.tpl.html"  Access="Repository.Manage">
+    <DataPanel>
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="release_id" Label="Id" Sortable="Y" AllowURLParam="Y" Link="javascript:" />              
+        <Element Name="app_id" Class="Hidden" Hidden="Y" FieldName="app_id" Label="APPID" Sortable="Y" AllowURLParam="Y" Link="javascript:" />
+        <Element Name="release_id" Class="Hidden" Hidden="Y" FieldName="release_id" Label="RELEASE_ID" Sortable="Y" AllowURLParam="Y" Link="javascript:" />
+        <Element Name="fld_remote_ip" Class="ColumnText" FieldName="remote_ip"  Label="Remote IP" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_remote_siteurl" Class="ColumnText" FieldName="remote_siteurl"  Label="Remote Site URL" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_timestamp" Class="ColumnText" FieldName="create_time" Label="Timestamp"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+    </DataPanel>
+    <ActionPanel>
+    	<Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>     
+        <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>    
+    </ActionPanel> 
+ 	<NavPanel>
+    	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+        </Element> 
+        <Element Name="btn_first" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel>     
+</EasyForm>

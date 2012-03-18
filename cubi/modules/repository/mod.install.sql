@@ -6,7 +6,6 @@ CREATE TABLE IF NOT EXISTS `repo_install_log` (
   `remote_ip` varchar(255) NOT NULL,
   `remote_siteurl` varchar(255) NOT NULL,
   `remote_operator` varchar(255) NOT NULL,
-  `create_by` int(11) NOT NULL,
   `create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
