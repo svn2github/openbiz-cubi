@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="PackageListService" Class="PackageListService" BizDataObj="websvc.do.WebsvcDO"  MessageFile="">
+    <PublicMethod Name="foo" Access=""/>
+    <PublicMethod Name="search" Access=""/>
+    <PublicMethod Name="list_categories" Access=""/>
+</PluginService>
