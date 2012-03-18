@@ -26,6 +26,9 @@
 			<EventHandler Name="btn_manage_release_onclick" Event="onclick" Function="SwitchForm(repository.application.form.ApplicationEditReleaseForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
         
+        <Element Name="fld_install_log"   ElementSet="Install Log" Class="FormElement" FormReference="repository.install.widget.InstallLogForm" FieldName="" Label="" AllowURLParam="N" />
+		
+        
     </DataPanel>
     <ActionPanel>       
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">

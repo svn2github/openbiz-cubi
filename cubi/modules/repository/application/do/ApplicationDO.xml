@@ -22,6 +22,7 @@
     </TableJoins>
     <ObjReferences>
             <Object Name="picture.do.PictureDO" Description="" Relationship="1-M" Table="picture" CondColumn='type' CondValue='application' Column="foreign_id" FieldRef="Id" />        
-            <Object Name="repository.release.do.ReleaseDO" Description="" Relationship="1-M" Table="release" Column="app_id" FieldRef="Id" />
+            <Object Name="repository.release.do.ReleaseDO" Description="" Relationship="1-M" Table="repo_release" Column="app_id" FieldRef="Id" />
+            <Object Name="repository.install.do.InstallLogDO" Description="" Relationship="1-M" Table="repo_install_log" Column="app_id" FieldRef="Id" />
     </ObjReferences>
 </BizDataObj>

@@ -6,7 +6,7 @@
 				Text="{RESOURCE_URL}/repository/images/repo_application.gif" Height="24"
 				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">							
 		</Element>
-        <Element Name="fld_title" Class="ColumnText" FieldName="version" Label="Version" Text="Version {@:Elem[fld_title].Value}"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+        <Element Name="fld_release" Class="ColumnText" FieldName="version" Label="Version" Text="Version {@:Elem[fld_release].Value}"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
         	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(repository.release.widget.ReleaseDetailROForm,{@:Elem[fld_Id].Value})"/>
         </Element>
         <Element Name="fld_platform" Class="ColumnList" FieldName="pltfm_ver" SelectFrom="repository.lov.PlatformLOV(Platform)" Label="Platform"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
