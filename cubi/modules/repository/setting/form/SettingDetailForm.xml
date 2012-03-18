@@ -5,7 +5,7 @@
         <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>
         <Element Name="fld_uid"  Class="LabelText" ElementSet="General" label="Global ID"  FieldName="_repo_uid" Description="Unique ID of this repository"   />
         <Element Name="fld_name"  Class="LabelText" ElementSet="General" FieldName="_repo_name" Label="Name"  CssClass=""/>        
-		<Element Name="fld_desc"  Class="LabelTextarea" ElementSet="General" FieldName="_repo_desc" Label="Description"  Description="Description of this repository" />		
+		<Element Name="fld_desc"  Class="LabelTextarea" ElementSet="General" FieldName="_repo_desc" Label="Description"   />		
 
 		<Element Name="fld_weburl"  Class="LabelText" ElementSet="Support Information" FieldName="_repo_website" Description="" Label="Website"  />
 		<Element Name="fld_contact"  Class="LabelText" ElementSet="Support Information" FieldName="_repo_contact" Description="" Label="Contact"  />
