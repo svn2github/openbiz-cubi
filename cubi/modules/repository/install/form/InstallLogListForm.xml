@@ -31,5 +31,26 @@
         <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
             <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
         </Element>
-    </NavPanel>     
+    </NavPanel>  
+    
+   <SearchPanel>
+        <Element Name="fld_cat_id"  width="185" Class="TreeListbox" style="float:left;" SelectFrom="repository.category.do.CategoryDO[name:Id]" FieldName="" Label="" >
+        	<EventHandler Name="sfld_cat_id_onchange" Event="onchange" Function="UpdateForm()" />
+        </Element>
+        
+        <Element Name="fld_app_id"  width="145"  Class="Listbox" style="float:left;margin-left:10px;" SelectFrom="repository.application.do.ApplicationDO[name:Id],[category_id]={@:Elem[fld_cat_id].Value}" FieldName="app_id" Label=""  >
+        	<EventHandler Name="sfld_cat_id_onchange" Event="onchange" Function="RunSearch()" />
+        </Element>
+        
+        <Element Name="fld_release_id"  width="100"  Class="Listbox" style="float:left;margin-left:10px;" SelectFrom="repository.release.do.ReleaseDO[version:Id],[app_id]={@:Elem[fld_app_id].Value}" FieldName="release_id" Label=""  >
+        	<EventHandler Name="sfld_cat_id_onchange" Event="onchange" Function="RunSearch()" />
+        </Element>
+        
+    	<Element Name="btn_spacer" Class="Spacer" width="10" />	
+    
+		<Element Name="qry_name" Class="AutoSuggest" SelectFrom="repository.install.do.InstallLogDO[remote_siteurl],[remote_siteurl] like '%{@:Elem[qry_name].Value}%' GROUP BY [remote_siteurl]" FuzzySearch="Y" FieldName="remote_siteurl" Label="" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element>	
+    </SearchPanel>
 </EasyForm>
