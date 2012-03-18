@@ -11,6 +11,7 @@
         <BizField Name="author" Column="author" Length="128" Required="Y" Type="Text"/>
         <BizField Name="description" Column="description" Required="N" Type="Text"/>
         <BizField Name="status" Column="status" Required="N" Type="Number"/>
+        <BizField Name="featured" Column="featured" Required="N" Type="Number"/>
         <BizField Name="release_time" Column="release_time" Required="N" Type="Datetime"/>
 		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
 		<BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>

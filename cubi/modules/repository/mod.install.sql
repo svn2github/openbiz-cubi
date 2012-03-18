@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS `repo_application` (
   `author` varchar(128) NOT NULL,
   `description` text,
   `status` int(2) DEFAULT NULL,
+  `featured` int(2) DEFAULT NULL,
   `release_time` datetime DEFAULT NULL,
   `create_by` int(11) DEFAULT '1',
   `create_time` datetime DEFAULT NULL,
