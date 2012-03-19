@@ -22,9 +22,14 @@ class RepositoryService extends WebsvcService
     public function fetchFeaturedApps()
     {
     	$searchRule = "[status]=1 AND [release_time] < NOW() AND [featured]=1";
-    	$dataObj = BizSystem::getObject($this->m_ApplicationDO);    	   
-        $resultRecords = $dataObj->directfetch($searchRule);       
-        return $resultRecords;
+    	$dataObj = BizSystem::getObject($this->m_ApplicationDO,1);    	   
+        $resultRecords = $dataObj->directfetch($searchRule);  
+        $resultSet = array();
+       	foreach($resultRecords as $record)
+       	{
+       		$resultSet[] = $record;
+       	}
+        return $resultSet;
     }    
        
 }

@@ -35,7 +35,7 @@ class PackageService extends MetaObject
 		        foreach ($query as $q)
 		            $httpClient->addQuery($q);
 		        $headerList = array();
-		        $out = @$httpClient->fetchContents($uri, $headerList);	                        	        
+		        $out = $httpClient->fetchContents($uri, $headerList);
 		        $cats = json_decode($out, true);
 		        $resultSetArray = $cats['data'];
 		        $cacheSvc->save($resultSetArray,$cache_id);

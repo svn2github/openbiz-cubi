@@ -29,7 +29,7 @@ class RepositoryForm extends EasyForm
 	{
 		$result = parent::fetchData();
 		
-		if(count($this->m_RepoInfo)==0 && $result['repository_uri']!=''){
+		if(count($this->m_RepoInfo)==0 && $result['repository_uri']!='' && $result['repository_uri']!='http://'){
 			$repo_uri = $result['repository_uri'];
 			$svc = BizSystem::getService("market.lib.PackageService");
 			$this->m_RepoInfo = $svc->discoverRepository($repo_uri);

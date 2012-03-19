@@ -12,7 +12,7 @@ class FeaturedAppsListForm extends AppListForm
 		foreach($repoList as $repoServer)
 		{
 			$repo_uri = $repoServer['repository_uri'];
-			$appList = $svc->discoverFeaturedApps($repo_uri);			
+			$appList = $svc->discoverFeaturedApps($repo_uri);	
 			foreach($appList as $appInfo)
 			{
 				$resultSet[] = $appInfo;
