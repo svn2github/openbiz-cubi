@@ -1,9 +1,7 @@
 <?php 
 include_once 'AppListForm.php';
-class FeaturedAppsListForm extends AppListForm
+class ApplicationsListForm extends AppListForm
 {
-	
-	
 	public function fetchDataSet()
 	{
 		$svc = BizSystem::getService("market.lib.PackageService");
@@ -12,7 +10,7 @@ class FeaturedAppsListForm extends AppListForm
 		foreach($repoList as $repoServer)
 		{
 			$repo_uri = $repoServer['repository_uri'];
-			$appList = $svc->discoverFeaturedApps($repo_uri);	
+			$appList = $svc->discoverApplication($repo_uri,$cat_id);	
 			foreach($appList as $appInfo)
 			{
 				$resultSet[strtotime($appInfo['release_time'])] = $appInfo;
