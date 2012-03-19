@@ -6,8 +6,8 @@
         <BizField Name="app_id" 		Column="app_id" />
         <BizField Name="version" 		Column="version" />
         <BizField Name="install_time"	Column="install_time" />
-        <BizField Name="create_by" 		Column="create_by" />
-        <BizField Name="create_time" 	Column="create_time" />
+        <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
     </BizFieldList>
     <TableJoins>
     </TableJoins>

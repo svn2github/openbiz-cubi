@@ -43,5 +43,44 @@ class RepositoryForm extends EasyForm
 		}
 		return $result;
 	}
+	
+	
+	public function insertRecord()
+	{
+		
+		$recArr = $this->readInputRecord();
+        $this->setActiveRecord($recArr);
+        if (count($recArr) == 0)
+            return;
+
+        try
+        {
+            $this->ValidateForm();
+        }
+        catch (ValidationException $e)
+        {
+            $this->processFormObjError($e->m_Errors);
+            return;
+        }
+
+		$repo_uri = $recArr['repository_uri'];
+		$svc = BizSystem::getService("market.lib.PackageService");
+		$repoInfo = $svc->discoverRepository($repo_uri);        
+        $recArr['repository_uid'] = $repoInfo['_repo_uid'];
+        $this->_doInsert($recArr);
+        
+        
+
+        // in case of popup form, close it, then rerender the parent form
+        if ($this->m_ParentFormName)
+        {
+            $this->close();
+
+            $this->renderParent();
+        }
+
+        $this->processPostAction();
+	
+	}
 }
 ?>
