@@ -31,6 +31,22 @@ class RepositoryService extends WebsvcService
        	}
         return $resultSet;
     }    
-       
+
+    public function fetchApplications($cat_id = null)
+    {
+    	$searchRule = "[status]=1 AND [release_time] < NOW() ";
+    	if($cat_id){
+    		$searchRule .= " AND [cat_id]=$cat_id";
+    	}
+    	$dataObj = BizSystem::getObject($this->m_ApplicationDO,1);    	   
+        $resultRecords = $dataObj->directfetch($searchRule);  
+        $resultSet = array();
+       	foreach($resultRecords as $record)
+       	{
+       		$resultSet[] = $record;
+       	}
+        return $resultSet;
+    }        
+    
 }
 ?>
