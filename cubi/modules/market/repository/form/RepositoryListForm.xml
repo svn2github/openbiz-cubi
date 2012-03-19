@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="RepositoryListForm" Icon="{RESOURCE_URL}/repository/images/repo_repository.gif" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Repository Repositorys" Description="This module can manage repositroy repositorys " BizDataObj="market.repository.do.RepositoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="Repository.Manage">
+<EasyForm Name="RepositoryListForm" Icon="{RESOURCE_URL}/repository/images/repo_repository.gif" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Application Repositories" Description="This module can manage application repositories " BizDataObj="market.repository.do.RepositoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="Repository.Manage">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N">         
          	
         </Element>
-         <Element Name="fld_icon" Class="ColumnImage" FieldName="icon" Label="Icon"  Sortable="Y"  Height="22" >
+        <Element Name="fld_icon" Class="ColumnImage" FieldName="icon" Label="Icon"  Sortable="Y"  Height="22" >
         </Element>     
-        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Package" Sortable="Y"  Link="{APP_INDEX}/repository/repository_repository_detail/{@:Elem[fld_Id].Value}" >
-        	<!--  <EventHandler Name="fld_package_id_onclick" Event="onclick" Function="SwitchForm(market.repository.form.RepositoryDetailForm,{@:Elem[fld_Id].Value})"  />-->
+        <Element Name="fld_uri" Class="ColumnText" FieldName="repository_uri" Label="Repository" Sortable="Y" Link="javascript:;">
+        	 <EventHandler Name="fld_uri_onclick" Event="onclick" Function="SwitchForm(market.repository.form.RepositoryDetailForm,{@:Elem[fld_Id].Value})"  />
         </Element>
-        <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y"/>
-        <Element Name="fld_category_name" Class="ColumnText" FieldName="category_name" Label="Category"  Sortable="Y"/>
-        <!--<Element Name="fld_pltfm_ver" Class="ColumnText" FieldName="pltfm_ver" Label="Pltfm Ver"  Sortable="Y"/>-->
-        <!--<Element Name="fld_author" Class="ColumnText" FieldName="author" Label="Author"  Sortable="Y"/>
-        <Element Name="fld_file" Class="ColumnText" FieldName="file" Label="File"  Sortable="Y"/>-->
-        <Element Name="fld_featured" Class="ColumnBool" FieldName="featured" Label="Featured"  Sortable="Y" SelectFrom="common.lov.CommLOV(Status)" Link="javascript:;">
-        	<EventHandler Name="fld_featured_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_featured,{@:Elem[fld_featured].Value})"/>
-        </Element>
+        <Element Name="fld_uid" Class="ColumnText" FieldName="repository_uid" Label="Unique ID"  Sortable="Y"/>
+       
         <Element Name="fld_status" Class="ColumnBool" FieldName="status" Label="Status"  Sortable="Y" SelectFrom="common.lov.CommLOV(Status)"  Link="javascript:;">
         	<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>
         </Element>
-        <Element Name="fld_release_time" Class="ColumnText" Text="{date('Y-m-d',strtotime(@:Elem[fld_release_time].Value))}" FieldName="release_time" Label="Release Date"  Sortable="Y"/>
+        <Element Name="fld_release_time" Class="ColumnText" Text="{date('Y-m-d',strtotime(@:Elem[fld_release_time].Value))}" FieldName="create_time" Label="Added Date"  Sortable="Y"/>
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" Access="Repository.Manage">
