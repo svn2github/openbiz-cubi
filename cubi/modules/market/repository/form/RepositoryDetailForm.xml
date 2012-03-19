@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="RepositoryDetailForm" Icon="{RESOURCE_URL}/repository/images/repo_repository.gif"  Class="RepositoryForm" FormType="" jsClass="jbForm" Title="Repository Detail" Description="This module can manage repositroy repositorys " BizDataObj="market.repository.do.RepositoryDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="repository.ini">
+<EasyForm Name="RepositoryDetailForm" Icon="{RESOURCE_URL}/market/images/icon_repo_server.png"  Class="RepositoryForm" FormType="" jsClass="jbForm" Title="Repository Detail" Description="This module can manage repositroy repositorys " BizDataObj="market.repository.do.RepositoryDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="repository.ini">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
     		<Element Name="fld_uri" ElementSet="General" Class="LabelText" FieldName="repository_uri" Label="Repository" Description="e.g http://dev.openbiz.cn/" DefaultValue="http://" DefaultValueRename="N" AllowURLParam="N"/>
