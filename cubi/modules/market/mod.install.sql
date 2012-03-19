@@ -1,4 +1,3 @@
-
 DROP TABLE IF EXISTS `market_repository`;
 CREATE TABLE IF NOT EXISTS `market_repository` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -23,4 +22,3 @@ CREATE TABLE IF NOT EXISTS `market_installed` (
   PRIMARY KEY (`id`),
   KEY `repository_uid` (`repository_uid`,`app_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-

@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="RepositoryDO" Description="" Class="BizDataObj" DBName="Default" Table="market_repository" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
+	<BizFieldList>
+        <BizField Name="Id" 			Column="id" 	Type="Number"/>
+        <BizField Name="repository_uid" Column="repository_uid" />
+        <BizField Name="app_id" 		Column="app_id" />
+        <BizField Name="version" 		Column="version" />
+        <BizField Name="install_time"	Column="install_time" />
+        <BizField Name="create_by" 		Column="create_by" />
+        <BizField Name="create_time" 	Column="create_time" />
+    </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
