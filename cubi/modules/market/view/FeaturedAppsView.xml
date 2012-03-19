@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="FeaturedAppsView" Description="Featured Application List" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Market.Manage">
+   <FormReferences>
+   		<Reference Name="market.application.form.FeaturedAppsListForm"/>
+   </FormReferences>    
+</EasyView>
