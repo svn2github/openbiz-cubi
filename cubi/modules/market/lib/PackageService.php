@@ -18,7 +18,7 @@ class PackageService extends MetaObject
 	
 	protected function _remoteCall($uri,$method,$params=null)
     {
-        $cache_id = md5($this->m_Name.$uri. "discoverRepository");         
+        $cache_id = md5($this->m_Name.$uri. $method .serialize($params));         
         $cacheSvc = BizSystem::getService(CACHE_SERVICE,1);
         $cacheSvc->init($this->m_Name,$this->m_CacheLifeTime);
         if(substr($uri,strlen($uri)-1,1)!='/'){
