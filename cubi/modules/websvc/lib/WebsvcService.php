@@ -10,6 +10,7 @@ class WebsvcService
     public $m_PublicMethods;
     public $m_MessageFile;
     public $m_Messages;
+    public $m_RequireAuth = "N";
 
     function __construct(&$xmlArr)
     {      
@@ -19,6 +20,8 @@ class WebsvcService
     protected function readMetadata(&$xmlArr)
     {      
         //$this->m_WebsvcDO = isset($xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["BIZDATAOBJ"]) ? $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["BIZDATAOBJ"] : null;
+        $this->m_RequireAuth = isset($xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["REQUIREAUTH"]) ? $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["REQUIREAUTH"] : 'N';
+        $this->m_RequireAuth = strtoupper($this->m_RequireAuth);
         $this->m_PublicMethods = new MetaIterator($xmlArr["PLUGINSERVICE"]["PUBLICMETHOD"],"PublicMethod",$this);
         $this->m_MessageFile = isset($xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["MESSAGEFILE"]) ? $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["MESSAGEFILE"] : null;
         $this->m_Messages = Resource::loadMessage($this->m_MessageFile);
@@ -36,9 +39,12 @@ class WebsvcService
         $api_key = $this->getInput('api_key');
         $secret = $this->getInput('secret');
         $format = $this->getInput('format');
-        if ($this->authenticate($username, $api_key, $secret) == false) {
-            $this->output(null, $format);
-            return;
+        
+        if($this->m_RequireAuth=='Y'){
+	        if ($this->authenticate($username, $api_key, $secret) == false) {
+	            $this->output(null, $format);
+	            return;
+	        }
         }
         
         $service = $this->getInput('service');
