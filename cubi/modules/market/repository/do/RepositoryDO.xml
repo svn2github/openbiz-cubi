@@ -1,10 +1,10 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="RepositoryDO" Description="" Class="BizDataObj" DBName="Default" Table="market_repository" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="repository_uri" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
+<BizDataObj Name="RepositoryDO" Description="" Class="BizDataObj" DBName="Default" Table="market_repository" SearchRule="" SortRule="[sort_order] ASC" OtherSQLRule="" Uniqueness="repository_uri" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
 	<BizFieldList>
         <BizField Name="Id" 			Column="id" 	Type="Number"/>
         <BizField Name="repository_uri" Column="repository_uri" />
         <BizField Name="repository_uid" Column="repository_uid" />
-        <BizField Name="sort_order" 	Column="sort_order"    Required="N" Type="Text"/>
+        <BizField Name="sort_order" 	Column="sort_order"  ValueOnCreate="50"  Required="N" Type="Text"/>
         <BizField Name="status" 		Column="status"	ValueOnCreate="1" />
         <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
         <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
