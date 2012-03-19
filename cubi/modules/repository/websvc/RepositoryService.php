@@ -60,5 +60,17 @@ class PackageListService extends WebsvcService
         $resultArray = $dataSet->toArray();
         return $resultArray;
     }
+    
+    public function fetchRepoInfo()
+    {
+    	$dataObj = BizSystem::getObject("myaccount.do.PreferenceDO");
+    	$searchRule = "[user_id]='0' AND [name] LIKE 'repo_%'";   
+        $resultRecords = $dataObj->directfetch($searchRule);
+        $prefRecord = array();
+        foreach($resultRecords as $record){
+        	$prefRecord["_".$record['name']] = $record["value"];
+        }
+        return $prefRecord;
+    }
 }
 ?>
