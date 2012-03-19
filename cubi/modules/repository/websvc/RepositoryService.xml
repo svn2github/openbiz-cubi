@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<PluginService Name="RepositoryService" Class="PackageListService" BizDataObj="websvc.do.WebsvcDO"  MessageFile="">
+<PluginService Name="RepositoryService" Class="RepositoryService" BizDataObj="websvc.do.WebsvcDO"  MessageFile="">
     <PublicMethod Name="fetchRepoInfo" Access=""/>
     <PublicMethod Name="search" Access=""/>
     <PublicMethod Name="list_categories" Access=""/>

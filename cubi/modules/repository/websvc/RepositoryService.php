@@ -2,7 +2,7 @@
 
 include_once MODULE_PATH.'/websvc/lib/WebsvcService.php';
 
-class PackageListService extends WebsvcService
+class RepositoryService extends WebsvcService
 {
     protected $packageMasterDO = "packagemstr.master.do.PackageMasterDO";
     protected $packageCategoryDO = "packagemstr.category.do.PackageCategoryDO";
