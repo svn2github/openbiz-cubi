@@ -4,7 +4,7 @@
         <BizField Name="Id" 			Column="id" 	Type="Number"/>
         <BizField Name="repository_uri" Column="repository_uri" />
         <BizField Name="repository_uid" Column="repository_uid" />
-        <BizField Name="status" 		Column="status" />
+        <BizField Name="status" 		Column="status"	ValueOnCreate="1" />
         <BizField Name="create_by" 		Column="create_by" />
         <BizField Name="create_time" 	Column="create_time" />        
     </BizFieldList>

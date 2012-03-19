@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="RepositoryNewForm" Class="RepositoryForm"  Icon="{RESOURCE_URL}/repository/images/repo_application_add.gif" FormType="New" jsClass="jbForm" Title="New Repository" Description="Publish a new repository , Allow other Cubi platfrom user to download it." BizDataObj="market.repository.do.RepositoryDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
+<EasyForm Name="RepositoryNewForm" Class="RepositoryForm"  Icon="{RESOURCE_URL}/repository/images/repo_application_add.gif" FormType="New" jsClass="jbForm" Title="New Repository" Description="Publish a new repository , Allow other Cubi platfrom user to download it." BizDataObj="market.repository.do.RepositoryDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="repository.ini">
     <DataPanel>
     		<Element Name="fld_uri" ElementSet="General" Class="InputText" FieldName="repository_uri" Label="Repository" Description="e.g http://dev.openbiz.cn/" DefaultValue="http://" DefaultValueRename="N" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
 	        <Element Name="fld_name"  Class="LabelText" ElementSet="General" FieldName="_repo_name" Label="Name"  CssClass=""/>        

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="RepositoryListForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Application Repositories" Description="This module can manage application repositories " BizDataObj="market.repository.do.RepositoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="Repository.Manage">
+<EasyForm Name="RepositoryListForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Application Repositories" Description="This module can manage application repositories " BizDataObj="market.repository.do.RepositoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="repository.ini" Access="Repository.Manage">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N">         

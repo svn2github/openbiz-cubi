@@ -1,49 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="RepositoryDetailForm" Icon="{RESOURCE_URL}/repository/images/repo_repository.gif"  Class="EasyForm" FormType="" jsClass="jbForm" Title="Repository Detail" Description="This module can manage repositroy repositorys " BizDataObj="market.repository.do.RepositoryDO" TemplateEngine="Smarty" TemplateFile="app_detail.tpl.html" EventName="" MessageFile="">
+<EasyForm Name="RepositoryDetailForm" Icon="{RESOURCE_URL}/repository/images/repo_repository.gif"  Class="RepositoryForm" FormType="" jsClass="jbForm" Title="Repository Detail" Description="This module can manage repositroy repositorys " BizDataObj="market.repository.do.RepositoryDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="repository.ini">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-       	<Element Name="fld_icon" Class="RawData"  ElementSet="General"  FieldName="icon" Label="App Icon"  AllowURLParam="N" ></Element>       	
-       	<Element Name="fld_name" ElementSet="General" Class="RawData" FieldName="name" Label="Name" DefaultValue="New Package"  AllowURLParam="N" />
-        <Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  />            
-        
-        <Element Name="fld_package_id" ElementSet="General" Class="LabelText" FieldName="package_id" Label="Package" Description="e.g com.repository.Collab" DefaultValue="com.repository.NewApp" AllowURLParam="N" />        
-        <Element Name="fld_type"   width="186"	ElementSet="General" Class="LabelList" FieldName="type" Label="Type" SelectFrom="package.lov.PackageLOV(PackageType)"  Description="Type of this repository" />
-        <Element Name="fld_category"  width="186" ElementSet="General" Class="LabelList"  SelectFrom="repository.category.do.CategoryDO[name:Id]" FieldName="category_id" Label="Category"  Description="Category of this repository" />
-        <Element Name="fld_author"  ElementSet="General" Class="RawData" FieldName="author" Label="Author" DefaultValue="{BizSystem::GetProfileName(@profile:Id,'short')}"  Description="e.g Openbiz LLC" AllowURLParam="N" />
-        
-        <Element Name="fld_release_time" ElementSet="General" Class="LabelText"  Text="{date('Y-m-d',strtotime(@:Elem[fld_release_time].Value))}" DateFormat="%Y-%m-%d %H:%M:%S" DefaultValue="{date('Y-m-d H:i:s')}" FieldName="release_time" Label="Release Time" Description="The App will invisible until release time" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
-        <Element Name="fld_status"  width="215" ElementSet="General" Class="LabelBool" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(Status)" Description="Control the App viewable or not" />
-        
-        
-        
-        <Element Name="fld_related_picture"   Access="picture.access" ElementSet="Screenshots" Class="FormElement" FormReference="picture.widget.PictureListRowForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_picture" Access="picture.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Screenshots"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
-			<EventHandler Name="btn_manage_picture_onclick" Event="onclick" Function="SwitchForm(market.repository.form.RepositoryEditScreenshotForm,{@:Elem[fld_Id].Value})"   />
-        </Element>  
-        
-        <Element Name="fld_release"   ElementSet="Version Release" Class="FormElement" FormReference="repository.release.widget.ReleaseListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_release"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Version Release"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
-			<EventHandler Name="btn_manage_release_onclick" Event="onclick" Function="SwitchForm(market.repository.form.RepositoryEditReleaseForm,{@:Elem[fld_Id].Value})"   />
-        </Element>  
-        
-        <Element Name="fld_install_log"   ElementSet="Install Log" Class="FormElement" FormReference="repository.install.widget.InstallLogForm" FieldName="" Label="" AllowURLParam="N" />
-		
+    		<Element Name="fld_uri" ElementSet="General" Class="LabelText" FieldName="repository_uri" Label="Repository" Description="e.g http://dev.openbiz.cn/" DefaultValue="http://" DefaultValueRename="N" AllowURLParam="N"/>
+	        <Element Name="fld_name"  Class="LabelText" ElementSet="General" FieldName="_repo_name" Label="Name"  CssClass=""/>        
+			<Element Name="fld_desc"  Class="LabelTextarea" ElementSet="General" FieldName="_repo_desc" Label="Description"   />		
+	        <Element Name="fld_uid"  Class="LabelText" ElementSet="General" label="Unique ID"  FieldName="_repo_uid" Description="Unique ID of this repository"   />
+	
+			<Element Name="fld_weburl"  Class="LabelText" ElementSet="Support Information" FieldName="_repo_website" Description="" Label="Website"  />
+			<Element Name="fld_contact"  Class="LabelText" ElementSet="Support Information" FieldName="_repo_contact" Description="" Label="Contact"  />
+			<Element Name="fld_email"  Class="LabelText" ElementSet="Support Information" FieldName="_repo_email" Description="" Label="Email"  />
+			<Element Name="fld_phone"  Class="LabelText" ElementSet="Support Information" FieldName="_repo_phone" Description="" Label="Phone"  />
+    		
         
     </DataPanel>
     <ActionPanel>       
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(market.repository.form.RepositoryNewForm)" ShortcutKey="Insert" ContextMenu="New"/>
         </Element>          
-        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
-			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(market.repository.form.RepositoryEditForm,{@:Elem[fld_Id].Value})" ShortcutKey="Ctrl+E" ContextMenu="Edit"/>
-        </Element>
-		<Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
-            <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=market.repository.form.RepositoryCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
-        </Element> 
+        
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})" RedirectPage="form=market.repository.form.RepositoryListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
         </Element> 
-        <Element Name="btn_cancel" Class="LabelBack" Link="Javascript:history(-1);" Text="Back" CssClass="button_gray_m" />
+        <Element Name="btn_cancel" Class="Button"  Text="Back" CssClass="button_gray_m" >
+        	<EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
         
     </ActionPanel> 
     <NavPanel>

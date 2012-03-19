@@ -28,30 +28,33 @@ class PackageService extends MetaObject
     
 	public function discoverRepository($uri)
     {
-        $cache_id = md5($this->m_Name.$uri. "discoverRepository");
-        //try to process cache service.
+        $cache_id = md5($this->m_Name.$uri. "discoverRepository");         
         $cacheSvc = BizSystem::getService(CACHE_SERVICE,1);
         $cacheSvc->init($this->m_Name,$this->m_CacheLifeTime);
-		
-        $uri .= "ws.php/repository/RepositoryService";
-        
-        if($cacheSvc->test($cache_id))
+        if(substr($uri,strlen($uri)-1,1)!='/'){
+        	$uri .= '/';
+        }		
+        $uri .= "ws.php/repository/RepositoryService";               
+        if($cacheSvc->test($cache_id) && (int) $this->m_CacheLifeTime>0)
         {
-            //BizSystem::log(LOG_DEBUG, "DATAOBJ", "Cache Hit. Query Sql = ".$sql." BIND: $bindValueString");
             $resultSetArray = $cacheSvc->load($cache_id);
         }else{
-	    	
-	        $query = array(	"method=fetchRepoInfo","format=json",);
-	        $httpClient = new HttpClient('POST');
-	        foreach ($query as $q)
-	            $httpClient->addQuery($q);
-	        $headerList = array();
-	        $out = $httpClient->fetchContents($uri, $headerList);
-	        //echo $out;
-	        $cats = json_decode($out, true);
-	        $resultSetArray = $cats['data'];
-	        $cacheSvc->save($resultSetArray,$cache_id);
-        }
+        	try{
+		        $query = array(	"method=fetchRepoInfo","format=json",);
+		        $httpClient = new HttpClient('POST');
+		        foreach ($query as $q)
+		            $httpClient->addQuery($q);
+		        $headerList = array();
+		        $out = @$httpClient->fetchContents($uri, $headerList);	                        	        
+		        $cats = json_decode($out, true);
+		        $resultSetArray = $cats['data'];
+		        $cacheSvc->save($resultSetArray,$cache_id);
+        	}
+        	catch(Exception $e)
+        	{
+        		$resultSetArray = array();
+        	}
+        }        
         return $resultSetArray;
     }
     
