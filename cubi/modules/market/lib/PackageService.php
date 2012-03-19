@@ -5,6 +5,54 @@ include_once(MODULE_PATH."/system/lib/ModuleLoader.php");
 
 class PackageService extends MetaObject
 {
+	
+	public function discoverFeaturedApps($uri)
+	{
+		return $this->_remoteCall($uri,'fetchFeaturedApps');
+	}	
+	
+	public function discoverRepository($uri)
+	{
+		return $this->_remoteCall($uri,'fetchRepoInfo');
+	}
+	
+	protected function _remoteCall($uri,$method,$params=null)
+    {
+        $cache_id = md5($this->m_Name.$uri. "discoverRepository");         
+        $cacheSvc = BizSystem::getService(CACHE_SERVICE,1);
+        $cacheSvc->init($this->m_Name,$this->m_CacheLifeTime);
+        if(substr($uri,strlen($uri)-1,1)!='/'){
+        	$uri .= '/';
+        }		
+        $uri .= "ws.php/repository/RepositoryService";               
+        if($cacheSvc->test($cache_id) && (int) $this->m_CacheLifeTime>0)
+        {
+            $resultSetArray = $cacheSvc->load($cache_id);
+        }else{
+        	try{
+		        $query = array(	"method=$method","format=json",);
+		        $httpClient = new HttpClient('POST');
+		        foreach ($query as $q)
+		            $httpClient->addQuery($q);
+		        $headerList = array();
+		        $out = @$httpClient->fetchContents($uri, $headerList);	                        	        
+		        $cats = json_decode($out, true);
+		        $resultSetArray = $cats['data'];
+		        $cacheSvc->save($resultSetArray,$cache_id);
+        	}
+        	catch(Exception $e)
+        	{
+        		$resultSetArray = array();
+        	}
+        }        
+        return $resultSetArray;
+    }
+    
+    /*
+     * Old service code
+     * ==================================================================================
+     * */
+	
     protected $_installPackage = "";
     protected $_installModules = array();
     
@@ -26,37 +74,7 @@ class PackageService extends MetaObject
     	$this->repositoryUrl = isset($xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["REPOSITORYURL"]) ? $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["REPOSITORYURL"] : "";
     }
     
-	public function discoverRepository($uri)
-    {
-        $cache_id = md5($this->m_Name.$uri. "discoverRepository");         
-        $cacheSvc = BizSystem::getService(CACHE_SERVICE,1);
-        $cacheSvc->init($this->m_Name,$this->m_CacheLifeTime);
-        if(substr($uri,strlen($uri)-1,1)!='/'){
-        	$uri .= '/';
-        }		
-        $uri .= "ws.php/repository/RepositoryService";               
-        if($cacheSvc->test($cache_id) && (int) $this->m_CacheLifeTime>0)
-        {
-            $resultSetArray = $cacheSvc->load($cache_id);
-        }else{
-        	try{
-		        $query = array(	"method=fetchRepoInfo","format=json",);
-		        $httpClient = new HttpClient('POST');
-		        foreach ($query as $q)
-		            $httpClient->addQuery($q);
-		        $headerList = array();
-		        $out = @$httpClient->fetchContents($uri, $headerList);	                        	        
-		        $cats = json_decode($out, true);
-		        $resultSetArray = $cats['data'];
-		        $cacheSvc->save($resultSetArray,$cache_id);
-        	}
-        	catch(Exception $e)
-        	{
-        		$resultSetArray = array();
-        	}
-        }        
-        return $resultSetArray;
-    }
+	
     
     public function discoverCategories()
     {
