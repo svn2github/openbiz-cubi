@@ -6,13 +6,13 @@
 		</Resource>
     </ACL>
     <Menu>
-        <MenuItem Name="Market" Title="App Market" Parent="System" IconImage="spacer.gif" IconCssClass="icon_market" Access="Market.Manage" Order="101">			
+        <MenuItem Name="Market" Title="Market" Parent="System" IconImage="spacer.gif" IconCssClass="icon_market" Access="Market.Manage" Order="18">			
             <MenuItem Name="Market.Applications" 	Title="Applications" 	Access="Market.Manage"  Description=""  URL="/market/applications" Order="20">
             	<MenuItem Name="Market.ApplicationDetail" 	Title="Application Detail" 	Access="Market.Manage"  Description=""  URL="/market/app_detail" Order="20"/>
             </MenuItem>
             <MenuItem Name="Market.FeaturedApps" 	Title="Featured Apps" 	Access="Market.Manage"  Description=""  URL="/market/featured_apps" Order="20"/>
-            <MenuItem Name="Market.Application" 	Title="App Updates" 	Access="Market.Manage"  Description=""  URL="/market/app_updates" Order="40" />            	
-            <MenuItem Name="Market.Repository"		Title="App Repositories"	Access="Market.Manage"  Description=""  URL="/market/app_repository" Order="50"/>
+            <MenuItem Name="Market.Application" 	Title="Updates" 	Access="Market.Manage"  Description=""  URL="/market/app_updates" Order="40" />            	
+            <MenuItem Name="Market.Repository"		Title="Repositories"	Access="Market.Manage"  Description=""  URL="/market/app_repository" Order="50"/>
 		</MenuItem>	
     </Menu>
     <Dependency>
