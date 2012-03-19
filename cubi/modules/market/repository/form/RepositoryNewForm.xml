@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="RepositoryNewForm" Class="EasyForm"  Icon="{RESOURCE_URL}/repository/images/repo_repository_add.gif" FormType="New" jsClass="jbForm" Title="New Repository" Description="Publish a new repository , Allow other Cubi platfrom user to download it." BizDataObj="market.repository.do.RepositoryDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_name" ElementSet="General" DefaultValueRename="N" Class="InputText" FieldName="name" Label="Name" DefaultValue="New Package"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_icon" Class="ImageUploader"  ElementSet="General"  UploadFolder="/repository" FieldName="icon" Label="App Icon"  AllowURLParam="N" ></Element>
+        <Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  />            
+        
+        <Element Name="fld_package_id" ElementSet="Advanced" DefaultValueRename="N" Class="InputText" FieldName="package_id" Label="Package ID" Description="e.g com.repository.Collab" DefaultValue="com.repository.NewApp" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>        
+        <Element Name="fld_type"   width="186"	ElementSet="Advanced" Class="Listbox" FieldName="type" Label="Type" SelectFrom="package.lov.PackageLOV(PackageType)"  Description="Type of this repository" />
+        <Element Name="fld_cat_id"  width="186" ElementSet="Advanced" Class="TreeListbox"  SelectFrom="repository.category.do.CategoryDO[name:Id]" FieldName="category_id" Label="Category"  Description="Category of this repository" />
+        <Element Name="fld_author"  ElementSet="Advanced" DEFAULTVALUERENAME="N" Class="InputText" FieldName="author" Label="Author" DefaultValue="{BizSystem::GetProfileName(@profile:Id,'short')}"  Description="e.g Openbiz LLC" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        
+        <Element Name="fld_release_time" ElementSet="Publish" Class="InputDatetime" DateFormat="%Y-%m-%d %H:%M:%S" DefaultValue="{date('Y-m-d H:i:s')}" FieldName="release_time" Label="Release Time" Description="The App will invisible until release time" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_featured"  width="215" ElementSet="Publish" Class="Listbox" FieldName="featured" Label="Featured" SelectFrom="common.lov.CommLOV(Status)" Description="will be listed in featured apps" />
+        <Element Name="fld_status"  width="215" ElementSet="Publish" Class="Listbox" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(Status)" Description="Control the App viewable or not" />                
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=market.repository.form.RepositoryDetailForm&amp;fld:Id={@market.repository.do.RepositoryDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
