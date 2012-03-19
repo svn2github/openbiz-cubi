@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="RepositoryListForm" Icon="{RESOURCE_URL}/repository/images/repo_repository.gif" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Application Repositories" Description="This module can manage application repositories " BizDataObj="market.repository.do.RepositoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="Repository.Manage">
+<EasyForm Name="RepositoryListForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Application Repositories" Description="This module can manage application repositories " BizDataObj="market.repository.do.RepositoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="Repository.Manage">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N">         
@@ -21,17 +21,9 @@
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" Access="Repository.Manage">
             <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(market.repository.form.RepositoryNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
         </Element>
-        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)" Access="Repository.Manage">
-            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=market.repository.form.RepositoryEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
-        </Element>
-        <Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)" Access="Repository.Manage">
-            <EventHandler Name="btn_copy_onclick" Event="onclick" EventLogMsg="" Function="CopyRecord()" RedirectPage="form=market.repository.form.RepositoryCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
-        </Element>
+		<Element Name="btn_spacer" Class="Spacer" width="10" />	
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Access="Repository.Manage">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
-        </Element>
-        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
-            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
         </Element>
     </ActionPanel> 
     <NavPanel>
