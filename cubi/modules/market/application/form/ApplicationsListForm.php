@@ -11,10 +11,12 @@ class ApplicationsListForm extends AppListForm
 		{
 			$repo_uri = $repoServer['repository_uri'];
 			$appList = $svc->discoverApplication($repo_uri,$cat_id);	
-			foreach($appList as $appInfo)
-			{
-				$resultSet[strtotime($appInfo['release_time'])] = $appInfo;
-			}	
+			if(is_array($appList)){
+				foreach($appList as $appInfo)
+				{
+					$resultSet[strtotime($appInfo['release_time'])] = $appInfo;
+				}	
+			}
 		}
 		//mix all data by release date
 		krsort($resultSet);

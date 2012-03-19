@@ -13,9 +13,11 @@ class FeaturedAppsListForm extends AppListForm
 		{
 			$repo_uri = $repoServer['repository_uri'];
 			$appList = $svc->discoverFeaturedApps($repo_uri);	
-			foreach($appList as $appInfo)
-			{
-				$resultSet[strtotime($appInfo['release_time'])] = $appInfo;
+			if(is_array($appList)){
+				foreach($appList as $appInfo)
+				{
+					$resultSet[strtotime($appInfo['release_time'])] = $appInfo;
+				}
 			}	
 		}
 		//mix all data by release date

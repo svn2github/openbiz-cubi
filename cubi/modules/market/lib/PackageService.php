@@ -18,7 +18,10 @@ class PackageService extends MetaObject
 	
 	public function discoverApplication($uri,$cat_id)
 	{
-		return $this->_remoteCall($uri,'fetchApplications');
+		if($cat_id){
+			$param=array("cat_id"=>$cat_id);
+		}
+		return $this->_remoteCall($uri,'fetchApplications',$param);
 	}	
 	
 	protected function _remoteCall($uri,$method,$params=null)
@@ -34,8 +37,10 @@ class PackageService extends MetaObject
         {
             $resultSetArray = $cacheSvc->load($cache_id);
         }else{
-        	try{
-		        $query = array(	"method=$method","format=json",);
+        	try{        		
+		        $argsJson = json_encode($params);
+        		$query = array(	"method=$method","format=json","argsJson=$argsJson");
+		        
 		        $httpClient = new HttpClient('POST');
 		        foreach ($query as $q)
 		            $httpClient->addQuery($q);
