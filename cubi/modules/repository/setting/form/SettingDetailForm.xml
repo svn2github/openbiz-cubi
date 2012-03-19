@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="SettingDetailForm" Class="SettingForm" FormType="" Icon="{RESOURCE_URL}/repository/images/repo_application.gif" jsClass="jbForm" SearchRule="[user_id]='0'" Title="Repository Setting" Description="You can setup yoru repository setting for publish your apps." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl">
+<EasyForm Name="SettingDetailForm" Class="SettingForm" FormType="" Icon="{RESOURCE_URL}/repository/images/icon_repo_setting.png" jsClass="jbForm" SearchRule="[user_id]='0'" Title="Repository Setting" Description="You can setup yoru repository setting for publish your apps." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl">
     <DataPanel>
         <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>
         <Element Name="fld_name"  Class="LabelText" ElementSet="General" FieldName="_repo_name" Label="Name"  CssClass=""/>        

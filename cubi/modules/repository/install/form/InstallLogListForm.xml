@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="InstallLogListForm" Class="EasyForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif" Title="Client Install Log" Description="This form shows client install log for each application " FormType="List" jsClass="jbForm" BizDataObj="repository.install.do.InstallLogDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl"  Access="Repository.Manage">
+<EasyForm Name="InstallLogListForm" Class="EasyForm" Icon="{RESOURCE_URL}/repository/images/icon_install_log.png" Title="Client Install Log" Description="This form shows client install log for each application " FormType="List" jsClass="jbForm" BizDataObj="repository.install.do.InstallLogDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl"  Access="Repository.Manage">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="release_id" Label="Id" Sortable="Y" AllowURLParam="Y" Link="javascript:" />              
         <Element Name="fld_icon" Class="ColumnImage" 
-				Text="{RESOURCE_URL}/repository/images/repo_application.gif" Height="24"
+				Text="{RESOURCE_URL}/repository/images/icon_install_log.png" Height="24"
 				FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">							
 		</Element>
         <Element Name="fld_app" Class="ColumnText" FieldName="app_name" Label="Application" Sortable="Y" AllowURLParam="Y" Link="javascript:" />

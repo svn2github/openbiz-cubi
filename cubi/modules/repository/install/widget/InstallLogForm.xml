@@ -2,6 +2,10 @@
 <EasyForm Name="InstallLogForm" Class="EasyForm"  FormType="List" jsClass="jbForm" BizDataObj="repository.install.do.InstallLogDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="Repository.Manage">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="release_id" Label="Id" Sortable="Y" AllowURLParam="Y" Link="javascript:" />              
+        <Element Name="fld_icon" Class="ColumnImage" 
+				Text="{RESOURCE_URL}/repository/images/icon_install_log.png" Height="24"
+				FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">							
+		</Element>
         <Element Name="app_id" Class="Hidden" Hidden="Y" FieldName="app_id" Label="APPID" Sortable="Y" AllowURLParam="Y" Link="javascript:" />
         <Element Name="fld_release" Class="ColumnText" FieldName="release_id" Label="Release" Text="Version {@:Elem[fld_release].Value}" Sortable="Y" AllowURLParam="Y" Link="javascript:" />
         <Element Name="fld_remote_ip" Class="ColumnText" FieldName="remote_ip"  Label="Remote IP" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
