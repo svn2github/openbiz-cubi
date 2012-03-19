@@ -37,7 +37,6 @@ class PackageListService extends WebsvcService
         
         // call function
         $response = $this->$method($args);
-                
         $this->output($response, $format);
     }
     
