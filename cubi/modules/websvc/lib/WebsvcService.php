@@ -19,7 +19,6 @@ class WebsvcService
 
     protected function readMetadata(&$xmlArr)
     {      
-        //$this->m_WebsvcDO = isset($xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["BIZDATAOBJ"]) ? $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["BIZDATAOBJ"] : null;
         $this->m_RequireAuth = isset($xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["REQUIREAUTH"]) ? $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["REQUIREAUTH"] : 'N';
         $this->m_RequireAuth = strtoupper($this->m_RequireAuth);
         $this->m_PublicMethods = new MetaIterator($xmlArr["PLUGINSERVICE"]["PUBLICMETHOD"],"PublicMethod",$this);
