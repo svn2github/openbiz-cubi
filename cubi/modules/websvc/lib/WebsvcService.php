@@ -57,8 +57,13 @@ class WebsvcService
         $args = $this->getInputArgs('args');
         
         // call function
-        $response = $this->$method($args);
-                
+        if(is_array($args)){
+        	$response = call_user_func_array(array($this, $method), $args);
+        }
+        else
+        {        	 
+        	$response = $this->$method();
+        }
         $this->output($response, $format);
     }
     
