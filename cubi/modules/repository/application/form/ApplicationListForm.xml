@@ -63,7 +63,7 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
-        <Element Name="fld_cat_id"  width="145" ElementSet="Advanced" Class="TreeListbox" style="float:left;" SelectFrom="repository.category.do.CategoryDO[name:Id]" FieldName="category_id" Label="Category"  Description="Category of this application" >
+        <Element Name="fld_cat_id"  width="145" ElementSet="Advanced" Class="Listbox" style="float:left;" SelectFrom="repository.category.do.CategoryDO[name:Id]" FieldName="category_id" Label="Category"  Description="Category of this application" >
         	<EventHandler Name="sfld_cat_id_onchange" Event="onchange" Function="RunSearch()" />
         </Element>
     	<Element Name="btn_spacer" Class="Spacer" width="10" />	
