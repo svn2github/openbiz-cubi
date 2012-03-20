@@ -8,18 +8,16 @@ class FeaturedAppsListForm extends AppListForm
 	{
 		$svc = BizSystem::getService("market.lib.PackageService");
 		$resultSet = array();
-		$repoList = $this->fetchRepoList();
-		foreach($repoList as $repoServer)
-		{
-			$repo_uri = $repoServer['repository_uri'];
-			$appList = $svc->discoverFeaturedApps($repo_uri);	
-			if(is_array($appList)){
-				foreach($appList as $appInfo)
-				{
-					$resultSet[strtotime($appInfo['release_time'])] = $appInfo;
-				}
-			}	
-		}
+		$repo_uri = $this->getDefaultRepoURI();
+					
+		$appList = $svc->discoverFeaturedApps($repo_uri);	
+		if(is_array($appList)){
+			foreach($appList as $appInfo)
+			{
+				$resultSet[strtotime($appInfo['release_time'])] = $appInfo;
+			}
+		}	
+		
 		//mix all data by release date
 		krsort($resultSet);
 		
