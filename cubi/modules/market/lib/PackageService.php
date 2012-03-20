@@ -8,7 +8,7 @@ class PackageService extends MetaObject
 	
 	public function discoverFeaturedApps($uri,$params=array())
 	{
-		return $this->_remoteCall($uri,'fetchFeaturedApps');
+		return $this->_remoteCall($uri,'fetchFeaturedApps',$params);
 	}	
 	
 	public function discoverRepository($uri)
@@ -36,11 +36,13 @@ class PackageService extends MetaObject
     {
         $cache_id = md5($this->m_Name.$uri. $method .serialize($params));         
         $cacheSvc = BizSystem::getService(CACHE_SERVICE,1);
-        $cacheSvc->init($this->m_Name,$this->m_CacheLifeTime);
-        if(substr($uri,strlen($uri)-1,1)!='/'){
+        $cacheSvc->init($this->m_Name,$this->m_CacheLifeTime);        		
+    	if(substr($uri,strlen($uri)-1,1)!='/'){
         	$uri .= '/';
-        }		
-        $uri .= "ws.php/repository/RepositoryService";               
+        }
+        
+        $uri .= "ws.php/repository/RepositoryService";            
+           
         if($cacheSvc->test($cache_id) && (int) $this->m_CacheLifeTime>0)
         {
             $resultSetArray = $cacheSvc->load($cache_id);

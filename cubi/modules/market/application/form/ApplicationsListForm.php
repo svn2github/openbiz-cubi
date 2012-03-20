@@ -20,6 +20,7 @@ class ApplicationsListForm extends AppListForm
 		if(is_array($appList['data'])){
 			foreach($appList['data'] as $appInfo)
 			{
+				$appInfo['icon'] = $repo_uri.$appInfo['icon'];
 				$resultSet[] = $appInfo;
 			}
 		}		

@@ -17,10 +17,11 @@ class FeaturedAppsListForm extends AppListForm
 			"range" => $this->m_Range,
 			"startItem" => ($this->m_CurrentPage-1)*$this->m_Range
 		);
-		$appList = $svc->discoverFeaturedApps($repo_uri,$cat_id,$params);	
+		$appList = $svc->discoverFeaturedApps($repo_uri,$params);	
 		if(is_array($appList['data'])){
 			foreach($appList['data'] as $appInfo)
 			{
+				$appInfo['icon'] = $repo_uri.$appInfo['icon'];
 				$resultSet[] = $appInfo;
 			}
 		}		

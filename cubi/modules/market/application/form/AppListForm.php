@@ -12,7 +12,10 @@ class AppListForm extends EasyForm
     	{
     		$repoRec = BizSystem::getObject("market.repository.do.RepositoryDO")->fetchOne("[status]=1");    	
     	}
-    	$repo_uri = $repoRec['repository_uri'];	
+    	$repo_uri = $repoRec['repository_uri'];
+		if(substr($repo_uri,strlen($repo_uri)-1,1)!='/'){
+        	$repo_uri .= '/';
+        }	
     	return $repo_uri;	
 	}
 	
