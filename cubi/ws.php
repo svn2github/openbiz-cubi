@@ -37,11 +37,14 @@ $module = $inputs[0];
 $service = isset($inputs[1]) ? $inputs[1] : $_REQUEST['service'];
 
 OB_ErrorHandler::$errorMode = 'text';
+if($module && $service){
 $websvc = $module.".websvc.".$service;
 // get service object
 $svcObj = BizSystem::getObject($websvc);
 
 // invoke the method 
 $svcObj->invoke();
-
+}else{
+	echo "Openbiz Webservice Ready!";
+}
 ?>
