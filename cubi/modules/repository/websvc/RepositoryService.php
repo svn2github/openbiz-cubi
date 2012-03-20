@@ -27,7 +27,7 @@ class RepositoryService extends WebsvcService
     	$range 	= $param['range'];
     	if($userSearchRule){
     		$searchRule .= " AND ".$userSearchRule;
-    	}
+    	}    	    	
     	$dataObj = BizSystem::getObject($this->m_ApplicationDO,1);  
     	$dataObj->setSearchRule($searchRule);
     	$dataObj->setSortRule($sortRule);
