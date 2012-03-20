@@ -1,9 +1,8 @@
 <?php
-
 include_once MODULE_PATH.'/websvc/lib/WebsvcService.php';
-
 class RepositoryService extends WebsvcService
 {
+	protected $m_CategoryDO = "repository.category.do.CategoryDO";
 	protected $m_ApplicationDO = "repository.application.do.ApplicationDO";
 	protected $m_RepositorySettingDO = "myaccount.do.PreferenceDO";
 	
@@ -41,6 +40,19 @@ class RepositoryService extends WebsvcService
     	$dataObj = BizSystem::getObject($this->m_ApplicationDO,1);    	   
         $resultRecords = $dataObj->directfetch($searchRule);  
         $resultSet = array();
+       	foreach($resultRecords as $record)
+       	{
+       		$resultSet[] = $record;
+       	}
+        return $resultSet;
+    }        
+
+    public function fetchCategories()
+    {
+    	$searchRule = "[publish]=1";
+    	$dataObj = BizSystem::getObject($this->m_CategoryDO,1);    	   
+        $resultRecords = $dataObj->directfetch($searchRule);  
+        $resultSet = array();        
        	foreach($resultRecords as $record)
        	{
        		$resultSet[] = $record;

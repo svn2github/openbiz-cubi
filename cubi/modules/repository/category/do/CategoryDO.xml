@@ -6,7 +6,6 @@
         <BizField Name="PId" Column="parent_id" Required="N" Type="Number"/>
         <BizField Name="name" Column="name" Length="255" Required="Y" Type="Text"/>
         <BizField Name="description" Column="description" Required="N" Type="Text"/>
-        <BizField Name="attrs" Column="attrs" Required="N" Type="Text"/>
         <BizField Name="publish" Column="publish" Required="N" Type="Number"/>
         <BizField Name="sort_order" Column="sort_order" Required="Y" Type="Number"/>
 		<BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>

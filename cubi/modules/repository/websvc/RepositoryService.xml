@@ -2,5 +2,6 @@
 <PluginService Name="RepositoryService" Class="RepositoryService" RequireAuth="N" >
     <PublicMethod Name="fetchRepoInfo" Access=""/>
     <PublicMethod Name="fetchFeaturedApps" Access=""/>
-    <PublicMethod Name="fetchApplications" Access=""/>    
+    <PublicMethod Name="fetchApplications" Access=""/>
+    <PublicMethod Name="fetchCategories" Access="" />
 </PluginService>
