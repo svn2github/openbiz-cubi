@@ -31,25 +31,37 @@ class RepositoryService extends WebsvcService
         return $resultSet;
     }    
 
-    public function fetchApplications($cat_id = null)
+    public function fetchApplications($cat_id = null,$param=array())
     {
     	$searchRule = "[status]=1 AND [release_time] < NOW() ";
     	if($cat_id){
-    		$searchRule .= " AND [cat_id]=$cat_id";
+    		$searchRule .= " AND [cat_id]=$cat_id ";
     	}
-    	$dataObj = BizSystem::getObject($this->m_ApplicationDO,1);    	   
-        $resultRecords = $dataObj->directfetch($searchRule);  
+    	$sortRule 	= $param['sortRule'];
+    	$userSearchRule = $param['searchRule'];
+    	$startItem 	= $param['startItem'];
+    	$range 	= $param['range'];
+    	if($userSearchRule){
+    		$searchRule .= " AND ".$userSearchRule;
+    	}
+    	$dataObj = BizSystem::getObject($this->m_ApplicationDO,1);  
+    	$dataObj->setSearchRule($searchRule);
+    	$dataObj->setSortRule($sortRule);
+    	$dataObj->setLimit($range, $startItem);  
+        $resultRecords = $dataObj->fetch();  
         $resultSet = array();
        	foreach($resultRecords as $record)
        	{
        		$resultSet[] = $record;
        	}
-        return $resultSet;
+       	$result['data'] = $resultSet;
+       	$result['totalRecords'] = $dataObj->count();
+        return $result;
     }        
 
     public function fetchCategories()
     {
-    	$searchRule = "[publish]=1";
+    	$searchRule = "[publish]=1";    	
     	$dataObj = BizSystem::getObject($this->m_CategoryDO,1);    	   
         $resultRecords = $dataObj->directfetch($searchRule);  
         $resultSet = array();        
