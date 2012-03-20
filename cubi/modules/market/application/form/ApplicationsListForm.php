@@ -9,8 +9,9 @@ class ApplicationsListForm extends AppListForm
 		$resultSet = array();
 				
 		$repo_uri = $this->getDefaultRepoURI();	
+				
 		$params=array(
-			"searchRule" => $searchRule,	
+			"searchRule" => $this->m_RemoteSearchRule,	
 			"sortRule" => $this->m_SortRule,			
 			"startItem" => ($this->m_CurrentPage-1)*$this->m_Range,
 			"range" => $this->m_Range,

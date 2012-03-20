@@ -2,17 +2,27 @@
 class AppListForm extends EasyForm
 {
 	public $m_RepoDO = "market.repository.do.RepositoryDO";
+	protected $m_RemoteSearchRule;
 	
 	protected function getDefaultRepoURI()
-	{
+	{		
 		if($_POST['fld_repo_id'])
     	{
     		$repoRec = BizSystem::getObject("market.repository.do.RepositoryDO")->fetchById((int)$_POST['fld_repo_id']);
-    	}else
+    	}
+    	elseif($_GET['repo'])
+    	{
+    		$repoRec = BizSystem::getObject("market.repository.do.RepositoryDO")->fetchById((int)$_GET['repo']);
+    	}
+    	else
     	{
     		$repoRec = BizSystem::getObject("market.repository.do.RepositoryDO")->fetchOne("[status]=1");    	
     	}
     	$repo_uri = $repoRec['repository_uri'];
+    	if(!$repo_uri){
+    		$repoRec = BizSystem::getObject("market.repository.do.RepositoryDO")->fetchOne("[status]=1");
+    		$repo_uri = $repoRec['repository_uri'];
+    	}
 		if(substr($repo_uri,strlen($repo_uri)-1,1)!='/'){
         	$repo_uri .= '/';
         }	
@@ -27,7 +37,6 @@ class AppListForm extends EasyForm
 	
 	public function fetchDataSet()
 	{
-
         if ($this->m_FixSearchRule)
         {
             if ($this->m_SearchRule)
@@ -36,7 +45,18 @@ class AppListForm extends EasyForm
                 $searchRule = $this->m_FixSearchRule;
         }
         else
-            $searchRule = $this->m_SearchRule;          
+            $searchRule = $this->m_SearchRule;        
+
+        if($_POST['fld_cat_id']){
+        	$cat_id = (int)$_POST['fld_cat_id'];
+        	$catSearchRule = " [category_id]='$cat_id' ";
+        }
+       	if($searchRule){
+       		$searchRule .=" AND $catSearchRule";
+       	}else{
+       		$searchRule = $catSearchRule;
+       	}       	
+       	$this->m_RemoteSearchRule = $searchRule;
 	}
 	
 	public function sortRecord($sortCol, $order='ASC')

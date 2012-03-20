@@ -15,7 +15,7 @@
         
     </DataPanel>
     <ActionPanel>   
-    	<Element Name="btn_discover" Class="LabelText" Text="Discover" CssClass="button_gray_w" Link="{APP_INDEX}/market/applications/fld_cat_{@:Elem[fld_Id].Value}">
+    	<Element Name="btn_discover" Class="LabelText" Text="Discover" CssClass="button_gray_w" Link="{APP_INDEX}/market/applications/repo_{@:Elem[fld_Id].Value}">
         </Element>
     	<Element Name="btn_spacer"  Class="Spacer" width="10" />    
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
