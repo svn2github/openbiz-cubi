@@ -12,7 +12,7 @@
             <EventHandler Name="btn_close_onclick" Event="onclick" Function="switchForm(repository.release.widget.ReleaseEditForm,{@:Elem[fld_Id].Value})"/>
         </Element>
         <Element Name="btn_showlog" Class="Button" Text="Log" CssClass="button_gray_m">
-            <EventHandler Name="btn_showlog_onclick" Event="onclick" Function="switchForm(repository.release.widget.ReleaseDownloadLogForm,,release_id={@:Elem[fld_Id].Value})"/>
+            <EventHandler Name="btn_showlog_onclick" Event="onclick" Function="switchForm(repository.release.widget.ReleaseInstallLogForm,,release_id={@:Elem[fld_Id].Value})"/>
         </Element>
         <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
             <EventHandler Name="btn_close_onclick" Event="onclick" Function="close()"/>
