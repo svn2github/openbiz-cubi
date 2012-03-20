@@ -9,7 +9,7 @@
 
 <form id="<?php echo $name?>" name="<?php echo $name?>">
 <h2 ><?php echo $this->title?></h2>
-<div  class="toplevel" style="width:180px; overflow:hidden;">
+<div  class="toplevel" style="width:180px; overflow:hidden; clear:both">
 <table cellspacing="0" cellpadding="2" >
 <tr>
 <td  align="left">

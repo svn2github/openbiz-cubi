@@ -7,7 +7,7 @@
 	    </Element>-->
         <!--<Element Name="fld_do_id" Class="Hidden" FieldName="do_id" Label="Data Table" Text="{@report.admin.do.ReportDoDO:Field[Id].Value}"/>-->
 		<Element Name="fld_do_id" Class="InputText" FieldName="do_id" Label="DO id"/>
-        <Element Name="fld_column" Class="report.admin.form.DataObjListbox" FieldName="column" Label="Column" SelectFrom="columns({@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, db_id)},{@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, table)})" Hidden="{(@:Element[fld_join_id].Value)==''?'N':'Y'}" />
+        <Element Name="fld_column" Class="report.admin.form.DataObjListbox" FieldName="column" Label="Column" SelectFrom="columns({@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, db_id)},{@query:FetchField(report.do.ReportDoDO, [Id]=@:Element[fld_do_id].Value, table)})" BlankOption="Select a column" Hidden="{(@:Element[fld_join_id].Value)==''?'N':'Y'}" />
 		
 		<Element Name="fld_join_id" Class="Listbox" FieldName="join_id" Label="Join" SelectFrom="report.admin.do.ReportDoJoinDO[name:Id],[do_id]={@:Elem[fld_do_id].Value}" BlankOption="Select a join">
 			<EventHandler Name="fld_join_onchange" Event="onchange" Function="UpdateForm()" />

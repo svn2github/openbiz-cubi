@@ -23,13 +23,13 @@
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
         </Element>
-        <Element Name="btn_autoload" Class="Button" Text="Load Forms" CssClass="button_gray_w">
+        <!--<Element Name="btn_autoload" Class="Button" Text="Load Forms" CssClass="button_gray_w">
             <EventHandler Name="autoload_onclick" Event="onclick" EventLogMsg="" Function="loadForms()" />
         </Element> 
         <Element Name="btn_load" Class="Button" Text="Manage Forms" CssClass="button_gray_w">
             <EventHandler Name="load_onclick" Event="onclick" EventLogMsg="" Function="loadForm()" />
             <EventHandler Name="loadjs_onclick" Event="onclick" EventLogMsg="" Function="js:ShowTab('report.admin.form.ReportFormListForm')" />
-        </Element>        
+        </Element>-->
     </ActionPanel> 
     <NavPanel>
 

@@ -19,17 +19,16 @@
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
             <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(report.admin.form.ReportFormNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
         </Element>
-        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+        <!--<Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
             <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=report.admin.form.ReportFormEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
-        </Element>
-                
+        </Element>-->
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
         </Element>
-        <Element Name="btn_load" Class="Button" Text="Load Elems" CssClass="button_gray_w">
+        <!--<Element Name="btn_load" Class="Button" Text="Load Elems" CssClass="button_gray_w">
             <EventHandler Name="load_onclick" Event="onclick" EventLogMsg="" Function="LoadElement()" />
             <EventHandler Name="loadjs_onclick" Event="onclick" EventLogMsg="" Function="js:ShowTab('report.admin.form.ReportFormElementListForm')" />
-        </Element>        
+        </Element>-->     
     </ActionPanel> 
     <NavPanel>
         <Element Name="rptform_page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">

@@ -47,7 +47,7 @@ class ReportFormForm extends EasyForm
             $this->renderParent();
         }
 		
-        $this->LoadElement();
+        //$this->LoadElement();
         $this->processPostAction();
 		
 		return $result;
@@ -111,8 +111,8 @@ class ReportFormForm extends EasyForm
 		return $result;
 	}
 	
-	public function LoadElement(){
-		$rec	= $this->getActiveRecord();		
+	public function LoadElement($recId){
+		$rec	= $this->getActiveRecord($recId);		
     	$id		= $rec['Id'];
     	$do_id	= $rec['do_id'];
     	$form_type = $rec['type'];
@@ -166,11 +166,7 @@ class ReportFormForm extends EasyForm
 		    	
 	    	} 	    	   		
     	}
-    	
-    	
-
-    	
-		$this->selectRecord($id);
+		$this->rerenderSubForms();	
 	}
 	
     protected function _checkDupElement($field_id,$form_id)

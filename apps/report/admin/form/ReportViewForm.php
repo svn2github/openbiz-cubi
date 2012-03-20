@@ -11,13 +11,13 @@ class ReportViewForm extends EasyForm
 		$result = parent::insertRecord();
 		$rec = $this->getActiveRecord();
 		if(is_array($rec)){	
-			$this->LoadForms();
+			$this->LoadForms($rec['Id']);
 		}
 		return $result;
 	}   
 
-	public function LoadForms(){
-		$rec	= $this->getActiveRecord();	
+	public function LoadForms($recId){
+		$rec	= $this->getActiveRecord($recId);	
 		$id		= $rec['Id'];
 		$db_id	= $rec['db_id'];
 		$do_id	= $rec['do_id'];
@@ -32,6 +32,7 @@ class ReportViewForm extends EasyForm
 		if(!$this->_checkDupForm($do_id,$id,$chartFormType)){
 			//determinte subtype of form
 			$fieldRecs = $fieldobj->directFetch("[do_id]='$do_id'");
+			
 			if(count($fieldRecs)<=3)
 			{
 				$chartSubFormType="Column3D";
@@ -79,7 +80,7 @@ class ReportViewForm extends EasyForm
 			$this->LoadElement($formRec);
 		}
 		
-		$this->selectRecord($id);
+		$this->rerenderSubForms();
 	}
 	
 	public function LoadElement($rec=null){

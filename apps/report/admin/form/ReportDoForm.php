@@ -3,8 +3,9 @@ class ReportDoForm extends EasyForm
 {
 	private $m_ReportFieldDO = "report.admin.do.ReportDoFieldDO";
 	
-	public function reloadFields(){
-		$rec = $this->getActiveRecord();		
+	public function reloadFields($recId)
+	{
+		$rec = $this->getActiveRecord($recId);
     	$server 	= $rec['server'];
     	$port 		= $rec['port'];
     	$driver 	= $rec['driver'];
@@ -18,7 +19,7 @@ class ReportDoForm extends EasyForm
     	if(!$driver)
         	return;		
         
-        $report_do = BizSystem::GetObject($this->m_ReportFieldDO,1);	
+        $report_fld_do = BizSystem::GetObject($this->m_ReportFieldDO,1);	
         
 	    switch(strtoupper($driver)){
         	case "PDO_MYSQL":
@@ -34,12 +35,12 @@ class ReportDoForm extends EasyForm
 	        				"name"=>ucwords($row['Field']),
 	        				"type"=>$this->convertDataType($row['Type'],$driver),
 	        				); 	         
-	        			$report_do->insertRecord($report_array);   
+	        			$report_fld_do->insertRecord($report_array);   
         			} 			
         		}      		
         		break;        	
         }		
-		$this->selectRecord($do_id);		
+		$this->rerenderSubForms();		
 	}
 
     protected function _checkDupFieldname($fieldname,$do_id)

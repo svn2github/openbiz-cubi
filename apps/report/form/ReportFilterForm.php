@@ -28,7 +28,7 @@ class ReportFilterForm extends ReportForm
     {
         $output = parent::outputAttrs();
         $output['use_pivot'] = $this->m_UsePivot;
-	return $output;
+		return $output;
     }
  
 	public function runSearch()
@@ -38,43 +38,35 @@ class ReportFilterForm extends ReportForm
 		$viewObj->reload();
 		
    		include_once(OPENBIZ_BIN."/easy/SearchHelper.php");
-        $searchRule = "";
-        foreach ($this->m_DataPanel as $element)
-        {
-            if (!$element->m_FieldName)
-                continue;
-
-            $value = BizSystem::clientProxy()->getFormInputs($element->m_Name);
-            $valueArr = explode(",",$value);
-            $searchBaseRule.="(";
-            foreach($valueArr as $value){              	          	
-	            if($element->m_FuzzySearch=="Y")
-	            {
-	                $value="*$value*";
-	            }
-	            if ($value)
-	            {
-	                $searchStr = inputValToRule($element->m_FieldName, $value, $this);
-	                if ($searchRule == "")
-	                    $searchRule .= $searchStr;
-	                else
-	                    $searchRule .= " OR " . $searchStr;
-	            }
-            }     
-            if ($searchBaseRule == "("){
-            	$searchBaseRule.=$searchRule .") ";
-            }else{
-            	$searchBaseRule.=$searchRule.") AND ";
-            	$searchRule = "";
-            }       
-        }
+		
+		// compose search rule like ([field1]='a' OR [field1]='b') AND ([field2]='c' OR [field2]='d') AND ...
+		$searchRule = "";
+		$searchRuleList = array();
+		foreach ($this->m_DataPanel as $element)
+		{
+			$searchStrs = array();
+			if (!$element->m_FieldName) continue;
+			$value = BizSystem::clientProxy()->getFormInputs($element->m_Name);
+			if (!$value && $value !== 0 && $value!=='0') continue;
+			$valueArr = explode(",",$value);
+			foreach($valueArr as $value){
+				if($element->m_FuzzySearch=="Y")
+				{
+					$value="*$value*";
+				}
+				if ($value)
+				{
+					$searchStrs[] = inputValToRule($element->m_FieldName, $value, $this);
+				}
+			}
+			$searchRuleList[] = "(".implode(' OR ',$searchStrs).")";
+		}
+		$searchRule = implode(' AND ',$searchRuleList);
         if (empty($searchRule)) 
             return;
-        if (substr($searchBaseRule, -4) == 'AND ')
-            $searchRule = substr($searchBaseRule, 0, -4);
 		$searchRuleBindValues = QueryStringParam::getBindValues();
 		// redraw all forms other than this filter form
-	foreach ($viewObj->m_FormRefs as $formRef)
+		foreach ($viewObj->m_FormRefs as $formRef)
         {
             $formName = $formRef->m_Name;
             if ($formName == $this->m_Name)

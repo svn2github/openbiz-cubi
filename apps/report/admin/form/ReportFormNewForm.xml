@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReportFormNewForm" Class="ReportFormForm" Icon="icon_report_form.gif" FormType="New" jsClass="jbForm" Title="New Report Form" Description="Report Form could be chart form or data tables for contains report data. \nEach form has to be mounted onto report pages." BizDataObj="report.do.ReportFormDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_reportform.tpl.html" EventName="REPORT_FORM" >
+<EasyForm Name="ReportFormNewForm" Class="ReportFormForm" Icon="icon_report_form.gif" FormType="New" jsClass="jbForm" Title="New Report Form" Description="Report Form could be chart form or data tables for contains report data. \nEach form has to be mounted onto report pages." BizDataObj="report.admin.do.ReportFormDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_reportform.tpl.html" EventName="REPORT_FORM" >
     <DataPanel>	        
-        <Element Name="fld_title" ElementSet="General" Class="InputText" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	                
+        <Element Name="fld_title" ElementSet="Top" Class="InputText" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	                
         <Element Name="fld_desc" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"/>
-        <Element Name="fld_view_id" ElementSet="General" Class="Listbox" SelectFrom="report.do.ReportViewDO[title:Id]}'" DefaultValue="{@report.admin.do.ReportViewDO:Field[Id].Value}" FieldName="view_id" Label="Report Page"  AllowURLParam="N"/>
+        <!--<Element Name="fld_view_id" ElementSet="General" Class="Listbox" SelectFrom="report.do.ReportViewDO[title:Id]}'" DefaultValue="{@report.admin.do.ReportViewDO:Field[Id].Value}" FieldName="view_id" Label="Report Page"  AllowURLParam="N"/>-->
+		<!--<Element Name="fld_view_id" ElementSet="General" Class="InputText" FieldName="view_id" Label="Report Page Id"  AllowURLParam="N"/>-->
         <Element Name="fld_sortorder" ElementSet="General" Class="Listbox" SelectFrom="report.admin.lov.SortOrder(Order)" FieldName="sortorder" Label="Sort Order"  AllowURLParam="N" />
 		<Element Name="fld_db_id" ElementSet="Data Source" Class="Listbox" SelectFrom="report.admin.do.ReportDbDO[name:Id]" DefaultValue="{@report.admin.do.ReportViewDO:Field[db_id].Value}" FieldName="" Label="Data Source"  AllowURLParam="N" >
 			<EventHandler Name="fld_db_onchange" Event="onchange" Function="UpdateForm()" />
     		<EventHandler Name="fld_db_onblur" Event="onblur" Function="UpdateForm()" />
     	</Element>    	                    	        
-        <Element Name="fld_do_id" ElementSet="Data Source" Class="Listbox" SelectFrom="report.admin.do.ReportDoDO[name:Id],db_id={(int)$_POST['fld_db_id']?(int)$_POST['fld_db_id']:@report.admin.do.ReportViewDO:Field[db_id].Value}" FieldName="do_id" Label="Data Table" DefaultValue="{@report.admin.do.ReportViewDO:Field[do_id].Value}" />    	                    	        
+        <Element Name="fld_do_id" ElementSet="Data Source" Class="Listbox" SelectFrom="report.admin.do.ReportDoDO[name:Id],db_id={(int)$_POST['fld_db_id']?(int)$_POST['fld_db_id']:@report.admin.do.ReportViewDO:Field[db_id].Value}" FieldName="do_id" Label="Data Table" DefaultValue="{@report.admin.do.ReportViewDO:Field[do_id].Value}" />	
         
        <Element Name="fld_type" ElementSet="Form Type" Class="Listbox" SelectFrom="report.admin.lov.FormType(FormType)" FieldName="type" Label="Form Type"  AllowURLParam="N" >
         	<EventHandler Name="fld_type_onchange" Event="onchange" Function="js:showConfigOptions(this.value)" />
@@ -78,10 +79,10 @@
         </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=report.admin.form.ReportFormDetailForm&amp;fld:Id={@report.do.ReportFormDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="{@home:url}/report/report_form_detail/{@report.do.ReportFormDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
-            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportFormListForm)"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
         </Element>
     </ActionPanel> 
     <NavPanel>

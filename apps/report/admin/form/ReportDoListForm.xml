@@ -20,10 +20,10 @@
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
         </Element>
-         <Element Name="btn_reload" Class="Button" Text="Reload Fields" CssClass="button_gray_w">
+         <!--<Element Name="btn_reload" Class="Button" Text="Reload Fields" CssClass="button_gray_w">
             <EventHandler Name="reload_onclick" Event="onclick" EventLogMsg="" Function="reloadFields()"  ShortcutKey="Ctrl+L" ContextMenu="Reload Fields"/>
             <EventHandler Name="reloadjs_onclick" Event="onclick" EventLogMsg="" Function="js:ShowTab('report.admin.form.ReportDoFieldListForm')" />
-        </Element>
+        </Element>-->
     </ActionPanel> 
     <NavPanel>
         <Element Name="do_page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">

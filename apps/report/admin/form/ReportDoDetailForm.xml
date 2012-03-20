@@ -14,22 +14,19 @@
 		<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>
 		<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
 	</DataPanel>
-    <ActionPanel>       
-        <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
-			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportDoNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
-        </Element>          
+    <ActionPanel>
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(report.admin.form.ReportDoEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
-		<Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
-            <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=report.admin.form.ReportDoCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
-        </Element> 
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=report.admin.form.ReportDoListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
         </Element>
+		<Element Name="btn_reload" Class="Button" Text="Populate Fields" CssClass="button_gray_w">
+            <EventHandler Name="reload_onclick" Event="onclick" EventLogMsg="" Function="reloadFields({@:Elem[fld_Id].Value})" ContextMenu="Populate Fields"/>
+        </Element>
         <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="js:history.go(-1)"  ShortcutKey="Escape" ContextMenu="Cancel" />
-        </Element>         
+        </Element>     
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 

@@ -9,7 +9,7 @@
 
 <form id="<?php echo $name?>" name="<?php echo $name?>">
 <h2 ><?php echo $this->title?></h2>
-<div  class="toplevel" style="width:180px; overflow:hidden;">
+<div  class="toplevel" style="width:180px; overflow:hidden; clear:both">
 <table cellspacing="0" cellpadding="2" >
 <tr>
 <td  align="left">
@@ -104,7 +104,7 @@ $j(function () {
             else
                 $class = 'leaf';
         }
-        if (strpos($_SERVER['REQUEST_URI'],$elem->m_Link)!==false) 
+        if (!empty($elem->m_Link) && strpos($_SERVER['PATH_INFO'],$elem->m_Link)!==false) 
             $clicked="clicked";
         else 
             $clicked = '';

@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReportDoJoinDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Title="Table Join Detail" Description="" BizDataObj="report.admin.do.ReportDoJoinDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
+<EasyForm Name="ReportDoJoinDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Title="Table Join Detail" Description="" BizDataObj="report.admin.do.ReportDoJoinDO" TemplateEngine="Smarty" TemplateFile="detail_elementset_tab.tpl" EventName="" MessageFile="">
     <DataPanel>
-		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-       	<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
-       	<!--<Element Name="fld_do_id" ElementSet="General" Class="LabelText" FieldName="do_id" Label="Do Id" AllowURLParam="N"/>-->
-       	<Element Name="fld_table" ElementSet="General" Class="LabelText" FieldName="table" Label="Table to join" AllowURLParam="N"/>
-       	<Element Name="fld_column" ElementSet="General" Class="LabelText" FieldName="column" Label="Join Column" AllowURLParam="N"/>
-       	<Element Name="fld_jointype" ElementSet="General" Class="LabelText" FieldName="jointype" Label="Join Type" AllowURLParam="N"/>
-       	<Element Name="fld_columnref" ElementSet="General" Class="LabelText" FieldName="columnref" Label="Reference Column" AllowURLParam="N"/>
-       	<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" AllowURLParam="N"/>       	
-       	<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time"  AllowURLParam="N"/>       	
-       	<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By" Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>       	
-       	<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time"  AllowURLParam="N"/>       	
+		<Element Name="fld_Id" ElementSet="Top" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+		<Element Name="fld_name" ElementSet="Top" Class="LabelText" FieldName="name" Label="Name" />
+		<Element Name="fld_do_id" ElementSet="General" Class="Hidden" FieldName="do_id" Label="Do Id" />
+		<Element Name="fld_column" ElementSet="General" Class="LabelText" FieldName="column" Label="Column" Hidden="{(@:Element[fld_join_id].Value)==''?'N':'Y'}"/>
+		<Element Name="fld_type" ElementSet="General" Class="LabelText" FieldName="type" Label="Type"  />        
+		<Element Name="fld_format" ElementSet="General" Class="LabelText" FieldName="format" Label="Format" />
+		<Element Name="fld_sql_expr" ElementSet="General" Class="LabelText" FieldName="sql_expr" Label="SQL Expression" />
+		<Element Name="fld_value" ElementSet="General" Class="LabelText" FieldName="value" Label="Value"/> 
+		
+		<Element Name="fld_join_id" ElementSet="Join" Class="LabelList" FieldName="join_id" Label="Join" SelectFrom="report.admin.do.ReportDoJoinDO[name:Id],[do_id]={@:Elem[fld_do_id].Value}" >
+		</Element>
+		<Element Name="fld_join_column" ElementSet="Join" Class="LabelText" FieldName="column" Label="Join Column" Hidden="{(@:Element[fld_join_id].Value)==''?'Y':'N'}" />
+		<Element Name="fld_jointype" ElementSet="Join" Class="LabelText" FieldName="jointype" Label="Join Type" />
+		<Element Name="fld_columnref" ElementSet="Join" Class="LabelText" FieldName="columnref" Label="Reference Column" />
+
+		<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[create_by].Value)}" />       	
+		<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time"  />       	
+		<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By" Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" />       	
+		<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time"  />       	
     </DataPanel>
     <ActionPanel>       
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">

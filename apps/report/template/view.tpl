@@ -14,7 +14,7 @@ $includedScripts.="
 <script type='text/javascript' src='$js_url/cookies.js'></script>
 <script type='text/javascript' src='$js_url/grouping.js'></script>
 <script type='text/javascript' src='$theme_js_url/general_ui.js'></script>
-<script>var \$j = jQuery.noConflict();</script>
+<script>try {var \$j = jQuery.noConflict();} catch (e) {}</script>
 ";
 $this->_tpl_vars['scripts'] = $includedScripts;
 

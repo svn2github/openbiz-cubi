@@ -12,9 +12,7 @@
         </Element>
         <Element Name="fld_db_name" Class="report.admin.form.DBListbox" Required="Y" FieldName="db_name" Label="Database"  AllowURLParam="N" />
         <Element Name="fld_charset" Class="Listbox" SelectFrom="report.admin.lov.DbDrivers(Charset)" Required="N" FieldName="charset" Label="Charset"  AllowURLParam="N" />
-    	        
-
-        </DataPanel>
+	</DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
             <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=report.admin.form.ReportDbDetailForm&amp;fld:Id={@report.admin.do.ReportDbDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />

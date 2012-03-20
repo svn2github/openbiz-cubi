@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReportDoFieldDetailForm" Class="ReportDoFieldForm" Icon="icon_row.gif" FormType="" jsClass="jbForm" Title="Data Field Detail" Description="Below list is all data fields inside selected data object.\nA data field of object is default mapping to a table column or specified SQL expresion." BizDataObj="report.admin.do.ReportDoFieldDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl.html" EventName="REPORT_DO_FIELD" >
+<EasyForm Name="ReportDoFieldDetailForm" Class="ReportDoFieldForm" Icon="icon_row.gif" FormType="" jsClass="jbForm" Title="Data Field Detail" Description="Below list is all data fields inside selected data object.\nA data field of object is default mapping to a table column or specified SQL expresion." BizDataObj="report.admin.do.ReportDoFieldDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_tab.tpl" EventName="REPORT_DO_FIELD" >
     <DataPanel>
-		<Element Name="fld_Id" Hidden="Y" ElementSet="General" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-		<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
+		<Element Name="fld_Id" Hidden="Y" ElementSet="Top" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+		<Element Name="fld_name" ElementSet="Top" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
 		<Element Name="fld_do_id" ElementSet="General" Class="LabelText" FieldName="datatable" Label="Data Table" AllowURLParam="N"/>
 		<Element Name="fld_join" ElementSet="General" Class="LabelText" FieldName="join_name" Label="Join"  />	
 		<Element Name="fld_column" ElementSet="General" Class="LabelText" FieldName="column" Label="Column" AllowURLParam="N"/>		        

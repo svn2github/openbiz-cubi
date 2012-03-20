@@ -44,6 +44,9 @@ class ReportView extends EasyView
     	//$ReportAclDO = $this->m_ReportAclDO;
         $formDO = "report.do.ReportFormDO";
     	
+		// get the view id from the user request
+        $this->m_ViewId = isset($_REQUEST['__view']) ? $_REQUEST['__view'] : $this->m_ViewId;
+		
     	// check report id
         $reportId = isset($_GET['fld:Id']) ? $_GET['fld:Id'] : $this->m_ViewId;
         $this->m_ViewId = $reportId; 
