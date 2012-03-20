@@ -73,7 +73,7 @@ class ReleaseForm extends PickerForm
             $this->processFormObjError($e->m_Errors);
             return;
         }
-        
+
         //add file attributes
         $recArr['filesize'] =  filesize($fileObj['file_path']);
         $recArr['md5'] = md5_file($fileObj['file_path']);

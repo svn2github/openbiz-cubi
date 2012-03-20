@@ -3,6 +3,7 @@
     <DataPanel>        
     	<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>   
         <Element Name="fld_version" Class="LabelText" FieldName="version" Label="Version" Text="Version {@:Elem[fld_version].Value}"    />	        
+		<Element Name="fld_desc" Class="LabelTextarea" FieldName="description" Label="Description"   />
         <Element Name="fld_platform" Class="LabelList" FieldName="pltfm_ver" Label="Platform"  SelectFrom="repository.lov.PlatformLOV(Platform)"   />	        
         <Element Name="fld_filename" Class="LabelText" FieldName="filename" Label="Filename"   />
         <Element Name="fld_filesize" Class="LabelText" FieldName="filesize" Text="{@util:format_bytes(@:Elem[fld_filesize].Value)}" Label="Filesize"   />
