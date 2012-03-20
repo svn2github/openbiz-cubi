@@ -46,6 +46,8 @@
  -->        
     </NavPanel> 
     <SearchPanel>
-        
+        <Element Name="fld_repo_id"  width="165" Class="Listbox" style="float:left;" SelectFrom="market.repository.do.RepositoryDO[repository_name:repository_uri]" FieldName="repo_uri" Label=""  >
+        	<EventHandler Name="fld_repo_id_onchange" Event="onchange" Function="RunSearch()" />
+        </Element>
     </SearchPanel>
 </EasyForm>

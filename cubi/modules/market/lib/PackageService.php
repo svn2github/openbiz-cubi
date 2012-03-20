@@ -16,6 +16,11 @@ class PackageService extends MetaObject
 		return $this->_remoteCall($uri,'fetchRepoInfo');
 	}
 	
+	public function discoverCategory($uri)
+	{
+		return $this->_remoteCall($uri,'fetchCategories');
+	}
+	
 	public function discoverApplication($uri,$cat_id)
 	{
 		if($cat_id){
