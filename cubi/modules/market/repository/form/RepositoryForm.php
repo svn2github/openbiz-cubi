@@ -67,6 +67,7 @@ class RepositoryForm extends EasyForm
 		$svc = BizSystem::getService("market.lib.PackageService");
 		$repoInfo = $svc->discoverRepository($repo_uri);        
         $recArr['repository_uid'] = $repoInfo['_repo_uid'];
+        $recArr['repository_name'] = $repoInfo['_repo_name'];
         $this->_doInsert($recArr);
         
         

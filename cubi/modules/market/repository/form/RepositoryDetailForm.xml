@@ -14,11 +14,13 @@
     		
         
     </DataPanel>
-    <ActionPanel>       
+    <ActionPanel>   
+    	<Element Name="btn_discover" Class="LabelText" Text="Discover" CssClass="button_gray_w" Link="{APP_INDEX}/market/applications/fld_cat_{@:Elem[fld_Id].Value}">
+        </Element>
+    	<Element Name="btn_spacer"  Class="Spacer" width="10" />    
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(market.repository.form.RepositoryNewForm)" ShortcutKey="Insert" ContextMenu="New"/>
         </Element>          
-        <Element Name="btn_spacer"  Class="Spacer" width="10" />	
         
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})" RedirectPage="form=market.repository.form.RepositoryListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
