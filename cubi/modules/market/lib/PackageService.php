@@ -6,8 +6,9 @@ include_once(MODULE_PATH."/system/lib/ModuleLoader.php");
 class PackageService extends MetaObject
 {
 	
-	public function discoverFeaturedApps($uri,$params=array())
+	public function discoverFeaturedApps($uri,$formParams=array())
 	{
+		$params['formParams'] = $formParams;
 		return $this->_remoteCall($uri,'fetchFeaturedApps',$params);
 	}	
 	

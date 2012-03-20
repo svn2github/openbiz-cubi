@@ -50,12 +50,13 @@ class AppListForm extends EasyForm
         if($_POST['fld_cat_id']){
         	$cat_id = (int)$_POST['fld_cat_id'];
         	$catSearchRule = " [category_id]='$cat_id' ";
+        	if($searchRule){
+	       		$searchRule .=" AND $catSearchRule";
+	       	}else{
+	       		$searchRule = $catSearchRule;
+	       	} 
         }
-       	if($searchRule){
-       		$searchRule .=" AND $catSearchRule";
-       	}else{
-       		$searchRule = $catSearchRule;
-       	}       	
+       	      	
        	$this->m_RemoteSearchRule = $searchRule;
 	}
 	
