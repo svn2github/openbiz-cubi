@@ -2,19 +2,19 @@
 <EasyForm Name="ApplicationsListForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif" Class="ApplicationsListForm" FormType="List" jsClass="jbForm" Title="Discover Applications" Description="This module can manage repositroy applications " BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="Repository.Manage">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="N" AllowURLParam="N">         
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N">         
         </Element>
-         <Element Name="fld_icon" Class="ColumnImage" FieldName="icon" Label="Icon"  Sortable="N"  Height="22" >
+         <Element Name="fld_icon" Class="ColumnImage" FieldName="icon" Label="Icon"  Sortable="Y"  Height="22" >
         </Element>     
-        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Package" Sortable="N"  Link="{APP_INDEX}/repository/repository_application_detail/{@:Elem[fld_Id].Value}" >
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Package" Sortable="Y"  Link="{APP_INDEX}/repository/repository_application_detail/{@:Elem[fld_Id].Value}" >
         </Element>
-        <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"  Sortable="N"/>
-        <Element Name="fld_category_name" Class="ColumnText" FieldName="category_name" Label="Category"  Sortable="N"/>
-        <Element Name="fld_featured" Class="ColumnBool" FieldName="featured" Label="Featured"  Sortable="N" SelectFrom="common.lov.CommLOV(Status)" Link="javascript:;">
+        <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y"/>
+        <Element Name="fld_category_name" Class="ColumnText" FieldName="category_name" Label="Category"  Sortable="Y"/>
+        <Element Name="fld_featured" Class="ColumnBool" FieldName="featured" Label="Featured"  Sortable="Y" SelectFrom="common.lov.CommLOV(Status)" Link="javascript:;">
         </Element>
-        <Element Name="fld_status" Class="ColumnBool" FieldName="status" Label="Status"  Sortable="N" SelectFrom="common.lov.CommLOV(Status)"  Link="javascript:;">
+        <Element Name="fld_status" Class="ColumnBool" FieldName="status" Label="Status"  Sortable="Y" SelectFrom="common.lov.CommLOV(Status)"  Link="javascript:;">
         </Element>
-        <Element Name="fld_release_time" Class="ColumnText" Text="{date('Y-m-d',strtotime(@:Elem[fld_release_time].Value))}" FieldName="release_time" Label="Release Date"  Sortable="N"/>
+        <Element Name="fld_release_time" Class="ColumnText" Text="{date('Y-m-d',strtotime(@:Elem[fld_release_time].Value))}" FieldName="release_time" Label="Release Date"  Sortable="Y"/>
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_refresh" Class="Button" Text="Refresh" CssClass="button_gray_w"  Access="Repository.Manage">
@@ -22,7 +22,7 @@
         </Element>        
     </ActionPanel> 
     <NavPanel>
-    <!-- 
+   
   		<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
             <EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
         </Element>
@@ -43,7 +43,7 @@
         <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
             <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
         </Element>
- -->        
+   
     </NavPanel> 
     <SearchPanel>
     	<Element Name="fld_repo_id"  width="165" Class="Listbox" style="float:left;" SelectFrom="market.repository.do.RepositoryDO[repository_name:Id]" FieldName="repo_uri" Label=""  >

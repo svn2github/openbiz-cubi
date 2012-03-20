@@ -15,14 +15,14 @@ class CategoryListbox extends Listbox
     	
     	$svc = BizSystem::getService("market.lib.PackageService");
 		$catList = $svc->discoverCategory($repo_uri);
-		
-		foreach($catList as $cat){
-			$list[] = array(
-				"val" => $cat['Id'],
-				"txt" => $cat['name'],
-			);
+		if(is_array($catList)){
+			foreach($catList as $cat){
+				$list[] = array(
+					"val" => $cat['Id'],
+					"txt" => $cat['name'],
+				);
+			}
 		}
-		
         return;
     }	
 }

@@ -6,7 +6,7 @@ include_once(MODULE_PATH."/system/lib/ModuleLoader.php");
 class PackageService extends MetaObject
 {
 	
-	public function discoverFeaturedApps($uri)
+	public function discoverFeaturedApps($uri,$params=array())
 	{
 		return $this->_remoteCall($uri,'fetchFeaturedApps');
 	}	
@@ -21,12 +21,15 @@ class PackageService extends MetaObject
 		return $this->_remoteCall($uri,'fetchCategories');
 	}
 	
-	public function discoverApplication($uri,$cat_id)
+	public function discoverApplication($uri,$cat_id,$formParams=array())
 	{
-		if($cat_id){
-			$param=array("cat_id"=>$cat_id);
+		if($cat_id){			
+			$params['cat_id'] = $cat_id; 
+		}else{
+			$params['cat_id'] = null;
 		}
-		return $this->_remoteCall($uri,'fetchApplications',$param);
+		$params['formParams'] = $formParams;
+		return $this->_remoteCall($uri,'fetchApplications',$params);
 	}	
 	
 	protected function _remoteCall($uri,$method,$params=null)
@@ -50,7 +53,7 @@ class PackageService extends MetaObject
 		        foreach ($query as $q)
 		            $httpClient->addQuery($q);
 		        $headerList = array();
-		        $out = $httpClient->fetchContents($uri, $headerList);
+		        $out = $httpClient->fetchContents($uri, $headerList);		        
 		        $cats = json_decode($out, true);
 		        $resultSetArray = $cats['data'];
 		        $cacheSvc->save($resultSetArray,$cache_id);
