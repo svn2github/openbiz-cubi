@@ -18,17 +18,29 @@ class RepositoryService extends WebsvcService
         return $prefRecord;
     }
 
-    public function fetchFeaturedApps()
+    public function fetchFeaturedApps($param=array())
     {
     	$searchRule = "[status]=1 AND [release_time] < NOW() AND [featured]=1";
-    	$dataObj = BizSystem::getObject($this->m_ApplicationDO,1);    	   
-        $resultRecords = $dataObj->directfetch($searchRule);  
+    	$sortRule 	= $param['sortRule'];
+    	$userSearchRule = $param['searchRule'];
+    	$startItem 	= $param['startItem'];
+    	$range 	= $param['range'];
+    	if($userSearchRule){
+    		$searchRule .= " AND ".$userSearchRule;
+    	}
+    	$dataObj = BizSystem::getObject($this->m_ApplicationDO,1);  
+    	$dataObj->setSearchRule($searchRule);
+    	$dataObj->setSortRule($sortRule);
+    	$dataObj->setLimit($range, $startItem);  
+        $resultRecords = $dataObj->fetch();  
         $resultSet = array();
        	foreach($resultRecords as $record)
        	{
        		$resultSet[] = $record;
        	}
-        return $resultSet;
+       	$result['data'] = $resultSet;
+       	$result['totalRecords'] = $dataObj->count();
+        return $result;
     }    
 
     public function fetchApplications($cat_id = null,$param=array())
