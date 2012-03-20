@@ -27,10 +27,13 @@ Openbiz.ReportForm = Class.create(Openbiz.TableForm,
         url += "?"+requestString;
         if (options && options['evthdl'])
             url += "&__this="+options['evthdl'];
-	   
+	   /*
         // append report form name in url
         url += "&__form="+this.reportFormName;
-        
+		
+		// append report view name in url
+        url += "&__view="+getReportViewId();
+        */
 	    switch (type) {
             case Openbiz.ActionType.PAGE:
                 Openbiz.Net.loadPage(url); break;
@@ -44,8 +47,22 @@ Openbiz.ReportForm = Class.create(Openbiz.TableForm,
             	else
             		Openbiz.Net.post(url, formData);
         }
+    },
+	collectData: function($super)
+    {
+    	formData = $super();
+		// append report form name in url
+        formData += "&__form="+this.reportFormName;
+		// append report view name in url
+        formData += "&__view="+getReportViewId();
+        return formData;
     }
 });
+
+function getReportViewId()
+{
+	return $('report_view_id').innerHTML;
+}
 
 /**
  * Openbiz Pivot Form class
@@ -62,6 +79,13 @@ Openbiz.PivotForm = Class.create(Openbiz.Form,
 			this.form.setAttribute("target", "_blank");
             this.CallFunction("renderPivot", paramArray, options);
 		}
+    },
+	collectData: function($super)
+    {
+    	formData = $super();
+		// append report view name in url
+        formData += "&__view="+getReportViewId();
+        return formData;
     }
 });
 
