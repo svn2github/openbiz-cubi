@@ -64,7 +64,7 @@ class HttpClient
 				$headerStr.$eol.$eol;
 		}
 
-		$fp = fsockopen($url['host'], $url['port'], $errno, $errstr, 30);
+		$fp = @fsockopen($url['host'], $url['port'], $errno, $errstr, 30);
 		if($fp) {
 			//print ($headers);
 			fputs($fp, $headers);
