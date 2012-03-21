@@ -11,6 +11,11 @@ class ApplicationDetailForm extends AppListForm
 		$appInfo = $svc->discoverAppInfo($repo_uri,$app_id);
 		$this->m_RecordId = $appInfo['Id'];
 		$appInfo['icon'] = $repo_uri.$appInfo['icon'];
+		
+		$releaseInfo = $svc->discoverAppLatestRelease($repo_uri,$app_id);
+		$releaseInfo['url']= $repo_uri.$releaseInfo['url'];
+		
+		$appInfo['latest_release'] = $releaseInfo;
 		return $appInfo;
 	}
 }
