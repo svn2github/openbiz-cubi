@@ -37,7 +37,7 @@ color:#666666;
 		<div class="form_icon" style="padding-top:0px;"><img width="60" src="{$dataPanel.fld_icon.element}" border="0" /></div>
 		{/if}
 	
-		<div style="float:left; width:250px;padding-top:0px;">
+		<div style="float:left; width:200px;padding-top:0px;">
 			<h1 style="padding-bottom:0px;font-size:20px;line-height:24px;">
 			{$dataPanel.fld_name.element}
 			</h1>
@@ -46,7 +46,13 @@ color:#666666;
 				<div style=";" >{$dataPanel.fld_author.element}</div>  
 				
 			</div>
-			 <div style="color:#999999;;">{$dataPanel.fld_release_time.element}</div>
+			 <div style="color:#999999;;">
+			 {if $dataPanel.fld_latest_release.element.create_time}
+			 {$dataPanel.fld_latest_release.element.create_date}
+			 {else}
+			 {$dataPanel.fld_release_time.element}
+			 {/if}
+			 </div>
 		</div>
 		
 		<div style="float:left; width:250px;padding-top:0px;border-left:1px solid #cccccc;padding-left:20px;">
@@ -66,6 +72,20 @@ color:#666666;
 
 		</div>
 		
+		<div style="float:left; width:100px;padding-top:0px;border-left:1px solid #cccccc;padding-left:20px;height:60px;">
+		
+			{if $dataPanel.fld_latest_release.element}
+			<div >
+				<label style="text-align:left;height:20px;width:100px;line-height:20px;">{t}Version{/t} {$dataPanel.fld_latest_release.element.version}</label>
+				<label style="text-align:left;height:20px;width:100px;line-height:20px;">{$dataPanel.fld_latest_release.element.filesize}</label>
+			</div>
+			{else}
+			<div>
+				<span style="color:#cccccc;padding-top:10px;display:block;">{t}No Release Available{/t}</span>
+			</div>
+			{/if}
+						
+		</div>
 	</td></tr></table>
 	</div>
 	<div id="element_set_panel_0" class="element_set_panel ">
