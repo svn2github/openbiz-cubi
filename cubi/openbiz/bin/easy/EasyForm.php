@@ -1902,7 +1902,7 @@ class EasyForm extends MetaObject implements iSessionObject
         $renderedHTML = $this->renderHTML();
 
         // prepare the subforms' dataobjs, since the subform relates to parent form by dataobj association
-        if ($this->m_SubForms)
+        if ($this->m_SubForms && $this->getDataObj())
         {
             foreach ($this->m_SubForms as $subForm)
             {
