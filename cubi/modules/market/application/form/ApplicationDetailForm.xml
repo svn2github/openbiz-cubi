@@ -16,19 +16,6 @@
         
         
         
-        <Element Name="fld_related_picture"   Access="picture.access" ElementSet="Screenshots" Class="FormElement" FormReference="picture.widget.PictureListRowForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_picture" Access="picture.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Screenshots"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
-			<EventHandler Name="btn_manage_picture_onclick" Event="onclick" Function="SwitchForm(repository.application.form.ApplicationEditScreenshotForm,{@:Elem[fld_Id].Value})"   />
-        </Element>  
-        
-        <Element Name="fld_release"   ElementSet="Version Release" Class="FormElement" FormReference="repository.release.widget.ReleaseListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-		<Element Name="btn_manage_release"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Version Release"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
-			<EventHandler Name="btn_manage_release_onclick" Event="onclick" Function="SwitchForm(repository.application.form.ApplicationEditReleaseForm,{@:Elem[fld_Id].Value})"   />
-        </Element>  
-        
-        <Element Name="fld_install_log"   ElementSet="Install Log" Class="FormElement" FormReference="repository.install.widget.InstallLogForm" FieldName="" Label="" AllowURLParam="N" />
-		
-        
     </DataPanel>
     <ActionPanel>       
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">

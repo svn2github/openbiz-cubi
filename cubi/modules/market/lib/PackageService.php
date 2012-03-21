@@ -33,6 +33,16 @@ class PackageService extends MetaObject
 		return $this->_remoteCall($uri,'fetchApplications',$params);
 	}	
 	
+	public function discoverAppInfo($uri,$app_id)
+	{
+		if($app_id){
+			$params['app_id'] = $app_id; 
+		}else{
+			$params['app_id'] = null;
+		}		
+		return $this->_remoteCall($uri,'fetchAppInfo',$params);
+	}	
+	
 	protected function _remoteCall($uri,$method,$params=null)
     {
         $cache_id = md5($this->m_Name.$uri. $method .serialize($params));         
