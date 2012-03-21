@@ -17,6 +17,23 @@ class RepositoryService extends WebsvcService
         }
         return $prefRecord;
     }
+    
+    
+    public function fetchAppInfo($id=null)
+    {
+    	$searchRule = "[status]=1 AND [release_time] < NOW() AND [Id]='$id'";   	    	
+    	$dataObj = BizSystem::getObject($this->m_ApplicationDO,1);  
+        $result = $dataObj->fetchOne($searchRule);  
+        if($result)
+        {
+        	$result = $result->toArray();
+        }
+        else
+        {
+        	$result = array();
+        }
+        return $result;
+    }        
 
     public function fetchFeaturedApps($param=array())
     {

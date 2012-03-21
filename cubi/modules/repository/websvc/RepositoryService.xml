@@ -4,4 +4,5 @@
     <PublicMethod Name="fetchFeaturedApps" Access=""/>
     <PublicMethod Name="fetchApplications" Access=""/>
     <PublicMethod Name="fetchCategories" Access="" />
+    <PublicMethod Name="fetchAppInfo" Access="" />    
 </PluginService>
