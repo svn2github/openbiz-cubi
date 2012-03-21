@@ -3,6 +3,7 @@ class AppListForm extends EasyForm
 {
 	public $m_RepoDO = "market.repository.do.RepositoryDO";
 	protected $m_RemoteSearchRule;
+	protected $m_RepoID;
 	
 	protected function getDefaultRepoURI()
 	{		
@@ -18,6 +19,7 @@ class AppListForm extends EasyForm
     	{
     		$repoRec = BizSystem::getObject("market.repository.do.RepositoryDO")->fetchOne("[status]=1");    	
     	}
+    	$repo_id = $repoRec['Id'];
     	$repo_uri = $repoRec['repository_uri'];
     	if(!$repo_uri){
     		$repoRec = BizSystem::getObject("market.repository.do.RepositoryDO")->fetchOne("[status]=1");
@@ -26,6 +28,8 @@ class AppListForm extends EasyForm
 		if(substr($repo_uri,strlen($repo_uri)-1,1)!='/'){
         	$repo_uri .= '/';
         }	
+        
+        $this->m_RepoID = $repo_id;
     	return $repo_uri;	
 	}
 	

@@ -5,7 +5,7 @@
         </Element>
          <Element Name="fld_icon" Class="ColumnImage" FieldName="icon" Label="Icon"  Sortable="Y"  Height="22" >
         </Element>     
-        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Package" Sortable="Y"   Link="{APP_INDEX}/market/application_detail/{@:Elem[fld_Id].Value}" >
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Package" Sortable="Y"   Link="{APP_INDEX}/market/application_detail/repo_{@:m_RepoID}/{@:Elem[fld_Id].Value}" >
         </Element>
         <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y"/>
         <Element Name="fld_category_name" Class="ColumnText" FieldName="category_name" Label="Category"  Sortable="Y"/>
