@@ -2,9 +2,11 @@
 include_once MODULE_PATH.'/websvc/lib/WebsvcService.php';
 class RepositoryService extends WebsvcService
 {
-	protected $m_CategoryDO = "repository.category.do.CategoryDO";
-	protected $m_ApplicationDO = "repository.application.do.ApplicationDO";
-	protected $m_RepositorySettingDO = "myaccount.do.PreferenceDO";
+	protected $m_CategoryDO 		= "repository.category.do.CategoryDO";
+	protected $m_ApplicationDO 		= "repository.application.do.ApplicationDO";
+	protected $m_ReleaseDO 			= "repository.release.do.ReleaseDO";
+	protected $m_PictureDO	 		= "picture.do.PictureDO";
+	protected $m_RepositorySettingDO= "myaccount.do.PreferenceDO";
 	
     public function fetchRepoInfo()
     {
@@ -33,8 +35,38 @@ class RepositoryService extends WebsvcService
         	$result = array();
         }
         return $result;
-    }        
+    } 
 
+    public function fetchAppPics($id=null)
+    {
+    	$searchRule = "[type]='application' AND [foreign_id]='$id'";   	    	
+    	$dataObj = BizSystem::getObject($this->m_PictureDO,1);  
+    	$resultRecords = $dataObj->directfetch($searchRule);  
+        $resultSet = array();
+       	foreach($resultRecords as $record)
+       	{
+       		$resultSet[] = $record;
+       	}
+        return $resultSet;
+    }     
+
+    public function fetchAppLatestRelease($id=null)
+    {
+    	$searchRule = "[app_id]='$id'"; 
+    	$sortRule = "[Id] DESC";  	    	
+    	$dataObj = BizSystem::getObject($this->m_ReleaseDO,1);  
+    	$results = $dataObj->directfetch($searchRule,null,null,$sortRule);  
+    	if($results)
+        {
+        	$result = $results[0];
+        }
+        else
+        {
+        	$result = array();
+        }
+        return $result;
+    }      
+    
     public function fetchFeaturedApps($param=array())
     {
     	$searchRule = "[status]=1 AND [release_time] < NOW() AND [featured]=1";
