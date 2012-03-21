@@ -9,7 +9,8 @@ class ApplicationDetailForm extends AppListForm
 		
 		$svc = BizSystem::getService("market.lib.PackageService");
 		$appInfo = $svc->discoverAppInfo($repo_uri,$app_id);
-		
+		$this->m_RecordId = $appInfo['Id'];
+		$appInfo['icon'] = $repo_uri.$appInfo['icon'];
 		return $appInfo;
 	}
 }

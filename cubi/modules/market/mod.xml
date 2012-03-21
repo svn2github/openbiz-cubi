@@ -9,7 +9,7 @@
         <MenuItem Name="Market" Title="Market" Parent="System" IconImage="spacer.gif" IconCssClass="icon_market" Access="Market.Manage" Order="18">			
             <MenuItem Name="Market.FeaturedApps" 	Title="Featured Apps" 	Access="Market.Manage"  Description=""  URL="/market/featured_apps" Order="10"/>
             <MenuItem Name="Market.Application" 	Title="Applications" 	Access="Market.Manage"  Description=""  URL="/market/applications" Order="20">
-            	<MenuItem Name="Market.ApplicationDetail" 	Title="Application Detail" 	Access="Market.Manage"  Description=""  URL="/market/app_detail" Order="20"/>
+            	<MenuItem Name="Market.ApplicationDetail" 	Title="Application Detail" 	Access="Market.Manage"  Description=""  URL="/market/application_detail" Order="20"/>
             </MenuItem>
             
             <MenuItem Name="Market.Installed" 	Title="Installed" 	Access="Market.Manage"  Description=""  URL="/market/app_installed" Order="35" />
