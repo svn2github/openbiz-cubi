@@ -19,7 +19,7 @@
     </DataPanel>
     <ActionPanel>       
         
-        <Element Name="btn_cancel" Class="LabelBack" Link="Javascript:history(-1);" Text="Back" CssClass="button_gray_w" />
+        <Element Name="btn_cancel" Class="LabelText" Link="{APP_INDEX}/market/applications/repo_{@:m_RepoID}" Text="Back" CssClass="button_gray_w" />
         
     </ActionPanel> 
     <NavPanel>
