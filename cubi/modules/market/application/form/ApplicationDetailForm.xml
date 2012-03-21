@@ -14,7 +14,7 @@
         <Element Name="fld_release_time" ElementSet="General" Class="LabelText"  Text="{date('Y-m-d',strtotime(@:Elem[fld_release_time].Value))}" DateFormat="%Y-%m-%d %H:%M:%S" DefaultValue="{date('Y-m-d H:i:s')}" FieldName="release_time" Label="Release Time" Description="The App will invisible until release time" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
         <Element Name="fld_status"  width="215" ElementSet="General" Class="LabelBool" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(Status)" Description="Control the App viewable or not" />
         
-        
+        <Element Name="fld_related_picture"   ElementSet="Screenshots" Class="FormElement" FormReference="market.application.widget.PictureListRowForm" FieldName="" Label="" AllowURLParam="N" />
         
     </DataPanel>
     <ActionPanel>       
