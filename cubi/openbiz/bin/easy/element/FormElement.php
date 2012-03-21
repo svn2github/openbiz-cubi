@@ -60,10 +60,11 @@ class FormElement extends InputElement
         $formElementObj->m_ParentFormElementMeta = $this->m_XMLMeta;                
         if (method_exists($formObj,"SetSubForms"))
         {
-                $formObj->setSubForms($this->m_FormReference);                
-                $formDataObj = BizSystem::getObject($formObj->m_DataObjName);
-                $dataObj = $formDataObj->getRefObject($formElementObj->m_DataObjName);
-                
+                $formObj->setSubForms($this->m_FormReference);   
+                if($formObj->m_DataObjName){             
+                	$formDataObj = BizSystem::getObject($formObj->m_DataObjName);
+               	 	$dataObj = $formDataObj->getRefObject($formElementObj->m_DataObjName);
+                }
                 if ($dataObj)
                     $formObj->setDataObj($dataObj);                
         }
