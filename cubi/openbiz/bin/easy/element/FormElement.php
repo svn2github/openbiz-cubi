@@ -20,7 +20,10 @@ class FormElement extends InputElement
     	if(strtolower($formElementObj->m_FormType)!='list'){
     		return;
     	}
-    	
+    	if(!$formElementObj->getDataObj())
+    	{
+    		return;
+    	}
     	$count = (int)$formElementObj->getDataObj()->count();
     	if($count<0){
     		return;
