@@ -1,155 +1,83 @@
-<?php
-/**
- * PHPOpenBiz Framework
- *
- * LICENSE
- *
- * This source file is subject to the BSD license that is bundled
- * with this package in the file LICENSE.txt.
- *
- * @package   openbiz.bin.util
- * @copyright Copyright (c) 2005-2011, Rocky Swen
- * @license   http://www.opensource.org/licenses/bsd-license.php
- * @link      http://www.phpopenbiz.org/
- * @version   $Id: xmltoarray.php 2553 2010-11-21 08:36:48Z mr_a_ton $
- */
-
-// Based on code found online at:
-// http://php.net/manual/en/function.xml-parse-into-struct.php
-//
-// Author: Eric Pollmann
-// Released into public domain September 2003
-//http://eric.pollmann.net/work/public_domain/
-/*
-//$parser = new XMLParser('./BOEvent.xml', 'file', 1);
-//$parser = new XMLParser('./FMSponsor_chart.xml', 'file', 1);
-//$parser = new XMLParser('./EventView.xml', 'file', 1);
-$parser = new XMLParser('./FMEvent.xml', 'file', 1);
-$tree = $parser->getTree();
-echo "<pre>";
-print_r($tree);
-echo "</pre>";
-*/
-class XMLParser {
-	var $data;		// Input XML data buffer
-	var $vals;		// Struct created by xml_parse_into_struct
-	var $collapse_dups;	// If there is only one tag of a given name,
-				//   shall we store as scalar or array?
-	var $index_numeric;	// Index tags by numeric position, not name.
-				//   useful for ordered XML like CallXML.
-
-	// Read in XML on object creation.
-	// We can take raw XML data, a stream, a filename, or a url.
-	function XMLParser($data_source, $data_source_type='raw', $collapse_dups=0, $index_numeric=0) {
-		$this->collapse_dups = $collapse_dups;
-		$this->index_numeric = $index_numeric;
-		
-		$this->data = '';
-		if ($data_source_type == 'raw')
-			$this->data = $data_source;
-
-		elseif ($data_source_type == 'stream') {
-			while (!feof($data_source))
-				$this->data .= fread($data_source, 1000);
-
-		// try filename, then if that fails...
-		} elseif (file_exists($data_source)) {
-			$this->data = implode('', file($data_source)); 
-        }
-		// try url
-		else {
-			$fp = fopen($data_source,'r');
-			while (!feof($fp))
-				$this->data .= fread($fp, 1000);
-			fclose($fp);
-		}
-		
-		//add support for load encoded files
-		if(function_exists("ioncube_read_file"))
-		{
-			$data = ioncube_read_file($data_source);
-			if (!is_int($data)) {
-				$this->data = $data;		
-			}
-		}
-		
-	}
-
-	// Parse the XML file into a verbose, flat array struct.
-	// Then, coerce that into a simple nested array.
-	function &getTree() {
-	    // load xml and check if it turns a valid object. TODO: it will throw error.
-	    /*$xml = simplexml_load_file($this->data);
-	    if (!$xml) {
-	        echo 'invalid xml file '.$this->data; exit;
-	    }*/
-		//$parser = xml_parser_create('ISO-8859-1');
-		$parser = xml_parser_create('');
-		xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);
-		xml_parse_into_struct($parser, $this->data, $vals, $index); 
-		xml_parser_free($parser);
-
-		$i = -1;
-		return $this->getchildren($vals, $i);
-	}
-	
-	// internal function: build a node of the tree
-	function buildtag($thisvals, $vals, &$i, $type) {
-
-		if (isset($thisvals['attributes']))
-			$tag['ATTRIBUTES'] = $thisvals['attributes']; 
-
-		// complete tag, just return it for storage in array
-		if ($type === 'complete')
-			$tag['VALUE'] = $thisvals['value'];
-
-		// open tag, recurse
-		else
-			$tag = array_merge((array)$tag, (array)$this->getchildren($vals, $i));
-
-		return $tag;
-	}
-
-	// internal function: build an nested array representing children
-	function getchildren($vals, &$i) { 
-		$children = array();     // Contains node data
-
-		// Node has CDATA before it's children
-                if ($i > -1 && isset($vals[$i]['value']))
-			$children['VALUE'] = $vals[$i]['value'];
-
-		// Loop through children, until hit close tag or run out of tags
-		while (++$i < count($vals)) { 
-
-			$type = $vals[$i]['type'];
-
-			// 'cdata':	Node has CDATA after one of it's children
-			// 		(Add to cdata found before in this case)
-			if ($type === 'cdata')
-				$children['VALUE'] .= $vals[$i]['value'];
-
-			// 'complete':	At end of current branch
-			// 'open':	Node has children, recurse
-			elseif ($type === 'complete' || $type === 'open') {
-				$tag = $this->buildtag($vals[$i], $vals, $i, $type);
-				if ($this->index_numeric) {
-					$tag['TAG'] = $vals[$i]['tag'];
-					$children[] = $tag;
-				} else
-					$children[$vals[$i]['tag']][] = $tag;
-			}
-
-			// 'close:	End of node, return collected data
-			//		Do not increment $i or nodes disappear!
-			elseif ($type === 'close')
-				break;
-		} 
-		if ($this->collapse_dups)
-			foreach($children as $key => $value)
-				if (is_array($value) && (count($value) == 1))
-					$children[$key] = $value[0];
-		return $children;
-	} 
-}
-
+<?php //0046a
+if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo('Site error: the file <b>'.__FILE__.'</b> requires the ionCube PHP Loader '.basename($__ln).' to be installed by the website operator. If you are the website operator please use the <a href="http://www.ioncube.com/lw/">ionCube Loader Wizard</a> to assist with installation.');exit(199);
 ?>
+HR+cPokO5V81JEx5o5A0qPaq7kimbGargIOAHCK0WAlm2UCTZ61rdgKTUooPeCuaPXmGL1AcoUrA
+u5zxCtM1vlHet43Oeu3rUq1CLBUXRew07G6gBavlEOIeTYDSAqJYanx3yUCkD+i4SUku42lqBDjf
+4r9x50+l9rYp/6ZGea7WQV8udPMwSP8zbyKuY5XJJ7EV5OFjgVrZz4RD7Oe+k6W5DHsFKIb83zWo
+pPnzqk8QNdKfVQB6ow939C/f6+hewgSWl4K9vSIB8pFGNk9GYwQnx7wcp5qLCIVl2rlGAI3FN/70
+3GGac1Uid33j2AjicRtDy/ResPndLdPh5Xz/kklVBRbnrRaW2St04Ct+u5W0QUakPyZvCpwn8JS1
+4W/Io3Yf9cYQsWW0lRaH3drh1u9K+fyGkJsIYnzWA+pnSCk83yWuHaF0QavQaIQYPfuLuZ1oSPZu
+t6rao41+IiSiaTE4Il9Ll3w0OG5tsOOPhLaEYYWLsgQ07HT+fxjrEPBI/UOz8/zgf+7/jbrvjdsG
+/qqQrABII5J3ZPCEQDon2HYnNWUXRuUuQ+suRFq9oPCGHo/NKpa7C+c+Fp/u+kN5OiXHQ+vv4+VY
+NZ4DkJKdhCQ7S8Tusw1abIGZs7hp3xDqNp9i322tGQJ0daY7e4qgRuog4LBRrw6WBYegeiBJyuyo
+jUZ8Y6sPgCFT5nAUY7mhqdRbln1P+8v8cLxZ+d4XaUrSuY8fmXrXzCM1G0Nxjf0hLS7fg3tGZ94L
+AiuAq//6WLtpBUKNaKLIdzW4lfaWht3Bgj2SmaF+Hbtj+NMOz3kCsscE4TsOtrw6RnFg3AXdxTFx
+PasAX9klOgwTY13d/8UGCiYLJBCs2DojtXqBN6aBQczk3ZU3oMa04u2jVVw7bx/gXNRv7SoFR0cF
+BlZHW63oWcu+CiQgx2g8cH4Hm67iQAPXH0SwbYWIcfPzTf7k2+jE847+QRneJB+zwUckedN6Vv3h
+4qxgmZge2YCcWm1ai/A5NkuUnKglgCc8x/Dva8zllZRoyIeZTJ/6q6+W/IOtTXbk7ytHl8zbjoXr
+iKMhf0rZYqwR5/ufJqZ+aQAVLd9vbnniqgPQJznY1J7NL/TBeB63agdJvNo2VfmXw1IVnR+DtpzZ
+AugVUHJGKpJG8JFQM6sNuHZyqJ/MmzuTVsygiSvoZBh3BWuXxoaUJkK/Mb6jMLD9FHK/OHl0dSts
+hLV4cgyzLW74HTAKytNv85+nqCCWFZ2Rhl1riXtCSdwHJTVi1szPQ9B9v/q7N5tX8Q+OYpTloIHM
+LUA4q/la//1xd7S9ZLn6h3erQzXHB3qcvmiMePcn5LnkvSBxK/+CI4ZVUBEYl3eC77SwKEagLL0C
+rPft+OKvmG9ivKs6bm3GjQXzXDhuolNpqiTIAJzrGlPkLGnFjobLDBQU40nvPST23raZ2ib0tQtr
+FyoslJk7x1bv5/guwYHGVxoRbjFEVfvtAI4qq33y502F8mbv0kl+x4oNqNmO2snBzUdzrKFCnZEq
+N2AK2FEGgMS65x3rnAJ3kAaJdQQL4PZHexbaNZsNbzvw4MiK94sdWh3wjwME6T3W4APDIVwJFLZs
+a+3wOXeEUE0UeSTHKukV4KyxfXS7+dEqDJbTjkUBD3lBCAKTsCvKxrtP30zti4TyLAohub2WY12d
+XZLMzGNjtmO/CpLIu4STQGckjUHPaaHvXLSBMt4AcyJfWpNrFRjBMA5WhSuVO5u1VryQHK2H2jk3
+LOTQgfyYBSlwpuwy8LOW1z3twPQLJayR2H5oowXJLg4fDUdwoE+xIw0uW1PFCZHveevmoYDzFr5A
+0J1pVZxH+Sj6Uii7r/NDY5qsWuheKo2DFS2l5+AekQ8AmSVHQd/B+Ip4ZLFh5Y2C2oCpUlZXgoYV
+pRzcb1pyeCYokp+ib97Wb6lXKyS320frx9Q7JKoLnkVMklomvn6TG3U29GPv6GsQzzZ/+nNykALX
+uxjLlWuahfmfyw0UjhwNxf5aPG8qLVXiDiKxiZWDYApB0Xa1cA2jMm19ZOgr4GvXSrg4u5FRUjaz
+17ekxRtI/C3zAC9VHxoxX/eSL0vhqu2oFpxuO+8QV5rbCwVlzXscvlGHHvWj0ERIUkU+eECvJ//I
+X83kR8XbXi7hKMTzcwC6dhWDAwnUV+g2aieVfKpPCmlp3Sc/mUMzOXlrbSVMhBtIIxKn3C9CQp6/
+fnjA7Eza3MK9KBGPPz93L41r1k6BMNvT+q//WxQd9XCkE+see3NiKYJxLbn34EYbUSJA7U5PWcv+
+x2J8xWV/3Kd9IN6xgibbNpV5dnh+ypI84RgAZE5oB5wKCHhCg6YbUygn98x4J9C6qhVyN5Mytq+9
+8TUmpQbeoVs+5tuUhbnrJB0F6nRwDS3Vr9PGuiHIvXMQ9yE/940eEubjcqGpw2n77U4s0ZqeASwx
+K9+HJkWupKjsnpQ0cFC1UaBtEvcWlFoFeBvwt8XuFmODt38igJ8js0kTVN/QKx1gXPDMarwsoYQm
+nb9QiRZBqLdcckmZUEnll69NjAXfgNJreqLhNydXHUHlDK3ef/5bvR+RihbjdATU/lhz8G5677+y
+EsVNZOQ1qv20p035YIZ23hUL/+y5fZDtNqmB2TjkKEHidGa7FNRVyLfUimfoeLvw4jyQ14BqVvm7
+88xzQqNqcdC5BZ7ESWP5j2VD9b88oCVTu/I+OcjsPe0WcocrOYN2KUrE3T5P+EfbrDjGHrO5Tihm
+uGeVvMQRhWMJ/xNfEYTqu7SP3J5bN2gAG6OxVlCNP3eE0fKVh3WJBx/s+A8R+JQ+Durolbns9exc
+CAkLH9AvM5ZKaE5cjzuavxHhJN8KbPCzKQDoSLbnrmlJdAtxHcFsR9Db7Lzr+X6ebcif7MSPzH+N
+ah1yvO1l1imKbnQiO4GvaddHccSq1DpXa6ShUnDUPBWwMDIg6W3Pftu/AIrG4y6rgcnvgAFE1CNt
+gqt+kj+ViTIAtRZKsdjJBc3sFcyeWFEyzR+htT2Rp9vsIC2uubeM+f1T9GS8oh5PJr7r0FKKecJQ
+f9zdaj7VY4mpthe7GjJtGucyuXnHKvo/vr3/X6JddfK63tKqxSPv9w7WInUFYxUUPnCev4pZTyEI
+9QtH+F4zzfdJZdTMD4nqtztqL0p/Uwc+F+r1cn64Z/GducV7D2iOii5s4nAUdIdQYLPuFRC+QSKL
+FmwQmeRKMX9bW+7xPKjXg8I5uWWd4CG8uZB9QuKitLylk/j0DLGSKdEDA5GA5Y6BZcoCjDnb/Vfe
+467DKryGas2ifKp+G/xXweir/6UG5a8hyDkDc0QVxNNDuaXSjbPdVC2FSFjU/zAlCLITAAmNC7xS
+/Yupn1QDxirU5HY0OTeosCiSb1rK4k+k2Pa9805zXXv8xQKlxwUhU3jkDqN0eb6wXO5zMFDFJlyv
+cPDpdytdxjWoJ7KvzR2mt+7G0s/CbYidrS2j/zGR/Wm12ynnc1q+jaMjQT4nnzUoyW+tzkeENmU0
+y8FtiCLjBFlB/I3P3l/ROAbKLAX9pth9hU9/maiRI6Jh2HHW1NS4kKIchevUkUIGMRkJrnsq+HZl
+BpLn0bcGIcJZ2ENO8EhMctDK+1tKO63/2C6xCQGCth3iyOG7WJCQk/GxBctcVzRAv4Df/wxLM8hz
+cPxwQFcYXND350rZpklGtl12LKEEbNWUVOCWlXpB/eKwqGsOix7FuW3mDViC3Qga7O+JTHoe0QX6
+xBJSfjdoJYwlg35TEcvfU91ipLA4LBeaz84zHB3ZMfC8wruAoT8BiKWdSVoWX+OKQLkVZxyf4lfG
+/XwYbHjw/Kg0slBACz9hj2u+MLsTDe9Glfh8R06IRGWq+/rwQ5aZdICgkcZ1KJ3pZtz4SiqNTKTQ
+zgmMwhKnFr7iSMkRpDaG7x95+HUDCJGfWi5m6YiBVUd1wd/5OUs+UVO6jG6A4k4afbgQOZX8nY9O
+mNH8Ql4z+UduTAMRRheZLITtjylkU54UwBC1L9D3nKk4Ld75o5gGuTWb/MOJ1lRHEG/x4klM+hWt
+DWSOZlnV6g1jw5qdmrIcBP7o6a7PjJztNOpObIuBdhHuZ6obGLmOmhBA+RMKwRZ84TOv2QaHNRJr
+V7Tt3ZeVZIS07ljpZDQ75eWJwGCrgzJKt/v+LyNrTNNILaPjckhnu/vo/JubrFMh5oMDqJ+SXuQU
+OvCYbbEfu7CAxggpRmnvcmWu6GJyawekclnsoizbxeyw2e5pq/0NuS8qbmrh9OBxwb9aPuUwQRxq
+eXDhbiQ67z6NEre/1L+apEaFH0yIeSS3rxagnpwEsxPmVPg7mUKm89OFcSjky1dhLv7XHgWKyzfC
+ubsBVwrKOcmkvFDy+9FXAHxIceGIHzweboNeLhaN2Lew/RT149DiI0vR2JzTY++odiNr47pYDz3k
+bubbgT51lAzaHSpBjBsZLUlEherMCIBuZSsImCX4hWQDJck224znpne+ufSkzlcTiaOO+pBlthfh
+xxNJy4kSBaBjIv2fsY/NLACQqPUlVUhLIevLpmjIkp0dWs1MMdJ/GxOhbZZvN7RWk1+S0UNSG7vk
+I8ntY745hrBb0Iydl+yhUgdflysnpPm6iInS43JBkIOMoRcnOzcQ3FxLNIqWA2RxQN7kzW2+JD2H
+kKuvJt9TpH4HSPxo5oA6IbChKRS9VggeTF2hh+KZyRAxKyVMwdgbBNqLcw0gQa60wy2VNeuEfNks
+jltKJ20ZmV5srrqWm/H/B+7gvkuzp/vptGmz3hfvJ4mzIC1xu23+wR7aYd5BpsBXmOb7XfmQSOkq
+TZFiZcXP8RZSrq4pWuzVkuRLQLdUNWe/nA7+bkImdHgLTm0TdYOAHyCiYc1I2j3b7RC+s+hzg4pu
+MzbNJaH7OjIMwtkaeBqU5FPIBPEvBUqmNbMVatnVx/E4gWS5USl+fIA/ViqLjmDB1voPvunZd0th
+MdwMySULvN0wjC+3n80JM+GkNuH7CGoDOFbKiP+uarqh0n9gj8ixS7S63ArxwcNLrbKFy4zO4QgD
+hedd4LJVDTNWNTGOYRcO6IZMNzOc/AWKU2FMJcr9CR/Af/jvwMpRL8NMpJ+s0aiN2EgVIiyfbrXm
+5mG1nt1iKobKNzgtwKhZt1oA8KlWN2p/1C5e3rfCiuVse2Vyysrtm0IiMc6HzGB/YV7/z5D15DZo
+2q7DRSRB1tmbucLIOLXcUZ3ADPODWZKZ0xDm0K0NNbVl3e30bXnoMS5hn+zlrepALkjAwj5qCAIk
+MlsiKgmLclRRGPC4WPjBLAR5yDwFrLfhryI72123BS4Ek6B0a4emAfbA1cD2rnNTEQWEet8SFv8P
+w/LMndRdeYtQYlfOC+0MJTlLMeQttLI5luou1yGYo80slk4H9vROAo4fElgnHRs66oNxLPvchF+N
+ZxZ78GsKK38cPB2d0rzF0SNDtUBVjO40XMHI9VxQ01tANstVNxxxj3C6ncHVguqbf3PSwDOjwexn
+mU+agaR3jV0tChcvXJKuSD+J08sXvSXJ5v8H4EqjXVm4pdlUdKVP2sUu+n2uPhJeB0GDjjDquUSR
+MMqIivV1XFaKLhyqPHsFlY9ERpUn28u+ONZ2WlwWOX8aeqZc6k/Z8I9eP/P4taMnS/Rgyvf9s2z6
++kPZfa5fuP8vSEBDi9H13E1ZU/nWF/gUSytKmh7T8w7QoyeSJahUwSv+wBR0ehs0YXrAV4rJqBZq
+Z+09KfiosJx8V+xCAHK9gOluI4tMhUkwxYQycl7g0bMGxOJD9cZCaKZX1KoJTh5CTyT82Ryd5iaa
+bptoPE7y6Wy5fiET52ScoxRXXIL4NUq7Ry8WPYwY3PVAVu5+bDEwyZ7/pHtaT6UmqXLDGL1PXaex
+5pZMymdKs3dpeLY6kWYJT9GJ0uk34mwuCzw5Wfy7cY7kgAbGjqQGKu2Se688Orvm2NFXAddAwGk0
+1SLpqwYjeJ5MysCEQ30sYBAP63MJKr349E7Dnsd2G9xNYhafqTHmZp6x99TD5bQq1rlidDrGkWML
+UsJG6LaW+pxDdHI1tqTqAnGDiuXzqfe=

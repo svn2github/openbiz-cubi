@@ -1,1934 +1,747 @@
-<?php
-
-/**
- * Project:     Smarty: the PHP compiling template engine
- * File:        Smarty.class.php
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
- * For questions, help, comments, discussion, etc., please join the
- * Smarty mailing list. Send a blank e-mail to
- * smarty-general-subscribe@lists.php.net
- *
- * @link http://smarty.php.net/
- * @copyright 2001-2005 New Digital Group, Inc.
- * @author Monte Ohrt <monte at ohrt dot com>
- * @author Andrei Zmievski <andrei@php.net>
- * @package Smarty
- * @version 2.6.10
- */
-
-/* $Id: Smarty.class.php,v 1.516 2005/07/18 08:43:53 messju Exp $ */
-
-/**
- * DIR_SEP isn't used anymore, but third party apps might
- */
-if(!defined('DIR_SEP')) {
-    define('DIR_SEP', DIRECTORY_SEPARATOR);
-}
-
-/**
- * set SMARTY_DIR to absolute path to Smarty library files.
- * if not defined, include_path will be used. Sets SMARTY_DIR only if user
- * application has not already defined it.
- */
-
-if (!defined('SMARTY_DIR')) {
-    define('SMARTY_DIR', dirname(__FILE__) . DIRECTORY_SEPARATOR);
-}
-
-if (!defined('SMARTY_CORE_DIR')) {
-    define('SMARTY_CORE_DIR', SMARTY_DIR . 'internals' . DIRECTORY_SEPARATOR);
-}
-
-define('SMARTY_PHP_PASSTHRU',   0);
-define('SMARTY_PHP_QUOTE',      1);
-define('SMARTY_PHP_REMOVE',     2);
-define('SMARTY_PHP_ALLOW',      3);
-
-/**
- * @package Smarty
- */
-class Smarty
-{
-    /**#@+
-     * Smarty Configuration Section
-     */
-
-    /**
-     * The name of the directory where templates are located.
-     *
-     * @var string
-     */
-    var $template_dir    =  'templates';
-
-    /**
-     * The directory where compiled templates are located.
-     *
-     * @var string
-     */
-    var $compile_dir     =  'templates_c';
-
-    /**
-     * The directory where config files are located.
-     *
-     * @var string
-     */
-    var $config_dir      =  'configs';
-
-    /**
-     * An array of directories searched for plugins.
-     *
-     * @var array
-     */
-    var $plugins_dir     =  array('plugins');
-
-    /**
-     * If debugging is enabled, a debug console window will display
-     * when the page loads (make sure your browser allows unrequested
-     * popup windows)
-     *
-     * @var boolean
-     */
-    var $debugging       =  false;
-
-    /**
-     * When set, smarty does uses this value as error_reporting-level.
-     *
-     * @var boolean
-     */
-    var $error_reporting  =  null;
-
-    /**
-     * This is the path to the debug console template. If not set,
-     * the default one will be used.
-     *
-     * @var string
-     */
-    var $debug_tpl       =  '';
-
-    /**
-     * This determines if debugging is enable-able from the browser.
-     * <ul>
-     *  <li>NONE => no debugging control allowed</li>
-     *  <li>URL => enable debugging when SMARTY_DEBUG is found in the URL.</li>
-     * </ul>
-     * @link http://www.foo.dom/index.php?SMARTY_DEBUG
-     * @var string
-     */
-    var $debugging_ctrl  =  'NONE';
-
-    /**
-     * This tells Smarty whether to check for recompiling or not. Recompiling
-     * does not need to happen unless a template or config file is changed.
-     * Typically you enable this during development, and disable for
-     * production.
-     *
-     * @var boolean
-     */
-    var $compile_check   =  true;
-
-    /**
-     * This forces templates to compile every time. Useful for development
-     * or debugging.
-     *
-     * @var boolean
-     */
-    var $force_compile   =  false;
-
-    /**
-     * This enables template caching.
-     * <ul>
-     *  <li>0 = no caching</li>
-     *  <li>1 = use class cache_lifetime value</li>
-     *  <li>2 = use cache_lifetime in cache file</li>
-     * </ul>
-     * @var integer
-     */
-    var $caching         =  0;
-
-    /**
-     * The name of the directory for cache files.
-     *
-     * @var string
-     */
-    var $cache_dir       =  'cache';
-
-    /**
-     * This is the number of seconds cached content will persist.
-     * <ul>
-     *  <li>0 = always regenerate cache</li>
-     *  <li>-1 = never expires</li>
-     * </ul>
-     *
-     * @var integer
-     */
-    var $cache_lifetime  =  3600;
-
-    /**
-     * Only used when $caching is enabled. If true, then If-Modified-Since headers
-     * are respected with cached content, and appropriate HTTP headers are sent.
-     * This way repeated hits to a cached page do not send the entire page to the
-     * client every time.
-     *
-     * @var boolean
-     */
-    var $cache_modified_check = false;
-
-    /**
-     * This determines how Smarty handles "<?php ... ?>" tags in templates.
-     * possible values:
-     * <ul>
-     *  <li>SMARTY_PHP_PASSTHRU -> print tags as plain text</li>
-     *  <li>SMARTY_PHP_QUOTE    -> escape tags as entities</li>
-     *  <li>SMARTY_PHP_REMOVE   -> remove php tags</li>
-     *  <li>SMARTY_PHP_ALLOW    -> execute php tags</li>
-     * </ul>
-     *
-     * @var integer
-     */
-    var $php_handling    =  SMARTY_PHP_PASSTHRU;
-
-    /**
-     * This enables template security. When enabled, many things are restricted
-     * in the templates that normally would go unchecked. This is useful when
-     * untrusted parties are editing templates and you want a reasonable level
-     * of security. (no direct execution of PHP in templates for example)
-     *
-     * @var boolean
-     */
-    var $security       =   false;
-
-    /**
-     * This is the list of template directories that are considered secure. This
-     * is used only if {@link $security} is enabled. One directory per array
-     * element.  {@link $template_dir} is in this list implicitly.
-     *
-     * @var array
-     */
-    var $secure_dir     =   array();
-
-    /**
-     * These are the security settings for Smarty. They are used only when
-     * {@link $security} is enabled.
-     *
-     * @var array
-     */
-    var $security_settings  = array(
-                                    'PHP_HANDLING'    => false,
-                                    'IF_FUNCS'        => array('array', 'list',
-                                                               'isset', 'empty',
-                                                               'count', 'sizeof',
-                                                               'in_array', 'is_array',
-                                                               'true', 'false', 'null'),
-                                    'INCLUDE_ANY'     => false,
-                                    'PHP_TAGS'        => false,
-                                    'MODIFIER_FUNCS'  => array('count'),
-                                    'ALLOW_CONSTANTS'  => false
-                                   );
-
-    /**
-     * This is an array of directories where trusted php scripts reside.
-     * {@link $security} is disabled during their inclusion/execution.
-     *
-     * @var array
-     */
-    var $trusted_dir        = array();
-
-    /**
-     * The left delimiter used for the template tags.
-     *
-     * @var string
-     */
-    var $left_delimiter  =  '{';
-
-    /**
-     * The right delimiter used for the template tags.
-     *
-     * @var string
-     */
-    var $right_delimiter =  '}';
-
-    /**
-     * The order in which request variables are registered, similar to
-     * variables_order in php.ini E = Environment, G = GET, P = POST,
-     * C = Cookies, S = Server
-     *
-     * @var string
-     */
-    var $request_vars_order    = 'EGPCS';
-
-    /**
-     * Indicates wether $HTTP_*_VARS[] (request_use_auto_globals=false)
-     * are uses as request-vars or $_*[]-vars. note: if
-     * request_use_auto_globals is true, then $request_vars_order has
-     * no effect, but the php-ini-value "gpc_order"
-     *
-     * @var boolean
-     */
-    var $request_use_auto_globals      = true;
-
-    /**
-     * Set this if you want different sets of compiled files for the same
-     * templates. This is useful for things like different languages.
-     * Instead of creating separate sets of templates per language, you
-     * set different compile_ids like 'en' and 'de'.
-     *
-     * @var string
-     */
-    var $compile_id            = null;
-
-    /**
-     * This tells Smarty whether or not to use sub dirs in the cache/ and
-     * templates_c/ directories. sub directories better organized, but
-     * may not work well with PHP safe mode enabled.
-     *
-     * @var boolean
-     *
-     */
-    var $use_sub_dirs          = false;
-
-    /**
-     * This is a list of the modifiers to apply to all template variables.
-     * Put each modifier in a separate array element in the order you want
-     * them applied. example: <code>array('escape:"htmlall"');</code>
-     *
-     * @var array
-     */
-    var $default_modifiers        = array();
-
-    /**
-     * This is the resource type to be used when not specified
-     * at the beginning of the resource path. examples:
-     * $smarty->display('file:index.tpl');
-     * $smarty->display('db:index.tpl');
-     * $smarty->display('index.tpl'); // will use default resource type
-     * {include file="file:index.tpl"}
-     * {include file="db:index.tpl"}
-     * {include file="index.tpl"} {* will use default resource type *}
-     *
-     * @var array
-     */
-    var $default_resource_type    = 'file';
-
-    /**
-     * The function used for cache file handling. If not set, built-in caching is used.
-     *
-     * @var null|string function name
-     */
-    var $cache_handler_func   = null;
-
-    /**
-     * This indicates which filters are automatically loaded into Smarty.
-     *
-     * @var array array of filter names
-     */
-    var $autoload_filters = array();
-
-    /**#@+
-     * @var boolean
-     */
-    /**
-     * This tells if config file vars of the same name overwrite each other or not.
-     * if disabled, same name variables are accumulated in an array.
-     */
-    var $config_overwrite = true;
-
-    /**
-     * This tells whether or not to automatically booleanize config file variables.
-     * If enabled, then the strings "on", "true", and "yes" are treated as boolean
-     * true, and "off", "false" and "no" are treated as boolean false.
-     */
-    var $config_booleanize = true;
-
-    /**
-     * This tells whether hidden sections [.foobar] are readable from the
-     * tempalates or not. Normally you would never allow this since that is
-     * the point behind hidden sections: the application can access them, but
-     * the templates cannot.
-     */
-    var $config_read_hidden = false;
-
-    /**
-     * This tells whether or not automatically fix newlines in config files.
-     * It basically converts \r (mac) or \r\n (dos) to \n
-     */
-    var $config_fix_newlines = true;
-    /**#@-*/
-
-    /**
-     * If a template cannot be found, this PHP function will be executed.
-     * Useful for creating templates on-the-fly or other special action.
-     *
-     * @var string function name
-     */
-    var $default_template_handler_func = '';
-
-    /**
-     * The file that contains the compiler class. This can a full
-     * pathname, or relative to the php_include path.
-     *
-     * @var string
-     */
-    var $compiler_file        =    'Smarty_Compiler.class.php';
-
-    /**
-     * The class used for compiling templates.
-     *
-     * @var string
-     */
-    var $compiler_class        =   'Smarty_Compiler';
-
-    /**
-     * The class used to load config vars.
-     *
-     * @var string
-     */
-    var $config_class          =   'Config_File';
-
-/**#@+
- * END Smarty Configuration Section
- * There should be no need to touch anything below this line.
- * @access private
- */
-    /**
-     * where assigned template vars are kept
-     *
-     * @var array
-     */
-    var $_tpl_vars             = array();
-
-    /**
-     * stores run-time $smarty.* vars
-     *
-     * @var null|array
-     */
-    var $_smarty_vars          = null;
-
-    /**
-     * keeps track of sections
-     *
-     * @var array
-     */
-    var $_sections             = array();
-
-    /**
-     * keeps track of foreach blocks
-     *
-     * @var array
-     */
-    var $_foreach              = array();
-
-    /**
-     * keeps track of tag hierarchy
-     *
-     * @var array
-     */
-    var $_tag_stack            = array();
-
-    /**
-     * configuration object
-     *
-     * @var Config_file
-     */
-    var $_conf_obj             = null;
-
-    /**
-     * loaded configuration settings
-     *
-     * @var array
-     */
-    var $_config               = array(array('vars'  => array(), 'files' => array()));
-
-    /**
-     * md5 checksum of the string 'Smarty'
-     *
-     * @var string
-     */
-    var $_smarty_md5           = 'f8d698aea36fcbead2b9d5359ffca76f';
-
-    /**
-     * Smarty version number
-     *
-     * @var string
-     */
-    var $_version              = '2.6.10';
-
-    /**
-     * current template inclusion depth
-     *
-     * @var integer
-     */
-    var $_inclusion_depth      = 0;
-
-    /**
-     * for different compiled templates
-     *
-     * @var string
-     */
-    var $_compile_id           = null;
-
-    /**
-     * text in URL to enable debug mode
-     *
-     * @var string
-     */
-    var $_smarty_debug_id      = 'SMARTY_DEBUG';
-
-    /**
-     * debugging information for debug console
-     *
-     * @var array
-     */
-    var $_smarty_debug_info    = array();
-
-    /**
-     * info that makes up a cache file
-     *
-     * @var array
-     */
-    var $_cache_info           = array();
-
-    /**
-     * default file permissions
-     *
-     * @var integer
-     */
-    var $_file_perms           = 0644;
-
-    /**
-     * default dir permissions
-     *
-     * @var integer
-     */
-    var $_dir_perms               = 0771;
-
-    /**
-     * registered objects
-     *
-     * @var array
-     */
-    var $_reg_objects           = array();
-
-    /**
-     * table keeping track of plugins
-     *
-     * @var array
-     */
-    var $_plugins              = array(
-                                       'modifier'      => array(),
-                                       'function'      => array(),
-                                       'block'         => array(),
-                                       'compiler'      => array(),
-                                       'prefilter'     => array(),
-                                       'postfilter'    => array(),
-                                       'outputfilter'  => array(),
-                                       'resource'      => array(),
-                                       'insert'        => array());
-
-
-    /**
-     * cache serials
-     *
-     * @var array
-     */
-    var $_cache_serials = array();
-
-    /**
-     * name of optional cache include file
-     *
-     * @var string
-     */
-    var $_cache_include = null;
-
-    /**
-     * indicate if the current code is used in a compiled
-     * include
-     *
-     * @var string
-     */
-    var $_cache_including = false;
-
-    /**#@-*/
-    /**
-     * The class constructor.
-     */
-    function Smarty()
-    {
-      $this->assign('SCRIPT_NAME', isset($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME']
-                    : @$GLOBALS['HTTP_SERVER_VARS']['SCRIPT_NAME']);
-    }
-
-    /**
-     * assigns values to template variables
-     *
-     * @param array|string $tpl_var the template variable name(s)
-     * @param mixed $value the value to assign
-     */
-    function assign($tpl_var, $value = null)
-    {
-        if (is_array($tpl_var)){
-            foreach ($tpl_var as $key => $val) {
-                if ($key != '') {
-                    $this->_tpl_vars[$key] = $val;
-                }
-            }
-        } else {
-            if ($tpl_var != '')
-                $this->_tpl_vars[$tpl_var] = $value;
-        }
-    }
-
-    /**
-     * assigns values to template variables by reference
-     *
-     * @param string $tpl_var the template variable name
-     * @param mixed $value the referenced value to assign
-     */
-    function assign_by_ref($tpl_var, &$value)
-    {
-        if ($tpl_var != '')
-            $this->_tpl_vars[$tpl_var] = &$value;
-    }
-
-    /**
-     * appends values to template variables
-     *
-     * @param array|string $tpl_var the template variable name(s)
-     * @param mixed $value the value to append
-     */
-    function append($tpl_var, $value=null, $merge=false)
-    {
-        if (is_array($tpl_var)) {
-            // $tpl_var is an array, ignore $value
-            foreach ($tpl_var as $_key => $_val) {
-                if ($_key != '') {
-                    if(!@is_array($this->_tpl_vars[$_key])) {
-                        settype($this->_tpl_vars[$_key],'array');
-                    }
-                    if($merge && is_array($_val)) {
-                        foreach($_val as $_mkey => $_mval) {
-                            $this->_tpl_vars[$_key][$_mkey] = $_mval;
-                        }
-                    } else {
-                        $this->_tpl_vars[$_key][] = $_val;
-                    }
-                }
-            }
-        } else {
-            if ($tpl_var != '' && isset($value)) {
-                if(!@is_array($this->_tpl_vars[$tpl_var])) {
-                    settype($this->_tpl_vars[$tpl_var],'array');
-                }
-                if($merge && is_array($value)) {
-                    foreach($value as $_mkey => $_mval) {
-                        $this->_tpl_vars[$tpl_var][$_mkey] = $_mval;
-                    }
-                } else {
-                    $this->_tpl_vars[$tpl_var][] = $value;
-                }
-            }
-        }
-    }
-
-    /**
-     * appends values to template variables by reference
-     *
-     * @param string $tpl_var the template variable name
-     * @param mixed $value the referenced value to append
-     */
-    function append_by_ref($tpl_var, &$value, $merge=false)
-    {
-        if ($tpl_var != '' && isset($value)) {
-            if(!@is_array($this->_tpl_vars[$tpl_var])) {
-             settype($this->_tpl_vars[$tpl_var],'array');
-            }
-            if ($merge && is_array($value)) {
-                foreach($value as $_key => $_val) {
-                    $this->_tpl_vars[$tpl_var][$_key] = &$value[$_key];
-                }
-            } else {
-                $this->_tpl_vars[$tpl_var][] = &$value;
-            }
-        }
-    }
-
-
-    /**
-     * clear the given assigned template variable.
-     *
-     * @param string $tpl_var the template variable to clear
-     */
-    function clear_assign($tpl_var)
-    {
-        if (is_array($tpl_var))
-            foreach ($tpl_var as $curr_var)
-                unset($this->_tpl_vars[$curr_var]);
-        else
-            unset($this->_tpl_vars[$tpl_var]);
-    }
-
-
-    /**
-     * Registers custom function to be used in templates
-     *
-     * @param string $function the name of the template function
-     * @param string $function_impl the name of the PHP function to register
-     */
-    function register_function($function, $function_impl, $cacheable=true, $cache_attrs=null)
-    {
-        $this->_plugins['function'][$function] =
-            array($function_impl, null, null, false, $cacheable, $cache_attrs);
-
-    }
-
-    /**
-     * Unregisters custom function
-     *
-     * @param string $function name of template function
-     */
-    function unregister_function($function)
-    {
-        unset($this->_plugins['function'][$function]);
-    }
-
-    /**
-     * Registers object to be used in templates
-     *
-     * @param string $object name of template object
-     * @param object &$object_impl the referenced PHP object to register
-     * @param null|array $allowed list of allowed methods (empty = all)
-     * @param boolean $smarty_args smarty argument format, else traditional
-     * @param null|array $block_functs list of methods that are block format
-     */
-    function register_object($object, &$object_impl, $allowed = array(), $smarty_args = true, $block_methods = array())
-    {
-        settype($allowed, 'array');
-        settype($smarty_args, 'boolean');
-        $this->_reg_objects[$object] =
-            array(&$object_impl, $allowed, $smarty_args, $block_methods);
-    }
-
-    /**
-     * Unregisters object
-     *
-     * @param string $object name of template object
-     */
-    function unregister_object($object)
-    {
-        unset($this->_reg_objects[$object]);
-    }
-
-
-    /**
-     * Registers block function to be used in templates
-     *
-     * @param string $block name of template block
-     * @param string $block_impl PHP function to register
-     */
-    function register_block($block, $block_impl, $cacheable=true, $cache_attrs=null)
-    {
-        $this->_plugins['block'][$block] =
-            array($block_impl, null, null, false, $cacheable, $cache_attrs);
-    }
-
-    /**
-     * Unregisters block function
-     *
-     * @param string $block name of template function
-     */
-    function unregister_block($block)
-    {
-        unset($this->_plugins['block'][$block]);
-    }
-
-    /**
-     * Registers compiler function
-     *
-     * @param string $function name of template function
-     * @param string $function_impl name of PHP function to register
-     */
-    function register_compiler_function($function, $function_impl, $cacheable=true)
-    {
-        $this->_plugins['compiler'][$function] =
-            array($function_impl, null, null, false, $cacheable);
-    }
-
-    /**
-     * Unregisters compiler function
-     *
-     * @param string $function name of template function
-     */
-    function unregister_compiler_function($function)
-    {
-        unset($this->_plugins['compiler'][$function]);
-    }
-
-    /**
-     * Registers modifier to be used in templates
-     *
-     * @param string $modifier name of template modifier
-     * @param string $modifier_impl name of PHP function to register
-     */
-    function register_modifier($modifier, $modifier_impl)
-    {
-        $this->_plugins['modifier'][$modifier] =
-            array($modifier_impl, null, null, false);
-    }
-
-    /**
-     * Unregisters modifier
-     *
-     * @param string $modifier name of template modifier
-     */
-    function unregister_modifier($modifier)
-    {
-        unset($this->_plugins['modifier'][$modifier]);
-    }
-
-    /**
-     * Registers a resource to fetch a template
-     *
-     * @param string $type name of resource
-     * @param array $functions array of functions to handle resource
-     */
-    function register_resource($type, $functions)
-    {
-        if (count($functions)==4) {
-            $this->_plugins['resource'][$type] =
-                array($functions, false);
-
-        } elseif (count($functions)==5) {
-            $this->_plugins['resource'][$type] =
-                array(array(array(&$functions[0], $functions[1])
-                            ,array(&$functions[0], $functions[2])
-                            ,array(&$functions[0], $functions[3])
-                            ,array(&$functions[0], $functions[4]))
-                      ,false);
-
-        } else {
-            $this->trigger_error("malformed function-list for '$type' in register_resource");
-
-        }
-    }
-
-    /**
-     * Unregisters a resource
-     *
-     * @param string $type name of resource
-     */
-    function unregister_resource($type)
-    {
-        unset($this->_plugins['resource'][$type]);
-    }
-
-    /**
-     * Registers a prefilter function to apply
-     * to a template before compiling
-     *
-     * @param string $function name of PHP function to register
-     */
-    function register_prefilter($function)
-    {
-    $_name = (is_array($function)) ? $function[1] : $function;
-        $this->_plugins['prefilter'][$_name]
-            = array($function, null, null, false);
-    }
-
-    /**
-     * Unregisters a prefilter function
-     *
-     * @param string $function name of PHP function
-     */
-    function unregister_prefilter($function)
-    {
-        unset($this->_plugins['prefilter'][$function]);
-    }
-
-    /**
-     * Registers a postfilter function to apply
-     * to a compiled template after compilation
-     *
-     * @param string $function name of PHP function to register
-     */
-    function register_postfilter($function)
-    {
-    $_name = (is_array($function)) ? $function[1] : $function;
-        $this->_plugins['postfilter'][$_name]
-            = array($function, null, null, false);
-    }
-
-    /**
-     * Unregisters a postfilter function
-     *
-     * @param string $function name of PHP function
-     */
-    function unregister_postfilter($function)
-    {
-        unset($this->_plugins['postfilter'][$function]);
-    }
-
-    /**
-     * Registers an output filter function to apply
-     * to a template output
-     *
-     * @param string $function name of PHP function
-     */
-    function register_outputfilter($function)
-    {
-    $_name = (is_array($function)) ? $function[1] : $function;
-        $this->_plugins['outputfilter'][$_name]
-            = array($function, null, null, false);
-    }
-
-    /**
-     * Unregisters an outputfilter function
-     *
-     * @param string $function name of PHP function
-     */
-    function unregister_outputfilter($function)
-    {
-        unset($this->_plugins['outputfilter'][$function]);
-    }
-
-    /**
-     * load a filter of specified type and name
-     *
-     * @param string $type filter type
-     * @param string $name filter name
-     */
-    function load_filter($type, $name)
-    {
-        switch ($type) {
-            case 'output':
-                $_params = array('plugins' => array(array($type . 'filter', $name, null, null, false)));
-                require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-                smarty_core_load_plugins($_params, $this);
-                break;
-
-            case 'pre':
-            case 'post':
-                if (!isset($this->_plugins[$type . 'filter'][$name]))
-                    $this->_plugins[$type . 'filter'][$name] = false;
-                break;
-        }
-    }
-
-    /**
-     * clear cached content for the given template and cache id
-     *
-     * @param string $tpl_file name of template file
-     * @param string $cache_id name of cache_id
-     * @param string $compile_id name of compile_id
-     * @param string $exp_time expiration time
-     * @return boolean
-     */
-    function clear_cache($tpl_file = null, $cache_id = null, $compile_id = null, $exp_time = null)
-    {
-
-        if (!isset($compile_id))
-            $compile_id = $this->compile_id;
-
-        if (!isset($tpl_file))
-            $compile_id = null;
-
-        $_auto_id = $this->_get_auto_id($cache_id, $compile_id);
-
-        if (!empty($this->cache_handler_func)) {
-            return call_user_func_array($this->cache_handler_func,
-                                  array('clear', &$this, &$dummy, $tpl_file, $cache_id, $compile_id, $exp_time));
-        } else {
-            $_params = array('auto_base' => $this->cache_dir,
-                            'auto_source' => $tpl_file,
-                            'auto_id' => $_auto_id,
-                            'exp_time' => $exp_time);
-            require_once(SMARTY_CORE_DIR . 'core.rm_auto.php');
-            return smarty_core_rm_auto($_params, $this);
-        }
-
-    }
-
-
-    /**
-     * clear the entire contents of cache (all templates)
-     *
-     * @param string $exp_time expire time
-     * @return boolean results of {@link smarty_core_rm_auto()}
-     */
-    function clear_all_cache($exp_time = null)
-    {
-        return $this->clear_cache(null, null, null, $exp_time);
-    }
-
-
-    /**
-     * test to see if valid cache exists for this template
-     *
-     * @param string $tpl_file name of template file
-     * @param string $cache_id
-     * @param string $compile_id
-     * @return string|false results of {@link _read_cache_file()}
-     */
-    function is_cached($tpl_file, $cache_id = null, $compile_id = null)
-    {
-        if (!$this->caching)
-            return false;
-
-        if (!isset($compile_id))
-            $compile_id = $this->compile_id;
-
-        $_params = array(
-            'tpl_file' => $tpl_file,
-            'cache_id' => $cache_id,
-            'compile_id' => $compile_id
-        );
-        require_once(SMARTY_CORE_DIR . 'core.read_cache_file.php');
-        return smarty_core_read_cache_file($_params, $this);
-    }
-
-
-    /**
-     * clear all the assigned template variables.
-     *
-     */
-    function clear_all_assign()
-    {
-        $this->_tpl_vars = array();
-    }
-
-    /**
-     * clears compiled version of specified template resource,
-     * or all compiled template files if one is not specified.
-     * This function is for advanced use only, not normally needed.
-     *
-     * @param string $tpl_file
-     * @param string $compile_id
-     * @param string $exp_time
-     * @return boolean results of {@link smarty_core_rm_auto()}
-     */
-    function clear_compiled_tpl($tpl_file = null, $compile_id = null, $exp_time = null)
-    {
-        if (!isset($compile_id)) {
-            $compile_id = $this->compile_id;
-        }
-        $_params = array('auto_base' => $this->compile_dir,
-                        'auto_source' => $tpl_file,
-                        'auto_id' => $compile_id,
-                        'exp_time' => $exp_time,
-                        'extensions' => array('.inc', '.php'));
-        require_once(SMARTY_CORE_DIR . 'core.rm_auto.php');
-        return smarty_core_rm_auto($_params, $this);
-    }
-
-    /**
-     * Checks whether requested template exists.
-     *
-     * @param string $tpl_file
-     * @return boolean
-     */
-    function template_exists($tpl_file)
-    {
-        $_params = array('resource_name' => $tpl_file, 'quiet'=>true, 'get_source'=>false);
-        return $this->_fetch_resource_info($_params);
-    }
-
-    /**
-     * Returns an array containing template variables
-     *
-     * @param string $name
-     * @param string $type
-     * @return array
-     */
-    function &get_template_vars($name=null)
-    {
-        if(!isset($name)) {
-            return $this->_tpl_vars;
-        }
-        if(isset($this->_tpl_vars[$name])) {
-            return $this->_tpl_vars[$name];
-        }
-    }
-
-    /**
-     * Returns an array containing config variables
-     *
-     * @param string $name
-     * @param string $type
-     * @return array
-     */
-    function &get_config_vars($name=null)
-    {
-        if(!isset($name) && is_array($this->_config[0])) {
-            return $this->_config[0]['vars'];
-        } else if(isset($this->_config[0]['vars'][$name])) {
-            return $this->_config[0]['vars'][$name];
-        }
-    }
-
-    /**
-     * trigger Smarty error
-     *
-     * @param string $error_msg
-     * @param integer $error_type
-     */
-    function trigger_error($error_msg, $error_type = E_USER_WARNING)
-    {
-        trigger_error("Smarty error: $error_msg", $error_type);
-    }
-
-
-    /**
-     * executes & displays the template results
-     *
-     * @param string $resource_name
-     * @param string $cache_id
-     * @param string $compile_id
-     */
-    function display($resource_name, $cache_id = null, $compile_id = null)
-    {
-        $this->fetch($resource_name, $cache_id, $compile_id, true);
-    }
-
-    /**
-     * executes & returns or displays the template results
-     *
-     * @param string $resource_name
-     * @param string $cache_id
-     * @param string $compile_id
-     * @param boolean $display
-     */
-    function fetch($resource_name, $cache_id = null, $compile_id = null, $display = false)
-    {
-        static $_cache_info = array();
-        
-        $_smarty_old_error_level = $this->debugging ? error_reporting() : error_reporting(isset($this->error_reporting)
-               ? $this->error_reporting : error_reporting() & ~E_NOTICE);
-
-        if (!$this->debugging && $this->debugging_ctrl == 'URL') {
-            $_query_string = $this->request_use_auto_globals ? $_SERVER['QUERY_STRING'] : $GLOBALS['HTTP_SERVER_VARS']['QUERY_STRING'];
-            if (@strstr($_query_string, $this->_smarty_debug_id)) {
-                if (@strstr($_query_string, $this->_smarty_debug_id . '=on')) {
-                    // enable debugging for this browser session
-                    @setcookie('SMARTY_DEBUG', true);
-                    $this->debugging = true;
-                } elseif (@strstr($_query_string, $this->_smarty_debug_id . '=off')) {
-                    // disable debugging for this browser session
-                    @setcookie('SMARTY_DEBUG', false);
-                    $this->debugging = false;
-                } else {
-                    // enable debugging for this page
-                    $this->debugging = true;
-                }
-            } else {
-                $this->debugging = (bool)($this->request_use_auto_globals ? @$_COOKIE['SMARTY_DEBUG'] : @$GLOBALS['HTTP_COOKIE_VARS']['SMARTY_DEBUG']);
-            }
-        }
-
-        if ($this->debugging) {
-            // capture time for debugging info
-            $_params = array();
-            require_once(SMARTY_CORE_DIR . 'core.get_microtime.php');
-            $_debug_start_time = smarty_core_get_microtime($_params, $this);
-            $this->_smarty_debug_info[] = array('type'      => 'template',
-                                                'filename'  => $resource_name,
-                                                'depth'     => 0);
-            $_included_tpls_idx = count($this->_smarty_debug_info) - 1;
-        }
-
-        if (!isset($compile_id)) {
-            $compile_id = $this->compile_id;
-        }
-
-        $this->_compile_id = $compile_id;
-        $this->_inclusion_depth = 0;
-
-        if ($this->caching) {
-            // save old cache_info, initialize cache_info
-            array_push($_cache_info, $this->_cache_info);
-            $this->_cache_info = array();
-            $_params = array(
-                'tpl_file' => $resource_name,
-                'cache_id' => $cache_id,
-                'compile_id' => $compile_id,
-                'results' => null
-            );
-            require_once(SMARTY_CORE_DIR . 'core.read_cache_file.php');
-            if (smarty_core_read_cache_file($_params, $this)) {
-                $_smarty_results = $_params['results'];
-                if (!empty($this->_cache_info['insert_tags'])) {
-                    $_params = array('plugins' => $this->_cache_info['insert_tags']);
-                    require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-                    smarty_core_load_plugins($_params, $this);
-                    $_params = array('results' => $_smarty_results);
-                    require_once(SMARTY_CORE_DIR . 'core.process_cached_inserts.php');
-                    $_smarty_results = smarty_core_process_cached_inserts($_params, $this);
-                }
-                if (!empty($this->_cache_info['cache_serials'])) {
-                    $_params = array('results' => $_smarty_results);
-                    require_once(SMARTY_CORE_DIR . 'core.process_compiled_include.php');
-                    $_smarty_results = smarty_core_process_compiled_include($_params, $this);
-                }
-
-
-                if ($display) {
-                    if ($this->debugging)
-                    {
-                        // capture time for debugging info
-                        $_params = array();
-                        require_once(SMARTY_CORE_DIR . 'core.get_microtime.php');
-                        $this->_smarty_debug_info[$_included_tpls_idx]['exec_time'] = smarty_core_get_microtime($_params, $this) - $_debug_start_time;
-                        require_once(SMARTY_CORE_DIR . 'core.display_debug_console.php');
-                        $_smarty_results .= smarty_core_display_debug_console($_params, $this);
-                    }
-                    if ($this->cache_modified_check) {
-                        $_server_vars = ($this->request_use_auto_globals) ? $_SERVER : $GLOBALS['HTTP_SERVER_VARS'];
-                        $_last_modified_date = @substr($_server_vars['HTTP_IF_MODIFIED_SINCE'], 0, strpos($_server_vars['HTTP_IF_MODIFIED_SINCE'], 'GMT') + 3);
-                        $_gmt_mtime = gmdate('D, d M Y H:i:s', $this->_cache_info['timestamp']).' GMT';
-                        if (@count($this->_cache_info['insert_tags']) == 0
-                            && !$this->_cache_serials
-                            && $_gmt_mtime == $_last_modified_date) {
-                            if (php_sapi_name()=='cgi')
-                                header('Status: 304 Not Modified');
-                            else
-                                header('HTTP/1.1 304 Not Modified');
-
-                        } else {
-                            header('Last-Modified: '.$_gmt_mtime);
-                            echo $_smarty_results;
-                        }
-                    } else {
-                            echo $_smarty_results;
-                    }
-                    error_reporting($_smarty_old_error_level);
-                    // restore initial cache_info
-                    $this->_cache_info = array_pop($_cache_info);
-                    return true;
-                } else {
-                    error_reporting($_smarty_old_error_level);
-                    // restore initial cache_info
-                    $this->_cache_info = array_pop($_cache_info);
-                    return $_smarty_results;
-                }
-            } else {
-                $this->_cache_info['template'][$resource_name] = true;
-                if ($this->cache_modified_check && $display) {
-                    header('Last-Modified: '.gmdate('D, d M Y H:i:s', time()).' GMT');
-                }
-            }
-        }
-
-        // load filters that are marked as autoload
-        if (count($this->autoload_filters)) {
-            foreach ($this->autoload_filters as $_filter_type => $_filters) {
-                foreach ($_filters as $_filter) {
-                    $this->load_filter($_filter_type, $_filter);
-                }
-            }
-        }
-
-        $_smarty_compile_path = $this->_get_compile_path($resource_name);
-
-        // if we just need to display the results, don't perform output
-        // buffering - for speed
-        $_cache_including = $this->_cache_including;
-        $this->_cache_including = false;
-        if ($display && !$this->caching && count($this->_plugins['outputfilter']) == 0) {
-            if ($this->_is_compiled($resource_name, $_smarty_compile_path)
-                    || $this->_compile_resource($resource_name, $_smarty_compile_path))
-            {
-                include($_smarty_compile_path);
-            }
-        } else {
-            ob_start();
-            if ($this->_is_compiled($resource_name, $_smarty_compile_path)
-                    || $this->_compile_resource($resource_name, $_smarty_compile_path))
-            {
-                include($_smarty_compile_path);
-            }
-            $_smarty_results = ob_get_contents();
-            ob_end_clean();
-
-            foreach ((array)$this->_plugins['outputfilter'] as $_output_filter) {
-                $_smarty_results = call_user_func_array($_output_filter[0], array($_smarty_results, &$this));
-            }
-        }
-
-        if ($this->caching) {
-            $_params = array('tpl_file' => $resource_name,
-                        'cache_id' => $cache_id,
-                        'compile_id' => $compile_id,
-                        'results' => $_smarty_results);
-            require_once(SMARTY_CORE_DIR . 'core.write_cache_file.php');
-            smarty_core_write_cache_file($_params, $this);
-            require_once(SMARTY_CORE_DIR . 'core.process_cached_inserts.php');
-            $_smarty_results = smarty_core_process_cached_inserts($_params, $this);
-
-            if ($this->_cache_serials) {
-                // strip nocache-tags from output
-                $_smarty_results = preg_replace('!(\{/?nocache\:[0-9a-f]{32}#\d+\})!s'
-                                                ,''
-                                                ,$_smarty_results);
-            }
-            // restore initial cache_info
-            $this->_cache_info = array_pop($_cache_info);
-        }
-        $this->_cache_including = $_cache_including;
-
-        if ($display) {
-            if (isset($_smarty_results)) { echo $_smarty_results; }
-            if ($this->debugging) {
-                // capture time for debugging info
-                $_params = array();
-                require_once(SMARTY_CORE_DIR . 'core.get_microtime.php');
-                $this->_smarty_debug_info[$_included_tpls_idx]['exec_time'] = (smarty_core_get_microtime($_params, $this) - $_debug_start_time);
-                require_once(SMARTY_CORE_DIR . 'core.display_debug_console.php');
-                echo smarty_core_display_debug_console($_params, $this);
-            }
-            error_reporting($_smarty_old_error_level);
-            return;
-        } else {
-            error_reporting($_smarty_old_error_level);
-            if (isset($_smarty_results)) { return $_smarty_results; }
-        }
-    }
-
-    /**
-     * load configuration values
-     *
-     * @param string $file
-     * @param string $section
-     * @param string $scope
-     */
-    function config_load($file, $section = null, $scope = 'global')
-    {
-        require_once($this->_get_plugin_filepath('function', 'config_load'));
-        smarty_function_config_load(array('file' => $file, 'section' => $section, 'scope' => $scope), $this);
-    }
-
-    /**
-     * return a reference to a registered object
-     *
-     * @param string $name
-     * @return object
-     */
-    function &get_registered_object($name) {
-        if (!isset($this->_reg_objects[$name]))
-        $this->_trigger_fatal_error("'$name' is not a registered object");
-
-        if (!is_object($this->_reg_objects[$name][0]))
-        $this->_trigger_fatal_error("registered '$name' is not an object");
-
-        return $this->_reg_objects[$name][0];
-    }
-
-    /**
-     * clear configuration values
-     *
-     * @param string $var
-     */
-    function clear_config($var = null)
-    {
-        if(!isset($var)) {
-            // clear all values
-            $this->_config = array(array('vars'  => array(),
-                                         'files' => array()));
-        } else {
-            unset($this->_config[0]['vars'][$var]);
-        }
-    }
-
-    /**
-     * get filepath of requested plugin
-     *
-     * @param string $type
-     * @param string $name
-     * @return string|false
-     */
-    function _get_plugin_filepath($type, $name)
-    {
-        $_params = array('type' => $type, 'name' => $name);
-        require_once(SMARTY_CORE_DIR . 'core.assemble_plugin_filepath.php');
-        return smarty_core_assemble_plugin_filepath($_params, $this);
-    }
-
-   /**
-     * test if resource needs compiling
-     *
-     * @param string $resource_name
-     * @param string $compile_path
-     * @return boolean
-     */
-    function _is_compiled($resource_name, $compile_path)
-    {
-        if (!$this->force_compile && file_exists($compile_path)) {
-            if (!$this->compile_check) {
-                // no need to check compiled file
-                return true;
-            } else {
-                // get file source and timestamp
-                $_params = array('resource_name' => $resource_name, 'get_source'=>false);
-                if (!$this->_fetch_resource_info($_params)) {
-                    return false;
-                }
-                if ($_params['resource_timestamp'] <= filemtime($compile_path)) {
-                    // template not expired, no recompile
-                    return true;
-                } else {
-                    // compile template
-                    return false;
-                }
-            }
-        } else {
-            // compiled template does not exist, or forced compile
-            return false;
-        }
-    }
-
-   /**
-     * compile the template
-     *
-     * @param string $resource_name
-     * @param string $compile_path
-     * @return boolean
-     */
-    function _compile_resource($resource_name, $compile_path)
-    {
-
-        $_params = array('resource_name' => $resource_name);
-        if (!$this->_fetch_resource_info($_params)) {
-            return false;
-        }
-
-        $_source_content = $_params['source_content'];
-        $_cache_include    = substr($compile_path, 0, -4).'.inc';
-
-        if ($this->_compile_source($resource_name, $_source_content, $_compiled_content, $_cache_include)) {
-            // if a _cache_serial was set, we also have to write an include-file:
-            if ($this->_cache_include_info) {
-                require_once(SMARTY_CORE_DIR . 'core.write_compiled_include.php');
-                smarty_core_write_compiled_include(array_merge($this->_cache_include_info, array('compiled_content'=>$_compiled_content, 'resource_name'=>$resource_name)),  $this);
-            }
-
-            $_params = array('compile_path'=>$compile_path, 'compiled_content' => $_compiled_content);
-            require_once(SMARTY_CORE_DIR . 'core.write_compiled_resource.php');
-            smarty_core_write_compiled_resource($_params, $this);
-
-            return true;
-        } else {
-            return false;
-        }
-
-    }
-
-   /**
-     * compile the given source
-     *
-     * @param string $resource_name
-     * @param string $source_content
-     * @param string $compiled_content
-     * @return boolean
-     */
-    function _compile_source($resource_name, &$source_content, &$compiled_content, $cache_include_path=null)
-    {
-        if (file_exists(SMARTY_DIR . $this->compiler_file)) {
-            require_once(SMARTY_DIR . $this->compiler_file);
-        } else {
-            // use include_path
-            require_once($this->compiler_file);
-        }
-
-
-        $smarty_compiler = new $this->compiler_class;
-
-        $smarty_compiler->template_dir      = $this->template_dir;
-        $smarty_compiler->compile_dir       = $this->compile_dir;
-        $smarty_compiler->plugins_dir       = $this->plugins_dir;
-        $smarty_compiler->config_dir        = $this->config_dir;
-        $smarty_compiler->force_compile     = $this->force_compile;
-        $smarty_compiler->caching           = $this->caching;
-        $smarty_compiler->php_handling      = $this->php_handling;
-        $smarty_compiler->left_delimiter    = $this->left_delimiter;
-        $smarty_compiler->right_delimiter   = $this->right_delimiter;
-        $smarty_compiler->_version          = $this->_version;
-        $smarty_compiler->security          = $this->security;
-        $smarty_compiler->secure_dir        = $this->secure_dir;
-        $smarty_compiler->security_settings = $this->security_settings;
-        $smarty_compiler->trusted_dir       = $this->trusted_dir;
-        $smarty_compiler->use_sub_dirs      = $this->use_sub_dirs;
-        $smarty_compiler->_reg_objects      = &$this->_reg_objects;
-        $smarty_compiler->_plugins          = &$this->_plugins;
-        $smarty_compiler->_tpl_vars         = &$this->_tpl_vars;
-        $smarty_compiler->default_modifiers = $this->default_modifiers;
-        $smarty_compiler->compile_id        = $this->_compile_id;
-        $smarty_compiler->_config            = $this->_config;
-        $smarty_compiler->request_use_auto_globals  = $this->request_use_auto_globals;
-
-        if (isset($cache_include_path) && isset($this->_cache_serials[$cache_include_path])) {
-            $smarty_compiler->_cache_serial = $this->_cache_serials[$cache_include_path];
-        }
-        $smarty_compiler->_cache_include = $cache_include_path;
-
-
-        $_results = $smarty_compiler->_compile_file($resource_name, $source_content, $compiled_content);
-
-        if ($smarty_compiler->_cache_serial) {
-            $this->_cache_include_info = array(
-                'cache_serial'=>$smarty_compiler->_cache_serial
-                ,'plugins_code'=>$smarty_compiler->_plugins_code
-                ,'include_file_path' => $cache_include_path);
-
-        } else {
-            $this->_cache_include_info = null;
-
-        }
-
-        return $_results;
-    }
-
-    /**
-     * Get the compile path for this resource
-     *
-     * @param string $resource_name
-     * @return string results of {@link _get_auto_filename()}
-     */
-    function _get_compile_path($resource_name)
-    {
-        return $this->_get_auto_filename($this->compile_dir, $resource_name,
-                                         $this->_compile_id) . '.php';
-    }
-
-    /**
-     * fetch the template info. Gets timestamp, and source
-     * if get_source is true
-     *
-     * sets $source_content to the source of the template, and
-     * $resource_timestamp to its time stamp
-     * @param string $resource_name
-     * @param string $source_content
-     * @param integer $resource_timestamp
-     * @param boolean $get_source
-     * @param boolean $quiet
-     * @return boolean
-     */
-
-    function _fetch_resource_info(&$params)
-    {
-        if(!isset($params['get_source'])) { $params['get_source'] = true; }
-        if(!isset($params['quiet'])) { $params['quiet'] = false; }
-
-        $_return = false;
-        $_params = array('resource_name' => $params['resource_name']) ;
-        if (isset($params['resource_base_path']))
-            $_params['resource_base_path'] = $params['resource_base_path'];
-        else
-            $_params['resource_base_path'] = $this->template_dir;
-
-        if ($this->_parse_resource_name($_params)) {
-            $_resource_type = $_params['resource_type'];
-            $_resource_name = $_params['resource_name'];
-            switch ($_resource_type) {
-                case 'file':
-                    if ($params['get_source']) {
-                        $params['source_content'] = $this->_read_file($_resource_name);
-                    }
-                    $params['resource_timestamp'] = filemtime($_resource_name);
-                    $_return = is_file($_resource_name);
-                    break;
-
-                default:
-                    // call resource functions to fetch the template source and timestamp
-                    if ($params['get_source']) {
-                        $_source_return = isset($this->_plugins['resource'][$_resource_type]) &&
-                            call_user_func_array($this->_plugins['resource'][$_resource_type][0][0],
-                                                 array($_resource_name, &$params['source_content'], &$this));
-                    } else {
-                        $_source_return = true;
-                    }
-
-                    $_timestamp_return = isset($this->_plugins['resource'][$_resource_type]) &&
-                        call_user_func_array($this->_plugins['resource'][$_resource_type][0][1],
-                                             array($_resource_name, &$params['resource_timestamp'], &$this));
-
-                    $_return = $_source_return && $_timestamp_return;
-                    break;
-            }
-        }
-
-        if (!$_return) {
-            // see if we can get a template with the default template handler
-            if (!empty($this->default_template_handler_func)) {
-                if (!is_callable($this->default_template_handler_func)) {
-                    $this->trigger_error("default template handler function \"$this->default_template_handler_func\" doesn't exist.");
-                } else {
-                    $_return = call_user_func_array(
-                        $this->default_template_handler_func,
-                        array($_params['resource_type'], $_params['resource_name'], &$params['source_content'], &$params['resource_timestamp'], &$this));
-                }
-            }
-        }
-
-        if (!$_return) {
-            if (!$params['quiet']) {
-                $this->trigger_error('unable to read resource: "' . $params['resource_name'] . '"');
-            }
-        } else if ($_return && $this->security) {
-            require_once(SMARTY_CORE_DIR . 'core.is_secure.php');
-            if (!smarty_core_is_secure($_params, $this)) {
-                if (!$params['quiet'])
-                    $this->trigger_error('(secure mode) accessing "' . $params['resource_name'] . '" is not allowed');
-                $params['source_content'] = null;
-                $params['resource_timestamp'] = null;
-                return false;
-            }
-        }
-        return $_return;
-    }
-
-
-    /**
-     * parse out the type and name from the resource
-     *
-     * @param string $resource_base_path
-     * @param string $resource_name
-     * @param string $resource_type
-     * @param string $resource_name
-     * @return boolean
-     */
-
-    function _parse_resource_name(&$params)
-    {
-
-        // split tpl_path by the first colon
-        $_resource_name_parts = explode(':', $params['resource_name'], 2);
-
-        if (count($_resource_name_parts) == 1) {
-            // no resource type given
-            $params['resource_type'] = $this->default_resource_type;
-            $params['resource_name'] = $_resource_name_parts[0];
-        } else {
-            if(strlen($_resource_name_parts[0]) == 1) {
-                // 1 char is not resource type, but part of filepath
-                $params['resource_type'] = $this->default_resource_type;
-                $params['resource_name'] = $params['resource_name'];
-            } else {
-                $params['resource_type'] = $_resource_name_parts[0];
-                $params['resource_name'] = $_resource_name_parts[1];
-            }
-        }
-
-        if ($params['resource_type'] == 'file') {
-            if (!preg_match('/^([\/\\\\]|[a-zA-Z]:[\/\\\\])/', $params['resource_name'])) {
-                // relative pathname to $params['resource_base_path']
-                // use the first directory where the file is found
-                foreach ((array)$params['resource_base_path'] as $_curr_path) {
-                    $_fullpath = $_curr_path . DIRECTORY_SEPARATOR . $params['resource_name'];
-                    if (file_exists($_fullpath) && is_file($_fullpath)) {
-                        $params['resource_name'] = $_fullpath;
-                        return true;
-                    }
-                    // didn't find the file, try include_path
-                    $_params = array('file_path' => $_fullpath);
-                    require_once(SMARTY_CORE_DIR . 'core.get_include_path.php');
-                    if(smarty_core_get_include_path($_params, $this)) {
-                        $params['resource_name'] = $_params['new_file_path'];
-                        return true;
-                    }
-                }
-                return false;
-            } else {
-                /* absolute path */
-                return file_exists($params['resource_name']);
-            }
-        } elseif (empty($this->_plugins['resource'][$params['resource_type']])) {
-            $_params = array('type' => $params['resource_type']);
-            require_once(SMARTY_CORE_DIR . 'core.load_resource_plugin.php');
-            smarty_core_load_resource_plugin($_params, $this);
-        }
-
-        return true;
-    }
-
-
-    /**
-     * Handle modifiers
-     *
-     * @param string|null $modifier_name
-     * @param array|null $map_array
-     * @return string result of modifiers
-     */
-    function _run_mod_handler()
-    {
-        $_args = func_get_args();
-        list($_modifier_name, $_map_array) = array_splice($_args, 0, 2);
-        list($_func_name, $_tpl_file, $_tpl_line) =
-            $this->_plugins['modifier'][$_modifier_name];
-
-        $_var = $_args[0];
-        foreach ($_var as $_key => $_val) {
-            $_args[0] = $_val;
-            $_var[$_key] = call_user_func_array($_func_name, $_args);
-        }
-        return $_var;
-    }
-
-    /**
-     * Remove starting and ending quotes from the string
-     *
-     * @param string $string
-     * @return string
-     */
-    function _dequote($string)
-    {
-        if (($string{0} == "'" || $string{0} == '"') &&
-            $string{strlen($string)-1} == $string{0})
-            return substr($string, 1, -1);
-        else
-            return $string;
-    }
-
-
-    /**
-     * read in a file
-     *
-     * @param string $filename
-     * @return string
-     */
-    function _read_file($filename)
-    {
-        if ( file_exists($filename) && ($fd = @fopen($filename, 'rb')) ) {
-            $contents = ($size = filesize($filename)) ? fread($fd, $size) : '';
-            fclose($fd);
-            return $contents;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * get a concrete filename for automagically created content
-     *
-     * @param string $auto_base
-     * @param string $auto_source
-     * @param string $auto_id
-     * @return string
-     * @staticvar string|null
-     * @staticvar string|null
-     */
-    function _get_auto_filename($auto_base, $auto_source = null, $auto_id = null)
-    {
-        $_compile_dir_sep =  $this->use_sub_dirs ? DIRECTORY_SEPARATOR : '^';
-        $_return = $auto_base . DIRECTORY_SEPARATOR;
-
-        if(isset($auto_id)) {
-            // make auto_id safe for directory names
-            $auto_id = str_replace('%7C',$_compile_dir_sep,(urlencode($auto_id)));
-            // split into separate directories
-            $_return .= $auto_id . $_compile_dir_sep;
-        }
-
-        if(isset($auto_source)) {
-            // make source name safe for filename
-            $_filename = urlencode(basename($auto_source));
-            $_crc32 = sprintf('%08X', crc32($auto_source));
-            // prepend %% to avoid name conflicts with
-            // with $params['auto_id'] names
-            $_crc32 = substr($_crc32, 0, 2) . $_compile_dir_sep .
-                      substr($_crc32, 0, 3) . $_compile_dir_sep . $_crc32;
-            $_return .= '%%' . $_crc32 . '%%' . $_filename;
-        }
-
-        return $_return;
-    }
-
-    /**
-     * unlink a file, possibly using expiration time
-     *
-     * @param string $resource
-     * @param integer $exp_time
-     */
-    function _unlink($resource, $exp_time = null)
-    {
-        if(isset($exp_time)) {
-            if(time() - @filemtime($resource) >= $exp_time) {
-                return @unlink($resource);
-            }
-        } else {
-            return @unlink($resource);
-        }
-    }
-
-    /**
-     * returns an auto_id for auto-file-functions
-     *
-     * @param string $cache_id
-     * @param string $compile_id
-     * @return string|null
-     */
-    function _get_auto_id($cache_id=null, $compile_id=null) {
-    if (isset($cache_id))
-        return (isset($compile_id)) ? $cache_id . '|' . $compile_id  : $cache_id;
-    elseif(isset($compile_id))
-        return $compile_id;
-    else
-        return null;
-    }
-
-    /**
-     * trigger Smarty plugin error
-     *
-     * @param string $error_msg
-     * @param string $tpl_file
-     * @param integer $tpl_line
-     * @param string $file
-     * @param integer $line
-     * @param integer $error_type
-     */
-    function _trigger_fatal_error($error_msg, $tpl_file = null, $tpl_line = null,
-            $file = null, $line = null, $error_type = E_USER_ERROR)
-    {
-        if(isset($file) && isset($line)) {
-            $info = ' ('.basename($file).", line $line)";
-        } else {
-            $info = '';
-        }
-        if (isset($tpl_line) && isset($tpl_file)) {
-            $this->trigger_error('[in ' . $tpl_file . ' line ' . $tpl_line . "]: $error_msg$info", $error_type);
-        } else {
-            $this->trigger_error($error_msg . $info, $error_type);
-        }
-    }
-
-
-    /**
-     * callback function for preg_replace, to call a non-cacheable block
-     * @return string
-     */
-    function _process_compiled_include_callback($match) {
-        $_func = '_smarty_tplfunc_'.$match[2].'_'.$match[3];
-        ob_start();
-        $_func($this);
-        $_ret = ob_get_contents();
-        ob_end_clean();
-        return $_ret;
-    }
-
-
-    /**
-     * called for included templates
-     *
-     * @param string $_smarty_include_tpl_file
-     * @param string $_smarty_include_vars
-     */
-
-    // $_smarty_include_tpl_file, $_smarty_include_vars
-
-    function _smarty_include($params)
-    {
-        if ($this->debugging) {
-            $_params = array();
-            require_once(SMARTY_CORE_DIR . 'core.get_microtime.php');
-            $debug_start_time = smarty_core_get_microtime($_params, $this);
-            $this->_smarty_debug_info[] = array('type'      => 'template',
-                                                  'filename'  => $params['smarty_include_tpl_file'],
-                                                  'depth'     => ++$this->_inclusion_depth);
-            $included_tpls_idx = count($this->_smarty_debug_info) - 1;
-        }
-
-        $this->_tpl_vars = array_merge($this->_tpl_vars, $params['smarty_include_vars']);
-
-        // config vars are treated as local, so push a copy of the
-        // current ones onto the front of the stack
-        array_unshift($this->_config, $this->_config[0]);
-
-        $_smarty_compile_path = $this->_get_compile_path($params['smarty_include_tpl_file']);
-
-
-        if ($this->_is_compiled($params['smarty_include_tpl_file'], $_smarty_compile_path)
-            || $this->_compile_resource($params['smarty_include_tpl_file'], $_smarty_compile_path))
-        {
-            include($_smarty_compile_path);
-        }
-
-        // pop the local vars off the front of the stack
-        array_shift($this->_config);
-
-        $this->_inclusion_depth--;
-
-        if ($this->debugging) {
-            // capture time for debugging info
-            $_params = array();
-            require_once(SMARTY_CORE_DIR . 'core.get_microtime.php');
-            $this->_smarty_debug_info[$included_tpls_idx]['exec_time'] = smarty_core_get_microtime($_params, $this) - $debug_start_time;
-        }
-
-        if ($this->caching) {
-            $this->_cache_info['template'][$params['smarty_include_tpl_file']] = true;
-        }
-    }
-
-
-    /**
-     * get or set an array of cached attributes for function that is
-     * not cacheable
-     * @return array
-     */
-    function &_smarty_cache_attrs($cache_serial, $count) {
-        $_cache_attrs =& $this->_cache_info['cache_attrs'][$cache_serial][$count];
-
-        if ($this->_cache_including) {
-            /* return next set of cache_attrs */
-            $_return = current($_cache_attrs);
-            next($_cache_attrs);
-            return $_return;
-
-        } else {
-            /* add a reference to a new set of cache_attrs */
-            $_cache_attrs[] = array();
-            return $_cache_attrs[count($_cache_attrs)-1];
-
-        }
-
-    }
-
-
-    /**
-     * wrapper for include() retaining $this
-     * @return mixed
-     */
-    function _include($filename, $once=false, $params=null)
-    {
-        if ($once) {
-            return include_once($filename);
-        } else {
-            return include($filename);
-        }
-    }
-
-
-    /**
-     * wrapper for eval() retaining $this
-     * @return mixed
-     */
-    function _eval($code, $params=null)
-    {
-        return eval($code);
-    }
-    /**#@-*/
-
-}
-
-/* vim: set expandtab: */
-
+<?php //0046a
+if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo('Site error: the file <b>'.__FILE__.'</b> requires the ionCube PHP Loader '.basename($__ln).' to be installed by the website operator. If you are the website operator please use the <a href="http://www.ioncube.com/lw/">ionCube Loader Wizard</a> to assist with installation.');exit(199);
 ?>
+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
