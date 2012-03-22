@@ -20,7 +20,9 @@
         
     </DataPanel>
     <ActionPanel>       
-        
+        <Element Name="btn_install" Class="LabelText" Text="Install" CssClass="button_install" Link="javascript:;">
+              <EventHandler Name="btn_install_onclick" Event="onclick" EventLogMsg="" Function="LoadDialog(market.application.form.ApplicationDetailForm)"  />        
+        </Element>
         <Element Name="btn_cancel" Class="LabelText" Link="{APP_INDEX}/market/applications/repo_{@:m_RepoID}" Text="Back" CssClass="button_gray_w" />
         
     </ActionPanel> 
