@@ -43,6 +43,7 @@ class XMLParser {
 	function XMLParser($data_source, $data_source_type='raw', $collapse_dups=0, $index_numeric=0) {
 		$this->collapse_dups = $collapse_dups;
 		$this->index_numeric = $index_numeric;
+		
 		$this->data = '';
 		if ($data_source_type == 'raw')
 			$this->data = $data_source;
@@ -62,6 +63,16 @@ class XMLParser {
 				$this->data .= fread($fp, 1000);
 			fclose($fp);
 		}
+		
+		//add support for load encoded files
+		if(function_exists("ioncube_read_file"))
+		{
+			$data = ioncube_read_file($data_source);
+			if (!is_int($data)) {
+				$this->data = $data;		
+			}
+		}
+		
 	}
 
 	// Parse the XML file into a verbose, flat array struct.
