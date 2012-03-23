@@ -3,7 +3,7 @@
  * build module command line script
  */
 if ($argc<2) {
-	echo "usage: php build_module.php module_name".PHP_EOL;
+	echo "usage: php build_module_encoded.php module_name".PHP_EOL;
 	exit;
 }
 
