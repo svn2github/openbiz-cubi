@@ -443,7 +443,11 @@ class Resource
             }
         } else
         {
-            include_once(OPENBIZ_BIN . "util/xmltoarray.php");
+        	if(extension_loaded('ionCube Loader')){
+            	include_once(OPENBIZ_BIN . "util/xmltoarray.php");
+        	}else{
+        		include_once(OPENBIZ_BIN . "util/xmltoarray.src.php");
+        	}
             $parser = new XMLParser($objXmlFileName, 'file', 1);
             $xmlArr = $parser->getTree();
             // simple validate the xml array
