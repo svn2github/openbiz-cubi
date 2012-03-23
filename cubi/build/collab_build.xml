@@ -13,10 +13,7 @@ jsMin, SvnCheckout, Version, Documentor
 
     <!-- Fileset for base source files -->
     <fileset dir="." id="basesrc">
-        <include name="modules/collanoration/**" />
-        <include name="modules/task/**" />
-        <include name="modules/worklog/**" />
-        <include name="modules/calendar/**" />
+        <include name="modules/collab/**" />        
     </fileset>
 
     <!-- ============================================  -->
@@ -33,9 +30,16 @@ jsMin, SvnCheckout, Version, Documentor
     <!-- ============================================  -->
     <!-- (DEFAULT) Target: dist                        -->
     <!-- ============================================  -->
-    <target name="dist" depends="build, tar">
+    <target name="dist" depends="build,encode,tar">
     </target>
     
+    <target name="encode">
+	    <ioncubeencoder phpversion="5" binary="false" ioncubepath="/usr/local/ioncube"
+		  targetoption="replace" withoutruntimeloadersupport="true" optimize="max"
+		  fromdir="build/src/" todir="build/src/" licensepath="license.key" passphrase="mypassphrase">
+		  <comment>Openbiz Collaboration</comment>
+		</ioncubeencoder>
+    </target>
     <!-- ============================================  -->
     <!-- Target: tar                                   -->
     <!-- ============================================  -->
