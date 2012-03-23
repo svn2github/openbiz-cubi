@@ -465,10 +465,10 @@ class IoncubeEncoderTask extends Task
     {
         $arguments = $this->constructArguments();
         
-        $encoder = new PhingFile($this->ioncubePath, $this->encoderName . ($this->phpVersion == 5 ? '5' : ''));
+        $encoder = new PhingFile($this->ioncubePath, $this->encoderName . ($this->phpVersion ? $this->phpVersion : ''));
         
         $this->log("Running ionCube Encoder...");
-       
+       echo $encoder->__toString() . ' ' . $arguments . " 2>&1";exit;
         exec($encoder->__toString() . ' ' . $arguments . " 2>&1", $output, $return);
        
         if ($return != 0)
