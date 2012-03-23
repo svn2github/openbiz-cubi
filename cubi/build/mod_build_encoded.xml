@@ -36,13 +36,13 @@ jsMin, SvnCheckout, Version, Documentor
 
     <target name="encode">
 	    <ioncubeencoder phpVersion="53" binary="false" ioncubepath="C:/ioncube/"
-		  targetoption="replace" withoutruntimeloadersupport="true" 
-		  CallbackFile ="license_expection.php"   ActionIfNoLoader="header(&quot;Location: &quot;.APP_INDEX.&quot;/common/loader_not_installed&quot;);"
-		  fromdir="build/src/" todir="build/encoded/" licensepath="license.key" passphrase="${passphrase}">
-		  <comment>Openbiz Collaboration</comment>
+		  targetoption="replace" withoutruntimeloadersupport="false"  Encrypt="*.tpl *.html *.htm *.xml"
+		  CallbackFile ="license_expection.php"   ActionIfNoLoader="header('Location: '.APP_INDEX.'/common/loader_not_installed');"
+		  fromdir="build/src/" todir="build/encoded/" licensepath="license.key" passphrase="${passphrase}">		  
 		</ioncubeencoder>
     </target>
-    <!--  -->
+    <!-- 	<comment>Openbiz Collaboration</comment>	  
+     -->
     <!-- ============================================  -->
     <!-- Target: tar                                   -->
     <!-- ============================================  -->
