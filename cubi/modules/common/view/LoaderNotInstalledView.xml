@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="LoaderNotInstalledView" Description="Ioncode Loader Not Installed" Class="EasyView" TemplateEngine="Smarty" CacheLifeTime="0" TemplateFile="user_view.tpl.html">
+   <FormReferences>
+   		<Reference Name="common.form.LoaderNotInstalledForm"/>
+   </FormReferences>
+</EasyView>

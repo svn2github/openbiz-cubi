@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="LoaderNotInstalledForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Loader Not Installed" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="loader_not_installed.tpl.html" >
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>        
+    
+    	<Element Name="btn_install" Class="LabelText" Text="Install" CssClass="button_highlight" Link="http://www.ioncube.com/lw/" Target="_blank"></Element>
+        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button" Link="javascript:history.go(-1)"></Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
