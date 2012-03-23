@@ -19,8 +19,8 @@
  * <http://phing.info>.
  */
 
-require_once 'phing/Task.php';
-require_once 'phing/tasks/ext/ioncube/IoncubeComment.php';
+require_once "phing/Task.php";
+require_once "phing/tasks/ext/ioncube/IoncubeComment.php";
 
 /**
  * Invokes the ionCube Encoder (PHP4 or PHP5)
@@ -41,17 +41,17 @@ class IoncubeEncoderTask extends Task
 
     private $comments = array();
     
-    private $encoderName = 'ioncube_encoder';
+    private $encoderName = "ioncube_encoder";
     
-    private $fromDir = '';
+    private $fromDir = "";
 
-    private $ioncubePath = '/usr/local/ioncube';
+    private $ioncubePath = "/usr/local/ioncube";
 
-    private $phpVersion = '5';
+    private $phpVersion = "5";
 
-    private $targetOption = '';
+    private $targetOption = "";
 
-    private $toDir = '';
+    private $toDir = "";
 
     /**
      * Adds a comment to be used in encoded files
@@ -66,7 +66,7 @@ class IoncubeEncoderTask extends Task
      */
     function setAllowedServer($value)
     {
-        $this->ionOptionsXS['allowed-server'] = $value;
+        $this->ionOptionsXS["allowed-server"] = $value;
     }
 
     /**
@@ -74,7 +74,7 @@ class IoncubeEncoderTask extends Task
      */
     function getAllowedServer()
     {
-        return $this->ionOptionsXS['allowed-server'];
+        return $this->ionOptionsXS["allowed-server"];
     }
 
     /**
@@ -82,7 +82,7 @@ class IoncubeEncoderTask extends Task
      */
     function setBinary($value)
     {
-        $this->ionSwitches['binary'] = $value;
+        $this->ionSwitches["binary"] = $value;
     }
 
     /**
@@ -90,16 +90,16 @@ class IoncubeEncoderTask extends Task
      */
     function getBinary()
     {
-        return $this->ionSwitches['binary'];
+        return $this->ionSwitches["binary"];
     }
     function setActionIfNoLoader($value)
     {
-        $this->ionOptions['action-if-no-loader'] = $value;
+        $this->ionOptions["action-if-no-loader"] = $value;
     }    
 
 	function getActionIfNoLoader()
     {
-        return $this->ionOptions['action-if-no-loader'];
+        return $this->ionOptions["action-if-no-loader"];
     }
         
     /**
@@ -107,7 +107,7 @@ class IoncubeEncoderTask extends Task
      */
     function setCopy($value)
     {
-        $this->ionOptionsXS['copy'] = $value;
+        $this->ionOptionsXS["copy"] = $value;
     }
 
     /**
@@ -115,7 +115,7 @@ class IoncubeEncoderTask extends Task
      */
     function getCopy()
     {
-        return $this->ionOptionsXS['copy'];
+        return $this->ionOptionsXS["copy"];
     }
 
     /**
@@ -124,7 +124,7 @@ class IoncubeEncoderTask extends Task
      */
     function setEncode($value)
     {
-        $this->ionOptionsXS['encode'] = $value;
+        $this->ionOptionsXS["encode"] = $value;
     }
     
     /**
@@ -132,7 +132,7 @@ class IoncubeEncoderTask extends Task
      */
     function getEncode()
     {
-        return $this->ionOptionsXS['encode'];
+        return $this->ionOptionsXS["encode"];
     }
 
     /**
@@ -140,7 +140,7 @@ class IoncubeEncoderTask extends Task
      */
     function setEncrypt($value)
     {
-        $this->ionOptionsXS['encrypt'] = $value;
+        $this->ionOptionsXS["encrypt"] = $value;
     }
     
     /**
@@ -148,7 +148,7 @@ class IoncubeEncoderTask extends Task
      */
     function getEncrypt()
     {
-        return $this->ionOptionsXS['encrypt'];
+        return $this->ionOptionsXS["encrypt"];
     }
 
     /**
@@ -156,7 +156,7 @@ class IoncubeEncoderTask extends Task
      */
     function setExpirein($value)
     {
-        $this->ionOptions['expire-in'] = $value;
+        $this->ionOptions["expire-in"] = $value;
     }
     
     /**
@@ -164,7 +164,7 @@ class IoncubeEncoderTask extends Task
      */
     function getExpirein()
     {
-        return $this->ionOptions['expire-in'];
+        return $this->ionOptions["expire-in"];
     }
 
     /**
@@ -172,7 +172,7 @@ class IoncubeEncoderTask extends Task
      */
     function setExpireon($value)
     {
-        $this->ionOptions['expire-on'] = $value;
+        $this->ionOptions["expire-on"] = $value;
     }
     
     /**
@@ -180,7 +180,7 @@ class IoncubeEncoderTask extends Task
      */
     function getExpireon()
     {
-        return $this->ionOptions['expire-on'];
+        return $this->ionOptions["expire-on"];
     }
 
     /**
@@ -205,7 +205,7 @@ class IoncubeEncoderTask extends Task
      */
     function setIgnore($value)
     {
-        $this->ionOptionsXS['ignore'] = $value;
+        $this->ionOptionsXS["ignore"] = $value;
     }
 
     /**
@@ -213,7 +213,7 @@ class IoncubeEncoderTask extends Task
      */
     function getIgnore()
     {
-        return $this->ionOptionsXS['ignore'];
+        return $this->ionOptionsXS["ignore"];
     }
 
     /**
@@ -237,7 +237,7 @@ class IoncubeEncoderTask extends Task
      */
     function setKeep($value)
     {
-        $this->ionOptionsXS['keep'] = $value;
+        $this->ionOptionsXS["keep"] = $value;
     }
 
     /**
@@ -245,7 +245,7 @@ class IoncubeEncoderTask extends Task
      */
     function getKeep()
     {
-        return $this->ionOptionsXS['keep'];
+        return $this->ionOptionsXS["keep"];
     }
 
     /**
@@ -253,7 +253,7 @@ class IoncubeEncoderTask extends Task
      */
     function setLicensePath($value)
     {
-        $this->ionOptions['with-license'] = $value;
+        $this->ionOptions["with-license"] = $value;
     }
 
     /**
@@ -261,7 +261,7 @@ class IoncubeEncoderTask extends Task
      */
     function getLicensePath()
     {
-        return $this->ionOptions['with-license'];
+        return $this->ionOptions["with-license"];
     }
 
     /**
@@ -269,7 +269,7 @@ class IoncubeEncoderTask extends Task
      */
     function setNoDocComments($value)
     {
-        $this->ionSwitches['no-doc-comment'] = $value;
+        $this->ionSwitches["no-doc-comment"] = $value;
     }
     
     /**
@@ -277,7 +277,7 @@ class IoncubeEncoderTask extends Task
      */
     function getNoDocComments()
     {
-        return $this->ionSwitches['no-doc-comment'];
+        return $this->ionSwitches["no-doc-comment"];
     }
     
     /**
@@ -285,7 +285,7 @@ class IoncubeEncoderTask extends Task
      */
     function setObfuscate($value)
     {
-        $this->ionOptionsXS['obfuscate'] = $value;
+        $this->ionOptionsXS["obfuscate"] = $value;
     }
     
     /**
@@ -293,7 +293,7 @@ class IoncubeEncoderTask extends Task
      */
     function getObfuscate()
     {
-        return $this->ionOptionsXS['obfuscate'];
+        return $this->ionOptionsXS["obfuscate"];
     }
 
     /**
@@ -301,7 +301,7 @@ class IoncubeEncoderTask extends Task
      */
     function setObfuscationKey($value)
     {
-        $this->ionOptions['obfuscation-key'] = $value;
+        $this->ionOptions["obfuscation-key"] = $value;
     }
     
     /**
@@ -309,7 +309,7 @@ class IoncubeEncoderTask extends Task
      */
     function getObfuscationKey()
     {
-        return $this->ionOptions['obfuscation-key'];
+        return $this->ionOptions["obfuscation-key"];
     }
 
     /**
@@ -317,7 +317,7 @@ class IoncubeEncoderTask extends Task
      */
     function setOptimize($value)
     {
-        $this->ionOptions['optimize'] = $value;
+        $this->ionOptions["optimize"] = $value;
     }
     
     /**
@@ -325,7 +325,7 @@ class IoncubeEncoderTask extends Task
      */
     function getOptimize()
     {
-        return $this->ionOptions['optimize'];
+        return $this->ionOptions["optimize"];
     }
 
     /**
@@ -333,7 +333,7 @@ class IoncubeEncoderTask extends Task
      */
     function setPassPhrase($value)
     {
-        $this->ionOptions['passphrase'] = $value;
+        $this->ionOptions["passphrase"] = $value;
     }
 
     /**
@@ -341,7 +341,7 @@ class IoncubeEncoderTask extends Task
      */
     function getPassPhrase()
     {
-        return $this->ionOptions['passphrase'];
+        return $this->ionOptions["passphrase"];
     }
 
     /**
@@ -381,7 +381,7 @@ class IoncubeEncoderTask extends Task
      */
     function setWithoutRuntimeLoaderSupport($value)
     {
-        $this->ionSwitches['without-runtime-loader-support'] = $value;
+        $this->ionSwitches["without-runtime-loader-support"] = $value;
     }
     
     /**
@@ -389,7 +389,7 @@ class IoncubeEncoderTask extends Task
      */
     function getWithoutRuntimeLoaderSupport()
     {
-        return $this->ionSwitches['without-runtime-loader-support'];
+        return $this->ionSwitches["without-runtime-loader-support"];
     }
 
     /**
@@ -397,7 +397,7 @@ class IoncubeEncoderTask extends Task
      */
     function setNoShortOpenTags($value)
     {
-        $this->ionSwitches['no-short-open-tags'] = $value;
+        $this->ionSwitches["no-short-open-tags"] = $value;
     }
     
     /**
@@ -405,7 +405,7 @@ class IoncubeEncoderTask extends Task
      */
     function getNoShortOpenTags()
     {
-        return $this->ionSwitches['no-short-open-tags'];
+        return $this->ionSwitches["no-short-open-tags"];
     }
     
     /**
@@ -429,7 +429,7 @@ class IoncubeEncoderTask extends Task
      */
     function setCallbackFile($value)
     {
-        $this->ionOptions['callback-file'] = $value;
+        $this->ionOptions["callback-file"] = $value;
     }
 
     /**
@@ -437,7 +437,7 @@ class IoncubeEncoderTask extends Task
      */
     function getCallbackFile()
     {
-        return $this->ionOptions['callback-file'];
+        return $this->ionOptions["callback-file"];
     }
 
     /**
@@ -445,7 +445,7 @@ class IoncubeEncoderTask extends Task
      */
     function setObfuscationExclusionFile($value)
     {
-        $this->ionOptions['obfuscation-exclusion-file'] = $value;
+        $this->ionOptions["obfuscation-exclusion-file"] = $value;
     }
 
     /**
@@ -453,7 +453,7 @@ class IoncubeEncoderTask extends Task
      */
     function getObfuscationExclusionFile()
     {
-        return $this->ionOptions['obfuscation-exclusion-file'];
+        return $this->ionOptions["obfuscation-exclusion-file"];
     }
  
     /**
@@ -465,15 +465,15 @@ class IoncubeEncoderTask extends Task
     {
         $arguments = $this->constructArguments();
         
-        $encoder = new PhingFile($this->ioncubePath, $this->encoderName . ($this->phpVersion ? $this->phpVersion : ''));
+        $encoder = new PhingFile($this->ioncubePath, $this->encoderName . ($this->phpVersion ? $this->phpVersion : ""));
         
         $this->log("Running ionCube Encoder...");
-       echo $encoder->__toString() . ' ' . $arguments . " 2>&1";exit;
-        exec($encoder->__toString() . ' ' . $arguments . " 2>&1", $output, $return);
+       echo $encoder->__toString() . " " . $arguments . " 2>&1";
+        exec($encoder->__toString() . " " . $arguments . " 2>&1", $output, $return);
        
         if ($return != 0)
         {
-            throw new BuildException("Could not execute ionCube Encoder: " . implode(' ', $output));
+            throw new BuildException("Could not execute ionCube Encoder: " . implode(" ", $output));
         }       
     }
 
@@ -482,7 +482,7 @@ class IoncubeEncoderTask extends Task
      */
     private function constructArguments()
     {
-        $arguments = '';
+        $arguments = "";
         
         foreach ($this->ionSwitches as $name => $value)
         {
@@ -494,20 +494,20 @@ class IoncubeEncoderTask extends Task
 
         foreach ($this->ionOptions as $name => $value)
         {
-            $arguments.= "--$name '$value' ";
+            $arguments.= "--$name \"$value\" ";
         }
 
         foreach ($this->ionOptionsXS as $name => $value)
         {
-            foreach (explode(' ', $value) as $arg)
+            foreach (explode(" ", $value) as $arg)
             {
-                $arguments.= "--$name '$arg' ";
+                $arguments.= "--$name \"$arg\" ";
             }
         }
 
         foreach ($this->comments as $comment)
         {
-            $arguments.= "--add-comment '" . $comment->getValue() . "' ";
+            $arguments.= "--add-comment \"" . $comment->getValue() . "\" ";
         }
         
         if (!empty($this->targetOption))
@@ -524,19 +524,19 @@ class IoncubeEncoderTask extends Task
                 
                 default:
                 {
-                    throw new BuildException("Unknown target option '" . $this->targetOption . "'");
+                    throw new BuildException("Unknown target option \"" . $this->targetOption . "\"");
                 } break;
             }
         }
         
-        if ($this->fromDir != '')
+        if ($this->fromDir != "")
         {
-            $arguments .= $this->fromDir . ' ';
+            $arguments .= $this->fromDir . " ";
         }
 
-        if ($this->toDir != '')
+        if ($this->toDir != "")
         {
-            $arguments .= "-o " . $this->toDir . ' ';
+            $arguments .= "-o " . $this->toDir . " ";
         }
        
         return $arguments;
