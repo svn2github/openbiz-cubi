@@ -92,7 +92,16 @@ class IoncubeEncoderTask extends Task
     {
         return $this->ionSwitches['binary'];
     }
+    function setActionIfNoLoader($value)
+    {
+        $this->ionOptions['action-if-no-loader'] = $value;
+    }    
 
+	function getActionIfNoLoader()
+    {
+        return $this->ionOptions['action-if-no-loader'];
+    }
+        
     /**
      * Sets files or folders to copy (separated by space)
      */
