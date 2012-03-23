@@ -20,6 +20,6 @@
     <TableJoins>
     </TableJoins>
     <ObjReferences>
-        <Object Name="collab.announcement.do.AnnouncementTypeDO" Relationship="1-M" Table="announcement" Column="type_id" FieldRef="Id" onDelete="Restrict"/>    
+        <Object Name="collab.announcement.do.AnnouncementDO" Relationship="1-M" Table="announcement" Column="type_id" FieldRef="Id" onDelete="Restrict"/>    
     </ObjReferences>
 </BizDataObj>
