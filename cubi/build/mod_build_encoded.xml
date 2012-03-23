@@ -35,7 +35,7 @@ jsMin, SvnCheckout, Version, Documentor
     </target>
 
     <target name="encode">
-	    <ioncubeencoder phpVersion="53" binary="false" ioncubepath="C:/ioncube/"
+	    <ioncubeencoder phpVersion="53" binary="false" ioncubepath="C:/ioncube/" optimize="max"
 		  targetoption="replace" withoutruntimeloadersupport="false"  Encrypt="*.tpl *.html *.htm *.xml"
 		  CallbackFile ="license_expection.php"   ActionIfNoLoader="header('Location: '.APP_INDEX.'/common/loader_not_installed');"
 		  fromdir="build/src/" todir="build/encoded/" licensepath="license.key" passphrase="${passphrase}">		  
