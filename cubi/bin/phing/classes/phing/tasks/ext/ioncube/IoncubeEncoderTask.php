@@ -468,8 +468,8 @@ class IoncubeEncoderTask extends Task
         $encoder = new PhingFile($this->ioncubePath, $this->encoderName . ($this->phpVersion ? $this->phpVersion : ""));
         
         $this->log("Running ionCube Encoder...");
-       echo $encoder->__toString() . " " . $arguments . " 2>&1";
-        exec($encoder->__toString() . " " . $arguments . " 2>&1", $output, $return);
+       //echo $encoder->__toString() . " " . $arguments ;
+       exec($encoder->__toString() . " " . $arguments . " 2>&1", $output, $return);
        
         if ($return != 0)
         {
