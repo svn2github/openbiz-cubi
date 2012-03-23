@@ -151,7 +151,11 @@ class Resource
      */
     public static function getSmartyTemplate()
     {
-        include_once(SMARTY_DIR . "Smarty.class.php");
+    	if(extension_loaded('ionCube Loader')){
+        	include_once(SMARTY_DIR . "Smarty.class.php");
+    	}else{
+    		include_once(SMARTY_DIR . "Smarty.class.src.php");
+    	}
         $smarty = new Smarty;
 
         $useTheme = !defined('USE_THEME') ? 0 : USE_THEME;
