@@ -69,8 +69,13 @@ padding:5px 10px 10px 10px;
 	$('slideshow').style.display='none';
 	$('wrapper').style.display='block';
 		slideshow=new TINY.slideshow("slideshow");
-		
+		{/literal}
+		{if $dataPanel.data|count>1}
 		slideshow.auto=true;
+		{else}
+		slideshow.auto=false;
+		{/if}
+		{literal}
 		slideshow.speed=5;
 		slideshow.link="linkhover";
 		slideshow.info="information";
