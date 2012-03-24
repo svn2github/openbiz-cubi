@@ -11,8 +11,12 @@ class ApplicationInstallerForm extends EasyForm
         return parent::validateRequest($methodName);
     }
     
+
+    
     public function fetchData()
     {
+   		 	$RecordIds = $this->m_RecordId;
+    	
     		$result = parent::fetchData();
     		$result['install_download'] = 0;
     		switch(strtoupper($result['inst_state']))
