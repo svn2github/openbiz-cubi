@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="LicenseInvalidForm" Class="LicenseInvalidForm" FormType="Edit" jsClass="jbForm" Title="Software License Invalid" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="license_invalid.tpl.html" MessageFile="license.ini">
+<EasyForm Name="LicenseActiveForm" Class="LicenseActiveForm" FormType="Edit" jsClass="jbForm" Title="Software Activation" Description="This form will help you active this application. \n Please fill in your license code into below form to active it. \n " BizDataObj="" TemplateEngine="Smarty" TemplateFile="license_active.tpl.html" MessageFile="license.ini">
     <DataPanel>
+    	<Element Name="fld_license_code" Class="Textarea" FieldName="license_code" Label="License"  AllowURLParam="N" CssClass="lic_code" CssErrorClass="lic_code" CssFocusClass="lic_code"/>
     </DataPanel>
     <ActionPanel>            
-        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button_highlight" Link="javascript:history.go(-1)"></Element>
+        <Element Name="btn_active" Class="LabelText" Text="Active" CssClass="button_highlight" Link="javascript:;">
+        	<EventHandler Name="btn_active_onclick" Event="onclick" Function="ActiveLicense()"/>
+        </Element>
+        <Element Name="btn_register" Hidden="{@:m_ModuleRegister!=''?'N':'Y'}" Class="LabelText" Text="Register" CssClass="button" Link="javascript:;">
+        	<EventHandler Name="btn_register_onclick" Event="onclick" Function="GoRegister()"/>
+        </Element>
+        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button" Link="javascript:history.go(-1)"></Element>
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 

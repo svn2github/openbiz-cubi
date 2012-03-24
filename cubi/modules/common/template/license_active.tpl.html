@@ -1,0 +1,40 @@
+<form id="{$form.name}" name="{$form.name}">
+{literal}
+<style>
+.lic_code{
+width:400px;
+height:100px;
+border:1px solid #cccccc;
+padding:10px;
+color:#666666;
+}
+
+</style>
+{/literal}
+<div style="display:none" id="loader_bg"></div>
+<div style="float:left; width:120px; height:400px;">
+</div>
+<div style="float:left; width:620px; height:400px;">
+	<div style="height:75px;"></div>
+	<div style="height:35px;">
+		<div style="float:left; width:50px;"><img src="{$image_url}/icon_info.gif" /></div>
+		<div style="float:left"><h1>{$form.title}</h1></div>
+	</div>
+	<div style="height:10px;"></div>
+		<p class="input_row" style="height:45px; line-height:20px;">
+		<label style="width:40px; height:90px;"></label>
+		<span>{$form.description}</span></p>
+
+<div>
+{$dataPanel.fld_license_code.element}
+</div>
+
+		<div style="height:10px;"></div>
+		<p class="input_row">
+			<label style="width:40px; text-align:right"></label>
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+</div>
+</form>
