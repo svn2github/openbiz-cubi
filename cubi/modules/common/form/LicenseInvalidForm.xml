@@ -3,7 +3,13 @@
     <DataPanel>
     </DataPanel>
     <ActionPanel>            
-        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button_highlight" Link="javascript:history.go(-1)"></Element>
+        <Element Name="btn_active" Hidden="{@:m_ModuleRegister!=''?'Y':'N'}"  Class="LabelText" Text="Active" CssClass="button_highlight" Link="{APP_INDEX}/common/license_active/{@:m_ModuleName}">
+        	
+        </Element>
+        <Element Name="btn_register" Hidden="{@:m_ModuleRegister!=''?'N':'Y'}" Class="LabelText" Text="Active" CssClass="button_highlight" Link="javascript:;">
+        	<EventHandler Name="btn_register_onclick" Event="onclick" Function="GoRegister()"/>
+        </Element>
+        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button" Link="javascript:history.go(-1)"></Element>
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 

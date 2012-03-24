@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="LicenseInvalidForm" Class="LicenseInvalidForm" FormType="Edit" jsClass="jbForm" Title="Software License Invalid" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="license_invalid.tpl.html" MessageFile="license.ini">
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>            
+        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button_highlight" Link="javascript:history.go(-1)"></Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
