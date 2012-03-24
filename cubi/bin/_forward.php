@@ -127,7 +127,7 @@ function getParameters($urlArr){
 		// echo $_GET['Cid'];  // 20 
 		// http://local.openbiz.me/index.php/collab/task_manage/fld_type_1/
 		// array(1) { ["fld:fld_type"]=> string(1) "1" }
-		elseif(preg_match("/^([a-z_]*?)_([a-z0-9]*)$/si",$urlArr[$i],$match))
+		elseif(preg_match("/^([a-z_]*?)_([^\/]*)$/si",$urlArr[$i],$match))
 		{			
 			$PARAM_MAPPING["fld:".$match[1]] = $match[2];	
 			$_GET[$match[1]] = $match[2];
