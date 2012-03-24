@@ -5,18 +5,19 @@
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(license.form.LicenseDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
-                <Element Name="fld_sku" Class="ColumnText" FieldName="sku" Label="Sku"  Sortable="Y" Link="javascript:">
-         		<EventHandler Name="fld_sku_onclick" Event="onclick" Function="SwitchForm(license.form.LicenseDetailForm,{@:Elem[fld_Id].Value})"   />
+		<Element Name="fld_license_key" Class="ColumnText" FieldName="license_key" Label="License Key"  Sortable="Y" Link="javascript:">
+			<EventHandler Name="fld_key_onclick" Event="onclick" Function="SwitchForm(license.form.LicenseDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
-                <Element Name="fld_contact_id" Class="ColumnText" FieldName="contact_id" Label="Contact Id"  Sortable="Y"/>
-                <Element Name="fld_policy_id" Class="ColumnText" FieldName="policy_id" Label="Policy Id"  Sortable="Y"/>
-                <Element Name="fld_activation_code" Class="ColumnText" FieldName="activation_code" Label="Activation Code"  Sortable="Y"/>
-                <Element Name="fld_status" Class="ColumnText" FieldName="status" Label="Status" DefaultValue="1" Sortable="Y"/>
-                <Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y"/>
-                <Element Name="fld_start_time" Class="ColumnText" FieldName="start_time" Label="Start Time"  Sortable="Y"/>
-                <Element Name="fld_end_time" Class="ColumnText" FieldName="end_time" Label="End Time"  Sortable="Y"/>
-                <Element Name="fld_max_use" Class="ColumnText" FieldName="max_use" Label="Max Use" DefaultValue="1" Sortable="Y"/>
-                <Element Name="fld_cur_use" Class="ColumnText" FieldName="cur_use" Label="Cur Use"  Sortable="Y"/>
+		<Element Name="fld_sku" Class="ColumnText" FieldName="sku" Label="Sku"  Sortable="Y"/>
+		<Element Name="fld_contact_name" Class="ColumnText" FieldName="contact_name" Label="Contact Name"  Sortable="Y"/>
+		<!--<Element Name="fld_policy_id" Class="ColumnText" FieldName="policy_id" Label="Policy Id"  Sortable="Y"/>-->
+		<Element Name="fld_activation_code" Class="ColumnText" FieldName="activation_code" Label="Activation Code"  Sortable="Y"/>
+		<Element Name="fld_status" Class="ColumnList" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(EnableStatus)" Sortable="Y"/>
+		<!--<Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y"/>-->
+		<Element Name="fld_start_time" Class="ColumnText" FieldName="start_time" Label="Start Time"  Sortable="Y"/>
+		<Element Name="fld_end_time" Class="ColumnText" FieldName="end_time" Label="End Time"  Sortable="Y"/>
+		<!--<Element Name="fld_max_use" Class="ColumnText" FieldName="max_use" Label="Max Use"  Sortable="Y"/>
+		<Element Name="fld_cur_use" Class="ColumnText" FieldName="cur_use" Label="Cur Use"  Sortable="Y"/>-->
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" Access="license.Manage">

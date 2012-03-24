@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="LicPolicyCopyForm" Class="EasyForm" FormType="Copy" jsClass="jbForm" Title="Copy Lic Policy" Description="" BizDataObj="license.do.LicPolicyDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+<EasyForm Name="LicPolicyCopyForm" Class="EasyForm" FormType="Copy" jsClass="jbForm" Title="Copy License Policy" Description="" BizDataObj="license.do.LicPolicyDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_time_limit" Class="InputText" FieldName="time_limit" Label="Time Limit"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_user_limit" Class="InputText" FieldName="user_limit" Label="User Limit"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_server_limit" Class="InputText" FieldName="server_limit" Label="Server Limit"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_domain_limit" Class="InputText" FieldName="domain_limit" Label="Domain Limit"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_time_limit" Class="InputText" FieldName="time_limit" Label="Days Limit" />
+		<Element Name="fld_limit_server" Class="Listbox" FieldName="limit_server" Label="Limit Server" SelectFrom="common.lov.CommLOV(EnableStatus)" BlankOption="---"/>
+		<Element Name="fld_limit_domain" Class="Listbox" FieldName="limit_domain" Label="Limit Domain" SelectFrom="common.lov.CommLOV(EnableStatus)" BlankOption="---"/>
+		<Element Name="fld_limit_ip" Class="Listbox" FieldName="limit_ip" Label="Limit IP" SelectFrom="common.lov.CommLOV(EnableStatus)" BlankOption="---"/>
+		<Element Name="fld_cust_properties" Class="Textarea" FieldName="cust_properties" Label="Other Properties"/>
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">

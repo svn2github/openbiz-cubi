@@ -1,4 +1,6 @@
 <?php
+include_once MODULE_PATH."/license/lib/alphaID.inc.php";
+
 class LicActCodeForm extends EasyForm 
 { 
 
@@ -15,8 +17,10 @@ class LicActCodeForm extends EasyForm
     protected function genKey()
     {
         // generate api key
-        $key = md5(uniqid());
+        //$key = md5(uniqid());
+		$key = alphaID(time());
         return $key;
     }
 }
+
 ?>

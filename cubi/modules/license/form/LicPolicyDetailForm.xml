@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="LicPolicyDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Title="Lic Policy Detail" Description="" BizDataObj="license.do.LicPolicyDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
+<EasyForm Name="LicPolicyDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Title="License Policy Detail" Description="" BizDataObj="license.do.LicPolicyDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
        	<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
-       	<Element Name="fld_time_limit" ElementSet="General" Class="LabelText" FieldName="time_limit" Label="Time Limit" AllowURLParam="N"/>
-       	<Element Name="fld_user_limit" ElementSet="General" Class="LabelText" FieldName="user_limit" Label="User Limit" AllowURLParam="N"/>
-       	<Element Name="fld_server_limit" ElementSet="General" Class="LabelText" FieldName="server_limit" Label="Server Limit" AllowURLParam="N"/>
-       	<Element Name="fld_domain_limit" ElementSet="General" Class="LabelText" FieldName="domain_limit" Label="Domain Limit" AllowURLParam="N"/>
+       	<Element Name="fld_time_limit" ElementSet="General" Class="LabelText" FieldName="time_limit" Label="Days Limit" />
+		<Element Name="fld_limit_server" ElementSet="General" Class="LabelList" FieldName="limit_server" Label="Limit Server" SelectFrom="common.lov.CommLOV(EnableStatus)"/>
+		<Element Name="fld_limit_domain" ElementSet="General" Class="LabelList" FieldName="limit_domain" Label="Limit Domain" SelectFrom="common.lov.CommLOV(EnableStatus)"/>
+		<Element Name="fld_limit_ip" ElementSet="General" Class="LabelList" FieldName="limit_ip" Label="Limit IP" SelectFrom="common.lov.CommLOV(EnableStatus)" />
+		<Element Name="fld_cust_properties" ElementSet="General" Class="LabelText" FieldName="cust_properties" Label="Other Properties"/>
        	<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>       	
        	<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time"  AllowURLParam="N"/>       	
        	<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By" Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>       	

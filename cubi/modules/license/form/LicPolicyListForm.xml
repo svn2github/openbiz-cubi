@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="LicPolicyListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Lic Policy Management" Description="" BizDataObj="license.do.LicPolicyDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="license.Access">
+<EasyForm Name="LicPolicyListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="License Policy Management" Description="" BizDataObj="license.do.LicPolicyDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="license.Access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(license.form.LicPolicyDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
-                <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Lic Policy" Sortable="Y" Link="javascript:">
-         		<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(license.form.LicPolicyDetailForm,{@:Elem[fld_Id].Value})"   />
+		<Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Lic Policy" Sortable="Y" Link="javascript:">
+			<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(license.form.LicPolicyDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
-                <Element Name="fld_time_limit" Class="ColumnText" FieldName="time_limit" Label="Time Limit"  Sortable="Y"/>
-                <Element Name="fld_user_limit" Class="ColumnText" FieldName="user_limit" Label="User Limit"  Sortable="Y"/>
-                <Element Name="fld_server_limit" Class="ColumnText" FieldName="server_limit" Label="Server Limit"  Sortable="Y"/>
-                <Element Name="fld_domain_limit" Class="ColumnText" FieldName="domain_limit" Label="Domain Limit"  Sortable="Y"/>
+		<Element Name="fld_time_limit" Class="ColumnText" FieldName="time_limit" Label="Days Limit"  Sortable="Y"/>
+		<Element Name="fld_limit_server" Class="ColumnList" FieldName="limit_server" Label="Server Limit" SelectFrom="common.lov.CommLOV(EnableStatus)" Sortable="Y"/>
+		<Element Name="fld_limit_domain" Class="ColumnList" FieldName="limit_domain" Label="Domain Limit" SelectFrom="common.lov.CommLOV(EnableStatus)" Sortable="Y"/>
+		<Element Name="fld_limit_ip" Class="ColumnList" FieldName="limit_ip" Label="IP Limit" SelectFrom="common.lov.CommLOV(EnableStatus)" Sortable="Y"/>
+		<Element Name="fld_cust_properties" Class="ColumnText" FieldName="cust_properties" Label="Customer Properties"/>
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" Access="license.Manage">
@@ -53,5 +54,9 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
+		<Element Name="qry_name" Class="InputText" FuzzySearch="Y" FieldName="name" Label="" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element>
     </SearchPanel>
 </EasyForm>

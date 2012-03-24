@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="LicActcodeListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="License Activation Code Management" Description="" BizDataObj="license.do.LicActcodeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="license.Access">
+<EasyForm Name="LicActcodePickForm" Class="PickerForm" FormType="List" jsClass="jbForm" Title="License Activation Code Management" Description="" BizDataObj="license.do.LicActcodeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_pickform.tpl.html" EventName="" MessageFile="" Access="license.Access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:">         
-         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(license.form.LicActcodeDetailForm,{@:Elem[fld_Id].Value})"   />
-        </Element>
-        <Element Name="fld_activation_code" Class="ColumnText" FieldName="activation_code" Label="Activation Code"  Sortable="Y" Link="javascript:">
-            <EventHandler Name="fld_activation_code_onclick" Event="onclick" Function="SwitchForm(license.form.LicActcodeDetailForm,{@:Elem[fld_Id].Value})"   />
-        </Element>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" />
+        <Element Name="fld_activation_code" Class="ColumnText" FieldName="activation_code" Label="Activation Code"  Sortable="Y" />
         <Element Name="fld_sku" Class="ColumnText" FieldName="sku" Label="SKU"  Sortable="Y"/>
+		<Element Name="fld_policy_id" Class="ColumnText" FieldName="policy_id" Label="Policy ID"  Sortable="Y"/>
         <Element Name="fld_policy_name" Class="ColumnText" FieldName="policy_name" Label="Policy"  Sortable="Y"/>
         <Element Name="fld_status" Class="ColumnList" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(EnableStatus)" Sortable="Y"/>
         <Element Name="fld_start_time" Class="ColumnText" FieldName="start_time" Label="Start Time"  Sortable="Y"/>
@@ -17,20 +14,11 @@
         <Element Name="fld_cur_use" Class="ColumnText" FieldName="cur_use" Label="Cur Use"  Sortable="Y"/>-->
     </DataPanel>
     <ActionPanel>
-        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" Access="license.Manage">
-            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(license.form.LicActcodeNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        <Element Name="btn_select" Class="Button" text="Select" CssClass="button_gray_m">
+            <EventHandler Name="select_onclick" Event="onclick" Function="PickToParent()"/>
         </Element>
-        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)" Access="license.Manage">
-            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=license.form.LicActcodeEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
-        </Element>
-        <Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)" Access="license.Manage">
-            <EventHandler Name="btn_copy_onclick" Event="onclick" EventLogMsg="" Function="CopyRecord()" RedirectPage="form=license.form.LicActcodeCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
-        </Element>
-        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Access="license.Manage">
-            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
-        </Element>
-        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
-            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
+        <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
+            <EventHandler Name="close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
         </Element>
     </ActionPanel> 
     <NavPanel>
@@ -56,7 +44,7 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
-		<Element Name="qry_activation_code" Class="AutoSuggest" SelectFrom="license.do.LicActcodeDO[activation_code],[activation_code] like '%{@:Elem[qry_activation_code].Value}%' GROUP BY [activation_code]" FuzzySearch="Y" FieldName="activation_code" Label="" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
+		<Element Name="qry_activation_code" Class="InputText" FuzzySearch="Y" FieldName="activation_code" Label="" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>	

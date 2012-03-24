@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="LicActcodeDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Title="Lic Actcode Detail" Description="" BizDataObj="license.do.LicActcodeDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
+<EasyForm Name="LicActcodeDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Title="License Activation Code Detail" Description="" BizDataObj="license.do.LicActcodeDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
        	<Element Name="fld_activation_code" ElementSet="General" Class="LabelText" FieldName="activation_code" Label="Activation Code" AllowURLParam="N"/>
-       	<Element Name="fld_package_id" ElementSet="General" Class="LabelText" FieldName="package_id" Label="Package Id" AllowURLParam="N"/>
+       	<Element Name="fld_sku"  ElementSet="General" Class="LabelList" FieldName="sku" Label="Product SKU" SelectFrom="product.do.ProductDO[sku]"/>
+        <Element Name="fld_policy_id"  ElementSet="General" Class="LabelList" FieldName="policy_id" Label="Policy" SelectFrom="license.do.LicPolicyDO[name:Id]"/>
        	<Element Name="fld_start_time" ElementSet="General" Class="LabelText" FieldName="start_time" Label="Start Time" AllowURLParam="N"/>
        	<Element Name="fld_end_time" ElementSet="General" Class="LabelText" FieldName="end_time" Label="End Time" AllowURLParam="N"/>
-       	<Element Name="fld_lic_valid_days" ElementSet="General" Class="LabelText" FieldName="lic_valid_days" Label="Lic Valid Days" AllowURLParam="N"/>
-       	<Element Name="fld_status" ElementSet="General" Class="LabelText" FieldName="status" Label="Status" AllowURLParam="N"/>
+       	<Element Name="fld_status" ElementSet="General" Class="LabelList" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(EnableStatus)" AllowURLParam="N"/>
        	<Element Name="fld_max_use" ElementSet="General" Class="LabelText" FieldName="max_use" Label="Max Use" AllowURLParam="N"/>
        	<Element Name="fld_cur_use" ElementSet="General" Class="LabelText" FieldName="cur_use" Label="Cur Use" AllowURLParam="N"/>
        	<Element Name="fld_description" ElementSet="General" Class="LabelText" FieldName="description" Label="Description" AllowURLParam="N"/>
