@@ -3,22 +3,25 @@ require_once "LicenseForm.php";
 class LicenseActiveForm extends LicenseForm
 {
 	public $m_ActiveModuleName;
+	public $m_LastView;
 	
  	public function setSessionVars($sessionContext)
     {               
 	 	$sessionContext->setObjVar("common.LicenseForm", "ActiveModuleName", $this->m_ActiveModuleName);       
+	 	$sessionContext->setObjVar("common.LicenseForm", "LastView", $this->m_LastView);
      	parent::setSessionVars($sessionContext);        
     }	
 	
 	public function getSessionVars($sessionContext)
     {
         $sessionContext->getObjVar("common.LicenseForm", "ActiveModuleName", $this->m_ActiveModuleName);
+        $sessionContext->getObjVar("common.LicenseForm", "LastView", $this->m_LastView);
      	parent::getSessionVars($sessionContext);        
     }	
 	
 	public function fetchData()
 	{
-		var_dump($_SESSION);exit;
+		$this->m_LastView = base64_decode($_GET['lastview']);
 		$this->m_ActiveModuleName = $_GET['app'];
 		$this->m_ModuleName = $_GET['app'];
 		$result['license_code']=$this->getExistingLicenseCode();
@@ -26,11 +29,22 @@ class LicenseActiveForm extends LicenseForm
 		return $result;
 	}
 	
+	protected function getRedirectPage()
+	{
+		
+		if($this->m_LastView)
+		{
+			$view = $this->m_LastView;
+			return array($view,"");
+		}
+	}
+	
 	public function activeLicense()
-	{		
+	{	
 		$rec = $this->readInputRecord();
 		$lic_code = $rec['license_code'];
 		$this->setLicenseCode($lic_code);
+		$this->processPostAction(); 
 		return;
 	}
 	

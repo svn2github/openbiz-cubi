@@ -3,7 +3,7 @@
     <DataPanel>
     </DataPanel>
     <ActionPanel>            
-        <Element Name="btn_active" Hidden="{@:m_ModuleRegister!=''?'Y':'N'}"  Class="LabelText" Text="Active" CssClass="button_highlight" Link="{APP_INDEX}/common/license_active/app_{@:m_ModuleName}">
+        <Element Name="btn_active" Hidden="{@:m_ModuleRegister!=''?'Y':'N'}"  Class="LabelText" Text="Active" CssClass="button_highlight" Link="{APP_INDEX}/common/license_active/app_{@:m_ModuleName}/lastview_{@:m_LicView}">
         	
         </Element>
         <Element Name="btn_register" Hidden="{@:m_ModuleRegister!=''?'N':'Y'}" Class="LabelText" Text="Active" CssClass="button_highlight" Link="javascript:;">
