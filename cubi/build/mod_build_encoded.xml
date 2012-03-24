@@ -34,13 +34,20 @@ jsMin, SvnCheckout, Version, Documentor
     <target name="dist" depends="build, encode, tar">
     </target>
 
+	<!-- 
+	${module}/register_handler.php
+	
+	function ${module}_register_handler($server_data){}
+	 -->
     <target name="encode">
 	    <ioncubeencoder phpVersion="53" binary="false" ioncubepath="C:/ioncube/" optimize="max"
 		  targetoption="replace" withoutruntimeloadersupport="false"  Encrypt="*.tpl *.html *.htm *.xml"
 		  CallbackFile ="license_expection.php"   ActionIfNoLoader="header('Location: '.APP_INDEX.'/common/loader_not_installed');"
+		  Ignore="register_handler.php"
 		  fromdir="build/src/" todir="build/encoded/" licensepath="license.key" passphrase="${passphrase}">		  
 		</ioncubeencoder>
     </target>
+    
     <!-- 	<comment>Openbiz Collaboration</comment>	  
      -->
     <!-- ============================================  -->
