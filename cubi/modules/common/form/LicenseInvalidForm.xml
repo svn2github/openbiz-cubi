@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="LicenseInvalidForm" Class="LicenseInvalidForm" FormType="Edit" jsClass="jbForm" Title="Software License Invalid" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="license_invalid.tpl.html" >
+<EasyForm Name="LicenseInvalidForm" Class="LicenseInvalidForm" FormType="Edit" jsClass="jbForm" Title="Software License Invalid" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="license_invalid.tpl.html" MessageFile="license.ini">
     <DataPanel>
     </DataPanel>
     <ActionPanel>            
