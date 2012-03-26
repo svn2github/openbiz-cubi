@@ -5,6 +5,8 @@ class ApplicationInstallerForm extends EasyForm
 	public $m_InstallState = false;
 	public $m_hasUpagrade = false;
 	
+	public $m_InstallDO = "market.installed.do.InstalledDO";
+	
     public function validateRequest($methodName)
     {
         if ($methodName == "getProgress") return true;
@@ -15,80 +17,83 @@ class ApplicationInstallerForm extends EasyForm
     
     public function fetchData()
     {
-   		 	$RecordIds = $this->m_RecordId;
-    	
-    		$result = parent::fetchData();
-    		$result['install_download'] = 0;
-    		switch(strtoupper($result['inst_state']))
+   		$RecordIds = $this->m_RecordId;
+    	$RecordIds = explode(":", $RecordIds);
+   		$app_id = $RecordIds[0];
+   		$repo_id = $RecordIds[1];
+    	$repoRec = BizSystem::getObject("market.repository.do.RepositoryDO")->fetchOne("[status]=1 AND [Id]='$repo_id'");
+    	$repo_uri = $repoRec['repository_uri'];
+    	$svc = BizSystem::getService("market.lib.PackageService");
+    	$result = $svc->discoverAppInfo($repo_uri,$app_id);
+
+    	$installRec = BizSystem::getObject($this->m_InstallDO)->fetchOne("[app_id]='$app_id'");
+    	if($installRec)
+    	{
+    		foreach($installRec as $key=>$value)
     		{
-    			default:
-    			case "ERROR":
-    				$result['install_progress'] = '0';
-    				$result['install_download'] = '0';
-    				break;
-    			case "DOWNLOAD":
-    				$result['install_progress'] = '20';
-                    if ($dataRec['inst_filesize'] == 0) $updArray['fld_download_progress'] = '0';
-                    else $updArray['fld_download_progress'] = (int)(($dataRec['inst_download'] / $dataRec['inst_filesize'])*100);     	
-    				break;    			
-    			case "INSTALL":
-    				$result['install_progress'] = '60';
-    				$result['install_download'] = '100';
-    				break;
-    			case "OK":
-    				$result['install_progress'] = '100';
-    				$result['install_download'] = '100';
-    				break;	
+    			$result[$key]=$value;
     		}
-    		//$result['install_status'] = 'Stand by.';
-            //	var_dump((int)(($result['inst_download'])/$result['inst_filesize']*100));exit;    				
+    	}
+    	
+    	$result["Id"] = $this->m_RecordId;
+    	$result['install_download'] = 0;
+    	switch(strtoupper($result['install_state']))
+    	{
+    		default:
+    		case "ERROR":
+    			$result['install_progress'] = '0';
+    			$result['install_download'] = '0';
+    			break;
+    		case "DOWNLOAD":
+    			$result['install_progress'] = '20';
+                if ($result['install_download_filesize'] == 0) $result['fld_download_progress'] = '0';
+                else $updArray['fld_download_progress'] = (int)(($dataRec['install_download'] / $dataRec['install_download_filesize'])*100);     	
+    			break;    			
+    		case "INSTALL":
+    			$result['install_progress'] = '60';
+    			$result['install_download'] = '100';
+    			break;
+    		case "OK":
+    			$result['install_progress'] = '100';
+    			$result['install_download'] = '100';
+    			break;	
+    	}
     		
-    		$state = $result['inst_state'] ? $result['inst_state'] : "Wait";
-        	$log = $result['inst_log'] ? $result['inst_log'] : "Waiting...";
-        	//$result['install_status'] =  $log;
+    	$state = $result['install_state'] ? $result['install_state'] : "Wait";
+        $log = $result['install_log'] ? $result['install_log'] : "Waiting...";
     		
-        	if($result['inst_version'] && $result['inst_time']){
-        		$this->m_InstallState = 1;
-        	}else{
-        		$this->m_InstallState = 0;
-        	}
-        	if($result['inst_version']< $result['version'])
-        	{
-        		$this->m_hasUpagrade = 1;
-        	}else{
-        		$this->m_hasUpagrade = 0;
-        	}
-    		return $result ;
+        if($result['install_version'] && $result['install_time']){
+        	$this->m_InstallState = 1;
+        }else{
+        	$this->m_InstallState = 0;
+        }
+        if($result['inst_version']< $result['version'])
+        {
+        	$this->m_hasUpagrade = 1;
+        }else{
+        	$this->m_hasUpagrade = 0;
+        }
+    	return $result ;
     	
     }
-    
-    public function reload()
-    {
-        $packageService = "package.lib.PackageService";
-        // get package service 
-        $pkgsvc = BizSystem::GetObject($packageService);
-        $packages = $pkgsvc->discoverPackages();
         
-        $this->resetSearch();
-    }
-    
     public function install($id)
     {
-        $dataRec = $this->getDataObj()->fetchById($id);
-        $pkgname = $dataRec['name'];
+    	$RecordIds = $this->m_RecordId;
+    	$RecordIds = explode(":", $RecordIds);
+   		$app_id = $RecordIds[0];
+   		$repo_id = $RecordIds[1];
+    	$repoRec = BizSystem::getObject("market.repository.do.RepositoryDO")->fetchOne("[status]=1 AND [Id]='$repo_id'");
+    	$repo_uri = $repoRec['repository_uri'];
+    	$svc = BizSystem::getService("market.lib.PackageService");
+    	$result = $svc->discoverAppInfo($repo_uri,$app_id);
+    	        
         $this->m_RecordId = $id;
-        try {
-            //$cmd = PHP_EXE." ".APP_HOME.DIRECTORY_SEPARATOR."bin".DIRECTORY_SEPARATOR."tools".DIRECTORY_SEPARATOR."install_pkg.php $pkgname";
-            //$cmd = PHP_EXE." ".APP_HOME.DIRECTORY_SEPARATOR."bin".DIRECTORY_SEPARATOR."tools".DIRECTORY_SEPARATOR."test.php";
-            //echo $cmd;
-            //background_exec($cmd);        
-            
+        try {            
             session_write_close();  // close session to unblock other ajax calls
-            // start download
-            $packageService = "package.lib.PackageService";
-            // get package service 
+            $packageService = "market.lib.InstallerService";
             $pkgsvc = BizSystem::GetObject($packageService);
-            $filename = $pkgsvc->downloadPackage($pkgname);
+            $filename = $pkgsvc->downloadPackage($repo_uri,$app_id);
         }
         catch (Exception $e) {
             $errors = array($e->getMessage());
@@ -101,12 +106,12 @@ class ApplicationInstallerForm extends EasyForm
     {
         if ($id==null || $id=='')   $id = $this->m_RecordId;
         $dataRec = $this->getDataObj()->fetchById($id);
-        $state = $dataRec['inst_state'] ? $dataRec['inst_state'] : "Wait";
-        $log = $dataRec['inst_log'] ? $dataRec['inst_log'] : "Waiting...";
+        $state = $dataRec['install_state'] ? $dataRec['install_state'] : "Wait";
+        $log = $dataRec['install_log'] ? $dataRec['install_log'] : "Waiting...";
         $progress = $state . "|". $log;
         $updArray['fld_status'] = $progress;
         
-        switch(strtoupper($dataRec['inst_state']))
+        switch(strtoupper($dataRec['install_state']))
         {
             default:
             case "ERROR":
@@ -115,8 +120,8 @@ class ApplicationInstallerForm extends EasyForm
                 break;
             case "DOWNLOAD":
                 $updArray['fld_total_progress'] = '20';
-                if ($dataRec['inst_filesize'] == 0) $updArray['fld_download_progress'] = '0';
-                else $updArray['fld_download_progress'] = (int)(($dataRec['inst_download'] / $dataRec['inst_filesize'])*100);     	
+                if ($dataRec['install_download_filesize'] == 0) $updArray['fld_download_progress'] = '0';
+                else $updArray['fld_download_progress'] = (int)(($dataRec['install_download'] / $dataRec['install_download_filesize'])*100);     	
                 break;    			
             case "INSTALL":
                 $updArray['fld_total_progress'] = '60';
