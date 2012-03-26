@@ -34,7 +34,7 @@ class ApplicationInstallerForm extends EasyForm
     	$repoRec = BizSystem::getObject("market.repository.do.RepositoryDO")->fetchOne("[status]=1 AND [Id]='$repo_id'");
     	$repo_uri = $repoRec['repository_uri'];
     	$svc = BizSystem::getService("market.lib.PackageService");
-    	$result = $svc->discoverAppInfo($repo_uri,$app_id);
+    	$result = $svc->discoverAppInfo($repo_uri,$app_id);    	
     	$this->m_AppIcon = $repo_uri.$result['icon'];
     	$this->m_AppReleaseDate = date('Y-m-d',strtotime($result['release_time']));
     	 
@@ -92,7 +92,7 @@ class ApplicationInstallerForm extends EasyForm
     					[repository_uid] = '$repo_uid'
     					";
     	$instRec = $this->getDataObj()->fetchOne($searchRule);
-    	if($instRec){
+    	if($instRec){    		
     		return true;
     	}else{
     		return false;
@@ -101,7 +101,27 @@ class ApplicationInstallerForm extends EasyForm
     
 	protected function hasUpgrade($repo_url,$app_id)
     {
+    	$svc = BizSystem::getService("market.lib.InstallerService");
+    	$repo_uid = $svc->getRepoUID($repo_url);
     	
+    	$releseInfo = $svc->discoverAppLatestRelease($repo_url,$app_id);
+    	$remote_version = $releseInfo['version'];
+    	
+    	$searchRule = " [install_state]='OK' AND 
+    					[app_id]='$app_id' AND
+    					[repository_uid] = '$repo_uid'
+    					";
+    	$instRec = $this->getDataObj()->fetchOne($searchRule);
+    	if($instRec){
+    		$installed_version = $instRec['version'];
+    		if(version_compare($installed_version, $remote_version) == -1 ){
+    			return true;	
+    		}else{
+    			return false;
+    		}    		
+    	}else{
+    		return false;
+    	}
     }
     
     public function install($id)

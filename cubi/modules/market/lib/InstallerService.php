@@ -6,6 +6,17 @@ class InstallerService extends PackageService
 	
 	protected $_installPackage = "";
 	const INSTALLED_DO = "market.installed.do.InstalledDO";
+			
+	public function getRepoUID($uri)
+	{
+		$uri = addslashes($uri);
+		$repoRec = BizSystem::getObject("market.repository.do.RepositoryDO")->fetchOne("[repository_uri]='$uri'");
+		if($repoRec)
+		{
+			
+			return $repoRec['repository_uid'];
+		}
+	}
 	
     public function downloadPackage($uri, $app_id)
     {        
@@ -14,12 +25,10 @@ class InstallerService extends PackageService
         if (!$pkg) { 
             return null;
         }
-        if (empty($pkg)) {
-            $this->setInstallInfo($pkg, array("state"=>"ERROR","log"=>"Unable to find same package from repository"));
-            $this->pkg_log("Package download error: Unable to find same package from repository");
-            return false;
-        }
         $this->pkg_log(">>> Package: ".$pkg['app_id'].", ".$pkg['filename'].", ".$pkg['version'].", ".$pkg['url']."\n");
+        
+        $repo_uid = $this->getRepoUID($uri);
+        $pkg['repository_uid'] = $repo_uid; 
         
         $this->_installPackage = $pkg;
         try {
@@ -218,11 +227,17 @@ class InstallerService extends PackageService
     protected function setInstallInfo($pkgArr,$installInfo)
     {	                                	
         $pkgDo = BizSystem::GetObject(self::INSTALLED_DO);        
-        $dataRec = $pkgDo->fetchOne("[app_id]='".$pkgArr['app_id']."'");        
+        $searchRule = " [app_id]='".$pkgArr['app_id']."' AND 
+        				[version]='".$pkgArr['version']."' AND
+        				[repository_uid]='".$pkgArr['repository_uid']."' 
+        				";
+        $dataRec = $pkgDo->fetchOne($searchRule);        
         
         if (!$dataRec){        	
         	$dataRec = new DataRecord(null,$pkgDo);
         	$dataRec["app_id"] = $pkgArr['app_id'];
+        	$dataRec["version"] = $pkgArr['version'];
+        	$dataRec["repository_uid"] = $pkgArr['repository_uid'];
         	        	
         }
 				
@@ -253,234 +268,7 @@ class InstallerService extends PackageService
 	    $fp = fopen($logfile, "a+");
 	    fwrite($fp, date('c')." ".$text);
 	    fclose($fp);
-	}
-	
-
-	
-	
-	/*
-     * Old service code
-     * ==================================================================================
-     * */
-	
-    
-    protected $_installModules = array();
-    
-    public $m_CacheLifeTime = null;	
-    
-    
-
-    public $repositoryUrl; // repository url
-    
-    
-	
-    
-    public function discoverCategories()
-    {
-        $cache_id = md5($this->m_Name . "discoverCategories");
-        //try to process cache service.
-        $cacheSvc = BizSystem::getService(CACHE_SERVICE,1);
-        $cacheSvc->init($this->m_Name,$this->m_CacheLifeTime);
-        if($cacheSvc->test($cache_id))
-        {
-            //BizSystem::log(LOG_DEBUG, "DATAOBJ", "Cache Hit. Query Sql = ".$sql." BIND: $bindValueString");
-            $resultSetArray = $cacheSvc->load($cache_id);
-        }else{
-	    	
-	        $argsJson = json_encode(array("searchrule"=>"","limit"=>-1));
-	        $query = array(	"method=list_categories","format=json",
-	                        "argsJson=$argsJson");
-	        $httpClient = new HttpClient('POST');
-	        foreach ($query as $q)
-	            $httpClient->addQuery($q);
-	        $headerList = array();
-	        $out = $httpClient->fetchContents($this->repositoryUrl, $headerList);
-	        //echo $out;
-	        $cats = json_decode($out, true);
-	        $resultSetArray = $cats['data'];
-	        $cacheSvc->save($resultSetArray,$cache_id);
-        }
-        return $resultSetArray;
-    }
-    
-    /*
-     * Collect all packages from repository
-     * this can be called from "Refresh" button on local package form or package cronjob
-     */
-    public function discoverPackages()
-    {
-        $pkgs = $this->findPackages("[status]=1");
-        // update or insert package in package DO
-        $localPkgDo = BizSystem::GetObject(self::LOCAL_PACKAGE_DO);
-        foreach ($pkgs['data'] as $pkg) {
-            pkg_log(">>> Package: ".$pkg['package_id'].", ".$pkg['name'].", ".$pkg['version'].", ".$pkg['repository']."\n");
-            // insert or update local master package DO
-            $this->saveLocalPackgeRecord($pkg);
-        }
-        return $pkgs['data'];
-    }
-    
-    protected function findPackages($searchRule, $limit=-1)
-    {
-        /*
-        $context = stream_context_create(array(
-        'http' => array(
-          'method'  => 'POST',
-          'header'  => sprintf("Authorization: Basic %s\r\n", base64_encode($username.':'.$password)).
-                       "Content-type: application/x-www-form-urlencoded\r\n",
-          'content' => http_build_query(array('status' => $message)),
-          'timeout' => 5,
-        ),
-        ));
-        $ret = file_get_contents('http://twitter.com/statuses/update.xml', false, $context); 
-        */
-        
-        // collect all packages from repository
-        // make web svc call to repository url
-        // parse the reply
-        $argsJson = json_encode(array("searchrule"=>"$searchRule","limit"=>$limit));
-        $query = array(	"method=search","format=json",
-                        "argsJson=$argsJson");
-        $httpClient = new HttpClient('POST');
-        foreach ($query as $q)
-            $httpClient->addQuery($q);
-        $headerList = array();
-        $out = $httpClient->fetchContents($this->repositoryUrl, $headerList);
-        $pkgs = json_decode($out, true);
-        return $pkgs;
-    }
-    
-    /*
-     * download package. This can be called from "install" button local package view
-     */
-    public function _ported_downloadPackage($package, $install=true)
-    {
-        $this->_installPackage = $package;
-        // get the master package record
-        $pkgs = $this->findPackages("[status]=1 AND [name]='$package'");
-        if (!$pkgs) { 
-            return null;
-        }
-        //print_r($pkgs);
-        
-        // download cpk from respository url
-        $pkg = $pkgs['data'][0];
- 		// this is just for test download bar
- 		// $pkg['repository']='http://guides.hosting.czm.cn/test.rar';
-        if (empty($pkg)) {
-            $this->setInstallInfo($package, array("state"=>"ERROR","log"=>"Unable to find same package from repository"));
-            pkg_log("Package download error: Unable to find same package $package from repository");
-            return false;
-        }
-        pkg_log(">>> Package: ".$pkg['package_id'].", ".$pkg['name'].", ".$pkg['version'].", ".$pkg['repository']."\n");
-        
-        try {
-            $this->setInstallInfo($package, array("version"=>$pkg['version'],"state"=>"Start"));
-            
-            // save cpk to tmp folder           
-            $url = $pkg['repository'];
-            if (empty($url)) {
-                $this->setInstallInfo($package, array("state"=>"ERROR","log"=>"Unable to install from empty url."));
-                return false;
-            }
-            $filename = APP_HOME."/files/tmpFiles/".basename($pkg['repository']);
-            pkg_log("Downloading from $url ...\n");
-            $this->downloadUrl($url, $filename);
-            pkg_log("Completed download from $url ...\n");
-            
-            if ($install) {
-                // install cpk 
-                $this->installPackage($filename);
-            }
-            
-            if (file_exists($filename)) {
-                return $filename;
-            }
-            else {
-                return null;
-            }
-        }
-        catch (Exception $e) {
-            $msg = $e->getMessage();
-            $this->setInstallInfo($package, array("state"=>"ERROR","log"=>$msg));
-        }
-    }
-    
-
-    
-    protected function getInstallInfo($pkgname)
-    {
-        $pkgDo = BizSystem::GetObject(self::LOCAL_PACKAGE_DO);
-        $record = $pkgDo->fetchByName($pkgname);
-        if (!$record) return false;
-
-        return $record["install_info"];
-    }
-    
-    protected function saveLocalPackgeRecord($pkg)
-    {
-        $pkgDo = BizSystem::GetObject(self::LOCAL_PACKAGE_DO);
-        $record = $pkgDo->fetchOne("[package_id]='".$pkg['package_id']."'");
-        if (!$record) {
-            pkg_log("To insert ".$pkg['name'].", ".$pkg['version']." to local package table\n");
-            $dataRec = new DataRecord(null, $pkgDo);
-        }
-        else {
-            //if (strtotime($record['update_time']) >= strtotime($pkg['update_time'])) 
-            //    return true;
-            pkg_log("To update ".$pkg['name'].", ".$pkg['version']." to local package table\n");
-            $dataRec = new DataRecord($record, $pkgDo);
-        }
-        foreach ($pkg as $fld=>$val) {
-            if ($fld!='Id') $dataRec[$fld] = $val;
-        }
-        try {
-            $dataRec->save();
-        }
-        catch (Exception $e) {
-            throw new Exception("saveLocalPackgeRecord. Unable to save the record. ".$e->getMessage());
-        }
-        return true;
-    }
-
-    protected function saveMasterPackgeRecord($pkg)
-    {
-        $pkgDo = BizSystem::GetObject(self::MASTER_PACKAGE_DO);
-        $record = $pkgDo->fetchByName($pkg['name']);
-        if (!$record) {
-            pkg_log("To insert ".$pkg['name'].", ",$pkg['version']," to local package table\n");
-            $dataRec = new DataRecord(null, $pkgDo);
-        }
-        else {
-            if (strtotime($record['update_time']) >= strtotime($pkg['update_time'])) 
-                return true;
-            pkg_log("To update ".$pkg['name'].", ",$pkg['version']," to local package table\n");
-            $dataRec = new DataRecord($record, $pkgDo);
-        }
-        foreach ($pkg as $fld=>$val) {
-            if ($fld!='Id') $dataRec[$fld] = $val;
-        }
-        try {
-            $dataRec->save();
-        }
-        catch (Exception $e) {
-            throw new Exception("saveMasterPackgeRecord. Unable to save the record. ".$e->getMessage());
-        }
-        return true;
-    }
-    
-    
-
-
-    
-
-    
-    /**
-     * Init a Archive_Tar class with correct compression for the given file.
-     *
-     * @param $tarfile
-     * @return Archive_Tar the tar class instance
-     */
+	} 
 
 }
 
