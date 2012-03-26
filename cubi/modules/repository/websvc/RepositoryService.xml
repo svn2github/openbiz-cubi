@@ -5,6 +5,7 @@
     <PublicMethod Name="fetchApplications" Access=""/>
     <PublicMethod Name="fetchCategories" Access="" />
     <PublicMethod Name="fetchAppInfo" Access="" />
+    <PublicMethod Name="fetchAppList" Access="" />
     <PublicMethod Name="fetchAppPics" Access="" />
     <PublicMethod Name="fetchAppLatestRelease" Access="" />
 </PluginService>

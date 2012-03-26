@@ -20,6 +20,19 @@ class RepositoryService extends WebsvcService
         return $prefRecord;
     }
     
+    public function fetchAppList($ids=array())
+    {
+    	$appIds = implode(",",$ids);
+    	$searchRule = "[status]=1 AND [Id] IN ($appIds)";
+    	$dataObj = BizSystem::getObject($this->m_ApplicationDO,1);  
+        $resultRecords = $dataObj->directFetch($searchRule);
+        $resultSet=array();
+       	foreach($resultRecords as $record)
+       	{
+       		$resultSet[] = $record;
+       	}
+        return $resultSet;
+    }
     
     public function fetchAppInfo($id=null)
     {
