@@ -8,26 +8,26 @@ padding-top:5px;
 </style>
 <br/>
 <div style="padding-left:35px; ">
-	<div style="height:100px;">
+	<div style="height:110px;">
 	<h2>{$form.title}</h2>
 	<table><tr><td>
-		{if $form.icon !='' }
-		<div class="form_icon" style="float:left;padding:15px 15px 0px 0px;"><img  src="{$form.icon}" border="0" /></div>
+		{if $form.remote_icon !='' }
+		<div class="form_icon" style="float:left;padding:15px 15px 0px 0px;"><img  src="{$form.remote_icon}" border="0" /></div>
 		{/if}
 	
 		<div style="float:left; width:300px;padding-top:10px;">
 			{if $dataPanel.fld_form_title.element}
-			<h1 style="padding-bottom:0px;">
+			<h1 style="padding-bottom:0px;height:28px;line-height:28px;">
 			{$dataPanel.fld_form_title.element}
 			</h1>
 			{/if} 
-			{if $dataPanel.fld_form_description.element}
-			<div class="input_row" style="line-height:20px;padding-bottom:5px;">		
+			<div class="input_row" style="line-height:20px;padding-bottom:0px;height:20px;">		
 			{$dataPanel.fld_form_description.element}
 			</div>
-			{else}
-			<div style="height:15px;"></div>
-			{/if}
+			<div class="input_row" style="line-height:20px;padding-bottom:0px;height:20px;color:#999999;">		
+			{$form.release_date}
+			</div>
+			
 		</div>
 	</td></tr></table>
 	</div>
@@ -35,12 +35,16 @@ padding-top:5px;
 	<div style="padding-left:0px;">
 	{foreach item=item key=itemName from=$dataPanel}
 	{if $itemName != 'fld_form_description' AND $itemName != 'fld_form_title' }
-	{if $item.type eq 'LabelBar'}
+	{if $item.type eq 'LabelBar' ||
+		$item.type eq 'LabelText'
+	}
 		<table class="input_row">
 		<tr>
+		{if $item.label}
 		<td >	
 			<label style="text-align:left;line-height:18px;">{$item.label}</label>
-		</td>				
+		</td>		
+		{/if}		
 		<td>
 			<span class="label_text" style="display:block;height:20px;padding-bottom:5px;line-height:24px;overflow:hidden;float:left;{if $item.width}width:{$item.width}px;{else}{if $default_label_text_width}{$default_label_text_width}{else}width:160px;{/if}{/if}">{$item.element}</span>			
 			{if $errors.$itemName}

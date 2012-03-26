@@ -194,18 +194,17 @@ class InstallerService extends PackageService
         foreach ($this->_installModules as $moduleName) {
             $this->pkg_log("invoke module upgrade command\n");        
             $loader = new ModuleLoader($moduleName);
-            if(ModuleLoader::isModuleInstalled($moduleName))
-            {
-	            $loader->debug = 0;
-	            $this->pkg_log("Start upgrading $moduleName module ...".PHP_EOL);
-	            $this->pkg_log("--------------------------------------------------------".PHP_EOL);
-	            $result = $loader->upgradeModule();
-	            $this->pkg_log($loader->errors . "".PHP_EOL);
-	            $this->pkg_log($loader->logs . "".PHP_EOL);
-	            if ($result == false) {
-	                throw new Exception("Error in install package. ".$loader->errors);
-	            }
-            }
+            
+	        $loader->debug = 0;
+	        $this->pkg_log("Start upgrading $moduleName module ...".PHP_EOL);
+            $this->pkg_log("--------------------------------------------------------".PHP_EOL);
+	        $result = $loader->upgradeModule();
+	        $this->pkg_log($loader->errors . "".PHP_EOL);
+	        $this->pkg_log($loader->logs . "".PHP_EOL);
+	        if ($result == false) {
+	            throw new Exception("Error in install package. ".$loader->errors);
+	        }
+            
             
             // load the module again
             $this->pkg_log("Reload module ...".PHP_EOL);

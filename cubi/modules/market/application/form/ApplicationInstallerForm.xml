@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ApplicationInstallerForm"   Class="ApplicationInstallerForm" FormType="Detail" jsClass="Openbiz.PackageForm"  Title="Package Installer" Description="Share your data with your group members or others users." BizDataObj="package.local.do.PackageLocalDO" TemplateEngine="Smarty" TemplateFile="app_installer_form.tpl.html" >
+<EasyForm Name="ApplicationInstallerForm"   Class="ApplicationInstallerForm" FormType="Detail" jsClass="Openbiz.PackageForm"  Title="Application Installer" Description="Share your data with your group members or others users." BizDataObj="package.local.do.PackageLocalDO" TemplateEngine="Smarty" TemplateFile="app_installer_form.tpl.html" >
     <DataPanel>
     	<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
        	<Element Name="fld_package_id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="package_id" Label="Package ID" AllowURLParam="N"/>
@@ -9,7 +9,8 @@
 		<Element Name="fld_total_progress" ElementSet="General"  Class="LabelBar" Width="300" height="14"  DisplayUnit="%" MaxValue="100" FieldName="install_progress" Label="Progress"  AllowURLParam="N" />		
 		<Element Name="fld_download_progress" ElementSet="General" Class="LabelBar" Width="300" height="14"  DisplayUnit="%" MaxValue="100" FieldName="install_download" Label="Download"  AllowURLParam="N" />
 		
-		<Element Name="fld_status" ElementSet="" Class="LabelTextarea" FieldName="install_status" Label="Status" DefaultValue="Not start yet" AllowURLParam="N"/>
+		<Element Name="fld_status" ElementSet="" Class="LabelText" FieldName="install_state" Label="Status" DefaultValue="Not start yet" AllowURLParam="N"/>
+		<Element Name="fld_log" ElementSet="" Class="LabelText" FieldName="install_log" Label="" AllowURLParam="N"/>
        	 		
     </DataPanel>
     <ActionPanel>
