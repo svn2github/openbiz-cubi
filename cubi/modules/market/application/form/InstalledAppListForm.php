@@ -7,7 +7,7 @@ class InstalledAppListForm extends AppListForm
 		$resultSet = parent::_fetchDataSet();		
 		$repoAppsArr = array();
 		$repoIdsArr = array();
-		$AppsInfoArr = array();
+		$AppsInfoArr = array();		
 		if(!$resultSet)
 		{
 			return ;
@@ -32,7 +32,7 @@ class InstalledAppListForm extends AppListForm
 				}
 			}		
 		}
-		
+		$newResultSet = array();
 		foreach($resultSet as $key=>$value)
 		{
 			$appInfo = $AppsInfoArr[$value['repository_uid']][$value['app_id']];
@@ -41,10 +41,9 @@ class InstalledAppListForm extends AppListForm
 			{
 				$value[$app_key] = $app_value;
 			}
-			$resultSet[$key] = $value;
+			$newResultSet[$key] = $value;
 		}
-		
-		return $resultSet;
+		return $newResultSet;
 		
 	}	
 }
