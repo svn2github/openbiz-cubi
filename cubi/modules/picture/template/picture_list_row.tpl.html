@@ -71,7 +71,7 @@ padding:5px 10px 10px 10px;
 		slideshow=new TINY.slideshow("slideshow");
 		
 		{/literal}
-		{if $dataPanel.data|count>1}
+		{if $dataPanel.data|@count>1}
 		slideshow.auto=true;
 		{else}
 		slideshow.auto=false;
