@@ -1,8 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="LocalPackageListView" Description="My Packages" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="system_update.manage">
-   <FormReferences>
-   		<Reference Name="package.local.form.PackageLocalListForm"/>
-   </FormReferences>
-   <FormReferenceLibs>
-   </FormReferenceLibs>    
-</EasyView>
