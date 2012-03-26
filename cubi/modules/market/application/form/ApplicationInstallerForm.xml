@@ -14,10 +14,8 @@
        	 		
     </DataPanel>
     <ActionPanel>
-    	<Element Name="btn_install" Class="Button" Hidden="{@:m_InstallState=='ERROR'?'Y':'N'}" Text="OK" CssClass="button_gray_m" Description="Install this package">
-			<EventHandler Name="btn_new_onclick" Event="onclick" Function="install({@:Elem[fld_Id].Value})" />
-        </Element>
-        <Element Name="btn_retry" Class="Button" Hidden="{@:m_InstallState=='ERROR'?'N':'Y'}" Text="Retry" CssClass="button_gray_m" Description="Install this package">
+    	
+        <Element Name="btn_retry" Class="Button" Hidden="{@:m_InstallState=='ERROR'?'N':'Y'}" Text="Install" CssClass="button_gray_m" Description="Install this package">
 			<EventHandler Name="btn_retry_onclick" Event="onclick" Function="install({@:Elem[fld_Id].Value})" />
         </Element>
 		<Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">

@@ -75,22 +75,35 @@ class ApplicationInstallerForm extends EasyForm
     		
     	$state = $result['install_state'] ? $result['install_state'] : "Wait";
         $log = $result['install_log'] ? $result['install_log'] : "Waiting...";
-    		
-        if($result['install_version'] && $result['install_time']){
-        	$this->m_InstallState = 1;
-        }else{
-        	$this->m_InstallState = 0;
-        }
-        if($result['inst_version']< $result['version'])
-        {
-        	$this->m_hasUpagrade = 1;
-        }else{
-        	$this->m_hasUpagrade = 0;
-        }
+
+        $this->m_InstallState = $this->getInstallState($repo_uri,$app_id);
+        $this->m_hasUpagrade = $this->hasUpgrade($repo_uri,$app_id);
+        
     	return $result ;
     	
     }
         
+    protected function getInstallState($repo_url,$app_id)
+    {
+    	$svc = BizSystem::getService("market.lib.InstallerService");
+    	$repo_uid = $svc->getRepoUID($repo_url);
+    	$searchRule = " [install_state]='OK' AND 
+    					[app_id]='$app_id' AND
+    					[repository_uid] = '$repo_uid'
+    					";
+    	$instRec = $this->getDataObj()->fetchOne($searchRule);
+    	if($instRec){
+    		return true;
+    	}else{
+    		return false;
+    	}
+    }
+    
+	protected function hasUpgrade($repo_url,$app_id)
+    {
+    	
+    }
+    
     public function install($id)
     {
     	$RecordIds = $this->m_RecordId;
@@ -146,14 +159,8 @@ class ApplicationInstallerForm extends EasyForm
                 $updArray['fld_download_progress'] = '100';
                 break;	
         }
-        /*
-        $script = "Openbiz.ProgressBar.set('progress_bar','$progress');"; // $func";
-        BizSystem::clientProxy()->runClientFunction($script);
-        */
         
-        BizSystem::clientProxy()->updateFormElements($this->m_Name, $updArray);
-        
-        //$this->updateForm();
+        BizSystem::clientProxy()->updateFormElements($this->m_Name, $updArray);       
         return;
     }
     
