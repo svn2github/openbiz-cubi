@@ -3,10 +3,11 @@ include_once MODULE_PATH.'/websvc/lib/WebsvcService.php';
 class RepositoryService extends WebsvcService
 {
 	protected $m_CategoryDO 		= "repository.category.do.CategoryDO";
-	protected $m_ApplicationDO 		= "repository.application.do.ApplicationDO";
+	protected $m_ApplicationDO 		= "repository.application.do.ApplicationDO";	
 	protected $m_ReleaseDO 			= "repository.release.do.ReleaseDO";
 	protected $m_PictureDO	 		= "picture.do.PictureDO";
 	protected $m_RepositorySettingDO= "myaccount.do.PreferenceDO";
+	protected $m_ApplicationVersionDO 		= "repository.application.do.ApplicationVersionDO";
 	
     public function fetchRepoInfo()
     {
@@ -24,7 +25,7 @@ class RepositoryService extends WebsvcService
     {
     	$appIds = implode(",",$ids);
     	$searchRule = "[status]=1 AND [Id] IN ($appIds)";
-    	$dataObj = BizSystem::getObject($this->m_ApplicationDO,1);  
+    	$dataObj = BizSystem::getObject($this->m_ApplicationVersionDO,1);  
         $resultRecords = $dataObj->directFetch($searchRule);
         $resultSet=array();
        	foreach($resultRecords as $record)
