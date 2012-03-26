@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ApplicationInstalledDetailForm"  Class="ApplicationDetailForm" InheritFrom="market.application.form.ApplicationDetailForm">
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>      
+    	<Element Name="btn_install" Class="LabelText" Text="Uninstall" CssClass="button_gray" Link="javascript:;">
+              <EventHandler Name="btn_install_onclick" Event="onclick" EventLogMsg="" Function="LoadDialog(market.application.form.ApplicationInstallerForm,{(int)$_GET['fld:Id']}:{@:m_RepoID})"  />        
+        </Element> 
+        <Element Name="btn_cancel" Class="LabelText" Link="{APP_INDEX}/market/app_installed" Text="Back" CssClass="button_gray_w" />
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
