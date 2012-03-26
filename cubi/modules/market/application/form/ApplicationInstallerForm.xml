@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ApplicationInstallerForm"   Class="ApplicationInstallerForm" FormType="Detail" jsClass="Openbiz.PackageForm"  Title="Application Installer" Description="Share your data with your group members or others users." BizDataObj="package.local.do.PackageLocalDO" TemplateEngine="Smarty" TemplateFile="app_installer_form.tpl.html" >
+<EasyForm Name="ApplicationInstallerForm"   Class="ApplicationInstallerForm" FormType="Detail" jsClass="Openbiz.PackageForm"  Title="Application Installer" Description="Share your data with your group members or others users." BizDataObj="market.installed.do.InstalledDO" TemplateEngine="Smarty" TemplateFile="app_installer_form.tpl.html" >
     <DataPanel>
     	<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
        	<Element Name="fld_package_id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="package_id" Label="Package ID" AllowURLParam="N"/>
