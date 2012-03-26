@@ -5,6 +5,12 @@ class AppListForm extends EasyForm
 	protected $m_RemoteSearchRule;
 	protected $m_RepoID;
 	
+	protected function getRepoInfo($uid)
+	{
+		$repoRec = BizSystem::getObject($this->m_RepoDO,1)->fetchOne("[repository_uid]='$uid'");
+		return $repoRec;
+	}
+	
 	protected function getDefaultRepoURI()
 	{		
 		if($_POST['fld_repo_id'])
@@ -62,6 +68,11 @@ class AppListForm extends EasyForm
         }
        	      	
        	$this->m_RemoteSearchRule = $searchRule;
+	}
+	
+	public function _fetchDataSet()
+	{
+		return parent::fetchDataSet();
 	}
 	
 	public function sortRecord($sortCol, $order='ASC')

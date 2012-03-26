@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="InstalledAppListForm" Icon="{RESOURCE_URL}/market/images/icon_market.png" Class="InstalledAppListForm" FormType="List" jsClass="jbForm" Title="Installed Applications" Description="This module can manage installed applications " BizDataObj="market.installed.do.InstalledDO" SearchRule="[install_state]='OK'" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="Repository.Manage">
+    <DataPanel>
+    	<Element Name="repo_id" Class="Hidden" Hidden="Y" FieldName="repo_id" Label="Repo ID" Sortable="Y" AllowURLParam="N">         
+        </Element>
+        <Element Name="fld_Id" Class="Hidden"  Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N">         
+        </Element>
+         <Element Name="fld_icon" Class="ColumnImage" FieldName="icon" Label="Icon"  Sortable="Y"  Height="22" >
+        </Element>     
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" DefaultValue="New Package" Sortable="Y"  Link="{APP_INDEX}/market/application_detail/repo_{@:Elem[repo_id].Value}/{@:Elem[fld_Id].Value}" >
+        </Element>
+        <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type"  Sortable="Y"/>
+        <Element Name="fld_category_name" Class="ColumnText" FieldName="category_name" Label="Category"  Sortable="Y"/>
+        <Element Name="fld_featured" Class="ColumnBool" FieldName="featured" Label="Featured"  Sortable="Y" SelectFrom="common.lov.CommLOV(Status)" Link="javascript:;">
+        </Element>
+        <Element Name="fld_status" Class="ColumnBool" FieldName="status" Label="Status"  Sortable="Y" SelectFrom="common.lov.CommLOV(Status)"  Link="javascript:;">
+        </Element>
+        <Element Name="fld_release_time" Class="ColumnText" Text="{date('Y-m-d',strtotime(@:Elem[fld_release_time].Value))}" FieldName="release_time" Label="Release Date"  Sortable="Y"/>
+    </DataPanel>
+    <ActionPanel>
+      
+    </ActionPanel> 
+    <NavPanel>
+   
+  		<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
+        </Element>      
+        <Element Name="btn_first" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+   
+    </NavPanel> 
+    <SearchPanel>
+        
+    </SearchPanel>
+</EasyForm>
