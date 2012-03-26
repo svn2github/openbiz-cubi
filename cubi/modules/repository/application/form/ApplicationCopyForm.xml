@@ -6,7 +6,7 @@
         <Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  />            
         
         <Element Name="fld_package_id" ElementSet="Advanced" Class="InputText" FieldName="package_id" Label="Package ID" Description="e.g com.application.Collab" DefaultValue="com.application.NewApp" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>        
-        <Element Name="fld_type"   width="186"	ElementSet="Advanced" Class="Listbox" FieldName="type" Label="Type" SelectFrom="package.lov.PackageLOV(PackageType)"  Description="Type of this application" />
+        <Element Name="fld_type"   width="186"	ElementSet="Advanced" Class="Listbox" FieldName="type" Label="Type" SelectFrom="repository.lov.PackageLOV(PackageType)"  Description="Type of this application" />
         <Element Name="fld_cat_id"  width="186" ElementSet="Advanced" Class="Listbox"  SelectFrom="repository.category.do.CategoryDO[name:Id]" FieldName="category_id" Label="Category"  Description="Category of this application" />
         <Element Name="fld_author"  ElementSet="Advanced" Class="InputText" FieldName="author" Label="Author" DefaultValue="{BizSystem::GetProfileName(@profile:Id,'short')}"  Description="e.g Openbiz LLC" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         
