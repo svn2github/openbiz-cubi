@@ -218,7 +218,12 @@ class ModuleLoader
         
         // read in mod.xml
         $modfile = $modFolder."/mod.xml";
-    	$xml = simplexml_load_file($modfile);
+        if(file_exists($modfile))
+        {
+        	$xml = simplexml_load_file($modfile);
+        }else{
+    		$xml['Version'] = 0;
+        }
         
         $upgradeModfile = $upgradeFolder."/mod.xml";
         if (!file_exists($upgradeModfile)) {
