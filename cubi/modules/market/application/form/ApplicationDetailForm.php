@@ -45,13 +45,14 @@ class ApplicationDetailForm extends AppListForm
    		$moduleName = str_replace("com.application.", "", strtolower($app_uid));
    		
    		//unload module
-   		
-   		var_dump($moduleName);exit;
-   		
+   		include_once MODULE_PATH."/system/lib/ModuleUnloader.php";
+   		$loader = new ModuleUnloader($moduleName);
+        $loader->debug = false;
+        $loader->unLoadModule();   		   		
    		
    		//delete installed record
    		$searchRule = "[app_id]='$app_id' AND [repository_uid]='$repo_uid'";
-		//BizSystem::getObject("market.installed.do.InstalledDO")->deleteRecords($searchRule);				
+		BizSystem::getObject("market.installed.do.InstalledDO")->deleteRecords($searchRule);				
 	}
 	
 }
