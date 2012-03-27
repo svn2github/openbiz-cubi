@@ -71,8 +71,11 @@ class XMLParser {
 			if (!is_int($data)) {
 				$this->data = $data;		
 			}
+		}elseif(substr($this->data,0,7)=='!odMbo!')
+		{
+			header("Location: ".APP_INDEX.'/common/loader_not_installed');
+			exit;
 		}
-		
 	}
 
 	// Parse the XML file into a verbose, flat array struct.
