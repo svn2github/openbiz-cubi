@@ -14,7 +14,7 @@
 	        <Element Name="fld_photo_uploaded" Class="RawData"  ElementSet="Profile" FieldName="photo" Label="Select Photo"  AllowURLParam="N" CssClass="input_file"/>	        
  			<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
  	        
-			<Element Name="fld_type_id_change" Class="common.lib.TypeSelector" ElementSet="Data Type" KeepCookie="Y" SelectFrom="contact.do.ContactTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" FieldName="type_id" Label="Contact Type"  AllowURLParam="N" >
+			<Element Name="fld_type_id_change" Class="common.lib.TypeSelector" ElementSet="Data Type" KeepCookie="Y" SelectFrom="contact.do.ContactTypeDO[name:Id:color]" FieldName="type_id" Label="Contact Type"  AllowURLParam="N" >
 				<EventHandler Name="fld_type_id_onchange" Event="onchange" Function="UpdateForm()" />
 			</Element>	        	
 	    	<Element Name="fld_extend_fields"   ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataEditForm" FieldName="extend" Label="" AllowURLParam="N" />

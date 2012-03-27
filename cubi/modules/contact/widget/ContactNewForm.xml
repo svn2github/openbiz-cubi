@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="ContactNewForm" Class="ContactPickerForm"  Icon="icon_my_profile.gif" FormType="New" jsClass="jbForm" Title="New Contact" Description="Here you can create a personal contact profile. And share it with your team." BizDataObj="contact.do.ContactSystemDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_quick_add.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>	            		
-   	        <Element Name="fld_type_id" Class="common.lib.TypeSelector" ElementSet="General" KeepCookie="Y" SelectFrom="contact.do.ContactTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" FieldName="type_id" Label="Contact Type"  AllowURLParam="N" />    	        	        
+   	        <Element Name="fld_type_id" Class="common.lib.TypeSelector" ElementSet="General" KeepCookie="Y" SelectFrom="contact.do.ContactTypeDO[name:Id:color]" FieldName="type_id" Label="Contact Type"  AllowURLParam="N" />    	        	        
     
 	        <Element Name="fld_first_name" Class="InputText" ElementSet="General" FieldName="first_name" Label="Firstname"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>	        		        
 	        <Element Name="fld_last_name" Class="InputText" ElementSet="General" FieldName="last_name" Label="Lastname"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        	        	        	        
