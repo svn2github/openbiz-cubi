@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="AnnouncementCopyForm" Class="EasyForm" Icon="{RESOURCE_URL}/collab/announcement/images/icon_announcement.gif" FormType="Copy" jsClass="jbForm" Title="Copy Announcement" Description="Copy announcement record from selected announcement" BizDataObj="collab.announcement.do.AnnouncementDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="BOOKMARK" MessageFile="Announcements.msg" Access="collab_announcement.manage">
     <DataPanel>
-    <Element Name="fld_type_id" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.announcement.do.AnnouncementTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />
+    <Element Name="fld_type_id" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.announcement.do.AnnouncementTypeDO[name:Id:color]" AllowURLParam="N" />
      <Element Name="fld_title" Class="InputText" FieldName="title" Label="Title"   />	
     <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />		   				 
     <Element Name="fld_content" Class="CKEditor" mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="content" Label="Content" />

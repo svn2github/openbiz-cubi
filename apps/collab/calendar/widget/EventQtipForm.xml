@@ -5,7 +5,7 @@
 	        <Element Name="fld_subject" ElementSet="General" Class="LabelText" FieldName="subject" Label="Subject"  AllowURLParam="N" />    	        
 	        <Element Name="fld_location" ElementSet="General" Class="LabelText" FieldName="location" Label="Location"  AllowURLParam="N" />
 			<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
-		    <Element Name="fld_type_id" ElementSet="General" Class="LabelList" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.calendar.do.EventTypeDO[name:Id],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />			    
+		    <Element Name="fld_type_id" ElementSet="General" Class="LabelList" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.calendar.do.EventTypeDO[name:Id]" AllowURLParam="N" />			    
 			<Element Name="fld_share" Class="ColumnShare" width="20" 
 				MyPrivateImg="{RESOURCE_URL}/collab/calendar/images/icon_event_private.gif"
 				MySharedImg="{RESOURCE_URL}/collab/calendar/images/icon_event_shared.gif" 

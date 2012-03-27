@@ -5,7 +5,7 @@
 
 			<Element Name="fld_form_title" ElementSet="" Class="LabelText" FieldName="subject" Label="Subject" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />    	        
 		    <Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		    <Element Name="fld_form_description" ElementSet="" BackgroundColor="{@:Elem[fld_color].Value}" Width="600" Class="LabelText" FieldName="type_name" Label="Type" KeepCookie="Y" SelectFrom="collab.calendar.do.EventTypeDO[name:Id],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />			    
+		    <Element Name="fld_form_description" ElementSet="" BackgroundColor="{@:Elem[fld_color].Value}" Width="600" Class="LabelText" FieldName="type_name" Label="Type" KeepCookie="Y" SelectFrom="collab.calendar.do.EventTypeDO[name:Id]" AllowURLParam="N" />			    
 	        <Element Name="fld_location" ElementSet="General" Class="LabelText" FieldName="location" Label="Location"  AllowURLParam="N" />
 			<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 			
@@ -17,7 +17,7 @@
 			<Element Name="fld_all_day" ElementSet="General" Class="LabelBool" FieldName="all_day" Label="All Day" DefaultValue="0" SelectFrom="1" Description="All day event" AllowURLParam="N" >
 			</Element>
 			
-			<Element Name="fld_type_id" ElementSet="Data Type" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.calendar.do.EventTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" >
+			<Element Name="fld_type_id" ElementSet="Data Type" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.calendar.do.EventTypeDO[name:Id:color]" AllowURLParam="N" >
 				<EventHandler Name="fld_type_id_onchange" Event="onchange" Function="UpdateForm()" />
 			</Element>	
     	

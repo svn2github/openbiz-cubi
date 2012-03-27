@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="BookmarkCopyForm" Class="EasyForm" Icon="{RESOURCE_URL}/collab/bookmark/images/icon_bookmark.gif" FormType="Copy" jsClass="jbForm" Title="Copy Bookmark" Description="Copy bookmark record from selected bookmark" BizDataObj="collab.bookmark.do.BookmarkDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="BOOKMARK" MessageFile="Bookmarks.msg" Access="collab_bookmark.access">
     <DataPanel>
-    <Element Name="fld_type_id" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.bookmark.do.BookmarkTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />
+    <Element Name="fld_type_id" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.bookmark.do.BookmarkTypeDO[name:Id:color]" AllowURLParam="N" />
      <Element Name="fld_icon" DefaultValue="bookmark_1.png" Class="DropDownList" SelectFrom="collab.bookmark.lov.BookmarkLOV(TypeIcon)" FieldName="icon" Label="Icon"   />
      <Element Name="fld_title" Class="InputText" FieldName="title" Label="Title"   />	
     <Element Name="fld_url"  Class="InputText" FieldName="url" Label="URL"   />

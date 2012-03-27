@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="NoteEditForm" Class="EasyForm"  Icon="{RESOURCE_URL}/collab/note/images/icon_sticky_note.gif" FormType="Edit" jsClass="jbForm" Title="Edit Note" Description="Edit selected sticky note." BizDataObj="collab.note.do.NoteDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="NOTES" MessageFile="Notes.msg" Access="collab_note.access">
     <DataPanel>
-	<Element Name="fld_type_id" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.note.do.NoteTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />
+	<Element Name="fld_type_id" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.note.do.NoteTypeDO[name:Id:color]" AllowURLParam="N" />
 	<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
     <Element Name="fld_title" Class="InputText" FieldName="title" Label="Title"   />	
     <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	

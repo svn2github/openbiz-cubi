@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="EventNewQuickForm" Class="EasyForm" Icon="{RESOURCE_URL}/collab/calendar/images/icon_calendar_list.gif" FormType="New" jsClass="jbForm" Title="New Event" Description="Create a new event and place it on the Calendar.\n A typical event could be appointment, meeting or other types" BizDataObj="collab.calendar.do.EventDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_event_quick_create.tpl.html" EventName="CALENDAR" MessageFile="Event.msg"  Access="collab_calendar.access" >
     <DataPanel>
-	    <Element Name="fld_type" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.calendar.do.EventTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />			    
+	    <Element Name="fld_type" ElementSet="General" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.calendar.do.EventTypeDO[name:Id:color]" AllowURLParam="N" />			    
         <Element Name="fld_subject" ElementSet="General" Class="InputText" DefaultValue="New Event" FieldName="subject" Label="Subject"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
         <Element Name="fld_location" ElementSet="General" Class="InputText" FieldName="location" Label="Location"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
 		<Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N" />

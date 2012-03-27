@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="NoteNewForm" Class="EasyForm" FormType="New" jsClass="jbForm" Icon="{RESOURCE_URL}/collab/note/images/icon_sticky_note.gif"  Title="Create New Note" Description="You can create a sticky note and share it with your group mates." BizDataObj="collab.note.do.NoteDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="NOTES" MessageFile="Notes.msg" Access="collab_note.access">
     <DataPanel>
-		<Element Name="fld_type_id" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.note.do.NoteTypeDO[name:Id:color],[published]=1 OR [create_by]='{@profile:Id}'" AllowURLParam="N" />
+		<Element Name="fld_type_id" Class="collab.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="collab.note.do.NoteTypeDO[name:Id:color]" AllowURLParam="N" />
         <Element Name="fld_title" DefaultValue="New Note" Class="InputText" FieldName="title" Label="Title"   />	
         <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	
     	<Element Name="fld_sortorder" Class="Listbox" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />	               
