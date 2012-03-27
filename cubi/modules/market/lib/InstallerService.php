@@ -207,7 +207,7 @@ class InstallerService extends PackageService
 	        $loader->debug = 0;
 	        $this->pkg_log("Start upgrading $moduleName module ...".PHP_EOL);
             $this->pkg_log("--------------------------------------------------------".PHP_EOL);
-	        $result = $loader->upgradeModule();
+	        $result = $loader->upgradeModule(true);
 	        $this->pkg_log($loader->errors . "".PHP_EOL);
 	        $this->pkg_log($loader->logs . "".PHP_EOL);
 	        if ($result == false) {
@@ -221,7 +221,7 @@ class InstallerService extends PackageService
             $this->pkg_log($loader->errors . "".PHP_EOL);
         }
         $time = date('Y-m-d H:i:s');
-        $this->setInstallInfo($package, array("time"=>$time,"state"=>"OK","log"=>"Completed"));
+        $this->setInstallInfo($package, array("time"=>$time,"version"=>$package['version'],"state"=>"OK","log"=>"Completed"));
     }    
     
     protected function setInstallInfo($pkgArr,$installInfo)
@@ -240,7 +240,7 @@ class InstallerService extends PackageService
         	        	
         }
 				
-        if (isset($installInfo['version'])) $dataRec["install_version"] = $installInfo['version'];
+        if (isset($installInfo['version'])) $dataRec["version"] = $installInfo['version'];
         if (isset($installInfo['time'])) $dataRec["install_time"] = $installInfo['time'];
         if (isset($installInfo['state'])) $dataRec["install_state"] = $installInfo['state'];
         if (isset($installInfo['log'])) $dataRec["install_log"] = $installInfo['log'];

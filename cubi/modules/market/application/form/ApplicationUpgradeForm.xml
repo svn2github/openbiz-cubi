@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ApplicationUpgradeForm"   Class="ApplicationInstallerForm" InheritFrom="market.application.form.ApplicationInstallerForm" >
+    <DataPanel>
+    </DataPanel>
+    <ActionPanel>
+    	<Element Name="btn_get_progress" Class="Button" Hidden="Y" Text="getProgress" CssClass="button_gray_m">
+			<EventHandler Name="btn_get_progress" Event="onclick" Function="getProgress()" />
+        </Element>
+        <Element Name="btn_install" Class="Button" Hidden="{@:Elem[fld_status].Value==''||@:Elem[fld_status].Value=='Waiting'||@:Elem[fld_status].Value=='ERROR'?'N':'Y'}" Text="Upgrade" CssClass="button_gray_w" Description="Upgrade this package">
+			<EventHandler Name="btn_retry_onclick" Event="onclick" Function="install({@:Elem[fld_Id].Value})" />
+        </Element>
+		<Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
