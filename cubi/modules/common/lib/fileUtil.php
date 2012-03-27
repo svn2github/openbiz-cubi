@@ -30,4 +30,16 @@ function recurse_copy($src,$dst) {
     closedir($dir);
 } 
 
+function recurse_delete($dir) {
+   if (is_dir($dir)) {
+     $objects = scandir($dir);
+     foreach ($objects as $object) {
+       if ($object != "." && $object != "..") {
+         if (filetype($dir."/".$object) == "dir") recurse_delete($dir."/".$object); else unlink($dir."/".$object);
+       }
+     }
+     reset($objects);
+     rmdir($dir);
+   }
+}
 ?>
