@@ -33,7 +33,7 @@ class UserForm extends EasyForm
      */
 	private $m_ProfileDO = "contact.do.ContactDO";
 	private $m_ProfileEditForm = "contact.form.ContactEditForm";
-	private $m_ProfileDetailForm = "contact.form.ContactDetailForm";
+	private $m_ProfileDetailForm = "contact.form.ContactDetailLiteForm";
 	private $m_UserFormType;
 	
 	public function GoDetail()
