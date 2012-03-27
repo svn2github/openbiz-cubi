@@ -26,7 +26,9 @@ class ModuleUnloader extends ModuleLoader
 
         // remove resource files to proper folders
         $this->removeResourceFiles();
-                
+
+        $this->removeModuleFiles();
+        
         $this->log("$module is unloaded.");
         return true;
     }
@@ -61,11 +63,19 @@ class ModuleUnloader extends ModuleLoader
 
     protected function removeResourceFiles()
     {
-        $this->log("Remove resource files to /cubi/resources folder.");
+        $this->log("Remove resource files from /cubi/resources folder.");
     	$module = $this->name;
         $targetFolder = APP_HOME."/resources/$module";        
         recurse_delete($targetFolder);
     }    
+    
+ 	protected function removeModuleFiles()
+    {
+        $this->log("Remove module files to /cubi/modules folder.");
+    	$module = $this->name;
+        $targetFolder = MODULE_PATH.DIRECTORY_SEPARATOR.$module;        
+        recurse_delete($targetFolder);
+    }       
     
     protected function uninstallModule()
     {
