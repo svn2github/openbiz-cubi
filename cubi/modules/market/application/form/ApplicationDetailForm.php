@@ -42,17 +42,36 @@ class ApplicationDetailForm extends AppListForm
    		//get app module
    		$appInfo = $svc->discoverAppInfo($repo_uri,$app_id);
    		$app_uid = $appInfo['package_id'];
-   		$moduleName = str_replace("com.application.", "", strtolower($app_uid));
    		
-   		//unload module
-   		include_once MODULE_PATH."/system/lib/ModuleUnloader.php";
-   		$loader = new ModuleUnloader($moduleName);
-        $loader->debug = false;
-        $loader->unLoadModule();   		   		
+   		//only application allow to uninstall
+   		if(preg_match("/com.application/si",strtolower($app_uid))){
+   			$moduleName = str_replace("com.application.", "", strtolower($app_uid));	   		
+	   		//unload module
+	   		include_once MODULE_PATH."/system/lib/ModuleUnloader.php";
+	   		$loader = new ModuleUnloader($moduleName);
+	        $loader->debug = false;
+	        $loader->unLoadModule();   		   		
    		
-   		//delete installed record
-   		$searchRule = "[app_id]='$app_id' AND [repository_uid]='$repo_uid'";
-		BizSystem::getObject("market.installed.do.InstalledDO")->deleteRecords($searchRule);				
+	   		//delete installed record
+	   		$searchRule = "[app_id]='$app_id' AND [repository_uid]='$repo_uid'";
+			BizSystem::getObject("market.installed.do.InstalledDO")->deleteRecords($searchRule);		
+   		}		
+	}
+	
+	public function allowUninstall($repo_id,$app_id){
+		$svc = BizSystem::getService("market.lib.PackageService");
+   		$repoInfo = BizSystem::getObject("market.repository.do.RepositoryDO")->fetchById($repo_id);
+   		$repo_uri = $repoInfo->repository_uri;
+   		$repo_uid = $repoInfo->repository_uid;
+   		
+   		//get app module
+   		$appInfo = $svc->discoverAppInfo($repo_uri,$app_id);
+   		$app_uid = $appInfo['package_id'];
+   		if(preg_match("/com.application/si",strtolower($app_uid))){
+   			return true;
+   		}else{
+   			return false;
+   		}
 	}
 	
 }
