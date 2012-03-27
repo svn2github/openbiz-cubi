@@ -207,7 +207,7 @@ class ModuleLoader
 	   	}
     }
     
-    public function upgradeModule()
+    public function upgradeModule($forceUpgrade=false)
     {
         $module = $this->name;
     	$db = $this->DBConnection();
@@ -237,7 +237,7 @@ class ModuleLoader
         $u_ver = $u_xml['Version'];
         
         // check if upgrade folder has new source and the new source has higher version than current module
-        if (version_compare($u_ver, $ver) <= 0) {
+        if (version_compare($u_ver, $ver) <= 0 && $forceUpgrade==false) {
             $this->errors = "The upgrade module does not have higher version ($u_ver) than current module ($ver).";
             return false;
         }
@@ -411,7 +411,7 @@ class ModuleLoader
 	   	return true;
     }
         
-    protected function installModule()
+    protected function installModule($forceInstall=true)
     {
         $this->log("Install Module ".$this->name);
     	$modfile = MODULE_PATH."/".$this->name."/mod.xml";
@@ -443,7 +443,7 @@ class ModuleLoader
         if (count($rs)>0) {
             $record = $rs[0];
             $version = $record[2];
-            if (version_compare($modVersion, $version) <= 0) {
+            if (version_compare($modVersion, $version) <= 0 && $forceInstall==false) {
                 $this->errors = "NOTE: The upgrade module does not have higher version ($modVersion) than current module ($version).";
                 $skipDBChanges = true;
             }
