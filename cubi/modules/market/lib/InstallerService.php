@@ -227,8 +227,7 @@ class InstallerService extends PackageService
     protected function setInstallInfo($pkgArr,$installInfo)
     {	                                	
         $pkgDo = BizSystem::GetObject(self::INSTALLED_DO);        
-        $searchRule = " [app_id]='".$pkgArr['app_id']."' AND 
-        				[version]='".$pkgArr['version']."' AND
+        $searchRule = " [app_id]='".$pkgArr['app_id']."' AND         				
         				[repository_uid]='".$pkgArr['repository_uid']."' 
         				";
         $dataRec = $pkgDo->fetchOne($searchRule);        

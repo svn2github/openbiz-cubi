@@ -4,7 +4,7 @@
     </DataPanel>
     <ActionPanel>      
     	<Element Name="btn_install" Class="LabelText" Text="Uninstall" CssClass="button_gray_big" Link="javascript:;">
-              <EventHandler Name="btn_install_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({(int)$_GET['fld:Id']}:{@:m_RepoID})"  />        
+              <EventHandler Name="btn_install_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({(int)$_GET['fld:Id']}:{@:m_RepoID})" RedirectPage="{APP_INDEX}/market/app_installed" />        
         </Element> 
         <Element Name="btn_cancel" Class="LabelText" Link="{APP_INDEX}/market/app_installed" Text="Back" CssClass="button_gray_w" />
     </ActionPanel> 
