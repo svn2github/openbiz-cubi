@@ -95,7 +95,7 @@ class InstallerService extends PackageService
             $total += strlen($contents);
             $this->setInstallInfo($package, array("log"=>"Downloading ".$utilService->format_bytes($total)." of ".$utilService->format_bytes($filesize)." ...","filesize"=>$filesize ,"download"=>$total));
             $this->pkg_log("Downloading ".$utilService->format_bytes($total)." of ".$utilService->format_bytes($filesize)."\n");
-            //sleep(2);
+            sleep(2);
         }
         fclose($handle);
         fclose($fp);

@@ -156,6 +156,7 @@ class ApplicationInstallerForm extends EasyForm
             $this->processFormObjError($errors);
             return;
         }
+        
     }
     
     public function getProgress($id=null)
