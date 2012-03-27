@@ -27,6 +27,7 @@ class InstalledAppListForm extends AppListForm
 				$appList = $svc->discoverAppList($repo_url,$apps);
 				if(is_array($appList)){
 					foreach ($appList as $appInfo){
+						$appInfo['icon'] = $repo_url.$appInfo['icon'];
 						$AppsInfoArr[$repo_uid][$appInfo['Id']] = $appInfo;
 					}	
 				}
