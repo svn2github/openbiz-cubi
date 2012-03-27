@@ -21,6 +21,7 @@ class ApplicationInstallerForm extends EasyForm
     	$result = parent::outputAttrs();
     	$result['remote_icon'] = $this->m_AppIcon;
     	$result['release_date'] = $this->m_AppReleaseDate;
+    	$result['install_state'] = $this->m_InstallState;
     	return $result;
     }
 
@@ -50,7 +51,7 @@ class ApplicationInstallerForm extends EasyForm
     	}
     	
     	$result["Id"] = $this->m_RecordId;
-    	$result['install_download'] = 0;
+    	//$result['install_download'] = 0;
     	switch(strtoupper($result['install_state']))
     	{
     		default:
@@ -60,8 +61,8 @@ class ApplicationInstallerForm extends EasyForm
     			break;
     		case "DOWNLOAD":
     			$result['install_progress'] = '20';
-                if ($result['install_download_filesize'] == 0) $result['fld_download_progress'] = '0';
-                else $updArray['fld_download_progress'] = (int)(($dataRec['install_download'] / $dataRec['install_download_filesize'])*100);     	
+                if ($result['install_download_filesize'] == 0) $result['install_download'] = '0';
+                else $result['install_download'] = (int)(($result['install_download'] / $result['install_download_filesize'])*100);
     			break;    			
     		case "INSTALL":
     			$result['install_progress'] = '60';
@@ -151,45 +152,8 @@ class ApplicationInstallerForm extends EasyForm
     
     public function getProgress($id=null)
     {
-        if ($id==null || $id=='')   $id = $this->m_RecordId;
-        $dataRec = $this->getDataObj()->fetchById($id);
-        $state = $dataRec['install_state'] ? $dataRec['install_state'] : "Wait";
-        $log = $dataRec['install_log'] ? $dataRec['install_log'] : "Waiting...";
-        $progress = $state . "|". $log;
-        $updArray['fld_status'] = $progress;
-        
-        switch(strtoupper($dataRec['install_state']))
-        {
-            default:
-            case "ERROR":
-                $updArray['fld_total_progress'] = '0';
-                $updArray['fld_download_progress'] = '0';
-                break;
-            case "DOWNLOAD":
-                $updArray['fld_total_progress'] = '20';
-                if ($dataRec['install_download_filesize'] == 0) $updArray['fld_download_progress'] = '0';
-                else $updArray['fld_download_progress'] = (int)(($dataRec['install_download'] / $dataRec['install_download_filesize'])*100);     	
-                break;    			
-            case "INSTALL":
-                $updArray['fld_total_progress'] = '60';
-                $updArray['fld_download_progress'] = '100';
-                break;
-            case "OK":
-                $updArray['fld_total_progress'] = '100';
-                $updArray['fld_download_progress'] = '100';
-                break;	
-        }
-        
-        BizSystem::clientProxy()->updateFormElements($this->m_Name, $updArray);       
-        return;
-    }
-    
-    public function uninstall($id)
-    {
-        // remove the package from the installed location
-        
-        // remove the inst_... from local package table
-        
+    	$this->rerender();
+    	return;    	
     }
     
 }
