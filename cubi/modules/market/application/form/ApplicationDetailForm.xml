@@ -7,8 +7,8 @@
         <Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  />            
         
         <Element Name="fld_package_id" ElementSet="General" Class="LabelText" FieldName="package_id" Label="Package" Description="e.g com.application.Collab" DefaultValue="com.application.NewApp" AllowURLParam="N" />        
-        <Element Name="fld_type"   width="186"	ElementSet="General" Class="LabelList" FieldName="type" Label="Type" SelectFrom="package.lov.PackageLOV(PackageType)"  Description="Type of this application" />
-        <Element Name="fld_category"  width="186" ElementSet="General" Class="LabelList"  SelectFrom="repository.category.do.CategoryDO[name:Id]" FieldName="category_id" Label="Category"  Description="Category of this application" />
+        <Element Name="fld_type"   width="186"	ElementSet="General" Class="LabelText" FieldName="type" Label="Type" SelectFrom=""  Description="Type of this application" />
+        <Element Name="fld_category"  width="186" ElementSet="General" Class="LabelText" FieldName="category_name" Label="Category"  Description="Category of this application" />
         <Element Name="fld_author"  ElementSet="General" Class="RawData" FieldName="author" Label="Author" DefaultValue="{BizSystem::GetProfileName(@profile:Id,'short')}"  Description="e.g Openbiz LLC" AllowURLParam="N" />
         <Element Name="fld_latest_release"  ElementSet="General" Class="RawData" FieldName="latest_release" Label=""  AllowURLParam="N" />
         
