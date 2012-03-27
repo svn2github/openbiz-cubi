@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="InstalledAppListForm" Icon="{RESOURCE_URL}/market/images/icon_market.png" Class="InstalledAppListForm" FormType="List" jsClass="jbForm" Title="Installed Applications" Description="This module can manage installed applications " BizDataObj="market.installed.do.InstalledDO" SearchRule="[install_state]='OK'" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="app_list_grid.tpl.html" EventName="" MessageFile="" Access="Repository.Manage">
     <DataPanel>
+    	<Element Name="fld_repo_id" Class="Hidden" Hidden="Y" FieldName="repo_id" Label="ID" Sortable="Y" AllowURLParam="N">         
+        </Element>
     	<Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N">         
         </Element>
          <Element Name="fld_icon" Class="ColumnImage" FieldName="icon" Label="Icon"  Sortable="N" >
         </Element>     
         
-        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Sortable="Y"  Link="{APP_INDEX}/market/application_detail/repo_{@:m_RepoID}/{@:Elem[fld_Id].Value}" ></Element>        
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Sortable="Y"  Link="{APP_INDEX}/market/application_installed_detail/repo_{@:Elem[fld_repo_id].Value}/{@:Elem[fld_Id].Value}" ></Element>        
         <Element Name="fld_author" Class="RawData" FieldName="author" Label="" Sortable="Y"  ></Element>
         <Element Name="fld_release_time" Class="ColumnText" Text="{date('Y-m-d',strtotime(@:Elem[fld_release_time].Value))}" FieldName="release_time" Label="Release Date"  Sortable="Y"/>
         
         <Element Name="fld_desc" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y"  ></Element>
-        <Element Name="fld_detail" Class="ColumnText" Text="Detail" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="{APP_INDEX}/market/application_detail/repo_{@:m_RepoID}/{@:Elem[fld_Id].Value}" ></Element>
+        <Element Name="fld_detail" Class="ColumnText" Text="Detail" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="{APP_INDEX}/market/application_installed_detail/repo_{@:Elem[fld_repo_id].Value}/{@:Elem[fld_Id].Value}" ></Element>
         
     </DataPanel>
     <ActionPanel>
