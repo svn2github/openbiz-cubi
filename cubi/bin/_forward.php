@@ -48,13 +48,13 @@ if($url)
 	if(preg_match("/^[a-z_]*$/si",$urlArr[1])){
 		// http://localhost/?/ModuleName/FormName/
 		$module_name 	= $urlArr[0];
-		$view_name		= getViewName($urlArr[1]);
+		$view_name		= getViewName($urlArr);
 	}
 	elseif(preg_match("/^[a-z_]*$/si",$urlArr[0]))
 	{
 		// http://localhost/?/FormName/
 		$module_name 	= $DEFAULT_MODULE;
-		$view_name		= getViewName($urlArr[0]);
+		$view_name		= getViewName($urlArr);
 	}
 	if (empty($urlArr[count($urlArr)-1])){
 		//if its empty
@@ -91,11 +91,14 @@ if (isset($PARAM_MAPPING))
     }
 }
 
-
 $foo = __FILE__;
 include dirname(__FILE__).'/controller.php';
 
-function getViewName($url_path){
+function getViewName($urlArr){
+	$url_path = $urlArr[1];
+	if(!$url_path){
+		return gotoDefaultView($urlArr[0]);
+	}
 	if(preg_match_all("/([a-z]*)_?/si",$url_path,$match))
 	{
 		$view_name="";
@@ -107,8 +110,17 @@ function getViewName($url_path){
 			}
 		}
 		$view_name.="View";
-	}	
+	}		
 	return $view_name;
+}
+
+function gotoDefaultView($module)
+{
+	$module= strtolower($module);	
+	$modfile =  MODULE_PATH.DIRECTORY_SEPARATOR.$module.DIRECTORY_SEPARATOR.'mod.xml';
+	$xml = simplexml_load_file($modfile); 	
+	$defaultURL = APP_INDEX.$xml->Menu->MenuItem['URL'];
+	header("Location: $defaultURL");
 }
 
 function getParameters($urlArr){
