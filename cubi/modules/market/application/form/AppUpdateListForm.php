@@ -12,6 +12,9 @@ class AppUpdateListForm extends InstalledAppListForm
 			if(version_compare($current_version, $latest_version) != -1)
 			{
 				unset($resultSet[$key]);
+			}else{
+				$app['description'] = $app['version_description'];
+				$resultSet[$key] = $app;
 			}
 		}		
 		return $resultSet;
