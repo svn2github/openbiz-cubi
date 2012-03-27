@@ -17,7 +17,7 @@
     	<Element Name="btn_get_progress" Class="Button" Hidden="Y" Text="getProgress" CssClass="button_gray_m">
 			<EventHandler Name="btn_get_progress" Event="onclick" Function="getProgress()" />
         </Element>
-        <Element Name="btn_install" Class="Button" Hidden="{@:Elem[fld_status].Value==''||@:Elem[fld_status].Value=='ERROR'?'N':'Y'}" Text="Install" CssClass="button_gray_m" Description="Install this package">
+        <Element Name="btn_install" Class="Button" Hidden="{@:Elem[fld_status].Value==''||@:Elem[fld_status].Value=='Not start yet'||@:Elem[fld_status].Value=='ERROR'?'N':'Y'}" Text="Install" CssClass="button_gray_m" Description="Install this package">
 			<EventHandler Name="btn_retry_onclick" Event="onclick" Function="install({@:Elem[fld_Id].Value})" />
         </Element>
 		<Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">

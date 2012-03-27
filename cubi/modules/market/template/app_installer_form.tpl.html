@@ -95,7 +95,7 @@ padding-top:5px;
 	
 </div>
 
-{if !$form.install_state}
+{if $form.install_state!='OK' }
 <script>
 {literal}
 setTimeout("Openbiz.CallFunction('market.application.form.ApplicationInstallerForm.getProgress()',{'type':'','target':'','evthdl':'btn_get_progress:btn_get_progress'});",1000);

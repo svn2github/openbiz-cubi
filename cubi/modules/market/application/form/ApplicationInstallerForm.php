@@ -3,6 +3,7 @@ class ApplicationInstallerForm extends EasyForm
 { 
 	
 	public $m_InstallState = false;
+	public $m_InstallStateStr;
 	public $m_hasUpagrade = false;
 	public $m_AppIcon;
 	public $m_AppReleaseDate;
@@ -21,7 +22,7 @@ class ApplicationInstallerForm extends EasyForm
     	$result = parent::outputAttrs();
     	$result['remote_icon'] = $this->m_AppIcon;
     	$result['release_date'] = $this->m_AppReleaseDate;
-    	$result['install_state'] = $this->m_InstallState;
+    	$result['install_state'] = $this->m_InstallStateStr;
     	return $result;
     }
 
@@ -74,9 +75,10 @@ class ApplicationInstallerForm extends EasyForm
     			break;	
     	}
     		
-    	$state = $result['install_state'] ? $result['install_state'] : "Wait";
-        $log = $result['install_log'] ? $result['install_log'] : "Waiting...";
+    	$result['install_state'] = $result['install_state'] ? $result['install_state'] : "Not start yet";
+        $log = $result['install_log'] ? $result['install_log'] : "Click install button to start.";
 
+        $this->m_InstallStateStr = $result['install_state'] ;
         $this->m_InstallState = $this->getInstallState($repo_uri,$app_id);
         $this->m_hasUpagrade = $this->hasUpgrade($repo_uri,$app_id);
         
