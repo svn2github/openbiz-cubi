@@ -132,7 +132,11 @@ class LoginForm extends EasyForm
        	        }
        	        return ;
     		}
-		}		
+		}elseif(BizSystem::getUserProfile("Id")){						
+			$profile= BizSystem::getUserProfile();
+			$redirectPage = APP_INDEX.$profile['roleStartpage'][0];
+			BizSystem::clientProxy()->ReDirectPage($redirectPage);			
+		}
 	}    
     /**
      * login action
