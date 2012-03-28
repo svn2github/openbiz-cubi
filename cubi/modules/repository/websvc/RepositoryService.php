@@ -50,6 +50,20 @@ class RepositoryService extends WebsvcService
         return $resultSet;
     }
     
+	public function fetchNewAppRelease($timestamp)
+    {
+    	$searchRule = "[release_time] > '$timestamp' AND [status]='1' ";
+    	$dataObj = BizSystem::getObject($this->m_ApplicationDO,1);  
+        $resultRecords = $dataObj->directFetch($searchRule);
+        $resultSet=array();
+       	foreach($resultRecords as $record)
+       	{
+       		$resultSet[] = $record;
+       	}
+        return $resultSet;
+    }
+    
+    
     public function fetchAppInfo($id=null)
     {
     	$searchRule = "[status]=1 AND [release_time] < NOW() AND [Id]='$id'";   	    	
