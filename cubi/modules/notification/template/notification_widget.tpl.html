@@ -5,20 +5,32 @@
 {
 width:750px;
 height:50px;
-background-color:#ffffff;
+background-color:#e7f7ff;
 border:1px solid #00AAFF;
 border-radius:10px;
+}
+.notification_block_hover
+{
+width:750px;
+height:50px;
+background-color:#edf8fe;
+border:1px solid #018fd6;
+border-radius:10px;
+cursor:pointer;
 }
 {/literal}
 </style>
 
-	<div class="notification_block">
+	<div class="notification_block" 
+		onmouseover="this.className='notification_block_hover'"
+		onmouseout="this.className='notification_block'"
+	>
 		<table style="padding:2px;padding-left:10px; padding-right:5px;">
 			<tr>
-				<td style="padding-top:3px;padding-right:5px;">
-					<img style="border:none" width="40" border="0" src="{$resource_url}/market/images/icon_market.png" />
+				<td style="padding-top:0px;padding-right:5px;">
+					<img style="border:none" width="40" border="0" src="{$resource_url}/notification/images/{$dataPanel.data.0.fld_type}.png" />
 				</td>
-				<td>
+				<td style="padding-left:5px;padding-right:10px;">
 					<span style="color: #149BC8; font-size:14px; font-weight:normal;" >
 					{$dataPanel.data.0.fld_subject}
 					</span>

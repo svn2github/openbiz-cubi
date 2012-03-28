@@ -3,7 +3,9 @@
     <DataPanel>
         <Element Name="fld_Id" 		Class="RawData" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />
         <Element Name="fld_type" 	Class="RawData" FieldName="type" Label="Type" Sortable="Y" AllowURLParam="N" />
-        <Element Name="fld_subject" Class="RawData" FieldName="subject" Label="Subject" Sortable="Y" AllowURLParam="N" />
+        <Element Name="fld_subject" Class="LabelText" Link="javascript:;" Style="text-decoration: none;color: #149BC8;" FieldName="subject" Label="Subject" Sortable="Y" AllowURLParam="N" >
+        	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="MarkRead({@:Elem[Id].Value})"/>
+        </Element>
         <Element Name="fld_message" Class="RawData" FieldName="message" Label="Message" Sortable="Y" AllowURLParam="N" />        
         <Element Name="fld_create_time" Class="RawData" FieldName="release_date" Label="Create Time" Sortable="Y" AllowURLParam="N" />                 
         <Element Name="fld_goto_url" Hidden="{@:Elem[fld_goto_url].Value?'N':'Y'}" Class="Button" CssClass="button_highlight" Text="Detail" FieldName="goto_url" Label="Detail"  Sortable="Y" AllowURLParam="N" >
