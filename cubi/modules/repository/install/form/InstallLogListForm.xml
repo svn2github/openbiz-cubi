@@ -34,7 +34,7 @@
     </NavPanel>  
     
    <SearchPanel>
-        <Element Name="fld_cat_id"  width="185" Class="TreeListbox" style="float:left;" SelectFrom="repository.category.do.CategoryDO[name:Id]" FieldName="" Label="" >
+        <Element Name="fld_cat_id"  width="185" Class="Listbox"  style="float:left;" SelectFrom="repository.category.do.CategoryDO[name:Id]" FieldName="" Label="" >
         	<EventHandler Name="sfld_cat_id_onchange" Event="onchange" Function="UpdateForm()" />
         </Element>
         
@@ -42,7 +42,7 @@
         	<EventHandler Name="sfld_cat_id_onchange" Event="onchange" Function="RunSearch()" />
         </Element>
         
-        <Element Name="fld_release_id"  width="100"  Class="Listbox" style="float:left;margin-left:10px;" SelectFrom="repository.release.do.ReleaseDO[version:Id],[app_id]={@:Elem[fld_app_id].Value}" FieldName="release_id" Label=""  >
+        <Element Name="fld_release_id"  width="100"  Class="Listbox" style="float:left;margin-left:10px;" SelectFrom="repository.release.do.ReleaseDO[version:Id],[app_id]={(int)@:Elem[fld_app_id].Value}" FieldName="release_id" Label=""  >
         	<EventHandler Name="sfld_cat_id_onchange" Event="onchange" Function="RunSearch()" />
         </Element>
         

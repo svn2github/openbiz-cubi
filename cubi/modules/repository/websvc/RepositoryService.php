@@ -5,6 +5,7 @@ class RepositoryService extends WebsvcService
 	protected $m_CategoryDO 		= "repository.category.do.CategoryDO";
 	protected $m_ApplicationDO 		= "repository.application.do.ApplicationDO";	
 	protected $m_ReleaseDO 			= "repository.release.do.ReleaseDO";
+	protected $m_InstallLogDO 		= "repository.install.do.InstallLogDO";
 	protected $m_PictureDO	 		= "picture.do.PictureDO";
 	protected $m_RepositorySettingDO= "myaccount.do.PreferenceDO";
 	protected $m_ApplicationVersionDO 		= "repository.application.do.ApplicationVersionDO";
@@ -19,6 +20,20 @@ class RepositoryService extends WebsvcService
         	$prefRecord["_".$record['name']] = $record["value"];
         }
         return $prefRecord;
+    }
+    
+    public function recordInstallLog($app_id,$release_id,$siteurl,$operator)
+    {
+    	$remote_ip = $_SERVER['REMOTE_ADDR'];
+    	$logRec = array();
+    	$logRec['app_id'] 		= $app_id;
+    	$logRec['release_id'] 	= $release_id;
+    	$logRec['remote_ip'] 	= $remote_ip;
+    	$logRec['remote_siteurl'] = $siteurl;
+    	$logRec['remote_operator'] = $operator;
+    	$dataObj = BizSystem::getObject($this->m_InstallLogDO);
+    	$dataObj->insertRecord($logRec);
+    	return true;
     }
     
     public function fetchAppList($ids=array())

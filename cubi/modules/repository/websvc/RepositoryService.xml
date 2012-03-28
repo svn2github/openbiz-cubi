@@ -8,4 +8,5 @@
     <PublicMethod Name="fetchAppList" Access="" />
     <PublicMethod Name="fetchAppPics" Access="" />
     <PublicMethod Name="fetchAppLatestRelease" Access="" />
+    <PublicMethod Name="recordInstallLog" Access="" />    
 </PluginService>
