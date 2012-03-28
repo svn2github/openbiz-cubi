@@ -29,3 +29,7 @@ CREATE TABLE IF NOT EXISTS `market_installed` (
   PRIMARY KEY (`id`),
   KEY `repository_uid` (`repository_uid`,`app_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+INSERT INTO `market_repository` (`repository_uri`, `repository_uid`, `repository_name`, `status`, `sort_order`, `create_by`, `create_time`) VALUES
+( 'http://repo.openbiz.cn', 'repo.openbiz.cn', 'Openbiz Offical Repository - China', 1, 50, 1, '2012-03-24 19:41:28');
