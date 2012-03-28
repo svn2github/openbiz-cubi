@@ -21,5 +21,18 @@ class NotificationWidgetForm extends EasyForm
 		}
 		return $resultSet;
 	}
+	
+	public function MarkRead($id)
+	{
+		$rec = $this->getDataObj()->fetchById($id);
+		$rec['read_state']=1;
+		$goto_url = $rec['goto_url'];
+		$rec->save();
+		if($goto_url)
+		{
+			$goto_url = APP_INDEX.$goto_url;
+			BizSystem::clientProxy()->redirectPage($goto_url);
+		}
+	}
 }
 ?>

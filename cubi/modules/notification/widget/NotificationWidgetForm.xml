@@ -7,7 +7,7 @@
         <Element Name="fld_message" Class="RawData" FieldName="message" Label="Message" Sortable="Y" AllowURLParam="N" />        
         <Element Name="fld_create_time" Class="RawData" FieldName="release_date" Label="Create Time" Sortable="Y" AllowURLParam="N" />                 
         <Element Name="fld_goto_url" Class="Button" CssClass="button_highlight" Text="Detail" FieldName="goto_url" Label="Detail"  Sortable="Y" AllowURLParam="N" >
-        	<EventHandler Name="fld_goto_url_onclick" Event="onchange" Function="MarkRead({@:Elem[Id].Value})"/>
+        	<EventHandler Name="fld_goto_url_onclick" Event="onclick" Function="MarkRead({@:Elem[Id].Value})"/>
         </Element>
         
     </DataPanel>
