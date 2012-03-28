@@ -5,6 +5,7 @@ class InstallerService extends PackageService
 {
 	
 	protected $_installPackage = "";
+	protected $_repoUri = "";
 	const INSTALLED_DO = "market.installed.do.InstalledDO";
 			
 	public function getRepoUID($uri)
@@ -21,6 +22,7 @@ class InstallerService extends PackageService
     public function downloadPackage($uri, $app_id)
     {        
         $pkg = $this->discoverAppLatestRelease($uri,$app_id);
+        $this->_repoUri = $uri;
         
         if (!$pkg) { 
             return null;
@@ -183,8 +185,15 @@ class InstallerService extends PackageService
     public function installPackage($cpkFilePath)
     {   
         $package = $this->_installPackage;
+        $uri = $this->_repoUri;
         $this->setInstallInfo($package, array("state"=>"Install","log"=>"Installing ..."));
 
+		//trigger remote log action      
+        $operator = BizSystem::GetProfileName(BizSystem::getUserProfile("Id"),'short');  
+        $app_id = $package['app_id'];
+        $release_id = $package['Id'];
+        $this->recordInstallLog($uri,$app_id,$release_id,SITE_URL,$operator);              
+        
         $tmpFolder = APP_FILE_PATH.DIRECTORY_SEPARATOR."tmpFiles".DIRECTORY_SEPARATOR;
         $toFolder = $tmpFolder.time();
  
@@ -221,8 +230,20 @@ class InstallerService extends PackageService
             $this->pkg_log($loader->errors . "".PHP_EOL);
         }
         $time = date('Y-m-d H:i:s');
+
+        
+
         $this->setInstallInfo($package, array("time"=>$time,"version"=>$package['version'],"state"=>"OK","log"=>"Completed"));
     }    
+    
+    protected function recordInstallLog($uri,$app_id,$release_id,$siteurl,$operator)
+    {
+    	$params['app_id'] = $app_id;
+    	$params['release_id'] = $release_id;
+    	$params['siteurl'] = $siteurl;
+    	$params['operator'] = $operator;
+		return $this->_remoteCall($uri,'recordInstallLog',$params);
+    }
     
     protected function setInstallInfo($pkgArr,$installInfo)
     {	                                	
