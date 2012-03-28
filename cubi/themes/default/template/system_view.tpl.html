@@ -38,6 +38,12 @@
 						{include file='system_left_panel.tpl.html'}
 					</td>
 					<td valign="top" id="right_panel">
+						<!-- notification block start -->
+						<div id="notification">
+						{php}echo Bizsystem::GetObject('notification.widget.NotificationWidgetForm')->render();{/php}
+						</div>
+						<!-- notification block start -->
+					
 						<!-- right block start -->
 						{include file='system_right_panel.tpl.html'}
 						<!-- right block end -->
