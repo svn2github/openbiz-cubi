@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="market" Description="Openbiz Cubi app market module" Version="0.2" OpenbizVersion="2.4">
+<Module Name="market" Description="Openbiz Cubi app market module" Author="Jixian Wang" Version="0.2" OpenbizVersion="2.4">
 	<ACL>
 		<Resource Name="Market">
             <Action Name="Manage" Description="Manage App market repository and app installation"/>
