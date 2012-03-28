@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="NotificationWidgetForm"  Class="NotificationWidgetForm" FormType="List" jsClass="jbForm" Title="System Notification" Description="" BizDataObj="notification.do.NotificationDO" SearchRule="[read_state]='0'" PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="notification_widget.tpl.html" EventName="" MessageFile="" Access="">
+    <DataPanel>
+        <Element Name="fld_Id" 		Class="RawData" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />
+        <Element Name="fld_type" 	Class="RawData" FieldName="type" Label="Type" Sortable="Y" AllowURLParam="N" />
+        <Element Name="fld_message" Class="RawData" FieldName="message" Label="Message" Sortable="Y" AllowURLParam="N" />        
+        <Element Name="fld_create_time" Class="RawData" FieldName="create_time" Label="Create Time" Sortable="Y" AllowURLParam="N" />         
+        <Element Name="fld_goto_url" Class="LabelText" FieldName="goto_url" Label="Detail" Link="{APP_INDEX}{@:Elem[fld_goto_url].Value}" Sortable="Y" AllowURLParam="N" />
+    </DataPanel>
+    <ActionPanel>
+     
+    </ActionPanel> 
+    <NavPanel>
+
+    </NavPanel> 
+    <SearchPanel>
+          
+    </SearchPanel>
+</EasyForm>
