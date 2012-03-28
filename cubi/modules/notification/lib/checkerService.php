@@ -88,6 +88,8 @@ class checkerService extends MetaObject
 				"subject"=>$notiRec['subject'],
 				"message"=>$notiRec['message'],
 				"goto_url"=>$notiRec['goto_url'],
+				"read_access"=>$notiRec['read_access'],
+				"update_access"=>$notiRec['update_access'],
 				"read_state"=>0,
 			);	
 			$result = $notiDO->insertRecord($notiArr);

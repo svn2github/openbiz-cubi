@@ -1,6 +1,8 @@
 <?php 
 class NotificationWidgetForm extends EasyForm
 {
+	protected $m_ReadAccess;
+	
 	public function render()
 	{
 		$this->triggerCheckers();
@@ -10,7 +12,14 @@ class NotificationWidgetForm extends EasyForm
 		{
 			return "";
 		}
-		return $result;
+		if($this->m_ReadAccess){
+			if(BizSystem::allowUserAccess($this->m_ReadAccess))
+			{
+				return $result;
+			}			
+		}else{
+			return $result;
+		}
 	}
 	
 	public function triggerCheckers()
@@ -27,15 +36,27 @@ class NotificationWidgetForm extends EasyForm
 			$record['release_date'] = date("Y-m-d",strtotime($record['create_time']));
 			$resultSet[$key] = $record;
 		}
+		$this->m_ReadAccess = $resultSet[0]['read_access'];
 		return $resultSet;
 	}
 	
 	public function MarkRead($id)
 	{
 		$rec = $this->getDataObj()->fetchById($id);
-		$rec['read_state']=1;
 		$goto_url = $rec['goto_url'];
-		$rec->save();
+		
+		if($rec['update_access'])
+		{
+			if(BizSystem::allowUserAccess($rec['update_access']))
+			{
+				$rec['read_state']=1;
+				$rec->save();
+			}
+		}else{
+			$rec['read_state']=1;
+			$rec->save();
+		}
+		
 		if($goto_url)
 		{
 			$goto_url = APP_INDEX.$goto_url;

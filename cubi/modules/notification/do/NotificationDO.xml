@@ -7,6 +7,8 @@
         <BizField Name="message" Column="message" Required="N" />
         <BizField Name="goto_url" Column="goto_url" Required="N" />
         <BizField Name="read_state" Column="read_state" Required="N" />
+        <BizField Name="read_access" Column="read_access" Required="N" />
+        <BizField Name="update_access" Column="update_access" Required="N" />
 		<BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
 		<BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
     </BizFieldList>    
