@@ -40,7 +40,7 @@ class checkerService extends MetaObject
 		$checkerLogList = array();
 		foreach($checkerRecs as $checker)
 		{
-			$checkerLogList[$checker['name']] = strtotime($checker['last_checktime']);
+			$checkerLogList[$checker['checker']] = strtotime($checker['last_checktime']);
 		}
 		foreach($this->m_CheckerList as $checker)
 		{
@@ -53,17 +53,18 @@ class checkerService extends MetaObject
 				
 				//update checker log
 				$checker_name = $checker['NAME'];
+				$time_str = date('Y-m-d H:i:s');
 				if(isset($checkerLogList[$checker['NAME']]))
 				{
 					//update it
-					$checkerDO->updateRecords("[last_checktime]=NOW()","[checker]='$checker_name'");
+					$checkerDO->updateRecords("[last_checktime]='$time_str'","[checker]='$checker_name'");
 				}
 				else
 				{
 					//insert it
 					$checkerLogArr=array(
 						"checker" => $checker_name,
-						"last_checktime"=>date('Y-m-d')
+						"last_checktime"=>$time_str
 					);
 					$checkerDO->insertRecord($checkerLogArr);
 				}
