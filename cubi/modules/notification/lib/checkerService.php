@@ -3,7 +3,7 @@ class checkerService extends MetaObject
 {
 	protected $m_CheckerList;
 	protected $m_CheckerDO = "notification.do.NotificationCheckerDO";	
-	
+	protected $m_NotificationDO = "notification.do.NotificationDO";	
 	
 	public function __construct(&$xmlArr)
 	{
@@ -49,7 +49,8 @@ class checkerService extends MetaObject
 			
 				$method_name = $checker['MEHTOD'];
 				$obj = BizSystem::getObject($checker['SERVICEOBJ']);
-				call_user_func(array($obj,$method_name));
+				$notificationList = call_user_func(array($obj,$method_name));
+				$this->saveNotificationList($notificationList);				
 				
 				//update checker log
 				$checker_name = $checker['NAME'];
@@ -70,6 +71,27 @@ class checkerService extends MetaObject
 				}
 			}
 		}
+	}
+	
+	public function saveNotificationList($notificationList)
+	{
+		$notiDO = BizSystem::getObject($this->m_NotificationDO);
+		$counter = 0;
+		foreach ($notificationList as $notiRec)
+		{		
+			$notiArr = array(				
+				"type"=>$notiRec['type'],
+				"subject"=>$notiRec['subject'],
+				"message"=>$notiRec['message'],
+				"goto_url"=>$notiRec['goto_url'],
+				"read_state"=>0,
+			);	
+			$result = $notiDO->insertRecord($notiArr);
+			if($result){
+				$counter++;
+			}
+		}
+		return $counter;
 	}
 }
 ?>
