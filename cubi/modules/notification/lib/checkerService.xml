@@ -2,6 +2,8 @@
 <PluginService Name="checkerService" Class="checkerService"  CacheLifeTime="0">
 	<Checker Name="market_checker" MinInterval="7200" 
 			ServiceObj="market.lib.NotificationService" Mehtod="checkNotification" />
-	<Checker Name="market_checker2" MinInterval="7200" 
+	<!-- 
+	<Checker Name="other_checker" MinInterval="7200" 
 			ServiceObj="market.lib.NotificationService" Mehtod="checkNotification" />
+	 -->
 </PluginService>

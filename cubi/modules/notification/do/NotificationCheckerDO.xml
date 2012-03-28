@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="NotificationCheckerDO" Description="" Class="BizDataObj" DBName="Default" Table="notification_checker" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
+	<BizFieldList>
+        <BizField Name="Id" 			Column="id" Type="Number"/>
+        <BizField Name="checker" 		Column="checker" Required="N" />
+        <BizField Name="last_checktime" Column="last_checktime" Required="N" />
+    </BizFieldList>    
+</BizDataObj>

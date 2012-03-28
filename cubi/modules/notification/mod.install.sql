@@ -11,3 +11,13 @@ CREATE TABLE IF NOT EXISTS `notification` (
   PRIMARY KEY (`id`),
   KEY `type` (`type`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+DROP TABLE IF EXISTS `notification_checker`; 
+CREATE TABLE IF NOT EXISTS `notification_checker` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `checker` varchar(255) NOT NULL,
+  `last_checktime` datetime NOT NULL,  
+  PRIMARY KEY (`id`),
+  KEY `checker` (`checker`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
