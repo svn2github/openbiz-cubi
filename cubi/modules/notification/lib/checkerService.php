@@ -79,6 +79,10 @@ class checkerService extends MetaObject
 		$counter = 0;
 		foreach ($notificationList as $notiRec)
 		{		
+			if(!$notiRec['type'])
+			{
+				continue;
+			}
 			$notiArr = array(				
 				"type"=>$notiRec['type'],
 				"subject"=>$notiRec['subject'],
