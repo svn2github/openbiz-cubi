@@ -98,6 +98,10 @@ class ViewRenderer
             $tplAttributes["title"] = Expression::evaluateExpression($viewObj->m_Title, $viewObj);
         else
             $tplAttributes["title"] = $viewObj->m_Description;
+            
+    	if(DEFAULT_SYSTEM_NAME){
+        	$tplAttributes["title"] = DEFAULT_SYSTEM_NAME.' - '.$tplAttributes["title"];
+        }
         return $tplAttributes;
     }
 
