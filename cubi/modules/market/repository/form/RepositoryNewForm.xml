@@ -19,7 +19,7 @@
         </Element>
         <Element Name="btn_spacer"  Hidden="{@:m_RepoValidated=='N'?'Y':'N'}"  Class="Spacer" width="10" />	
     	<Element Name="btn_check" Class="Button" Text="Check" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="CheckRepo()"/>
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="CheckRepo()" ShortCutKey="Enter"/>
         </Element>
        
        <Element Name="btn_spacer_2"  Hidden="{@:m_RepoValidated=='N'?'N':'Y'}"  Class="Spacer" width="10" />	
