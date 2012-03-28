@@ -95,13 +95,14 @@ padding-top:5px;
 	
 </div>
 
+{if $form.install_state!='OK'  }
+
 <script>
 {literal}
 setTimeout("Openbiz.CallFunction('{/literal}{$form.name}{literal}.getProgress()',{'type':'','target':'','evthdl':'btn_get_progress:btn_get_progress'});",1000);
 {/literal}
 </script>
 
-{if $form.install_state!='OK' AND $form.install_state!='Not start yet' }
 {/if}
 
 <script>

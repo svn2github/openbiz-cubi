@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="ApplicationUpdateDetailForm"  Class="ApplicationDetailForm" InheritFrom="market.application.form.ApplicationDetailForm">
     <DataPanel>
+    
             <Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="version_description" Label="Description"  />            
     
     </DataPanel>
