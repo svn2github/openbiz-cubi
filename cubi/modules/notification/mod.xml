@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="notification" Description="Openbiz Cubi notification module" Version="0.2" OpenbizVersion="2.4">
+	<ACL>
+    </ACL>
+    <Menu>
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+</Module>
