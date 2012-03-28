@@ -43,18 +43,17 @@ class NotificationWidgetForm extends EasyForm
 	public function MarkRead($id)
 	{
 		$rec = $this->getDataObj()->fetchById($id);
-		$goto_url = $rec['goto_url'];
+		$type		= $rec['type'];
+		$goto_url 	= $rec['goto_url'];
 		
 		if($rec['update_access'])
 		{
 			if(BizSystem::allowUserAccess($rec['update_access']))
-			{
-				$rec['read_state']=1;
-				$rec->save();
+			{				
+				$this->getDataObj()->deleteRecords("[type]='$type'");
 			}
 		}else{
-			$rec['read_state']=1;
-			$rec->save();
+			$this->getDataObj()->deleteRecords("[type]='$type'");
 		}
 		
 		if($goto_url)
