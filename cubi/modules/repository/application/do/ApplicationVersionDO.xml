@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="ApplicationVersionDO" Description="" Class="BizDataObj" DBName="Default" Table="repo_application" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="PackageCategory.Manage" UpdateCondition="PackageCategory.Manage" DeleteCondition="PackageCategory.Manage">
+<BizDataObj Name="ApplicationVersionDO" Description="" Class="BizDataObj" DBName="Default" Table="repo_application" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
 	<BizFieldList>
         <BizField Name="Id" Column="id" Type="Number"/>
         <BizField Name="package_id" Column="package_id" Length="255" Required="Y" Type="Text"/>

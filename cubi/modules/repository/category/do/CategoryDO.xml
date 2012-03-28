@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="CategoryDO" Description="" Class="BizDataTree" DBName="Default" Table="repo_category" SearchRule="" SortRule="[sort_order] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="PackageCategory.Manage" UpdateCondition="PackageCategory.Manage" DeleteCondition="PackageCategory.Manage">
+<BizDataObj Name="CategoryDO" Description="" Class="BizDataTree" DBName="Default" Table="repo_category" SearchRule="" SortRule="[sort_order] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
 	<BizFieldList>
         <BizField Name="Id" Column="id" Type="Number"/>
         <BizField Name="parent_id" Column="parent_id" Required="N" Type="Number"/>
