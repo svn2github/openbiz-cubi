@@ -64,6 +64,12 @@ class PackageService extends MetaObject
 		return $this->_remoteCall($uri,'fetchAppLatestRelease',$params);
 	}	
 	
+	public function discoverNewAppRelease($uri,$timestamp)
+	{
+		$params['timestamp'] = $timestamp;	
+		return $this->_remoteCall($uri,'fetchNewAppRelease',$params);
+	}	
+	
 	public function discoverAppPics($uri,$app_id)
 	{
 		if($app_id){

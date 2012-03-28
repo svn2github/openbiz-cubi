@@ -2,6 +2,13 @@
 class NotificationService extends MetaObject
 {
 	protected $m_InstalledDO = "market.installed.do.InstalledDO";
+	protected $m_RepositoryDO = "market.repository.do.RepositoryDO";
+	
+	protected function getRepoInfo($uid)
+	{
+		$repoRec = BizSystem::getObject($this->m_RepositoryDO,1)->fetchOne("[repository_uid]='$uid'");
+		return $repoRec;
+	}	
 	
 	public function checkNotification()
 	{
@@ -18,14 +25,22 @@ class NotificationService extends MetaObject
 			$notificationList[] = $msg;
 		}
 		
+		
 		$msgList = $this->_checkAppInfo();
 		foreach ($msgList as $msg)
 		{
 			$notificationList[] = $msg;
 		}		
+		
 		return $notificationList;
 	}
 	
+	/**
+	 * this function will check all installed applications 
+	 * and connect to its repository server for checking updates
+	 * if any installed application has update, 
+	 * this function will generate a notification
+	 */
 	protected function _checkAppUpdate()
 	{
 		
@@ -43,7 +58,7 @@ class NotificationService extends MetaObject
 		foreach ($resultSet as $record)
 		{
 			$repoAppsArr[$record['repository_uid']][] = $record['app_id'];
-		}
+		}		
 		foreach ($repoAppsArr as $repo_uid=>$apps)
 		{	
 			if($repo_uid){		
@@ -84,34 +99,62 @@ class NotificationService extends MetaObject
 			}
 		}	
 		//above code copied from appUpdateListFrom
-		if(count($resultSet))
+		$update_count = count($resultSet);
+		if($update_count)
 		{			
 			$msg['type']='new_app_update';
-			$msg['subject']='Found New Application Update !';
+			$msg['subject']="Found $update_count Applications Updated !";
 			$msg['message']='Please notice your system administrator to update installed applications by using Openbiz Market.';
-			$msg['read_access']="";
+			$msg['goto_url']=APP_INDEX.'/market/app_updates';
+			$msg['read_access']="";			
 			$msg['update_access']="Market.Manage";			
 			return array($msg);
 		}		
-		return null;
+		return array();
 	}
 	
+	/**
+	 * this function will connect to installed repository server
+	 * and checks if there has any update from the repository
+	 */
 	protected function _checkAppRelease()
 	{
-		if(count($resultSet))
+		$msgList = array();
+		//get last check timestamp
+		$checkLogRec = BizSystem::getObject("notification.do.NotificationCheckerDO")->fetchOne("[checker]='market_checker'");
+		$lastCheckTime = $checkLogRec['last_checktime'];
+		
+		$installedRepos = BizSystem::getObject($this->m_RepositoryDO)->directFetch();
+		foreach($installedRepos as $repo)
 		{
-			$msg['type']='new_app_update';
-			$msg['subject']='new_app_update';
-			$msg['message']='new_app_update';
-			return $msg;
+			$repo_id = $repo['Id'];
+			$repo_uri = $repo['repository_uri'];
+			$svc = BizSystem::getService("market.lib.PackageService");
+			$appList = $svc->discoverNewAppRelease($repo_uri,$lastCheckTime);
+			$update_count = count($appList);
+			if($update_count)
+			{
+				$msg['type']='new_app_release';
+				$msg['subject']="Found $update_count New Applications Released !";
+				$msg['message']='Please notice your system administrator to install applications by using Openbiz Market.';
+				$msg['goto_url']=APP_INDEX.'/market/applications/repo_'.$repo_id;
+				$msg['read_access']="";
+				$msg['update_access']="Market.Manage";			
+				$msgList[] = $msg;
+			}			
 		}
-		return $msg;
+		return $msgList;
 	}
 	
+	/**
+	 * this function will let applications sends some expire notification
+	 * need to make sure this function will not being use like advertisement
+	 */
 	protected function _checkAppInfo()
 	{
+	
 		$msg['type']='new_app_info';
-		//return $msg;
+		return array();
 	}
 	
 }
