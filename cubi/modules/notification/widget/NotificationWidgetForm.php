@@ -3,12 +3,20 @@ class NotificationWidgetForm extends EasyForm
 {
 	public function render()
 	{
+		$this->triggerCheckers();
+		
 		$result = parent::render();
 		if(!$this->m_TotalRecords)
 		{
 			return "";
 		}
 		return $result;
+	}
+	
+	public function triggerCheckers()
+	{
+		$svc = BizSystem::getService("notification.lib.checkerService");
+		$svc->checkNotification();
 	}
 	
 	public function fetchDataSet()
