@@ -2,6 +2,7 @@
 <EasyForm Name="UserPreferenceDetailForm" Class="UserPreferenceForm" FormType="" Icon="icon_user_list.gif" jsClass="jbForm" SearchRule="[user_id]='0'" Title="User Preference" Description="You can custom your personal setting in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" Access="System.Administer_System">
     <DataPanel>
         <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>
+		<Element Name="fld_system_name"  Class="LabelText" ElementSet="General" FieldName="_system_name" Label="System Name"   />
 		<Element Name="fld_siteurl"  Class="LabelText" ElementSet="General" FieldName="_siteurl" Label="Site URL"   />
         <Element Name="fld_theme"  Class="LabelText" ElementSet="General" label="Default Theme"  FieldName="_theme" Description=""   />
         <Element Name="fld_session" ReadOnly="Y" Class="LabelList"  SelectFrom="system.lov.Selection(SessionRestrict)"  ElementSet="General" FieldName="_sessionstrict" Label="Session Strict"   />

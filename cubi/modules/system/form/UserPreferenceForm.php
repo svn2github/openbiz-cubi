@@ -148,6 +148,14 @@ class UserPreferenceForm extends EasyForm
 	            			@file_put_contents($config_file,$data);
 	            		}
 	            		break;
+	            	case "system_name":
+	            		if($value!=DEFAULT_SYSTEM_NAME){
+	            			//update default theme DEFAULT_THEME_NAME
+	            			$data = file_get_contents($config_file);	            			
+	            			$data = preg_replace("/define\([\'\\\"]{1}DEFAULT_SYSTEM_NAME[\'\\\"]{1}.*?\)\;/i","define('DEFAULT_SYSTEM_NAME','$value');",$data);	            			
+	            			@file_put_contents($config_file,$data);
+	            		}
+	            		break;
 					case "siteurl":
 						//update default theme SITE_URL
             			$data = file_get_contents($config_file);	            			
