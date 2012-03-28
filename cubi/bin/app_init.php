@@ -17,6 +17,8 @@ if(isset($_SERVER["HTTP_HOST"])){
 	define('SITE_URL','http://dev.openbiz.cn/cubi');
 }
 
+define('DEFAULT_SYSTEM_NAME','Openbiz Cubi');
+
 /* APP_URL is /a/b in case of http://host/a/b/index.php?... */
 $appHome = str_replace('\\','/',APP_HOME);
 if(isset($_SERVER['DOCUMENT_ROOT'])){
@@ -119,7 +121,7 @@ define("TIMEOUT", 86400);  // 86400 = 1 day
 
 //I18n
 //define('DEFAULT_LANGUAGE','en_US');
-define('DEFAULT_CURRENCY','USD');
+define('DEFAULT_CURRENCY','EUR');
 define('DEFAULT_LANGUAGE','en_US');
 define("LANGUAGE_PATH", APP_HOME.DIRECTORY_SEPARATOR."languages");
 /*define locale to be set in typemanager.php depending on selected language */
@@ -168,7 +170,7 @@ define ('DENY', 0);
 define ('ALLOW', 1);
 define ('ALLOW_OWNER', 2);
 
-define('APPBUILDER','0'); // 0: hidden, 1: show
+define('APPBUILDER','1'); // 0: hidden, 1: show
 
 // load default theme
 if( @isset($_GET['theme'])) {
