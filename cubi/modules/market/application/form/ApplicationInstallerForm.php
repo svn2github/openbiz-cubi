@@ -78,7 +78,6 @@ class ApplicationInstallerForm extends EasyForm
     	$result['install_state'] = $result['install_state'] ? $result['install_state'] : "Not start yet";
         $log = $result['install_log'] ? $result['install_log'] : "Click install button to start.";
 
-        $this->m_InstallStateStr = $result['install_state'] ;
         $this->m_InstallState = $this->getInstallState($repo_uri,$app_id);
         $this->m_hasUpagrade = $this->hasUpgrade($repo_uri,$app_id);
         if($this->m_hasUpagrade)
@@ -88,6 +87,8 @@ class ApplicationInstallerForm extends EasyForm
     		$result['install_state'] = 'Waiting';
     		$result['install_log'] = 'Click upgrade button to start';
         }
+        $this->m_InstallStateStr = $result['install_state'] ;
+        
     	return $result ;
     	
     }
