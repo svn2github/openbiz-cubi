@@ -20,6 +20,7 @@ class ApplicationDetailForm extends AppListForm
 			$releaseInfo['create_date'] = date("Y-m-d",strtotime($releaseInfo['create_time']));
 			$releaseInfo['filesize'] = $util->format_bytes($releaseInfo['filesize']);
 			$appInfo['latest_release'] = $releaseInfo;
+			$appInfo['version_description'] = $releaseInfo['description'];
 		}
 		return $appInfo;
 	}
