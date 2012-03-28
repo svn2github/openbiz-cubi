@@ -1,0 +1,39 @@
+<form id="{$form.name}" name="{$form.name}">
+<style>
+{literal}
+.notification_block
+{
+width:750px;
+height:50px;
+background-color:#ffffff;
+border:1px solid #00AAFF;
+border-radius:10px;
+}
+{/literal}
+</style>
+
+	<div class="notification_block">
+		<table style="padding:2px;padding-left:10px; padding-right:5px;">
+			<tr>
+				<td style="padding-top:3px;padding-right:5px;">
+					<img style="border:none" width="40" border="0" src="{$resource_url}/market/images/icon_market.png" />
+				</td>
+				<td>
+					<span style="color: #149BC8; font-size:14px; font-weight:normal;" >
+					{$dataPanel.data.0.fld_subject}
+					</span>
+					<p style="height:18px; overflow:hidden;">
+					{$dataPanel.data.0.fld_message}
+					</p>
+				</td>
+				<td style="padding-top:2px;">					
+					<div style="height:22px;">
+						{$dataPanel.data.0.fld_goto_url}
+					</div>
+					<span style="display:block;color:#999999;padding-left:5px;">{$dataPanel.data.0.fld_create_time}</span>
+				</td>
+			</tr>
+		</table>		
+	</div>
+	<div style="height:10px;"></div>
+</form>

@@ -1,8 +1,9 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="NoficiationDO" Description="" Class="BizDataObj" DBName="Default" Table="notification" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
+<BizDataObj Name="NotificationDO" Description="" Class="BizDataObj" DBName="Default" Table="notification" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
 	<BizFieldList>
         <BizField Name="Id" Column="id" Type="Number"/>
         <BizField Name="type" Column="type" Required="N" />
+        <BizField Name="subject" Column="subject" Required="N" />
         <BizField Name="message" Column="message" Required="N" />
         <BizField Name="goto_url" Column="goto_url" Required="N" />
         <BizField Name="read_state" Column="read_state" Required="N" />

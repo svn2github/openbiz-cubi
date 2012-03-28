@@ -3,12 +3,15 @@
     <DataPanel>
         <Element Name="fld_Id" 		Class="RawData" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />
         <Element Name="fld_type" 	Class="RawData" FieldName="type" Label="Type" Sortable="Y" AllowURLParam="N" />
+        <Element Name="fld_subject" Class="RawData" FieldName="subject" Label="Subject" Sortable="Y" AllowURLParam="N" />
         <Element Name="fld_message" Class="RawData" FieldName="message" Label="Message" Sortable="Y" AllowURLParam="N" />        
-        <Element Name="fld_create_time" Class="RawData" FieldName="create_time" Label="Create Time" Sortable="Y" AllowURLParam="N" />         
-        <Element Name="fld_goto_url" Class="LabelText" FieldName="goto_url" Label="Detail" Link="{APP_INDEX}{@:Elem[fld_goto_url].Value}" Sortable="Y" AllowURLParam="N" />
+        <Element Name="fld_create_time" Class="RawData" FieldName="release_date" Label="Create Time" Sortable="Y" AllowURLParam="N" />                 
+        <Element Name="fld_goto_url" Class="Button" CssClass="button_highlight" FieldName="goto_url" Label="Detail"  Sortable="Y" AllowURLParam="N" >
+        	<EventHandler Name="fld_goto_url_onclick" Event="onchange" Function="MarkRead({@:Elem[Id].Value})"/>
+        </Element>
+        
     </DataPanel>
     <ActionPanel>
-     
     </ActionPanel> 
     <NavPanel>
 
