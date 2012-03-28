@@ -32,4 +32,4 @@ CREATE TABLE IF NOT EXISTS `market_installed` (
 
 
 INSERT INTO `market_repository` (`repository_uri`, `repository_uid`, `repository_name`, `status`, `sort_order`, `create_by`, `create_time`) VALUES
-( 'http://repo.openbiz.cn', 'repo.openbiz.cn', 'Openbiz Offical Repository - China', 1, 50, 1, '2012-03-24 19:41:28');
+( 'http://repos.openbiz.cn', 'repos.openbiz.cn', 'Openbiz Offical Repository - China', 1, 50, 1, '2012-03-24 19:41:28');
