@@ -169,6 +169,7 @@ class emailService extends MetaObject
             $this->_mail->setDefaultTransport($mailTransport);
         }
         $this->_mail->setFrom($account->m_FromEmail, $account->m_FromName);
+        return $this;
     }
 
     /**
