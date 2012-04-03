@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ReportViewNewForm" Class="ReportViewForm" Icon="icon_report_page.gif" FormType="New" jsClass="jbForm" Title="New Report" Description="Report Page is a container of report forms and charts.\n Each page could contains multi form and charts." BizDataObj="report.admin.do.ReportViewDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl.html" EventName="REPORT_VIEW" >
+<EasyForm Name="ReportViewNewForm" Class="ReportViewForm" Icon="icon_report_page.gif" FormType="New" jsClass="jbForm" Title="New Report" Description="Report Page is a container of report forms and charts.\n Each page could contains multi form and charts." BizDataObj="report.admin.do.ReportViewDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_tab.tpl" EventName="REPORT_VIEW" >
     <DataPanel>	
-        <Element Name="fld_title" ElementSet="General" Class="InputText" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_title" ElementSet="Top" Class="InputText" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         <Element Name="fld_group" ElementSet="General" Class="Listbox" FieldName="group_id" Label="Group" SelectFrom="system.do.GroupDO[name:Id]" BlankOption="---"/>
 		<Element Name="fld_description" ElementSet="General"  Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N" CssClass="input_textarea" CssErrorClass="input_textarea_error" CssFocusClass="input_textarea_focus"/>		
     	<Element Name="fld_db_id" ElementSet="Data Source" Required="Y" Class="Listbox" KeepCookie="Y"  SelectFrom="report.admin.do.ReportDbDO[name:Id]" FieldName="db_id" Label="Data Source"  AllowURLParam="N" >
