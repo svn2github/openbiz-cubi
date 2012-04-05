@@ -130,9 +130,7 @@ jsMin, SvnCheckout, Version, Documentor
         <mkdir dir="${distdir}" />
         <delete file="${distfile}" />
         <tar destfile="${distfile}" compression="gzip">
-            <fileset dir="build/src/">
-                <include name="cubi/**" />
-            </fileset>
+            <fileset dir="${builddir}" />                
         </tar>
         <echo msg="Distribution file is created in build directory OK!" />
     </target>
