@@ -55,7 +55,7 @@ class ProjectImportForm extends ProjectForm
 		{
 			$target_timestamp+=86400;
 			if( date('w',$target_timestamp)==6 || date('w',$target_timestamp)==0){
-				$i=$i-1;
+			//	$i=$i-1;
 			}	
 		}
 		return date("Y-m-d H:i:s",$target_timestamp);
