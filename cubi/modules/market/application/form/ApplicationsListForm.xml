@@ -3,7 +3,7 @@
     <DataPanel>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N">         
         </Element>
-         <Element Name="fld_icon" Class="ColumnImage" FieldName="icon" Label="Icon"  Sortable="N" >
+         <Element Name="fld_icon" Class="ColumnImage" width="60" FieldName="icon" Label="Icon"  Sortable="N" >
         </Element>     
         
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Sortable="Y"  Link="{APP_INDEX}/market/application_detail/repo_{@:m_RepoID}/{@:Elem[fld_Id].Value}" ></Element>        

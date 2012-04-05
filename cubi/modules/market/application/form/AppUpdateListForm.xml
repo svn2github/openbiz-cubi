@@ -5,7 +5,7 @@
         </Element>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N">         
         </Element>
-         <Element Name="fld_icon" Class="ColumnImage" FieldName="icon" Label="Icon"  Sortable="N" >
+         <Element Name="fld_icon"  width="60" Class="ColumnImage" FieldName="icon" Label="Icon"  Sortable="N" >
         </Element>     
         
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Sortable="Y"  Link="{APP_INDEX}/market/application_update_detail/repo_{@:Elem[fld_repo_id].Value}/{@:Elem[fld_Id].Value}" ></Element>        
