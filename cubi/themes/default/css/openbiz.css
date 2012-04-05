@@ -1836,8 +1836,8 @@ background-position: 5px -48px;
 	clip: rect(auto, auto, auto, 128px);
 }
 .editcombobox input {
-	height:16px;
-	width: 128px;
+	height:13px;
+	width: 142px;
 	font-size:14px;
 }
 .editcombobox_l {
