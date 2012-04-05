@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="FeaturedAppsListForm" Icon="{RESOURCE_URL}/market/images/icon_market.png" Class="FeaturedAppsListForm" FormType="List" jsClass="jbForm" Title="Featured Applications" Description="This module can manage repositroy applications " BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="app_list_grid.tpl.html" EventName="" MessageFile="" Access="Repository.Manage">
+<EasyForm Name="FeaturedAppsListForm" Icon="{RESOURCE_URL}/market/images/icon_market.png" Class="FeaturedAppsListForm" FormType="List" jsClass="jbForm" Title="Featured Applications" Description="This module can manage repositroy applications " BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="app_list_grid.tpl.html" EventName="" MessageFile="" Access="Market.Manage">
     <DataPanel>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N">         
         </Element>
