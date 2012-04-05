@@ -49,6 +49,7 @@ jsMin, SvnCheckout, Version, Documentor
         <include name="languages/zh_CN/**" />
         <include name="log/.htaccess" />
         <include name="messages/**" />
+        <include name="docs/**" />
         <include name="pages/*.html" />
         <include name="session/.htaccess" />
         <include name="resources/.htaccess" />
