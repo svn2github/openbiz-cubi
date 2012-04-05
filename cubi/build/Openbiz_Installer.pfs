@@ -1,0 +1,44 @@
+active-help-url "http://www.openbiz.me/"
+package-name "Openbiz Cubi"
+product-version "2.0"
+package-dir "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\src"
+output-file "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\dist\cubi.exe"
+common-documents "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\src\cubi\docs"
+license-file "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\src\cubi\license.txt"
+intro-file "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\src\cubi\docs\CubiV2.0ReleaseNote.rtf"
+intro-file-external yes
+image-side-panel "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\images\side_panel.png"
+image-motif "C:\Program Files\ionCube Package Foundry\res\motif.png"
+ping-php "C:\Program Files\ionCube Package Foundry\Drivers\ping.php"
+untar-php "C:\Program Files\ionCube Package Foundry\Drivers\UnTar.php"
+encoded-php-test "C:\Program Files\ionCube Package Foundry\Drivers\version.php"
+php-config-test "C:\Program Files\ionCube Package Foundry\Drivers\loader-test.php"
+auto-install-loaders yes
+all-encoded-files-binary no
+upload-as-archive no
+use-server-permissions no
+allow-pfn-edit no
+disable-local-installs no
+add-language-pack "de"
+add-language-pack "fr"
+add-language-pack "ko"
+add-language-pack "nl"
+add-language-pack "pt_BR"
+add-language-pack "ru"
+add-language-pack "zh_CN"
+default-file-mode "666"
+default-folder-mode "777"
+main-page "/index.php"
+compression-type "gzip"
+default-file-mode "666"
+compression-level 9
+log-url "http://downloads.ioncube.com/mailer.php"
+contact-email "team@openbiz.me"
+stub-version "2.0"
+stub-product "Openbiz Cubi"
+stub-copyright "Openbiz LLC"
+stub-description "Openbiz Installer"
+post-install-php-interactive no
+disable-permissions-warning yes
+hide-product-info no
+use-package-file no
