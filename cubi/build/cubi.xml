@@ -54,23 +54,25 @@ jsMin, SvnCheckout, Version, Documentor
         <include name="resources/.htaccess" />
         <include name="themes/default/**" />
         <include name="modules/attachment/**" />
-        <include name="modules/backup/**" />
-        <include name="modules/cache/**" />
-        <include name="modules/common/**" />
+        <include name="modules/changelog/**" />
+        <include name="modules/chart/**" />
+        <include name="modules/common/**" />        
         <include name="modules/contact/**" />
         <include name="modules/cronjob/**" />
         <include name="modules/email/**" />
         <include name="modules/eventlog/**" />
+        <include name="modules/extend/**" />
         <include name="modules/help/**" />
+        <include name="modules/location/**" />
+        <include name="modules/market/**" />
         <include name="modules/menu/**" />
-        <include name="modules/security/**" />
+        <include name="modules/myaccount/**" />
+        <include name="modules/notification/**" />
+        <include name="modules/picture/**" />        
         <include name="modules/service/**" />
         <include name="modules/system/**" />
-        <include name="modules/theme/**" />
-        <include name="modules/tool/**" />
-        <include name="modules/translation/**" />
-        <include name="modules/user/**" />
-        <include name="modules/myaccount/**" />
+        <include name="modules/tool/**" />        
+        <include name="modules/user/**" />        
         <include name="modules/websvc/**" />
     </fileset>
     
