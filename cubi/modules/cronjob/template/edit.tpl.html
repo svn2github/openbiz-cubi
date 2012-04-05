@@ -17,11 +17,8 @@
 		{/if}
 	<div style="padding-left:30px;" >
 	{foreach item=setname name=elemsets  from=$form.elementSets}
-		{if $smarty.foreach.elemsets.first}
-		<div class="underline upline">
-		{else}
-		<div class="underline">
-		{/if}
+		<div class=" upline">
+		
 		<h2>{$setname}</h2>
 		{if $setname!='Schedule'}
 		
@@ -86,7 +83,7 @@
 					</td>
 					<td>
 					
-						<span class="label_text" style="width:240px;">{$item.element}</span>
+						<span class="label_text" style="width:200px;">{$item.element}</span>
 						
 					</td>
 					{assign var=item value=$dataPanel.fld_minute}
@@ -96,7 +93,7 @@
 					</td>
 					<td>
 					
-						<span class="label_text" style="width:240px;">{$item.element}</span>
+						<span class="label_text" style="width:200px;">{$item.element}</span>
 						
 					</td>					
 				</tr>
@@ -110,7 +107,7 @@
 						<label style="text-align:left">{$item.label}</label>
 					</td>
 					<td>
-						<span class="label_text" style="width:240px;">{$item.element}</span>						
+						<span class="label_text" style="width:200px;">{$item.element}</span>						
 					</td>
 					{assign var=item value=$dataPanel.fld_day}
 					{assign var=itemName value="fld_day"}
@@ -119,7 +116,7 @@
 					</td>
 					<td>
 					
-						<span class="label_text" style="width:240px;">{$item.element}</span>
+						<span class="label_text" style="width:200px;">{$item.element}</span>
 						
 					</td>					
 				</tr>
@@ -133,7 +130,7 @@
 						<label style="text-align:left">{$item.label}</label>
 					</td>
 					<td>
-						<span class="label_text" style="width:240px;">{$item.element}</span>						
+						<span class="label_text" style="width:200px;">{$item.element}</span>						
 					</td>
 					
 				</tr>
