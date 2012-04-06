@@ -1,0 +1,3 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="licenseClient" Class="licenseClient" RepositoryUrl="http://localhost/gcubi/cubi/ws.php/license/LicenseService">
+</PluginService>
