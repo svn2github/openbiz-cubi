@@ -4,7 +4,8 @@
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
        	<Element Name="fld_activation_code" ElementSet="General" Class="LabelText" FieldName="activation_code" Label="Activation Code" AllowURLParam="N"/>
        	<Element Name="fld_sku"  ElementSet="General" Class="LabelList" FieldName="sku" Label="Product SKU" SelectFrom="product.do.ProductDO[sku]"/>
-        <Element Name="fld_policy_id"  ElementSet="General" Class="LabelList" FieldName="policy_id" Label="Policy" SelectFrom="license.do.LicPolicyDO[name:Id]"/>
+        <Element Name="fld_policy_name"  ElementSet="General" Class="LabelText" FieldName="policy_name" Label="Policy"/>
+		<Element Name="fld_contact_name" ElementSet="General" Class="LabelText" FieldName="contact_name" Label="Contact"/>
        	<Element Name="fld_start_time" ElementSet="General" Class="LabelText" FieldName="start_time" Label="Start Time" AllowURLParam="N"/>
        	<Element Name="fld_end_time" ElementSet="General" Class="LabelText" FieldName="end_time" Label="End Time" AllowURLParam="N"/>
        	<Element Name="fld_status" ElementSet="General" Class="LabelList" FieldName="status" Label="Status" SelectFrom="common.lov.CommLOV(EnableStatus)" AllowURLParam="N"/>

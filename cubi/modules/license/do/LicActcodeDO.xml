@@ -6,6 +6,8 @@
         <BizField Name="sku" Column="sku"    Required="Y" Type="Text"/>
         <BizField Name="policy_id" Column="policy_id"    Required="Y" Type="Number"/>
 		<BizField Name="policy_name" Join="policy" Column="name" />
+		<BizField Name="contact_id" Column="contact_id"    Required="Y" Type="Number"/>
+		<BizField Name="contact_name" Join="contact" Column="display_name"  Type="Text"/>
         <BizField Name="status" Column="status"    Required="N" Type="Number"/>
         <BizField Name="description" Column="description" Length="255"   Required="N" Type="Text"/>
         <BizField Name="start_time" Column="start_time"    Required="N" Type="Datetime"/>
@@ -19,6 +21,7 @@
 	</BizFieldList>
     <TableJoins>
 		<Join Name="policy" Table="lic_policy" Column="id" ColumnRef="policy_id" JoinType="LEFT JOIN"/>
+		<Join Name="contact" Table="contact" Column="id" ColumnRef="contact_id" JoinType="LEFT JOIN"/>
     </TableJoins>
     <ObjReferences>
     </ObjReferences>

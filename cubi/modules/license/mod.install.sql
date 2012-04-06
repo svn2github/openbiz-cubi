@@ -4,6 +4,7 @@ CREATE TABLE `lic_actcode` (
   `activation_code` VARCHAR(64) NOT NULL,
   `sku` VARCHAR(64) NOT NULL,
   `policy_id` INT(11) NOT NULL, 
+  `contact_id` int(11) DEFAULT NULL,
   `start_time` DATETIME DEFAULT NULL,
   `end_time` DATETIME DEFAULT NULL,
   `status` INT(2) DEFAULT '1',

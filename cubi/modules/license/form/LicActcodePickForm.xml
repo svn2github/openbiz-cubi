@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="LicActcodePickForm" Class="PickerForm" FormType="List" jsClass="jbForm" Title="License Activation Code Management" Description="" BizDataObj="license.do.LicActcodeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_pickform.tpl.html" EventName="" MessageFile="" Access="license.Access">
+<EasyForm Name="LicActcodePickForm" Class="PickerForm" FormType="List" jsClass="jbForm" Title="License Activation Code Management" Description="" BizDataObj="license.do.LicActcodeDO" PageSize="10" SearchRule="[contact_id] is null" TemplateEngine="Smarty" TemplateFile="system_pickform.tpl.html" EventName="" MessageFile="" Access="license.Access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" />
