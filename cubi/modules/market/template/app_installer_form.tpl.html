@@ -101,7 +101,12 @@ padding-top:5px;
 	setTimeout("Openbiz.CallFunction('{/literal}{$form.name}{literal}.install({/literal}{$form.currentRecordId}{literal})',{'type':'','target':'','evthdl':'btn_install:btn_retry_onclick'});",1000);
 	{/literal}
 	</script>
-
+{elseif $form.install_state=='Waiting'}
+	<script>
+	{literal}
+	setTimeout("Openbiz.CallFunction('{/literal}{$form.name}{literal}.install({/literal}{$form.currentRecordId}{literal})',{'type':'','target':'','evthdl':'btn_upgrade:btn_retry_onclick'});",1000);
+	{/literal}
+	</script>
 {elseif $form.install_state!='OK'  }
 
 	<script>
