@@ -9,19 +9,17 @@ if(!defined("CLI")){
 	exit;
 }
 
-$licenseClient = "license.lib.LicenseClient";
+$licenseClient = "service.licenseClient";
 
 // get package service 
+//echo "get license client service";
 $licsvc = BizSystem::GetObject($licenseClient);
 
-$package = "trac";
-$userInfo = "rocky@gmail.com";
-$serverData = base64_encode(ioncube_server_data());
+$activationCode = "hacq2b";
+$contactEmail = "rocky@gmail.com";
+$serverData = ""; //base64_encode(ioncube_server_data());
 
-//$license = $licsvc->getTrialLicense($package, $userInfo, $serverData);
-
-$key = 'CUBI-LICENSE-KEY-1';
-$license = $licsvc->getFullLicense($package, $key, $userInfo, $serverData);
+$license = $licsvc->acquireLicense($activationCode, $contactEmail, $serverData);
 print_r($license);
 
 ?>
