@@ -27,9 +27,10 @@ if(isset($_SERVER['DOCUMENT_ROOT'])){
 	$appPath = $appHome;
 }
 if($appPath == $appHome){
-	//support for apache alias path 
-	$doc_root = str_replace('\\','/',dirname(APP_HOME));
-	$appPath = str_replace($doc_root,"",$appHome); 
+	//support for apache alias path
+	//$doc_root = str_replace('\\','/',dirname(APP_HOME)); 
+	$doc_root = str_replace('\\','/',APP_HOME);
+	$appPath = str_replace($doc_root,"",$appHome); 		
 }
 if(substr($appPath,0,1)!='/' && strlen($appPath)>0){
 	$appPath = '/'.$appPath;
