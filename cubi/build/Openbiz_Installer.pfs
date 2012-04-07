@@ -1,7 +1,7 @@
 active-help-url "http://www.openbiz.me/"
 package-name "Openbiz Cubi"
 product-version "2.0"
-package-dir "c:\cubi"
+package-dir "C:\cubi"
 output-file "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\dist\cubi.exe"
 license-file "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\src\cubi\license.txt"
 image-side-panel "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\images\side_panel.png"
@@ -10,7 +10,7 @@ ping-php "C:\Program Files\ionCube Package Foundry\Drivers\ping.php"
 untar-php "C:\Program Files\ionCube Package Foundry\Drivers\UnTar.php"
 encoded-php-test "C:\Program Files\ionCube Package Foundry\Drivers\version.php"
 php-config-test "C:\Program Files\ionCube Package Foundry\Drivers\loader-test.php"
-auto-install-loaders yes
+auto-install-loaders no
 all-encoded-files-binary no
 upload-as-archive no
 use-server-permissions no
@@ -28,7 +28,7 @@ default-folder-mode "777"
 main-page "/index.php"
 compression-type "gzip"
 default-file-mode "666"
-compression-level 6
+compression-level 9
 log-url "http://downloads.ioncube.com/mailer.php"
 contact-email "team@openbiz.me"
 stub-version "2.0"
