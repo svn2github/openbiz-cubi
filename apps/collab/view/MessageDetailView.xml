@@ -1,6 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="MessageDetailView" Description="Message Detail" Class="EasyView" Tab="" TemplateEngine="Smarty"  Access="collab_msgbox.access" TemplateFile="view_message.tpl">
-	<FormReferences>
-        <Reference Name="collab.msgbox.form.MessageReceivedDetailForm"/>        
-    </FormReferences>
-</EasyView>

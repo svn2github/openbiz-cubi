@@ -1,3 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<BizDataObj Name="RelatedEventDO" Description="" DataPermControl="N" Class="BizDataObj" InheritFrom="collab.calendar.do.EventDO" IdGeneration="Identity" CacheLifeTime="0">
-</BizDataObj>

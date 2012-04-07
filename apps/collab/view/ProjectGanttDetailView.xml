@@ -1,7 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="ProjectGanttDetailView" Description="Project Gantt View" Class="EasyView" Tab="" Access="collab_project.access" TemplateEngine="Smarty" TemplateFile="view_project.tpl">
-   <FormReferences>
-   		<Reference Name="collab.project.form.ProjectDetailBriefForm" subforms="collab.project.form.ProjectGanttDetailForm"/>
-   		<Reference Name="collab.project.form.ProjectGanttDetailForm"/>
-   </FormReferences>
-</EasyView>

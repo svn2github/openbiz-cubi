@@ -1,7 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="WorklogStatisticsView" Description="Worklog Statistics" Class="EasyView" Tab="" Access="collab_worklog.access" TemplateEngine="Smarty" TemplateFile="view_statistics.tpl">
-   <FormReferences>
-   		<Reference Name="collab.worklog.form.WorklogStatReportForm" subforms="collab.worklog.form.WorklogStatListForm"/>
-   		<Reference Name="collab.worklog.form.WorklogStatListForm"/>
-   </FormReferences>
-</EasyView>

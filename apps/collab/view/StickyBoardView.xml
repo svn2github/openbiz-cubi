@@ -1,6 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="StickyBoardView" Description="Note Management" Class="EasyView" Tab="" TemplateEngine="Smarty"  Access="collab_note.access" TemplateFile="view_note.tpl">
-	<FormReferences>
-        <Reference Name="collab.note.form.NoteStickyBoardForm"/>        
-    </FormReferences>
-</EasyView>

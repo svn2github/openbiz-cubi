@@ -1,6 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="MessageTypeView" Description="Message Type Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="collab_msgbox.access">
-   <FormReferences>
-   		<Reference Name="collab.msgbox.form.MessageTypeListForm"/>
-   </FormReferences>  
-</EasyView>

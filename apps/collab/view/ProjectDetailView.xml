@@ -1,6 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="ProjectDetailView" Description="Project Detail View" Class="EasyView" Tab="" Access="collab_project.access" TemplateEngine="Smarty" TemplateFile="view_project.tpl">
-   <FormReferences>
-   		<Reference Name="collab.project.form.ProjectDetailForm"/>
-   </FormReferences>
-</EasyView>

@@ -1,7 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="ContactMapView" Description="Contact Map" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" access="contact.access">
-   <FormReferences>
-   		<Reference Name="contact.form.ContactMapForm"/>
-   </FormReferences>
-  
-</EasyView>

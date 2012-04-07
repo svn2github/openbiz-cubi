@@ -1,3 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="StatisticsTypeView" Description="Data Type Statistics" Class="collab.view.SelectorView" FromSelecotr="collab.statistics.widget.TypeViewSelectorLeftWidget" Tab="" Access="collab_statistics.access" TemplateEngine="Smarty" TemplateFile="view_statistics.tpl">
-</EasyView>

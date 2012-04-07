@@ -1,6 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="MessageInboxView" Description="Message Inbox" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_message.tpl" Access="collab_msgbox.access">
-   <FormReferences>
-   		<Reference Name="collab.msgbox.form.MessageInboxListForm"/>
-   </FormReferences>  
-</EasyView>

@@ -1,7 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="ProjectTemplateView" Description="Project Template Management" Class="EasyView" Tab="" Access="collab_project.access" TemplateEngine="Smarty" TemplateFile="view_project.tpl">
-   <FormReferences>
-   		<Reference Name="collab.project.form.ProjectTemplateListForm" subforms="collab.project.form.ProjectTaskTemplateListForm" />
-   		<Reference Name="collab.project.form.ProjectTaskTemplateListForm"/>
-   </FormReferences>
-</EasyView>

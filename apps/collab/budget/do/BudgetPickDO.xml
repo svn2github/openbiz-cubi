@@ -1,9 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<BizDataObj Name="BudgetPickDO" Description="" DataPermControl="N" Class="BizDataObj" InheritFrom="collab.budget.do.BudgetDO" >
-	<BizFieldList>
-   </BizFieldList>
-    <TableJoins>
-    </TableJoins>
-    <ObjReferences>
-    </ObjReferences>
-</BizDataObj>

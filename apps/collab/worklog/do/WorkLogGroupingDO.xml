@@ -1,4 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<BizDataObj Name="WorkLogGroupingDO" Description="" DataPermControl="Y" Class="BizDataObj" inheritFrom="collab.worklog.do.WorkLogDO" SearchRule="[create_by]='{@profile:Id}'" >
-
-</BizDataObj>

@@ -1,4 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<BizDataObj Name="DocumentReversionReviewDO" Description="" DataPermControl="N" Class="BizDataObj" DBName="Default" Table="document_reversion" inheritFrom="collab.document.do.DocumentReversionDO" >
-
-</BizDataObj>

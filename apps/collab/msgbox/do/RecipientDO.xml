@@ -1,4 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<BizDataObj Name="RecipientDO" Description="" DataPermControl="N" Class="BizDataObj" inheritFrom="collab.msgbox.do.MessageRecipientDO">
-	
-</BizDataObj>

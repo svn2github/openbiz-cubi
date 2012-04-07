@@ -1,3 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<BizDataObj Name="MessageContactPickDO" Description="" Class="BizDataObj" DBName="Default" Table="message" SearchRule="[send_status]='draft'" SortRule=""  inheritFrom="collab.msgbox.do.MessageDO">
-</BizDataObj>

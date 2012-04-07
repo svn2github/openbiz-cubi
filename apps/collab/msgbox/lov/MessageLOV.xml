@@ -1,5 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<Selection>
-   <MessageType Value="sent" text="Sent Message"/>
-   <MessageType Value="draft" text="Draft Message"/>     
-</Selection>

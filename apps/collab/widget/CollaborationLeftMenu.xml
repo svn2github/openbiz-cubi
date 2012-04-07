@@ -1,2 +1,0 @@
-<MenuWidget Name="CollaborationLeftMenu" Title="Collaboration" Class="menu.widget.MenuWidget" CssCLass="collaboration" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='collab'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="collab_menu.tpl" CacheLifeTime="0">
-</MenuWidget>

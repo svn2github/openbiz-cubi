@@ -1,7 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="ProjectTaskView" Description="Project Task View" Class="EasyView" Tab="" Access="collab_project.access" TemplateEngine="Smarty" TemplateFile="view_project.tpl">
-   <FormReferences>
-   		<Reference Name="collab.project.form.ProjectTaskFilterForm" subforms="collab.project.form.ProjectTaskListForm"/>
-   		<Reference Name="collab.project.form.ProjectTaskListForm"/>
-   </FormReferences>
-</EasyView>

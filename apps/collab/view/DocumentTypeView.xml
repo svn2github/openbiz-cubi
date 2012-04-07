@@ -1,6 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="DocumentTypeView" Description="Document Type Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="collab_document.access">
-   <FormReferences>
-   		<Reference Name="collab.document.form.DocumentTypeListForm"/>
-   </FormReferences>  
-</EasyView>

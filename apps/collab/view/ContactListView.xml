@@ -1,3 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="ContactListView" Description="Contact Phone Book"  Class="common.view.SelectorView" FromSelecotr="contact.widget.ViewSelectorLeftWidget"  Tab="" TemplateEngine="Smarty" TemplateFile="view_contact.tpl" access="contact.access">
-</EasyView>

@@ -1,6 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="EventNewView" Description="Calendar and Event Management" Class="EasyView"  Tab="" Access="collab_calendar.access" TemplateEngine="Smarty" TemplateFile="view_calendar.tpl">
-	<FormReferences>
-        <Reference Name="collab.calendar.form.EventNewForm"/>        
-    </FormReferences>
-</EasyView>

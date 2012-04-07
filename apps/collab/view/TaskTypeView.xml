@@ -1,6 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="TaskTypeView" Description="Task Type Management" Class="EasyView" Tab="" Access="collab_task.access" TemplateEngine="Smarty" TemplateFile="view.tpl">
-   <FormReferences>
-   		<Reference Name="collab.task.form.TaskTypeListForm"/>
-   </FormReferences>
-</EasyView>

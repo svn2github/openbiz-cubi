@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="MessageForwardForm" Class="MessageDraftEditForm"  Icon="{RESOURCE_URL}/collab/message/images/icon_message_compose.png" FormType="Edit" jsClass="jbForm" Title="Forward Message" Description="Forward a message to your colleagues." inheritFrom="collab.msgbox.form.MessageDraftEditForm" >
-    
-</EasyForm>

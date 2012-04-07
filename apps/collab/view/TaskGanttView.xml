@@ -1,6 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="TaskGanttView" Description="Task Management" Access="collab_task.access" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_task.tpl">
- 	<FormReferences>
-        <Reference Name="collab.task.form.TaskGanttForm"/>        
-    </FormReferences>
-</EasyView>

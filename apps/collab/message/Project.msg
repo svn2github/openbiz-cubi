@@ -1,1 +1,0 @@
-FORM_OPEATION_NOT_PERMITTED = "You don't have enough permission to do this operation."

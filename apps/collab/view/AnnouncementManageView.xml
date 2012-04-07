@@ -1,6 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="AnnouncementManageView" Description="Announcement Publish and Manage" Class="EasyView" Tab="" Access="collab_announcement.manage" TemplateEngine="Smarty" TemplateFile="view_announce.tpl">
-   <FormReferences>
-   		<Reference Name="collab.announcement.form.AnnouncementListForm"/>
-   </FormReferences>       
-</EasyView>

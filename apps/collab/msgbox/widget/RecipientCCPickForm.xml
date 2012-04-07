@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="RecipientCCPickForm" Class="RecipientPickerForm" RecipientType="CC" inheritFrom="collab.msgbox.widget.RecipientPickForm" >    
-</EasyForm>

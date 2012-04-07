@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ProjectTaskFilterForm" Class="ProjectForm" Icon="{RESOURCE_URL}/collab/project/images/icon_project.png" Title="Project Task List" Description="Click a project then you can see all the subtask of the project" Access="collab_project.access" PageSize="4" inheritFrom="collab.project.form.ProjectFilterForm">
-   
-</EasyForm>

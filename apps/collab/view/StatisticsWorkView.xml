@@ -1,8 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="StatisticsWorkView" Description="General Worklog Statistics" Class="EasyView" Tab="" Access="collab_statistics.access" TemplateEngine="Smarty" TemplateFile="view_statistics.tpl">
-   <FormReferences>
-   		<Reference Name="collab.statistics.form.UserWorkhourReportForm" subforms="collab.statistics.form.WorklogStatReportForm"/>
-   		<Reference Name="collab.statistics.form.WorklogStatReportForm" subforms="collab.statistics.form.WorklogStatListForm"/>
-   		<Reference Name="collab.statistics.form.WorklogStatListForm"/>   
-   </FormReferences>
-</EasyView>

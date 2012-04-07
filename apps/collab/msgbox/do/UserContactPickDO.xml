@@ -1,4 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<BizDataObj Name="ContactPickDO" class="BizDataObj" DBName="Default" Table="contact" SearchRule="[user_id]>0" SortRule="" OtherSQLRule="" IdGeneration="Identity" inheritFrom="contact.do.ContactDO">
- 
-</BizDataObj>

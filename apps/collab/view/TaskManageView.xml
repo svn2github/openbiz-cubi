@@ -1,3 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="TaskManageView" Description="Task Management" Access="collab_task.access" Class="collab.view.SelectorView" FromSelecotr="collab.task.widget.TaskViewSelectorLeftWidget" Tab="" TemplateEngine="Smarty" TemplateFile="view_task.tpl"> 
-</EasyView>

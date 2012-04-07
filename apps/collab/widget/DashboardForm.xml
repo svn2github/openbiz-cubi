@@ -1,2 +1,0 @@
-<MenuWidget Name="DashboardForm" Access="collab.access"  Title="Collaboration Dashboard" Class="menu.widget.MenuWidget" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='collab'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="sitemap_menu.tpl" CacheLifeTime="0">
-</MenuWidget>

@@ -1,4 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<BizDataObj Name="WorkLogPickDO" Description="" DataPermControl="Y" Class="BizDataObj" inheritFrom="collab.worklog.do.WorkLogDO" SearchRule="[create_by]='{@profile:Id}' and ([task_id]='' or [task_id]=0 or [task_id] is null)" >
-	
-</BizDataObj>
