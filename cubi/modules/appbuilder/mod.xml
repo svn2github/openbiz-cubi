@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="appbuilder" Description="Cubi Intergrated Development Environment" Version="2.0" OpenbizVersion="3.0">
+	<ACL>
+	<!-- AppBuilder.Access -->
+		<Resource Name="AppBuilder">
+			<Action Name="Access" Description="Access cubi application builder"/>
+		</Resource>
+    </ACL>
+    <Menu>
+		<MenuItem Name="Appbuilder" Title="AppBuilder" Description="Build and Manage Applications" URL="/appbuilder/dashboard" Parent="" Order="10">
+			<MenuItem Name="Appbuilder.AppBuilder" Title="App Builder" Description="Cubi Application Builder" URL="" Parent="" Order="10">
+				<MenuItem Name="Appbuilder.NewWizard" Title="Build New App" Description="Using wizard build a new application" URL="" Parent="" Order="10"></MenuItem>
+				<MenuItem Name="Appbuilder.LinkDO" Title="Link DataObj" Description="Using wizard build a new application" URL="" Parent="" Order="10"></MenuItem>
+	        </MenuItem>
+	        <MenuItem Name="Appbuilder.MetaEditor" Title="Meta Editor" Description="Cubi Application Meta Editor" URL="" Parent="" Order="20">
+				<MenuItem Name="Appbuilder.Module" Title="Existing Modules" URL="/appbuilder/module_list" Order="10"></MenuItem>
+				<MenuItem Name="Appbuilder.DataMeta" Title="Data Object Metadata" URL="/appbuilder/data_meta_list" Order="20"></MenuItem>
+				<MenuItem Name="Appbuilder.FormMeta" Title="Form Object Metadata" URL="/appbuilder/form_meta_list" Order="30"></MenuItem>
+				<MenuItem Name="Appbuilder.ViewMeta" Title="View Object Metadata" URL="/appbuilder/view_meta_list" Order="40"></MenuItem>				
+				<MenuItem Name="Appbuilder.Templates" Title="UI Templates" URL="/appbuilder/template_list" Order="50"></MenuItem>
+				<MenuItem Name="Appbuilder.LOV" Title="List of Values"  URL="/appbuilder/lov_list" Order="60"></MenuItem>
+				<MenuItem Name="Appbuilder.Message" Title="UI Messages" URL="/appbuilder/message_list" Order="70"></MenuItem>
+	        </MenuItem>
+	    </MenuItem>
+	</Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+</Module>
