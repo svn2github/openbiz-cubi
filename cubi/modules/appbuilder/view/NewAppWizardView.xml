@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="NewAppWizardView" Access="AppBuilder.Access" Description="Build a New App" class="EasyViewWizard" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl.html">
+    <FormReferences>
+        <Reference Name="appbuilder.builder.NewAppWizardForm"/>        
+    </FormReferences>
+</EasyView>

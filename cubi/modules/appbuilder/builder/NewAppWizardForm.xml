@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="NewAppWizardForm" Class="EasyFormWizard" Icon="icon_help_tips_add.gif" FormType="New" jsClass="jbForm" Title="App Builder" Description="Start building your own apps by following a wizard. In next steps please carefuly choose options, then new app will be generated for you." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_intro_form.tpl.html" MessageFile="appbuilder.ini">
+    <DataPanel>
+		 
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_next" Class="Button" Text="Next" CssClass="button_gray_m">
+            <EventHandler Name="btn_next_onclick" EventLogMsg="" Event="onclick" Function="goNext(0)" ShortcutKey="Ctrl+Enter" />
+        </Element>    
+    </ActionPanel> 
+    <NavPanel/>    
+    <SearchPanel/>    
+</EasyForm>
