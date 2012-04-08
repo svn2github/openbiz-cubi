@@ -8,7 +8,7 @@
 </ACL>
 	<Menu>
     <!-- System menus -->
-        <MenuItem Name="Report" Title="Reports" Description="Reports" URL="/report/my_reports" Order="60">
+        <MenuItem Name="Report" Title="Report" Description="Report" URL="/report/my_reports" Order="60">
             <MenuItem Name="System.Report" Title="Report Admin" Description="Report Management" IconImage="spacer.gif" IconCssClass="icon_report" Order="10">			
                 <MenuItem Name="System.Report.ReportList" Title="Manage Reports" Description=""  URL="/report/report_list" Order="20"/>
                 <MenuItem Name="System.Report.ReportDbs" Title="Manage Databases" Description=""  URL="/report/report_dbs" Order="30"/>
