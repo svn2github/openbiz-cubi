@@ -10,7 +10,7 @@
 		</Resource>
     </ACL>
     <Menu>
-		<MenuItem Name="License" Title="License" Description="License Description" URL="/license/dashboard" Parent="" Order="10">
+		<MenuItem Name="License" Title="License" Description="License Description" URL="/license/dashboard" Parent="" Order="20">
 			<MenuItem Name="License.Manage" Title="License Management" Description="License description" URL="" Parent="" Order="10">
                 <MenuItem Name="License.Issued.List" Title="License Issued" Description=""  URL="/license/license_list" Order="10"/>
 				<MenuItem Name="License.ActCode.List" Title="Activation Code" Description=""  URL="/license/lic_actcode_list" Order="20"/>
