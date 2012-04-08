@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="market" Description="Openbiz Cubi app market module" Author="Jixian Wang" Version="0.2" OpenbizVersion="2.4">
+<Module Name="market" Description="Openbiz Cubi app market module" Author="Jixian Wang" Version="0.3" OpenbizVersion="2.4">
 	<ACL>
 		<Resource Name="Market">
             <Action Name="Manage" Description="Manage App market repository and app installation"/>
@@ -23,4 +23,9 @@
     <Dependency>
     	<Module Name="system"/>
     </Dependency>
+    <ChangeLog>
+    	<Version Name="0.3">
+    		<Change Name="feature_03" Type="Bugfix"  Status="Finished" PublishDate="2012-04-08" Description="Bugfix for notification service module."></Change>    		
+    	</Version>
+    </ChangeLog>
 </Module>

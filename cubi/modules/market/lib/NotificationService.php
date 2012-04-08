@@ -44,7 +44,7 @@ class NotificationService extends MetaObject
 	protected function _checkAppUpdate()
 	{
 		
-		$resultSet = BizSystem::getObject($this->m_InstalledDO)->directfetch();
+		$resultSet = BizSystem::getObject($this->m_InstalledDO)->directfetch("[install_state]='OK'");
 		//below code copied from appUpdateListFrom
 		$repoAppsArr = array();
 		$repoIdsArr = array();
