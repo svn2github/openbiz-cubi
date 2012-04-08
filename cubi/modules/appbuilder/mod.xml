@@ -7,7 +7,7 @@
 		</Resource>
     </ACL>
     <Menu>
-		<MenuItem Name="Appbuilder" Title="AppBuilder" Description="Build and Manage Applications" URL="/appbuilder/dashboard" Parent="" Order="10">
+		<MenuItem Name="Appbuilder" Title="App Builder" Description="Build and Manage Applications" URL="/appbuilder/dashboard" Parent="" Order="15">
 			<MenuItem Name="Appbuilder.AppBuilder" Title="App Builder" Description="Cubi Application Builder" URL="" Parent="" Order="10">
 				<MenuItem Name="Appbuilder.NewWizard" Title="Build New App" Description="Using wizard build a new application" URL="" Parent="" Order="10"></MenuItem>
 				<MenuItem Name="Appbuilder.LinkDO" Title="Link DataObj" Description="Using wizard build a new application" URL="" Parent="" Order="10"></MenuItem>
