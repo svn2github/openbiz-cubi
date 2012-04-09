@@ -1,0 +1,84 @@
+<form id="{$form.name}" name="{$form.name}">
+<style>
+{literal}
+.button_next_highlight {
+    background-image: url("{/literal}{$resource_url}{literal}/appbuilder/images/btn_next_bg.png");
+    background-position: 0px top;
+    background-repeat: no-repeat;
+    color: #efefef;
+    display: block;
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 3px;
+    overflow: hidden;
+    text-align: left;
+    text-indent:20px;
+    text-decoration: none;
+    width: 96px;
+}
+.button_next_highlight:hover {
+    background-position: 0px -28px;
+    color: #ffffff;
+}
+.button_next_highlight:active {
+    background-position: 0px bottom;
+    color: #ffffff;
+}
+.appbuilder_bg{
+	background-image: url("{/literal}{$resource_url}{literal}/appbuilder/images/appbuilder_bg.png");
+    background-position: 1px bottom;
+    background-repeat: no-repeat;
+}
+{/literal}
+</style>
+<div style="padding-left:80px;padding-right:80px;padding-top:60px;padding-bottom:90px;" class="appbuilder_bg">
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon" style="height:auto;"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+	
+		<div style="float:left; width:360px;">
+			<div>
+			<img src="{$resource_url}/appbuilder/images/appbuilder_logo.png" border="0" />
+			</div>
+			 
+			<p class="input_row" style="line-height:24px;padding-bottom:20px; padding-left:10px; width:320px;height:auto;">		
+			<span>{$form.description}</span>
+			</p> 
+			
+			<div style="padding-left:10px;">
+			{$actionPanel.btn_next.element}
+			</div>
+		</div>
+	</td></tr></table>
+	
+		<div style="height:10px;"></div>
+	{if $errors}
+	    <div id='errorsDiv' class='innerError errorBox'>
+	    {foreach item=errMsg from=$errors}
+	        <div>{$errMsg}</div>
+	    {/foreach}
+	    {literal}<script>try{setTimeout("$('errorsDiv').fade( {from: 1, to: 0});",3000);}catch(e){}</script>{/literal}
+	    </div>
+	{/if}
+	
+	{if $notices}
+	    <div id='noticeDiv' class='noticeBox' >
+	    {foreach item=noticeMsg from=$notices}
+	        <div>{$noticeMsg}</div>
+	    {/foreach}
+	    </div>
+	    {literal}<script>try{setTimeout("$('noticeDiv').fade( {from: 1, to: 0});",3000);}catch(e){};</script>{/literal}
+	{/if}
+
+	
+		<div style="height:15px;">
+		<div id='{$form.name}.load_disp' style="display:none;">
+		<img  src="{$image_url}/form_ajax_loader.gif"/>
+		</div>
+		</div>
+	
+</div>
+
+</form>
