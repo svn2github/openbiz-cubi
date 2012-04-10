@@ -54,6 +54,7 @@ jsMin, SvnCheckout, Version, Documentor
         <include name="session/.htaccess" />
         <include name="resources/.htaccess" />
         <include name="themes/default/**" />
+        <include name="themes/fullwidth/**" />
         <include name="modules/attachment/**" />
         <include name="modules/changelog/**" />
         <include name="modules/chart/**" />
