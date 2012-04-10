@@ -33,6 +33,7 @@ CREATE TABLE `license` (
   `description` VARCHAR(255) DEFAULT '',
   `start_time` DATETIME DEFAULT NULL,
   `end_time` DATETIME DEFAULT NULL,
+  `license_data` TEXT DEFAULT NULL,
   `server_domain`  VARCHAR(128) DEFAULT NULL,
   `server_ip`  VARCHAR(64) DEFAULT NULL,
   `server_data`  TEXT DEFAULT NULL,

@@ -110,6 +110,7 @@ class LicenseService extends WebsvcService
 			$dataRecord['activation_code'] = $activation_code;
 			$dataRecord['policy_id'] = $actcodeRec['policy_id'];
 			$dataRecord['license_key'] = $sku.'-'.$activation_code.'-'.$contactRecId;
+			$dataRecord['license_data'] = $result['license_content'];
 			$dataRecord['start_time'] = date('y-m-d',time());	// now
 			$dataRecord['end_time'] = date('y-m-d',time()+$time_limit);	// now + time limit of license policy
 			$dataRecord['server_domain'] = $serverDomain;	// set server domain name if policy requires

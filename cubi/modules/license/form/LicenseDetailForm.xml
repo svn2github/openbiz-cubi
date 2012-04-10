@@ -11,6 +11,7 @@
        	
        	<Element Name="fld_start_time" ElementSet="General" Class="LabelText" FieldName="start_time" Label="Start Time" AllowURLParam="N"/>
        	<Element Name="fld_end_time" ElementSet="General" Class="LabelText" FieldName="end_time" Label="End Time" AllowURLParam="N"/>
+		<Element Name="fld_license_data" ElementSet="General" Class="LabelText" FieldName="license_data" Label="License Data" AllowURLParam="N"/>
        	<Element Name="fld_server_domain" ElementSet="General" Class="LabelText" FieldName="server_domain" Label="Server Domain" AllowURLParam="N"/>
        	<Element Name="fld_server_ip" ElementSet="General" Class="LabelText" FieldName="server_ip" Label="Server IP" AllowURLParam="N"/>
 		<Element Name="fld_server_data" ElementSet="General" Class="LabelText" FieldName="server_data" Label="Server Data" AllowURLParam="N"/>

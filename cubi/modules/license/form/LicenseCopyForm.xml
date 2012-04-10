@@ -11,6 +11,7 @@
         <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" DefaultValue="1" SelectFrom="common.lov.CommLOV(EnableStatus)" BlankOption="---" />
 		<Element Name="fld_start_time" Class="InputDatetime" DateFormat="%Y-%m-%d %H:%M:%S" FieldName="start_time" Label="Start Time" DefaultValue="{date('Y-m-d')}" DefaultValueRename="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         <Element Name="fld_end_time" Class="InputDatetime" DateFormat="%Y-%m-%d %H:%M:%S" FieldName="end_time" Label="End Time" DefaultValue="{date('Y-m-d',time()+30*24*3600)}" DefaultValueRename="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_license_data" Class="Textarea" FieldName="license_data" Label="License Data"/>
         <Element Name="fld_server_domain" Class="InputText" FieldName="server_domain" Label="Server Domain" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
         <Element Name="fld_server_ip" Class="InputText" FieldName="server_ip" Label="Server IP" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
 		<Element Name="fld_server_data" Class="Textarea" FieldName="server_data" Label="Server Data"/>

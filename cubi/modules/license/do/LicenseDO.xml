@@ -13,6 +13,7 @@
         <BizField Name="description" Column="description" Length="255"   Required="N" Type="Text"/>
         <BizField Name="start_time" Column="start_time"    Required="N" Type="Datetime"/>
         <BizField Name="end_time" Column="end_time"    Required="N" Type="Datetime"/>
+		<BizField Name="license_data" Column="license_data"    Required="N" Type="Text"/>
         <BizField Name="server_domain" Column="server_domain"    Required="N" Type="Text"/>
         <BizField Name="server_ip" Column="server_ip"    Required="N" Type="Text"/>
 		<BizField Name="server_data" Column="server_data"    Required="N" Type="Text"/>
