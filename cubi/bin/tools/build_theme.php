@@ -38,7 +38,7 @@ function execPhing($buildFile, $options)
 function getModuleVersion($moduleName)
 {
     // read mod.xml, get its version as its release name
-    $modfile = MODULE_PATH."/".$moduleName."/theme.xml";
+    $modfile = THEME_PATH."/".$moduleName."/theme.xml";
         
     $xml = simplexml_load_file($modfile);
     $modVersion = $xml['Version'];
