@@ -1,0 +1,2 @@
+<MenuWidget Name="LeftMenu" Title="Product" Class="menu.widget.MenuWidget" CssCLass="product" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='Product'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="vertical_menu.tpl" CacheLifeTime="0">
+</MenuWidget>

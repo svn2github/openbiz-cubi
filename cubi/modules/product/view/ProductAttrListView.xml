@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ProductAttrListView" Description="product.attr" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="product.attr.Access">
+   <FormReferences>
+   		<Reference Name="product.attr.form.ProductAttrListForm"/>
+   </FormReferences>
+</EasyView>
