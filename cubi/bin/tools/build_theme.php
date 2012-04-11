@@ -42,6 +42,10 @@ function getModuleVersion($moduleName)
         
     $xml = simplexml_load_file($modfile);
     $modVersion = $xml['Version'];
+    if(!$modVersion)
+    {
+    	$modVersion = $xml['version'];
+    }
     $releaseName = $modVersion;
 
     $buildNumber = $releaseName;
