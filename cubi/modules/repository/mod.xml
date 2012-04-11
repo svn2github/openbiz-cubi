@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="repository" Description="App market repository" Author="Jixian Wang" Version="0.1" OpenbizVersion="2.4">
+<Module Name="repository" Description="App market repository" Author="Jixian Wang" Version="0.2" OpenbizVersion="2.4">
 	<ACL>
         <Resource Name="Repository">
             <Action Name="Manage" Description="Manage App Market Repository"/>            
@@ -19,4 +19,9 @@
     <Dependency>
     	<Module Name="system"/>
     </Dependency>
+    <ChangeLog>
+    	<Version Name="0.2">    		
+			<Change Name="repo_feature_02" Type="Bugfix"  Status="Finished" PublishDate="2012-04-11" Description="Bugfix for a SQL subquery usage."></Change>    		
+    	</Version>
+    </ChangeLog>	
 </Module>
