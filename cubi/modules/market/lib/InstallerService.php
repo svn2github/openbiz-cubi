@@ -194,7 +194,7 @@ class InstallerService extends PackageService
         $release_id = $package['Id'];
         $this->recordInstallLog($uri,$app_id,$release_id,SITE_URL,$operator);              
         
-        $tmpFolder = APP_FILE_PATH.DIRECTORY_SEPARATOR."tmpFiles".DIRECTORY_SEPARATOR;
+        $tmpFolder = APP_FILE_PATH.DIRECTORY_SEPARATOR."tmpfiles".DIRECTORY_SEPARATOR;
         $toFolder = $tmpFolder.time();
  
         try {
@@ -208,26 +208,29 @@ class InstallerService extends PackageService
         // copy files to target folder from the tmp folder
         $this->_filecopy($toFolder);
         
-        // invoke module upgrade command
-        foreach ($this->_installModules as $moduleName) {
-            $this->pkg_log("invoke module upgrade command\n");        
-            $loader = new ModuleLoader($moduleName);
-            
-	        $loader->debug = 0;
-	        $this->pkg_log("Start upgrading $moduleName module ...".PHP_EOL);
-            $this->pkg_log("--------------------------------------------------------".PHP_EOL);
-	        $result = $loader->upgradeModule(true);
-	        $this->pkg_log($loader->errors . "".PHP_EOL);
-	        $this->pkg_log($loader->logs . "".PHP_EOL);
-	        if ($result == false) {
-	            throw new Exception("Error in install package. ".$loader->errors);
+        if(strtolower($package['type'])=='module' || strtolower($package['type'])=='application')
+        {
+	        // invoke module upgrade command
+	        foreach ($this->_installModules as $moduleName) {
+	            $this->pkg_log("invoke module upgrade command\n");        
+	            $loader = new ModuleLoader($moduleName);
+	            
+		        $loader->debug = 0;
+		        $this->pkg_log("Start upgrading $moduleName module ...".PHP_EOL);
+	            $this->pkg_log("--------------------------------------------------------".PHP_EOL);
+		        $result = $loader->upgradeModule(true);
+		        $this->pkg_log($loader->errors . "".PHP_EOL);
+		        $this->pkg_log($loader->logs . "".PHP_EOL);
+		        if ($result == false) {
+		            throw new Exception("Error in install package. ".$loader->errors);
+		        }
+	            
+	            
+	            // load the module again
+	            $this->pkg_log("Reload module ...".PHP_EOL);
+	            $loader->loadModule($installSql);
+	            $this->pkg_log($loader->errors . "".PHP_EOL);
 	        }
-            
-            
-            // load the module again
-            $this->pkg_log("Reload module ...".PHP_EOL);
-            $loader->loadModule($installSql);
-            $this->pkg_log($loader->errors . "".PHP_EOL);
         }
         $time = date('Y-m-d H:i:s');
 
