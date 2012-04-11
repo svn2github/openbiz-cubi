@@ -38,11 +38,13 @@ class InstalledAppListForm extends AppListForm
 		{
 			$appInfo = $AppsInfoArr[$value['repository_uid']][$value['app_id']];
 			$value['repo_id'] = $repoIdsArr[$value['repository_uid']]; 			
-			foreach($appInfo as $app_key => $app_value)
-			{
-				$value[$app_key] = $app_value;
+			if(is_array($appInfo)){
+				foreach($appInfo as $app_key => $app_value)
+				{
+					$value[$app_key] = $app_value;
+				}
+				$newResultSet[$key] = $value;
 			}
-			$newResultSet[$key] = $value;
 		}
 		return $newResultSet;
 		
