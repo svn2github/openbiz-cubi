@@ -7,12 +7,12 @@
 		</Resource>
     </ACL>
     <Menu>
-		<MenuItem Name="appbuilder" Title="App Builder" Description="Build and Manage Applications" URL="/appbuilder/dashboard" Parent="" Order="15">
-			<MenuItem Name="Appbuilder.AppBuilder" Title="App Builder" Description="Cubi Application Builder" URL=""  Order="10">
+		<MenuItem Name="appbuilder" Title="App Builder" Description="Build and Manage Applications" URL="/appbuilder/dashboard" Parent="" Order="15" >
+			<MenuItem Name="Appbuilder.AppBuilder" Title="App Builder" Description="Cubi Application Builder" URL=""  Order="10"  IconCssClass="icon_appbuilder">
 				<MenuItem Name="Appbuilder.NewWizard" Title="Build New App" Description="Using wizard build a new application" URL="/appbuilder/new_app_wizard"  Order="10"></MenuItem>
 				<MenuItem Name="Appbuilder.LinkDO" Title="Link DataObj" Description="Using wizard build a new application" URL="/appbuilder/link_do_wizard"  Order="20"></MenuItem>
 	        </MenuItem>
-	        <MenuItem Name="Appbuilder.MetaEditor" Title="Meta Editor" Description="Cubi Application Meta Editor" URL="" Parent="" Order="20">
+	        <MenuItem Name="Appbuilder.MetaEditor" Title="Meta Editor" Description="Cubi Application Meta Editor" URL="" Parent="" Order="20"  IconCssClass="icon_metaeditor">
 				<MenuItem Name="Appbuilder.Module" Title="Existing Modules" URL="/appbuilder/module_list" Order="10"></MenuItem>
 				<MenuItem Name="Appbuilder.DataMeta" Title="Data Object Metadata" URL="/appbuilder/data_meta_list" Order="20"></MenuItem>
 				<MenuItem Name="Appbuilder.FormMeta" Title="Form Object Metadata" URL="/appbuilder/form_meta_list" Order="30"></MenuItem>
