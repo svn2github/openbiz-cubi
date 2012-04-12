@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ConfDBConnWizardForm" Class="ConfDBConnWizardForm" ConfigFile="application.xml" ConfigNode="DataSource" Icon="{RESOURCE_URL}/system/images/icon_database_list.png" FormType="List" jsClass="jbForm" Title="Database Connection" Description="Select database connections which managed in /application.xml. The data source should contains your data table which you are going to build the app on it." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_db_conf_form.tpl.html" MessageFile="appbuilder.ini">
+    
+    <DataPanel>
+        
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="NAME"/>
+		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/system/images/icon_database_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+   			<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(system.form.DatabaseDetailForm,{@:Elem[fld_Id].Value})"  />
+        </Element>    
+		<Element Name="fld_name" Class="ColumnText" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+   			<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(system.form.DatabaseDetailForm,{@:Elem[fld_Id].Value})"  />
+        </Element>    
+        <Element Name="fld_driver" Class="ColumnText" FieldName="DRIVER" Label="Driver"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_server" Class="ColumnText" FieldName="SERVER" Label="Server" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_user" Class="ColumnText" FieldName="USER" Label="Username"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_dbname" Class="ColumnText" FieldName="DBNAME" Label="Database"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_status" Class="ColumnBool" FieldName="STATUS" Label="Status"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        		
+    		 
+    </DataPanel>
+    <ActionPanel>
+    
+        
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+			<EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(system.form.DatabaseNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=system.form.DatabaseEditForm&amp;fld:Id={@:m_RecordId}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>   
+        <Element Name="btn_test" Class="Button" Text="Test" CssClass="button_gray_m" Description="test connection (Ctrl+T)">
+            <EventHandler Name="btn_test_onclick" Event="onclick" EventLogMsg="" Function="TestConnection()"  ShortcutKey="Ctrl+T" ContextMenu="Test" />
+        </Element>             
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        </Element>        
+        
+    </ActionPanel> 
+    <NavPanel>
+        <Element Name="btn_prev" Class="Button" Text="Back" CssClass="button_prev_highlight">
+            <EventHandler Name="btn_prev_onclick" EventLogMsg="" Event="onclick" Function="goBack()" ShortcutKey="Ctrl+ESC" />
+        </Element>   
+    
+         <Element Name="btn_next" Class="Button" Text="Next" CssClass="button_next_highlight">
+            <EventHandler Name="btn_next_onclick" EventLogMsg="" Event="onclick" Function="goNext(0)" ShortcutKey="Ctrl+Enter" />
+        </Element>   
+        
+        <Element Name="btn_reset" Class="Button" Text="Cancel" CssClass="button_reset">
+            <EventHandler Name="btn_reset_onclick" EventLogMsg="" Event="onclick" Function="doCancel()" RedirectPage="{APP_INDEX}/appbuilder/new_app_wizard" ShortcutKey="Ctrl+Delete" />
+        </Element>   
+    </NavPanel>    
+</EasyForm>
