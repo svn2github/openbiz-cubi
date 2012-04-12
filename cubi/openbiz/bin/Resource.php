@@ -417,7 +417,8 @@ class Resource
     {
         $objXmlFileName = $xmlFile;
         //$objCmpFileName = dirname($objXmlFileName) . "/__cmp/" . basename($objXmlFileName, "xml") . ".cmp";
-        $_crc32 = sprintf('%08X', crc32(dirname($objXmlFileName)));
+        //$_crc32 = sprintf('%08X', crc32(dirname($objXmlFileName)));
+        $_crc32 = strtoupper(md5(dirname($objXmlFileName)));
         $objCmpFileName = CACHE_METADATA_PATH . '/' . $_crc32 . '_'
                 . basename($objXmlFileName, "xml") . "cmp";
 
