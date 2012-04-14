@@ -169,8 +169,8 @@ class EasyViewWizard extends EasyView
 				
 			case "SWITCHPAGE":
 			default:
-				//$url = "controller.php?view=".$this->m_Name."&step=".$step;
-		        $url = APP_INDEX.'';
+				$currentURL = BizSystem::getService(UTIL_SERVICE)->getViewURL($this->m_Name);
+		        $url = APP_INDEX.'/'.$currentURL.'/step_'.$step;
 				BizSystem::clientProxy()->ReDirectPage($url);
 				break;
 			
