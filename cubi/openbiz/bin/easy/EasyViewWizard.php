@@ -114,12 +114,22 @@ class EasyViewWizard extends EasyView
      * @return number
      */
     public function getCurrentStep()
-    {
-    	if($this->m_CurrentStep){
-    		return $this->m_CurrentStep;
-    	}else{
+    {  	if($_GET['step'])
+	    {
+	    	$this->m_CurrentStep=$_GET['step'];
+	    	return $this->m_CurrentStep;
+	    }
+    	elseif($this->m_CurrentStep)
+    	{
+    		if($this->m_CurrentStep > $this->m_FormRefs->count()){    			            			
+    			return $this->m_FormRefs->count();	
+    		}else{
+    			return $this->m_CurrentStep;	
+    		}    		
+    	}
+    	else
+    	{
 	        $step = isset($_GET['step']) ? $_GET['step'] : 1;
-	
 	        $numForms = 0;
 	        foreach ($this->m_FormRefs as $formRef)
 	            $numForms++;
@@ -147,7 +157,7 @@ class EasyViewWizard extends EasyView
         	$currentStep = $this->getCurrentStep();
     	}
         if ($currentStep == $step)
-            return;
+            return;            
 		switch(strtoupper($this->m_NaviMethod)){
 			case "SWITCHFORM":
 				$targetForm = $this->getStepName($step);
@@ -159,8 +169,9 @@ class EasyViewWizard extends EasyView
 				
 			case "SWITCHPAGE":
 			default:
-				$url = "controller.php?view=".$this->m_Name."&step=".$step;
-		        BizSystem::clientProxy()->ReDirectPage($url);
+				//$url = "controller.php?view=".$this->m_Name."&step=".$step;
+		        $url = APP_INDEX.'';
+				BizSystem::clientProxy()->ReDirectPage($url);
 				break;
 			
 		}
@@ -250,7 +261,6 @@ class EasyViewWizard extends EasyView
         $out = parent::outputAttrs();
         $out['step'] = $this->m_CurrentStep;
         $out['forms'] = $this->m_FormRefs;
-
         return $out;
     }
 
