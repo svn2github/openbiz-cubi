@@ -5,6 +5,27 @@ class ConfDBConnWizardForm extends EasyFormWizard
 	public $m_ConfigNode;
 	public $m_ModeStatus;
 	
+	
+	public function goNext($commit=false)
+	{		
+		$recId = BizSystem::clientProxy()->getFormInputs('_selectedId');
+		$this->m_FixSearchRule = "[Id]='$recId'";
+        $rec = $this->fetchData();
+        if($rec['STATUS']!=0)
+        {			
+			parent::goNext(true);
+        }
+        else
+        {
+        	$msg = $this->getMessage("MSG_DATABASE_STATUS_INVAILD");
+        	$errors = array(
+        		"DATABASE"=>$msg
+        	);
+        	$this->processFormObjError($errors);
+        }
+	}
+	
+	
 	protected function readMetadata(&$xmlArr)
 	{
 		parent::readMetaData($xmlArr);
