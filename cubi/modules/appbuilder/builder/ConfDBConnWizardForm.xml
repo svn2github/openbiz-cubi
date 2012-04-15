@@ -37,7 +37,7 @@
         
     </ActionPanel> 
     <NavPanel>
-        <Element Name="btn_prev" Class="Button" Text="Back" CssClass="button_prev_highlight">
+        <Element Name="btn_prev" Class="Button" Text="Back" CssClass="button_back">
             <EventHandler Name="btn_prev_onclick" EventLogMsg="" Event="onclick" Function="goBack()" ShortcutKey="Ctrl+ESC" />
         </Element>   
     
@@ -45,7 +45,9 @@
             <EventHandler Name="btn_next_onclick" EventLogMsg="" Event="onclick" Function="goNext(0)" ShortcutKey="Ctrl+Enter" />
         </Element>   
         
-        <Element Name="btn_reset" Class="Button" Text="Cancel" CssClass="button_reset">
+        <Element Name="btn_spacer" Class="Spacer" width="10" />	
+        
+        <Element Name="btn_reset" Class="Button" Text="Cancel" CssClass="button_cancel">
             <EventHandler Name="btn_reset_onclick" EventLogMsg="" Event="onclick" Function="doCancel()" RedirectPage="{APP_INDEX}/appbuilder/new_app_wizard" ShortcutKey="Ctrl+Delete" />
         </Element>   
     </NavPanel>    
