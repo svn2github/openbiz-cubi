@@ -267,8 +267,8 @@ class EasyFormWizard extends EasyForm
         	$form=$viewobj->m_FormRefs->current();
         	$forms[$form->m_Name] = $form;
         	$viewobj->m_FormRefs->next();
-        }
-        $output['forms'] = $forms;
+        }        
+        $output['forms'] = $forms;                
         $output['step'] = $viewobj->getCurrentStep();        
         return $output;
     }    

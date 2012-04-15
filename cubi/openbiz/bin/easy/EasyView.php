@@ -465,10 +465,14 @@ class FormReference
      */
     public function __construct($xmlArr)
     {
+    	foreach($xmlArr["ATTRIBUTES"] as $name=>$value)
+        {
+        	$name = 'm_'.ucfirst(strtolower($name));
+        	$this->$name = $value;
+        }
         $this->m_Name = $xmlArr["ATTRIBUTES"]["NAME"];
         $this->m_SubForms = $xmlArr["ATTRIBUTES"]["SUBFORMS"];
-        $this->m_Description = $xmlArr["ATTRIBUTES"]["DESCRIPTION"];
-        
+        $this->m_Description = $xmlArr["ATTRIBUTES"]["DESCRIPTION"];        
     }
 
     /**
