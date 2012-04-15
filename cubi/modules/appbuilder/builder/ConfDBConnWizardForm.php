@@ -13,7 +13,7 @@ class ConfDBConnWizardForm extends EasyFormWizard
         $rec = $this->fetchData();
         if($rec['STATUS']!=0)
         {			
-			parent::goNext(true);
+			parent::goNext(false);
         }
         else
         {
