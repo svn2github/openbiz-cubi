@@ -79,13 +79,31 @@
 
 {/literal}
 </style>
-<div style="padding-left:30px;">
+<div style="padding-left:30px;padding-top:10px;">
+
+<div class="wizard_progress_bar">
+<ul>
+{foreach name=steps item=view_form key=elems_name from=$form.forms}
+	{assign var=current_step value=$smarty.foreach.steps.index+1}  
+	{if $current_step lt $form.step}
+	<li><span class="past_step">{$current_step}. {$view_form->m_Text}</span></li>
+	{elseif $current_step eq $form.step}
+	<li><span class="current_step">{$current_step}. {$view_form->m_Text}</span></li>
+	{else}
+	<li><span class="future_step">{$current_step}. {$view_form->m_Text}</span></li>
+	{/if}
+
+{/foreach}
+</ul>
+</div>
+
+<div class="upline">
 	<table><tr><td>
 		{if $form.icon !='' }
 		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
 		{/if}
 	
-		<div style="float:left; width:600px;">
+		<div style="float:left; width:550px;">
 			<h2>
 			{$form.title}
 			</h2> 
@@ -98,7 +116,7 @@
 			{/if}
 		</div>
 	</td></tr></table>
-
+</div>
 
 <div class="from_table_container">
 
