@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ConfDBConnWizardForm" Class="ConfDBConnWizardForm" ConfigFile="application.xml" ConfigNode="DataSource" Icon="{RESOURCE_URL}/system/images/icon_database_list.png" FormType="List" jsClass="jbForm" Title="Database Connection" Description="Select database connections which managed in /application.xml. The data source should contains your data table which you are going to build the app on it." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_db_conf_form.tpl.html" MessageFile="appbuilder.ini">
+<EasyForm Name="ConfDBConnWizardForm" Class="ConfDBConnWizardForm" ConfigFile="application.xml" ConfigNode="DataSource" Icon="{RESOURCE_URL}/system/images/icon_database_list.png" FormType="List" jsClass="jbForm" Title="Config Database Connection" Description="Select database connection. The data source should contains data tables for your new app." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_db_conf_form.tpl.html" MessageFile="appbuilder.ini">
     
     <DataPanel>
         

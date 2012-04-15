@@ -1,84 +1,4 @@
 <form id="{$form.name}" name="{$form.name}">
-<style>
-{literal}
-.button_next_highlight {
-    background-image: url("{/literal}{$resource_url}{literal}/appbuilder/images/btn_bg.png");
-    background-position: -72px top;
-    background-repeat: no-repeat;
-    color: #efefef;
-    display: block;
-    float: left;
-    height: 20px;
-    line-height: 20px;
-    margin-right: 3px;
-    overflow: hidden;
-    text-align: center;
-    text-indent:14px;
-    text-decoration: none;
-    width: 72px;
-}
-.button_next_highlight:hover {
-    background-position: -72px -20px;
-    color: #ffffff;
-}
-.button_next_highlight:active {
-    background-position: -72px bottom;
-    color: #ffffff;
-}
-
-.button_back {
-    background-image: url("{/literal}{$resource_url}{literal}/appbuilder/images/btn_bg.png");
-    background-position: 0px top;
-    background-repeat: no-repeat;
-    color: #efefef;
-    display: block;
-    float: left;
-    height: 20px;
-    line-height: 20px;
-    margin-right: 3px;
-    overflow: hidden;
-    text-align: center;
-    text-indent:14px;
-    text-decoration: none;
-    width: 72px;
-}
-.button_back:hover {
-    background-position: 0px -20px;
-    color: #ffffff;
-}
-.button_back:active {
-    background-position: 0px bottom;
-    color: #ffffff;
-}
-
-.button_cancel {
-    background-image: url("{/literal}{$resource_url}{literal}/appbuilder/images/btn_bg.png");
-    background-position: -144px top;
-    background-repeat: no-repeat;
-    color: #efefef;
-    display: block;
-    float: left;
-    height: 20px;
-    line-height: 20px;
-    margin-right: 3px;
-    overflow: hidden;
-    text-align: left;
-    text-indent:16px;
-    text-decoration: none;
-    width: 72px;
-}
-.button_cancel:hover {
-    background-position: -144px -20px;
-    color: #ffffff;
-}
-.button_cancel:active {
-    background-position: -144px bottom;
-    color: #ffffff;
-}
-
-
-{/literal}
-</style>
 <div style="padding-left:30px;padding-top:10px;">
 
 <div class="wizard_progress_bar">
@@ -108,7 +28,7 @@
 			{$form.title}
 			</h2> 
 			{if $form.description}
-			<p class="input_row" style="line-height:20px;padding-bottom:10px;">		
+			<p class="input_row" style="line-height:20px;height:18px;">		
 			<span>{$form.description}</span>
 			</p>
 			{else}

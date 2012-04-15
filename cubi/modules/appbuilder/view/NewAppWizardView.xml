@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<EasyView Name="NewAppWizardView" Access="AppBuilder.Access" NaviMethod="SwitchPage" Description="Build a New App" class="EasyViewWizard" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl.html" CacheLifeTime="0" >
+<EasyView Name="NewAppWizardView" Access="AppBuilder.Access" NaviMethod="SwitchForm" Description="Build a New App" class="EasyViewWizard" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl.html" CacheLifeTime="0" >
     <FormReferences>
         <Reference Name="appbuilder.builder.NewAppWizardForm" 			Text="Welcome"		Description="Welcome Page"/>
         <Reference Name="appbuilder.builder.ConfDBConnWizardForm" 		Text="Database"		Description="Config Database Connection"/>
