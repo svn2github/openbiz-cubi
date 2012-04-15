@@ -1,0 +1,26 @@
+.wizard_progress_bar
+{
+	padding-bottom:10px;
+}
+.wizard_progress_bar table
+{
+	width:700px;
+}
+.wizard_progress_bar table td span
+{
+	float:left;
+	display:block;
+}
+.wizard_progress_bar .past_step
+{
+	color:#666666;	
+}
+.wizard_progress_bar .current_step
+{
+	color:#149BC8;
+	font-weight:bold;	
+}
+.wizard_progress_bar .future_step
+{
+	color:#AAAAAA;	
+}

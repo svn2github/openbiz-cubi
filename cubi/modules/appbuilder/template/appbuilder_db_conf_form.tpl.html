@@ -82,19 +82,19 @@
 <div style="padding-left:30px;padding-top:10px;">
 
 <div class="wizard_progress_bar">
-<ul>
+<table><tr>
 {foreach name=steps item=view_form key=elems_name from=$form.forms}
 	{assign var=current_step value=$smarty.foreach.steps.index+1}  
 	{if $current_step lt $form.step}
-	<li><span class="past_step">{$current_step}. {$view_form->m_Text}</span></li>
+	<td class="past_step"><span>{$current_step}. {$view_form->m_Text}</span></td>
 	{elseif $current_step eq $form.step}
-	<li><span class="current_step">{$current_step}. {$view_form->m_Text}</span></li>
+	<td class="current_step"><span>{$current_step}. {$view_form->m_Text}</span></td>
 	{else}
-	<li><span class="future_step">{$current_step}. {$view_form->m_Text}</span></li>
+	<td class="future_step"><span>{$current_step}. {$view_form->m_Text}</span></td>
 	{/if}
 
 {/foreach}
-</ul>
+</tr></table>
 </div>
 
 <div class="upline">
@@ -128,6 +128,9 @@
 			    	{$elem.element}
 			{/foreach}
 		</div>
+			<div id='{$form.name}.load_disp' style="display:none;padding-top:12px;float:right;padding-right:10px;" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>		
 	</div>	
 {/if}	
 
@@ -220,11 +223,6 @@
 </table>
 </div>
 	
-<span id='{$form.name}_selected_id' style="display:none">{$default_selected_id}</span>
-
-			<div id='{$form.name}.load_disp' style="display:none" >
-				<img src="{$image_url}/form_ajax_loader.gif"/>
-			</div>
 		
 <!-- table end -->	
 
@@ -236,6 +234,9 @@
 	</div>	
 {/if}	
 
+<span id='{$form.name}_selected_id' style="display:none">{$default_selected_id}</span>
+
+			
 	<div class="v_spacer"></div>
 	{if $errors}
 	    <div id='errorsDiv' class='innerError errorBox'>

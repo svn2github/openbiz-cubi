@@ -3,7 +3,6 @@
     
     <DataPanel>
         
-        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="NAME"/>
 		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/system/images/icon_database_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
    			<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(system.form.DatabaseDetailForm,{@:Elem[fld_Id].Value})"  />
