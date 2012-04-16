@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ConfDataTableWizardForm" Class="ConfDataTableWizardForm" ConfigFile="application.xml" ConfigNode="DataSource" Icon="{RESOURCE_URL}/appbuilder/images/icon_data_table.png" FormType="List" jsClass="jbForm" Title="Config Data Table" Description="Select data table as the base table of the new application, or create a new data table in this step." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_db_conf_form.tpl.html" MessageFile="appbuilder.ini">
+<EasyForm Name="ConfDataTableWizardForm" Class="ConfDataTableWizardForm" ConfigFile="application.xml" ConfigNode="DataSource" Icon="{RESOURCE_URL}/appbuilder/images/icon_data_table.png" FormType="List" jsClass="jbForm" Title="Config Data Table" Description="Select data table as the base table of the new application, or create a new data table in this step." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_table_conf_form.tpl.html" MessageFile="appbuilder.ini">
     
     <DataPanel>
         
-        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="NAME"/>
 		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/system/images/icon_database_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
    			<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(system.form.DatabaseDetailForm,{@:Elem[fld_Id].Value})"  />
         </Element>    
-		<Element Name="fld_name" Class="ColumnText" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+		<Element Name="fld_name" Class="ColumnText" FieldName="Name" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
    			<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(system.form.DatabaseDetailForm,{@:Elem[fld_Id].Value})"  />
-        </Element>    
-        <Element Name="fld_driver" Class="ColumnText" FieldName="DRIVER" Label="Driver"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
-        <Element Name="fld_server" Class="ColumnText" FieldName="SERVER" Label="Server" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-        <Element Name="fld_user" Class="ColumnText" FieldName="USER" Label="Username"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-        <Element Name="fld_dbname" Class="ColumnText" FieldName="DBNAME" Label="Database"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-        <Element Name="fld_status" Class="ColumnBool" FieldName="STATUS" Label="Status"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
-        		
+        </Element>     
+    	<Element Name="fld_comment" Class="ColumnText" FieldName="Comment" Label="Comment"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />               
+        <Element Name="fld_engine" Class="ColumnText" FieldName="Engine" Label="Engine"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_rows" Class="ColumnText" FieldName="Rows" Label="Rows" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_data_size" Class="ColumnText" FieldName="Data_length" Label="Data Size" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        		
     		 
     </DataPanel>
     <ActionPanel>
