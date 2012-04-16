@@ -13,7 +13,7 @@
     	<Element Name="fld_comment" Class="ColumnText" FieldName="Comment" Label="Comment"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />               
         <Element Name="fld_engine" Class="ColumnText" FieldName="Engine" Label="Engine"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
         <Element Name="fld_rows" Class="ColumnText" FieldName="Rows" Label="Rows" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_data_size" Class="ColumnText" FieldName="Data_length" Label="Data Size" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        		
+		<Element Name="fld_data_size" Class="ColumnText" FieldName="Data_length" Text="{BizSystem::GetService(UTIL_SERVICE)->format_bytes(@:Elem[fld_data_size].Value)}" Label="Data Size" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        		
     		 
     </DataPanel>
     <ActionPanel>
