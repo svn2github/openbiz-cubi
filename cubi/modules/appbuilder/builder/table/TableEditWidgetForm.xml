@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TableEditWidgetForm" Class="ConfDataTableWidgetForm" Icon="{RESOURCE_URL}/appbuilder/images/icon_data_table.png"  FormType="Edit" jsClass="jbForm" Title="Edit Data Table Attribute" Description="Edit selected data table Comment and Storage Engine" BizDataObj="" TemplateEngine="Smarty" TemplateFile="popup_detail.tpl" EventName="" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
+    <DataPanel>
+        <Element Name="fld_name" DefaultValue="New Device" Class="InputText" FieldName="name" Label="Name"   />	
+        <Element Name="fld_location" DefaultValue="/var/" DefaultValueRename="N" Class="InputText" FieldName="location" Label="Location"   />	
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	
+        <Element Name="fld_status" Class="Radio" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" FieldName="status" Label="Status"  />	      
+        <Element Name="fld_sortorder" Class="Listbox" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />	        	
+    </DataPanel>
+    <ActionPanel>
+		<Element Name="btn_edit" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="UpdateRecord()" RedirectPage="form=attachment.widget.AttachmentDetailForm&amp;fld:Id={@attachment.do.AttachmentDO:Field[Id].Value}" />
+        </Element>
+		<Element Name="btn_spacer" Class="Spacer" width="10" />
+
+        <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="close()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
