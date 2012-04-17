@@ -111,7 +111,7 @@ class InputPassword extends Password
         if($this->m_Value==$this->m_PasswordMask)
         {
         	
-    		$rawDataArr = $this->getFormObj()->fetchData();
+    		$rawDataArr = $this->getFormObj()->getActiveRecord();
     		$this->m_Value_Real = $rawDataArr[$this->m_FieldName];
     		$this->m_Value = $rawDataArr[$this->m_FieldName];
             return $this->m_Value_Real;
