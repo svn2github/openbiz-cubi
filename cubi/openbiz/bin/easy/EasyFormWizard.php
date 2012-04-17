@@ -27,6 +27,13 @@ class EasyFormWizard extends EasyForm
     protected $m_DropSession = false;
 
     /**
+     * Wizard Navigation Panel object
+     *
+     * @var Panel
+     */
+    public $m_WizardPanel;    
+    
+    /**
      * Get/Retrieve Session data of this object
      *
      * @param SessionContext $sessionContext
@@ -39,6 +46,12 @@ class EasyFormWizard extends EasyForm
         $this->setActiveRecord($this->m_ActiveRecord);
     }
 
+ 	protected function readMetadata(&$xmlArr)
+    {
+        parent::readMetaData($xmlArr);        
+        $this->m_WizardPanel = new Panel($xmlArr["EASYFORM"]["WIZARDPANEL"]["ELEMENT"],"",$this);
+    }    
+    
     /**
      * Save object variable to session context
      *

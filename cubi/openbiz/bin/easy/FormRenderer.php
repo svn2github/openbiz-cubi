@@ -96,6 +96,10 @@ class FormRenderer
         }
         $tplAttributes['actionPanel'] = $formObj->m_ActionPanel->render();
         $tplAttributes['navPanel'] = $formObj->m_NavPanel->render();
+        if($formObj->m_WizardPanel)
+        {
+        	$tplAttributes['wizardPanel'] = $formObj->m_WizardPanel->render();
+        }
         
         return $tplAttributes;
     }
