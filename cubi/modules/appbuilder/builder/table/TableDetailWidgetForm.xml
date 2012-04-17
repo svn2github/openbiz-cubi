@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="TableDetailWidgetForm" Class="TableWidgetForm" Icon="{RESOURCE_URL}/appbuilder/images/icon_data_table.png"  FormType="Detail" jsClass="jbForm" Title="Edit Data Table Attribute" Description="Edit selected data table Comment and Storage Engine" BizDataObj="" TemplateEngine="Smarty" TemplateFile="form_detail_popup.tpl.html" EventName="" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
+<EasyForm Name="TableDetailWidgetForm" Class="TableWidgetForm" Icon="{RESOURCE_URL}/appbuilder/images/icon_data_table.png"  FormType="Detail" jsClass="jbForm" Title="Edit Data Table Attribute" Description="Edit selected data table Comment and Storage Engine" BizDataObj="" TemplateEngine="Smarty" TemplateFile="popup_data_table_detail.tpl.html" EventName="" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Name"   />
         <Element Name="fld_name" Class="LabelText" FieldName="Name" Label="Name"   />
