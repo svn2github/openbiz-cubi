@@ -24,10 +24,7 @@
         </Element>
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
             <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=system.form.DatabaseEditForm&amp;fld:Id={@:m_RecordId}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
-        </Element>   
-        <Element Name="btn_test" Class="Button" Text="Test" CssClass="button_gray_m" Description="test connection (Ctrl+T)">
-            <EventHandler Name="btn_test_onclick" Event="onclick" EventLogMsg="" Function="TestConnection()"  ShortcutKey="Ctrl+T" ContextMenu="Test" />
-        </Element>             
+        </Element>       
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
         </Element>        

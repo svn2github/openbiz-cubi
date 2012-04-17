@@ -2,6 +2,27 @@
 class ConfDataTableWizardForm extends EasyFormWizard
 {
 
+	public function deleteRecord($id=null)
+	{
+		if ($id==null || $id=='')
+            $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
+
+        $selIds = BizSystem::clientProxy()->getFormInputs('row_selections', false);
+        if ($selIds == null)
+            $selIds[] = $id;
+        $db = $this->_getDBConn();
+        foreach ($selIds as $id)
+        {      
+        	$sql = "DROP TABLE IF EXISTS `$id`;";
+        	$db->query($sql);
+        }
+        if (strtoupper($this->m_FormType) == "LIST")
+            $this->rerender();
+
+        $this->runEventLog();
+        $this->processPostAction();
+	}
+	
 	public function getActiveRecord($recId=null)
     {
         if ($this->m_ActiveRecord != null)
@@ -25,13 +46,19 @@ class ConfDataTableWizardForm extends EasyFormWizard
         $this->m_ActiveRecord = $rec;
         return $rec;
     }	
-	
-    public function fetchTableInfo($tableName)
+    
+    protected function _getDBConn()
     {
     	$dbConnForm = BizSystem::getObject("appbuilder.builder.ConfDBConnWizardForm");
 		$dbRec = $dbConnForm->getActiveRecord();
 		$dbName = $dbRec['NAME'];
 		$db = BizSystem::instance()->getDBConnection($dbname);
+		return $db;
+    }
+	
+    public function fetchTableInfo($tableName)
+    {
+    	$db = $this->_getDBConn();
 		$tableInfos = $db->fetchAssoc("SHOW TABLE STATUS WHERE Name='$tableName'");
 		return $tableInfos[0];
     }
@@ -39,10 +66,7 @@ class ConfDataTableWizardForm extends EasyFormWizard
     
 	public function fetchDataSet()
 	{
-		$dbConnForm = BizSystem::getObject("appbuilder.builder.ConfDBConnWizardForm");
-		$dbRec = $dbConnForm->getActiveRecord();
-		$dbName = $dbRec['NAME'];
-		$db = BizSystem::instance()->getDBConnection($dbname);
+		$db = $this->_getDBConn();
     	$tblCols = $db->listTables();
     	
 		try
