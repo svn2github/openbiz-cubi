@@ -41,6 +41,7 @@ class EasyFormWizard extends EasyForm
      */
     public function getSessionVars($sessionContext)
     {
+    	parent::getSessionVars($sessionContext);
         $sessionContext->getObjVar($this->m_Name, "ActiveRecord", $this->m_ActiveRecord, true);
         $sessionContext->getObjVar($this->m_Name, "FormInputs", $this->m_FormInputs, true);
         $this->setActiveRecord($this->m_ActiveRecord);
@@ -59,10 +60,11 @@ class EasyFormWizard extends EasyForm
      * @return void
      */
     public function setSessionVars($sessionContext)
-    {
+    {    	
         if ($this->m_DropSession)
             $sessionContext->cleanObj($this->m_Name, true);
         else {
+        	parent::setSessionVars($sessionContext);
             $sessionContext->setObjVar($this->m_Name, "ActiveRecord", $this->m_ActiveRecord, true);
             $sessionContext->setObjVar($this->m_Name, "FormInputs", $this->m_FormInputs, true);
         }
