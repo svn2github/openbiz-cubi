@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="TableEditWidgetForm" Class="ConfDataTableWidgetForm" Icon="{RESOURCE_URL}/appbuilder/images/icon_data_table.png"  FormType="Edit" jsClass="jbForm" Title="Edit Data Table Attribute" Description="Edit selected data table Comment and Storage Engine" BizDataObj="" TemplateEngine="Smarty" TemplateFile="popup_detail.tpl" EventName="" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
+<EasyForm Name="TableEditWidgetForm" Class="TableWidgetForm" Icon="{RESOURCE_URL}/appbuilder/images/icon_data_table.png"  FormType="Detail" jsClass="jbForm" Title="Edit Data Table Attribute" Description="Edit selected data table Comment and Storage Engine" BizDataObj="" TemplateEngine="Smarty" TemplateFile="popup_data_table_detail.tpl.html" EventName="" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
     <DataPanel>
-        <Element Name="fld_name" DefaultValue="New Device" Class="InputText" FieldName="name" Label="Name"   />	
-        <Element Name="fld_location" DefaultValue="/var/" DefaultValueRename="N" Class="InputText" FieldName="location" Label="Location"   />	
-        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	
-        <Element Name="fld_status" Class="Radio" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" FieldName="status" Label="Status"  />	      
-        <Element Name="fld_sortorder" Class="Listbox" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />	        	
+        <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Name"   />
+        <Element Name="fld_name" Class="LabelText" FieldName="Name" Label="Name"   />
+        <Element Name="fld_comment" Class="InputText" FieldName="Comment" Label="Comment"   />
+        <Element Name="fld_engine" Class="TableEngineListbox" FieldName="Engine" Label="Engine"   />	
+        <Element Name="fld_rows" Class="LabelText" FieldName="Rows" Label="Records"   />
+        <Element Name="fld_data_size" Class="LabelText"  Text="{BizSystem::GetService(UTIL_SERVICE)->format_bytes(@:Elem[fld_data_size].Value)}"  FieldName="Data_length" Label="Data Size"   />
+        <Element Name="fld_index_size" Class="LabelText"  Text="{BizSystem::GetService(UTIL_SERVICE)->format_bytes(@:Elem[fld_index_size].Value)}"  FieldName="Index_length" Label="Index Size"   />
+        <Element Name="fld_create_time" Class="LabelText" FieldName="Create_time" Label="Create Time"   />
+        <Element Name="fld_update_time" Class="LabelText" FieldName="Update_time" Label="Update Time"   />		
     </DataPanel>
     <ActionPanel>
 		<Element Name="btn_edit" Class="Button" Text="Save" CssClass="button_gray_m">
             <EventHandler Name="btn_close_onclick" Event="onclick" Function="UpdateRecord()" RedirectPage="form=attachment.widget.AttachmentDetailForm&amp;fld:Id={@attachment.do.AttachmentDO:Field[Id].Value}" />
         </Element>
 		<Element Name="btn_spacer" Class="Spacer" width="10" />
-
         <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
             <EventHandler Name="btn_close_onclick" Event="onclick" Function="close()"/>
         </Element>

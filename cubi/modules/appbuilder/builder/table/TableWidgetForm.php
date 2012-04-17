@@ -6,6 +6,9 @@ class TableWidgetForm extends ConfDataTableWizardForm
 	{
 		preg_match("/\[(.*?)\]=\'(.*?)\'/si",$this->m_FixSearchRule,$match);
 		$name = $match[2];
+		if(!$name){
+			$name=BizSystem::getObject($this->m_ParentFormName)->m_RecordId;
+		}
 		$result = $this->fetchTableInfo($name);
 		return $result;
 	}
