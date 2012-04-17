@@ -109,8 +109,7 @@ class InputPassword extends Password
     		$this->m_Value = BizSystem::clientProxy()->getFormInputs($this->m_Name);
     	}
         if($this->m_Value==$this->m_PasswordMask)
-        {
-        	
+        {       	
     		$rawDataArr = $this->getFormObj()->getActiveRecord();
     		$this->m_Value_Real = $rawDataArr[$this->m_FieldName];
     		$this->m_Value = $rawDataArr[$this->m_FieldName];
