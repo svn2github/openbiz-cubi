@@ -48,9 +48,6 @@
 			    	{$elem.element}
 			{/foreach}
 		</div>
-			<div id='{$form.name}.load_disp' style="display:none;padding-top:12px;float:right;padding-right:10px;" >
-				<img src="{$image_url}/form_ajax_loader.gif"/>
-			</div>		
 	</div>	
 {/if}	
 
@@ -146,9 +143,25 @@
 		
 <!-- table end -->	
 
-{if $navPanel  }	
+	<div class="form_footer_panel" >
+		<div class="ajax_indicator" style="width:150px;">
+			<div id='{$form.name}.load_disp' style="display:none" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
+		</div>
+		<div class="navi_panel">
+{if $navPanel}
+   {foreach item=elem from=$navPanel}
+   		{if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
+    	{$elem.element}
+   {/foreach}
+{/if}			
+		</div>		
+	</div>
+
+{if $wizardPanel  }	
 	<div class="" style="height:30px;padding-top:10px;">	
-			{foreach item=elem from=$navPanel}
+			{foreach item=elem from=$wizardPanel}
 			    	{$elem.element}
 			{/foreach}
 	</div>	
