@@ -8,16 +8,16 @@ class AppUpdateListForm extends InstalledAppListForm
 		foreach($resultSet as $key=>$app)
 		{			
 			$current_version = $app['version'];
-			$latest_version = $app['latest_version'];
+			$latest_version = $app['latest_version'];			
 			if(version_compare($current_version, $latest_version) != -1)
 			{
 				unset($resultSet[$key]);
 			}else{
 				$app['description'] = $app['version_description'];
-				$resultSet[$key] = $app;
+				$newResultSet[] = $app;
 			}
 		}		
-		return $resultSet;
+		return $newResultSet;
 	}		
 }
 ?>
