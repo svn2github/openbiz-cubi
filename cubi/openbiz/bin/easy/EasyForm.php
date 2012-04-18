@@ -1843,7 +1843,10 @@ class EasyForm extends MetaObject implements iSessionObject
      */
     protected function getNewRecord()
     {
-        $recArr = $this->getDataObj()->newRecord();
+    	if($this->getDataObj())
+    	{
+        	$recArr = $this->getDataObj()->newRecord();
+    	}
         if (! $recArr)
             return null;
         // load default values if new record value is empty
