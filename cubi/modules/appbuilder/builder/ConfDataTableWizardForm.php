@@ -62,7 +62,7 @@ class ConfDataTableWizardForm extends EasyFormWizard
 		$tableInfos = $db->fetchAssoc("SHOW TABLE STATUS WHERE Name='$tableName'");
 		return $tableInfos[$tableName];
     }
-    
+       
     
 	public function fetchDataSet()
 	{
