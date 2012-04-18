@@ -33,7 +33,7 @@ class TableEngineListbox extends Listbox
     	
         foreach ($engineList as $engine)
         {        
-        	if($engine['Support']=="YES")
+        	if($engine['Support']!="NO")
         	{
 	            $list[$i]['val'] = $engine['Engine'];
 	            $list[$i]['txt'] = $engine['Engine'];

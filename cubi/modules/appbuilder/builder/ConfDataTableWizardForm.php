@@ -52,7 +52,7 @@ class ConfDataTableWizardForm extends EasyFormWizard
     	$dbConnForm = BizSystem::getObject("appbuilder.builder.ConfDBConnWizardForm");
 		$dbRec = $dbConnForm->getActiveRecord();
 		$dbName = $dbRec['NAME'];
-		$db = BizSystem::instance()->getDBConnection($dbname);
+		$db = BizSystem::instance()->getDBConnection($dbName);
 		return $db;
     }
 	
