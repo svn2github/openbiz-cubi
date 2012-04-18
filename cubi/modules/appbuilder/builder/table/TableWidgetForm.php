@@ -103,7 +103,7 @@ class TableWidgetForm extends ConfDataTableWizardForm
 		  $sql_key_common
 		) ENGINE=$engine  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 COMMENT = '$comment' ;       
        ";
-       
+
 	  $db = $this->_getDBConn();
 	  $db->query($sql);
 
