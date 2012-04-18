@@ -36,36 +36,34 @@ class TableWidgetForm extends ConfDataTableWizardForm
             return;
         }
 
-       // $this->_doInsert($recArr);
        $engine 		= $recArr['Engine'];
        $tableName 	= $recArr['Name'];
        $comment 	= $recArr['Comment'];
-       
-	   if($recArr['_field_common'])
+
+       if(strtoupper($recArr['_field_common'])=='Y')
        {
        		$sql_fields_common = "
 			    `name` varchar(255) NOT NULL,
   				`description` text NOT NULL,        		
        		";
-       		$sql_key_common = ",KEY `name` (`name`),";
+       		$sql_key_common = ",KEY `name` (`name`)";
        }
 
-	   if($recArr['_field_sort'])
+	   if(strtoupper($recArr['_field_sort'])=='Y')
        {
        		$sql_fields_sort = "
 			    `sortorder` int(11) NOT NULL,       		
        		";
        }
 
-	   if($recArr['_field_status'])
+	   if(strtoupper($recArr['_field_status'])=='Y')
        {
        		$sql_fields_sort = "
 			    `status` int(2) NOT NULL,      		
        		";
-       }
-       
-       
-       if($recArr['_field_creator'])
+       }       
+      
+       if(strtoupper($recArr['_field_creator'])=='Y')
        {
        		$sql_fields_creator = "
 			  `create_by` int(11) NOT NULL,
@@ -73,7 +71,7 @@ class TableWidgetForm extends ConfDataTableWizardForm
        		";
        }
        
-	   if($recArr['_field_updator'])
+	   if(strtoupper($recArr['_field_updator'])=='Y')
        {
        		$sql_fields_updator = "
 			    `update_by` int(11) NOT NULL,
@@ -82,6 +80,7 @@ class TableWidgetForm extends ConfDataTableWizardForm
        }   
 
        if($recArr['_field_data_share'])
+       if(strtoupper($recArr['_field_data_share'])=='Y')
        {
        		$sql_fields_share = "
 			    `owner_id` int(11) default 0,

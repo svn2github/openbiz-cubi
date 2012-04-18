@@ -3,15 +3,15 @@
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Name"   />
         <Element Name="fld_name" ElementSet="General" DefaultValue="new_table" Class="InputText" FieldName="Name" Label="Name"   />
-        <Element Name="fld_comment" ElementSet="General" Class="InputText" FieldName="Comment" Label="Comment"   />
-        <Element Name="fld_engine" ElementSet="General" Class="TableEngineListbox" FieldName="Engine" Label="Engine"   />	
+        <Element Name="fld_comment" ElementSet="General" DefaultValue="New Data Table" Class="InputText" FieldName="Comment" Label="Comment"   />
+        <Element Name="fld_engine" ElementSet="General" DefaultValue="MyISAM" Class="TableEngineListbox" FieldName="Engine" Label="Engine"   />	
         
-        <Element Name="fld_data_common" ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_common" Label="Common Fields"  Description="Add default name and description fields"   />
-        <Element Name="fld_data_share" ElementSet="Advanced Options"  Class="Checkbox" FieldName="_field_share" Label="Share Fields"  Description="Add fields for data sharing feature"   />
-        <Element Name="fld_data_sort"  ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_sort" Label="Sorting Fields" Description="Add fields for data sorting feture"   />
-        <Element Name="fld_data_status"  ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_status" Label="Status Fields" Description="Add fields for data status control feture"   />
-        <Element Name="fld_data_create_by"  ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_creator" Label="Creator Fields" Description="Add fields for data creator tracing feture"   />
-        <Element Name="fld_data_uptime_by"  ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_updator" Label="Updator Fields" Description="Add fields for data updator tracing feture"   />
+        <Element Name="fld_data_common" DefaultValue="N" SelectFrom="Y" ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_common" Label="Common Fields"  Description="Add default name and description fields"   />
+        <Element Name="fld_data_share" DefaultValue="N" SelectFrom="Y" ElementSet="Advanced Options"  Class="Checkbox" FieldName="_field_share" Label="Share Fields"  Description="Add fields for data sharing feature"   />
+        <Element Name="fld_data_sort"  DefaultValue="N" SelectFrom="Y" ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_sort" Label="Sorting Fields" Description="Add fields for data sorting feture"   />
+        <Element Name="fld_data_status" DefaultValue="N" SelectFrom="Y"  ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_status" Label="Status Fields" Description="Add fields for data status control feture"   />
+        <Element Name="fld_data_create_by" DefaultValue="N" SelectFrom="Y"  ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_creator" Label="Creator Fields" Description="Add fields for data creator tracing feture"   />
+        <Element Name="fld_data_uptime_by" DefaultValue="N" SelectFrom="Y"  ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_updator" Label="Updator Fields" Description="Add fields for data updator tracing feture"   />
         
     </DataPanel>
     <ActionPanel>
