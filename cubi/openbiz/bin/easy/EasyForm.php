@@ -639,6 +639,10 @@ class EasyForm extends MetaObject implements iSessionObject
         if ($this->m_ActionPanel->get($elementName)) return $this->m_ActionPanel->get($elementName);
         if ($this->m_NavPanel->get($elementName)) return $this->m_NavPanel->get($elementName);
         if ($this->m_SearchPanel->get($elementName)) return $this->m_SearchPanel->get($elementName);
+        if($this->m_WizardPanel)
+        {
+        	if ($this->m_WizardPanel->get($elementName)) return $this->m_WizardPanel->get($elementName);
+        }
     }
     
     public function getElementSet($panel = null)
