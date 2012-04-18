@@ -45,11 +45,13 @@ class Checkbox extends OptionElement
      */
     public function getValue()
     {
-       	if(strtoupper($this->getDefaultChecked())=='Y')
+       	/*
+    	if(strtoupper($this->getDefaultChecked())=='Y')
     	{
     		$this->m_Value = $this->getSelectFrom();
     		return $this->m_Value;
     	}
+    	*/
         if($this->m_Value!=null)
         {
             return $this->m_Value;
