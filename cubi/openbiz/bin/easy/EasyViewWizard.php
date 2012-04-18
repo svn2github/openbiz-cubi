@@ -242,10 +242,12 @@ class EasyViewWizard extends EasyView
     public function cancel()
     {
         // call all step forms Cancel method
-        foreach ($this->m_FormStates as $formName=>$state)
-        {
-            if ($state['visited'])
-                BizSystem::objectFactory()->getObject($formName)->cancel();
+        if(is_array($this->m_FormStates)){
+	        foreach ($this->m_FormStates as $formName=>$state)
+	        {
+	            if ($state['visited'])
+	                BizSystem::objectFactory()->getObject($formName)->cancel();
+	        }
         }
         $this->m_DropSession = true;
     }
