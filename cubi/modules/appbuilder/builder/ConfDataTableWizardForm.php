@@ -49,11 +49,7 @@ class ConfDataTableWizardForm extends EasyFormWizard
     
     protected function _getDBConn()
     {
-    	$dbConnForm = BizSystem::getObject("appbuilder.builder.ConfDBConnWizardForm");
-		$dbRec = $dbConnForm->getActiveRecord();
-		$dbName = $dbRec['NAME'];
-		$db = BizSystem::instance()->getDBConnection($dbName);
-		return $db;
+    	return $this->getViewObject()->_getDBConn();
     }
 	
     public function fetchTableInfo($tableName)
