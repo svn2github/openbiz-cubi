@@ -7,7 +7,7 @@
 		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/system/images/icon_database_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
    			<EventHandler Name="fld_icon_onclick" Event="onclick"  Function="LoadDialog(appbuilder.builder.table.TableDetailWidgetForm,{@:Elem[fld_Id].Value})"  />
         </Element>    
-		<Element Name="fld_name" Class="ColumnText" FieldName="Name" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+		<Element Name="fld_name" Class="ColumnText" FieldName="Name" Label="Table"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
    			<EventHandler Name="fld_name_onclick" Event="onclick"  Function="LoadDialog(appbuilder.builder.table.TableDetailWidgetForm,{@:Elem[fld_Id].Value})" />
         </Element>     
     	<Element Name="fld_comment" Class="ColumnText" FieldName="Comment" Label="Comment"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />               

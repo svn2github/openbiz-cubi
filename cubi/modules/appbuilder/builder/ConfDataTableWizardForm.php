@@ -49,7 +49,7 @@ class ConfDataTableWizardForm extends EasyFormWizard
     
     protected function _getDBConn()
     {
-    	return $this->getViewObject()->_getDBConn();
+    	return $this->getViewObject()->getDBConn();
     }
 	
     public function fetchTableInfo($tableName)

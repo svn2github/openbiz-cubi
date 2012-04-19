@@ -3,17 +3,17 @@
     
     <DataPanel>
         
-		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Name" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Field" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/system/images/icon_database_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
    			<EventHandler Name="fld_icon_onclick" Event="onclick"  Function="LoadDialog(appbuilder.builder.table.TableDetailWidgetForm,{@:Elem[fld_Id].Value})"  />
         </Element>    
-		<Element Name="fld_name" Class="ColumnText" FieldName="Name" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+		<Element Name="fld_name" Class="ColumnText" FieldName="Field" Label="Field"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
    			<EventHandler Name="fld_name_onclick" Event="onclick"  Function="LoadDialog(appbuilder.builder.table.TableDetailWidgetForm,{@:Elem[fld_Id].Value})" />
         </Element>     
     	<Element Name="fld_comment" Class="ColumnText" FieldName="Comment" Label="Comment"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />               
-        <Element Name="fld_engine" Class="ColumnText" FieldName="Engine" Label="Engine"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
-        <Element Name="fld_rows" Class="ColumnText" FieldName="Rows" Label="Rows" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_data_size" Class="ColumnText" FieldName="Data_length" Text="{BizSystem::GetService(UTIL_SERVICE)->format_bytes(@:Elem[fld_data_size].Value)}" Label="Data Size" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        		
+        <Element Name="fld_type" Class="ColumnText" FieldName="Type" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_null" Class="ColumnText" FieldName="Null" Label="Allow Null" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_default" Class="ColumnText" FieldName="Default" Label="Default" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        		
     		 
     </DataPanel>
     <ActionPanel>
