@@ -34,4 +34,6 @@ class ConfDataFieldWizardForm extends EasyFormWizard
     	return $this->getViewObject()->getDBConn();
     }
     
+    
+	
 }

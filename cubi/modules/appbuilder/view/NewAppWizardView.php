@@ -12,9 +12,8 @@ class NewAppWizardView extends EasyViewWizard
     
 	public function getTableName()
     {
-    	$dbConnForm = BizSystem::getObject("appbuilder.builder.ConfDataTableWizardForm");
-		$dbRec = $dbConnForm->getActiveRecord();	
-		$tableName = $dbRec['Name'];
+    	$dbTableForm = BizSystem::getObject("appbuilder.builder.ConfDataTableWizardForm");
+		$tableName = $dbTableForm->m_RecordId;
 		return $tableName;
     }    
 }

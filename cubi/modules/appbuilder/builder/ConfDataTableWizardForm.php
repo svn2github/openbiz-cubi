@@ -1,6 +1,7 @@
 <?php 
 class ConfDataTableWizardForm extends EasyFormWizard
 {
+	public $m_RecordId;
 
 	public function deleteRecord($id=null)
 	{
