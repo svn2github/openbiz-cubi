@@ -5,10 +5,10 @@
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Field"/>
 		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Field" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/system/images/icon_database_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
-   			<EventHandler Name="fld_icon_onclick" Event="onclick"  Function="LoadDialog(appbuilder.builder.table.TableDetailWidgetForm,{@:Elem[fld_Id].Value})"  />
+   			<EventHandler Name="fld_icon_onclick" Event="onclick"  Function="LoadDialog(appbuilder.builder.field.FieldDetailWidgetForm,{@:Elem[fld_Id].Value})"  />
         </Element>    
 		<Element Name="fld_name" Class="ColumnText" FieldName="Field" Label="Field"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
-   			<EventHandler Name="fld_name_onclick" Event="onclick"  Function="LoadDialog(appbuilder.builder.table.TableDetailWidgetForm,{@:Elem[fld_Id].Value})" />
+   			<EventHandler Name="fld_name_onclick" Event="onclick"  Function="LoadDialog(appbuilder.builder.field.FieldDetailWidgetForm,{@:Elem[fld_Id].Value})" />
         </Element>     
     	<Element Name="fld_comment" Class="ColumnText" FieldName="Comment" Label="Comment"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />               
         <Element Name="fld_type" Class="ColumnText" FieldName="Type" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
@@ -18,10 +18,10 @@
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
-			<EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="LoadDialog(appbuilder.builder.table.TableAddWidgetForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+			<EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="LoadDialog(appbuilder.builder.field.FieldAddWidgetForm)"  ShortcutKey="Insert" ContextMenu="New"/>
         </Element>
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
-            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="LoadDialog(appbuilder.builder.table.TableEditWidgetForm)" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="LoadDialog(appbuilder.builder.field.FieldEditWidgetForm)" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>       
         <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
             <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
