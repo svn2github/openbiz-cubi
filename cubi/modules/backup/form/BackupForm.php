@@ -132,7 +132,9 @@ class BackupForm extends EasyForm
 
 		$resultRecords = $this->fetchFullDataSet();
 		//paging		
-		$result = array_slice($resultRecords,($this->m_CurrentPage-1)*$this->m_Range,$this->m_Range);
+		if(is_array($resultRecords)){
+			$result = array_slice($resultRecords,($this->m_CurrentPage-1)*$this->m_Range,$this->m_Range);
+		}			
 		$this->m_TotalRecords = count($resultRecords);
         if ($this->m_Range && $this->m_Range > 0)
             $this->m_TotalPages = ceil($this->m_TotalRecords/$this->m_Range);
