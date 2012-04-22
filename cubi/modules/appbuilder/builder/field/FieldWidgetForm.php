@@ -38,11 +38,13 @@ class FieldWidgetForm extends ConfDataFieldWizardForm
             return;
         }
 
-       
+      
 	  var_dump($recArr);exit;
 	  $db = $this->_getDBConn();
 	  $db->query($sql);
 
+	  //ALTER TABLE `attachmentxxx` ADD `fieldName` INT( 11 ) NULL COMMENT 'comment' AFTER `id` 
+	  
         // in case of popup form, close it, then rerender the parent form
         if ($this->m_ParentFormName)
         {
