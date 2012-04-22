@@ -39,8 +39,24 @@ class FieldWidgetForm extends ConfDataFieldWizardForm
         }
 
       
-	  var_dump($recArr);exit;
 	  $db = $this->_getDBConn();
+	  $tableName = $this->getViewObject()->getTableName();
+
+	  $after_field = $recArr['After'];
+	  $field_name = $recArr['Name'];
+	  $field_type = $recArr['Type'];
+	  if($recArr['SetNull']=='0')
+	  {
+	  		$set_null = " NOT NULL ";
+	  }
+	  else
+	  {
+	  		$set_null = " NULL ";
+	  }
+	  $comment = $recArr['Comment'];
+	  
+	  $sql="ALTER TABLE `$tableName` ADD `$field_name` $field_type $set_null COMMENT '$comment' AFTER `$after_field`";
+	  
 	  $db->query($sql);
 
 	  //ALTER TABLE `attachmentxxx` ADD `fieldName` INT( 11 ) NULL COMMENT 'comment' AFTER `id` 
