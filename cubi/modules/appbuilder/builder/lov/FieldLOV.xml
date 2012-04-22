@@ -1,22 +1,19 @@
 <?xml version="1.0" standalone="no"?>
 <Selection>
+
    <NullStatus Value="1" text="Allow Null"/>
    <NullStatus Value="0" text="Not Null"/>
    
    
-   <FieldType Value="TINYINT(2)" text="Bool"/>
-   <FieldType Value="INT(11)" text="Integer"/>
-   <FieldType Value="Float(11)" text="Float"/>
-   <FieldType Value="Double(11)" text="Double"/>
-   
-   <FieldType Value="Double(11)" text="Date"/>
-   <FieldType Value="Double(11)" text="Datetime"/>
-   <FieldType Value="Double(11)" text="Timestamp"/>
-   
-   
-   <FieldType Value="Double(11)" text="String (255)"/>
-   <FieldType Value="Double(11)" text="Text"/>
-   <FieldType Value="Double(11)" text="Long Text"/>
-   
+   <FieldType Value="tinyint(2)" 		text="Bool"			/>
+   <FieldType Value="int(11)" 			text="Integer"		/>
+   <FieldType Value="float(11)" 		text="Float"		/>
+   <FieldType Value="double(11)"		text="Double"		/>
+   <FieldType Value="date" 				text="Date"			/>
+   <FieldType Value="datetime" 			text="Datetime"		/>
+   <FieldType Value="timestamp" 		text="Timestamp"	/>
+   <FieldType Value="varchar(255)" 		text="String (255)"	/>
+   <FieldType Value="text" 				text="Text"			/>
+   <FieldType Value="longtext" 			text="Long Text"	/>
    
 </Selection>   
