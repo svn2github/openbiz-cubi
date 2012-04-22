@@ -6,7 +6,6 @@
         <Element Name="fld_comment" Class="LabelText" FieldName="Comment" Label="Comment"   />
         <Element Name="fld_type" Class="LabelText" FieldName="Type" Label="Type"   />	
         <Element Name="fld_null" Class="LabelText" FieldName="Null" Label="Null"   />
-        <Element Name="fld_default" Class="LabelText" FieldName="Default" Label="Default"   />		
     </DataPanel>
     <ActionPanel>
 		<Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m">

@@ -42,7 +42,16 @@ class ConfDataFieldWizardForm extends EasyFormWizard
 		{
 	    	$db = $this->_getDBConn();    	
 			$tableInfos = $db->fetchAssoc("SHOW FULL COLUMNS FROM `$tableName` WHERE Field='$fieldName';");
-			return $tableInfos[$fieldName];
+			$infoArr = $tableInfos[$fieldName];
+			if($infoArr['Null']=='YES')
+			{
+				$infoArr['SetNull']="1";
+			}
+			else
+			{
+				$infoArr['SetNull']="0";
+			}
+			return $infoArr;
 		}		
 	}
 	   

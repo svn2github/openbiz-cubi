@@ -39,7 +39,7 @@ class FieldWidgetForm extends ConfDataFieldWizardForm
         }
 
        
-
+	  var_dump($recArr);exit;
 	  $db = $this->_getDBConn();
 	  $db->query($sql);
 
@@ -70,28 +70,33 @@ class FieldWidgetForm extends ConfDataFieldWizardForm
 	            $this->processFormObjError($e->m_Errors);
 	            return;
 	        }
-	
-	        //actions rename table
-	        $db = $this->_getDBConn();
-	        if($recArr['Name'] != $currentRec['Name'])
-	        {
-	        	$sql = "RENAME TABLE `". $currentRec['Name']."` TO `".$recArr['Name']."` ;";
-	        	$db->query($sql);	
-	        }
+			$tableName = $this->getViewObject()->getTableName();
+
 	        
-	        //actions alter table engine
-	        if($recArr['Engine'] != $currentRec['Engine'])
+	        //ALTER TABLE `email_log` CHANGE `result` `result` VARCHAR( 255 ) CHARACTER SET NULL COMMENT 'jixian'
+
+			//actions rename table
+	        $db = $this->_getDBConn();	        
+	        $sql = "ALTER TABLE `$tableName` CHANGE `". $currentRec['Field']."`  `".$recArr['Field']."` ";	        
+	        
+	        //actions alter field type
+        	$sql .= " ".$recArr['Type']." CHARACTER SET utf8 COLLATE utf8_general_ci ";
+	       
+	        
+        	//actions alter field setnull
+	        if($recArr['SetNull']=='0')
 	        {
-	        	$sql = "ALTER TABLE `".$recArr['Name']."` ENGINE = ".$recArr['Engine'].";";
-	        	$db->query($sql);	
+	        	$sql .= " NOT NULL  ";
+	        }
+	        else 
+	        {
+	        	$sql .= " NULL  ";
 	        }
 	        
        		//actions alter table comment
-	        if($recArr['Comment'] != $currentRec['Comment'])
-	        {
-	        	$sql = "ALTER TABLE `".$recArr['Name']."` COMMENT = '".$recArr['Comment']."';";
-	        	$db->query($sql);	
-	        }
+	        $sql .= " COMMENT '".$recArr['Comment']."'  ";
+	        
+	        $db->query($sql);
         }
         // in case of popup form, close it, then rerender the parent form
         if ($this->m_ParentFormName)
