@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="FieldDetailWidgetForm" Class="FieldWidgetForm" Icon="{RESOURCE_URL}/appbuilder/images/icon_data_field.png"  FormType="Detail" jsClass="jbForm" Title="Data Table Field Attribute" Description="Detail inforamtion about selected data field" BizDataObj="" TemplateEngine="Smarty" TemplateFile="popup_data_field_detail.tpl.html" EventName="" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
     <DataPanel>
-        <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Name"   />
-        <Element Name="fld_name" Class="LabelText" FieldName="Name" Label="Name"   />
+        <Element Name="fld_Id" Class="Hidden" FieldName="Field" Label="Name"   />
+        <Element Name="fld_name" Class="LabelText" FieldName="Field" Label="Field"   />
         <Element Name="fld_comment" Class="LabelText" FieldName="Comment" Label="Comment"   />
-        <Element Name="fld_engine" Class="LabelText" FieldName="Engine" Label="Engine"   />	
-        <Element Name="fld_rows" Class="LabelText" FieldName="Rows" Label="Records"   />
-        <Element Name="fld_data_size" Class="LabelText"  Text="{BizSystem::GetService(UTIL_SERVICE)->format_bytes(@:Elem[fld_data_size].Value)}"  FieldName="Data_length" Label="Data Size"   />
-        <Element Name="fld_index_size" Class="LabelText"  Text="{BizSystem::GetService(UTIL_SERVICE)->format_bytes(@:Elem[fld_index_size].Value)}"  FieldName="Index_length" Label="Index Size"   />
-        <Element Name="fld_create_time" Class="LabelText" FieldName="Create_time" Label="Create Time"   />
-        <Element Name="fld_update_time" Class="LabelText" FieldName="Update_time" Label="Update Time"   />		
+        <Element Name="fld_type" Class="LabelText" FieldName="Type" Label="Type"   />	
+        <Element Name="fld_null" Class="LabelText" FieldName="Null" Label="Null"   />
+        <Element Name="fld_default" Class="LabelText" FieldName="Default" Label="Default"   />		
     </DataPanel>
     <ActionPanel>
 		<Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m">
-            <EventHandler Name="btn_close_onclick" Event="onclick" Function="switchForm(appbuilder.builder.table.TableEditWidgetForm,{@:Elem[fld_Id].Value})"/>
+            <EventHandler Name="btn_close_onclick" Event="onclick" Function="switchForm(appbuilder.builder.field.FieldEditWidgetForm,{@:Elem[fld_Id].Value})"/>
         </Element>
 		<Element Name="btn_spacer" Class="Spacer" width="10" />
         <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">

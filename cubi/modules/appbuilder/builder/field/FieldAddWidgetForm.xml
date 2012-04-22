@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="TableAddWidgetForm" Class="TableWidgetForm" Icon="{RESOURCE_URL}/appbuilder/images/icon_data_table.png"  FormType="NEW" jsClass="jbForm" Title="Create Data Table" Description="You create a new data table into selected database" BizDataObj="" TemplateEngine="Smarty" TemplateFile="popup_data_table_add.tpl.html" EventName="" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
+<EasyForm Name="FieldAddWidgetForm" Class="FieldWidgetForm" Icon="{RESOURCE_URL}/appbuilder/images/icon_data_field.png"  FormType="NEW" jsClass="jbForm" Title="Create Data Field" Description="You create a new data field into selected database table" BizDataObj="" TemplateEngine="Smarty" TemplateFile="popup_data_field_add.tpl.html" EventName="" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
     <DataPanel>
-        <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Name"   />
-        <Element Name="fld_name" ElementSet="General" DefaultValue="new_table" Class="InputText" FieldName="Name" Label="Name"   />
-        <Element Name="fld_comment" ElementSet="General" DefaultValue="New Data Table" Class="InputText" FieldName="Comment" Label="Comment"   />
-        <Element Name="fld_engine" ElementSet="General" DefaultValue="MyISAM" Class="TableEngineListbox" FieldName="Engine" Label="Engine"   />	
-        
-        <Element Name="fld_data_common" DefaultChecked="Y" DefaultValue="N" SelectFrom="Y" ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_common" Label="Common Fields"  Description="Add default name and description fields"   />
-        <Element Name="fld_data_share" DefaultChecked="Y" DefaultValue="N" SelectFrom="Y" ElementSet="Advanced Options"  Class="Checkbox" FieldName="_field_share" Label="Share Fields"  Description="Add fields for data sharing feature"   />
-        <Element Name="fld_data_sort"  DefaultChecked="Y" DefaultValue="N" SelectFrom="Y" ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_sort" Label="Sorting Fields" Description="Add fields for data sorting feture"   />
-        <Element Name="fld_data_status" DefaultChecked="Y" DefaultValue="N" SelectFrom="Y"  ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_status" Label="Status Fields" Description="Add fields for data status control feture"   />
-        <Element Name="fld_data_create_by" DefaultChecked="Y" DefaultValue="N" SelectFrom="Y"  ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_creator" Label="Creator Fields" Description="Add fields for data creator tracing feture"   />
-        <Element Name="fld_data_uptime_by" DefaultChecked="Y" DefaultValue="N" SelectFrom="Y"  ElementSet="Advanced Options" Class="Checkbox" FieldName="_field_updator" Label="Updator Fields" Description="Add fields for data updator tracing feture"   />
-        
+        <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Name"   />        
+        <Element Name="fld_name" Class="InputText" FieldName="Name" Label="Field"   />
+        <Element Name="fld_comment" Class="InputText" FieldName="Comment" Label="Comment"   />
+        <Element Name="fld_type" Class="Listbox" SelectFrom="appbuilder.builder.lov.FieldLOV(FieldType)" FieldName="Type" Label="Type"   />	
+        <Element Name="fld_null" Class="Radio" SelectFrom="appbuilder.builder.lov.FieldLOV(NullStatus)" FieldName="Null" Label="Allow Null"   />
+        <Element Name="fld_default" Class="InputText" FieldName="Default" Label="Default"   />	        
     </DataPanel>
     <ActionPanel>
 		<Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="btn_save_onclick" Event="onclick" Function="InsertRecord()" RedirectPage="form=appbuilder.builder.table.TableDetailWidgetForm&amp;fld:Id={@appbuilder.builder.ConfDataTableWizardForm:m_RecordId}" />
+            <EventHandler Name="btn_save_onclick" Event="onclick" Function="InsertRecord()" RedirectPage="form=appbuilder.builder.field.FieldDetailWidgetForm&amp;fld:Id={@appbuilder.builder.ConfDataFieldWizardForm:m_RecordId}" />
         </Element>
 		<Element Name="btn_spacer" Class="Spacer" width="10" />
         <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">

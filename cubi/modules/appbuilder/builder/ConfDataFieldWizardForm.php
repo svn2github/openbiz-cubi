@@ -36,6 +36,15 @@ class ConfDataFieldWizardForm extends EasyFormWizard
     	return $this->getViewObject()->getDBConn();
     }
     
-    
+ 	public function fetchFieldInfo($tableName,$fieldName)
+	{
+		if($fieldName && $tableName)
+		{
+	    	$db = $this->_getDBConn();    	
+			$tableInfos = $db->fetchAssoc("SHOW FULL COLUMNS FROM `$tableName` WHERE Field='$fieldName';");
+			return $tableInfos[$fieldName];
+		}		
+	}
+	   
 	
 }

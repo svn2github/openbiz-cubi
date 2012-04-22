@@ -15,7 +15,9 @@ class FieldWidgetForm extends ConfDataFieldWizardForm
 		if(!$name){
 			$name=BizSystem::getObject($this->m_ParentFormName)->m_RecordId;
 		}
-		$result = $this->fetchFieldInfo($name);
+		
+		$tableName = $this->getViewObject()->getTableName();
+		$result = $this->fetchFieldInfo($tableName,$name);
 		return $result;
 	}
 	

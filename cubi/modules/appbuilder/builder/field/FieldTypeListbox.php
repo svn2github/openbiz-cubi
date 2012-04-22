@@ -1,6 +1,6 @@
 <?php 
 include_once OPENBIZ_BIN."/easy/element/Listbox.php";
-class TableEngineListbox extends Listbox
+class FieldTypeListbox extends Listbox
 {
 	
     public function getFromList(&$list, $selectFrom=null)
