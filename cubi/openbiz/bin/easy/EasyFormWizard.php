@@ -258,6 +258,7 @@ class EasyFormWizard extends EasyForm
     {
         // clean the session record
         $this->m_DropSession = true;
+        BizSystem::sessionContext()->cleanObj($this->m_Name, true);
     }
 
     /**
