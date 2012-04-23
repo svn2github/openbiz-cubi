@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ConfDataTableWizardForm" Class="ConfDataTableWizardForm" Icon="{RESOURCE_URL}/appbuilder/images/icon_data_table.png" FormType="List" jsClass="jbForm" Title="Config Data Table" Description="Select data table as the base table of the new application, or create a new data table in this step." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_table_conf_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
+<EasyForm Name="ConfDataTableWizardForm" Class="ConfDataTableWizardForm" Icon="{RESOURCE_URL}/appbuilder/images/icon_data_table.png" FormType="List" jsClass="jbForm" Title="Select Data Table" Description="Select data table as the base table of the new application, or create a new data table in this step." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_table_conf_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
     
     <DataPanel>
         

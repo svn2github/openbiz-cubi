@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ConfDataFieldWizardForm" Class="ConfDataFieldWizardForm"  Icon="{RESOURCE_URL}/appbuilder/images/icon_data_field.png" FormType="List" jsClass="jbForm" Title="Config Data Fields" Description="Select table fields which you want to map to your new application." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_table_conf_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
+<EasyForm Name="ConfDataFieldWizardForm" Class="ConfDataFieldWizardForm"  Icon="{RESOURCE_URL}/appbuilder/images/icon_data_field.png" FormType="List" jsClass="jbForm" Title="Select Data Fields" Description="Select table fields which you want to map to your new application." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_table_conf_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
     
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Field"/>

@@ -54,8 +54,17 @@ class ConfDataFieldWizardForm extends EasyFormWizard
 		$selIds = BizSystem::clientProxy()->getFormInputs('row_selections', false); 
         if(count($selIds)>0)
         {			
-        	$this->m_SelectedFields = $selIds;
-			parent::goNext(false);
+        	if(!in_array("id", $selIds))
+        	{
+        		$msg = $this->getMessage("MSG_PLEASE_SELECT_ID_FIELDS");
+	        	$errors = array(
+	        		"DATABASE"=>$msg
+	        	);
+	        	$this->processFormObjError($errors);
+        	}else{
+        		$this->m_SelectedFields = $selIds;
+				parent::goNext(false);
+        	}
         }
         else
         {

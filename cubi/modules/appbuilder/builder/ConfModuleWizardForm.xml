@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ConfModuleWizardForm" Class="ConfModuleWizardForm"  Icon="{RESOURCE_URL}/appbuilder/images/icon_module.png" FormType="Edit" jsClass="jbForm" Title="Config Module Options" Description="Config module generate options to custom the module meets your application needs" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_detail_opts_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
+    
+    <DataPanel>
+		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Field" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/system/images/icon_database_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+   			<EventHandler Name="fld_icon_onclick" Event="onclick"  Function="LoadDialog(appbuilder.builder.field.FieldDetailWidgetForm,{@:Elem[fld_Id].Value})"  />
+        </Element>    
+		<Element Name="fld_name" Class="ColumnText" FieldName="Field" Label="Field"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+   			<EventHandler Name="fld_name_onclick" Event="onclick"  Function="LoadDialog(appbuilder.builder.field.FieldDetailWidgetForm,{@:Elem[fld_Id].Value})" />
+        </Element>     
+    	<Element Name="fld_comment" Class="ColumnText" FieldName="Comment" Label="Comment"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />               
+        <Element Name="fld_type" Class="ColumnText" FieldName="Type" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_null" Class="ColumnText" FieldName="Null" Label="Allow Null" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_default" Class="ColumnText" FieldName="Default" Label="Default" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        		
+    		 
+    </DataPanel>
+    <ActionPanel>
+    </ActionPanel> 
+    <NavPanel> 
+       
+    </NavPanel>
+    <WizardPanel>
+        <Element Name="btn_prev" Class="Button" Text="Back" CssClass="button_back">
+            <EventHandler Name="btn_prev_onclick" EventLogMsg="" Event="onclick" Function="goBack()" ShortcutKey="Ctrl+ESC" />
+        </Element>   
+    
+         <Element Name="btn_next" Class="Button" Text="Next" CssClass="button_next_highlight">
+            <EventHandler Name="btn_next_onclick" EventLogMsg="" Event="onclick" Function="goNext(0)" ShortcutKey="Ctrl+Enter" />
+        </Element>   
+        
+        <Element Name="btn_spacer" Class="Spacer" width="10" />	
+        
+        <Element Name="btn_reset" Class="Button" Text="Cancel" CssClass="button_cancel">
+            <EventHandler Name="btn_reset_onclick" EventLogMsg="" Event="onclick" Function="doCancel()" RedirectPage="{APP_INDEX}/appbuilder/new_app_wizard" ShortcutKey="Ctrl+Delete" />
+        </Element>   
+    </WizardPanel>    
+</EasyForm>
