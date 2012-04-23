@@ -16,8 +16,6 @@ class FieldListbox extends Listbox
     }	
     
 
-	    
-    
     protected function getSimpleFromList(&$list, $selectFrom)
     {		
         $db = $this->getFormObj()->getViewObject()->getDBConn();

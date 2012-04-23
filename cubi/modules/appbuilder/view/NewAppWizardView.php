@@ -16,5 +16,12 @@ class NewAppWizardView extends EasyViewWizard
 		$tableName = $dbTableForm->m_RecordId;
 		return $tableName;
     }    
+    
+    public function getFields()
+    {
+    	$dbForm = BizSystem::getObject("appbuilder.builder.ConfDataFieldWizardForm");
+		$fields = $dbForm->m_SelectedFields;
+		return $fields;
+    }
 }
 ?>

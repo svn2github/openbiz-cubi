@@ -1,6 +1,32 @@
 <?php 
 class ConfDataFieldWizardForm extends EasyFormWizard
 {
+	public $m_SelectedFields ; 
+	
+	/**
+     * Get/Retrieve Session data of this object
+     *
+     * @param SessionContext $sessionContext
+     * @return void
+     */
+    public function getSessionVars($sessionContext)
+    {
+    	parent::getSessionVars($sessionContext);
+        $sessionContext->getObjVar($this->m_Name, "SelectedFields", $this->m_SelectedFields);
+    }
+
+    /**
+     * Save object variable to session context
+     *
+     * @param SessionContext $sessionContext
+     * @return void
+     */
+    public function setSessionVars($sessionContext)
+    {
+    	parent::setSessionVars($sessionContext);
+        $sessionContext->setObjVar($this->m_Name, "SelectedFields", $this->m_SelectedFields);     
+    }	
+	
 	public function deleteRecord($id=null)
 	{
 		if ($id==null || $id=='')
@@ -22,6 +48,24 @@ class ConfDataFieldWizardForm extends EasyFormWizard
         $this->runEventLog();
         $this->processPostAction();
 	}
+
+	public function goNext($commit=false)
+	{		
+		$selIds = BizSystem::clientProxy()->getFormInputs('row_selections', false); 
+        if(count($selIds)>0)
+        {			
+        	$this->m_SelectedFields = $selIds;
+			parent::goNext(false);
+        }
+        else
+        {
+        	$msg = $this->getMessage("MSG_PLEASE_SELECT_FIELDS");
+        	$errors = array(
+        		"DATABASE"=>$msg
+        	);
+        	$this->processFormObjError($errors);
+        }
+	}	
 	
 	public function fetchDataSet()
 	{
