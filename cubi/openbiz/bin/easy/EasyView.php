@@ -32,6 +32,7 @@ class EasyView extends MetaObject implements iSessionObject
     public $m_ViewSet;
     public $m_Tab;
     public $m_FormRefs;
+    public $m_Widgets;
 
     public $m_IsPopup = false;
     public $m_Height;
@@ -72,10 +73,14 @@ class EasyView extends MetaObject implements iSessionObject
         $this->m_ViewSet = isset($xmlArr["EASYVIEW"]["ATTRIBUTES"]["VIEWSET"]) ? $xmlArr["EASYVIEW"]["ATTRIBUTES"]["VIEWSET"] : null;
         $this->m_Tab = isset($xmlArr["EASYVIEW"]["ATTRIBUTES"]["TAB"]) ? $xmlArr["EASYVIEW"]["ATTRIBUTES"]["TAB"] : null;
 
-        $this->m_FormRefs = new MetaIterator($xmlArr["EASYVIEW"]["FORMREFERENCES"]["REFERENCE"],"FormReference",$this);
+        $this->m_FormRefs = new MetaIterator($xmlArr["EASYVIEW"]["FORMREFERENCES"]["REFERENCE"],"FormReference",$this);        
         if($xmlArr["EASYVIEW"]["FORMREFERENCELIBS"])
         {
         	$this->m_FormRefLibs = new MetaIterator($xmlArr["EASYVIEW"]["FORMREFERENCELIBS"]["REFERENCE"],"FormReference",$this);
+        }
+    	if($xmlArr["EASYVIEW"]["WIDGETS"])
+        {
+        	$this->m_Widgets = new MetaIterator($xmlArr["EASYVIEW"]["WIDGETS"]["REFERENCE"],"FormReference",$this);
         }
         $this->m_MessageFile = isset($xmlArr["EASYVIEW"]["ATTRIBUTES"]["MESSAGEFILE"]) ? $xmlArr["EASYVIEW"]["ATTRIBUTES"]["MESSAGEFILE"] : null;
         $this->m_Messages = Resource::loadMessage($this->m_MessageFile);

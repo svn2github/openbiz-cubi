@@ -79,8 +79,18 @@ class ViewRenderer
                 $formtabs[$formRef->m_Name] = $formRef->m_Description;
             }
         }
+        
+        if(count($viewObj->m_Widgets)){
+    		foreach ($viewObj->m_Widgets as $formRef) {
+                if ($formRef->m_Display == false)
+                    continue;
+                $widgets[$formRef->m_Name] = BizSystem::getObject($formRef->m_Name)->render();
+            }
+        }
+        
         //Fill Loop related data
         $tplAttributes["forms"] = $forms;
+        $tplAttributes["widgets"] = $widgets;
         $tplAttributes["formtabs"] = $formtabs;
         $tplAttributes["tiles"] = $tiles;
         $tplAttributes["tiletabs"] = $tiletabs;
