@@ -35,6 +35,23 @@ $this->assign('system_left_menu_content', 	$left_menu_content);
 		<div class="v_spacer"></div>
 		{/if}
 	{/foreach}		
+
+	{foreach key=formname item=form from=$widgets}	
+		{if preg_match("/LeftWidget$/si",$formname)}						    
+		<div class="content_block">
+			<div class="header"></div>
+			<div class="content" >	
+		 	
+			<div>
+			 	{$form}
+			</div>
+							
+			</div>
+			<div class="footer"></div>						
+		</div>
+		<div class="v_spacer"></div>
+		{/if}
+	{/foreach}	
 											
 	<!-- left help block start -->
 	<div class="content_block_dark">
