@@ -8,7 +8,9 @@
         <Reference Name="appbuilder.builder.ConfDataFieldWizardForm" 	Text="Data Field"		Description="Config Data Field"/>
         <Reference Name="appbuilder.builder.ConfModuleWizardForm" 		Text="Config Module"		Description="Config Module Option"/>
         <Reference Name="appbuilder.builder.SetupBuildWizardForm" 		Text="Build Option"		Description="Setup Build Option"/>
-        <Reference Name="appbuilder.builder.BuildCompletedForm" 		Text="Completed"		Description="Build Completed"/>
-        
+        <Reference Name="appbuilder.builder.BuildCompletedForm" 		Text="Completed"		Description="Build Completed"/>        
     </FormReferences>
+    <Widgets>
+        <Reference Name="appbuilder.builder.widget.SummaryLeftWidget" />
+    </Widgets>
 </EasyView>

@@ -1,0 +1,2 @@
+<MenuWidget Name="SummaryLeftWidget" Title="Wizard Summary" Class="SummaryWidget" CssCLass="appbuilder" BizDataObj="" SearchRule="" TemplateEngine="Smarty" TemplateFile="summary_widget.tpl.html" CacheLifeTime="0">
+</MenuWidget>

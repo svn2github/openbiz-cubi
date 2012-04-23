@@ -23,5 +23,6 @@ class NewAppWizardView extends EasyViewWizard
 		$fields = $dbForm->m_SelectedFields;
 		return $fields;
     }
+
 }
 ?>
