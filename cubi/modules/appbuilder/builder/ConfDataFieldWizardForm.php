@@ -87,6 +87,11 @@ class ConfDataFieldWizardForm extends EasyFormWizard
     	foreach($fieldsInfo as $fieldInfo)
     	{
     		$fieldInfo["Id"] = $fieldInfo['Field'];
+    		if(in_array($fieldInfo['Field'], $this->m_SelectedFields)){
+    			$fieldInfo["SelectedField"] = 1;
+    		}else{
+    			$fieldInfo["SelectedField"] = 0;
+    		}
     		$result[] = $fieldInfo;
     	}
 		

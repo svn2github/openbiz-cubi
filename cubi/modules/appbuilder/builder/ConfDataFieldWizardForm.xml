@@ -2,9 +2,10 @@
 <EasyForm Name="ConfDataFieldWizardForm" Class="ConfDataFieldWizardForm"  Icon="{RESOURCE_URL}/appbuilder/images/icon_data_field.png" FormType="List" jsClass="jbForm" Title="Select Data Fields" Description="Select table fields which you want to map to your new application." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_table_conf_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
     
     <DataPanel>
-        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Field"/>
+        <Element Name="row_selections" CHECKSTATUS="{@:Elem[fld_select_fields].Value}" Class="RowCheckbox"  Label="" FieldName="Field"/>
+        <Element Name="fld_select_fields" Class="Hidden" Hidden="Y" FieldName="SelectedField" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
 		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Field" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/system/images/icon_database_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/appbuilder/images/icon_data_field_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
    			<EventHandler Name="fld_icon_onclick" Event="onclick"  Function="LoadDialog(appbuilder.builder.field.FieldDetailWidgetForm,{@:Elem[fld_Id].Value})"  />
         </Element>    
 		<Element Name="fld_name" Class="ColumnText" FieldName="Field" Label="Field"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
