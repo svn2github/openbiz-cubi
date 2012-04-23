@@ -1,1 +1,67 @@
-ss
+<form id='{$form.name}' name='{$form.name}'>
+{literal}
+<style>
+.step_title
+{
+	font-size:12px;
+	padding-top:5px;
+	padding-bottom:0px;
+	padding-left:0px;
+}
+.step_summary
+{
+	padding-left:15px;
+	padding-top:5px;
+	padding-bottom:5px;
+}	
+.step_summary ul
+{
+	padding-left:8px;
+	list-style:none;
+}	
+.step_summary span
+{
+	padding-left:8px;
+	list-style:none;
+}	
+.step_summary span.gray
+{
+	color:#999999;
+}	
+</style>
+{/literal}
+	<table></table>
+	<div class="title">
+		<h2 style="width:120px;">{$form.title}</h2>
+	</div>
+	<div class="step_summary" >
+		<div>
+			<h3 class="step_title">{t}Database Connection{/t}</h3>
+			{if $form.dbConn}
+			<span>{$form.dbConn}</span>
+			{else}
+			<span class="gray">{t}-- Not Set --{/t}</span>
+			{/if}		
+		</div>
+		<div>
+			<h3 class="step_title">{t}Selected Data Table{/t}</h3>
+			{if $form.tableName}
+			<span>{$form.tableName}</span>	
+			{else}
+			<span class="gray">{t}-- Not Set --{/t}</span>
+			{/if}		
+		</div>
+		<div>
+			<h3 class="step_title">{t}Selected Data Fields{/t}</h3>
+			{if $form.tableFields}
+			<ul>
+			{foreach item=field from=$form.tableFields}	
+				<li>{$field}</li>				
+			{/foreach}
+			</ul>
+			{else}
+			<span class="gray">{t}-- Not Set --{/t}</span>
+			{/if}				
+		</div>
+	</div>
+</form>
