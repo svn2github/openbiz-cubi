@@ -1,7 +1,28 @@
 <?php 
 class ConfDataFieldWizardForm extends EasyFormWizard
 {
+	public function deleteRecord($id=null)
+	{
+		if ($id==null || $id=='')
+            $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
 
+        $selIds = BizSystem::clientProxy()->getFormInputs('row_selections', false);
+        if ($selIds == null)
+            $selIds[] = $id;
+        $db = $this->_getDBConn();
+        $tableName = $this->getViewObject()->getTableName();
+        foreach ($selIds as $id)
+        {      
+        	$sql = "ALTER TABLE `$tableName` DROP `$id`;";
+        	$db->query($sql);
+        }
+        if (strtoupper($this->m_FormType) == "LIST")
+            $this->rerender();
+
+        $this->runEventLog();
+        $this->processPostAction();
+	}
+	
 	public function fetchDataSet()
 	{
 		$db = $this->_getDBConn();
