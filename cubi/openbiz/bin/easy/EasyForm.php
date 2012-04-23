@@ -2309,7 +2309,7 @@ $('".$this->m_Name."').observe('click',Openbiz.Menu.hide);
     protected function setClientScripts()
     {
         // load custom js class
-        if ($this->m_jsClass != "Openbiz.Form" && $this->m_jsClass != "Openbiz.TableForm" )
+        if ($this->m_jsClass != "Openbiz.Form" && $this->m_jsClass != "Openbiz.TableForm" && $this->m_jsClass != "" )
             BizSystem::clientProxy()->appendScripts($this->m_jsClass, $this->m_jsClass . ".js");
         /*
         if ($this->m_FormType == 'LIST')
