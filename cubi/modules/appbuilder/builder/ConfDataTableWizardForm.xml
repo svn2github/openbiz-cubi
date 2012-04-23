@@ -4,7 +4,7 @@
     <DataPanel>
         
 		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Name" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/system/images/icon_database_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/appbuilder/images/icon_data_table_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
    			<EventHandler Name="fld_icon_onclick" Event="onclick"  Function="LoadDialog(appbuilder.builder.table.TableDetailWidgetForm,{@:Elem[fld_Id].Value})"  />
         </Element>    
 		<Element Name="fld_name" Class="ColumnText" FieldName="Name" Label="Table"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
