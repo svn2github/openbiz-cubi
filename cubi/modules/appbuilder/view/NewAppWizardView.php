@@ -23,7 +23,7 @@ class NewAppWizardView extends EasyViewWizard
     
 	public function getTableName()
     {
-    	if($this->m_FormStates['appbuilder.builder.ConfDataTableWizardForm']['visited'])
+    	if($this->m_FormStates['appbuilder.builder.ConfDataFieldWizardForm']['visited'])
     	{    		    	
 	    	$dbTableForm = BizSystem::getObject("appbuilder.builder.ConfDataTableWizardForm");
 			$tableName = $dbTableForm->m_RecordId;		
@@ -33,7 +33,7 @@ class NewAppWizardView extends EasyViewWizard
     
     public function getFields()
     {
-    	if($this->m_FormStates['appbuilder.builder.ConfDataFieldWizardForm']['visited'])
+    	if($this->m_FormStates['appbuilder.builder.ConfModuleWizardForm']['visited'])
     	{
 	    	$dbForm = BizSystem::getObject("appbuilder.builder.ConfDataFieldWizardForm");
 			$fields = $dbForm->m_SelectedFields;
