@@ -4,9 +4,11 @@ class ConfModuleWizardForm extends EasyFormWizard
 	
 	public function fetchData()    
 	{    	            
+		/*
+		 * it should get refresh on every time of reload
 		if ($this->m_ActiveRecord != null)
             return $this->m_ActiveRecord;
-    	
+    	*/
         if (strtoupper($this->m_FormType) == "NEW")
             return $this->getNewRecord();
             
@@ -27,7 +29,7 @@ class ConfModuleWizardForm extends EasyFormWizard
 		}
 		else 
 		{
-			$objectName = $names[0];
+			$objectNameSpacing = $objectName = ucfirst($names[0]);
 		}
 		$result['object_name'] = $objectName."DO";
 		$result['object_desc'] = $objectNameSpacing." Description";
