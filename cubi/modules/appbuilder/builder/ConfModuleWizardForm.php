@@ -21,9 +21,8 @@ class ConfModuleWizardForm extends EasyFormWizard
 		$tableName = $this->getViewObject()->getTableName();
 		$names = explode("_", $tableName);
 		if($names[1])
-		{
-			$objectName = str_replace($names[0]."_","",$tableName);			
-			$objectName = str_replace("_"," ",$objectName);
+		{					
+			$objectName = str_replace("_"," ",$tableName);
 			$objectNameSpacing = ucwords($objectName);
 			$objectName = str_replace(" ","",$objectNameSpacing);
 		}
@@ -31,9 +30,22 @@ class ConfModuleWizardForm extends EasyFormWizard
 		{
 			$objectNameSpacing = $objectName = ucfirst($names[0]);
 		}
+		
+		$svc = BizSystem::getObject("appbuilder.lib.MetadataService");
+    	$moduleList = $svc->listModules();
+    	if(in_array(strtolower($names[0]), $moduleList))
+    	{
+    		$moduleType="0";
+    	}
+    	else
+    	{
+    		$moduleType="1";
+    	}    	
 		$result['object_name'] = $objectName."DO";
 		$result['object_desc'] = $objectNameSpacing." Description";
-		$result['module_name_create'] = ucfirst($names[0]);
+		$result['module_type'] = $moduleType;
+		$result['module_name_create'] = strtolower($names[0]);
+		$result['module_name_exists'] = strtolower($names[0]);
 		$result['extend_type_do'] = $objectName."TypeDO";
 		$result['extend_type_desc'] = $objectNameSpacing." Type Description";
 		

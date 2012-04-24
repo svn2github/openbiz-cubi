@@ -4,29 +4,45 @@
 .step_title
 {
 	font-size:12px;
-	padding-top:5px;
+	padding-top:8px;
 	padding-bottom:0px;
 	padding-left:0px;
 }
 .step_summary
 {
 	padding-left:15px;
-	padding-top:5px;
+	padding-top:0px;
 	padding-bottom:5px;
 }	
 .step_summary ul
 {
-	padding-left:8px;
+	padding-left:2px;
 	list-style:none;
 }	
+.step_summary ul li
+{
+	border-bottom:1px solid #efefef;
+	width:170px;
+}
 .step_summary span
 {
-	padding-left:8px;
+	line-height:26px;
+	padding-left:2px;
 	list-style:none;
+	display:block;
+	float:left;
 }	
+.step_summary img
+{
+	padding-right:5px;
+	padding-top:5px;
+	display:block;
+	float:left;
+}
 .step_summary span.gray
 {
-	color:#999999;
+	color:#cccccc;
+	font-style: italic;
 }	
 </style>
 {/literal}
@@ -37,30 +53,36 @@
 	<div class="step_summary" >
 		<div>
 			<h3 class="step_title">{t}Database Connection{/t}</h3>
-			{if $form.dbConn}
-			<span>{$form.dbConn}</span>
+			<div style="height:26px;border-bottom:1px solid #efefef;width:170px;">
+			{if $form.dbConn}			
+			<img src="{$resource_url}/system/images/icon_database_small.png" border="0"><span>{$form.dbConn}</span>			
 			{else}
 			<span class="gray">{t}-- Not Set --{/t}</span>
-			{/if}		
+			{/if}
+			</div>		
 		</div>
 		<div>
 			<h3 class="step_title">{t}Selected Data Table{/t}</h3>
+			<div style="height:26px;border-bottom:1px solid #efefef;width:170px;">
 			{if $form.tableName}
-			<span>{$form.tableName}</span>	
+			<img src="{$resource_url}/appbuilder/images/icon_data_table_small.png" border="0"><span>{$form.tableName}</span>	
 			{else}
 			<span class="gray">{t}-- Not Set --{/t}</span>
-			{/if}		
+			{/if}	
+			</div>	
 		</div>
 		<div>
 			<h3 class="step_title">{t}Selected Data Fields{/t}</h3>
 			{if $form.tableFields}
 			<ul>
 			{foreach item=field from=$form.tableFields}	
-				<li>{$field}</li>				
+				<li style="height:26px;display:block;"><img src="{$resource_url}/appbuilder/images/icon_data_field_small.png" border="0"><span>{$field}</span></li>				
 			{/foreach}
 			</ul>
 			{else}
-			<span class="gray">{t}-- Not Set --{/t}</span>
+			<div style="height:26px;">
+				<span class="gray">{t}-- Not Set --{/t}</span>
+			</div>
 			{/if}				
 		</div>
 	</div>
