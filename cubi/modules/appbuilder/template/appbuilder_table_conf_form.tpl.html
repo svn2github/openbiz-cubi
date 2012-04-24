@@ -1,21 +1,39 @@
 <form id="{$form.name}" name="{$form.name}">
 <div style="padding-left:30px;padding-top:10px;">
 
+<!-- wizard progress bar START -->
 <div class="wizard_progress_bar">
-<table><tr>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td class="progress_side_start"></td>
 {foreach name=steps item=view_form key=elems_name from=$form.forms}
 	{assign var=current_step value=$smarty.foreach.steps.index+1}  
 	{if $current_step lt $form.step}
-	<td class="past_step"><span>{$current_step}. {$view_form->m_Text}</span></td>
+	<td class="progress_bar progress_bar_past"><span>{$current_step}</span></td>
 	{elseif $current_step eq $form.step}
-	<td class="current_step"><span>{$current_step}. {$view_form->m_Text}</span></td>
+	<td class="progress_bar progress_bar_current"><span>{$current_step}</span></td>
 	{else}
-	<td class="future_step"><span>{$current_step}. {$view_form->m_Text}</span></td>
+	<td class="progress_bar progress_bar_future"><span>{$current_step}</span></td>
 	{/if}
-
 {/foreach}
+<td class="progress_side_end"></td>
+</tr>
+<tr>
+<td></td>
+{foreach name=steps item=view_form key=elems_name from=$form.forms}
+	{assign var=current_step value=$smarty.foreach.steps.index+1}  
+	{if $current_step lt $form.step}
+	<td class="past_step"><span>{$view_form->m_Text}</span></td>
+	{elseif $current_step eq $form.step}
+	<td class="current_step"><span>{$view_form->m_Text}</span></td>
+	{else}
+	<td class="future_step"><span>{$view_form->m_Text}</span></td>
+	{/if}
+{/foreach}
+<td></td>
 </tr></table>
 </div>
+<!-- wizard progress bar END -->
 
 <div class="upline">
 	<table><tr><td>
