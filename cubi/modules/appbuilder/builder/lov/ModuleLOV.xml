@@ -1,15 +1,17 @@
 <?xml version="1.0" standalone="no"?>
 <Selection>
 
-   <Type Value="1" text="Create a New Module"/>
-   <Type Value="0" text="Build into Exsiting Module"/>
+   <Type Value="1" Text="Create a New Module"/>
+   <Type Value="0" Text="Build into Exsiting Module"/>
    
-   <AclType Value="0" text="No Access Control"/>
-   <AclType Value="1" text="Access and Manage (Default)"/>
-   <AclType Value="2" text="Access, Create, Update and Delete"/>
+   <AclType Value="0" Text="No Access Control"/>
+   <AclType Value="1" Text="Access and Manage (Default)"/>
+   <AclType Value="2" Text="Access, Create, Update and Delete"/>
    
-   <DataShareType Value="0" text="No Data Visibility Control"/>
-   <DataShareType Value="1" text="Group Based Visibility Control (Default)"/>
+   <DataShareType Value="0" Text="No Data Visibility Control"/>
+   <DataShareType Value="1" Text="Group Based Visibility Control (Default)"/>
    
+   <NamingConvention Value="comment" Text="Use Field Comment as Display Name"/>
+   <NamingConvention Value="name" Text="Use Field Name as Display Name"/>
    
 </Selection>   

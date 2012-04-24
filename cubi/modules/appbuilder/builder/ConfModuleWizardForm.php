@@ -19,6 +19,7 @@ class ConfModuleWizardForm extends EasyFormWizard
 	{		
 		$rec = $this->readInputRecord();
 		$this->m_ModuleConfig = $rec;
+		$formObj=BizSystem::getObject("appbuilder.builder.BuildOptionsWizardForm")->m_ActiveRecord=null;
 		parent::goNext(false);
 	}	    
     

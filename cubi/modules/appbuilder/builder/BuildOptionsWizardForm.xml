@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="BuildOptionsWizardForm" Class="BuildOptionsWizardForm"  Icon="{RESOURCE_URL}/appbuilder/images/icon_config_module.png" FormType="New" jsClass="jbForm" Title="Config Module Options" Description="Config module generate options to custom the module meets your application needs" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_detail_opts_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
+<EasyForm Name="BuildOptionsWizardForm" Class="BuildOptionsWizardForm"  Icon="{RESOURCE_URL}/appbuilder/images/icon_build_options.png" FormType="New" jsClass="jbForm" Title="Setup Build Options" Description="Your can set options for build the new application" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_detail_opts_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
     <DataPanel>
-		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Field" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />				
-		<Element Name="fld_object_name"  Class="InputText" ElementSet="General" FieldName="object_name" Description="One english word" Label="Object Name"  />       
-		<Element Name="fld_object_desc"  Class="InputText" ElementSet="General" FieldName="object_desc" Description="One line short description " Label="Object Description"  />
-		<Element Name="fld_module_type"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(Type)" ElementSet="General" FieldName="module_type" Text="" Label="Module Type"  >
-			<EventHandler Name="fld_module_type_onchange"  Event="onchange" Function="UpdateForm()" />
-		</Element>
-		<Element Name="fld_module_name_create" Hidden="{@:Elem[fld_module_type].Value==0?'Y':'N'}"  Class="InputText" ElementSet="General" FieldName="module_name_create" Text="" Label="Module Name" />
-		<Element Name="fld_module_name_exists" Hidden="{@:Elem[fld_module_type].Value==1?'Y':'N'}" Class="appbuilder.element.ModuleListbox" ElementSet="General" FieldName="module_name_exists" Text="" Label="Module Name" />
+		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Field" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />						
 		
-		<Element Name="fld_acl_control"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(AclType)" DefaultValue="1" ElementSet="Permission" FieldName="acl_type" Text="" Label="Access Control"  />
-		<Element Name="fld_data_share"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(DataShareType)" DefaultValue="1" ElementSet="Permission" FieldName="data_perm" Text="" Label="Data Permission"  />
-		 		
-		<Element Name="fld_attachment_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Attachment features to this module"  ElementSet="Advanced Features" FieldName="attachment_feature" Text="" Label="Attachment "  />
-		<Element Name="fld_picture_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Picture features to this module"  ElementSet="Advanced Features" FieldName="picture_feature" Text="" Label="Picture "  />
-		<Element Name="fld_changelog_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Data Change Log features to this module"  ElementSet="Advanced Features" FieldName="changelog_feature" Text="" Label="Change Log"  />
-		<Element Name="fld_location_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Geo Location features to this module"  ElementSet="Advanced Features" FieldName="location_feature" Text="" Label="Geo Location "  />
+		<Element Name="fld_desc"  	Class="InputText" ElementSet="General" FieldName="mod_desc" Description="module description for this module" Label="Description"  />
+		<Element Name="fld_author"  Class="InputText" DefaultValue="{BizSystem::GetProfileName(@profile:Id,'short')}" ElementSet="General" FieldName="mod_author" Description="Author for this module" Label="Author"  />
+		<Element Name="fld_version"  Class="InputText" DefaultValue="0.1" ElementSet="General" FieldName="mod_version" Description="Version number for this module" Label="Version"  />
 		
-		<Element Name="fld_data_extend"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="0" Description="Enable Type Based Data Field Extensible Feature"  ElementSet="Extensible" FieldName="extend_feature" Text="" Label="Extend Fields"  >
-			<EventHandler Name="fld_data_extend"  Event="onchange" Function="UpdateForm()" />
-		</Element>
-		<Element Name="fld_type_do" Hidden="{@:Elem[fld_data_extend].Value==0?'Y':'N'}" Class="InputText" ElementSet="Extensible" FieldName="extend_type_do" Text="" Label="Type Name"  />
-		<Element Name="fld_type_desc" Hidden="{@:Elem[fld_data_extend].Value==0?'Y':'N'}" Class="InputText" ElementSet="Extensible" FieldName="extend_type_desc" Text="" Label="Type Description"  />
+		<Element Name="fld_naming_type"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(NamingConvention)" ElementSet="Naming Convention" FieldName="naming_convention" Text="" Label="Convention"  />
+		
+		<Element Name="fld_data_object" DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Data Object Metadata" ElementSet="Generate Metadata" FieldName="gen_data_object" Text="" Label="Data Object"  />
+		<Element Name="fld_form_object" DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Form Object Metadata" ElementSet="Generate Metadata" FieldName="gen_form_object" Text="" Label="Form Object"  />
+		<Element Name="fld_view_object" DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate View Object Metadata" ElementSet="Generate Metadata" FieldName="gen_view_object" Text="" Label="View Object"  />		
+		<Element Name="fld_dashboard"	DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Dashboard View" ElementSet="Generate Metadata" FieldName="gen_dashboard" Text="" Label="Dashboard"  />
+		<Element Name="fld_mod"	 DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Mod XML File" ElementSet="Generate Metadata" FieldName="gen_mod" Text="" Label="Mod XML"  />
+			
 		
     </DataPanel>
     <ActionPanel>
