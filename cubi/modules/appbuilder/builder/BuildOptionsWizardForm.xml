@@ -7,7 +7,9 @@
 		<Element Name="fld_author"  Class="InputText" DefaultValue="{BizSystem::GetProfileName(@profile:Id,'short')}" ElementSet="General" FieldName="mod_author" Description="Author for this module" Label="Author"  />
 		<Element Name="fld_version"  Class="InputText" DefaultValue="0.1" ElementSet="General" FieldName="mod_version" Description="Version number for this module" Label="Version"  />
 		
-		<Element Name="fld_naming_type"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(NamingConvention)" ElementSet="Naming Convention" FieldName="naming_convention" Text="" Label="Convention"  />
+		<Element Name="fld_naming_type"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(NamingConvention)" ElementSet="Naming Convention" FieldName="naming_convention" Text="" Label="Convention"  >
+			<EventHandler Name="fld_module_type_onchange"  Event="onchange" Function="UpdateForm()" />
+		</Element>
 		
 		<Element Name="fld_data_object" DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Data Object Metadata" ElementSet="Generate Metadata" FieldName="gen_data_object" Text="" Label="Data Object"  />
 		<Element Name="fld_form_object" DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Form Object Metadata" ElementSet="Generate Metadata" FieldName="gen_form_object" Text="" Label="Form Object"  />

@@ -73,7 +73,12 @@ class ConfDataFieldWizardForm extends EasyFormWizard
 		$sql = "SHOW FULL COLUMNS FROM `$tableName`";
 		$fieldsInfo = $db->fetchAssoc($sql);
 		
-    	foreach($fieldsInfo as $fieldInfo)
+		if(!$this->m_SelectedFields)
+		{
+			$this->m_SelectedFields=array();
+		}
+    	
+		foreach($fieldsInfo as $fieldInfo)
     	{
     		$fieldInfo["Id"] = $fieldInfo['Field'];
     		if(in_array($fieldInfo['Field'], $this->m_SelectedFields)){
