@@ -1,16 +1,60 @@
 .wizard_progress_bar
 {
 	padding-bottom:10px;
+	padding-left:5px;
+	padding-right:5px;
 }
 .wizard_progress_bar table
 {
-	width:700px;
+	width:685px;
+	border:none;
+}
+.wizard_progress_bar table td
+{
+	border:none;
 }
 .wizard_progress_bar table td span
 {
-	float:left;
 	display:block;
+	text-align:center;
 }
+.wizard_progress_bar .progress_side_start
+{
+	height:30px;
+	background-image:url(../images/progress_bar_side.png);
+	width:4px;
+	background-position:left 0px;
+}
+.wizard_progress_bar .progress_side_end
+{
+	height:30px;
+	background-image:url(../images/progress_bar_side.png);
+	width:4px;
+	background-position:left -60px;
+}
+.wizard_progress_bar .progress_bar{
+	height:30px;
+	background-image:url(../images/progress_bar_bg.png);
+	background-position:center 0px;
+	text-align:center;
+}
+.wizard_progress_bar .progress_bar_past
+{
+	color:#efefef;	
+	background-position:center 0px;
+}
+.wizard_progress_bar .progress_bar_current
+{
+	color:#ffffff;
+	font-weight:bold;	
+	background-position:center -30px;
+}
+.wizard_progress_bar .progress_bar_future
+{
+	color:#CCCCCC;	
+	background-position:center -60px;
+}
+
 .wizard_progress_bar .past_step
 {
 	color:#666666;	
@@ -24,6 +68,8 @@
 {
 	color:#AAAAAA;	
 }
+
+
 
 /*Navi button styles*/
 .button_next_highlight {
