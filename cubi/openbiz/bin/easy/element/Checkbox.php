@@ -56,6 +56,11 @@ class Checkbox extends OptionElement
         {
             return $this->m_Value;
         }
+        elseif(strtoupper($this->getDefaultChecked())=='Y')
+    	{
+    		$this->m_Value = $this->getSelectFrom();
+    		return $this->m_Value;
+    	}
         else
         {
             return $this->m_DefaultValue;
@@ -73,6 +78,7 @@ class Checkbox extends OptionElement
         $boolValue = $this->getSelectFrom();
         $disabledStr = ($this->getEnabled() == "N") ? "DISABLED=\"true\"" : "";
         $checkedStr = ($boolValue == $this->getValue()) ? "CHECKED" : "";
+        $defaultValue = $this->m_DefaultValue;
         $style = $this->getStyle();
         $text = $this->getText();
         $func = $this->getFunction();
@@ -95,12 +101,12 @@ class Checkbox extends OptionElement
                 {
                     $checkedStr = "CHECKED";
                 }
-                $sHTML .= "<INPUT TYPE=CHECKBOX NAME='".$this->m_Name."[]' ID=\"" . $this->m_Name ."\" VALUE=\"" . $opt['val'] . "\" $checkedStr $disabledStr $this->m_HTMLAttr $func /> " . $opt['txt'] . "";
+                $sHTML .= "<INPUT TYPE=CHECKBOX NAME='".$this->m_Name."[]' ID=\"" . $this->m_Name ."\" DefaultValue=\"$defaultValue\" VALUE=\"" . $opt['val'] . "\" $checkedStr $disabledStr $this->m_HTMLAttr $func /> " . $opt['txt'] . "";
             }
         }
         else
         {
-            $sHTML = "<INPUT TYPE=\"CHECKBOX\" NAME=\"" . $this->m_Name . "\" ID=\"" . $this->m_Name ."\" VALUE='$boolValue' $checkedStr $disabledStr $this->m_HTMLAttr $style $func /> ".$text."";
+            $sHTML = "<INPUT TYPE=\"CHECKBOX\" NAME=\"" . $this->m_Name . "\" ID=\"" . $this->m_Name ."\" DefaultValue=\"$DefaultValue\" VALUE='$boolValue' $checkedStr $disabledStr $this->m_HTMLAttr $style $func /> ".$text."";
         }
 
         return $sHTML;
