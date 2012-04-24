@@ -63,6 +63,7 @@ class ConfDataFieldWizardForm extends EasyFormWizard
 	        	$this->processFormObjError($errors);
         	}else{
         		$this->m_SelectedFields = $selIds;
+        		$formObj=BizSystem::getObject("appbuilder.builder.ConfModuleWizardForm")->m_ActiveRecord=null;
 				parent::goNext(false);
         	}
         }

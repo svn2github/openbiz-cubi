@@ -3,12 +3,10 @@ class ConfModuleWizardForm extends EasyFormWizard
 {
 	
 	public function fetchData()    
-	{    	            
-		/*
-		 * it should get refresh on every time of reload
+	{    	            		
 		if ($this->m_ActiveRecord != null)
             return $this->m_ActiveRecord;
-    	*/
+    	
         if (strtoupper($this->m_FormType) == "NEW")
             return $this->getNewRecord();
             
@@ -16,7 +14,7 @@ class ConfModuleWizardForm extends EasyFormWizard
     }
 	
 	public function getNewRecord()
-	{
+	{		
 		$result = array();
 		$tableName = $this->getViewObject()->getTableName();
 		$names = explode("_", $tableName);
@@ -33,14 +31,18 @@ class ConfModuleWizardForm extends EasyFormWizard
 		
 		$svc = BizSystem::getObject("appbuilder.lib.MetadataService");
     	$moduleList = $svc->listModules();
-    	if(in_array(strtolower($names[0]), $moduleList))
-    	{
-    		$moduleType="0";
+    	if(!isset($_POST['fld_module_type'])){
+	    	if(in_array(strtolower($names[0]), $moduleList))
+	    	{
+	    		$moduleType="0";
+	    	}
+	    	else
+	    	{
+	    		$moduleType="1";
+	    	}    	
+    	}else{
+    		$moduleType = $_POST['fld_module_type'];    		
     	}
-    	else
-    	{
-    		$moduleType="1";
-    	}    	
 		$result['object_name'] = $objectName."DO";
 		$result['object_desc'] = $objectNameSpacing." Description";
 		$result['module_type'] = $moduleType;
