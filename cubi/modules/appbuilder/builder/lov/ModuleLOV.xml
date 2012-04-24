@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+
+   <Type Value="1" text="Create a New Module"/>
+   <Type Value="0" text="Build into Exsiting Module"/>
+   
+</Selection>   
