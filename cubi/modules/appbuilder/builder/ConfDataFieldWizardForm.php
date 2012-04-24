@@ -3,24 +3,12 @@ class ConfDataFieldWizardForm extends EasyFormWizard
 {
 	public $m_SelectedFields ; 
 	
-	/**
-     * Get/Retrieve Session data of this object
-     *
-     * @param SessionContext $sessionContext
-     * @return void
-     */
     public function getSessionVars($sessionContext)
     {
     	parent::getSessionVars($sessionContext);
         $sessionContext->getObjVar($this->m_Name, "SelectedFields", $this->m_SelectedFields);
     }
 
-    /**
-     * Save object variable to session context
-     *
-     * @param SessionContext $sessionContext
-     * @return void
-     */
     public function setSessionVars($sessionContext)
     {
     	parent::setSessionVars($sessionContext);

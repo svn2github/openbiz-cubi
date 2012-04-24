@@ -1,7 +1,27 @@
 <?php 
 class ConfModuleWizardForm extends EasyFormWizard
 {
+	public $m_ModuleConfig ; 
 	
+    public function getSessionVars($sessionContext)
+    {
+    	parent::getSessionVars($sessionContext);
+        $sessionContext->getObjVar($this->m_Name, "ModuleConfig", $this->m_ModuleConfig);
+    }
+
+    public function setSessionVars($sessionContext)
+    {
+    	parent::setSessionVars($sessionContext);
+        $sessionContext->setObjVar($this->m_Name, "ModuleConfig", $this->m_ModuleConfig);     
+    }
+
+	public function goNext($commit=false)
+	{		
+		$rec = $this->readInputRecord();
+		$this->m_ModuleConfig = $rec;
+		parent::goNext(false);
+	}	    
+    
 	public function fetchData()    
 	{    	            		
 		if ($this->m_ActiveRecord != null)
