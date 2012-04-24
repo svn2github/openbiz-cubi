@@ -2,13 +2,13 @@
 <EasyForm Name="ConfModuleWizardForm" Class="ConfModuleWizardForm"  Icon="{RESOURCE_URL}/appbuilder/images/icon_config_module.png" FormType="New" jsClass="jbForm" Title="Config Module Options" Description="Config module generate options to custom the module meets your application needs" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_detail_opts_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
     <DataPanel>
 		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Field" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />				
-		<Element Name="fld_object_name"  Class="InputText" ElementSet="General" FieldName="ObjectName" Description="One english word" Label="Object Name"  />       
-		<Element Name="fld_object_desc"  Class="InputText" ElementSet="General" FieldName="ObjectDesc" Description="One line short description " Label="Object Description"  />
+		<Element Name="fld_object_name"  Class="InputText" ElementSet="General" FieldName="object_name" Description="One english word" Label="Object Name"  />       
+		<Element Name="fld_object_desc"  Class="InputText" ElementSet="General" FieldName="object_desc" Description="One line short description " Label="Object Description"  />
 		<Element Name="fld_module_type"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(Type)" ElementSet="General" FieldName="" Text="" Label="Module Type"  >
 			<EventHandler Name="fld_module_type_onchange"  Event="onchange" Function="UpdateForm()" />
 		</Element>
-		<Element Name="fld_module_name_create" Hidden="{@:Elem[fld_module_type].Value==0?'Y':'N'}"  Class="InputText" ElementSet="General" FieldName="ModuleNameCreate" Text="" Label="Module Name" />
-		<Element Name="fld_module_name_exists" Hidden="{@:Elem[fld_module_type].Value==1?'Y':'N'}" Class="appbuilder.element.ModuleListbox" ElementSet="General" FieldName="ModuleNameExists" Text="" Label="Module Name" />
+		<Element Name="fld_module_name_create" Hidden="{@:Elem[fld_module_type].Value==0?'Y':'N'}"  Class="InputText" ElementSet="General" FieldName="module_name_create" Text="" Label="Module Name" />
+		<Element Name="fld_module_name_exists" Hidden="{@:Elem[fld_module_type].Value==1?'Y':'N'}" Class="appbuilder.element.ModuleListbox" ElementSet="General" FieldName="module_name_exists" Text="" Label="Module Name" />
 		
 		<Element Name="fld_acl_control"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(AclType)" DefaultValue="1" ElementSet="Permission" FieldName="acl_type" Text="" Label="Access Control"  />
 		<Element Name="fld_data_share"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(DataShareType)" DefaultValue="1" ElementSet="Permission" FieldName="data_perm" Text="" Label="Data Permission"  />

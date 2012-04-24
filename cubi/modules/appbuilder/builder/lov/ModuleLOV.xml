@@ -5,11 +5,11 @@
    <Type Value="0" text="Build into Exsiting Module"/>
    
    <AclType Value="0" text="No Access Control"/>
-   <AclType Value="1" text="Access and Manage (default)"/>
+   <AclType Value="1" text="Access and Manage (Default)"/>
    <AclType Value="2" text="Access, Create, Update and Delete"/>
    
    <DataShareType Value="0" text="No Data Visibility Control"/>
-   <DataShareType Value="1" text="Group Based Visibility Control"/>
+   <DataShareType Value="1" text="Group Based Visibility Control (Default)"/>
    
    
 </Selection>   
