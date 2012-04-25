@@ -40,7 +40,24 @@ class NewAppWizardView extends EasyViewWizard
 			return $fields;
     	}
     }
+    
+    public function getConfigModule()
+    {
+    	if($this->m_FormStates['appbuilder.builder.BuildOptionsWizardForm']['visited'])
+    	{
+	    	$dbForm = BizSystem::getObject("appbuilder.builder.ConfModuleWizardForm");
+			$config = $dbForm->m_ConfigModule;
+			return $config;
+    	}
+    }    
 
+	public function getBuildOptions()
+    {    	
+    	$dbForm = BizSystem::getObject("appbuilder.builder.BuildOptionsWizardForm");
+		$options = $dbForm->m_BuildOptions;
+		return $options;    	
+    }     
+    
     public function renderStep($step)
     {
     	parent::renderStep($step);            
