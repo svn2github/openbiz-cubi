@@ -1,4 +1,16 @@
 <form id='{$form.name}' name='{$form.name}'>
+<style>
+{literal}
+#mod_list .form_table td span
+{
+height:auto;
+width:auto;
+}
+#mod_list .form_table td a.button_gray_m{
+color:#666666;
+} 
+{/literal} 
+</style>
 <div style="padding-left:25px;padding-right:40px;">
 	<div>
 {include file="system_appbuilder_btn.tpl.html"}
@@ -35,7 +47,7 @@
 	</div>	
 {/if}	
 
-<div class="from_table_container">
+<div id="mod_list" class="from_table_container">
 <!-- table start -->
 <table border="0" cellpadding="0" cellspacing="0" class="form_table" id="{$form.name}_data_table">
 	<thead>		

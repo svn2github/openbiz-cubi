@@ -18,5 +18,17 @@ class MetadataService
         } 
         return $mods;
 	}
+	
+	public function getModuleInfo($module)
+	{		
+		$modFile = MODULE_PATH.DIRECTORY_SEPARATOR.$module.DIRECTORY_SEPARATOR.'mod.xml';
+		if(is_file($modFile))
+		{
+			$xmlArr = BizSystem::getXmlArray($modFile);
+			$result = $xmlArr["MODULE"]["ATTRIBUTES"];			
+			$result['Id'] = $result['NAME'];
+		}
+		return $result;
+	}
 }
 ?>
