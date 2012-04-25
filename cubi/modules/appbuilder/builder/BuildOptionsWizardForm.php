@@ -40,6 +40,7 @@ class BuildOptionsWizardForm extends EasyFormWizard
 	{		
 		$rec = $this->readInputRecord();
 		$this->m_BuildOptions = $rec;
+		//BizSystem::getObject("appbuilder.builder.BuildCompletedWizardForm")->m_DataObjFiles=array();
 		parent::goNext(false);
 	}	
 }

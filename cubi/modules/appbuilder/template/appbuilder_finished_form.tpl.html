@@ -1,6 +1,18 @@
 <form id="{$form.name}" name="{$form.name}">
 <div style="padding-left:30px;padding-top:10px;">
-
+{literal}
+<style>
+.element_set_panel ul
+{
+padding:0px;
+list-style:none;
+}
+.element_set_panel ul li
+{
+padding-left:10px;
+}
+</style>
+{/literal}
 <!-- wizard progress bar START -->
 <div class="wizard_progress_bar">
 <table border="0" cellpadding="0" cellspacing="0">
@@ -58,60 +70,84 @@
 	</td></tr></table>
 	
 	<div class="detail_form_panel_padding" >
+		{if count|$form.DataObjFiles  }
 		<div class="upline ">		
 			<h2 class="element_set_title">{t}Data Object Files{/t}</h2>
 			<div class="element_set_panel">
 				<ul>
-					<li>module/jixian/aa.xml</li>
+					{foreach item=file from=$form.DataObjFiles}
+					    <li>{$file}</li>
+					{/foreach}
 				</ul>
 			</div>
 		</div>
+		{/if}
 	
+		{if count|$form.FormObjFiles  }
 		<div class="upline ">		
 			<h2 class="element_set_title">{t}Form Object Files{/t}</h2>
 			<div class="element_set_panel">
 				<ul>
-					<li>module/jixian/aa.xml</li>
+					{foreach item=file from=$form.FormObjFiles}
+					    <li>{$file}</li>
+					{/foreach}
 				</ul>
 			</div>
 		</div>
+		{/if}
 	
+		{if count|$form.ViewObjFiles  }
 		<div class="upline ">		
 			<h2 class="element_set_title">{t}View Object Files{/t}</h2>
 			<div class="element_set_panel">
 				<ul>
-					<li>module/jixian/aa.xml</li>
+					{foreach item=file from=$form.ViewObjFiles}
+					    <li>{$file}</li>
+					{/foreach}						
 				</ul>
 			</div>
 		</div>
+		{/if}
 
+		{if count|$form.TemplateFiles  }
 		<div class="upline ">		
 			<h2 class="element_set_title">{t}Template Files{/t}</h2>
 			<div class="element_set_panel">
 				<ul>
-					<li>module/jixian/aa.xml</li>
+					{foreach item=file from=$form.TemplateFiles}
+					    <li>{$file}</li>
+					{/foreach}	
 				</ul>
 			</div>
 		</div>
-
+		{/if}
+		
+		{if count|$form.MessageFiles  }
 		<div class="upline ">		
 			<h2 class="element_set_title">{t}Message Files{/t}</h2>
 			<div class="element_set_panel">
 				<ul>
-					<li>module/jixian/aa.xml</li>
+					{foreach item=file from=$form.MessageFiles}
+					    <li>{$file}</li>
+					{/foreach}		
 				</ul>
 			</div>
 		</div>
-	
-		<div class="upline underline">		
+		{/if}
+		
+		{if $form.ModXMLFile }
+		<div class="upline">		
 			<h2 class="element_set_title">{t}Mod XML File{/t}</h2>
 			<div class="element_set_panel">
 				<ul>
-					<li>module/jixian/mod.xml</li>
+					<li>{$form.ModXMLFile}</li>
 				</ul>
 			</div>
 		</div>	
-	
+		{/if}
+		
+		
+		<div class="underline"></div>
 	
 		<div style="height:10px;"></div>
 	 	{if $actionPanel|@count > 0}
