@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="BuildCompletedWizardForm" Class="BuildCompletedWizardForm"  Icon="{RESOURCE_URL}/appbuilder/images/icon_build_completed.png" FormType="New" jsClass="jbForm" Title="Build Completed!" Description="Build progress successful completed, Now you can modify your metadata setting." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="appbuilder_finished_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
+    <DataPanel>
+		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Field" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />						
+		
+		<Element Name="fld_desc"  	Class="InputText" ElementSet="General" FieldName="mod_desc" Description="module description for this module" Label="Description"  />
+		<Element Name="fld_author"  Class="InputText" DefaultValue="{BizSystem::GetProfileName(@profile:Id,'short')}" ElementSet="General" FieldName="mod_author" Description="Author for this module" Label="Author"  />
+		<Element Name="fld_version"  Class="InputText" DefaultValue="0.1" ElementSet="General" FieldName="mod_version" Description="Version number for this module" Label="Version"  />
+		
+		<Element Name="fld_naming_type"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(NamingConvention)" ElementSet="Naming Convention" FieldName="naming_convention" Text="" Label="Convention"  >
+		</Element>
+		
+		<Element Name="fld_data_object" DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Data Object Metadata" ElementSet="Generate Metadata" FieldName="gen_data_object" Text="" Label="Data Object"  />
+		<Element Name="fld_form_object" DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Form Object Metadata" ElementSet="Generate Metadata" FieldName="gen_form_object" Text="" Label="Form Object"  />
+		<Element Name="fld_view_object" DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate View Object Metadata" ElementSet="Generate Metadata" FieldName="gen_view_object" Text="" Label="View Object"  />		
+		<Element Name="fld_dashboard"	DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Dashboard View" ElementSet="Generate Metadata" FieldName="gen_dashboard" Text="" Label="Dashboard"  />
+		<Element Name="fld_mod"	 DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Mod XML File" ElementSet="Generate Metadata" FieldName="gen_mod" Text="" Label="Mod XML"  />
+			
+		
+    </DataPanel>
+    <ActionPanel>
+    </ActionPanel> 
+    <NavPanel> 
+       
+    </NavPanel>
+    <WizardPanel>
+        
+        <Element Name="btn_finished" Class="Button" Text="Finish" CssClass="button_finished">
+            <EventHandler Name="btn_reset_onclick" EventLogMsg="" Event="onclick" Function="doCancel()" RedirectPage="{APP_INDEX}/appbuilder/new_app_wizard" />
+        </Element>   
+    </WizardPanel>    
+</EasyForm>

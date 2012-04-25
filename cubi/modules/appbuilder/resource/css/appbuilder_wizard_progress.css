@@ -32,6 +32,13 @@
 	width:4px;
 	background-position:left -60px;
 }
+.wizard_progress_bar .progress_side_end_completed
+{
+	height:30px;
+	background-image:url(../images/progress_bar_side.png);
+	width:4px;
+	background-position:left -90px;
+}
 .wizard_progress_bar .progress_bar{
 	height:30px;
 	background-image:url(../images/progress_bar_bg.png);
@@ -144,5 +151,31 @@
 }
 .button_cancel:active {
     background-position: -144px bottom;
+    color: #ffffff;
+}
+
+
+.button_finished {
+    background-image: url("../images/btn_bg.png");
+    background-position: -216px top;
+    background-repeat: no-repeat;
+    color: #efefef;
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 3px;
+    overflow: hidden;
+    text-align: center;
+    text-indent:16px;
+    text-decoration: none;
+    width: 72px;
+}
+.button_finished:hover {
+    background-position: -216px -20px;
+    color: #ffffff;
+}
+.button_finished:active {
+    background-position: -216px bottom;
     color: #ffffff;
 }
