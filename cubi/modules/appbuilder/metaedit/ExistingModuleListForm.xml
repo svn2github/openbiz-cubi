@@ -10,7 +10,7 @@
     	<Element Name="fld_description" Class="ColumnText" FieldName="DESCRIPTION" Label="Description"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />               
         <Element Name="fld_author" Class="ColumnText" FieldName="AUTHOR" Label="Author"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />       
         <Element Name="fld_version" Class="ColumnText" FieldName="VERSION" Label="Version" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-        <Element Name="fld_detail" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="{APP_INDEX}/market/application_update_detail/" ></Element>
+        <Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="{APP_INDEX}/market/application_update_detail/{@:Elem[fld_Id].Value}" ></Element>
 
     </DataPanel>
     <ActionPanel>
