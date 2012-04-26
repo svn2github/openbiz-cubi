@@ -181,7 +181,7 @@
 }
 #mod_list
 {
-width:710px;
+width:706px;
 }
 
 .module_list div{
@@ -193,8 +193,8 @@ height:33px;
 float:left;
 cursor:pointer;
 margin:3px;
-margin-right:7px;
-margin-top:6px;
+margin-right:6px;
+margin-bottom:8px;
 background-image:url(../images/icon_module_item.png);
 background-repeat:no-repeat;
 background-position:left bottom;
@@ -242,6 +242,8 @@ color:#666666;
 display:block;
 font-size:11px;
 color:#AAAAAA;
+height:18px;
+line-height:14px;
 }
 .module_list div.hover span.version{
 color:#999999;	
