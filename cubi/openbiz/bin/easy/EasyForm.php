@@ -2003,7 +2003,7 @@ $('".$this->m_Name."').observe('click',Openbiz.Menu.hide);
         foreach ($this->m_SubForms as $subForm)
         {
             $formObj = BizSystem::objectFactory()->getObject($subForm);
-            if($this->getDataObj())
+            if($this->getDataObj() && $formObj->m_DataObjName)
             {
 	            $dataObj = $this->getDataObj()->getRefObject($formObj->m_DataObjName);
 	            if ($dataObj)
