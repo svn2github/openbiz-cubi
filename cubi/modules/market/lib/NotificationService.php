@@ -78,10 +78,12 @@ class NotificationService extends MetaObject
 		foreach($resultSet as $key=>$value)
 		{
 			$appInfo = $AppsInfoArr[$value['repository_uid']][$value['app_id']];
-			$value['repo_id'] = $repoIdsArr[$value['repository_uid']]; 			
-			foreach($appInfo as $app_key => $app_value)
-			{
-				$value[$app_key] = $app_value;
+			$value['repo_id'] = $repoIdsArr[$value['repository_uid']]; 		
+			if(is_array($appInfo)){	
+				foreach($appInfo as $app_key => $app_value)
+				{
+					$value[$app_key] = $app_value;
+				}
 			}
 			$newResultSet[$key] = $value;
 		}
@@ -124,7 +126,7 @@ class NotificationService extends MetaObject
 		$checkLogRec = BizSystem::getObject("notification.do.NotificationCheckerDO")->fetchOne("[checker]='market_checker'");
 		$lastCheckTime = $checkLogRec['last_checktime'];
 		
-		$installedRepos = BizSystem::getObject($this->m_RepositoryDO)->directFetch();
+		$installedRepos = BizSystem::getObject($this->m_RepositoryDO)->directFetch();		
 		foreach($installedRepos as $repo)
 		{
 			$repo_id = $repo['Id'];
