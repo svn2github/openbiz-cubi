@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="FormMetaListView" Access="AppBuilder.Access" Description="Form Object Metadata" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl.html">
+    <FormReferences>
+    	<Reference Name="appbuilder.metaedit.ModuleFilterForm" Subforms="appbuilder.metaedit.FormObjectListForm" />
+        <Reference Name="appbuilder.metaedit.FormObjectListForm"/>     
+    </FormReferences>
+</EasyView>
