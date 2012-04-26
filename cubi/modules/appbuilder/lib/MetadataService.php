@@ -28,7 +28,7 @@ class MetadataService
 		{
 			$file = str_replace(MODULE_PATH.DIRECTORY_SEPARATOR,"",$file);
 			if($this->getDataObjectInfo($file))
-			{
+			{				
 				$result[] = $file;
 			}
 		}
@@ -47,6 +47,12 @@ class MetadataService
 				{					
 					$result = $xmlArr[strtoupper($key)]["ATTRIBUTES"];			
 					$result['Id'] = $result['NAME'];
+					
+					$file = str_replace(MODULE_PATH.DIRECTORY_SEPARATOR, "", $file);					
+					preg_match("|(.*?)/(.*)/.*\.xml|si",$file,$match);
+					$folder = $match[2];
+					$result['FOLDER'] = $folder;
+					$result['PACKAGE'] = $match[1].'.'.str_replace('/','.',$folder);
 					return $result;
 				}
 			}			

@@ -7,6 +7,7 @@
         </Element>    
 		<Element Name="fld_name" Class="ColumnText" FieldName="NAME" Label="Module"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
         </Element>     
+    	<Element Name="fld_package" Class="ColumnText" FieldName="PACKAGE" Label="Package"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
     	<Element Name="fld_dbname" Class="ColumnText" FieldName="DBNAME" Label="DB Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />               
         <Element Name="fld_table" Class="ColumnText" FieldName="TABLE" Label="Table"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />       
         <Element Name="fld_datapermcontrol" Class="ColumnBool" TrueValue="Y" FalseValue="N" FieldName="DATAPERMCONTROL" Label="ACL" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
