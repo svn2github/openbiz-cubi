@@ -179,3 +179,73 @@
     background-position: -216px bottom;
     color: #ffffff;
 }
+#mod_list
+{
+width:710px;
+}
+
+.module_list div{
+display:block;
+padding:10px;
+padding-top:55px;
+width:88px;
+height:33px;
+float:left;
+cursor:pointer;
+margin:3px;
+margin-right:7px;
+margin-top:6px;
+background-image:url(../images/icon_module_item.png);
+background-repeat:no-repeat;
+background-position:left bottom;
+text-align:center;
+}
+.module_list div.hover{
+background-color:#ffffff;
+background-position:left -98px;
+}
+.module_list div.selected{
+background-color:#ffffff;
+background-position:left top;
+}
+.module_list div span.name{
+display:block;
+font-size:13px;
+font-weight:bold;
+line-height:20px;
+text-transform:uppercase;
+overflow:hidden;
+}
+
+.module_list div span.name a {
+text-decoration: none;
+color:#999999;
+}
+.module_list div.hover span.name a {
+color:#757575;
+}
+.module_list div.selected span.name a {
+color:#006599;
+}
+.module_list div span.author{
+display:block;
+font-size:11px;
+color:#AAAAAA;
+}
+.module_list div.hover span.author{
+color:#999999;
+}
+.module_list div.selected span.author{
+color:#666666;
+}
+.module_list div span.version{
+display:block;
+font-size:11px;
+color:#AAAAAA;
+}
+.module_list div.hover span.version{
+color:#999999;	
+}
+.module_list div.selected span.version{
+color:#666666;	
+}
