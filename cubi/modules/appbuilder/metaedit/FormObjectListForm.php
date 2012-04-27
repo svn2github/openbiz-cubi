@@ -23,14 +23,21 @@ class FormObjectListForm extends ArrayListForm
 	{
 		$resultSet = parent::fetchDataSet();
 		$result = array();
-		foreach($resultSet as $record)
+		if(is_array($resultSet))
 		{
-			if(!$record['FORMTYPE'])
+			foreach($resultSet as $record)
 			{
-				$record['FORMTYPE'] = 'Detail';
+				if(!$record['FORMTYPE'])
+				{
+					$record['FORMTYPE'] = 'Detail';
+				}
+				$record['ICONTYPE'] = RESOURCE_URL.'/appbuilder/images/icon_form_'.strtolower($record['FORMTYPE']).'_small.png';
+				$result[]=$record;
 			}
-			$record['ICONTYPE'] = RESOURCE_URL.'/appbuilder/images/icon_form_'.strtolower($record['FORMTYPE']).'_small.png';
-			$result[]=$record;
+		}
+		else
+		{
+			$result = array();	
 		}
 		return $result;
 	}

@@ -14,11 +14,11 @@
 
     </DataPanel>
     <SearchPanel>    	
-        <Element Name="package_filter"  BlankOption="All Packages" cssclass="input_select_w" Class="appbuilder.element.PackageList" FieldName="package" Label="Package">
+        <Element Name="package_filter"  BlankOption="All Packages" cssclass="input_select_w" Class="appbuilder.element.PackageList" FieldName="PACKAGE" Label="Package">
             <EventHandler Name="package_filter_onchange" Event="onchange" Function="RunSearch()"/>
         </Element>
         
-        <Element Name="type_filter"  BlankOption="All Types" cssclass="input_select_w" Class="DropDownList" FieldName="form_type" Label="Type" SelectFrom="appbuilder.metaedit.lov.FormLOV(FormType)">
+        <Element Name="type_filter"  BlankOption="All Types" cssclass="input_select_w" Class="DropDownList" FieldName="FORMTYPE" Label="Type" SelectFrom="appbuilder.metaedit.lov.FormLOV(FormType)">
             <EventHandler Name="type_filter_onchange" Event="onchange" Function="RunSearch()"/>
         </Element>
         

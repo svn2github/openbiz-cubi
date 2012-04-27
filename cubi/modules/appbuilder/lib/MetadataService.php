@@ -35,7 +35,7 @@ class MetadataService
 			preg_match("|(.*?)/(.*)/.*\.xml|si",$file,$match);
 			$folder = $match[2];		
 			if($match[1]){	
-				$package = $module.'.'.$match[1].'.'.str_replace('/','.',$folder);
+				$package = $match[1].'.'.str_replace('/','.',$folder);
 			}else{
 				$package = $module;
 			}		

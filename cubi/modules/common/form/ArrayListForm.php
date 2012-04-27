@@ -1,9 +1,98 @@
 <?php 
 class ArrayListForm extends EasyForm
 {
+	
+	public function runSearch()
+    {
+        include_once(OPENBIZ_BIN."/easy/SearchHelper.php");
+        $searchRule = "";
+        foreach ($this->m_SearchPanel as $element)
+        {
+            $searchStr = '';
+        	if(method_exists($element,"getSearchRule")){
+        		$searchStr = $element->getSearchRule();        		
+        	}else{        	
+	            if (!$element->m_FieldName)
+	                continue;
+	
+	            $value = BizSystem::clientProxy()->getFormInputs($element->m_Name);     	                   
+	            if($element->m_FuzzySearch=="Y")
+	            {
+	                $value="*$value*";
+	            }
+	            if ($value!='')
+	            {
+	                $searchStr = inputValToRule($element->m_FieldName, $value, $this);	  
+	                $values[] = $value; 	                           
+	            }
+        	}
+        	if($searchStr){
+        		if ($searchRule == "")
+                    $searchRule .= $searchStr;
+                else
+                    $searchRule .= " AND " . $searchStr;
+        	}        	        	
+        }
+        $this->m_SearchRule = $searchRule;
+        $this->m_SearchRuleBindValues = $values;
+
+        $this->m_RefreshData = true;
+
+        $this->m_CurrentPage = 1;
+
+        BizSystem::log(LOG_DEBUG,"FORMOBJ",$this->m_Name."::runSearch(), SearchRule=".$this->m_SearchRule);
+
+		$recArr = $this->readInputRecord();		
+		
+		$this->m_SearchPanelValues = $recArr;
+		
+        
+        $this->runEventLog();
+        $this->rerender();
+    }	
+	
 	public function fetchDataSet()
 	{
-		$result = $this->getRecordList();
+		$resultRaw = $this->getRecordList();
+		
+		$searchRule = $this->m_SearchRule;			
+		preg_match_all("/\[(.*?)\]/si", $searchRule,$match);	
+		$i=0;		
+		$searchFilter = array();
+		if(is_array($this->m_SearchRuleBindValues))
+		{
+			foreach( $this->m_SearchRuleBindValues as $key=>$value)
+			{
+				$fieldName = $match[1][$i];
+				$fieldValue = $value;
+				$i++;
+				$searchFilter[$fieldName]=$fieldValue;
+			}		
+		}
+		if(count($searchFilter))
+		{
+			
+			foreach($resultRaw as $record)
+			{
+				$testField = false;
+				foreach($searchFilter as $field=>$value)
+				{
+					if($record[$field]!=$value){
+						$testField =true;
+						break;
+					}
+				}
+				if(!$testField)
+				{
+					$result[] = $record; 
+				}
+			}
+		}
+		else
+		{
+			$result=$resultRaw;
+		}
+		
     	//set default selected record
 		if(!$this->m_RecordId){
 				$this->m_RecordId=$result[0]["Name"];
