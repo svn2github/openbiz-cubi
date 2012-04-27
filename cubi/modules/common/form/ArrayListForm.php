@@ -73,10 +73,10 @@ class ArrayListForm extends EasyForm
 		{
 			
 			foreach($resultRaw as $record)
-			{
+			{				
 				$testField = false;
 				foreach($searchFilter as $field=>$value)
-				{
+				{					
 					if($record[$field]!=$value){
 						$testField =true;
 						break;
