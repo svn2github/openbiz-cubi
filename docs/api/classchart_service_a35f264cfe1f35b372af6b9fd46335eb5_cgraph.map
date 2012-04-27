@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem::clientProxy" alt="" coords="116,5,273,35"/>
+<area shape="rect" id="node7" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="120,59,269,88"/>
+<area shape="rect" id="node9" href="$class_biz_system.html#afb3b9597319d812f889a89ab0c7c5e4b" title="BizSystem::getXmlArray" alt="" coords="113,112,276,141"/>
+<area shape="rect" id="node11" href="$classchart_service.html#ab0d8abc93415bda5749abaa148c156cc" title="pieGraphRender" alt="" coords="137,165,252,195"/>
+<area shape="rect" id="node17" href="$classchart_service.html#a64b84e5acee897e0eee7f3a27b1e7b1e" title="xyGraphRender" alt="" coords="139,219,251,248"/>
+<area shape="rect" id="node5" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="327,5,468,35"/>
+<area shape="rect" id="node13" href="$classchart_service.html#ac9b785ecb13ca092c65186ff4db61145" title="getPlotData" alt="" coords="352,192,443,221"/>
+<area shape="rect" id="node15" href="$classchart_service.html#aa1b475cc77bb9f1f9d4ddeec9e9a7245" title="renderPiePlot" alt="" coords="348,139,447,168"/>
+<area shape="rect" id="node20" href="$classchart_service.html#ac7b354e7322fed7df4a6109bca99930b" title="renderXYPlot" alt="" coords="349,245,445,275"/>
+</map>

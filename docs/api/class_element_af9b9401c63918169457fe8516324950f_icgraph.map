@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_radio.html#afde88292c44dc59faf017738dae6dffb" title="Radio::render" alt="" coords="216,5,315,35"/>
+<area shape="rect" id="node5" href="$class_listbox.html#afde88292c44dc59faf017738dae6dffb" title="Listbox::render" alt="" coords="212,59,319,88"/>
+<area shape="rect" id="node7" href="$class_input_text.html#afde88292c44dc59faf017738dae6dffb" title="InputText::render" alt="" coords="207,112,324,141"/>
+<area shape="rect" id="node9" href="$class_input_date_range_picker.html#afde88292c44dc59faf017738dae6dffb" title="InputDateRangePicker::render" alt="" coords="168,165,363,195"/>
+<area shape="rect" id="node11" href="$class_i_d_card_reader.html#afde88292c44dc59faf017738dae6dffb" title="IDCardReader::render" alt="" coords="192,219,339,248"/>
+<area shape="rect" id="node13" href="$class_edit_combobox.html#afde88292c44dc59faf017738dae6dffb" title="EditCombobox::render" alt="" coords="191,272,340,301"/>
+<area shape="rect" id="node15" href="$class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="DropDownList::render" alt="" coords="192,325,339,355"/>
+<area shape="rect" id="node17" href="$class_color_picker.html#afde88292c44dc59faf017738dae6dffb" title="ColorPicker::render" alt="" coords="199,379,332,408"/>
+</map>

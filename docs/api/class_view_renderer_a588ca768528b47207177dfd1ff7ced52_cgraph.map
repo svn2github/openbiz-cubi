@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_view_renderer.html#a3ff47ffac8a02c41f2c4d018156fc112" title="buildTemplateAttributes" alt="" coords="113,217,271,247"/>
+<area shape="rect" id="node29" href="$class_view_renderer.html#a288b4b665cf447481ca982c7ec7d004e" title="renderPHP" alt="" coords="149,323,235,352"/>
+<area shape="rect" id="node35" href="$class_view_renderer.html#a271a8f8acd200d185367fb475f43df51" title="renderSmarty" alt="" coords="143,376,241,405"/>
+<area shape="rect" id="node5" href="$class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem::clientProxy" alt="" coords="345,59,503,88"/>
+<area shape="rect" id="node9" href="$class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression::evaluateExpression" alt="" coords="321,191,527,220"/>
+<area shape="rect" id="node20" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="1271,193,1420,223"/>
+<area shape="rect" id="node7" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="615,5,756,35"/>
+<area shape="rect" id="node11" href="$class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression::eval_syntax" alt="" coords="604,59,767,88"/>
+<area shape="rect" id="node13" href="$class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression::replaceElementsExpr" alt="" coords="576,112,795,141"/>
+<area shape="rect" id="node15" href="$class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression::replaceFieldsExpr" alt="" coords="587,165,784,195"/>
+<area shape="rect" id="node17" href="$class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression::replaceVarExpr" alt="" coords="593,219,777,248"/>
+<area shape="rect" id="node22" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="1067,193,1221,223"/>
+<area shape="rect" id="node25" href="$class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem::getUserProfile" alt="" coords="844,219,1017,248"/>
+<area shape="rect" id="node31" href="$class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c" title="BizSystem::getTplFileWithPath" alt="" coords="323,376,525,405"/>
+<area shape="rect" id="node33" href="$class_biz_system.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="BizSystem::getZendTemplate" alt="" coords="328,323,520,352"/>
+<area shape="rect" id="node37" href="$class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde" title="BizSystem::getSmartyTemplate" alt="" coords="321,429,527,459"/>
+</map>

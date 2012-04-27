@@ -1,0 +1,22 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_easy_form.html#a75545a3a11720fe6d5c316d316fb2df6" title="rerender" alt="" coords="184,357,253,387"/>
+<area shape="rect" id="node5" href="$class_easy_form.html#abaacec03117854cd7fcc2540295768e8" title="deleteRecord" alt="" coords="940,41,1039,71"/>
+<area shape="rect" id="node7" href="$class_easy_form.html#af257d587a47f747ac99f7ea89b0e3a32" title="gotoPage" alt="" coords="336,251,413,280"/>
+<area shape="rect" id="node9" href="$class_easy_form.html#a44d87432a7016815c9a8bdc468b4c74e" title="processFormObjError" alt="" coords="301,197,448,227"/>
+<area shape="rect" id="node38" href="$class_easy_form.html#a5eca79a16a171c80aea4860c2e8fbe84" title="removeRecord" alt="" coords="323,304,427,333"/>
+<area shape="rect" id="node40" href="$class_easy_form.html#a5d3f4160632eebbdec1d1e9bf8a3d510" title="resetSearch" alt="" coords="329,357,420,387"/>
+<area shape="rect" id="node42" href="$class_easy_form.html#a0b269ace607ab745b5c2ac549f1f3b08" title="runSearch" alt="" coords="335,411,415,440"/>
+<area shape="rect" id="node44" href="$class_easy_form.html#a6f41933d34404dcdd82eb7f376e99e50" title="selectRecord" alt="" coords="325,464,424,493"/>
+<area shape="rect" id="node46" href="$class_easy_form.html#a0aa5b2a2eb9946d0e985687bc15e51b4" title="sortRecord" alt="" coords="332,517,417,547"/>
+<area shape="rect" id="node48" href="$class_easy_form.html#a10bc86aec45f3e2b6737f7cff2cf0feb" title="updateForm" alt="" coords="329,571,420,600"/>
+<area shape="rect" id="node11" href="$class_easy_form.html#a613a31d4e8c9693801fa4ae1ba0644b6" title="_doInsert" alt="" coords="747,251,821,280"/>
+<area shape="rect" id="node13" href="$class_easy_form.html#a3510e359acc3518312436d50f9cbde51" title="insertRecord" alt="" coords="943,251,1036,280"/>
+<area shape="rect" id="node15" href="$class_easy_form.html#a22a8409a820a88e424d9fc9a71a5932a" title="_doUpdate" alt="" coords="541,405,624,435"/>
+<area shape="rect" id="node19" href="$class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="939,353,1040,383"/>
+<area shape="rect" id="node21" href="$class_easy_form.html#aef7c4ff0a903eb04e7af25a6baea3d35" title="_showForm" alt="" coords="539,197,627,227"/>
+<area shape="rect" id="node26" href="$class_easy_form_wizard.html#af5df107b0b9aca9b5deb9e7bccb33eb6" title="EasyFormWizard::doFinish" alt="" coords="900,120,1079,149"/>
+<area shape="rect" id="node34" href="$class_easy_form_wizard.html#a94deddbc1de2ba018dcc2880f435a64e" title="EasyFormWizard::goNext" alt="" coords="497,93,668,123"/>
+<area shape="rect" id="node17" href="$class_easy_form.html#a386c5a3fcb3daea95ab0e98a4cafd8bf" title="updateFieldValue" alt="" coords="723,405,845,435"/>
+<area shape="rect" id="node23" href="$class_easy_form.html#af446ebc060117e121c1ebff59f6bb02f" title="processPostAction" alt="" coords="719,144,849,173"/>
+<area shape="rect" id="node30" href="$class_easy_form.html#a1b207d41cdc76e0f84048f6a55164f50" title="switchForm" alt="" coords="740,197,828,227"/>
+</map>

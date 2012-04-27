@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_type_manager.html#ace5ddb0d2cf979e84f86ac7139e90853" title="valueToCurrency" alt="" coords="213,5,331,35"/>
+<area shape="rect" id="node5" href="$class_type_manager.html#aa09a348802e9c7c2a70b5003da1d8bd5" title="valueToDate" alt="" coords="380,84,471,113"/>
+<area shape="rect" id="node7" href="$class_type_manager.html#af59f9876a93301c8742644cc44558cbd" title="valueToDatetime" alt="" coords="213,109,331,139"/>
+<area shape="rect" id="node10" href="$class_type_manager.html#ad1036ab8bf363e183b146965fde251e0" title="valueToNumber" alt="" coords="217,163,327,192"/>
+<area shape="rect" id="node12" href="$class_type_manager.html#a668538cc5afbd106de7e5c4a3b6eb556" title="valueToPhone" alt="" coords="221,216,323,245"/>
+<area shape="rect" id="node14" href="$class_type_manager.html#a7503ec06c63983cc000b196c2e5620bb" title="valueToText" alt="" coords="227,269,317,299"/>
+</map>

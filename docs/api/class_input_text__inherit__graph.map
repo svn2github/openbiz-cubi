@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node11" href="$class_color_picker.html" title="ColorPicker" alt="" coords="5,315,93,344"/>
+<area shape="rect" id="node13" href="$class_input_date.html" title="InputDate" alt="" coords="117,315,195,344"/>
+<area shape="rect" id="node15" href="$class_input_date_range_picker.html" title="InputDateRangePicker" alt="" coords="219,315,368,344"/>
+<area shape="rect" id="node17" href="$class_input_datetime.html" title="InputDatetime" alt="" coords="392,315,493,344"/>
+<area shape="rect" id="node19" href="$class_input_picker.html" title="InputPicker" alt="" coords="517,315,603,344"/>
+<area shape="rect" id="node2" href="$class_input_element.html" title="InputElement" alt="" coords="244,160,343,189"/>
+<area shape="rect" id="node4" href="$class_element.html" title="Element" alt="" coords="259,83,328,112"/>
+<area shape="rect" id="node6" href="$class_meta_object.html" title="MetaObject" alt="" coords="196,5,284,35"/>
+<area shape="rect" id="node8" href="$interfacei_u_i_control.html" title="iUIControl" alt="" coords="308,5,385,35"/>
+</map>

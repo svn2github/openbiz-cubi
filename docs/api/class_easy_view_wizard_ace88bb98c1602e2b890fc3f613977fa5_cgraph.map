@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem::clientProxy" alt="" coords="147,5,304,35"/>
+<area shape="rect" id="node7" href="$class_easy_view_wizard.html#a8c10d82ce4005a51c021f375175e117a" title="getCurrentStep" alt="" coords="171,59,280,88"/>
+<area shape="rect" id="node9" href="$class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem::objectFactory" alt="" coords="139,112,312,141"/>
+<area shape="rect" id="node5" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="361,59,503,88"/>
+</map>

@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="_run_search" alt="" coords="109,135,203,165"/>
+<area shape="rect" id="node5" href="$class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="directFetch" alt="" coords="257,189,343,218"/>
+<area shape="rect" id="node7" href="$class_biz_data_tree.html#a389a4f4f663f435f55858948da2c7ca9" title="BizDataTree::fetchNodePath" alt="" coords="408,30,595,59"/>
+<area shape="rect" id="node11" href="$class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9" title="getActiveRecord" alt="" coords="444,213,559,242"/>
+<area shape="rect" id="node26" href="$class_biz_data_obj.html#a32bd6c3b9b933671846cd1b6c3209ed5" title="BizDataObj::validateUniqueness" alt="" coords="399,290,604,319"/>
+<area shape="rect" id="node28" href="$class_biz_data_obj.html#aced64a0f4fd1647229efda490d90b8a0" title="BizDataObj::validateInput" alt="" coords="671,342,836,371"/>
+<area shape="rect" id="node31" href="$class_biz_data_obj___lite.html#ae48cc10bd727774bb36203986ce3b176" title="fetch" alt="" coords="275,29,325,58"/>
+<area shape="rect" id="node33" href="$class_biz_data_obj___lite.html#afd5f4b134ae2380599eee8876f11cdc7" title="fetchRecords" alt="" coords="251,82,349,111"/>
+<area shape="rect" id="node35" href="$class_biz_data_obj___lite.html#a39ec161e9a5372e002b889d276208899" title="find" alt="" coords="279,135,321,165"/>
+<area shape="rect" id="node9" href="$class_biz_data_tree.html#abed09406b8b4ab1618c60375ca26c840" title="BizDataTree::fetchTree" alt="" coords="424,159,579,189"/>
+<area shape="rect" id="node13" href="$class_biz_data_obj.html#a67d94f354839a005d97b8376df820540" title="BizDataObj::canDeleteRecord" alt="" coords="656,81,851,110"/>
+<area shape="rect" id="node15" href="$class_biz_data_obj.html#a8e1b49a9d10f77cd27239ecef9fdc075" title="BizDataObj::deleteRecord" alt="" coords="904,107,1075,137"/>
+<area shape="rect" id="node17" href="$class_biz_data_obj.html#afc9d51989ea40913cc84c3ebe0130e9a" title="BizDataObj::canUpdateRecord" alt="" coords="655,185,852,214"/>
+<area shape="rect" id="node19" href="$class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="BizDataObj::updateRecord" alt="" coords="901,263,1077,293"/>
+<area shape="rect" id="node22" href="$class_biz_data_obj___lite.html#a73b7596e4d1242bb3ae3b12f26aeb18a" title="getFieldValue" alt="" coords="703,289,804,318"/>
+</map>

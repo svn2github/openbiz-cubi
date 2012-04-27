@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node11" href="$class_column_bar.html" title="ColumnBar" alt="" coords="5,315,91,344"/>
+<area shape="rect" id="node15" href="$class_column_bool.html" title="ColumnBool" alt="" coords="115,315,205,344"/>
+<area shape="rect" id="node17" href="$class_column_image.html" title="ColumnImage" alt="" coords="229,315,331,344"/>
+<area shape="rect" id="node19" href="$class_column_password.html" title="ColumnPassword" alt="" coords="355,315,477,344"/>
+<area shape="rect" id="node21" href="$class_column_share.html" title="ColumnShare" alt="" coords="501,315,600,344"/>
+<area shape="rect" id="node23" href="$class_column_sorting.html" title="ColumnSorting" alt="" coords="624,315,731,344"/>
+<area shape="rect" id="node25" href="$class_column_value.html" title="ColumnValue" alt="" coords="755,315,853,344"/>
+<area shape="rect" id="node2" href="$class_label_text.html" title="LabelText" alt="" coords="377,160,455,189"/>
+<area shape="rect" id="node4" href="$class_element.html" title="Element" alt="" coords="381,83,451,112"/>
+<area shape="rect" id="node6" href="$class_meta_object.html" title="MetaObject" alt="" coords="319,5,407,35"/>
+<area shape="rect" id="node8" href="$interfacei_u_i_control.html" title="iUIControl" alt="" coords="431,5,508,35"/>
+<area shape="rect" id="node13" href="$class_label_bar.html" title="LabelBar" alt="" coords="12,392,84,421"/>
+</map>

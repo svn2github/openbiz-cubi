@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_easy_form.html#a27936a509c257572409599f157ff681a" title="getEventLogMsg" alt="" coords="165,32,283,61"/>
+<area shape="rect" id="node13" href="$class_easy_form.html#a69fa9e0c4d5e4506a6e6fc38af5e53d8" title="getOnEventElements" alt="" coords="152,85,296,115"/>
+<area shape="rect" id="node15" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="147,139,301,168"/>
+<area shape="rect" id="node5" href="$class_easy_form.html#a15d343efcbc80c8b61a60c3f2f01e759" title="getInvokingElement" alt="" coords="359,32,492,61"/>
+<area shape="rect" id="node7" href="$class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem::clientProxy" alt="" coords="551,5,708,35"/>
+<area shape="rect" id="node11" href="$class_easy_form.html#a214fbd6ab24d8a6efdcb305a5ecdae6b" title="getElement" alt="" coords="585,59,673,88"/>
+<area shape="rect" id="node9" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="759,5,900,35"/>
+<area shape="rect" id="node17" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="351,139,500,168"/>
+</map>

@@ -1,0 +1,19 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_data_obj.html#a67d94f354839a005d97b8376df820540" title="canDeleteRecord" alt="" coords="153,397,273,427"/>
+<area shape="rect" id="node5" href="$class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9" title="BizDataObj_Lite::getActiveRecord" alt="" coords="323,331,541,360"/>
+<area shape="rect" id="node9" href="$class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract::getDBConnection" alt="" coords="1395,121,1648,151"/>
+<area shape="rect" id="node11" href="$class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite::getSQLHelper" alt="" coords="1419,308,1624,337"/>
+<area shape="rect" id="node21" href="$class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract::getMessage" alt="" coords="1124,411,1345,440"/>
+<area shape="rect" id="node26" href="$class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem::log" alt="" coords="1180,539,1289,568"/>
+<area shape="rect" id="node38" href="$class_biz_data_obj.html#aae6158ea6c2e59049c9c0d06b56446a8" title="cascadeDelete" alt="" coords="160,667,267,696"/>
+<area shape="rect" id="node40" href="$class_biz_data_obj.html#a79777aeaff8398feac96662c64d39655" title="cleanCache" alt="" coords="387,616,477,645"/>
+<area shape="rect" id="node7" href="$class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite::count" alt="" coords="1157,121,1312,151"/>
+<area shape="rect" id="node13" href="$class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite::directFetch" alt="" coords="589,277,779,307"/>
+<area shape="rect" id="node15" href="$class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="BizDataObj_Lite::_fetch_record" alt="" coords="849,251,1052,280"/>
+<area shape="rect" id="node17" href="$class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite::_run_search" alt="" coords="853,411,1048,440"/>
+<area shape="rect" id="node29" href="$class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract::clearSearchRule" alt="" coords="828,304,1073,333"/>
+<area shape="rect" id="node31" href="$class_biz_data_obj___abstract.html#aa70182035e20efcd63a8bd3cb36c5c92" title="BizDataObj_Abstract::clearSortRule" alt="" coords="836,357,1065,387"/>
+<area shape="rect" id="node34" href="$class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract::setSearchRule" alt="" coords="832,144,1069,173"/>
+<area shape="rect" id="node36" href="$class_biz_data_obj___abstract.html#ad9767fc4b371a704f36c9408cd92bfab" title="BizDataObj_Abstract::setSortRule" alt="" coords="841,197,1060,227"/>
+<area shape="rect" id="node23" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="1444,539,1599,568"/>
+</map>

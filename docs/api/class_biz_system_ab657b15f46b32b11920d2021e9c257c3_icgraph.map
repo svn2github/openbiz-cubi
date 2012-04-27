@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_field.html#a80314b4a8ff745a399a730231eaf74b8" title="BizField::getValue" alt="" coords="177,5,305,35"/>
+<area shape="rect" id="node9" href="$class_biz_record.html#a4a02f0ef11ea4feb96c5a11e7be86a57" title="BizRecord::setInputRecord" alt="" coords="153,59,329,88"/>
+<area shape="rect" id="node5" href="$class_biz_field.html#a56ed2c64ed12456cea61c55446cebacd" title="BizField::lookupValue" alt="" coords="380,5,527,35"/>
+<area shape="rect" id="node7" href="$class_biz_field.html#ade17b04a708bb62c5c29d4cd0b68fc32" title="BizField::getProperty" alt="" coords="576,5,720,35"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem::clientProxy" alt="" coords="116,5,273,35"/>
+<area shape="rect" id="node7" href="$class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem::getMessage" alt="" coords="112,59,277,88"/>
+<area shape="rect" id="node9" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="120,112,269,141"/>
+<area shape="rect" id="node11" href="$class_biz_controller.html#a2ec72f0923e727171d17323ee4311cad" title="validateRequest" alt="" coords="139,165,251,195"/>
+<area shape="rect" id="node5" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="327,5,468,35"/>
+</map>

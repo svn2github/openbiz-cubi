@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="_fetch_record" alt="" coords="227,147,325,176"/>
+<area shape="rect" id="node5" href="$class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="_run_search" alt="" coords="229,200,323,230"/>
+<area shape="rect" id="node32" href="$class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract::clearSearchRule" alt="" coords="153,254,399,283"/>
+<area shape="rect" id="node34" href="$class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract::setSearchRule" alt="" coords="157,307,395,336"/>
+<area shape="rect" id="node7" href="$class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="count" alt="" coords="545,70,599,99"/>
+<area shape="rect" id="node9" href="$class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract::getDBConnection" alt="" coords="744,31,997,60"/>
+<area shape="rect" id="node13" href="$class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="getSQLHelper" alt="" coords="820,110,921,139"/>
+<area shape="rect" id="node17" href="$class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5" title="QueryStringParam::getBindValues" alt="" coords="461,174,683,203"/>
+<area shape="rect" id="node19" href="$class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2" title="QueryStringParam::getBindValueString" alt="" coords="448,227,696,256"/>
+<area shape="rect" id="node22" href="$class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract::getMessage" alt="" coords="461,280,683,310"/>
+<area shape="rect" id="node24" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="793,358,948,387"/>
+<area shape="rect" id="node29" href="$class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem::log" alt="" coords="517,384,627,414"/>
+<area shape="rect" id="node11" href="$class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem::dbConnection" alt="" coords="1067,31,1240,60"/>
+<area shape="rect" id="node15" href="$class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper::instance" alt="" coords="1047,110,1260,139"/>
+<area shape="rect" id="node26" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="1079,358,1228,387"/>
+</map>

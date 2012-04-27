@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad" title="EasyForm::getViewObject" alt="" coords="125,5,299,35"/>
+<area shape="rect" id="node7" href="$class_easy_form.html#aa1cca28cf3008654e803cee1d0381efc" title="EasyForm::readInputRecord" alt="" coords="120,59,304,88"/>
+<area shape="rect" id="node13" href="$class_easy_form.html#a66ca3cc82efeedbd58aa6923c1410bb7" title="EasyForm::setActiveRecord" alt="" coords="120,112,304,141"/>
+<area shape="rect" id="node5" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="355,5,504,35"/>
+<area shape="rect" id="node9" href="$class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem::clientProxy" alt="" coords="563,59,720,88"/>
+<area shape="rect" id="node11" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="777,85,919,115"/>
+<area shape="rect" id="node15" href="$class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm::getDataObj" alt="" coords="352,112,507,141"/>
+<area shape="rect" id="node17" href="$class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem::objectFactory" alt="" coords="555,112,728,141"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="385,26,535,55"/>
+<area shape="rect" id="node5" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="139,51,293,81"/>
+<area shape="rect" id="node8" href="$class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde" title="BizSystem::getSmartyTemplate" alt="" coords="113,105,319,134"/>
+<area shape="rect" id="node10" href="$class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c" title="BizSystem::getTplFileWithPath" alt="" coords="115,158,317,187"/>
+<area shape="rect" id="node12" href="$class_h_t_m_l_tabs.html#aa36dd47233ae06f5e1b8c03fb07fe0a5" title="isCurrentTab" alt="" coords="413,263,507,293"/>
+<area shape="rect" id="node14" href="$class_h_t_m_l_tabs.html#a9e353bda0cf6e289264cc381f2eaa312" title="setClientScripts" alt="" coords="159,211,273,241"/>
+<area shape="rect" id="node20" href="$class_h_t_m_l_tabs.html#a3e730d6b77836656e475c29e5d78789f" title="setCurrentTabInSession" alt="" coords="136,317,296,346"/>
+<area shape="rect" id="node16" href="$class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem::clientProxy" alt="" coords="381,210,539,239"/>
+<area shape="rect" id="node18" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="601,290,743,319"/>
+<area shape="rect" id="node23" href="$class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem::sessionContext" alt="" coords="368,370,552,399"/>
+<area shape="rect" id="node26" href="$class_h_t_m_l_tabs.html#a63b8aae2fd9ebc823ac45a927192a09b" title="setCurrentTab" alt="" coords="409,317,511,346"/>
+</map>

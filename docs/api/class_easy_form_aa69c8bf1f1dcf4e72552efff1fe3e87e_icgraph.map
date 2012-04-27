@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_picker_form.html#a1eef9310b3a3db65a47996df866d032e" title="PickerForm::addToParent" alt="" coords="107,5,277,35"/>
+<area shape="rect" id="node7" href="$class_easy_form.html#a3510e359acc3518312436d50f9cbde51" title="insertRecord" alt="" coords="145,112,239,141"/>
+<area shape="rect" id="node11" href="$class_picker_form.html#a967aa4a81d97ae394ac4d653d8015372" title="PickerForm::joinToParent" alt="" coords="108,59,276,88"/>
+<area shape="rect" id="node14" href="$class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="141,165,243,195"/>
+<area shape="rect" id="node5" href="$class_picker_form.html#aac9acfa9c77aa11f394ff4e515c52527" title="PickerForm::pickToParent" alt="" coords="325,45,499,75"/>
+<area shape="rect" id="node9" href="$class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="saveRecord" alt="" coords="368,125,456,155"/>
+</map>

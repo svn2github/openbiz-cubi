@@ -1,0 +1,36 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_textarea.html#afde88292c44dc59faf017738dae6dffb" title="Textarea::render" alt="" coords="168,5,283,35"/>
+<area shape="rect" id="node5" href="$class_submit_button.html#afde88292c44dc59faf017738dae6dffb" title="SubmitButton::render" alt="" coords="153,59,297,88"/>
+<area shape="rect" id="node7" href="$class_reset_button.html#afde88292c44dc59faf017738dae6dffb" title="ResetButton::render" alt="" coords="156,112,295,141"/>
+<area shape="rect" id="node9" href="$class_radio.html#afde88292c44dc59faf017738dae6dffb" title="Radio::render" alt="" coords="176,165,275,195"/>
+<area shape="rect" id="node11" href="$class_listbox.html#afde88292c44dc59faf017738dae6dffb" title="Listbox::render" alt="" coords="172,219,279,248"/>
+<area shape="rect" id="node13" href="$class_label_text_paging.html#afde88292c44dc59faf017738dae6dffb" title="LabelTextPaging::render" alt="" coords="144,272,307,301"/>
+<area shape="rect" id="node15" href="$class_label_textarea.html#afde88292c44dc59faf017738dae6dffb" title="LabelTextarea::render" alt="" coords="152,325,299,355"/>
+<area shape="rect" id="node17" href="$class_label_text.html#afde88292c44dc59faf017738dae6dffb" title="LabelText::render" alt="" coords="164,379,287,408"/>
+<area shape="rect" id="node19" href="$class_label_list.html#afde88292c44dc59faf017738dae6dffb" title="LabelList::render" alt="" coords="167,432,284,461"/>
+<area shape="rect" id="node21" href="$class_label_image.html#afde88292c44dc59faf017738dae6dffb" title="LabelImage::render" alt="" coords="160,485,291,515"/>
+<area shape="rect" id="node23" href="$class_label_bool.html#afde88292c44dc59faf017738dae6dffb" title="LabelBool::render" alt="" coords="164,539,287,568"/>
+<area shape="rect" id="node25" href="$class_label_bar.html#afde88292c44dc59faf017738dae6dffb" title="LabelBar::render" alt="" coords="167,592,284,621"/>
+<area shape="rect" id="node27" href="$class_input_text.html#afde88292c44dc59faf017738dae6dffb" title="InputText::render" alt="" coords="167,645,284,675"/>
+<area shape="rect" id="node29" href="$class_input_password.html#afde88292c44dc59faf017738dae6dffb" title="InputPassword::render" alt="" coords="151,699,300,728"/>
+<area shape="rect" id="node31" href="$class_image_uploader.html#afde88292c44dc59faf017738dae6dffb" title="ImageUploader::render" alt="" coords="149,752,301,781"/>
+<area shape="rect" id="node33" href="$class_image_selector.html#afde88292c44dc59faf017738dae6dffb" title="ImageSelector::render" alt="" coords="151,805,300,835"/>
+<area shape="rect" id="node35" href="$class_i_d_card_reader.html#afde88292c44dc59faf017738dae6dffb" title="IDCardReader::render" alt="" coords="152,859,299,888"/>
+<area shape="rect" id="node37" href="$class_h_t_m_l_preview.html#afde88292c44dc59faf017738dae6dffb" title="HTMLPreview::render" alt="" coords="153,912,297,941"/>
+<area shape="rect" id="node39" href="$class_h_t_m_l_button.html#afde88292c44dc59faf017738dae6dffb" title="HTMLButton::render" alt="" coords="156,965,295,995"/>
+<area shape="rect" id="node41" href="$class_h_t_m_l_block.html#afde88292c44dc59faf017738dae6dffb" title="HTMLBlock::render" alt="" coords="159,1019,292,1048"/>
+<area shape="rect" id="node43" href="$class_file_uploader.html#afde88292c44dc59faf017738dae6dffb" title="FileUploader::render" alt="" coords="156,1072,295,1101"/>
+<area shape="rect" id="node45" href="$class_file_input.html#afde88292c44dc59faf017738dae6dffb" title="FileInput::render" alt="" coords="168,1125,283,1155"/>
+<area shape="rect" id="node47" href="$class_file.html#afde88292c44dc59faf017738dae6dffb" title="File::render" alt="" coords="183,1179,268,1208"/>
+<area shape="rect" id="node49" href="$class_edit_combobox.html#afde88292c44dc59faf017738dae6dffb" title="EditCombobox::render" alt="" coords="151,1232,300,1261"/>
+<area shape="rect" id="node51" href="$class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="DropDownList::render" alt="" coords="152,1285,299,1315"/>
+<area shape="rect" id="node53" href="$class_column_share.html#afde88292c44dc59faf017738dae6dffb" title="ColumnShare::render" alt="" coords="153,1339,297,1368"/>
+<area shape="rect" id="node55" href="$class_column_list.html#afde88292c44dc59faf017738dae6dffb" title="ColumnList::render" alt="" coords="160,1392,291,1421"/>
+<area shape="rect" id="node57" href="$class_column_image.html#afde88292c44dc59faf017738dae6dffb" title="ColumnImage::render" alt="" coords="153,1445,297,1475"/>
+<area shape="rect" id="node59" href="$class_column_bool.html#afde88292c44dc59faf017738dae6dffb" title="ColumnBool::render" alt="" coords="157,1499,293,1528"/>
+<area shape="rect" id="node61" href="$class_column_bar.html#afde88292c44dc59faf017738dae6dffb" title="ColumnBar::render" alt="" coords="160,1552,291,1581"/>
+<area shape="rect" id="node63" href="$class_color_picker.html#afde88292c44dc59faf017738dae6dffb" title="ColorPicker::render" alt="" coords="159,1605,292,1635"/>
+<area shape="rect" id="node65" href="$class_check_listbox.html#afde88292c44dc59faf017738dae6dffb" title="CheckListbox::render" alt="" coords="153,1659,297,1688"/>
+<area shape="rect" id="node67" href="$class_checkbox.html#afde88292c44dc59faf017738dae6dffb" title="Checkbox::render" alt="" coords="164,1712,287,1741"/>
+<area shape="rect" id="node69" href="$class_button.html#afde88292c44dc59faf017738dae6dffb" title="Button::render" alt="" coords="173,1765,277,1795"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_easy_form.html#a613a31d4e8c9693801fa4ae1ba0644b6" title="_doInsert" alt="" coords="179,5,253,35"/>
+<area shape="rect" id="node9" href="$class_easy_form.html#a22a8409a820a88e424d9fc9a71a5932a" title="_doUpdate" alt="" coords="175,109,257,139"/>
+<area shape="rect" id="node11" href="$class_easy_form.html#a386c5a3fcb3daea95ab0e98a4cafd8bf" title="updateFieldValue" alt="" coords="309,59,432,88"/>
+<area shape="rect" id="node16" href="$class_easy_form.html#a0a9be34d99077d5d3ea572ca7e59200a" title="copyRecord" alt="" coords="171,163,261,192"/>
+<area shape="rect" id="node18" href="$class_easy_form.html#a32687fce665ec940eadd9d119c193632" title="editRecord" alt="" coords="175,216,257,245"/>
+<area shape="rect" id="node5" href="$class_easy_form.html#a3510e359acc3518312436d50f9cbde51" title="insertRecord" alt="" coords="324,5,417,35"/>
+<area shape="rect" id="node7" href="$class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="saveRecord" alt="" coords="481,59,569,88"/>
+<area shape="rect" id="node13" href="$class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="320,112,421,141"/>
+</map>

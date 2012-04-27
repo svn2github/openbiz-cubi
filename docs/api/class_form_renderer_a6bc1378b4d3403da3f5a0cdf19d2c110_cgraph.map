@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_form_renderer.html#a8a2b7c95c06bfdd98ed556d4a4243a28" title="buildTemplateAttributes" alt="" coords="113,5,271,35"/>
+<area shape="rect" id="node9" href="$class_form_renderer.html#a240405d51345da30f40261fb9b5522f1" title="renderPHP" alt="" coords="149,59,235,88"/>
+<area shape="rect" id="node15" href="$class_form_renderer.html#aaae8885482d48a3eba78c4856ff7ac0a" title="renderSmarty" alt="" coords="143,112,241,141"/>
+<area shape="rect" id="node5" href="$class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem::clientProxy" alt="" coords="345,5,503,35"/>
+<area shape="rect" id="node7" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="577,5,719,35"/>
+<area shape="rect" id="node11" href="$class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c" title="BizSystem::getTplFileWithPath" alt="" coords="323,112,525,141"/>
+<area shape="rect" id="node13" href="$class_biz_system.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="BizSystem::getZendTemplate" alt="" coords="328,59,520,88"/>
+<area shape="rect" id="node17" href="$class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde" title="BizSystem::getSmartyTemplate" alt="" coords="321,165,527,195"/>
+</map>

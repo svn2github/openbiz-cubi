@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_easy_view.html#a1db802d93a9f0badf186a646e1cdb161" title="readMetadata" alt="" coords="144,32,245,61"/>
+<area shape="rect" id="node5" href="$class_resource.html#a66826405edc53b33073ed69eac7b49f4" title="Resource::loadMessage" alt="" coords="301,5,464,35"/>
+<area shape="rect" id="node9" href="$class_meta_object.html#a7a34962e72564b47da11d86bfde7cf79" title="MetaObject::prefixPackage" alt="" coords="293,59,472,88"/>
+<area shape="rect" id="node7" href="$class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource::getMessage" alt="" coords="521,5,676,35"/>
+</map>

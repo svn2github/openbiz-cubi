@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem::clientProxy" alt="" coords="457,5,615,35"/>
+<area shape="rect" id="node7" href="$class_easy_form.html#a52e9eb4fb51cfef13a1648efe1d0c3d3" title="getMessage" alt="" coords="171,55,264,84"/>
+<area shape="rect" id="node9" href="$class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem::log" alt="" coords="844,313,953,343"/>
+<area shape="rect" id="node15" href="$class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem::objectFactory" alt="" coords="1003,108,1176,137"/>
+<area shape="rect" id="node18" href="$class_easy_form.html#a44d87432a7016815c9a8bdc468b4c74e" title="processFormObjError" alt="" coords="144,108,291,137"/>
+<area shape="rect" id="node5" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="1229,57,1371,87"/>
+<area shape="rect" id="node11" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="1012,313,1167,343"/>
+<area shape="rect" id="node13" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="1225,339,1375,368"/>
+<area shape="rect" id="node20" href="$class_easy_form.html#a75545a3a11720fe6d5c316d316fb2df6" title="rerender" alt="" coords="339,108,408,137"/>
+<area shape="rect" id="node23" href="$class_easy_form.html#aa1008c36a9f8e921dc8cd0b5d462ff78" title="renderHTML" alt="" coords="491,224,581,253"/>
+<area shape="rect" id="node37" href="$class_easy_form.html#a9e579367ca9368a8ee3426757db0998d" title="rerenderSubForms" alt="" coords="665,108,793,137"/>
+<area shape="rect" id="node25" href="$class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad" title="getViewObject" alt="" coords="845,367,952,396"/>
+<area shape="rect" id="node28" href="$class_easy_form.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="700,224,759,253"/>
+<area shape="rect" id="node30" href="$class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="getDataObj" alt="" coords="856,108,941,137"/>
+</map>

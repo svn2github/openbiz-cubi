@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_data_obj.html#a67d94f354839a005d97b8376df820540" title="BizDataObj::canDeleteRecord" alt="" coords="173,5,368,35"/>
+<area shape="rect" id="node5" href="$class_biz_data_obj.html#a8e1b49a9d10f77cd27239ecef9fdc075" title="BizDataObj::deleteRecord" alt="" coords="421,32,592,61"/>
+<area shape="rect" id="node7" href="$class_biz_data_obj.html#afc9d51989ea40913cc84c3ebe0130e9a" title="BizDataObj::canUpdateRecord" alt="" coords="172,109,369,139"/>
+<area shape="rect" id="node9" href="$class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="BizDataObj::updateRecord" alt="" coords="419,161,595,191"/>
+<area shape="rect" id="node12" href="$class_biz_data_obj___lite.html#a73b7596e4d1242bb3ae3b12f26aeb18a" title="getFieldValue" alt="" coords="220,213,321,243"/>
+</map>

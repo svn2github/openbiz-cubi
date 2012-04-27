@@ -1,0 +1,23 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem::clientProxy" alt="" coords="827,472,984,502"/>
+<area shape="rect" id="node7" href="$class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="getDataObj" alt="" coords="660,344,745,374"/>
+<area shape="rect" id="node12" href="$class_easy_form.html#a0727e1b8b77e4daf5347a2d43149bff2" title="processDataObjError" alt="" coords="444,291,585,320"/>
+<area shape="rect" id="node22" href="$class_easy_form.html#a20e3df73edd7359bec20a8862ceb3d33" title="renderParent" alt="" coords="157,83,253,112"/>
+<area shape="rect" id="node25" href="$class_easy_form.html#a75545a3a11720fe6d5c316d316fb2df6" title="rerender" alt="" coords="171,239,240,268"/>
+<area shape="rect" id="node49" href="$class_easy_form.html#af7869ff2f0c1b81688eb42db0552a9be" title="runEventLog" alt="" coords="301,470,395,499"/>
+<area shape="rect" id="node5" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="1045,319,1187,348"/>
+<area shape="rect" id="node9" href="$class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem::objectFactory" alt="" coords="819,184,992,214"/>
+<area shape="rect" id="node16" href="$class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem::log" alt="" coords="648,238,757,267"/>
+<area shape="rect" id="node18" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="828,238,983,267"/>
+<area shape="rect" id="node20" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="1041,135,1191,164"/>
+<area shape="rect" id="node28" href="$class_easy_form.html#aa1008c36a9f8e921dc8cd0b5d462ff78" title="renderHTML" alt="" coords="303,160,393,190"/>
+<area shape="rect" id="node45" href="$class_easy_form.html#a9e579367ca9368a8ee3426757db0998d" title="rerenderSubForms" alt="" coords="451,238,579,267"/>
+<area shape="rect" id="node30" href="$class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad" title="getViewObject" alt="" coords="852,31,959,60"/>
+<area shape="rect" id="node33" href="$class_easy_form.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="485,160,544,190"/>
+<area shape="rect" id="node35" href="$class_easy_form.html#a6ababfde848794c7d2cf1679caaf57d1" title="allowAccess" alt="" coords="656,83,749,112"/>
+<area shape="rect" id="node42" href="$class_easy_form.html#a543d4488b170c3e8c3283cae6650b12b" title="setClientScripts" alt="" coords="645,291,760,320"/>
+<area shape="rect" id="node51" href="$class_easy_form.html#a27936a509c257572409599f157ff681a" title="getEventLogMsg" alt="" coords="456,550,573,579"/>
+<area shape="rect" id="node58" href="$class_easy_form.html#a69fa9e0c4d5e4506a6e6fc38af5e53d8" title="getOnEventElements" alt="" coords="443,496,587,526"/>
+<area shape="rect" id="node53" href="$class_easy_form.html#a15d343efcbc80c8b61a60c3f2f01e759" title="getInvokingElement" alt="" coords="636,550,769,579"/>
+<area shape="rect" id="node56" href="$class_easy_form.html#a214fbd6ab24d8a6efdcb305a5ecdae6b" title="getElement" alt="" coords="861,550,949,579"/>
+</map>

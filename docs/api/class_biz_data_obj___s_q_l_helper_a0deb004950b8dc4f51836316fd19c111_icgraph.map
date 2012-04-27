@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite::getSQLHelper" alt="" coords="125,201,331,231"/>
+<area shape="rect" id="node5" href="$class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite::_run_search" alt="" coords="584,149,779,179"/>
+<area shape="rect" id="node15" href="$class_biz_data_obj.html#a8e1b49a9d10f77cd27239ecef9fdc075" title="BizDataObj::deleteRecord" alt="" coords="1343,197,1513,227"/>
+<area shape="rect" id="node17" href="$class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="BizDataObj::updateRecord" alt="" coords="1563,249,1739,279"/>
+<area shape="rect" id="node23" href="$class_biz_data_obj.html#ad6122472319985567e31b7276a78c889" title="BizDataObj::insertRecord" alt="" coords="1567,485,1735,515"/>
+<area shape="rect" id="node32" href="$class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite::count" alt="" coords="380,304,535,333"/>
+<area shape="rect" id="node7" href="$class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite::directFetch" alt="" coords="832,304,1021,333"/>
+<area shape="rect" id="node26" href="$class_biz_data_obj___lite.html#ae48cc10bd727774bb36203986ce3b176" title="BizDataObj_Lite::fetch" alt="" coords="851,96,1003,125"/>
+<area shape="rect" id="node28" href="$class_biz_data_obj___lite.html#afd5f4b134ae2380599eee8876f11cdc7" title="BizDataObj_Lite::fetchRecords" alt="" coords="827,149,1027,179"/>
+<area shape="rect" id="node30" href="$class_biz_data_obj___lite.html#a39ec161e9a5372e002b889d276208899" title="BizDataObj_Lite::find" alt="" coords="855,43,999,72"/>
+<area shape="rect" id="node9" href="$class_biz_data_tree.html#a389a4f4f663f435f55858948da2c7ca9" title="BizDataTree::fetchNodePath" alt="" coords="1091,356,1277,385"/>
+<area shape="rect" id="node11" href="$class_biz_data_tree.html#abed09406b8b4ab1618c60375ca26c840" title="BizDataTree::fetchTree" alt="" coords="1107,303,1261,332"/>
+<area shape="rect" id="node13" href="$class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9" title="BizDataObj_Lite::getActiveRecord" alt="" coords="1075,249,1293,279"/>
+<area shape="rect" id="node19" href="$class_biz_data_obj.html#a32bd6c3b9b933671846cd1b6c3209ed5" title="BizDataObj::validateUniqueness" alt="" coords="1081,409,1287,439"/>
+<area shape="rect" id="node21" href="$class_biz_data_obj.html#aced64a0f4fd1647229efda490d90b8a0" title="BizDataObj::validateInput" alt="" coords="1345,435,1511,464"/>
+</map>

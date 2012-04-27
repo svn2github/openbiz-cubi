@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem::clientProxy" alt="" coords="360,90,517,120"/>
+<area shape="rect" id="node7" href="$class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem::getMessage" alt="" coords="139,38,304,68"/>
+<area shape="rect" id="node9" href="$class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem::log" alt="" coords="167,196,276,225"/>
+<area shape="rect" id="node15" href="$class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem::objectFactory" alt="" coords="352,12,525,41"/>
+<area shape="rect" id="node18" href="$classexcel_service.html#a955d574cc8e55d32c7be0248b2153425" title="reportError" alt="" coords="180,142,263,172"/>
+<area shape="rect" id="node5" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="579,52,720,81"/>
+<area shape="rect" id="node11" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="361,196,516,225"/>
+<area shape="rect" id="node13" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="575,196,724,225"/>
+</map>

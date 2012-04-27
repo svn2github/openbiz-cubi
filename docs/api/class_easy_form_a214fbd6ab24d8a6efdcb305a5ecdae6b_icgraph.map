@@ -1,0 +1,29 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_easy_form.html#aa70e2874ac41e81f5f2fb1983b3007b1" title="autoSuggest" alt="" coords="180,376,273,405"/>
+<area shape="rect" id="node5" href="$class_easy_form.html#a15d343efcbc80c8b61a60c3f2f01e759" title="getInvokingElement" alt="" coords="160,429,293,459"/>
+<area shape="rect" id="node48" href="$class_easy_form.html#ade17b04a708bb62c5c29d4cd0b68fc32" title="getProperty" alt="" coords="183,483,271,512"/>
+<area shape="rect" id="node50" href="$class_easy_form.html#a969cad912937b1e2e6e66b49d8148738" title="invoke" alt="" coords="197,536,256,565"/>
+<area shape="rect" id="node52" href="$class_picker_form.html#a967aa4a81d97ae394ac4d653d8015372" title="PickerForm::joinToParent" alt="" coords="143,589,311,619"/>
+<area shape="rect" id="node56" href="$class_easy_form.html#a4cba68e60908d93a2f10dddee940a689" title="loadPicker" alt="" coords="185,643,268,672"/>
+<area shape="rect" id="node58" href="$class_easy_form.html#a0aa5b2a2eb9946d0e985687bc15e51b4" title="sortRecord" alt="" coords="184,696,269,725"/>
+<area shape="rect" id="node7" href="$class_easy_form.html#a27936a509c257572409599f157ff681a" title="getEventLogMsg" alt="" coords="388,429,505,459"/>
+<area shape="rect" id="node27" href="$class_easy_form.html#a622f315c5158bfbd3968ee3c4da51bcd" title="getRedirectPage" alt="" coords="388,311,505,340"/>
+<area shape="rect" id="node46" href="$class_easy_form.html#ac349808ebbbeff6369b42bfdf2b0d6ba" title="validateRequest" alt="" coords="391,483,503,512"/>
+<area shape="rect" id="node9" href="$class_easy_form.html#af7869ff2f0c1b81688eb42db0552a9be" title="runEventLog" alt="" coords="601,533,695,563"/>
+<area shape="rect" id="node11" href="$class_easy_form.html#a613a31d4e8c9693801fa4ae1ba0644b6" title="_doInsert" alt="" coords="819,587,893,616"/>
+<area shape="rect" id="node15" href="$class_easy_form.html#a22a8409a820a88e424d9fc9a71a5932a" title="_doUpdate" alt="" coords="815,480,897,509"/>
+<area shape="rect" id="node19" href="$class_easy_form.html#abaacec03117854cd7fcc2540295768e8" title="deleteRecord" alt="" coords="807,427,905,456"/>
+<area shape="rect" id="node21" href="$class_easy_form.html#a5eca79a16a171c80aea4860c2e8fbe84" title="removeRecord" alt="" coords="804,640,908,669"/>
+<area shape="rect" id="node23" href="$class_easy_form.html#a5d3f4160632eebbdec1d1e9bf8a3d510" title="resetSearch" alt="" coords="811,693,901,723"/>
+<area shape="rect" id="node25" href="$class_easy_form.html#a0b269ace607ab745b5c2ac549f1f3b08" title="runSearch" alt="" coords="816,533,896,563"/>
+<area shape="rect" id="node13" href="$class_easy_form.html#a3510e359acc3518312436d50f9cbde51" title="insertRecord" alt="" coords="1003,468,1096,497"/>
+<area shape="rect" id="node17" href="$class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="999,388,1100,417"/>
+<area shape="rect" id="node29" href="$class_easy_form.html#af446ebc060117e121c1ebff59f6bb02f" title="processPostAction" alt="" coords="583,245,713,275"/>
+<area shape="rect" id="node31" href="$class_easy_form.html#a649b2b3005c687ae78c9d1d65e973493" title="cancel" alt="" coords="827,323,885,352"/>
+<area shape="rect" id="node33" href="$class_easy_form.html#a0a9be34d99077d5d3ea572ca7e59200a" title="copyRecord" alt="" coords="811,5,901,35"/>
+<area shape="rect" id="node36" href="$class_easy_form_wizard.html#ac92d8f8d82ac65fb9e2afb21c97b147e" title="EasyFormWizard::doCancel" alt="" coords="764,59,948,88"/>
+<area shape="rect" id="node38" href="$class_easy_form_wizard.html#af5df107b0b9aca9b5deb9e7bccb33eb6" title="EasyFormWizard::doFinish" alt="" coords="767,112,945,141"/>
+<area shape="rect" id="node40" href="$class_easy_form.html#a32687fce665ec940eadd9d119c193632" title="editRecord" alt="" coords="815,165,897,195"/>
+<area shape="rect" id="node43" href="$class_easy_form.html#a44283849d1849ef432f360425f8c6907" title="newRecord" alt="" coords="813,219,899,248"/>
+<area shape="rect" id="node54" href="$class_picker_form.html#aac9acfa9c77aa11f394ff4e515c52527" title="PickerForm::pickToParent" alt="" coords="360,589,533,619"/>
+</map>

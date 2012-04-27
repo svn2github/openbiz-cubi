@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_easy_form.html#af446ebc060117e121c1ebff59f6bb02f" title="processPostAction" alt="" coords="175,219,305,248"/>
+<area shape="rect" id="node5" href="$class_easy_form.html#a649b2b3005c687ae78c9d1d65e973493" title="cancel" alt="" coords="419,5,477,35"/>
+<area shape="rect" id="node7" href="$class_easy_form.html#a0a9be34d99077d5d3ea572ca7e59200a" title="copyRecord" alt="" coords="403,59,493,88"/>
+<area shape="rect" id="node9" href="$class_easy_form.html#abaacec03117854cd7fcc2540295768e8" title="deleteRecord" alt="" coords="399,112,497,141"/>
+<area shape="rect" id="node11" href="$class_easy_form_wizard.html#ac92d8f8d82ac65fb9e2afb21c97b147e" title="EasyFormWizard::doCancel" alt="" coords="356,165,540,195"/>
+<area shape="rect" id="node13" href="$class_easy_form_wizard.html#af5df107b0b9aca9b5deb9e7bccb33eb6" title="EasyFormWizard::doFinish" alt="" coords="359,219,537,248"/>
+<area shape="rect" id="node15" href="$class_easy_form.html#a32687fce665ec940eadd9d119c193632" title="editRecord" alt="" coords="407,272,489,301"/>
+<area shape="rect" id="node17" href="$class_easy_form.html#a3510e359acc3518312436d50f9cbde51" title="insertRecord" alt="" coords="401,325,495,355"/>
+<area shape="rect" id="node21" href="$class_easy_form.html#a44283849d1849ef432f360425f8c6907" title="newRecord" alt="" coords="405,379,491,408"/>
+<area shape="rect" id="node23" href="$class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="397,432,499,461"/>
+<area shape="rect" id="node19" href="$class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="saveRecord" alt="" coords="591,379,679,408"/>
+</map>

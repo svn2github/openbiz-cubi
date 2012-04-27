@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_tree_label_text.html#afde88292c44dc59faf017738dae6dffb" title="TreeLabelText::render" alt="" coords="147,5,293,35"/>
+<area shape="rect" id="node5" href="$class_textarea.html#afde88292c44dc59faf017738dae6dffb" title="Textarea::render" alt="" coords="163,59,277,88"/>
+<area shape="rect" id="node7" href="$class_radio.html#afde88292c44dc59faf017738dae6dffb" title="Radio::render" alt="" coords="171,112,269,141"/>
+<area shape="rect" id="node9" href="$class_listbox.html#afde88292c44dc59faf017738dae6dffb" title="Listbox::render" alt="" coords="167,165,273,195"/>
+<area shape="rect" id="node11" href="$class_label_list.html#afde88292c44dc59faf017738dae6dffb" title="LabelList::render" alt="" coords="161,219,279,248"/>
+<area shape="rect" id="node13" href="$class_image_selector.html#afde88292c44dc59faf017738dae6dffb" title="ImageSelector::render" alt="" coords="145,272,295,301"/>
+<area shape="rect" id="node15" href="$class_edit_combobox.html#afde88292c44dc59faf017738dae6dffb" title="EditCombobox::render" alt="" coords="145,325,295,355"/>
+<area shape="rect" id="node17" href="$class_column_list.html#afde88292c44dc59faf017738dae6dffb" title="ColumnList::render" alt="" coords="155,379,285,408"/>
+<area shape="rect" id="node19" href="$class_check_listbox.html#afde88292c44dc59faf017738dae6dffb" title="CheckListbox::render" alt="" coords="148,432,292,461"/>
+<area shape="rect" id="node21" href="$class_checkbox.html#afde88292c44dc59faf017738dae6dffb" title="Checkbox::render" alt="" coords="159,485,281,515"/>
+</map>

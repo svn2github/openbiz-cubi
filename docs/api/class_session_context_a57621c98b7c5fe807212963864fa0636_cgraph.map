@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem::log" alt="" coords="227,5,336,35"/>
+<area shape="rect" id="node9" href="$class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem::objectFactory" alt="" coords="195,59,368,88"/>
+<area shape="rect" id="node13" href="$class_session_context.html#a145fd8d048cee269f41f0bbf08c43e52" title="setVar" alt="" coords="252,112,311,141"/>
+<area shape="rect" id="node5" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="416,5,571,35"/>
+<area shape="rect" id="node7" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="620,5,769,35"/>
+<area shape="rect" id="node11" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="423,59,564,88"/>
+</map>

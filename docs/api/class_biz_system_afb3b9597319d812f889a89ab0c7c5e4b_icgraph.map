@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_configuration.html#a095c5d389db211932136b53f25f39685" title="Configuration::__construct" alt="" coords="163,5,336,35"/>
+<area shape="rect" id="node5" href="$class_object_factory.html#a276a15d5187194e2c92b31b8c1f23997" title="ObjectFactory::constructObject" alt="" coords="148,59,351,88"/>
+<area shape="rect" id="node11" href="$classchart_service.html#a35f264cfe1f35b372af6b9fd46335eb5" title="chartService::render" alt="" coords="181,112,317,141"/>
+<area shape="rect" id="node7" href="$class_object_factory.html#a271930bb6cceaa4c4d52e61d06bdf71e" title="ObjectFactory::createObject" alt="" coords="400,32,587,61"/>
+<area shape="rect" id="node9" href="$class_object_factory.html#a71bc9af6707bfba4a96afb2547adba4a" title="ObjectFactory::getObject" alt="" coords="409,85,577,115"/>
+</map>

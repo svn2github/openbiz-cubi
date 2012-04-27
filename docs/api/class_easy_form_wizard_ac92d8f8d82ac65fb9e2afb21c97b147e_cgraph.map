@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad" title="EasyForm::getViewObject" alt="" coords="144,298,317,327"/>
+<area shape="rect" id="node7" href="$class_easy_form.html#af446ebc060117e121c1ebff59f6bb02f" title="EasyForm::processPostAction" alt="" coords="131,142,331,171"/>
+<area shape="rect" id="node5" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="1095,348,1244,378"/>
+<area shape="rect" id="node9" href="$class_easy_form.html#aef7c4ff0a903eb04e7af25a6baea3d35" title="EasyForm::_showForm" alt="" coords="393,219,551,248"/>
+<area shape="rect" id="node11" href="$class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem::clientProxy" alt="" coords="1091,140,1248,170"/>
+<area shape="rect" id="node31" href="$class_easy_form.html#a622f315c5158bfbd3968ee3c4da51bcd" title="EasyForm::getRedirectPage" alt="" coords="379,36,565,66"/>
+<area shape="rect" id="node15" href="$class_easy_form.html#a52e9eb4fb51cfef13a1648efe1d0c3d3" title="EasyForm::getMessage" alt="" coords="641,244,801,274"/>
+<area shape="rect" id="node17" href="$class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem::log" alt="" coords="667,298,776,327"/>
+<area shape="rect" id="node22" href="$class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem::objectFactory" alt="" coords="1083,219,1256,248"/>
+<area shape="rect" id="node25" href="$class_easy_form.html#a44d87432a7016815c9a8bdc468b4c74e" title="EasyForm::processFormObjError" alt="" coords="615,140,828,170"/>
+<area shape="rect" id="node13" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="1305,180,1447,210"/>
+<area shape="rect" id="node19" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="879,298,1033,327"/>
+<area shape="rect" id="node27" href="$class_easy_form.html#a75545a3a11720fe6d5c316d316fb2df6" title="EasyForm::rerender" alt="" coords="888,140,1024,170"/>
+<area shape="rect" id="node33" href="$class_easy_form.html#a15d343efcbc80c8b61a60c3f2f01e759" title="EasyForm::getInvokingElement" alt="" coords="620,36,823,66"/>
+<area shape="rect" id="node36" href="$class_easy_form.html#a214fbd6ab24d8a6efdcb305a5ecdae6b" title="EasyForm::getElement" alt="" coords="879,36,1033,66"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="171,5,325,35"/>
+<area shape="rect" id="node7" href="$class_biz_system.html#ab657b15f46b32b11920d2021e9c257c3" title="BizSystem::typeManager" alt="" coords="164,59,332,88"/>
+<area shape="rect" id="node5" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="383,5,532,35"/>
+<area shape="rect" id="node9" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="387,59,528,88"/>
+</map>

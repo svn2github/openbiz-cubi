@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_easy_form.html#a38ac74df0eb521f827ed815c2bbde0b1" title="EasyForm::fetchData" alt="" coords="184,5,328,35"/>
+<area shape="rect" id="node9" href="$class_easy_form_tree.html#ad3526d375e393f0f13721877488493b6" title="EasyFormTree::fetchDataSet" alt="" coords="161,59,351,88"/>
+<area shape="rect" id="node11" href="$class_easy_form.html#ad3526d375e393f0f13721877488493b6" title="EasyForm::fetchDataSet" alt="" coords="173,112,339,141"/>
+<area shape="rect" id="node5" href="$class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="EasyForm::updateRecord" alt="" coords="400,5,571,35"/>
+<area shape="rect" id="node7" href="$class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="EasyForm::saveRecord" alt="" coords="619,5,776,35"/>
+</map>

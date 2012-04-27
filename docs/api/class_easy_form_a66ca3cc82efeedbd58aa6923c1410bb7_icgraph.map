@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_easy_form_wizard.html#af5df107b0b9aca9b5deb9e7bccb33eb6" title="EasyFormWizard::doFinish" alt="" coords="193,5,372,35"/>
+<area shape="rect" id="node5" href="$class_easy_form.html#a38ac74df0eb521f827ed815c2bbde0b1" title="fetchData" alt="" coords="244,59,321,88"/>
+<area shape="rect" id="node7" href="$class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="444,111,545,140"/>
+<area shape="rect" id="node11" href="$class_easy_form_wizard.html#a0497a4964b544d4cb511f7809a191a5d" title="EasyFormWizard::getSessionVars" alt="" coords="172,163,393,192"/>
+<area shape="rect" id="node13" href="$class_easy_form_wizard.html#aaf844d081d5136e0871bb7e1a9c7cfa5" title="EasyFormWizard::goBack" alt="" coords="196,216,369,245"/>
+<area shape="rect" id="node15" href="$class_easy_form_wizard.html#a94deddbc1de2ba018dcc2880f435a64e" title="EasyFormWizard::goNext" alt="" coords="197,269,368,299"/>
+<area shape="rect" id="node17" href="$class_easy_form.html#a3510e359acc3518312436d50f9cbde51" title="insertRecord" alt="" coords="448,269,541,299"/>
+<area shape="rect" id="node20" href="$class_easy_form.html#a10bc86aec45f3e2b6737f7cff2cf0feb" title="updateForm" alt="" coords="237,373,328,403"/>
+<area shape="rect" id="node9" href="$class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="saveRecord" alt="" coords="596,164,684,193"/>
+</map>
