@@ -9,7 +9,7 @@
         </Element>     
     	<Element Name="fld_package" Class="ColumnText" FieldName="PACKAGE" Label="Package"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
     	<Element Name="fld_title" Class="ColumnText" FieldName="DESCRIPTION" Label="Page Title"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />               
-        <Element Name="fld_Access" Class="ColumnBool" FieldName="ACCESS" Label="Access" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_Access" Class="ColumnBool" FieldName="ACCESS" Label="ACL" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="{APP_INDEX}/market/application_update_detail/{@:Elem[fld_Id].Value}" ></Element>
 
     </DataPanel>
