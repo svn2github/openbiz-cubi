@@ -183,6 +183,67 @@ class MetadataService
 		return false;
 	}	
 	
+	
+	/**
+	 * 
+	 * return a list of View metadata filename in specified module
+	 * @param string $module
+	 * @return array $result
+	 */
+	public function listViewObjects($module)
+	{
+		$dir = MODULE_PATH.DIRECTORY_SEPARATOR.$module.DIRECTORY_SEPARATOR;
+		$files = $this->_glob_recursive($dir."*.xml");
+		$result = array();
+		foreach ($files as $file)
+		{
+			$file = str_replace(MODULE_PATH.DIRECTORY_SEPARATOR,"",$file);
+			if($this->getViewObjectInfo($file))
+			{				
+				$result[] = $file;
+			}
+		}
+		return $result;
+	}	
+	
+	/**
+	 * 
+	 * return array of specified View Objecct attribute
+	 * @param string $file
+	 * @return array $result
+	 */	
+	public function getViewObjectInfo($file)
+	{		
+		$file = MODULE_PATH.DIRECTORY_SEPARATOR.$file;
+		if(is_file($file))
+		{			
+			$doc = new DomDocument();
+			$test = @$doc->load($file);								
+			if (!$test)
+			{
+				return false;
+			}
+			$xmlArr = BizSystem::getXmlArray($file);			
+			foreach($xmlArr as $key=>$value)
+			{
+				if(preg_match("/EasyView/si", $key, $match))
+				{					
+					$result = $xmlArr[strtoupper($key)]["ATTRIBUTES"];			
+					$result['Id'] = $result['NAME'];
+					
+					$file = str_replace(MODULE_PATH.DIRECTORY_SEPARATOR, "", $file);					
+					preg_match("|(.*?)/(.*)/.*\.xml|si",$file,$match);
+					$folder = $match[2];
+					$result['FOLDER'] = $folder;
+					$result['PACKAGE'] = $match[1].'.'.str_replace('/','.',$folder);
+					return $result;
+				}
+			}	
+		
+		}
+		return false;
+	}		
+	
 	/**
 	 * 
 	 * return array of files for specified folder
