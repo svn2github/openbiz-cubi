@@ -95,9 +95,12 @@ function inputValToRule($fieldName, $inputVal, $formObj)
         $opr = "=";
 
     // unformat value to real value data
-    $bizField = $formObj->getDataObj()->getField($fieldName);
-    $realValue = BizSystem::typeManager()->formattedStringToValue($bizField->m_Type, $bizField->m_Format, $val);
-
+    if($formObj->getDataObj()){
+    	$bizField = $formObj->getDataObj()->getField($fieldName);
+    	$realValue = BizSystem::typeManager()->formattedStringToValue($bizField->m_Type, $bizField->m_Format, $val);
+    }else{
+    	$realValue = $val;
+    }
     // set the query param
     $queryString = QueryStringParam::formatQueryString("[$fieldName]", $opr, $realValue);
     return $queryString;
