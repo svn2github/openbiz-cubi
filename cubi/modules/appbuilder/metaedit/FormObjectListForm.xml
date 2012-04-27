@@ -3,13 +3,12 @@
     <DataPanel>
         
 		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/appbuilder/images/icon_module_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+		<Element Name="fld_icon" Class="ColumnImage" FieldName="ICONTYPE" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
         </Element>    
 		<Element Name="fld_name" Class="ColumnText" FieldName="NAME" Label="Module"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
         </Element>     
     	<Element Name="fld_package" Class="ColumnText" FieldName="PACKAGE" Label="Package"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
     	<Element Name="fld_title" Class="ColumnText" FieldName="TITLE" Label="Title"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />               
-        <Element Name="fld_type" Class="ColumnText" FieldName="FORMTYPE" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />       
         <Element Name="fld_datapermcontrol" Class="ColumnBool" TrueValue="Y" FalseValue="N" FieldName="DATAPERMCONTROL" Label="ACL" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="{APP_INDEX}/market/application_update_detail/{@:Elem[fld_Id].Value}" ></Element>
 
