@@ -24,6 +24,28 @@ class MetadataService
         return $mods;
 	}
 
+	public function listPackages($module)
+	{
+		$dir = MODULE_PATH.DIRECTORY_SEPARATOR.$module.DIRECTORY_SEPARATOR;
+		$files = $this->_glob_recursive($dir."*.xml");
+		$result = array();
+		foreach ($files as $file)
+		{
+			$file = str_replace(MODULE_PATH.DIRECTORY_SEPARATOR,"",$file);							
+			preg_match("|(.*?)/(.*)/.*\.xml|si",$file,$match);
+			$folder = $match[2];		
+			if($match[1]){	
+				$package = $module.'.'.$match[1].'.'.str_replace('/','.',$folder);
+			}else{
+				$package = $module;
+			}		
+			$pkgs[$package] = $file;
+			
+		}
+		$result=array_keys($pkgs);
+		return $result;		
+	}
+	
 	/**
 	 * 
 	 * return array of specified Module XML file attribute 

@@ -13,6 +13,21 @@
         <Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="{APP_INDEX}/market/application_update_detail/{@:Elem[fld_Id].Value}" ></Element>
 
     </DataPanel>
+    <SearchPanel>    	
+        <Element Name="package_filter"  BlankOption="All Packages" cssclass="input_select_w" Class="appbuilder.element.PackageList" FieldName="package" Label="Package">
+            <EventHandler Name="package_filter_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>
+        
+        <Element Name="type_filter"  BlankOption="All Types" cssclass="input_select_w" Class="DropDownList" FieldName="form_type" Label="Type" SelectFrom="appbuilder.metaedit.lov.FormLOV(FormType)">
+            <EventHandler Name="type_filter_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>
+        
+        
+        
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element>          
+    </SearchPanel>
     <ActionPanel>
     </ActionPanel> 
     <NavPanel> 

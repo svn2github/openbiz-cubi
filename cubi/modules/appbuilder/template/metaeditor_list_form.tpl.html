@@ -28,16 +28,8 @@ color:#666666;
 	</div>
 {if $actionPanel or $searchPanel }	
 	<div class="form_header_panel">	
-		<div class="action_panel" >
-			{foreach item=elem from=$searchPanel}
-				{if $elem.type=='InputDateRangePicker'} {$elem.element}{/if} 
-			{/foreach}
 		
-			{foreach item=elem from=$actionPanel}
-			    	{$elem.element}
-			{/foreach}
-		</div>
-		<div class="search_panel" >		
+		<div class="action_panel" style="width:520px;" >		
 			{foreach item=elem from=$searchPanel}
 				{if $elem.type!='InputDateRangePicker'}
 					{if $elem.label}<span style="float:left;padding-right:5px;line-height:20px">{$elem.label}</span> {/if} {$elem.element}

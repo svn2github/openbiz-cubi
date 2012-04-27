@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+
+	<FormType Value="list" 		Picture="{RESOURCE_URL}/appbuilder/images/icon_form_list_small.png" 	Text="List Form"/>
+	<FormType Value="detail" 	Picture="{RESOURCE_URL}/appbuilder/images/icon_form_detail_small.png"	Text="Detail Form"/>
+	<FormType Value="new" 	Picture="{RESOURCE_URL}/appbuilder/images/icon_form_new_small.png"	Text="New Form"/>
+	<FormType Value="edit" 	Picture="{RESOURCE_URL}/appbuilder/images/icon_form_edit_small.png"	Text="Edit Form"/>
+	<FormType Value="copy" 	Picture="{RESOURCE_URL}/appbuilder/images/icon_form_copy_small.png"	Text="Copy Form"/>      
+   
+</Selection>   
