@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="LovListView" Access="AppBuilder.Access" Description="List of Value Files" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl.html">
+    <FormReferences>
+    	<Reference Name="appbuilder.metaedit.ModuleFilterForm" Subforms="appbuilder.metaedit.LovListForm" />
+        <Reference Name="appbuilder.metaedit.LovListForm"/>     
+    </FormReferences>
+</EasyView>

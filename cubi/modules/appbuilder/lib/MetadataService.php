@@ -87,6 +87,37 @@ class MetadataService
 	}
 
 
+	public function listLovs($module)
+	{
+		$dir = MODULE_PATH.DIRECTORY_SEPARATOR.$module.DIRECTORY_SEPARATOR;
+		$files = $this->_glob_recursive($dir."*.xml");
+		$result = array();
+		foreach ($files as $file)
+		{
+			$file = str_replace(MODULE_PATH.DIRECTORY_SEPARATOR,"",$file);
+			if($this->getLovInfo($file))
+			{				
+				$result[] = $file;
+			}
+		}
+		return $result;		
+	}	
+	
+	public function getLovInfo($file)
+	{
+		$fileshort = $file;
+		$file = MODULE_PATH.DIRECTORY_SEPARATOR.$file;
+		if(is_file($file))
+		{
+			$info = array();
+			$info['Id'] = $fileshort;
+			$info['NAME'] = $fileshort;
+			$info['FILESIZE'] = filesize($file);
+			$info['UPDATETIME'] = date("Y-m-d H:i:s",filemtime($file));
+		}
+		return $info;
+	}	
+	
 	public function listTemplates($module)
 	{
 		$dir = MODULE_PATH.DIRECTORY_SEPARATOR.$module.DIRECTORY_SEPARATOR;
