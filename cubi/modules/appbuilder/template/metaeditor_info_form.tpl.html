@@ -1,0 +1,69 @@
+<form id='{$form.name}' name='{$form.name}'>
+<style>
+{literal}
+#mod_list .form_table td span
+{
+height:auto;
+width:auto;
+}
+#mod_list .form_table td a.button_gray_m{
+color:#666666;
+} 
+
+
+{/literal} 
+</style>
+<div style="padding-left:25px;padding-right:40px;">
+
+	<div>
+{include file="system_appbuilder_btn.tpl.html"}
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+		<div style="float:left; width:600px;">
+		<h2>
+		{$form.title}
+		</h2> 
+		<p class="form_desc">{$form.description}</p>
+		</div>
+	</td></tr></table>
+	</div>
+
+
+<div id="mod_list" class="from_table_container">
+<!-- table start -->
+<table border="0" cellpadding="0" cellspacing="0" class="" id="{$form.name}_data_table">
+
+	<tr>
+		<td style="background-image:none;" class="module_list" >
+			<div style="background-position:left top;">
+	        	<span class="name">{$dataPanel.fld_name.element}</span>
+	        	<span class="version">{t}Version{/t}: {$dataPanel.fld_version.element}</span>
+			</div>
+		</td>
+		<td>
+		<span class="author">{$dataPanel.fld_description.element}</span>
+		<span class="author">{$dataPanel.fld_author.element}</span>
+		<span class="author">{$dataPanel.fld_edit.element}</span>
+		</td>
+	</tr>
+     
+  
+							
+</table>
+</div>
+<!-- status switch  -->
+<script>
+{if $form.status eq 'Enabled'}
+{elseif $form.status eq 'Disabled'}
+$('{$form.name}_data_table').fade({literal}{ duration: 0.5, from: 1, to: 0.35 }{/literal});
+{/if}
+</script>
+<span id='{$form.name}_selected_id' style="display:none">{$default_selected_id}</span>
+<!-- table end -->	
+
+
+</div>
+
+</form>
