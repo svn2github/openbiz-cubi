@@ -117,6 +117,37 @@ class MetadataService
 		}
 		return $info;
 	}
+
+	public function listMessages($module)
+	{
+		$dir = MODULE_PATH.DIRECTORY_SEPARATOR.$module.DIRECTORY_SEPARATOR;
+		$files = $this->_glob_recursive($dir."*.ini");
+		$result = array();
+		foreach ($files as $file)
+		{
+			$file = str_replace(MODULE_PATH.DIRECTORY_SEPARATOR,"",$file);
+			if($this->getMessageInfo($file))
+			{				
+				$result[] = $file;
+			}
+		}
+		return $result;		
+	}	
+	
+	public function getMessageInfo($file)
+	{
+		$fileshort = $file;
+		$file = MODULE_PATH.DIRECTORY_SEPARATOR.$file;
+		if(is_file($file))
+		{
+			$info = array();
+			$info['Id'] = $fileshort;
+			$info['NAME'] = $fileshort;
+			$info['FILESIZE'] = filesize($file);
+			$info['UPDATETIME'] = date("Y-m-d H:i:s",filemtime($file));
+		}
+		return $info;
+	}	
 	
 	/**
 	 * 

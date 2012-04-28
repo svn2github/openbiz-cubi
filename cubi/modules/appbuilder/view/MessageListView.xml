@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="MessageListView" Access="AppBuilder.Access" Description="Message Files" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl.html">
+    <FormReferences>
+    	<Reference Name="appbuilder.metaedit.ModuleFilterForm" Subforms="appbuilder.metaedit.MessageListForm" />
+        <Reference Name="appbuilder.metaedit.MessageListForm"/>     
+    </FormReferences>
+</EasyView>
