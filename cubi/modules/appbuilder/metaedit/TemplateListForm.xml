@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="TemplateListForm" Class="TemplateListForm" Icon="{RESOURCE_URL}/appbuilder/images/icon_template_list.png" FormType="List" jsClass="jbForm" Title="Template Files" Description="Below list is all template files for selected module." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="metaeditor_list_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
+<EasyForm Name="TemplateListForm" Class="TemplateListForm" Icon="{RESOURCE_URL}/appbuilder/images/icon_template_file.png" FormType="List" jsClass="jbForm" Title="Template Files" Description="Below list is all template files for selected module." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="metaeditor_list_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
     <DataPanel>
         
 		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/appbuilder/images/icon_view_object_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/appbuilder/images/icon_template_file_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
         </Element>    
 		<Element Name="fld_name" Class="ColumnText" FieldName="NAME" Label="Module"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
         </Element>     
-    	<Element Name="fld_package" Class="ColumnText" FieldName="PACKAGE" Label="Package"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-    	<Element Name="fld_filesize" Class="ColumnText" FieldName="DESCRIPTION" Label="Page Title"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />               
-        <Element Name="fld_edit_time" Class="ColumnText" FieldName="ACCESS" Label="ACL" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+    	<Element Name="fld_file_size" Class="ColumnText" FieldName="FILESIZE" Text="{BizSystem::GetService(UTIL_SERVICE)->format_bytes(@:Elem[fld_file_size].Value)}"  Label="File Size"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />               
+        <Element Name="fld_edit_time" Class="ColumnText" FieldName="UPDATETIME" Label="Timestamp" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="{APP_INDEX}/market/application_update_detail/{@:Elem[fld_Id].Value}" ></Element>
 
     </DataPanel>

@@ -11,7 +11,7 @@ class TemplateListForm extends ArrayListForm
     	
     	foreach($objList as $obj)
     	{
-    		$objInfo = $svc->getDataObjectInfo($obj);
+    		$objInfo = $svc->getTemplateInfo($obj);
     		$result[] = $objInfo;
     	}
     	return $result;
