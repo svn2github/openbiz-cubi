@@ -60,7 +60,8 @@ class ArrayListForm extends EasyForm
 		}
 		
 		
-		$searchRule = $this->m_SearchRule;			
+		$searchRule = $this->m_SearchRule;		
+		
 		preg_match_all("/\[(.*?)\]/si", $searchRule,$match);	
 		$i=0;		
 		$searchFilter = array();
