@@ -1,7 +1,7 @@
 <?php 
 class ArrayListForm extends EasyForm
 {
-	
+	public $m_TotalRecords;
 	public function runSearch()
     {
         include_once(OPENBIZ_BIN."/easy/SearchHelper.php");
