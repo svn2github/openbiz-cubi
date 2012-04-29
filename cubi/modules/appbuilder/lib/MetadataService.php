@@ -104,17 +104,41 @@ class MetadataService
 	}	
 	
 	public function getLovInfo($file)
-	{
+	{		
 		$fileshort = $file;
-		$file = MODULE_PATH.DIRECTORY_SEPARATOR.$file;
+		$file = MODULE_PATH.DIRECTORY_SEPARATOR.$module.DIRECTORY_SEPARATOR.$file;				
 		if(is_file($file))
 		{
-			$info = array();
-			$info['Id'] = $fileshort;
-			$info['NAME'] = $fileshort;
-			$info['FILESIZE'] = filesize($file);
-			$info['UPDATETIME'] = date("Y-m-d H:i:s",filemtime($file));
-		}
+			$doc = new DomDocument();
+			$test = @$doc->load($file);								
+			if (!$test)
+			{
+				return false;
+			}			
+			
+			$xmlArr = BizSystem::getXmlArray($file);
+			foreach($xmlArr as $key=>$value)
+			{
+				if(preg_match("/Selection/si", $key, $match))
+				{					
+					$result = $xmlArr[strtoupper($key)]["ATTRIBUTES"];			
+					$result['Id'] = $result['NAME'];					
+					$result['FILESIZE'] = filesize($file);
+					$result['UPDATETIME'] = date("Y-m-d H:i:s",filemtime($file));
+					
+					$file = str_replace(MODULE_PATH.DIRECTORY_SEPARATOR, "", $file);					
+					preg_match("|(.*?)/(.*)/.*\.xml|si",$file,$match);
+					$folder = $match[2];
+					$result['FOLDER'] = $folder;
+					$result['PACKAGE'] = $match[1].'.'.str_replace('/','.',$folder);
+					$result['Id'] = $fileshort;
+					$result['NAME'] = $fileshort;
+					
+					return $result;
+				}
+			}			
+		}				
+		
 		return $info;
 	}	
 	
