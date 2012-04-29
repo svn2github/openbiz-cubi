@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="SystemMenuDO" Description="" Class="MenuDataObj" CacheLifeTime="0">
+<BizDataObj Name="MyAccountDO" Description="" Class="MenuDataObj" CacheLifeTime="0">
 <MenuItem Id="0" Name="Root" Description="" URL="" Target="" CssClass="" IconImage="" IconCssClass="" >		
 	<MenuItem Id="0-0" Name="My Account" Description="" URL="{@home:url}/contact/contact_list" Target="" CssClass="" IconImage="" IconCssClass="" >
 			<MenuItem Id="0-0-1" Name="Account" Description=""  URL="{@home:url}/email/email_queue_list" >
