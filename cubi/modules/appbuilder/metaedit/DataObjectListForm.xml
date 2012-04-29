@@ -3,7 +3,7 @@
     <DataPanel>
         
 		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/appbuilder/images/icon_module_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/appbuilder/images/icon_data_object_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
         </Element>    
 		<Element Name="fld_name" Class="ColumnText" FieldName="NAME" Label="Module"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
         </Element>     
