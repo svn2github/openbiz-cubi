@@ -13,8 +13,7 @@ class ModuleDetailView extends EasyView
             if($formName!='appbuilder.metaedit.ModuleInfoForm')
             {
             	$rs = $formObj->fetchDataSet();
-            	$recs = count($rs);
-            	            	
+            	$recs = $formObj->m_TotalRecords;            	            	
             	if(!$recs)
             	{     
             		$emptyForms[]=$key;                   		
