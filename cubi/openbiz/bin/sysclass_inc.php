@@ -295,8 +295,19 @@ class MetaIterator implements Iterator
     public function set($key, $val)
     {
         $this->m_var[$key] = $val;
-    }
+    }       
 
+    /**
+     * Clear value
+     *
+     * @param mixed $key
+     * @param mixed $val
+     */
+    public function clear($key)
+    {
+        unset($this->m_var[$key]);
+    }    
+    
 	public function count()
     {
         return count($this->m_var);
