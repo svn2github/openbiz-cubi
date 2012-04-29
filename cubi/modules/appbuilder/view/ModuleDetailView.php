@@ -9,11 +9,12 @@ class ModuleDetailView extends EasyView
         {
             $formRef->setViewName($this->m_Name);
             $formName = $formRef->m_Name;
-            $formObj = BizSystem::objectFactory()->getObject($formName);
+            $formObj = BizSystem::getObject($formName);
             if($formName!='appbuilder.metaedit.ModuleInfoForm')
             {
-            	$rs = $formObj->fetchDataSet();
-            	$recs = $formObj->m_TotalRecords;            	            	
+            	$rs = $formObj->getRecordList();
+            	$recs = count($rs);     
+            	$formObj->m_SearchRule=null;  	 
             	if(!$recs)
             	{     
             		$emptyForms[]=$key;                   		
