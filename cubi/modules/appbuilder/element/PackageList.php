@@ -13,7 +13,14 @@ class PackageList extends DropDownList
     protected function getSimpleFromList(&$list)
     {
 		
-    	$module = BizSystem::getObject("appbuilder.metaedit.ModuleFilterForm")->m_RecordId;	
+    	if($this->getFormObj()->getViewObject()->m_Name=='appbuilder.view.ModuleDetailView')
+		{
+			$module = BizSystem::getObject("appbuilder.metaedit.ModuleInfoForm")->m_RecordId;
+		}
+		else
+		{
+			$module = BizSystem::getObject("appbuilder.metaedit.ModuleFilterForm")->m_RecordId;
+		}    		
     		
 		$svc = BizSystem::getObject("appbuilder.lib.MetadataService");
     	$pkgList = $svc->listPackages($module);

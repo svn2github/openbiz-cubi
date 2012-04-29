@@ -15,7 +15,7 @@
 
     </DataPanel>
     <SearchPanel>    	
-        <Element Name="package_filter"  BlankOption="All Packages" cssclass="input_select_w" Class="appbuilder.element.PackageList" FieldName="PACKAGE" Label="Package">
+        <Element Name="do_package_filter"  BlankOption="All Packages" cssclass="input_select_w" Class="appbuilder.element.PackageList" FieldName="PACKAGE" Label="Package">
             <EventHandler Name="package_filter_onchange" Event="onchange" Function="RunSearch()"/>
         </Element>               
         

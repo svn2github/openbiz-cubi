@@ -1,6 +1,8 @@
 <?php 
 class ModuleInfoForm extends EasyForm
 {
+	public $m_RecordId;
+	
 	public function fetchData()
 	{
 		$module = $_GET['mod'];
@@ -9,6 +11,7 @@ class ModuleInfoForm extends EasyForm
     	{
     		$result = $svc->getModuleInfo($module);
     	}    
+    	$this->m_RecordId = $module;
     	return $result;
 	}
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ModuleInfoForm" Class="ModuleInfoForm"  FormType="Detail" jsClass="jbForm" Title="Module Detail Information" Description="Below list is existing modules in system. click on a module to load detail file list. " BizDataObj="" Icon="{RESOURCE_URL}/appbuilder/images/icon_module_item.png" DefaultForm="Y" TemplateEngine="Smarty" PageSize="6" TemplateFile="metaeditor_info_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
+<EasyForm Name="ModuleInfoForm" Class="ModuleInfoForm"  FormType="Detail" jsClass="jbForm" Title="Module Detail Information" Description="Below list is existing modules in system. click on a module to load detail file list. " BizDataObj="" Icon="{RESOURCE_URL}/appbuilder/images/icon_module_list.png" DefaultForm="Y" TemplateEngine="Smarty" PageSize="6" TemplateFile="metaeditor_info_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
     <DataPanel>
         
 		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
@@ -10,7 +10,7 @@
     	<Element Name="fld_description" Class="RawData" FieldName="DESCRIPTION" Label="Description"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />               
         <Element Name="fld_author" Class="RawData" FieldName="AUTHOR" Label="Author"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />       
         <Element Name="fld_version" Class="RawData" FieldName="VERSION" Label="Version" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-        <Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="{APP_INDEX}/market/application_update_detail/{@:Elem[fld_Id].Value}" ></Element>
+        <Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_w" FieldName="name" Label="Action" Sortable="N"  Link="{APP_INDEX}/market/application_update_detail/{@:Elem[fld_Id].Value}" ></Element>
 
     </DataPanel>
     <ActionPanel>

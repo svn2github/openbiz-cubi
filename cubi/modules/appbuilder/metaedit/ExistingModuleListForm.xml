@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="ExistingModuleListForm" Class="ExistingModuleListForm" Icon="{RESOURCE_URL}/appbuilder/images/icon_module_list.png" FormType="List" jsClass="jbForm" Title="System Existing Modules" Description="Below list is existing modules in system.You can edit Module XML file for selected module" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="metaeditor_list_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
+<EasyForm Name="ExistingModuleListForm" Class="ExistingModuleListForm" Icon="{RESOURCE_URL}/appbuilder/images/icon_module_list.png" FormType="List" jsClass="jbForm" Title="System Existing Modules" Description="Below list is existing modules in system.You can edit Module XML file for selected module" BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="module_list_form.tpl.html" MessageFile="appbuilder.ini"  Access="AppBuilder.Access" >
     <DataPanel>
         
 		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="NAME" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/appbuilder/images/icon_module_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+		<Element Name="fld_icon" Class="ColumnImage" Text="{RESOURCE_URL}/appbuilder/images/icon_module_item_small.png" FieldName="" Label="Icon"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
         </Element>    
-		<Element Name="fld_name" Class="ColumnText" FieldName="NAME" Label="Module"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+		<Element Name="fld_name" Class="ColumnText" FieldName="NAME" Label="Module"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/appbuilder/module_detail/mod_{@:Elem[fld_Id].Value}">
         </Element>     
     	<Element Name="fld_description" Class="ColumnText" FieldName="DESCRIPTION" Label="Description"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />               
         <Element Name="fld_author" Class="ColumnText" FieldName="AUTHOR" Label="Author"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />       
         <Element Name="fld_version" Class="ColumnText" FieldName="VERSION" Label="Version" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-        <Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="{APP_INDEX}/market/application_update_detail/{@:Elem[fld_Id].Value}" ></Element>
+        <Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="{APP_INDEX}/appbuilder/module_detail/mod_{@:Elem[fld_Id].Value}" ></Element>
 
     </DataPanel>
     <ActionPanel>

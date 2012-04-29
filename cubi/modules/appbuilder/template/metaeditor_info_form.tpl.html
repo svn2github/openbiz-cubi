@@ -10,7 +10,6 @@ width:auto;
 color:#666666;
 } 
 
-
 {/literal} 
 </style>
 <div style="padding-left:25px;padding-right:40px;">
@@ -42,10 +41,14 @@ color:#666666;
 	        	<span class="version">{t}Version{/t}: {$dataPanel.fld_version.element}</span>
 			</div>
 		</td>
-		<td>
-		<span class="author">{$dataPanel.fld_description.element}</span>
-		<span class="author">{$dataPanel.fld_author.element}</span>
-		<span class="author">{$dataPanel.fld_edit.element}</span>
+		<td style="padding-left:10px;padding-top:3px;width:300px;" valign="top">
+		<span class="author" style="display:block;color:#149BC8;">{$dataPanel.fld_description.label}</span>
+		<span class="author" style="display:block;padding-left:2px;">{$dataPanel.fld_description.element}</span>
+		
+		<span class="author" style="display:block;color:#149BC8;">{$dataPanel.fld_author.label}</span>
+		<span class="author" style="display:block;padding-left:2px;">{$dataPanel.fld_author.element}</span>
+		
+		<span class="author" style="display:block;padding-top:4px;">{$dataPanel.fld_edit.element}</span>
 		</td>
 	</tr>
      

@@ -4,7 +4,14 @@ class ViewObjectListForm extends ArrayListForm
 {
 	public function GetRecordList()
 	{
-		$module = BizSystem::getObject("appbuilder.metaedit.ModuleFilterForm")->m_RecordId;
+		if($this->getViewObject()->m_Name=='appbuilder.view.ModuleDetailView')
+		{
+			$module = BizSystem::getObject("appbuilder.metaedit.ModuleInfoForm")->m_RecordId;
+		}
+		else
+		{
+			$module = BizSystem::getObject("appbuilder.metaedit.ModuleFilterForm")->m_RecordId;
+		}
 		
 		$svc = BizSystem::getObject("appbuilder.lib.MetadataService");
     	$objList = $svc->listViewObjects($module);
