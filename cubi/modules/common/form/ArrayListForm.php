@@ -54,6 +54,11 @@ class ArrayListForm extends EasyForm
 	public function fetchDataSet()
 	{
 		$resultRaw = $this->getRecordList();
+		if(!is_array($resultRaw))
+		{
+			return array();
+		}
+		
 		
 		$searchRule = $this->m_SearchRule;			
 		preg_match_all("/\[(.*?)\]/si", $searchRule,$match);	
