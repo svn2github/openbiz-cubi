@@ -17,37 +17,41 @@ color:#666666;
 	<div>
 {include file="system_appbuilder_btn.tpl.html"}
 	<table><tr><td>
-		{if $form.icon !='' }
-		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
-		{/if}
-		<div style="float:left; width:600px;">
+		
 		<h2>
-		{$form.title}
+		{$form.moduleName} {$form.title}
 		</h2> 
-		<p class="form_desc">{$form.description}</p>
-		</div>
+		
 	</td></tr></table>
 	</div>
 
+<div class="upline"></div>
 
-<div id="mod_list" class="from_table_container">
+<div id="mod_list" class="from_table_container" style="padding-left:5px;padding-top:10px;padding-bottom:6px;">
 <!-- table start -->
 <table border="0" cellpadding="0" cellspacing="0" class="" id="{$form.name}_data_table">
 
 	<tr>
-		<td style="background-image:none;" class="module_list" >
+		<td style="background-image:none; padding-right:5px;" class="module_list" >
 			<div style="background-position:left top;">
 	        	<span class="name">{$dataPanel.fld_name.element}</span>
 	        	<span class="version">{t}Version{/t}: {$dataPanel.fld_version.element}</span>
 			</div>
 		</td>
-		<td style="padding-left:10px;padding-top:3px;width:300px;" valign="top">
+		<td style="padding-left:10px;padding-top:3px;" valign="top">
 		<span class="author" style="display:block;color:#149BC8;">{$dataPanel.fld_description.label}</span>
-		<span class="author" style="display:block;padding-left:2px;">{$dataPanel.fld_description.element}</span>
+		{if $dataPanel.fld_description.element}
+			<span class="author" style="display:block;padding-left:2px;">{$dataPanel.fld_description.element}</span>
+		{else}
+			<span class="author" style="display:block;padding-left:2px;color:#999999;font-style:italic;">-- N/A --</span>
+		{/if}	
 		
 		<span class="author" style="display:block;color:#149BC8;">{$dataPanel.fld_author.label}</span>
-		<span class="author" style="display:block;padding-left:2px;">{$dataPanel.fld_author.element}</span>
-		
+		{if $dataPanel.fld_author.element}
+			<span class="author" style="display:block;padding-left:2px;">{$dataPanel.fld_author.element}</span>
+		{else}
+			<span class="author" style="display:block;padding-left:2px;color:#999999;font-style:italic;">-- N/A --</span>
+		{/if}
 		<span class="author" style="display:block;padding-top:4px;">{$dataPanel.fld_edit.element}</span>
 		</td>
 	</tr>

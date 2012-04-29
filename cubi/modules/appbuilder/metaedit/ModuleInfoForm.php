@@ -14,5 +14,12 @@ class ModuleInfoForm extends EasyForm
     	$this->m_RecordId = $module;
     	return $result;
 	}
+	
+	public function outputAttrs()
+	{
+		$result = parent::outputAttrs();
+		$result['moduleName'] = ucwords($_GET['mod']);
+		return $result;
+	}
 }
 ?>

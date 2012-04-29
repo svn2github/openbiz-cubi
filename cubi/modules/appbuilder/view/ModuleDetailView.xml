@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<EasyView Name="ModuleDetailView" Access="AppBuilder.Access" Description="Module Detail Information" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl.html">
+<EasyView Name="ModuleDetailView" Access="AppBuilder.Access" Description="Module Detail Information" class="ModuleDetailView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl.html">
     <FormReferences>
     	<Reference Name="appbuilder.metaedit.ModuleInfoForm" Subforms="appbuilder.metaedit.DataObjectListForm;appbuilder.metaedit.FormObjectListForm;appbuilder.metaedit.ViewObjectListForm;appbuilder.metaedit.TemplateListForm;appbuilder.metaedit.MessageListForm;appbuilder.metaedit.LovListForm" />
         <Reference Name="appbuilder.metaedit.DataObjectListForm"/>
