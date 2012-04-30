@@ -46,7 +46,7 @@ class NewAppWizardView extends EasyViewWizard
     	if($this->m_FormStates['appbuilder.builder.BuildOptionsWizardForm']['visited'])
     	{
 	    	$dbForm = BizSystem::getObject("appbuilder.builder.ConfModuleWizardForm");
-			$config = $dbForm->m_ConfigModule;
+			$config = $dbForm->m_ModuleConfig;
 			return $config;
     	}
     }    

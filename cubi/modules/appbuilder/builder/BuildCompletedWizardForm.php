@@ -39,6 +39,15 @@ class BuildCompletedWizardForm extends EasyFormWizard
 		$result['MessageFiles'] = $this->m_MessageFiles;
 		$result['TemplateFiles'] = $this->m_TemplateFiles;
 		$result['ModFile'] 	= $this->m_ModXMLFile;
+		$configModule = $this->getViewObject()->getConfigModule();
+		if($configModule['module_type']==1)
+		{
+			$this->m_ModuleName = $configModule['module_name_create'];
+		}
+		else
+		{
+			$this->m_ModuleName = $configModule['module_name_exists'];
+		}
 		return $result;
 	}
 }
