@@ -146,4 +146,33 @@ function setDocumentRoot()
     $_SERVER['DOCUMENT_ROOT'] = str_replace( '\\', '/', substr(str_replace('\\\\', '\\', $_SERVER['PATH_TRANSLATED']), 0, 0-strlen($_SERVER['PHP_SELF'])));
     }; };
 }
+/**
+*  格式化显示出变量
+*
+*  @author Garbin
+*  @param  any
+*  @return void
+*/
+function dump($arr)
+{
+	echo '<pre>';
+	array_walk(func_get_args(), create_function('&$item, $key', 'print_r($item);'));
+	echo '</pre>';
+	exit();
+}
+
+/**
+*  格式化并显示出变量类型
+*
+*  @author Garbin
+*  @param  any
+*  @return void
+*/
+function vdump($arr)
+{
+	echo '<pre>';
+	array_walk(func_get_args(), create_function('&$item, $key', 'var_dump($item);'));
+	echo '</pre>';
+	exit();
+}
 ?>
