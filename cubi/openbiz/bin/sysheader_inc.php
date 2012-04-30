@@ -146,8 +146,10 @@ function setDocumentRoot()
     $_SERVER['DOCUMENT_ROOT'] = str_replace( '\\', '/', substr(str_replace('\\\\', '\\', $_SERVER['PATH_TRANSLATED']), 0, 0-strlen($_SERVER['PHP_SELF'])));
     }; };
 }
+
+
 /**
-*  格式化显示出变量
+*  formatted output given variable by using print_r() function
 *
 *  @author Garbin
 *  @param  any
@@ -162,7 +164,7 @@ function dump($arr)
 }
 
 /**
-*  格式化并显示出变量类型
+*  formatted output given variable by using var_dump() function
 *
 *  @author Garbin
 *  @param  any
