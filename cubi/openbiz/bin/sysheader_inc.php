@@ -147,7 +147,7 @@ function setDocumentRoot()
     }; };
 }
 /**
-*  ¸ñÊ½»¯ÏÔÊ¾³ö±äÁ¿
+*  æ ¼å¼åŒ–æ˜¾ç¤ºå‡ºå˜é‡
 *
 *  @author Garbin
 *  @param  any
@@ -162,7 +162,7 @@ function dump($arr)
 }
 
 /**
-*  ¸ñÊ½»¯²¢ÏÔÊ¾³ö±äÁ¿ÀàĞÍ
+*  æ ¼å¼åŒ–å¹¶æ˜¾ç¤ºå‡ºå˜é‡ç±»å‹
 *
 *  @author Garbin
 *  @param  any
