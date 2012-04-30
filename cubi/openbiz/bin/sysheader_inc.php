@@ -155,10 +155,12 @@ function setDocumentRoot()
 *  @param  any
 *  @return void
 */
-function dump($arr)
+function dump($arr,$debug=false)
 {
+	if($debug)
+		$debug_fun='debug_print_backtrace();';
 	echo '<pre>';
-	array_walk(func_get_args(), create_function('&$item, $key', 'print_r($item);'));
+	array_walk(func_get_args(), create_function('&$item, $key', 'print_r($item);'.$debug_fun.''));
 	echo '</pre>';
 	exit();
 }
@@ -170,10 +172,12 @@ function dump($arr)
 *  @param  any
 *  @return void
 */
-function vdump($arr)
+function vdump($arr,$debug=false)
 {
+	if($debug)
+		$debug_fun='debug_print_backtrace();';
 	echo '<pre>';
-	array_walk(func_get_args(), create_function('&$item, $key', 'var_dump($item);'));
+	array_walk(func_get_args(), create_function('&$item, $key', 'var_dump($item);'.$debug_fun.''));
 	echo '</pre>';
 	exit();
 }
