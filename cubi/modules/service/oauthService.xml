@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<PluginService Name="oauthService" Package="service" Class="oauthService"  OAuthDO="system.do.UserOAuthDO" >
+	<Providers>
+		<Provider   Name="Taobao" 
+					DisplayName="Taobao API" 
+					Key="api key"
+					Secret="api secrect data"
+					URL="http://api.taobao.com" 
+					/>
+					
+		<Provider   Name="Facebook" 
+					DisplayName="Taobao API" 
+					Key="api key"
+					Secret="api secrect data"
+					URL="http://api.taobao.com"
+					/>
+	</Providers>
+</PluginService>
