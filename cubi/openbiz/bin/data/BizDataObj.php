@@ -294,15 +294,24 @@ class BizDataObj extends BizDataObj_Lite
             $this->m_ErrorMessage = BizSystem::getMessage("DATA_NO_PERMISSION_UPDATE",$this->m_Name);
             return false;
         }
-
+		/*当$setValue是数组时转成[field]=value格式*/
+		if(is_array($setValue)){
+			$setValue_srt='';
+			foreach($setValue as $key=>$value){
+				if($value!=''){
+					$setValue_srt.=$setValue_srt?",[$key]='$value'":"[$key]='$value'";
+				}
+			}
+			$setValue=$setValue_srt; 
+		}	
         $sql = $this->getSQLHelper()->buildUpdateSQLwithCondition($this,$setValue ,$condition);
         $db = $this->getDBConnection("WRITE");
-
+ 
         try
         {
             if($sql)
             { 	// delete joint table first then delete main table's data'
-                BizSystem::log(LOG_DEBUG, "DATAOBJ", "Delete Sql = $sql");
+                BizSystem::log(LOG_DEBUG, "DATAOBJ", "Delete Sql = $sql"); 
                 $db->query($sql);
             }
         }
