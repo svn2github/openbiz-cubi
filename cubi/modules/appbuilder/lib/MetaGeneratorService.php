@@ -8,6 +8,8 @@ class MetaGeneratorService
 	protected $m_ConfigModule;
 	protected $m_BuildOptions;
 	
+	protected $m_MetaTempPath;
+	
 	/**
 	 * 
 	 * This files will records generated files
@@ -73,7 +75,8 @@ class MetaGeneratorService
 	
 	protected function _genDataObj()
 	{
-		var_dump($this);exit;
+		$templateFile = $this->__getMetaTempPath().'/do/DataObj.xml.tpl';
+		var_dump($templateFile);exit;
 	}
 	
 	protected function _genFormObj()
@@ -125,6 +128,14 @@ class MetaGeneratorService
 	{
 		
 	}	
+	
+	private function __getMetaTempPath()
+	{
+		$this->m_MetaTempPath = MODULE_PATH.DIRECTORY_SEPARATOR.'appbuilder'.
+											DIRECTORY_SEPARATOR.'resource'.
+											DIRECTORY_SEPARATOR.'module_template';
+		return $this->m_MetaTempPath; 
+	}
 	
 }
 ?>
