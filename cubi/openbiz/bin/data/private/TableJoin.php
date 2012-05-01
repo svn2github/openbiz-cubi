@@ -60,6 +60,13 @@ class TableJoin extends MetaObject
      * @var string
      */
     public $m_JoinType;
+	
+	/**
+     * Additional join condition other than the foriegn matching
+     *
+     * @var string
+     */
+	public $m_JoinCondition;
 
     /**
      *
@@ -85,6 +92,7 @@ class TableJoin extends MetaObject
         $this->m_JoinRef = isset($xmlArr["ATTRIBUTES"]["JOINREF"]) ? $xmlArr["ATTRIBUTES"]["JOINREF"] : null;
         $this->m_ColumnRef = isset($xmlArr["ATTRIBUTES"]["COLUMNREF"]) ? $xmlArr["ATTRIBUTES"]["COLUMNREF"] : null;
         $this->m_JoinType = isset($xmlArr["ATTRIBUTES"]["JOINTYPE"]) ? $xmlArr["ATTRIBUTES"]["JOINTYPE"] : null;
+		$this->m_JoinCondition = isset($xmlArr["ATTRIBUTES"]["JOINCONDITION"]) ? $xmlArr["ATTRIBUTES"]["JOINCONDITION"] : null;
         $this->m_OnSaveDataObj = isset($xmlArr["ATTRIBUTES"]["ONSAVEDATAOBJ"]) ? $xmlArr["ATTRIBUTES"]["ONSAVEDATAOBJ"] : null;
 
         $this->m_BizObjName = $this->prefixPackage($this->m_BizObjName);

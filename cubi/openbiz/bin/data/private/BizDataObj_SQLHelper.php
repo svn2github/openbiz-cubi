@@ -90,7 +90,7 @@ class BizDataObj_SQLHelper
         {
             foreach($dataObj->m_TableJoins as $tableJoin)
             {
-                $tbl_col = $dataSqlObj->addJoinTable($tableJoin);
+				$tbl_col = $dataSqlObj->addJoinTable($tableJoin, $this);
             }
         }
         // add columns
@@ -157,7 +157,12 @@ class BizDataObj_SQLHelper
         }
         $dataSqlObj->addAssociation($dataObj->m_Association);
 
-        $querySQL = $dataSqlObj->getSqlStatement() . " ";
+        // apply _ruleToSql to JoinCondition if any
+		if ($dataSqlObj->hasJoinCondition) {
+			$dataSqlObj->setTableJoinStm($this->_ruleToSql($dataObj, $dataSqlObj->getTableJoinStm()));
+		}
+		
+		$querySQL = $dataSqlObj->getSqlStatement() . " ";
 
         //echo $dataobj->m_QuerySQL."###<br>";
         return $querySQL;
@@ -388,6 +393,11 @@ class BizDataObj_SQLHelper
         $sql = "INSERT INTO  `" . $dataObj->m_MainTable . "` (" . $sql_col . ") VALUES (" . $sql_val.")";
         return $sql;
     }
+	
+	public function ruleToSql($dataObj, $rule)
+	{
+		return _ruleToSql($dataObj, $rule);
+	}
 
     /**
      * Convert search/sort rule to sql clause, replace [fieldName] with table.column

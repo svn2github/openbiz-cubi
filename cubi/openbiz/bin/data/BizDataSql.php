@@ -32,6 +32,7 @@ class BizDataSql
     protected $_otherSQL = null;
     protected $_aliasIndex = 0;
     protected $_mainTable;
+	public $hasJoinCondition = false;
 
     public function __construct()
     {
@@ -62,20 +63,29 @@ class BizDataSql
      * @param TableJoin $tableJoin table join object
      * @return void
      **/
-    public function addJoinTable($tableJoin)
+    public function addJoinTable($tableJoin, $sqlHelper=null)
     {
         $table = $tableJoin->m_Table;
         $joinType = $tableJoin->m_JoinType;
         $column = $tableJoin->m_Column;
         $joinRef = $tableJoin->m_JoinRef;
         $columnRef = $tableJoin->m_ColumnRef;
+		$joinCondition = $tableJoin->m_JoinCondition;
 
         $alias = "T".(count($this->_joinAliasList)+1);   // start with T1, T2
         $this->_joinAliasList[$tableJoin->m_Name] = $alias;
         $this->_tableAliasList[$table] = $alias;
         $aliasRef = $this->getJoinAlias($joinRef);
         $this->_tableJoins .= " $joinType `$table` $alias ON $alias.$column = $aliasRef.$columnRef ";
+		if (!empty($joinCondition)) {
+			$this->_tableJoins .= " AND $joinCondition";
+			$this->hasJoinCondition = true;
+		}
     }
+	
+	public function getTableJoinStm() { return $this->_tableJoins; }
+	
+	public function setTableJoinStm($tableJoinStm) { return $this->_tableJoins = $tableJoinStm; }
 
     /**
      * Add a join table and cloumn in the sql statement
