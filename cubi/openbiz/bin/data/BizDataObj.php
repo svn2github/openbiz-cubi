@@ -294,7 +294,7 @@ class BizDataObj extends BizDataObj_Lite
             $this->m_ErrorMessage = BizSystem::getMessage("DATA_NO_PERMISSION_UPDATE",$this->m_Name);
             return false;
         }
-		/*µ±$setValueÊÇÊý×éÊ±×ª³É[field]=value¸ñÊ½*/
+		/*å½“$setValueæ˜¯æ•°ç»„æ—¶è½¬æˆ[field]=valueæ ¼å¼*/
 		if(is_array($setValue)){
 			$setValue_srt='';
 			foreach($setValue as $key=>$value){
