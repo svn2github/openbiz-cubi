@@ -75,9 +75,16 @@
 			<h3 class="step_title">{t}Selected Data Fields{/t}</h3>
 			{if $form.tableFields}
 			<ul>
+			{assign var=row_counter value=0} 
 			{foreach item=field from=$form.tableFields}	
-				<li style="height:26px;display:block;"><img src="{$resource_url}/appbuilder/images/icon_data_field_small.png" border="0"><span>{$field}</span></li>				
-			{/foreach}
+				{if $row_counter lt 6}
+				<li style="height:26px;display:block;"><img src="{$resource_url}/appbuilder/images/icon_data_field_small.png" border="0"><span>{$field}</span></li>
+				{/if}
+				{assign var=row_counter value=$row_counter+1}				
+			{/foreach}			
+			{if $form.tableFields|@count gt 6}
+				<li style="height:26px;display:block;"><span class="gray" style="color:#AAAAAA;">{t}More Fields ...{/t}</span></li>
+			{/if}
 			</ul>
 			{else}
 			<div style="height:26px;">

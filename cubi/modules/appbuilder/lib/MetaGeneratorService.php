@@ -79,11 +79,20 @@ class MetaGeneratorService
 	{
 		$templateFile = $this->__getMetaTempPath().'/do/DataObject.xml.tpl';
 		$doName 	= $this->m_ConfigModule['object_name'];
-		$doDesc 	= $this->m_ConfigModule['object_desc'];
+		$doDesc 	= $this->m_ConfigModule['object_desc'];		
 		$modName 	= $this->__getModuleName(); 				
 		$uniqueness = $this->_getUniqueness();
 		$sortField  = $this->_getSortField();
 		$aclArr     = $this->_getACLArr();
+		
+		if($this->m_ConfigModule['data_perm']=='0')
+		{
+			$doPermControl = "N";
+		}
+		else
+		{
+			$doPermControl = "Y";
+		}
 		
  		if(CLI){echo "Start generate dataobject $doName." . PHP_EOL;}
         $targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/do";
@@ -98,6 +107,7 @@ class MetaGeneratorService
         $smarty->assign_by_ref("do_name", $doName);        
         $smarty->assign_by_ref("do_desc", $doDesc);
         $smarty->assign_by_ref("db_name", $this->m_DBName);
+        $smarty->assign_by_ref("do_perm_control", $doPermControl);        
         $smarty->assign_by_ref("table_name", $this->m_DBTable);
         $smarty->assign_by_ref("fields", $this->m_DBFieldsInfo);        
         $smarty->assign_by_ref("uniqueness", $uniqueness);        
@@ -134,6 +144,7 @@ class MetaGeneratorService
 			foreach($resultSet as $key=>$arr)
 			{
 				$arr['FieldName'] = ucwords($arr['Field']);
+				$arr['FieldType'] = $this->__convertDataType($arr['Type']);
 				$resultSet[$key] = $arr;
 			}
 			
@@ -193,7 +204,7 @@ class MetaGeneratorService
 	 */
 	protected function _getResourceName()
 	{
-		return $this->m_DBTable;
+		return $this->m_ConfigModule['resource_name'];
 	}
 	
 	/**
@@ -308,5 +319,38 @@ class MetaGeneratorService
 		}
 	}
 	
+	private function __convertDataType($type)
+	{
+		if(strpos($type,"("))
+		{
+			$type = substr($type,0,strpos($type,"("));
+		}		
+		switch ($type)
+        {
+            case "date":
+                $type = "Date";
+                break;
+
+            case "timestamp":
+            case "datetime":
+                $type = "Datetime";
+                break;
+
+            case "int":
+            case "float":
+            case "bigint":
+            case "tinyint":
+                $type = "Number";
+                break;
+
+            case "text":
+            case "shorttext":
+            case "longtext":
+        	    default:
+                $type = "Text";
+                break;
+       }
+       return $type;
+	}
 }
 ?>
