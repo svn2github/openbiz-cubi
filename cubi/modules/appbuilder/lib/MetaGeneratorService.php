@@ -79,11 +79,13 @@ class MetaGeneratorService
 	{
 		$templateFile = $this->__getMetaTempPath().'/do/DataObject.xml.tpl';
 		$doName 	= $this->m_ConfigModule['object_name'];
-		$doDesc 	= $this->m_ConfigModule['object_desc'];		
+		$doDesc 	= $this->m_ConfigModule['object_desc'];			
 		$modName 	= $this->__getModuleName(); 				
 		$uniqueness = $this->_getUniqueness();
 		$sortField  = $this->_getSortField();
-		$aclArr     = $this->_getACLArr();
+		$aclArr     = $this->_getACLArr();		
+		$features	= $this->_getExtendFeatures();		
+		$doFullName = $modName.'.do.'.$this->m_ConfigModule['object_name'];	
 		
 		if($this->m_ConfigModule['data_perm']=='0')
 		{
@@ -103,7 +105,8 @@ class MetaGeneratorService
         }
 
         $smarty = BizSystem::getSmartyTemplate();
-
+        
+        $smarty->assign_by_ref("do_full_name", $doFullName);
         $smarty->assign_by_ref("do_name", $doName);        
         $smarty->assign_by_ref("do_desc", $doDesc);
         $smarty->assign_by_ref("db_name", $this->m_DBName);
@@ -112,8 +115,18 @@ class MetaGeneratorService
         $smarty->assign_by_ref("fields", $this->m_DBFieldsInfo);        
         $smarty->assign_by_ref("uniqueness", $uniqueness);        
         $smarty->assign_by_ref("sort_field", $sortField);
+        $smarty->assign_by_ref("features", $features);
         $smarty->assign_by_ref("acl", $aclArr);
 
+        if($features['self_reference']==1)
+        {
+        	$smarty->assign_by_ref("do_full_name_ref", 		str_replace("DO","RefDO",$doFullName));
+        	$smarty->assign_by_ref("do_full_name_related", 	str_replace("DO","RelatedDO",$doFullName));
+        	$smarty->assign_by_ref("table_name_related",	$this->m_DBTable."_releated");        	
+        	$smarty->assign_by_ref("table_ref_id", 			strtolower($this->m_DBTable)."_id");
+        	$this->_genSelfReferenceDO();        
+        }
+        
         $content = $smarty->fetch($templateFile);
                 
         $targetFile = $targetPath . "/" . $doName . ".xml";
@@ -122,6 +135,64 @@ class MetaGeneratorService
 
         var_dump($targetFile);exit;
         return $targetFile;		
+	}
+	
+	protected function _genSelfReferenceDO()
+	{
+		// Generate Reference DataObject
+		$templateFile = $this->__getMetaTempPath().'/do/DataObjectRef.xml.tpl';
+		$doName 	= $this->m_ConfigModule['object_name'];
+		$doDescRef 	= $this->m_ConfigModule['object_desc'].' - Reference DO';
+		$modName 	= $this->__getModuleName(); 				
+		$uniqueness = $this->_getUniqueness();
+		$sortField  = $this->_getSortField();
+		$aclArr     = $this->_getACLArr();		
+		$features	= $this->_getExtendFeatures();		
+		$doFullName = $modName.'.do.'.$this->m_ConfigModule['object_name'];
+		$doNameRef	= str_replace("DO","RefDO",$doName);
+
+		if($this->m_ConfigModule['data_perm']=='0')
+		{
+			$doPermControl = "N";
+		}
+		else
+		{
+			$doPermControl = "Y";
+		}				
+		
+        $smarty = BizSystem::getSmartyTemplate();
+        
+        $smarty->assign_by_ref("do_name", $doNameRef);        
+        $smarty->assign_by_ref("do_desc", $doDescRef);
+        $smarty->assign_by_ref("db_name", $this->m_DBName);
+        $smarty->assign_by_ref("do_perm_control", $doPermControl);        
+        $smarty->assign_by_ref("table_name", $this->m_DBTable);
+        $smarty->assign_by_ref("fields", $this->m_DBFieldsInfo);        
+        $smarty->assign_by_ref("uniqueness", $uniqueness);
+        $smarty->assign_by_ref("sort_field", $sortField);
+        $smarty->assign_by_ref("features", $features);
+        $smarty->assign_by_ref("acl", $aclArr);
+        
+		$content = $smarty->fetch($templateFile);                
+        $targetFile = $targetPath . "/" . $doNameRef . ".xml";
+        file_put_contents($targetFile, $content); 
+		
+        // Create a record_related table
+        
+        
+        
+		// Generate Related DataObject        
+		$doNameRelated	= str_replace("DO","RelatedDO",$doName);
+		$doDescRelated 	= $this->m_ConfigModule['object_desc'].' - Related DO';
+		
+		$smarty->assign_by_ref("do_name", $doNameRelated);
+		$smarty->assign_by_ref("do_desc", $doDescRelated);		
+		$smarty->assign_by_ref("table_name", $this->m_DBTable."_related");		
+		
+		$templateFile = $this->__getMetaTempPath().'/do/DataObjectRelated.xml.tpl';		
+		$content = $smarty->fetch($templateFile);                
+        $targetFile = $targetPath . "/" . $doNameRelated . ".xml";
+        file_put_contents($targetFile, $content); 
 	}
 	
 	protected function _getFieldsInfo()
@@ -195,6 +266,19 @@ class MetaGeneratorService
 				return ucwords($key);
 			}
 		}
+	}
+	
+	protected function _getExtendFeatures()
+	{
+		$features	=	array(
+						"picture"			=>	$this->m_ConfigModule['picture_feature'],
+						"location"			=>	$this->m_ConfigModule['location_feature'],
+						"changelog"			=>	$this->m_ConfigModule['changelog_feature'],
+						"attachment"		=>	$this->m_ConfigModule['attachment_feature'],
+						"self_reference"	=>	$this->m_ConfigModule['reference_feature'],
+						"extend"			=>	$this->m_ConfigModule['extend_feature']						
+						);	
+		return $features;		
 	}
 	
 	/**
@@ -274,25 +358,7 @@ class MetaGeneratorService
 		
 	}	
 
-	protected function _enableAttachmentFeature()
-	{
-		
-	}	
 	
-	protected function _enablePictureFeature()
-	{
-		
-	}	
-	
-	protected function _enableChangeLogFeature()
-	{
-		
-	}
-
-	protected function _enableGeoLocationFeature()
-	{
-		
-	}	
 
 	protected function _enableExtendFieldsFeature()
 	{

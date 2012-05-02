@@ -18,10 +18,11 @@
 		<Element Name="fld_acl_resource" Hidden="{@:Elem[fld_acl_control].Value==0?'Y':'N'}" Class="InputText" ElementSet="Permission" FieldName="resource_name" Description="Resource name for new objects" Label="ACL Resource"  />		
 		
 		 		
-		<Element Name="fld_attachment_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Attachment features to this module"  ElementSet="Advanced Features" FieldName="attachment_feature" Text="" Label="Attachment "  />
-		<Element Name="fld_picture_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Picture features to this module"  ElementSet="Advanced Features" FieldName="picture_feature" Text="" Label="Picture "  />
-		<Element Name="fld_changelog_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Data Change Log features to this module"  ElementSet="Advanced Features" FieldName="changelog_feature" Text="" Label="Change Log"  />
-		<Element Name="fld_location_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Geo Location features to this module"  ElementSet="Advanced Features" FieldName="location_feature" Text="" Label="Geo Location "  />
+		<Element Name="fld_attachment_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Attachment feature to this module"  ElementSet="Advanced Features" FieldName="attachment_feature" Text="" Label="Attachment "  />
+		<Element Name="fld_picture_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Picture feature to this module"  ElementSet="Advanced Features" FieldName="picture_feature" Text="" Label="Picture "  />
+		<Element Name="fld_changelog_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Data Change Log feature to this module"  ElementSet="Advanced Features" FieldName="changelog_feature" Text="" Label="Change Log"  />
+		<Element Name="fld_location_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Geo Location feature to this module"  ElementSet="Advanced Features" FieldName="location_feature" Text="" Label="Geo Location"  />
+		<Element Name="fld_selfref_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Self Reference feature to this module"  ElementSet="Advanced Features" FieldName="selfref_feature" Text="" Label="Self Reference"  />
 		
 		<Element Name="fld_data_extend"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="0" Description="Enable Type Based Data Field Extensible Feature"  ElementSet="Extensible" FieldName="extend_feature" Text="" Label="Extend Fields"  >
 			<EventHandler Name="fld_data_extend"  Event="onchange" Function="UpdateForm()" />
