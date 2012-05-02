@@ -4,14 +4,19 @@
 		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Field" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />				
 		<Element Name="fld_object_name"  Class="InputText" ElementSet="General" FieldName="object_name" Description="One english word" Label="Object Name"  />       
 		<Element Name="fld_object_desc"  Class="InputText" ElementSet="General" FieldName="object_desc" Description="One line short description " Label="Object Description"  />
+		
 		<Element Name="fld_module_type"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(Type)" ElementSet="General" FieldName="module_type" Text="" Label="Module Type"  >
 			<EventHandler Name="fld_module_type_onchange"  Event="onchange" Function="UpdateForm()" />
 		</Element>
 		<Element Name="fld_module_name_create" Hidden="{@:Elem[fld_module_type].Value==0?'Y':'N'}"  Class="InputText" ElementSet="General" FieldName="module_name_create" Text="" Label="Module Name" />
 		<Element Name="fld_module_name_exists" Hidden="{@:Elem[fld_module_type].Value==1?'Y':'N'}" Class="appbuilder.element.ModuleListbox" ElementSet="General" FieldName="module_name_exists" Text="" Label="Module Name" />
 		
-		<Element Name="fld_acl_control"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(AclType)" DefaultValue="1" ElementSet="Permission" FieldName="acl_type" Text="" Label="Access Control"  />
-		<Element Name="fld_data_share"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(DataShareType)" DefaultValue="1" ElementSet="Permission" FieldName="data_perm" Text="" Label="Data Permission"  />
+		<Element Name="fld_data_share"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(DataShareType)" DefaultValue="1" ElementSet="Permission" FieldName="data_perm" Text="" Label="Data Permission"  />	
+		<Element Name="fld_acl_control"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(AclType)" DefaultValue="1" ElementSet="Permission" FieldName="acl_type" Text="" Label="Access Control"  >
+			<EventHandler Name="fld_acl_control_onchange"  Event="onchange" Function="UpdateForm()" />
+		</Element>
+		<Element Name="fld_acl_resource" Hidden="{@:Elem[fld_acl_control].Value==0?'Y':'N'}" Class="InputText" ElementSet="Permission" FieldName="resource_name" Description="Resource name for new objects" Label="ACL Resource"  />		
+		
 		 		
 		<Element Name="fld_attachment_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Attachment features to this module"  ElementSet="Advanced Features" FieldName="attachment_feature" Text="" Label="Attachment "  />
 		<Element Name="fld_picture_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Picture features to this module"  ElementSet="Advanced Features" FieldName="picture_feature" Text="" Label="Picture "  />

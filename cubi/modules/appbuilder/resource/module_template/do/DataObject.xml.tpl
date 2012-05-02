@@ -1,5 +1,17 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="{$do_name}" Description="" Class="BizDataObj" DBName="{$db_name}" Table="{$table_name}" SearchRule="" SortRule="{if $sort_field}[{$sort_field}] ASC{/if}" OtherSQLRule="" Uniqueness="{$uniqueness}" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="{$acl.create}" UpdateCondition="{$acl.update}" DeleteCondition="{$acl.delete}">
+<BizDataObj Name="{$do_name}" Description="{$do_desc}" 
+			Class="BizDataObj" 
+			DBName="{$db_name}" Table="{$table_name}" 
+			SearchRule="" 
+			SortRule="{if $sort_field}[{$sort_field}] ASC{/if}" 
+			OtherSQLRule=""
+			Uniqueness="{$uniqueness}" 
+			Stateless="N" 
+			IdGeneration="Identity" 
+			CacheLifeTime="0" 
+			CreateCondition="{$acl.create}" 
+			UpdateCondition="{$acl.update}" 
+			DeleteCondition="{$acl.delete}" >
 	<BizFieldList>
 {foreach from=$fields item=fld}
 {if $fld.name=='timestamp'}

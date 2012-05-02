@@ -77,8 +77,9 @@ class MetaGeneratorService
 	
 	protected function _genDataObj()
 	{
-		$templateFile = $this->__getMetaTempPath().'/do/DataObj.xml.tpl';
+		$templateFile = $this->__getMetaTempPath().'/do/DataObject.xml.tpl';
 		$doName 	= $this->m_ConfigModule['object_name'];
+		$doDesc 	= $this->m_ConfigModule['object_desc'];
 		$modName 	= $this->__getModuleName(); 				
 		$uniqueness = $this->_getUniqueness();
 		$sortField  = $this->_getSortField();
@@ -95,6 +96,7 @@ class MetaGeneratorService
         $smarty = BizSystem::getSmartyTemplate();
 
         $smarty->assign_by_ref("do_name", $doName);        
+        $smarty->assign_by_ref("do_desc", $doDesc);
         $smarty->assign_by_ref("db_name", $this->m_DBName);
         $smarty->assign_by_ref("table_name", $this->m_DBTable);
         $smarty->assign_by_ref("fields", $this->m_DBFieldsInfo);        
@@ -108,6 +110,7 @@ class MetaGeneratorService
         file_put_contents($targetFile, $content);                
         if(CLI){echo "\t".str_replace(MODULE_PATH,"",$targetFile)." is generated." . PHP_EOL;}
 
+        var_dump($targetFile);exit;
         return $targetFile;		
 	}
 	

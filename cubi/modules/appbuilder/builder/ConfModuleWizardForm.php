@@ -69,6 +69,7 @@ class ConfModuleWizardForm extends EasyFormWizard
 		$result['module_type'] = $moduleType;
 		$result['module_name_create'] = strtolower($names[0]);
 		$result['module_name_exists'] = strtolower($names[0]);
+		$result['resource_name'] = strtolower($names[0]);
 		$result['extend_type_do'] = $objectName."TypeDO";
 		$result['extend_type_desc'] = $objectNameSpacing." Type Description";
 		
