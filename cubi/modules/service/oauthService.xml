@@ -5,7 +5,8 @@
 					DisplayName="Taobao API" 
 					Key="api key"
 					Secret="api secrect data"
-					URL="http://api.taobao.com" 
+					URL="http://container.open.taobao.com/container" 
+					Class="oauthTaobaoService"
 					/>
 					
 		<Provider   Name="Facebook" 
