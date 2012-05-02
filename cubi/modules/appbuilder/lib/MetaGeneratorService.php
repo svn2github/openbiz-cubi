@@ -178,7 +178,19 @@ class MetaGeneratorService
         file_put_contents($targetFile, $content); 
 		
         // Create a record_related table
-        
+        $tableNameRef = $this->m_DBTable.'_related';
+        $tableRefId = strtolower($this->m_DBTable)."_id";
+        $db 	= BizSystem::dbConnection($this->m_DBName);				
+		$sql 	= "
+				CREATE TABLE `$tableNameRef` (
+				  `id` int(10) unsigned NOT NULL auto_increment,
+				  `$tableRefId` int(10) unsigned NOT NULL default '0',
+				  `related_id` int(10) unsigned NOT NULL default '0',  
+				  PRIMARY KEY  (`id`),
+				  KEY `related_id` (`related_id`),
+				  KEY `$tableRefId` (`$tableRefId`)
+				) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+		$db->query($sql);
         
         
 		// Generate Related DataObject        
@@ -187,7 +199,8 @@ class MetaGeneratorService
 		
 		$smarty->assign_by_ref("do_name", $doNameRelated);
 		$smarty->assign_by_ref("do_desc", $doDescRelated);		
-		$smarty->assign_by_ref("table_name", $this->m_DBTable."_related");		
+		$smarty->assign_by_ref("table_name", $tableNameRef);
+		$smarty->assign_by_ref("table_ref_id", $tableRefId);			
 		
 		$templateFile = $this->__getMetaTempPath().'/do/DataObjectRelated.xml.tpl';		
 		$content = $smarty->fetch($templateFile);                
