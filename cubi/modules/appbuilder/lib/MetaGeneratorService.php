@@ -104,28 +104,35 @@ class MetaGeneratorService
             mkdir($targetPath, 0777, true);
         }
 
+	    if($features['extend']==1)
+        {        	
+        	$this->_genExtendTypeDO();
+        }
+        
         $smarty = BizSystem::getSmartyTemplate();
         
-        $smarty->assign_by_ref("do_full_name", $doFullName);
-        $smarty->assign_by_ref("do_name", $doName);        
-        $smarty->assign_by_ref("do_desc", $doDesc);
-        $smarty->assign_by_ref("db_name", $this->m_DBName);
-        $smarty->assign_by_ref("do_perm_control", $doPermControl);        
-        $smarty->assign_by_ref("table_name", $this->m_DBTable);
-        $smarty->assign_by_ref("fields", $this->m_DBFieldsInfo);        
-        $smarty->assign_by_ref("uniqueness", $uniqueness);        
-        $smarty->assign_by_ref("sort_field", $sortField);
-        $smarty->assign_by_ref("features", $features);
-        $smarty->assign_by_ref("acl", $aclArr);
+        $smarty->assign("do_full_name", $doFullName);
+        $smarty->assign("do_name", $doName);        
+        $smarty->assign("do_desc", $doDesc);
+        $smarty->assign("db_name", $this->m_DBName);
+        $smarty->assign("do_perm_control", $doPermControl);        
+        $smarty->assign("table_name", $this->m_DBTable);
+        $smarty->assign("fields", $this->m_DBFieldsInfo);        
+        $smarty->assign("uniqueness", $uniqueness);        
+        $smarty->assign("sort_field", $sortField);
+        $smarty->assign("features", $features);
+        $smarty->assign("acl", $aclArr);
 
         if($features['self_reference']==1)
         {
-        	$smarty->assign_by_ref("do_full_name_ref", 		str_replace("DO","RefDO",$doFullName));
-        	$smarty->assign_by_ref("do_full_name_related", 	str_replace("DO","RelatedDO",$doFullName));
-        	$smarty->assign_by_ref("table_name_related",	$this->m_DBTable."_releated");        	
-        	$smarty->assign_by_ref("table_ref_id", 			strtolower($this->m_DBTable)."_id");
+        	$smarty->assign("do_full_name_ref", 		str_replace("DO","RefDO",$doFullName));
+        	$smarty->assign("do_full_name_related", 	str_replace("DO","RelatedDO",$doFullName));
+        	$smarty->assign("table_name_related",	$this->m_DBTable."_releated");        	
+        	$smarty->assign("table_ref_id", 			strtolower($this->m_DBTable)."_id");
         	$this->_genSelfReferenceDO();        
         }
+        
+
         
         $content = $smarty->fetch($templateFile);
                 
@@ -137,8 +144,113 @@ class MetaGeneratorService
         return $targetFile;		
 	}
 	
-	protected function _genSelfReferenceDO()
+	protected function _genExtendTypeDO()
 	{
+		$extendTypeDO = $this->m_ConfigModule['extend_type_do'];
+        $extendTypeDesc = $this->m_ConfigModule['extend_type_desc'];
+        
+        $db 	= BizSystem::dbConnection($this->m_DBName);
+        
+        //check type_id field existing
+        $fieldName = "type_id";
+        if(!$this->_isFieldExists($fieldName))
+        {
+        	$this->_addDOField($fieldName);
+        }
+        if(!in_array($fieldName, $this->m_DBFields))
+        {
+        	$this->m_DBFields[] = $fieldName;
+        }
+        
+        //drop record type table if it exists
+        $tableTypeName = $this->m_DBTable."_type";
+        $sql="DROP TABLE IF EXISTS `$tableTypeName`;";
+        $db->query($sql);
+        
+        if($this->m_ConfigModule['data_perm']=='1')
+		{
+	        $perm_fields = "
+	        	  `group_id` int(11) DEFAULT '1',
+				  `group_perm` int(11) DEFAULT '1',
+				  `other_perm` int(11) DEFAULT '1', ";
+		}
+		
+		//create record type table
+        $sql="
+			CREATE TABLE IF NOT EXISTS `$tableTypeName` (
+			  `id` int(11) NOT NULL AUTO_INCREMENT,
+			  `name` varchar(255) NOT NULL,
+			  `description` text NOT NULL,
+			  `color` varchar(255) NOT NULL,
+			  `sortorder` int(11) NOT NULL,
+			  $perm_fields
+			  `create_by` int(11) NOT NULL,
+			  `create_time` datetime NOT NULL,
+			  `update_by` int(11) NOT NULL,
+			  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+			  PRIMARY KEY (`id`)
+			) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;        
+        ";
+        $db->query($sql);
+        
+        $doName 	= $extendTypeDO;
+		$doDesc 	= $extendTypeDesc;			
+		$modName 	= $this->__getModuleName(); 				
+		$doFullName = $modName.'.do.'.$this->m_ConfigModule['object_name'];	
+		
+		if($this->m_ConfigModule['data_perm']=='0')
+		{
+			$doPermControl = "N";
+		}
+		else
+		{
+			$doPermControl = "Y";
+		}
+		
+        $targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/do";
+        $templateFile = $this->__getMetaTempPath().'/do/DataObjectExtendTypeDO.xml.tpl';
+        $smarty = BizSystem::getSmartyTemplate();
+        
+        $smarty->assign("record_do_full_name", $doFullName);
+        $smarty->assign("do_name", $doName);        
+        $smarty->assign("do_desc", $doDesc);
+        $smarty->assign("db_name", $this->m_DBName);
+        $smarty->assign("do_perm_control", $doPermControl);
+        $smarty->assign("table_name", $this->m_DBTable);        
+        $smarty->assign("table_type_name", $tableTypeName);
+        
+        $content = $smarty->fetch($templateFile);
+                
+        $targetFile = $targetPath . "/" . $doName . ".xml";
+        file_put_contents($targetFile, $content);                
+	}
+	
+	private function _addDOField($fieldName)
+	{
+		$tableName 	= $this->m_DBTable;
+		$db 		= BizSystem::dbConnection($this->m_DBName);	
+		$sql 		= "ALTER TABLE `$tableName` ADD `type_id` INT( 11 ) NOT NULL AFTER `id` , ADD INDEX ( `type_id` ) ;";
+		$db->query($sql);		
+	}
+	
+	private function _isFieldExists($fieldName)
+	{
+		$db 	= BizSystem::dbConnection($this->m_DBName);
+		$tableName 	= $this->m_DBTable;
+		$sql	= "SHOW FULL COLUMNS FROM `$tableName`";
+		$fieldsInfo = $db->fetchAssoc($sql);
+		foreach($fieldsInfo as $field=>$info)
+		{
+			if($field == $fieldName)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	protected function _genSelfReferenceDO()
+	{				
 		// Generate Reference DataObject
 		$templateFile = $this->__getMetaTempPath().'/do/DataObjectRef.xml.tpl';
 		$doName 	= $this->m_ConfigModule['object_name'];
@@ -150,7 +262,8 @@ class MetaGeneratorService
 		$features	= $this->_getExtendFeatures();		
 		$doFullName = $modName.'.do.'.$this->m_ConfigModule['object_name'];
 		$doNameRef	= str_replace("DO","RefDO",$doName);
-
+		$targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/do";
+		
 		if($this->m_ConfigModule['data_perm']=='0')
 		{
 			$doPermControl = "N";
@@ -162,16 +275,16 @@ class MetaGeneratorService
 		
         $smarty = BizSystem::getSmartyTemplate();
         
-        $smarty->assign_by_ref("do_name", $doNameRef);        
-        $smarty->assign_by_ref("do_desc", $doDescRef);
-        $smarty->assign_by_ref("db_name", $this->m_DBName);
-        $smarty->assign_by_ref("do_perm_control", $doPermControl);        
-        $smarty->assign_by_ref("table_name", $this->m_DBTable);
-        $smarty->assign_by_ref("fields", $this->m_DBFieldsInfo);        
-        $smarty->assign_by_ref("uniqueness", $uniqueness);
-        $smarty->assign_by_ref("sort_field", $sortField);
-        $smarty->assign_by_ref("features", $features);
-        $smarty->assign_by_ref("acl", $aclArr);
+        $smarty->assign("do_name", $doNameRef);        
+        $smarty->assign("do_desc", $doDescRef);
+        $smarty->assign("db_name", $this->m_DBName);
+        $smarty->assign("do_perm_control", $doPermControl);        
+        $smarty->assign("table_name", $this->m_DBTable);
+        $smarty->assign("fields", $this->m_DBFieldsInfo);        
+        $smarty->assign("uniqueness", $uniqueness);
+        $smarty->assign("sort_field", $sortField);
+        $smarty->assign("features", $features);
+        $smarty->assign("acl", $aclArr);
         
 		$content = $smarty->fetch($templateFile);                
         $targetFile = $targetPath . "/" . $doNameRef . ".xml";
@@ -180,7 +293,10 @@ class MetaGeneratorService
         // Create a record_related table
         $tableNameRef = $this->m_DBTable.'_related';
         $tableRefId = strtolower($this->m_DBTable)."_id";
-        $db 	= BizSystem::dbConnection($this->m_DBName);				
+        $db 	= BizSystem::dbConnection($this->m_DBName);	
+        $sql	= "DROP TABLE IF EXISTS `$tableNameRef`;";	
+        $db->query($sql);
+        		
 		$sql 	= "
 				CREATE TABLE `$tableNameRef` (
 				  `id` int(10) unsigned NOT NULL auto_increment,
@@ -194,15 +310,16 @@ class MetaGeneratorService
         
         
 		// Generate Related DataObject        
+		$templateFile = $this->__getMetaTempPath().'/do/DataObjectRelated.xml.tpl';
+		
 		$doNameRelated	= str_replace("DO","RelatedDO",$doName);
 		$doDescRelated 	= $this->m_ConfigModule['object_desc'].' - Related DO';
 		
-		$smarty->assign_by_ref("do_name", $doNameRelated);
-		$smarty->assign_by_ref("do_desc", $doDescRelated);		
-		$smarty->assign_by_ref("table_name", $tableNameRef);
-		$smarty->assign_by_ref("table_ref_id", $tableRefId);			
-		
-		$templateFile = $this->__getMetaTempPath().'/do/DataObjectRelated.xml.tpl';		
+		$smarty->assign("do_name", $doNameRelated);
+		$smarty->assign("do_desc", $doDescRelated);		
+		$smarty->assign("table_name", $tableNameRef);
+		$smarty->assign("table_ref_id", $tableRefId);			
+						
 		$content = $smarty->fetch($templateFile);                
         $targetFile = $targetPath . "/" . $doNameRelated . ".xml";
         file_put_contents($targetFile, $content); 
@@ -272,11 +389,11 @@ class MetaGeneratorService
 		{
 			if($key=="sortorder")
 			{
-				return ucwords($key);
+				return $key;
 			}
 			elseif($key=="sort_order")
 			{
-				return ucwords($key);
+				return $key;
 			}
 		}
 	}
@@ -288,7 +405,7 @@ class MetaGeneratorService
 						"location"			=>	$this->m_ConfigModule['location_feature'],
 						"changelog"			=>	$this->m_ConfigModule['changelog_feature'],
 						"attachment"		=>	$this->m_ConfigModule['attachment_feature'],
-						"self_reference"	=>	$this->m_ConfigModule['reference_feature'],
+						"self_reference"	=>	$this->m_ConfigModule['selfref_feature'],
 						"extend"			=>	$this->m_ConfigModule['extend_feature']						
 						);	
 		return $features;		

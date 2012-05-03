@@ -3,7 +3,7 @@
     <DataPanel>
 		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Field" Label="Id" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />						
 		
-		<Element Name="fld_desc"  	Class="InputText" ElementSet="General" FieldName="mod_desc" Description="module description for this module" Label="Description"  />
+		<Element Name="fld_desc"  	Class="InputText" ElementSet="General" FieldName="mod_desc" Description="Description for this module" Label="Description"  />
 		<Element Name="fld_author"  Class="InputText" DefaultValue="{BizSystem::GetProfileName(@profile:Id,'short')}" ElementSet="General" FieldName="mod_author" Description="Author for this module" Label="Author"  />
 		<Element Name="fld_version"  Class="InputText" DefaultValue="0.1" ElementSet="General" FieldName="mod_version" Description="Version number for this module" Label="Version"  />
 		

@@ -46,19 +46,18 @@
 	</TableJoins>
 	<ObjReferences>
 {if $features.changelog eq 1}	
-		<Object Name="changelog.do.ChangeLogDO" Description="" Relationship="1-M" Table="changelog" CondColumn='type' CondValue='{$table_name}' Column="foreign_id" FieldRef="Id" />
-{/if}
+		<Object Name="changelog.do.ChangeLogDO" Description="Change Log Recording Feature" Relationship="1-M" Table="changelog" CondColumn='type' CondValue='{$table_name}' Column="foreign_id" FieldRef="Id" />{/if}
 {if $features.location eq 1}	
-		<Object Name="location.do.LocationDO" Description="" Relationship="1-M" Table="location" CondColumn='type' CondValue='{$table_name}' Column="foreign_id" FieldRef="Id" />
-{/if}
+		<Object Name="location.do.LocationDO" Description="Geographic Location Extension Feature" Relationship="1-M" Table="location" CondColumn='type' CondValue='{$table_name}' Column="foreign_id" FieldRef="Id" />{/if}
 {if $features.attachment eq 1}	
-		<Object Name="attachment.do.AttachmentDO" Description="" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='{$table_name}' Column="foreign_id" FieldRef="Id" />
-{/if}
+		<Object Name="attachment.do.AttachmentDO" Description="Attachment Feature" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='{$table_name}' Column="foreign_id" FieldRef="Id" />{/if}
 {if $features.picture eq 1}	
-		<Object Name="picture.do.PictureDO" Description="" Relationship="1-M" Table="picture" CondColumn='type' CondValue='{$table_name}' Column="foreign_id" FieldRef="Id" />
-{/if}
+		<Object Name="picture.do.PictureDO" Description="Picture List Feature" Relationship="1-M" Table="picture" CondColumn='type' CondValue='{$table_name}' Column="foreign_id" FieldRef="Id" />{/if}
 {if $features.self_reference eq 1}	
-		<Object Name="{$do_full_name_ref}" Description="" Relationship="Self-Self" Table="{$table_name}" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="{$table_name_related}" XColumn1="{$table_ref_id}" XColumn2="related_id" XDataObj="{$do_full_name_related}"/>
+		<Object Name="{$do_full_name_ref}" Description="Related Record Referenece Feature" Relationship="Self-Self" Table="{$table_name}" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="{$table_name_related}" XColumn1="{$table_ref_id}" XColumn2="related_id" XDataObj="{$do_full_name_related}"/>
+{/if}
+{if $features.extend eq 1}
+		<Object Name="extend.do.ExtendDataDO" Description="Extend Data Field Feature"  Relationship="1-M" Table="extend_data" CondColumn='module' CondValue='{$table_name}' Column="type_id" FieldRef="type_id" Column2="record_id" FieldRef2="Id" onDelete="Cascade"/>
 {/if}
 	</ObjReferences>
 </BizDataObj>
