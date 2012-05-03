@@ -18,7 +18,7 @@
 		<BizField Name="description" Column="description"    Required="Y" Type=""/>
 		<BizField Name="color" Column="color"  Type="Text"/>
 		<BizField Name="sortorder" Column="sortorder"    Required="Y" Type=""/>
-{if $do_perm_control=='Y'}	    
+{if $do_perm_control eq 'Y'}	    
 		<BizField Name="group_id" Column="group_id" ValueOnCreate="{literal}{@profile:default_group}{/literal}"   Required="N" Type="Number"/>
 		<BizField Name="group_perm" Column="group_perm" ValueOnCreate="{literal}{BizSystem::GetDefaultPerm(group)}{/literal}"   Required="N" Type="Number"/>
 		<BizField Name="other_perm" Column="other_perm" ValueOnCreate="1"   Required="N" Type="Number"/>   		
@@ -31,7 +31,7 @@
     <TableJoins>
     </TableJoins>
     <ObjReferences>
-        <Object Name="{$record_do_full_name}" Relationship="1-M" Table="{$table_name}" Column="type_id" FieldRef="Id" onDelete="Restrict"/>
-		<Object Name="extend.do.ExtendSettingDO" Relationship="1-M" Table="extend_setting" CondColumn='module' CondValue='{$table_name}' Column="type_id" FieldRef="Id" onDelete="Cascade"/>    
+        <Object Name="{$record_do_full_name}" Description="Reference to Main Data Record" Relationship="1-M" Table="{$table_name}" Column="type_id" FieldRef="Id" onDelete="Restrict"/>
+		<Object Name="extend.do.ExtendSettingDO" Description="Reference to Extend Data Field Setting Records" Relationship="1-M" Table="extend_setting" CondColumn='module' CondValue='{$table_name}' Column="type_id" FieldRef="Id" onDelete="Cascade"/>    
     </ObjReferences>
 </BizDataObj>
