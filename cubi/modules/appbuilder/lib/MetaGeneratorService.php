@@ -145,6 +145,11 @@ class MetaGeneratorService
         return $targetFile;		
 	}
 	
+	/**
+	 * 
+	 * Generate Data Objects for Extend Data Fields Feature
+	 * if data_type table doesn't exists then create it.
+	 */
 	protected function _genExtendTypeDO()
 	{
 		$extendTypeDO = $this->m_ConfigModule['extend_type_do'];
@@ -227,6 +232,9 @@ class MetaGeneratorService
         $this->m_GeneratedFiles['TypeDO']=str_replace(MODULE_PATH,"",$targetFile);        
 	}
 	
+	/**
+	 * Generate Form Objects for Extend Type Feature
+	 */
 	protected function _genExtendTypeForm()
 	{
 
@@ -237,6 +245,32 @@ class MetaGeneratorService
 		$this->m_GeneratedFiles['TypeNewForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
 		$this->m_GeneratedFiles['TypeEditForm']=str_replace(MODULE_PATH,"",$targetFile);
+	}
+	
+	/**
+	 * Generate Form Objects for Extend Type Feature
+	 */
+	protected function _genExtendTypeView()
+	{
+		$templateFile = $this->__getMetaTempPath().'/view/TypeView.xml.tpl';
+		$viewName 	= $this->__getObjectName()."TypeView";
+		$viewDesc 	= "Type of ".$this->m_ConfigModule['object_desc'];			
+		$modName 	= $this->__getModuleName(); 				
+		$aclArr     = $this->_getACLArr();		
+		$viewFullName = $modName.'.view.'.$viewName;
+		$defaultFormName = $modName.'.form.'.$this->__getObjectName().'TypeListForm';
+		
+        $smarty = BizSystem::getSmartyTemplate();
+        $smarty->assign("type_view_name", $viewName);
+        $smarty->assign("type_view_desc", $viewDesc);        
+        $smarty->assign("default_form_name", $defaultFormName);
+        $smarty->assign("acl", $aclArr);
+         
+        $content = $smarty->fetch($templateFile);
+                
+        $targetFile = $targetPath . "/" . $viewName . ".xml";
+        file_put_contents($targetFile, $content);      
+		$this->m_GeneratedFiles['TypeManageView']=str_replace(MODULE_PATH,"",$targetFile);
 	}
 	
 	private function _addDOField($fieldName)
@@ -499,6 +533,14 @@ class MetaGeneratorService
 	
 	protected function _genViewObj()
 	{
+		if(CLI){echo "Start generate dataobject $doName." . PHP_EOL;}
+        $targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/view";
+        if (!file_exists($targetPath))
+        {
+            if(CLI){echo "Create directory $targetPath" . PHP_EOL;}
+            mkdir($targetPath, 0777, true);
+        }
+        
 		//generate detail view
 		
 		//generate list view
@@ -528,6 +570,16 @@ class MetaGeneratorService
 	{
 		
 	}	
+	
+	private function __getObjectName()
+	{
+		$tableName = $this->m_DBTable;
+		$name = str_replace("_", " ", $tableName);
+		$name = str_replace("-", " ", $name);
+		$name = ucwords($name);
+		$name = str_replace(" ", "", $name);
+		return $name;
+	}
 	
 	private function __getMetaTempPath()
 	{

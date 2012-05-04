@@ -7,6 +7,6 @@
 	TemplateEngine="Smarty" 
 	TemplateFile="view.tpl">
    <FormReferences>
-   		<Reference Name="{$detail_form_full_name}"/>
+   		<Reference Name="{$default_form_name}"/>
    </FormReferences>       
 </EasyView>
