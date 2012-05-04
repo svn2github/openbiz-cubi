@@ -72,6 +72,7 @@ class MetaGeneratorService
 		$this->_genTemplateFiles();
 		$this->_genMessageFiles();
 		$this->_genModuleFile();
+		var_dump($this->m_GeneratedFiles);exit;
 		return $this->m_GeneratedFiles;
 	}
 	
@@ -127,19 +128,17 @@ class MetaGeneratorService
         {
         	$smarty->assign("do_full_name_ref", 		str_replace("DO","RefDO",$doFullName));
         	$smarty->assign("do_full_name_related", 	str_replace("DO","RelatedDO",$doFullName));
-        	$smarty->assign("table_name_related",	$this->m_DBTable."_releated");        	
+        	$smarty->assign("table_name_related",		$this->m_DBTable."_releated");        	
         	$smarty->assign("table_ref_id", 			strtolower($this->m_DBTable)."_id");
         	$this->_genSelfReferenceDO();        
         }
-        
-
         
         $content = $smarty->fetch($templateFile);
                 
         $targetFile = $targetPath . "/" . $doName . ".xml";
         file_put_contents($targetFile, $content);        
 
-        $this->m_GeneratedFiles['MainDO']=str_replace(MODULE_PATH,"",$targetFile);        
+        $this->m_GeneratedFiles['DataObjFiles']['MainDO']=str_replace(MODULE_PATH,"",$targetFile);        
         if(CLI){echo "\t".str_replace(MODULE_PATH,"",$targetFile)." is generated." . PHP_EOL;}
 
         return $targetFile;		
@@ -229,7 +228,7 @@ class MetaGeneratorService
                 
         $targetFile = $targetPath . "/" . $doName . ".xml";
         file_put_contents($targetFile, $content);        
-        $this->m_GeneratedFiles['TypeDO']=str_replace(MODULE_PATH,"",$targetFile);        
+        $this->m_GeneratedFiles['DataObjFiles']['TypeDO']=str_replace(MODULE_PATH,"",$targetFile);        
 	}
 	
 	/**
@@ -255,9 +254,9 @@ class MetaGeneratorService
 		$templateFile = $this->__getMetaTempPath().'/view/TypeView.xml.tpl';
 		$viewName 	= $this->__getObjectName()."TypeView";
 		$viewDesc 	= "Type of ".$this->m_ConfigModule['object_desc'];			
-		$modName 	= $this->__getModuleName(); 				
-		$aclArr     = $this->_getACLArr();		
-		$viewFullName = $modName.'.view.'.$viewName;
+		$modName 	= $this->__getModuleName(); 	
+		$modBaseName= $this->__getModuleName(false);
+		$aclArr     = $this->_getACLArr();				
 		$defaultFormName = $modName.'.form.'.$this->__getObjectName().'TypeListForm';
 		
         $smarty = BizSystem::getSmartyTemplate();
@@ -265,12 +264,12 @@ class MetaGeneratorService
         $smarty->assign("type_view_desc", $viewDesc);        
         $smarty->assign("default_form_name", $defaultFormName);
         $smarty->assign("acl", $aclArr);
-         
         $content = $smarty->fetch($templateFile);
                 
+        $targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modBaseName) . "/view";
         $targetFile = $targetPath . "/" . $viewName . ".xml";
         file_put_contents($targetFile, $content);      
-		$this->m_GeneratedFiles['TypeManageView']=str_replace(MODULE_PATH,"",$targetFile);
+		$this->m_GeneratedFiles['ViewObjFiles']['TypeManageView']=str_replace(MODULE_PATH,"",$targetFile);
 	}
 	
 	private function _addDOField($fieldName)
@@ -337,7 +336,7 @@ class MetaGeneratorService
 		$content = $smarty->fetch($templateFile);                
         $targetFile = $targetPath . "/" . $doNameRef . ".xml";
         file_put_contents($targetFile, $content); 
-		$this->m_GeneratedFiles['MainRefDO']=str_replace(MODULE_PATH,"",$targetFile);
+		$this->m_GeneratedFiles['DataObjFiles']['MainRefDO']=str_replace(MODULE_PATH,"",$targetFile);
 		
         // Create a record_related table
         $tableNameRef = $this->m_DBTable.'_related';
@@ -372,7 +371,7 @@ class MetaGeneratorService
 		$content = $smarty->fetch($templateFile);                
         $targetFile = $targetPath . "/" . $doNameRelated . ".xml";
         file_put_contents($targetFile, $content); 
-        $this->m_GeneratedFiles['MainRelatedDO']=str_replace(MODULE_PATH,"",$targetFile);
+        $this->m_GeneratedFiles['DataObjFiles']['MainRelatedDO']=str_replace(MODULE_PATH,"",$targetFile);
 	}
 	
 	protected function _getFieldsInfo()
@@ -517,15 +516,15 @@ class MetaGeneratorService
 	
 	protected function _genFormObj()
 	{
-		$this->m_GeneratedFiles['ListForm']=str_replace(MODULE_PATH,"",$targetFile);
+		$this->m_GeneratedFiles['FormObjFiles']['ListForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
-		$this->m_GeneratedFiles['NewForm']=str_replace(MODULE_PATH,"",$targetFile);
+		$this->m_GeneratedFiles['FormObjFiles']['NewForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
-		$this->m_GeneratedFiles['CopyForm']=str_replace(MODULE_PATH,"",$targetFile);
+		$this->m_GeneratedFiles['FormObjFiles']['CopyForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
-		$this->m_GeneratedFiles['EditForm']=str_replace(MODULE_PATH,"",$targetFile);
+		$this->m_GeneratedFiles['FormObjFiles']['EditForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
-		$this->m_GeneratedFiles['DetailForm']=str_replace(MODULE_PATH,"",$targetFile);
+		$this->m_GeneratedFiles['FormObjFiles']['DetailForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
 		
 		
@@ -533,8 +532,13 @@ class MetaGeneratorService
 	
 	protected function _genViewObj()
 	{
-		if(CLI){echo "Start generate dataobject $doName." . PHP_EOL;}
-        $targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/view";
+		
+		$modName 	= $this->__getModuleName(); 	
+		$modBaseName= $this->__getModuleName(false);
+		$features	= $this->_getExtendFeatures();	
+		$aclArr     = $this->_getACLArr();
+		
+        $targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modBaseName) . "/view";
         if (!file_exists($targetPath))
         {
             if(CLI){echo "Create directory $targetPath" . PHP_EOL;}
@@ -542,11 +546,47 @@ class MetaGeneratorService
         }
         
 		//generate detail view
+		$templateFile = $this->__getMetaTempPath().'/view/DetailView.xml.tpl';
+		$viewName 	= $this->__getObjectName().'DetailView';
+		$viewDesc 	= "Detail View of".$this->m_ConfigModule['object_desc'];		
+		$defaultFormName = $modName.'.form.'.$this->__getObjectName().'DetailForm';
+		
+		if(CLI){echo "Start generate view object $viewName." . PHP_EOL;}
+        $smarty = BizSystem::getSmartyTemplate();
+        $smarty->assign("view_name", $viewName);
+        $smarty->assign("view_desc", $viewDesc);        
+        $smarty->assign("default_form_name", $defaultFormName);
+        $smarty->assign("acl", $aclArr);
+        $content = $smarty->fetch($templateFile);
+                        
+        $targetFile = $targetPath . "/" . $viewName . ".xml";
+        file_put_contents($targetFile, $content);      
+		$this->m_GeneratedFiles['ViewObjFiles']['DetailView']=str_replace(MODULE_PATH,"",$targetFile);	 	
 		
 		//generate list view
+		$templateFile = $this->__getMetaTempPath().'/view/ManageView.xml.tpl';
+		$viewName 	= $this->__getObjectName().'ManageView';
+		$viewDesc 	= $this->m_ConfigModule['object_desc']." Management";
+		$defaultFormName = $modName.'.form.'.$this->__getObjectName().'ListForm';
+		
+		if(CLI){echo "Start generate view object $viewName." . PHP_EOL;}
+		$smarty = BizSystem::getSmartyTemplate();
+        $smarty->assign("view_name", $viewName);
+        $smarty->assign("view_desc", $viewDesc);        
+        $smarty->assign("default_form_name", $defaultFormName);
+        $smarty->assign("acl", $aclArr);
+        $content = $smarty->fetch($templateFile);
+                        
+        $targetFile = $targetPath . "/" . $viewName . ".xml";
+        file_put_contents($targetFile, $content);      
+		$this->m_GeneratedFiles['ViewObjFiles']['ManageView']=str_replace(MODULE_PATH,"",$targetFile);
 		
 		//generate type manager view
-		var_dump($targetFile);exit;
+		if($features['extend']==1)
+        {        	
+        	$this->_genExtendTypeView();
+        }
+		
 	}
 
 	protected function _genTemplateFiles()
@@ -589,16 +629,21 @@ class MetaGeneratorService
 		return $this->m_MetaTempPath; 
 	}
 	
-	private function __getModuleName()
+	private function __getModuleName($processSubModule = true)
 	{
 		if($this->m_ConfigModule['module_type']==1)
 		{
-			return $this->m_ConfigModule['module_name_create'];
+			$result = $this->m_ConfigModule['module_name_create'];
 		}
 		else
 		{
-			return $this->m_ConfigModule['module_name_exists'];
+			$result = $this->m_ConfigModule['module_name_exists'];
 		}
+		if( $processSubModule == true )
+		{
+			$result .= '.'.$this->m_ConfigModule['sub_module_name'];
+		}
+		return $result;
 	}
 	
 	private function __getFieldDesc($fieldArr)

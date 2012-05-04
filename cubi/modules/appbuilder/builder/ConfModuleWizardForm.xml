@@ -11,6 +11,8 @@
 		<Element Name="fld_module_name_create" Hidden="{@:Elem[fld_module_type].Value==0?'Y':'N'}"  Class="InputText" ElementSet="General" FieldName="module_name_create" Text="" Label="Module Name" />
 		<Element Name="fld_module_name_exists" Hidden="{@:Elem[fld_module_type].Value==1?'Y':'N'}" Class="appbuilder.element.ModuleListbox" ElementSet="General" FieldName="module_name_exists" Text="" Label="Module Name" />
 		
+		<Element Name="fld_sub_module_name"  Class="InputText" ElementSet="General" FieldName="sub_module_name" Text="" Description="e.g.: module.submodule" Label="Sub Module" />
+		
 		<Element Name="fld_data_share"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(DataShareType)" DefaultValue="1" ElementSet="Permission" FieldName="data_perm" Text="" Label="Data Permission"  />	
 		<Element Name="fld_acl_control"  Class="Listbox" SelectFrom="appbuilder.builder.lov.ModuleLOV(AclType)" DefaultValue="1" ElementSet="Permission" FieldName="acl_type" Text="" Label="Access Control"  >
 			<EventHandler Name="fld_acl_control_onchange"  Event="onchange" Function="UpdateForm()" />
