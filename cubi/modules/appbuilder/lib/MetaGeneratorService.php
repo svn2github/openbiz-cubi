@@ -344,9 +344,12 @@ class MetaGeneratorService
 			
 			foreach($resultSet as $key=>$arr)
 			{
-				$arr['FieldName'] = ucwords($arr['Field']);
-				$arr['FieldType'] = $this->__convertDataType($arr['Type']);
-				$resultSet[$key] = $arr;
+				$arr['FieldName'] 	= ucwords($arr['Field']);
+				$arr['FieldType'] 	= $this->__convertDataType($arr['Type']);
+				$arr['Description'] = $this->__getFieldDesc($arr);
+				$arr['FieldLabel'] 	= $arr['Description'];
+				
+				$resultSet[$key] 	= $arr;
 			}
 			
 			$this->m_DBFieldsInfo = $resultSet;			
@@ -513,6 +516,22 @@ class MetaGeneratorService
 		{
 			return $this->m_ConfigModule['module_name_exists'];
 		}
+	}
+	
+	private function __getFieldDesc($fieldArr)
+	{		
+		switch($this->m_ConfigModule['naming_convention'])
+		{
+			case "name":
+				$result = str_replace("-",	" ",	$fieldArr['Field']);
+				$result = str_replace("_",	" ",	$result);
+				$result = ucwords($result);
+				break;				
+			case "comment":
+				$result = $fieldArr['Comment'];
+				break;
+		}
+		return $result;
 	}
 	
 	private function __convertDataType($type)
