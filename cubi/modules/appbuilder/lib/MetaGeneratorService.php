@@ -78,6 +78,10 @@ class MetaGeneratorService
 	
 	protected function _genDataObj()
 	{
+		if($this->m_BuildOptions["gen_data_object"]!='1')
+		{
+			return false;
+		}
 		$templateFile = $this->__getMetaTempPath().'/do/DataObject.xml.tpl';
 		$doName 	= $this->m_ConfigModule['object_name'];
 		$doDesc 	= $this->m_ConfigModule['object_desc'];			
@@ -151,6 +155,10 @@ class MetaGeneratorService
 	 */
 	protected function _genExtendTypeDO()
 	{
+		if($this->m_BuildOptions["gen_data_object"]!='1')
+		{
+			return false;
+		}
 		$extendTypeDO = $this->m_ConfigModule['extend_type_do'];
         $extendTypeDesc = $this->m_ConfigModule['extend_type_desc'];
         
@@ -236,7 +244,10 @@ class MetaGeneratorService
 	 */
 	protected function _genExtendTypeForm()
 	{
-
+		if($this->m_BuildOptions["gen_form_object"]!='1')
+		{
+			return false;
+		}
 		$this->m_GeneratedFiles['EditTypeForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
 		$this->m_GeneratedFiles['TypeListForm']=str_replace(MODULE_PATH,"",$targetFile);
@@ -251,6 +262,10 @@ class MetaGeneratorService
 	 */
 	protected function _genExtendTypeView()
 	{
+		if($this->m_BuildOptions["gen_view_object"]!='1')
+		{
+			return false;
+		}
 		$templateFile = $this->__getMetaTempPath().'/view/TypeView.xml.tpl';
 		$viewName 	= $this->__getObjectName()."TypeView";
 		$viewDesc 	= "Type of ".$this->m_ConfigModule['object_desc'];			
@@ -298,6 +313,11 @@ class MetaGeneratorService
 	
 	protected function _genSelfReferenceDO()
 	{				
+		if($this->m_BuildOptions["gen_data_object"]!='1')
+		{
+			return false;
+		}
+		
 		// Generate Reference DataObject
 		$templateFile = $this->__getMetaTempPath().'/do/DataObjectRef.xml.tpl';
 		$doName 	= $this->m_ConfigModule['object_name'];
@@ -516,6 +536,10 @@ class MetaGeneratorService
 	
 	protected function _genFormObj()
 	{
+		if($this->m_BuildOptions["gen_form_object"]!='1')
+		{
+			return false;
+		}
 		$this->m_GeneratedFiles['FormObjFiles']['ListForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
 		$this->m_GeneratedFiles['FormObjFiles']['NewForm']=str_replace(MODULE_PATH,"",$targetFile);
@@ -526,12 +550,14 @@ class MetaGeneratorService
 		
 		$this->m_GeneratedFiles['FormObjFiles']['DetailForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
-		
-		
 	}
 	
 	protected function _genViewObj()
 	{
+		if($this->m_BuildOptions["gen_view_object"]!='1')
+		{
+			return false;
+		}
 		
 		$modName 	= $this->__getModuleName(); 	
 		$modBaseName= $this->__getModuleName(false);
@@ -591,12 +617,36 @@ class MetaGeneratorService
 
 	protected function _genTemplateFiles()
 	{
-		
+		if($this->m_BuildOptions["gen_template_file"]!='1')
+		{
+			return false;
+		}
 	}	
 	
 	protected function _genMessageFiles()
 	{
+		if($this->m_BuildOptions["gen_message_file"]!='1')
+		{
+			return false;
+		}
+		$modName 	= $this->__getModuleName(); 	
+		$modBaseName= $this->__getModuleName(false);
+		$objName	=  $this->__getObjectName();
 		
+        $targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modBaseName) . "/message";
+        if (!file_exists($targetPath))
+        {
+            if(CLI){echo "Create directory $targetPath" . PHP_EOL;}
+            mkdir($targetPath, 0777, true);
+        }
+        
+        $templateFile = $this->__getMetaTempPath().'/message/Messages.ini.tpl';
+        $content = file_get_contents($templateFile);
+        
+        $targetFile = $targetPath . "/" . $objName . ".ini";
+        file_put_contents($targetFile, $content);      
+		$this->m_GeneratedFiles['MessageFiles']['MessageFile']=str_replace(MODULE_PATH,"",$targetFile);
+		if(CLI){echo "Start generate message file $objName.ini ." . PHP_EOL;}
 	}	
 	
 	protected function _genModuleFile()

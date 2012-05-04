@@ -12,8 +12,10 @@
 		
 		<Element Name="fld_data_object" DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Data Object Metadata" ElementSet="Generate Metadata" FieldName="gen_data_object" Text="" Label="Data Object"  />
 		<Element Name="fld_form_object" DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Form Object Metadata" ElementSet="Generate Metadata" FieldName="gen_form_object" Text="" Label="Form Object"  />
-		<Element Name="fld_view_object" DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate View Object Metadata" ElementSet="Generate Metadata" FieldName="gen_view_object" Text="" Label="View Object"  />		
+		<Element Name="fld_view_object" DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate View Object Metadata" ElementSet="Generate Metadata" FieldName="gen_view_object" Text="" Label="View Object"  />				
 		<Element Name="fld_dashboard"	DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Dashboard View" ElementSet="Generate Metadata" FieldName="gen_dashboard" Text="" Label="Dashboard"  />
+		<Element Name="fld_template_file" DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate UI Template File" ElementSet="Generate Metadata" FieldName="gen_template_files" Text="" Label="Template"  />
+		<Element Name="fld_message_file" DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Message File" ElementSet="Generate Metadata" FieldName="gen_message_file" Text="" Label="Message"  />
 		<Element Name="fld_mod"	 DefaultChecked="Y" Class="Checkbox" SelectFrom="1" DefaultValue="0" Description="Generate Mod XML File" ElementSet="Generate Metadata" FieldName="gen_mod" Text="" Label="Mod XML"  />
 			
 		
