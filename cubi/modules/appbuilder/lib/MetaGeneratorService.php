@@ -137,10 +137,11 @@ class MetaGeneratorService
         $content = $smarty->fetch($templateFile);
                 
         $targetFile = $targetPath . "/" . $doName . ".xml";
-        file_put_contents($targetFile, $content);                
+        file_put_contents($targetFile, $content);        
+
+        $this->m_GeneratedFiles['MainDO']=str_replace(MODULE_PATH,"",$targetFile);        
         if(CLI){echo "\t".str_replace(MODULE_PATH,"",$targetFile)." is generated." . PHP_EOL;}
 
-        var_dump($targetFile);exit;
         return $targetFile;		
 	}
 	
@@ -222,7 +223,20 @@ class MetaGeneratorService
         $content = $smarty->fetch($templateFile);
                 
         $targetFile = $targetPath . "/" . $doName . ".xml";
-        file_put_contents($targetFile, $content);                
+        file_put_contents($targetFile, $content);        
+        $this->m_GeneratedFiles['TypeDO']=str_replace(MODULE_PATH,"",$targetFile);        
+	}
+	
+	protected function _genExtendTypeForm()
+	{
+
+		$this->m_GeneratedFiles['EditTypeForm']=str_replace(MODULE_PATH,"",$targetFile);
+		
+		$this->m_GeneratedFiles['TypeListForm']=str_replace(MODULE_PATH,"",$targetFile);
+		
+		$this->m_GeneratedFiles['TypeNewForm']=str_replace(MODULE_PATH,"",$targetFile);
+		
+		$this->m_GeneratedFiles['TypeEditForm']=str_replace(MODULE_PATH,"",$targetFile);
 	}
 	
 	private function _addDOField($fieldName)
@@ -289,6 +303,7 @@ class MetaGeneratorService
 		$content = $smarty->fetch($templateFile);                
         $targetFile = $targetPath . "/" . $doNameRef . ".xml";
         file_put_contents($targetFile, $content); 
+		$this->m_GeneratedFiles['MainRefDO']=str_replace(MODULE_PATH,"",$targetFile);
 		
         // Create a record_related table
         $tableNameRef = $this->m_DBTable.'_related';
@@ -323,6 +338,7 @@ class MetaGeneratorService
 		$content = $smarty->fetch($templateFile);                
         $targetFile = $targetPath . "/" . $doNameRelated . ".xml";
         file_put_contents($targetFile, $content); 
+        $this->m_GeneratedFiles['MainRelatedDO']=str_replace(MODULE_PATH,"",$targetFile);
 	}
 	
 	protected function _getFieldsInfo()
@@ -348,7 +364,6 @@ class MetaGeneratorService
 				$arr['FieldType'] 	= $this->__convertDataType($arr['Type']);
 				$arr['Description'] = $this->__getFieldDesc($arr);
 				$arr['FieldLabel'] 	= $arr['Description'];
-				
 				$resultSet[$key] 	= $arr;
 			}
 			
@@ -468,12 +483,28 @@ class MetaGeneratorService
 	
 	protected function _genFormObj()
 	{
+		$this->m_GeneratedFiles['ListForm']=str_replace(MODULE_PATH,"",$targetFile);
+		
+		$this->m_GeneratedFiles['NewForm']=str_replace(MODULE_PATH,"",$targetFile);
+		
+		$this->m_GeneratedFiles['CopyForm']=str_replace(MODULE_PATH,"",$targetFile);
+		
+		$this->m_GeneratedFiles['EditForm']=str_replace(MODULE_PATH,"",$targetFile);
+		
+		$this->m_GeneratedFiles['DetailForm']=str_replace(MODULE_PATH,"",$targetFile);
+		
+		
 		
 	}
 	
 	protected function _genViewObj()
 	{
+		//generate detail view
 		
+		//generate list view
+		
+		//generate type manager view
+		var_dump($targetFile);exit;
 	}
 
 	protected function _genTemplateFiles()
@@ -520,7 +551,7 @@ class MetaGeneratorService
 	
 	private function __getFieldDesc($fieldArr)
 	{		
-		switch($this->m_ConfigModule['naming_convention'])
+		switch($this->m_BuildOptions['naming_convention'])
 		{
 			case "name":
 				$result = str_replace("-",	" ",	$fieldArr['Field']);
@@ -529,6 +560,12 @@ class MetaGeneratorService
 				break;				
 			case "comment":
 				$result = $fieldArr['Comment'];
+				if(!$result)
+				{
+					$result = str_replace("-",	" ",	$fieldArr['Field']);
+					$result = str_replace("_",	" ",	$result);
+					$result = ucwords($result);
+				}
 				break;
 		}
 		return $result;
