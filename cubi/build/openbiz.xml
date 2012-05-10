@@ -5,31 +5,16 @@
 
     <property name="package"  value="${phing.project.name}" override="true" />
     <property name="builddir" value="build/src/${package}" override="true" />
-    <property name="srcdir"   value="${project.basedir}/openbiz" override="true" />
+    <property name="srcdir"   value="${project.basedir}" override="true" />
     <property name="distdir" value="build/dist/${package}" override="true" />
     <property name="distfile" value="${distdir}/${package}-${build.version}.${build.release}.tar.gz" override="true" />
 
     <!-- Fileset for base source files -->
-    <fileset dir="${srcdir}" id="basesrc">
-        <include name="license.txt" />
-        <include name="bin/**" />
-        <include name="messages/**" />
-        <include name="metadata/**" />
-        <include name="others/Smarty/**" />
-        <include name="others/Zend/*.php"/>
-        <include name="others/Zend/Cache/**"/>
-        <include name="others/Zend/Crypt/**"/>
-        <include name="others/Zend/Db/**"/>
-        <include name="others/Zend/Json/**"/>
-        <include name="others/Zend/Loader/**"/>
-        <include name="others/Zend/Locale/**"/>
-        <include name="others/Zend/Log/**"/>
-        <include name="others/Zend/Mail/**"/>
-        <include name="others/Zend/Mime/**"/>
-        <include name="others/Zend/Translate/**"/>
-        <include name="others/Zend/Validate/**"/>
-        <include name="others/Zend/View/**"/>
-        <include name="others/ZendX/**"/>
+    <fileset dir="${srcdir}" id="basesrc">    
+    	<include name="sample.php" />    
+        <include name="bin/app_init.php" />
+        <include name="modules/service/**" />
+        <include name="openbiz/**" />
     </fileset>
 
     <!-- ============================================  -->
