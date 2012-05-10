@@ -1,6 +1,6 @@
 <?xml version="1.0"  encoding="UTF-8" ?>
 
-<project name="openbiz" basedir="../" default="dist">
+<project name="openbiz-core" basedir="../" default="dist">
     <property file="build/openbiz.properties" />
 
     <property name="package"  value="${phing.project.name}" override="true" />
@@ -40,10 +40,15 @@
     <target name="tar">
         <echo msg="Creating archive at ${builddir}..." />
         <mkdir dir="${distdir}" />
+        <mkdir dir="build/src/openbiz-core/files" />
+        <mkdir dir="build/src/openbiz-core/files/cache" />
+        <mkdir dir="build/src/openbiz-core/files/tmpfiles" />
+        <mkdir dir="build/src/openbiz-core/files/tpl_cpl" />
+        <mkdir dir="build/src/openbiz-core/files/upload" />
         <delete file="${distfile}" />
         <tar destfile="${distfile}" compression="gzip">
             <fileset dir="build/src/">
-                <include name="openbiz/**" />
+                <include name="openbiz-core/**" />
             </fileset>
         </tar>
         <echo msg="Distribution file is created in build directory OK!" />
