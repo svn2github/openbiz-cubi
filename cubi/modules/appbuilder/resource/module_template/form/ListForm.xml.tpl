@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="{$form_short_name}" Class="{$form_obj_class}" FormType="List" jsClass="jbForm" Title="{$module_name|replace:'_':' '|capitalize} Management" Description="" BizDataObj="{$comp}.{$do_name}" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="{$event_name}" MessageFile="{$message_file}" Access="{$acl.access}">
+<EasyForm Name="{$form_name}" Class="{$form_class}" FormType="List" jsClass="jbForm" Title="{$form_title}" Description="{$form_description}" BizDataObj="{$form_do}" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="{$event_name}" MessageFile="{$message_file}" Access="{$acl.access}">
     <DataPanel>
 {assign var=col_counter value=0}            
 {foreach from=$fields item=fld}
