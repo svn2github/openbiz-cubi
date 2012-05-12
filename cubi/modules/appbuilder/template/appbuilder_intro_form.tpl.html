@@ -32,24 +32,29 @@
 }
 {/literal}
 </style>
-<div style="padding-left:80px;padding-right:80px;padding-top:90px;padding-bottom:120px;" class="appbuilder_bg">
+<div style="padding-left:50px;padding-right:110px;padding-top:50px;padding-bottom:120px;height:310px;" class="appbuilder_bg">
 	<table><tr><td>
-		{if $form.icon !='' }
-		<div class="form_icon" style="height:auto;"><img  src="{$form.icon}" border="0" /></div>
-		{/if}
+		
 	
 		<div style="float:left; width:360px;">
-			<div>
-			<img src="{$resource_url}/appbuilder/images/appbuilder_logo.png" border="0" />
-			</div>
-			 
-			<p class="input_row" style="line-height:24px;padding-bottom:20px; padding-left:10px; width:320px;height:auto;">		
-			<span>{$form.description}</span>
-			</p> 
-			
-			<div style="padding-left:10px;">
-			{$actionPanel.btn_next.element}
-			</div>
+		<table>
+			<tr>
+				<td style="padding-right:10px;">
+					<div>
+					<img src="{$resource_url}/appbuilder/images/appbuilder_logo.png" border="0" />
+					</div>
+				</td>
+				<td style="background-image: url('{$resource_url}/appbuilder/images/v_line.png'); background-repeat: no-repeat;background-position: left bottom;padding-left:10px;">
+					<p class="input_row" style="padding-top:60px;line-height:24px;padding-bottom:20px; padding-left:10px; width:320px;height:auto;">		
+					<span>{$form.description}</span>
+					</p> 
+					
+					<div style="padding-left:10px;">
+					{$actionPanel.btn_next.element}
+					</div>
+				</td>
+			</tr>
+		</table>
 		</div>
 	</td></tr></table>
 	
