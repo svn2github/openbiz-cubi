@@ -811,6 +811,7 @@ class MetaGeneratorService
 		}		
 		
 		//generate mod loader
+		$modName 	= $this->__getModuleName(false);
         $targetPath = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/lib";
         if (!file_exists($targetPath))
         {
@@ -818,10 +819,11 @@ class MetaGeneratorService
             mkdir($targetPath, 0777, true);
         }
 
-        $modName 	= $this->__getModuleName(false);
+        
         $smarty = BizSystem::getSmartyTemplate();                
         $smarty->assign("mod_name", ucfirst($modName));
-
+		$templateFile = $this->__getMetaTempPath().'/lib/ModLoadHandler.php.tpl';
+		
         $content = $smarty->fetch($templateFile);                
         $targetFile = $targetPath . "/" . ucfirst($modName) . "LoadHandler.php";
         file_put_contents($targetFile, $content);        
