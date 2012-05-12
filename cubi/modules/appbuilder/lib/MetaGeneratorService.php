@@ -546,19 +546,24 @@ class MetaGeneratorService
 		$templateFile = $this->__getMetaTempPath().'/form/ListForm.xml.tpl';
 		$doName 	= $this->m_ConfigModule['object_name'];
 		$doDesc 	= $this->m_ConfigModule['object_desc'];					
-		$modName 	= $this->__getModuleName(); 				
+		$modName 	= $this->__getModuleName(); 	
+		$modShortName 	= $this->__getModuleName(false); 			
 		$uniqueness = $this->_getUniqueness();
 		$sortField  = $this->_getSortField();
 		$aclArr     = $this->_getACLArr();		
 		$features	= $this->_getExtendFeatures();		
 		$doFullName = $modName.'.do.'.$this->m_ConfigModule['object_name'];
 		$extendFeature = $features['extend'];
-		$formClass  = "EasyForm";
+		$formClass  = "EasyForm";				
+		$detailViewURL = $this->__getViewName().'_detail';
+				
 		$messageFile = "";
 		if($this->m_BuildOptions["gen_message_file"]!='')
 		{
 			$messageFile = basename($this->m_BuildOptions["gen_message_file"]);
 		}		
+		
+		
 		if(CLI){echo "Start generate form metadata $formName." . PHP_EOL;}
         $targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/form";
         if (!file_exists($targetPath))
@@ -578,7 +583,8 @@ class MetaGeneratorService
         $smarty->assign("do_name", $doName);                   
         $smarty->assign("fields", $this->m_DBFieldsInfo);                                
         $smarty->assign("features", $features);
-        $smarty->assign("acl", $aclArr);			
+        $smarty->assign("acl", $aclArr);        
+        $smarty->assign("detail_view_url", $detailViewURL);			
 		
         
 		//form specified variables
@@ -735,6 +741,18 @@ class MetaGeneratorService
 		$name = str_replace(" ", "", $name);
 		return $name;
 	}
+	
+	private function __getViewName()
+	{
+		$tableName = $this->m_DBTable;
+		$name = str_replace("_", " ", $tableName);
+		$name = str_replace("-", " ", $name);
+		$name = ucwords($name);
+		$name = str_replace(" View", "", $name);
+		$name = str_replace(" ", "_", $name);
+		$name = strtolower($name);
+		return $name;
+	}	
 	
 	private function __getFormName()
 	{
