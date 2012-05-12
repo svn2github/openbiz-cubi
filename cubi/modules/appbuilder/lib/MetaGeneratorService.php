@@ -540,8 +540,73 @@ class MetaGeneratorService
 		{
 			return false;
 		}
-		$this->m_GeneratedFiles['FormObjFiles']['ListForm']=str_replace(MODULE_PATH,"",$targetFile);
+
+		//generate list form metadata
+		//shared variables
+		$templateFile = $this->__getMetaTempPath().'/form/ListForm.xml.tpl';
+		$doName 	= $this->m_ConfigModule['object_name'];
+		$doDesc 	= $this->m_ConfigModule['object_desc'];					
+		$modName 	= $this->__getModuleName(); 				
+		$uniqueness = $this->_getUniqueness();
+		$sortField  = $this->_getSortField();
+		$aclArr     = $this->_getACLArr();		
+		$features	= $this->_getExtendFeatures();		
+		$doFullName = $modName.'.do.'.$this->m_ConfigModule['object_name'];
+		$extendFeature = $features['extend'];
+		$formClass  = "EasyForm";
+		$messageFile = "";
+		if($this->m_BuildOptions["gen_message_file"]!='')
+		{
+			$messageFile = basename($this->m_BuildOptions["gen_message_file"]);
+		}		
+		if(CLI){echo "Start generate form metadata $formName." . PHP_EOL;}
+        $targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/form";
+        if (!file_exists($targetPath))
+        {
+            if(CLI){echo "Create directory $targetPath" . PHP_EOL;}
+            mkdir($targetPath, 0777, true);
+        }
+
+	    if($features['extend']==1)
+        {        	        	
+        	$this->_genExtendTypeForm();
+        }		
+        
+        $smarty = BizSystem::getSmartyTemplate();
+        
+        $smarty->assign("do_full_name", $doFullName);
+        $smarty->assign("do_name", $doName);                   
+        $smarty->assign("fields", $this->m_DBFieldsInfo);                                
+        $smarty->assign("features", $features);
+        $smarty->assign("acl", $aclArr);			
 		
+        
+		//form specified variables
+		$formName 	= $this->__getObjectName().'ListForm';
+		$formFullName = $modName.'.form.'.$formName;
+		$formTitle  = $this->__getFormName()." Management";
+		$formDescription = $this->m_ConfigModule['object_desc'];
+		$formTemplate = "grid.tpl";
+		$eventName = $this->__getObjectName();
+        
+        $smarty->assign("form_name", 		$formName);
+        $smarty->assign("form_class",		$formClass);
+        $smarty->assign("form_title", 		$formTitle);
+        $smarty->assign("form_description", $formDescription);
+        $smarty->assign("form_template",	$formTemplate);
+		$smarty->assign("form_do", 			$doFullName);
+		$smarty->assign("event_name",		$eventName);
+		$smarty->assign("message_file",		$messageFile);
+        
+		$content = $smarty->fetch($templateFile);
+                
+        $targetFile = $targetPath . "/" . $formName . ".xml";
+        file_put_contents($targetFile, $content);       
+		$this->m_GeneratedFiles['FormObjFiles']['ListForm']=str_replace(MODULE_PATH,"",$targetFile);				
+		
+		
+		
+		//generate new form metadata		
 		$this->m_GeneratedFiles['FormObjFiles']['NewForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
 		$this->m_GeneratedFiles['FormObjFiles']['CopyForm']=str_replace(MODULE_PATH,"",$targetFile);
@@ -670,6 +735,33 @@ class MetaGeneratorService
 		$name = str_replace(" ", "", $name);
 		return $name;
 	}
+	
+	private function __getFormName()
+	{
+		switch($this->m_BuildOptions['naming_convention'])
+		{
+			case "name":
+				$tableName = $this->m_DBTable;
+				$name = str_replace("_", " ", $tableName);
+				$name = str_replace("-", " ", $name);
+				$name = ucwords($name);
+				break;				
+			case "comment":
+				$tableName = $this->m_DBTable;
+				$db 	= BizSystem::dbConnection($this->m_DBName);
+				$tableInfos = $db->fetchAssoc("SHOW TABLE STATUS WHERE Name='$tableName'");
+				$name = $tableInfos[$tableName]['Comment'];
+				if(!$name)
+				{
+					$tableName = $this->m_DBTable;
+					$name = str_replace("_", " ", $tableName);
+					$name = str_replace("-", " ", $name);
+					$name = ucwords($name);
+				}
+				break;
+		}		
+		return $name;
+	}	
 	
 	private function __getMetaTempPath()
 	{
