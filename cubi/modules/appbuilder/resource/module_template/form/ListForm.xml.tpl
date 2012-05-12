@@ -28,7 +28,27 @@
         			Label="ID" 
         			Sortable="Y" 
         			AllowURLParam="N" 
-        			Link="javascript:;" />        
+        			Link="javascript:;" />   
+	{if $do_perm_control eq 'Y' }
+		<Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{$share_icons.icon_private}"
+				MySharedImg="{$share_icons.icon_shared}" 
+				MyAssignedImg="{$share_icons.icon_assigned}"
+				MyDistributedImg="{$share_icons.icon_shared_distributed}" 
+				GroupSharedImg="{$share_icons.icon_shared_group}"
+				OtherSharedImg="{$share_icons.icon_shared_other}"
+				FieldName="create_by" 
+				Label="Share"  
+				Sortable="Y" 
+				AllowURLParam="N" 
+				Translatable="N" 
+				OnEventLog="N" 
+				Link="javascript:;">
+			<EventHandler Name="fld_share_onclick" 
+							Event="onclick" 
+							Function="LoadDialog(common.form.DataSharingForm,{literal}{@:Elem[fld_Id].Value}{/literal})"/>		
+		</Element>
+	{/if}			        			     
 {elseif $fld.Field == 'sort_order' || $fld.Field == 'sortorder' }
 		<Element Name="fld_{$fld.Field}" 
         			Class="ColumnSorting" 

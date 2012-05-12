@@ -614,9 +614,17 @@ class MetaGeneratorService
 		$formTitle  = $this->__getFormName()." Management";
 		$formDescription = $this->m_ConfigModule['object_desc'];
 		$formTemplate = "grid.tpl";
-		$eventName = $this->__getObjectName();
+		$eventName = $this->__getObjectName();		
 		$formIcon = "{RESOURCE_URL}/$modShortName/images/".$this->__getObjectFileName().'_list.png';
-	
+		$shareIcons = array(
+			"icon_private"				=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_private.png',
+			"icon_shared"				=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_shared.png',
+			"icon_assigned"				=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_assigned.png',
+			"icon_shared_distributed"	=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_distributed.png',
+			"icon_shared_group"			=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_shared_group.png',
+			"icon_shared_other"			=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_shared_other.png'
+		);
+		
         $smarty->assign("form_name", 		$formName);
         $smarty->assign("form_class",		$formClass);
         $smarty->assign("form_icon", 		$formIcon);
@@ -627,6 +635,7 @@ class MetaGeneratorService
 		$smarty->assign("form_type_do", 	$typeDoFullName);		
 		$smarty->assign("event_name",		$eventName);
 		$smarty->assign("message_file",		$messageFile);
+		$smarty->assign("share_icons", 		$shareIcons);
         
 		$content = $smarty->fetch($templateFile);
                 
@@ -796,7 +805,34 @@ class MetaGeneratorService
 	
 	protected function _genModuleFile()
 	{
+		if($this->m_BuildOptions["gen_mod"]!='1')
+		{
+			return false;
+		}		
 		
+		//generate mod loader
+        $targetPath = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/lib";
+        if (!file_exists($targetPath))
+        {
+            if(CLI){echo "Create directory $targetPath" . PHP_EOL;}
+            mkdir($targetPath, 0777, true);
+        }
+
+        $modName 	= $this->__getModuleName(false);
+        $smarty = BizSystem::getSmartyTemplate();                
+        $smarty->assign("mod_name", ucfirst($modName));
+
+        $content = $smarty->fetch($templateFile);                
+        $targetFile = $targetPath . "/" . ucfirst($modName) . "LoadHandler.php";
+        file_put_contents($targetFile, $content);        
+
+        //load XML file if it exists
+        $targetFile = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/mod.xml";
+        if(is_file($targetFile))
+        {
+        	
+        }
+        
 	}	
 
 	
