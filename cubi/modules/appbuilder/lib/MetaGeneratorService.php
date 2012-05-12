@@ -6,11 +6,13 @@ class MetaGeneratorService
 	protected $m_DBTable;
 	protected $m_DBFields;
 	protected $m_DBFieldsInfo;
+	protected $m_DBSearchField;
 	protected $m_ConfigModule;
 	protected $m_BuildOptions;
 	
 	protected $m_MetaTempPath;
 	protected $m_ACLArr;
+	protected $m_TypeDOFullName;
 	
 	/**
 	 * 
@@ -66,13 +68,15 @@ class MetaGeneratorService
 	 */
 	public function generate()
 	{
+		$this->_genMessageFiles();
 		$this->_genDataObj();
 		$this->_genFormObj();
 		$this->_genViewObj();
 		$this->_genTemplateFiles();
-		$this->_genMessageFiles();
+		$this->_genResourceFiles();
 		$this->_genModuleFile();
-		var_dump($this->m_GeneratedFiles);exit;
+		var_dump($this->m_GeneratedFiles);
+		exit;
 		return $this->m_GeneratedFiles;
 	}
 	
@@ -210,6 +214,7 @@ class MetaGeneratorService
 		$doDesc 	= $extendTypeDesc;			
 		$modName 	= $this->__getModuleName(); 				
 		$doFullName = $modName.'.do.'.$this->m_ConfigModule['object_name'];	
+		$this->m_TypeDOFullName = $modName.'.do.'.$extendTypeDO;
 		
 		if($this->m_ConfigModule['data_perm']=='0')
 		{
@@ -236,7 +241,7 @@ class MetaGeneratorService
                 
         $targetFile = $targetPath . "/" . $doName . ".xml";
         file_put_contents($targetFile, $content);        
-        $this->m_GeneratedFiles['DataObjFiles']['TypeDO']=str_replace(MODULE_PATH,"",$targetFile);        
+        $this->m_GeneratedFiles['DataObjFiles']['TypeDO']=str_replace(MODULE_PATH,"",$targetFile);                
 	}
 	
 	/**
@@ -418,7 +423,12 @@ class MetaGeneratorService
 				$arr['Description'] = $this->__getFieldDesc($arr);
 				$arr['FieldLabel'] 	= $arr['Description'];
 				$resultSet[$key] 	= $arr;
-			}
+				
+				if($arr['Key']=='MUL')
+				{
+					$this->m_DBSearchField = $arr; 
+				}
+			}						
 			
 			$this->m_DBFieldsInfo = $resultSet;			
 			return $resultSet;
@@ -558,11 +568,19 @@ class MetaGeneratorService
 		$detailViewURL = $this->__getViewName().'_detail';
 				
 		$messageFile = "";
-		if($this->m_BuildOptions["gen_message_file"]!='')
+		if($this->m_GeneratedFiles['MessageFiles']['MessageFile']!='')
 		{
-			$messageFile = basename($this->m_BuildOptions["gen_message_file"]);
+			$messageFile = basename($this->m_GeneratedFiles['MessageFiles']['MessageFile']);
 		}		
 		
+		if($this->m_ConfigModule['data_perm']=='0')
+		{
+			$doPermControl = "N";
+		}
+		else
+		{
+			$doPermControl = "Y";
+		}		
 		
 		if(CLI){echo "Start generate form metadata $formName." . PHP_EOL;}
         $targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/form";
@@ -574,16 +592,19 @@ class MetaGeneratorService
 
 	    if($features['extend']==1)
         {        	        	
-        	$this->_genExtendTypeForm();
+        	$this->_genExtendTypeForm();    
+        	$typeDoFullName = $this->m_TypeDOFullName;    	
         }		
         
         $smarty = BizSystem::getSmartyTemplate();
         
         $smarty->assign("do_full_name", $doFullName);
         $smarty->assign("do_name", $doName);                   
-        $smarty->assign("fields", $this->m_DBFieldsInfo);                                
+        $smarty->assign("fields", $this->m_DBFieldsInfo);
+        $smarty->assign("search_field", $this->m_DBSearchField);      
+        $smarty->assign("do_perm_control", $doPermControl);                               
         $smarty->assign("features", $features);
-        $smarty->assign("acl", $aclArr);        
+        $smarty->assign("acl", $aclArr);     
         $smarty->assign("detail_view_url", $detailViewURL);			
 		
         
@@ -594,13 +615,16 @@ class MetaGeneratorService
 		$formDescription = $this->m_ConfigModule['object_desc'];
 		$formTemplate = "grid.tpl";
 		$eventName = $this->__getObjectName();
-        
+		$formIcon = "{RESOURCE_URL}/$modShortName/images/".$this->__getObjectFileName().'_list.png';
+	
         $smarty->assign("form_name", 		$formName);
         $smarty->assign("form_class",		$formClass);
+        $smarty->assign("form_icon", 		$formIcon);
         $smarty->assign("form_title", 		$formTitle);
         $smarty->assign("form_description", $formDescription);
         $smarty->assign("form_template",	$formTemplate);
 		$smarty->assign("form_do", 			$doFullName);
+		$smarty->assign("form_type_do", 	$typeDoFullName);		
 		$smarty->assign("event_name",		$eventName);
 		$smarty->assign("message_file",		$messageFile);
         
@@ -688,11 +712,61 @@ class MetaGeneratorService
 
 	protected function _genTemplateFiles()
 	{
-		if($this->m_BuildOptions["gen_template_file"]!='1')
+		if($this->m_BuildOptions["gen_template_files"]!='1')
 		{
 			return false;
 		}
+		$modName 	= $this->__getModuleName(false);
+		$templateFiles = $this->__getMetaTempPath().'/template/';
+		$targetPath = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/template";
+		return $this->__recursiveCopy($templateFiles, $targetPath);
 	}	
+	
+	protected function _genResourceFiles()
+	{
+		if($this->m_BuildOptions["gen_template_files"]!='1')
+		{
+			return false;
+		}
+		$modName 	= $this->__getModuleName(false);
+		$templateFiles = $this->__getMetaTempPath().'/resource/';
+		$targetPath = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/resource";
+		return $this->__recursiveCopy($templateFiles, $targetPath);
+	}		
+	
+	private function __recursiveCopy($path, $dest){
+	   if( is_dir($path) )
+       {
+            @mkdir( $dest );
+            $objects = scandir($path);
+            if( sizeof($objects) > 0 )
+            {
+                foreach( $objects as $file )
+                {
+                    if( $file == "." || $file == ".." || substr($file,0,1)=='.' )
+                        continue;
+                    // go on
+                    if( is_dir( $path.DIRECTORY_SEPARATOR.$file ) )
+                    {
+                        $this->__recursiveCopy( $path.DIRECTORY_SEPARATOR.$file, $dest.DIRECTORY_SEPARATOR.$file );
+                    }
+                    else
+                    {
+                        copy( $path.DIRECTORY_SEPARATOR.$file, $dest.DIRECTORY_SEPARATOR.$file );
+                    }
+                }
+            }
+            return true;
+        }
+        elseif( is_file($path) )
+        {
+            return copy($path, $dest);
+        }
+        else
+        {
+            return false;
+        }
+	} 	
 	
 	protected function _genMessageFiles()
 	{
@@ -741,6 +815,17 @@ class MetaGeneratorService
 		$name = str_replace(" ", "", $name);
 		return $name;
 	}
+	
+	private function __getObjectFileName()
+	{
+		$tableName = $this->m_DBTable;
+		$name = str_replace("_", " ", $tableName);
+		$name = str_replace("-", " ", $name);		
+		$name = str_replace(" ", "_", $name);
+		$name = strtolower($name);
+		return $name;
+	}
+	
 	
 	private function __getViewName()
 	{

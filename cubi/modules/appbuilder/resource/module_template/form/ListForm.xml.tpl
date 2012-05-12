@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="{$form_name}" 
-			Class="{$form_class}" 
+			Class="{$form_class}"			  
 			FormType="List" 
-			jsClass="OpenbizForm" 
+			jsClass="Openbiz.Form" 
+			Icon="{$form_icon}"
 			Title="{$form_title}" 
 			Description="{$form_description}" 
 			BizDataObj="{$form_do}" 
@@ -248,19 +249,51 @@
         {/literal}
     </NavPanel> 
     <SearchPanel>
-    	<Element Name="data_filter"  BlankOption="All Data" cssclass="input_select_m" Class="common.element.ShareDataFilter" FieldName="create_by" Label="" SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
-            <EventHandler Name="datafilter_onchange" Event="onchange" Function="RunSearch()"/>
-        </Element>
-    	<Element Name="type_selector"  BlankOption="All Types" cssclass="input_select_m" Class="collab.lib.TypeSelector" FieldName="type_id" Label="" SelectFrom="collab.bookmark.do.BookmarkTypeDO[name:Id:color]" >
-            <EventHandler Name="type_selector_onchange" Event="onchange" Function="RunSearch()"/>
+{if $do_perm_control eq 'Y' }
+		<!-- Data Permission Filter -->  
+		<Element Name="data_filter" 
+    				BlankOption="All Data" 
+    				Cssclass="input_select_m" 
+    				Class="common.element.ShareDataFilter" 
+    				FieldName="create_by" 
+    				SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
+            <EventHandler Name="datafilter_onchange" 
+            				Event="onchange" 
+            				Function="RunSearch()"/>
+        </Element>  
+{/if}
+{if $features.extend eq 1}      
+		<!-- Data Type Filter -->  
+    	<Element Name="type_selector"  
+    				BlankOption="All Types" 
+    				Cssclass="input_select_m" 
+    				Class="common.lib.TypeSelector" 
+    				FieldName="type_id" 
+    				SelectFrom="{$form_type_do}[name:Id:color]" >
+            <EventHandler Name="type_selector_onchange" 
+            				Event="onchange" 
+            				Function="RunSearch()"/>
         </Element> 
-    {if $searchs|@count > 0}	
-	{assign var=fld value=$searchs[0] }
-		<Element Name="qry_{$fld.COL_NAME}" Class="AutoSuggest" SelectFrom="{$comp}.{$do_name}[{$fld.COL_NAME}],[{$fld.COL_NAME}] like {literal}'%{@:Elem{/literal}[qry_{$fld.COL_NAME}].Value{literal}}{/literal}%' GROUP BY [{$fld.COL_NAME}]" FuzzySearch="Y" FieldName="{$fld.COL_NAME}" Label="" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
-        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
-            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+{/if}
+{if $search_field}	
+		<Element Name="qry_{$search_field.Field}" 
+					Class="AutoSuggest" 
+					SelectFrom="{$form_do}[{$search_field.Field}],[{$search_field.Field}] like {literal}'%{@:Elem{/literal}[qry_{$search_field.Field}].Value{literal}}{/literal}%' GROUP BY [{$search_field.Field}]" 
+					FuzzySearch="Y" 
+					FieldName="{$search_field.Field}" 
+					Label="" 
+					CssFocusClass="input_text_search_focus" 
+					CssClass="input_text_search" />
+        <Element Name="btn_dosearch" 
+        			Class="Button" 
+        			Text="Go" 
+        			CssClass="button_gray">
+            <EventHandler Name="search_onclick" 
+            				Event="onclick" 
+            				Function="RunSearch()" 
+            				ShortcutKey="Enter"/>
         </Element>	
-	{/if}
+{/if}
        
     </SearchPanel>
 </EasyForm>
