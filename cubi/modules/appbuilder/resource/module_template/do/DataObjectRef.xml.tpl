@@ -18,27 +18,76 @@
 	<BizFieldList>
 {foreach from=$fields item=fld}
 {if $fld.Field=='timestamp'}
-   		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="timestamp" />
+   		<BizField Name="{$fld.Field}"	
+	   			Description="{$fld.Description}"	
+	   			Column="timestamp" />
 {elseif $fld.Field=='create_by'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	Type="Number"	ValueOnCreate="{literal}{@profile:Id}{/literal}"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				Type="Number"	
+				ValueOnCreate="{literal}{@profile:Id}{/literal}"/>
 {elseif $fld.Field=='create_time'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	Type="Datetime"	ValueOnCreate="{literal}{date('Y-m-d H:i:s')}{/literal}"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				Type="Datetime"	
+				ValueOnCreate="{literal}{date('Y-m-d H:i:s')}{/literal}"/>
 {elseif $fld.Field=='update_by'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	Type="Number"	ValueOnCreate="{literal}{@profile:Id}{/literal}"	ValueOnUpdate="{literal}{@profile:Id}{/literal}"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				Type="Number"	
+				ValueOnCreate="{literal}{@profile:Id}{/literal}"	
+				ValueOnUpdate="{literal}{@profile:Id}{/literal}"/>
 {elseif $fld.Field=='update_time'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	Type="Datetime"	ValueOnCreate="{literal}{date('Y-m-d H:i:s')}{/literal}"	ValueOnUpdate="{literal}{date('Y-m-d H:i:s')}{/literal}"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				Type="Datetime"	
+				ValueOnCreate="{literal}{date('Y-m-d H:i:s')}{/literal}"	
+				ValueOnUpdate="{literal}{date('Y-m-d H:i:s')}{/literal}"/>
 {elseif $fld.Field=='owner_id'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	ValueOnCreate="{literal}{@profile:Id}{/literal}"	Required="N"	Type="Number"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				ValueOnCreate="{literal}{@profile:Id}{/literal}"	
+				Required="N"	
+				Type="Number"/>
 {elseif $fld.Field=='group_id'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	ValueOnCreate="{literal}{@profile:default_group}{/literal}"	Required="N"	Type="Number"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				ValueOnCreate="{literal}{@profile:default_group}{/literal}"	
+				Required="N"	
+				Type="Number"/>
 {elseif $fld.Field=='group_perm'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	ValueOnCreate="{literal}{BizSystem::GetDefaultPerm(group)}{/literal}"	Required="N"	Type="Number"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				ValueOnCreate="{literal}{BizSystem::GetDefaultPerm(group)}{/literal}"	
+				Required="N"	
+				Type="Number"/>
 {elseif $fld.Field=='other_perm'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	ValueOnCreate="{literal}{BizSystem::GetDefaultPerm(other)}{/literal}"	Required="N"	Type="Number"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				ValueOnCreate="{literal}{BizSystem::GetDefaultPerm(other)}{/literal}"	
+				Required="N"	
+				Type="Number"/>
 {elseif $fld.Field=='id'}
-		<BizField Name="Id"		Description="{$fld.Description}"	Column="id"    Required="N" Type="Number"/>
+		<BizField Name="Id"			
+				Description="{$fld.Description}"	
+				Column="id"    
+				Required="N" 
+				Type="Number"/>
 {else}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}" {if $fld.length }Length="{$fld.length}"{/if}   {if $fld.name != "Id"}Required="{if $fld.Null }N{else}Y{/if}"{/if} Type="{$fld.FieldType}"/>
+		<BizField Name="{$fld.Field}"		
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}" 
+				Type="{$fld.FieldType}"
+				{if $fld.length }Length="{$fld.length}"{/if}   
+				{if $fld.name != "Id"}Required="{if $fld.Null }N{else}Y{/if}"{/if} />
 {/if}
 {/foreach}
 	</BizFieldList>

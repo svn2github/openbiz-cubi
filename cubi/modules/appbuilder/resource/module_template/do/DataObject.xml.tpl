@@ -18,27 +18,76 @@
 	<BizFieldList>
 {foreach from=$fields item=fld}
 {if $fld.Field=='timestamp'}
-   		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="timestamp" />
+   		<BizField Name="{$fld.Field}"	
+	   			Description="{$fld.Description}"	
+	   			Column="timestamp" />
 {elseif $fld.Field=='create_by'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	Type="Number"	ValueOnCreate="{literal}{@profile:Id}{/literal}"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				Type="Number"	
+				ValueOnCreate="{literal}{@profile:Id}{/literal}"/>
 {elseif $fld.Field=='create_time'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	Type="Datetime"	ValueOnCreate="{literal}{date('Y-m-d H:i:s')}{/literal}"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				Type="Datetime"	
+				ValueOnCreate="{literal}{date('Y-m-d H:i:s')}{/literal}"/>
 {elseif $fld.Field=='update_by'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	Type="Number"	ValueOnCreate="{literal}{@profile:Id}{/literal}"	ValueOnUpdate="{literal}{@profile:Id}{/literal}"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				Type="Number"	
+				ValueOnCreate="{literal}{@profile:Id}{/literal}"	
+				ValueOnUpdate="{literal}{@profile:Id}{/literal}"/>
 {elseif $fld.Field=='update_time'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	Type="Datetime"	ValueOnCreate="{literal}{date('Y-m-d H:i:s')}{/literal}"	ValueOnUpdate="{literal}{date('Y-m-d H:i:s')}{/literal}"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				Type="Datetime"	
+				ValueOnCreate="{literal}{date('Y-m-d H:i:s')}{/literal}"	
+				ValueOnUpdate="{literal}{date('Y-m-d H:i:s')}{/literal}"/>
 {elseif $fld.Field=='owner_id'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	ValueOnCreate="{literal}{@profile:Id}{/literal}"	Required="N"	Type="Number"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				ValueOnCreate="{literal}{@profile:Id}{/literal}"	
+				Required="N"	
+				Type="Number"/>
 {elseif $fld.Field=='group_id'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	ValueOnCreate="{literal}{@profile:default_group}{/literal}"	Required="N"	Type="Number"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				ValueOnCreate="{literal}{@profile:default_group}{/literal}"	
+				Required="N"	
+				Type="Number"/>
 {elseif $fld.Field=='group_perm'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	ValueOnCreate="{literal}{BizSystem::GetDefaultPerm(group)}{/literal}"	Required="N"	Type="Number"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				ValueOnCreate="{literal}{BizSystem::GetDefaultPerm(group)}{/literal}"	
+				Required="N"	
+				Type="Number"/>
 {elseif $fld.Field=='other_perm'}
-		<BizField Name="{$fld.Field}"	Description="{$fld.Description}"	Column="{$fld.Field}"	ValueOnCreate="{literal}{BizSystem::GetDefaultPerm(other)}{/literal}"	Required="N"	Type="Number"/>
+		<BizField Name="{$fld.Field}"	
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}"	
+				ValueOnCreate="{literal}{BizSystem::GetDefaultPerm(other)}{/literal}"	
+				Required="N"	
+				Type="Number"/>
 {elseif $fld.Field=='id'}
-		<BizField Name="Id"			Description="{$fld.Description}"	Column="id"    Required="N" Type="Number"/>
+		<BizField Name="Id"			
+				Description="{$fld.Description}"	
+				Column="id"    
+				Required="N" 
+				Type="Number"/>
 {else}
-		<BizField Name="{$fld.Field}"		Description="{$fld.Description}"	Column="{$fld.Field}" {if $fld.length }Length="{$fld.length}"{/if}   {if $fld.name != "Id"}Required="{if $fld.Null }N{else}Y{/if}"{/if} Type="{$fld.FieldType}"/>
+		<BizField Name="{$fld.Field}"		
+				Description="{$fld.Description}"	
+				Column="{$fld.Field}" 
+				Type="{$fld.FieldType}"
+				{if $fld.length }Length="{$fld.length}"{/if}   
+				{if $fld.name != "Id"}Required="{if $fld.Null }N{else}Y{/if}"{/if} />
 {/if}
 {/foreach}
 	</BizFieldList>
@@ -46,18 +95,67 @@
 	</TableJoins>
 	<ObjReferences>
 {if $features.changelog eq 1}	
-		<Object Name="changelog.do.ChangeLogDO" Description="Reference to Change Log Records" Relationship="1-M" Table="changelog" CondColumn='type' CondValue='{$table_name}' Column="foreign_id" FieldRef="Id" />{/if}
+		<Object Name="changelog.do.ChangeLogDO" 
+				Description="Reference to Change Log Records" 
+				Relationship="1-M" 
+				Table="changelog" 
+				CondColumn='type' 
+				CondValue='{$table_name}' 
+				Column="foreign_id" 
+				FieldRef="Id" />{/if}
 {if $features.location eq 1}	
-		<Object Name="location.do.LocationDO" Description="Reference to Geographic Location Records" Relationship="1-M" Table="location" CondColumn='type' CondValue='{$table_name}' Column="foreign_id" FieldRef="Id" />{/if}
+		<Object Name="location.do.LocationDO" 
+				Description="Reference to Geographic Location Records" 
+				Relationship="1-M" 
+				Table="location" 
+				CondColumn='type' 
+				CondValue='{$table_name}' 
+				Column="foreign_id" 
+				FieldRef="Id" />{/if}
 {if $features.attachment eq 1}	
-		<Object Name="attachment.do.AttachmentDO" Description="Reference to Attachment Records" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='{$table_name}' Column="foreign_id" FieldRef="Id" />{/if}
+		<Object Name="attachment.do.AttachmentDO" 
+				Description="Reference to Attachment Records" 
+				Relationship="1-M" 
+				Table="attachment" 
+				CondColumn='type' 
+				CondValue='{$table_name}' 
+				Column="foreign_id" 
+				FieldRef="Id" />{/if}
 {if $features.picture eq 1}	
-		<Object Name="picture.do.PictureDO" Description="Reference to Picture Records" Relationship="1-M" Table="picture" CondColumn='type' CondValue='{$table_name}' Column="foreign_id" FieldRef="Id" />{/if}
+		<Object Name="picture.do.PictureDO" 
+				Description="Reference to Picture Records" 
+				Relationship="1-M" 
+				Table="picture" 
+				CondColumn='type' 
+				CondValue='{$table_name}' 
+				Column="foreign_id" 
+				FieldRef="Id" />{/if}
 {if $features.self_reference eq 1}	
-		<Object Name="{$do_full_name_ref}" Description="Reference to Related Records" Relationship="Self-Self" Table="{$table_name}" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="{$table_name_related}" XColumn1="{$table_ref_id}" XColumn2="related_id" XDataObj="{$do_full_name_related}"/>
+		<Object Name="{$do_full_name_ref}" 
+				Description="Reference to Related Records" 
+				Relationship="Self-Self" 
+				Table="{$table_name}" 
+				Column="id" 
+				FieldRef="Id" 
+				OnDelete="Cascade" 
+				OnUpdate="" 
+				XTable="{$table_name_related}" 
+				XColumn1="{$table_ref_id}" 
+				XColumn2="related_id" 
+				XDataObj="{$do_full_name_related}"/>
 {/if}
 {if $features.extend eq 1}
-		<Object Name="extend.do.ExtendDataDO" Description="Reference to Extend Data Field Record"  Relationship="1-M" Table="extend_data" CondColumn='module' CondValue='{$table_name}' Column="type_id" FieldRef="type_id" Column2="record_id" FieldRef2="Id" onDelete="Cascade"/>
+		<Object Name="extend.do.ExtendDataDO" 
+				Description="Reference to Extend Data Field Record"  
+				Relationship="1-M" 
+				Table="extend_data" 
+				CondColumn='module' 
+				CondValue='{$table_name}' 
+				Column="type_id" 
+				FieldRef="type_id" 
+				Column2="record_id" 
+				FieldRef2="Id" 
+				onDelete="Cascade"/>
 {/if}
 	</ObjReferences>
 </BizDataObj>

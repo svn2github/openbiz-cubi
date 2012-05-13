@@ -29,7 +29,7 @@
         			Sortable="Y" 
         			AllowURLParam="N" 
         			Link="javascript:;" />   
-	{if $do_perm_control eq 'Y' }
+{if $do_perm_control eq 'Y' }
 		<Element Name="fld_share" Class="ColumnShare" 
 				MyPrivateImg="{$share_icons.icon_private}"
 				MySharedImg="{$share_icons.icon_shared}" 
@@ -48,7 +48,7 @@
 							Event="onclick" 
 							Function="LoadDialog(common.form.DataSharingForm,{literal}{@:Elem[fld_Id].Value}{/literal})"/>		
 		</Element>
-	{/if}			        			     
+{/if}			        			     
 {elseif $fld.Field == 'sort_order' || $fld.Field == 'sortorder' }
 		<Element Name="fld_{$fld.Field}" 
         			Class="ColumnSorting" 

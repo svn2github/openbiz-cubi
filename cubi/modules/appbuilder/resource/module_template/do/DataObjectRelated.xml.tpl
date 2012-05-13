@@ -11,9 +11,15 @@
 		CacheLifeTime="0" 
 		>
 	<BizFieldList>
-	    <BizField Name="Id" Description="Record ID"	Column="id" Type=""/>
-        <BizField Name="{$table_ref_id}" Description="Main Record ID"	Column="{$table_ref_id}" Type=""/>
-        <BizField Name="related_id" Description="Related Record ID"	Column="related_id" Type=""/>
+	    <BizField Name="Id" 
+	    		Description="Record ID"	
+	    		Column="id" />
+        <BizField Name="{$table_ref_id}" 
+        		Description="Main Record ID"	
+        		Column="{$table_ref_id}" />
+        <BizField Name="related_id" 
+        		Description="Related Record ID"	
+        		Column="related_id" />
     </BizFieldList>
     <TableJoins>
     </TableJoins>
