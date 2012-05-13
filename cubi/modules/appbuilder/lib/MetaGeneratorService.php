@@ -459,6 +459,62 @@ class MetaGeneratorService
 		return $fieldstr;
 	}		
 	
+	protected function _genInstallSQL()
+	{
+		if($this->m_BuildOptions["gen_mod"]!='1')
+		{
+			return false;
+		}
+		$modBaseName= $this->__getModuleName(false);
+		
+        $targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modBaseName) ;       
+        $targetFile = $targetPath . "/mod.install.sql";
+        
+		if(is_file($targetFile)){
+			$content = file_get_contents($targetFile);
+		}
+        
+		$dbInfo = BizSystem::instance()->getConfiguration()->getDatabaseInfo($this->m_DBName);
+		$host 	= $dbInfo["Server"];
+        $user	= $dbInfo["User"];
+        $pass	= $dbInfo["Password"];
+        $db		= $dbInfo["DBName"];
+        $port	= $dbInfo["Port"];
+        $charset= $dbInfo["Charset"];
+		$host   = $host.':'.$port;
+		
+		$svc = BizSystem::getObject("appbuilder.lib.MySQLDumpService");
+		$svc->connect($host,$user,$pass,$db,$charset);
+		$svc->droptableifexists=true;
+		$svc->get_table_structure($this->m_DBTable);		
+		$SQLStr = trim($svc->output)."\n\n";
+				
+		$content = str_replace($SQLStr, "", $content);
+		$content .= $SQLStr;
+        file_put_contents($targetFile, $content); 
+	}
+	
+	protected function _genUninstallSQL()
+	{
+		if($this->m_BuildOptions["gen_mod"]!='1')
+		{
+			return false;
+		}
+		$modBaseName= $this->__getModuleName(false);
+		
+        $targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modBaseName) ;       
+        $targetFile = $targetPath . "/mod.uninstall.sql";
+        
+		if(is_file($targetFile)){
+			$content = file_get_contents($targetFile);
+		}
+        
+		$SQLStr = "DROP TABLE IF EXISTS `$this->m_DBTable`;\n";
+		$content = str_replace($SQLStr, "", $content);
+		$content .= $SQLStr;
+        file_put_contents($targetFile, $content);   
+	}
+	
 	/**
 	 * 
 	 * Get sort field name for Data Object
@@ -587,18 +643,20 @@ class MetaGeneratorService
 		if($this->m_ConfigModule['sub_module_name'])
 		{
 			$menuName = $this->m_ConfigModule['sub_module_name'];	
+			$menuName = ucwords($menuName);
 		}
 		else
 		{
 			$tableName = $this->m_DBTable;
 			$menuName = str_replace("_", " ", $tableName);
-			$menuName = str_replace("-", " ", $menuName);		
+			$menuName = str_replace("-", " ", $menuName);	
+			$menuName = ucwords($menuName);	
 			$menuName = str_replace(" ", "_", $menuName);
 		}
 		
 		$menu		= array();
 		$menu[$resource] = array(
-									"name" => $modBaseName.'_'.$menuName,
+									"name" => $modBaseName.'_'.strtolower($menuName),
 									"title" => str_replace("_", " ", $menuName),
 									"description" => '',
 									"uri" => '',
@@ -608,7 +666,7 @@ class MetaGeneratorService
 								
 		$viewName = $this->__getViewName();
 		$menuManageItem = array(
-									"name" => $modBaseName.'_'.$menuName."_manage",
+									"name" => $modBaseName.'_'.strtolower($menuName)."_manage",
 									"title" => str_replace("_", " ", $menuName).' Manage',
 									"description" => 'Manage of '.str_replace("_", " ", $menuName),
 									"uri" => '{APP_INDEX}/'.$modBaseName.'/'.$viewName.'_manage',
@@ -616,7 +674,7 @@ class MetaGeneratorService
 									"acl" => $acl['access'],
 								);
 		$menuDetailItem = array(
-									"name" => $modBaseName.'_'.$menuName."_detail",
+									"name" => $modBaseName.'_'.strtolower($menuName)."_detail",
 									"title" => str_replace("_", " ", $menuName).' Detail',
 									"description" => 'Detail of '.str_replace("_", " ", $menuName),
 									"uri" => '{APP_INDEX}/'.$modBaseName.'/'.$viewName.'_detail',
@@ -629,7 +687,7 @@ class MetaGeneratorService
 		if($features['extend']==1)
         {  
 			$menuTypeItem = array(
-									"name" => $modBaseName.'_'.$menuName."_type",
+									"name" => $modBaseName.'_'.strtolower($menuName)."_type",
 									"title" => str_replace("_", " ", $menuName).' Type',
 									"description" => 'Type of '.str_replace("_", " ", $menuName),
 									"uri" => '{APP_INDEX}/'.$modBaseName.'/'.$viewName.'_type',
@@ -1032,14 +1090,14 @@ class MetaGeneratorService
         file_put_contents($targetFile, $content);    
         
         $this->m_GeneratedFiles['ModXMLFile']=str_replace(MODULE_PATH,"",$targetFile);
+        
+        //generate mod.install.sql
+        $this->_genInstallSQL();
+        
+        //generate mod.uninstall.sql
+        $this->_genUninstallSQL();
 	}	
 
-	
-
-	protected function _enableExtendFieldsFeature()
-	{
-		
-	}	
 	
 	private function __getObjectName()
 	{
