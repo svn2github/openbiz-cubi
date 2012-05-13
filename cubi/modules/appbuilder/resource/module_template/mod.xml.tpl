@@ -9,13 +9,19 @@
 {foreach from=$resource_acl key=resource item=acl}
 		<Resource Name="{$resource}">
 {foreach from=$acl key=name item=description}
-			<Action Name="{$name}" Description="{$description}"/>
+			<Action Name="{$name}" 
+					Description="{$description}"/>
 {/foreach}
 		</Resource>
 {/foreach}
 	</ACL>
 	<Menu>
-		<MenuItem Name="{$mod_name}" Title="{$mod_label}" Description="" URL="{$mod_root_uri}" Order="50" Access="{$mod_name}.Access">		
+		<MenuItem Name="{$mod_name}" 
+				Title="{$mod_label}" 
+				Description="" 
+				URL="{$mod_root_uri}" 
+				Order="50" 
+				Access="{$mod_name}.Access">		
 {assign var=menu_order value=50}
 {foreach from=$menu item=menuitem}
 	        <MenuItem Name="{$menuitem.name}" 
@@ -24,7 +30,7 @@
 	        			URL="{$menuitem.uri}" 
 	        			IconImage="spacer.gif" 
 	        			IconCssClass="{$menuitem.icon_css}" 
-	        			Order="{$menuitem.order}" 
+	        			Order="{$menu_order}" 
 	        			Access="{$menuitem.acl}" >
 {assign var=submenu_order value=50}
 {foreach from=$menuitem.child item=submenuitem}	        			
@@ -34,8 +40,21 @@
 		        			URL="{$submenuitem.uri}" 
 		        			IconImage="spacer.gif" 
 		        			IconCssClass="{$submenuitem.icon_css}" 
-		        			Order="{$submenuitem.order}" 
-		        			Access="{$submenuitem.acl}" />		
+		        			Order="{$submenu_order}" 
+		        			Access="{$submenuitem.acl}" >
+{assign var=submenu3_order value=50}
+{foreach from=$submenuitem.child item=submenu3item}
+						<MenuItem Name="{$submenu3item.name}" 
+				        			Title="{$submenu3item.title}" 	        			
+				        			Description="{$submenu3item.description}" 
+				        			URL="{$submenu3item.uri}" 
+				        			IconImage="spacer.gif" 
+				        			IconCssClass="{$submenu3item.icon_css}" 
+				        			Order="{$submenu3_order}" 
+				        			Access="{$submenu3item.acl}" />
+{assign var=submenu3_order value=$submenu3_order+10}
+{/foreach}
+		        </MenuItem>		
 {assign var=submenu_order value=$submenu_order+10}
 {/foreach}
 			</MenuItem>

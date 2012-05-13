@@ -171,9 +171,9 @@ class MetaGeneratorService
         
         //check type_id field existing
         $fieldName = "type_id";
-        if(!$this->_isFieldExists($fieldName))
+        if(!$this->__isFieldExists($fieldName))
         {
-        	$this->_addDOField($fieldName);
+        	$this->__addDOField($fieldName);
         }
         if(!in_array($fieldName, $this->m_DBFields))
         {
@@ -293,7 +293,7 @@ class MetaGeneratorService
 		$this->m_GeneratedFiles['ViewObjFiles']['TypeManageView']=str_replace(MODULE_PATH,"",$targetFile);
 	}
 	
-	private function _addDOField($fieldName)
+	private function __addDOField($fieldName)
 	{
 		$tableName 	= $this->m_DBTable;
 		$db 		= BizSystem::dbConnection($this->m_DBName);	
@@ -301,7 +301,7 @@ class MetaGeneratorService
 		$db->query($sql);		
 	}
 	
-	private function _isFieldExists($fieldName)
+	private function __isFieldExists($fieldName)
 	{
 		$db 	= BizSystem::dbConnection($this->m_DBName);
 		$tableName 	= $this->m_DBTable;
@@ -573,6 +573,72 @@ class MetaGeneratorService
 	        }
 	        return $this->m_ResourceACL;
 		}
+	}
+	
+	protected function _getMenuSet()
+	{
+		$acl		= $this->_getACLArr();
+		$resource 	= $this->_getResourceName();
+		$features	= $this->_getExtendFeatures();
+		$modName	= $this->__getModuleName();
+		$modBaseName= $this->__getModuleName(false);
+		
+		//if it has a sub module name use that, or use table name
+		if($this->m_ConfigModule['sub_module_name'])
+		{
+			$menuName = $this->m_ConfigModule['sub_module_name'];	
+		}
+		else
+		{
+			$tableName = $this->m_DBTable;
+			$menuName = str_replace("_", " ", $tableName);
+			$menuName = str_replace("-", " ", $menuName);		
+			$menuName = str_replace(" ", "_", $menuName);
+		}
+		
+		$menu		= array();
+		$menu[$resource] = array(
+									"name" => $modBaseName.'_'.$menuName,
+									"title" => str_replace("_", " ", $menuName),
+									"description" => '',
+									"uri" => '',
+									"icon_css" => 'icon_'.$resource,
+									"acl" => $acl['access'],		
+								);
+								
+		$viewName = $this->__getViewName();
+		$menuManageItem = array(
+									"name" => $modBaseName.'_'.$menuName."_manage",
+									"title" => str_replace("_", " ", $menuName).' Manage',
+									"description" => 'Manage of '.str_replace("_", " ", $menuName),
+									"uri" => '{APP_INDEX}/'.$modBaseName.'/'.$viewName.'_manage',
+									"icon_css" => '',
+									"acl" => $acl['access'],
+								);
+		$menuDetailItem = array(
+									"name" => $modBaseName.'_'.$menuName."_detail",
+									"title" => str_replace("_", " ", $menuName).' Detail',
+									"description" => 'Detail of '.str_replace("_", " ", $menuName),
+									"uri" => '{APP_INDEX}/'.$modBaseName.'/'.$viewName.'_detail',
+									"icon_css" => '',
+									"acl" => $acl['access'],
+								);								
+		$menuManageItem['child']['detail'] = $menuDetailItem;
+		$menu[$resource]['child']['manage'] = $menuManageItem;
+		
+		if($features['extend']==1)
+        {  
+			$menuTypeItem = array(
+									"name" => $modBaseName.'_'.$menuName."_type",
+									"title" => str_replace("_", " ", $menuName).' Type',
+									"description" => 'Type of '.str_replace("_", " ", $menuName),
+									"uri" => '{APP_INDEX}/'.$modBaseName.'/'.$viewName.'_type',
+									"icon_css" => '',
+									"acl" => $acl['access'],
+									);
+			$menu[$resource]['child']['type'] = $menuTypeItem;
+        }
+		return $menu;
 	}
 	
 	protected function _genFormObj()
@@ -923,6 +989,7 @@ class MetaGeneratorService
         file_put_contents($targetFile, $content);        
 
         $resourceACL = $this->_getResourceACL();
+        $menu		 = $this->_getMenuSet();
         
         //load XML file if it exists
         $targetFile = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/mod.xml";
@@ -954,8 +1021,10 @@ class MetaGeneratorService
         $smarty->assign("mod_author", 		$modAuthor);
         $smarty->assign("mod_version", 		$modVersion);
         $smarty->assign("mod_loader", 		ucfirst($modName) . "LoadHandler.php");
-        $smarty->assign("resource_acl",		$resourceACL);
         $smarty->assign("mod_root_uri", 	$modRootURI);
+        $smarty->assign("resource_acl",		$resourceACL);
+        $smarty->assign("menu",				$menu);
+        
         
         
         $content = $smarty->fetch($templateFile);        
