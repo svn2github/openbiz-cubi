@@ -87,7 +87,7 @@
 				Column="{$fld.Field}" 
 				Type="{$fld.FieldType}"
 				{if $fld.name != "Id"}Required="{if $fld.Null }N{else}Y{/if}"{/if} 
-				{if $fld.length }Length="{$fld.length}"{/if}  />
+				{if $fld.length }Length="{$fld.length}"{/if} />
 {/if}
 {/foreach}
 	</BizFieldList>
