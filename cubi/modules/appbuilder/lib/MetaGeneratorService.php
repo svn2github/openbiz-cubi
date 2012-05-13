@@ -76,9 +76,18 @@ class MetaGeneratorService
 		$this->_genResourceFiles();
 		$this->_genDashboardFiles();
 		$this->_genModuleFile();
+		$this->_loadModule();
 		var_dump($this->m_GeneratedFiles);
 		exit;
 		return $this->m_GeneratedFiles;
+	}
+	
+	protected function _loadModule()
+	{
+		$modName = $this->__getModuleName(false);		
+		include_once MODULE_PATH.DIRECTORY_SEPARATOR.'system'.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'ModuleLoader.php';
+		$loader = new ModuleLoader($modName);
+		return $loader->loadModule();		
 	}
 	
 	protected function _genDataObj()
