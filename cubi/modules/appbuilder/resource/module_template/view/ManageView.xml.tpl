@@ -2,7 +2,6 @@
 <EasyView Name="{$view_name}" 
 	Description="{$view_desc}" 
 	Class="EasyView" 
-	Tab="" 
 	Access="{$acl.access}" 
 	TemplateEngine="Smarty" 
 	TemplateFile="view.tpl">

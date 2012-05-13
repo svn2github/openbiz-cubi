@@ -74,6 +74,7 @@ class MetaGeneratorService
 		$this->_genViewObj();
 		$this->_genTemplateFiles();
 		$this->_genResourceFiles();
+		$this->_genDashboardFiles();
 		$this->_genModuleFile();
 		var_dump($this->m_GeneratedFiles);
 		exit;
@@ -544,6 +545,36 @@ class MetaGeneratorService
 		}
 	}
 	
+	protected function _getResourceACL()
+	{
+		if(is_array($this->m_ResourceACL))
+		{
+			return $this->m_ResourceACL;
+		}
+		else
+		{
+	        $resource = $this->_getResourceName();
+	        $acl = $this->m_ConfigModule['acl_type'];
+	        switch ($acl) {
+	            case 0: //0 - No Access Control 
+	                $this->m_ResourceACL[$resource]	= array(); 
+	                break;	        	
+	            case 1: //1 - Access and Manage (Default)
+	                $this->m_ResourceACL[$resource]	= array( "Access"=>"Data access permission of $resource",
+	                										 "Manage"=>"Data manage permission of $resource"
+	                										); 
+	                break;
+	            case 2: //2 - Access, Create, Update and Delete
+	                $this->m_ResourceACL[$resource]	= array( 'Access'=>"Data access permission of $resource", 					                							
+					                                         'Create'=>"Data create permission of $resource", 
+					                                         'Update'=>"Data update permission of $resource", 
+					                                         'Delete'=>"Data delete permission of $resource"); 
+	                break;
+	        }
+	        return $this->m_ResourceACL;
+		}
+	}
+	
 	protected function _genFormObj()
 	{
 		if($this->m_BuildOptions["gen_form_object"]!='1')
@@ -743,6 +774,69 @@ class MetaGeneratorService
 		return $this->__recursiveCopy($templateFiles, $targetPath);
 	}		
 	
+	protected function _genDashboardFiles()
+	{
+		if($this->m_BuildOptions["gen_dashboard"]!='1')
+		{
+			return false;
+		}
+
+		//Genereate Dashboard Form
+		$modName 	  = $this->__getModuleName();
+		$modBaseName  = $this->__getModuleName(false);
+		
+		$targetPath = MODULE_PATH . "/" . str_replace(".", "/", $modBaseName) . "/widget";
+        if (!file_exists($targetPath))
+        {
+            if(CLI){echo "Create directory $targetPath" . PHP_EOL;}
+            mkdir($targetPath, 0777, true);
+        }
+		
+		$templateFile = $this->__getMetaTempPath().'/widget/DashboardWidget.xml.tpl';
+		$formName 	= 'DashboardForm';
+		$formTitle	= ucfirst($modBaseName).' Dashboard';
+
+		//generate detail view
+		if(CLI){echo "Start generate form object $formName." . PHP_EOL;}
+        $smarty = BizSystem::getSmartyTemplate();
+        $smarty->assign("form_name", 	$formName);
+        $smarty->assign("form_title", 	$formTitle);
+        $smarty->assign("form_css", 	strtolower($modBaseName));        
+        $smarty->assign("mod_name", 	$modBaseName);        
+        $content = $smarty->fetch($templateFile);
+                        
+        $targetFile = $targetPath . "/" . $formName . ".xml";
+        file_put_contents($targetFile, $content);      
+		$this->m_GeneratedFiles['FormObjFiles']['DashbaordForm']=str_replace(MODULE_PATH,"",$targetFile);	
+		
+		//Genereate Dashboard View				
+        $targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modBaseName) . "/view";
+        if (!file_exists($targetPath))
+        {
+            if(CLI){echo "Create directory $targetPath" . PHP_EOL;}
+            mkdir($targetPath, 0777, true);
+        }
+        
+		//generate detail view
+		$templateFile = $this->__getMetaTempPath().'/view/DashboardView.xml.tpl';
+		$viewName 	= 'DashbaordView';
+		$viewDesc 	= "Dashboard View of ".$this->m_ConfigModule['object_desc'];		
+		$defaultFormName = $modBaseName.'.widget.DashboardForm';
+		
+		if(CLI){echo "Start generate view object $viewName." . PHP_EOL;}
+        $smarty = BizSystem::getSmartyTemplate();
+        $smarty->assign("view_name", $viewName);
+        $smarty->assign("view_desc", $viewDesc);        
+        $smarty->assign("default_form_name", $defaultFormName);
+        $smarty->assign("acl", $aclArr);
+        $content = $smarty->fetch($templateFile);
+                        
+        $targetFile = $targetPath . "/" . $viewName . ".xml";
+        file_put_contents($targetFile, $content);      
+		$this->m_GeneratedFiles['ViewObjFiles']['DashbaordView']=str_replace(MODULE_PATH,"",$targetFile);	 	
+				
+	}
+	
 	private function __recursiveCopy($path, $dest){
 	   if( is_dir($path) )
        {
@@ -828,13 +922,47 @@ class MetaGeneratorService
         $targetFile = $targetPath . "/" . ucfirst($modName) . "LoadHandler.php";
         file_put_contents($targetFile, $content);        
 
+        $resourceACL = $this->_getResourceACL();
+        
         //load XML file if it exists
         $targetFile = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/mod.xml";
         if(is_file($targetFile))
         {
-        	
+        	$metadata = file_get_contents($targetFile);
+			$xmldata = new SimpleXMLElement($metadata);		
+			foreach ($xmldata as $key=>$value){
+
+			}
         }
         
+        //generate mod xml file
+        $smarty = BizSystem::getSmartyTemplate();
+        $templateFile = $this->__getMetaTempPath().'/mod.xml.tpl';
+        $targetPath = MODULE_PATH . "/" . str_replace(".", "/", $modName) ;
+        $modDescription	=	$this->m_BuildOptions['mod_desc'];
+        $modAuthor		=	$this->m_BuildOptions['mod_author'];
+        $modVersion		=	$this->m_BuildOptions['mod_version'];
+        $modLoader		=	$this->m_BuildOptions['mod_author'];
+        $modLabel		=	ucfirst($modName);
+        
+        //gen_dashboard
+        $modRootURI		=	"{APP_INDEX}/$modName/dashboard";
+        
+        $smarty->assign("mod_name", 		$modName);
+        $smarty->assign("mod_label", 		$modLabel);
+        $smarty->assign("mod_description", 	$modDescription);
+        $smarty->assign("mod_author", 		$modAuthor);
+        $smarty->assign("mod_version", 		$modVersion);
+        $smarty->assign("mod_loader", 		ucfirst($modName) . "LoadHandler.php");
+        $smarty->assign("resource_acl",		$resourceACL);
+        $smarty->assign("mod_root_uri", 	$modRootURI);
+        
+        
+        $content = $smarty->fetch($templateFile);        
+        $targetFile = $targetPath . "/mod.xml";
+        file_put_contents($targetFile, $content);    
+        
+        $this->m_GeneratedFiles['ModXMLFile']=str_replace(MODULE_PATH,"",$targetFile);
 	}	
 
 	
