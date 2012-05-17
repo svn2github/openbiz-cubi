@@ -730,7 +730,19 @@ class MetaGeneratorService
 		$extendFeature = $features['extend'];
 		$formClass  = "EasyForm";				
 		$detailViewURL = $this->__getViewName().'_detail';
-				
+		
+		$formListName 	= $this->__getObjectName().'ListForm';
+		$formListFullName = $modName.'.form.'.$formListName;				
+		$formDetailName  	= $this->__getObjectName().'DetailForm';
+		$formDetailFullName  = $modName.'.form.'.$formDetailName;
+		$formCopyName  	= $this->__getObjectName().'CopyForm';
+		$formCopyFullName  = $modName.'.form.'.$formCopyName;		
+		$formEditName  	= $this->__getObjectName().'EditForm';
+		$formEditFullName  = $modName.'.form.'.$formEditName;		
+		$formNewName  	= $this->__getObjectName().'NewForm';
+		$formNewFullName  = $modName.'.form.'.$formNewName;
+		
+		
 		$messageFile = "";
 		if($this->m_GeneratedFiles['MessageFiles']['MessageFile']!='')
 		{
@@ -779,12 +791,20 @@ class MetaGeneratorService
         $smarty->assign("do_perm_control", $doPermControl);                               
         $smarty->assign("features", $features);
         $smarty->assign("acl", $aclArr);     
-        $smarty->assign("detail_view_url", $detailViewURL);			
+        $smarty->assign("detail_view_url", $detailViewURL);		
+        	
+		$smarty->assign("new_form_full_name", 	$formNewFullName);  
+		$smarty->assign("new_form_name", 		$formNewName);  
+        $smarty->assign("copy_form_full_name", 	$formCopyFullName);  
+		$smarty->assign("copy_form_name", 		$formCopyName);
+		$smarty->assign("edit_form_full_name", 	$formEditFullName);  
+		$smarty->assign("edit_form_name", 		$formEditName);
+		$smarty->assign("detail_form_full_name",$formDetailFullName);  
+		$smarty->assign("detail_form_name", 	$formDetailName);
+		$smarty->assign("list_form_full_name", 	$formListFullName);  
+		$smarty->assign("list_form_name", 		$formListName);
 		
-        
 		//form specified variables
-		$formName 	= $this->__getObjectName().'ListForm';
-		$formFullName = $modName.'.form.'.$formName;
 		$formTitle  = $this->__getFormName()." Management";
 		$formDescription = $this->m_ConfigModule['object_desc'];
 		
@@ -802,7 +822,7 @@ class MetaGeneratorService
 			"icon_shared_other"			=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_shared_other.png'
 		);
 		
-        $smarty->assign("form_name", 		$formName);
+        $smarty->assign("form_name", 		$formListName);
         $smarty->assign("form_class",		$formClass);
         $smarty->assign("form_icon", 		$formIcon);
         $smarty->assign("form_title", 		$formTitle);
@@ -816,20 +836,42 @@ class MetaGeneratorService
         
 		$content = $smarty->fetch($templateFile);
                 
-        $targetFile = $targetPath . "/" . $formName . ".xml";
+        $targetFile = $targetPath . "/" . $formListName . ".xml";
         file_put_contents($targetFile, $content);       
 		$this->m_GeneratedFiles['FormObjFiles']['ListForm']=str_replace(MODULE_PATH,"",$targetFile);				
 		
 		
 		
-		//generate new form metadata		
+		//generate Detail form metadata		
+		$formTitle  = $this->__getFormName()." Detail";	
+		
+		$formTemplate = "form_detail.tpl.html";		
+		
+		$templateFile = $this->__getMetaTempPath().'/form/DetailForm.xml.tpl';
+		$smarty->assign("form_name", 		$formDetailNameName);
+        $smarty->assign("form_class",		$formClass);
+        $smarty->assign("form_icon", 		$formIcon);
+        $smarty->assign("form_title", 		$formTitle);
+        $smarty->assign("form_description", $formDescription);
+        $smarty->assign("form_template",	$formTemplate);
+		$smarty->assign("form_do", 			$doFullName);
+		$smarty->assign("form_type_do", 	$typeDoFullName);		
+		$smarty->assign("event_name",		$eventName);
+		$smarty->assign("message_file",		$messageFile);        
+		$content = $smarty->fetch($templateFile);
+        $targetFile = $targetPath . "/" . $formDetailName . ".xml";
+        file_put_contents($targetFile, $content);     
+		$this->m_GeneratedFiles['FormObjFiles']['DetailForm']=str_replace(MODULE_PATH,"",$targetFile);
+
+		
+		//generate New form metadata		
 		$this->m_GeneratedFiles['FormObjFiles']['NewForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
 		$this->m_GeneratedFiles['FormObjFiles']['CopyForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
 		$this->m_GeneratedFiles['FormObjFiles']['EditForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
-		$this->m_GeneratedFiles['FormObjFiles']['DetailForm']=str_replace(MODULE_PATH,"",$targetFile);
+		
 		
 	}
 	
