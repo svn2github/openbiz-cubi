@@ -37,13 +37,12 @@ margin-right:5px;
 		{foreach item=elem from=$actionPanel}
 		    	{$elem.element}
 		{/foreach}
-		{$searchPanel.btn_spacer3.element}
-		{$searchPanel.qry_name.element}
-		{$searchPanel.btn_dosearch.element}
+		{$searchPanel.btn_spacer.element}
+		
 		</div>
-		<div class="search_panel" style="width:310px;">
+		<div class="search_panel" style="width:400px;">
 		{foreach item=elem key=name from=$searchPanel}
-			{if $name!='qry_name' AND $name!='btn_dosearch' AND $name!='btn_spacer3' }
+			{if $name!='btn_spacer' }
 				{if $elem.label} {$elem.label} {/if} 
 				{$elem.element}
 			{/if}
