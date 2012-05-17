@@ -126,7 +126,7 @@
             <EventHandler Name="lnk_new_onclick" 
             				Event="onclick" 
             				EventLogMsg="" 
-            				Function="SwitchForm({$comp}.{$new_form})"  
+            				Function="SwitchForm({$new_form_full_name})"  
             				ShortcutKey="Insert" 
             				ContextMenu="New"/>
         </Element>
@@ -142,7 +142,7 @@
             				Event="onclick" 
             				EventLogMsg="" 
             				Function="EditRecord()" 
-            				RedirectPage="form={$comp}.{$edit_form}&amp;fld:Id={literal}{@:Elem[fld_Id].Value}{/literal}" 
+            				RedirectPage="form={$edit_form_full_name}&amp;fld:Id={literal}{@:Elem[fld_Id].Value}{/literal}" 
             				ShortcutKey="Ctrl+E" 
             				ContextMenu="Edit" />
         </Element>
@@ -158,7 +158,7 @@
             				Event="onclick" 
             				EventLogMsg="" 
             				Function="CopyRecord()" 
-            				RedirectPage="form={$comp}.{$copy_form}&amp;fld:Id={literal}{@:Elem[fld_Id].Value}{/literal}" 
+            				RedirectPage="form={$copy_form_full_name}&amp;fld:Id={literal}{@:Elem[fld_Id].Value}{/literal}" 
             				ShortcutKey="Ctrl+C" 
             				ContextMenu="Copy"/>
         </Element>

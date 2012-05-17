@@ -757,9 +757,19 @@ class MetaGeneratorService
 	    if($features['extend']==1)
         {        	        	
         	$this->_genExtendTypeForm();    
-        	$typeDoFullName = $this->m_TypeDOFullName;    	
-        }		
+        	$typeDoFullName = $this->m_TypeDOFullName;  
+        	  	
+        }
         
+        if( $features['extend']==1 || $doPermControl=='Y' )
+        {
+        	$formTemplate = "form_grid_adv.tpl.html";
+        }
+        else
+        {
+        	$formTemplate = "form_grid.tpl.html";  
+        }
+
         $smarty = BizSystem::getSmartyTemplate();
         
         $smarty->assign("do_full_name", $doFullName);
@@ -777,7 +787,10 @@ class MetaGeneratorService
 		$formFullName = $modName.'.form.'.$formName;
 		$formTitle  = $this->__getFormName()." Management";
 		$formDescription = $this->m_ConfigModule['object_desc'];
-		$formTemplate = "grid.tpl";
+		
+		
+		
+		
 		$eventName = $this->__getObjectName();		
 		$formIcon = "{RESOURCE_URL}/$modShortName/images/".$this->__getObjectFileName().'_list.png';
 		$shareIcons = array(

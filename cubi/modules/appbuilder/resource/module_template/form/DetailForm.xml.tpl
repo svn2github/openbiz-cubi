@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="{$form_short_name}" Class="{$form_obj_class}" FormType="" jsClass="jbForm" Title="{$module_name|replace:'_':' '|capitalize} Detail" Description="" BizDataObj="{$comp}.{$do_name}" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="{$event_name}" MessageFile="{$message_file}">
+<EasyForm Name="{$form_name}" 
+			Class="{$form_class}" 
+			FormType="Detail" 
+			jsClass="Openbiz.Form" 
+			Icon="{$form_icon}"
+			Title="{$form_title}" 
+			Description="{$form_description}" 
+			BizDataObj="{$form_do}" 
+			TemplateEngine="Smarty" 
+			TemplateFile="{$form_template}" 
+			MessageFile="{$message_file}" 
+			Access="{$acl.access}">
     <DataPanel>
 {foreach from=$fields item=fld}
 {if $fld.name != 'Id' && $fld.name != 'create_by' && $fld.name != 'create_time' && $fld.name != 'update_by' && $fld.name != 'update_time'  }
@@ -14,8 +25,16 @@
 {/foreach}
     </DataPanel>
     <ActionPanel>       
-        <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
-			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm({$comp}.{$new_form})"  ShortcutKey="Insert" ContextMenu="New" />
+        <Element Name="btn_new" 
+        			Class="Button" 
+        			Text="Add" 
+        			CssClass="button_gray_add" 
+        			Description="New record (Insert)">
+			<EventHandler Name="btn_new_onclick" 
+							Event="onclick" 
+							Function="SwitchForm({$comp}.{$new_form})"  
+							ShortcutKey="Insert" 
+							ContextMenu="New" />
         </Element>          
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm({$comp}.{$edit_form},{literal}{@:Elem[fld_Id].Value}{/literal})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
