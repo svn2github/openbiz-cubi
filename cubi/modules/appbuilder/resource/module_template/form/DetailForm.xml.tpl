@@ -157,15 +157,10 @@
             				ContextMenu="Delete" />
         </Element>
         <Element Name="btn_cancel" 
-        			Class="Button" 
+        			Class="LabelBack" 
         			Text="Back" 
-        			CssClass="button_gray_m">
-            <EventHandler Name="btn_cancel_onclick" 
-            				Event="onclick" 
-            				Function="SwitchForm()"  
-            				ShortcutKey="Escape" 
-            				ContextMenu="Cancel" />
-        </Element>         
+        			CssClass="button_gray_m"
+        			Link="{$list_view_url}" />        
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 

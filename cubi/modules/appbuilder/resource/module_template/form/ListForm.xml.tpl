@@ -2,7 +2,7 @@
 <EasyForm Name="{$form_name}" 
 			Class="{$form_class}"			  
 			FormType="List" 
-			jsClass="Openbiz.Form" 
+			jsClass="Openbiz.TableForm" 
 			Icon="{$form_icon}"
 			Title="{$form_title}" 
 			Description="{$form_description}" 

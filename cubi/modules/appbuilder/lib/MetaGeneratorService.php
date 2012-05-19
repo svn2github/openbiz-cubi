@@ -730,6 +730,7 @@ class MetaGeneratorService
 		$extendFeature = $features['extend'];
 		$formClass  = "EasyForm";				
 		$detailViewURL = $modShortName.'/'.$this->__getViewName().'_detail';
+		$listViewURL = $modShortName.'/'.$this->__getViewName().'_manage';
 		
 		$formListName 	= $this->__getObjectName().'ListForm';
 		$formListFullName = $modName.'.form.'.$formListName;				
@@ -791,8 +792,9 @@ class MetaGeneratorService
         $smarty->assign("do_perm_control", $doPermControl);                               
         $smarty->assign("features", $features);
         $smarty->assign("acl", $aclArr);     
-        $smarty->assign("detail_view_url", $detailViewURL);		
-        	
+        $smarty->assign("detail_view_url", $detailViewURL);
+        $smarty->assign("list_view_url", $listViewURL);		
+       	
 		$smarty->assign("new_form_full_name", 	$formNewFullName);  
 		$smarty->assign("new_form_name", 		$formNewName);  
         $smarty->assign("copy_form_full_name", 	$formCopyFullName);  
@@ -812,7 +814,7 @@ class MetaGeneratorService
 		
 		
 		$eventName = $this->__getObjectName();		
-		$formIcon = "{RESOURCE_URL}/$modShortName/images/".$this->__getObjectFileName().'_list.png';
+		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_list.png';
 		$shareIcons = array(
 			"icon_private"				=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_private.gif',
 			"icon_shared"				=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_shared.gif',
@@ -844,11 +846,19 @@ class MetaGeneratorService
 		
 		//generate Detail form metadata		
 		$formTitle  = $this->__getFormName()." Detail";	
-		
-		$formTemplate = "form_detail.tpl.html";		
+		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_detail.png';
+				
+	 	if( $features['extend']==1  )
+        {
+        	$formTemplate = "form_detail_adv.tpl.html";
+        }
+        else
+        {
+        	$formTemplate = "form_detail.tpl.html";  
+        }
 		
 		$templateFile = $this->__getMetaTempPath().'/form/DetailForm.xml.tpl';
-		$smarty->assign("form_name", 		$formDetailNameName);
+		$smarty->assign("form_name", 		$formDetailName);
         $smarty->assign("form_class",		$formClass);
         $smarty->assign("form_icon", 		$formIcon);
         $smarty->assign("form_title", 		$formTitle);
@@ -864,12 +874,34 @@ class MetaGeneratorService
 		$this->m_GeneratedFiles['FormObjFiles']['DetailForm']=str_replace(MODULE_PATH,"",$targetFile);
 
 		
-		//generate New form metadata		
+		//generate New form metadata	
+		$formTitle  = "New ".$this->__getFormName();	
+		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_new.png';						
+		$formTemplate = "form_edit.tpl.html";  	 	
+		
+		$templateFile = $this->__getMetaTempPath().'/form/NewForm.xml.tpl';
+		$smarty->assign("form_name", 		$formNewName);
+        $smarty->assign("form_class",		$formClass);
+        $smarty->assign("form_icon", 		$formIcon);
+        $smarty->assign("form_title", 		$formTitle);
+        $smarty->assign("form_description", $formDescription);
+        $smarty->assign("form_template",	$formTemplate);
+		$smarty->assign("form_do", 			$doFullName);
+		$smarty->assign("form_type_do", 	$typeDoFullName);		
+		$smarty->assign("event_name",		$eventName);
+		$smarty->assign("message_file",		$messageFile);        
+		$content = $smarty->fetch($templateFile);
+        $targetFile = $targetPath . "/" . $formNewName . ".xml";
+        file_put_contents($targetFile, $content);     	
 		$this->m_GeneratedFiles['FormObjFiles']['NewForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
+		//generate Edit form metadata	
+		$this->m_GeneratedFiles['FormObjFiles']['EditForm']=str_replace(MODULE_PATH,"",$targetFile);
+		
+		
+		//generate Copy form metadata	
 		$this->m_GeneratedFiles['FormObjFiles']['CopyForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
-		$this->m_GeneratedFiles['FormObjFiles']['EditForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
 		
 		
@@ -963,13 +995,13 @@ class MetaGeneratorService
 		$this->__recursiveCopy($templateFiles, $targetPath);
 		
 		$icons = array(
-			"mod_list.png"						=> 	"images/".$this->__getObjectFileName().'_list.png',
-			"mod_add.png"						=> 	"images/".$this->__getObjectFileName().'_add.png',
-			"mod_edit.png"						=> 	"images/".$this->__getObjectFileName().'_edit.png',
-			"mod_copy.png"						=> 	"images/".$this->__getObjectFileName().'_copy.png',
-			"mod_detail.png"					=> 	"images/".$this->__getObjectFileName().'_detail.png',
+			"icon_mod_list.png"						=> 	"images/icon_mod_".$this->__getObjectFileName().'_list.png',
+			"icon_mod_add.png"						=> 	"images/icon_mod_".$this->__getObjectFileName().'_add.png',
+			"icon_mod_edit.png"						=> 	"images/icon_mod_".$this->__getObjectFileName().'_edit.png',
+			"icon_mod_copy.png"						=> 	"images/icon_mod_".$this->__getObjectFileName().'_copy.png',
+			"icon_mod_detail.png"					=> 	"images/icon_mod_".$this->__getObjectFileName().'_detail.png',
 			"icon_data_private.gif"				=>	'images/icon_'.$modShortName.'_private.gif',
-			"icon_data_shared.gif"				=>	'images/icon_'.$modShortName.'_shared.gif',
+			"icon_data_sharing.gif"				=>	'images/icon_'.$modShortName.'_shared.gif',
 			"icon_data_assigned.gif"			=>	'images/icon_'.$modShortName.'_assigned.gif',
 			"icon_data_shared_distributed.gif"	=>	'images/icon_'.$modShortName.'_distributed.gif',
 			"icon_data_shared_group.gif"		=>	'images/icon_'.$modShortName.'_shared_group.gif',
