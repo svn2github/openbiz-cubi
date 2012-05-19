@@ -1015,7 +1015,24 @@ class MetaGeneratorService
 		$modName 	= $this->__getModuleName(false);
 		$templateFiles = $this->__getMetaTempPath().'/template/';
 		$targetPath = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/template";										
-		return $this->__recursiveCopy($templateFiles, $targetPath);
+		$this->__recursiveCopy($templateFiles, $targetPath);
+		
+		//generate view file
+		$left_menu_widget = $modName.".widget.".$modName.'LeftMenu';
+		$source = $templateFiles.DIRECTORY_SEPARATOR.'view.tpl';
+		$dest = $targetPath.DIRECTORY_SEPARATOR.'view.tpl';
+		$data = file_get_contents($source);
+		$data = str_replace("@@LEFT_MENU_WIDGET@@", $left_menu_widget, $data);
+		file_put_contents($dest, $data);
+		
+		//generate left menu file
+		$dashbaard_view_url = $modName."/dashboard";
+		$source = $templateFiles.DIRECTORY_SEPARATOR.'left_menu.tpl';
+		$dest = $targetPath.DIRECTORY_SEPARATOR.'left_menu.tpl';
+		$data = file_get_contents($source);
+		$data = str_replace("@@DASHBOARD_VIEW@@", $dashbaard_view_url, $data);
+		file_put_contents($dest, $data);
+		return;
 	}	
 	
 	protected function _genResourceFiles()
@@ -1085,6 +1102,26 @@ class MetaGeneratorService
         $targetFile = $targetPath . "/" . $formName . ".xml";
         file_put_contents($targetFile, $content);      
 		$this->m_GeneratedFiles['FormObjFiles']['DashbaordForm']=str_replace(MODULE_PATH,"",$targetFile);	
+		
+		
+		//Generate Left Menu Widget
+		$templateFile = $this->__getMetaTempPath().'/widget/LeftMenuWidget.xml.tpl';
+		$formName 	= $modBaseName.'LeftMenu';
+		$formTitle	= ucfirst($modBaseName);
+
+		//generate detail view
+		if(CLI){echo "Start generate form object $formName." . PHP_EOL;}
+        $smarty = BizSystem::getSmartyTemplate();
+        $smarty->assign("form_name", 	$formName);
+        $smarty->assign("form_title", 	$formTitle);
+        $smarty->assign("form_css", 	strtolower($modBaseName));        
+        $smarty->assign("mod_name", 	$modBaseName);        
+        $content = $smarty->fetch($templateFile);
+                        
+        $targetFile = $targetPath . "/" . $formName . ".xml";
+        file_put_contents($targetFile, $content);      
+		$this->m_GeneratedFiles['FormObjFiles']['LeftMenuForm']=str_replace(MODULE_PATH,"",$targetFile);	
+		
 		
 		//Genereate Dashboard View				
         $targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modBaseName) . "/view";

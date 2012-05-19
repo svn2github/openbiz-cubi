@@ -24,7 +24,7 @@ $appendStyle .= "
 ";
 $this->_tpl_vars['style_sheets'] = $appendStyle;
 
-$left_menu = "collab.widget.CollaborationLeftMenu";
+$left_menu = "@@LEFT_MENU_WIDGET@@";
 $this->assign('left_menu', $left_menu);
 
 $this->assign('template_file', 'system_view.tpl.html');
