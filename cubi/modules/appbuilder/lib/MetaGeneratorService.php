@@ -814,12 +814,12 @@ class MetaGeneratorService
 		$eventName = $this->__getObjectName();		
 		$formIcon = "{RESOURCE_URL}/$modShortName/images/".$this->__getObjectFileName().'_list.png';
 		$shareIcons = array(
-			"icon_private"				=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_private.png',
-			"icon_shared"				=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_shared.png',
-			"icon_assigned"				=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_assigned.png',
-			"icon_shared_distributed"	=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_distributed.png',
-			"icon_shared_group"			=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_shared_group.png',
-			"icon_shared_other"			=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_shared_other.png'
+			"icon_private"				=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_private.gif',
+			"icon_shared"				=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_shared.gif',
+			"icon_assigned"				=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_assigned.gif',
+			"icon_shared_distributed"	=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_distributed.gif',
+			"icon_shared_group"			=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_shared_group.gif',
+			"icon_shared_other"			=>	'{RESOURCE_URL}/'.$modShortName.'/images/icon_'.$modShortName.'_shared_other.gif'
 		);
 		
         $smarty->assign("form_name", 		$formListName);
@@ -946,7 +946,7 @@ class MetaGeneratorService
 		}
 		$modName 	= $this->__getModuleName(false);
 		$templateFiles = $this->__getMetaTempPath().'/template/';
-		$targetPath = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/template";
+		$targetPath = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/template";										
 		return $this->__recursiveCopy($templateFiles, $targetPath);
 	}	
 	
@@ -957,9 +957,30 @@ class MetaGeneratorService
 			return false;
 		}
 		$modName 	= $this->__getModuleName(false);
+		$modShortName = $this->__getModuleName(false);
 		$templateFiles = $this->__getMetaTempPath().'/resource/';
 		$targetPath = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/resource";
-		return $this->__recursiveCopy($templateFiles, $targetPath);
+		$this->__recursiveCopy($templateFiles, $targetPath);
+		
+		$icons = array(
+			"mod_list.png"						=> 	"images/".$this->__getObjectFileName().'_list.png',
+			"mod_add.png"						=> 	"images/".$this->__getObjectFileName().'_add.png',
+			"mod_edit.png"						=> 	"images/".$this->__getObjectFileName().'_edit.png',
+			"mod_copy.png"						=> 	"images/".$this->__getObjectFileName().'_copy.png',
+			"mod_detail.png"					=> 	"images/".$this->__getObjectFileName().'_detail.png',
+			"icon_data_private.gif"				=>	'images/icon_'.$modShortName.'_private.gif',
+			"icon_data_shared.gif"				=>	'images/icon_'.$modShortName.'_shared.gif',
+			"icon_data_assigned.gif"			=>	'images/icon_'.$modShortName.'_assigned.gif',
+			"icon_data_shared_distributed.gif"	=>	'images/icon_'.$modShortName.'_distributed.gif',
+			"icon_data_shared_group.gif"		=>	'images/icon_'.$modShortName.'_shared_group.gif',
+			"icon_data_shared_other.gif"		=>	'images/icon_'.$modShortName.'_shared_other.gif'
+		);		
+		foreach($icons as $key=>$value)
+		{
+			@copy($templateFiles.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.$key, 
+					$targetPath.DIRECTORY_SEPARATOR.$value);
+		}
+		return ;
 	}		
 	
 	protected function _genDashboardFiles()

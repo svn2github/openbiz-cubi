@@ -36,7 +36,7 @@
 					FieldName="type_name" 
 					Label="" 
 					KeepCookie="Y" 
-					SelectFrom="collab.task.do.TaskTypeDO[name:Id:color]" 
+					SelectFrom="{$form_type_do}[name:Id:color]" 
 					AllowURLParam="N" />
 {/if}
 {foreach from=$fields item=fld}
