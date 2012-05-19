@@ -729,7 +729,7 @@ class MetaGeneratorService
 		$doFullName = $modName.'.do.'.$this->m_ConfigModule['object_name'];
 		$extendFeature = $features['extend'];
 		$formClass  = "EasyForm";				
-		$detailViewURL = $this->__getViewName().'_detail';
+		$detailViewURL = $modShortName.'/'.$this->__getViewName().'_detail';
 		
 		$formListName 	= $this->__getObjectName().'ListForm';
 		$formListFullName = $modName.'.form.'.$formListName;				
@@ -897,7 +897,7 @@ class MetaGeneratorService
 		//generate detail view
 		$templateFile = $this->__getMetaTempPath().'/view/DetailView.xml.tpl';
 		$viewName 	= $this->__getObjectName().'DetailView';
-		$viewDesc 	= "Detail View of".$this->m_ConfigModule['object_desc'];		
+		$viewDesc 	= "Detail View of ".$this->m_ConfigModule['object_desc'];		
 		$defaultFormName = $modName.'.form.'.$this->__getObjectName().'DetailForm';
 		
 		if(CLI){echo "Start generate view object $viewName." . PHP_EOL;}

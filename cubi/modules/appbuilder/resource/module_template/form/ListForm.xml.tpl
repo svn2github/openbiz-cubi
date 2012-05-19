@@ -92,7 +92,7 @@
 		$fld.Field != 'group_perm' &&
 		$fld.Field != 'other_perm' 
 		}
-{if $col_counter==1}
+{if $col_counter==0}
 		<Element Name="fld_{$fld.Field}" 
         			Class="ColumnText" 
         			FieldName="{$fld.Field}" 
@@ -100,7 +100,7 @@
         			Sortable="Y" 
         			MaxLength="15"
         			Link="{literal}{APP_INDEX}{/literal}/{$detail_view_url}/{literal}{@:Elem[fld_Id].Value}{/literal}"        			
-        			{if $fld.Default != 'NULL' && $fld.Default != '' }DefaultValue="{$fld.Default}"{/if} />
+        			{if $fld.Default != 'NULL' && $fld.Default != '' }DefaultValue="{$fld.Default}"{/if} /> 
 {else}
 		<Element Name="fld_{$fld.Field}" 
         			Class="ColumnText" 
@@ -108,11 +108,11 @@
         			Label="{$fld.FieldLabel}" 
         			MaxLength="15"        			 
         			Sortable="Y"
-        			{if $fld.Default != 'NULL' && $fld.Default != '' }DefaultValue="{$fld.Default}"{/if} />
-{/if}
-        	
-{/if}
+        			{if $fld.Default != 'NULL' && $fld.Default != '' }DefaultValue="{$fld.Default}"{/if} />        			
+{/if}        	
 {assign var=col_counter value=$col_counter+1}
+{/if}
+
 {/foreach}
 	</DataPanel>
     <ActionPanel>

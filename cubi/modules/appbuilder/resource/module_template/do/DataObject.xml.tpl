@@ -90,8 +90,23 @@
 				{if $fld.length }Length="{$fld.length}"{/if} />
 {/if}
 {/foreach}
+{if $features.extend eq 1}	
+		<BizField Name="type_color" 
+				Column="color"  
+				Join="JoinType" />
+	    <BizField Name="type_name" 
+	    		Column="name" 
+	    		Join="JoinType" />
+{/if}
 	</BizFieldList>
 	<TableJoins>
+{if $features.extend eq 1}
+		<Join Name="JoinType" 
+				Table="{$table_name}_type" 
+				Column="id" 
+				ColumnRef="type_id" 
+				JoinType="LEFT JOIN" />
+{/if}				    	
 	</TableJoins>
 	<ObjReferences>
 {if $features.changelog eq 1}	

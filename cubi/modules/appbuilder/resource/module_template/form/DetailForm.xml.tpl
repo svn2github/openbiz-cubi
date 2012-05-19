@@ -12,10 +12,38 @@
 			MessageFile="{$message_file}" 
 			Access="{$acl.access}">
     <DataPanel>
+{if $features.extend eq 1}	    
+		<Element Name="fld_form_title"  
+					Class="LabelText"   
+					FieldName="{$search_field.Field}" 
+					Label="" 
+					Width="500" 
+					style="font-size:24px;color:#333333;line-height:24px;" 
+					AllowURLParam="N" />
+		<Element Name="fld_color" 
+					Class="Hidden" 
+					Hidden="Y" 
+					FieldName="type_color" 
+					Label="Type"  
+					Sortable="Y" 
+					AllowURLParam="N" 
+					Translatable="N" 
+					OnEventLog="N" />
+		<Element Name="fld_form_description"  
+					BackgroundColor="{literal}{@:Elem[fld_color].Value}{/literal}" 
+					Width="648" 
+					Class="LabelText" 
+					FieldName="type_name" 
+					Label="" 
+					KeepCookie="Y" 
+					SelectFrom="collab.task.do.TaskTypeDO[name:Id:color]" 
+					AllowURLParam="N" />
+{/if}
 {foreach from=$fields item=fld}
 {if $fld.Field != 'Id' && 
 	$fld.Field != 'id' && 
-	$fld.Field != 'create_by' && 
+	$fld.Field != 'type_id' && 
+	$fld.Field != 'create_by' &&	
 	$fld.Field != 'create_time' && 
 	$fld.Field != 'update_by' && 
 	$fld.Field != 'update_time' && 
@@ -24,15 +52,35 @@
 	$fld.Field != 'group_id' &&
 	$fld.Field != 'owner_id' &&
 	$fld.Field != 'sortorder' &&
-	$fld.Field != 'sort_order' 
+	$fld.Field != 'sort_order' &&
+	$fld.Field != 'type_name' &&
+	$fld.Field != 'type_color'  
 	}
+{if $features.extend eq 1 && $fld.Field eq $search_field.Field}
+{else}
        	<Element Name="fld_{$fld.Field}" 
        				ElementSet="General" 
        				Class="LabelText" 
        				FieldName="{$fld.Field}" 
        				Label="{$fld.FieldLabel}" 
        				AllowURLParam="{if $fld.Field eq 'Id'}Y{else}N{/if}"/>
-       				
+{/if}
+{elseif $fld.Field == 'id' }
+       	<Element Name="fld_Id" 
+       				Class="LabelText" 
+       				ElementSet="General"
+       				Hidden="Y" 
+       				FieldName="Id" 
+       				Label="{$fld.FieldLabel}"  
+       				AllowURLParam="Y"/>     
+{elseif $fld.Field == 'type_id' }
+       	<Element Name="fld_{$fld.Field}" 
+       				Class="LabelText" 
+       				ElementSet="General"
+       				Hidden="Y" 
+       				FieldName="{$fld.Field}" 
+       				Label="{$fld.FieldLabel}"  
+       				AllowURLParam="N"/>           				      				
 {elseif $fld.Field == 'create_by' || 
 		$fld.Field == 'update_by'}
        	<Element Name="fld_{$fld.Field}" 
@@ -54,21 +102,7 @@
        				FieldName="{$fld.Field}" 
        				Label="{$fld.FieldLabel}"  
        				AllowURLParam="N"/>       	
-       				
-{elseif $fld.Field != 'other_perm' && 
-		$fld.Field != 'group_perm' &&
-		$fld.Field != 'group_id' &&
-		$fld.Field != 'owner_id' &&
-		$fld.Field != 'id' &&
-		$fld.Field != 'type_id' 
-		}		
-		<Element Name="fld_{$fld.Field}" 
-					ElementSet="General" 
-					Hidden="Y" 
-					Class="LabelText" 
-					FieldName="{$fld.Field}" 
-					Label="{$fld.FieldLabel}" 
-					AllowURLParam="{if $fld.Field eq 'Id'}Y{else}N{/if}"/>
+
 					
 {/if}
 {/foreach}
