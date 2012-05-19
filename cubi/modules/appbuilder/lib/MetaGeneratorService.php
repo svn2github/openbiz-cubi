@@ -876,7 +876,7 @@ class MetaGeneratorService
 		
 		//generate New form metadata	
 		$formTitle  = "New ".$this->__getFormName();	
-		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_new.png';						
+		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_add.png';						
 		$formTemplate = "form_edit.tpl.html";  	 	
 		
 		$templateFile = $this->__getMetaTempPath().'/form/NewForm.xml.tpl';

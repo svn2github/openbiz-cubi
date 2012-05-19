@@ -152,7 +152,7 @@
 				Table="{$table_name}" 
 				Column="id" 
 				FieldRef="Id" 
-				OnDelete="Cascade" 
+				OnDelete="SetNull" 
 				OnUpdate="" 
 				XTable="{$table_name_related}" 
 				XColumn1="{$table_ref_id}" 

@@ -97,7 +97,7 @@
             			EventLogMsg="" 
             			Event="onclick" 
             			Function="InsertRecord()" 
-            			RedirectPage="form={$detail_form_full_name}&amp;fld:Id={literal}{{/literal}@{$form_do}:Field[Id].Value{literal}}{/literal}"  
+            			RedirectPage="{literal}{APP_INDEX}{/literal}/{$detail_view_url}/{literal}{{/literal}@{$form_do}:Field[Id].Value{literal}}{/literal}"  
             			ShortcutKey="Ctrl+Enter" 
             			ContextMenu="Save" />
         </Element>
