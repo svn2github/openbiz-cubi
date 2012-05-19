@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="{$form_name}" 
 			Class="{$form_class}" 
-			FormType="New" 
+			FormType="Copy" 
 			jsClass="Openbiz.Form" 
 			Icon="{$form_icon}"
 			Title="{$form_title}" 

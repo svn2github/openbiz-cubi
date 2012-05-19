@@ -896,10 +896,46 @@ class MetaGeneratorService
 		$this->m_GeneratedFiles['FormObjFiles']['NewForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
 		//generate Edit form metadata	
+		$formTitle  = "Edit ".$this->__getFormName();	
+		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_edit.png';						
+		$formTemplate = "form_edit.tpl.html";  	 	
+		
+		$templateFile = $this->__getMetaTempPath().'/form/EditForm.xml.tpl';
+		$smarty->assign("form_name", 		$formEditName);
+        $smarty->assign("form_class",		$formClass);
+        $smarty->assign("form_icon", 		$formIcon);
+        $smarty->assign("form_title", 		$formTitle);
+        $smarty->assign("form_description", $formDescription);
+        $smarty->assign("form_template",	$formTemplate);
+		$smarty->assign("form_do", 			$doFullName);
+		$smarty->assign("form_type_do", 	$typeDoFullName);		
+		$smarty->assign("event_name",		$eventName);
+		$smarty->assign("message_file",		$messageFile);        
+		$content = $smarty->fetch($templateFile);
+        $targetFile = $targetPath . "/" . $formEditName . ".xml";
+        file_put_contents($targetFile, $content);   
 		$this->m_GeneratedFiles['FormObjFiles']['EditForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
 		
 		//generate Copy form metadata	
+		$formTitle  = "Copy ".$this->__getFormName();	
+		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_copy.png';						
+		$formTemplate = "form_edit.tpl.html";  	 	
+		
+		$templateFile = $this->__getMetaTempPath().'/form/CopyForm.xml.tpl';
+		$smarty->assign("form_name", 		$formCopyName);
+        $smarty->assign("form_class",		$formClass);
+        $smarty->assign("form_icon", 		$formIcon);
+        $smarty->assign("form_title", 		$formTitle);
+        $smarty->assign("form_description", $formDescription);
+        $smarty->assign("form_template",	$formTemplate);
+		$smarty->assign("form_do", 			$doFullName);
+		$smarty->assign("form_type_do", 	$typeDoFullName);		
+		$smarty->assign("event_name",		$eventName);
+		$smarty->assign("message_file",		$messageFile);        
+		$content = $smarty->fetch($templateFile);
+        $targetFile = $targetPath . "/" . $formCopyName . ".xml";
+        file_put_contents($targetFile, $content);   
 		$this->m_GeneratedFiles['FormObjFiles']['CopyForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
 		

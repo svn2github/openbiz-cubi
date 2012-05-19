@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="{$form_name}" 
 			Class="{$form_class}" 
-			FormType="New" 
+			FormType="Edit" 
 			jsClass="Openbiz.Form" 
 			Icon="{$form_icon}"
 			Title="{$form_title}" 
@@ -10,7 +10,7 @@
 			TemplateEngine="Smarty" 
 			TemplateFile="{$form_template}" 
 			MessageFile="{$message_file}" 
-			Access="{$acl.create}">
+			Access="{$acl.update}">
     <DataPanel>
 {foreach from=$fields item=fld}
 {if $fld.Field != 'Id' && 
@@ -96,7 +96,7 @@
             <EventHandler Name="save_onclick" 
             			EventLogMsg="" 
             			Event="onclick" 
-            			Function="InsertRecord()" 
+            			Function="UpdateRecord()" 
             			RedirectPage="{literal}{APP_INDEX}{/literal}/{$detail_view_url}/{literal}{{/literal}@{$form_do}:Field[Id].Value{literal}}{/literal}"  
             			ShortcutKey="Ctrl+Enter" 
             			ContextMenu="Save" />
