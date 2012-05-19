@@ -146,7 +146,7 @@ class MetaGeneratorService
         {
         	$smarty->assign("do_full_name_ref", 		str_replace("DO","RefDO",$doFullName));
         	$smarty->assign("do_full_name_related", 	str_replace("DO","RelatedDO",$doFullName));
-        	$smarty->assign("table_name_related",		$this->m_DBTable."_releated");        	
+        	$smarty->assign("table_name_related",		$this->m_DBTable."_related");        	
         	$smarty->assign("table_ref_id", 			strtolower($this->m_DBTable)."_id");
         	$this->_genSelfReferenceDO();        
         }
