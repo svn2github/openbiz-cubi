@@ -1019,10 +1019,12 @@ class MetaGeneratorService
 		
 		//generate view file
 		$left_menu_widget = $modName.".widget.".$modName.'LeftMenu';
+		$menu_icon_css = $modName."/css/".$modName."_menu_icons.css";
 		$source = $templateFiles.DIRECTORY_SEPARATOR.'view.tpl';
 		$dest = $targetPath.DIRECTORY_SEPARATOR.'view.tpl';
 		$data = file_get_contents($source);
 		$data = str_replace("@@LEFT_MENU_WIDGET@@", $left_menu_widget, $data);
+		$data = str_replace("@@MENU_ICON_CSS@@", $menu_icon_css, $data);		
 		file_put_contents($dest, $data);
 		
 		//generate left menu file
@@ -1047,6 +1049,7 @@ class MetaGeneratorService
 		$targetPath = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/resource";
 		$this->__recursiveCopy($templateFiles, $targetPath);
 		
+		//copy images
 		$icons = array(
 			"icon_mod_list.png"						=> 	"images/icon_mod_".$this->__getObjectFileName().'_list.png',
 			"icon_mod_add.png"						=> 	"images/icon_mod_".$this->__getObjectFileName().'_add.png',
@@ -1065,6 +1068,11 @@ class MetaGeneratorService
 			@copy($templateFiles.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.$key, 
 					$targetPath.DIRECTORY_SEPARATOR.$value);
 		}
+		
+		//copy css
+		@copy($templateFiles.DIRECTORY_SEPARATOR.'css'.DIRECTORY_SEPARATOR."menu_icons.css", 
+					$targetPath.DIRECTORY_SEPARATOR.'css'.DIRECTORY_SEPARATOR.$modShortName."_menu_icons.css");
+		@unlink($targetPath.DIRECTORY_SEPARATOR.'css'.DIRECTORY_SEPARATOR."menu_icons.css");
 		return ;
 	}		
 	

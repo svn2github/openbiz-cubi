@@ -21,6 +21,7 @@ $appendStyle = BizSystem::clientProxy()->getAppendedStyles();
 $appendStyle .= "
 <link rel=\"stylesheet\" href=\"$css_url/general.css\" type=\"text/css\" />
 <link rel=\"stylesheet\" href=\"$css_url/system_backend.css\" type=\"text/css\" />
+<link rel=\"stylesheet\" href=\"".RESOURCE_URL."/@@MENU_ICON_CSS@@\" type=\"text/css\" />
 ";
 $this->_tpl_vars['style_sheets'] = $appendStyle;
 
