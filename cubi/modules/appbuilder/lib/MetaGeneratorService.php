@@ -1295,7 +1295,6 @@ class MetaGeneratorService
         //generate mod.uninstall.sql
         $this->_genUninstallSQL();
 	}	
-
 	
 	private function __getObjectName()
 	{
@@ -1316,8 +1315,7 @@ class MetaGeneratorService
 		$name = strtolower($name);
 		return $name;
 	}
-	
-	
+		
 	private function __getViewName()
 	{
 		$tableName = $this->m_DBTable;
