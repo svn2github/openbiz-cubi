@@ -291,6 +291,8 @@ class MetaGeneratorService
 		$formEditFullName  = $modName.'.form.'.$formEditName;		
 		$formNewName  	= $this->__getObjectName().'TypeNewForm';
 		$formNewFullName  = $modName.'.form.'.$formNewName;
+		$formCustomName  	= $this->__getObjectName().'TypeCustomForm';
+		$formCustomFullName  = $modName.'.form.'.$formCustomName;
 		
 		$messageFile = "";
 		if($this->m_GeneratedFiles['MessageFiles']['MessageFile']!='')
@@ -346,6 +348,8 @@ class MetaGeneratorService
 		$smarty->assign("detail_form_name", 	$formDetailName);
 		$smarty->assign("list_form_full_name", 	$formListFullName);  
 		$smarty->assign("list_form_name", 		$formListName);
+		$smarty->assign("custom_form_full_name",$formCustomFullName);  
+		$smarty->assign("custom_form_name", 	$formCustomName);
 		
 		//form specified variables		
 		$formTitle  = $this->__getFormName()." Type Management";
@@ -401,6 +405,33 @@ class MetaGeneratorService
         $targetFile = $targetPath . "/" . $formDetailName . ".xml";
         file_put_contents($targetFile, $content);    
 		$this->m_GeneratedFiles['TypeDetailForm']=str_replace(MODULE_PATH,"",$targetFile);		
+		
+		
+		//generate custom type form 
+		$templateFile = $this->__getMetaTempPath().'/form/TypeCustomForm.xml.tpl';
+		$formTitle  = "Custom ".$this->__getFormName()." Type";
+        $eventName = $this->__getObjectName();		
+		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_type_edit.png';
+		$formTemplate = "form_detail_adv.tpl.html";
+		
+        $smarty->assign("form_name", 		$formCustomName);
+        $smarty->assign("form_class",		$formClass);
+        $smarty->assign("form_icon", 		$formIcon);
+        $smarty->assign("form_title", 		$formTitle);
+        $smarty->assign("form_description", $formDescription);
+        $smarty->assign("form_template",	$formTemplate);
+		$smarty->assign("form_do", 			$doFullName);
+		$smarty->assign("form_type_do", 	$typeDoFullName);		
+		$smarty->assign("event_name",		$eventName);
+		$smarty->assign("message_file",		$messageFile);
+		$smarty->assign("share_icons", 		$shareIcons);
+		
+		$content = $smarty->fetch($templateFile);
+        $targetFile = $targetPath . "/" . $formCustomName . ".xml";
+        file_put_contents($targetFile, $content);    
+		$this->m_GeneratedFiles['TypeCustomForm']=str_replace(MODULE_PATH,"",$targetFile);		
+		
+		
 		
 		//generate new type form 
 		$templateFile = $this->__getMetaTempPath().'/form/TypeNewForm.xml.tpl';

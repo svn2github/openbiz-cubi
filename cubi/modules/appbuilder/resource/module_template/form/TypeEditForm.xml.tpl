@@ -18,6 +18,7 @@
 {literal}    
 		<Element Name="fld_Id" 
 				Class="Hidden" 
+				ElementSet="General" 
 				FieldName="Id" 
 				Label="Id" 
 				AllowURLParam="Y" 
@@ -26,20 +27,24 @@
 				CssClass="input" 
 				CssErrorClass="input_error"/>
 		<Element Name="fld_name" 
+				ElementSet="General" 
 				Class="InputText" 
 				FieldName="name" 
 				Label="Name"   />	
         <Element Name="fld_description" 
+        		ElementSet="General" 
         		Class="Textarea" 
         		FieldName="description" 
         		Label="Description" />	
         <Element Name="fld_color_code" 
+        		ElementSet="General" 
         		Class="ColorPicker" 
         		Mode="" 
         		FieldName="color" 
         		Label="Color Code"  
         		AllowURLParam="N" />
         <Element Name="fld_published" 
+        		ElementSet="Miscellaneous" 
         		Class="Listbox" 
         		KeepCookie="Y" 
         		SelectFrom="common.lov.CommLOV(Published)"  
@@ -47,6 +52,7 @@
         		FieldName="group_perm" 
         		Label="Group Share"  />
         <Element Name="fld_published_other" 
+        		ElementSet="Miscellaneous" 
         		Class="Listbox" 
         		KeepCookie="Y" 
         		SelectFrom="common.lov.CommLOV(Published)"  
@@ -54,6 +60,7 @@
         		FieldName="other_perm" 
         		Label="Other Group"  />	
         <Element Name="fld_sortorder" 
+        		ElementSet="Miscellaneous" 
         		Class="Listbox" 
         		SelectFrom="common.lov.CommLOV(Order)" 
         		DefaultValue="50" 
@@ -70,7 +77,7 @@
             			EventLogMsg="" 
             			Event="onclick" 
             			Function="UpdateRecord()" 
-            			RedirectPage="{literal}{APP_INDEX}{/literal}/{$detail_view_url}/{literal}{{/literal}@{$form_do}:Field[Id].Value{literal}}{/literal}"  
+            			RedirectPage="form={$detail_form_full_name}&amp;fld:Id={literal}{{/literal}@{$form_do}:Field[Id].Value{literal}}{/literal}"  
             			ShortcutKey="Ctrl+Enter" 
             			ContextMenu="Save" />
         </Element>

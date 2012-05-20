@@ -78,6 +78,17 @@
         			AllowURLParam="N" 
         			Translatable="N" 
         			OnEventLog="N" />
+        	
+        	<Element Name="fld_extend_setting" 
+        			Access="extend.access" 
+        			AccessSelectFrom="extend.lov.ExtendPermLOV(ExtendAccess)" 
+        			ElementSet="Extend Fields" 
+        			Class="FormElement" 
+        			FormReference="extend.widget.ExtendSettingListDetailForm" 
+        			FieldName="" 
+        			Label="" 
+        			AllowURLParam="N" />		
+        			
 		    <Element Name="fld_create_by" 
 		    		ElementSet="Miscellaneous" 
 		    		Class="LabelText" 
@@ -108,7 +119,22 @@
 		    		AllowURLParam="N"/>
 {/literal}		    		
 	</DataPanel>
-    <ActionPanel>       
+    <ActionPanel>    
+       {literal}
+		<Element Name="btn_custom" 
+				Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
+				Class="Button" 
+				Text="Custom" 
+				CssClass="button_gray_w">
+            <EventHandler Name="btn_custom_onclick" 
+            			Event="onclick" 
+            			Function="SwitchForm({/literal}{$custom_form_full_name}{literal},{@:Elem[fld_Id].Value})"/>
+        </Element>
+		<Element Name="btn_spacer"  
+				Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
+				Class="Spacer" 
+				Width="10" />		      
+       {/literal}
         <Element Name="btn_new" 
         		Class="Button" 
         		Text="Add  " 

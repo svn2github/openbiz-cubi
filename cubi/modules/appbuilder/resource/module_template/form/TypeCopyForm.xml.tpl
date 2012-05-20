@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="{$form_name}" 
 			Class="{$form_class}"			  
-			FormType="Edit" 
+			FormType="Copy" 
 			jsClass="Openbiz.Form" 
 			Icon="{$form_icon}"
 			Title="{$form_title}" 
@@ -17,25 +17,30 @@
     <DataPanel>
 {literal}
         <Element Name="fld_Id" 
+        		ElementSet="General" 
         		Class="Hidden" 
         		FieldName="Id" 
         		Label="Id" 
         		AllowURLParam="Y"/>	
 	    <Element Name="fld_name" 
+	    		ElementSet="General" 
 	    		Class="InputText" 
 	    		FieldName="name" 
 	    		Label="Name"   />	
         <Element Name="fld_description" 
+        		ElementSet="General" 
         		Class="Textarea" 
         		FieldName="description" 
         		Label="Description" />	
         <Element Name="fld_color_code" 
+        		ElementSet="General" 
         		Class="ColorPicker" 
         		Mode="" 
         		FieldName="color" 
         		Label="Color Code"  
         		AllowURLParam="N" />
         <Element Name="fld_published" 
+        		ElementSet="Miscellaneous" 
         		Class="Listbox" 
         		KeepCookie="Y" 
         		SelectFrom="common.lov.CommLOV(Published)"  
@@ -43,6 +48,7 @@
         		FieldName="group_perm" 
         		Label="Group Share"  />
         <Element Name="fld_published_other" 
+        		ElementSet="Miscellaneous" 
         		Class="Listbox" 
         		KeepCookie="Y" 
         		SelectFrom="common.lov.CommLOV(Published)"  
@@ -50,6 +56,7 @@
         		FieldName="other_perm" 
         		Label="Other Group"  />	
         <Element Name="fld_sortorder" 
+        		ElementSet="Miscellaneous" 
         		Class="Listbox" 
         		SelectFrom="common.lov.CommLOV(Order)" 
         		DefaultValue="50" 
