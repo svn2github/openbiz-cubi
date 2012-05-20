@@ -1,12 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="BookmarkTypeCopyForm" Class="BookmarkTypeForm"  Icon="{RESOURCE_URL}/collab/bookmark/images/icon_bookmark_type.png" FormType="Copy" jsClass="jbForm" Title="Copy Bookmark Type" Description="Copy bookmark type from an existing item." BizDataObj="collab.bookmark.do.BookmarkTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="BOOKMARK_TYPE" MessageFile="BookmarkType.msg" Access="collab_bookmark.access">
-    <DataPanel>        
-        <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y"/>	
-	    <Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"   />	
-        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	
-        <Element Name="fld_color_code" Class="ColorPicker" mode="" FieldName="color" Label="Color Code"  AllowURLParam="N" />
-        <Element Name="fld_published" Class="Listbox" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)"  DefaultValue="1" FieldName="group_perm" Label="Group Share"  /><Element Name="fld_published_other" Class="Listbox" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)"  DefaultValue="0" FieldName="other_perm" Label="Other Group"  />	
-        <Element Name="fld_sortorder" Class="Listbox" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />
+<EasyForm Name="{$form_name}" 
+			Class="{$form_class}"			  
+			FormType="Edit" 
+			jsClass="Openbiz.Form" 
+			Icon="{$form_icon}"
+			Title="{$form_title}" 
+			Description="Copy data type from an existing item."
+			BizDataObj="{$form_do}" 
+			PageSize="10" 
+			DefaultForm="Y" 
+			TemplateEngine="Smarty" 
+			TemplateFile="{$form_template}" 
+			EventName="{$event_name}" 
+			MessageFile="{$message_file}" 
+			Access="{$acl.access}">				
+    <DataPanel>
+{literal}
+        <Element Name="fld_Id" 
+        		Class="Hidden" 
+        		FieldName="Id" 
+        		Label="Id" 
+        		AllowURLParam="Y"/>	
+	    <Element Name="fld_name" 
+	    		Class="InputText" 
+	    		FieldName="name" 
+	    		Label="Name"   />	
+        <Element Name="fld_description" 
+        		Class="Textarea" 
+        		FieldName="description" 
+        		Label="Description" />	
+        <Element Name="fld_color_code" 
+        		Class="ColorPicker" 
+        		Mode="" 
+        		FieldName="color" 
+        		Label="Color Code"  
+        		AllowURLParam="N" />
+        <Element Name="fld_published" 
+        		Class="Listbox" 
+        		KeepCookie="Y" 
+        		SelectFrom="common.lov.CommLOV(Published)"  
+        		DefaultValue="1" 
+        		FieldName="group_perm" 
+        		Label="Group Share"  />
+        <Element Name="fld_published_other" 
+        		Class="Listbox" 
+        		KeepCookie="Y" 
+        		SelectFrom="common.lov.CommLOV(Published)"  
+        		DefaultValue="0" 
+        		FieldName="other_perm" 
+        		Label="Other Group"  />	
+        <Element Name="fld_sortorder" 
+        		Class="Listbox" 
+        		SelectFrom="common.lov.CommLOV(Order)" 
+        		DefaultValue="50" 
+        		FieldName="sortorder" 
+        		Label="Ordering"  />
+{/literal}
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" 
@@ -17,7 +66,7 @@
             			EventLogMsg="" 
             			Event="onclick" 
             			Function="InsertRecord()" 
-            			RedirectPage="form=collab.bookmark.form.BookmarkTypeDetailForm&amp;fld:Id={@collab.bookmark.do.BookmarkTypeDO:Field[Id].Value}"  
+            			RedirectPage="form={$detail_form_full_name}&amp;fld:Id={literal}{{/literal}@{$form_do}:Field[Id].Value{literal}}{/literal}"  
             			ShortcutKey="Ctrl+Enter" 
             			ContextMenu="Save" />
         </Element>
@@ -34,4 +83,4 @@
     </ActionPanel> 
     <NavPanel/>    
     <SearchPanel/>    
-</EasyForm>
+</EasyForm>

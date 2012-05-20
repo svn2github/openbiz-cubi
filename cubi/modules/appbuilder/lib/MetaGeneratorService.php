@@ -380,12 +380,12 @@ class MetaGeneratorService
 
 		//generate detail type form 
 		$templateFile = $this->__getMetaTempPath().'/form/TypeDetailForm.xml.tpl';
-		$formTitle  = "New ".$this->__getFormName()." Type";
+		$formTitle  = $this->__getFormName()." Type Detail";
         $eventName = $this->__getObjectName();		
-		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_type_add.png';
-		$formTemplate = "form_detail_adv.tpl.html";
+		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_type_detail.png';
+		$formTemplate = "form_detail_elementset.tpl.html";
 		
-        $smarty->assign("form_name", 		$formNewName);
+        $smarty->assign("form_name", 		$formDetailName);
         $smarty->assign("form_class",		$formClass);
         $smarty->assign("form_icon", 		$formIcon);
         $smarty->assign("form_title", 		$formTitle);
@@ -398,7 +398,7 @@ class MetaGeneratorService
 		$smarty->assign("share_icons", 		$shareIcons);
 		
 		$content = $smarty->fetch($templateFile);
-        $targetFile = $targetPath . "/" . $formNewName . ".xml";
+        $targetFile = $targetPath . "/" . $formDetailName . ".xml";
         file_put_contents($targetFile, $content);    
 		$this->m_GeneratedFiles['TypeDetailForm']=str_replace(MODULE_PATH,"",$targetFile);		
 		

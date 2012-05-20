@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="BookmarkTypeEditForm" 
-		Class="BookmarkTypeForm" 
-		Icon="{RESOURCE_URL}/collab/bookmark/images/icon_bookmark_type.png"  
-		FormType="Edit" 
-		jsClass="jbForm" 
-		Title="Edit Bookmark Type" 
-		Description="Edit selected bookmark type item." 
-		BizDataObj="collab.bookmark.do.BookmarkTypeDO" 
-		DefaultForm="Y" 
-		TemplateEngine="Smarty" 
-		TemplateFile="detail.tpl" 
-		EventName="BOOKMARK_TYPE"
-		MessageFile="BookmarkType.msg" 
-		Access="collab_bookmark.access">
+<EasyForm Name="{$form_name}" 
+			Class="{$form_class}"			  
+			FormType="Edit" 
+			jsClass="Openbiz.Form" 
+			Icon="{$form_icon}"
+			Title="{$form_title}" 
+			Description="Edit selected data type item."
+			BizDataObj="{$form_do}" 
+			PageSize="10" 
+			DefaultForm="Y" 
+			TemplateEngine="Smarty" 
+			TemplateFile="{$form_template}" 
+			EventName="{$event_name}" 
+			MessageFile="{$message_file}" 
+			Access="{$acl.access}">			
     <DataPanel>
+{literal}    
 		<Element Name="fld_Id" 
 				Class="Hidden" 
 				FieldName="Id" 
@@ -57,6 +59,7 @@
         		DefaultValue="50" 
         		FieldName="sortorder" 
         		Label="Sorting"  />
+{/literal}        		
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" 
