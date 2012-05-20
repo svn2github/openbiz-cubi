@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="BookmarkTypeListForm" 
-			Class="BookmarkTypeForm" 
-			Icon="{RESOURCE_URL}/collab/bookmark/images/icon_bookmark_type.png"  
+<EasyForm Name="{$form_name}" 
+			Class="{$form_class}"			  
 			FormType="List" 
-			jsClass="jbForm" 
-			Title="Bookmark Type Manage" 
-			Description="You can mamange your bookmark items by types.  All user defined type are listed below." 
-			BizDataObj="collab.bookmark.do.BookmarkTypeDO" 
+			jsClass="Openbiz.TableForm" 
+			Icon="{$form_icon}"
+			Title="{$form_title}" 
+			Description="You can mamange your data items by types.  All user defined type are listed below."
+			BizDataObj="{$form_do}" 
 			PageSize="10" 
 			DefaultForm="Y" 
 			TemplateEngine="Smarty" 
-			TemplateFile="grid.tpl" 
-			EventName="BOOKMARK_TYPE" 
-			MessageFile="BookmarkType.msg" 
-			Access="collab_bookmark.access">
+			TemplateFile="{$form_template}" 
+			EventName="{$event_name}" 
+			MessageFile="{$message_file}" 
+			Access="{$acl.access}">			
    <DataPanel>
         <Element Name="row_selections" 
         		Class="RowCheckbox"  
@@ -21,10 +21,10 @@
         		FieldName="Id" />
         <Element Name="fld_share" 
         		Class="ColumnShare" 
-				MyPrivateImg="{RESOURCE_URL}/collab/bookmark/images/icon_bookmark_type_private.gif"
-				MySharedImg="{RESOURCE_URL}/collab/bookmark/images/icon_bookmark_type_shared.gif" 
-				GroupSharedImg="{RESOURCE_URL}/collab/bookmark/images/icon_bookmark_type_shared_group.gif"
-				OtherSharedImg="{RESOURCE_URL}/collab/bookmark/images/icon_bookmark_type_shared_other.gif"
+				MyPrivateImg="{$share_icons.icon_type_private}"
+				MySharedImg="{$share_icons.icon_type_shared}"  
+				GroupSharedImg="{$share_icons.icon_type_shared_group}"
+				OtherSharedImg="{$share_icons.icon_type_shared_other}"				
 				FieldName="create_by" 
 				Label="Share"  
 				Sortable="Y" 
@@ -33,8 +33,8 @@
 				OnEventLog="N" 
 				Link="javascript:;">
 			<EventHandler Name="fld_share_onclick" 
-						Event="onclick" 
-						Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
+							Event="onclick" 
+							Function="LoadDialog(common.form.DataSharingForm,{literal}{@:Elem[fld_Id].Value}{/literal})"/>		
 		</Element>
         <Element Name="fld_Id" 
         		Class="Hidden" 
@@ -54,7 +54,7 @@
         		Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" 
          				Event="onclick" 
-         				Function="SwitchForm(collab.bookmark.form.BookmarkTypeDetailForm,{@:Elem[fld_Id].Value})"   />
+         				Function="SwitchForm({$detail_form_full_name},{literal}{@:Elem[fld_Id].Value}{/literal})"   />
         </Element>	
         <Element Name="fld_description"  
         		MaxLength="30"  
@@ -72,7 +72,7 @@
         		Label="Color Code"  
         		Sortable="Y">
         </Element>
-        <Element Name="fld_published" 
+        <Element Name="fld_status" 
         		Class="ColumnBool" 
         		FieldName="group_perm" 
         		Label="Group Share"  
@@ -82,25 +82,25 @@
         		OnEventLog="N" 
         		Link="javascript:;">
 			<EventHandler Name="fld_status_onclick" 
-						Event="onclick" 
-						Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_published,{@:Elem[fld_published].Value})"/>		
+							Event="onclick" 
+							Function="UpdateFieldValueXor({literal}{@:Elem[fld_Id].Value}{/literal},fld_status,{literal}{@:Elem[fld_status].Value}{/literal})"/>		
 		</Element>	
-        <Element Name="fld_sortorder" 
+        <Element Name="fld_sorting" 
         		Class="ColumnSorting" 
         		FieldName="sortorder" 
-        		Label="Ordering"  
+        		Label="Sorting"  
         		Sortable="Y" 
         		AllowURLParam="N" 
         		Translatable="N" 
         		OnEventLog="N" >
         	<EventHandler Name="fld_sortorder_up" 
-        				Event="onclick" 
-        				EventLogMsg="" 
-        				Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})" />
-        	<EventHandler Name="fld_sortorder_down" 
-        				Event="onclick" 
-        				EventLogMsg="" 
-        				Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value+5})" />
+        					Event="onclick" 
+        					EventLogMsg="" 
+        					Function="UpdateFieldValue({literal}{@:Elem[fld_Id].Value}{/literal},fld_sorting,{literal}{{/literal}@:Elem[fld_sorting].Value-5{literal}}{/literal})" />
+			<EventHandler Name="fld_sortorder_down" 
+        					Event="onclick" 
+        					EventLogMsg="" 
+        					Function="UpdateFieldValue({literal}{@:Elem[fld_Id].Value}{/literal},fld_sorting,{literal}{{/literal}@:Elem[fld_sorting].Value+5{literal}}{/literal})" />
         </Element>	
     </DataPanel>
     <ActionPanel>
@@ -112,7 +112,7 @@
             <EventHandler Name="lnk_new_onclick" 
             			Event="onclick" 
             			EventLogMsg="" 
-            			Function="SwitchForm(collab.bookmark.form.BookmarkTypeNewForm)"  
+            			Function="SwitchForm({$new_form_full_name})"  
             			ShortcutKey="Insert" 
             			ContextMenu="New"/>
         </Element>
@@ -125,7 +125,7 @@
             			Event="onclick" 
             			EventLogMsg="" 
             			Function="EditRecord()" 
-            			RedirectPage="form=collab.bookmark.form.BookmarkTypeEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
+            			RedirectPage="form={$edit_form_full_name}&amp;fld:Id={literal}{@:Elem[fld_Id].Value}{/literal}" 
             			ShortcutKey="Ctrl+E" 
             			ContextMenu="Edit" />
         </Element>
@@ -138,7 +138,7 @@
             			Event="onclick" 
             			EventLogMsg="" 
             			Function="CopyRecord()" 
-            			RedirectPage="form=collab.bookmark.form.BookmarkTypeCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
+            			RedirectPage="form={$copy_form_full_name}&amp;fld:Id={literal}{@:Elem[fld_Id].Value}{/literal}" 
             			ShortcutKey="Ctrl+C" 
             			ContextMenu="Copy"/>
         </Element>
@@ -168,6 +168,7 @@
         </Element>
     </ActionPanel> 
     <NavPanel>
+    {literal}
     	<Element Name="page_selector" 
     			Class="PageSelector" 
     			Text="{@:m_CurrentPage}" 
@@ -231,6 +232,7 @@
             			Event="onclick" 
             			Function="GotoPage({@:m_TotalPages})"/>
         </Element>
+    {/literal}
     </NavPanel> 
     <SearchPanel>
     <Element Name="data_filter"  
@@ -248,7 +250,7 @@
         <Element Name="qry_name"  
         		Class="AutoSuggest" 
         		FuzzySearch="Y" 
-        		SelectFrom="collab.bookmark.do.BookmarkTypeDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" 
+        		SelectFrom="{$form_do}[name],[name] like {literal}'%{$_POST['qry_name']}%'{/literal} GROUP BY [name]" 
         		FieldName="name" 
         		CssFocusClass="input_text_search_focus" 
         		CssClass="input_text_search"/>
