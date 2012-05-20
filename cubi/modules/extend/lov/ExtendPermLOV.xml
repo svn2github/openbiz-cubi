@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <Selection>
-   <TaskAccess Value="extend.access" text="Default Extend Data Access Level"/>
-   <TaskAccess Value="extend.view_level_1" text="Extend Data Access Level 1"/>
-   <TaskAccess Value="extend.view_level_2" text="Extend Data Access Level 2"/>
-   <TaskAccess Value="extend.view_level_3" text="Extend Data Access Level 3"/>
+   <ExtendAccess Value="extend.access" text="Default Extend Data Access Level"/>
+   <ExtendAccess Value="extend.view_level_1" text="Extend Data Access Level 1"/>
+   <ExtendAccess Value="extend.view_level_2" text="Extend Data Access Level 2"/>
+   <ExtendAccess Value="extend.view_level_3" text="Extend Data Access Level 3"/>
 </Selection>
