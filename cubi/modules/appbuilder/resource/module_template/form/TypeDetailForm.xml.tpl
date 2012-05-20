@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="BookmarkTypeDetailForm" 
-		Class="BookmarkTypeForm" 
-		FormType="Detail" 
-		jsClass="jbForm" 
-		Icon="{RESOURCE_URL}/collab/bookmark/images/icon_bookmark_type.png" 
-		Title="Bookmark Type Detail" 
-		Description="Detailed bookmark type information." 
-		BizDataObj="collab.bookmark.do.BookmarkTypeDO" 
-		DefaultForm="Y" 
-		TemplateEngine="Smarty" 
-		TemplateFile="detail_elementset.tpl" 
-		EventName="BOOKMARK_TYPE" 
-		MessageFile="BookmarkType.msg" 
-		Access="collab_bookmark.access">
+<EasyForm Name="{$form_name}" 
+			Class="{$form_class}"			  
+			FormType="Detail" 
+			jsClass="Openbiz.Form" 
+			Icon="{$form_icon}"
+			Title="{$form_title}" 
+			Description="Please fill in below field to create a new data type."
+			BizDataObj="{$form_do}" 
+			PageSize="10" 
+			DefaultForm="Y" 
+			TemplateEngine="Smarty" 
+			TemplateFile="{$form_template}" 
+			EventName="{$event_name}" 
+			MessageFile="{$message_file}" 
+			Access="{$acl.access}">	
     <DataPanel>
+{literal}  
 			<Element Name="fld_Id" 
 					ElementSet="General" 
 					Hidden="Y" 
@@ -45,8 +47,7 @@
         			Mode="viewOnly" 
         			FieldName="color" 
         			Label="Color Code" 
-        			AllowURLParam="N">
-       	</Element>
+        			AllowURLParam="N" />       	
         	<Element Name="fld_published" 
         			ElementSet="General" 
         			Class="LabelList" 
@@ -105,16 +106,17 @@
 		    		FieldName="update_time" 
 		    		Label="Update Time" 
 		    		AllowURLParam="N"/>
+{/literal}		    		
 	</DataPanel>
     <ActionPanel>       
         <Element Name="btn_new" 
         		Class="Button" 
-        		Text="Add" 
+        		Text="Add  " 
         		CssClass="button_gray_add" 
         		Description="New record (Insert)">
 			<EventHandler Name="btn_new_onclick" 
 						Event="onclick" 
-						Function="SwitchForm(collab.bookmark.form.BookmarkTypeNewForm)"  
+						Function="SwitchForm({$new_form_full_name})"  
 						ShortcutKey="Insert" 
 						ContextMenu="New" />
         </Element>          
@@ -125,7 +127,7 @@
         		Description="Edit record (Ctrl+E)">
 			<EventHandler Name="btn_new_onclick" 
 						Event="onclick" 
-						Function="SwitchForm(collab.bookmark.form.BookmarkTypeEditForm,{@:Elem[fld_Id].Value})"  
+						Function="SwitchForm({$edit_form_full_name},{literal}{@:Elem[fld_Id].Value}{/literal})"  
 						ShortcutKey="Ctrl+E" 
 						ContextMenu="Edit" />
         </Element>
@@ -137,8 +139,8 @@
             <EventHandler Name="onclick" 
             			Event="onclick" 
             			EventLogMsg="" 
-            			Function="CopyRecord({@:Elem[fld_Id].Value})" 
-            			RedirectPage="form=collab.bookmark.form.BookmarkTypeCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
+            			Function="CopyRecord({literal}{@:Elem[fld_Id].Value}{/literal})" 
+            			RedirectPage="form={$copy_form_full_name}&amp;{literal}fld:Id={@:Elem[fld_Id].Value}{/literal}" 
             			ShortcutKey="Ctrl+C" 
             			ContextMenu="Copy"/>
         </Element> 
@@ -146,12 +148,12 @@
         		Class="Button" 
         		Text="Delete" 
         		CssClass="button_gray_m" 
-        		Description="delete record (Delete)">
+        		Description="Delete record (Delete)">
             <EventHandler Name="del_onclick" 
             			Event="onclick" 
             			EventLogMsg="" 
-            			Function="DeleteRecord({@:Elem[fld_Id].Value})"  
-            			RedirectPage="form=collab.bookmark.form.BookmarkTypeListForm" 
+            			Function="DeleteRecord({literal}{@:Elem[fld_Id].Value}{/literal})"  
+            			RedirectPage="form={$list_form_full_name}" 
             			ShortcutKey="Ctrl+Delete" 
             			ContextMenu="Delete" />
         </Element>

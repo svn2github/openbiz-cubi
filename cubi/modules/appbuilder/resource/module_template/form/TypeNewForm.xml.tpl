@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="BookmarkTypeNewForm" 
-		Class="BookmarkTypeForm" 
-		Icon="{RESOURCE_URL}/collab/bookmark/images/icon_bookmark_type.png" 
-		FormType="New"
-		jsClass="jbForm" 
-		Title="New Bookmark Type" 
-		Description="Please fill in below field to create a new bookmark type" 
-		BizDataObj="collab.bookmark.do.BookmarkTypeDO" 		 
-		TemplateEngine="Smarty" 
-		TemplateFile="detail.tpl" 
-		EventName="TASK_TYPE" 
-		MessageFile="BookmarkType.msg" 
-		Access="collab_bookmark.access">
+<EasyForm Name="{$form_name}" 
+			Class="{$form_class}"			  
+			FormType="New" 
+			jsClass="Openbiz.Form" 
+			Icon="{$form_icon}"
+			Title="{$form_title}" 
+			Description="Please fill in below field to create a new data type."
+			BizDataObj="{$form_do}" 
+			PageSize="10" 
+			DefaultForm="Y" 
+			TemplateEngine="Smarty" 
+			TemplateFile="{$form_template}" 
+			EventName="{$event_name}" 
+			MessageFile="{$message_file}" 
+			Access="{$acl.access}">				
     <DataPanel>
         <Element Name="fld_name" 
-        		DefaultValue="New Bookmark Type" 
+        		ElementSet="General" 
+        		DefaultValue="{$record_default_value}" 
         		Class="InputText" 
         		FieldName="name" 
         		Label="Name"   />	
         <Element Name="fld_description" 
+        		ElementSet="General" 
         		Class="Textarea" 
         		FieldName="description" 
         		Label="Description" />	
         <Element Name="fld_color_code" 
+        		ElementSet="General" 
         		Class="ColorPicker" 
 				FieldName="color" 
 				Label="Color Code"  
 				AllowURLParam="N" />	        
         <Element Name="fld_published" 
+        		ElementSet="Miscellaneous" 
         		Class="Listbox" 
         		KeepCookie="Y" 
         		SelectFrom="common.lov.CommLOV(Published)"  
@@ -35,6 +41,7 @@
         		FieldName="group_perm" 
         		Label="Group Share"  />
         <Element Name="fld_published_other" 
+        		ElementSet="Miscellaneous" 
         		Class="Listbox" 
         		KeepCookie="Y" 
         		SelectFrom="common.lov.CommLOV(Published)"  
@@ -42,6 +49,7 @@
         		FieldName="other_perm" 
         		Label="Other Group"  />	
         <Element Name="fld_sortorder" 
+        		ElementSet="Miscellaneous" 
         		Class="Listbox" 
         		SelectFrom="common.lov.CommLOV(Order)" 
         		DefaultValue="50" 
@@ -57,7 +65,7 @@
             			EventLogMsg="" 
             			Event="onclick" 
             			Function="InsertRecord()" 
-            			RedirectPage="form=collab.bookmark.form.BookmarkTypeDetailForm&amp;fld:Id={@collab.bookmark.do.BookmarkTypeDO:Field[Id].Value}"  
+            			RedirectPage="form={$detail_form_full_name}&amp;fld:Id={literal}{{/literal}@{$form_do}:Field[Id].Value{literal}}{/literal}"  
             			ShortcutKey="Ctrl+Enter" 
             			ContextMenu="Save" />
         </Element>

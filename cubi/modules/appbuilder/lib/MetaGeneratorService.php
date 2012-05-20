@@ -189,12 +189,10 @@ class MetaGeneratorService
         	$this->m_DBFields[] = $fieldName;
         }
         
-        //drop record type table if it exists
+        //drop record type table if it exists        
         $tableTypeName = $this->m_DBTable."_type";
-        $sql="DROP TABLE IF EXISTS `$tableTypeName`;";
-        $db->query($sql);
         
-        if($this->m_ConfigModule['data_perm']=='1')
+	    if($this->m_ConfigModule['data_perm']=='1')
 		{
 	        $perm_fields = "
 	        	  `group_id` int(11) DEFAULT '1',
@@ -202,23 +200,26 @@ class MetaGeneratorService
 				  `other_perm` int(11) DEFAULT '1', ";
 		}
 		
-		//create record type table
-        $sql="
-			CREATE TABLE IF NOT EXISTS `$tableTypeName` (
-			  `id` int(11) NOT NULL AUTO_INCREMENT,
-			  `name` varchar(255) NOT NULL,
-			  `description` text NOT NULL,
-			  `color` varchar(255) NOT NULL,
-			  `sortorder` int(11) NOT NULL,
-			  $perm_fields
-			  `create_by` int(11) NOT NULL,
-			  `create_time` datetime NOT NULL,
-			  `update_by` int(11) NOT NULL,
-			  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-			  PRIMARY KEY (`id`)
-			) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;        
-        ";
-        $db->query($sql);
+        if(!$this->__isTableExists($tableTypeName)) 
+        {
+			//create record type table
+	        $sql="
+				CREATE TABLE IF NOT EXISTS `$tableTypeName` (
+				  `id` int(11) NOT NULL AUTO_INCREMENT,
+				  `name` varchar(255) NOT NULL,
+				  `description` text NOT NULL,
+				  `color` varchar(255) NOT NULL,
+				  `sortorder` int(11) NOT NULL,
+				  $perm_fields
+				  `create_by` int(11) NOT NULL,
+				  `create_time` datetime NOT NULL,
+				  `update_by` int(11) NOT NULL,
+				  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+				  PRIMARY KEY (`id`)
+				) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;        
+	        ";
+	        $db->query($sql);
+        }
         
         $doName 	= $extendTypeDO;
 		$doDesc 	= $extendTypeDesc;			
@@ -346,9 +347,8 @@ class MetaGeneratorService
 		$smarty->assign("list_form_full_name", 	$formListFullName);  
 		$smarty->assign("list_form_name", 		$formListName);
 		
-		//form specified variables
+		//form specified variables		
 		$formTitle  = $this->__getFormName()." Type Management";
-		$formDescription = $this->m_ConfigModule['object_desc']." Type";
         $eventName = $this->__getObjectName();		
 		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_type_list.png';
 		$shareIcons = array(
@@ -369,20 +369,111 @@ class MetaGeneratorService
 		$smarty->assign("event_name",		$eventName);
 		$smarty->assign("message_file",		$messageFile);
 		$smarty->assign("share_icons", 		$shareIcons);
+		$smarty->assign("record_default_value", 	"New ".ucfirst($modShortName)." Type");
+		
         
 		$content = $smarty->fetch($templateFile);
                 
         $targetFile = $targetPath . "/" . $formListName . ".xml";
-        file_put_contents($targetFile, $content);    
-        
+        file_put_contents($targetFile, $content);            
 		$this->m_GeneratedFiles['TypeListForm']=str_replace(MODULE_PATH,"",$targetFile);
+
+		//generate detail type form 
+		$templateFile = $this->__getMetaTempPath().'/form/TypeDetailForm.xml.tpl';
+		$formTitle  = "New ".$this->__getFormName()." Type";
+        $eventName = $this->__getObjectName();		
+		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_type_add.png';
+		$formTemplate = "form_detail_adv.tpl.html";
 		
+        $smarty->assign("form_name", 		$formNewName);
+        $smarty->assign("form_class",		$formClass);
+        $smarty->assign("form_icon", 		$formIcon);
+        $smarty->assign("form_title", 		$formTitle);
+        $smarty->assign("form_description", $formDescription);
+        $smarty->assign("form_template",	$formTemplate);
+		$smarty->assign("form_do", 			$doFullName);
+		$smarty->assign("form_type_do", 	$typeDoFullName);		
+		$smarty->assign("event_name",		$eventName);
+		$smarty->assign("message_file",		$messageFile);
+		$smarty->assign("share_icons", 		$shareIcons);
 		
+		$content = $smarty->fetch($templateFile);
+        $targetFile = $targetPath . "/" . $formNewName . ".xml";
+        file_put_contents($targetFile, $content);    
+		$this->m_GeneratedFiles['TypeDetailForm']=str_replace(MODULE_PATH,"",$targetFile);		
 		
+		//generate new type form 
+		$templateFile = $this->__getMetaTempPath().'/form/TypeNewForm.xml.tpl';
+		$formTitle  = "New ".$this->__getFormName()." Type";
+        $eventName = $this->__getObjectName();		
+		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_type_add.png';
+		$formTemplate = "form_edit.tpl.html";
+		
+        $smarty->assign("form_name", 		$formNewName);
+        $smarty->assign("form_class",		$formClass);
+        $smarty->assign("form_icon", 		$formIcon);
+        $smarty->assign("form_title", 		$formTitle);
+        $smarty->assign("form_description", $formDescription);
+        $smarty->assign("form_template",	$formTemplate);
+		$smarty->assign("form_do", 			$doFullName);
+		$smarty->assign("form_type_do", 	$typeDoFullName);		
+		$smarty->assign("event_name",		$eventName);
+		$smarty->assign("message_file",		$messageFile);
+		$smarty->assign("share_icons", 		$shareIcons);
+		
+		$content = $smarty->fetch($templateFile);
+        $targetFile = $targetPath . "/" . $formNewName . ".xml";
+        file_put_contents($targetFile, $content);    
 		$this->m_GeneratedFiles['TypeNewForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
+		
+		
+		//generate copy type form 
+		$templateFile = $this->__getMetaTempPath().'/form/TypeCopyForm.xml.tpl';
+		$formTitle  = "Copy ".$this->__getFormName()." Type";
+        $eventName = $this->__getObjectName();		
+		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_type_copy.png';
+		$formTemplate = "form_edit.tpl.html";
+		
+        $smarty->assign("form_name", 		$formCopyName);
+        $smarty->assign("form_class",		$formClass);
+        $smarty->assign("form_icon", 		$formIcon);
+        $smarty->assign("form_title", 		$formTitle);
+        $smarty->assign("form_description", $formDescription);
+        $smarty->assign("form_template",	$formTemplate);
+		$smarty->assign("form_do", 			$doFullName);
+		$smarty->assign("form_type_do", 	$typeDoFullName);		
+		$smarty->assign("event_name",		$eventName);
+		$smarty->assign("message_file",		$messageFile);
+		$smarty->assign("share_icons", 		$shareIcons);
+		
+		$content = $smarty->fetch($templateFile);
+        $targetFile = $targetPath . "/" . $formCopyName . ".xml";
+        file_put_contents($targetFile, $content);  
 		$this->m_GeneratedFiles['TypeCopyForm']=str_replace(MODULE_PATH,"",$targetFile);
 		
+		//generate edit type form 
+		$templateFile = $this->__getMetaTempPath().'/form/TypeEditForm.xml.tpl';
+		$formTitle  = "Edit ".$this->__getFormName()." Type";
+        $eventName = $this->__getObjectName();		
+		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_type_edit.png';
+		$formTemplate = "form_edit.tpl.html";
+		
+        $smarty->assign("form_name", 		$formEditName);
+        $smarty->assign("form_class",		$formClass);
+        $smarty->assign("form_icon", 		$formIcon);
+        $smarty->assign("form_title", 		$formTitle);
+        $smarty->assign("form_description", $formDescription);
+        $smarty->assign("form_template",	$formTemplate);
+		$smarty->assign("form_do", 			$doFullName);
+		$smarty->assign("form_type_do", 	$typeDoFullName);		
+		$smarty->assign("event_name",		$eventName);
+		$smarty->assign("message_file",		$messageFile);
+		$smarty->assign("share_icons", 		$shareIcons);
+		
+		$content = $smarty->fetch($templateFile);
+        $targetFile = $targetPath . "/" . $formEditName . ".xml";
+        file_put_contents($targetFile, $content);  
 		$this->m_GeneratedFiles['TypeEditForm']=str_replace(MODULE_PATH,"",$targetFile);
 	}
 	
@@ -438,6 +529,22 @@ class MetaGeneratorService
 			}
 		}
 		return false;
+	}
+	
+	private function __isTableExists($tableName)
+	{
+		$db 	= BizSystem::dbConnection($this->m_DBName);
+		$tableName 	= $this->m_DBTable;
+		$sql	= "SHOW TABLES";
+		$fieldsInfo = $db->fetchAssoc($sql);
+		foreach($fieldsInfo as $listTableName=>$listTableInfo)
+		{
+			if($listTableName == $tableName)
+			{				
+				return true;
+			}
+		}
+		return false;		
 	}
 	
 	protected function _genSelfReferenceDO()
