@@ -3,6 +3,9 @@
 	<ACL>
 		<Resource Name="extend">
 			<Action Name="access" Description="access extend fields"/>
+			<Action Name="view_level_1" Description="Extend Data Access Level 1"/>
+			<Action Name="view_level_2" Description="Extend Data Access Level 2"/>
+			<Action Name="view_level_3" Description="Extend Data Access Level 3"/>
 		</Resource>
 	</ACL>
     <Dependency>
