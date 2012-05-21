@@ -175,6 +175,7 @@ class MetaGeneratorService
 		}
 		$extendTypeDO = $this->m_ConfigModule['extend_type_do'];
         $extendTypeDesc = $this->m_ConfigModule['extend_type_desc'];
+        $features		= $this->_getExtendFeatures();
         
         $db 	= BizSystem::dbConnection($this->m_DBName);
         
@@ -247,6 +248,7 @@ class MetaGeneratorService
         $smarty->assign("do_perm_control", $doPermControl);
         $smarty->assign("table_name", $this->m_DBTable);        
         $smarty->assign("table_type_name", $tableTypeName);
+        $smarty->assign("features", $features);
         
         $content = $smarty->fetch($templateFile);
                 
@@ -1403,7 +1405,7 @@ class MetaGeneratorService
                         
         $targetFile = $targetPath . "/" . $formName . ".xml";
         file_put_contents($targetFile, $content);      
-		$this->m_GeneratedFiles['FormObjFiles']['DashbaordForm']=str_replace(MODULE_PATH,"",$targetFile);	
+		$this->m_GeneratedFiles['FormObjFiles']['DashboardForm']=str_replace(MODULE_PATH,"",$targetFile);	
 		
 		
 		//Generate Left Menu Widget
@@ -1435,7 +1437,7 @@ class MetaGeneratorService
         
 		//generate detail view
 		$templateFile = $this->__getMetaTempPath().'/view/DashboardView.xml.tpl';
-		$viewName 	= 'DashbaordView';
+		$viewName 	= 'DashboardView';
 		$viewDesc 	= "Dashboard View of ".$this->m_ConfigModule['object_desc'];		
 		$defaultFormName = $modBaseName.'.widget.DashboardForm';
 		
@@ -1449,7 +1451,7 @@ class MetaGeneratorService
                         
         $targetFile = $targetPath . "/" . $viewName . ".xml";
         file_put_contents($targetFile, $content);      
-		$this->m_GeneratedFiles['ViewObjFiles']['DashbaordView']=str_replace(MODULE_PATH,"",$targetFile);	 	
+		$this->m_GeneratedFiles['ViewObjFiles']['DashboardView']=str_replace(MODULE_PATH,"",$targetFile);	 	
 				
 	}
 	
