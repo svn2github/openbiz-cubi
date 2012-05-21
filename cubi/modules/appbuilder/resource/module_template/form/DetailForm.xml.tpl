@@ -99,7 +99,8 @@
        				FieldName="{$fld.Field}" 
        				Label="{$fld.FieldLabel}" 
        				Text="{literal}{{/literal}BizSystem::GetProfileName(@:Elem[fld_{$fld.Field}].Value){literal}}{/literal}" 
-       				AllowURLParam="N"/>    
+       				AllowURLParam="N"
+       				{if $features.extend eq 1}TabSet="Misc"{/if}/>    
        				   	
 {elseif $fld.Field == 'create_time' || 
 		$fld.Field == 'update_time' ||
@@ -111,7 +112,8 @@
        				ElementSet="Miscellaneous" 
        				FieldName="{$fld.Field}" 
        				Label="{$fld.FieldLabel}"  
-       				AllowURLParam="N"/>       	
+       				AllowURLParam="N"
+       				{if $features.extend eq 1}TabSet="Misc"{/if} />       	
 
 					
 {/if}
