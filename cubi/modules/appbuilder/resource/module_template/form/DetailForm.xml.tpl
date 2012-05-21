@@ -12,7 +12,7 @@
 			MessageFile="{$message_file}" 
 			Access="{$acl.access}">
     <DataPanel>
-{if $features.extend eq 1}	    
+{if $features.data_type eq 1}	    
 		<Element Name="fld_form_title"  
 					Class="LabelText"   
 					FieldName="{$search_field.Field}" 

@@ -12,6 +12,16 @@
 			MessageFile="{$message_file}" 
 			Access="{$acl.update}">
     <DataPanel>
+{if $features.data_type eq 1}    
+		<Element Name="fld_type_id" 
+				ElementSet="General"
+				Class="common.lib.TypeSelector" 
+				FieldName="type_id" 
+				Label="Type" 
+				KeepCookie="Y" 
+				SelectFrom="{$form_type_do}[name:Id:color]" 
+				AllowURLParam="N" />
+{/if}     
 {foreach from=$fields item=fld}
 {if $fld.Field != 'Id' && 
 	$fld.Field != 'id' && 
@@ -38,14 +48,7 @@
        				FieldName="{$fld.Field}" 
        				Label="{$fld.FieldLabel}" 
        				AllowURLParam="{if $fld.Field eq 'Id'}Y{else}N{/if}"/>
-{elseif $fld.Field == 'type_id' }
-       	<Element Name="fld_type_id" 
-       				Class="common.lib.TypeSelector" 
-       				FieldName="type_id" 
-       				Label="Type" 
-       				KeepCookie="Y" 
-       				SelectFrom="{$form_type_do}[name:Id:color]" 
-       				AllowURLParam="N" />       
+    
 {/if}       								   	
 
 {if $fld.Field == 'description' ||

@@ -94,6 +94,7 @@
 		<BizField Name="type_color" 
 				Column="color"  
 				Join="JoinType" />
+				
 	    <BizField Name="type_name" 
 	    		Column="name" 
 	    		Join="JoinType" />

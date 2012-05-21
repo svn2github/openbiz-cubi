@@ -111,9 +111,28 @@
         			{if $fld.Default != 'NULL' && $fld.Default != '' }DefaultValue="{$fld.Default}"{/if} />        			
 {/if}        	
 {assign var=col_counter value=$col_counter+1}
-{/if}
-
+{/if}     
 {/foreach}
+{if $features.data_type eq 1}
+		<Element Name="fld_color" 
+				Class="ColumnStyle" 
+				FieldName="type_color" 
+				Label="Type"  
+				Sortable="Y" 
+				AllowURLParam="N" 
+				Translatable="N" 
+				OnEventLog="N" />
+				
+		<Element Name="fld_type" 
+				Class="ColumnText"  
+				Style="line-height:24px;" 
+				FieldName="type_name" 
+				Label="Type"  
+				Sortable="Y" 
+				AllowURLParam="N" 
+				Translatable="N" 
+				OnEventLog="N" />						        
+{/if}  
 	</DataPanel>
     <ActionPanel>
     	<!-- Create New Record Button -->
