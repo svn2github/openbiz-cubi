@@ -12,7 +12,7 @@
 			MessageFile="{$message_file}" 
 			Access="{$acl.create}">
     <DataPanel>
-{if $features.data_type eq 1}    
+{if $features.extend eq 1}
 		<Element Name="fld_type_id" 
 				ElementSet="General"
 				Class="common.lib.TypeSelector" 
@@ -20,8 +20,30 @@
 				Label="Type" 
 				KeepCookie="Y" 
 				SelectFrom="{$form_type_do}[name:Id:color]" 
+				AllowURLParam="N" >
+   			<EventHandler Name="fld_type_id_onchange" 
+   						Event="onchange" 
+   						Function="UpdateForm()" />
+		</Element>
+		
+		<Element Name="fld_extend_fields"   
+				ElementSet="Extend Fileds"  
+				Class="FormElement" 
+				FormReference="extend.widget.ExtendDataEditForm" 
+				FieldName="extend" 
+				Label="" 
 				AllowURLParam="N" />
-{/if}     
+				
+{elseif $features.data_type eq 1}    
+		<Element Name="fld_type_id" 
+				ElementSet="General" 
+				Class="common.lib.TypeSelector" 
+				FieldName="type_id" 
+				Label="Type" 
+				KeepCookie="Y" 
+				SelectFrom="{$form_type_do}[name:Id:color]" 
+				AllowURLParam="N" />
+{/if}  	  
 {foreach from=$fields item=fld}
 {if $fld.Field != 'Id' && 
 	$fld.Field != 'id' && 

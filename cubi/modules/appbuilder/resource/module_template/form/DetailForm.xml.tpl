@@ -143,7 +143,7 @@
         			Description="New record (Insert)">
 			<EventHandler Name="btn_new_onclick" 
 							Event="onclick" 
-							Function="SwitchForm({$comp}.{$new_form})"  
+							Function="SwitchForm({$new_form_full_name})"  
 							ShortcutKey="Insert" 
 							ContextMenu="New" />
         </Element>          
@@ -154,7 +154,7 @@
         			Description="Edit record (Ctrl+E)">
 			<EventHandler Name="btn_new_onclick" 
 							Event="onclick" 
-							Function="SwitchForm({$comp}.{$edit_form},{literal}{@:Elem[fld_Id].Value}{/literal})"  
+							Function="SwitchForm({$edit_form_full_name},{literal}{@:Elem[fld_Id].Value}{/literal})"  
 							ShortcutKey="Ctrl+E" 
 							ContextMenu="Edit" />
         </Element>
@@ -167,7 +167,7 @@
             				Event="onclick" 
             				EventLogMsg="" 
             				Function="CopyRecord({literal}{@:Elem[fld_Id].Value}{/literal})" 
-            				RedirectPage="form={$comp}.{$copy_form}&amp;fld:Id={literal}{@:Elem[fld_Id].Value}{/literal}" 
+            				RedirectPage="form={$copy_form_full_name}&amp;fld:Id={literal}{@:Elem[fld_Id].Value}{/literal}" 
             				ShortcutKey="Ctrl+C" 
             				ContextMenu="Copy"/>
         </Element> 
@@ -180,7 +180,7 @@
             				Event="onclick" 
             				EventLogMsg="" 
             				Function="DeleteRecord({literal}{@:Elem[fld_Id].Value}{/literal})"  
-            				RedirectPage="form={$comp}.{$list_form}" 
+            				RedirectPage="{literal}{APP_INDEX}{/literal}/{$list_view_url}" 
             				ShortcutKey="Ctrl+Delete" 
             				ContextMenu="Delete" />
         </Element>

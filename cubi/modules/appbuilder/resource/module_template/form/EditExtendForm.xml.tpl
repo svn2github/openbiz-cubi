@@ -12,7 +12,34 @@
 			MessageFile="{$message_file}" 
 			Access="{$acl.create}">
     <DataPanel>
-		{foreach from=$fields item=fld}
+{if $features.data_type eq 1}	    
+		<Element Name="fld_form_title"  
+					Class="LabelText"   
+					FieldName="{$search_field.Field}" 
+					Label="" 
+					Width="500" 
+					style="font-size:24px;color:#333333;line-height:24px;" 
+					AllowURLParam="N" />
+		<Element Name="fld_color" 
+					Class="Hidden" 
+					Hidden="Y" 
+					FieldName="type_color" 
+					Label="Type"  
+					Sortable="Y" 
+					AllowURLParam="N" 
+					Translatable="N" 
+					OnEventLog="N" />
+		<Element Name="fld_form_description"  
+					BackgroundColor="{literal}{@:Elem[fld_color].Value}{/literal}" 
+					Width="648" 
+					Class="LabelText" 
+					FieldName="type_name" 
+					Label="" 
+					KeepCookie="Y" 
+					SelectFrom="{$form_type_do}[name:Id:color]" 
+					AllowURLParam="N" />					
+{/if}
+{foreach from=$fields item=fld}
 {if $fld.Field != 'Id' && 
 	$fld.Field != 'id' && 
 	$fld.Field != 'type_id' && 
@@ -27,43 +54,31 @@
 	$fld.Field != 'sortorder' &&
 	$fld.Field != 'sort_order' &&
 	$fld.Field != 'type_name' &&
-	$fld.Field != 'type_color'  &&
-	$fld.Field != 'description'  &&
-	$fld.Field != 'content'  &&
-	$fld.Field != 'desc'  
+	$fld.Field != 'type_color'  
 	}
+{if $features.extend eq 1 && $fld.Field eq $search_field.Field}
+{else}
        	<Element Name="fld_{$fld.Field}" 
        				ElementSet="General" 
-       				Class="InputText" 
+       				Class="LabelText" 
        				FieldName="{$fld.Field}" 
        				Label="{$fld.FieldLabel}" 
        				AllowURLParam="{if $fld.Field eq 'Id'}Y{else}N{/if}"/>
-    
-{/if}       								   	
-
-{if $fld.Field == 'description' ||
-	$fld.Field == 'content' ||
-	$fld.Field == 'desc' }       	 	
-		<Element Name="fld_{$fld.Field}" 
-					Class="Textarea" 
-					ElementSet="General" 
-					FieldName="{$fld.Field}" 
-					Label="{$fld.FieldLabel}"  />		
 {/if}
-{if $fld.Field == 'sortorder' ||
-	$fld.Field == 'sort_order'  }       	 	
-		<Element Name="fld_{$fld.Field}" 
-					Class="Listbox" 
-					ElementSet="Miscellaneous" 
-					SelectFrom="common.lov.CommLOV(Order)" 
-					DefaultValue="50" 
-					FieldName="{$fld.Field}" 
-					Label="Sorting"  />		
+{elseif $fld.Field == 'id' }
+       	<Element Name="fld_Id" 
+       				Class="LabelText" 
+       				ElementSet="General"
+       				Hidden="Y" 
+       				FieldName="Id" 
+       				Label="{$fld.FieldLabel}"  
+       				AllowURLParam="Y"/>     
+   				  		
+					
 {/if}
-
 {/foreach}
 		<Element Name="fld_type_id" 
-				ElementSet="Data Type" 
+				ElementSet="Data Type"
 				Class="common.lib.TypeSelector" 
 				FieldName="type_id" 
 				Label="Type" 

@@ -1209,7 +1209,7 @@ class MetaGeneratorService
 			$formTitle  = "Edit ".$this->__getFormName()." Extend Fields";	
 			$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_edit.png';
 			
-			$formTemplate = "form_detail_adv_custom.tpl.html";
+			$formTemplate = "form_edit_extend.tpl.html";
 			
 			$templateFile = $this->__getMetaTempPath().'/form/EditExtendForm.xml.tpl';
 			$smarty->assign("form_name", 		$formEditExtendName);
