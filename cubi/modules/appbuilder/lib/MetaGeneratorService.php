@@ -995,6 +995,8 @@ class MetaGeneratorService
 		$formEditFullName  = $modName.'.form.'.$formEditName;		
 		$formNewName  	= $this->__getObjectName().'NewForm';
 		$formNewFullName  = $modName.'.form.'.$formNewName;
+		$formEditExtendName	= $this->__getObjectName().'EditExtendForm';
+		$formEditExtendFullName = $modName.'.form.'.$formEditExtendName;
 		
 		
 		$messageFile = "";
@@ -1058,6 +1060,9 @@ class MetaGeneratorService
 		$smarty->assign("detail_form_name", 	$formDetailName);
 		$smarty->assign("list_form_full_name", 	$formListFullName);  
 		$smarty->assign("list_form_name", 		$formListName);
+		$smarty->assign("extend_form_full_name", $formEditExtendFullName);  
+		$smarty->assign("extend_form_name", 	 $formEditExtendName);
+		
 		
 		//form specified variables
 		$formTitle  = $this->__getFormName()." Management";
@@ -1198,6 +1203,30 @@ class MetaGeneratorService
         file_put_contents($targetFile, $content);   
 		$this->m_GeneratedFiles['FormObjFiles']['CopyForm']=str_replace(MODULE_PATH,"",$targetFile);
 
+		if($features['extend']==1)
+		{
+			//generate edit form metadata		
+			$formTitle  = "Edit ".$this->__getFormName()." Extend Fields";	
+			$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_edit.png';
+			
+			$formTemplate = "form_detail_adv_custom.tpl.html";
+			
+			$templateFile = $this->__getMetaTempPath().'/form/EditExtendForm.xml.tpl';
+			$smarty->assign("form_name", 		$formEditExtendName);
+	        $smarty->assign("form_class",		$formClass);
+	        $smarty->assign("form_icon", 		$formIcon);
+	        $smarty->assign("form_title", 		$formTitle);
+	        $smarty->assign("form_description", $formDescription);
+	        $smarty->assign("form_template",	$formTemplate);
+			$smarty->assign("form_do", 			$doFullName);
+			$smarty->assign("form_type_do", 	$typeDoFullName);		
+			$smarty->assign("event_name",		$eventName);
+			$smarty->assign("message_file",		$messageFile);        
+			$content = $smarty->fetch($templateFile);
+	        $targetFile = $targetPath . "/" . $formEditExtendName . ".xml";
+	        file_put_contents($targetFile, $content);     
+			$this->m_GeneratedFiles['FormObjFiles']['EditExtendForm']=str_replace(MODULE_PATH,"",$targetFile);
+		}
 		
 	}
 	

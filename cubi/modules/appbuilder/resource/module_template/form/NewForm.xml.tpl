@@ -91,18 +91,32 @@
 {/if}
     </DataPanel>
     <ActionPanel>       
-        <Element Name="btn_save" 
+        {if $features.extend eq 1}
+        	<Element Name="btn_finish" 
         			Class="Button" 
-        			Text="Save" 
-        			CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" 
-            			EventLogMsg="" 
-            			Event="onclick" 
-            			Function="InsertRecord()" 
-            			RedirectPage="{literal}{APP_INDEX}{/literal}/{$detail_view_url}/{literal}{{/literal}@{$form_do}:Field[Id].Value{literal}}{/literal}"  
-            			ShortcutKey="Ctrl+Enter" 
-            			ContextMenu="Save" />
-        </Element>
+        			Text="Next Step" 
+        			CssClass="button_gray_w">
+            	<EventHandler Name="finish_onclick" 
+            				EventLogMsg="" 
+            				Event="onclick" 
+            				Function="InsertRecord()" 
+            				RedirectPage="form={$extend_form_full_name}&amp;fld:Id={literal}{{/literal}@{$form_do}:Field[Id].Value{literal}}{/literal}"  
+            				ContextMenu="Next Step"   />
+        	</Element>
+        {else}
+	        <Element Name="btn_save" 
+	        			Class="Button" 
+	        			Text="Save" 
+	        			CssClass="button_gray_m">
+	            <EventHandler Name="save_onclick" 
+	            			EventLogMsg="" 
+	            			Event="onclick" 
+	            			Function="InsertRecord()" 
+	            			RedirectPage="{literal}{APP_INDEX}{/literal}/{$detail_view_url}/{literal}{{/literal}@{$form_do}:Field[Id].Value{literal}}{/literal}"  
+	            			ShortcutKey="Ctrl+Enter" 
+	            			ContextMenu="Save" />
+	        </Element>        
+        {/if}
         <Element Name="btn_cancel" 
         			Class="Button" 
         			Text="Cancel" 
