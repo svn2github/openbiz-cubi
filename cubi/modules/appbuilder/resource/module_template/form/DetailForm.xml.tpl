@@ -118,6 +118,17 @@
 					
 {/if}
 {/foreach}
+{if $features.changelog eq 1 }
+		<Element Name="fld_changelog" 
+				TabSet="Extra Information"  
+				Access="changelog.access"   
+				ElementSet="Change Log" 
+				Class="FormElement" 
+				FormReference="changelog.widget.ChangeLogWidgetForm" 
+				FieldName="" 
+				Label="" 
+				AllowURLParam="N" />
+{/if}
     </DataPanel>
     <ActionPanel>   
     	{literal}  

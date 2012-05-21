@@ -1166,6 +1166,11 @@ class MetaGeneratorService
 		$formTitle  = "Edit ".$this->__getFormName();	
 		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_edit.png';						
 		$formTemplate = "form_edit.tpl.html";  	 	
+				
+		if($features['changelog']==1)
+		{
+			$formClass = "changelog.form.ChangeLogForm";
+		}
 		
 		$templateFile = $this->__getMetaTempPath().'/form/EditForm.xml.tpl';
 		$smarty->assign("form_name", 		$formEditName);
@@ -1185,6 +1190,7 @@ class MetaGeneratorService
 		
 		
 		//generate Copy form metadata	
+		$formClass  = "EasyForm";
 		$formTitle  = "Copy ".$this->__getFormName();	
 		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_copy.png';						
 		$formTemplate = "form_edit.tpl.html";  	 	
