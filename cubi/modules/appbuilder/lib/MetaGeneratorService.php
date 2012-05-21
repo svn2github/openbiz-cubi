@@ -1103,7 +1103,14 @@ class MetaGeneratorService
 				
 	 	if( $features['data_type']==1  )
         {
-        	$formTemplate = "form_detail_adv.tpl.html";
+        	if( $features['extend']==1  )
+        	{
+        		$formTemplate = "form_detail_adv_custom.tpl.html";
+        	}
+        	else
+        	{
+        		$formTemplate = "form_detail_adv.tpl.html";
+        	}
         }
         else
         {

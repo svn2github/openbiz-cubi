@@ -37,8 +37,9 @@
 					Label="" 
 					KeepCookie="Y" 
 					SelectFrom="{$form_type_do}[name:Id:color]" 
-					AllowURLParam="N" />
+					AllowURLParam="N" />					
 {/if}
+
 {foreach from=$fields item=fld}
 {if $fld.Field != 'Id' && 
 	$fld.Field != 'id' && 
@@ -80,7 +81,16 @@
        				Hidden="Y" 
        				FieldName="{$fld.Field}" 
        				Label="{$fld.FieldLabel}"  
-       				AllowURLParam="N"/>           				      				
+       				AllowURLParam="N"/>         
+{if $features.extend eq 1}	
+		<Element Name="fld_extend_fields"   
+					ElementSet="Extend Fields" 
+					Class="FormElement" 
+					FormReference="extend.widget.ExtendDataDetailForm" 
+					FieldName="extend" 
+					Label="" 
+					AllowURLParam="N" />
+{/if}       				  				      				
 {elseif $fld.Field == 'create_by' || 
 		$fld.Field == 'update_by'}
        	<Element Name="fld_{$fld.Field}" 
@@ -107,7 +117,23 @@
 {/if}
 {/foreach}
     </DataPanel>
-    <ActionPanel>       
+    <ActionPanel>   
+    	{literal}  
+    	 <Element Name="btn_share" 
+    	 			Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
+    	 			Class="Button"   
+    	 			Text="Share" 
+    	 			CssClass="button_gray_share" 
+    	 			Description="Share">
+			<EventHandler Name="btn_update_onclick" 
+							Event="onclick" 
+							Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})" />
+        </Element>  
+        <Element Name="btn_spacer_for_share" 
+	        		Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
+	        		Class="Spacer" 
+	        		Width="10" />
+    	{/literal}  
         <Element Name="btn_new" 
         			Class="Button" 
         			Text="Add" 
