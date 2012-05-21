@@ -123,7 +123,7 @@ class MetaGeneratorService
             mkdir($targetPath, 0777, true);
         }
 
-	    if($features['extend']==1)
+	    if($features['data_type']==1)
         {        	
         	$this->_genExtendTypeDO();
         }
@@ -317,7 +317,7 @@ class MetaGeneratorService
             mkdir($targetPath, 0777, true);
         }
 		
-        if( $features['extend']==1 || $doPermControl=='Y' )
+        if( $features['data_type']==1 || $doPermControl=='Y' )
         {
         	$formTemplate = "form_grid_adv.tpl.html";
         }
@@ -805,7 +805,8 @@ class MetaGeneratorService
 						"changelog"			=>	$this->m_ConfigModule['changelog_feature'],
 						"attachment"		=>	$this->m_ConfigModule['attachment_feature'],
 						"self_reference"	=>	$this->m_ConfigModule['selfref_feature'],
-						"extend"			=>	$this->m_ConfigModule['extend_feature']						
+						"extend"			=>	$this->m_ConfigModule['extend_feature'],
+						"data_type"			=>	$this->m_ConfigModule['data_type_feature']							
 						);	
 		return $features;		
 	}
@@ -945,7 +946,7 @@ class MetaGeneratorService
 		$menuManageItem['child']['detail'] = $menuDetailItem;
 		$menu[$resource]['child']['manage'] = $menuManageItem;
 		
-		if($features['extend']==1)
+		if($features['data_type']==1)
         {  
 			$menuTypeItem = array(
 									"name" => $modBaseName.'_'.strtolower($menuName)."_type",
@@ -1019,14 +1020,14 @@ class MetaGeneratorService
             mkdir($targetPath, 0777, true);
         }
 
-	    if($features['extend']==1)
+	    if($features['data_type']==1)
         {        	        	
         	$this->_genExtendTypeForm();    
         	$typeDoFullName = $this->m_TypeDOFullName;  
         	  	
         }
         
-        if( $features['extend']==1 || $doPermControl=='Y' )
+        if( $features['data_type']==1 || $doPermControl=='Y' )
         {
         	$formTemplate = "form_grid_adv.tpl.html";
         }
@@ -1100,7 +1101,7 @@ class MetaGeneratorService
 		$formTitle  = $this->__getFormName()." Detail";	
 		$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_detail.png';
 				
-	 	if( $features['extend']==1  )
+	 	if( $features['data_type']==1  )
         {
         	$formTemplate = "form_detail_adv.tpl.html";
         }
@@ -1249,7 +1250,7 @@ class MetaGeneratorService
 		$this->m_GeneratedFiles['ViewObjFiles']['ManageView']=str_replace(MODULE_PATH,"",$targetFile);
 		
 		//generate type manager view
-		if($features['extend']==1)
+		if($features['data_type']==1)
         {        	
         	$this->_genExtendTypeView();
         }

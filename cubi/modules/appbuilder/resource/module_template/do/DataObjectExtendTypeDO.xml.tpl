@@ -86,6 +86,7 @@
         		Column="type_id" 
         		FieldRef="Id" 
         		onDelete="Restrict"/>
+{if $features.extend eq 1}	        		
 		<Object Name="extend.do.ExtendSettingDO" 
 				Description="Reference to Extend Data Field Setting Records" 
 				Relationship="1-M" 
@@ -95,5 +96,6 @@
 				Column="type_id" 
 				FieldRef="Id" 
 				onDelete="Cascade"/>    
+{/if}				
     </ObjReferences>
 </BizDataObj>

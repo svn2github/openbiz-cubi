@@ -78,7 +78,8 @@
         			AllowURLParam="N" 
         			Translatable="N" 
         			OnEventLog="N" />
-        	
+        	{/literal}
+        	{if $features.extend eq 1}
         	<Element Name="fld_extend_setting" 
         			Access="extend.access" 
         			AccessSelectFrom="extend.lov.ExtendPermLOV(ExtendAccess)" 
@@ -88,7 +89,8 @@
         			FieldName="" 
         			Label="" 
         			AllowURLParam="N" />		
-        			
+        	{/if}	
+        	{literal}	
 		    <Element Name="fld_create_by" 
 		    		ElementSet="Miscellaneous" 
 		    		Class="LabelText" 
@@ -119,7 +121,8 @@
 		    		AllowURLParam="N"/>
 {/literal}		    		
 	</DataPanel>
-    <ActionPanel>    
+    <ActionPanel>           
+       {if $features.extend eq 1}
        {literal}
 		<Element Name="btn_custom" 
 				Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
@@ -133,8 +136,9 @@
 		<Element Name="btn_spacer"  
 				Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
 				Class="Spacer" 
-				Width="10" />		      
-       {/literal}
+				Width="10" />	
+	   {/literal}				
+	   {/if}             
         <Element Name="btn_new" 
         		Class="Button" 
         		Text="Add  " 

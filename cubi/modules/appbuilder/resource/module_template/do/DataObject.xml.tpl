@@ -90,7 +90,7 @@
 				{if $fld.length }Length="{$fld.length}"{/if} />
 {/if}
 {/foreach}
-{if $features.extend eq 1}	
+{if $features.data_type eq 1}	
 		<BizField Name="type_color" 
 				Column="color"  
 				Join="JoinType" />
@@ -100,7 +100,7 @@
 {/if}
 	</BizFieldList>
 	<TableJoins>
-{if $features.extend eq 1}
+{if $features.data_type eq 1}
 		<Join Name="JoinType" 
 				Table="{$table_name}_type" 
 				Column="id" 

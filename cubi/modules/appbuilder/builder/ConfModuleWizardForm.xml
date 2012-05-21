@@ -26,11 +26,12 @@
 		<Element Name="fld_location_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Geo Location feature to this module"  ElementSet="Advanced Features" FieldName="location_feature" Text="" Label="Geo Location"  />
 		<Element Name="fld_selfref_feature"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="1" Description="Enable Self Reference feature to this module"  ElementSet="Advanced Features" FieldName="selfref_feature" Text="" Label="Self Reference"  />
 		
-		<Element Name="fld_data_extend"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="0" Description="Enable Type Based Data Field Extensible Feature"  ElementSet="Extensible" FieldName="extend_feature" Text="" Label="Extend Fields"  >
-			<EventHandler Name="fld_data_extend"  Event="onchange" Function="UpdateForm()" />
+		<Element Name="fld_data_type"  Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="0" Description="Enable Type Based Data Feature"  ElementSet="Extensible" FieldName="data_type_feature" Text="" Label="Type Support"  >
+			<EventHandler Name="fld_data_type"  Event="onchange" Function="UpdateForm()" />
 		</Element>
-		<Element Name="fld_type_do" Hidden="{@:Elem[fld_data_extend].Value==0?'Y':'N'}" Class="InputText" ElementSet="Extensible" FieldName="extend_type_do" Text="" Label="Type Name"  />
-		<Element Name="fld_type_desc" Hidden="{@:Elem[fld_data_extend].Value==0?'Y':'N'}" Class="InputText" ElementSet="Extensible" FieldName="extend_type_desc" Text="" Label="Type Description"  />
+		<Element Name="fld_type_do" Hidden="{@:Elem[fld_data_type].Value==0?'Y':'N'}" Class="InputText" ElementSet="Extensible" FieldName="extend_type_do" Text="" Label="Type Name"  />
+		<Element Name="fld_type_desc" Hidden="{@:Elem[fld_data_type].Value==0?'Y':'N'}" Class="InputText" ElementSet="Extensible" FieldName="extend_type_desc" Text="" Label="Type Description"  />
+		<Element Name="fld_data_extend" Hidden="{@:Elem[fld_data_type].Value==0?'Y':'N'}" Class="Listbox" SelectFrom="common.lov.CommLOV(EnableStatus)" DefaultValue="0" Description="Enable Type Based Data Field Extensible Feature"  ElementSet="Extensible" FieldName="extend_feature" Text="" Label="Extend Fields"  />
 		
     </DataPanel>
     <ActionPanel>
