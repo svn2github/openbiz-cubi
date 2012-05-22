@@ -1424,6 +1424,7 @@ class MetaGeneratorService
 			//generate list editable widget
 			$formTemplate = "element_listform_in_tab.tpl.html";			
 			$templateFile = $this->__getMetaTempPath().'/widget/ListEditableWidgetForm.xml.tpl';
+			$recordName = $this->__getFormName();
 			
 			$smarty->assign("form_name", 		$listEditableWidgetFormName);
 	        $smarty->assign("form_class",		$formClass);
@@ -1432,6 +1433,8 @@ class MetaGeneratorService
 			$smarty->assign("form_type_do", 	$typeDoFullName);		
 			$smarty->assign("event_name",		$eventName);
 			$smarty->assign("message_file",		$messageFile);
+			$smarty->assign("record_name",		$recordName);
+			
 			$smarty->assign("pick_widget_form_full_name",		$pickWidgetFormFullName);    
 			$smarty->assign("quick_add_widget_form_full_name",		$quickAddWidgetFormFullName);            
 			$content = $smarty->fetch($templateFile);
@@ -1439,13 +1442,15 @@ class MetaGeneratorService
 	        file_put_contents($targetFile, $content); 
 			$this->m_GeneratedFiles['FormObjFiles']['ListEditableWidgetForm']=str_replace(MODULE_PATH,"",$targetFile);
 			
-			//generate data pick widget			
+			//generate data pick widget		
+			$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_list.png';	
 			$formDescription = "To select a ".strtolower($this->__getFormName())." click on a row and click to Select button";
 			$formTitle  = "Please select a ".$this->__getFormName();			
 			$formClass	= "PickerForm";
 			$formTemplate = "form_data_picker.tpl.html";			
 			$templateFile = $this->__getMetaTempPath().'/widget/PickWidgetForm.xml.tpl';
 			
+			$smarty->assign("form_icon", 		$formIcon);
 			$smarty->assign("form_name", 		$pickWidgetFormName);
 			$smarty->assign("form_title", 		$formTitle);
 	        $smarty->assign("form_description", $formDescription);
@@ -1463,12 +1468,14 @@ class MetaGeneratorService
 			
 			//generate quick add widget
 			
+			$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_add.png';
 			$formTitle  = "Quick Add ".$this->__getFormName();
 			$formDescription = "Create a new ".strtolower($this->__getFormName())." and edit its content later.";			
 			$formClass	= "PickerForm";
 			$formTemplate = "form_data_quick_add.tpl.html";			
 			$templateFile = $this->__getMetaTempPath().'/widget/NewWidgetForm.xml.tpl';
 			
+			$smarty->assign("form_icon", 		$formIcon);
 			$smarty->assign("form_name", 		$quickAddWidgetFormName);
 			$smarty->assign("form_title", 		$formTitle);
 	        $smarty->assign("form_description", $formDescription);

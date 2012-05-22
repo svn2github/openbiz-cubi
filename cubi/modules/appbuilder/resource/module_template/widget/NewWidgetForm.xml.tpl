@@ -60,16 +60,6 @@
 					FieldName="{$fld.Field}" 
 					Label="{$fld.FieldLabel}"  />		
 {/if}
-{if $fld.Field == 'sortorder' ||
-	$fld.Field == 'sort_order'  }       	 	
-		<Element Name="fld_{$fld.Field}" 
-					Class="Listbox" 
-					ElementSet="Miscellaneous" 
-					SelectFrom="common.lov.CommLOV(Order)" 
-					DefaultValue="50" 
-					FieldName="{$fld.Field}" 
-					Label="Sorting"  />		
-{/if}
 
 {/foreach}       
     </DataPanel>

@@ -3,7 +3,7 @@
 			Class="{$form_class}"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
-			BizDataObj="{$form_do}" 
+			BizDataObj="{$form_do}" 			
 			PageSize="10" 
 			DefaultForm="Y" 
 			TemplateEngine="Smarty" 
@@ -127,7 +127,7 @@
         		   
         <Element Name="btn_pick" 
         		Class="Button" 
-        		Text="Pick Docs" 
+        		Text="Pick {$record_name}" 
         		CssClass="button_gray_w">
             <EventHandler Name="pick_onclick" 
             			Event="onclick" 
