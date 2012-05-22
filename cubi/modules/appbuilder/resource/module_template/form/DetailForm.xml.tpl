@@ -81,7 +81,9 @@
        				Hidden="Y" 
        				FieldName="{$fld.Field}" 
        				Label="{$fld.FieldLabel}"  
-       				AllowURLParam="N"/>         
+       				AllowURLParam="N"/>     
+{/if}        				         				  				      				
+{/foreach}
 {if $features.extend eq 1}	
 		<Element Name="fld_extend_fields"   
 					ElementSet="Extend Fields" 
@@ -90,34 +92,83 @@
 					FieldName="extend" 
 					Label="" 
 					AllowURLParam="N" />
-{/if}       				  				      				
-{elseif $fld.Field == 'create_by' || 
-		$fld.Field == 'update_by'}
-       	<Element Name="fld_{$fld.Field}" 
-       				Class="LabelText" 
-       				ElementSet="Miscellaneous" 
-       				FieldName="{$fld.Field}" 
-       				Label="{$fld.FieldLabel}" 
-       				Text="{literal}{{/literal}BizSystem::GetProfileName(@:Elem[fld_{$fld.Field}].Value){literal}}{/literal}" 
-       				AllowURLParam="N"
-       				{if $features.extend eq 1}TabSet="Misc"{/if}/>    
-       				   	
-{elseif $fld.Field == 'create_time' || 
-		$fld.Field == 'update_time' ||
-		$fld.Field == 'sortorder' ||
-		$fld.Field == 'sort_order'  
-		}
-       	<Element Name="fld_{$fld.Field}" 
-       				Class="LabelText" 
-       				ElementSet="Miscellaneous" 
-       				FieldName="{$fld.Field}" 
-       				Label="{$fld.FieldLabel}"  
-       				AllowURLParam="N"
-       				{if $features.extend eq 1}TabSet="Misc"{/if} />       	
+{/if}  
 
-					
+{if $features.attachment eq 1 }
+		<Element Name="fld_related_attachment" 
+				TabSet="Extra Information"  
+				Access="attachment.access"   
+				ElementSet="Attachment" 
+				Class="FormElement" 
+				FormReference="attachment.widget.AttachmentListDetailForm" 
+				FieldName="" 
+				Label="" 
+				AllowURLParam="N" />
+		<Element Name="btn_manage_attachment" 
+				TabSet="Extra Information"  
+				Access="attachment.access" 
+				Hidden="{literal}{@:m_CanUpdateRecord=='1'?'N':'Y'}{/literal}" 
+				ElementSet="Attachment"  
+				Style="color:#666666;margin-left:5px;margin-top:2px;"  
+				Class="Button" 
+				Text="Manage" 
+				CssClass="button_gray_w" 
+				Description="">
+			<EventHandler Name="btn_manage_attachment_onclick" 
+						Event="onclick" 
+						Function="SwitchForm({$attachment_form_full_name},{literal}{@:Elem[fld_Id].Value}{/literal})"   />
+        </Element>  
+{/if}   
+{if $features.picture eq 1 }     
+         <Element Name="fld_related_picture" 
+         		TabSet="Extra Information"  
+         		Access="picture.access" 
+         		ElementSet="Picture" 
+         		Class="FormElement" 
+         		FormReference="picture.widget.PictureListDetailForm" 
+         		FieldName="" 
+         		Label="" 
+         		AllowURLParam="N" />
+		<Element Name="btn_manage_picture" 
+				TabSet="Extra Information"  
+				Access="picture.access" 
+				Hidden="{literal}{@:m_CanUpdateRecord=='1'?'N':'Y'}{/literal}" 
+				ElementSet="Picture"  
+				Style="color:#666666;margin-left:5px;margin-top:2px;"  
+				Class="Button" 
+				Text="Manage" 
+				CssClass="button_gray_w" 
+				Description="">
+			<EventHandler Name="btn_manage_attachment_onclick" 
+						Event="onclick" 
+						Function="SwitchForm({$picture_form_full_name},{literal}{@:Elem[fld_Id].Value}{/literal})"   />
+        </Element>
 {/if}
-{/foreach}
+{if $features.changelog eq 1 }
+		<Element Name="fld_locations"  
+				Access="location.access" 
+				TabSet="Extra Information" 
+				ElementSet="Locations" 
+				Class="FormElement" 
+				FormReference="location.widget.LocationListDetailForm" 
+				FieldName="" 
+				Label="" 
+				AllowURLParam="N" />
+		<Element Name="btn_manage_locations"  
+				Access="location.access" 
+				TabSet="Extra Information" 
+				Hidden="{literal}{@:m_CanUpdateRecord=='1'?'N':'Y'}{/literal}" 
+				ElementSet="Locations" 
+				Style="color:#666666;margin-left:5px;margin-top:2px;"  
+				Class="Button" 
+				Text="Manage" 
+				CssClass="button_gray_w" 
+				Description="">
+			<EventHandler Name="btn_manage_location_onclick" 
+						Event="onclick" 
+						Function="SwitchForm({$location_form_full_name},{literal}{@:Elem[fld_Id].Value}{/literal})"   />
+       	</Element> 
+{/if}
 {if $features.changelog eq 1 }
 		<Element Name="fld_changelog" 
 				TabSet="Extra Information"  
@@ -129,6 +180,35 @@
 				Label="" 
 				AllowURLParam="N" />
 {/if}
+
+{foreach from=$fields item=fld}
+{if $fld.Field == 'create_by' || 
+	$fld.Field == 'update_by'}
+       	<Element Name="fld_{$fld.Field}" 
+       				Class="LabelText" 
+       				ElementSet="{if $features.extend eq 1}Misc{else}Miscellaneous{/if}" 
+       				FieldName="{$fld.Field}" 
+       				Label="{$fld.FieldLabel}" 
+       				Text="{literal}{{/literal}BizSystem::GetProfileName(@:Elem[fld_{$fld.Field}].Value){literal}}{/literal}" 
+       				AllowURLParam="N"
+       				{if $features.extend eq 1}TabSet="Extra Information"{/if} />  
+       				   	
+{elseif $fld.Field == 'create_time' || 
+		$fld.Field == 'update_time' ||
+		$fld.Field == 'sortorder' ||
+		$fld.Field == 'sort_order'  
+		}
+       	<Element Name="fld_{$fld.Field}" 
+       				Class="LabelText" 
+       				ElementSet="{if $features.extend eq 1}Misc{else}Miscellaneous{/if}" 
+       				FieldName="{$fld.Field}" 
+       				Label="{$fld.FieldLabel}"  
+       				AllowURLParam="N"
+       				{if $features.extend eq 1}TabSet="Extra Information"{/if} />       	
+
+					
+{/if}
+{/foreach}
     </DataPanel>
     <ActionPanel>   
     	{literal}  
