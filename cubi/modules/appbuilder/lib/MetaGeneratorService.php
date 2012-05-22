@@ -1077,6 +1077,43 @@ class MetaGeneratorService
 		$smarty->assign("location_form_full_name", $formEditLocationFullName);  
 		$smarty->assign("location_form_name", 	 $formEditLocationName);
 		
+		
+	
+		if($features['widget']==1)
+		{
+			
+			$listWidgetFormName					= $this->__getObjectName().'ListWidgetForm';
+			$listWidgetFormFullName 			= $modName.'.widget.'.$listWidgetFormName;			
+			$listEditableWidgetFormName			= $this->__getObjectName().'ListEditableWidgetForm';
+			$listEditableWidgetFormFullName 	= $modName.'.widget.'.$listEditableWidgetFormName;
+			$pickWidgetFormName					= $this->__getObjectName().'PickWidgetForm';
+			$pickWidgetFormFullName 			= $modName.'.widget.'.$pickWidgetFormName;
+			$quickAddWidgetFormName				= $this->__getObjectName().'QuickAddWidgetForm';
+			$quickAddWidgetFormFullName 		= $modName.'.widget.'.$QuickAddWidgetFormName;
+			
+			$smarty->assign("list_widget_name", 				$listWidgetFormName);
+			$smarty->assign("list_widget_full_name", 			$listWidgetFormFullName); 
+			$smarty->assign("list_editable_widget_name", 		$listEditableWidgetFormName);
+			$smarty->assign("list_editable_widget_full_name", 	$listEditableWidgetFormFullName); 
+			$smarty->assign("pick_widget_name", 				$pickWidgetFormName);
+			$smarty->assign("pick_widget_full_name", 			$pickWidgetFormFullName); 
+			$smarty->assign("quick_add_widget_name", 			$quickAddWidgetFormName);
+			$smarty->assign("quick_add_widget_full_name", 		$quickAddWidgetFormFullName); 			
+		}
+		
+		if($features['self_reference']==1)
+		{
+			$listRelatedWidgetFormName					= $this->__getObjectName().'ListRelatedWidgetForm';
+			$listRelatedWidgetFormFullName 				= $modName.'.widget.'.$listRelatedWidgetFormName;	
+			$listRelatedEditableWidgetFormName			= $this->__getObjectName().'ListRelatedEditableWidgetForm';
+			$listRelatedEditableWidgetFormFullName 		= $modName.'.widget.'.$listRelatedEditableWidgetFormName;	
+			
+			$smarty->assign("list_related_widget_name", 				$listRelatedWidgetFormName);
+			$smarty->assign("list_related_widget_full_name", 			$listRelatedWidgetFormFullName); 
+			$smarty->assign("list_related_editable_widget_name", 		$listRelatedEditableWidgetFormName);
+			$smarty->assign("list_related_editable_widget_full_name", 	$listRelatedEditableWidgetFormFullName); 			
+		}
+		
 		//form specified variables
 		$formTitle  = $this->__getFormName()." Management";
 		$formDescription = $this->m_ConfigModule['object_desc'];
@@ -1322,6 +1359,76 @@ class MetaGeneratorService
 			$this->m_GeneratedFiles['FormObjFiles']['EditLocationForm']=str_replace(MODULE_PATH,"",$targetFile);
 		}		
 		
+		if($features['widget']==1)
+		{
+			/*
+			$smarty->assign("list_widget_name", 				$listWidgetFormName);
+			$smarty->assign("list_widget_full_name", 			$listWidgetFormFullName); 
+			$smarty->assign("list_editable_widget_name", 		$listEditableWidgetFormName);
+			$smarty->assign("list_editable_widget_full_name", 	$listEditableWidgetFormFullName); 
+			$smarty->assign("pick_widget_name", 				$pickWidgetFormName);
+			$smarty->assign("pick_widget_full_name", 			$pickWidgetFormFullName); 
+			$smarty->assign("quick_add_widget_name", 			$quickAddWidgetFormName);
+			$smarty->assign("quick_add_widget_full_name", 		$quickAddWidgetFormFullName); 
+			*/
+			
+			//generate list widget				
+			$formTemplate = "element_listform_lite.tpl.html";			
+			$templateFile = $this->__getMetaTempPath().'/form/ListWidgetForm.xml.tpl';
+			
+			$smarty->assign("form_name", 		$listWidgetFormName);
+	        $smarty->assign("form_class",		$formClass);
+	        $smarty->assign("form_template",	$formTemplate);
+			$smarty->assign("form_do", 			$doFullName);
+			$smarty->assign("form_type_do", 	$typeDoFullName);		
+			$smarty->assign("event_name",		$eventName);
+			$smarty->assign("message_file",		$messageFile);        
+			$content = $smarty->fetch($templateFile);
+	        $targetFile = $targetPath . "/" . $listWidgetFormName . ".xml";
+	        file_put_contents($targetFile, $content);     
+			$this->m_GeneratedFiles['FormObjFiles']['ListWidgetForm']=str_replace(MODULE_PATH,"",$targetFile);
+			
+			//generate list editable widget
+			$formTemplate = "element_listform_in_tab.tpl.html";			
+			$templateFile = $this->__getMetaTempPath().'/form/ListEditableWidgetForm.xml.tpl';
+			
+			$smarty->assign("form_name", 		$listEditableWidgetFormName);
+	        $smarty->assign("form_class",		$formClass);
+	        $smarty->assign("form_template",	$formTemplate);
+			$smarty->assign("form_do", 			$doFullName);
+			$smarty->assign("form_type_do", 	$typeDoFullName);		
+			$smarty->assign("event_name",		$eventName);
+			$smarty->assign("message_file",		$messageFile);        
+			$content = $smarty->fetch($templateFile);
+	        $targetFile = $targetPath . "/" . $listEditableWidgetFormName . ".xml";
+	        file_put_contents($targetFile, $content); 
+			$this->m_GeneratedFiles['FormObjFiles']['ListEditableWidgetForm']=str_replace(MODULE_PATH,"",$targetFile);
+			
+			//generate data pick widget
+			
+			//generate quick add widget
+			
+			
+		}
+		
+		if($features['self_reference']==1)
+		{
+			/*
+			$smarty->assign("list_related_widget_name", 				$listRelatedWidgetFormName);
+			$smarty->assign("list_related_widget_full_name", 			$listRelatedWidgetFormFullName); 
+			$smarty->assign("list_related_editable_widget_name", 		$listRelatedEditableWidgetFormName);
+			$smarty->assign("list_related_editable_widget_full_name", 	$listRelatedEditableWidgetFormFullName); 
+			*/
+			//generate list related ro widget
+			
+			
+			//generate list related rw widget
+			
+			
+			//generate edit self reference form
+			
+			
+		}
 	}
 	
 	protected function _genViewObj()
