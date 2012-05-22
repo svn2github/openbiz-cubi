@@ -169,6 +169,29 @@
 						Function="SwitchForm({$location_form_full_name},{literal}{@:Elem[fld_Id].Value}{/literal})"   />
        	</Element> 
 {/if}
+{if $features.self_reference eq 1 }
+		<Element Name="fld_related_data" 
+				TabSet="Related Data"   
+				ElementSet="Document" 
+				Class="FormElement" 
+				FormReference="{$list_ro_widget_full_name}" 
+				FieldName="" 
+				Label="" 
+				AllowURLParam="N" />
+	    <Element Name="btn_manage_related" 
+	    		TabSet="Related Data" 
+	    		Hidden="{literal}{@:m_CanUpdateRecord=='1'?'N':'Y'}{/literal}" 
+	    		ElementSet="Document" 
+	    		Style="color:#666666;margin-left:5px;margin-top:2px;"  
+	    		Class="Button" 
+	    		Text="Manage" 
+	    		CssClass="button_gray_w" 
+	    		Description="">
+			<EventHandler Name="btn_manage_related_onclick"
+						 Event="onclick" 
+						 Function="SwitchForm({$related_form_full_name},{literal}{@:Elem[fld_Id].Value}{/literal})"   />
+       	</Element>	
+{/if}
 {if $features.changelog eq 1 }
 		<Element Name="fld_changelog" 
 				TabSet="Extra Information"  

@@ -806,9 +806,10 @@ class MetaGeneratorService
 						"location"			=>	$this->m_ConfigModule['location_feature'],
 						"changelog"			=>	$this->m_ConfigModule['changelog_feature'],
 						"attachment"		=>	$this->m_ConfigModule['attachment_feature'],
+						"widget"			=>	$this->m_ConfigModule['widget_feature'],
 						"self_reference"	=>	$this->m_ConfigModule['selfref_feature'],
 						"extend"			=>	$this->m_ConfigModule['extend_feature'],
-						"data_type"			=>	$this->m_ConfigModule['data_type_feature']							
+						"data_type"			=>	$this->m_ConfigModule['data_type_feature'],															
 						);	
 		return $features;		
 	}
@@ -1394,8 +1395,11 @@ class MetaGeneratorService
 		}
 		$modName 	= $this->__getModuleName(false);
 		$templateFiles = $this->__getMetaTempPath().'/template/';
-		$targetPath = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/template";										
-		$this->__recursiveCopy($templateFiles, $targetPath);
+		$targetPath = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/template";
+		if(!is_dir($targetPath))
+		{
+			@mkdir($targetPath,0777,true);
+		}										
 		
 		//generate view file
 		$left_menu_widget = $modName.".widget.".$modName.'LeftMenu';
@@ -1414,6 +1418,29 @@ class MetaGeneratorService
 		$data = file_get_contents($source);
 		$data = str_replace("@@DASHBOARD_VIEW@@", $dashbaard_view_url, $data);
 		file_put_contents($dest, $data);
+		
+		//copy module view level tempaltes
+		
+		foreach(glob($templateFiles.DIRECTORY_SEPARATOR."*" ) as $src_file)
+		{
+			if(!preg_match("/^form_/si", basename($src_file)))
+			{
+				@copy($src_file,$targetPath.DIRECTORY_SEPARATOR.basename($src_file));
+			}
+		}						
+		//copy sub module level templates
+		$targetPath = MODULE_PATH . "/" . str_replace(".", "/", $this->__getModuleName()) . "/template";
+		if(!is_dir($targetPath))
+		{
+			@mkdir($targetPath,0777,true);
+		}
+		foreach(glob($templateFiles.DIRECTORY_SEPARATOR."*" ) as $src_file)
+		{
+			if(preg_match("/^form_/si", basename($src_file)))
+			{
+				@copy($src_file,$targetPath.DIRECTORY_SEPARATOR.basename($src_file));
+			}
+		}
 		return;
 	}	
 	
