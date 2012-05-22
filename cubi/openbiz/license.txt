@@ -1,7 +1,7 @@
-BSD Style-License for PHPOpenBiz 
+BSD Style-License for OpenBiz 
 =========================================================================================================
 
-Copyright (c) 2003 Rocky Swen
+Copyright (c) 2003 Rocky Swen (a.k.a Zhaoyang Sun)
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
