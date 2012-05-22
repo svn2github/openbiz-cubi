@@ -1111,7 +1111,7 @@ class MetaGeneratorService
 			$pickWidgetFormName					= $this->__getObjectName().'PickWidgetForm';
 			$pickWidgetFormFullName 			= $modName.'.widget.'.$pickWidgetFormName;
 			$quickAddWidgetFormName				= $this->__getObjectName().'QuickAddWidgetForm';
-			$quickAddWidgetFormFullName 		= $modName.'.widget.'.$QuickAddWidgetFormName;
+			$quickAddWidgetFormFullName 		= $modName.'.widget.'.$quickAddWidgetFormName;
 			
 			$smarty->assign("list_widget_name", 				$listWidgetFormName);
 			$smarty->assign("list_widget_full_name", 			$listWidgetFormFullName); 
@@ -1425,14 +1425,16 @@ class MetaGeneratorService
 			$smarty->assign("form_do", 			$doFullName);
 			$smarty->assign("form_type_do", 	$typeDoFullName);		
 			$smarty->assign("event_name",		$eventName);
-			$smarty->assign("message_file",		$messageFile);        
+			$smarty->assign("message_file",		$messageFile);
+			$smarty->assign("pick_widget_form_full_name",		$pickWidgetFormFullName);    
+			$smarty->assign("quick_add_widget_form_full_name",		$quickAddWidgetFormFullName);            
 			$content = $smarty->fetch($templateFile);
 	        $targetFile = $targetPath . "/" . $listEditableWidgetFormName . ".xml";
 	        file_put_contents($targetFile, $content); 
 			$this->m_GeneratedFiles['FormObjFiles']['ListEditableWidgetForm']=str_replace(MODULE_PATH,"",$targetFile);
 			
 			//generate data pick widget			
-			$formDescription = "To select a ".$this->__getFormName()." click on a row and click to Select button";
+			$formDescription = "To select a ".strtolower($this->__getFormName())." click on a row and click to Select button";
 			$formTitle  = "Please select a ".$this->__getFormName();			
 			$formClass	= "PickerForm";
 			$formTemplate = "form_data_picker.tpl.html";			
@@ -1454,6 +1456,26 @@ class MetaGeneratorService
 			
 			
 			//generate quick add widget
+			
+			$formTitle  = "Quick Add ".$this->__getFormName();
+			$formDescription = "Create a new ".strtolower($this->__getFormName())." and edit its content later.";			
+			$formClass	= "PickerForm";
+			$formTemplate = "form_data_quick_add.tpl.html";			
+			$templateFile = $this->__getMetaTempPath().'/widget/NewWidgetForm.xml.tpl';
+			
+			$smarty->assign("form_name", 		$quickAddWidgetFormName);
+			$smarty->assign("form_title", 		$formTitle);
+	        $smarty->assign("form_description", $formDescription);
+	        $smarty->assign("form_class",		$formClass);
+	        $smarty->assign("form_template",	$formTemplate);
+			$smarty->assign("form_do", 			$this->m_PickDOFullName);
+			$smarty->assign("form_type_do", 	$typeDoFullName);		
+			$smarty->assign("event_name",		$eventName);
+			$smarty->assign("message_file",		$messageFile);        
+			$content = $smarty->fetch($templateFile);
+	        $targetFile = $targetPath . "/" . $quickAddWidgetFormName . ".xml";
+	        file_put_contents($targetFile, $content); 
+			$this->m_GeneratedFiles['FormObjFiles']['QuickAddWidgetForm']=str_replace(MODULE_PATH,"",$targetFile);
 			
 			
 		}
@@ -1506,7 +1528,26 @@ class MetaGeneratorService
 			
 			
 			//generate edit self reference form
+			$formTitle  = "Edit ".$this->__getFormName()." Related Record";	
+			$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_related.png';
+			$formDescription = "This form could help you manage ".$this->__getObjectFileName()." related data record.";
+			$formTemplate = "form_detail_adv.tpl.html";
 			
+			$templateFile = $this->__getMetaTempPath().'/form/EditLocationForm.xml.tpl';
+			$smarty->assign("form_name", 		$formEditLocationName);
+	        $smarty->assign("form_class",		$formClass);
+	        $smarty->assign("form_icon", 		$formIcon);
+	        $smarty->assign("form_title", 		$formTitle);
+	        $smarty->assign("form_description", $formDescription);
+	        $smarty->assign("form_template",	$formTemplate);
+			$smarty->assign("form_do", 			$doFullName);
+			$smarty->assign("form_type_do", 	$typeDoFullName);		
+			$smarty->assign("event_name",		$eventName);
+			$smarty->assign("message_file",		$messageFile);        
+			$content = $smarty->fetch($templateFile);
+	        $targetFile = $targetPath . "/" . $formEditLocationName . ".xml";
+	        file_put_contents($targetFile, $content);     
+			$this->m_GeneratedFiles['FormObjFiles']['EditLocationForm']=str_replace(MODULE_PATH,"",$targetFile);
 			
 		}
 	}
@@ -1654,7 +1695,7 @@ class MetaGeneratorService
 			"icon_mod_picture.png"					=> 	"images/icon_mod_".$this->__getObjectFileName().'_picture.png',
 			"icon_mod_attachment.png"				=> 	"images/icon_mod_".$this->__getObjectFileName().'_attachment.png',
 			"icon_mod_location.png"					=> 	"images/icon_mod_".$this->__getObjectFileName().'_location.png',
-			"icon_mod_self.png"						=> 	"images/icon_mod_".$this->__getObjectFileName().'_self.png',
+			"icon_mod_related.png"					=> 	"images/icon_mod_".$this->__getObjectFileName().'_related.png',
 			
 			"icon_mod_type_list.png"				=> 	"images/icon_mod_".$this->__getObjectFileName().'_type_list.png',
 			"icon_mod_type_add.png"					=> 	"images/icon_mod_".$this->__getObjectFileName().'_type_add.png',

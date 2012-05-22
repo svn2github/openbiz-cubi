@@ -119,7 +119,7 @@
 				CssClass="button_gray_add">
             <EventHandler Name="add_onclick" 
             			Event="onclick" 
-            			Function="LoadDialog({$quick_add_form_full_name})"/>
+            			Function="LoadDialog({$quick_add_widget_form_full_name})"/>
         </Element>
         <Element Name="btn_spacer" 
         		Class="Spacer" 
@@ -131,7 +131,7 @@
         		CssClass="button_gray_w">
             <EventHandler Name="pick_onclick" 
             			Event="onclick" 
-            			Function="LoadDialog(collab.document.widget.DocumentPickForm)"/>
+            			Function="LoadDialog({$pick_widget_form_full_name})"/>
         </Element>
         <Element Name="btn_remove" 
         		Class="Button" 
