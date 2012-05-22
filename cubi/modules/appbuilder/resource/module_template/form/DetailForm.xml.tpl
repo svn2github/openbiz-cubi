@@ -92,7 +92,7 @@
 					FieldName="extend" 
 					Label="" 
 					AllowURLParam="N" />
-{/if}  
+{/if}
 
 {if $features.attachment eq 1 }
 		<Element Name="fld_related_attachment" 

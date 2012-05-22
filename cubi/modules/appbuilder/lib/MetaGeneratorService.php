@@ -987,19 +987,24 @@ class MetaGeneratorService
 		$detailViewURL = $modShortName.'/'.$this->__getViewName().'_detail';
 		$listViewURL = $modShortName.'/'.$this->__getViewName().'_manage';
 		
-		$formListName 	= $this->__getObjectName().'ListForm';
-		$formListFullName = $modName.'.form.'.$formListName;				
-		$formDetailName  	= $this->__getObjectName().'DetailForm';
-		$formDetailFullName  = $modName.'.form.'.$formDetailName;
-		$formCopyName  	= $this->__getObjectName().'CopyForm';
-		$formCopyFullName  = $modName.'.form.'.$formCopyName;		
-		$formEditName  	= $this->__getObjectName().'EditForm';
-		$formEditFullName  = $modName.'.form.'.$formEditName;		
-		$formNewName  	= $this->__getObjectName().'NewForm';
-		$formNewFullName  = $modName.'.form.'.$formNewName;
-		$formEditExtendName	= $this->__getObjectName().'EditExtendForm';
-		$formEditExtendFullName = $modName.'.form.'.$formEditExtendName;
-		
+		$formListName 				= $this->__getObjectName().'ListForm';
+		$formListFullName 			= $modName.'.form.'.$formListName;				
+		$formDetailName  			= $this->__getObjectName().'DetailForm';
+		$formDetailFullName  		= $modName.'.form.'.$formDetailName;
+		$formCopyName  				= $this->__getObjectName().'CopyForm';
+		$formCopyFullName  			= $modName.'.form.'.$formCopyName;		
+		$formEditName  				= $this->__getObjectName().'EditForm';
+		$formEditFullName  			= $modName.'.form.'.$formEditName;		
+		$formNewName  				= $this->__getObjectName().'NewForm';
+		$formNewFullName 			= $modName.'.form.'.$formNewName;
+		$formEditExtendName			= $this->__getObjectName().'EditExtendForm';
+		$formEditExtendFullName 	= $modName.'.form.'.$formEditExtendName;
+		$formEditAttachmentName 	= $this->__getObjectName().'EditAttachmentForm';
+		$formEditAttachmentFullName = $modName.'.form.'.$formEditAttachmentName;
+		$formEditPictureName 		= $this->__getObjectName().'EditPictureForm';
+		$formEditPictureFullName 	= $modName.'.form.'.$formEditPictureName;
+		$formEditLocationName 		= $this->__getObjectName().'EditLocationForm';
+		$formEditLocationFullName 	= $modName.'.form.'.$formEditLocationName;
 		
 		$messageFile = "";
 		if($this->m_GeneratedFiles['MessageFiles']['MessageFile']!='')
@@ -1064,7 +1069,12 @@ class MetaGeneratorService
 		$smarty->assign("list_form_name", 		$formListName);
 		$smarty->assign("extend_form_full_name", $formEditExtendFullName);  
 		$smarty->assign("extend_form_name", 	 $formEditExtendName);
-		
+		$smarty->assign("attachment_form_full_name", $formEditAttachmentFullName);  
+		$smarty->assign("attachment_form_name", 	 $formEditAttachmentName);
+		$smarty->assign("picture_form_full_name", $formEditPictureFullName);  
+		$smarty->assign("picture_form_name", 	 $formEditPictureName);
+		$smarty->assign("location_form_full_name", $formEditLocationFullName);  
+		$smarty->assign("location_form_name", 	 $formEditLocationName);
 		
 		//form specified variables
 		$formTitle  = $this->__getFormName()." Management";
@@ -1213,9 +1223,9 @@ class MetaGeneratorService
 
 		if($features['extend']==1)
 		{
-			//generate edit form metadata		
+			//generate edit extend form metadata		
 			$formTitle  = "Edit ".$this->__getFormName()." Extend Fields";	
-			$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_edit.png';
+			$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_extend.png';
 			
 			$formTemplate = "form_edit_extend.tpl.html";
 			
@@ -1235,6 +1245,81 @@ class MetaGeneratorService
 	        file_put_contents($targetFile, $content);     
 			$this->m_GeneratedFiles['FormObjFiles']['EditExtendForm']=str_replace(MODULE_PATH,"",$targetFile);
 		}
+		
+		if($features['attachment']==1)
+		{
+			//generate edit attachment form metadata		
+			$formTitle  = "Edit ".$this->__getFormName()." Attachments";	
+			$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_attachment.png';
+			$formDescription = "This form could help you manage ".$this->__getObjectFileName()." attachments.";
+			$formTemplate = "form_detail_adv.tpl.html";
+			
+			$templateFile = $this->__getMetaTempPath().'/form/EditAttachmentForm.xml.tpl';
+			$smarty->assign("form_name", 		$formEditAttachmentName);
+	        $smarty->assign("form_class",		$formClass);
+	        $smarty->assign("form_icon", 		$formIcon);
+	        $smarty->assign("form_title", 		$formTitle);
+	        $smarty->assign("form_description", $formDescription);
+	        $smarty->assign("form_template",	$formTemplate);
+			$smarty->assign("form_do", 			$doFullName);
+			$smarty->assign("form_type_do", 	$typeDoFullName);		
+			$smarty->assign("event_name",		$eventName);
+			$smarty->assign("message_file",		$messageFile);        
+			$content = $smarty->fetch($templateFile);
+	        $targetFile = $targetPath . "/" . $formEditAttachmentName . ".xml";
+	        file_put_contents($targetFile, $content);     
+			$this->m_GeneratedFiles['FormObjFiles']['EditAttachmentForm']=str_replace(MODULE_PATH,"",$targetFile);
+		}
+
+		if($features['picture']==1)
+		{
+			//generate edit attachment form metadata		
+			$formTitle  = "Edit ".$this->__getFormName()." Pictures";	
+			$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_picture.png';
+			$formDescription = "This form could help you manage ".$this->__getObjectFileName()." pictures.";
+			$formTemplate = "form_detail_adv.tpl.html";
+			
+			$templateFile = $this->__getMetaTempPath().'/form/EditPictureForm.xml.tpl';
+			$smarty->assign("form_name", 		$formEditPictureName);
+	        $smarty->assign("form_class",		$formClass);
+	        $smarty->assign("form_icon", 		$formIcon);
+	        $smarty->assign("form_title", 		$formTitle);
+	        $smarty->assign("form_description", $formDescription);
+	        $smarty->assign("form_template",	$formTemplate);
+			$smarty->assign("form_do", 			$doFullName);
+			$smarty->assign("form_type_do", 	$typeDoFullName);		
+			$smarty->assign("event_name",		$eventName);
+			$smarty->assign("message_file",		$messageFile);        
+			$content = $smarty->fetch($templateFile);
+	        $targetFile = $targetPath . "/" . $formEditPictureName . ".xml";
+	        file_put_contents($targetFile, $content);     
+			$this->m_GeneratedFiles['FormObjFiles']['EditPictureForm']=str_replace(MODULE_PATH,"",$targetFile);
+		}	
+
+		if($features['location']==1)
+		{
+			//generate edit location form metadata		
+			$formTitle  = "Edit ".$this->__getFormName()." Geographic Locations";	
+			$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_picture.png';
+			$formDescription = "This form could help you manage ".$this->__getObjectFileName()." geographic locations.";
+			$formTemplate = "form_detail_adv.tpl.html";
+			
+			$templateFile = $this->__getMetaTempPath().'/form/EditLocationForm.xml.tpl';
+			$smarty->assign("form_name", 		$formEditLocationName);
+	        $smarty->assign("form_class",		$formClass);
+	        $smarty->assign("form_icon", 		$formIcon);
+	        $smarty->assign("form_title", 		$formTitle);
+	        $smarty->assign("form_description", $formDescription);
+	        $smarty->assign("form_template",	$formTemplate);
+			$smarty->assign("form_do", 			$doFullName);
+			$smarty->assign("form_type_do", 	$typeDoFullName);		
+			$smarty->assign("event_name",		$eventName);
+			$smarty->assign("message_file",		$messageFile);        
+			$content = $smarty->fetch($templateFile);
+	        $targetFile = $targetPath . "/" . $formEditLocationName . ".xml";
+	        file_put_contents($targetFile, $content);     
+			$this->m_GeneratedFiles['FormObjFiles']['EditLocationForm']=str_replace(MODULE_PATH,"",$targetFile);
+		}		
 		
 	}
 	
@@ -1351,6 +1436,11 @@ class MetaGeneratorService
 			"icon_mod_edit.png"						=> 	"images/icon_mod_".$this->__getObjectFileName().'_edit.png',
 			"icon_mod_copy.png"						=> 	"images/icon_mod_".$this->__getObjectFileName().'_copy.png',
 			"icon_mod_detail.png"					=> 	"images/icon_mod_".$this->__getObjectFileName().'_detail.png',
+		
+			"icon_mod_picture.png"					=> 	"images/icon_mod_".$this->__getObjectFileName().'_picture.png',
+			"icon_mod_attachment.png"				=> 	"images/icon_mod_".$this->__getObjectFileName().'_attachment.png',
+			"icon_mod_location.png"					=> 	"images/icon_mod_".$this->__getObjectFileName().'_location.png',
+			"icon_mod_self.png"						=> 	"images/icon_mod_".$this->__getObjectFileName().'_self.png',
 			
 			"icon_mod_type_list.png"				=> 	"images/icon_mod_".$this->__getObjectFileName().'_type_list.png',
 			"icon_mod_type_add.png"					=> 	"images/icon_mod_".$this->__getObjectFileName().'_type_add.png',
