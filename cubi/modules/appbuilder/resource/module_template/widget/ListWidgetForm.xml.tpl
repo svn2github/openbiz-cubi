@@ -4,7 +4,7 @@
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
 			BizDataObj="{$form_do}" 
-			PageSize="10" 
+			PageSize="-1"  
 			DefaultForm="Y" 
 			TemplateEngine="Smarty" 
 			TemplateFile="{$form_template}" 

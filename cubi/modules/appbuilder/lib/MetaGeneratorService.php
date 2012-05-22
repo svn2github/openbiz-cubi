@@ -159,6 +159,21 @@ class MetaGeneratorService
         $this->m_GeneratedFiles['DataObjFiles']['MainDO']=str_replace(MODULE_PATH,"",$targetFile);        
         if(CLI){echo "\t".str_replace(MODULE_PATH,"",$targetFile)." is generated." . PHP_EOL;}
 
+        if($features['widget']==1)
+        {
+        	$doName = str_replace("DO","PickDO",$doName);
+        	$smarty->assign("do_name", $doName);
+        	$smarty->assign("do_full_name_pick", 		$doName);
+        	$templateFile = $this->__getMetaTempPath().'/do/DataObjectPick.xml.tpl';
+        	$content = $smarty->fetch($templateFile);
+                
+	        $targetFile = $targetPath . "/" . $doName . ".xml";
+	        file_put_contents($targetFile, $content);        
+	
+	        $this->m_GeneratedFiles['DataObjFiles']['PickDO']=str_replace(MODULE_PATH,"",$targetFile);        
+	        if(CLI){echo "\t".str_replace(MODULE_PATH,"",$targetFile)." is generated." . PHP_EOL;}
+	        	
+        }
         return $targetFile;		
 	}
 	
@@ -1451,6 +1466,18 @@ class MetaGeneratorService
 			}
 			
 			//generate list related ro widget
+			$templateFile = $this->__getMetaTempPath().'/widget/ListRelatedWidgetForm.xml.tpl';
+			
+			$smarty->assign("form_name", 		$listRelatedWidgetFormName);
+	        $smarty->assign("form_class",		$formClass);
+			$smarty->assign("form_do", 			"");
+			$smarty->assign("form_type_do", 	$typeDoFullName);		
+			$smarty->assign("event_name",		$eventName);
+			$smarty->assign("message_file",		$messageFile);        
+			$content = $smarty->fetch($templateFile);
+	        $targetFile = $targetPath . "/" . $listRelatedWidgetFormName . ".xml";
+	        file_put_contents($targetFile, $content); 
+			$this->m_GeneratedFiles['FormObjFiles']['ListRelatedWidgetForm']=str_replace(MODULE_PATH,"",$targetFile);
 			
 			
 			//generate list related rw widget
