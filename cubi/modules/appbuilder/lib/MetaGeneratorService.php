@@ -591,13 +591,12 @@ class MetaGeneratorService
 	private function __isTableExists($tableName)
 	{
 		$db 	= BizSystem::dbConnection($this->m_DBName);
-		$tableName 	= $this->m_DBTable;
 		$sql	= "SHOW TABLES";
 		$fieldsInfo = $db->fetchAssoc($sql);
 		foreach($fieldsInfo as $listTableName=>$listTableInfo)
 		{
 			if($listTableName == $tableName)
-			{				
+			{						
 				return true;
 			}
 		}
