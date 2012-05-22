@@ -802,16 +802,16 @@ class MetaGeneratorService
 	protected function _getExtendFeatures()
 	{
 		$features	=	array(
-						"picture"			=>	$this->m_ConfigModule['picture_feature'],
-						"location"			=>	$this->m_ConfigModule['location_feature'],
-						"changelog"			=>	$this->m_ConfigModule['changelog_feature'],
-						"attachment"		=>	$this->m_ConfigModule['attachment_feature'],
-						"widget"			=>	$this->m_ConfigModule['widget_feature'],
-						"self_reference"	=>	$this->m_ConfigModule['selfref_feature'],
-						"extend"			=>	$this->m_ConfigModule['extend_feature'],
-						"data_type"			=>	$this->m_ConfigModule['data_type_feature'],															
-						);	
-		return $features;		
+						"picture"			=>	(int) $this->m_ConfigModule['picture_feature'],
+						"location"			=>	(int) $this->m_ConfigModule['location_feature'],
+						"changelog"			=>	(int) $this->m_ConfigModule['changelog_feature'],
+						"attachment"		=>	(int) $this->m_ConfigModule['attachment_feature'],
+						"widget"			=>	(int) $this->m_ConfigModule['widget_feature'],
+						"self_reference"	=>	(int) $this->m_ConfigModule['selfref_feature'],
+						"extend"			=>	(int) $this->m_ConfigModule['extend_feature'],
+						"data_type"			=>	(int) $this->m_ConfigModule['data_type_feature'],															
+						);
+		return $features;				
 	}
 	
 	/**
