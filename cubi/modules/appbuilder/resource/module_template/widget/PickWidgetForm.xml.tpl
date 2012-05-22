@@ -1,62 +1,255 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="DocumentPickForm" Class="PickerForm" Icon="{RESOURCE_URL}/collab/document/images/icon_document.gif"  FormType="List" jsClass="jbForm" Title="Please select a document" Description="To select a document click on a row and click to Select button" BizDataObj="collab.document.do.DocumentPickerDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_docs_picker.tpl.html"  Access="collab_document.access" >
+<EasyForm Name="{$form_name}" 
+			Class="{$form_class}"			  
+			FormType="List" 
+			jsClass="Openbiz.TableForm" 
+			BizDataObj="{$form_do}" 
+			PageSize="10" 
+			DefaultForm="Y" 
+			TemplateEngine="Smarty" 
+			TemplateFile="{$form_template}" 
+			MessageFile="{$message_file}" 
+			Access="{$acl.access}">	
     <DataPanel>
-          <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>    
-     
-        <Element Name="fld_share" Class="ColumnShare" MyPrivateImg="{RESOURCE_URL}/collab/document/images/icon_document_private.png" MySharedImg="{RESOURCE_URL}/collab/document/images/icon_document_shared.png" MyAssignedImg="{RESOURCE_URL}/collab/document/images/icon_document_assigned.png" MyDistributedImg="{RESOURCE_URL}/collab/document/images/icon_document_distributed.png" GroupSharedImg="{RESOURCE_URL}/collab/document/images/icon_document_shared_group.png" OtherSharedImg="{RESOURCE_URL}/collab/document/images/icon_document_shared_other.png" FieldName="create_by" Label="Share" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
- 		</Element>	
-		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" Link="javascript:" />
-		
-        <Element Name="fld_title" MaxLength="20" Class="ColumnText" FieldName="title" Label="Title" Link="javascript:" Sortable="Y">
-         </Element>	
-        <Element Name="fld_description" Class="ColumnText" MaxLength="20" FieldName="description" Label="Description" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>	
-     
-        <Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
-		<Element Name="fld_type" Class="ColumnText" Style="line-height:24px;" FieldName="type_name" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>						        
-        
-   </DataPanel>
+{assign var=col_counter value=0}            
+{foreach from=$fields item=fld}
+{if $fld.Field == 'id'}
+		<Element Name="row_selections" 
+        			Class="RowCheckbox"  
+        			Label="" 
+        			FieldName="Id"/>
+		<Element Name="fld_Id" 
+        			Class="common.element.ColumnTitle" 
+        			FieldName="Id" 
+        			Label="ID" 
+        			Sortable="Y" 
+        			AllowURLParam="N" 
+        			Link="javascript:;" />   
+{if $do_perm_control eq 'Y' }
+		<Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{$share_icons.icon_private}"
+				MySharedImg="{$share_icons.icon_shared}" 
+				MyAssignedImg="{$share_icons.icon_assigned}"
+				MyDistributedImg="{$share_icons.icon_shared_distributed}" 
+				GroupSharedImg="{$share_icons.icon_shared_group}"
+				OtherSharedImg="{$share_icons.icon_shared_other}"
+				FieldName="create_by" 
+				Label="Share"  
+				Sortable="Y" 
+				AllowURLParam="N" 
+				Translatable="N" 
+				OnEventLog="N" 
+				Link="javascript:;">
+			<EventHandler Name="fld_share_onclick" 
+							Event="onclick" 
+							Function="LoadDialog(common.form.DataSharingForm,{literal}{@:Elem[fld_Id].Value}{/literal})"/>		
+		</Element>
+{/if}
+{elseif $fld.Field == 'status'}
+		<Element Name="fld_status" 
+					Class="ColumnBool" 
+					FieldName="status" 
+					Label="Status"  
+					Sortable="Y" 
+					AllowURLParam="N" 
+					Translatable="N" 
+					OnEventLog="N" 
+					Link="javascript:;">
+			<EventHandler Name="fld_status_onclick" 
+							Event="onclick" 
+							Function="UpdateFieldValueXor({literal}{@:Elem[fld_Id].Value}{/literal},fld_status,{literal}{@:Elem[fld_status].Value}{/literal})"/>		
+		</Element>
+{elseif $fld.Type != 'timestamp'  && 
+		$fld.Field != 'create_by' && 
+		$fld.Field != 'create_time' && 
+		$fld.Field != 'update_by' && 
+		$fld.Field != 'update_time' && 
+		$fld.Field != 'type_id' &&
+		$fld.Field != 'owner_id' &&
+		$fld.Field != 'group_id' &&
+		$fld.Field != 'group_perm' &&
+		$fld.Field != 'other_perm' 
+		}
+{if $col_counter==0}
+		<Element Name="fld_{$fld.Field}" 
+        			Class="ColumnText" 
+        			FieldName="{$fld.Field}" 
+        			Label="{$fld.FieldLabel}"         			 
+        			Sortable="Y" 
+        			MaxLength="15"
+        			Link="{literal}{APP_INDEX}{/literal}/{$detail_view_url}/{literal}{@:Elem[fld_Id].Value}{/literal}"        			
+        			{if $fld.Default != 'NULL' && $fld.Default != '' }DefaultValue="{$fld.Default}"{/if} /> 
+{else}
+		<Element Name="fld_{$fld.Field}" 
+        			Class="ColumnText" 
+        			FieldName="{$fld.Field}" 
+        			Label="{$fld.FieldLabel}" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			{if $fld.Default != 'NULL' && $fld.Default != '' }DefaultValue="{$fld.Default}"{/if} />        			
+{/if}        	
+{assign var=col_counter value=$col_counter+1}
+{/if}     
+{/foreach}
+{if $features.data_type eq 1}
+		<Element Name="fld_color" 
+				Class="ColumnStyle" 
+				FieldName="type_color" 
+				Label="Type"  
+				Sortable="Y" 
+				AllowURLParam="N" 
+				Translatable="N" 
+				OnEventLog="N" />
+				
+		<Element Name="fld_type" 
+				Class="ColumnText"  
+				Style="line-height:24px;" 
+				FieldName="type_name" 
+				Label="Type"  
+				Sortable="Y" 
+				AllowURLParam="N" 
+				Translatable="N" 
+				OnEventLog="N" />						        
+{/if} 
+    </DataPanel>
     <ActionPanel>
-        <Element Name="btn_edit" Class="Button" text="Select" CssClass="button_gray_m">
-            <EventHandler Name="onclick" Event="onclick" Function="PickToParent()"/>
+        <Element Name="btn_select" 
+        		Class="Button" 
+        		Text="Select" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="btn_select_onclick" 
+            			Event="onclick" 
+            			Function="PickToParent()"/>
         </Element>
-        <Element Name="btn_new" Class="Button" Text="Close" CssClass="button_gray_m">
-            <EventHandler Name="onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        <Element Name="btn_close" 
+        		Class="Button" 
+        		Text="Close" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" 
+            			Event="onclick" 
+            			Function="js:Openbiz.Window.closeDialog()"/>
         </Element>
     </ActionPanel> 
-    <NavPanel>
-    
-    	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
-            <EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+   <NavPanel>
+    	{literal}
+    	<!-- Page Selector -->
+		<Element  Name="page_selector" 
+					Class="PageSelector" 
+					Text="{@:m_CurrentPage}" 
+					Label="Go to Page" 
+					CssClass="input_select" 
+					CssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" 
+            				Event="onchange" 
+            				Function="GotoSelectedPage(page_selector)"/>
         </Element>
-        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
-            <EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
-        </Element>  
-        <Element Name="btn_first"  Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
-            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        
+        <!-- Page Size Selector -->
+        <Element  Name="pagesize_selector" 
+        			Class="PagesizeSelector" 
+        			Text="{@:m_Range}" 
+        			Label="Show Rows" 
+        			CssClass="input_select" 
+        			CssFocusClass="input_select_focus">
+            <EventHandler Name="btn_pagesize_selector_onchange" 
+            				Event="onchange" 
+            				Function="SetPageSize(pagesize_selector)"/>
+        </Element> 
+        
+        <!-- Goto First Page Button -->   
+        <Element  Name="btn_first" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage(1)"/>
         </Element>
-        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
-            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})"/>
+        
+        <!-- Goto Previous Page Button -->   
+        <Element Name="btn_prev" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_CurrentPage - 1})" 
+            				ShortcutKey="Ctrl+Shift+Left"/>
         </Element>
-        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        
+        <!-- Display Current Page / Total Pages -->
+        <Element Name="txt_page" 
+        			Class="LabelText" 
+        			Text="{'@:m_CurrentPage of @:m_TotalPages '}">
         </Element>
-        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
-            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})"/>
+        
+        <!-- Goto Next Page Button -->  
+        <Element Name="btn_next" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_CurrentPage + 1})" 
+            				ShortcutKey="Ctrl+Shift+Right"/>
         </Element>
-        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
-            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        
+        <!-- Goto Last Page Button -->  
+        <Element  Name="btn_last" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_TotalPages})"/>
         </Element>
-    </NavPanel> 
+        {/literal}
+    </NavPanel>  
     <SearchPanel>
-     						
-         <Element Name="data_filter"  BlankOption="All Data" cssclass="input_select_m" Class="common.element.ShareDataFilter" FieldName="create_by" Label="" SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
-            <EventHandler Name="datafilter_onchange" Event="onchange" Function="RunSearch()"/>
+{if $do_perm_control eq 'Y' }
+		<!-- Data Permission Filter -->  
+		<Element Name="data_filter" 
+    				BlankOption="All Data" 
+    				Cssclass="input_select_m" 
+    				Class="common.element.ShareDataFilter" 
+    				FieldName="create_by" 
+    				SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
+            <EventHandler Name="datafilter_onchange" 
+            				Event="onchange" 
+            				Function="RunSearch()"/>
+        </Element>  
+{/if}
+{if $features.extend eq 1}      
+		<!-- Data Type Filter -->  
+    	<Element Name="type_selector"  
+    				BlankOption="All Types" 
+    				Cssclass="input_select_m" 
+    				Class="common.lib.TypeSelector" 
+    				FieldName="type_id" 
+    				SelectFrom="{$form_type_do}[name:Id:color]" >
+            <EventHandler Name="type_selector_onchange" 
+            				Event="onchange" 
+            				Function="RunSearch()"/>
         </Element> 
-        <Element Name="type_selector" BlankOption="All Types" cssclass="input_select_m" Class="collab.lib.TypeSelector" FieldName="type_id" Label="" SelectFrom="collab.document.do.DocumentTypeDO[name:Id:color]" >
-            <EventHandler Name="type_selector_onchange" Event="onchange" Function="RunSearch()"/>
-        </Element> 
-		<Element Name="qry_name"  Class="common.element.RecordFuzzySearchList" SearchFields="collab.document.lov.SearchFieldsLOV(Field)"  FuzzySearch="Y" SelectFrom="collab.document.do.DocumentDO[title],[title] like '%{$_POST['qry_name']}%' GROUP BY [title]" FieldName="title" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
-        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
-            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
-        </Element>  		   
+{/if}
+{if $search_field}	
+		<Element Name="qry_{$search_field.Field}" 
+					Class="AutoSuggest" 
+					SelectFrom="{$form_do}[{$search_field.Field}],[{$search_field.Field}] like {literal}'%{@:Elem{/literal}[qry_{$search_field.Field}].Value{literal}}{/literal}%' GROUP BY [{$search_field.Field}]" 
+					FuzzySearch="Y" 
+					FieldName="{$search_field.Field}" 
+					Label="" 
+					CssFocusClass="input_text_search_focus" 
+					CssClass="input_text_search" />
+        <Element Name="btn_dosearch" 
+        			Class="Button" 
+        			Text="Go" 
+        			CssClass="button_gray">
+            <EventHandler Name="search_onclick" 
+            				Event="onclick" 
+            				Function="RunSearch()" 
+            				ShortcutKey="Enter"/>
+        </Element>	
+{/if}
     </SearchPanel>
 </EasyForm>

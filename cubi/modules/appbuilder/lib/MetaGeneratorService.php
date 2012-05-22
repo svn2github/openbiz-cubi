@@ -1371,10 +1371,15 @@ class MetaGeneratorService
 			$smarty->assign("quick_add_widget_name", 			$quickAddWidgetFormName);
 			$smarty->assign("quick_add_widget_full_name", 		$quickAddWidgetFormFullName); 
 			*/
+			$targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/widget";
+			if(!is_dir($targetPath))
+			{
+				@mkdir($targetPath,0777,true);
+			}
 			
 			//generate list widget				
 			$formTemplate = "element_listform_lite.tpl.html";			
-			$templateFile = $this->__getMetaTempPath().'/form/ListWidgetForm.xml.tpl';
+			$templateFile = $this->__getMetaTempPath().'/widget/ListWidgetForm.xml.tpl';
 			
 			$smarty->assign("form_name", 		$listWidgetFormName);
 	        $smarty->assign("form_class",		$formClass);
@@ -1390,7 +1395,7 @@ class MetaGeneratorService
 			
 			//generate list editable widget
 			$formTemplate = "element_listform_in_tab.tpl.html";			
-			$templateFile = $this->__getMetaTempPath().'/form/ListEditableWidgetForm.xml.tpl';
+			$templateFile = $this->__getMetaTempPath().'/widget/ListEditableWidgetForm.xml.tpl';
 			
 			$smarty->assign("form_name", 		$listEditableWidgetFormName);
 	        $smarty->assign("form_class",		$formClass);
@@ -1404,7 +1409,27 @@ class MetaGeneratorService
 	        file_put_contents($targetFile, $content); 
 			$this->m_GeneratedFiles['FormObjFiles']['ListEditableWidgetForm']=str_replace(MODULE_PATH,"",$targetFile);
 			
-			//generate data pick widget
+			//generate data pick widget			
+			$formDescription = "To select a ".$this->__getFormName()." click on a row and click to Select button";
+			$formTitle  = "Please select a ".$this->__getFormName();			
+			$formClass	= "PickerForm";
+			$formTemplate = "form_data_picker.tpl.html";			
+			$templateFile = $this->__getMetaTempPath().'/widget/PickWidgetForm.xml.tpl';
+			
+			$smarty->assign("form_name", 		$pickWidgetFormName);
+			$smarty->assign("form_title", 		$formTitle);
+	        $smarty->assign("form_description", $formDescription);
+	        $smarty->assign("form_class",		$formClass);
+	        $smarty->assign("form_template",	$formTemplate);
+			$smarty->assign("form_do", 			$doFullName);
+			$smarty->assign("form_type_do", 	$typeDoFullName);		
+			$smarty->assign("event_name",		$eventName);
+			$smarty->assign("message_file",		$messageFile);        
+			$content = $smarty->fetch($templateFile);
+	        $targetFile = $targetPath . "/" . $pickWidgetFormName . ".xml";
+	        file_put_contents($targetFile, $content); 
+			$this->m_GeneratedFiles['FormObjFiles']['PickWidgetForm']=str_replace(MODULE_PATH,"",$targetFile);
+			
 			
 			//generate quick add widget
 			
@@ -1418,7 +1443,13 @@ class MetaGeneratorService
 			$smarty->assign("list_related_widget_full_name", 			$listRelatedWidgetFormFullName); 
 			$smarty->assign("list_related_editable_widget_name", 		$listRelatedEditableWidgetFormName);
 			$smarty->assign("list_related_editable_widget_full_name", 	$listRelatedEditableWidgetFormFullName); 
-			*/
+			*/			
+			$targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/widget";
+			if(!is_dir($targetPath))
+			{
+				@mkdir($targetPath,0777,true);
+			}
+			
 			//generate list related ro widget
 			
 			
