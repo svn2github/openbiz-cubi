@@ -6,7 +6,7 @@
 		jsClass="Openbiz.TableForm" 
 		Title="" 
 		Description="" 
-		BizDataObj="{$do_full_name_ref}" 
+		BizDataObj="{$form_do}" 
 		InheritFrom="{$list_widget_form_full_name}"  
 		Access="{$acl.access}" >
 </EasyForm>

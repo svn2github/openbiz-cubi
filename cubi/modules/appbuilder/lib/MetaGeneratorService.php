@@ -10,6 +10,10 @@ class MetaGeneratorService
 	protected $m_ConfigModule;
 	protected $m_BuildOptions;
 	
+	protected $m_RefDOName;
+	protected $m_PickDOName;
+	protected $m_PickFullName;
+	
 	protected $m_MetaTempPath;
 	protected $m_ACLArr;
 	protected $m_TypeDOFullName;
@@ -144,7 +148,8 @@ class MetaGeneratorService
 
         if($features['self_reference']==1)
         {
-        	$smarty->assign("do_full_name_ref", 		str_replace("DO","RefDO",$doFullName));
+        	$this->m_RefDOName = str_replace("DO","RefDO",$doFullName);
+        	$smarty->assign("do_full_name_ref", 		$this->m_RefDOName);
         	$smarty->assign("do_full_name_related", 	str_replace("DO","RelatedDO",$doFullName));
         	$smarty->assign("table_name_related",		$this->m_DBTable."_related");        	
         	$smarty->assign("table_ref_id", 			strtolower($this->m_DBTable)."_id");
@@ -162,6 +167,8 @@ class MetaGeneratorService
         if($features['widget']==1)
         {
         	$doName = str_replace("DO","PickDO",$doName);
+        	$this->m_PickDOName  = $doName;
+        	$this->m_PickDOFullName  = str_replace("DO","PickDO",$doFullName);;
         	$smarty->assign("do_name", $doName);
         	$smarty->assign("do_full_name_pick", 		$doName);
         	$templateFile = $this->__getMetaTempPath().'/do/DataObjectPick.xml.tpl';
@@ -1436,7 +1443,7 @@ class MetaGeneratorService
 	        $smarty->assign("form_description", $formDescription);
 	        $smarty->assign("form_class",		$formClass);
 	        $smarty->assign("form_template",	$formTemplate);
-			$smarty->assign("form_do", 			$doFullName);
+			$smarty->assign("form_do", 			$this->m_PickDOFullName);
 			$smarty->assign("form_type_do", 	$typeDoFullName);		
 			$smarty->assign("event_name",		$eventName);
 			$smarty->assign("message_file",		$messageFile);        
@@ -1470,10 +1477,12 @@ class MetaGeneratorService
 			
 			$smarty->assign("form_name", 		$listRelatedWidgetFormName);
 	        $smarty->assign("form_class",		$formClass);
-			$smarty->assign("form_do", 			"");
+	        $smarty->assign("form_do", 			$this->m_RefDOName);
 			$smarty->assign("form_type_do", 	$typeDoFullName);		
 			$smarty->assign("event_name",		$eventName);
-			$smarty->assign("message_file",		$messageFile);        
+			$smarty->assign("message_file",		$messageFile);
+			$smarty->assign("list_widget_form_full_name",	$listWidgetFormFullName);
+			        
 			$content = $smarty->fetch($templateFile);
 	        $targetFile = $targetPath . "/" . $listRelatedWidgetFormName . ".xml";
 	        file_put_contents($targetFile, $content); 
@@ -1481,6 +1490,19 @@ class MetaGeneratorService
 			
 			
 			//generate list related rw widget
+			$templateFile = $this->__getMetaTempPath().'/widget/ListRelatedEditableWidgetForm.xml.tpl';
+			
+			$smarty->assign("form_name", 		$listRelatedEditableWidgetFormName);
+	        $smarty->assign("form_class",		$formClass);
+	        $smarty->assign("form_do", 			$this->m_RefDOName);
+			$smarty->assign("form_type_do", 	$typeDoFullName);		
+			$smarty->assign("event_name",		$eventName);
+			$smarty->assign("message_file",		$messageFile);  
+			$smarty->assign("list_editable_widget_form_full_name",	$listEditableWidgetFormFullName);      
+			$content = $smarty->fetch($templateFile);
+	        $targetFile = $targetPath . "/" . $listRelatedEditableWidgetFormName . ".xml";
+	        file_put_contents($targetFile, $content); 
+			$this->m_GeneratedFiles['FormObjFiles']['ListRelatedEditableWidgetForm']=str_replace(MODULE_PATH,"",$targetFile);
 			
 			
 			//generate edit self reference form
