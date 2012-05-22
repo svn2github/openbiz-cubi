@@ -80,7 +80,7 @@
 		<Element Name="fld_related_record"   
 				ElementSet="Related {$record_name}" 
 				Class="FormElement" 
-				FormReference="{$list_rw_widget_full_name}" 
+				FormReference="{$list_editable_widget_full_name}" 
 				FieldName="" 
 				Label="" 
 				AllowURLParam="N" />

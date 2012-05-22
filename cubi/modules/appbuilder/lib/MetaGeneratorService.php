@@ -11,8 +11,9 @@ class MetaGeneratorService
 	protected $m_BuildOptions;
 	
 	protected $m_RefDOName;
+	protected $m_RefDOFullName;
 	protected $m_PickDOName;
-	protected $m_PickFullName;
+	protected $m_PickDOFullName;
 	
 	protected $m_MetaTempPath;
 	protected $m_ACLArr;
@@ -148,7 +149,8 @@ class MetaGeneratorService
 
         if($features['self_reference']==1)
         {
-        	$this->m_RefDOName = str_replace("DO","RefDO",$doFullName);
+        	$this->m_RefDOName 		= str_replace("DO","RefDO",$doName);
+        	$this->m_RefDOFullName 	= str_replace("DO","RefDO",$doFullName);
         	$smarty->assign("do_full_name_ref", 		$this->m_RefDOName);
         	$smarty->assign("do_full_name_related", 	str_replace("DO","RelatedDO",$doFullName));
         	$smarty->assign("table_name_related",		$this->m_DBTable."_related");        	
@@ -1128,12 +1130,16 @@ class MetaGeneratorService
 			$listRelatedWidgetFormName					= $this->__getObjectName().'ListRelatedWidgetForm';
 			$listRelatedWidgetFormFullName 				= $modName.'.widget.'.$listRelatedWidgetFormName;	
 			$listRelatedEditableWidgetFormName			= $this->__getObjectName().'ListRelatedEditableWidgetForm';
-			$listRelatedEditableWidgetFormFullName 		= $modName.'.widget.'.$listRelatedEditableWidgetFormName;	
+			$listRelatedEditableWidgetFormFullName 		= $modName.'.widget.'.$listRelatedEditableWidgetFormName;				
+			$formEditRelatedName						= $this->__getObjectName().'EditRelatedForm';
+			$formEditRelatedFullName					= $modName.'.form.'.$formEditRelatedName;
 			
 			$smarty->assign("list_related_widget_name", 				$listRelatedWidgetFormName);
 			$smarty->assign("list_related_widget_full_name", 			$listRelatedWidgetFormFullName); 
 			$smarty->assign("list_related_editable_widget_name", 		$listRelatedEditableWidgetFormName);
-			$smarty->assign("list_related_editable_widget_full_name", 	$listRelatedEditableWidgetFormFullName); 			
+			$smarty->assign("list_related_editable_widget_full_name", 	$listRelatedEditableWidgetFormFullName);
+			$smarty->assign("related_form_name", 						$formEditRelatedName);
+			$smarty->assign("related_form_full_name", 					$formEditRelatedFullName); 			
 		}
 		
 		//form specified variables
@@ -1406,7 +1412,7 @@ class MetaGeneratorService
 			$smarty->assign("form_name", 		$listWidgetFormName);
 	        $smarty->assign("form_class",		$formClass);
 	        $smarty->assign("form_template",	$formTemplate);
-			$smarty->assign("form_do", 			$doFullName);
+			$smarty->assign("form_do", 			$this->m_RefDOFullName);
 			$smarty->assign("form_type_do", 	$typeDoFullName);		
 			$smarty->assign("event_name",		$eventName);
 			$smarty->assign("message_file",		$messageFile);        
@@ -1422,7 +1428,7 @@ class MetaGeneratorService
 			$smarty->assign("form_name", 		$listEditableWidgetFormName);
 	        $smarty->assign("form_class",		$formClass);
 	        $smarty->assign("form_template",	$formTemplate);
-			$smarty->assign("form_do", 			$doFullName);
+			$smarty->assign("form_do", 			$this->m_RefDOFullName);
 			$smarty->assign("form_type_do", 	$typeDoFullName);		
 			$smarty->assign("event_name",		$eventName);
 			$smarty->assign("message_file",		$messageFile);
@@ -1499,7 +1505,7 @@ class MetaGeneratorService
 			
 			$smarty->assign("form_name", 		$listRelatedWidgetFormName);
 	        $smarty->assign("form_class",		$formClass);
-	        $smarty->assign("form_do", 			$this->m_RefDOName);
+	        $smarty->assign("form_do", 			$this->m_RefDOFullName);
 			$smarty->assign("form_type_do", 	$typeDoFullName);		
 			$smarty->assign("event_name",		$eventName);
 			$smarty->assign("message_file",		$messageFile);
@@ -1516,7 +1522,7 @@ class MetaGeneratorService
 			
 			$smarty->assign("form_name", 		$listRelatedEditableWidgetFormName);
 	        $smarty->assign("form_class",		$formClass);
-	        $smarty->assign("form_do", 			$this->m_RefDOName);
+	        $smarty->assign("form_do", 			$this->m_RefDOFullName);
 			$smarty->assign("form_type_do", 	$typeDoFullName);		
 			$smarty->assign("event_name",		$eventName);
 			$smarty->assign("message_file",		$messageFile);  
@@ -1528,13 +1534,14 @@ class MetaGeneratorService
 			
 			
 			//generate edit self reference form
+			$targetPath = $moduleDir = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/form";
 			$formTitle  = "Edit ".$this->__getFormName()." Related Record";	
 			$formIcon = "{RESOURCE_URL}/$modShortName/images/icon_mod_".$this->__getObjectFileName().'_related.png';
 			$formDescription = "This form could help you manage ".$this->__getObjectFileName()." related data record.";
 			$formTemplate = "form_detail_adv.tpl.html";
 			
-			$templateFile = $this->__getMetaTempPath().'/form/EditLocationForm.xml.tpl';
-			$smarty->assign("form_name", 		$formEditLocationName);
+			$templateFile = $this->__getMetaTempPath().'/form/EditRelatedForm.xml.tpl';
+			$smarty->assign("form_name", 		$formEditRelatedName);
 	        $smarty->assign("form_class",		$formClass);
 	        $smarty->assign("form_icon", 		$formIcon);
 	        $smarty->assign("form_title", 		$formTitle);
@@ -1545,9 +1552,9 @@ class MetaGeneratorService
 			$smarty->assign("event_name",		$eventName);
 			$smarty->assign("message_file",		$messageFile);        
 			$content = $smarty->fetch($templateFile);
-	        $targetFile = $targetPath . "/" . $formEditLocationName . ".xml";
+	        $targetFile = $targetPath . "/" . $formEditRelatedName . ".xml";
 	        file_put_contents($targetFile, $content);     
-			$this->m_GeneratedFiles['FormObjFiles']['EditLocationForm']=str_replace(MODULE_PATH,"",$targetFile);
+			$this->m_GeneratedFiles['FormObjFiles']['EditRelatedForm']=str_replace(MODULE_PATH,"",$targetFile);
 			
 		}
 	}
@@ -1629,24 +1636,6 @@ class MetaGeneratorService
 			@mkdir($targetPath,0777,true);
 		}										
 		
-		//generate view file
-		$left_menu_widget = $modName.".widget.".$modName.'LeftMenu';
-		$menu_icon_css = $modName."/css/".$modName."_menu_icons.css";
-		$source = $templateFiles.DIRECTORY_SEPARATOR.'view.tpl';
-		$dest = $targetPath.DIRECTORY_SEPARATOR.'view.tpl';
-		$data = file_get_contents($source);
-		$data = str_replace("@@LEFT_MENU_WIDGET@@", $left_menu_widget, $data);
-		$data = str_replace("@@MENU_ICON_CSS@@", $menu_icon_css, $data);		
-		file_put_contents($dest, $data);
-		
-		//generate left menu file
-		$dashbaard_view_url = $modName."/dashboard";
-		$source = $templateFiles.DIRECTORY_SEPARATOR.'left_menu.tpl';
-		$dest = $targetPath.DIRECTORY_SEPARATOR.'left_menu.tpl';
-		$data = file_get_contents($source);
-		$data = str_replace("@@DASHBOARD_VIEW@@", $dashbaard_view_url, $data);
-		file_put_contents($dest, $data);
-		
 		//copy module view level tempaltes
 		
 		foreach(glob($templateFiles.DIRECTORY_SEPARATOR."*" ) as $src_file)
@@ -1669,6 +1658,28 @@ class MetaGeneratorService
 				@copy($src_file,$targetPath.DIRECTORY_SEPARATOR.basename($src_file));
 			}
 		}
+		
+		//generate view file
+		$modName 	= $this->__getModuleName(false);
+		$templateFiles = $this->__getMetaTempPath().'/template/';
+		$targetPath = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/template";
+		
+		$left_menu_widget = $modName.".widget.".$modName.'LeftMenu';
+		$menu_icon_css = $modName."/css/".$modName."_menu_icons.css";
+		$source = $templateFiles.DIRECTORY_SEPARATOR.'view.tpl';
+		$dest = $targetPath.DIRECTORY_SEPARATOR.'view.tpl';
+		$data = file_get_contents($source);
+		$data = str_replace("@@LEFT_MENU_WIDGET@@", $left_menu_widget, $data);
+		$data = str_replace("@@MENU_ICON_CSS@@", $menu_icon_css, $data);		
+		file_put_contents($dest, $data);
+		
+		//generate left menu file
+		$dashbaard_view_url = $modName."/dashboard";
+		$source = $templateFiles.DIRECTORY_SEPARATOR.'left_menu.tpl';
+		$dest = $targetPath.DIRECTORY_SEPARATOR.'left_menu.tpl';
+		$data = file_get_contents($source);
+		$data = str_replace("@@DASHBOARD_VIEW@@", $dashbaard_view_url, $data);
+		file_put_contents($dest, $data);		
 		return;
 	}	
 	

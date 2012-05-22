@@ -174,7 +174,7 @@
 				TabSet="Related Data"   
 				ElementSet="Document" 
 				Class="FormElement" 
-				FormReference="{$list_ro_widget_full_name}" 
+				FormReference="{$list_widget_full_name}" 
 				FieldName="" 
 				Label="" 
 				AllowURLParam="N" />
