@@ -14,9 +14,13 @@
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m">
             <EventHandler Name="edit_onclick" Event="onclick" Function="EditRecord()" RedirectPage="{@home:url}/system/module_edit/{@:Elem[fld_Id].Value}"/>
         </Element>
-        <Element Name="btn_delete" Class="Button" Text="Unload" CssClass="button_gray_m">
-            <EventHandler Name="del_onclick" Event="onclick" Function="DeleteRecord()" ShortcutKey="Delete" ContextMenu="Delete"/>
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m">
+            <EventHandler Name="delete_onclick" Event="onclick" Function="PurgeRecord()" />
         </Element>
+        <Element Name="btn_unload" Class="Button" Text="Unload" CssClass="button_gray_m">
+            <EventHandler Name="unload_onclick" Event="onclick" Function="DeleteRecord()" ShortcutKey="Delete" ContextMenu="Delete"/>
+        </Element>
+        
         <Element Name="btn_load" Class="Button" Text="Load Modules" CssClass="button_gray_w">
             <EventHandler Name="load_onclick" Event="onclick" Function="loadNewModules(0)"/>
         </Element>

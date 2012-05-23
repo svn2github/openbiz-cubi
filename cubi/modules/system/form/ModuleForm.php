@@ -125,7 +125,23 @@ class ModuleForm extends EasyForm
 		}    	
     }
     
-    public function DeleteRecord($id=null){
+    public function PurgeRecord($id=null)
+    {
+    	return $this->DeleteRecord($id,true);
+    }
+    
+    
+	public function rrmdir($dir) {
+	    foreach(glob($dir . '/*') as $file) {
+	        if(is_dir($file))
+	            $this->rrmdir($file);
+	        else
+	            unlink($file);
+	    }
+	    rmdir($dir);
+	}
+    
+    public function DeleteRecord($id=null, $deleteFiles=false){
     	//delete menu items
         if ($this->m_Resource != "" && !$this->allowAccess($this->m_Resource.".delete"))
             return BizSystem::clientProxy()->redirectView(ACCESS_DENIED_VIEW);
@@ -142,7 +158,6 @@ class ModuleForm extends EasyForm
             // take care of exception
             try
             {
-
                 //also delete menu items                
                 BizSystem::getObject("menu.do.MenuDO",1)->deleteRecords("[module]='".$dataRec->name."'");
                 $dataRec->delete();
@@ -151,6 +166,11 @@ class ModuleForm extends EasyForm
 	        	$mod = new ModuleLoader($dataRec['name']);
 	        	$mod->unLoadModule();
                 
+	        	if($deleteFiles)
+	        	{
+	        		$modPath = MODULE_PATH.DIRECTORY_SEPARATOR.$dataRec['name']; 
+	        		$this->rrmdir($modPath);
+	        	}
                 
             } catch (BDOException $e)
             {
