@@ -233,7 +233,8 @@
 {/if}
 {/foreach}
     </DataPanel>
-    <ActionPanel>   
+    <ActionPanel>  
+{if $do_perm_control eq 'Y'}
     	{literal}  
     	 <Element Name="btn_share" 
     	 			Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
@@ -250,6 +251,7 @@
 	        		Class="Spacer" 
 	        		Width="10" />
     	{/literal}  
+{/if}    	
         <Element Name="btn_new" 
         			Class="Button" 
         			Text="Add" 

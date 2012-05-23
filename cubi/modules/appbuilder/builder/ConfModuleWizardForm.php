@@ -2,6 +2,7 @@
 class ConfModuleWizardForm extends EasyFormWizard
 {
 	public $m_ModuleConfig ; 
+	public $m_HasPermFields;
 	
     public function getSessionVars($sessionContext)
     {
@@ -23,8 +24,27 @@ class ConfModuleWizardForm extends EasyFormWizard
 		parent::goNext(false);
 	}	    
     
+	protected function checkPermFields()
+	{
+		$fields = $this->getViewObject()->getFields();
+		if(	in_array("owner_id",$fields) && 
+			in_array("group_id",$fields) &&
+			in_array("group_perm",$fields) &&
+			in_array("other_perm",$fields)
+			)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+	}
+	
 	public function fetchData()    
-	{    	            		
+	{    	       
+		$this->m_HasPermFields = (int) $this->checkPermFields();    
+		 		
 		if ($this->m_ActiveRecord != null)
             return $this->m_ActiveRecord;
     	
