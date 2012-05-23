@@ -198,7 +198,7 @@ class ModuleLoader
         	return true;
         
     	// Getting the SQL file content        
-        $query = file_get_contents($file);
+        $query = file_get_contents($sqlfile);
 		try {
 	    	$db->exec($query);
 	    } catch (Exception $e) {

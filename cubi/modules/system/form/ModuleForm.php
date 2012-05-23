@@ -68,6 +68,8 @@ class ModuleForm extends EasyForm
         $this->rerender();
     }
      
+
+    
     /**
      * load module from the modules/$module/ directory
      *
@@ -143,8 +145,12 @@ class ModuleForm extends EasyForm
 
                 //also delete menu items                
                 BizSystem::getObject("menu.do.MenuDO",1)->deleteRecords("[module]='".$dataRec->name."'");
-                
                 $dataRec->delete();
+                
+                //unload module      	                
+	        	$mod = new ModuleLoader($dataRec['name']);
+	        	$mod->unLoadModule();
+                
                 
             } catch (BDOException $e)
             {
