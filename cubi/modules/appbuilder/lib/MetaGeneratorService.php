@@ -1910,6 +1910,9 @@ class MetaGeneratorService
 
         $resourceACL = $this->_getResourceACL();
         $menu		 = $this->_getMenuSet();
+        $modules	 = array("system"	=>	"system",
+        					 "menu"		=>	"menu");
+        $changeLogs	 = array();
         
         //load XML file if it exists
         $targetFile = MODULE_PATH . "/" . str_replace(".", "/", $modName) . "/mod.xml";
@@ -1918,10 +1921,103 @@ class MetaGeneratorService
         	$metadata = file_get_contents($targetFile);
 			$xmldata = new SimpleXMLElement($metadata);		
 			foreach ($xmldata as $key=>$value){
-
+				switch(strtoupper($key)){
+					case "ACL":
+						foreach($value as $resource)
+						{
+							$resourceName = (string) $resource['Name'];
+							$acls = array();
+							foreach($resource as $item)
+							{
+								$name 		 = (string) $item['Name'];
+								$description = (string) $item['Description'];
+								$acls[$name] = $description;
+							}
+							$resourceACL[$resourceName] = $acls;
+						}
+						break;
+						
+					case "DEPENDENCY":
+						foreach($value as $resource)
+						{
+							$name 		 = (string) $resource['Name'];
+							$modules[$name] = $name;							
+						}
+						break;	
+						
+					case "MENU":
+						foreach($value as $menuLevel1)
+						{
+							$menuName1 = (string) $menuLevel1['Name'];
+							$menuItem1 = array();
+							foreach($menuLevel1 as $menuLevel2)
+							{		
+								$menuName2 = (string) $menuLevel2['Name'];
+								$menuItem1[$menuName1] = array(
+									'name' 		 => (string) $menuLevel2['Name'],
+									'title' 		 => (string) $menuLevel2['Title'],
+									'description' => (string) $menuLevel2['Description'],
+									'url' 		 => (string) $menuLevel2['URL'],									
+									'icon_css'	 => (string) $menuLevel2['IconCssClass'],
+									'access' 	 => (string) $menuLevel2['Access'],
+								);
+								foreach($menuLevel2 as $menuLevel3)
+								{	
+									$menuName2 = (string) $menuLevel3['Name'];
+									$menuItem2 = array(
+										'name' 		 => (string) $menuLevel3['Name'],
+										'title' 		 => (string) $menuLevel3['Title'],
+										'description' => (string) $menuLevel3['Description'],
+										'url' 		 => (string) $menuLevel3['URL'],										
+										'icon_css' => (string) $menuLevel3['IconCssClass'],
+										'access' 	 => (string) $menuLevel3['Access'],
+									);
+									foreach($menuLevel3 as $menuLevel4)
+									{	
+										$menuName3 = (string) $menuLevel4['Name'];
+										$menuItem3 = array(
+											'name' 		 => (string) $menuLevel4['Name'],
+											'title' 		 => (string) $menuLevel4['Title'],
+											'description' => (string) $menuLevel4['Description'],
+											'url' 		 => (string) $menuLevel4['URL'],										
+											'icon_css' => (string) $menuLevel4['IconCssClass'],
+											'access' 	 => (string) $menuLevel4['Access'],
+										);
+										$menuItem2['child'][$menuName3] = 	$menuItem3;
+									}								
+									$menuItem1[$menuName1]['child'][$menuName2] = $menuItem2;
+								}
+							}
+							$menu = $menuItem1;
+						}
+						break;
+						
+					case "CHANGELOG":
+						foreach($value as $version)
+						{
+							$versionNumber = (string) $version['Name'];
+							$logs = array();
+							foreach($version as $logItem)
+							{
+								$name 		 = (string) $logItem['Name'];
+								$type		 = (string) $logItem['Type'];
+								$status		 = (string) $logItem['Status'];
+								$publishDate = (string) $logItem['PublishDate'];
+								$description = (string) $logItem['Description'];	    											
+								$logs[$name] = array(
+									"name"			=> $name,
+									"type"			=> $type,
+									"status"		=> $status,
+									"publish_date"	=> $publishDate,
+									"description"	=> $description,
+								);
+							}
+							$changeLogs[$versionNumber] = $logs;
+						}
+						break;
+				}
 			}
         }
-        
         //generate mod xml file
         $smarty = BizSystem::getSmartyTemplate();
         $templateFile = $this->__getMetaTempPath().'/mod.xml.tpl';
@@ -1944,6 +2040,8 @@ class MetaGeneratorService
         $smarty->assign("mod_root_uri", 	$modRootURI);
         $smarty->assign("resource_acl",		$resourceACL);
         $smarty->assign("menu",				$menu);
+        $smarty->assign("modules",			$modules);
+        $smarty->assign("change_logs",		$changeLogs);
         
         
         
