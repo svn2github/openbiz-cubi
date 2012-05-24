@@ -63,8 +63,19 @@
 		</MenuItem>	
 	</Menu>
 	<Dependency>
-		<Module Name="system"/>
-		<Module Name="menu"/>
-	</Dependency>
-	<ChangeLog />    
+{foreach from=$modules item=module}
+		<Module Name="{$name}" /> 
+{/foreach}
+	</Dependency>	
+	<ChangeLog>
+{foreach from=$change_logs item=version}	
+		<Version Name="{$version}">
+	    	<Change Name="{$name}" 
+	    			Type="{$type}"  
+	    			Status="{$finished}" 
+	    			PublishDate="{$publish_date}" 
+	    			Description="{$description}" />
+	    </Version>
+{/foreach}	    
+	</ChangeLog>    
 </Module>

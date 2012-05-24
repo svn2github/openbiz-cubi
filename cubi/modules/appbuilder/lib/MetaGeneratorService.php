@@ -2197,5 +2197,47 @@ class MetaGeneratorService
        }
        return $type;
 	}
+	
+	private function __convertDataElement($type)
+	{
+		if(strpos($type,"("))
+		{
+			$type = substr($type,0,strpos($type,"("));
+		}		
+		switch ($type)
+        {
+            case "date":
+                $elements = array(	"ReadControl"=>"LabelText",
+                					"WriteControl"=>"InputDate");                
+                break;
+
+            case "timestamp":
+            case "datetime":
+                $elements = array(	"ReadControl"=>"LabelText",
+                					"WriteControl"=>"InputDatetime");
+                break;
+
+            case "int":
+            case "float":
+            case "bigint":
+            case "tinyint":
+                $elements = array(	"ReadControl" =>"LabelText",
+                					"WriteControl"=>"InputText");
+                break;
+
+            case "text":
+            case "shorttext":
+            case "longtext":
+				$elements = array(	"ReadControl" =>"LabelTextarea",
+                					"WriteControl"=>"Textarea");
+            	break;
+            	
+        	default:
+               $elements = array(	"ReadControl" =>"LabelText",
+                					"WriteControl"=>"InputText");
+                break;
+       }
+       return $elements;
+	}	
 }
 ?>
