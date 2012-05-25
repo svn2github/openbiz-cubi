@@ -2200,6 +2200,7 @@ class MetaGeneratorService
 	
 	private function __convertDataElement($type)
 	{
+		$typeOrg = $type;
 		if(strpos($type,"("))
 		{
 			$type = substr($type,0,strpos($type,"("));
@@ -2208,13 +2209,15 @@ class MetaGeneratorService
         {
             case "date":
                 $elements = array(	"ReadControl"=>"LabelText",
-                					"WriteControl"=>"InputDate");                
+                					"WriteControl"=>"InputDate",
+                					"ListControl"=>"ColumnText");                
                 break;
 
             case "timestamp":
             case "datetime":
                 $elements = array(	"ReadControl"=>"LabelText",
-                					"WriteControl"=>"InputDatetime");
+                					"WriteControl"=>"InputDatetime",
+                					"ListControl"=>"ColumnText");
                 break;
 
             case "int":
@@ -2222,19 +2225,22 @@ class MetaGeneratorService
             case "bigint":
             case "tinyint":
                 $elements = array(	"ReadControl" =>"LabelText",
-                					"WriteControl"=>"InputText");
+                					"WriteControl"=>"InputText",
+                					"ListControl"=>"ColumnText");
                 break;
 
             case "text":
             case "shorttext":
             case "longtext":
 				$elements = array(	"ReadControl" =>"LabelTextarea",
-                					"WriteControl"=>"Textarea");
+                					"WriteControl"=>"Textarea",
+									"ListControl"=>"ColumnText");
             	break;
             	
         	default:
                $elements = array(	"ReadControl" =>"LabelText",
-                					"WriteControl"=>"InputText");
+                					"WriteControl"=>"InputText",
+               						"ListControl"=>"ColumnText");
                 break;
        }
        return $elements;
