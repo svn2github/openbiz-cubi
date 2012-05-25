@@ -140,13 +140,15 @@ color:#666666;
 	{assign var=ts_counter value=1}
 	{foreach item=tabsetdata key=tabsetname name=tabs  from=$form.tabSets}	
 	{if $smarty.foreach.tabs.first}
-	<div id="element_tabset_{$ts_counter}" class=" upline" style="width:680px;padding-top:10px;padding-bottom:10px;">
+	<div id="element_tabset_{$ts_counter}" class=" upline" style="width:680px;padding-top:10px;padding-bottom:0px;">
+	{elseif $smarty.foreach.tabs.last}
+	<div id="element_tabset_{$ts_counter}" class="underline upline" style="width:680px;padding-top:10px;padding-bottom:5px;">
 	{else}
-	<div id="element_tabset_{$ts_counter}" class="underline upline" style="width:680px;padding-top:10px;padding-bottom:10px;">
+	<div id="element_tabset_{$ts_counter}" class="underline upline" style="width:680px;padding-top:10px;padding-bottom:0px;">
 	{/if}
 	<h2 class="element_set_title" style="width:680px;"><a id="element_set_btn_{$ts_counter}" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','{$ts_counter}')" >{$tabsetdata.SetName}</a></h2>						
 	<div id="element_set_panel_{$ts_counter}">
-	<div style="padding-left:20px;display:none;" id="tabs_{$ts_counter}">	
+	<div style="padding-left:20px;padding-bottom:10px;display:none;" id="tabs_{$ts_counter}">	
 	<ul style="border-radius: none;">
 	{assign var=es_counter value=0}
 	{foreach item=setname name=elemsets  from=$tabsetdata.Elems}			
