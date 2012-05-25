@@ -55,6 +55,7 @@
 	$fld.Field != 'sortorder' &&
 	$fld.Field != 'sort_order' &&
 	$fld.Field != 'type_name' &&
+	$fld.Field != 'status'  &&
 	$fld.Field != 'type_color'  
 	}
 {if $features.extend eq 1 && $fld.Field eq $search_field.Field}
@@ -73,7 +74,22 @@
        				Hidden="Y" 
        				FieldName="Id" 
        				Label="{$fld.FieldLabel}"  
-       				AllowURLParam="Y"/>     
+       				AllowURLParam="Y"/>  
+{elseif $fld.Field == 'status'}
+		<Element Name="fld_status" 
+					Class="LabelBool" 
+					ElementSet="General"
+					FieldName="status" 
+					Label="Status"  
+					Sortable="Y" 
+					AllowURLParam="N" 
+					Translatable="N" 
+					OnEventLog="N" 
+					Link="javascript:;">
+			<EventHandler Name="fld_status_onclick" 
+							Event="onclick" 
+							Function="UpdateFieldValueXor({literal}{@:Elem[fld_Id].Value}{/literal},fld_status,{literal}{@:Elem[fld_status].Value}{/literal})"/>		
+		</Element>
 {elseif $fld.Field == 'type_id' }
        	<Element Name="fld_{$fld.Field}" 
        				Class="LabelText" 

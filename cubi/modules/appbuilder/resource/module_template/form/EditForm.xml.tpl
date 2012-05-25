@@ -61,6 +61,7 @@
 	$fld.Field != 'type_name' &&
 	$fld.Field != 'type_color'  &&
 	$fld.Field != 'description'  &&
+	$fld.Field != 'status'  &&
 	$fld.Field != 'content'  &&
 	$fld.Field != 'desc'  
 	}
@@ -82,6 +83,20 @@
 					FieldName="{$fld.Field}" 
 					Label="{$fld.FieldLabel}"  />		
 {/if}
+{if $fld.Field == 'status'}
+		<Element Name="fld_status" 
+					Class="DropDownList" 
+					ElementSet="General"
+					FieldName="status" 
+					SelectFrom="common.lov.CommLOV(Bool)" 
+					Label="Status"  
+					Sortable="Y" 
+					AllowURLParam="N" 
+					Translatable="N" 
+					OnEventLog="N" 
+					Link="javascript:;">				
+		</Element>
+{/if}		
 {if $fld.Field == 'sortorder' ||
 	$fld.Field == 'sort_order'  }       	 	
 		<Element Name="fld_{$fld.Field}" 
