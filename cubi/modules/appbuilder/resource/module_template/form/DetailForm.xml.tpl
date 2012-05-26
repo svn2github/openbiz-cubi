@@ -62,8 +62,8 @@
 {else}
        	<Element Name="fld_{$fld.Field}" 
        				ElementSet="General" 
-       				Class="LabelText" 
-       				FieldName="{$fld.FieldReadControl.Class}" 
+       				Class="{$fld.FieldReadControl.Class}" 
+       				FieldName="{$fld.Field}" 
        				Label="{$fld.FieldLabel}" 
        				AllowURLParam="{if $fld.Field eq 'Id'}Y{else}N{/if}"
 					{if $fld.FieldReadControl.SelectFrom }SelectFrom="{$fld.FieldReadControl.SelectFrom}"{/if}/>
