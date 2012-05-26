@@ -82,8 +82,10 @@ class MetaGeneratorService
 		$this->_genDashboardFiles();
 		$this->_genModuleFile();
 		$this->_loadModule();
+		/* for debug only
 		var_dump($this->m_GeneratedFiles);
 		exit;
+		*/
 		return $this->m_GeneratedFiles;
 	}
 	
