@@ -46,10 +46,11 @@
 	}
        	<Element Name="fld_{$fld.Field}" 
        				ElementSet="General" 
-       				Class="InputText" 
+       				Class="{$fld.FieldWriteControl.Class}" 
        				FieldName="{$fld.Field}" 
        				Label="{$fld.FieldLabel}" 
-       				AllowURLParam="{if $fld.Field eq 'Id'}Y{else}N{/if}"/>     
+       				AllowURLParam="{if $fld.Field eq 'Id'}Y{else}N{/if}"
+       				{if $fld.FieldWriteControl.SelectFrom }SelectFrom="{$fld.FieldWriteControl.SelectFrom}"{/if}/>     
 {/if}       								   	
 
 {if $fld.Field == 'description' ||

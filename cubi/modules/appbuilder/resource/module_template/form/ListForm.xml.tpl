@@ -94,13 +94,14 @@
 		}
 {if $col_counter==0}
 		<Element Name="fld_{$fld.Field}" 
-        			Class="ColumnText" 
+        			Class="{$fld.FieldListControl.Class}" 
         			FieldName="{$fld.Field}" 
         			Label="{$fld.FieldLabel}"         			 
         			Sortable="Y" 
         			MaxLength="15"
         			Link="{literal}{APP_INDEX}{/literal}/{$detail_view_url}/{literal}{@:Elem[fld_Id].Value}{/literal}"        			
-        			{if $fld.Default != 'NULL' && $fld.Default != '' }DefaultValue="{$fld.Default}"{/if} /> 
+        			{if $fld.Default != 'NULL' && $fld.Default != '' }DefaultValue="{$fld.Default}"{/if} 
+					{if $fld.FieldListControl.SelectFrom }SelectFrom="{$fld.FieldListControl.SelectFrom}"{/if}/> 
 {else}
 		<Element Name="fld_{$fld.Field}" 
         			Class="ColumnText" 

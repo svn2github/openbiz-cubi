@@ -705,10 +705,14 @@ class MetaGeneratorService
 			
 			foreach($resultSet as $key=>$arr)
 			{
+				$elements = $this->__convertDataElement($arr['Type']);
 				$arr['FieldName'] 	= ucwords($arr['Field']);
 				$arr['FieldType'] 	= $this->__convertDataType($arr['Type']);
 				$arr['Description'] = $this->__getFieldDesc($arr);
 				$arr['FieldLabel'] 	= $arr['Description'];
+				$arr['FieldReadControl'] 	= 	$elements['ReadControl'];
+				$arr['FieldWriteControl'] 	= 	$elements['WriteControl'];
+				$arr['FieldListControl'] 	= 	$elements['ListControl'];								
 				$resultSet[$key] 	= $arr;
 				
 				if($arr['Key']=='MUL')
@@ -2200,7 +2204,15 @@ class MetaGeneratorService
 	
 	private function __convertDataElement($type)
 	{
-		$typeOrg = $type;
+	    if($typeOrg=='int(2)')
+        {
+       			$elements = array(	"ReadControl" => array( "Class"=>"LabelBool" ),
+                					"WriteControl"=> array( "Class"=>"DropDownList",
+       														"SelectFrom"=>"common.lov.CommLOV(Bool)"),
+               						"ListControl"=> array( "Class"=>"ColumnBool" ));
+       			return $elements;
+        }	    
+                
 		if(strpos($type,"("))
 		{
 			$type = substr($type,0,strpos($type,"("));
@@ -2208,41 +2220,42 @@ class MetaGeneratorService
 		switch ($type)
         {
             case "date":
-                $elements = array(	"ReadControl"=>"LabelText",
-                					"WriteControl"=>"InputDate",
-                					"ListControl"=>"ColumnText");                
+                $elements = array(	"ReadControl"	=> array( "Class"=>"LabelText"),
+                					"WriteControl"	=> array( "Class"=>"InputDate"),
+                					"ListControl"	=> array( "Class"=>"ColumnText"));                
                 break;
 
             case "timestamp":
             case "datetime":
-                $elements = array(	"ReadControl"=>"LabelText",
-                					"WriteControl"=>"InputDatetime",
-                					"ListControl"=>"ColumnText");
+                $elements = array(	"ReadControl"	=> array( "Class"=>"LabelText"),
+                					"WriteControl"	=> array( "Class"=>"InputDatetime"),
+                					"ListControl"	=> array( "Class"=>"ColumnText"));
                 break;
 
             case "int":
             case "float":
             case "bigint":
             case "tinyint":
-                $elements = array(	"ReadControl" =>"LabelText",
-                					"WriteControl"=>"InputText",
-                					"ListControl"=>"ColumnText");
+                $elements = array(	"ReadControl" 	=> array( "Class"=>"LabelText"),
+                					"WriteControl"	=> array( "Class"=>"InputText"),
+                					"ListControl"	=> array( "Class"=>"ColumnText"));
                 break;
 
             case "text":
             case "shorttext":
             case "longtext":
-				$elements = array(	"ReadControl" =>"LabelTextarea",
-                					"WriteControl"=>"Textarea",
-									"ListControl"=>"ColumnText");
+				$elements = array(	"ReadControl"	=> array( "Class"=>"LabelTextarea"),
+                					"WriteControl"	=> array( "Class"=>"Textarea"),
+									"ListControl"	=> array( "Class"=>"ColumnText"));
             	break;
             	
         	default:
-               $elements = array(	"ReadControl" =>"LabelText",
-                					"WriteControl"=>"InputText",
-               						"ListControl"=>"ColumnText");
+               $elements = array(	"ReadControl" 	=> array( "Class"=>"LabelText"),
+                					"WriteControl"	=> array( "Class"=>"InputText"),
+               						"ListControl"	=> array( "Class"=>"ColumnText"));
                 break;
        }
+
        return $elements;
 	}	
 }
