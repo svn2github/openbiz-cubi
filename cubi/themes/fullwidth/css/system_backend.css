@@ -36,14 +36,14 @@ body{
 }
 #header #header_right{
 	height:63px;
-	width:615px;
+	width:60%;
 	float:right;
 	overflow:hidden;
 	display:block;
 }
 #header #header_right #user_actions{
 	height:34px;
-	width:615px;
+	width:100%;
 	overflow:hidden;
 }
 #header #header_right #user_actions ul{
@@ -108,7 +108,7 @@ body{
 	height:29px;
 	/*width:568px;*/
 	overflow:hidden;
-	float:right;
+	float:left;
 	display:block;
 }
 #header #header_right div.arrow_left{
@@ -251,7 +251,7 @@ background-position:left top;
 background-position:left bottom;
 }
 #header_navi #current_user_info{
-	/*width:340px;*/
+	width:340px;
 	height:24px;
 	text-align:right;
 	float:right;

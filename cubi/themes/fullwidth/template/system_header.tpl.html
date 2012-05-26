@@ -32,32 +32,33 @@ var top_menu_play_speed=1000;
 				</ul>
 				<!-- user actions end -->					
 			</div>
-			<div class="arrow_left">
-				{if $menu_count >5}
-				<a  onmouseover="top_menu_move_direction='left';top_menu_move();top_menu_play=true;" 
-					onmouseout="top_menu_play=false;"
-					href="javascript:;"><img height="29" width="10" src="{$image_url}/spacer.gif" ></a>
-				{/if}
-			</div>
-			<div id="menu">	
-				<div id="top_menu_list" style="width:{php}echo $menu_width;{/php};">
-				<!-- top menu start -->
-				{php}
-				$temp = Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
-				unset($temp);
-				echo Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
-				{/php}
-				<!-- top menu end -->	
+			<div style="float:right;padding-right:20px;">
+				<div class="arrow_left">
+					{if $menu_count >5}
+					<a  onmouseover="top_menu_move_direction='left';top_menu_move();top_menu_play=true;" 
+						onmouseout="top_menu_play=false;"
+						href="javascript:;"><img height="29" width="10" src="{$image_url}/spacer.gif" ></a>
+					{/if}
+				</div>
+				<div id="menu">	
+					<div id="top_menu_list" style="width:{php}echo $menu_width;{/php};">
+					<!-- top menu start -->
+					{php}
+					$temp = Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
+					unset($temp);
+					echo Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
+					{/php}
+					<!-- top menu end -->	
+					</div>
+				</div>
+				<div  class="arrow_right">
+					{if $menu_count >5}
+					<a onmouseover="top_menu_move_direction='right';top_menu_move();top_menu_play=true;" 
+						onmouseout="top_menu_play=false;"				
+					 href="javascript:;"><img height="29" width="10" src="{$image_url}/spacer.gif" ></a>
+					{/if}
 				</div>
 			</div>
-			<div  class="arrow_right">
-				{if $menu_count >5}
-				<a onmouseover="top_menu_move_direction='right';top_menu_move();top_menu_play=true;" 
-					onmouseout="top_menu_play=false;"				
-				 href="javascript:;"><img height="29" width="10" src="{$image_url}/spacer.gif" ></a>
-				{/if}
-			</div>
-			
 		</div>
 	</div>	
 </div>
