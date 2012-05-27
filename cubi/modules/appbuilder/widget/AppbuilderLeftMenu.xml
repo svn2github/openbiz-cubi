@@ -1,2 +1,0 @@
-<MenuWidget Name="AppbuilderLeftMenu" Title="App Builder" Class="menu.widget.MenuWidget" CssCLass="appbuilder" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='appbuilder'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="appbuilder_menu.tpl" CacheLifeTime="0">
-</MenuWidget>

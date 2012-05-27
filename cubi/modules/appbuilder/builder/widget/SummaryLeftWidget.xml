@@ -1,2 +1,0 @@
-<EasyForm Name="SummaryLeftWidget"  Class="SummaryWidget" Title="Summary" BizDataObj="" SearchRule="" jsClass="jbForm" TemplateEngine="Smarty" TemplateFile="summary_widget.tpl.html" CacheLifeTime="0">
-</EasyForm>

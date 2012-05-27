@@ -1,6 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="DashboardView" Access="AppBuilder.Access" Description="App Builder Home Screen" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="appbuilder_dash_view.tpl.html">
-    <FormReferences>
-        <!-- <Reference Name="collab.announcement.widget.AnnouncementDashboardWidgetForm"/> -->        
-    </FormReferences>
-</EasyView>

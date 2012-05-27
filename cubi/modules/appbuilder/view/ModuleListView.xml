@@ -1,6 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<EasyView Name="ModuleListView" Access="AppBuilder.Access" Description="Existing Modules" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl.html">
-    <FormReferences>
-        <Reference Name="appbuilder.metaedit.ExistingModuleListForm"/>        
-    </FormReferences>
-</EasyView>
