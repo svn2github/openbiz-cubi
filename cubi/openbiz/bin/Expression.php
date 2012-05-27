@@ -202,8 +202,31 @@ class Expression
                 return $beforeString . $val_result . $restString;
             }
 
-            elseif ($objName == "" || $objName == "this")
-                $obj = $object;
+            elseif ($objName == "" || $objName == "this"){
+            	$obj = $object;
+            	$body           = $expression;
+            	$objFunc        = '@'.$objName.':'.$propExpr;
+                $posStart       = strpos($body, $objFunc);
+                $beforeString   = substr($body, 0, $posStart);
+ 
+                if(strpos($body, '(')>0)
+                {
+                	$paramStart     = strpos($body, $objFunc.'(') + strlen($objFunc.'(');
+					$paramEnd       = strpos($body, ')', $paramStart);
+	                $paramLen       = $paramEnd-$paramStart;
+	                $function       = $propExpr;
+	                $paramString   = substr($body, $paramStart, $paramLen);
+	                $restString    = substr($body, $paramEnd + 1);
+	                
+	                $params = explode(',', $paramString);
+	                for ($i=0; $i < count($params); $i++)
+	                    $params[$i] = trim($params[$i]);	                	
+	                	
+	                   
+                	$val_result = call_user_func_array(array($obj, $function), $params);
+                	return $beforeString . $val_result . $restString;
+                }
+            }                
             else
                 $obj = BizSystem::getObject($objName);
 
@@ -213,6 +236,8 @@ class Expression
             }
 
             $pos = strpos($propExpr, ".");
+            
+            $paramStart = strpos($expression, $objFunc.'(');
             if ($pos>0)
             { // in case of @objname:field[fldname].property
                 $property1   = substr($propExpr,0,$pos);
@@ -230,8 +255,11 @@ class Expression
                 }
                 $val = $propertyObj->getProperty($property2);
             }
-            else // in case of @objname:property
+            else
+            { 
+            	// in case of @objname:property            	
                 $val = $obj->getProperty($propExpr);
+            }
             if ($val === null) $val = "";
             if (is_string($val))
                 $val = "'$val'";
