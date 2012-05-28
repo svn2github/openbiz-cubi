@@ -209,7 +209,7 @@ class Expression
                 $posStart       = strpos($body, $objFunc);
                 $beforeString   = substr($body, 0, $posStart);
  
-                if(strpos($body, '(')>0)
+                if(strpos($body, '(')>0 && substr($expression,0,2)== '@:')
                 {
                 	$paramStart     = strpos($body, $objFunc.'(') + strlen($objFunc.'(');
 					$paramEnd       = strpos($body, ')', $paramStart);
@@ -218,11 +218,10 @@ class Expression
 	                $paramString   = substr($body, $paramStart, $paramLen);
 	                $restString    = substr($body, $paramEnd + 1);
 	                
-	                $params = explode(',', $paramString);
 	                for ($i=0; $i < count($params); $i++)
 	                    $params[$i] = trim($params[$i]);	                	
 	                	
-	                   
+	                    echo $expression;
                 	$val_result = call_user_func_array(array($obj, $function), $params);
                 	return $beforeString . $val_result . $restString;
                 }
