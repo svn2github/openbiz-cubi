@@ -219,9 +219,12 @@ class Expression
 	                $restString    = substr($body, $paramEnd + 1);
 	                
 	                for ($i=0; $i < count($params); $i++)
-	                    $params[$i] = trim($params[$i]);	                	
-	                	
-	                    echo $expression;
+	                    $params[$i] = trim($params[$i]);	
+	                                    	
+	                if(!is_array($params)){
+	                	$params = array();
+	                }
+	                
                 	$val_result = call_user_func_array(array($obj, $function), $params);
                 	return $beforeString . $val_result . $restString;
                 }
