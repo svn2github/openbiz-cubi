@@ -18,7 +18,7 @@
  * @version   $Id$
  */
 
-// run controller
+// run controller (test again)
 //
 //session_cache_limiter('public');
 ob_start();
