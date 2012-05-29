@@ -15,7 +15,7 @@
  * @copyright Copyright (c) 2005-2011, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: BizController.php 2731 2010-12-01 07:32:03Z jixian2003 $
+ * @version   $Id$
  */
 
 // run controller
