@@ -30,20 +30,24 @@ $xml_header = "<!--
 // loop module directory
 $files = glob_recursive($moduleDir."/*.php");
 foreach ($files as $file) {
-	echo "Add php header to $file \n";
+	echo "Add php header to $file. ";
 	$content = file_get_contents($file);
 	if (strpos($content, " * Openbiz Cubi Application Platform") === false) {
-		$new_content = preg_replace("/<\?php[ ]*(\r?\n)/", "<?php"."\n".$php_header, $content);
+		$path_parts = pathinfo($file);
+		$packageName = str_replace("/",".",str_replace(MODULE_PATH.DIRECTORY_SEPARATOR,"",$path_parts['dirname']));
+		$right_php_header = str_replace("%PACKAGE%", $packageName, $php_header);
+		$new_content = preg_replace("/<\?php[ ]*(\r?\n)/", "<?php"."\n".$right_php_header, $content);
 		file_put_contents($file, $new_content);
+		echo " - Added.\n";
 	}
 	else {
-		echo "Skipped.\n";
+		echo " - Skipped.\n";
 	}
 }
 
 $files = glob_recursive($moduleDir."/*.xml");
 foreach ($files as $file) {
-	echo "Add xml header to $file \n";
+	echo "Add xml header to $file. ";
 	$content = file_get_contents($file);
 	if (strpos($content, "  Openbiz Cubi Application Platform") === false) {
 		$lines = file($file);
@@ -55,9 +59,10 @@ foreach ($files as $file) {
 			}
 		}
 		file_put_contents($file, $new_content);
+		echo " - Added.\n";
 	}
 	else {
-		echo "Skipped.\n";
+		echo " - Skipped.\n";
 	}
 }
 
