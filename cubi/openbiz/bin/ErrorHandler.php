@@ -11,7 +11,7 @@
  * @copyright Copyright (c) 2005-2011, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php     BSD
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: ErrorHandler.php 3459 2011-03-10 07:46:23Z rockys $
+ * @version   $Id$
  */
 
 

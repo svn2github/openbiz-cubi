@@ -11,7 +11,7 @@
  * @copyright Copyright (c) 2005-2011, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php BSD License
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: ClientProxy.php 4016 2011-04-29 12:25:27Z jixian2003 $
+ * @version   $Id$
  */
 
 /**

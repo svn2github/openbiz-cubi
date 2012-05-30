@@ -11,7 +11,7 @@
  * @copyright Copyright (c) 2005-2011, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: I18n.php 2897 2010-12-17 14:02:02Z jixian2003 $
+ * @version   $Id$
  */
 
 require_once 'Zend/Translate.php';

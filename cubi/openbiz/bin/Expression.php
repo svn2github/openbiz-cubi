@@ -11,7 +11,7 @@
  * @copyright Copyright (c) 2005-2011, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php     BSD
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: Expression.php 4138 2011-05-14 14:42:17Z rockys $
+ * @version   $Id$
  */
 
 /**
