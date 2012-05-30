@@ -21,4 +21,4 @@ if(is_file(dirname(__FILE__).'/files/install.lock') && filesize(dirname(__FILE__
 	echo "<script>location.href='$url'</script>";
 	exit;	
 }
-?>
+

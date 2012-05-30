@@ -32,4 +32,3 @@ else {
     include "bin/min/index.php";
 }
 
-

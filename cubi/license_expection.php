@@ -21,4 +21,4 @@ function ioncube_event_handler($err_code, $params)
 	$viewObj->render();	
 	exit;
 }
-?>
+

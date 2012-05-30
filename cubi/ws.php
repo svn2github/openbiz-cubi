@@ -60,4 +60,3 @@ $svcObj->invoke();
 }else{
 	echo "Openbiz Webservice Ready!";
 }
-?>

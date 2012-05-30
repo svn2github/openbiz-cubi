@@ -18,4 +18,4 @@ include_once OPENBIZ_HOME."/bin/ErrorHandler.php";
 $svc = BizSystem::getService("service.oauthTaobaoService");
 $list = $svc->getProviderData();
 var_dump($list);// It is a sample about how to read oauth config data
-?>
+
