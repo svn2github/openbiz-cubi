@@ -1,4 +1,10 @@
 <?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <Module Name="product" Description="product module" Version="0.1.0" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="product">
