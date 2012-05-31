@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="LicenseActiveForm" Class="LicenseActiveForm" FormType="Edit" jsClass="jbForm" Title="Software Activation" Description="This form will help you active this application. \n Please fill in your license code into below form to active it. \n " BizDataObj="" TemplateEngine="Smarty" TemplateFile="license_active.tpl.html" MessageFile="license.ini">
     <DataPanel>
     	<Element Name="fld_license_code" Class="Textarea" FieldName="license_code" Label="License"  AllowURLParam="N" CssClass="lic_code" CssErrorClass="lic_code" CssFocusClass="lic_code"/>

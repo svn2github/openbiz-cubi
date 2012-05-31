@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="LicenseInvalidForm" Class="LicenseInvalidForm" FormType="Edit" jsClass="jbForm" Title="Software License Invalid" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="license_invalid.tpl.html" MessageFile="license.ini">
     <DataPanel>
     </DataPanel>

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="NotfoundForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Page Not Found" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="notfound.tpl.html" >
     <DataPanel>
     </DataPanel>

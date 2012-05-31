@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="LoaderNotInstalledForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Loader Not Installed" Description="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="loader_not_installed.tpl.html" >
     <DataPanel>
     </DataPanel>

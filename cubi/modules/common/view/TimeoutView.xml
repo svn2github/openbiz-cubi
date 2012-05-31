@@ -1,4 +1,10 @@
 <?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyView Name="TimeoutView" Description="Session Timeout" Class="EasyView" TemplateEngine="Smarty" CacheLifeTime="86400" TemplateFile="user_view.tpl.html">
    <FormReferences>
    		<Reference Name="common.form.TimeoutForm"/>

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="DataSharingForm" Icon="{RESOURCE_URL}/common/images/icon_data_sharing.gif" Class="DataSharingForm" FormType="Edit" jsClass="jbForm" Title="Data Sharing" Description="Share your data with your group members or others users." BizDataObj="" TemplateEngine="Smarty" TemplateFile="data_sharing_form.tpl.html" >
     <DataPanel>
     	

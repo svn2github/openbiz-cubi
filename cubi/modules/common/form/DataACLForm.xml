@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="DataACLForm" Icon="{RESOURCE_URL}/common/images/icon_data_sharing.gif" Pagesize="6" Class="DataACLForm" FormType="List" jsClass="jbForm" Title="Data Access Control List" Description="You can setup access permission for specified list of users." BizDataObj="common.do.DataACLDO" TemplateEngine="Smarty" TemplateFile="data_acl_form.tpl.html" >
     <DataPanel>
     	<Element Name="row_selections" 	Class="RowCheckbox"  Label="" FieldName="Id"/>

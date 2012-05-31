@@ -1,4 +1,10 @@
 <?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="ImportForm" Class="EasyForm" icon="{RESOURCE_URL}/common/images/icon_csv_import.gif" FormType="New" jsClass="jbForm" Title="Import data from CSV" Description="You can import data from a CSV file to target module." TemplateEngine="Smarty" TemplateFile="import_file.tpl.html">
    <DataPanel>
       <Element Name="fld_data" Class="File" FieldName="" Label="Please select a CSV file"/>

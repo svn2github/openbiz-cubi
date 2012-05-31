@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="DataPublishingForm" Icon="{RESOURCE_URL}/common/images/icon_data_publishing.gif" Class="DataPublishingForm" FormType="Edit" jsClass="jbForm" Title="Data Publishing" Description="Publish your data to specified group or global groups." BizDataObj="" TemplateEngine="Smarty" TemplateFile="data_publishing_form.tpl.html" >
     <DataPanel>
     	
