@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="ReleaseDetailROForm" Class="ReleaseForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif" FormType="Detail" jsClass="jbForm" Title="Release Detail" Description="You can click to downlaod release, and use checksum value to confirm file is intact." BizDataObj="repository.release.do.ReleaseDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_release_quick_detail.tpl.html"  Access="Repository.Manage">
     <DataPanel>        
     	<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>   

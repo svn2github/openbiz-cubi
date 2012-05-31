@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="InstallLogListForm" Class="EasyForm" Icon="{RESOURCE_URL}/repository/images/icon_install_log.png" Title="Client Install Log" Description="This form shows client install log for each application " FormType="List" jsClass="jbForm" BizDataObj="repository.install.do.InstallLogDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl"  Access="Repository.Manage">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="release_id" Label="Id" Sortable="Y" AllowURLParam="Y" Link="javascript:" />              

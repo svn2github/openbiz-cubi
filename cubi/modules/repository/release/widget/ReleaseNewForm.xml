@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="ReleaseNewForm" Class="ReleaseForm" Icon="{RESOURCE_URL}/repository/images/repo_application.gif" FormType="New" jsClass="jbForm" Title="New Release" Description="Please select a package from your computer to upload" BizDataObj="repository.release.do.ReleaseDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_release_quick_add.tpl.html"  Access="Repository.Manage">
     <DataPanel>        
         <Element Name="fld_version"  Class="InputText" FieldName="version" Label="Version"   />	

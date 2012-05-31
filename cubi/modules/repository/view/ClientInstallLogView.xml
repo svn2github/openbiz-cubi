@@ -1,4 +1,10 @@
 <?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyView Name="ClientInstallLogView" Description="Application Client Install Log" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="client_install_log_view.tpl.html" Access="Repository.Manage">
    <FormReferences>
    		<Reference Name="repository.install.form.InstallLogListForm"/>
