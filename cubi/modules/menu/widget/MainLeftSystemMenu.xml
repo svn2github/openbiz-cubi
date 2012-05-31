@@ -1,2 +1,8 @@
 <MenuWidget Name="MainLeftSystemMenu" Title="System Admin" Class="MenuWidget" CssCLass="system" BizDataObj="menu.do.SystemMenuDO" StartMenuID="0-1"  MenuDeep="2" TemplateEngine="Smarty" TemplateFile="system_left_menu.tpl.html" CacheLifeTime="0">
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 </MenuWidget>

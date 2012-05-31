@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="MenuListForm" Class="MenuForm" icon="icon_menu_l.gif" FormType="List" jsClass="jbForm" Title="Manage Menu by List" Description="Menu Management by list view,\n The menu stucture in this view is simlar to tranditional FTP way to manage a directory tree." BizDataObj="menu.do.MenuTreeDO" PageSize="10" TemplateEngine="Smarty" TemplateFile="system_right_listform_menu.tpl.html" EventName="MENU" MessageFile="">
     <DataPanel>
         <Element Name="fld_child" Class="ColumnText" FieldName="" Label="Ex" Text=" " CssClass="icon_expand" Link="javascript:">         

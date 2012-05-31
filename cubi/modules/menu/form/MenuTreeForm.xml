@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="MenuTreeForm" icon="icon_menu_tree.gif" Class="EasyFormTree" RootSearchRule="[PId]=''"  TitleField="title" FormType="List" jsClass="jbForm" Title="Manage Menu by Tree" Description="Menu Management by list view,\n The menu stucture in this view is a b-tree." BizDataObj="menu.do.MenuTreeListDO" PageSize="10" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="MENU" MessageFile="">
     <DataPanel>
 	        
