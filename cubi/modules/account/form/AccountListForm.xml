@@ -57,16 +57,7 @@
         			Link="{APP_INDEX}/account/account_detail/{@:Elem[fld_Id].Value}"        			
         			 
 					/> 
-        	
-     
-		<Element Name="fld_description" 
-        			Class="ColumnText" 
-        			FieldName="description" 
-        			Label="Description" 
-        			MaxLength="15"        			 
-        			Sortable="Y"
-        			 />    
-        	
+
      
 		<Element Name="fld_phone" 
         			Class="ColumnText" 
@@ -93,54 +84,7 @@
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />    
-        	
-     
-        			    			
-        	
-     
-        			    			
-        	
-     
-        			    			
-        	
-     
-        			    			
-        	
-     
-        			    			
-        	
-     
-        			    			
-        	
-     
-        			    			
-        	
-     
-        			    			
-        	
-     
-        			    			
-        	
-     
-        			    			
-        	
-     
-        			    			
-        	
-     
-        			    			
-        	
-     
-        			    			
-        	
-     
-     
-     
-     
-     
-     
-     
-     
+    
      
 		<Element Name="fld_color" 
 				Class="ColumnStyle" 
