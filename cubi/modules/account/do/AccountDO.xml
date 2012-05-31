@@ -1,0 +1,259 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="AccountDO" 
+		Description="Account Description" 
+		DataPermControl="Y"
+		Class="BizDataObj" 
+		DBName="Default" 
+		Table="account" 
+		SearchRule="" 
+		SortRule="" 
+		OtherSQLRule=""
+		Uniqueness="" 
+		Stateless="N" 
+		IdGeneration="Identity" 
+		CacheLifeTime="0" 
+		CreateCondition="account.Manage" 
+		UpdateCondition="account.Manage" 
+		DeleteCondition="account.Manage" >
+	<BizFieldList>
+		<BizField Name="Id"			
+				Description="Id"	
+				Column="id"    
+				Required="N" 
+				Type="Number"/>
+		<BizField Name="type_id"		
+				Description="Type Id"	
+				Column="type_id" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="name"		
+				Description="Name"	
+				Column="name" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="description"		
+				Description="Description"	
+				Column="description" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="phone"		
+				Description="Phone"	
+				Column="phone" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="fax"		
+				Description="Fax"	
+				Column="fax" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="website"		
+				Description="Website"	
+				Column="website" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="industry_id"		
+				Description="Industry Id"	
+				Column="industry_id" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="employee"		
+				Description="Employee"	
+				Column="employee" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="annual_revenue"		
+				Description="Annual Revenue"	
+				Column="annual_revenue" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="billing_country"		
+				Description="Billing Country"	
+				Column="billing_country" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="billing_zip"		
+				Description="Billing Zip"	
+				Column="billing_zip" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="billing_state"		
+				Description="Billing State"	
+				Column="billing_state" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="billing_city"		
+				Description="Billing City"	
+				Column="billing_city" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="billing_street"		
+				Description="Billing Street"	
+				Column="billing_street" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="shipping_country"		
+				Description="Shipping Country"	
+				Column="shipping_country" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="shipping_zip"		
+				Description="Shipping Zip"	
+				Column="shipping_zip" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="shipping_state"		
+				Description="Shipping State"	
+				Column="shipping_state" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="shipping_city"		
+				Description="Shipping City"	
+				Column="shipping_city" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="shipping_street"		
+				Description="Shipping Street"	
+				Column="shipping_street" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="owner_id"	
+				Description="Owner Id"	
+				Column="owner_id"	
+				ValueOnCreate="{@profile:Id}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="group_id"	
+				Description="Group Id"	
+				Column="group_id"	
+				ValueOnCreate="{@profile:default_group}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="group_perm"	
+				Description="Group Perm"	
+				Column="group_perm"	
+				ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="other_perm"	
+				Description="Other Perm"	
+				Column="other_perm"	
+				ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="create_by"	
+				Description="Create By"	
+				Column="create_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time"	
+				Description="Create Time"	
+				Column="create_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="update_by"	
+				Description="Update By"	
+				Column="update_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"	
+				ValueOnUpdate="{@profile:Id}"/>
+		<BizField Name="update_time"	
+				Description="Update Time"	
+				Column="update_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"	
+				ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	
+		<BizField Name="type_color" 
+				Column="color"  
+				Join="JoinType" />
+				
+	    <BizField Name="type_name" 
+	    		Column="name" 
+	    		Join="JoinType" />
+	</BizFieldList>
+	<TableJoins>
+		<Join Name="JoinType" 
+				Table="account_type" 
+				Column="id" 
+				ColumnRef="type_id" 
+				JoinType="LEFT JOIN" />
+				    	
+	</TableJoins>
+	<ObjReferences>
+	
+		<Object Name="changelog.do.ChangeLogDO" 
+				Description="Reference to Change Log Records" 
+				Relationship="1-M" 
+				Table="changelog" 
+				CondColumn='type' 
+				CondValue='account' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="location.do.LocationDO" 
+				Description="Reference to Geographic Location Records" 
+				Relationship="1-M" 
+				Table="location" 
+				CondColumn='type' 
+				CondValue='account' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="attachment.do.AttachmentDO" 
+				Description="Reference to Attachment Records" 
+				Relationship="1-M" 
+				Table="attachment" 
+				CondColumn='type' 
+				CondValue='account' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="picture.do.PictureDO" 
+				Description="Reference to Picture Records" 
+				Relationship="1-M" 
+				Table="picture" 
+				CondColumn='type' 
+				CondValue='account' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="AccountRefDO" 
+				Description="Reference to Related Records" 
+				Relationship="Self-Self" 
+				Table="account" 
+				Column="id" 
+				FieldRef="Id" 
+				OnDelete="SetNull" 
+				OnUpdate="" 
+				XTable="account_related" 
+				XColumn1="account_id" 
+				XColumn2="related_id" 
+				XDataObj="account..do.AccountRelatedDO"/>
+		<Object Name="extend.do.ExtendDataDO" 
+				Description="Reference to Extend Data Field Record"  
+				Relationship="1-M" 
+				Table="extend_data" 
+				CondColumn='module' 
+				CondValue='account' 
+				Column="type_id" 
+				FieldRef="type_id" 
+				Column2="record_id" 
+				FieldRef2="Id" 
+				onDelete="Cascade"/>
+	</ObjReferences>
+</BizDataObj>
