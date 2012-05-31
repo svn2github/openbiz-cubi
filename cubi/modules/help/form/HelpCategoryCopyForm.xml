@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="HelpCategoryCopyForm" Class="HelpCategoryForm" Icon="icon_help_copy.gif"  FormType="Copy" jsClass="jbForm" Title="Copy help_category" Description="" BizDataObj="help.do.HelpCategoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="HELP_CATEGORY" MessageFile="HelpCategory.msg">
     <DataPanel>
         

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="HelpCopyForm" Class="HelpForm" Icon="icon_help_tips_copy.gif"  FormType="Copy" jsClass="jbForm" Title="Copy help" Description="Help module is a document system, which manages a online manual and \nhelp tips quick reference box on the left side of application panel." BizDataObj="help.do.HelpDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="HELP" MessageFile="Help.msg">
     <DataPanel>
         

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="HelpWidgetDetailForm" Class="HelpForm" Icon="icon_help_tips.gif" Description="Detail information of help item." FormType="" jsClass="jbForm" Title="Help"  BizDataObj="help.do.HelpDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="widget_detail.tpl.html" EventName="HELP" MessageFile="Help.msg">
     <DataPanel>
 		        <Element Name="fld_Id" hidden="Y" Class="RawData" FieldName="Id" Label="Category Id" AllowURLParam="N"/>

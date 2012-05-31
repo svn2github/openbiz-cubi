@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="HelpCategoryListForm" TitleField="name" RootSearchRule="[PId]=0" Class="HelpCategoryForm" Icon="icon_help_category.gif" FormType="List" jsClass="jbForm" Title="Help Category Management" Description="Below list is the help category management. You can create a new category with url match. \nThe help contents under this category will map to left help center box by default." BizDataObj="help.do.HelpCategoryDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="HELP_CATEGORY" MessageFile="HelpCategory.msg">
     <DataPanel>
         
