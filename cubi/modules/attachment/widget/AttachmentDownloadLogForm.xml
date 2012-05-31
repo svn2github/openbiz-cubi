@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="AttachmentDownloadLogForm" Class="AttachmentForm" Icon="{RESOURCE_URL}/attachment/images/icon_attachment.png" Title="Attachment Download Log" Description="You can view current attachment downlaod logs." FormType="List" jsClass="jbForm" BizDataObj="attachment.do.AttachmentDownloadLogDO"   PageSize="5" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_attachment_download_log.tpl.html"  Access="attachment.access">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="attachment_id" Label="Id" Sortable="Y" AllowURLParam="Y" Link="javascript:" />
