@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="LicenseCopyForm" Class="EasyForm" FormType="Copy" jsClass="jbForm" Title="Copy License" Description="" BizDataObj="license.do.LicenseDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
     <DataPanel>
 		<Element Name="fld_license_key" Class="InputText" FieldName="license_key" Label="License Key"/>

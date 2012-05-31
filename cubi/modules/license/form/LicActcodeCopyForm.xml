@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="LicActcodeCopyForm" Class="EasyForm" FormType="Copy" jsClass="jbForm" Title="Copy Lic Actcode" Description="" BizDataObj="license.do.LicActcodeDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
     <DataPanel>
 		 <Element Name="fld_activation_code" Class="LabelText" FieldName="activation_code" Label="Activation Code" Text="Auto genreted code"/>

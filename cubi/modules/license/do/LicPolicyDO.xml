@@ -1,4 +1,10 @@
 <?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <BizDataObj Name="LicPolicyDO" Description="" Class="BizDataObj" DBName="Default" Table="lic_policy" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="license.Manage" UpdateCondition="license.Manage" DeleteCondition="license.Manage">
 	<BizFieldList>
         <BizField Name="Id" Column="id"     Type="Number"/>

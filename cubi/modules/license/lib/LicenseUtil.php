@@ -1,8 +1,25 @@
 <?php
+/**
+ * Openbiz Cubi Application Platform
+ *
+ * LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ *
+ * @package   cubi.license.lib
+ * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
+ * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ * @link      http://code.google.com/p/openbiz-cubi/
+ * @version   $Id$
+ */
+
 
 class LicenseUtil
 {
-    //const make_license = "/src/license/make_license";
+    /* linux make_license configuration
+	const make_license = "/src/license/make_license";
+	const licensePath = "/src/license/make_license";
+	const serverDataPath = "/src/license/make_license";
+	*/
+	// windows make_license configuration
 	const make_license = "c:/ioncube/make_license";
     const licensePath = 'c:/ioncube/tmp/license';
     const serverDataPath = 'c:/ioncube/tmp/serverdata';

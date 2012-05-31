@@ -1,5 +1,17 @@
 <?php
 /**
+ * Openbiz Cubi Application Platform
+ *
+ * LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ *
+ * @package   cubi.license.lib
+ * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
+ * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ * @link      http://code.google.com/p/openbiz-cubi/
+ * @version   $Id$
+ */
+
+/**
  * Translates a number to a short alhanumeric version
  *
  * Translated any number up to 9007199254740992
@@ -77,7 +89,7 @@
  * @author	Deadfish
  * @copyright 2008 Kevin van Zonneveld (http://kevin.vanzonneveld.net)
  * @license   http://www.opensource.org/licenses/bsd-license.php New BSD Licence
- * @version   SVN: Release: $Id: alphaID.inc.php 344 2009-06-10 17:43:59Z kevin $
+ * @version   SVN: Release: $Id$
  * @link	  http://kevin.vanzonneveld.net/
  *
  * @param mixed   $in	  String or long input to translate
