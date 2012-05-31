@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="BackupUploadForm" Class="BackupForm" Icon="{RESOURCE_URL}/backup/images/icon_backup_add.gif" FormType="New" jsClass="jbForm" Title="Upload Backup" Description="Database backup management could help you backup or restore your system database with simply one click. \n It could prevent your data lost by any mistake." BizDataObj="" TemplateEngine="Smarty" TemplateFile="detail_upload.tpl" EventName="" Access="backup.Access_Backup" MessageFile="backup_msg.ini">
     <DataPanel>         
     		<Element Name="fld_location"  Class="LabelText" ElementSet="General" FieldName="" Label="Location" Text="{@:m_LocationName}" AllowURLParam="N"/>

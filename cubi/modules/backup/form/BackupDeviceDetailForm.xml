@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="BackupDeviceDetailForm" Class="DeviceForm" Icon="{RESOURCE_URL}/backup/images/icon_backup_list.gif"  FormType="Detail" jsClass="jbForm" Title="Backup Device Detail" Description="Detailed backup device and location information." BizDataObj="backup.do.BackupDeviceDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="backup_device_msg.ini" Access="backup.Access_Backup">
     <DataPanel>
         <Element Name="fld_Id" ElementSet="General" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />	         	        	            
