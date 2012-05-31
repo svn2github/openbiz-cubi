@@ -1,4 +1,10 @@
 <?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <Selection>
    <ExtendAccess Value="extend.access" text="Default Extend Data Access Level"/>
    <ExtendAccess Value="extend.view_level_1" text="Extend Data Access Level 1"/>

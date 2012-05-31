@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="ExtendSettingListEditForm" Class="ExtendSettingForm" FormType="List" jsClass="jbForm" Icon="" BizDataObj="extend.do.ExtendSettingDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_in_tab.tpl.html"  Access="extend.access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>                
