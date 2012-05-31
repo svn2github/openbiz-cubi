@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="GetRuleEditForm" Class="SecurityRuleForm" icon="icon_security_edit.gif" FormType="Edit" jsClass="jbForm" Title="HTTP Get Request Filters"  Description="Security management is a rule based filters system module.\nThis form allows you to filtering sensitive informaion in HTTP GET field by specifying keywords."  BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="new.tpl.html"  EventName="SECURITY" MessageFile="Security.msg" ConfigFile="securityService.xml" ConfigNode="GetFilter">
     <DataPanel>
 		<Element Name="fld_name" Class="LabelText"  FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        

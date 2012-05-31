@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="URLRuleNewForm" Class="SecurityRuleForm" icon="icon_security_add.gif" FormType="New" jsClass="jbForm" Title="URL Filter Management" Description="Security management is a rule based filters system module.\nThis form allows you to control access about URL request from the Internet by specifying keywords in URL.  "  BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="new.tpl.html"  EventName="SECURITY" MessageFile="Security.msg" ConfigFile="securityService.xml" ConfigNode="UrlFilter">
     <DataPanel>
 		<Element Name="fld_name" DefaultValue="New_URL_Filter_Rule" Class="InputText" Required="Y" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        

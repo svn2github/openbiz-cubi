@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="AgentRuleListForm" icon="icon_security_list.gif" Class="SecurityRuleForm" FormType="List" jsClass="jbForm" Title="User Browser Agent Filter" Description="Security management is a rule based filters system module.\nThis form allows you to control what kind of webspider or user-agent is allowed to access the system." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="SECURITY" MessageFile="Security.msg" ConfigFile="securityService.xml" ConfigNode="AgentFilter">
     <DataPanel>
         

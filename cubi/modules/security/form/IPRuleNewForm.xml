@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="IPRuleNewForm" Class="SecurityRuleForm" icon="icon_security_add.gif" FormType="New" jsClass="jbForm" Title="Client IP Address Filters" Description="Security management is a rule based filters system module.\nThis form allows you to control which IP will have access permission to the system."  BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="new.tpl.html"  EventName="SECURITY" MessageFile="Security.msg" ConfigFile="securityService.xml" ConfigNode="IPFilter">
     <DataPanel>
 		<Element Name="fld_name" DefaultValue="New_Client_IP_Rule" Class="InputText" Required="Y" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        

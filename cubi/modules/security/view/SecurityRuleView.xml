@@ -1,4 +1,10 @@
 <?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyView Name="SecurityRuleView" Title="Security Rule Management" Description="Security Rule Management" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="Security.Administer_Security">
    <FormReferences>
    		<Reference Name="security.form.URLRuleListForm" Description="URL Filters"/>
