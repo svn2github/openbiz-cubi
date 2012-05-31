@@ -1,4 +1,10 @@
 <?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <BizDataObj Name="SessionDO" Description="" DataPermControl="N"  Class="BizDataObj" DBName="Default" Table="session" SearchRule="" SortRule="[create_time] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
 	<BizFieldList>
         <BizField Name="Id" Column="id" Length="32" Type="Text"/>

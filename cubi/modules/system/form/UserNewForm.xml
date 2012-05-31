@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="UserNewForm" Icon="icon_user_add.gif" Class="UserForm" FormType="New" jsClass="jbForm" Title="New user" Description="Please fill the form below to create a new user account" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="system.msg"  Access="User.Administer_Users">
     <DataPanel>
         <Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="Id" Hidden="Y" />

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="UserEditForm" Class="UserForm" Icon="icon_user_edit.gif" FormType="Edit" jsClass="jbForm" Title="Edit user" Description="Edit attributes of a given user account" BizDataObj="system.do.UserDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="system.msg"> 
     <DataPanel>
         <Element Name="fld_Id"  hidden="Y" Class="LabelText" FieldName="Id" Label="User Id"/>

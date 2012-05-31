@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="DatabaseEditForm" Class="DatabaseForm" icon="{RESOURCE_URL}/system/images/icon_database_edit.png" FormType="Edit" jsClass="jbForm" Title="Database Connection Management" Description="You can review and manage system database connection. "  BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl"  ConfigFile="application.xml" ConfigNode="DataSource" Access="System.Administer_System" MessageFile="database.msg">
     <DataPanel>
 		<Element Name="fld_name" DefaultValue="New_DB" Class="InputText" Required="Y" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        

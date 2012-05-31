@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="AclRoleActionsForm" Icon="icon_roles_permissions_l.gif" Class="AclRoleActionsForm" FormType="List" jsClass="jbForm" Title="Role Permissions" Description="Manage the permissions of the given role by setting access level to resource actions" BizDataObj="system.do.AclRoleActionDO" PageSize="10" TemplateEngine="Smarty" TemplateFile="form_role_permission_grid.tpl.html" MessageFile="system.msg">
     <DataPanel>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="Action Id" Sortable="Y"/>

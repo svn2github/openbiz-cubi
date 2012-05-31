@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="RoleEditForm" Icon="icon_roles_edit.gif" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit role" Description="Edit atributes of a given role in the application" BizDataObj="system.do.RoleDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html">
     <DataPanel>
         <Element Name="fld_Id"  hidden="Y"  Class="LabelText" FieldName="Id" Label="Id"/>

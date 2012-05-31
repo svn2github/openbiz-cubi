@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="GroupNewForm"  Icon="icon_group_add.gif" class="EasyForm" FormType="New" jsClass="jbForm" Title="New Group" Description="User Group controls users data level visibility in the system." BizDataObj="system.do.GroupDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
     <DataPanel>
         <Element Name="fld_name" DefaultValue="New Group" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>

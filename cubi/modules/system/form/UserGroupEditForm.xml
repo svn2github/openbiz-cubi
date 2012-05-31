@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="UserGroupEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit User Group" Description="" BizDataObj="system.do.UserGroupDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
     <DataPanel>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="Id"/>

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="UserGroupsForm" Icon="icon_group_list.gif" Class="UserGroupsForm" FormType="List" jsClass="jbForm" Title="User Groups" Description="List groups of a given user account. An user can associate with one or more groups." BizDataObj="system.do.GroupPickerDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
     <DataPanel>
     	<Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>

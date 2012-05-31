@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="ModuleDetailForm" Icon="icon_modules_l.gif" Class="ModuleForm" FormType="" jsClass="jbForm" Title="Module Details " Description="Detailed attributes of a given module. \nThe module metadata are located at app/modules/module_name folder" BizDataObj="system.do.ModuleDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" MessageFile="system.msg">
     <DataPanel>
         <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Id"/>

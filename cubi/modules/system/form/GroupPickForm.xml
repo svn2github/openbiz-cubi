@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="GroupPickForm" Class="PickerForm" Icon="icon_group_list.gif" FormType="List" jsClass="jbForm" Title="Please select a group for the user" Description="To selec a group to a user, click on a row and click to Select button" BizDataObj="system.do.GroupPickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_pickform.tpl.html">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>    

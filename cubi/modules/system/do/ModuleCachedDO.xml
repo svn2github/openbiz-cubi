@@ -1,4 +1,10 @@
 <?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <BizDataObj Name="ModuleCachedDO" Description="" Class="BizDataObj" DBName="Default" Table="module" SearchRule="" SortRule="" OtherSQLRule="" IdGeneration="Identity" CacheLifeTime="7200">
 	<BizFieldList>
 	    <BizField Name="Id" Column="id" Type=""/>

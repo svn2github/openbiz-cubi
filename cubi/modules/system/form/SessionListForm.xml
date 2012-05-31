@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="SessionListForm" Icon="{RESOURCE_URL}/system/images/icon_session.gif" Class="SessionListForm" FormType="List" jsClass="jbForm" Title="Session Management" Description="You can view and manage user sessions in below form." BizDataObj="system.do.SessionDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" access="Session.Administer_Session">
     <DataPanel>
     	<Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
