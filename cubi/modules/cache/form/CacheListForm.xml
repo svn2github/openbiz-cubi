@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="CacheListForm" Class="CacheForm" Icon="icon_cache_l.gif" FormType="List" jsClass="jbForm" Title="Cache Management" Description="System cache is a component that improves performance by transparently storing data such that future requests for that data can be served faster. " BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grouping.tpl.html" EventName="CACHE" MessageFile="">
     <DataPanel>
         
