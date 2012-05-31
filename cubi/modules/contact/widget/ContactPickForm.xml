@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="ContactPickForm" Class="PickerForm" Icon="{RESOURCE_URL}/contact/images/icon_phonebook.gif"  FormType="List" jsClass="jbForm" Title="Please select a contact" Description="To selec a contact, click on a row and click to Select button" BizDataObj="contact.do.ContactPickerDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_picker.tpl.html"  Access="contact.access" >
     <DataPanel>
        <Element Name="row_selections" Class="RowCheckbox" width="20"  Label="" FieldName="Id"/>    

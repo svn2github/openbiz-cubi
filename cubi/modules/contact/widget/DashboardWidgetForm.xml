@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="DashboardWidgetForm" Class="contact.form.ContactForm" FormType="List" jsClass="jbForm" Title="Contact" Description="{@:m_TotalRecords} contacts" BizDataObj="contact.do.ContactDO" PageSize="4" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="dashboard_widget_form.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>
         <Element Name="fld_Id" Class="RawData" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />

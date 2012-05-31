@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="ContactPhotoGridForm" Class="ContactForm" Icon="{RESOURCE_URL}/contact/images/icon_photos.png" FormType="List" jsClass="jbForm" Title="Photo Grid" Description="This is a Photo Grid view of your contacts that will help you quick check your contacts as picture wall." BizDataObj="contact.do.ContactDO" PageSize="12" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_photo_grid.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>
        

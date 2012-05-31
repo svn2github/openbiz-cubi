@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="ContactListTypeForm" Class="ContactFormGrouping" Icon="{RESOURCE_URL}/contact/images/icon_type_list.gif" GroupBy="[type_name:type_id]" FormType="List" jsClass="jbForm" Title="Group by Contact Type" Description="The view displays your contacts  as types you had defined" BizDataObj="contact.do.ContactDO" PageSize="5" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_list_grouping.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>
         

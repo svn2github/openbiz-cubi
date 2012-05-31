@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="ContactGrabberImportForm" Icon="{RESOURCE_URL}/contact/images/icon_contact_grabber.gif" Class="ContactGrabberImportForm" FormType="New" jsClass="jbForm" Title="Contact Import Mapping" Description="Please select or create a type for imported contacts and setup group sharing for them." BizDataObj="contact.do.ContactImportDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>
 	

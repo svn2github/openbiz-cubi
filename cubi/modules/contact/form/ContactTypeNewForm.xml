@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="ContactTypeNewForm" Class="ContactTypeForm" Icon="{RESOURCE_URL}/contact/images/icon_contact_type.png"  FormType="New" jsClass="jbForm" Title="New Contact Type" Description="Please fill in below field to create a new contact type" BizDataObj="contact.do.ContactTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>
         <Element Name="fld_name" DefaultValue="New Contact Type" Class="InputText" FieldName="name" Label="Name"   />	

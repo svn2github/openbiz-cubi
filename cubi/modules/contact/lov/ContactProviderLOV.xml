@@ -1,4 +1,10 @@
 <?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <Selection>   
    <Provider Value="contact.lib.ContactProvider.Excel2003.ContactService" text="Microsoft Excel 2003"/>   
    <Provider Value="contact.lib.ContactProvider.Google.ContactService" text="Google Contacts"/>

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="ContactGrabberFinishForm" Icon="{RESOURCE_URL}/contact/images/icon_contact_grabber.gif" Class="ContactGrabberFinishForm" FormType="New" jsClass="jbForm" Title="Contact Import Finished" Description="Contact Grabber already sucessful helps you imported selected contacts." BizDataObj="contact.do.ContactImportDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_import_finish.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
     <DataPanel>
             <Element Name="fld_contact_counts" ElementSet="General" Class="LabelText" FieldName="" Label="Contacts Data" Text="Previously Imported {@:SelectedContacts} Contacts" Description=""  Required="Y" />    

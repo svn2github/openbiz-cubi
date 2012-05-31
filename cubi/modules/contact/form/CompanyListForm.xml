@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="CompanyListForm" Class="EasyFormGrouping" GroupBy="[company]" FormType="List" jsClass="jbForm" Title="Company Contact List" Description="Telephone directory (also called a telephone book and phone book) is a listing of telephone subscribers in a geographical area or subscribers to services provided by the organization that publishes the directory" BizDataObj="contact.do.ContactDO" PageSize="5" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="contact_list_grouping.tpl.html" EventName="CONTACT" MessageFile="Contact.msg">
     <DataPanel>
         

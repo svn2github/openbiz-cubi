@@ -1,5 +1,17 @@
 <?php
 /**
+ * Openbiz Cubi Application Platform
+ *
+ * LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ *
+ * @package   cubi.contact.lib.ContactProvider.Excel2003
+ * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
+ * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ * @link      http://code.google.com/p/openbiz-cubi/
+ * @version   $Id$
+ */
+
+/**
  * A class for reading Microsoft Excel (97/2003) Spreadsheets.
  *
  * Version 2.21
@@ -41,7 +53,7 @@
  * @package	Spreadsheet_Excel_Reader
  * @author	 Vadim Tkachenko <vt@apachephp.com>
  * @license	http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version	CVS: $Id: reader.php 19 2007-03-13 12:42:41Z shangxiao $
+ * @version	CVS: $Id$
  * @link	   http://pear.php.net/package/Spreadsheet_Excel_Reader
  * @see		OLE, Spreadsheet_Excel_Writer
  * --------------------------------------------------------------------------
