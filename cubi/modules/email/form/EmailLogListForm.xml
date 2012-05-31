@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="EmailLogListForm" Icon="icon_email_log_l.gif" Class="EmailLogForm" FormType="List" jsClass="jbForm" Title="Manage Email Log" EventName="EMAIL_LOG" Description="Manage application email logs. Email logs record email activities." BizDataObj="email.do.EmailLogDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" MessageFile="">
     <DataPanel>    		 
 		     <Element Name="fld_timestamp" Class="ColumnText" FieldName="timestamp" Label="Timestamp" Sortable="Y"/>

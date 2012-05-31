@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="EmailTemplateListForm" icon="icon_email_template_list.gif" Class="EmailTemplateForm" FormType="List" jsClass="jbForm" Title="Email Template Management" Description="This moudle could helps you manage and edit system notification email templates.\n To define a new entity you need to manual edit userEmailService.xml file." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" EventName="EMAIL" MessageFile="Email.msg" ConfigFile="userEmailService.xml" ConfigNode="Template">
     <DataPanel>
         

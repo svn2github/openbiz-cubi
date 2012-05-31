@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="EmailAccountNewForm" Class="EmailSettingForm" icon="icon_email_account_list_add.gif" FormType="New" jsClass="jbForm" Title="Email Accounts Management" Description="This module could manage email accounts for sending notification emails from system. "  BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html"  EventName="EMAIL" MessageFile="Email.msg" ConfigFile="emailService.xml" ConfigNode="Account">
     <DataPanel>
 		<Element Name="fld_name" Class="InputText" DefaultValue="System" FieldName="NAME" Label="Name"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="EmailQueueListForm" Icon="icon_email_queue_l.gif" Class="EmailQueueForm" FormType="List" jsClass="jbForm" EventName="EMAIL_QUEUE" Title="Manage Email Queue" Description="Manage application email queue. All emails are added into the email queue before sending out" BizDataObj="email.do.EmailQueueDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html" MessageFile="">
     <DataPanel>
     		 <Element Name="row_selections" Class="RowCheckbox" FieldName="Id" Label=""/>

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="EmailQueueDetailForm" Class="EmailQueueForm" jsClass="jbForm" Title="Email Detail" Description="Detailed attributes of a given email" BizDataObj="email.do.EmailQueueDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html">
     <DataPanel>
     	 <Element Name="fld_Id" Class="LabelText" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y"/>   	 
