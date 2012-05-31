@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="ChangeLogWidgetNoLeftForm" Class="ChangeLogWidgetForm" TemplateFile="changelog_list_no_left_widget.tpl.html" inheritfrom="changelog.widget.ChangeLogWidgetForm" Access="changelog.access">
 </EasyForm>
