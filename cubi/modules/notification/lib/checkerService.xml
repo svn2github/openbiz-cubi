@@ -1,4 +1,10 @@
 <?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <PluginService Name="checkerService" Class="checkerService"  CacheLifeTime="0">
 	<Checker Name="market_checker" MinInterval="86400" 
 			ServiceObj="market.lib.NotificationService" Mehtod="checkNotification" />

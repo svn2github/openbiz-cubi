@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="NotificationWidgetForm"  Class="NotificationWidgetForm" FormType="List" jsClass="jbForm" Title="System Notification" Description="" BizDataObj="notification.do.NotificationDO" SearchRule="[read_state]='0'" PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="notification_widget.tpl.html" EventName="" MessageFile="" Access="">
     <DataPanel>
         <Element Name="fld_Id" 		Class="RawData" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />
