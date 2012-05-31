@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="LanguageListForm" icon="icon_languages_list.gif" Class="LanguageForm" FormType="List" jsClass="jbForm" Title="Language Management" Description="This module could manage multi-language translations for system.\n Each language package contains many translation files for each modules inside." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="TRANSLATION" MessageFile="Translation.msg">
     <DataPanel>
         

@@ -1,9 +1,21 @@
 <?php
+/**
+ * Openbiz Cubi Application Platform
+ *
+ * LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ *
+ * @package   cubi.translation.lib
+ * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
+ * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ * @link      http://code.google.com/p/openbiz-cubi/
+ * @version   $Id$
+ */
+
 
 /**
  * Translating language with Google API
  * @author gabe@fijiwebdesign.com
- * @version $Id: google.translator.php 7 2009-08-20 09:30:43Z bucabay $
+ * @version $Id$
  * @license - Share-Alike 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)
  * 
  * Google requires attribution for their Language API, please see: http://code.google.com/apis/ajaxlanguage/documentation/#Branding
