@@ -1,4 +1,10 @@
 <?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <BizDataObj Name="RepositoryDO" Description="" Class="BizDataObj" DBName="Default" Table="market_repository" SearchRule="" SortRule="[sort_order] ASC" OtherSQLRule="" Uniqueness="repository_uri" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
 	<BizFieldList>
         <BizField Name="Id" 			Column="id" 	Type="Number"/>

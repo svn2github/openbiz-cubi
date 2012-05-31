@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="AppUpdateListForm" Icon="{RESOURCE_URL}/market/images/icon_update.png" Class="AppUpdateListForm" FormType="List" jsClass="jbForm" Title="Application Updates" Description="This module can manage repositroy applications " BizDataObj="market.installed.do.InstalledDO" SearchRule="[install_state]='OK'" PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="app_list_grid.tpl.html" EventName="" MessageFile="" Access="Market.Manage">
     <DataPanel>
     	<Element Name="fld_repo_id" Class="Hidden" Hidden="Y" FieldName="repo_id" Label="ID" Sortable="Y" AllowURLParam="N">         
