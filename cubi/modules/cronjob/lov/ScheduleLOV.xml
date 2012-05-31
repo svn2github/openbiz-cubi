@@ -1,4 +1,10 @@
 <?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <Selection>
    <Minute Value="*" text="Every min"/>
    <Minute Value="0,5,10,15,20,25,30,35,40,45,50,55" text="Every 5 mins"/>
