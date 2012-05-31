@@ -1,4 +1,16 @@
 <?php
+/**
+ * Openbiz Cubi Application Platform
+ *
+ * LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ *
+ * @package   cubi.service.taoapi
+ * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
+ * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ * @link      http://code.google.com/p/openbiz-cubi/
+ * @version   $Id$
+ */
+
 /*
 警告: 修改该文件必须保存为无ROM头的文件,也就是去掉文件头签名
 如果使用记事本改的话可能会出现获取数据乱码的问题

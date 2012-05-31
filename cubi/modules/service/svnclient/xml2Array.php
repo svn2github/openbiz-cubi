@@ -1,4 +1,16 @@
 <?php
+/**
+ * Openbiz Cubi Application Platform
+ *
+ * LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ *
+ * @package   cubi.service.svnclient
+ * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
+ * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ * @link      http://code.google.com/p/openbiz-cubi/
+ * @version   $Id$
+ */
+
 /* Taken from http://www.php.net/manual/en/function.xml-parse.php#52567
 	Modified by Martin Guppy <http://www.deadpan110.com/>
 Usage

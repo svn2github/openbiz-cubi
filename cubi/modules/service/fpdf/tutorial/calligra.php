@@ -1,4 +1,16 @@
 <?php
+/**
+ * Openbiz Cubi Application Platform
+ *
+ * LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ *
+ * @package   cubi.service.fpdf.tutorial
+ * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
+ * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ * @link      http://code.google.com/p/openbiz-cubi/
+ * @version   $Id$
+ */
+
 $type='TrueType';
 $name='Calligrapher-Regular';
 $desc=array('Ascent'=>899,'Descent'=>-234,'CapHeight'=>731,'Flags'=>32,'FontBBox'=>'[-50 -234 1328 899]','ItalicAngle'=>0,'StemV'=>70,'MissingWidth'=>800);

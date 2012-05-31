@@ -1,5 +1,17 @@
 <?php
 /**
+ * Openbiz Cubi Application Platform
+ *
+ * LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ *
+ * @package   cubi.service
+ * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
+ * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ * @link      http://code.google.com/p/openbiz-cubi/
+ * @version   $Id$
+ */
+
+/**
  * PHPOpenBiz Framework
  *
  * LICENSE
@@ -11,7 +23,7 @@
  * @copyright Copyright &copy; 2005-2012, Rocky Swen
  * @license   http://www.opensource.org/licenses/bsd-license.php
  * @link      http://www.phpopenbiz.org/
- * @version   $Id: excelService.php 2553 2010-11-21 08:36:48Z mr_a_ton $
+ * @version   $Id$
  */
 
 include_once (OPENBIZ_HOME."/messages/excelService.msg");

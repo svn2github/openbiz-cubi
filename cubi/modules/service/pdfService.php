@@ -1,5 +1,17 @@
 <?php
 /**
+ * Openbiz Cubi Application Platform
+ *
+ * LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ *
+ * @package   cubi.service
+ * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
+ * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ * @link      http://code.google.com/p/openbiz-cubi/
+ * @version   $Id$
+ */
+
+/**
  * @package PluginService
  */
  
@@ -12,7 +24,7 @@ define('_MPDF_PATH', MODULE_PATH."/pdf/lib/mpdf50/");
  * @package PluginService
  * @author rocky swen 
  * @copyright Copyright (c) 2003
- * @version $Id: pdfService.php,v 1.1 2006/04/07 07:59:46 rockys Exp $
+ * @version $Id$
  * @access public 
  */
 class pdfService
