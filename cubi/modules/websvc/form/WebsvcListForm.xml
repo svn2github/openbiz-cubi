@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="WebsvcListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/websvc/images/icon_webservices.gif"  Title="Web Service Account Management" Description="This module manages users who have permission to access Webservices" BizDataObj="websvc.do.WebsvcDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="websvc.websvc.Access">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="WebsvcNewForm" Class="WebsvcForm" FormType="New" jsClass="jbForm" Icon="{RESOURCE_URL}/websvc/images/icon_webservices_add.gif" Title="New Web Service Account" Description="This module manages users who have permission to access Webservices"  BizDataObj="websvc.do.WebsvcDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
     <DataPanel>
         <Element Name="fld_user_id" Class="Hidden" Enabled="N" FieldName="user_id" Label="user Id"/>
