@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="WidgetDetailForm" Class="MyDashboardForm" FormType="" Icon="icon_modules_l.gif" jsClass="jbForm" SearchRule="[user_id]='{@profile:Id}'" Title="Widget Detail" Description="Detailed attrbutes for selected widget." BizDataObj="myaccount.do.UserWidgetDO" TemplateEngine="Smarty" TemplateFile="detail.tpl">
     <DataPanel>
         <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>

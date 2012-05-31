@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="MyDashboardForm" Icon="icon_modules_l.gif" Class="MyDashboardForm" FormType="List" jsClass="jbForm" Title="My Dashboard Management" SearchRule="[user_id]='{@profile:Id}'" Description="You can custom your dashboard feature by selecting and config below installed widgets. \nThese optional widgets are usually shipped with modules." BizDataObj="myaccount.do.UserWidgetDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_listform.tpl.html">
     <DataPanel>
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>        

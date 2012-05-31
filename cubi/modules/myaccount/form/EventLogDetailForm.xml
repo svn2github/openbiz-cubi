@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="EventLogDetailForm" Icon="icon_my_eventlog.gif" SearchRule="[user_id]='{@profile:Id}'" Class="eventlog.form.EventLogForm" jsClass="jbForm" Title="Event Log Detail" Description="Detailed attributes of a given log record" BizDataObj="eventlog.do.EventlogDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="eventlogService.msg">
     <DataPanel>
 	     <Element Name="fld_timestamp" Class="LabelText" FieldName="timestamp" Label="Timestamp" Sortable="Y"/>

@@ -1,4 +1,10 @@
 <?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <Module Name="myaccount" Description="My Account Module" Version="0.71" OpenbizVersion="3.0"  LoadHandler="myaccount.lib.MyAccountLoadHandler">
 	<ACL>
 		<Resource Name="myaccount">

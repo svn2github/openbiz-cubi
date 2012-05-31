@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <EasyForm Name="ProfileEditForm" Class="contact.form.ContactForm" FormType="Edit" Icon="icon_my_profile.gif" jsClass="jbForm" SearchRule="[Id]='{@profile:profile_Id}'" Title="Edit My Contact Profile" Description="Here you can edit personal contact profile." BizDataObj="contact.do.ContactSystemDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="profile_edit.tpl.html"   MessageFile="myaccount.ini"  EventName="CONTACT">
     <DataPanel>
     		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="Y" />
