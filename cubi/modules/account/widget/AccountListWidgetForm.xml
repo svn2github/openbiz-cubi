@@ -115,7 +115,7 @@
 		<Element Name="fld_annual_revenue" 
         			Class="ColumnText" 
         			FieldName="annual_revenue" 
-        			Label="Revenue" 
+        			Label="Annual Revenue" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />        			

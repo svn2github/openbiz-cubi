@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <BizDataObj Name="AccountRefDO" 
-		Description="Account Description - Reference DO" 
+		Description="Account for CRM System - Reference DO" 
 		DataPermControl="Y"
 		Class="BizDataObj" 
 		DBName="Default" 

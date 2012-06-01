@@ -87,7 +87,7 @@
        				ElementSet="General" 
        				Class="LabelText" 
        				FieldName="annual_revenue" 
-       				Label="Revenue" 
+       				Label="Annual Revenue" 
        				AllowURLParam="N"/>
        	<Element Name="fld_billing_country" 
        				ElementSet="General" 

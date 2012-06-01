@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <EasyView Name="AccountDetailView" 
-	Description="Detail View of Account Description" 
+	Description="Detail View of Account for CRM System" 
 	Class="EasyView" 	
 	Access="account.Access" 
 	TemplateEngine="Smarty" 

@@ -5,7 +5,7 @@
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/account/images/icon_mod_account_add.png"
 			Title="New CRM Account" 
-			Description="Account Description" 
+			Description="Account for CRM System" 
 			BizDataObj="account..do.AccountDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_edit.tpl.html" 
@@ -97,7 +97,7 @@
 		
 
        	<Element Name="fld_fax" 
-       				ElementSet="Additional" 
+       				ElementSet="General" 
        				Class="InputText" 
        				FieldName="fax" 
        				Label="Fax" 
@@ -141,10 +141,10 @@
 		
 
        	<Element Name="fld_annual_revenue" 
-       				ElementSet="Annual" 
+       				ElementSet="Additional" 
        				Class="InputText" 
        				FieldName="annual_revenue" 
-       				Label="Revenue" 
+       				Label="Annual Revenue" 
        				AllowURLParam="N"
        				/>     
        								   	
@@ -152,7 +152,7 @@
 		
 
        	<Element Name="fld_billing_country" 
-       				ElementSet="Billing" 
+       				ElementSet="Billing Address" 
        				Class="InputText" 
        				FieldName="billing_country" 
        				Label="Country" 
@@ -163,7 +163,7 @@
 		
 
        	<Element Name="fld_billing_zip" 
-       				ElementSet="Billing" 
+       				ElementSet="Billing Address" 
        				Class="InputText" 
        				FieldName="billing_zip" 
        				Label="Zip" 
@@ -174,7 +174,7 @@
 		
 
        	<Element Name="fld_billing_state" 
-       				ElementSet="Billing" 
+       				ElementSet="Billing Address" 
        				Class="InputText" 
        				FieldName="billing_state" 
        				Label="State" 
@@ -185,7 +185,7 @@
 		
 
        	<Element Name="fld_billing_city" 
-       				ElementSet="Billing" 
+       				ElementSet="Billing Address" 
        				Class="InputText" 
        				FieldName="billing_city" 
        				Label="City" 
@@ -196,7 +196,7 @@
 		
 
        	<Element Name="fld_billing_street" 
-       				ElementSet="Billing" 
+       				ElementSet="Billing Address" 
        				Class="InputText" 
        				FieldName="billing_street" 
        				Label="Street" 
@@ -207,7 +207,7 @@
 		
 
        	<Element Name="fld_shipping_country" 
-       				ElementSet="Shipping" 
+       				ElementSet="Shipping Address" 
        				Class="InputText" 
        				FieldName="shipping_country" 
        				Label="Country" 
@@ -218,7 +218,7 @@
 		
 
        	<Element Name="fld_shipping_zip" 
-       				ElementSet="Shipping" 
+       				ElementSet="Shipping Address" 
        				Class="InputText" 
        				FieldName="shipping_zip" 
        				Label="Zip" 
@@ -229,7 +229,7 @@
 		
 
        	<Element Name="fld_shipping_state" 
-       				ElementSet="Shipping" 
+       				ElementSet="Shipping Address" 
        				Class="InputText" 
        				FieldName="shipping_state" 
        				Label="State" 
@@ -240,7 +240,7 @@
 		
 
        	<Element Name="fld_shipping_city" 
-       				ElementSet="Shipping" 
+       				ElementSet="Shipping Address" 
        				Class="InputText" 
        				FieldName="shipping_city" 
        				Label="City" 
@@ -251,7 +251,7 @@
 		
 
        	<Element Name="fld_shipping_street" 
-       				ElementSet="Shipping" 
+       				ElementSet="Shipping Address" 
        				Class="InputText" 
        				FieldName="shipping_street" 
        				Label="Street" 

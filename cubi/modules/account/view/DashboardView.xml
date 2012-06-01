@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <EasyView Name="DashboardView" 
-	Description="Dashboard View of Account Description" 
+	Description="Dashboard View of Account for CRM System" 
 	Class="EasyView" 	
 	Access="" 
 	TemplateEngine="Smarty" 

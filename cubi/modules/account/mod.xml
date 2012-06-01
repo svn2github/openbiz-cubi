@@ -3,7 +3,7 @@
 		Description="Account Module Description" 
 		Version="0.1" 
 		OpenbizVersion="3.0" 
-		Author="System, Admin"
+		Author="Jixian Wang"
 		LoadHandler="AccountLoadHandler.php" >
 	<ACL>
 		<Resource Name="account">

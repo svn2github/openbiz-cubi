@@ -120,7 +120,7 @@
        				ElementSet="General" 
        				Class="InputText" 
        				FieldName="annual_revenue" 
-       				Label="Revenue" 
+       				Label="Annual Revenue" 
        				AllowURLParam="N"/>     
        								   	
 
