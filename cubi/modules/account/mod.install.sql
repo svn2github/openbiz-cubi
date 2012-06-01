@@ -35,3 +35,23 @@ CREATE TABLE `account` (
   KEY `type_id` (`type_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='CRM Account';
 
+-- Dumping structure for table: `account_industry`
+
+DROP TABLE IF EXISTS `account_industry`;
+CREATE TABLE `account_industry` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` text,
+  `owner_id` int(11) DEFAULT '0',
+  `group_id` int(11) DEFAULT '1',
+  `group_perm` int(11) DEFAULT '1',
+  `other_perm` int(11) DEFAULT '1',
+  `status` int(2) NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Account Industry Information';
+

@@ -3,7 +3,7 @@
 		Description="Account Module Description" 
 		Version="0.1" 
 		OpenbizVersion="3.0" 
-		Author="Jixian Wang"
+		Author="System, Admin"
 		LoadHandler="AccountLoadHandler.php" >
 	<ACL>
 		<Resource Name="account">
@@ -55,6 +55,25 @@
 		        			IconCssClass="" 
 		        			Order="60" 
 		        			Access="" >
+		        </MenuItem>	
+		        
+		        
+		        <MenuItem Name="account_industry_manage" 
+		        			Title="Account Industry" 	        			
+		        			Description="Industries of Account" 
+		        			URL="{APP_INDEX}/account/account_industry_manage" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="70" 
+		        			Access="" >
+						<MenuItem Name="account_industry_detail" 
+				        			Title="Industry Detail" 	        			
+				        			Description="Detail of Industry" 
+				        			URL="{APP_INDEX}/account/account_industry_detail" 
+				        			IconImage="spacer.gif" 
+				        			IconCssClass="" 
+				        			Order="50" 
+				        			Access="" />
 		        </MenuItem>		
 			</MenuItem>
 		</MenuItem>	
