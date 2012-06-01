@@ -9,11 +9,13 @@
 			BizDataObj="account.industry.do.AccountIndustryDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_edit.tpl.html" 
-			MessageFile="" 
+			MessageFile="AccountIndustry.ini" 
 			Access="account.Manage">
     <DataPanel>
   	  
-  
+       								   	
+
+		
 
        	<Element Name="fld_name" 
        				ElementSet="General"
@@ -36,6 +38,25 @@
 					FieldName="description" 
 					Label="Description"  />		
 		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
 		<Element Name="fld_status" 
 					Class="DropDownList" 
 					ElementSet="General"
@@ -48,6 +69,24 @@
 					OnEventLog="N" 
 					Link="javascript:;">				
 		</Element>
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
   
 		<Element Name="fld_published" 
 					Class="Listbox" 

@@ -9,17 +9,10 @@
 			BizDataObj="account.industry.do.AccountIndustryDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_detail.tpl.html" 
-			MessageFile="" 
+			MessageFile="AccountIndustry.ini" 
 			Access="account.Access">
     <DataPanel>
 
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
        	<Element Name="fld_Id" 
        				Class="LabelText" 
        				ElementSet="General"
@@ -27,8 +20,6 @@
        				FieldName="Id" 
        				Label="Id"  
        				AllowURLParam="Y"/>  
-        				         				  				      				
-
         				         				  				      				
        	<Element Name="fld_name" 
        				ElementSet="General"
@@ -47,6 +38,9 @@
 					/>
         				         				  				      				
         				         				  				      				
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
 		<Element Name="fld_status" 
 					Class="LabelBool" 
 					ElementSet="General"
@@ -61,6 +55,12 @@
 							Event="onclick" 
 							Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
 		</Element>
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
+
    
 
        	<Element Name="fld_update_by" 
