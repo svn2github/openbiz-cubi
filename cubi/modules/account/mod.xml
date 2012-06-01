@@ -59,7 +59,7 @@
 		        
 		        
 		        <MenuItem Name="account_industry_manage" 
-		        			Title="Account Industry" 	        			
+		        			Title="Industry Manage" 	        			
 		        			Description="Industries of Account" 
 		        			URL="{APP_INDEX}/account/account_industry_manage" 
 		        			IconImage="spacer.gif" 
