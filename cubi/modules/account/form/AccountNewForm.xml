@@ -22,6 +22,47 @@
 				KeepCookie="Y" 
 				SelectFrom="account..do.AccountTypeDO[name:Id:color]" 
 				AllowURLParam="N" />
+  				
+				
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
 
        	<Element Name="fld_name" 
        				ElementSet="General" 
@@ -30,7 +71,20 @@
        				Label="Name" 
        				AllowURLParam="N"
        				/>     
- 
+       								   	
+
+		
+
+       								   	
+
+       	 	
+		<Element Name="fld_description" 
+					Class="Textarea" 
+					ElementSet="General"
+					FieldName="description" 
+					Label="Description"  />		
+		
+
        	<Element Name="fld_phone" 
        				ElementSet="General" 
        				Class="InputText" 
@@ -38,9 +92,12 @@
        				Label="Phone" 
        				AllowURLParam="N"
        				/>     
- 
+       								   	
+
+		
+
        	<Element Name="fld_fax" 
-       				ElementSet="General" 
+       				ElementSet="Additional" 
        				Class="InputText" 
        				FieldName="fax" 
        				Label="Fax" 
@@ -51,7 +108,7 @@
 		
 
        	<Element Name="fld_website" 
-       				ElementSet="General" 
+       				ElementSet="Additional" 
        				Class="InputText" 
        				FieldName="website" 
        				Label="Website" 
@@ -65,7 +122,7 @@
        				ElementSet="Additional" 
        				Class="InputText" 
        				FieldName="industry_id" 
-       				Label="Industry Id" 
+       				Label="Industry" 
        				AllowURLParam="N"
        				/>     
        								   	
@@ -84,23 +141,18 @@
 		
 
        	<Element Name="fld_annual_revenue" 
-       				ElementSet="Additional" 
+       				ElementSet="Annual" 
        				Class="InputText" 
        				FieldName="annual_revenue" 
-       				Label="Annual Revenue" 
+       				Label="Revenue" 
        				AllowURLParam="N"
        				/>     
        								   	
 
-		<Element Name="fld_description" 
-					Class="Textarea" 
-					ElementSet="Additional" 
-					FieldName="description" 
-					Label="Description"  />		
-				
+		
 
        	<Element Name="fld_billing_country" 
-       				ElementSet="Billing Address" 
+       				ElementSet="Billing" 
        				Class="InputText" 
        				FieldName="billing_country" 
        				Label="Country" 
@@ -111,76 +163,104 @@
 		
 
        	<Element Name="fld_billing_zip" 
-       				ElementSet="Billing Address" 
+       				ElementSet="Billing" 
        				Class="InputText" 
        				FieldName="billing_zip" 
        				Label="Zip" 
        				AllowURLParam="N"
        				/>     
-       				
+       								   	
+
+		
+
        	<Element Name="fld_billing_state" 
-       				ElementSet="Billing Address" 
+       				ElementSet="Billing" 
        				Class="InputText" 
        				FieldName="billing_state" 
        				Label="State" 
        				AllowURLParam="N"
        				/>     
+       								   	
+
+		
 
        	<Element Name="fld_billing_city" 
-       				ElementSet="Billing Address" 
+       				ElementSet="Billing" 
        				Class="InputText" 
        				FieldName="billing_city" 
        				Label="City" 
        				AllowURLParam="N"
        				/>     
+       								   	
+
+		
 
        	<Element Name="fld_billing_street" 
-       				ElementSet="Billing Address" 
+       				ElementSet="Billing" 
        				Class="InputText" 
        				FieldName="billing_street" 
        				Label="Street" 
        				AllowURLParam="N"
        				/>     
+       								   	
+
+		
 
        	<Element Name="fld_shipping_country" 
-       				ElementSet="Shipping Address" 
+       				ElementSet="Shipping" 
        				Class="InputText" 
        				FieldName="shipping_country" 
        				Label="Country" 
        				AllowURLParam="N"
        				/>     
+       								   	
+
+		
 
        	<Element Name="fld_shipping_zip" 
-       				ElementSet="Shipping Address" 
+       				ElementSet="Shipping" 
        				Class="InputText" 
        				FieldName="shipping_zip" 
        				Label="Zip" 
        				AllowURLParam="N"
        				/>     
+       								   	
+
+		
 
        	<Element Name="fld_shipping_state" 
-       				ElementSet="Shipping Address" 
+       				ElementSet="Shipping" 
        				Class="InputText" 
        				FieldName="shipping_state" 
        				Label="State" 
        				AllowURLParam="N"
        				/>     
+       								   	
+
+		
 
        	<Element Name="fld_shipping_city" 
-       				ElementSet="Shipping Address" 
+       				ElementSet="Shipping" 
        				Class="InputText" 
        				FieldName="shipping_city" 
        				Label="City" 
        				AllowURLParam="N"
        				/>     
+       								   	
+
+		
 
        	<Element Name="fld_shipping_street" 
-       				ElementSet="Shipping Address" 
+       				ElementSet="Shipping" 
        				Class="InputText" 
        				FieldName="shipping_street" 
        				Label="Street" 
        				AllowURLParam="N"
        				/>     
+       								   	
+
+		
+
   
 		<Element Name="fld_published" 
 					Class="Listbox" 

@@ -12,6 +12,11 @@
 			Access="account.Access">	
     <DataPanel>           
             
+     
+     
+     
+     
+     
 		<Element Name="row_selections" 
         			Class="RowCheckbox"  
         			Label="" 
@@ -38,6 +43,9 @@
 				OnEventLog="N" 
 				Link="javascript:;">
 		</Element>
+     
+     
+     
      
      
 		<Element Name="fld_name" 
@@ -89,7 +97,7 @@
 		<Element Name="fld_industry_id" 
         			Class="ColumnText" 
         			FieldName="industry_id" 
-        			Label="Industry Id" 
+        			Label="Industry" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />        			
@@ -107,7 +115,7 @@
 		<Element Name="fld_annual_revenue" 
         			Class="ColumnText" 
         			FieldName="annual_revenue" 
-        			Label="Annual Revenue" 
+        			Label="Revenue" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />        			
@@ -116,7 +124,7 @@
 		<Element Name="fld_billing_country" 
         			Class="ColumnText" 
         			FieldName="billing_country" 
-        			Label="Billing Country" 
+        			Label="Country" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />        			
@@ -125,7 +133,7 @@
 		<Element Name="fld_billing_zip" 
         			Class="ColumnText" 
         			FieldName="billing_zip" 
-        			Label="Billing Zip" 
+        			Label="Zip" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />        			
@@ -134,7 +142,7 @@
 		<Element Name="fld_billing_state" 
         			Class="ColumnText" 
         			FieldName="billing_state" 
-        			Label="Billing State" 
+        			Label="State" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />        			
@@ -143,7 +151,7 @@
 		<Element Name="fld_billing_city" 
         			Class="ColumnText" 
         			FieldName="billing_city" 
-        			Label="Billing City" 
+        			Label="City" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />        			
@@ -152,7 +160,7 @@
 		<Element Name="fld_billing_street" 
         			Class="ColumnText" 
         			FieldName="billing_street" 
-        			Label="Billing Street" 
+        			Label="Street" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />        			
@@ -161,7 +169,7 @@
 		<Element Name="fld_shipping_country" 
         			Class="ColumnText" 
         			FieldName="shipping_country" 
-        			Label="Shipping Country" 
+        			Label="Country" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />        			
@@ -170,7 +178,7 @@
 		<Element Name="fld_shipping_zip" 
         			Class="ColumnText" 
         			FieldName="shipping_zip" 
-        			Label="Shipping Zip" 
+        			Label="Zip" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />        			
@@ -179,7 +187,7 @@
 		<Element Name="fld_shipping_state" 
         			Class="ColumnText" 
         			FieldName="shipping_state" 
-        			Label="Shipping State" 
+        			Label="State" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />        			
@@ -188,7 +196,7 @@
 		<Element Name="fld_shipping_city" 
         			Class="ColumnText" 
         			FieldName="shipping_city" 
-        			Label="Shipping City" 
+        			Label="City" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />        			
@@ -197,19 +205,11 @@
 		<Element Name="fld_shipping_street" 
         			Class="ColumnText" 
         			FieldName="shipping_street" 
-        			Label="Shipping Street" 
+        			Label="Street" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />        			
         	
-     
-     
-     
-     
-     
-     
-     
-     
      
 		<Element Name="fld_color" 
 				Class="ColumnStyle" 

@@ -29,6 +29,30 @@
        								   	
 
 
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
        	<Element Name="fld_name" 
        				ElementSet="General" 
        				Class="InputText" 
@@ -78,7 +102,7 @@
        				ElementSet="General" 
        				Class="InputText" 
        				FieldName="industry_id" 
-       				Label="Industry Id" 
+       				Label="Industry" 
        				AllowURLParam="N"/>     
        								   	
 
@@ -96,7 +120,7 @@
        				ElementSet="General" 
        				Class="InputText" 
        				FieldName="annual_revenue" 
-       				Label="Annual Revenue" 
+       				Label="Revenue" 
        				AllowURLParam="N"/>     
        								   	
 
@@ -105,7 +129,7 @@
        				ElementSet="General" 
        				Class="InputText" 
        				FieldName="billing_country" 
-       				Label="Billing Country" 
+       				Label="Country" 
        				AllowURLParam="N"/>     
        								   	
 
@@ -114,7 +138,7 @@
        				ElementSet="General" 
        				Class="InputText" 
        				FieldName="billing_zip" 
-       				Label="Billing Zip" 
+       				Label="Zip" 
        				AllowURLParam="N"/>     
        								   	
 
@@ -123,7 +147,7 @@
        				ElementSet="General" 
        				Class="InputText" 
        				FieldName="billing_state" 
-       				Label="Billing State" 
+       				Label="State" 
        				AllowURLParam="N"/>     
        								   	
 
@@ -132,7 +156,7 @@
        				ElementSet="General" 
        				Class="InputText" 
        				FieldName="billing_city" 
-       				Label="Billing City" 
+       				Label="City" 
        				AllowURLParam="N"/>     
        								   	
 
@@ -141,7 +165,7 @@
        				ElementSet="General" 
        				Class="InputText" 
        				FieldName="billing_street" 
-       				Label="Billing Street" 
+       				Label="Street" 
        				AllowURLParam="N"/>     
        								   	
 
@@ -150,7 +174,7 @@
        				ElementSet="General" 
        				Class="InputText" 
        				FieldName="shipping_country" 
-       				Label="Shipping Country" 
+       				Label="Country" 
        				AllowURLParam="N"/>     
        								   	
 
@@ -159,7 +183,7 @@
        				ElementSet="General" 
        				Class="InputText" 
        				FieldName="shipping_zip" 
-       				Label="Shipping Zip" 
+       				Label="Zip" 
        				AllowURLParam="N"/>     
        								   	
 
@@ -168,7 +192,7 @@
        				ElementSet="General" 
        				Class="InputText" 
        				FieldName="shipping_state" 
-       				Label="Shipping State" 
+       				Label="State" 
        				AllowURLParam="N"/>     
        								   	
 
@@ -177,7 +201,7 @@
        				ElementSet="General" 
        				Class="InputText" 
        				FieldName="shipping_city" 
-       				Label="Shipping City" 
+       				Label="City" 
        				AllowURLParam="N"/>     
        								   	
 
@@ -186,32 +210,8 @@
        				ElementSet="General" 
        				Class="InputText" 
        				FieldName="shipping_street" 
-       				Label="Shipping Street" 
+       				Label="Street" 
        				AllowURLParam="N"/>     
-       								   	
-
-
-       								   	
-
-
-       								   	
-
-
-       								   	
-
-
-       								   	
-
-
-       								   	
-
-
-       								   	
-
-
-       								   	
-
-
        								   	
 
 

@@ -42,8 +42,40 @@
 
 		
 
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
        	<Element Name="fld_name" 
-       				ElementSet="General" 
+       				ElementSet="General"
        				Class="InputText" 
        				FieldName="name" 
        				Label="Name" 
@@ -58,13 +90,13 @@
        	 	
 		<Element Name="fld_description" 
 					Class="Textarea" 
-					ElementSet="General" 
+					ElementSet="General"
 					FieldName="description" 
 					Label="Description"  />		
 		
 
        	<Element Name="fld_phone" 
-       				ElementSet="General" 
+       				ElementSet="General"
        				Class="InputText" 
        				FieldName="phone" 
        				Label="Phone" 
@@ -75,7 +107,7 @@
 		
 
        	<Element Name="fld_fax" 
-       				ElementSet="General" 
+       				ElementSet="Additional"
        				Class="InputText" 
        				FieldName="fax" 
        				Label="Fax" 
@@ -86,7 +118,7 @@
 		
 
        	<Element Name="fld_website" 
-       				ElementSet="General" 
+       				ElementSet="Additional"
        				Class="InputText" 
        				FieldName="website" 
        				Label="Website" 
@@ -97,10 +129,10 @@
 		
 
        	<Element Name="fld_industry_id" 
-       				ElementSet="General" 
+       				ElementSet="Additional"
        				Class="InputText" 
        				FieldName="industry_id" 
-       				Label="Industry Id" 
+       				Label="Industry" 
        				AllowURLParam="N"
        				/>   
        								   	
@@ -108,7 +140,7 @@
 		
 
        	<Element Name="fld_employee" 
-       				ElementSet="General" 
+       				ElementSet="Additional"
        				Class="InputText" 
        				FieldName="employee" 
        				Label="Employee" 
@@ -119,10 +151,10 @@
 		
 
        	<Element Name="fld_annual_revenue" 
-       				ElementSet="General" 
+       				ElementSet="Annual"
        				Class="InputText" 
        				FieldName="annual_revenue" 
-       				Label="Annual Revenue" 
+       				Label="Revenue" 
        				AllowURLParam="N"
        				/>   
        								   	
@@ -130,10 +162,10 @@
 		
 
        	<Element Name="fld_billing_country" 
-       				ElementSet="General" 
+       				ElementSet="Billing"
        				Class="InputText" 
        				FieldName="billing_country" 
-       				Label="Billing Country" 
+       				Label="Country" 
        				AllowURLParam="N"
        				/>   
        								   	
@@ -141,10 +173,10 @@
 		
 
        	<Element Name="fld_billing_zip" 
-       				ElementSet="General" 
+       				ElementSet="Billing"
        				Class="InputText" 
        				FieldName="billing_zip" 
-       				Label="Billing Zip" 
+       				Label="Zip" 
        				AllowURLParam="N"
        				/>   
        								   	
@@ -152,10 +184,10 @@
 		
 
        	<Element Name="fld_billing_state" 
-       				ElementSet="General" 
+       				ElementSet="Billing"
        				Class="InputText" 
        				FieldName="billing_state" 
-       				Label="Billing State" 
+       				Label="State" 
        				AllowURLParam="N"
        				/>   
        								   	
@@ -163,10 +195,10 @@
 		
 
        	<Element Name="fld_billing_city" 
-       				ElementSet="General" 
+       				ElementSet="Billing"
        				Class="InputText" 
        				FieldName="billing_city" 
-       				Label="Billing City" 
+       				Label="City" 
        				AllowURLParam="N"
        				/>   
        								   	
@@ -174,10 +206,10 @@
 		
 
        	<Element Name="fld_billing_street" 
-       				ElementSet="General" 
+       				ElementSet="Billing"
        				Class="InputText" 
        				FieldName="billing_street" 
-       				Label="Billing Street" 
+       				Label="Street" 
        				AllowURLParam="N"
        				/>   
        								   	
@@ -185,10 +217,10 @@
 		
 
        	<Element Name="fld_shipping_country" 
-       				ElementSet="General" 
+       				ElementSet="Shipping"
        				Class="InputText" 
        				FieldName="shipping_country" 
-       				Label="Shipping Country" 
+       				Label="Country" 
        				AllowURLParam="N"
        				/>   
        								   	
@@ -196,10 +228,10 @@
 		
 
        	<Element Name="fld_shipping_zip" 
-       				ElementSet="General" 
+       				ElementSet="Shipping"
        				Class="InputText" 
        				FieldName="shipping_zip" 
-       				Label="Shipping Zip" 
+       				Label="Zip" 
        				AllowURLParam="N"
        				/>   
        								   	
@@ -207,10 +239,10 @@
 		
 
        	<Element Name="fld_shipping_state" 
-       				ElementSet="General" 
+       				ElementSet="Shipping"
        				Class="InputText" 
        				FieldName="shipping_state" 
-       				Label="Shipping State" 
+       				Label="State" 
        				AllowURLParam="N"
        				/>   
        								   	
@@ -218,10 +250,10 @@
 		
 
        	<Element Name="fld_shipping_city" 
-       				ElementSet="General" 
+       				ElementSet="Shipping"
        				Class="InputText" 
        				FieldName="shipping_city" 
-       				Label="Shipping City" 
+       				Label="City" 
        				AllowURLParam="N"
        				/>   
        								   	
@@ -229,44 +261,12 @@
 		
 
        	<Element Name="fld_shipping_street" 
-       				ElementSet="General" 
+       				ElementSet="Shipping"
        				Class="InputText" 
        				FieldName="shipping_street" 
-       				Label="Shipping Street" 
+       				Label="Street" 
        				AllowURLParam="N"
        				/>   
-       								   	
-
-		
-
-       								   	
-
-		
-
-       								   	
-
-		
-
-       								   	
-
-		
-
-       								   	
-
-		
-
-       								   	
-
-		
-
-       								   	
-
-		
-
-       								   	
-
-		
-
        								   	
 
 		

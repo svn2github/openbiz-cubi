@@ -39,6 +39,11 @@
 					SelectFrom="account..do.AccountTypeDO[name:Id:color]" 
 					AllowURLParam="N" />					
 
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
        	<Element Name="fld_Id" 
        				Class="LabelText" 
        				ElementSet="General"
@@ -47,17 +52,20 @@
        				Label="Id"  
        				AllowURLParam="Y"/>  
         				         				  				      				
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
        	<Element Name="fld_type_id" 
        				Class="LabelText" 
        				ElementSet="General"
        				Hidden="Y" 
        				FieldName="type_id" 
-       				Label="Type Id"  
+       				Label="Type"  
        				AllowURLParam="N"/>     
         				         				  				      				
         				         				  				      				
        	<Element Name="fld_description" 
-       				ElementSet="General" 
+       				ElementSet="General"
        				Class="LabelTextarea" 
        				FieldName="description" 
        				Label="Description" 
@@ -65,7 +73,7 @@
 					/>
         				         				  				      				
        	<Element Name="fld_phone" 
-       				ElementSet="General" 
+       				ElementSet="General"
        				Class="LabelText" 
        				FieldName="phone" 
        				Label="Phone" 
@@ -73,7 +81,7 @@
 					/>
         				         				  				      				
        	<Element Name="fld_fax" 
-       				ElementSet="General" 
+       				ElementSet="Additional"
        				Class="LabelText" 
        				FieldName="fax" 
        				Label="Fax" 
@@ -81,7 +89,7 @@
 					/>
         				         				  				      				
        	<Element Name="fld_website" 
-       				ElementSet="General" 
+       				ElementSet="Additional"
        				Class="LabelText" 
        				FieldName="website" 
        				Label="Website" 
@@ -89,15 +97,15 @@
 					/>
         				         				  				      				
        	<Element Name="fld_industry_id" 
-       				ElementSet="General" 
+       				ElementSet="Additional"
        				Class="LabelText" 
        				FieldName="industry_id" 
-       				Label="Industry Id" 
+       				Label="Industry" 
        				AllowURLParam="N"
 					/>
         				         				  				      				
        	<Element Name="fld_employee" 
-       				ElementSet="General" 
+       				ElementSet="Additional"
        				Class="LabelText" 
        				FieldName="employee" 
        				Label="Employee" 
@@ -105,100 +113,92 @@
 					/>
         				         				  				      				
        	<Element Name="fld_annual_revenue" 
-       				ElementSet="General" 
+       				ElementSet="Annual"
        				Class="LabelText" 
        				FieldName="annual_revenue" 
-       				Label="Annual Revenue" 
+       				Label="Revenue" 
        				AllowURLParam="N"
 					/>
         				         				  				      				
        	<Element Name="fld_billing_country" 
-       				ElementSet="General" 
+       				ElementSet="Billing"
        				Class="LabelText" 
        				FieldName="billing_country" 
-       				Label="Billing Country" 
+       				Label="Country" 
        				AllowURLParam="N"
 					/>
         				         				  				      				
        	<Element Name="fld_billing_zip" 
-       				ElementSet="General" 
+       				ElementSet="Billing"
        				Class="LabelText" 
        				FieldName="billing_zip" 
-       				Label="Billing Zip" 
+       				Label="Zip" 
        				AllowURLParam="N"
 					/>
         				         				  				      				
        	<Element Name="fld_billing_state" 
-       				ElementSet="General" 
+       				ElementSet="Billing"
        				Class="LabelText" 
        				FieldName="billing_state" 
-       				Label="Billing State" 
+       				Label="State" 
        				AllowURLParam="N"
 					/>
         				         				  				      				
        	<Element Name="fld_billing_city" 
-       				ElementSet="General" 
+       				ElementSet="Billing"
        				Class="LabelText" 
        				FieldName="billing_city" 
-       				Label="Billing City" 
+       				Label="City" 
        				AllowURLParam="N"
 					/>
         				         				  				      				
        	<Element Name="fld_billing_street" 
-       				ElementSet="General" 
+       				ElementSet="Billing"
        				Class="LabelText" 
        				FieldName="billing_street" 
-       				Label="Billing Street" 
+       				Label="Street" 
        				AllowURLParam="N"
 					/>
         				         				  				      				
        	<Element Name="fld_shipping_country" 
-       				ElementSet="General" 
+       				ElementSet="Shipping"
        				Class="LabelText" 
        				FieldName="shipping_country" 
-       				Label="Shipping Country" 
+       				Label="Country" 
        				AllowURLParam="N"
 					/>
         				         				  				      				
        	<Element Name="fld_shipping_zip" 
-       				ElementSet="General" 
+       				ElementSet="Shipping"
        				Class="LabelText" 
        				FieldName="shipping_zip" 
-       				Label="Shipping Zip" 
+       				Label="Zip" 
        				AllowURLParam="N"
 					/>
         				         				  				      				
        	<Element Name="fld_shipping_state" 
-       				ElementSet="General" 
+       				ElementSet="Shipping"
        				Class="LabelText" 
        				FieldName="shipping_state" 
-       				Label="Shipping State" 
+       				Label="State" 
        				AllowURLParam="N"
 					/>
         				         				  				      				
        	<Element Name="fld_shipping_city" 
-       				ElementSet="General" 
+       				ElementSet="Shipping"
        				Class="LabelText" 
        				FieldName="shipping_city" 
-       				Label="Shipping City" 
+       				Label="City" 
        				AllowURLParam="N"
 					/>
         				         				  				      				
        	<Element Name="fld_shipping_street" 
-       				ElementSet="General" 
+       				ElementSet="Shipping"
        				Class="LabelText" 
        				FieldName="shipping_street" 
-       				Label="Shipping Street" 
+       				Label="Street" 
        				AllowURLParam="N"
 					/>
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
         				         				  				      				
 	
 		<Element Name="fld_extend_fields"   
@@ -320,6 +320,15 @@
        				AllowURLParam="N"
        				TabSet="Extra Information" />  
        				   	
+       	<Element Name="fld_update_time" 
+       				Class="LabelText" 
+       				ElementSet="Misc" 
+       				FieldName="update_time" 
+       				Label="Update Time"  
+       				AllowURLParam="N"
+       				TabSet="Extra Information" />       	
+
+					
        	<Element Name="fld_create_time" 
        				Class="LabelText" 
        				ElementSet="Misc" 
@@ -338,15 +347,6 @@
        				AllowURLParam="N"
        				TabSet="Extra Information" />  
        				   	
-       	<Element Name="fld_update_time" 
-       				Class="LabelText" 
-       				ElementSet="Misc" 
-       				FieldName="update_time" 
-       				Label="Update Time"  
-       				AllowURLParam="N"
-       				TabSet="Extra Information" />       	
-
-					
     </DataPanel>
     <ActionPanel>  
     	  
