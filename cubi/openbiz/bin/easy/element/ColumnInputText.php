@@ -41,11 +41,13 @@ class ColumnInputText extends InputElement
 	
 	public function setValue($value)
 	{
+		BizSystem::sessionContext()->getObjVar($this->getFormObj()->m_Name, $this->m_Name, $this->m_Value);
 		$valueArr = $_POST[$this->m_Name];
 		foreach($valueArr as $key=>$value)
 		{
 			$this->m_Value[$key] = $value;
 		}
+		BizSystem::sessionContext()->setObjVar($this->getFormObj()->m_Name, $this->m_Name, $this->m_Value);
 	}
 	
 	public function renderLabel()

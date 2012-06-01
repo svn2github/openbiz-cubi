@@ -27,6 +27,23 @@ include_once("OptionElement.php");
 class ColumnListbox extends OptionElement
 {
     public $m_BlankOption;
+
+	public function getItemValue($id)
+	{
+		$valueArr = $this->m_Value;
+		return $valueArr[$id];		
+	}
+	
+	public function setValue($value)
+	{
+		BizSystem::sessionContext()->getObjVar($this->getFormObj()->m_Name, $this->m_Name, $this->m_Value);
+		$valueArr = $_POST[$this->m_Name];
+		foreach($valueArr as $key=>$value)
+		{
+			$this->m_Value[$key] = $value;
+		}
+		BizSystem::sessionContext()->setObjVar($this->getFormObj()->m_Name, $this->m_Name, $this->m_Value);
+	}    
     
     /**
      * When render table, it return the table header; when render array, it return the display name
@@ -77,9 +94,12 @@ class ColumnListbox extends OptionElement
      */
     public function render()
     {
+    	$rec = $this->getFormObj()->getActiveRecord();
+		$recId = $rec["Id"];    	
+    	
         $fromList = array();
         $this->getFromList($fromList);
-        $value = $this->getValue()!==null?$this->getValue():$this->getDefaultValue();
+        $value = $this->getItemValue($recId)!==null?$this->getItemValue($recId):$this->getDefaultValue();
         $valueArray = explode(',', $value);
         
         $disabledStr = ($this->getEnabled() == "N") ? "DISABLED=\"true\"" : "";
@@ -87,7 +107,7 @@ class ColumnListbox extends OptionElement
         $func = $this->getFunction();
 
         //$sHTML = "<SELECT NAME=\"" . $this->m_Name . "[]\" ID=\"" . $this->m_Name ."\" $disabledStr $this->m_HTMLAttr $style $func>";
-        $sHTML = "<SELECT NAME=\"" . $this->m_Name . "[]\" ID=\"" . $this->m_Name ."\" $disabledStr $this->m_HTMLAttr $style $func>";
+        $sHTML = "<SELECT NAME=\"" . $this->m_Name . "[$recId]\" ID=\"" . $this->m_Name ."\" $disabledStr $this->m_HTMLAttr $style $func>";
 
         if ($this->m_BlankOption) // ADD a blank option
         {
