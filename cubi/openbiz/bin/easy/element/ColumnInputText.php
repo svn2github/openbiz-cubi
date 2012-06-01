@@ -43,9 +43,12 @@ class ColumnInputText extends InputElement
 	{
 		BizSystem::sessionContext()->getObjVar($this->getFormObj()->m_Name, $this->m_Name, $this->m_Value);
 		$valueArr = $_POST[$this->m_Name];
-		foreach($valueArr as $key=>$value)
+		if(is_array($valueArr))
 		{
-			$this->m_Value[$key] = $value;
+			foreach($valueArr as $key=>$value)
+			{
+				$this->m_Value[$key] = $value;
+			}
 		}
 		BizSystem::sessionContext()->setObjVar($this->getFormObj()->m_Name, $this->m_Name, $this->m_Value);
 	}
