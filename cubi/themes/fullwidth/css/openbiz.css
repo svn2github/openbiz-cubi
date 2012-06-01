@@ -251,6 +251,62 @@ width:20px;
 }
 
 
+
+.column_input_text{
+	background-image: url(../images/column_input_text.gif);
+	background-repeat:no-repeat;
+	background-position:left top;
+	border-width:0px;
+	height:22px;
+	width:140px;	
+	display:block;
+	float:left;
+	font-size:14px;
+	line-height:22px;
+	text-indent:15px;
+	overflow:hidden;
+	color:#333333;
+}
+
+.column_input_text_error{
+	background-image: url(../images/column_input_text.gif);
+	background-repeat:no-repeat;
+	background-position:left bottom;
+	border-width:0px;
+	height:22px;
+	width:140px;	
+	display:block;
+	float:left;
+	font-size:14px;
+	line-height:22px;
+	text-indent:15px;
+	overflow:hidden;
+	color:#ff0000;
+	font-weight:bold;
+}
+
+.column_input_text_focus{
+	background-image: url(../images/column_input_text.gif);
+	background-repeat:no-repeat;
+	background-position:left -24px;
+	border-width:0px;
+	height:22px;
+	width:140px;	
+	display:block;
+	float:left;
+	font-size:14px;
+	line-height:22px;
+	text-indent:15px;
+	overflow:hidden;
+	color:#333333;
+
+}
+
+.column_input_text:focus{
+	background-position:left -24px;
+}
+
+
 .input_text{
 	background-image: url(../images/input_text.gif);
 	background-repeat:no-repeat;
