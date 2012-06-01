@@ -33,6 +33,21 @@ class ColumnInputText extends InputElement
 		$this->m_cssFocusClass = isset($xmlArr["ATTRIBUTES"]["CSSFOCUSCLASS"]) ? $xmlArr["ATTRIBUTES"]["CSSFOCUSCLASS"] : $this->m_cssClass."_focus";
 	}
 	
+	public function getItemValue($id)
+	{
+		$valueArr = $this->m_Value;
+		return $valueArr[$id];		
+	}
+	
+	public function setValue($value)
+	{
+		$valueArr = $_POST[$this->m_Name];
+		foreach($valueArr as $key=>$value)
+		{
+			$this->m_Value[$key] = $value;
+		}
+	}
+	
 	public function renderLabel()
     {
         if ($this->m_Sortable == "Y")
@@ -66,8 +81,11 @@ class ColumnInputText extends InputElement
      */
     public function render()
     {
+    	$rec = $this->getFormObj()->getActiveRecord();
+		$recId = $rec["Id"];
+		
     	if($this->m_Value!=null){
-    		$value = $this->m_Value;
+    		$value = $this->getItemValue($recId);
     	}else{
     		$value = $this->getText();
     	} 
@@ -86,7 +104,8 @@ class ColumnInputText extends InputElement
 			$func .= "onfocus=\"this.className='$this->m_cssFocusClass'\" onblur=\"this.className='$this->m_cssClass'\"";
 		}        
         
-        $sHTML = "<INPUT NAME=\"" . $this->m_Name . "[]\" ID=\"" . $this->m_Name ."\" VALUE=\"" . $value . "\" $disabledStr $this->m_HTMLAttr $style $func />";
+		
+        $sHTML = "<INPUT NAME=\"" . $this->m_Name . "[".$recId."]\" ID=\"" . $this->m_Name ."\" VALUE=\"" . $value . "\" $disabledStr $this->m_HTMLAttr $style $func />";
         if($this->m_Hint){
         	$sHTML.="<script>        	
         	\$j('#" . $this->m_Name . "').tbHinter({
