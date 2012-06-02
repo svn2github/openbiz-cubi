@@ -5,7 +5,7 @@
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/account/images/icon_mod_account_industry_detail.png"
 			Title="Account Industry Information Detail" 
-			Description="Account Industry Description" 
+			Description="Account Industry" 
 			BizDataObj="account.industry.do.AccountIndustryDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_detail.tpl.html" 

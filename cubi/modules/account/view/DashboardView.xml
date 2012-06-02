@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <EasyView Name="DashboardView" 
-	Description="Dashboard View of Account Industry Description" 
+	Description="Dashboard View of Account Industry" 
 	Class="EasyView" 	
 	Access="" 
 	TemplateEngine="Smarty" 

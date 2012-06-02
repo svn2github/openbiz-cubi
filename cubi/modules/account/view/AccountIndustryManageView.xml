@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <EasyView Name="AccountIndustryManageView" 
-	Description="Account Industry Description Management" 
+	Description="Account Industry Management" 
 	Class="EasyView" 
 	Access="account.Access" 
 	TemplateEngine="Smarty" 

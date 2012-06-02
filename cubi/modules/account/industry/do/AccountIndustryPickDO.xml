@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="AccountIndustryDO" 
+<BizDataObj Name="AccountIndustryPickDO" 
 		Description="Account Industry" 
 		DataPermControl="Y"
 		Class="BizDataObj" 
@@ -89,14 +89,4 @@
 	<TableJoins>
 				    	
 	</TableJoins>
-	<ObjReferences>
-	
-		<Object Name="location.do.LocationDO" 
-				Description="Reference to Geographic Location Records" 
-				Relationship="1-M" 
-				Table="location" 
-				CondColumn='type' 
-				CondValue='account_industry' 
-				Column="foreign_id" 
-				FieldRef="Id" />	</ObjReferences>
 </BizDataObj>
