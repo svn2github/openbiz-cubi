@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <Module Name="asset" 
 		Description="Asset Module Description" 
-		Version="0.1" 
+		Version="0.2" 
 		OpenbizVersion="3.0" 
 		Author="Jixian Wang"
 		LoadHandler="AssetLoadHandler.php" >
@@ -57,6 +57,24 @@
 		        			Access="" >
 		        </MenuItem>		
 			</MenuItem>
+			<MenuItem Name="asset_barcode" 
+	        			Title="Barcode" 	        			
+	        			Description="" 
+	        			URL="" 
+	        			IconImage="spacer.gif" 
+	        			IconCssClass="icon_barcode" 
+	        			Order="50" 
+	        			Access="" >
+	        			
+				<MenuItem Name="asset_barcode_generator" 
+		        			Title="Barcode Generator" 	        			
+		        			Description="batch generate barcodes" 
+		        			URL="{APP_INDEX}/asset/gen_barcode" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="50" 
+		        			Access="" />		
+		    </MenuItem>	
 		</MenuItem>	
 	</Menu>
 	<Dependency>

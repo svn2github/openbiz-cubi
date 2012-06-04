@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="GenBarcodeView" 
+	Description="Barcode Generator" 
+	Class="EasyView" 
+	Access="asset.Access" 
+	TemplateEngine="Smarty" 
+	TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="asset.form.BarcodeGenForm"/>
+   </FormReferences>       
+</EasyView>
