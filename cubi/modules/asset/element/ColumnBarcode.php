@@ -22,6 +22,14 @@ class ColumnBarcode extends ColumnText
 		{
 			$height = 30;
 		}
+		if($this->m_Width)
+		{
+			$width = " width=\"".$this->m_Width."\" ";
+		}
+		else
+		{
+			$width = "";
+		}
 		if($this->m_Scale)
 		{
 			$scale = $this->m_Scale;
@@ -30,7 +38,7 @@ class ColumnBarcode extends ColumnText
 		{
 			$scale = 1;	
 		}
-		$html = "<img src=\"".APP_URL."/modules/asset/lib/barcode/barcode.php?code=$code&encoding=EAN&scale=$scale&height=$height\" /> ";
+		$html = "<img $width src=\"".APP_URL."/modules/asset/lib/barcode/barcode.php?code=$code&encoding=EAN&scale=$scale&height=$height\" /> ";
 		return $html;
 	}
 }
