@@ -59,4 +59,4 @@ INSERT INTO `asset_type` (`id`, `name`, `description`, `color`, `sortorder`, `gr
 (2, 'Equipment', 'Computer Equipments', 'c9e1ff', 50, 1, 1, 1, 1, '2012-06-04 18:18:05', 1, '2012-06-04 18:18:05'),
 (3, 'Office Suplies', 'Likes Pencil , Papers etc.', 'd0ffc4', 50, 1, 1, 1, 1, '2012-06-04 18:19:45', 1, '2012-06-04 18:19:45'),
 (4, 'Facilities', 'Like Table, Chairs', 'fcffad', 50, 1, 1, 1, 1, '2012-06-04 18:20:48', 1, '2012-06-04 18:20:48'),
-(5, 'Miscellaneous', 'Other Staff', 'bbdafc', 50, 1, 1, 1, 1, '2012-06-04 18:24:58', 1, '2012-06-04 18:24:58');
+(5, 'Miscellaneous', 'Other Staff', 'bbfae5', 50, 1, 1, 1, 1, '2012-06-04 18:24:58', 1, '2012-06-04 18:24:58');
