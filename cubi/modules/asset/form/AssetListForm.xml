@@ -46,42 +46,25 @@
 							Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>
 			        			     
-     
-     
+
 		<Element Name="fld_name" 
         			Class="ColumnText" 
         			FieldName="name" 
         			Label="Name"         			 
         			Sortable="Y" 
-        			MaxLength="15"
+        			MaxLength="25"
         			Link="{APP_INDEX}/asset/asset_detail/{@:Elem[fld_Id].Value}"        			
         			 
 					/> 
         	
-     
-		<Element Name="fld_barcode" 
-        			Class="ColumnText" 
+   		<Element Name="fld_barcode" 
+        			Class="asset.element.ColumnBarcode" 
         			FieldName="barcode" 
         			Label="Barcode" 
         			MaxLength="15"        			 
         			Sortable="Y"
-        			 />    
-        	
-     
-		<Element Name="fld_description" 
-        			Class="ColumnText" 
-        			FieldName="description" 
-        			Label="Description" 
-        			MaxLength="15"        			 
-        			Sortable="Y"
-        			 />    
-        	
-     
-     
-     
-     
-     
-     
+        			 />         
+          
      
      
      

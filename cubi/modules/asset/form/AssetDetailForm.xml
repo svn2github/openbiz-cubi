@@ -55,14 +55,7 @@
        				Label="Type"  
        				AllowURLParam="N"/>     
         				         				  				      				
-        				         				  				      				
-       	<Element Name="fld_barcode" 
-       				ElementSet="General"
-       				Class="asset.element.LabelBarcode" 
-       				FieldName="barcode" 
-       				Label="Barcode" 
-       				AllowURLParam="N"
-					/>
+
         				         				  				      				
        	<Element Name="fld_description" 
        				ElementSet="General"
@@ -72,7 +65,15 @@
        				AllowURLParam="N"
 					/>
         				         				  				      				
-        				         				  				      				
+         				         				  				      				
+       	<Element Name="fld_barcode" 
+       				ElementSet="General"
+       				Class="asset.element.LabelBarcode" 
+       				FieldName="barcode" 
+       				Label="Barcode" 
+       				AllowURLParam="N"
+       				Description="Please print this barcode to property label"
+					/>       				         				  				      				
         				         				  				      				
         				         				  				      				
         				         				  				      				
