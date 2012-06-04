@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="AssetManageView" 
+	Description="Asset Manage Management" 
+	Class="EasyView" 
+	Access="asset.Access" 
+	TemplateEngine="Smarty" 
+	TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="asset.form.AssetListForm"/>
+   </FormReferences>       
+</EasyView>

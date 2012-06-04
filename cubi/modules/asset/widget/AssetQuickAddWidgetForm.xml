@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="AssetQuickAddWidgetForm" 
+			Class="PickerForm" 
+			FormType="New" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/asset/images/icon_mod_asset_add.png"
+			Title="Quick Add Asset Manage" 
+			Description="Create a new asset manage and edit its content later." 
+			BizDataObj="asset.do.AssetPickDO" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_data_quick_add.tpl.html" 
+			MessageFile="Asset.ini" 
+			Access="asset.Manage">
+    <DataPanel>
+    
+		<Element Name="fld_type_id" 
+				ElementSet="General" 
+				Class="common.lib.TypeSelector" 
+				FieldName="type_id" 
+				Label="Type" 
+				KeepCookie="Y" 
+				SelectFrom="asset.do.AssetTypeDO[name:Id:color]" 
+				AllowURLParam="N" />
+  				
+				
+       								   	
+
+
+       								   	
+
+
+       	<Element Name="fld_name" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="name" 
+       				Label="Name" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_barcode" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="barcode" 
+       				Label="Barcode" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       								   	
+
+       	 	
+		<Element Name="fld_description" 
+					Class="Textarea" 
+					ElementSet="General" 
+					FieldName="description" 
+					Label="Description"  />		
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" 
+        		Class="Button" 
+        		Text="Save" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" 
+            			EventLogMsg="" 
+            			Event="onclick" 
+            			Function="insertToParent()"   
+            			ShortcutKey="Ctrl+Enter" 
+            			ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" 
+        		Class="Button" 
+        		Text="Cancel" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="onclick" 
+            			Event="onclick" 
+            			Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

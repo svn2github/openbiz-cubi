@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="AssetDetailForm" 
+			Class="EasyForm" 
+			FormType="Detail" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/asset/images/icon_mod_asset_detail.png"
+			Title="Asset Manage Detail" 
+			Description="Asset Manage" 
+			BizDataObj="asset.do.AssetDO" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_detail_adv_custom.tpl.html" 
+			MessageFile="Asset.ini" 
+			Access="asset.Access">
+    <DataPanel>
+	    
+		<Element Name="fld_form_title"  
+					Class="LabelText"   
+					FieldName="name" 
+					Label="" 
+					Width="500" 
+					style="font-size:24px;color:#333333;line-height:24px;" 
+					AllowURLParam="N" />
+		<Element Name="fld_color" 
+					Class="Hidden" 
+					Hidden="Y" 
+					FieldName="type_color" 
+					Label="Type"  
+					Sortable="Y" 
+					AllowURLParam="N" 
+					Translatable="N" 
+					OnEventLog="N" />
+		<Element Name="fld_form_description"  
+					BackgroundColor="{@:Elem[fld_color].Value}" 
+					Width="648" 
+					Class="LabelText" 
+					FieldName="type_name" 
+					Label="" 
+					KeepCookie="Y" 
+					SelectFrom="asset.do.AssetTypeDO[name:Id:color]" 
+					AllowURLParam="N" />					
+
+       	<Element Name="fld_Id" 
+       				Class="LabelText" 
+       				ElementSet="General"
+       				Hidden="Y" 
+       				FieldName="Id" 
+       				Label="Id"  
+       				AllowURLParam="Y"/>  
+        				         				  				      				
+       	<Element Name="fld_type_id" 
+       				Class="LabelText" 
+       				ElementSet="General"
+       				Hidden="Y" 
+       				FieldName="type_id" 
+       				Label="Type"  
+       				AllowURLParam="N"/>     
+        				         				  				      				
+        				         				  				      				
+       	<Element Name="fld_barcode" 
+       				ElementSet="General"
+       				Class="LabelText" 
+       				FieldName="barcode" 
+       				Label="Barcode" 
+       				AllowURLParam="N"
+					/>
+        				         				  				      				
+       	<Element Name="fld_description" 
+       				ElementSet="General"
+       				Class="LabelTextarea" 
+       				FieldName="description" 
+       				Label="Description" 
+       				AllowURLParam="N"
+					/>
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
+        				         				  				      				
+	
+		<Element Name="fld_extend_fields"   
+					ElementSet="Extend Fields" 
+					Class="FormElement" 
+					FormReference="extend.widget.ExtendDataDetailForm" 
+					FieldName="extend" 
+					Label="" 
+					AllowURLParam="N" />
+
+		<Element Name="fld_related_attachment" 
+				TabSet="Extra Information"  
+				Access="attachment.access"   
+				ElementSet="Attachment" 
+				Class="FormElement" 
+				FormReference="attachment.widget.AttachmentListDetailForm" 
+				FieldName="" 
+				Label="" 
+				AllowURLParam="N" />
+		<Element Name="btn_manage_attachment" 
+				TabSet="Extra Information"  
+				Access="attachment.access" 
+				Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
+				ElementSet="Attachment"  
+				Style="color:#666666;margin-left:5px;margin-top:2px;"  
+				Class="Button" 
+				Text="Manage" 
+				CssClass="button_gray_w" 
+				Description="">
+			<EventHandler Name="btn_manage_attachment_onclick" 
+						Event="onclick" 
+						Function="SwitchForm(asset.form.AssetEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+   
+     
+         <Element Name="fld_related_picture" 
+         		TabSet="Extra Information"  
+         		Access="picture.access" 
+         		ElementSet="Picture" 
+         		Class="FormElement" 
+         		FormReference="picture.widget.PictureListDetailForm" 
+         		FieldName="" 
+         		Label="" 
+         		AllowURLParam="N" />
+		<Element Name="btn_manage_picture" 
+				TabSet="Extra Information"  
+				Access="picture.access" 
+				Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
+				ElementSet="Picture"  
+				Style="color:#666666;margin-left:5px;margin-top:2px;"  
+				Class="Button" 
+				Text="Manage" 
+				CssClass="button_gray_w" 
+				Description="">
+			<EventHandler Name="btn_manage_attachment_onclick" 
+						Event="onclick" 
+						Function="SwitchForm(asset.form.AssetEditPictureForm,{@:Elem[fld_Id].Value})"   />
+        </Element>
+		<Element Name="fld_changelog" 
+				TabSet="Extra Information"  
+				Access="changelog.access"   
+				ElementSet="Change Log" 
+				Class="FormElement" 
+				FormReference="changelog.widget.ChangeLogWidgetForm" 
+				FieldName="" 
+				Label="" 
+				AllowURLParam="N" />
+
+       	<Element Name="fld_update_by" 
+       				Class="LabelText" 
+       				ElementSet="Misc" 
+       				FieldName="update_by" 
+       				Label="Update By" 
+       				Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" 
+       				AllowURLParam="N"
+       				TabSet="Extra Information" />  
+       				   	
+       	<Element Name="fld_update_time" 
+       				Class="LabelText" 
+       				ElementSet="Misc" 
+       				FieldName="update_time" 
+       				Label="Update Time"  
+       				AllowURLParam="N"
+       				TabSet="Extra Information" />       	
+
+					
+       	<Element Name="fld_create_by" 
+       				Class="LabelText" 
+       				ElementSet="Misc" 
+       				FieldName="create_by" 
+       				Label="Create By" 
+       				Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" 
+       				AllowURLParam="N"
+       				TabSet="Extra Information" />  
+       				   	
+       	<Element Name="fld_create_time" 
+       				Class="LabelText" 
+       				ElementSet="Misc" 
+       				FieldName="create_time" 
+       				Label="Create Time"  
+       				AllowURLParam="N"
+       				TabSet="Extra Information" />       	
+
+					
+    </DataPanel>
+    <ActionPanel>  
+    	  
+    	 <Element Name="btn_share" 
+    	 			Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
+    	 			Class="Button"   
+    	 			Text="Share" 
+    	 			CssClass="button_gray_share" 
+    	 			Description="Share">
+			<EventHandler Name="btn_update_onclick" 
+							Event="onclick" 
+							Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})" />
+        </Element>  
+        <Element Name="btn_spacer_for_share" 
+	        		Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
+	        		Class="Spacer" 
+	        		Width="10" />
+    	  
+    	
+        <Element Name="btn_new" 
+        			Class="Button" 
+        			Text="Add" 
+        			CssClass="button_gray_add" 
+        			Description="New record (Insert)">
+			<EventHandler Name="btn_new_onclick" 
+							Event="onclick" 
+							Function="SwitchForm(asset.form.AssetNewForm)"  
+							ShortcutKey="Insert" 
+							ContextMenu="New" />
+        </Element>          
+        <Element Name="btn_edit" 
+        			Class="Button" 
+        			Text="Edit" 
+        			CssClass="button_gray_m" 
+        			Description="Edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" 
+							Event="onclick" 
+							Function="SwitchForm(asset.form.AssetEditForm,{@:Elem[fld_Id].Value})"  
+							ShortcutKey="Ctrl+E" 
+							ContextMenu="Edit" />
+        </Element>
+		<Element Name="btn_copy" 
+					Class="Button" 
+					Text="Copy" 
+					CssClass="button_gray_m" 
+					Description="Copy record (Ctrl+C)">
+            <EventHandler Name="onclick" 
+            				Event="onclick" 
+            				EventLogMsg="" 
+            				Function="CopyRecord({@:Elem[fld_Id].Value})" 
+            				RedirectPage="form=asset.form.AssetCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
+            				ShortcutKey="Ctrl+C" 
+            				ContextMenu="Copy"/>
+        </Element> 
+        <Element Name="btn_delete" 
+        			Class="Button" 
+        			Text="Delete" 
+        			CssClass="button_gray_m" 
+        			Description="Delete record (Delete)">
+            <EventHandler Name="del_onclick" 
+            				Event="onclick" 
+            				EventLogMsg="" 
+            				Function="DeleteRecord({@:Elem[fld_Id].Value})"  
+            				RedirectPage="{APP_INDEX}/asset/asset_manage" 
+            				ShortcutKey="Ctrl+Delete" 
+            				ContextMenu="Delete" />
+        </Element>
+        <Element Name="btn_cancel" 
+        			Class="LabelBack" 
+        			Text="Back" 
+        			CssClass="button_gray_m"
+        			Link="asset/asset_manage" />        
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,12 @@
+<MenuWidget Name="assetLeftMenu" 
+		Title="Asset" 
+		Class="menu.widget.MenuWidget" 
+		CssCLass="asset" 
+		BizDataObj="menu.do.MenuTreeDO" 
+		SearchRule="[PId]='asset'" 
+		GlobalSearchRule="[published] = 1" 
+		MenuDeep="2" 
+		TemplateEngine="Smarty" 
+		TemplateFile="left_menu.tpl" 
+		CacheLifeTime="0">
+</MenuWidget>

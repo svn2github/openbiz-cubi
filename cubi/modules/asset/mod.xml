@@ -1,0 +1,69 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="asset" 
+		Description="Asset Module Description" 
+		Version="0.1" 
+		OpenbizVersion="3.0" 
+		Author="Jixian Wang"
+		LoadHandler="AssetLoadHandler.php" >
+	<ACL>
+		<Resource Name="asset">
+			<Action Name="Access" 
+					Description="Data access permission of asset"/>
+			<Action Name="Manage" 
+					Description="Data manage permission of asset"/>
+		</Resource>
+	</ACL>
+	<Menu>
+		<MenuItem Name="asset" 
+				Title="Asset" 
+				Description="" 
+				URL="{APP_INDEX}/asset/dashboard" 
+				Order="50" 
+				Access="asset.Access">		
+	        <MenuItem Name="asset_asset" 
+	        			Title="Asset" 	        			
+	        			Description="" 
+	        			URL="" 
+	        			IconImage="spacer.gif" 
+	        			IconCssClass="icon_asset" 
+	        			Order="50" 
+	        			Access="" >
+	        			
+				<MenuItem Name="asset_asset_manage" 
+		        			Title="Asset Manage" 	        			
+		        			Description="Manage of Asset" 
+		        			URL="{APP_INDEX}/asset/asset_manage" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="50" 
+		        			Access="" >
+						<MenuItem Name="asset_asset_detail" 
+				        			Title="Asset Detail" 	        			
+				        			Description="Detail of Asset" 
+				        			URL="{APP_INDEX}/asset/asset_detail" 
+				        			IconImage="spacer.gif" 
+				        			IconCssClass="" 
+				        			Order="50" 
+				        			Access="" />
+		        </MenuItem>		
+	        			
+				<MenuItem Name="asset_asset_type" 
+		        			Title="Asset Type" 	        			
+		        			Description="Type of Asset" 
+		        			URL="{APP_INDEX}/asset/asset_type" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="60" 
+		        			Access="" >
+		        </MenuItem>		
+			</MenuItem>
+		</MenuItem>	
+	</Menu>
+	<Dependency>
+		<Module Name="system" /> 
+		<Module Name="menu" /> 
+	</Dependency>	
+	<ChangeLog>
+	    
+	</ChangeLog>    
+</Module>

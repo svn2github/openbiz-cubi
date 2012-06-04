@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="AssetEditForm" 
+			Class="changelog.form.ChangeLogForm" 
+			FormType="Edit" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/asset/images/icon_mod_asset_edit.png"
+			Title="Edit Asset Manage" 
+			Description="Asset Manage" 
+			BizDataObj="asset.do.AssetDO" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_edit.tpl.html" 
+			MessageFile="Asset.ini" 
+			Access="asset.Manage">
+    <DataPanel>
+		<Element Name="fld_type_id" 
+				ElementSet="General"
+				Class="common.lib.TypeSelector" 
+				FieldName="type_id" 
+				Label="Type" 
+				KeepCookie="Y" 
+				SelectFrom="asset.do.AssetTypeDO[name:Id:color]" 
+				AllowURLParam="N" >
+   			<EventHandler Name="fld_type_id_onchange" 
+   						Event="onchange" 
+   						Function="UpdateForm()" />
+		</Element>
+		
+		<Element Name="fld_extend_fields"   
+				ElementSet="Extend Fileds"  
+				Class="FormElement" 
+				FormReference="extend.widget.ExtendDataEditForm" 
+				FieldName="extend" 
+				Label="" 
+				AllowURLParam="N" />
+				
+  	  
+       								   	
+
+		
+
+       								   	
+
+		
+
+       	<Element Name="fld_name" 
+       				ElementSet="General"
+       				Class="InputText" 
+       				FieldName="name" 
+       				Label="Name" 
+       				AllowURLParam="N"
+       				/>
+    
+       								   	
+
+		
+
+       	<Element Name="fld_barcode" 
+       				ElementSet="General"
+       				Class="InputText" 
+       				FieldName="barcode" 
+       				Label="Barcode" 
+       				AllowURLParam="N"
+       				/>
+    
+       								   	
+
+		
+
+       								   	
+
+       	 	
+		<Element Name="fld_description" 
+					Class="Textarea" 
+					ElementSet="General"
+					FieldName="description" 
+					Label="Description"  />		
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+  
+		<Element Name="fld_published" 
+					Class="Listbox" 
+					ElementSet="Miscellaneous" 
+					KeepCookie="Y" 
+					SelectFrom="common.lov.CommLOV(Published)" 
+					DefaultValue="1" 
+					FieldName="group_perm" 
+					Label="Group Share"  />
+		<Element Name="fld_published_other" 
+					Class="Listbox" 
+					ElementSet="Miscellaneous" 
+					KeepCookie="Y" 
+					SelectFrom="common.lov.CommLOV(Published)" 
+					DefaultValue="0" 
+					FieldName="other_perm" 
+					Label="Other Group"  />
+    </DataPanel>
+    <ActionPanel>       
+        <Element Name="btn_save" 
+        			Class="Button" 
+        			Text="Save" 
+        			CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" 
+            			EventLogMsg="" 
+            			Event="onclick" 
+            			Function="UpdateRecord()" 
+            			RedirectPage="{APP_INDEX}/asset/asset_detail/{@asset.do.AssetDO:Field[Id].Value}"  
+            			ShortcutKey="Ctrl+Enter" 
+            			ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" 
+        			Class="Button" 
+        			Text="Cancel" 
+        			CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" 
+            			Event="onclick" 
+            			Function="SwitchForm()"  
+            			ShortcutKey="Escape" 
+            			ContextMenu="Cancel"/>
+        </Element>      
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
