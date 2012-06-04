@@ -48,6 +48,7 @@
        				FieldName="name" 
        				Label="Name" 
        				AllowURLParam="N"
+       				Description="Name of this property"
        				/>
     
        								   	
@@ -60,6 +61,7 @@
        				FieldName="barcode" 
        				Label="Barcode" 
        				AllowURLParam="N"
+       				Description="EAN-13 format barcode"
        				/>
     
        								   	
