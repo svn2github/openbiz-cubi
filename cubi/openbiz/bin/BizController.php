@@ -28,10 +28,10 @@ include_once("sysheader_inc.php");
 // start session context object
 BizSystem::sessionContext();
 
-$bizCtrller = new BizController();
-if ($bizCtrller->processSecurityFilters() === true)
+$bizController = new BizController();
+if ($bizController->processSecurityFilters() === true)
 {
-    $bizCtrller->dispatchRequest();
+    $bizController->dispatchRequest();
 }
 
 /**
@@ -354,11 +354,18 @@ class BizController
         return true;
     }
 
+    /**
+     * Check whether the request in the form view
+     * @return boolean 
+     */
     private function _hasView()
     {
         return isset($_GET['view']);
     }
 
+    /**
+     * Dispatch request to view
+     */
     private function _dispatchView()
     {
         // ?view=...&form=...&rule=...&mode=...&...
@@ -375,17 +382,20 @@ class BizController
         {
             if (!RESOURCE::getXmlFileWithPath($viewName))
             {
-                return $this->renderView(NOTFOUND_VIEW, $form, $rule, $params, $hist);
+                $this->renderView(NOTFOUND_VIEW, $form, $rule, $params, $hist);
                 exit;
             }
         }
 
         if (!$this->_checkViewAccess($viewName))  //access denied error
-            return $this->renderView($this->_accessDeniedView);
+            $this->renderView($this->_accessDeniedView);
 
-        return $this->renderView($viewName, $form, $rule, $params, $hist);
+        $this->renderView($viewName, $form, $rule, $params, $hist);
     }
 
+    /**
+     * Disoatch request as RPC (remote procedure call
+     */
     private function _dispatchRPC()
     {
 
