@@ -1,4 +1,5 @@
 <?PHP
+
 /**
  * PHPOpenBiz Framework
  *
@@ -17,7 +18,6 @@
  * @link      http://www.phpopenbiz.org/
  * @version   $Id$
  */
-
 // run controller
 //
 //session_cache_limiter('public');
@@ -29,8 +29,9 @@ include_once("sysheader_inc.php");
 BizSystem::sessionContext();
 
 $bizCtrller = new BizController();
-if($bizCtrller->processSecurityFilters()===true){
-	$bizCtrller->dispatchRequest();
+if ($bizCtrller->processSecurityFilters() === true)
+{
+    $bizCtrller->dispatchRequest();
 }
 
 /**
@@ -42,7 +43,8 @@ if($bizCtrller->processSecurityFilters()===true){
  * @access    public
  */
 class BizController
-{                  
+{
+
     private $_userTimeoutView = USER_TIMEOUT_VIEW;
     private $_accessDeniedView = ACCESS_DENIED_VIEW;
     private $_securityDeniedView = SECURITY_DENIED_VIEW;
@@ -54,17 +56,19 @@ class BizController
      */
     public function processSecurityFilters()
     {
-        $securityObj = BizSystem::getService(SECURITY_SERVICE);
-        $securityObj->processFilters();
-        if($err_msg = $securityObj->getErrorMessage())
+        $securityService = BizSystem::getService(SECURITY_SERVICE);
+        $securityService->processFilters();
+        if ($err_msg = $securityService->getErrorMessage())
         {
-        	if($this->_securityDeniedView){
-        		$view = $this->_securityDeniedView;
-        	}else{
-        		$view = $this->_accessDeniedView;        	
-        	}
+            if ($this->_securityDeniedView)
+            {
+                $view = $this->_securityDeniedView;
+            } else
+            {
+                $view = $this->_accessDeniedView;
+            }
             $this->renderView($view);
-            return false;            
+            return false;
         }
         return true;
     }
@@ -82,38 +86,13 @@ class BizController
             return $this->renderView($this->_userTimeoutView);
         }
 
-        // ?view=...&form=...&rule=...&mode=...&...
-        //$getKeys = array_keys($_GET);
-        //if ($getKeys[0] == "view")
-        if (isset($_GET['view']))
+        if ($this->_hasView())
         {
-            $form = isset($_GET['form']) ? $_GET['form'] : "";
-            $rule = isset($_GET['rule']) ? $_GET['rule'] : "";
-            $hist = isset($_GET['hist']) ? $_GET['hist'] : "";
-            $viewName = $_GET['view'];
-            $params = $this->_getParameters();
-            
-            if(defined('NOTFOUND_VIEW'))
-            {
-            	if(!RESOURCE::getXmlFileWithPath($viewName)){
-            		return $this->renderView(NOTFOUND_VIEW, $form, $rule, $params, $hist);            		
-            		exit;
-            	}            
-            }
-            
-            if (!$this->_checkViewAccess($viewName))  //access denied error
-                return $this->renderView($this->_accessDeniedView);
-            
-			return $this->renderView($viewName, $form, $rule, $params, $hist);
+            return $this->_dispatchView();
+        } else
+        {
+            $this->_dispatchRPC();
         }
-        else if (isset($_REQUEST['_thisView']) && !empty($_REQUEST['_thisView'])) {
-            BizSystem::instance()->setCurrentViewName($_REQUEST['_thisView']);
-        }
-
-        $retval = $this->invoke();
-
-        print($retval." ");
-        exit();
     }
 
     /**
@@ -166,9 +145,9 @@ class BizController
      */
     private function _checkViewAccess($viewName)
     {
-		// load accessService
-		$svcobj = BizSystem::getService(ACCESS_SERVICE);    
-		return $svcobj->allowViewAccess($viewName);
+        // load accessService
+        $svcobj = BizSystem::getService(ACCESS_SERVICE);
+        return $svcobj->allowViewAccess($viewName);
     }
 
     /**
@@ -178,9 +157,9 @@ class BizController
      * @param string $rule the search rule of a bizform who is not depent on (a subctrl of) another bizform
      * @return void
      */
-    public function renderView($viewName, $form="", $rule="", $params=null, $hist="")
+    public function renderView($viewName, $form = "", $rule = "", $params = null, $hist = "")
     {
-        $bizSystem = BizSystem::instance();       
+        $bizSystem = BizSystem::instance();
 
         /* @var $viewObj EasyView */
         if ($viewName == "__DynPopup")
@@ -198,19 +177,19 @@ class BizController
         $bizSystem->setCurrentViewName($viewName);
 
         $viewObj = BizSystem::getObject($viewName);
-        if(!$viewObj)
+        if (!$viewObj)
             return;
         $viewSet = $viewObj->getViewSet();
         $bizSystem->setCurrentViewSet($viewSet);
 
         /*
-        if ($prevViewSet && $viewSet && $prevViewSet == $viewSet)   // keep prev view session objects if they have same viewset
-            BizSystem::sessionContext()->clearSessionObjects(true);
-        else
-            BizSystem::sessionContext()->clearSessionObjects(false);
-		*/
-		BizSystem::sessionContext()->clearSessionObjects(true);
-            
+          if ($prevViewSet && $viewSet && $prevViewSet == $viewSet)   // keep prev view session objects if they have same viewset
+          BizSystem::sessionContext()->clearSessionObjects(true);
+          else
+          BizSystem::sessionContext()->clearSessionObjects(false);
+         */
+        BizSystem::sessionContext()->clearSessionObjects(true);
+
         if ($hist == "N") // clean view history
             $viewObj->CleanViewHistory();
 
@@ -224,7 +203,7 @@ class BizController
             $viewObj->SetFormMode($form, $_GET['mode']);
 
         $viewObj->render();
-    //BizController::hidePageLoading();
+        //BizController::hidePageLoading();
     }
 
     /**
@@ -234,18 +213,18 @@ class BizController
      */
     protected function invoke()
     {
-		//patched by jixian for fix ajax post data
-        if(isset($_POST['__url']))
+        //patched by jixian for fix ajax post data
+        if (isset($_POST['__url']))
         {
-            $getUrl=parse_url($_POST['__url']);
-            $query=$getUrl['query'];
-            $parameter=explode('&',$query);
-            foreach($parameter as $param)
+            $getUrl = parse_url($_POST['__url']);
+            $query = $getUrl['query'];
+            $parameter = explode('&', $query);
+            foreach ($parameter as $param)
             {
-                $data=explode('=',$param);
-                $name=$data[0];
-                $value=$data[1];
-                $_GET[$name]=$value;
+                $data = explode('=', $param);
+                $name = $data[0];
+                $value = $data[1];
+                $_GET[$name] = $value;
             }
         }
 
@@ -256,7 +235,7 @@ class BizController
         if ($func != "")
         {
             eval("\$P$i = (isset(\$_REQUEST['P$i']) ? \$_REQUEST['P$i']:'');");
-            $Ptmp = "P". $i;
+            $Ptmp = "P" . $i;
 
             if (strstr($P0, Popup_Suffix))
             {
@@ -272,12 +251,12 @@ class BizController
                 $arg_list[] = $parm;
                 $i++;
                 eval("\$P$i = (isset(\$_REQUEST['P$i']) ? \$_REQUEST['P$i']:'');");
-                $Ptmp = "P". $i;
+                $Ptmp = "P" . $i;
             }
         }
         else
             return;
-      
+
         if ($func != "RPCInvoke" && $func != "Invoke")
         {
             trigger_error("$func is not a valid invocation", E_USER_ERROR);
@@ -292,13 +271,12 @@ class BizController
         {
             $errmsg = BizSystem::getMessage("SYS_ERROR_RPCARG", array($class));
             trigger_error($errmsg, E_USER_ERROR);
-        }
-        else
+        } else
         {
-            $objName = array_shift($arg_list); 
+            $objName = array_shift($arg_list);
             $methodName = array_shift($arg_list);
 
-            $obj= BizSystem::getObject($objName);
+            $obj = BizSystem::getObject($objName);
 
             if ($obj)
             {
@@ -309,22 +287,24 @@ class BizController
                         $errmsg = BizSystem::getMessage("SYS_ERROR_REQUEST_REJECT", array($obj->m_Name, $methodName));
                         trigger_error($errmsg, E_USER_ERROR);
                     }
-                    switch (count($arg_list)) 
+                    switch (count($arg_list))
                     {
-                        case 0: $rt_val = $obj->$methodName(); break;
-                        case 1: $rt_val = $obj->$methodName($arg_list[0]); break;
-                        case 2: $rt_val = $obj->$methodName($arg_list[0], $arg_list[1]); break;
-                        case 3: $rt_val = $obj->$methodName($arg_list[0], $arg_list[1], $arg_list[2]); break;
+                        case 0: $rt_val = $obj->$methodName();
+                            break;
+                        case 1: $rt_val = $obj->$methodName($arg_list[0]);
+                            break;
+                        case 2: $rt_val = $obj->$methodName($arg_list[0], $arg_list[1]);
+                            break;
+                        case 3: $rt_val = $obj->$methodName($arg_list[0], $arg_list[1], $arg_list[2]);
+                            break;
                         default: $rt_val = call_user_func_array(array($obj, $methodName), $arg_list);
                     }
-                }
-                else
+                } else
                 {
-                    $errmsg = BizSystem::getMessage("SYS_ERROR_METHODNOTFOUND",array($objName, $methodName));
+                    $errmsg = BizSystem::getMessage("SYS_ERROR_METHODNOTFOUND", array($objName, $methodName));
                     trigger_error($errmsg, E_USER_ERROR);
                 }
-            }
-            else
+            } else
             {
                 $errmsg = BizSystem::getMessage("SYS_ERROR_CLASSNOTFOUND", array($objName));
                 trigger_error($errmsg, E_USER_ERROR);
@@ -360,11 +340,11 @@ class BizController
      */
     protected function validateRequest($obj, $methodName)
     {
-        if (!is_a($obj,"EasyForm") && !is_a($obj,"BizForm"))
+        if (!is_a($obj, "EasyForm") && !is_a($obj, "BizForm"))
         {
             return false;
         }
-        if (is_a($obj,"EasyForm"))
+        if (is_a($obj, "EasyForm"))
         {
             if (!$obj->validateRequest($methodName))
             {
@@ -373,5 +353,53 @@ class BizController
         }
         return true;
     }
+
+    private function _hasView()
+    {
+        return isset($_GET['view']);
+    }
+
+    private function _dispatchView()
+    {
+        // ?view=...&form=...&rule=...&mode=...&...
+        //$getKeys = array_keys($_GET);
+        //if ($getKeys[0] == "view")
+
+        $form = isset($_GET['form']) ? $_GET['form'] : "";
+        $rule = isset($_GET['rule']) ? $_GET['rule'] : "";
+        $hist = isset($_GET['hist']) ? $_GET['hist'] : "";
+        $viewName = $_GET['view'];
+        $params = $this->_getParameters();
+
+        if (defined('NOTFOUND_VIEW'))
+        {
+            if (!RESOURCE::getXmlFileWithPath($viewName))
+            {
+                return $this->renderView(NOTFOUND_VIEW, $form, $rule, $params, $hist);
+                exit;
+            }
+        }
+
+        if (!$this->_checkViewAccess($viewName))  //access denied error
+            return $this->renderView($this->_accessDeniedView);
+
+        return $this->renderView($viewName, $form, $rule, $params, $hist);
+    }
+
+    private function _dispatchRPC()
+    {
+
+        if (isset($_REQUEST['_thisView']) && !empty($_REQUEST['_thisView']))
+        {
+            BizSystem::instance()->setCurrentViewName($_REQUEST['_thisView']);
+        }
+
+        $retval = $this->invoke();
+
+        print($retval . " ");
+        exit();
+    }
+
 }
+
 ?>
