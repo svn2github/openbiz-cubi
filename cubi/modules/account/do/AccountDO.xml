@@ -2,7 +2,7 @@
 <BizDataObj Name="AccountDO" Description="Account for CRM System" DataPermControl="Y" Class="BizDataObj" DBName="Default" Table="account" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="account.Manage" UpdateCondition="account.Manage" DeleteCondition="account.Manage">
   <BizFieldList>
     <BizField Name="Id" Description="Id" Column="id" Required="N" Type="Number"/>
-    <BizField Name="account_industry_id" Field="account_industry_id" Description="FK for Account" Required="N" Type="Number"/>
+    <BizField Name="account_industry_id" Column="account_industry_id" Description="FK for Account" Required="N" Type="Number"/>
     <BizField Name="other_perm" Description="Other Perm" Column="other_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(other)}" Required="N" Type="Number"/>
     <BizField Name="create_time" Description="Create Time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
     <BizField Name="update_by" Description="Update By" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
