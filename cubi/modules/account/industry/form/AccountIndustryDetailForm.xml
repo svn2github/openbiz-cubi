@@ -51,9 +51,6 @@
 					Translatable="N" 
 					OnEventLog="N" 
 					Link="javascript:;">
-			<EventHandler Name="fld_status_onclick" 
-							Event="onclick" 
-							Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
 		</Element>
         				         				  				      				
         				         				  				      				
