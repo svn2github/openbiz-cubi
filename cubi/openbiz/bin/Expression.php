@@ -224,9 +224,10 @@ class Expression
 	                if(!is_array($params)){
 	                	$params = array();
 	                }
-	                
-                	$val_result = call_user_func_array(array($obj, $function), $params);
-                	return $beforeString . $val_result . $restString;
+	                if (method_exists($obj, $function)){
+	                	$val_result = call_user_func_array(array($obj, $function), $params);
+	                	return $beforeString . $val_result . $restString;
+	                }
                 }
             }                
             else
