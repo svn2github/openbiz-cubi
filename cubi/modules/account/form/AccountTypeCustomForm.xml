@@ -6,7 +6,7 @@
 		Icon="{RESOURCE_URL}/account/images/icon_mod_account_type_edit.png"
 		Title="Custom CRM Account Type" 
 		Description="Your can setup custom fields for this type of data."
-		BizDataObj="account..do.AccountTypeDO" 
+		BizDataObj="account.do.AccountTypeDO" 
 		PageSize="10" 
 		DefaultForm="Y" 
 		TemplateEngine="Smarty" 

@@ -6,7 +6,7 @@
 			Icon="{RESOURCE_URL}/account/images/icon_mod_account_extend.png"
 			Title="Edit CRM Account Extend Fields" 
 			Description="Here you can edit extend fields for selected type of data" 
-			BizDataObj="account..do.AccountDO" 
+			BizDataObj="account.do.AccountDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_edit_extend.tpl.html" 
 			MessageFile="Account.ini" 

@@ -6,7 +6,7 @@
 			Icon="{RESOURCE_URL}/account/images/icon_mod_account_attachment.png"
 			Title="Edit CRM Account Attachments" 
 			Description="This form could help you manage account attachments." 
-			BizDataObj="account..do.AccountDO" 
+			BizDataObj="account.do.AccountDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_detail_adv.tpl.html" 
 			MessageFile="Account.ini" 

@@ -6,7 +6,7 @@
 			Icon="{RESOURCE_URL}/account/images/icon_mod_account_edit.png"
 			Title="Edit CRM Account" 
 			Description="Account for CRM System" 
-			BizDataObj="account..do.AccountDO" 
+			BizDataObj="account.do.AccountDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_edit.tpl.html" 
 			MessageFile="Account.ini" 

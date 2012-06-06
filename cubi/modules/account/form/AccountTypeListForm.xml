@@ -6,7 +6,7 @@
 			Icon="{RESOURCE_URL}/account/images/icon_mod_account_type_list.png"
 			Title="CRM Account Type Management" 
 			Description="You can mamange your data items by types.  All user defined type are listed below."
-			BizDataObj="account..do.AccountTypeDO" 
+			BizDataObj="account.do.AccountTypeDO" 
 			PageSize="10" 
 			DefaultForm="Y" 
 			TemplateEngine="Smarty" 

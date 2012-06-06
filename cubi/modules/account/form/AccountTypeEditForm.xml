@@ -6,7 +6,7 @@
 			Icon="{RESOURCE_URL}/account/images/icon_mod_account_type_edit.png"
 			Title="Edit CRM Account Type" 
 			Description="Edit selected data type item."
-			BizDataObj="account..do.AccountTypeDO" 
+			BizDataObj="account.do.AccountTypeDO" 
 			PageSize="10" 
 			DefaultForm="Y" 
 			TemplateEngine="Smarty" 

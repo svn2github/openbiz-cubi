@@ -6,7 +6,7 @@
 			Icon="{RESOURCE_URL}/account/images/icon_mod_account_type_detail.png"
 			Title="CRM Account Type Detail" 
 			Description="Please fill in below field to create a new data type."
-			BizDataObj="account..do.AccountTypeDO" 
+			BizDataObj="account.do.AccountTypeDO" 
 			PageSize="10" 
 			DefaultForm="Y" 
 			TemplateEngine="Smarty" 
