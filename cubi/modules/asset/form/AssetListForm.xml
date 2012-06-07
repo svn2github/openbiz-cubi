@@ -89,6 +89,22 @@
   
 	</DataPanel>
     <ActionPanel>
+        <!-- Export Records Button -->
+        <Element Name="btn_scan" 
+        			Class="Button" 
+        			Text="Scan" 
+        			Description="Scan Barcode"
+        			CssClass="button_gray_m">
+            <EventHandler Name="export_onclick" 
+            				Event="onclick" 
+            				EventLogMsg="" 
+            				Function="SwitchForm(asset.form.AssetScanForm)" 
+            				ShortcutKey="Insert" 
+            				ContextMenu="Scan Barcode"/>
+        </Element>    
+
+		<Element Name="btn_spacer" Class="Spacer" Width="10" />		    
+    
     	<!-- Create New Record Button -->
         <Element Name="btn_new" 
         			Class="Button" 
@@ -120,21 +136,7 @@
             				ContextMenu="Edit" />
         </Element>
         
-        <!-- Copy Selected Record Button -->
-        <Element Name="btn_copy" 
-        			Class="Button" 
-        			Text="Copy" 
-        			CssClass="button_gray_m" 
-        			Description="Copy record (Ctrl+C)" 
-        			Access="asset.Manage">
-            <EventHandler Name="btn_copy_onclick" 
-            				Event="onclick" 
-            				EventLogMsg="" 
-            				Function="CopyRecord()" 
-            				RedirectPage="form=asset.form.AssetCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
-            				ShortcutKey="Ctrl+C" 
-            				ContextMenu="Copy"/>
-        </Element>
+        
         
         <!-- Delete Selected Record Button -->
         <Element Name="btn_delete" 
@@ -151,20 +153,7 @@
             				ContextMenu="Delete"/>
         </Element>
         
-        <!-- Export Records Button -->
-        <Element Name="btn_excel" 
-        			Class="Button" 
-        			Text="Export" 
-        			Description="Export records"
-        			CssClass="button_gray_m">
-            <EventHandler Name="export_onclick" 
-            				Event="onclick" 
-            				EventLogMsg="" 
-            				Function="CallService(excelService,renderCSV)" 
-            				FunctionType="Popup" 
-            				ShortcutKey="Ctrl+Shift+X" 
-            				ContextMenu="Export"/>
-        </Element>
+
     </ActionPanel> 
     <NavPanel>
     	

@@ -8,7 +8,7 @@
 		SearchRule="" 
 		SortRule="" 
 		OtherSQLRule=""
-		Uniqueness="" 
+		Uniqueness="barcode" 
 		Stateless="N" 
 		IdGeneration="Identity" 
 		CacheLifeTime="0" 
