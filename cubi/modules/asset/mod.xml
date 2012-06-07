@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <Module Name="asset" 
 		Description="Asset Module Description" 
-		Version="0.2" 
+		Version="0.3" 
 		OpenbizVersion="3.0" 
 		Author="Jixian Wang"
 		LoadHandler="AssetLoadHandler.php" >
@@ -29,6 +29,15 @@
 	        			Order="50" 
 	        			Access="" >
 	        			
+	        	<MenuItem Name="asset_asset_query" 
+		        			Title="Asset Query" 	        			
+		        			Description="Asset Query by Using Barcode" 
+		        			URL="{APP_INDEX}/asset/asset_query" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="40" 
+		        			Access="" />
+		        			
 				<MenuItem Name="asset_asset_manage" 
 		        			Title="Asset Manage" 	        			
 		        			Description="Manage of Asset" 
@@ -63,7 +72,7 @@
 	        			URL="" 
 	        			IconImage="spacer.gif" 
 	        			IconCssClass="icon_barcode" 
-	        			Order="50" 
+	        			Order="60" 
 	        			Access="" >
 	        			
 				<MenuItem Name="asset_barcode_generator" 
