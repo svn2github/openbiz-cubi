@@ -816,6 +816,68 @@ Openbiz.IDCardReader =
     interval: 200
 }
 
+
+Openbiz.BarcodeScanner =
+{
+	initStatus: false,
+    init: function(compId)
+    {
+    	  Openbiz.BarcodeScanner.lastInputTime = new Date().getTime();		  
+    	  if($(compId+'_reader').className=='input_barcodescanner_error'){
+    		  setTimeout("$('"+compId+"_reader').className='input_barcodescanner'",1000*2);
+    	  }
+    	  if(Openbiz.BarcodeScanner.initStatus==true){    		  
+    		  return;
+    	  }else{
+    		  Openbiz.BarcodeScanner.initStatus=true;
+    	  }
+    	  Event.observe(document, "keypress", function(event) {		      		  
+              var e = Event.element(event);
+	            if (document.all){
+	  	            pressedKey = event.keyCode;
+	  	        } else{
+	  	            pressedKey = event.which;
+	  	        }
+	            
+	  	      if(pressedKey>=48 && pressedKey<=57){
+	  	    	  
+	  	    	  currentTime = new Date().getTime();
+	  	    	  if((currentTime-Openbiz.BarcodeScanner.lastInputTime) <
+	  	    	  	Openbiz.BarcodeScanner.interval ){
+	  	    		  $(compId).value += String.fromCharCode(pressedKey);
+	  	    		  $(compId+'_code').innerHTML += String.fromCharCode(pressedKey);
+	  	    		  $(compId+'_reader').className = "input_barcodescanner_reading" ;	  	    		  
+	  	    	  }else{
+	  	    		  $(compId).value = String.fromCharCode(pressedKey);
+	  	    		  $(compId+'_code').innerHTML = String.fromCharCode(pressedKey);
+	  	    		  $(compId+'_reader').className = "input_barcodescanner";
+	  	    		  setTimeout("Openbiz.BarcodeScanner.resetStatus('"+compId+"');",Openbiz.BarcodeScanner.interval*10);
+	  	    	  }
+	  	    	Openbiz.BarcodeScanner.lastInputTime = new Date().getTime();
+	  	      }
+	  	      else if(pressedKey==0)
+	  	      {
+	  	    	Openbiz.BarcodeScanner.lastInputTime = new Date().getTime();
+	  	    	$(compId).value = "";
+	    		$(compId+'_code').innerHTML = "";
+	    		$(compId+'_reader').className = "input_barcodescanner";
+	  	      }
+          });        
+    },
+    resetStatus: function(compId)
+    {
+    	 currentTime = new Date().getTime();
+	     if((currentTime-Openbiz.BarcodeScanner.lastInputTime) >
+	    	  	Openbiz.BarcodeScanner.interval ){
+	    	  $(compId+'_reader').className = "input_barcodescanner" ;
+	     }
+    },
+    lastInputTime: new Date().getTime(),
+    interval: 10000
+}
+
+
+
 /**
  * AutoSuggestion
  */
