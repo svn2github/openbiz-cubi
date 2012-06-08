@@ -580,6 +580,61 @@ height:14px;
 .input_cardreader:focus{
 	
 }
+.input_barcodescanner{
+	background-image: url(../images/barcode_scanner.png);
+	background-repeat:no-repeat;
+	background-position:left top;
+	border-width:0px;	
+	height:288px;
+	width:640px;	
+	display:block;
+	float:left;	
+	padding:0px;
+	color:#333333;
+}
+.input_barcodescanner .barcode{
+	display:none;
+}
+.input_barcodescanner_reading{
+	background-image: url(../images/barcode_scanner.png);
+	background-repeat:no-repeat;
+	background-position:left -288px;
+	border-width:0px;	
+	height:288px;
+	width:640px;		
+	display:block;
+	float:left;	
+	padding:0px;
+	color:#333333;
+}
+.input_barcodescanner_reading .barcode{
+	padding-left:458px;
+	padding-top:204px;		
+	display:block;
+	text-indent:10px;
+	font-weight:bold;
+	
+}
+.input_barcodescanner_error{	
+	background-image: url(../images/barcode_scanner.png);
+	background-repeat:no-repeat;
+	background-position:left bottom;
+	border-width:0px;	
+	height:288px;
+	width:640px;		
+	display:block;
+	float:left;	
+	padding:0px;
+	color:#FF0000;
+}
+.input_barcodescanner_error .barcode{
+	padding-left:458px;
+	padding-top:204px;		
+	display:block;
+	text-indent:10px;
+	font-weight:bold;
+	color:#ff0000;	
+}
 
 
 
