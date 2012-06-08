@@ -63,8 +63,11 @@ class FormRenderer
     {
         // Assocative Array to hold all Template Values
         // Fill with default viewobj attributes
-        $tplAttributes['form'] = $formObj->outputAttrs(); //jixian: we still need this function 
-        
+        $tplAttributes = $formObj->outputAttrs(); //jixian: we still need this function 
+        if(!$formObj->m_DataPanel->hasFormElement())
+        {        
+        	$tplAttributes['form'] = $tplAttributes;
+        }
         $tplAttributes['title'] = $formObj->m_Title;
         $tplAttributes['errors'] = $formObj->m_Errors;
         $tplAttributes['notices'] = $formObj->m_Notices;
@@ -116,13 +119,16 @@ class FormRenderer
         $smarty = BizSystem::getSmartyTemplate();
         $tplFile = BizSystem::getTplFileWithPath($formObj->m_TemplateFile, $formObj->m_Package);
         
-        /*$formOutput = $formObj->outputAttrs();
-        foreach ($formOutput as $k=>$v) {
-            $smarty->assign($k, $v);
+        if($formObj->m_DataPanel->hasFormElement())
+        {        
+	        $formOutput = $formObj->outputAttrs();
+	        foreach ($formOutput as $k=>$v) {
+	            $smarty->assign($k, $v);
+	        }
+	        // render the formobj attributes
+	        $smarty->assign("form", $formOutput);        
         }
-        // render the formobj attributes
-        $smarty->assign("form", $formOutput);
-        */
+        
         //Translate Array of template variables to Zend template object
         foreach ($tplAttributes as $key => $value) {
             $smarty->assign($key, $value);

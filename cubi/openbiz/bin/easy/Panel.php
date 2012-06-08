@@ -175,5 +175,17 @@ class Panel extends MetaIterator implements iUIControl
             }
         }
     }
+    
+	public function hasFormElement()
+    {       
+        foreach ($this->m_var as $elem)
+        {
+            if($elem->m_Class == 'FormElement')
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 ?>
