@@ -38,14 +38,18 @@ class ChartForm extends EasyForm
     }    
 	
 	public function outputAttrs()
-    {
-        $output = parent::outputAttrs();
+    {        
     	$output['name'] = $this->m_Name;
         $output['title'] = $this->m_Title;
         $output['description'] = str_replace('\n', "<br />", $this->m_Description);
         $output['data'] = $this->draw();
         $output['height'] = $this->m_Height;
         $output['width'] = $this->m_Width;
+        $parent = parent::outputAttrs();
+        foreach($parent as $key=>$value)
+        {
+        	$output[$key]=$value;
+        }        
         return $output;
     }
     
@@ -62,7 +66,7 @@ class ChartForm extends EasyForm
     }
    
     protected function fetchDatasetByColumn()
-    {
+    {    	
 		$this->chartCategory = array();
 		$this->chartDataAttrset = array();
 		$this->chartDataset = array();
