@@ -400,17 +400,37 @@ class BizController
     private function _dispatchRPC()
     {
 
-        if (isset($_REQUEST['_thisView']) && !empty($_REQUEST['_thisView']))
+        if ($this->_hasContainerView())
         {
-            BizSystem::instance()->setCurrentViewName($_REQUEST['_thisView']);
+            BizSystem::instance()->setCurrentViewName($this->_getContainerViewName());
         }
 
         $retval = $this->invoke();
 
-        print($retval . " ");
+        print($retval . " "); // why use space on end of data?
         exit();
     }
+    
+    /**
+     * Check that remote procedure is part of view?
+     * 
+     * @return boolean 
+     */
+    private function _hasContainerView() 
+    {
+        return isset($_REQUEST['_thisView']) && !empty($_REQUEST['_thisView']);
+    }
 
+    /**
+     * Get name of container view that call the remote procedure
+     * 
+     * @return string name of view 
+     */
+    private function _getContainerViewName()            
+    {
+        return $_REQUEST['_thisView'];
+    }
+    
 }
 
 ?>
