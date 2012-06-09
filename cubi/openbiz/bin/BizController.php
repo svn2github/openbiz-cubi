@@ -357,6 +357,7 @@ class BizController
 
     /**
      * Check whether the request in the form view
+     * 
      * @return boolean 
      */
     private function _hasView()
@@ -412,8 +413,9 @@ class BizController
     }
     
     /**
-     * Check that remote procedure is part of view?
+     * Check: remote procedure has container view?
      * 
+     * @see BizController::_hasView()
      * @return boolean 
      */
     private function _hasContainerView() 
