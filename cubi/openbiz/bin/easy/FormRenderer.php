@@ -35,8 +35,7 @@ class FormRenderer
     static public function render ($formObj)
     {
         $tplEngine = $formObj->m_TemplateEngine;
-        $tplAttributes = FormRenderer::buildTemplateAttributes($formObj);
-        
+        $tplAttributes = FormRenderer::buildTemplateAttributes($formObj); 
         if (isset($formObj->m_jsClass)) {
             $subForms = ($formObj->m_SubForms) ? implode(";", $formObj->m_SubForms) : "";
             if ($formObj->m_StaticOutput != true) {
@@ -63,11 +62,8 @@ class FormRenderer
     {
         // Assocative Array to hold all Template Values
         // Fill with default viewobj attributes
-        $tplAttributes = $formObj->outputAttrs(); //jixian: we still need this function 
-        if(!$formObj->m_DataPanel->hasFormElement())
-        {        
-        	$tplAttributes['form'] = $tplAttributes;
-        }
+        $tplAttributes = array();
+
         $tplAttributes['title'] = $formObj->m_Title;
         $tplAttributes['errors'] = $formObj->m_Errors;
         $tplAttributes['notices'] = $formObj->m_Notices;
@@ -104,6 +100,11 @@ class FormRenderer
         	$tplAttributes['wizardPanel'] = $formObj->m_WizardPanel->render();
         }
         
+        $attrs = $formObj->outputAttrs(); //jixian: we still need this function
+        foreach ($attrs as $key=>$value)
+        {
+        	$tplAttributes[$key]=$value;
+        }
         return $tplAttributes;
     }
 
@@ -118,21 +119,12 @@ class FormRenderer
     {
         $smarty = BizSystem::getSmartyTemplate();
         $tplFile = BizSystem::getTplFileWithPath($formObj->m_TemplateFile, $formObj->m_Package);
-        
-        if($formObj->m_DataPanel->hasFormElement())
-        {        
-	        $formOutput = $formObj->outputAttrs();
-	        foreach ($formOutput as $k=>$v) {
-	            $smarty->assign($k, $v);
-	        }
-	        // render the formobj attributes
-	        $smarty->assign("form", $formOutput);        
-        }
-        
+                
+        $smarty->assign("form", $tplAttributes);
         //Translate Array of template variables to Zend template object
         foreach ($tplAttributes as $key => $value) {
             $smarty->assign($key, $value);
-        }
+        };     
         
         return $smarty->fetch($tplFile);
     }
