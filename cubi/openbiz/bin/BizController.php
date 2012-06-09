@@ -169,7 +169,8 @@ class BizController
             return;
         }
 
-        // if previous view is different with the to-be-loaded view, clear the previous session objects
+        // if previous view is different with the to-be-loaded view, 
+        // clear the previous session objects
         $prevViewName = $bizSystem->getCurrentViewName();
         $prevViewSet = $bizSystem->getCurrentViewSet();
 
@@ -191,7 +192,7 @@ class BizController
         BizSystem::sessionContext()->clearSessionObjects(true);
 
         if ($hist == "N") // clean view history
-            $viewObj->CleanViewHistory();
+            $viewObj->cleanViewHistory();
 
         if ($form != "" && $rule != "")
             $viewObj->processRule($form, $rule, TRUE);
@@ -200,7 +201,7 @@ class BizController
             $viewObj->setParameters($params);
 
         if (isset($_GET['mode']))   // can specify mode of form
-            $viewObj->SetFormMode($form, $_GET['mode']);
+            $viewObj->setFormMode($form, $_GET['mode']);
 
         $viewObj->render();
         //BizController::hidePageLoading();
