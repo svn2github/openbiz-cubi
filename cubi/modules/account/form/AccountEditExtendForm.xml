@@ -36,7 +36,7 @@
 					FieldName="type_name" 
 					Label="" 
 					KeepCookie="Y" 
-					SelectFrom="account..do.AccountTypeDO[name:Id:color]" 
+					SelectFrom="account.do.AccountTypeDO[name:Id:color]" 
 					AllowURLParam="N" />					
        	<Element Name="fld_Id" 
        				Class="LabelText" 
@@ -155,7 +155,7 @@
 				FieldName="type_id" 
 				Label="Type" 
 				KeepCookie="Y" 
-				SelectFrom="account..do.AccountTypeDO[name:Id:color]" 
+				SelectFrom="account.do.AccountTypeDO[name:Id:color]" 
 				AllowURLParam="N" >
    			<EventHandler Name="fld_type_id_onchange" 
    						Event="onchange" 
@@ -180,7 +180,7 @@
             			EventLogMsg="" 
             			Event="onclick" 
             			Function="UpdateRecord()" 
-            			RedirectPage="{APP_INDEX}/account/account_detail/{@account..do.AccountDO:Field[Id].Value}" 
+            			RedirectPage="{APP_INDEX}/account/account_detail/{@account.do.AccountDO:Field[Id].Value}" 
             			ContextMenu="Finish"   />
         </Element>
         <Element Name="btn_cancel" 

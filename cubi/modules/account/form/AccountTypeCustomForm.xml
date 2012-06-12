@@ -94,7 +94,7 @@
             			Event="onclick" 
             			EventLogMsg=""  
             			Function="UpdateRecord()" 
-            			RedirectPage="form=account..form.AccountTypeDetailForm&amp;fld:Id={@account..do.AccountTypeDO:Field[Id].Value}" 
+            			RedirectPage="form=account.form.AccountTypeDetailForm&amp;fld:Id={@account.do.AccountTypeDO:Field[Id].Value}" 
             			ShortcutKey="Ctrl+Enter" 
             			ContextMenu="Save" />
         </Element>
@@ -104,7 +104,7 @@
         		CssClass="button_gray_m">
             <EventHandler Name="btn_cancel_onclick" 
             			Event="onclick" 
-            			Function="SwitchForm(account..form.AccountTypeListForm)"  
+            			Function="SwitchForm(account.form.AccountTypeListForm)"  
             			ShortcutKey="Escape" 
             			ContextMenu="Cancel" />
         </Element>     

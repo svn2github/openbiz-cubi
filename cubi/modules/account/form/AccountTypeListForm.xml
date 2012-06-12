@@ -54,7 +54,7 @@
         		Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" 
          				Event="onclick" 
-         				Function="SwitchForm(account..form.AccountTypeDetailForm,{@:Elem[fld_Id].Value})"   />
+         				Function="SwitchForm(account.form.AccountTypeDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>	
         <Element Name="fld_description"  
         		MaxLength="30"  
@@ -113,7 +113,7 @@
             <EventHandler Name="lnk_new_onclick" 
             			Event="onclick" 
             			EventLogMsg="" 
-            			Function="SwitchForm(account..form.AccountTypeNewForm)"  
+            			Function="SwitchForm(account.form.AccountTypeNewForm)"  
             			ShortcutKey="Insert" 
             			ContextMenu="New"/>
         </Element>
@@ -127,7 +127,7 @@
             			Event="onclick" 
             			EventLogMsg="" 
             			Function="EditRecord()" 
-            			RedirectPage="form=account..form.AccountTypeEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
+            			RedirectPage="form=account.form.AccountTypeEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
             			ShortcutKey="Ctrl+E" 
             			ContextMenu="Edit" />
         </Element>
@@ -141,7 +141,7 @@
             			Event="onclick" 
             			EventLogMsg="" 
             			Function="CopyRecord()" 
-            			RedirectPage="form=account..form.AccountTypeCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
+            			RedirectPage="form=account.form.AccountTypeCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
             			ShortcutKey="Ctrl+C" 
             			ContextMenu="Copy"/>
         </Element>
@@ -254,7 +254,7 @@
         <Element Name="qry_name"  
         		Class="AutoSuggest" 
         		FuzzySearch="Y" 
-        		SelectFrom="account..do.AccountTypeDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" 
+        		SelectFrom="account.do.AccountTypeDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" 
         		FieldName="name" 
         		CssFocusClass="input_text_search_focus" 
         		CssClass="input_text_search"/>

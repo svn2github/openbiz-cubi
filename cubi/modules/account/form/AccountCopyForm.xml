@@ -18,7 +18,7 @@
 				FieldName="type_id" 
 				Label="Type" 
 				KeepCookie="Y" 
-				SelectFrom="account..do.AccountTypeDO[name:Id:color]" 
+				SelectFrom="account.do.AccountTypeDO[name:Id:color]" 
 				AllowURLParam="N" >
    			<EventHandler Name="fld_type_id_onchange" 
    						Event="onchange" 
@@ -298,7 +298,7 @@
             			EventLogMsg="" 
             			Event="onclick" 
             			Function="InsertRecord()" 
-            			RedirectPage="{APP_INDEX}/account/account_detail/{@account..do.AccountDO:Field[Id].Value}"  
+            			RedirectPage="{APP_INDEX}/account/account_detail/{@account.do.AccountDO:Field[Id].Value}"  
             			ShortcutKey="Ctrl+Enter" 
             			ContextMenu="Save" />
         </Element>

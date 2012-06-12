@@ -36,7 +36,7 @@
 					FieldName="type_name" 
 					Label="" 
 					KeepCookie="Y" 
-					SelectFrom="account..do.AccountTypeDO[name:Id:color]" 
+					SelectFrom="account.do.AccountTypeDO[name:Id:color]" 
 					AllowURLParam="N" />					
        	<Element Name="fld_Id" 
        				Class="LabelText" 
@@ -167,7 +167,7 @@
             <EventHandler Name="save_onclick" 	
             			Event="onclick" 
             			EventLogMsg=""  
-            			Function="SwitchForm(account..form.AccountDetailForm,{@account..do.AccountDO:Field[Id].Value})"  
+            			Function="SwitchForm(account.form.AccountDetailForm,{@account.do.AccountDO:Field[Id].Value})"  
             			ShortcutKey="Ctrl+Enter" 
             			ContextMenu="Save" />
         </Element>

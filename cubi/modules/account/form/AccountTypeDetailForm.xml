@@ -129,7 +129,7 @@
 				CssClass="button_gray_w">
             <EventHandler Name="btn_custom_onclick" 
             			Event="onclick" 
-            			Function="SwitchForm(account..form.AccountTypeCustomForm,{@:Elem[fld_Id].Value})"/>
+            			Function="SwitchForm(account.form.AccountTypeCustomForm,{@:Elem[fld_Id].Value})"/>
         </Element>
 		<Element Name="btn_spacer"  
 				Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
@@ -144,7 +144,7 @@
         		Description="New record (Insert)">
 			<EventHandler Name="btn_new_onclick" 
 						Event="onclick" 
-						Function="SwitchForm(account..form.AccountTypeNewForm)"  
+						Function="SwitchForm(account.form.AccountTypeNewForm)"  
 						ShortcutKey="Insert" 
 						ContextMenu="New" />
         </Element>          
@@ -155,7 +155,7 @@
         		Description="Edit record (Ctrl+E)">
 			<EventHandler Name="btn_new_onclick" 
 						Event="onclick" 
-						Function="SwitchForm(account..form.AccountTypeEditForm,{@:Elem[fld_Id].Value})"  
+						Function="SwitchForm(account.form.AccountTypeEditForm,{@:Elem[fld_Id].Value})"  
 						ShortcutKey="Ctrl+E" 
 						ContextMenu="Edit" />
         </Element>
@@ -168,7 +168,7 @@
             			Event="onclick" 
             			EventLogMsg="" 
             			Function="CopyRecord({@:Elem[fld_Id].Value})" 
-            			RedirectPage="form=account..form.AccountTypeCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
+            			RedirectPage="form=account.form.AccountTypeCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
             			ShortcutKey="Ctrl+C" 
             			ContextMenu="Copy"/>
         </Element> 
@@ -181,7 +181,7 @@
             			Event="onclick" 
             			EventLogMsg="" 
             			Function="DeleteRecord({@:Elem[fld_Id].Value})"  
-            			RedirectPage="form=account..form.AccountTypeListForm" 
+            			RedirectPage="form=account.form.AccountTypeListForm" 
             			ShortcutKey="Ctrl+Delete" 
             			ContextMenu="Delete" />
         </Element>

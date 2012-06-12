@@ -36,7 +36,7 @@
 					FieldName="type_name" 
 					Label="" 
 					KeepCookie="Y" 
-					SelectFrom="account..do.AccountTypeDO[name:Id:color]" 
+					SelectFrom="account.do.AccountTypeDO[name:Id:color]" 
 					AllowURLParam="N" />					
 
         				         				  				      				
@@ -230,7 +230,7 @@
 				Description="">
 			<EventHandler Name="btn_manage_attachment_onclick" 
 						Event="onclick" 
-						Function="SwitchForm(account..form.AccountEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
+						Function="SwitchForm(account.form.AccountEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
         </Element>  
    
      
@@ -255,7 +255,7 @@
 				Description="">
 			<EventHandler Name="btn_manage_attachment_onclick" 
 						Event="onclick" 
-						Function="SwitchForm(account..form.AccountEditPictureForm,{@:Elem[fld_Id].Value})"   />
+						Function="SwitchForm(account.form.AccountEditPictureForm,{@:Elem[fld_Id].Value})"   />
         </Element>
 		<Element Name="fld_locations"  
 				Access="location.access" 
@@ -278,13 +278,13 @@
 				Description="">
 			<EventHandler Name="btn_manage_location_onclick" 
 						Event="onclick" 
-						Function="SwitchForm(account..form.AccountEditLocationForm,{@:Elem[fld_Id].Value})"   />
+						Function="SwitchForm(account.form.AccountEditLocationForm,{@:Elem[fld_Id].Value})"   />
        	</Element> 
 		<Element Name="fld_related_data" 
 				TabSet="Related Data"   
 				ElementSet="Document" 
 				Class="FormElement" 
-				FormReference="account..widget.AccountListWidgetForm" 
+				FormReference="account.widget.AccountListWidgetForm" 
 				FieldName="" 
 				Label="" 
 				AllowURLParam="N" />
@@ -299,7 +299,7 @@
 	    		Description="">
 			<EventHandler Name="btn_manage_related_onclick"
 						 Event="onclick" 
-						 Function="SwitchForm(account..form.AccountEditRelatedForm,{@:Elem[fld_Id].Value})"   />
+						 Function="SwitchForm(account.form.AccountEditRelatedForm,{@:Elem[fld_Id].Value})"   />
        	</Element>	
 		<Element Name="fld_changelog" 
 				TabSet="Extra Information"  
@@ -373,7 +373,7 @@
         			Description="New record (Insert)">
 			<EventHandler Name="btn_new_onclick" 
 							Event="onclick" 
-							Function="SwitchForm(account..form.AccountNewForm)"  
+							Function="SwitchForm(account.form.AccountNewForm)"  
 							ShortcutKey="Insert" 
 							ContextMenu="New" />
         </Element>          
@@ -384,7 +384,7 @@
         			Description="Edit record (Ctrl+E)">
 			<EventHandler Name="btn_new_onclick" 
 							Event="onclick" 
-							Function="SwitchForm(account..form.AccountEditForm,{@:Elem[fld_Id].Value})"  
+							Function="SwitchForm(account.form.AccountEditForm,{@:Elem[fld_Id].Value})"  
 							ShortcutKey="Ctrl+E" 
 							ContextMenu="Edit" />
         </Element>
@@ -397,7 +397,7 @@
             				Event="onclick" 
             				EventLogMsg="" 
             				Function="CopyRecord({@:Elem[fld_Id].Value})" 
-            				RedirectPage="form=account..form.AccountCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
+            				RedirectPage="form=account.form.AccountCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
             				ShortcutKey="Ctrl+C" 
             				ContextMenu="Copy"/>
         </Element> 

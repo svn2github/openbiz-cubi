@@ -73,7 +73,7 @@
             			EventLogMsg="" 
             			Event="onclick" 
             			Function="InsertRecord()" 
-            			RedirectPage="form=account..form.AccountTypeDetailForm&amp;fld:Id={@account..do.AccountTypeDO:Field[Id].Value}"  
+            			RedirectPage="form=account.form.AccountTypeDetailForm&amp;fld:Id={@account.do.AccountTypeDO:Field[Id].Value}"  
             			ShortcutKey="Ctrl+Enter" 
             			ContextMenu="Save" />
         </Element>

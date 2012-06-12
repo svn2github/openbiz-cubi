@@ -173,7 +173,7 @@
             <EventHandler Name="lnk_new_onclick" 
             				Event="onclick" 
             				EventLogMsg="" 
-            				Function="SwitchForm(account..form.AccountNewForm)"  
+            				Function="SwitchForm(account.form.AccountNewForm)"  
             				ShortcutKey="Insert" 
             				ContextMenu="New"/>
         </Element>
@@ -189,7 +189,7 @@
             				Event="onclick" 
             				EventLogMsg="" 
             				Function="EditRecord()" 
-            				RedirectPage="form=account..form.AccountEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
+            				RedirectPage="form=account.form.AccountEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
             				ShortcutKey="Ctrl+E" 
             				ContextMenu="Edit" />
         </Element>
@@ -205,7 +205,7 @@
             				Event="onclick" 
             				EventLogMsg="" 
             				Function="CopyRecord()" 
-            				RedirectPage="form=account..form.AccountCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
+            				RedirectPage="form=account.form.AccountCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
             				ShortcutKey="Ctrl+C" 
             				ContextMenu="Copy"/>
         </Element>
@@ -334,7 +334,7 @@
     				Cssclass="input_select_m" 
     				Class="common.lib.TypeSelector" 
     				FieldName="type_id" 
-    				SelectFrom="account..do.AccountTypeDO[name:Id:color]" >
+    				SelectFrom="account.do.AccountTypeDO[name:Id:color]" >
             <EventHandler Name="type_selector_onchange" 
             				Event="onchange" 
             				Function="RunSearch()"/>
@@ -342,7 +342,7 @@
 	
 		<Element Name="qry_name" 
 					Class="AutoSuggest" 
-					SelectFrom="account..do.AccountDO[name],[name] like '%{@:Elem[qry_name].Value}%' GROUP BY [name]" 
+					SelectFrom="account.do.AccountDO[name],[name] like '%{@:Elem[qry_name].Value}%' GROUP BY [name]" 
 					FuzzySearch="Y" 
 					FieldName="name" 
 					Label="" 

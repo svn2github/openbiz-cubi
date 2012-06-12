@@ -20,7 +20,7 @@
 				FieldName="type_id" 
 				Label="Type" 
 				KeepCookie="Y" 
-				SelectFrom="account..do.AccountTypeDO[name:Id:color]" 
+				SelectFrom="account.do.AccountTypeDO[name:Id:color]" 
 				AllowURLParam="N" />
   				
 				
@@ -288,7 +288,7 @@
             				EventLogMsg="" 
             				Event="onclick" 
             				Function="InsertRecord()" 
-            				RedirectPage="form=account..form.AccountEditExtendForm&amp;fld:Id={@account..do.AccountDO:Field[Id].Value}"  
+            				RedirectPage="form=account.form.AccountEditExtendForm&amp;fld:Id={@account.do.AccountDO:Field[Id].Value}"  
             				ContextMenu="Next Step"   />
         	</Element>
                 <Element Name="btn_cancel" 
