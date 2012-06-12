@@ -68,8 +68,8 @@ if ($url) {
     }
     if (preg_match("/\./si", $urlArr[count($urlArr) - 1])) {
         // if its trying to solve a file, like something.jpg, should be return a 404 header
-        header("HTTP/1.1 404 Not Found");
-        exit;
+   //     header("HTTP/1.1 404 Not Found");
+   //     exit;
     }
 } else {
     // http://localhost/
