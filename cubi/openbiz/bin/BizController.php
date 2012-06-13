@@ -229,41 +229,48 @@ class BizController
             }
         }
 
-        $func = (isset($_REQUEST['F']) ? $_REQUEST['F'] : "");
+        // get invocation type
+        $invocationType = (isset($_REQUEST['F']) ? $_REQUEST['F'] : "");
+
+        if ($invocationType == '') // is invocation?
+            return;
+
+        // check is valid invocation?
+        if ($invocationType != "RPCInvoke" && $invocationType != "Invoke")
+        {
+            trigger_error("$invocationType is not a valid invocation", E_USER_ERROR);
+            return;
+        }
+
+        // read parameters
         $arg_list = array();
         $i = 0;
 
-        if ($func != "")
+        eval("\$P$i = (isset(\$_REQUEST['P$i']) ? \$_REQUEST['P$i']:'');");
+        $Ptmp = "P" . $i;
+        
+        eval("\$P$i = (isset(\$_REQUEST['P$i']) ? \$_REQUEST['P$i']:'');");
+                
+
+
+        if (strstr($P0, Popup_Suffix)) // _popupx_?
         {
+            $name_len = strlen($P0);
+            $suffix_len = strlen(Popup_Suffix);
+            $P0 = substr($P0, 0, $name_len - $suffix_len - 1) . "]";
+        }
+
+        while ($$Ptmp != "")
+        {
+            $parm = $$Ptmp;
+            $parm = substr($parm, 1, strlen($parm) - 2);
+            $arg_list[] = $parm;
+            $i++;
             eval("\$P$i = (isset(\$_REQUEST['P$i']) ? \$_REQUEST['P$i']:'');");
             $Ptmp = "P" . $i;
-
-            if (strstr($P0, Popup_Suffix))
-            {
-                $name_len = strlen($P0);
-                $suffix_len = strlen(Popup_Suffix);
-                $P0 = substr($P0, 0, $name_len - $suffix_len - 1) . "]";
-            }
-
-            while ($$Ptmp != "")
-            {
-                $parm = $$Ptmp;
-                $parm = substr($parm, 1, strlen($parm) - 2);
-                $arg_list[] = $parm;
-                $i++;
-                eval("\$P$i = (isset(\$_REQUEST['P$i']) ? \$_REQUEST['P$i']:'');");
-                $Ptmp = "P" . $i;
-            }
         }
-        else
-            return;
 
-        if ($func != "RPCInvoke" && $func != "Invoke")
-        {
-            trigger_error("$func is not a valid invocation", E_USER_ERROR);
-            return;
-        }
-        if ($func == "RPCInvoke")
+        if ($invocationType == "RPCInvoke")
             BizSystem::clientProxy()->setRPCFlag(true);
 
         // invoke the function
@@ -311,12 +318,12 @@ class BizController
                 trigger_error($errmsg, E_USER_ERROR);
             }
 
-            if ($func == "Invoke")  // no RPC invoke, page reloaded -> rerender view
+            if ($invocationType == "Invoke")  // no RPC invoke, page reloaded -> rerender view
             {
                 if (BizSystem::clientProxy()->hasOutput())
                     BizSystem::clientProxy()->printOutput();
             }
-            else if ($func == "RPCInvoke")  // RPC invoke
+            else if ($invocationType == "RPCInvoke")  // RPC invoke
             {
                 if (BizSystem::clientProxy()->hasOutput())
                 {
@@ -411,14 +418,14 @@ class BizController
         print($retval . " "); // why use space on end of data?
         exit();
     }
-    
+
     /**
      * Check: remote procedure has container view?
      * 
      * @see BizController::_hasView()
      * @return boolean 
      */
-    private function _hasContainerView() 
+    private function _hasContainerView()
     {
         return isset($_REQUEST['_thisView']) && !empty($_REQUEST['_thisView']);
     }
@@ -428,11 +435,11 @@ class BizController
      * 
      * @return string name of view 
      */
-    private function _getContainerViewName()            
+    private function _getContainerViewName()
     {
         return $_REQUEST['_thisView'];
     }
-    
+
 }
 
 ?>

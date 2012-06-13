@@ -427,16 +427,16 @@ class ClientProxy
     }
 
     /**
-     * Build target-content string with target str and content string as inputs.
+     * Build target-content array with target string and content string as inputs.
      * After RPC call, this function is usually called to set the HTML text to an UI element.
      *
-     * @param string $tgt the HTML element id, i.e. the form id
-     * @param string $ctnt the HTML text to be set as the content of the HTML element referred with the id
-     * @return string
+     * @param string $target the HTML element id, i.e. the form id
+     * @param string $content the HTML text to be set as the content of the HTML element referred with the id
+     * @return array
      **/
-    private function _buildTargetContent($tgt, &$ctnt)
+    private function _buildTargetContent($target, &$content)
     {
-        return array('target'=>$tgt, 'content'=>$ctnt);
+        return array('target'=>$target, 'content'=>$content);
     }
 
     /**
