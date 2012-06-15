@@ -3,7 +3,7 @@
 			Class="EasyForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
-			BizDataObj="account..do.AccountRefDO" 			
+			BizDataObj="account.do.AccountRefDO" 			
 			PageSize="10" 
 			DefaultForm="Y" 
 			TemplateEngine="Smarty" 
@@ -241,7 +241,7 @@
 				CssClass="button_gray_add">
             <EventHandler Name="add_onclick" 
             			Event="onclick" 
-            			Function="LoadDialog(account..widget.AccountQuickAddWidgetForm)"/>
+            			Function="LoadDialog(account.widget.AccountQuickAddWidgetForm)"/>
         </Element>
         <Element Name="btn_spacer" 
         		Class="Spacer" 
@@ -253,7 +253,7 @@
         		CssClass="button_gray_w">
             <EventHandler Name="pick_onclick" 
             			Event="onclick" 
-            			Function="LoadDialog(account..widget.AccountPickWidgetForm)"/>
+            			Function="LoadDialog(account.widget.AccountPickWidgetForm)"/>
         </Element>
         <Element Name="btn_remove" 
         		Class="Button" 

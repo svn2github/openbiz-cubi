@@ -6,7 +6,7 @@
 		jsClass="Openbiz.TableForm" 
 		Title="" 
 		Description="" 
-		BizDataObj="account..do.AccountRefDO" 
-		InheritFrom="account..widget.AccountListWidgetForm"  
+		BizDataObj="account.do.AccountRefDO" 
+		InheritFrom="account.widget.AccountListWidgetForm"  
 		Access="account.Access" >
 </EasyForm>

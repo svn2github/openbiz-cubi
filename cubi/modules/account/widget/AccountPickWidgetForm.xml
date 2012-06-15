@@ -6,7 +6,7 @@
 			Title="Please select a CRM Account" 
 			Description="To select a crm account click on a row and click to Select button" 
 			jsClass="Openbiz.TableForm" 
-			BizDataObj="account..do.AccountPickDO" 
+			BizDataObj="account.do.AccountPickDO" 
 			PageSize="10" 
 			DefaultForm="Y" 
 			TemplateEngine="Smarty" 
@@ -349,7 +349,7 @@
     				Cssclass="input_select_m" 
     				Class="common.lib.TypeSelector" 
     				FieldName="type_id" 
-    				SelectFrom="account..do.AccountTypeDO[name:Id:color]" >
+    				SelectFrom="account.do.AccountTypeDO[name:Id:color]" >
             <EventHandler Name="type_selector_onchange" 
             				Event="onchange" 
             				Function="RunSearch()"/>
@@ -357,7 +357,7 @@
 	
 		<Element Name="qry_name" 
 					Class="AutoSuggest" 
-					SelectFrom="account..do.AccountPickDO[name],[name] like '%{@:Elem[qry_name].Value}%' GROUP BY [name]" 
+					SelectFrom="account.do.AccountPickDO[name],[name] like '%{@:Elem[qry_name].Value}%' GROUP BY [name]" 
 					FuzzySearch="Y" 
 					FieldName="name" 
 					Label="" 

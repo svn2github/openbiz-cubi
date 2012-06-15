@@ -6,7 +6,7 @@
 			Icon="{RESOURCE_URL}/account/images/icon_mod_account_add.png"
 			Title="Quick Add CRM Account" 
 			Description="Create a new crm account and edit its content later." 
-			BizDataObj="account..do.AccountPickDO" 
+			BizDataObj="account.do.AccountPickDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_data_quick_add.tpl.html" 
 			MessageFile="Account.ini" 
@@ -19,7 +19,7 @@
 				FieldName="type_id" 
 				Label="Type" 
 				KeepCookie="Y" 
-				SelectFrom="account..do.AccountTypeDO[name:Id:color]" 
+				SelectFrom="account.do.AccountTypeDO[name:Id:color]" 
 				AllowURLParam="N" />
   				
 				
