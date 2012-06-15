@@ -80,7 +80,7 @@ class BizController
      */
     public function dispatchRequest()
     {
-        if ($this->_checkSessionTimeout())  // show timeout view
+        if ($this->_isSessionTimeout())  // show timeout view
         {
             BizSystem::sessionContext()->destroy();
             return $this->renderView($this->_userTimeoutView);
@@ -132,7 +132,7 @@ class BizController
      *
      * @return boolean true - session timed out, false - session alive
      */
-    private function _checkSessionTimeout()
+    private function _isSessionTimeout()
     {
         return BizSystem::sessionContext()->isTimeout();
     }
@@ -143,7 +143,7 @@ class BizController
      * @param string $viewName view name
      * @return boolean true= allow, false not allow
      */
-    private function _checkViewAccess($viewName)
+    private function _canUserAccessView($viewName)
     {
         // load accessService
         $svcobj = BizSystem::getService(ACCESS_SERVICE);
@@ -389,21 +389,21 @@ class BizController
 
         if (defined('NOTFOUND_VIEW'))
         {
-            if (!RESOURCE::getXmlFileWithPath($viewName))
+            if (!Resource::getXmlFileWithPath($viewName))
             {
                 $this->renderView(NOTFOUND_VIEW, $form, $rule, $params, $hist);
                 exit;
             }
         }
 
-        if (!$this->_checkViewAccess($viewName))  //access denied error
+        if (!$this->_canUserAccessView($viewName))  //access denied error
             $this->renderView($this->_accessDeniedView);
 
         $this->renderView($viewName, $form, $rule, $params, $hist);
     }
 
     /**
-     * Disoatch request as RPC (remote procedure call
+     * Dispatch request as RPC (remote procedure call)
      */
     private function _dispatchRPC()
     {

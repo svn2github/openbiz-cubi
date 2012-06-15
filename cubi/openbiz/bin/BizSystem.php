@@ -253,22 +253,30 @@ class BizSystem
      */
     public static function getService($service, $new=0)
     {
-        $default_package = "service";
-        $svc_name = $service;
+        $defaultPackage = "service";
+        $serviceName = $service;
         if (strpos($service, ".") === false)
-            $svc_name = $default_package . "." . $service;
-        return BizSystem::getObject($svc_name, $new);
+            $serviceName = $defaultPackage . "." . $service;
+        return BizSystem::getObject($serviceName, $new);
     }
     
     /**
-     * Get the metadata object
+     * 
      *
      * @param string $objectName object name
      * @return <object> the object
      */
-    public static function getObject($objectName, $new=0)
+    
+    /**
+     * Get the metadata object
+     * 
+     * @param string $objectName object name
+     * @param type $isNew
+     * @return object 
+     */
+    public static function getObject($objectName, $isNew=0)
     {
-        return BizSystem::ObjectFactory()->getObject($objectName, $new);
+        return BizSystem::ObjectFactory()->getObject($objectName, $isNew);
     }
 
     /**
@@ -291,12 +299,12 @@ class BizSystem
      */
     public static function initUserProfile($userId)
     {
-        $serviceObj = BizSystem::getService(PROFILE_SERVICE);
+        $profileService = BizSystem::getService(PROFILE_SERVICE);
 
-        if (method_exists($serviceObj,'InitProfile'))
-            $profile = $serviceObj->InitProfile($userId);
+        if (method_exists($profileService,'InitProfile'))
+            $profile = $profileService->InitProfile($userId);
         else
-            $profile = $serviceObj->getProfile($userId);
+            $profile = $profileService->getProfile($userId);
 
         BizSystem::sessionContext()->setVar("_USER_PROFILE", $profile);
         return $profile;
@@ -310,12 +318,13 @@ class BizSystem
      */
     public static function getUserProfile($attribute=null)
     {
-    	if(!BizSystem::GetXmlFileWithPath (PROFILE_SERVICE)){
+    	if ( !BizSystem::GetXmlFileWithPath( PROFILE_SERVICE ) ) {
     		return null;
     	}
-        $serviceObj = BizSystem::getService(PROFILE_SERVICE);
-        if (method_exists($serviceObj,'getProfile'))
-            return $serviceObj->getProfile($attribute);
+        $profileService = BizSystem::getService(PROFILE_SERVICE);
+        if (method_exists($profileService,'getProfile')) {
+            return $profileService->getProfile($attribute);
+        }
         else
         {
             $profile = BizSystem::sessionContext()->getVar("_USER_PROFILE");
@@ -323,24 +332,36 @@ class BizSystem
         }
     }
     
+    /**
+     * Get user preference
+     * 
+     * @param string $attribute key that representing attribute
+     * @return mixed 
+     */
     public static function getUserPreference($attribute=null)
     {
     	if(!BizSystem::GetXmlFileWithPath (PREFERENCE_SERVICE)){
     		return null;
     	}
-        $serviceObj = BizSystem::getService(PREFERENCE_SERVICE);
-        if (method_exists($serviceObj,'getPreference'))
-            return $serviceObj->getPreference($attribute);
+        $preferenceService = BizSystem::getService(PREFERENCE_SERVICE);
+        if (method_exists($preferenceService,'getPreference'))
+            return $preferenceService->getPreference($attribute);
         else
         {
             $preference = BizSystem::sessionContext()->getVar("_USER_PREFERENCE");
-            return isset($preference[$attribute]) ? $preference[$attribute] : "";
+            return isset( $preference[$attribute] ) ? $preference[$attribute] : "";
         }
     }    
 
-    public static function getProfileName($account_id,$type='full'){
-    	$serviceObj = BizSystem::getService(PROFILE_SERVICE);
-    	return $serviceObj->GetProfileName($account_id,$type);
+    /**
+     * Get profile name
+     * @param type $accountId 
+     * @param type $type
+     * @return type 
+     */
+    public static function getProfileName( $accountId, $type='full' ) {
+    	$profileService = BizSystem::getService( PROFILE_SERVICE );
+    	return $profileService->GetProfileName( $accountId, $type );
     }    
     
 	public static function getProfileEmail($account_id){

@@ -11,6 +11,15 @@
  * @version   $Id$
  */
 
+/**
+ * profileService is class that handle user profile information.
+ * this service accessed by BizSystem::getService( PROFILE_SERVICE ),
+ * example :
+ * <code>
+ *      $profileService = BizSystem::getService( PROFILE_SERVICE );
+ *      $profileName = $profileService->GetProfileName( $accountId, $type );
+ * </code> 
+ */
 class profileService
 {
     protected $m_Name = "ProfileService";
@@ -31,17 +40,17 @@ class profileService
         //$this->m_profileObj = $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["BIZDATAOBJ"];
     }
 
-    public function InitProfile($userName)
+    public function initProfile($userName)
     {
     	//clear ACL Cache
-		BizSystem::getService(ACL_SERVICE)->clearACLCache();     	
+		BizSystem::getService(ACL_SERVICE)->clearACLCache();
     	
-        $this->m_Profile = $this->InitDBProfile($userName);        
+        $this->m_Profile = $this->initDBProfile($userName);        
         BizSystem::sessionContext()->setVar("_USER_PROFILE", $this->m_Profile);
         
         //load preference
-        $pref = BizSystem::getService(PREFERENCE_SERVICE);
-        $pref->InitPreference($this->m_Profile["Id"]);       
+        $preferenceService = BizSystem::getService(PREFERENCE_SERVICE);
+        $preferenceService->initPreference($this->m_Profile["Id"]);       
         
         return $this->m_Profile;
     }
@@ -70,37 +79,37 @@ class profileService
         return $this->m_Profile;
     }
 
-    public function SetProfile($profile)
+    public function setProfile($profile)
     {
         $this->m_Profile = $profile;
     }
 
-    public function CreateProfile($user_id=null){
-    	if(!$user_id){
-    		$user_id = $this->getProfile("Id");
+    public function createProfile($userId=null){
+    	if (!$userId) {
+    		$userId = $this->getProfile("Id");
     	}
     	
     	$profileDo = BizSystem::getObject($this->m_profileObj,1);
-        $userinfo = BizSystem::getObject($this->m_userDataObj,1)->fetchById($user_id);
-        $profileArr = array(
-        		"first_name" => $userinfo['username'],
-        		"last_name" => $userinfo['username'],
-        		"display_name" => $userinfo['username'],
-        		"fast_index" => substr(strtolower($userinfo['username']),0,1),
-        		"email" => $userinfo['email'],
+        $userInfo = BizSystem::getObject($this->m_userDataObj,1)->fetchById($userId);
+        $profileArray = array(
+        		"first_name" => $userInfo['username'],
+        		"last_name" => $userInfo['username'],
+        		"display_name" => $userInfo['username'],
+        		"fast_index" => substr(strtolower($userInfo['username']),0,1),
+        		"email" => $userInfo['email'],
         		"company" => "N/A",
-        		"user_id" => $user_id,
+        		"user_id" => $userId,
         		"group_perm" => '1',
         		"type_id" => '1',
         		"other_perm" => '1',
         );
-        $profile_id = $profileDo->insertRecord($profileArr);
-    	return $profile_id;
+        $profileId = $profileDo->insertRecord($profileArray);
+    	return $profileId;
     }    
     
-    public function checkExist($profile_id){
+    public function checkExist($profileId){
     	$profileDo = BizSystem::getObject($this->m_profileObj,1);
-    	$profile = $profileDo->fetchById($profile_id);
+    	$profile = $profileDo->fetchById($profileId);
     	
     	if($profile){
     		return true;
@@ -134,72 +143,76 @@ class profileService
     protected function InitDBProfile($username)
     {
         // fetch user record
-        $do = BizSystem::getObject($this->m_userDataObj);
-        if (!$do)
+        $userDo = BizSystem::getObject($this->m_userDataObj);
+        if (!$userDo)
             return false;
 
-        $rs = $do->directFetch("[username]='$username'", 1);
-        if (!$rs)
+        $recordSet = $userDo->directFetch("[username]='$username'", 1);
+        if (!$recordSet)
             return null;
 
         // set the profile array
-        $userId = $rs[0]['Id'];
-        $profile = $rs[0];
+        $userId = $recordSet[0]['Id'];
+        $profile = $recordSet[0];
         $profile['password'] = null;
         $profile['enctype'] = null;
         
-    	$do = BizSystem::getObject($this->m_profileObj,1);
-        if (!$do)
+    	$userDo = BizSystem::getObject($this->m_profileObj,1);
+        if (!$userDo)
             return false;
 
-        $rs = $do->directFetch("[user_id]='$userId'", 1);
-        if ($rs)
+        $recordSet = $userDo->directFetch("[user_id]='$userId'", 1);
+        if ($recordSet)
         {
-        	$rs = $rs[0];        	
-        	if($rs!=null){
-	        	foreach ($rs as $key => $value)
+        	$recordSet = $recordSet[0];        	
+        	if($recordSet!=null){
+	        	foreach ($recordSet as $key => $value)
 	        	{        		
 	        		$profile["profile_".$key] = $value;        	
 	        	}	
         	}
         }
         // fetch roles and set profile roles
-        $do = BizSystem::getObject($this->m_user_roleDataObj);
-        $rs = $do->directFetch("[user_id]='$userId'");
-        if ($rs)
+        $userDo = BizSystem::getObject($this->m_user_roleDataObj);
+        $recordSet = $userDo->directFetch("[user_id]='$userId'");
+        if ($recordSet)
         {
-            foreach ($rs as $rec)
+            foreach ($recordSet as $record)
             {
-                $profile['roles'][] = $rec['role_id'];
-                $profile['roleNames'][] = $rec['role_name'];
-                $profile['roleStartpage'][] = $rec['role_startpage'];                
+                $profile['roles'][] = $record['role_id'];
+                $profile['roleNames'][] = $record['role_name'];
+                $profile['roleStartpage'][] = $record['role_startpage'];                
             }
         }
         // fetch groups and set profile groups
-        $gdo = BizSystem::getObject($this->m_user_groupDataObj);
-        $rs = $gdo->directFetch("[user_id]='$userId'");
-        if ($rs)
+        $userGroupDo = BizSystem::getObject($this->m_user_groupDataObj);
+        $recordSet = $userGroupDo->directFetch("[user_id]='$userId'");
+        if ($recordSet)
         {
             $profile['default_group'] = null;
-            foreach ($rs as $rec)
+            foreach ($recordSet as $record)
             {
-                $profile['groups'][] = $rec['group_id'];
-                $profile['groupNames'][] = $rec['group_name'];
-                if ($rec['default']==1 && $profile['default_group']==null){
-                    $profile['default_group'] = $rec['group_id'];
-                    $profile['default_group_name'] = $rec['group_name'];
+                $profile['groups'][] = $record['group_id'];
+                $profile['groupNames'][] = $record['group_name'];
+                if ($record['default']==1 && $profile['default_group']==null){
+                    $profile['default_group'] = $record['group_id'];
+                    $profile['default_group_name'] = $record['group_name'];
                 }
             }            
         }
     	if($profile['default_group']==null)
         {
-        	$profile['default_group'] = $rs[0]['group_id'];
-        	$profile['default_group_name'] = $rs[0]['group_name'];
+        	$profile['default_group'] = $recordSet[0]['group_id'];
+        	$profile['default_group_name'] = $recordSet[0]['group_name'];
         }
         return $profile;
     }
 
-    public function SwitchUserProfile($userId)
+    /**
+     *
+     * @param type $userId 
+     */
+    public function switchUserProfile($userId)
     {
     	//get previously profile
     	if(!BizSystem::sessionContext()->getVar("_PREV_USER_PROFILE"))

@@ -43,19 +43,20 @@ class ObjectFactory
      * Get a metadata based object instance.
      * It returns the instance the internal object map or create a new one and save it in the map.
      *
-     * @param string $objName name of object that want to get
+     * @param string $objectName name of object that want to get
      * @return object
      */
-    public function getObject($objName, $new=0)
+    public function getObject($objectName, $new=0)
     {
-        if (array_key_exists($objName, $this->_objsRefMap) && $new==0)
+        if (array_key_exists($objectName, $this->_objsRefMap) && $new==0)
         {
-            return $this->_objsRefMap[$objName];
+            return $this->_objsRefMap[$objectName];
         }
 
-        $obj = $this->constructObject($objName);
+        $obj = $this->constructObject($objectName);
         if ($obj)
-            $this->_objsRefMap[$objName] = $obj; // save object to cache
+            $this->_objsRefMap[$objectName] = $obj; // save object to cache
+        
         if($new!=1){
 	        if (method_exists($obj, "GetSessionVars"))
 	            $obj->getSessionVars(BizSystem::sessionContext());
@@ -178,5 +179,3 @@ class ObjectFactory
     }
 
 }
-
-?>
