@@ -282,7 +282,7 @@
        	</Element> 
 		<Element Name="fld_related_data" 
 				TabSet="Related Data"   
-				ElementSet="Document" 
+				ElementSet="Related" 
 				Class="FormElement" 
 				FormReference="account.widget.AccountListWidgetForm" 
 				FieldName="" 
@@ -291,7 +291,7 @@
 	    <Element Name="btn_manage_related" 
 	    		TabSet="Related Data" 
 	    		Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
-	    		ElementSet="Document" 
+	    		ElementSet="Related" 
 	    		Style="color:#666666;margin-left:5px;margin-top:2px;"  
 	    		Class="Button" 
 	    		Text="Manage" 
