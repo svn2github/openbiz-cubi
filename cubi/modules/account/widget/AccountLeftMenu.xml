@@ -1,4 +1,4 @@
-<MenuWidget Name="accountLeftMenu" 
+<MenuWidget Name="AccountLeftMenu" 
 		Title="Account" 
 		Class="menu.widget.MenuWidget" 
 		CssCLass="account" 
