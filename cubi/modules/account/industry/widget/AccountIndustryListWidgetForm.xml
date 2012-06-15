@@ -3,7 +3,7 @@
 			Class="EasyForm"			  
 			FormType="List" 			
 			jsClass="Openbiz.TableForm" 
-			BizDataObj="" 
+			BizDataObj="account.industry.do.AccountIndustryDO" 
 			PageSize="-1"  
 			DefaultForm="Y" 
 			TemplateEngine="Smarty" 
@@ -11,7 +11,6 @@
 			MessageFile="AccountIndustry.ini" 
 			Access="account.Access">	
     <DataPanel>           
-            
 		<Element Name="row_selections" 
         			Class="RowCheckbox"  
         			Label="" 
