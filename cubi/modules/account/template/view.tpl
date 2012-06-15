@@ -27,7 +27,7 @@ $appendStyle .= "
 ";
 $this->_tpl_vars['style_sheets'] = $appendStyle;
 
-$left_menu = "account.widget.accountLeftMenu";
+$left_menu = "account.widget.AccountLeftMenu";
 $this->assign('left_menu', $left_menu);
 
 $this->assign('template_file', 'system_view.tpl.html');
