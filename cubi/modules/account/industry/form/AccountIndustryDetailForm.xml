@@ -6,7 +6,7 @@
     <Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description" AllowURLParam="N"/>
     <Element Name="fld_status" Class="LabelBool" ElementSet="General" FieldName="status" Label="Status" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
 		</Element>
-    <Element Name="fld_related_account" TabSet="Extra Information" ElementSet="Account" Class="FormElement" FormReference="account.industry.widget.AccountIndustryListWidgetForm" FieldName="" Label="" AllowURLParam="N" Access="account.Access"/>
+    <Element Name="fld_related_account" TabSet="Extra Information" ElementSet="Account" Class="FormElement" FormReference="account.widget.AccountListWidgetForm" FieldName="" Label="" AllowURLParam="N" Access="account.Access"/>
     <Element Name="btn_manage_account" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" TabSet="Extra Information" ElementSet="Account" Class="Button" CssClass="button_gray_w" Text="Manage" Style="color:#666666;margin-left:5px;margin-top:2px;" Access="account.Access">
       <EventHandler Name="btn_manage_account_onclick" Event="onclick" Function="SwitchForm(account.industry.form.AccountIndustryEditAccountForm,{@:Elem[fld_Id].Value})"/>
     </Element>
