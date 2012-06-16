@@ -3,7 +3,7 @@
 			Class="EasyForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
-			BizDataObj="account.do.AccountRefDO" 			
+			BizDataObj="account.do.AccountDO" 			
 			PageSize="10" 
 			DefaultForm="Y" 
 			TemplateEngine="Smarty" 
