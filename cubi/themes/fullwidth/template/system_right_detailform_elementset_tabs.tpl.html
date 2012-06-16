@@ -53,7 +53,7 @@ color:#666666;
 		</div>
 	</td></tr></table>
 	</div>
-				<div id="element_set_panel_{$es_counter}" class="element_set_panel">
+				<div id="element_set_panel_{$es_counter}" class="element_set_panel"  style="padding-bottom:0px;padding-left:5px;">
 	{assign var=es_counter value=0}
 	{foreach item=setname name=elemsets  from=$form.elementSets}									
 		{foreach item=item key=itemName from=$dataPanel}
@@ -124,6 +124,89 @@ color:#666666;
 	{/foreach}
 		
 	</div>
+
+	{assign var=es_counter value=0}
+	{foreach item=setname name=elemsets  from=$form.elementSets}
+		{assign var=no_tabs value=0}
+		{foreach item=item   from=$dataPanel}		
+		{if $item.elementset eq $setname && $item.tabset eq ""}
+			{assign var=no_tabs value=1}				
+		{/if}
+		{/foreach}
+	{if	$es_counter gt 0 && $no_tabs eq 1}									
+	<div id="element_set_{$es_counter}" class=" upline" style="width:680px;padding-top:10px;padding-bottom:0px;">
+		<h2 class="element_set_title" style="width:680px;"><a id="element_set_btn_general_{$es_counter}" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','general_{$es_counter}')" >{$setname}</a></h2>
+		<div id="element_set_panel_general_{$es_counter}">
+		{foreach item=item key=itemName from=$dataPanel}
+			{if $item.elementset eq $setname && $item.tabset eq "" && $es_counter > 0}
+			{if $item.type eq 'FormElement'}
+				{$item.element}
+			{elseif $item.type eq 'CKEditor' or $item.type eq 'RichText' 
+				or $item.type eq 'Textarea' or $item.type eq 'LabelTextarea'
+				or $item.type eq 'HTMLPreview'
+				or $item.type eq 'LabelTextarea' or $item.type eq 'LabelImage'
+				 or $item.type eq 'RawData'
+				 or $item.type eq 'IDCardReader'
+				 or $item.type eq 'FormElement'
+			}
+				<table  id="{$itemName}_container" class="input_row">
+				{if $item.label}
+				<tr>				
+				<td style="width:160px;">	
+					<label style="text-align:left;width:160px;">{$item.label}</label>
+				</td>				
+				<td>
+					{if $errors.$itemName}
+					<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+					{elseif $item.description}
+					<span class="input_desc" style="width:240px;">{$item.description}</span>			
+					{/if}
+				</td>
+				</tr>
+				{/if}
+				<tr><td colspan="2" align="center" >
+					<span class="label_textarea" style="{if $item.width}width:{$item.width+15}px;{else}{if $default_label_textarea_width}{$default_label_textarea_width}{else}width:685px;{/if}{/if}">{$item.element}</span>
+								
+				</td></tr>
+				</table>		
+			{else}
+				{if $item.type eq 'Hidden' }
+				<table  id="{$itemName}_container" class="input_row" style="display:none">
+				{else}
+				<table  id="{$itemName}_container" class="input_row">
+				{/if}					
+				<tr>
+				{if $item.label}
+				<td >	
+					<label style="text-align:left">{$item.label}</label>
+				</td>
+				{/if}
+				<td>
+				{if $item.type eq 'Checkbox' }
+					<span class="label_text" >{$item.element} {$item.description}</span>
+				{else}
+					<span class="label_text" style="float:left;{if $item.width}width:{$item.width}px;{else}{if $default_label_text_width}{$default_label_text_width}{else}width:260px;{/if}{/if}">{$item.element}</span>
+					{if $errors.$itemName}
+					<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+					{elseif $item.description}
+					<span class="input_desc" style="width:240px;">{$item.description}</span>			
+					{/if}				
+				{/if}					
+					</td>
+				</tr>
+				</table>
+			{/if}
+							
+			{/if}
+		{/foreach}
+		</div>
+	</div>
+	<script>
+			init_elementset('{$form.name}','general_{$es_counter}');
+	</script>
+	{/if}
+	{assign var=es_counter value=$es_counter+1}	
+	{/foreach}		
 	
 	{if $dataPanel.fld_extend_fields.element}
 	<div id="element_tabset_ext" class=" upline" style="width:680px;padding-top:10px;padding-bottom:10px;">
