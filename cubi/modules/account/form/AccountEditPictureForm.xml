@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="AccountEditPictureForm" 
+			Class="EasyForm" 
+			FormType="Edit" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/account/images/icon_mod_account_picture.png"
+			Title="Edit CRM Account Pictures" 
+			Description="This form could help you manage account pictures." 
+			BizDataObj="account.do.AccountDO" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_detail_adv.tpl.html" 
+			MessageFile="Account.ini" 
+			Access="account.Manage">		
+    <DataPanel>
+	    
+		<Element Name="fld_form_title"  
+					Class="LabelText"   
+					FieldName="name" 
+					Label="" 
+					Width="500" 
+					style="font-size:24px;color:#333333;line-height:24px;" 
+					AllowURLParam="N" />
+		<Element Name="fld_color" 
+					Class="Hidden" 
+					Hidden="Y" 
+					FieldName="type_color" 
+					Label="Type"  
+					Sortable="Y" 
+					AllowURLParam="N" 
+					Translatable="N" 
+					OnEventLog="N" />
+		<Element Name="fld_form_description"  
+					BackgroundColor="{@:Elem[fld_color].Value}" 
+					Width="648" 
+					Class="LabelText" 
+					FieldName="type_name" 
+					Label="" 
+					KeepCookie="Y" 
+					SelectFrom="account.do.AccountTypeDO[name:Id:color]" 
+					AllowURLParam="N" />					
+       	<Element Name="fld_Id" 
+       				Class="LabelText" 
+       				ElementSet="General"
+       				Hidden="Y" 
+       				FieldName="Id" 
+       				Label="Id"  
+       				AllowURLParam="Y"/>     
+   				  		
+					
+       	<Element Name="fld_description" 
+       				ElementSet="General" 
+       				Class="LabelTextarea" 
+       				FieldName="description" 
+       				Label="Description" 
+       				AllowURLParam="N"/>
+       	<Element Name="fld_phone" 
+       				ElementSet="General" 
+       				Class="LabelText" 
+       				FieldName="phone" 
+       				Label="Phone" 
+       				AllowURLParam="N"/>
+		<Element Name="fld_related_picture" 
+				Access="picture.access"  
+				ElementSet="Picture" 
+				Class="FormElement" 
+				FormReference="picture.widget.PictureListEditForm" 
+				FieldName="" 
+				Label="" 
+				AllowURLParam="N" />
+		
+	</DataPanel>
+    <ActionPanel>  
+        <Element Name="btn_save" 
+        		Class="Button" 
+        		Text="Save" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" 	
+            			Event="onclick" 
+            			EventLogMsg=""  
+            			Function="SwitchForm(account.form.AccountDetailForm,{@account.do.AccountDO:Field[Id].Value})"  
+            			ShortcutKey="Ctrl+Enter" 
+            			ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" 
+        		Class="Button" 
+        		Text="Cancel" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" 
+            			Event="onclick" 
+            			Function="SwitchForm()"  
+            			ShortcutKey="Escape" 
+            			ContextMenu="Cancel" />
+        </Element> 
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
