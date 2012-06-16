@@ -53,7 +53,7 @@ color:#666666;
 		</div>
 	</td></tr></table>
 	</div>
-				<div id="element_set_panel_{$es_counter}" class="element_set_panel">
+				<div id="element_set_panel_{$es_counter}" class="element_set_panel" style="padding-bottom:0px;padding-left:5px;">
 	{assign var=es_counter value=0}
 	{foreach item=setname name=elemsets  from=$form.elementSets}									
 		{foreach item=item key=itemName from=$dataPanel}
@@ -133,9 +133,9 @@ color:#666666;
 		{/if}
 		{/foreach}
 	{if	$es_counter gt 0 && $no_tabs eq 1}									
-	<div id="element_tabset_{$es_counter}" class=" upline" style="width:680px;padding-top:10px;padding-bottom:0px;">
-		<h2 class="element_set_title" style="width:680px;"><a id="element_set_btn_{$es_counter}" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','{$es_counter}')" >{$setname}</a></h2>
-		<div id="element_set_panel_{$es_counter}">
+	<div id="element_set_{$es_counter}" class=" upline" style="width:680px;padding-top:10px;padding-bottom:0px;">
+		<h2 class="element_set_title" style="width:680px;"><a id="element_set_btn_general_{$es_counter}" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','general_{$es_counter}')" >{$setname}</a></h2>
+		<div id="element_set_panel_general_{$es_counter}">
 		{foreach item=item key=itemName from=$dataPanel}
 			{if $item.elementset eq $setname && $item.tabset eq "" && $es_counter > 0}
 			{if $item.type eq 'FormElement'}
@@ -201,7 +201,7 @@ color:#666666;
 		</div>
 	</div>
 	<script>
-			init_elementset('{$form.name}','{$es_counter}');
+			init_elementset('{$form.name}','general_{$es_counter}');
 	</script>
 	{/if}
 	{assign var=es_counter value=$es_counter+1}	
