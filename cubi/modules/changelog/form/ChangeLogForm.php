@@ -87,8 +87,11 @@ class ChangeLogForm extends EasyForm
 			$elem = $elem_mapping[$fldName]->m_XMLMeta;		
 			if(!$elem){
 				$elem = $this->m_DataPanel->getByField($fldName)->m_XMLMeta;
-			}	
-			$logRecord[$fldName] = array('old'=>$oldVal, 'new'=>$fldVal, 'element'=>$elem);
+			}				
+			if($elem['ATTRIBUTES']['CLASS']!='Hidden')
+			{							
+				$logRecord[$fldName] = array('old'=>$oldVal, 'new'=>$fldVal, 'element'=>$elem);
+			}
 		}
 		
 		$comment = BizSystem::clientProxy()->getFormInputs("fld_changelog_comment");		
