@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="AccountIndustryNewForm" 
+			Class="EasyForm" 
+			FormType="New" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/account/images/icon_mod_account_industry_add.png"
+			Title="New Industry " 
+			Description="Account Industry Description" 
+			BizDataObj="account.Industry.do.AccountIndustryDO" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_edit.tpl.html" 
+			MessageFile="AccountIndustry.ini" 
+			Access="account.Manage">
+    <DataPanel>
+
+  				
+				
+       								   	
+
+		
+
+       	<Element Name="fld_name" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="name" 
+       				Label="Name" 
+       				AllowURLParam="N"
+       				/>     
+       								   	
+
+		
+
+       								   	
+
+       	 	
+		<Element Name="fld_description" 
+					Class="Textarea" 
+					ElementSet="General"
+					FieldName="description" 
+					Label="Description"  />		
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		<Element Name="fld_status" 
+					Class="DropDownList" 
+					ElementSet="General"
+					FieldName="status" 
+					SelectFrom="common.lov.CommLOV(Bool)" 
+					Label="Status"  
+					Sortable="Y" 
+					AllowURLParam="N" 
+					Translatable="N" 
+					OnEventLog="N" 
+					Link="javascript:;">				
+		</Element>
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+  
+		<Element Name="fld_published" 
+					Class="Listbox" 
+					ElementSet="Miscellaneous" 
+					KeepCookie="Y" 
+					SelectFrom="common.lov.CommLOV(Published)" 
+					DefaultValue="1" 
+					FieldName="group_perm" 
+					Label="Group Share"  />
+		<Element Name="fld_published_other" 
+					Class="Listbox" 
+					ElementSet="Miscellaneous" 
+					KeepCookie="Y" 
+					SelectFrom="common.lov.CommLOV(Published)" 
+					DefaultValue="0" 
+					FieldName="other_perm" 
+					Label="Other Group"  />
+    </DataPanel>
+    <ActionPanel>       
+        	        <Element Name="btn_save" 
+	        			Class="Button" 
+	        			Text="Save" 
+	        			CssClass="button_gray_m">
+	            <EventHandler Name="save_onclick" 
+	            			EventLogMsg="" 
+	            			Event="onclick" 
+	            			Function="InsertRecord()" 
+	            			RedirectPage="{APP_INDEX}/account/account_industry_detail/{@account.Industry.do.AccountIndustryDO:Field[Id].Value}"  
+	            			ShortcutKey="Ctrl+Enter" 
+	            			ContextMenu="Save" />
+	        </Element>        
+                <Element Name="btn_cancel" 
+        			Class="Button" 
+        			Text="Cancel" 
+        			CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" 
+            			Event="onclick" 
+            			Function="SwitchForm()"  
+            			ShortcutKey="Escape" 
+            			ContextMenu="Cancel"/>
+        </Element>      
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

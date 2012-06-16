@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="AccountQuickAddWidgetForm" 
+			Class="PickerForm" 
+			FormType="New" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/account/images/icon_mod_account_add.png"
+			Title="Quick Add CRM Account" 
+			Description="Create a new crm account and edit its content later." 
+			BizDataObj="account.do.AccountPickDO" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_data_quick_add.tpl.html" 
+			MessageFile="Account.ini" 
+			Access="account.Manage">
+    <DataPanel>
+    
+		<Element Name="fld_type_id" 
+				ElementSet="General" 
+				Class="common.lib.TypeSelector" 
+				FieldName="type_id" 
+				Label="Type" 
+				KeepCookie="Y" 
+				SelectFrom="account.do.AccountTypeDO[name:Id:color]" 
+				AllowURLParam="N" />
+  				
+				
+       								   	
+
+
+       								   	
+
+
+       	<Element Name="fld_name" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="name" 
+       				Label="Name" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       								   	
+
+       	 	
+		<Element Name="fld_description" 
+					Class="Textarea" 
+					ElementSet="General" 
+					FieldName="description" 
+					Label="Description"  />		
+
+       	<Element Name="fld_phone" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="phone" 
+       				Label="Phone" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_fax" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="fax" 
+       				Label="Fax" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_website" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="website" 
+       				Label="Website" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_employee" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="employee" 
+       				Label="Employee" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_annual_revenue" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="annual_revenue" 
+       				Label=" Revenue" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_billing_country" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="billing_country" 
+       				Label=" Country" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_billing_zip" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="billing_zip" 
+       				Label=" Zip" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_billing_state" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="billing_state" 
+       				Label=" State" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_billing_city" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="billing_city" 
+       				Label=" City" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_billing_street" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="billing_street" 
+       				Label=" Street" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_shipping_country" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="shipping_country" 
+       				Label=" Country" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_shipping_zip" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="shipping_zip" 
+       				Label=" Zip" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_shipping_state" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="shipping_state" 
+       				Label=" State" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_shipping_city" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="shipping_city" 
+       				Label=" City" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_shipping_street" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="shipping_street" 
+       				Label=" Street" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" 
+        		Class="Button" 
+        		Text="Save" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" 
+            			EventLogMsg="" 
+            			Event="onclick" 
+            			Function="insertToParent()"   
+            			ShortcutKey="Ctrl+Enter" 
+            			ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" 
+        		Class="Button" 
+        		Text="Cancel" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="onclick" 
+            			Event="onclick" 
+            			Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

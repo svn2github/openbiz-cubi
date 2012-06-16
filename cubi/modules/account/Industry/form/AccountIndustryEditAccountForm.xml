@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="AccountIndustryEditAccountForm" Class="EasyForm" FormType="Detail" jsClass="Openbiz.Form" Icon="{RESOURCE_URL}/account/images/icon_mod_account_industry_detail.png" Title="Industry  Detail" Description="Account Industry Description" BizDataObj="account.Industry.do.AccountIndustryDO" TemplateEngine="Smarty" TemplateFile="form_detail_adv.tpl.html" MessageFile="AccountIndustry.ini" Access="account.Access">
+  <DataPanel>
+    <Element Name="fld_Id" Class="LabelText" ElementSet="General" Hidden="Y" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+    <Element Name="fld_form_title" ElementSet="" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N" Style="font-size:24px;color:#333333;line-height:24px;"/>
+    <Element Name="fld_form_description" ElementSet="" Class="LabelText" FieldName="description" Label="Description" AllowURLParam="N" BackgroundColor="bef0fd" MaxLength="15"/>
+    <Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description" AllowURLParam="N"/>
+    <Element Name="fld_status" Class="LabelBool" ElementSet="General" FieldName="status" Label="Status" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">				
+		</Element>
+    <Element Name="fld_related_account" Access="account.Access" ElementSet="Account" Class="FormElement" FormReference="account.widget.AccountListEditableWidgetForm"/>
+  </DataPanel>
+  <ActionPanel>
+    <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+      <EventHandler Name="btn_save_onclick" Event="onclick" ShortcutKey="Ctrl+Enter" ContextMenu="Save" Function="SwitchForm(account.Industry.form.AccountIndustryDetailForm,{@:Elem[fld_Id].Value})"/>
+    </Element>
+    <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+      <EventHandler Name="btn_cancel_onclick" Event="onclick" ShortcutKey="Escape" ContextMenu="Cancel" Function="SwitchForm()"/>
+    </Element>
+  </ActionPanel>
+  <NavPanel>
+    </NavPanel>
+  <SearchPanel>
+    </SearchPanel>
+</EasyForm>

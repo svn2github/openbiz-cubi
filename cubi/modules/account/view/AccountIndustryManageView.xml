@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="AccountIndustryManageView" 
+	Description="Account Industry Description Management" 
+	Class="EasyView" 
+	Access="account.Access" 
+	TemplateEngine="Smarty" 
+	TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="account.Industry.form.AccountIndustryListForm"/>
+   </FormReferences>       
+</EasyView>
