@@ -34,6 +34,35 @@ CREATE TABLE `account` (
   KEY `type_id` (`type_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='CRM Account';
 
+
+DROP TABLE IF EXISTS `account_related`;
+CREATE TABLE IF NOT EXISTS `account_related` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `account_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `related_id` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `related_id` (`related_id`),
+  KEY `account_id` (`account_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+
+DROP TABLE IF EXISTS `account_type`;
+CREATE TABLE IF NOT EXISTS `account_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `color` varchar(255) NOT NULL,
+  `sortorder` int(11) NOT NULL,
+  `group_id` int(11) DEFAULT '1',
+  `group_perm` int(11) DEFAULT '1',
+  `other_perm` int(11) DEFAULT '1',
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
 -- Dumping structure for table: `account_industry`
 
 DROP TABLE IF EXISTS `account_industry`;
