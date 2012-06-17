@@ -210,14 +210,16 @@ class EasyViewWizard extends EasyView
      */
     public function commit()
     {
-        // call all step forms Commit method
+        // call all step forms Commit method    	
         foreach ($this->m_FormStates as $formName=>$state)
-        {
+        {        	
             if ($state['visited'])
             {
-                $r = BizSystem::objectFactory()->getObject($formName)->commit();
+                $r = BizSystem::objectFactory()->getObject($formName)->commit();                
                 if (!$r)
-                    return false;
+                {                	                	
+                	return false;
+                }
             }
         }              
         foreach ($this->m_FormStates as $formName=>$state)
@@ -226,10 +228,11 @@ class EasyViewWizard extends EasyView
             {
                 $r = BizSystem::objectFactory()->getObject($formName)->dropSession();
                 if (!$r)
+                {                	
                     return false;
+                }
             }
-        } 
-                
+        }         
         $this->m_DropSession = true;
         return true;
     }

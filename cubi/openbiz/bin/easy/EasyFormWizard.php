@@ -186,8 +186,8 @@ class EasyFormWizard extends EasyForm
 		
         /* @var $viewObj EasyViewWizard */
         $viewObj = $this->getViewObject();
-
-        $r = $viewObj->commit();
+        
+        $r = $viewObj->commit();        
         if (!$r)
             return;
 
@@ -217,9 +217,12 @@ class EasyFormWizard extends EasyForm
      */
     public function commit()
     {
-        // commit the form input. call SaveRecord()
+		if(!$this->getDataObj()){
+			return true;
+		}
+    	// commit the form input. call SaveRecord()        
         $recArr = $this->m_ActiveRecord;
-
+        
         if (strtoupper($this->m_FormType) == "NEW")
             $dataRec = new DataRecord(null, $this->getDataObj());
         else
@@ -246,6 +249,7 @@ class EasyFormWizard extends EasyForm
     public function dropSession(){
     	// clean the session record    	
         $this->m_DropSession = true;
+        return true;
     }    
     
 
