@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="ProductQuickAddWidgetForm" 
+			Class="PickerForm" 
+			FormType="New" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/product/images/icon_mod_product_add.png"
+			Title="Quick Add Product Data" 
+			Description="Create a new product data and edit its content later." 
+			BizDataObj="product.do.ProductPickDO" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_data_quick_add.tpl.html" 
+			MessageFile="Product.ini" 
+			Access="product.Manage">
+    <DataPanel>
+    
+		<Element Name="fld_type_id" 
+				ElementSet="General" 
+				Class="common.lib.TypeSelector" 
+				FieldName="type_id" 
+				Label="Type" 
+				KeepCookie="Y" 
+				SelectFrom="product.do.ProductTypeDO[name:Id:color]" 
+				AllowURLParam="N" />
+  				
+				
+       								   	
+
+
+       								   	
+
+
+       	<Element Name="fld_sku" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="sku" 
+       				Label="SKU Number" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_name" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="name" 
+       				Label="Name" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       								   	
+
+       	 	
+		<Element Name="fld_description" 
+					Class="Textarea" 
+					ElementSet="General" 
+					FieldName="description" 
+					Label="Description"  />		
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       	<Element Name="fld_status" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="status" 
+       				Label="Status" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" 
+        		Class="Button" 
+        		Text="Save" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" 
+            			EventLogMsg="" 
+            			Event="onclick" 
+            			Function="insertToParent()"   
+            			ShortcutKey="Ctrl+Enter" 
+            			ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" 
+        		Class="Button" 
+        		Text="Cancel" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="onclick" 
+            			Event="onclick" 
+            			Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

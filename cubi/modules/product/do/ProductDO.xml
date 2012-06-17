@@ -1,0 +1,173 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<BizDataObj Name="ProductDO" 
+		Description="Product Description" 
+		DataPermControl="Y"
+		Class="BizDataObj" 
+		DBName="Default" 
+		Table="product" 
+		SearchRule="" 
+		SortRule="" 
+		OtherSQLRule=""
+		Uniqueness="" 
+		Stateless="N" 
+		IdGeneration="Identity" 
+		CacheLifeTime="0" 
+		CreateCondition="product.Manage" 
+		UpdateCondition="product.Manage" 
+		DeleteCondition="product.Manage" >
+	<BizFieldList>
+		<BizField Name="Id"			
+				Description="Id"	
+				Column="id"    
+				Required="N" 
+				Type="Number"/>
+		<BizField Name="type_id"		
+				Description="Type Id"	
+				Column="type_id" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="sku"		
+				Description="SKU Number"	
+				Column="sku" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="name"		
+				Description="Name"	
+				Column="name" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="description"		
+				Description="Description"	
+				Column="description" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="owner_id"	
+				Description="Owner Id"	
+				Column="owner_id"	
+				ValueOnCreate="{@profile:Id}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="group_id"	
+				Description="Group Id"	
+				Column="group_id"	
+				ValueOnCreate="{@profile:default_group}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="group_perm"	
+				Description="Group Perm"	
+				Column="group_perm"	
+				ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="other_perm"	
+				Description="Other Perm"	
+				Column="other_perm"	
+				ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="status"		
+				Description="Status"	
+				Column="status" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="update_by"	
+				Description="Update By"	
+				Column="update_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"	
+				ValueOnUpdate="{@profile:Id}"/>
+		<BizField Name="update_time"	
+				Description="Update Time"	
+				Column="update_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"	
+				ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="create_by"	
+				Description="Create By"	
+				Column="create_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time"	
+				Description="Create Time"	
+				Column="create_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+	
+		<BizField Name="type_color" 
+				Column="color"  
+				Join="JoinType" />
+				
+	    <BizField Name="type_name" 
+	    		Column="name" 
+	    		Join="JoinType" />
+	</BizFieldList>
+	<TableJoins>
+		<Join Name="JoinType" 
+				Table="product_type" 
+				Column="id" 
+				ColumnRef="type_id" 
+				JoinType="LEFT JOIN" />
+				    	
+	</TableJoins>
+	<ObjReferences>
+	
+		<Object Name="changelog.do.ChangeLogDO" 
+				Description="Reference to Change Log Records" 
+				Relationship="1-M" 
+				Table="changelog" 
+				CondColumn='type' 
+				CondValue='product' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="attachment.do.AttachmentDO" 
+				Description="Reference to Attachment Records" 
+				Relationship="1-M" 
+				Table="attachment" 
+				CondColumn='type' 
+				CondValue='product' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="picture.do.PictureDO" 
+				Description="Reference to Picture Records" 
+				Relationship="1-M" 
+				Table="picture" 
+				CondColumn='type' 
+				CondValue='product' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="product.do.ProductRefDO" 
+				Description="Reference to Related Records" 
+				Relationship="Self-Self" 
+				Table="product" 
+				Column="id" 
+				FieldRef="Id" 
+				OnDelete="SetNull" 
+				OnUpdate="" 
+				XTable="product_related" 
+				XColumn1="product_id" 
+				XColumn2="related_id" 
+				XDataObj="product.do.ProductRelatedDO"/>
+		<Object Name="extend.do.ExtendDataDO" 
+				Description="Reference to Extend Data Field Record"  
+				Relationship="1-M" 
+				Table="extend_data" 
+				CondColumn='module' 
+				CondValue='product' 
+				Column="type_id" 
+				FieldRef="type_id" 
+				Column2="record_id" 
+				FieldRef2="Id" 
+				onDelete="Cascade"/>
+	</ObjReferences>
+</BizDataObj>

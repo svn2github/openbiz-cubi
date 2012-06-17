@@ -1,0 +1,75 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<Module Name="product" 
+		Description="Product Module Description" 
+		Version="0.1" 
+		OpenbizVersion="3.0" 
+		Author="System, Admin"
+		LoadHandler="ProductLoadHandler.php" >
+	<ACL>
+		<Resource Name="product">
+			<Action Name="Access" 
+					Description="Data access permission of product"/>
+			<Action Name="Manage" 
+					Description="Data manage permission of product"/>
+		</Resource>
+	</ACL>
+	<Menu>
+		<MenuItem Name="product" 
+				Title="Product" 
+				Description="" 
+				URL="{APP_INDEX}/product/dashboard" 
+				Order="50" 
+				Access="product.Access">		
+	        <MenuItem Name="product_product" 
+	        			Title="Product" 	        			
+	        			Description="" 
+	        			URL="" 
+	        			IconImage="spacer.gif" 
+	        			IconCssClass="icon_product" 
+	        			Order="50" 
+	        			Access="product.Access" >
+	        			
+				<MenuItem Name="product_product_manage" 
+		        			Title="Product Manage" 	        			
+		        			Description="Manage of Product" 
+		        			URL="{APP_INDEX}/product/product_manage" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="50" 
+		        			Access="product.Access" >
+						<MenuItem Name="product_product_detail" 
+				        			Title="Product Detail" 	        			
+				        			Description="Detail of Product" 
+				        			URL="{APP_INDEX}/product/product_detail" 
+				        			IconImage="spacer.gif" 
+				        			IconCssClass="" 
+				        			Order="50" 
+				        			Access="product.Access" />
+		        </MenuItem>		
+	        			
+				<MenuItem Name="product_product_type" 
+		        			Title="Product Type" 	        			
+		        			Description="Type of Product" 
+		        			URL="{APP_INDEX}/product/product_type" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="60" 
+		        			Access="product.Access" >
+		        </MenuItem>		
+			</MenuItem>
+		</MenuItem>	
+	</Menu>
+	<Dependency>
+		<Module Name="system" /> 
+		<Module Name="menu" /> 
+	</Dependency>	
+	<ChangeLog>
+	    
+	</ChangeLog>    
+</Module>
