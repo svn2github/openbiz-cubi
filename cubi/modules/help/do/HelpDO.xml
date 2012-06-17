@@ -9,7 +9,7 @@
 	<BizFieldList>
     	<BizField Name="Id" Column="id"     Type="Number"/>
        	<BizField Name="category_id" Column="category_id"   />
-       	<BizField Name="c" Column="category_id"   />
+       	<BizField Name="c" Column="category_id"  />
        	<BizField Name="category_name" Column="name"  Join="join_category" />
        	<BizField Name="title" Column="title" Length="255"   Required="Y" Type="Text" Translation="Y"/>
        	<BizField Name="description" Column="description"    Required="Y" Type="Text" Translation="Y"/>
