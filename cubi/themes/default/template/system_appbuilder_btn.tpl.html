@@ -1,8 +1,8 @@
 {if $smarty.const.APPBUILDER and $hidden_appbuilder!=1}
 	{if $view.name}	
-		<a class="appbuilder_btn_view_edit appbuilder_btn" title="{t}Edit Application View{/t}" href="javascript:;" style="float:right;margin-left:5px; margin-top:6px;  " onclick="Openbiz.Window.openPopup(Openbiz.appUrl+'/bin/metaedit.php?metaobj='+'{$view.name}',1024,680);"></a>
-		<a class="appbuilder_btn_app_wizard appbuilder_btn" title="{t}Launch Appbuilder{/t}" href="javascript:;" style="float:right;margin-left:5px; margin-top:6px;  " ></a>
+		<a class="appbuilder_btn_view_edit appbuilder_btn" title="{t}Edit Application View{/t}" href="{$app_url}/bin/metaedit.php?metaobj={$view.name}" style="float:right;margin-left:5px; margin-top:6px;" ></a>
+		<a class="appbuilder_btn_app_wizard appbuilder_btn" title="{t}Launch Appbuilder{/t}" href="{$app_url}/bin/metaedit.php?action=launch" style="float:right;margin-left:5px; margin-top:6px;" ></a>
 	{else if $form.name}
-		<a class="appbuilder_btn_form_edit appbuilder_btn" title="{t}Edit Application Form{/t}"  href="javascript:;" style="float:right;" onclick="Openbiz.Window.openPopup(Openbiz.appUrl+'/bin/metaedit.php?metaobj='+'{$form.name}',1024,680);"></a>
+		<a class="appbuilder_btn_form_edit appbuilder_btn" title="{t}Edit Application Form{/t}"  href="{$app_url}/bin/metaedit.php?metaobj={$form.name}" target="_blank" style="float:right;" ></a>
 	{/if}
 {/if}
