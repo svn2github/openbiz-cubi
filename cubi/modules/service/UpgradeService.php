@@ -157,4 +157,3 @@ define ('APP_HOME', "C:\\xampp\\htdocs\\ob3\\cubi");
 $upgradeSvc = new UpgradeService();
 $upgradeSvc->upgradePackage(APP_HOME."/files/tmpfiles/cubi_help-0.1_T1235_20110330_1414.cpk");
 */
-?>

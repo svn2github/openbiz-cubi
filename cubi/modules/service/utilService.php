@@ -11,14 +11,28 @@
  * @version   $Id$
  */
 
+/**
+ * Service for general utilities 
+ */
 class utilService
 {
+    /**
+     * Format size number to near unit of B, KB, Mb, GB and TB
+     * @param int $size
+     * @return string  
+     */
 	public static function format_bytes($size){		
 	    $units = array(' B', ' KB', ' MB', ' GB', ' TB');
 	    for ($i = 0; $size >= 1024 && $i < 4; $i++) $size /= 1024;
 	    return round($size, 2).$units[$i];	 
 	}
 	
+    /**
+     * Get view URL from view name
+     * 
+     * @param string $viewName
+     * @return string 
+     */
 	public static function getViewURL($viewName)
 	{
 		$urlArr = explode(".",$viewName);
@@ -33,4 +47,3 @@ class utilService
 		return $url;
 	}
 }
-?>

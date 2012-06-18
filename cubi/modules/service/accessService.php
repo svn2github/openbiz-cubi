@@ -89,12 +89,13 @@ class accessService
             $roles[] = $role;
         else
         {
-            global $g_BizSystem;
+            //global $g_BizSystem;
+            $bizSystem = BizSystem::instance();
             // TODO: get user profile
-            $profile = $g_BizSystem->getUserProfile();
+            $userProfile = $bizSystem->getUserProfile();
             //print_r($profile);
-            if ($profile && isset($profile['roleNames']))
-                $roles = $profile['roleNames'];
+            if ($userProfile && isset($userProfile['roleNames']))
+                $roles = $userProfile['roleNames'];
             else
                 $roles[] = "";
         }

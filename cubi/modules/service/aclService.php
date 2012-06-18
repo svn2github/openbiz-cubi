@@ -41,6 +41,8 @@ class aclService
                 $roleId_query = implode (",", $roleIds);
 
                 // generate the access matrix
+                
+                /* @var $do BizDataObj */
                 $do = BizSystem::getObject(aclService::$role_actionDataObj);
                 $rs = $do->directFetch("[role_id] in ($roleId_query)");
 
@@ -75,16 +77,20 @@ class aclService
     	$accessMatrix = array();
         foreach ($rs as $row)
         {
-            $res_action = $row['resource'].'.'.$row['action'];
-            if (!isset($accessMatrix[$res_action]))
-                $accessMatrix[$res_action] = $row['access_level'];
-            elseif (isset($accessMatrix[$res_action]) && $accessMatrix[$res_action] < $row['access_level'])
-                $accessMatrix[$res_action] = $row['access_level'];
+            $resourceAction = $row['resource'].'.'.$row['action'];
+            if (!isset($accessMatrix[$resourceAction]))
+                $accessMatrix[$resourceAction] = $row['access_level'];
+            elseif (isset($accessMatrix[$resourceAction]) && $accessMatrix[$resourceAction] < $row['access_level'])
+                $accessMatrix[$resourceAction] = $row['access_level'];
         }
         return $accessMatrix;
     }
 
-    public function clearACLCache(){
+    /**
+     * Clean ACL cache from session 
+     */
+    public function clearACLCache() 
+    {
     	BizSystem::sessionContext()->setVar("_ACCESS_MATRIX", array());
     }
 }

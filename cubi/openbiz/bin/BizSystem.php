@@ -260,18 +260,12 @@ class BizSystem
         return BizSystem::getObject($serviceName, $new);
     }
     
-    /**
-     * 
-     *
-     * @param string $objectName object name
-     * @return <object> the object
-     */
     
     /**
-     * Get the metadata object
+     * Get the metadata object by object name
      * 
      * @param string $objectName object name
-     * @param type $isNew
+     * @param number $isNew 0 = not new, 1 new object
      * @return object 
      */
     public static function getObject($objectName, $isNew=0)
@@ -364,14 +358,24 @@ class BizSystem
     	return $profileService->GetProfileName( $accountId, $type );
     }    
     
-	public static function getProfileEmail($account_id){
-    	$serviceObj = BizSystem::getService(PROFILE_SERVICE);
-    	return $serviceObj->getProfileEmail($account_id);
+    /**
+     * Get profile email
+     * @param type $accountId
+     * @return type 
+     */
+	public static function getProfileEmail($accountId){
+    	$profileService = BizSystem::getService(PROFILE_SERVICE);
+    	return $profileService->getProfileEmail($accountId);
     }
     
-	public static function getProfileId($account_id){
-    	$serviceObj = BizSystem::getService(PROFILE_SERVICE);
-    	return $serviceObj->getProfileId($account_id);
+    /**
+     * Get profile ID
+     * @param type $accountId
+     * @return type 
+     */
+	public static function getProfileId($accountId){
+    	$profileService = BizSystem::getService(PROFILE_SERVICE);
+    	return $profileService->getProfileId($accountId);
     }
     
     public static function getDefaultPerm($group)
