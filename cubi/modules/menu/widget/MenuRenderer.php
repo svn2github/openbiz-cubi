@@ -62,8 +62,10 @@ class MenuRenderer
      */
     static protected function renderSmarty($widgetObj, $tplFile)
     {
-        $smarty = BizSystem::getSmartyTemplate();        
-        $smarty->assign("widget", $widgetObj->outputAttrs());
+        $smarty = BizSystem::getSmartyTemplate();  
+        $attrs = $widgetObj->outputAttrs();      
+        $smarty->assign("widget", $attrs);
+        $smarty->assign("form", $attrs);
         $smarty->assign("formname", $widgetObj->m_Name);
         $smarty->assign("module", $widgetObj->getModuleName($widgetObj->m_Name));
         $smarty->assign("title", $widgetObj->m_Title);

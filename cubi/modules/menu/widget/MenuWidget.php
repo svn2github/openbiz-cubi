@@ -100,6 +100,7 @@ class MenuWidget extends MetaObject implements iUIControl {
 
     public function outputAttrs(){
     	$attrs = array();
+    	$attrs['name'] = $this->m_Name;
     	$attrs['title'] = $this->m_Title;
     	$attrs['css'] = $this->m_CssClass;
     	$attrs['description'] = $this->m_Description;
