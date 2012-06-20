@@ -282,7 +282,7 @@ class EasyForm extends MetaObject implements iSessionObject
      * @param array $params
      * @return string message string
      */
-    protected function getMessage($messageId, $params=array())
+    public function getMessage($messageId, $params=array())
     {
         $message = isset($this->m_Messages[$messageId]) ? $this->m_Messages[$messageId] : constant($messageId);
         //$message = I18n::getInstance()->translate($message);
