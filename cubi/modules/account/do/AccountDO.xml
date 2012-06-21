@@ -44,5 +44,6 @@
     <Object Name="picture.do.PictureDO" Description="Reference to Picture Records" Relationship="1-M" Table="picture" CondColumn="type" CondValue="account" Column="foreign_id" FieldRef="Id"/>
     <Object Name="account.do.AccountRefDO" Description="Reference to Related Records" Relationship="Self-Self" Table="account" Column="id" FieldRef="Id" OnDelete="SetNull" OnUpdate="" XTable="account_related" XColumn1="account_id" XColumn2="related_id" XDataObj="account.do.AccountRelatedDO"/>
     <Object Name="extend.do.ExtendDataDO" Description="Reference to Extend Data Field Record" Relationship="1-M" Table="extend_data" CondColumn="module" CondValue="account" Column="type_id" FieldRef="type_id" Column2="record_id" FieldRef2="Id" onDelete="Cascade"/>
+    <Object Name="product.do.ProductDO" Description="Reference to product.do.ProductDO with M-M relationship" Relationship="M-M" Table="product" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="Cascade" XTable="account_product" XColumn1="account_id" XColumn2="product_id" XDataObj="account.do.AccountProductDO"/>
   </ObjReferences>
 </BizDataObj>
