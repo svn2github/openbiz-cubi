@@ -24,7 +24,7 @@
 .tree-default .rtl li.closed, #jstree-dragged.tree-default .rtl li li.open { background:url("fplus_rtl.gif") right 4px no-repeat; margin-right:0; padding-right:16px; }
 
 /* DEFAULT, HOVER, CLICKED, LOADING STATES */
-.tree-default li a, .tree-default li span { background-color:transparent; background-repeat:no-repeat; background-position:4px 1px; padding:1px 4px 1px 23px; background-image:url("f.png"); border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
+.tree-default li a, .tree-default li span { background-color:transparent; background-repeat:no-repeat; background-position:2px 1px; padding:1px 4px 1px 23px; background-image:url("f.png"); border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
 .tree-default li a:hover, .tree-default li a.hover { background-color: #e7f4f9; border:1px solid #d8f0fa; padding:0px 3px 0px 22px; background-position:3px 0px;  }
 .tree-default li a.clicked, .tree-default li a.clicked:hover, .tree-default li span.clicked { background-color: #beebff; border:1px solid #99defd; padding:0px 3px 0px 22px; background-position:3px 0px;  }
 .tree-default li span.clicked { padding:0px 3px 0px 20px; }
