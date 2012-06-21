@@ -31,7 +31,12 @@ class DataSharingForm extends EasyForm
 		if ($this->m_ActiveRecord != null){
 			return $this->m_ActiveRecord;
 		}
-            
+        
+		if(!$prtForm)
+		{
+			return array();
+		}
+		
 		$prtForm = $this->m_ParentFormName;
 		$prtFormObj = BizSystem::GetObject($prtForm);
 		
