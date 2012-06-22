@@ -273,31 +273,29 @@ class MetaIterator implements Iterator
         {
             if (!key_exists($key,$this->m_var))
             { 
-            	$this->__put_to_position(count($this->m_var),$key,$value);
+            	$this->__put_to_position(count($this->m_var)-1,$key,$value);
             }
         }
     }
 
 	protected function __put_to_position( $position, $key, $value )
 	{
-	        $count = 1;
+	        $count = 0;
 	        $return = array();
 	        $array = $this->m_var;
 	        foreach ($array as $k => $v)
 	        {  
-	                // insert new object
-	                if ($count == $position)
-	                {  
-	                        if (!$key) $key = $count;
-	                        $return[$key] = $value;
-	                        $inserted = true;
-	                }  
-	                // insert old object
-	                $return[$k] = $v;
-	                $count++;
+                if ($count == $position)
+                {  
+                        if (!$key) $key = $count;
+                        $return[$key] = $value;
+                        $inserted = true;
+                }  
+                $return[$k] = $v;
+                $count++;
 	        }  
 	        if (!$key) $key = $count;
-	        if (!$inserted) $return[$key];
+	        if (!$inserted) $return[$key]=$value;
 	        $this->m_var = $return;
 	}    
     
