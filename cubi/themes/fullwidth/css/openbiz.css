@@ -1778,17 +1778,26 @@ span.input_select_w_hover{
 }
 
 div.noticeBox {
-border: 1px green solid;
+border: 1px #41c929 solid;
 width: 500px;
 padding: 5px;
+background-image:url(../images/icon_ok.gif);
+background-repeat:no-repeat;
+background-position:8px 3px;
+padding-left:40px;
+border-radius:4px;
 }
 
 div.errorBox {
 border: 1px red solid;
 width: 500px;
 padding: 5px;
+background-image:url(../images/icon_error.png);
+background-repeat:no-repeat;
+background-position:8px 3px;
+padding-left:40px;
+border-radius:4px;
 }
-
 .image_selector, .image_selector_focus, .image_selector_error{
 	display:block;
 	list-style:none;
