@@ -4,6 +4,7 @@ include_once("Element.php");
 class FormElement extends InputElement
 {
     protected $m_FormReference;
+
     protected function readMetaData(&$xmlArr)
     {
         parent::readMetaData($xmlArr);
@@ -22,13 +23,22 @@ class FormElement extends InputElement
     	}
     	if(!$formElementObj->getDataObj())
     	{
-    		return;
-    	}
-    	$count = (int)$formElementObj->getDataObj()->count();
-    	if($count<0){
-    		return;
+    		$methodName = "getRecordList";
+    		if(method_exists($formElementObj, $methodName))
+    		{
+    			$recs = $formElementObj->$methodName();
+    			$count = count($recs);
+    		}else{
+    			return;
+    		}
+    	}else{
+	    	$count = (int)$formElementObj->getDataObj()->count();
+	    	
     	}
     	
+   	 	if($count<0){
+	    		return;
+	    }
     	$my_elementset = $this->m_ElementSet;
     	
     	//update other elements
@@ -70,7 +80,7 @@ class FormElement extends InputElement
                 }
                 if ($dataObj)
                     $formObj->setDataObj($dataObj);                
-        }
+        }        
     	$sHTML = $formElementObj->render();    	
     	$formObj->setDataObj($formDataObj);
     	$this->FormRecordCount();    
