@@ -102,7 +102,7 @@ class DropDownList extends InputElement
         }        
         
         $display_value=$this->getDisplayValue($value);
-        
+    	if(!$list){$list=array();}
         foreach ($list as $item){
         	if($item['val']==$value){
         		if(!preg_match("/\</si",$item['txt'])){
@@ -215,6 +215,7 @@ class DropDownList extends InputElement
     	
     	$value = $this->m_Value!==null ? $this->m_Value : $this->getText();
     	$sHTML = "<ul style=\"display:none;z-index:50\" id=\"".$formNameStr.$this->m_Name."_list\" class=\"dropdownlist\">";
+    	if(!$list){$list=array();}
     	foreach($list as $item){
     		$val = $item['val'];
     		$txt = $item['txt'];
