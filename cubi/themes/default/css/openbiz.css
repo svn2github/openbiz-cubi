@@ -1642,17 +1642,21 @@ padding-bottom:5px;
 	background-repeat:no-repeat;
 }
 
-.dropdownlist {
+.dropdownlist{
 position:absolute;
 margin-top:20px;
+padding-left:3px;
+padding-right:3px;
+height:200px;width:185px;overflow:auto;z-index:50;
+}
+.dropdownlist ul
+{
 display:block;
 list-style:none;
 padding-bottom:4px;
 background-image:url(../images/dropdownlist_footer.gif);
-background-position:3px bottom;
-background-repeat:no-repeat;
-padding-left:3px;
-padding-right:3px;
+background-position:0px bottom;
+background-repeat:no-repeat;	
 }
 
 .dropdownlist  li{
@@ -1739,10 +1743,15 @@ span.input_select_w_hover{
 	height:20px;
 	float:left;	
 }
-.div_input_select_m .dropdownlist {
-	padding-left:3px;
-	background-position:3px bottom;
-	background-image:url(../images/dropdownlist_footer_w.gif);	
+.div_input_select_m .dropdownlist{
+	height:200px;width:185px;overflow:auto;z-index:50;
+}
+.div_input_select_m .dropdownlist ul{
+	padding-left:0px;
+	background-position:0px bottom;
+	background-repeat:no-repeat;
+	background-image:url(../images/dropdownlist_footer_w.gif);
+	padding-bottom:4px;
 }
 .div_input_select_m .dropdownlist  li{
 	width:156px; /*76px;*/
@@ -1763,10 +1772,14 @@ span.input_select_w_hover{
 .div_input_select_m .dropdownlist  li.selected{
 	background-image:url(../images/dropdownlist_bg_w_selected.gif);	
 }
-
-.div_input_select_w .dropdownlist {
-	background-position:3px bottom;
+.div_input_select_w .dropdownlist{
+	height:200px;width:185px;overflow:auto;z-index:50;
+}
+.div_input_select_w .dropdownlist ul{
+	background-position:0px bottom;
+	background-repeat:no-repeat;
 	background-image:url(../images/dropdownlist_footer_w.gif);
+	padding-bottom:4px;
 }
 .div_input_select_w .dropdownlist  li{
 	width:156px;
