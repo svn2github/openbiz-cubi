@@ -11,6 +11,9 @@
  * @version   $Id$
  */
 
+/**
+ * User preference service 
+ */
 class preferenceService
 {
     protected $m_Name = "ProfileService";    
@@ -27,9 +30,9 @@ class preferenceService
         $this->m_PreferenceObj = $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["BIZDATAOBJ"];
     }
 
-    public function InitPreference($user_id)
+    public function initPreference($userId)
     {
-        $this->m_Preference = $this->InitDBPreference($user_id);
+        $this->m_Preference = $this->InitDBPreference($userId);
         BizSystem::sessionContext()->setVar("_USER_PREFERENCE", $this->m_Preference);        
         BizSystem::sessionContext()->setVar("LANG",$this->m_Preference['language']);
         BizSystem::sessionContext()->setVar("THEME",$this->m_Preference['theme']);
@@ -38,7 +41,13 @@ class preferenceService
         return $this->m_Preference;
     }
 
-    public function getPreference($attr=null)
+    /**
+     * Get user preference
+     * 
+     * @param type $attribute
+     * @return null 
+     */
+    public function getPreference($attribute=null)
     {    	
         if (!$this->m_Preference)
         {
@@ -48,9 +57,9 @@ class preferenceService
         {
         		return null;
         }
-        if ($attr){
-        	if(isset($this->m_Preference[$attr])){
-        		return $this->m_Preference[$attr];
+        if ($attribute){
+        	if(isset($this->m_Preference[$attribute])){
+        		return $this->m_Preference[$attribute];
         	}else{
         		return null;
         	}
@@ -59,14 +68,24 @@ class preferenceService
         return $this->m_Preference;
     }
 
-    public function SetPreference($preference)
+    /**
+     * Set user preference
+     * 
+     * @param <type> $preference 
+     */
+    public function setPreference($preference)
     {
         $this->m_Preference = $preference;
     }
     
  
-
-    protected function InitDBPreference($user_id)
+    /**
+     * Initialize user preference from database
+     * 
+     * @param type $user_id
+     * @return boolean 
+     */
+    protected function initDbPreference($user_id)
     {
         $do = BizSystem::getObject($this->m_PreferenceObj);
         if (!$do)
@@ -85,5 +104,3 @@ class preferenceService
     }
 
 }
-
-?>

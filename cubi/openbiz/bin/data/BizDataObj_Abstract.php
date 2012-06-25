@@ -304,10 +304,10 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
     /**
      * Set session variables
      *
-     * @param SessionContext sessCtxt
+     * @param SessionContext $sessionContext
      * @return void
      */
-    public function setSessionVars($sessCtxt)
+    public function setSessionVars($sessionContext)
     {}
 
     /**

@@ -27,7 +27,7 @@ class TicketEmailService extends userEmailService
 	        $data = array("ticket"=>$ticketRec, "trac_role"=>'owner');
 	               
 			//render the email tempalte
-			$content = $this->RenderEmail($data, $template);
+			$content = $this->renderEmail($data, $template);
 			
 			//prepare recipient info
 			$recipient['email'] = $userData['email'];
@@ -44,7 +44,7 @@ class TicketEmailService extends userEmailService
 	        $data = array("ticket"=>$ticketRec, "trac_role"=>'reporter');
 	               
 			//render the email tempalte
-			$content = $this->RenderEmail($data, $template);
+			$content = $this->renderEmail($data, $template);
 			
 			//prepare recipient info
 			$recipient['email'] = $userData['email'];
@@ -58,7 +58,7 @@ class TicketEmailService extends userEmailService
 	        $data = array("ticket"=>$ticketRec, "trac_role"=>'watcher');
 	               
 			//render the email tempalte
-			$content = $this->RenderEmail($data, $template);
+			$content = $this->renderEmail($data, $template);
 			
 			//prepare recipient info
 			$recipient['email'] = $ticketRec['cc'];
@@ -101,7 +101,7 @@ class TicketEmailService extends userEmailService
 	        $data = array("ticket"=>$ticketRec, "comment"=>$commentRec, "trac_role"=>'owner');
 	               
 			//render the email tempalte
-			$content = $this->RenderEmail($data, $template);
+			$content = $this->renderEmail($data, $template);
 			
 			//prepare recipient info
 			$recipient['email'] = $userData['email'];
@@ -118,7 +118,7 @@ class TicketEmailService extends userEmailService
 	        $data = array("ticket"=>$ticketRec, "comment"=>$commentRec, "trac_role"=>'reporter');
 	               
 			//render the email tempalte
-			$content = $this->RenderEmail($data, $template);
+			$content = $this->renderEmail($data, $template);
 			
 			//prepare recipient info
 			$recipient['email'] = $userData['email'];
@@ -132,7 +132,7 @@ class TicketEmailService extends userEmailService
 	        $data = array("ticket"=>$ticketRec, "comment"=>$commentRec, "trac_role"=>'watcher');
 	               
 			//render the email tempalte
-			$content = $this->RenderEmail($data, $template);
+			$content = $this->renderEmail($data, $template);
 			
 			//prepare recipient info
 			$recipient['email'] = $ticketRec['cc'];

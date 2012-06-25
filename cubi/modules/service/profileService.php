@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Openbiz Cubi Application Platform
  *
@@ -22,10 +23,11 @@
  */
 class profileService
 {
+
     protected $m_Name = "ProfileService";
-    protected $m_Profile;    
+    protected $m_Profile;
     protected $m_profileObj = "contact.do.ContactSystemDO";
-    protected $m_contactObj = "contact.do.ContactSystemDO";     
+    protected $m_contactObj = "contact.do.ContactSystemDO";
     protected $m_userDataObj = "system.do.UserDO";
     protected $m_user_roleDataObj = "system.do.UserRoleDO";
     protected $m_user_groupDataObj = "system.do.UserGroupDO";
@@ -40,22 +42,28 @@ class profileService
         //$this->m_profileObj = $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["BIZDATAOBJ"];
     }
 
+    /**
+     * Initialize user profile
+     * 
+     * @param type $userName
+     * @return type 
+     */
     public function initProfile($userName)
     {
-    	//clear ACL Cache
-		BizSystem::getService(ACL_SERVICE)->clearACLCache();
-    	
-        $this->m_Profile = $this->initDBProfile($userName);        
+        //clear ACL Cache
+        BizSystem::getService(ACL_SERVICE)->clearACLCache();
+
+        $this->m_Profile = $this->initDBProfile($userName);
         BizSystem::sessionContext()->setVar("_USER_PROFILE", $this->m_Profile);
-        
+
         //load preference
         $preferenceService = BizSystem::getService(PREFERENCE_SERVICE);
-        $preferenceService->initPreference($this->m_Profile["Id"]);       
-        
+        $preferenceService->initPreference($this->m_Profile["Id"]);
+
         return $this->m_Profile;
     }
 
-    public function getProfile($attr=null)
+    public function getProfile($attribute = null)
     {
         if (!$this->m_Profile)
         {
@@ -65,79 +73,97 @@ class profileService
         {
             $this->getProfileByCookie();
             if (!$this->m_Profile)
-        		return null;
+                return null;
         }
 
-        if ($attr){
-        	if(isset($this->m_Profile[$attr])){
-        		return $this->m_Profile[$attr];
-        	}else{
-        		return null;
-        	}
+        if ($attribute)
+        {
+            if (isset($this->m_Profile[$attribute]))
+            {
+                return $this->m_Profile[$attribute];
+            } else
+            {
+                return null;
+            }
         }
-            
+
         return $this->m_Profile;
     }
 
+    /**
+     * Set user profile
+     * 
+     * @param type $profile 
+     */
     public function setProfile($profile)
     {
         $this->m_Profile = $profile;
     }
 
-    public function createProfile($userId=null){
-    	if (!$userId) {
-    		$userId = $this->getProfile("Id");
-    	}
-    	
-    	$profileDo = BizSystem::getObject($this->m_profileObj,1);
-        $userInfo = BizSystem::getObject($this->m_userDataObj,1)->fetchById($userId);
+    /**
+     * Create user profile
+     * 
+     * @param type $userId
+     * @return type 
+     */
+    public function createProfile($userId = null)
+    {
+        if (!$userId)
+        {
+            $userId = $this->getProfile("Id");
+        }
+
+        $profileDo = BizSystem::getObject($this->m_profileObj, 1);
+        $userInfo = BizSystem::getObject($this->m_userDataObj, 1)->fetchById($userId);
         $profileArray = array(
-        		"first_name" => $userInfo['username'],
-        		"last_name" => $userInfo['username'],
-        		"display_name" => $userInfo['username'],
-        		"fast_index" => substr(strtolower($userInfo['username']),0,1),
-        		"email" => $userInfo['email'],
-        		"company" => "N/A",
-        		"user_id" => $userId,
-        		"group_perm" => '1',
-        		"type_id" => '1',
-        		"other_perm" => '1',
+            "first_name" => $userInfo['username'],
+            "last_name" => $userInfo['username'],
+            "display_name" => $userInfo['username'],
+            "fast_index" => substr(strtolower($userInfo['username']), 0, 1),
+            "email" => $userInfo['email'],
+            "company" => "N/A",
+            "user_id" => $userId,
+            "group_perm" => '1',
+            "type_id" => '1',
+            "other_perm" => '1',
         );
         $profileId = $profileDo->insertRecord($profileArray);
-    	return $profileId;
-    }    
-    
-    public function checkExist($profileId){
-    	$profileDo = BizSystem::getObject($this->m_profileObj,1);
-    	$profile = $profileDo->fetchById($profileId);
-    	
-    	if($profile){
-    		return true;
-    	}else{
-    		return false;
-    	}
-    	
+        return $profileId;
     }
-    
+
+    public function checkExist($profileId)
+    {
+        $profileDo = BizSystem::getObject($this->m_profileObj, 1);
+        $profile = $profileDo->fetchById($profileId);
+
+        if ($profile)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
     protected function getProfileByCookie()
     {
-    	//print_r($_COOKIE);
+        //print_r($_COOKIE);
         if (isset($_COOKIE["SYSTEM_SESSION_USERNAME"]) && isset($_COOKIE["SYSTEM_SESSION_PASSWORD"]))
-		{
-			$username = $_COOKIE["SYSTEM_SESSION_USERNAME"];
-			$password = $_COOKIE["SYSTEM_SESSION_PASSWORD"];
-			
-			$svcobj = BizSystem::getService(AUTH_SERVICE);
-			if ($svcobj->authenticateUserByCookies($username,$password)) 
-			{
-				$this->InitProfile($username);
-			}
-			else {
-				setcookie("SYSTEM_SESSION_USERNAME",null,time()-100,"/");
-    	 		setcookie("SYSTEM_SESSION_PASSWORD",null,time()-100,"/");
-			}
-		}
-		return null;
+        {
+            $username = $_COOKIE["SYSTEM_SESSION_USERNAME"];
+            $password = $_COOKIE["SYSTEM_SESSION_PASSWORD"];
+
+            $svcobj = BizSystem::getService(AUTH_SERVICE);
+            if ($svcobj->authenticateUserByCookies($username, $password))
+            {
+                $this->InitProfile($username);
+            } else
+            {
+                setcookie("SYSTEM_SESSION_USERNAME", null, time() - 100, "/");
+                setcookie("SYSTEM_SESSION_PASSWORD", null, time() - 100, "/");
+            }
+        }
+        return null;
     }
 
     protected function InitDBProfile($username)
@@ -156,21 +182,22 @@ class profileService
         $profile = $recordSet[0];
         $profile['password'] = null;
         $profile['enctype'] = null;
-        
-    	$userDo = BizSystem::getObject($this->m_profileObj,1);
+
+        $userDo = BizSystem::getObject($this->m_profileObj, 1);
         if (!$userDo)
             return false;
 
         $recordSet = $userDo->directFetch("[user_id]='$userId'", 1);
         if ($recordSet)
         {
-        	$recordSet = $recordSet[0];        	
-        	if($recordSet!=null){
-	        	foreach ($recordSet as $key => $value)
-	        	{        		
-	        		$profile["profile_".$key] = $value;        	
-	        	}	
-        	}
+            $recordSet = $recordSet[0];
+            if ($recordSet != null)
+            {
+                foreach ($recordSet as $key => $value)
+                {
+                    $profile["profile_" . $key] = $value;
+                }
+            }
         }
         // fetch roles and set profile roles
         $userDo = BizSystem::getObject($this->m_user_roleDataObj);
@@ -181,7 +208,7 @@ class profileService
             {
                 $profile['roles'][] = $record['role_id'];
                 $profile['roleNames'][] = $record['role_name'];
-                $profile['roleStartpage'][] = $record['role_startpage'];                
+                $profile['roleStartpage'][] = $record['role_startpage'];
             }
         }
         // fetch groups and set profile groups
@@ -194,16 +221,17 @@ class profileService
             {
                 $profile['groups'][] = $record['group_id'];
                 $profile['groupNames'][] = $record['group_name'];
-                if ($record['default']==1 && $profile['default_group']==null){
+                if ($record['default'] == 1 && $profile['default_group'] == null)
+                {
                     $profile['default_group'] = $record['group_id'];
                     $profile['default_group_name'] = $record['group_name'];
                 }
-            }            
+            }
         }
-    	if($profile['default_group']==null)
+        if ($profile['default_group'] == null)
         {
-        	$profile['default_group'] = $recordSet[0]['group_id'];
-        	$profile['default_group_name'] = $recordSet[0]['group_name'];
+            $profile['default_group'] = $recordSet[0]['group_id'];
+            $profile['default_group_name'] = $recordSet[0]['group_name'];
         }
         return $profile;
     }
@@ -214,95 +242,104 @@ class profileService
      */
     public function switchUserProfile($userId)
     {
-    	//get previously profile
-    	if(!BizSystem::sessionContext()->getVar("_PREV_USER_PROFILE"))
-    	{
-    		$prevProfile = BizSystem::sessionContext()->getVar("_USER_PROFILE");
-    		BizSystem::sessionContext()->clearVar("_USER_PROFILE");
-    		BizSystem::sessionContext()->setVar("_PREV_USER_PROFILE", $prevProfile);
-    	}
-    	BizSystem::initUserProfile($userId);    	
+        //get previously profile
+        if (!BizSystem::sessionContext()->getVar("_PREV_USER_PROFILE"))
+        {
+            $prevProfile = BizSystem::sessionContext()->getVar("_USER_PROFILE");
+            BizSystem::sessionContext()->clearVar("_USER_PROFILE");
+            BizSystem::sessionContext()->setVar("_PREV_USER_PROFILE", $prevProfile);
+        }
+        BizSystem::initUserProfile($userId);
     }
-    
-    public function GetProfileName($account_id,$type='full'){
-    	$do = BizSystem::getObject($this->m_userDataObj);
+
+    public function GetProfileName($account_id, $type = 'full')
+    {
+        $do = BizSystem::getObject($this->m_userDataObj);
         if (!$do)
             return "";
-		if($account_id==0)
-		{
-			$msg = "-- Not Available --";			
-			return $msg;
-		}
-        
+        if ($account_id == 0)
+        {
+            $msg = "-- Not Available --";
+            return $msg;
+        }
+
         $rs = $do->fetchById($account_id);
-        if (!$rs){
-			$msg = "-- Deleted User ( UID:$account_id ) --";			
-			return $msg;			
+        if (!$rs)
+        {
+            $msg = "-- Deleted User ( UID:$account_id ) --";
+            return $msg;
         }
         $contact_do = BizSystem::getObject($this->m_contactObj);
         $contact_rs = $contact_do->directFetch("[user_id]='$account_id'", 1);
-        if (count($contact_rs)==0){
-        	//$name = $rs['username']." &lt;".$rs['email']."&gt;";
+        if (count($contact_rs) == 0)
+        {
+            //$name = $rs['username']." &lt;".$rs['email']."&gt;";
             $name = $rs['username'];
             $email = $rs['email'];
-        	if($email){
-        		$name.=" <$email>";
-        	}            
-        }else{
-        	$contact_rs = $contact_rs[0];
-        	if($contact_rs['email'])
-        	{
-        		$email = $contact_rs['email'];
-        	}else{
-        		$email = $rs['email'];
-        	}
-        	$name = $contact_rs['display_name'];
-        	if($email && $type=='full'){
-        		$name.=" <$email>";
-        	}
+            if ($email)
+            {
+                $name.=" <$email>";
+            }
+        } else
+        {
+            $contact_rs = $contact_rs[0];
+            if ($contact_rs['email'])
+            {
+                $email = $contact_rs['email'];
+            } else
+            {
+                $email = $rs['email'];
+            }
+            $name = $contact_rs['display_name'];
+            if ($email && $type == 'full')
+            {
+                $name.=" <$email>";
+            }
         }
         return $name;
     }
-    
-    
-	public function GetProfileId($account_id){
-    	$do = BizSystem::getObject($this->m_userDataObj);
+
+    public function GetProfileId($account_id)
+    {
+        $do = BizSystem::getObject($this->m_userDataObj);
         if (!$do)
             return "";
-		if($account_id==0)
-		{
-			$profile_id = 0;			
-			return $profile_id;
-		}        
+        if ($account_id == 0)
+        {
+            $profile_id = 0;
+            return $profile_id;
+        }
         $rs = $do->fetchById($account_id);
-        if (!$rs){
-			$profile_id = 0;			
-			return $profile_id;			
+        if (!$rs)
+        {
+            $profile_id = 0;
+            return $profile_id;
         }
         $contact_do = BizSystem::getObject($this->m_contactObj);
         $contact_rs = $contact_do->directFetch("[user_id]='$account_id'", 1);
-        if (count($contact_rs)>0){        	                  
-        	$contact_rs = $contact_rs[0];        	
-        	$profile_id = $contact_rs['Id'];
+        if (count($contact_rs) > 0)
+        {
+            $contact_rs = $contact_rs[0];
+            $profile_id = $contact_rs['Id'];
         }
         return $profile_id;
-    }    
-    
-	public function GetProfileEmail($account_id){
-    	$do = BizSystem::getObject($this->m_userDataObj);
+    }
+
+    public function GetProfileEmail($account_id)
+    {
+        $do = BizSystem::getObject($this->m_userDataObj);
         if (!$do)
             return "";
 
-        
+
         $rs = $do->fetchById($account_id);
-        if (!$rs){
-			$msg = "-- Deleted User ( UID:$account_id ) --";
-			return $msg;
-			
+        if (!$rs)
+        {
+            $msg = "-- Deleted User ( UID:$account_id ) --";
+            return $msg;
         }
-        
+
         return $rs['email'];
     }
-}
 
-?>
+}

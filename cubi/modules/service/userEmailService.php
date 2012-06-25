@@ -11,7 +11,9 @@
  * @version   $Id$
  */
 
-
+/**
+ * User email service 
+ */
 class userEmailService extends MetaObject
 {
     public $m_Tempaltes;
@@ -31,16 +33,16 @@ class userEmailService extends MetaObject
         $this->m_SendtoQueue	= isset($xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["SENDTOQUEUE"]) ? $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["SENDTOQUEUE"] : "Y";
     }
 
-    protected function readTemplates($array)
+    protected function readTemplates($templateArray)
     {
     	$templates = array();
-    	foreach($array as $template){
+    	foreach($templateArray as $template){
     		$templates[$template['ATTRIBUTES']['NAME']] = $template['ATTRIBUTES'];
     	}
     	return $templates;
     }
     
-    public function UserWelcomeEmail($user_id)
+    public function UserWelcomeEmail($userId)
 	{
 		//init email info
 		$template = $this->m_Tempaltes["WelcomeEmail"]["TEMPLATE"];
@@ -48,8 +50,8 @@ class userEmailService extends MetaObject
 		$sender   = $this->m_Tempaltes["WelcomeEmail"]["EMAILACCOUNT"];
 		
 		//prepare data     
-        $userObj = BizSystem::getObject("system.do.UserDO");
-        $data = $userObj->directFetch("[Id]='".$user_id."'", 1);
+        $userDO = BizSystem::getObject("system.do.UserDO");
+        $data = $userDO->directFetch("[Id]='".$userId."'", 1);
 
         if(!count($data))
         	return false;
@@ -59,7 +61,7 @@ class userEmailService extends MetaObject
                
 		//render the email tempalte
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
-		$content = $this->RenderEmail($data, $tplFile);
+		$content = $this->renderEmail($data, $tplFile);
 
 		//prepare recipient info
 		$recipient['email'] = $userData['email'];
@@ -70,23 +72,23 @@ class userEmailService extends MetaObject
 		return $result;
 	}
 	
-	public function UserResetPassword($token_id)
-	{
+    public function resetUserPassword($tokenId) {
 		//init email info
 		$template = $this->m_Tempaltes["ForgetPasswordEmail"]["TEMPLATE"];
 		$subject  = $this->m_Tempaltes["ForgetPasswordEmail"]["TITLE"];
 		$sender   = $this->m_Tempaltes["ForgetPasswordEmail"]["EMAILACCOUNT"];
 		
 		//prepare data
-		$tokenObj = BizSystem::getObject("system.do.UserPassTokenDO");
-        $data = $tokenObj->directFetch("[Id]='".$token_id."'", 1);
+        /* @var $tokenDO BizDataObj */
+		$tokenDO = BizSystem::getObject("system.do.UserPassTokenDO");
+        $data = $tokenDO->directFetch("[Id]='".$tokenId."'", 1);
 		if(!count($data))
         	return false;        
-        $user_id = $data[0]['user_id'];
+        $userId = $data[0]['user_id'];
 		$data 	 = $data[0];
 		
         $userObj = BizSystem::getObject("system.do.UserDO");
-        $userData = $userObj->directFetch("[Id]='".$user_id."'", 1);                	        
+        $userData = $userObj->directFetch("[Id]='".$userId."'", 1);                	        
         if(!count($data))
         	return false;
         $userData = $userData[0];
@@ -96,7 +98,7 @@ class userEmailService extends MetaObject
         
 		//render the email tempalte
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
-		$content = $this->RenderEmail($data, $tplFile);
+		$content = $this->renderEmail($data, $tplFile);
 		
 		//prepare recipient info
 		$recipient['email'] = $userData['email'];
@@ -105,6 +107,12 @@ class userEmailService extends MetaObject
 		//send it to the queue		
 		$result = $this->sendEmail($sender,$recipient,$subject,$content);
 		return $result;		
+        
+    }
+    
+	public function UserResetPassword($tokenId)
+	{
+        return $this->resetUserPassword($tokenId);
 	}
 
 	public function DataSharingEmail($recipient_user_id, $data)
@@ -116,7 +124,7 @@ class userEmailService extends MetaObject
 				        
 		//render the email tempalte
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
-		$content = $this->RenderEmail($data, $tplFile);
+		$content = $this->renderEmail($data, $tplFile);
 		
 		//prepare recipient info
 		$userObj = BizSystem::getObject("system.do.UserDO");
@@ -142,7 +150,7 @@ class userEmailService extends MetaObject
 				        
 		//render the email tempalte
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
-		$content = $this->RenderEmail($data, $tplFile);
+		$content = $this->renderEmail($data, $tplFile);
 		
 		//prepare recipient info
 		$userObj = BizSystem::getObject("system.do.UserDO");
@@ -168,7 +176,7 @@ class userEmailService extends MetaObject
 				        
 		//render the email tempalte
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
-		$content = $this->RenderEmail($data, $tplFile);
+		$content = $this->renderEmail($data, $tplFile);
 		
 		//prepare recipient info
 		$userObj = BizSystem::getObject("system.do.UserDO");
@@ -194,7 +202,7 @@ class userEmailService extends MetaObject
 				        
 		//render the email tempalte
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
-		$content = $this->RenderEmail($data, $tplFile);
+		$content = $this->renderEmail($data, $tplFile);
 		
 		//prepare recipient info
 		$userObj = BizSystem::getObject("system.do.UserDO");
@@ -220,7 +228,7 @@ class userEmailService extends MetaObject
 				        
 		//render the email tempalte
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
-		$content = $this->RenderEmail($data, $tplFile);
+		$content = $this->renderEmail($data, $tplFile);
 		
 		//prepare recipient info
 		$userObj = BizSystem::getObject("system.do.UserDO");
@@ -251,7 +259,7 @@ class userEmailService extends MetaObject
 		$data['refer_url'] = SITE_URL;
 		
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
-		$content = $this->RenderEmail($data, $tplFile);
+		$content = $this->renderEmail($data, $tplFile);
 		
 		//prepare recipient info
 		$userObj = BizSystem::getObject("system.do.UserDO");
@@ -299,7 +307,7 @@ class userEmailService extends MetaObject
 		
 		
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
-		$content = $this->RenderEmail($data, $tplFile);
+		$content = $this->renderEmail($data, $tplFile);
 		if($userData['email']==''){
 			//if no email address , then do nothing
 			return ;
@@ -323,7 +331,7 @@ class userEmailService extends MetaObject
         
 		//render the email tempalte
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
-		$content = $this->RenderEmail($data, $tplFile);
+		$content = $this->renderEmail($data, $tplFile);
 				
 		//send it to the queue		
 		$result = $this->sendEmail($sender,$recipient,$subject,$content);
@@ -343,7 +351,7 @@ class userEmailService extends MetaObject
         
 		//render the email tempalte
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
-		$content = $this->RenderEmail($data, $tplFile);
+		$content = $this->renderEmail($data, $tplFile);
 		
 		//prepare recipient info
 		$recipient['email'] = $recipientEmail;
@@ -354,7 +362,7 @@ class userEmailService extends MetaObject
 		return $result;		
 	}
 	
-	protected function RenderEmail($content, $tplFile)
+	protected function renderEmail($content, $tplFile)
 	{
         $smarty  = BizSystem::getSmartyTemplate();
         foreach ($content as $key=>$value){
