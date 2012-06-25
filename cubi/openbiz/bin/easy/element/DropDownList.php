@@ -131,14 +131,14 @@ class DropDownList extends InputElement
         	$sHTML .= "<div $display_span>";
 	        
 	        $sHTML .= "<span ID=\"span_" . $formNameStr.$this->m_Name ."\"  $this->m_HTMLAttr $style
-		        			onclick=\"if($('".$formNameStr.$this->m_Name."_list').visible()){\$('".$formNameStr.$this->m_Name."_list').hide();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssClass."'}else{\$('".$formNameStr.$this->m_Name."_list').show();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssFocusClass."'}\"
+		        			onclick=\"if($('".$formNameStr.$this->m_Name."_list').visible()){\$('".$formNameStr.$this->m_Name."_list').hide();\$('".$formNameStr.$this->m_Name."_scroll').hide();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssClass."'}else{\$('".$formNameStr.$this->m_Name."_list').show();\$('".$formNameStr.$this->m_Name."_scroll').show();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssFocusClass."'}\"
 		        			onmouseover=\"$('span_".$formNameStr.$this->m_Name."').className='".$this->m_cssHoverClass."'\"
 		        			onmouseout=\"$('span_".$formNameStr.$this->m_Name."').className='".$this->m_cssClass."'\"
 		        			>$display_value</span>";
 	        $sHTML .= "</div>";
 	        $sHTML .= "<div $display_input>";
 	        $sHTML .= "<INPUT NAME=\"" . $formNameStr.$this->m_Name . "\" ID=\"" . $formNameStr.$this->m_Name ."\" VALUE=\"" . $display_value . "\" $disabledStr $this->m_HTMLAttr $style 
-		        			onclick=\"if($('".$formNameStr.$this->m_Name."_list').visible()){\$('".$formNameStr.$this->m_Name."_list').hide();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssClass."'}else{\$('".$formNameStr.$this->m_Name."_list').show();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssFocusClass."'}\"
+		        			onclick=\"if($('".$formNameStr.$this->m_Name."_list').visible()){\$('".$formNameStr.$this->m_Name."_list').hide();\$('".$formNameStr.$this->m_Name."_scroll').hide();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssClass."'}else{\$('".$formNameStr.$this->m_Name."_list').show();\$('".$formNameStr.$this->m_Name."_scroll').show();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssFocusClass."'}\"
 		        			onmouseover=\"$('".$formNameStr.$this->m_Name."').className='".$this->m_cssHoverClass."'\"
 		        			onmouseout=\"$('".$formNameStr.$this->m_Name."').className='".$this->m_cssClass."'\"
 		        			onchange=\"$('".$formNameStr.$this->m_Name."_hidden').setValue(this.value);$onchange_func;\"
@@ -214,7 +214,8 @@ class DropDownList extends InputElement
         }    	
     	
     	$value = $this->m_Value!==null ? $this->m_Value : $this->getText();
-    	$sHTML = "<ul style=\"display:none;z-index:50\" id=\"".$formNameStr.$this->m_Name."_list\" class=\"dropdownlist\">";
+    	$sHTML = "<div  class=\"dropdownlist\"  id=\"".$formNameStr.$this->m_Name."_scroll\" style=\"display:none;\">".
+    	$sHTML .= "<ul style=\"display:none;z-index:50\" id=\"".$formNameStr.$this->m_Name."_list\">";
     	if(!$list){$list=array();}
     	foreach($list as $item){
     		$val = $item['val'];
@@ -266,6 +267,7 @@ class DropDownList extends InputElement
     		}		
     	}
     	$sHTML .= "</ul>";
+    	$sHTML .= "</div>";
     	return $sHTML;
     }
     
