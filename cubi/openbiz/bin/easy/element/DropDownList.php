@@ -254,6 +254,7 @@ class DropDownList extends InputElement
     	    
     		$sHTML .= "<li $option_item_style				
 				onclick=\"$('".$formNameStr.$this->m_Name."_list').hide();
+							\$('".$formNameStr.$this->m_Name."_scroll').hide();
 							$('".$formNameStr.$this->m_Name."').setValue('".addslashes($display_value)."');
 							$('".$formNameStr.$this->m_Name."_hidden').setValue('".addslashes($val)."');
 							$('span_".$formNameStr.$this->m_Name."').innerHTML = this.innerHTML;							
