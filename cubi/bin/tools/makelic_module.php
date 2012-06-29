@@ -13,7 +13,7 @@ if(!defined("CLI")){
 }
 
 $ENCODER_PATH = "C:\\Program Files\\ionCube Pro PHP Encoder 7.0";
-
+$ENCODER_PATH = "C:\\ioncube";
 $module = $argv[1];
 $encoder_cmd = $ENCODER_PATH.DIRECTORY_SEPARATOR."ioncube_encoder5";
 $source_dir = MODULE_PATH.DIRECTORY_SEPARATOR.$module;
