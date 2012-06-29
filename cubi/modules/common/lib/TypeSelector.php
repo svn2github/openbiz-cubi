@@ -32,7 +32,8 @@ protected function renderList(){
         }    	
     	
     	$value = $this->m_Value ? $this->m_Value : $this->getText();
-    	$sHTML = "<ul style=\"display:none;z-index:50\" id=\"".$formNameStr.$this->m_Name."_list\" class=\"dropdownlist\">";
+    	$sHTML = "<div  class=\"dropdownlist\"  id=\"".$formNameStr.$this->m_Name."_scroll\" style=\"display:none;\">".
+    	$sHTML .= "<ul style=\"display:none;z-index:50\" id=\"".$formNameStr.$this->m_Name."_list\">";
     	$theme = Resource::getCurrentTheme();
     	$image_url = THEME_URL . "/" . $theme . "/images";
     	
@@ -78,6 +79,7 @@ protected function renderList(){
     		}		
     	}
     	$sHTML .= "</ul>";
+    	$sHTML .= "</div>";
     	return $sHTML;
     }	
 }
