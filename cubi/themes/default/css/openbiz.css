@@ -1647,7 +1647,7 @@ position:absolute;
 margin-top:20px;
 padding-left:3px;
 padding-right:3px;
-height:200px;width:187px;overflow:auto;z-index:50;
+height:200px;width:190px;overflow:auto;z-index:50;
 }
 .dropdownlist ul
 {
@@ -1744,7 +1744,7 @@ span.input_select_w_hover{
 	float:left;	
 }
 .div_input_select_m .dropdownlist{
-	height:200px;width:187px;overflow:auto;z-index:50;
+	height:200px;width:190px;overflow:auto;z-index:50;
 }
 .div_input_select_m .dropdownlist ul{
 	padding-left:0px;
@@ -1773,7 +1773,7 @@ span.input_select_w_hover{
 	background-image:url(../images/dropdownlist_bg_w_selected.gif);	
 }
 .div_input_select_w .dropdownlist{
-	height:200px;width:187px;overflow:auto;z-index:50;
+	height:200px;width:190px;overflow:auto;z-index:50;
 }
 .div_input_select_w .dropdownlist ul{
 	background-position:0px bottom;
