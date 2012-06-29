@@ -3,7 +3,7 @@
  * create license command line script
  */
 if ($argc<3) {
-	echo "usage: php makelic_module.php module_name".PHP_EOL;
+	echo "usage: php makelic_module.php module_name pass_code".PHP_EOL;
 	exit;
 }
 
@@ -19,7 +19,13 @@ $encoder_cmd = $ENCODER_PATH.DIRECTORY_SEPARATOR."ioncube_encoder5";
 $source_dir = MODULE_PATH.DIRECTORY_SEPARATOR.$module;
 $target_dir = MODULE_PATH.DIRECTORY_SEPARATOR.$module."_encoded";
 $license_file = "license_".$module.".txt";
-$pass_code = "pass_".$module;
+if($argv[2])
+{
+	$pass_code = $argv[2];	
+}else
+{	
+	$pass_code = "pass_".$module;
+}
 $callback_file = "callback_".$module.".php";
 $properties = "product='cubi-".$module;
 
