@@ -833,3 +833,41 @@ background-position:left bottom;
 .screen_switch_min_btn:active {
     background-position: -32px 0px;
 }
+
+/* styles for new app*/
+.newapp_bg {
+	height:420px;
+    background-image: url("../images/newapp/newapp_bg.png");
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    padding-top:20px;    
+    padding-left:40px; padding-right:40px;
+}
+.newapp_bg_warper{
+    /*background-image: url("../images/newapp/newapp_top_bg.png");*/
+    background-position: 430px -60px;
+    background-repeat: no-repeat;
+}
+.newapp_title {
+	background-image: url("../images/newapp/newapp_title.png");
+    background-position: 20px top;
+    background-repeat: no-repeat;
+    width:250px;    
+    padding-left:20px;
+    float:left;
+}
+.newapp_title h2{	
+    padding-top:35px;
+    font-size:45px;	
+    padding-bottom:25px;
+}
+.newapp_desc
+{
+	float:left;
+	padding-left:20px;
+	height:70px;
+	padding-top:35px;
+	background-image: url("../images/newapp/v_line.png");
+    background-position: left 25px;
+    background-repeat: no-repeat;
+}

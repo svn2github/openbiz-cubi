@@ -1,20 +1,22 @@
 <form id="{$form.name}" name="{$form.name}">
 
-<div style="padding-left:25px; padding-right:40px;">
+<div class="newapp_bg_warper">
+<div class="newapp_bg">
 {include file="system_appbuilder_btn.tpl.html"}
-
-	<div>
-		<div ><h2>{$widget.title}</h2></div>
+<div style="height:110px;">
+	<div class="newapp_title">
+		<h2>{$widget.title}</h2>			
 	</div>
+	{if $widget.description}
+	<div class="newapp_desc">
 		
-		{if $widget.description}
-		<p class="input_row" style="line-height:20px;padding-bottom:20px;">		
-		<span>{$widget.description}</span>
-		</p>
-		{else}
-		<div style="height:15px;"></div>
-		{/if}
-
+		<p class="input_row" style="line-height:18px;padding-bottom:0px;color:#666666;">		
+		<span>{$widget.description|replace:'\n':'<br/>'}</span>
+		</p>		
+	</div>
+	{/if}
+</div>
+	<div class="upline underline" style="padding-top:10px;padding-bottom:10px;height:210px;">
 	{assign var='i' value=0}
 	<table class="dashboard" >
 	{foreach item=item from=$widget.menu}
@@ -24,7 +26,6 @@
 	  	<td valign="top">
 	  		<div class="{$item->m_IconCSSClass}">
 				<h3>{$item->m_Name}</h3>
-				<p>{$item->m_Description}</p>	
 				{if $item->m_ChildNodes|@count > 0}
 				<ul>
 				{foreach item=subitem from=$item->m_ChildNodes}													
@@ -40,6 +41,10 @@
 	  {/if}
 	{/foreach}
 	</table>
+	</div>
+	<div  style="height:40px; padding-top:40px;color:#999999;font-size: 11px;padding-left: 10px;padding-top: 5px;">
+	{t}The application is designed for Openbiz Cubi Platform.{/t}
+	</div>
 </div>
-
+</div>
 </form>		
