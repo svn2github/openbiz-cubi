@@ -6,7 +6,8 @@
   Version $Id$
 -->
 <MenuWidget Name="DashboardForm" 
-		Title="Product Dashboard" 
+		Title="Product" 
+		Description="Product manage module is a shared module of Cubi Platform. \nYou can use this module manage product class information" 
 		Class="menu.widget.MenuWidget" 
 		CssCLass="product" 
 		BizDataObj="menu.do.MenuTreeDO" 
