@@ -1,5 +1,5 @@
 <MenuWidget Name="DashboardForm" 
-		Title="Account Dashboard" 
+		Title="Account" 
 		Class="menu.widget.MenuWidget" 
 		CssCLass="account" 
 		BizDataObj="menu.do.MenuTreeDO" 
