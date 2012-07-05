@@ -1,0 +1,120 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<BizDataObj Name="AccountingRecordPickDO" 
+		Description="Accounting Records" 
+		DataPermControl="Y"
+		Class="BizDataObj" 
+		DBName="Default" 
+		Table="accounting_record" 
+		SearchRule="" 
+		SortRule="" 
+		OtherSQLRule=""
+		Uniqueness="" 
+		Stateless="N" 
+		IdGeneration="Identity" 
+		CacheLifeTime="0" 
+		CreateCondition="accounting.Manage" 
+		UpdateCondition="accounting.Manage" 
+		DeleteCondition="accounting.Manage" >
+	<BizFieldList>
+		<BizField Name="Id"			
+				Description="Id"	
+				Column="id"    
+				Required="N" 
+				Type="Number"/>
+		<BizField Name="name"		
+				Description="Name"	
+				Column="name" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="description"		
+				Description="Description"	
+				Column="description" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="credit"		
+				Description="Credit"	
+				Column="credit" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="debit"		
+				Description="Debit"	
+				Column="debit" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="trans_id"		
+				Description="Unique Transcation ID"	
+				Column="trans_id" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="trans_date"		
+				Description="Transcation Date"	
+				Column="trans_date" 
+				Type="Datetime"
+				Required="N" 
+				 />
+		<BizField Name="trans_type"		
+				Description="credit(out) / debit (in)"	
+				Column="trans_type" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="trans_proof"		
+				Description="Proof for this transcation"	
+				Column="trans_proof" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="update_by"	
+				Description="Update By"	
+				Column="update_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"	
+				ValueOnUpdate="{@profile:Id}"/>
+		<BizField Name="update_time"	
+				Description="Update Time"	
+				Column="update_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"	
+				ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="create_by"	
+				Description="Create By"	
+				Column="create_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time"	
+				Description="Create Time"	
+				Column="create_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+	
+		<BizField Name="type_id" 
+				Column="type_id"  
+				 />	
+		<BizField Name="type_color" 
+				Column="color"  
+				Join="JoinType" />
+				
+	    <BizField Name="type_name" 
+	    		Column="name" 
+	    		Join="JoinType" />
+	</BizFieldList>
+	<TableJoins>
+		<Join Name="JoinType" 
+				Table="accounting_record_type" 
+				Column="id" 
+				ColumnRef="type_id" 
+				JoinType="LEFT JOIN" />
+				    	
+	</TableJoins>
+</BizDataObj>

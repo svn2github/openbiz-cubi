@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="AccountingRecordNewForm" 
+			Class="EasyForm" 
+			FormType="New" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/accounting/images/icon_mod_accounting_record_add.png"
+			Title="New Account records" 
+			Description="Accounting Records" 
+			BizDataObj="accounting.record.do.AccountingRecordDO" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_edit.tpl.html" 
+			MessageFile="AccountingRecord.ini" 
+			Access="accounting.Manage">
+    <DataPanel>
+
+    
+		<Element Name="fld_type_id" 
+				ElementSet="General" 
+				Class="common.lib.TypeSelector" 
+				FieldName="type_id" 
+				Label="Type" 
+				KeepCookie="Y" 
+				SelectFrom="accounting.record.do.AccountingRecordTypeDO[name:Id:color]" 
+				AllowURLParam="N" />
+  				
+				
+       								   	
+
+		
+
+       	<Element Name="fld_name" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="name" 
+       				Label="Name" 
+       				AllowURLParam="N"
+       				/>     
+       								   	
+
+		
+
+       								   	
+
+       	 	
+		<Element Name="fld_description" 
+					Class="Textarea" 
+					ElementSet="General"
+					FieldName="description" 
+					Label="Description"  />		
+		
+
+       	<Element Name="fld_credit" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="credit" 
+       				Label="Credit" 
+       				AllowURLParam="N"
+       				/>     
+       								   	
+
+		
+
+       	<Element Name="fld_debit" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="debit" 
+       				Label="Debit" 
+       				AllowURLParam="N"
+       				/>     
+       								   	
+
+		
+
+       	<Element Name="fld_trans_id" 
+       				ElementSet="Transcation" 
+       				Class="InputText" 
+       				FieldName="trans_id" 
+       				Label="Unique ID" 
+       				AllowURLParam="N"
+       				/>     
+       								   	
+
+		
+
+       	<Element Name="fld_trans_date" 
+       				ElementSet="Transcation" 
+       				Class="InputDatetime" 
+       				FieldName="trans_date" 
+       				Label="Date" 
+       				AllowURLParam="N"
+       				/>     
+       								   	
+
+		
+
+       	<Element Name="fld_trans_type" 
+       				ElementSet="Transcation" 
+       				Class="InputText" 
+       				FieldName="trans_type" 
+       				Label="Type" 
+       				AllowURLParam="N"
+       				/>     
+       								   	
+
+		
+
+       	<Element Name="fld_trans_proof" 
+       				ElementSet="Transcation" 
+       				Class="InputText" 
+       				FieldName="trans_proof" 
+       				Label="Proof" 
+       				AllowURLParam="N"
+       				/>     
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+  
+		<Element Name="fld_published" 
+					Class="Listbox" 
+					ElementSet="Miscellaneous" 
+					KeepCookie="Y" 
+					SelectFrom="common.lov.CommLOV(Published)" 
+					DefaultValue="1" 
+					FieldName="group_perm" 
+					Label="Group Share"  />
+		<Element Name="fld_published_other" 
+					Class="Listbox" 
+					ElementSet="Miscellaneous" 
+					KeepCookie="Y" 
+					SelectFrom="common.lov.CommLOV(Published)" 
+					DefaultValue="0" 
+					FieldName="other_perm" 
+					Label="Other Group"  />
+    </DataPanel>
+    <ActionPanel>       
+        	        <Element Name="btn_save" 
+	        			Class="Button" 
+	        			Text="Save" 
+	        			CssClass="button_gray_m">
+	            <EventHandler Name="save_onclick" 
+	            			EventLogMsg="" 
+	            			Event="onclick" 
+	            			Function="InsertRecord()" 
+	            			RedirectPage="{APP_INDEX}/accounting/accounting_record_detail/{@accounting.record.do.AccountingRecordDO:Field[Id].Value}"  
+	            			ShortcutKey="Ctrl+Enter" 
+	            			ContextMenu="Save" />
+	        </Element>        
+                <Element Name="btn_cancel" 
+        			Class="Button" 
+        			Text="Cancel" 
+        			CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" 
+            			Event="onclick" 
+            			Function="SwitchForm()"  
+            			ShortcutKey="Escape" 
+            			ContextMenu="Cancel"/>
+        </Element>      
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

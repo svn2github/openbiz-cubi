@@ -39,3 +39,42 @@ CREATE TABLE `accounting_book_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+-- Dumping structure for table: `accounting_record`
+
+DROP TABLE IF EXISTS `accounting_record`;
+CREATE TABLE `accounting_record` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text,
+  `credit` float DEFAULT NULL COMMENT 'Credit',
+  `debit` float DEFAULT NULL COMMENT 'Debit',
+  `trans_id` varchar(255) NOT NULL COMMENT 'Unique Transcation ID',
+  `trans_date` datetime NOT NULL COMMENT 'Transcation Date',
+  `trans_type` varchar(255) DEFAULT NULL COMMENT 'credit(out) / debit (in)',
+  `trans_proof` varchar(255) DEFAULT NULL COMMENT 'Proof for this transcation',
+  `update_by` int(11) NOT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `name` (`name`),
+  KEY `type_id` (`type_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Account records';
+
+-- Dumping structure for table: `accounting_record_type`
+
+DROP TABLE IF EXISTS `accounting_record_type`;
+CREATE TABLE `accounting_record_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `color` varchar(255) NOT NULL,
+  `sortorder` int(11) NOT NULL,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+

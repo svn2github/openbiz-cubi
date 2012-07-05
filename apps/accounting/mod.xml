@@ -6,10 +6,10 @@
   Version $Id$
 -->
 <Module Name="accounting" 
-		Description="Financial Accounting Module" 
-		Version="0.1" 
+		Description="Accounting Module Description" 
+		Version="0.2" 
 		OpenbizVersion="3.0" 
-		Author="System, Admin"
+		Author="Jixian Wang"
 		LoadHandler="AccountingLoadHandler.php" >
 	<ACL>
 		<Resource Name="accounting">
@@ -33,7 +33,7 @@
 	        			IconImage="spacer.gif" 
 	        			IconCssClass="icon_accounting" 
 	        			Order="50" 
-	        			Access="accounting.Access" >
+	        			Access="" >
 	        			
 				<MenuItem Name="accounting_book_manage" 
 		        			Title="Book Manage" 	        			
@@ -42,7 +42,7 @@
 		        			IconImage="spacer.gif" 
 		        			IconCssClass="" 
 		        			Order="50" 
-		        			Access="accounting.Access" >
+		        			Access="" >
 						<MenuItem Name="accounting_book_detail" 
 				        			Title="Book Detail" 	        			
 				        			Description="Detail of Book" 
@@ -50,7 +50,7 @@
 				        			IconImage="spacer.gif" 
 				        			IconCssClass="" 
 				        			Order="50" 
-				        			Access="accounting.Access" />
+				        			Access="" />
 		        </MenuItem>		
 	        			
 				<MenuItem Name="accounting_book_type" 
@@ -60,6 +60,34 @@
 		        			IconImage="spacer.gif" 
 		        			IconCssClass="" 
 		        			Order="60" 
+		        			Access="" >
+		        </MenuItem>		
+	        			
+				<MenuItem Name="accounting_record_manage" 
+		        			Title="Record Manage" 	        			
+		        			Description="Manage of Record" 
+		        			URL="{APP_INDEX}/accounting/accounting_record_manage" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="70" 
+		        			Access="accounting.Access" >
+						<MenuItem Name="accounting_record_detail" 
+				        			Title="Record Detail" 	        			
+				        			Description="Detail of Record" 
+				        			URL="{APP_INDEX}/accounting/accounting_record_detail" 
+				        			IconImage="spacer.gif" 
+				        			IconCssClass="" 
+				        			Order="50" 
+				        			Access="accounting.Access" />
+		        </MenuItem>		
+	        			
+				<MenuItem Name="accounting_record_type" 
+		        			Title="Record Type" 	        			
+		        			Description="Type of Record" 
+		        			URL="{APP_INDEX}/accounting/accounting_record_type" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="80" 
 		        			Access="accounting.Access" >
 		        </MenuItem>		
 			</MenuItem>

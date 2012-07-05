@@ -7,7 +7,7 @@
 -->
 <MenuWidget Name="DashboardForm" 
 		Title="Accounting"
-		Description="Financial Accounting Module"  
+		Description="Accounting Module Description"  
 		Class="menu.widget.MenuWidget" 
 		CssCLass="accounting" 
 		BizDataObj="menu.do.MenuTreeDO" 
