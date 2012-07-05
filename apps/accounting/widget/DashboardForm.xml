@@ -7,7 +7,7 @@
 -->
 <MenuWidget Name="DashboardForm" 
 		Title="Accounting"
-		Description="Accounting Module Description"  
+		Description="Openbiz Accounting Software. \nDesigned for financial accounting data for small business."  
 		Class="menu.widget.MenuWidget" 
 		CssCLass="accounting" 
 		BizDataObj="menu.do.MenuTreeDO" 
