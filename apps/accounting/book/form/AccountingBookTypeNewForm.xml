@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="AccountingBookTypeNewForm" 
+			Class="EasyForm"			  
+			FormType="New" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/accounting/images/icon_mod_accounting_book_type_add.png"
+			Title="New Account books Type" 
+			Description="Please fill in below field to create a new data type."
+			BizDataObj="accounting.book.do.AccountingBookTypeDO" 
+			PageSize="10" 
+			DefaultForm="Y" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_edit.tpl.html" 
+			EventName="AccountingBook" 
+			MessageFile="AccountingBook.ini" 
+			Access="accounting.Manage">				
+    <DataPanel>
+        <Element Name="fld_name" 
+        		ElementSet="General" 
+        		DefaultValue="New Accounting Type" 
+        		Class="InputText" 
+        		FieldName="name" 
+        		Label="Name"   />	
+        <Element Name="fld_description" 
+        		ElementSet="General" 
+        		Class="Textarea" 
+        		FieldName="description" 
+        		Label="Description" />	
+        <Element Name="fld_color_code" 
+        		ElementSet="General" 
+        		Class="ColorPicker" 
+				FieldName="color" 
+				Label="Color Code"  
+				AllowURLParam="N" />	        
+        <Element Name="fld_published" 
+        		ElementSet="Miscellaneous" 
+        		Class="Listbox" 
+        		KeepCookie="Y" 
+        		SelectFrom="common.lov.CommLOV(Published)"  
+        		DefaultValue="1" 
+        		FieldName="group_perm" 
+        		Label="Group Share"  />
+        <Element Name="fld_published_other" 
+        		ElementSet="Miscellaneous" 
+        		Class="Listbox" 
+        		KeepCookie="Y" 
+        		SelectFrom="common.lov.CommLOV(Published)"  
+        		DefaultValue="0" 
+        		FieldName="other_perm" 
+        		Label="Other Group"  />	
+        <Element Name="fld_sortorder" 
+        		ElementSet="Miscellaneous" 
+        		Class="Listbox" 
+        		SelectFrom="common.lov.CommLOV(Order)" 
+        		DefaultValue="50" 
+        		FieldName="sortorder" 
+        		Label="Ordering"  />	        	
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" 
+        		Class="Button" 
+        		Text="Save" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" 
+            			EventLogMsg="" 
+            			Event="onclick" 
+            			Function="InsertRecord()" 
+            			RedirectPage="form=accounting.book.form.AccountingBookTypeDetailForm&amp;fld:Id={@accounting.book.do.AccountingBookTypeDO:Field[Id].Value}"  
+            			ShortcutKey="Ctrl+Enter" 
+            			ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" 
+        		Class="Button" 
+        		Text="Cancel" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" 
+            			Event="onclick" 
+            			Function="SwitchForm()"  
+            			ShortcutKey="Escape" 
+            			ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel/>
+    <SearchPanel/>    
+</EasyForm>

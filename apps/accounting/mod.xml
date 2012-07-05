@@ -1,0 +1,75 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<Module Name="accounting" 
+		Description="Financial Accounting Module" 
+		Version="0.1" 
+		OpenbizVersion="3.0" 
+		Author="System, Admin"
+		LoadHandler="AccountingLoadHandler.php" >
+	<ACL>
+		<Resource Name="accounting">
+			<Action Name="Access" 
+					Description="Data access permission of accounting"/>
+			<Action Name="Manage" 
+					Description="Data manage permission of accounting"/>
+		</Resource>
+	</ACL>
+	<Menu>
+		<MenuItem Name="accounting" 
+				Title="Accounting" 
+				Description="" 
+				URL="{APP_INDEX}/accounting/dashboard" 
+				Order="50" 
+				Access="accounting.Access">		
+	        <MenuItem Name="accounting_book" 
+	        			Title="Book" 	        			
+	        			Description="" 
+	        			URL="" 
+	        			IconImage="spacer.gif" 
+	        			IconCssClass="icon_accounting" 
+	        			Order="50" 
+	        			Access="accounting.Access" >
+	        			
+				<MenuItem Name="accounting_book_manage" 
+		        			Title="Book Manage" 	        			
+		        			Description="Manage of Book" 
+		        			URL="{APP_INDEX}/accounting/accounting_book_manage" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="50" 
+		        			Access="accounting.Access" >
+						<MenuItem Name="accounting_book_detail" 
+				        			Title="Book Detail" 	        			
+				        			Description="Detail of Book" 
+				        			URL="{APP_INDEX}/accounting/accounting_book_detail" 
+				        			IconImage="spacer.gif" 
+				        			IconCssClass="" 
+				        			Order="50" 
+				        			Access="accounting.Access" />
+		        </MenuItem>		
+	        			
+				<MenuItem Name="accounting_book_type" 
+		        			Title="Book Type" 	        			
+		        			Description="Type of Book" 
+		        			URL="{APP_INDEX}/accounting/accounting_book_type" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="60" 
+		        			Access="accounting.Access" >
+		        </MenuItem>		
+			</MenuItem>
+		</MenuItem>	
+	</Menu>
+	<Dependency>
+		<Module Name="system" /> 
+		<Module Name="menu" /> 
+	</Dependency>	
+	<ChangeLog>
+	    
+	</ChangeLog>    
+</Module>

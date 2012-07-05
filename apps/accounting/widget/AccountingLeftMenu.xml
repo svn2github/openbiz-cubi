@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<MenuWidget Name="AccountingLeftMenu" 
+		Title="Accounting" 
+		Class="menu.widget.MenuWidget" 
+		CssCLass="accounting" 
+		BizDataObj="menu.do.MenuTreeDO" 
+		SearchRule="[PId]='accounting'" 
+		GlobalSearchRule="[published] = 1" 
+		MenuDeep="2" 
+		TemplateEngine="Smarty" 
+		TemplateFile="left_menu.tpl" 
+		CacheLifeTime="0">
+</MenuWidget>
