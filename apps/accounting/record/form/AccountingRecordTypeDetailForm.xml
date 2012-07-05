@@ -54,26 +54,7 @@
         			FieldName="color" 
         			Label="Color Code" 
         			AllowURLParam="N" />       	
-        	<Element Name="fld_published" 
-        			ElementSet="General" 
-        			Class="LabelList" 
-        			SelectFrom="common.lov.CommLOV(Published)" 
-        			FieldName="group_perm" 
-        			Label="Group Share"  
-        			Sortable="Y" 
-        			AllowURLParam="N" 
-        			Translatable="N"
-        			OnEventLog="N" />
-        	<Element Name="fld_published_other" 
-        			ElementSet="General" 
-        			Class="LabelList" 
-        			SelectFrom="common.lov.CommLOV(Published)" 
-        			FieldName="other_perm" 
-        			Label="Other Group"  
-        			Sortable="Y" 
-        			AllowURLParam="N" 
-        			Translatable="N" 
-        			OnEventLog="N" />	
+        		
         	<Element Name="fld_sortorder" 
         			ElementSet="General"  
         			Class="LabelText" 
