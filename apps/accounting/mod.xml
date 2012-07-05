@@ -63,6 +63,16 @@
 		        			Access="" >
 		        </MenuItem>		
 	        			
+					
+			</MenuItem>
+			<MenuItem Name="accounting_accounting" 
+	        			Title="Accounting" 	        			
+	        			Description="" 
+	        			URL="" 
+	        			IconImage="spacer.gif" 
+	        			IconCssClass="icon_accounting" 
+	        			Order="60" 
+	        			Access="" >
 				<MenuItem Name="accounting_record_manage" 
 		        			Title="Record Manage" 	        			
 		        			Description="Manage of Record" 
@@ -89,8 +99,27 @@
 		        			IconCssClass="" 
 		        			Order="80" 
 		        			Access="accounting.Access" >
-		        </MenuItem>		
+		        </MenuItem>	
 			</MenuItem>
+			
+			<MenuItem Name="accounting_statsitics" 
+	        			Title="Statistics" 	        			
+	        			Description="" 
+	        			URL="" 
+	        			IconImage="spacer.gif" 
+	        			IconCssClass="icon_accounting" 
+	        			Order="70" 
+	        			Access="" >
+				<MenuItem Name="accounting_statsitics_manage" 
+		        			Title="Record Manage" 	        			
+		        			Description="Manage of Record" 
+		        			URL="{APP_INDEX}/accounting/accounting_statistics" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="70" 
+		        			Access="accounting.Access" >
+		        </MenuItem>
+		    </MenuItem>
 		</MenuItem>	
 	</Menu>
 	<Dependency>
