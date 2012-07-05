@@ -11,7 +11,7 @@
 			jsClass="Openbiz.TableForm" 
 			Icon="{RESOURCE_URL}/accounting/images/icon_mod_accounting_record_list.png"
 			Title="Account records Management" 
-			Description="Accounting Records" 
+			Description="Accounting Record Description" 
 			BizDataObj="accounting.record.do.AccountingRecordDO" 
 			PageSize="10" 
 			DefaultForm="Y" 
@@ -33,25 +33,9 @@
         			Sortable="Y" 
         			AllowURLParam="N" 
         			Link="javascript:;" />   
-		<Element Name="fld_share" Class="ColumnShare" 
-				MyPrivateImg="{RESOURCE_URL}/accounting/images/icon_accounting_private.gif"
-				MySharedImg="{RESOURCE_URL}/accounting/images/icon_accounting_shared.gif" 
-				MyAssignedImg="{RESOURCE_URL}/accounting/images/icon_accounting_assigned.gif"
-				MyDistributedImg="{RESOURCE_URL}/accounting/images/icon_accounting_distributed.gif" 
-				GroupSharedImg="{RESOURCE_URL}/accounting/images/icon_accounting_shared_group.gif"
-				OtherSharedImg="{RESOURCE_URL}/accounting/images/icon_accounting_shared_other.gif"
-				FieldName="create_by" 
-				Label="Share"  
-				Sortable="Y" 
-				AllowURLParam="N" 
-				Translatable="N" 
-				OnEventLog="N" 
-				Link="javascript:;">
-			<EventHandler Name="fld_share_onclick" 
-							Event="onclick" 
-							Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
-		</Element>
 			        			     
+   
+    
    
     
 		<Element Name="fld_name" 
@@ -287,17 +271,6 @@
         
     </NavPanel> 
     <SearchPanel>
-		<!-- Data Permission Filter -->  
-		<Element Name="data_filter" 
-    				BlankOption="All Data" 
-    				Cssclass="input_select_m" 
-    				Class="common.element.ShareDataFilter" 
-    				FieldName="create_by" 
-    				SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
-            <EventHandler Name="datafilter_onchange" 
-            				Event="onchange" 
-            				Function="RunSearch()"/>
-        </Element>  
 	
 		<Element Name="qry_name" 
 					Class="AutoSuggest" 

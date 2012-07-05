@@ -11,7 +11,7 @@
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/accounting/images/icon_mod_accounting_record_add.png"
 			Title="New Account records" 
-			Description="Accounting Records" 
+			Description="Accounting Record Description" 
 			BizDataObj="accounting.record.do.AccountingRecordDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_edit.tpl.html" 
@@ -30,6 +30,10 @@
 				AllowURLParam="N" />
   				
 				
+       								   	
+
+		
+
        								   	
 
 		
@@ -56,7 +60,7 @@
 		
 
        	<Element Name="fld_credit" 
-       				ElementSet="General" 
+       				ElementSet="Transcation" 
        				Class="InputText" 
        				FieldName="credit" 
        				Label="Credit" 
@@ -67,7 +71,7 @@
 		
 
        	<Element Name="fld_debit" 
-       				ElementSet="General" 
+       				ElementSet="Transcation" 
        				Class="InputText" 
        				FieldName="debit" 
        				Label="Debit" 
@@ -137,23 +141,6 @@
 
 		
 
-  
-		<Element Name="fld_published" 
-					Class="Listbox" 
-					ElementSet="Miscellaneous" 
-					KeepCookie="Y" 
-					SelectFrom="common.lov.CommLOV(Published)" 
-					DefaultValue="1" 
-					FieldName="group_perm" 
-					Label="Group Share"  />
-		<Element Name="fld_published_other" 
-					Class="Listbox" 
-					ElementSet="Miscellaneous" 
-					KeepCookie="Y" 
-					SelectFrom="common.lov.CommLOV(Published)" 
-					DefaultValue="0" 
-					FieldName="other_perm" 
-					Label="Other Group"  />
     </DataPanel>
     <ActionPanel>       
         	        <Element Name="btn_save" 

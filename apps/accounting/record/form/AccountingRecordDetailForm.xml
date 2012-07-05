@@ -11,7 +11,7 @@
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/accounting/images/icon_mod_accounting_record_detail.png"
 			Title="Account records Detail" 
-			Description="Accounting Records" 
+			Description="Accounting Record Description" 
 			BizDataObj="accounting.record.do.AccountingRecordDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_detail_adv.tpl.html" 
@@ -53,6 +53,14 @@
        				Label="Id"  
        				AllowURLParam="Y"/>  
         				         				  				      				
+       	<Element Name="fld_type_id" 
+       				Class="LabelText" 
+       				ElementSet="General"
+       				Hidden="Y" 
+       				FieldName="type_id" 
+       				Label="Type"  
+       				AllowURLParam="N"/>     
+        				         				  				      				
        	<Element Name="fld_name" 
        				ElementSet="General"
        				Class="LabelText" 
@@ -70,7 +78,7 @@
 					/>
         				         				  				      				
        	<Element Name="fld_credit" 
-       				ElementSet="General"
+       				ElementSet="Transcation"
        				Class="LabelText" 
        				FieldName="credit" 
        				Label="Credit" 
@@ -78,7 +86,7 @@
 					/>
         				         				  				      				
        	<Element Name="fld_debit" 
-       				ElementSet="General"
+       				ElementSet="Transcation"
        				Class="LabelText" 
        				FieldName="debit" 
        				Label="Debit" 
@@ -195,22 +203,6 @@
 					
     </DataPanel>
     <ActionPanel>  
-    	  
-    	 <Element Name="btn_share" 
-    	 			Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
-    	 			Class="Button"   
-    	 			Text="Share" 
-    	 			CssClass="button_gray_share" 
-    	 			Description="Share">
-			<EventHandler Name="btn_update_onclick" 
-							Event="onclick" 
-							Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})" />
-        </Element>  
-        <Element Name="btn_spacer_for_share" 
-	        		Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
-	        		Class="Spacer" 
-	        		Width="10" />
-    	  
     	
         <Element Name="btn_new" 
         			Class="Button" 

@@ -6,8 +6,8 @@
   Version $Id$
 -->
 <BizDataObj Name="AccountingRecordTypeDO" 
-	Description="Accounting Record Type" 
-	DataPermControl="Y" 
+	Description="Accounting Record Type Description" 
+	DataPermControl="N" 
 	Class="BizDataObj" 
 	DBName="Default" 
 	Table="accounting_record_type" 
@@ -39,25 +39,6 @@
 				Column="sortorder"  
 				Description="Sort Order"	  
 				Required="Y" />
-	    
-		<BizField Name="group_id" 
-				Column="group_id"	
-				Description="Group Id"	 
-				ValueOnCreate="{@profile:default_group}"  
-				Required="N" 
-				Type="Number"/>
-		<BizField Name="group_perm" 
-				Column="group_perm"	
-				Description="Group Permission" 
-				ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   
-				Required="N" 
-				Type="Number"/>
-		<BizField Name="other_perm" 
-				Column="other_perm"	
-				Description="Other Group Permission" 
-				ValueOnCreate="1"   
-				Required="N" 
-				Type="Number"/>   		
 	    
 		<BizField Name="create_by" 
 				Column="create_by" 	

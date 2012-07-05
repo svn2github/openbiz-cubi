@@ -6,7 +6,7 @@
   Version $Id$
 -->
 <EasyView Name="DashboardView" 
-	Description="Dashboard View of Accounting Records" 
+	Description="Dashboard View of Accounting Record Description" 
 	Class="EasyView" 	
 	Access="" 
 	TemplateEngine="Smarty" 

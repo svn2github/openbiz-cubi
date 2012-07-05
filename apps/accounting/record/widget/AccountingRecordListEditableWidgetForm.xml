@@ -29,24 +29,7 @@
         			Sortable="Y" 
         			AllowURLParam="N" 
         			Link="javascript:;" />   
-		<Element Name="fld_share" Class="ColumnShare" 
-				MyPrivateImg="{RESOURCE_URL}/accounting/images/icon_accounting_private.gif"
-				MySharedImg="{RESOURCE_URL}/accounting/images/icon_accounting_shared.gif" 
-				MyAssignedImg="{RESOURCE_URL}/accounting/images/icon_accounting_assigned.gif"
-				MyDistributedImg="{RESOURCE_URL}/accounting/images/icon_accounting_distributed.gif" 
-				GroupSharedImg="{RESOURCE_URL}/accounting/images/icon_accounting_shared_group.gif"
-				OtherSharedImg="{RESOURCE_URL}/accounting/images/icon_accounting_shared_other.gif"
-				FieldName="create_by" 
-				Label="Share"  
-				Sortable="Y" 
-				AllowURLParam="N" 
-				Translatable="N" 
-				OnEventLog="N" 
-				Link="javascript:;">
-			<EventHandler Name="fld_share_onclick" 
-							Event="onclick" 
-							Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
-		</Element>
+       
        
 		<Element Name="fld_name" 
         			Class="ColumnText" 

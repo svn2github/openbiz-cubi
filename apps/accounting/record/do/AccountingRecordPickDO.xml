@@ -6,8 +6,8 @@
   Version $Id$
 -->
 <BizDataObj Name="AccountingRecordPickDO" 
-		Description="Accounting Records" 
-		DataPermControl="Y"
+		Description="Accounting Record Description" 
+		DataPermControl="N"
 		Class="BizDataObj" 
 		DBName="Default" 
 		Table="accounting_record" 
@@ -27,6 +27,12 @@
 				Column="id"    
 				Required="N" 
 				Type="Number"/>
+		<BizField Name="type_id"		
+				Description="Type Id"	
+				Column="type_id" 
+				Type="Number"
+				Required="N" 
+				 />
 		<BizField Name="name"		
 				Description="Name"	
 				Column="name" 

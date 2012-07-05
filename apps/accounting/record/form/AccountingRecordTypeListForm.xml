@@ -245,17 +245,6 @@
     
     </NavPanel> 
     <SearchPanel>
-    <Element Name="data_filter"  
-    		BlankOption="All Data" 
-    		cssclass="input_select_w" 
-    		Class="common.element.ShareDataFilter" 
-    		FieldName="create_by" 
-    		Label="" 
-    		SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
-            <EventHandler Name="datafilter_onchange" 
-            		Event="onchange" 
-            		Function="RunSearch()"/>
-        </Element>
         
         <Element Name="qry_name"  
         		Class="AutoSuggest" 

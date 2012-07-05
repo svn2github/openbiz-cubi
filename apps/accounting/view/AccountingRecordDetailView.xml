@@ -6,7 +6,7 @@
   Version $Id$
 -->
 <EasyView Name="AccountingRecordDetailView" 
-	Description="Detail View of Accounting Records" 
+	Description="Detail View of Accounting Record Description" 
 	Class="EasyView" 	
 	Access="accounting.Access" 
 	TemplateEngine="Smarty" 
