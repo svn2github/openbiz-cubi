@@ -10,7 +10,7 @@
 			FormType="List" 
 			Icon="{RESOURCE_URL}/accounting/images/icon_mod_accounting_book_list.png"
 			Title="Please select a Account books" 
-			Description="To select a account books click on a row and click to Select button" 
+			Description="To select a account_books click on a row and click to Select button" 
 			jsClass="Openbiz.TableForm" 
 			BizDataObj="accounting.book.do.AccountingBookPickDO" 
 			PageSize="10" 

@@ -25,23 +25,17 @@
         		Class="RowCheckbox"  
         		Label="" 
         		FieldName="Id" />
-        <Element Name="fld_share" 
-        		Class="ColumnShare" 
-				MyPrivateImg="{RESOURCE_URL}/accounting/images/icon_data_type_private.gif"
-				MySharedImg="{RESOURCE_URL}/accounting/images/icon_data_type_shared.gif"  
-				GroupSharedImg="{RESOURCE_URL}/accounting/images/icon_data_type_shared_group.gif"
-				OtherSharedImg="{RESOURCE_URL}/accounting/images/icon_data_type_shared_other.gif"				
-				FieldName="create_by" 
-				Label="Share"  
+		<Element Name="fld_share" 
+        		Class="ColumnImage" 
+				Text="{RESOURCE_URL}/accounting/images/icon_data_type_private.gif"  
+				FieldName="" 
+				Label="Icon"  
 				Sortable="Y" 
 				AllowURLParam="N" 
 				Translatable="N" 
 				OnEventLog="N" 
-				Link="javascript:;">
-			<EventHandler Name="fld_share_onclick" 
-							Event="onclick" 
-							Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
-		</Element>
+				Link="javascript:;"></Element>        		
+        
         <Element Name="fld_Id" 
         		Class="Hidden" 
         		Hidden="Y" 

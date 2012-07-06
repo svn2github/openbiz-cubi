@@ -5,174 +5,30 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="AccountingRecordEditForm" 
-			Class="changelog.form.ChangeLogForm" 
-			FormType="Edit" 
-			jsClass="Openbiz.Form" 
-			Icon="{RESOURCE_URL}/accounting/images/icon_mod_accounting_record_edit.png"
-			Title="Edit Account records" 
-			Description="Accounting Record Description" 
-			BizDataObj="accounting.record.do.AccountingRecordDO" 
-			TemplateEngine="Smarty" 
-			TemplateFile="form_edit.tpl.html" 
-			MessageFile="AccountingRecord.ini" 
-			Access="accounting.Manage">
-    <DataPanel>
-    
-		<Element Name="fld_type_id" 
-				ElementSet="General" 
-				Class="common.lib.TypeSelector" 
-				FieldName="type_id" 
-				Label="Type" 
-				KeepCookie="Y" 
-				SelectFrom="accounting.record.do.AccountingRecordTypeDO[name:Id:color]" 
-				AllowURLParam="N" />
-  	  
-       								   	
-
-		
-
-       								   	
-
-		
-
-       	<Element Name="fld_name" 
-       				ElementSet="General"
-       				Class="InputText" 
-       				FieldName="name" 
-       				Label="Name" 
-       				AllowURLParam="N"
-       				/>
-    
-       								   	
-
-		
-
-       								   	
-
-       	 	
-		<Element Name="fld_description" 
-					Class="Textarea" 
-					ElementSet="General"
-					FieldName="description" 
-					Label="Description"  />		
-		
-
-       	<Element Name="fld_credit" 
-       				ElementSet="Transcation"
-       				Class="InputText" 
-       				FieldName="credit" 
-       				Label="Credit" 
-       				AllowURLParam="N"
-       				/>
-    
-       								   	
-
-		
-
-       	<Element Name="fld_debit" 
-       				ElementSet="Transcation"
-       				Class="InputText" 
-       				FieldName="debit" 
-       				Label="Debit" 
-       				AllowURLParam="N"
-       				/>
-    
-       								   	
-
-		
-
-       	<Element Name="fld_trans_id" 
-       				ElementSet="Transcation"
-       				Class="InputText" 
-       				FieldName="trans_id" 
-       				Label="Unique ID" 
-       				AllowURLParam="N"
-       				/>
-    
-       								   	
-
-		
-
-       	<Element Name="fld_trans_date" 
-       				ElementSet="Transcation"
-       				Class="InputDatetime" 
-       				FieldName="trans_date" 
-       				Label="Date" 
-       				AllowURLParam="N"
-       				/>
-    
-       								   	
-
-		
-
-       	<Element Name="fld_trans_type" 
-       				ElementSet="Transcation"
-       				Class="InputText" 
-       				FieldName="trans_type" 
-       				Label="Type" 
-       				AllowURLParam="N"
-       				/>
-    
-       								   	
-
-		
-
-       	<Element Name="fld_trans_proof" 
-       				ElementSet="Transcation"
-       				Class="InputText" 
-       				FieldName="trans_proof" 
-       				Label="Proof" 
-       				AllowURLParam="N"
-       				/>
-    
-       								   	
-
-		
-
-       								   	
-
-		
-
-       								   	
-
-		
-
-       								   	
-
-		
-
-       								   	
-
-		
-
-    </DataPanel>
-    <ActionPanel>       
-        <Element Name="btn_save" 
-        			Class="Button" 
-        			Text="Save" 
-        			CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" 
-            			EventLogMsg="" 
-            			Event="onclick" 
-            			Function="UpdateRecord()" 
-            			RedirectPage="{APP_INDEX}/accounting/accounting_record_detail/{@accounting.record.do.AccountingRecordDO:Field[Id].Value}"  
-            			ShortcutKey="Ctrl+Enter" 
-            			ContextMenu="Save" />
-        </Element>
-        <Element Name="btn_cancel" 
-        			Class="Button" 
-        			Text="Cancel" 
-        			CssClass="button_gray_m">
-            <EventHandler Name="cancel_onclick" 
-            			Event="onclick" 
-            			Function="SwitchForm()"  
-            			ShortcutKey="Escape" 
-            			ContextMenu="Cancel"/>
-        </Element>      
-    </ActionPanel> 
-    <NavPanel>
-    </NavPanel> 
-    <SearchPanel>
+<EasyForm Name="AccountingRecordEditForm" Class="changelog.form.ChangeLogForm" FormType="Edit" jsClass="Openbiz.Form" Icon="{RESOURCE_URL}/accounting/images/icon_mod_accounting_record_edit.png" Title="Edit Account records" Description="Accounting Record Description" BizDataObj="accounting.record.do.AccountingRecordDO" TemplateEngine="Smarty" TemplateFile="form_edit.tpl.html" MessageFile="AccountingRecord.ini" Access="accounting.Manage">
+  <DataPanel>
+    <Element Name="fld_account_book" ElementSet="General" Class="Hidden" FieldName="accountbook_id" Label="Account Book"/>
+    <Element Name="fld_account_book_name" ElementSet="General" Class="InputPicker" FieldName="account_book_name" Label="Account Book" Enabled="N" UpdateForm="Y" ValuePicker="accounting.book.widget.AccountingBookSinglePickWidgetForm" PickerMap="fld_account_book:fld_Id,fld_account_book_name:fld_name" DefaultValue="{@:Elem[fld_account_book].Value&gt;0?@:Field[account_book_name].Value:''}"/>
+    <Element Name="fld_type_id" ElementSet="General" Class="common.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="accounting.record.do.AccountingRecordTypeDO[name:Id:color]" AllowURLParam="N"/>
+    <Element Name="fld_name" ElementSet="General" Class="InputText" FieldName="name" Label="Name" AllowURLParam="N"/>
+    <Element Name="fld_description" Class="Textarea" ElementSet="General" FieldName="description" Label="Description"/>
+    <Element Name="fld_credit" ElementSet="Transcation" Class="InputText" FieldName="credit" Label="Credit" AllowURLParam="N"/>
+    <Element Name="fld_debit" ElementSet="Transcation" Class="InputText" FieldName="debit" Label="Debit" AllowURLParam="N"/>
+    <Element Name="fld_trans_id" ElementSet="Transcation" Class="InputText" FieldName="trans_id" Label="Unique ID" AllowURLParam="N"/>
+    <Element Name="fld_trans_date" ElementSet="Transcation" Class="InputDatetime" FieldName="trans_date" Label="Date" AllowURLParam="N"/>
+    <Element Name="fld_trans_type" ElementSet="Transcation" Class="InputText" FieldName="trans_type" Label="Type" AllowURLParam="N"/>
+    <Element Name="fld_trans_proof" ElementSet="Transcation" Class="InputText" FieldName="trans_proof" Label="Proof" AllowURLParam="N"/>
+  </DataPanel>
+  <ActionPanel>
+    <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+      <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="UpdateRecord()" RedirectPage="{APP_INDEX}/accounting/accounting_record_detail/{@accounting.record.do.AccountingRecordDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save"/>
+    </Element>
+    <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+      <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()" ShortcutKey="Escape" ContextMenu="Cancel"/>
+    </Element>
+  </ActionPanel>
+  <NavPanel>
+    </NavPanel>
+  <SearchPanel>
     </SearchPanel>
 </EasyForm>

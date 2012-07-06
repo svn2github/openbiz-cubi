@@ -11,7 +11,7 @@
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/accounting/images/icon_mod_accounting_book_add.png"
 			Title="Quick Add Account books" 
-			Description="Create a new account books and edit its content later." 
+			Description="Create a new account_books and edit its content later." 
 			BizDataObj="accounting.book.do.AccountingBookPickDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_data_quick_add.tpl.html" 

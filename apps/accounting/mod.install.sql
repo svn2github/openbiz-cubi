@@ -78,3 +78,6 @@ CREATE TABLE `accounting_record_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+
+
+ALTER TABLE `accounting_record` ADD `accountbook_id` int(11) NULL COMMENT 'FK for Account Book' AFTER `id`
