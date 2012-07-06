@@ -14,7 +14,7 @@
     <BizField Name="description" Description="Description" Column="description" Type="Text" Required="N"/>
     <BizField Name="credit" Description="Credit" Column="credit" Type="Number" Required="N"/>
     <BizField Name="debit" Description="Debit" Column="debit" Type="Number" Required="N"/>
-    <BizField Name="trans_id" Description="Unique Transcation ID" Column="trans_id" Type="Text" Required="N"/>
+    <BizField Name="trans_id" Description="Unique Transcation ID" Column="trans_id" Type="Text" ValueOnCreate="{strtoupper(uniqid('T'))}" Required="N"/>
     <BizField Name="trans_date" Description="Transcation Date" Column="trans_date" Type="Datetime" Required="N"/>
     <BizField Name="trans_type" Description="credit(out) / debit (in)" Column="trans_type" Type="Text" Required="N"/>
     <BizField Name="trans_proof" Description="Proof for this transcation" Column="trans_proof" Type="Text" Required="N"/>

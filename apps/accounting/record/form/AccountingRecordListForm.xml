@@ -149,36 +149,6 @@
             				ContextMenu="Edit" />
         </Element>
         
-        <!-- Copy Selected Record Button -->
-        <Element Name="btn_copy" 
-        			Class="Button" 
-        			Text="Copy" 
-        			CssClass="button_gray_m" 
-        			Description="Copy record (Ctrl+C)" 
-        			Access="accounting.Manage">
-            <EventHandler Name="btn_copy_onclick" 
-            				Event="onclick" 
-            				EventLogMsg="" 
-            				Function="CopyRecord()" 
-            				RedirectPage="form=accounting.record.form.AccountingRecordCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
-            				ShortcutKey="Ctrl+C" 
-            				ContextMenu="Copy"/>
-        </Element>
-        
-        <!-- Delete Selected Record Button -->
-        <Element Name="btn_delete" 
-        			Class="Button" 
-        			Text="Delete" 
-        			CssClass="button_gray_m" 
-        			Description="Delete record"
-        			Access="accounting.Manage">
-            <EventHandler Name="del_onclick" 
-            				Event="onclick" 
-            				EventLogMsg="" 
-            				Function="DeleteRecord()" 
-            				ShortcutKey="Ctrl+Delete" 
-            				ContextMenu="Delete"/>
-        </Element>
         
         <!-- Export Records Button -->
         <Element Name="btn_excel" 

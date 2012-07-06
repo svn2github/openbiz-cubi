@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   
+	<TransType  Value="Credit" Text="Credit" Picture="{RESOURCE_URL}/accounting/images/icon_credit_small.png" />
+	<TransType  Value="Debit" Text="Debit" Picture="{RESOURCE_URL}/accounting/images/icon_debit_small.png" />
+	
+	<TransProof  Value="Taxed_Invoice" 	Text="Taxed Invoice"/>
+	<TransProof  Value="Invoice" 		Text="Invoice"/>
+	<TransProof  Value="Other" 			Text="Other"/>
+	
+
+</Selection>
