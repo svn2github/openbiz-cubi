@@ -19,7 +19,7 @@
 			Access="accounting.Manage">		
     <DataPanel>
 	<Element Name="fld_form_title" Class="LabelText" FieldName="name" Label="" Text="{@:Elem[fld_form_title].Value} " Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N"/>
-    <Element Name="fld_form_amount" Class="LabelText" FieldName="" Label="" Text="{@:Elem[fld_credit].Value?'-':'+'} {@:Elem[fld_credit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value):''} {@:Elem[fld_debit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_debit].Value):''}" Width="500" style="font-size:24px;line-height:24px;{@:Elem[fld_debit].Value?'color:#00cc00':'color:#ff0000'}" AllowURLParam="N"/>
+    <Element Name="fld_form_amount" Class="LabelText" FieldName="" Label="" Text="{@:Elem[fld_credit].Value?'-':'+'} {@:Elem[fld_credit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value):''} {@:Elem[fld_debit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_debit].Value):''}" Width="500" style="font-size:24px;line-height:24px;{@:Elem[fld_debit].Value?'color:#00AA00':'color:#ff0000'}" AllowURLParam="N"/>
     <Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
     <Element Name="fld_form_description" BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="accounting.record.do.AccountingRecordTypeDO[name:Id:color]" AllowURLParam="N"/>
     
@@ -33,10 +33,10 @@
 
     <Element Name="fld_trans_type" ElementSet="Transcation" Class="LabelList" SelectFrom="accounting.record.lov.TransLOV(TransType)" FieldName="trans_type" Label="Type" AllowURLParam="N"/>    
     <Element Name="fld_trans_proof" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'N':'Y'}" ElementSet="Transcation" Class="LabelList" SelectFrom="accounting.record.lov.TransLOV(TransProof)" FieldName="trans_proof" Label="Proof" AllowURLParam="N"/>
-    <Element Name="fld_trans_amount" Class="LabelText" FieldName="" Label="Amount" Text="{@:Elem[fld_credit].Value?'-':'+'} {@:Elem[fld_credit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value):''} {@:Elem[fld_debit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_debit].Value):''}" Width="500" style="{@:Elem[fld_debit].Value?'color:#00cc00':'color:#ff0000'}" AllowURLParam="N"/>
+    <Element Name="fld_trans_amount" Class="LabelText" FieldName="" Label="Amount" Text="{@:Elem[fld_credit].Value?'-':'+'} {@:Elem[fld_credit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value):''} {@:Elem[fld_debit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_debit].Value):''}" Width="500" style="{@:Elem[fld_debit].Value?'color:#00AA00':'color:#ff0000'}" AllowURLParam="N"/>
     
     <Element Name="fld_credit" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'N':'Y'}" Style="color:#ff0000" Text="- {BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value)}" ElementSet="Transcation" Class="LabelText" FieldName="credit" Label="Credit" AllowURLParam="N"/>
-    <Element Name="fld_debit" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'Y':'N'}" Style="color:#00cc00" Text="+ {BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_debit].Value)}" ElementSet="Transcation" Class="LabelText" FieldName="debit" Label="Debit" AllowURLParam="N"/>    
+    <Element Name="fld_debit" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'Y':'N'}" Style="color:#00AA00" Text="+ {BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_debit].Value)}" ElementSet="Transcation" Class="LabelText" FieldName="debit" Label="Debit" AllowURLParam="N"/>    
     
     
     <Element Name="fld_description" ElementSet="Transcation" Class="LabelTextarea" FieldName="description" Label="Description" AllowURLParam="N"/>
