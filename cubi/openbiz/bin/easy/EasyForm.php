@@ -800,14 +800,14 @@ class EasyForm extends MetaObject implements iSessionObject
             {
                 $element = $this->m_DataPanel->getByField($fieldName);
                 if($element->m_AllowURLParam=='Y')
-                {
+                {                	
                 	if(!$this->getDataObj())return;
                     if($this->getDataObj()->getField($fieldName)->checkValueType($val))
                     {
-                        //$this->setFixSearchRule("[$fldName]='$val'");
-                        $queryString = QueryStringParam::formatQueryString("[$fieldName]", "=", $val);
-                        $this->setFixSearchRule($queryString,false);
-                        $this->m_SearchRuleBindValues = QueryStringParam::getBindValues();
+                        $this->setFixSearchRule("[$fieldName]='$val'");
+                        //$queryString = QueryStringParam::formatQueryString("[$fieldName]", "=", $val);
+                        //$this->setFixSearchRule($queryString,false);
+                        //$this->m_SearchRuleBindValues = QueryStringParam::getBindValues();
                     }
                 }
             }
