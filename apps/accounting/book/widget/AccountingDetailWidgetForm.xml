@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="AccountingDetailWidgetForm" Class="AccountingDetailWidgetForm" FormType="Detail" jsClass="Openbiz.Form" Icon="" Title=""  BizDataObj="accounting.book.do.AccountingBookDO" TemplateEngine="Smarty" TemplateFile="widget_account_detail.tpl.html" MessageFile="AccountingBook.ini" Access="accounting.Access">
+  <DataPanel>
+    <Element Name="fld_Id" Class="LabelText" ElementSet="General" Hidden="Y" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+    <Element Name="fld_aid" Class="LabelText" ElementSet="General" Hidden="Y" FieldName="aid" Label="Id" AllowURLParam="Y"/>
+    <Element Name="fld_form_title" Class="LabelText" FieldName="name" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N"/>  
+    <Element Name="fld_color" Class="RawData" FieldName="type_color" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
+    <Element Name="fld_form_description" BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="RawData" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="accounting.book.do.AccountingBookTypeDO[name:Id:color]" AllowURLParam="N"/>
+  
+    <Element Name="aid" Class="Hidden" Text="{$_REQUEST['aid']}" Label="Id" AllowURLParam="Y"/>
+  
+    <Element Name="fld_table_title" Class="LabelText" FieldName="name" Label="Summary" Link="{APP_INDEX}/accounting/accounting_book_detail/{@:Elem[fld_Id].Value}"  Width="500" style="" AllowURLParam="N"/>
+	<Element Name="fld_credit" 
+        			Text="{@:Elem[fld_credit].Value?'-':''} {@:Elem[fld_credit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value):'-- N/A --'}"        			
+        			Class="LabelText" 
+        			ElementSet="General"
+        			FieldName="total_credit" 
+        			Label="Total Credit" 
+        			Sortable="Y"
+        			Style="{@:Elem[fld_credit].Value?'color:#ff0000':'color:#AAAAAA'}"
+        			 />    
+        
+        <Element Name="fld_debit" 
+        			Text="{@:Elem[fld_debit].Value?'+':''}  {@:Elem[fld_debit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_debit].Value):'-- N/A --'}"
+        			Class="LabelText" 
+        			ElementSet="General"
+        			FieldName="total_debit" 
+        			Label="Total Debit" 
+        			Sortable="Y"
+        			Style="{@:Elem[fld_debit].Value?'color:#00AA00':'color:#AAAAAA'}"
+        			 />    
+        			 
+		<Element Name="fld_balance" 
+					Text="{@:Elem[fld_balance].Value &gt; 0?'+':''} {BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_balance].Value)}"
+					Style="text-decoration:underline;{@:Elem[fld_balance].Value &lt; 0?'color:#ff0000':'color:#006600'}"
+        			Class="LabelText" 
+        			ElementSet="General"
+        			FieldName="total_balance" 
+        			Label="Balance" 
+        			Sortable="Y"
+        			 />        
+  </DataPanel>
+  <ActionPanel>
+    </ActionPanel>
+  <NavPanel>
+    </NavPanel>
+  <SearchPanel>
+    </SearchPanel>
+</EasyForm>

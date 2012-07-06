@@ -55,8 +55,7 @@
     <Element Name="fld_create_time" Class="LabelText" ElementSet="Misc" FieldName="create_time" Label="Create Time" AllowURLParam="N" TabSet="Extra Information"/>
   </DataPanel>
   <ActionPanel>
-  	<Element Name="btn_manage_account_records" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button" CssClass="button_gray_w" Text="Manage" Access="accounting.Access">
-      <EventHandler Name="btn_manage_account_records_onclick" Event="onclick" Function="SwitchForm(accounting.book.form.AccountingBookEditAccountRecordsForm,{@:Elem[fld_Id].Value})"/>
+  	<Element Name="btn_manage_account_records" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="LabelText" CssClass="button_gray_w" Text="Manage" Access="accounting.Access" Link="{APP_INDEX}/accounting/accounting_record_manage/aid_{@:Elem[fld_Id].Value}">
     </Element>
     <Element Name="btn_spacer_for_manage" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Spacer" Width="10"/>
     

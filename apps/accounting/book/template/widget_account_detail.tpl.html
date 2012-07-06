@@ -1,0 +1,104 @@
+<div id="{$form.name}" name="{$form.name}">
+<link rel="stylesheet" href="{$js_url}/jquery-ui/ui-openbiz/jquery.css" type="text/css" />
+{literal}
+<style>
+.ui-tabs-panel .input_row{
+width:645px;
+padding-bottom:0px;
+}
+.ui-tabs-panel .odd{
+background-color:#efefef;
+width:645px;
+}
+table.input_row .element_set_panel .label_text{
+padding-top:4px;
+height:20px;
+
+}
+.ui-tabs-panel .input_row label {
+padding-left:20px;
+line-height:24px;
+}
+.ui-widget{
+font-size:auto;
+}
+.ui-widget-content
+{
+color:#666666;
+}
+
+.record_info_table
+{
+	width:700px;
+	padding-bottom:0px;
+	border-top:1px solid #cccccc;
+	border-right:1px solid #eeeeee;
+	border-left:1px solid #cccccc;
+}
+.record_info_table .label
+{
+	color:#666666;
+	width:100px;
+	background-color:#eeeeee;
+}
+.record_info_table .title
+{
+	color:#666666;
+	width:100px;
+	background-color:#eeeeee;
+	border-top:none;
+	border-bottom:1px solid #cccccc;
+	border-left:5px solid #cccccc;
+	padding-left:10px;
+}
+.record_info_table .data
+{
+	font-size:22px;
+	text-align:center;
+	line-height:50px;
+	height:50px;
+}
+.record_info_table td
+{
+	border-bottom:1px solid #cccccc;
+	border-right:1px solid #eeeeee;
+	line-height:20px;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:15px;
+	vertical-align:top;
+	padding-right:15px;
+	
+}
+
+</style>
+{/literal}
+{$dataPanel.aid.element}
+<table class="record_info_table" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:15px;" >
+		<tr>
+			<td class="title" style="background-color:#{$dataPanel.fld_color.element}"  colspan="2" >{$dataPanel.fld_table_title.element}</td>
+		
+			<td colspan="1" style="background-color:#{$dataPanel.fld_color.element}" >{$dataPanel.fld_form_description.element}</td>
+		</tr>
+		<tr>
+			<td class="label" style="background-color:#dddddd"><label>{$dataPanel.fld_credit.label}</label></td>
+			<td class="label" style="background-color:#dddddd"><label>{$dataPanel.fld_debit.label}</label></td>
+			<td class="label" style="font-weight:bold;"><label>{$dataPanel.fld_balance.label}</label></td>
+		</tr>
+		<tr>
+			<td class="data" style="background-color:#f5f5f5">{$dataPanel.fld_credit.element}</td>
+			<td class="data" style="background-color:#fefefe">{$dataPanel.fld_debit.element}</td>
+			<td class="data" style="">{$dataPanel.fld_balance.element}</td>
+		</tr>
+		
+		<!-- 
+		{if $dataPanel.fld_description}
+		<tr>
+			
+			<td colspan="3" >
+			{$dataPanel.fld_description.element}</td>
+		</tr>
+		{/if}
+		 -->
+	</table>
+</div>	
