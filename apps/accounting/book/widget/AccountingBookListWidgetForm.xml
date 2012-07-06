@@ -43,55 +43,46 @@
 				Translatable="N" 
 				OnEventLog="N" 
 				Link="javascript:;">
+			<EventHandler Name="fld_share_onclick" 
+							Event="onclick" 
+							Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>
-   
-    
-		<Element Name="fld_parent_id" 
-        			Class="ColumnText" 
-        			FieldName="parent_id" 
-        			Label="Parent"         			 
-        			Sortable="Y" 
-        			MaxLength="15"
-        			Link="{APP_INDEX}/accounting/accounting_book_detail/{@:Elem[fld_Id].Value}"        			
-        			 /> 
-        	
-   
-    
+
 		<Element Name="fld_name" 
         			Class="ColumnText" 
         			FieldName="name" 
-        			Label="Name" 
+        			Label="Name"
+        			Link="{APP_INDEX}/accounting/accounting_book_detail/{@:Elem[fld_Id].Value}"     
         			MaxLength="15"        			 
         			Sortable="Y"
-        			 />        			
+        			 />    
         	
-   
-    
-		<Element Name="fld_description" 
+        <Element Name="fld_credit" 
+        			Text="{@:Elem[fld_credit].Value?'-':''} {@:Elem[fld_credit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value):'-- N/A --'}"        			
         			Class="ColumnText" 
-        			FieldName="description" 
-        			Label="Description" 
-        			MaxLength="15"        			 
+        			FieldName="total_credit" 
+        			Label="Total Credit" 
         			Sortable="Y"
-        			 />        			
-        	
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
+        			Style="{@:Elem[fld_credit].Value?'color:#ff0000':'color:#AAAAAA'}"
+        			 />    
+        
+        <Element Name="fld_debit" 
+        			Text="{@:Elem[fld_debit].Value?'+':''}  {@:Elem[fld_debit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_debit].Value):'-- N/A --'}"
+        			Class="ColumnText" 
+        			FieldName="total_debit" 
+        			Label="Total Debit" 
+        			Sortable="Y"
+        			Style="{@:Elem[fld_debit].Value?'color:#00AA00':'color:#AAAAAA'}"
+        			 />    
+        			 
+		<Element Name="fld_balance" 
+					Text="{@:Elem[fld_balance].Value &gt; 0?'+':''}{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_balance].Value)}"
+					Style="font-weight:bold;{@:Elem[fld_balance].Value &lt; 0?'color:#ff0000':'color:#006600'}"
+        			Class="ColumnText" 
+        			FieldName="total_balance" 
+        			Label="Balance" 
+        			Sortable="Y"
+        			 />    
     
 		<Element Name="fld_color" 
 				Class="ColumnStyle" 
@@ -110,8 +101,7 @@
 				Sortable="Y" 
 				AllowURLParam="N" 
 				Translatable="N" 
-				OnEventLog="N" />						        
-  
+				OnEventLog="N" />
     </DataPanel>
     <ActionPanel /> 
     <NavPanel />     

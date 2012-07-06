@@ -8,9 +8,9 @@
 <BizDataObj Name="AccountingGlobalDO" Description="Accounting Global Summary" DataPermControl="Y" Class="BizDataObj" DBName="Default" Table="accounting_book" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="accounting.Superview" UpdateCondition="accounting.Superview" DeleteCondition="accounting.Superview">
   <BizFieldList>
     <BizField Name="Id" Description="Id" Column="id" Required="N" Type="Number"/>
-    <BizField Name="total_balance" SQLExpr="(SELECT SUM(`accounting_record`.`debit`)-SUM(`accounting_record`.`credit`) FROM `accounting_record` )" Alias="total_balance"/>
-    <BizField Name="total_credit" SQLExpr="(SELECT SUM(`accounting_record`.`credit`) FROM `accounting_record` )" Alias="total_credit"/>
-    <BizField Name="total_debit" SQLExpr="(SELECT SUM(`accounting_record`.`debit`) FROM `accounting_record` )" Alias="total_debit"/>
+    <BizField Name="total_balance" SQLExpr="(SELECT COALESCE(SUM(`accounting_record`.`debit`),0)-COALESCE(SUM(`accounting_record`.`credit`),0) FROM `accounting_record` )" Alias="total_balance"/>
+    <BizField Name="total_credit" SQLExpr="(SELECT COALESCE(SUM(`accounting_record`.`credit`),0) FROM `accounting_record` )" Alias="total_credit"/>
+    <BizField Name="total_debit" SQLExpr="(SELECT COALESCE(SUM(`accounting_record`.`debit`),0) FROM `accounting_record` )" Alias="total_debit"/>
      
   </BizFieldList>
 </BizDataObj>

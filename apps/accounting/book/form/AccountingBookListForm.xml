@@ -80,7 +80,7 @@
         			 />    
         			 
 		<Element Name="fld_balance" 
-					Text="{@:Elem[fld_balance].Value &lt; 0?'-':''} {@:Elem[fld_balance].Value &gt; 0?'+':''} {BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_balance].Value)}"
+					Text="{@:Elem[fld_balance].Value &gt; 0?'+':''}{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_balance].Value)}"
 					Style="font-weight:bold;{@:Elem[fld_balance].Value &lt; 0?'color:#ff0000':'color:#006600'}"
         			Class="ColumnText" 
         			FieldName="total_balance" 
