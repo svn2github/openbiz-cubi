@@ -9,18 +9,18 @@
   <DataPanel>
     <Element Name="fld_account_book" ElementSet="General" Class="Hidden" FieldName="accountbook_id" Label="Account Book"/>
     <Element Name="fld_account_book_name" ElementSet="General" Class="InputPicker" FieldName="account_book_name" Label="Account Book" Enabled="N" UpdateForm="Y" ValuePicker="accounting.book.widget.AccountingBookSinglePickWidgetForm" PickerMap="fld_account_book:fld_Id,fld_account_book_name:fld_name" DefaultValue="{@:Elem[fld_account_book].Value&gt;0?@:Field[account_book_name].Value:''}"/>
-    <Element Name="fld_type_id" ElementSet="General" Class="common.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="accounting.record.do.AccountingRecordTypeDO[name:Id:color]" AllowURLParam="N"/>
-    <Element Name="fld_name" ElementSet="General" Class="InputText" FieldName="name" Label="Name" AllowURLParam="N"/>
+    <Element Name="fld_type_id" ElementSet="General" Class="common.lib.TypeSelector" FieldName="type_id" Label="Record Type" KeepCookie="Y" SelectFrom="accounting.record.do.AccountingRecordTypeDO[name:Id:color]" AllowURLParam="N"/>
+    <Element Name="fld_name" ElementSet="General" Class="InputText" FieldName="name" Label="Name" AllowURLParam="N"/>    
+    <Element Name="fld_trans_date" ElementSet="General" Class="InputDate" FieldName="trans_date" Label="Date" AllowURLParam="N"/>
     
-    <Element Name="fld_trans_date" ElementSet="Transcation" Class="InputDate" FieldName="trans_date" Label="Date" AllowURLParam="N"/>
     <!-- <Element Name="fld_trans_id" ElementSet="Transcation" Class="InputText" FieldName="trans_id" Label="Unique ID" AllowURLParam="N"/> -->
-    <Element Name="fld_trans_type" ElementSet="Transcation" Class="DropDownList" SelectFrom="accounting.record.lov.TransLOV(TransType)" FieldName="trans_type" Label="Type" AllowURLParam="N" >
+    <Element Name="fld_trans_type" ElementSet="Transcation" Description="Credit (Spense) or Debit (Incomes)" Class="DropDownList" SelectFrom="accounting.record.lov.TransLOV(TransType)" FieldName="trans_type" Label="Transcation Type" AllowURLParam="N" >
     	<EventHandler Name="fld_trans_type_onchange" EventLogMsg="" Event="onchange" Function="UpdateForm()"  />
     </Element>    
-    <Element Name="fld_trans_proof" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'N':'Y'}" ElementSet="Transcation" Class="DropDownList" SelectFrom="accounting.record.lov.TransLOV(TransProof)" FieldName="trans_proof" Label="Spense Proof" AllowURLParam="N"/>
+    <Element Name="fld_trans_proof" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'N':'Y'}" Description="Spense Invoice Type" ElementSet="Transcation" Class="DropDownList" SelectFrom="accounting.record.lov.TransLOV(TransProof)" FieldName="trans_proof" Label="Invoice Type" AllowURLParam="N"/>
     
-    <Element Name="fld_credit" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'N':'Y'}" ElementSet="Transcation" Class="InputText" FieldName="credit" Label="Amount" AllowURLParam="N"/>
-    <Element Name="fld_debit" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'Y':'N'}" ElementSet="Transcation" Class="InputText" FieldName="debit" Label="Amount" AllowURLParam="N"/>
+    <Element Name="fld_credit" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'N':'Y'}" Description="Credit amount, unit in {DEFAULT_CURRENCY}" ElementSet="Transcation" Class="InputText" FieldName="credit" Label="Amount" AllowURLParam="N"/>
+    <Element Name="fld_debit" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'Y':'N'}" Description="Debit amount, unit in {DEFAULT_CURRENCY}" ElementSet="Transcation" Class="InputText" FieldName="debit" Label="Amount" AllowURLParam="N"/>
     
     <Element Name="fld_description" Class="Textarea" ElementSet="Miscellaneous" FieldName="description" Label="Description"/>
     
