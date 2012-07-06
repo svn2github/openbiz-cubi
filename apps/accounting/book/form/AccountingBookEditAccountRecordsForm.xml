@@ -13,7 +13,7 @@
     <Element Name="fld_Id" Class="LabelText" ElementSet="General" Hidden="Y" FieldName="Id" Label="Id" AllowURLParam="Y"/>
     <Element Name="fld_parent_id" ElementSet="General" Class="LabelText" FieldName="parent_id" Label="Parent" AllowURLParam="N"/>
     <Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description" AllowURLParam="N"/>
-    <Element Name="fld_related_account records" Access="accounting.Access" ElementSet="Account Records" TabSet="Related Data" Class="FormElement" FormReference="accounting.record.widget.AccountingRecordListEditableWidgetForm"/>
+    <Element Name="fld_related_account_records" Access="accounting.Access" ElementSet="Account Records" TabSet="Related Data" Class="FormElement" FormReference="accounting.record.widget.AccountingRecordListEditableWidgetForm"/>
   </DataPanel>
   <ActionPanel>
     <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">

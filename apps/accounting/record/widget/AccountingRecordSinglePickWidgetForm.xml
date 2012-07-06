@@ -10,7 +10,7 @@
 			FormType="List" 
 			Icon="{RESOURCE_URL}/accounting/images/icon_mod_accounting_record_list.png"
 			Title="Please select a Account records" 
-			Description="To select a account records click on a row and click to Select button" 
+			Description="To select a account_records click on a row and click to Select button" 
 			jsClass="Openbiz.TableForm" 
 			BizDataObj="accounting.record.do.AccountingRecordPickDO" 
 			PageSize="10" 

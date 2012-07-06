@@ -11,7 +11,7 @@
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/accounting/images/icon_mod_accounting_record_add.png"
 			Title="Quick Add Account records" 
-			Description="Create a new account records and edit its content later." 
+			Description="Create a new account_records and edit its content later." 
 			BizDataObj="accounting.record.do.AccountingRecordPickDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_data_quick_add.tpl.html" 

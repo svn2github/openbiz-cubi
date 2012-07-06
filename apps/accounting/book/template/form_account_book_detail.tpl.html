@@ -26,22 +26,41 @@ font-size:auto;
 {
 color:#666666;
 }
+
 .record_info_table
 {
-	width:665px;
-	padding-bottom:15px;
+	width:675px;
+	padding-bottom:0px;
 	border-top:1px solid #cccccc;
 	border-right:1px solid #eeeeee;
+	border-left:1px solid #cccccc;
 }
 .record_info_table .label
 {
-	color:#999999;
+	color:#666666;
 	width:100px;
 	background-color:#eeeeee;
+}
+.record_info_table .title
+{
+	color:#666666;
+	width:100px;
+	background-color:#eeeeee;
+	border-top:1px solid #eeeeee;
+	border-bottom:1px solid #cccccc;
+	border-left:5px solid #cccccc;
+	padding-left:10px;
+}
+.record_info_table .data
+{
+	font-size:25px;
+	line-height:50px;
+	height:50px;
 }
 .record_info_table td
 {
 	border-bottom:1px solid #cccccc;
+	border-right:1px solid #eeeeee;
 	line-height:20px;
 	padding-top:3px;
 	padding-bottom:3px;
@@ -62,11 +81,10 @@ color:#666666;
 		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
 		{/if}
 	
-		<div style="float:left; width:600px;padding-top:10px;">
+		<div style="float:left; width:608px;padding-top:10px;">
 			{if $dataPanel.fld_form_title.element}
-			<h1 style="padding-bottom:5px;height:26px;">
-			<span style="float:left;padding-right:20px;">{$dataPanel.fld_form_title.element}</span>
-			<span style="float:left;padding-right:20px;">{$dataPanel.fld_form_amount.element}</span>
+			<h1 style="padding-bottom:5px;">
+			{$dataPanel.fld_form_title.element}
 			</h1>
 			{/if} 
 			{if $dataPanel.fld_form_description.element}
@@ -80,34 +98,49 @@ color:#666666;
 	</td></tr></table>
 	</div>
 	<div id="element_set_panel_{$es_counter}" class="element_set_panel" style="padding-bottom:0px;padding-left:0px;">
-	<table class="record_info_table" cellspacing="0" cellpadding="0" border="0" >		
+	<table class="record_info_table" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:10px;" >
 		<tr>
-			<td class="label"><label>{$dataPanel.fld_trans_id.label}</label></td>
-			<td >{$dataPanel.fld_trans_id.element}</td>
-			<td class="label"><label>{$dataPanel.fld_trans_type.label}</label></td>
-			<td >{$dataPanel.fld_trans_type.element}</td>
+			<td class="title" colspan="3" >{$dataPanel.fld_table_title.element}</td>
 		</tr>
 		<tr>
-			<td class="label"><label>{$dataPanel.fld_trans_date.label}</label></td>
-			<td >{$dataPanel.fld_trans_date.element}</td>
-			<td class="label"><label>{$dataPanel.fld_trans_proof.label}</label></td>
-			<td >{$dataPanel.fld_trans_proof.element}</td>
+			<td class="label" style="background-color:#dddddd"><label>{$dataPanel.fld_credit.label}</label></td>
+			<td class="label" style="background-color:#dddddd"><label>{$dataPanel.fld_debit.label}</label></td>
+			<td class="label" style="font-weight:bold;"><label>{$dataPanel.fld_balance.label}</label></td>
 		</tr>
 		<tr>
-			<td class="label"><label>{$dataPanel.fld_account_book.label}</label></td>
-			<td >{$dataPanel.fld_account_book.element}</td>
-			<td class="label"><label>{$dataPanel.fld_trans_amount.label}</label></td>
-			<td >{$dataPanel.fld_trans_amount.element}</td>
+			<td class="data" style="background-color:#f5f5f5">{$dataPanel.fld_credit.element}</td>
+			<td class="data" style="background-color:#fefefe">{$dataPanel.fld_debit.element}</td>
+			<td class="data" style="">{$dataPanel.fld_balance.element}</td>
 		</tr>
+		
+		<!-- 
 		{if $dataPanel.fld_description}
 		<tr>
-			<td class="label"><label>{$dataPanel.fld_description.label}</label></td>
-			<td colspan="3" >{$dataPanel.fld_description.element}</td>
+			
+			<td colspan="3" >
+			{$dataPanel.fld_description.element}</td>
 		</tr>
 		{/if}
+		 -->
 	</table>
+	
+	{$dataPanel.fld_related_account_records.element}
+	
+	{if $dataPanel.fld_description}
+	<table class="record_info_table" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:10px;" >
+		<tr>
+			<td class="title" colspan="3" >{$dataPanel.fld_description.label}</td>
+		</tr>
+		<tr>
+			<td colspan="3" >
+			{$dataPanel.fld_description.element}</td>
+		</tr>
+		
+	</table>
+	{/if}
+		
 	</div>
-						
+			
 	{assign var=es_counter value=0}
 	{foreach item=setname name=elemsets  from=$form.elementSets}
 		{assign var=no_tabs value=0}
@@ -117,7 +150,7 @@ color:#666666;
 		{/if}
 		{/foreach}
 	{if	$es_counter gt 0 && $no_tabs eq 1}									
-	<div id="element_set_{$es_counter}" class=" upline" style="width:680px;padding-top:10px;padding-bottom:0px;padding-left:0px;">
+	<div id="element_set_{$es_counter}" class=" upline" style="width:680px;padding-top:10px;padding-bottom:0px;">
 		<h2 class="element_set_title" style="width:680px;"><a id="element_set_btn_general_{$es_counter}" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','general_{$es_counter}')" >{$setname}</a></h2>
 		<div id="element_set_panel_general_{$es_counter}">
 		{foreach item=item key=itemName from=$dataPanel}
@@ -192,7 +225,7 @@ color:#666666;
 	{/foreach}		
 			
 	{if $dataPanel.fld_extend_fields.element}
-	<div id="element_tabset_ext" class=" upline" style="width:680px;padding-top:10px;padding-bottom:0px;padding-left:0px;">
+	<div id="element_tabset_ext" class=" upline" style="width:680px;padding-top:10px;padding-bottom:0px;">
 		<h2 class="element_set_title" style="width:680px;"><a id="element_set_btn_ext" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','ext')" >{$dataPanel.fld_extend_fields.elementset}</a></h2>
 		<div id="element_set_panel_ext">
 		{$dataPanel.fld_extend_fields.element}
@@ -207,7 +240,7 @@ color:#666666;
 	{assign var=ts_counter value=1}
 	{foreach item=tabsetdata key=tabsetname name=tabs  from=$form.tabSets}	
 	{if $smarty.foreach.tabs.first}
-	<div id="element_tabset_{$ts_counter}" class=" upline" style="width:680px;padding-top:10px;padding-bottom:0px;padding-left:0px;">
+	<div id="element_tabset_{$ts_counter}" class="underline upline" style="width:680px;padding-top:10px;padding-bottom:5px;">
 	{elseif $smarty.foreach.tabs.last}
 	<div id="element_tabset_{$ts_counter}" class="underline upline" style="width:680px;padding-top:10px;padding-bottom:5px;">
 	{else}
