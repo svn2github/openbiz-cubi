@@ -23,7 +23,11 @@
     <BizField Name="type_color" Column="color" Join="JoinType"/>
     <BizField Name="type_name" Column="name" Join="JoinType"/>
     
-    <BizField Name="balance" SQLExpr="0"/>
+    <BizField Name="total_balance" SQLExpr="(SELECT SUM(`accounting_record`.`debit`)-SUM(`accounting_record`.`credit`) FROM `accounting_record` WHERE `accounting_record`.`accountbook_id`=T0.`id`)" Alias="total_balance"/>
+     
+    <BizField Name="total_credit" SQLExpr="(SELECT SUM(`accounting_record`.`credit`) FROM `accounting_record` WHERE `accounting_record`.`accountbook_id`=T0.`id`)" Alias="total_credit"/>
+    <BizField Name="total_debit" SQLExpr="(SELECT SUM(`accounting_record`.`debit`) FROM `accounting_record` WHERE `accounting_record`.`accountbook_id`=T0.`id`)" Alias="total_debit"/>
+     
   </BizFieldList>
   <TableJoins>
     <Join Name="JoinType" Table="accounting_book_type" Column="id" ColumnRef="type_id" JoinType="LEFT JOIN"/>
