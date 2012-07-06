@@ -65,7 +65,7 @@
         <Element  Name="pagesize_selector" 
         			Class="PagesizeSelector" 
         			Text="{@:m_Range}" 
-        			Label="Quailty" 
+        			Label="Quantity" 
         			CssClass="input_select" 
         			CssFocusClass="input_select_focus">
             <EventHandler Name="btn_pagesize_selector_onchange" 
