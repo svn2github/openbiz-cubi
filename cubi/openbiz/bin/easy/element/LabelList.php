@@ -61,6 +61,7 @@ class LabelList extends OptionElement
      */
     public function render()
     {
+    	$value = $this->m_Text ? $this->getText() : $this->m_Value;
         $fromList   = array();
         $this->getFromList($fromList);
         $valueArr = explode(',', $this->m_Value);
@@ -69,7 +70,7 @@ class LabelList extends OptionElement
         $id = $this->m_Name;
         $selectedStr = '';
 
-        $selectedStr = $this->m_Value;
+        $selectedStr = $value;
 
         foreach ($fromList as $option)
         {
