@@ -53,7 +53,8 @@ color:#666666;
 }
 .record_info_table .data
 {
-	font-size:25px;
+	font-size:22px;
+	text-align:center;
 	line-height:50px;
 	height:50px;
 }
@@ -72,7 +73,7 @@ color:#666666;
 
 </style>
 {/literal}
-<div style="padding-left:35px; padding-right:30px;">
+<div style="padding-left:38px; padding-right:30px;">
 {include file="system_appbuilder_btn.tpl.html"}
 	<div style="padding-left:0px;" >
 	<h2>{if $form.currentRecordId}<span class="title_id" style="margin-right:10px;">{$form.currentRecordId}</span>{/if}{$form.title}</h2>
@@ -152,7 +153,7 @@ color:#666666;
 		{/if}
 		{/foreach}
 	{if	$es_counter gt 0 && $no_tabs eq 1}									
-	<div id="element_set_{$es_counter}" class=" upline" style="width:680px;padding-top:10px;padding-bottom:0px;">
+	<div id="element_set_{$es_counter}" class=" upline" style="width:680px;padding-top:10px;padding-bottom:0px;padding-left:0px;">
 		<h2 class="element_set_title" style="width:680px;"><a id="element_set_btn_general_{$es_counter}" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','general_{$es_counter}')" >{$setname}</a></h2>
 		<div id="element_set_panel_general_{$es_counter}">
 		{foreach item=item key=itemName from=$dataPanel}
@@ -227,7 +228,7 @@ color:#666666;
 	{/foreach}		
 			
 	{if $dataPanel.fld_extend_fields.element}
-	<div id="element_tabset_ext" class=" upline" style="width:680px;padding-top:10px;padding-bottom:0px;">
+	<div id="element_tabset_ext" class=" upline" style="width:680px;padding-top:10px;padding-bottom:0px;padding-left:0px;">
 		<h2 class="element_set_title" style="width:680px;"><a id="element_set_btn_ext" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','ext')" >{$dataPanel.fld_extend_fields.elementset}</a></h2>
 		<div id="element_set_panel_ext">
 		{$dataPanel.fld_extend_fields.element}
@@ -242,11 +243,11 @@ color:#666666;
 	{assign var=ts_counter value=1}
 	{foreach item=tabsetdata key=tabsetname name=tabs  from=$form.tabSets}	
 	{if $smarty.foreach.tabs.first}
-	<div id="element_tabset_{$ts_counter}" class="underline upline" style="width:680px;padding-top:10px;padding-bottom:5px;">
+	<div id="element_tabset_{$ts_counter}" class="underline upline" style="width:680px;padding-top:10px;padding-bottom:5px;padding-left:0px;">
 	{elseif $smarty.foreach.tabs.last}
-	<div id="element_tabset_{$ts_counter}" class="underline upline" style="width:680px;padding-top:10px;padding-bottom:5px;">
+	<div id="element_tabset_{$ts_counter}" class="underline upline" style="width:680px;padding-top:10px;padding-bottom:5px;padding-left:0px;">
 	{else}
-	<div id="element_tabset_{$ts_counter}" class="underline upline" style="width:680px;padding-top:10px;padding-bottom:0px;">
+	<div id="element_tabset_{$ts_counter}" class="underline upline" style="width:680px;padding-top:10px;padding-bottom:0px;padding-left:0px;">
 	{/if}
 	<h2 class="element_set_title" style="width:680px;"><a id="element_set_btn_{$ts_counter}" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','{$ts_counter}')" >{$tabsetdata.SetName}</a></h2>						
 	<div id="element_set_panel_{$ts_counter}">

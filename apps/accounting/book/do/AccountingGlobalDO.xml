@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<BizDataObj Name="AccountingGlobalDO" Description="Accounting Global Summary" DataPermControl="Y" Class="BizDataObj" DBName="Default" Table="accounting_book" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="accounting.Superview" UpdateCondition="accounting.Superview" DeleteCondition="accounting.Superview">
+  <BizFieldList>
+    <BizField Name="Id" Description="Id" Column="id" Required="N" Type="Number"/>
+    <BizField Name="total_balance" SQLExpr="(SELECT SUM(`accounting_record`.`debit`)-SUM(`accounting_record`.`credit`) FROM `accounting_record` )" Alias="total_balance"/>
+    <BizField Name="total_credit" SQLExpr="(SELECT SUM(`accounting_record`.`credit`) FROM `accounting_record` )" Alias="total_credit"/>
+    <BizField Name="total_debit" SQLExpr="(SELECT SUM(`accounting_record`.`debit`) FROM `accounting_record` )" Alias="total_debit"/>
+     
+  </BizFieldList>
+</BizDataObj>

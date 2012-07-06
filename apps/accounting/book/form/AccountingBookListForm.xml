@@ -16,7 +16,7 @@
 			PageSize="10" 
 			DefaultForm="Y" 
 			TemplateEngine="Smarty" 
-			TemplateFile="form_grid_adv.tpl.html" 
+			TemplateFile="form_account_grid_adv.tpl.html" 
 			EventName="AccountingBook" 
 			MessageFile="AccountingBook.ini" 
 			Access="accounting.Access">

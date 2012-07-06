@@ -13,6 +13,8 @@
 		LoadHandler="AccountingLoadHandler.php" >
 	<ACL>
 		<Resource Name="accounting">
+			<Action Name="Superview" 
+					Description="View global accounts summary"/>
 			<Action Name="Access" 
 					Description="Data access permission of accounting"/>
 			<Action Name="Manage" 
@@ -27,7 +29,7 @@
 				Order="50" 
 				Access="accounting.Access">		
 	        <MenuItem Name="accounting_book" 
-	        			Title="Book" 	        			
+	        			Title="Account" 	        			
 	        			Description="" 
 	        			URL="" 
 	        			IconImage="spacer.gif" 
@@ -76,7 +78,7 @@
 					
 			</MenuItem>
 			<MenuItem Name="accounting_accounting" 
-	        			Title="Accounting" 	        			
+	        			Title="Record" 	        			
 	        			Description="" 
 	        			URL="" 
 	        			IconImage="spacer.gif" 
