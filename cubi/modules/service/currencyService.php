@@ -57,8 +57,9 @@ class currencyService
 		return $display_name;
 	}	
 	
-	public function getFormatCurrency($amount)
+	public function getFormatCurrency($amount,$prefix='')
 	{
+		
 		$current_locale = I18n::getCurrentLangCode();		
 		require_once('Zend/Currency.php');
 		$current_currency = DEFAULT_CURRENCY;		
@@ -67,8 +68,7 @@ class currencyService
 		}
 		$currency = new Zend_Currency($current_currency,$current_locale);	
 		$amount = floatval($amount);
-	
-		$display_name = $currency->toCurrency($amount);
+		$display_name = $currency->toCurrency($prefix.$amount);
 		return $display_name;
 	}	
 }
