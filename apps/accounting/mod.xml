@@ -59,7 +59,7 @@
 		        			URL="{APP_INDEX}/accounting/accounting_book_transfer" 
 		        			IconImage="spacer.gif" 
 		        			IconCssClass="" 
-		        			Order="70" 
+		        			Order="55" 
 		        			Access="" >
 		        </MenuItem>
 	        			
