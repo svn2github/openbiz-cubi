@@ -50,7 +50,7 @@ CREATE TABLE `accounting_record` (
   `credit` float DEFAULT NULL COMMENT 'Credit',
   `debit` float DEFAULT NULL COMMENT 'Debit',
   `trans_id` varchar(255) NOT NULL COMMENT 'Unique Transcation ID',
-  `trans_date` datetime NOT NULL COMMENT 'Transcation Date',
+  `trans_date` date NOT NULL COMMENT 'Transcation Date',
   `trans_type` varchar(255) DEFAULT NULL COMMENT 'credit(out) / debit (in)',
   `trans_proof` varchar(255) DEFAULT NULL COMMENT 'Proof for this transcation',
   `update_by` int(11) NOT NULL,

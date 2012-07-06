@@ -36,7 +36,7 @@
 	        			Access="" >
 	        			
 				<MenuItem Name="accounting_book_manage" 
-		        			Title="Book Manage" 	        			
+		        			Title="Account Manage" 	        			
 		        			Description="Manage of Book" 
 		        			URL="{APP_INDEX}/accounting/accounting_book_manage" 
 		        			IconImage="spacer.gif" 
@@ -44,7 +44,7 @@
 		        			Order="50" 
 		        			Access="" >
 						<MenuItem Name="accounting_book_detail" 
-				        			Title="Book Detail" 	        			
+				        			Title="Account Detail" 	        			
 				        			Description="Detail of Book" 
 				        			URL="{APP_INDEX}/accounting/accounting_book_detail" 
 				        			IconImage="spacer.gif" 
@@ -52,9 +52,19 @@
 				        			Order="50" 
 				        			Access="" />
 		        </MenuItem>		
+	        	
+	        	<MenuItem Name="accounting_book_transfer" 
+		        			Title="Account Transfer" 	        			
+		        			Description="Transfer Account Balance" 
+		        			URL="{APP_INDEX}/accounting/accounting_book_transfer" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="70" 
+		        			Access="" >
+		        </MenuItem>
 	        			
 				<MenuItem Name="accounting_book_type" 
-		        			Title="Book Type" 	        			
+		        			Title="Account Type" 	        			
 		        			Description="Type of Book" 
 		        			URL="{APP_INDEX}/accounting/accounting_book_type" 
 		        			IconImage="spacer.gif" 
