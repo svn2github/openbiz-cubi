@@ -22,7 +22,7 @@
     <Element Name="fld_credit" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'N':'Y'}" ElementSet="Transcation" Class="InputText" FieldName="credit" Label="Amount" AllowURLParam="N"/>
     <Element Name="fld_debit" Hidden="{@:Elem[fld_trans_type].Value=='Credit'?'Y':'N'}" ElementSet="Transcation" Class="InputText" FieldName="debit" Label="Amount" AllowURLParam="N"/>
     
-    <Element Name="fld_description" Class="Textarea" ElementSet="Misc" FieldName="description" Label="Description"/>
+    <Element Name="fld_description" Class="Textarea" ElementSet="Miscellaneous" FieldName="description" Label="Description"/>
     
   </DataPanel>
   <ActionPanel>
