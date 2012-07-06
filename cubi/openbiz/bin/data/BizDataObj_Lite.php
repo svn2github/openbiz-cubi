@@ -499,8 +499,8 @@ class BizDataObj_Lite extends BizDataObj_Abstract
         else
         {
             // now replace SELECT ... FROM with SELECT COUNT(*) FROM
-            $rewritesql = preg_replace('/^\s*SELECT\s.*\s+FROM\s/Uis','SELECT COUNT(*) FROM ',$sql);
-
+            $rewritesql = preg_replace('/^\s*SELECT\s.*?\s+FROM\s/Uis','SELECT COUNT(*) FROM ',$sql);
+            
             // Because count(*) and 'order by' fails with mssql, access and postgresql.
             // Also a good speedup optimization - skips sorting!
             $rewritesql = preg_replace('/(\sORDER\s+BY\s.*)/is','',$rewritesql);
@@ -532,7 +532,7 @@ class BizDataObj_Lite extends BizDataObj_Abstract
             else
             {
                 BizSystem::log(LOG_DEBUG, "DATAOBJ", "Query Sql = ".$rewritesql." BIND: $bindValueString");
-                $resultSet = $db->query($rewritesql, $bindValues);
+                $resultSet = $db->query($rewritesql, $bindValues);                
                 $resultArray = $resultSet->fetch();
             }
         }
