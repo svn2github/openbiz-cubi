@@ -14,11 +14,13 @@
     
     <Element Name="fld_Id" Class="LabelText" ElementSet="General" Hidden="Y" FieldName="Id" Label="Id" AllowURLParam="Y"/>
     <Element Name="fld_type_id" Class="LabelText" ElementSet="General" Hidden="Y" FieldName="type_id" Label="Type" AllowURLParam="N"/>
+    <Element Name="fld_accountbook_id" Class="LabelText" ElementSet="General" Hidden="Y" FieldName="accountbook_id" Label="Type" AllowURLParam="N"/>
+
     
     <Element Name="fld_trans_id" ElementSet="Transcation" Class="LabelText" FieldName="trans_id" Label="Record ID" AllowURLParam="N"/>
     <!-- <Element Name="fld_name" ElementSet="Transcation" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/> -->
     <Element Name="fld_trans_date" ElementSet="Transcation" Class="LabelText" FieldName="trans_date" Text="{date('Y-m-d',strtotime(@:Elem[fld_trans_date].Value))}" Label="Date" AllowURLParam="N"/>
-    <Element Name="fld_account_book" Hidden="{@:Elem[fld_account_book].Value?'N':'Y'}" ElementSet="Transcation" Class="LabelText" Link="{APP_INDEX}/accounting/accounting_book/{@:Elem[fld_type_id].Value}" Label="Account Book" FieldName="account_book_name"/>    
+    <Element Name="fld_account_book" Hidden="{@:Elem[fld_account_book].Value?'N':'Y'}" ElementSet="Transcation" Class="LabelText" Link="{APP_INDEX}/accounting/accounting_book_detail/{@:Elem[fld_accountbook_id].Value}" Label="Account Book" FieldName="account_book_name"/>    
 
     <Element Name="fld_trans_type" ElementSet="Transcation" Class="LabelList" SelectFrom="accounting.record.lov.TransLOV(TransType)" FieldName="trans_type" Label="Type" AllowURLParam="N"/>    
     <Element Name="fld_trans_proof" ElementSet="Transcation" Text="{@:ELem[fld_trans_proof].Value?@:Elem[fld_trans_proof].Value:'-- Not Available --'}" Class="LabelList" SelectFrom="accounting.record.lov.TransLOV(TransProof)" FieldName="trans_proof" Label="Proof" AllowURLParam="N" Style="{@:Elem[fld_trans_proof].Value?'':'color:#aaaaaa'}"/>
