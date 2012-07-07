@@ -490,20 +490,26 @@ class BizDataObj_Lite extends BizDataObj_Abstract
      */
     private function _getNumberRecords($db, $sql)
     {
+	$has_subquery=false;
+	if(preg_match("/\(\s*?SELECT\s*?\S+\)/si",$sql)){
+		$has_subquery=true;
+	}
         if (preg_match("/^\s*SELECT\s+DISTINCT/is", $sql) || preg_match('/\s+GROUP\s+BY\s+/is',$sql))
         {
             // ok, has SELECT DISTINCT or GROUP BY so see if we can use a table alias
             $rewritesql = preg_replace('/(\sORDER\s+BY\s.*)/is','',$sql);
             $rewritesql = "SELECT COUNT(*) FROM ($rewritesql) _TABLE_ALIAS_";
         }
-        else
+        elseif($has_subquery==false)
         {
             // now replace SELECT ... FROM with SELECT COUNT(*) FROM
             $rewritesql = preg_replace('/\s*?SELECT\s.*?\s+FROM\s/is','SELECT COUNT(*) FROM ',$sql);
-            // Because count(*) and 'order by' fails with mssql, access and postgresql.
+	    // Because count(*) and 'order by' fails with mssql, access and postgresql.
             // Also a good speedup optimization - skips sorting!
             $rewritesql = preg_replace('/(\sORDER\s+BY\s.*)/is','',$rewritesql);
-        }
+        }else{
+	    $rewritesql = $sql;
+	}
 
         try
         {
@@ -538,12 +544,18 @@ class BizDataObj_Lite extends BizDataObj_Abstract
         catch (Exception $e)
         {
             BizSystem::log(LOG_ERR, "DATAOBJ", "Query Error: ".$e->getMessage());
-            $this->m_ErrorMessage = $this->getMessage("DATA_ERROR_QUERY").": ".$sql.". ".$e->getMessage();
+            $this->m_ErrorMessage = $this->getMessage("DATA_ERROR_QUERY").": Rewrite:".$rewritesql.". Raw:".$sql.". ".$e->getMessage();
             throw new BDOException($this->m_ErrorMessage);
             return 0;
         }
 
-        return $resultArray[0];
+	if($has_subquery)
+	{
+		$record_count = count($resultArray);
+	}else{
+		$record_count = $resultArray[0];
+	}
+        return $record_count;
     }
 
     /**
