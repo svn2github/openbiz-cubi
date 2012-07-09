@@ -9,36 +9,29 @@
 			Class="AccountingTransferForm" 
 			FormType="Edit" 
 			jsClass="Openbiz.Form" 
-			Icon="{RESOURCE_URL}/accounting/images/icon_mod_accounting_book_list.png"
-			Title="Account Transfer" 
+			Icon="{RESOURCE_URL}/accounting/images/icon_account_transfer.png"
+			Title="Account Transfer Transcation" 
 			Description="Transfer balance from one account book to another" 
 			BizDataObj="" 
 			TemplateEngine="Smarty" 
-			TemplateFile="form_edit.tpl.html" 
+			TemplateFile="form_account_transfer.tpl.html" 
 			MessageFile="AccountingBook.ini" 
 			Access="accounting.Manage">
     <DataPanel>
 		<Element Name="fld_account_book_source" ElementSet="Source" Class="Hidden" FieldName="source_accountbook_id" Label="Account Book"/>
-    	<Element Name="fld_account_book_source_name" ElementSet="Source" Class="InputPicker" FieldName="source_accountbook" Label="Account Book" Enabled="N" UpdateForm="Y" ValuePicker="accounting.book.widget.AccountingBookSinglePickWidgetForm" PickerMap="fld_account_book_source:fld_Id,fld_account_book_source_name:fld_name,fld_account_book_source_balance:fld_balance" />    
+    	<Element Name="fld_account_book_source_name" Required="Y" ElementSet="Source" Class="InputPicker" FieldName="source_accountbook" Label="Account Book" Enabled="N" UpdateForm="Y" ValuePicker="accounting.book.widget.AccountingBookSinglePickWidgetForm" PickerMap="fld_account_book_source:fld_Id,fld_account_book_source_name:fld_name,fld_account_book_source_balance:fld_balance" />    
     	<Element Name="fld_account_book_source_balance" ElementSet="Source" Class="Hidden" FieldName="source_accountbook_balance" Label="Account Balance" />
         <Element Name="fld_account_book_source_balance_display" ElementSet="Source" Class="LabelText" FieldName="source_accountbook_balance" Label="Account Balance" Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_account_book_source_balance].Value)}" Style="font-weight:bold;{@:Elem[fld_account_book_source_balance].Value &lt; 0?'color:#ff0000':'color:#006600'}"/>
     
     
     	<Element Name="fld_account_book_destination" ElementSet="Destination" Class="Hidden" FieldName="dest_accountbook_id" Label="Account Book"/>
-    	<Element Name="fld_account_book_destination_name" ElementSet="Destination" Class="InputPicker" FieldName="dest_accountbook" Label="Account Book" Enabled="N" UpdateForm="Y" ValuePicker="accounting.book.widget.AccountingBookSinglePickWidgetForm" PickerMap="fld_account_book_destination:fld_Id,fld_account_book_destination_name:fld_name,fld_account_book_destination_balance:fld_balance" />    
+    	<Element Name="fld_account_book_destination_name" Required="Y" ElementSet="Destination" Class="InputPicker" FieldName="dest_accountbook" Label="Account Book" Enabled="N" UpdateForm="Y" ValuePicker="accounting.book.widget.AccountingBookSinglePickWidgetForm" PickerMap="fld_account_book_destination:fld_Id,fld_account_book_destination_name:fld_name,fld_account_book_destination_balance:fld_balance" />    
         <Element Name="fld_account_book_destination_balance" ElementSet="Destination" Class="Hidden" FieldName="dest_accountbook_balance" Label="Account Balance" />
         <Element Name="fld_account_book_destination_balance_display" ElementSet="Destination" Class="LabelText" FieldName="dest_accountbook_balance" Label="Account Balance" Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_account_book_destination_balance].Value)}" Style="font-weight:bold;{@:Elem[fld_account_book_destination_balance].Value &lt; 0?'color:#ff0000':'color:#006600'}"/>
 
     
-    	<Element Name="fld_type_id" ElementSet="Transaction" Class="common.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="accounting.record.do.AccountingRecordTypeDO[name:Id:color]" AllowURLParam="N"/>
+    	<Element Name="fld_type_id" Required="Y" ElementSet="Transaction" Class="common.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="accounting.record.do.AccountingRecordTypeDO[name:Id:color]" AllowURLParam="N" Description="Type of the transcation"/>
 
-       	<Element Name="fld_name" 
-       				ElementSet="Transaction"
-       				Class="InputText" 
-       				FieldName="name" 
-       				Label="Name" 
-       				AllowURLParam="N"
-       				/>
        				
     	<Element Name="fld_amount" 
        				ElementSet="Transaction"
@@ -46,7 +39,20 @@
        				FieldName="amount" 
        				Label="Amount" 
        				AllowURLParam="N"
+       				Description="Transfer amount, unit in {DEFAULT_CURRENCY}"
+       				Required="Y"
        				/>
+
+       	<Element Name="fld_name" 
+       				ElementSet="Transaction"
+       				Class="InputText" 
+       				FieldName="name" 
+       				Label="Name" 
+       				AllowURLParam="N"
+       				Description="Detail for the transcation"
+       				Required="Y"
+       				/>
+
        	 	
 	
 		
@@ -54,15 +60,15 @@
     <ActionPanel>       
         <Element Name="btn_save" 
         			Class="Button" 
-        			Text="Save" 
-        			CssClass="button_gray_m">
+        			Text="Commit" 
+        			CssClass="button_gray_w">
             <EventHandler Name="save_onclick" 
             			EventLogMsg="" 
             			Event="onclick" 
-            			Function="UpdateRecord()" 
+            			Function="CommitTrans()" 
             			RedirectPage="{APP_INDEX}/accounting/accounting_book_detail/{@accounting.book.do.AccountingBookDO:Field[Id].Value}"  
             			ShortcutKey="Ctrl+Enter" 
-            			ContextMenu="Save" />
+            			ContextMenu="Commit" />
         </Element>
         <Element Name="btn_cancel" 
         			Class="Button" 
