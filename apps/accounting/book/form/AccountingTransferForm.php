@@ -28,7 +28,7 @@ class AccountingTransferForm extends EasyForm
 	        	"trans_type" => 'Credit',
 	        	"trans_proof" => 'Other',	        
 	        );
-	        $transDO->insertRecord($transRec);
+	        $credit_id = $transDO->insertRecord($transRec);
 	        
 	        //debit to desc
 	        $transRec = array(
@@ -40,7 +40,11 @@ class AccountingTransferForm extends EasyForm
 	        	"trans_type" => 'Debit',
 	        	"trans_proof" => 'Other',	        
 	        );
-	        $transDO->insertRecord($transRec);
+	        $debit_id = $transDO->insertRecord($transRec);
+	        
+	        $resultset['credit_id'] = $credit_id;
+	        $resultset['debit_id'] = $debit_id;
+	        var_dump($resultset);exit;
 	        
         }
         $this->processPostAction();
