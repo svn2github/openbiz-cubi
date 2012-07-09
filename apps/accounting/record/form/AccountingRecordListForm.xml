@@ -9,9 +9,7 @@
 			Class="EasyForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
-			Icon="{RESOURCE_URL}/accounting/images/icon_mod_accounting_record_list.png"
-			Title="Account Records Management" 
-			Description="Accounting Record Description" 
+			
 			BizDataObj="accounting.record.do.AccountingRecordDO" 
 			PageSize="10" 
 			DefaultForm="Y" 
@@ -35,14 +33,6 @@
         			AllowURLParam="N" 
         			Link="javascript:;" />   
    
-   		<Element Name="fld_aid" 
-        			Class="ColumnHidden"
-        			Hidden="Y" 
-        			FieldName="aid" 
-        			Label="ID" 
-        			Sortable="Y" 
-        			AllowURLParam="Y" 
-        			Link="javascript:;" /> 
         			
    		<Element Name="fld_trans_type" 
         			Class="ColumnImage" 

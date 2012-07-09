@@ -12,6 +12,7 @@
 	TemplateEngine="Smarty" 
 	TemplateFile="view.tpl">
    <FormReferences>
+   		<Reference Name="accounting.book.widget.AccountingDetailWidgetForm" Subforms="accounting.record.form.AccountingRecordListForm"/>
    		<Reference Name="accounting.record.form.AccountingRecordListForm"/>
    </FormReferences>       
 </EasyView>

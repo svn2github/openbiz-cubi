@@ -73,13 +73,31 @@ color:#666666;
 
 </style>
 {/literal}
-{$dataPanel.aid.element}
-<table class="record_info_table" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:15px;" >
-		<tr>
-			<td class="title" style="background-color:#{$dataPanel.fld_color.element}"  colspan="2" >{$dataPanel.fld_table_title.element}</td>
-		
-			<td colspan="1" style="background-color:#{$dataPanel.fld_color.element}" >{$dataPanel.fld_form_description.element}</td>
-		</tr>
+<div style="padding-left:25px;padding-right:40px;">
+	<div>
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+	
+		<div style="float:left; width:632px;padding-top:10px;">
+			{if $dataPanel.fld_form_title.element}
+			<h1 style="padding-bottom:5px;">
+			{$dataPanel.fld_form_title.element}
+			</h1>
+			{/if} 
+			{if $dataPanel.fld_form_description.element}
+			<div class="input_row" style="line-height:20px;padding-bottom:5px;">		
+			{$dataPanel.fld_form_description.element}
+			</div>
+			{else}
+			<div style="height:15px;"></div>
+			{/if}
+		</div>
+	</td></tr></table>
+	</div>
+<table class="record_info_table" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:0px;" >
+	
 		<tr>
 			<td class="label" style="background-color:#dddddd"><label>{$dataPanel.fld_debit.label}</label></td>		
 			<td class="label" style="background-color:#dddddd"><label>{$dataPanel.fld_credit.label}</label></td>
@@ -101,4 +119,7 @@ color:#666666;
 		{/if}
 		 -->
 	</table>
-</div>	
+	<div class="upline" style="margin-top:5px;"></div>
+	
+</div>
+</div>		

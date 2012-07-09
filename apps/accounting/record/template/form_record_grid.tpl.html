@@ -61,38 +61,16 @@ margin-right:5px;
 
 </style>
 {/literal}
-<div style="padding-left:25px;padding-right:40px;">
-	<div>
-{include file="system_appbuilder_btn.tpl.html"}
-	<table><tr><td>
-		{if $form.icon !='' }
-		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
-		{/if}
-		<div style="float:left; width:600px;">
-		<h2>
-		{$form.title}
-		</h2> 
-		<p class="form_desc">{$form.description}</p>
-		</div>
-	</td></tr></table>
-	</div>
+<div style="padding-left:25px;padding-right:40px;" >
 
-<div>	
-{php}
-$accountbook_id = (int)$_GET['aid']?(int)$_GET['aid']:(int)$_POST['aid'];
 
-if($accountbook_id)
-{
-	echo BizSystem::getObject("accounting.book.widget.AccountingDetailWidgetForm")->render();
-}
-{/php}
-</div>
-	
+<!-- 
 <table class="record_info_table" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:0px;" >
 		<tr>
 			<td class="title" colspan="3" >{t}Account Records{/t}</td>
 		</tr>
-</table>			
+</table>	
+ -->		
 {if  $searchPanel }	
 	<div class="form_header_panel">	
 		<div class="action_panel"  style="width:290px;">

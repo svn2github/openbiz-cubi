@@ -8,9 +8,7 @@
 <BizDataObj Name="AccountingRecordDO" Description="Accounting Record Description" DataPermControl="N" Class="BizDataObj" DBName="Default" Table="accounting_record" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="accounting.Manage" UpdateCondition="accounting.Manage" DeleteCondition="accounting.Manage">
   <BizFieldList>
     <BizField Name="Id" Description="Id" Column="id" Required="N" Type="Number"/>
-    <BizField Name="accountbook_id" Column="accountbook_id" Description="FK for Account Book" Required="N" Type="Number"/>
-    <BizField Name="aid" Column="accountbook_id" Description="FK for Account Book" Required="N" Type="Number"/>
-    
+    <BizField Name="accountbook_id" Column="accountbook_id" Description="FK for Account Book" Required="N" Type="Number"/>    
     <BizField Name="type_id" Description="Type Id" Column="type_id" Type="Number" Required="N"/>
     <BizField Name="name" Description="Name" Column="name" Type="Text" Required="N"/>
     <BizField Name="description" Description="Description" Column="description" Type="Text" Required="N"/>
