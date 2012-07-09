@@ -66,10 +66,11 @@
             			EventLogMsg="" 
             			Event="onclick" 
             			Function="CommitTrans()" 
-            			RedirectPage="{APP_INDEX}/accounting/accounting_book_detail/{@accounting.book.do.AccountingBookDO:Field[Id].Value}"  
+            			RedirectPage="form=accounting.book.form.AccountingTransferFinishedForm"  
             			ShortcutKey="Ctrl+Enter" 
             			ContextMenu="Commit" />
         </Element>
+        <!-- 
         <Element Name="btn_cancel" 
         			Class="Button" 
         			Text="Cancel" 
@@ -79,7 +80,8 @@
             			Function="SwitchForm()"  
             			ShortcutKey="Escape" 
             			ContextMenu="Cancel"/>
-        </Element>      
+        </Element>   
+         -->   
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 

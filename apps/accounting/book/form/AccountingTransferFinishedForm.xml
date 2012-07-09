@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="AccountingTransferFinishedForm" 
+			Class="AccountingTransferFinishedForm" 
+			FormType="Detail" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/accounting/images/icon_account_transfer.png"
+			Title="Account Transfer Transcation" 
+			Description="Transfer balance from one account book to another" 
+			BizDataObj="accounting.record.do.AccountingRecordDO" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_account_transfer.tpl.html" 
+			MessageFile="AccountingBook.ini" 
+			Access="accounting.Manage">
+    <DataPanel>
+    	<Element Name="fld_account_book_source_name" ElementSet="Source" Class="LabelText" FieldName="source_accountbook" Label="Account Book"  />    
+    
+    	<Element Name="fld_id_source" 
+       				ElementSet="Source"
+       				Class="Hidden" 
+       				FieldName="source_id" 
+       				AllowURLParam="N"
+       				Required="Y"
+       				/> 
+       	<Element Name="fld_name_source" 
+       				ElementSet="Source"
+       				Class="LabelText" 
+       				FieldName="source_trans_id" 
+       				Label="Transcation ID" 
+       				AllowURLParam="N"
+       				Required="Y"
+       				Link="{APP_INDEX}/accounting/accounting_record_detail/{@:Elem[fld_id_source].Value}"
+       				/>      
+    	<Element Name="fld_type_source" 
+       				ElementSet="Source"
+       				Class="LabelText" 
+       				FieldName="" 
+       				Text="Credit"
+       				Label="Transcation Type" 
+       				AllowURLParam="N"
+       				/>     
+    	<Element Name="fld_amount_source" 
+       				ElementSet="Source"
+       				Class="LabelText" 
+       				FieldName="source_amount" 
+       				Label="Amount" 
+       				AllowURLParam="N"
+       				Description="Transfer amount, unit in {DEFAULT_CURRENCY}"
+       				Text="- {BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_amount_source].Value)}"
+       				Required="Y"
+       				Style="color:#00AA00"
+       				/>       
+  
+    	<Element Name="fld_account_book_source_balance" ElementSet="Source" Class="Hidden" FieldName="source_accountbook_balance" Label="Account Balance" />
+        <Element Name="fld_account_book_source_balance_display" ElementSet="Source" Class="LabelText" FieldName="source_accountbook_balance" Label="Account Balance" Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_account_book_source_balance].Value)}" Style="font-weight:bold;{@:Elem[fld_account_book_source_balance].Value &lt; 0?'color:#ff0000':'color:#006600'}"/>
+  	
+ 
+    
+    	<Element Name="fld_account_book_destination_name" ElementSet="Destination" Class="LabelText" FieldName="dest_accountbook" Label="Account Book"  />    
+    
+    	<Element Name="fld_id_destination" 
+       				ElementSet="Destination"
+       				Class="Hidden" 
+       				FieldName="dest_id" 
+       				AllowURLParam="N"
+       				Required="Y"
+       				/> 
+       	<Element Name="fld_name_destination" 
+       				ElementSet="Destination"
+       				Class="LabelText" 
+       				FieldName="dest_trans_id" 
+       				Label="Transcation ID" 
+       				AllowURLParam="N"
+       				Required="Y"
+       				Link="{APP_INDEX}/accounting/accounting_record_detail/{@:Elem[fld_id_destination].Value}"
+       				/>    
+    	<Element Name="fld_type_destination" 
+       				ElementSet="Destination"
+       				Class="LabelText" 
+       				FieldName="" 
+       				Text="Debit"
+       				Label="Transcation Type" 
+       				AllowURLParam="N"
+       				/>
+    	<Element Name="fld_amount_destination" 
+       				ElementSet="Destination"
+       				Class="LabelText" 
+       				FieldName="dest_amount" 
+       				Label="Amount" 
+       				AllowURLParam="N"
+       				Description="Transfer amount, unit in {DEFAULT_CURRENCY}"
+       				Text="+ {BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_amount_destination].Value)}"
+       				Required="Y"
+       				Style="color:#ff0000"
+       				/>
+		          				
+        <Element Name="fld_account_book_destination_balance" ElementSet="Destination" Class="Hidden" FieldName="dest_accountbook_balance" Label="Account Balance" />
+        <Element Name="fld_account_book_destination_balance_display" ElementSet="Destination" Class="LabelText" FieldName="dest_accountbook_balance" Label="Account Balance" Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_account_book_destination_balance].Value)}" Style="font-weight:bold;{@:Elem[fld_account_book_destination_balance].Value &lt; 0?'color:#ff0000':'color:#006600'}"/>			
+ 	
+
+
+
+       	 	
+	
+		
+    </DataPanel>
+    <ActionPanel>       
+        <Element Name="btn_save" 
+        			Class="LabelText" 
+        			Text="Done" 
+        			CssClass="button_gray_w" 
+        			Link="{APP_INDEX}/accounting/accounting_book_manage">
+        </Element>
+         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

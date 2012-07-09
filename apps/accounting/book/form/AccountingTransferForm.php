@@ -41,11 +41,10 @@ class AccountingTransferForm extends EasyForm
 	        	"trans_proof" => 'Other',	        
 	        );
 	        $debit_id = $transDO->insertRecord($transRec);
-	        
-	        $resultset['credit_id'] = $credit_id;
-	        $resultset['debit_id'] = $debit_id;
-	        var_dump($resultset);exit;
-	        
+	       
+	        $transferDetailForm = BizSystem::getObject("accounting.book.form.AccountingTransferFinishedForm");
+	        $transferDetailForm->setCreditRecordId($credit_id);
+	        $transferDetailForm->setDebitRecordId($debit_id);
         }
         $this->processPostAction();
 	}
