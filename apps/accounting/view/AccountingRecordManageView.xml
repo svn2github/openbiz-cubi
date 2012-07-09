@@ -7,7 +7,7 @@
 -->
 <EasyView Name="AccountingRecordManageView" 
 	Description="Accounting Record Description Management" 
-	Class="EasyView" 
+	Class="AccountingRecordManageView" 
 	Access="accounting.Access" 
 	TemplateEngine="Smarty" 
 	TemplateFile="view.tpl">
