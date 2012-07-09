@@ -68,20 +68,11 @@
    
    
     
-		<Element Name="fld_credit" 
-        			Class="ColumnText" 
-        			FieldName="credit" 
-        			Text="{@:Elem[fld_credit].Value?'-':''} {@:Elem[fld_credit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value):'-- N/A --'}"
-        			Label="Credit" 
-        			MaxLength="15"        			 
-        			Sortable="Y"
-        			Style="{@:Elem[fld_credit].Value?'color:#ff0000':'color:#AAAAAA'}"
-        			 />    
-        	
+
    
     
 		<Element Name="fld_debit" 
-					Text="{@:Elem[fld_debit].Value?'+':''} {@:Elem[fld_debit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_debit].Value):'-- N/A --'}"
+					Text="{@:Elem[fld_debit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_debit].Value):'-- N/A --'}"
         			Class="ColumnText" 
         			FieldName="debit" 
         			Label="Debit" 
@@ -91,7 +82,16 @@
         			 />    
         	
    
-    
+		<Element Name="fld_credit" 
+        			Class="ColumnText" 
+        			FieldName="credit" 
+        			Text="{@:Elem[fld_credit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value):'-- N/A --'}"
+        			Label="Credit" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			Style="{@:Elem[fld_credit].Value?'color:#ff0000':'color:#AAAAAA'}"
+        			 />    
+        	    
 
    
    

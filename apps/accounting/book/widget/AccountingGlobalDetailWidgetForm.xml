@@ -9,7 +9,7 @@
   <DataPanel>
     <Element Name="fld_table_title" Class="LabelText" FieldName="" Label="Summary" Text="Account Summary Information" Width="500" style="" AllowURLParam="N"/>
 	<Element Name="fld_credit" 
-        			Text="{@:Elem[fld_credit].Value?'-':''} {@:Elem[fld_credit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value):'-- N/A --'}"        			
+        			Text="{@:Elem[fld_credit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value):'-- N/A --'}"        			
         			Class="LabelText" 
         			ElementSet="General"
         			FieldName="total_credit" 
@@ -19,7 +19,7 @@
         			 />    
         
         <Element Name="fld_debit" 
-        			Text="{@:Elem[fld_debit].Value?'+':''}  {@:Elem[fld_debit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_debit].Value):'-- N/A --'}"
+        			Text="{@:Elem[fld_debit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_debit].Value):'-- N/A --'}"
         			Class="LabelText" 
         			ElementSet="General"
         			FieldName="total_debit" 
@@ -29,7 +29,7 @@
         			 />    
         			 
 		<Element Name="fld_balance" 
-					Text="{@:Elem[fld_balance].Value &gt; 0?'+':''} {BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_balance].Value)}"
+					Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_balance].Value)}"
 					Style="text-decoration:underline;{@:Elem[fld_balance].Value &lt; 0?'color:#ff0000':'color:#006600'}"
         			Class="LabelText" 
         			ElementSet="General"
