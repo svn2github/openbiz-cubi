@@ -32,15 +32,6 @@
 				
        								   	
 
-		
-
-       	<Element Name="fld_parent_id" 
-       				ElementSet="General" 
-       				Class="InputText" 
-       				FieldName="parent_id" 
-       				Label="Parent" 
-       				AllowURLParam="N"
-       				/>     
        								   	
 
 		
