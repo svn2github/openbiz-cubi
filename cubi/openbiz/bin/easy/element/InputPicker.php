@@ -52,6 +52,7 @@ class InputPicker extends InputText
      */
     public function render()
     {
+    	$this->m_DefaultValueRename="N";
     	$this->m_Enabled='N';
         $sHTML = parent::render();
 
