@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="AccountingGlobalDetailWidgetForm" Class="AccountingGlobalDetailWidgetForm" FormType="Detail" jsClass="Openbiz.Form" Icon="" Title="Global Account Summary"  BizDataObj="accounting.book.do.AccountingGlobalDO" TemplateEngine="Smarty" TemplateFile="widget_account_summary_detail.tpl.html" MessageFile="AccountingBook.ini" Access="accounting.Superview">
+<EasyForm Name="AccountingGlobalDetailWidgetForm" Class="AccountingGlobalDetailWidgetForm" FormType="Detail" jsClass="Openbiz.Form" Icon="" Title="All Accounts Summary"  BizDataObj="accounting.book.do.AccountingGlobalDO" TemplateEngine="Smarty" TemplateFile="widget_account_summary_detail.tpl.html" MessageFile="AccountingBook.ini" Access="accounting.Superview">
   <DataPanel>
     <Element Name="fld_table_title" Class="LabelText" FieldName="" Label="Summary" Text="Account Summary Information" Width="500" style="" AllowURLParam="N"/>
 	<Element Name="fld_credit" 

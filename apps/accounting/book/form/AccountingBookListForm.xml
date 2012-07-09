@@ -62,7 +62,7 @@
         			 />    
         	
         <Element Name="fld_credit" 
-        			Text="{@:Elem[fld_credit].Value?'-':''} {@:Elem[fld_credit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value):'-- N/A --'}"        			
+        			Text="{@:Elem[fld_credit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value):'-- N/A --'}"        			
         			Class="ColumnText" 
         			FieldName="total_credit" 
         			Label="Total Credit" 
@@ -71,7 +71,7 @@
         			 />    
         
         <Element Name="fld_debit" 
-        			Text="{@:Elem[fld_debit].Value?'+':''}  {@:Elem[fld_debit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_debit].Value):'-- N/A --'}"
+        			Text="{@:Elem[fld_debit].Value?BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_debit].Value):'-- N/A --'}"
         			Class="ColumnText" 
         			FieldName="total_debit" 
         			Label="Total Debit" 
@@ -80,7 +80,7 @@
         			 />    
         			 
 		<Element Name="fld_balance" 
-					Text="{@:Elem[fld_balance].Value &gt; 0?'+':''}{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_balance].Value)}"
+					Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_balance].Value)}"
 					Style="font-weight:bold;{@:Elem[fld_balance].Value &lt; 0?'color:#ff0000':'color:#006600'}"
         			Class="ColumnText" 
         			FieldName="total_balance" 
