@@ -29,6 +29,7 @@ class profileService
     protected $m_profileObj = "contact.do.ContactSystemDO";
     protected $m_contactObj = "contact.do.ContactSystemDO";
     protected $m_userDataObj = "system.do.UserDO";
+    protected $m_groupDataObj = "system.do.GroupDO";
     protected $m_user_roleDataObj = "system.do.UserRoleDO";
     protected $m_user_groupDataObj = "system.do.UserGroupDO";
 
@@ -252,6 +253,11 @@ class profileService
         BizSystem::initUserProfile($userId);
     }
 
+    public function GetGroupName($group_id, $type = 'full')
+    {
+        return BizSystem::getObject($this->m_groupDataObj)->fetchById($group_id)->name;        
+    }
+    
     public function GetProfileName($account_id, $type = 'full')
     {
         $do = BizSystem::getObject($this->m_userDataObj);
