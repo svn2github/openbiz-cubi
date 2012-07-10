@@ -7,7 +7,7 @@
 -->
 <EasyForm Name="CustomLogoForm" Class="CustomLogoForm" icon="icon_theme_list.gif" FormType="New" jsClass="jbForm" Title="Custom System Logo" Description="You can replace the system default logo on login screen to your company logo." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_custom_logo.tpl.html" EventName="THEME" MessageFile="Theme.msg">
     <DataPanel>
-		<Element Name="fld_photo" Class="ImageUploader"  ElementSet="Profile"  UploadFolder="/contact" FieldName="photo" Label="Select Photo"  AllowURLParam="N" CssClass="input_file">
+		<Element Name="fld_logo" Class="ImageUploader"  ElementSet="Profile"  UploadFolder="/contact" FieldName="" Label="Logo File"  AllowURLParam="N"  Description="150px * 150px, png file">
 	    </Element>   
     </DataPanel>
     <ActionPanel>

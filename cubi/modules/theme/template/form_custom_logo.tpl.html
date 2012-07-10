@@ -1,5 +1,15 @@
 <form id="{$form.name}" name="{$form.name}">
-
+{literal}
+<style>
+#preview{
+	background-image:url({/literal}{$resource_url}{literal}/theme/images/custom_logo_bg.png);
+	background-position:40px 0px;
+	background-repeat:no-repeat;
+	
+	
+}
+</style>
+{/literal}
 <div style="padding-left:25px; padding-right:40px;">
 {include file="system_appbuilder_btn.tpl.html"}
 	
@@ -24,92 +34,31 @@
 		</div>
 	</td></tr></table>
 	
-	<div class="detail_form_panel_padding" >
-	{assign var=es_counter value=0}
-	{foreach item=setname name=elemsets  from=$form.elementSets}
-		{if $smarty.foreach.elemsets.last}
-		<div id="element_set_{$es_counter}" class="underline upline">
-		{else}
-		<div id="element_set_{$es_counter}" class="upline ">
-		{/if}
-		<h2 class="element_set_title"><a id="element_set_btn_{$es_counter}" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','{$es_counter}')" >{$setname}</a></h2>
-			<div id="element_set_panel_{$es_counter}" class="element_set_panel">
-		{assign var=es_elem_counter value=0}
-		{foreach item=item key=itemName from=$dataPanel}
-			{if $item.elementset eq $setname}
-			{if  $item.type eq 'FormElement' }
-			<div>{$item.element}</div>
-            {elseif $item.type eq 'CKEditor' 
-             or $item.type eq 'RichText' 
-             or $item.type eq 'HTMLPreview'
-             or $item.type eq 'FormElement' 
-             or $item.type eq 'Textarea'  
-             or $item.type eq 'LabelTextarea'  
-             or $item.type eq 'RawData'
-             or $item.type eq 'LabelImage'
-             or $item.type eq 'IDCardReader'
-             or $item.type eq 'BarcodeScanner'
-             }
-                <table  id="{$itemName}_container" class="input_row">
-                {if $item.label}
-                <tr>
-                <td style="width:80px;">	
-                    <label style="text-align:left">{$item.label}</label>
-                </td>
-                <td>
-                    {if $errors.$itemName}
-                    <span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
-                    {elseif $item.description}
-                    <span class="input_desc" style="width:240px;">{$item.description}</span>			
-                    {/if}
-                </td>
-                </tr>
-                {/if}
-                <tr><td colspan="2" align="center" >
-                    <span class="label_textarea" style="width:655px;">{$item.element}</span>
-                                
-                </td></tr>
-                </table>		
-            {else}
-                {if $item.type eq 'Hidden' }
-                <table  id="{$itemName}_container" class="input_row" style="display:none">
-                {else}
-                <table  id="{$itemName}_container" class="input_row">
-                {/if}					
-                <tr>
-                <td >			
-                    <label style="text-align:left;">{$item.label}</label>			
-                </td>
-                <td>
-                {if $item.type eq 'Checkbox' }
-                    <span class="label_text" >{$item.element} {$item.description}</span>
-                {elseif $item.type|substr:0:5 eq 'Label'}
-                    <span>{$item.element}</span>    
-                {else}
-                    <span class="label_text" style="{if $item.width}width:{$item.width+15}px;{/if}{if $item.type eq 'TreeLabelText'}height:auto;{/if}">{$item.element}</span>
-                    {if $errors.$itemName}
-                    <span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
-                    {elseif $item.description}
-                    <span class="input_desc" style="width:240px;">{$item.description}</span>			
-                    {/if}				
-                {/if}
-                </td>
-                </tr>
-                </table>
-            {/if}
-			{assign var=es_elem_counter value=$es_elem_counter+1}					
-			{/if}
-		{/foreach}
-			</div>
-		{if $es_elem_counter eq '0'}
-			<script>$('element_set_{$es_counter}').hide();</script>
-		{/if}			
+	<div class="detail_form_panel_padding"  id="preview" >
+	
+	<div class="underline" style="height:360px;"   >
+		<div style="padding-left:93px;padding-top:76px;">
+			<img src="../../../images/cubi_logo_large.png" style="width:120px;background-color:#ffffff;" />
 		</div>
-		<script>
-			init_elementset('{$form.name}','{$es_counter}');
-		</script>
-	{assign var=es_counter value=$es_counter+1}			
-	{/foreach}
+	</div>
+	
+	<div class="underline" style="height:50px;margin-bottom:10px;">
+		<div style="padding-left:90px;padding-top:13px;">
+		 
+		<table  id="_container" class="input_row">
+			<tr>
+				<td >			
+					<label style="text-align:left;width:60px;">{$dataPanel.fld_logo.label}</label>			
+				</td>
+				<td>
+					<span class="label_text" style="{if $item.width}width:{$item.width+15}px;{/if}">{$dataPanel.fld_logo.element}</span>
+					<span class="input_desc" style="width:160px;float:left;">{$dataPanel.fld_logo.description}</span>				
+				</td>
+			</tr>
+			</table>
+		</div>
+	</div>
+	
 		<div style="height:10px;"></div>
 	 	{if $actionPanel|@count > 0}
 		<p class="input_row">
