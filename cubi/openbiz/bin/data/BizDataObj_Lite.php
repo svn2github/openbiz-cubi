@@ -548,13 +548,14 @@ class BizDataObj_Lite extends BizDataObj_Abstract
             throw new BDOException($this->m_ErrorMessage);
             return 0;
         }
-
-	if($has_subquery)
-	{
-		$record_count = count($resultArray);
-	}else{
-		$record_count = $resultArray[0];
-	}
+        
+		if($has_subquery)
+		{
+			$record_count = count($resultArray);
+		}else{
+			$record_count = $resultArray[0];
+		}
+	
         return $record_count;
     }
 
