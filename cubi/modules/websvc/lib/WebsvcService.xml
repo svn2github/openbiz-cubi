@@ -5,5 +5,5 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<PluginService Name="WebSvcService" Package="service" Class="websvc.lib.WebSvcService" BizDataObj="websvc.do.WebsvcDO"  MessageFile="">
+<PluginService Name="WebsvcService" Package="service" Class="websvc.lib.WebsvcService" BizDataObj="websvc.do.WebsvcDO"  MessageFile="">
 </PluginService>
