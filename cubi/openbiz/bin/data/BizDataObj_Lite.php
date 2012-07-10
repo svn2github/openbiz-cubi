@@ -551,11 +551,10 @@ class BizDataObj_Lite extends BizDataObj_Abstract
         
 		if($has_subquery)
 		{
-			$record_count = count($resultArray);
+			$record_count = (int)$resultSet->rowCount();
 		}else{
-			$record_count = $resultArray[0];
+			$record_count = (int)$resultArray[0];
 		}
-	
         return $record_count;
     }
 
