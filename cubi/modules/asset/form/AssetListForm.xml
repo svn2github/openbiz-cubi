@@ -56,12 +56,13 @@
         			Link="{APP_INDEX}/asset/asset_detail/{@:Elem[fld_Id].Value}"        			
         			 
 					/> 
-        
-                  
+     <Element Name="fld_group" Class="ColumnText" FieldName="group_id" Text="{BizSystem::GetGroupName(@:Elem[fld_group].Value)}"  Label="Group"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        </Element>   
+                     
      <Element Name="fld_owner" Class="ColumnText" FieldName="owner_id" Text="{BizSystem::GetProfileName(@:Elem[fld_owner].Value,'short')}"  Label="Owner"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         </Element>
 		
-        
+        <!-- 
    		<Element Name="fld_barcode" 
         			Class="asset.element.ColumnBarcode" 
         			FieldName="barcode" 
@@ -69,7 +70,7 @@
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />         
-
+ -->
      
      
 		<Element Name="fld_color" 

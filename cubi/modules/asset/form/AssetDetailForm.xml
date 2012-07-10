@@ -64,7 +64,8 @@
        				Label="Description" 
        				AllowURLParam="N"
 					/>
-        				         				  				      				
+        				         
+      				         				  				      				
          				         				  				      				
        	<Element Name="fld_barcode" 
        				ElementSet="General"
@@ -74,8 +75,24 @@
        				AllowURLParam="N"
        				Description="Please print this barcode to property label"
 					/>       				         				  				      				
+      
+       	<Element Name="fld_group" 
+       				ElementSet="Assignment"
+       				Class="LabelText" 
+       				FieldName="group_id" 
+       				Label="Group" 
+       				AllowURLParam="N"
+       				Text="{BizSystem::GetGroupName(@:Elem[fld_group].Value)}" 
+					/>        
         				         				  				      				
-        				         				  				      				
+       	<Element Name="fld_owner" 
+       				ElementSet="Assignment"
+       				Class="LabelText" 
+       				FieldName="owner_id" 
+       				Label="Owner" 
+       				AllowURLParam="N"
+       				Text="{BizSystem::GetProfileName(@:Elem[fld_owner].Value,'short')}" 
+					/>          				         				  				      				
         				         				  				      				
         				         				  				      				
         				         				  				      				
