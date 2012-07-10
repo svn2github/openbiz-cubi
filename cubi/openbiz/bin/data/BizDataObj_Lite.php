@@ -555,7 +555,7 @@ class BizDataObj_Lite extends BizDataObj_Abstract
 		}else{
 			$record_count = (int)$resultArray[0];
 		}
-        return $record_count;
+        return (string)$record_count;
     }
 
     /**
