@@ -378,6 +378,11 @@ class BizSystem
     	return $profileService->getProfileId($accountId);
     }
     
+	public static function getGroupName($groupId){
+    	$profileService = BizSystem::getService(PROFILE_SERVICE);
+    	return $profileService->getGroupName($groupId);
+    }    
+    
     public static function getDefaultPerm($group)
     {
     	$group = strtolower($group);
