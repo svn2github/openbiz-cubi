@@ -150,6 +150,16 @@ class LoginForm extends EasyForm
 			BizSystem::clientProxy()->ReDirectPage($redirectPage);			
 		}
 	}    
+	
+	/**
+	 * this method will be called by Mobile Client
+	 */
+	public function ClientLogin()
+	{
+		echo "got it ";
+		exit;
+	}
+	
     /**
      * login action
      *

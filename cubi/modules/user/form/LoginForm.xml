@@ -24,6 +24,10 @@
    <ActionPanel>
         <Element Name="btn_login" Class="Button" Text="Login" CssClass="button_highlight">
             <EventHandler Name="onclick" Event="onclick" Function="Login()" FunctionType="Aim"  ShortcutKey="Enter"/>            
-        </Element>             
+        </Element>         
+        
+		<Element Name="btn_client_login" Class="Hidden"  CssClass="button_highlight">
+            <EventHandler Name="onclick" Event="onclick" Function="ClientLogin()" />            
+        </Element>            
     </ActionPanel> 
 </EasyForm>
