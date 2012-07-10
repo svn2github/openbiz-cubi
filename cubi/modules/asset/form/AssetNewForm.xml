@@ -44,7 +44,7 @@
 
 		
 
-       	<Element Name="fld_barcode" 
+       	<Element Name="fld_barcode_edit" 
        				ElementSet="General" 
        				Class="InputText" 
        				FieldName="barcode" 
