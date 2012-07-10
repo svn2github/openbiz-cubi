@@ -12,7 +12,7 @@
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Upload" CssClass="button_gray_w">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="UpdateLogo()" RedirectPage="form=theme.form.ThemeDetailForm&amp;fld:Id={@:m_RecordID}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="UpdateLogo()" RedirectPage="{APP_INDEX}/theme/custom_logo"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
         </Element>
     </ActionPanel> 
     <NavPanel>
