@@ -8,7 +8,6 @@
 <BizDataObj Name="AccountingBookDO" Description="Accounting Books" DataPermControl="Y" Class="BizDataObj" DBName="Default" Table="accounting_book" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="accounting.Manage" UpdateCondition="accounting.Manage" DeleteCondition="accounting.Manage">
   <BizFieldList>
     <BizField Name="Id" Description="Id" Column="id" Required="N" Type="Number"/>
-    <BizField Name="parent_id" Description="Parent Account Book" Column="parent_id" Type="Number" Required="N"/>
     <BizField Name="name" Description="Name" Column="name" Type="Text" Required="N"/>
     <BizField Name="description" Description="Description" Column="description" Type="Text" Required="N"/>
     <BizField Name="owner_id" Description="Owner Id" Column="owner_id" ValueOnCreate="{@profile:Id}" Required="N" Type="Number"/>

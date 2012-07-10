@@ -6,7 +6,6 @@ CREATE TABLE `accounting_book` (
   `type_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text,
-  `parent_id` int(11) DEFAULT NULL COMMENT 'Parent Account Book',
   `owner_id` int(11) DEFAULT '0',
   `group_id` int(11) DEFAULT '1',
   `group_perm` int(11) DEFAULT '1',
