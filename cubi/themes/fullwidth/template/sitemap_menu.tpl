@@ -4,8 +4,8 @@
 <div class="newapp_bg">
 {include file="system_appbuilder_btn.tpl.html"}
 <div style="height:110px;">
-	<div class="newapp_title">
-		<h2>{$widget.title}</h2>			
+	<div class="newapp_title" style="width:auto;">
+		<h2 style="width:auto;padding-right:20px;">{$widget.title}</h2>			
 	</div>
 	{if $widget.description}
 	<div class="newapp_desc">
