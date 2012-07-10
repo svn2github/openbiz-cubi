@@ -29,7 +29,7 @@ if (isset($_SERVER["HTTP_HOST"])) {
     define('SITE_URL', 'http://dev.openbiz.cn/cubi');
 }
 
-define('DEFAULT_SYSTEM_NAME', 'Openbiz Cubi');
+define('DEFAULT_SYSTEM_NAME', 'Cubi Platform');
 
 /* APP_URL is /a/b in case of http://host/a/b/index.php?... */
 $appHome = str_replace('\\', '/', APP_HOME);
