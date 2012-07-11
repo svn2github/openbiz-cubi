@@ -5,7 +5,7 @@ if($widget->m_GlobalSearchRule && $widget->m_SearchRule){
 }else{
 	$searchRule = $widget->m_SearchRule;
 }
-$menu_count = $widget->getDataObj()->directfetch($searchRule)->count();
+$menu_count = $widget->getDataObj()->recordCount($searchRule);
 $menu_item_width = 115;
 $menu_width = ($menu_count * $menu_item_width)."px";
 $this->assign('menu_count', $menu_count);

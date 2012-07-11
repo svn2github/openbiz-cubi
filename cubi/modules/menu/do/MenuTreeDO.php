@@ -194,6 +194,21 @@ class MenuTreeDO extends BizDataObj
             }
         }
     }
+    
+    public function recordCount($sql)
+    {
+    	$counter = 0;
+    	$rs = $this->directFetch($sql);
+    	foreach($rs as $record)
+    	{
+    		$access = $record['access'];
+    		if(BizSystem::allowUserAccess($access))
+    		{
+    			$counter++;
+    		}
+    	}
+    	return $counter;
+    }
 }
 
 ?>
