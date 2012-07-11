@@ -1,3 +1,24 @@
+/*
+	保存第三方平台注册的KEY和密匙
+*/
+DROP TABLE IF EXISTS `oauth_provider`;
+CREATE TABLE IF NOT EXISTS `oauth_provider` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+   `user_id` int(10) NOT NULL,
+  `type` char(30) default 'default',
+  `key` char(50) default 'default',
+  `value` varchar(255) NOT NULL,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+   KEY `user_id` (`user_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+/*
+	保存第三方平台用户登录返回的密匙
+*/
 DROP TABLE IF EXISTS `oauth_user_token`;
 CREATE TABLE IF NOT EXISTS `oauth_user_token` (
   `id` int(11) NOT NULL auto_increment,
@@ -11,4 +32,6 @@ CREATE TABLE IF NOT EXISTS `oauth_user_token` (
   `update_time` datetime NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
