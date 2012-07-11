@@ -13,9 +13,9 @@
 	</ACL>
 	<Menu>
     <!-- System menus -->
-		<MenuItem Name="System.Theme" Title="Theme" Description="Theme Management" Parent="System" IconImage="spacer.gif" IconCssClass="icon_theme" Order="50">			
-			<MenuItem Name="System.Theme.Manage" Title="Manage Theme" Description=""  URL="/theme/manage_theme" Order="10"/>			
-			<MenuItem Name="System.Theme.CustomLogo" Title="Custom Logo" Description=""  URL="/theme/custom_logo" Order="20"/>			
+		<MenuItem Name="System.Theme" Title="Theme" Description="Theme Management" Parent="System" IconImage="spacer.gif" IconCssClass="icon_theme" Order="50" Access="Theme.Administer_Theme">			
+			<MenuItem Name="System.Theme.Manage" Title="Manage Theme" Description=""  URL="/theme/manage_theme" Order="10" Access="Theme.Administer_Theme"/>			
+			<MenuItem Name="System.Theme.CustomLogo" Title="Custom Logo" Description=""  URL="/theme/custom_logo" Order="20" Access="Theme.Administer_Theme"/>			
 
 		</MenuItem>
     </Menu>
