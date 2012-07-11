@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="DashboardView" Description="Oauth Dashboard" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="oauth.Access">
+    <FormReferences>
+        <Reference Name="oauth.widget.DashboardForm"/>
+    </FormReferences>
+</EasyView>

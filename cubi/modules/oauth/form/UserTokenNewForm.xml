@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="UserTokenNewForm" Class="EasyForm" FormType="New" jsClass="jbForm" Title="New User Token" Description="" BizDataObj="oauth.do.UserTokenDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+        <Element Name="fld_user_id" Class="InputText" FieldName="user_id" Label="User Id"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_oauth_class" Class="InputText" FieldName="oauth_class" Label="Oauth Class"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+    			<Element Name="fld_oauth_secret" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="oauth_secret" Label="Oauth Secret"  />            
+    			<Element Name="fld_oauth_rawdata" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="oauth_rawdata" Label="Oauth Rawdata"  />            
+        </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=oauth.form.UserTokenDetailForm&amp;fld:Id={@oauth.do.UserTokenDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

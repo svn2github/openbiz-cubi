@@ -1,0 +1,2 @@
+<MenuWidget Name="LeftMenu" Title="Oauth" Class="menu.widget.MenuWidget" CssCLass="oauth" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='Oauth'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="vertical_menu.tpl" CacheLifeTime="0">
+</MenuWidget>

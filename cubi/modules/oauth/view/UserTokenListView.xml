@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="UserTokenListView" Description="oauth" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="oauth.Access">
+   <FormReferences>
+   		<Reference Name="oauth.form.UserTokenListForm"/>
+   </FormReferences>
+</EasyView>
