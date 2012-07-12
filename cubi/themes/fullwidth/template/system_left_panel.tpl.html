@@ -52,10 +52,8 @@ $this->assign('system_left_menu_content', 	$left_menu_content);
 	{/foreach}						
 											
 	<!-- left help block start -->
-	<div class="content_block_dark">
-		<div class="content" >
+<div>
 		{php}echo Bizsystem::GetObject('help.form.HelpWidgetListForm',1)->render();{/php}
-		</div>					
-	</div>
+</div>
 	<div class="v_spacer"></div>
 	<!-- left help block end -->
