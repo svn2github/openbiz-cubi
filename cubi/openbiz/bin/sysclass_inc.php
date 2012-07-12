@@ -272,13 +272,18 @@ class MetaIterator implements Iterator
     	$old_m_var = $this->m_var;
     	$this->m_var=array();
     	foreach($anotherMIObj as $key=>$value){
-    		$this->m_var[$key]=$value;
+    		if(!$old_m_var[$key]){
+    			$this->m_var[$key]=$value;	
+    		}else{
+    			$this->m_var[$key]=$old_m_var[$key];
+    		}
     	}
         foreach($old_m_var as $key=>$value)
         {
-           
+            if (!key_exists($key,$this->m_var))
+            { 
             	$this->m_var[$key]=$value;
-            
+            }
         }
     }
 
