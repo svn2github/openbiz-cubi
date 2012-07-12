@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: ContactEditForm.xml 3356 2012-05-31 05:47:51Z rockyswen@gmail.com $
 -->
-<EasyForm Name="ContactLiteEditForm" Class="ContactForm" FormType="Edit" Title="Lite version" Icon="icon_my_profile.gif" InheritFrom="contact.form.ContactEditForm"  Access="contact.access">
+<EasyForm Name="ContactLiteEditForm" Class="ContactForm" FormType="Edit"  Icon="icon_my_profile.gif" InheritFrom="contact.form.ContactEditForm"  Access="contact.access">
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_w">
             <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=contact.form.ContactLiteDetailForm&amp;fld:Id={@contact.do.ContactDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
