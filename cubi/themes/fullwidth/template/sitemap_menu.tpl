@@ -1,7 +1,7 @@
 <form id="{$form.name}" name="{$form.name}">
 
 <div class="newapp_bg_warper">
-<div class="newapp_bg">
+<div class="newapp_bg" style="height:auto">
 {include file="system_appbuilder_btn.tpl.html"}
 <div style="height:110px;">
 	<div class="newapp_title" style="width:auto;">
@@ -16,7 +16,7 @@
 	</div>
 	{/if}
 </div>
-	<div class="upline underline" style="padding-top:10px;padding-bottom:10px;height:210px;">
+	<div class="upline underline" style="padding-top:10px;padding-bottom:10px;min-height:210px;height:auto;">
 	{assign var='i' value=0}
 	<table class="dashboard" >
 	{foreach item=item from=$widget.menu}
