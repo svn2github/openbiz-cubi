@@ -14,11 +14,12 @@
         <Element Name="fld_description" Class="Textarea"  ElementSet="General" FieldName="description" Label="Description" Description="Comments for menu administrator" AllowURLParam="N" CssClass="input_textarea" CssErrorClass="input_textarea_error" CssFocusClass="input_textarea_focus"/>
         
         <Element Name="fld_icon_css" Class="InputText" ElementSet="Parameters" FieldName="icon_css" Label="CSS Class" Description="CSS class name for this menu item" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
+		<Element Name="fld_access" Class="InputText" ElementSet="Parameters" SelectFrom="1" DefaultValue="0" FieldName="access" Label="Access"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
+        
         <Element Name="fld_module" Class="Listbox" ElementSet="Parameters" SelectFrom="system.do.ModuleDO[name]" FieldName="module" Label="Module"  AllowURLParam="N" />
         <Element Name="fld_type" Class="Listbox"  ElementSet="Parameters" SelectFrom="menu.do.MenuTypeDO(MenuType)" DefaultValue="Application" FieldName="type" Label="Type"  AllowURLParam="N" />
 		<Element Name="fld_ordering" Class="Listbox" ElementSet="Parameters" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  AllowURLParam="N" />
 		<Element Name="fld_published" Class="Checkbox" ElementSet="Parameters" SelectFrom="1" DefaultValue="1" FieldName="published" Label="Published"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />           
-		<Element Name="fld_access" Class="Checkbox" ElementSet="Parameters" SelectFrom="1" FieldName="access" Label="Access"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />    
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
