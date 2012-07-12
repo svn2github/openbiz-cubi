@@ -14,9 +14,11 @@
 			<MenuItem Name="Oauth" Title="User Token" Description="Oauth description" URL="" Parent="" Order="10">
 				<MenuItem Name="Oauth.List" Title="User Token Manage" Description=""  URL="/oauth/user_token_list" Order="10"/>
 			</MenuItem>	
-		</MenuItem>	
-
-    </Menu>
+					<MenuItem Name="Oauth" Title="Oauth Provider" Description="Oauth description" URL="" Parent="" Order="10">
+				<MenuItem Name="Oauth.List" Title="Oauth Provider Manage" Description=""  URL="/oauth/oauth_provider_list" Order="10"/>
+			</MenuItem>
+</MenuItem>
+	</Menu>
     <Dependency>
     	<Module Name="system"/>
     </Dependency>

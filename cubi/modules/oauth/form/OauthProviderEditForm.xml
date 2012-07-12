@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="OauthProviderEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit Oauth Provider" Description="" BizDataObj="oauth.do.OauthProviderDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" CssClass="input" CssErrorClass="input_error"/>
+		<Element Name="fld_user_id" Class="InputText" FieldName="user_id" Label="User Id" />
+		<Element Name="fld_type" Class="InputText" FieldName="type" Label="Type" />
+		<Element Name="fld_key" Class="InputText" FieldName="key" Label="Key" />
+		<Element Name="fld_value" Class="InputText" FieldName="value" Label="Value" />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=oauth.form.OauthProviderDetailForm&amp;fld:Id={@oauth.do.OauthProviderDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
