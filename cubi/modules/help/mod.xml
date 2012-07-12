@@ -9,6 +9,7 @@
 	<ACL>
 		<Resource Name="Help">
 			<Action Name="Administer_Help" Description="Can manage help content for the application"/>
+			<Action Name="Access_Widget" Description="Show help widget on users left panel"/>
 		</Resource>
 	</ACL>
 	<Menu>

@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="HelpWidgetListForm" Class="HelpWidgetForm" FormType="List" jsClass="jbForm" Title="Help" Description="dahjshj" BizDataObj="help.do.HelpDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="widget_list.tpl.html" EventName="HELP" MessageFile="Help.msg">
+<EasyForm Name="HelpWidgetListForm" Class="HelpWidgetForm" FormType="List" jsClass="jbForm" Title="Help" Description="dahjshj" BizDataObj="help.do.HelpDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="widget_list.tpl.html" EventName="HELP" MessageFile="Help.msg" Access="Help.Access_Wdiget">
     <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
