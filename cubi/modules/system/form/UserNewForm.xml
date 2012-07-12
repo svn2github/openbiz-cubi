@@ -8,10 +8,10 @@
 <EasyForm Name="UserNewForm" Icon="icon_user_add.gif" Class="UserForm" FormType="New" jsClass="jbForm" Title="New user" Description="Please fill the form below to create a new user account" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="system.msg"  Access="User.Administer_Users">
     <DataPanel>
         <Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="Id" Hidden="Y" />
-		<Element Name="fld_username" Class="InputText" FieldName="username" Required="Y" Label="Username"  HTMLAttr="maxlength='36'"/>
-        <Element Name="fld_password" Class="Password" FieldName="password" label="Password"  Required="Y"  HTMLAttr="maxlength='36'"/>
+		<Element Name="fld_username" Class="InputText" FieldName="username" Required="Y" Label="Username"  HTMLAttr="maxlength='36'" Description="Between 6-20 charactors"/>
+        <Element Name="fld_password" Class="Password" FieldName="password" label="Password"  Required="Y"  HTMLAttr="maxlength='36'" Description="Between 6-12 charactors"/>
 		<Element Name="fld_password_repeat" Class="Password" FieldName="password" Description="Input password again for confirmation"  Label="Repeat"  required="Y"/>
-        <Element Name="fld_email" Class="InputText" FieldName="email" Label="Email"  />
+        <Element Name="fld_email" Class="InputText" FieldName="email" Label="Email" Description="User email address" />
         <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)"/>
     </DataPanel>
     <ActionPanel>
