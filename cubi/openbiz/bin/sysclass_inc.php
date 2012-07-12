@@ -276,10 +276,9 @@ class MetaIterator implements Iterator
     	}
         foreach($old_m_var as $key=>$value)
         {
-            if (!key_exists($key,$this->m_var))
-            { 
+           
             	$this->m_var[$key]=$value;
-            }
+            
         }
     }
 
