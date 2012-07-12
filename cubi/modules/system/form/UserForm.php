@@ -272,7 +272,51 @@ class UserForm extends EasyForm
     public function validateForm()
     {	
         
-        if ($this->_checkDupUsername())
+   	 	//validate User
+        $username = BizSystem::ClientProxy()->GetFormInputs("fld_username");
+    	$validateSvc = BizSystem::getService(VALIDATE_SERVICE);
+		if(!$validateSvc->betweenLength($username,6,20))
+		{
+			$errorMessage = $this->GetMessage("USERNAME_LENGTH");
+			$this->m_ValidateErrors['fld_username'] = $errorMessage;
+			throw new ValidationException($this->m_ValidateErrors);
+			return false;
+		}
+		
+    	//validate password
+    	$password = BizSystem::ClientProxy()->GetFormInputs("fld_password");
+		$validateSvc = BizSystem::getService(VALIDATE_SERVICE);
+		if(!$validateSvc->betweenLength($password,6,12))
+		{
+			$errorMessage = $this->GetMessage("PASSWORD_LENGTH");
+			$this->m_ValidateErrors['fld_password'] = $errorMessage;
+			throw new ValidationException($this->m_ValidateErrors);
+			return false;
+		}
+		
+    	// disable password validation if they are empty
+    	$password = BizSystem::ClientProxy()->GetFormInputs("fld_password");
+		$password_repeat = BizSystem::ClientProxy()->GetFormInputs("fld_password_repeat");
+    	if (!$password_repeat)
+    	    $this->getElement("fld_password")->m_Validator = null;
+    	if (!$password)
+    	    $this->getElement("fld_password_repeat")->m_Validator = null;
+
+    	//validate email
+    	$email = BizSystem::ClientProxy()->GetFormInputs("fld_email");
+		$validateSvc = BizSystem::getService(VALIDATE_SERVICE);
+		if(!$validateSvc->email($email))
+		{
+			$errorMessage = $this->GetMessage("EMAIL_INVALID");
+			$this->m_ValidateErrors['fld_email'] = $errorMessage;
+			throw new ValidationException($this->m_ValidateErrors);
+			return false;
+		}    
+    	    
+    	parent::ValidateForm();
+
+    	
+    	if ($this->_checkDupUsername())
         {
             $errorMessage = $this->GetMessage("USERNAME_USED");
 			$this->m_ValidateErrors['fld_username'] = $errorMessage;
@@ -287,18 +331,8 @@ class UserForm extends EasyForm
 			$this->m_ValidateErrors['fld_email'] = $errorMessage;
 			throw new ValidationException($this->m_ValidateErrors);
 			return false;
-        }              
+        }  
         
-    	// disable password validation if they are empty
-    	$password = BizSystem::ClientProxy()->GetFormInputs("fld_password");
-		$password_repeat = BizSystem::ClientProxy()->GetFormInputs("fld_password_repeat");
-    	if (!$password_repeat)
-    	    $this->getElement("fld_password")->m_Validator = null;
-    	if (!$password)
-    	    $this->getElement("fld_password_repeat")->m_Validator = null;
-    	    
-    	parent::ValidateForm();
-
 		if($password != "" && ($password != $password_repeat))
 		{
 			$passRepeatElem = $this->getElement("fld_password_repeat");
