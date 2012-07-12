@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ContactDetailForm.xml 3356 2012-05-31 05:47:51Z rockyswen@gmail.com $
+-->
+<EasyForm Name="ContactLiteDetailForm" Class="ContactForm" FormType="" Icon="icon_my_profile.gif" jsClass="jbForm" Title="Contact Details" Description="Detailed information about contact" BizDataObj="contact.do.ContactDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_contact_detail_tabs.tpl.html" EventName="CONTACT" MessageFile="Contact.msg"  Access="contact.access">
+    <DataPanel>
+    		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="Y" />
+    			         	        	        
+	        <Element Name="fld_display_name" Class="LabelText"  FieldName="display_name" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;"  AllowURLParam="N" />
+			<Element Name="fld_type_id" Class="LabelText" BackgroundColor="{@:Elem[fld_color].Value}" Width="648"  ElementSet="Profile" FieldName="type_name" Label="Contact Type"  AllowURLParam="N" />
+			
+	        <Element Name="fld_first_name" Class="LabelText" ElementSet="Profile" FieldName="first_name" Label="Firstname"  AllowURLParam="N" />
+	        <Element Name="fld_last_name" Class="LabelText" ElementSet="Profile" FieldName="last_name" Label="Lastname"  AllowURLParam="N" />
+	        <Element Name="fld_company" Class="LabelText" ElementSet="Profile" FieldName="company" Label="Company"  AllowURLParam="N"/>    	        				        
+	        <Element Name="fld_department" Class="LabelText" ElementSet="Profile" FieldName="department" Label="Department"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_position" Class="LabelText" ElementSet="Profile" FieldName="position" Label="Position"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_photo_uploaded" Class="RawData"  ElementSet="Profile" FieldName="photo" Label="Select Photo"  AllowURLParam="N" CssClass="input_file"/>	        
+     	
+ 	        <Element Name="fld_phone" Class="LabelText" ElementSet="Phone" FieldName="phone" Label="Phone"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_mobile" Class="LabelText" ElementSet="Phone" FieldName="mobile" Label="Mobile"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_fax" Class="LabelText" ElementSet="Phone" FieldName="fax" Label="Fax"  AllowURLParam="N"/>
+          
+ 	        <Element Name="fld_country" Class="LabelText" ElementSet="Address" FieldName="country" Label="Country"  AllowURLParam="N"/>
+			<Element Name="fld_province" Class="LabelText" ElementSet="Address" FieldName="province" Label="Province"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_city" Class="LabelText" ElementSet="Address" FieldName="city" Label="City"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_street" Class="LabelText" ElementSet="Address" FieldName="street" Label="Street"  AllowURLParam="N"/>		
+			<Element Name="fld_zipcode" Class="LabelText" ElementSet="Address" FieldName="zipcode" Label="Zipcode"  AllowURLParam="N"/>
+ 		
+	        <Element Name="fld_email" Class="LabelText"  ElementSet="Online Contact" FieldName="email" Label="Email"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_webpage" Class="LabelText" ElementSet="Online Contact"  FieldName="webpage" Label="Webpage"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_qq" Class="LabelText" ElementSet="Online Contact"  FieldName="qq" Label="QQ"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_icq" Class="LabelText" ElementSet="Online Contact"  FieldName="icq" Label="ICQ"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_skype" Class="LabelText" ElementSet="Online Contact"  FieldName="skype" Label="Skype"  AllowURLParam="N"/>    	        
+	        <Element Name="fld_yahoo" Class="LabelText" ElementSet="Online Contact"  FieldName="yahoo" Label="Yahoo"  AllowURLParam="N"/>
+     		
+			<Element Name="fld_extend_fields"   ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N" />
+			
+     		<!-- 1-M -->
+     		<Element Name="fld_locations" TabSet="Extra Information" Access="location.access"  ElementSet="Locations" Class="FormElement" FormReference="location.widget.LocationListDetailForm" FieldName="" Label="" AllowURLParam="N" />     	
+			<Element Name="btn_manage_location" Access="location.access" TabSet="Extra Information" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Locations"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+				<EventHandler Name="btn_manage_location_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactEditLocationForm,{@:Elem[fld_Id].Value})"   />
+	        </Element> 
+			
+			<Element Name="fld_related_picture" Access="picture.access" TabSet="Extra Information"  ElementSet="Picture" Class="FormElement" FormReference="picture.widget.PictureListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+			<Element Name="btn_manage_picture" Access="picture.access" TabSet="Extra Information" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Picture"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+				<EventHandler Name="btn_manage_picture_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactEditPictureForm,{@:Elem[fld_Id].Value})"   />
+	        </Element> 
+     		
+     		<Element Name="fld_related_attachment" Access="attachment.access" TabSet="Extra Information"  ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+			<Element Name="btn_manage_attachment" Access="attachment.access" TabSet="Extra Information" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+				<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
+	        </Element> 
+     		
+     		<Element Name="fld_changelog" TabSet="Extra Information" Access="changelog.access"  ElementSet="ChangeLog" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetForm" FieldName="" Label="" AllowURLParam="N" />      	
+     	
+ 	    	<Element Name="fld_misc" TabSet="Extra Information" Class="RawData"  ElementSet="Miscellaneous" FieldName="misc" Label="Miscellaneous"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />                	      
+	        <Element Name="fld_color" TabSet="Extra Information" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	        	            	        	        
+			<Element Name="fld_sortorder" TabSet="Extra Information" Class="LabelText" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />
+	        <Element Name="fld_published" TabSet="Extra Information" Class="LabelList" ElementSet="Miscellaneous"  SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  />
+	        <Element Name="fld_published_others" TabSet="Extra Information" Class="LabelList" ElementSet="Miscellaneous"  SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  />
+	     	<Element Name="fld_create_by"  TabSet="Extra Information" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}"  Link="{APP_INDEX}/collab/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_create_time"  TabSet="Extra Information" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
+			<Element Name="fld_update_by" TabSet="Extra Information"  Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}"  Link="{APP_INDEX}/collab/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_update_time"  TabSet="Extra Information" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>    
+		   
+
+	    </DataPanel>
+    <ActionPanel>        
+        <Element Name="btn_edit"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button" Text="Edit" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactLiteEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+         <Element Name="btn_back" Class="LabelText" Text="Back" CssClass="button_gray_m" Link="{APP_INDEX}/system/user_list">
+        </Element>       
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
