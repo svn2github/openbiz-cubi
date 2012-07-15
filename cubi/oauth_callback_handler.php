@@ -12,10 +12,26 @@
  */
 
 include_once 'bin/app_init.php';
+
 include_once OPENBIZ_HOME."/bin/ErrorHandler.php";
 
-//call back handler logic here 
-$svc = BizSystem::getService("service.oauthTaobaoService");
-$list = $svc->getProviderData();
-var_dump($list);// It is a sample about how to read oauth config data
+$type=BizSystem::ClientProxy()->getRequestParam("type");  
+$service=BizSystem::ClientProxy()->getRequestParam("service");
+ 
+$oatuthType=MODULE_PATH."/oauth/libs/{$type}.class.php";
+if(!file_exists($oatuthType))
+{
+	throw new Exception('Unknown type');
+	return;
+}
 
+include_once $oatuthType;
+$obj = new $type;
+$whitelist_arr=array('CallBack','login');
+if(!in_array($service,$whitelist_arr)){
+	throw new Exception('Unknown service');
+	return;
+}
+
+call_user_method($service, $obj, "\t");
+ 
