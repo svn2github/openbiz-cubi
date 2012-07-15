@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+	<oauthType Value="qq" Text="腾讯QQ"/>
+	<oauthType Value="sina" Text="新浪"/>
+	<oauthType Value="alipay" Text="支付宝"/>
+	<oauthType Value="google" Text="谷歌GOOGLE"/>
+	<oauthType Value="facebook" Text="facebook"/>
+	
+	  <Status Value="1" text="Active"/>
+    <Status Value="0" text="Inactive"/>
+</Selection>
+ 
+

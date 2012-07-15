@@ -5,12 +5,12 @@
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
-                <Element Name="fld_user_id" Class="ColumnText" FieldName="user_id" Label="User Id"  Sortable="Y" Link="javascript:">
-         		<EventHandler Name="fld_user_id_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderDetailForm,{@:Elem[fld_Id].Value})"   />
-        </Element>
                 <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type" DefaultValue="default" Sortable="Y"/>
                 <Element Name="fld_key" Class="ColumnText" FieldName="key" Label="Key" DefaultValue="default" Sortable="Y"/>
                 <Element Name="fld_value" Class="ColumnText" FieldName="value" Label="Value"  Sortable="Y"/>
+			 <Element Name="fld_status" Class="LabelBool" FieldName="status"  Label="Status" Link="javascript:;">
+			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
+		</Element>
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" Access="oauth.Manage">
