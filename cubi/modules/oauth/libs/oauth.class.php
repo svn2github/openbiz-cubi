@@ -84,11 +84,17 @@ class oauthClass extends EasyForm
 	 * @return bool
 	 */
 	public function check($oauth_data){
+
+		if(!$oauth_data['id'])
+		{
+			throw new Exception('Unknown oauth_token');
+			return;
+		}
 		$UserTokenObj = BizSystem::getObject('oauth.do.UserTokenDO');
 		$UserToken=$UserTokenObj->fetchOne("type_uid='".$oauth_data['id']."'");
 		$oauth_data['oauth_token']=$_SESSION[$this->m_Type]['access_token']['oauth_token'] ; 
 		$oauth_data['oauth_token_secret']=$_SESSION[$this->m_Type]['access_token']['oauth_token_secret']; 
-		
+
 		if($UserToken)
 		{
 			global $g_BizSystem; 

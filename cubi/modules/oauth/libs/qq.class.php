@@ -20,6 +20,7 @@ class qq extends oauthClass{
 		BizSystem::clientProxy()->ReDirectPage($redirectPage);
 	} 
 	function CallBack(){ 
+		//dump($_SESSION['qq']);
 		$this->checkUser();
 		$userInfo=$this->userInfo();
 		$this->check($userInfo);

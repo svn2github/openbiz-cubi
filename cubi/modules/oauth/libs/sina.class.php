@@ -15,15 +15,18 @@ class sina extends oauthClass
 		$this->m_sina_skey =$recArr[$this->m_Type]['value'];
 	}
 	
-  	function login(){
+  	function login(){	
 		$redirectPage=$this->getUrl();
 		BizSystem::clientProxy()->ReDirectPage($redirectPage);
 	} 
 	function CallBack(){ 
-		
-		//$this->m_oauth_token=BizSystem::ClientProxy()->getRequestParam("oauth_token");
-		//$this->m_oauth_token_secret=BizSystem::ClientProxy()->getRequestParam("oauth_token_secret");
-		$this->checkUser();
+		$keys=Bizsystem::getSessionContext()->getVar('sina_keys');
+		if(!$keys)
+		{
+			$keys['oauth_token']=BizSystem::ClientProxy()->getRequestParam("oauth_token");
+			$keys['oauth_token_secret']=BizSystem::ClientProxy()->getRequestParam("oauth_token_secret");
+		}
+		$this->checkUser($keys['oauth_token'],$keys['oauth_token_secret']);
 		$userInfo=$this->userInfo();  
 		$this->check($userInfo);
 	}
@@ -39,9 +42,11 @@ class sina extends oauthClass
 		if (is_null($call_back)) {
 			$call_back =SITE_URL.'oauth_callback_handler.php?type=sina&service=CallBack';
 		}
-		//$call_back=$call_back.'&oauth_token_secret='.$keys['oauth_token_secret'];
+		$call_back=$call_back.'&oauth_token_secret='.$keys['oauth_token_secret'];
 		$this->loginUrl = $o->getAuthorizeURL( $keys['oauth_token'] ,false , $call_back);
-		$_SESSION['sina']['keys'] = $keys;
+		//$_SESSION['sina']['keys'] = $keys;
+		Bizsystem::getSessionContext()->setVar('sina_keys',$keys);
+		//dump(Bizsystem::getSessionContext()->getVar('sina_keys'));
 		return $this->loginUrl;
 	} 
 
@@ -60,16 +65,18 @@ class sina extends oauthClass
 	}
 
 	//验证用户
-    function checkUser(){
-        $o = new SinaWeiboOAuth( $this->m_sina_akey , $this->m_sina_skey ,$_SESSION['sina']['keys']['oauth_token'] ,$_SESSION['sina']['keys']['oauth_token_secret']);
+    function checkUser($oauth_token,$oauth_token_secret){
+        $o = new SinaWeiboOAuth( $this->m_sina_akey , $this->m_sina_skey ,$oauth_token ,$oauth_token_secret);
         $access_token = $o->getAccessToken(  $_REQUEST['oauth_verifier'] ) ;
-		$_SESSION['sina']['access_token']= $access_token;
+		//$_SESSION['sina']['access_token']= $access_token;
+		Bizsystem::getSessionContext()->setVar('sina_access_token',$access_token);
 		//$this->m_oauth_token = $access_token['oauth_token'];
 		//$this->m_oauth_token_secret = $access_token['oauth_token_secret'];
 	}
     private function doClient($opt=''){
-		$oauth_token = ( $opt['oauth_token'] )? $opt['oauth_token']:$_SESSION['sina']['access_token']['oauth_token'];
-        $oauth_token_secret = ( $opt['oauth_token_secret'] )? $opt['oauth_token_secret']:$_SESSION['sina']['access_token']['oauth_token_secret'];	
+		$tokens=Bizsystem::getSessionContext()->getVar('sina_access_token');
+		$oauth_token = ( $opt['oauth_token'] )? $opt['oauth_token']:$tokens['oauth_token'];
+        $oauth_token_secret = ( $opt['oauth_token_secret'] )? $opt['oauth_token_secret']:$tokens['oauth_token_secret'];	
 		return new WeiboClient( $this->m_sina_akey , $this->m_sina_skey ,  $oauth_token, $oauth_token_secret  );
 	}
 	//发布一条微博 - 可以发图片微博
