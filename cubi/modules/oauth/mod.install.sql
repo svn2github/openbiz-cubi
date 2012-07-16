@@ -16,6 +16,18 @@ CREATE TABLE IF NOT EXISTS `oauth_provider` (
    KEY `create_by` (`create_by`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+INSERT INTO `oauth_provider`
+ (`id`, `type`, `key`, `value`, `status`, `create_by`, `create_time`, `update_by`, `update_time`) 
+ VALUES
+(1, 'sina', '', '', 0, 1, '', 1, ''),
+(2, 'qq', '', '', 0, 1, '', 1, ''),
+(3, 'alipay', '', '', 0, 1, '', 1, ''),
+(4, 'google', '', '', 0, 1, '', 1, ''),
+(5, 'facebook', '', '', 0, 1, '', 1, '');
+
+ 
+
+
 /*
 	保存第三方平台用户登录返回的密匙
 */

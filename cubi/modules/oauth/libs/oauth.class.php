@@ -58,9 +58,8 @@ class oauthClass extends EasyForm
 		 if(!$recArr)
 			 {
 			 $do=BizSystem::getObject($this->m_oauthProviderDo);
-			 $sql="SELECT `type` ,  `key` ,  `value`  FROM  `{$do->m_MainTable}` where status=1 and type='{$this->m_Type}' LIMIT 0 , 1 ";
-			 $db=$do->getDBConnection();
-			 $recArr=$db->fetchAssoc($sql);
+			 $recArr=$do->fetchOne("[status]=1 and [type]='{$this->m_Type}'",1);
+			 $recArr=$recArr->toArray();
 			 BizSystem::sessionContext()->setVar("_OAUTH_{$this->m_Type}",$recArr);
 		 }
 		 return $recArr;

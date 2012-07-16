@@ -1,4 +1,4 @@
-<?
+<?php
 include_once('_OAuth/oauth.php');
 require_once "oauth.class.php";
 include_once( 'sina/weibooauth.php' );
@@ -11,8 +11,8 @@ class sina extends oauthClass
 		
 	public function __construct() {
 		$recArr=$this->getProviderList(); 
-		$this->m_sina_akey = $recArr[$this->m_Type]['key'];
-		$this->m_sina_skey =$recArr[$this->m_Type]['value'];
+		$this->m_sina_akey = $recArr['key'];
+		$this->m_sina_skey =$recArr['value'];
 	}
 	
   	function login(){	

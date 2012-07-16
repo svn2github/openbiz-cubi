@@ -11,8 +11,8 @@ class qq extends oauthClass{
 		
 	public function __construct() {
 		$recArr=$this->getProviderList();
-		$this->m_qq_akey = $recArr[$this->m_Type]['key'];
-		$this->m_qq_skey =$recArr[$this->m_Type]['value'];
+		$this->m_qq_akey = $recArr['key'];
+		$this->m_qq_skey =$recArr['value'];
 	}
 	
   	function login(){

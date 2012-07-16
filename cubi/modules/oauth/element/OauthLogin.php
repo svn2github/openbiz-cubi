@@ -31,11 +31,9 @@ class OauthLogin extends Element
 		$recArr=BizSystem::sessionContext()->getVar("_OauthLogin");
 		if(!$recArr && BizSystem::getService('system.lib.ModuleService')->isModuleInstalled('oauth'))
 		{
-			 
 			 $do=BizSystem::getObject('oauth.do.OauthProviderDO');
-			 $sql="SELECT `type` ,  `key` ,  `value`  FROM  `{$do->m_MainTable}` where status=1   LIMIT 0 , 15 ";
-			 $db=$do->getDBConnection();
-			 $recArr=$db->fetchAssoc($sql);
+			 $recArr=$do->directFetch ("[status]=1",30);
+			 $recArr=$recArr->toArray();
 			 BizSystem::sessionContext()->setVar("_OAUTH_{$this->m_Type}",$recArr);
 		}		
 		$sHTML = "";
