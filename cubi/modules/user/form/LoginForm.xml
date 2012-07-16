@@ -26,6 +26,9 @@
             <EventHandler Name="onclick" Event="onclick" Function="Login()" FunctionType="Aim"  ShortcutKey="Enter"/>            
         </Element>         
         
+        <Element Name="btn_oauthlogin" Class="oauth.element.OauthLogin" Text="" >
+        </Element>        
+        
 		<Element Name="btn_client_login" Class="Hidden"  CssClass="button_highlight">
             <EventHandler Name="onclick" Event="onclick" Function="ClientLogin()" />            
         </Element>            
