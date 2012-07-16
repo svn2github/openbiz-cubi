@@ -91,9 +91,9 @@ class oauthClass extends EasyForm
 		}
 		$UserTokenObj = BizSystem::getObject('oauth.do.UserTokenDO');
 		$UserToken=$UserTokenObj->fetchOne("type_uid='".$oauth_data['id']."'");
-		$oauth_data['oauth_token']=$_SESSION[$this->m_Type]['access_token']['oauth_token'] ; 
-		$oauth_data['oauth_token_secret']=$_SESSION[$this->m_Type]['access_token']['oauth_token_secret']; 
-
+		$access_token=Bizsystem::getSessionContext()->getVar($this->m_Type.'_access_token');
+		$oauth_data['oauth_token']=$access_token['oauth_token'] ; 
+		$oauth_data['oauth_token_secret']=$access_token['oauth_token_secret']; 
 		if($UserToken)
 		{
 			global $g_BizSystem; 

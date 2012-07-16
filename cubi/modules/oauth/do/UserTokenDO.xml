@@ -3,7 +3,7 @@
 	<BizFieldList>
         <BizField Name="Id" Column="id"     Type="Number"/>
         <BizField Name="user_id" Column="user_id"    Required="Y" Type="Number"/>
-        <BizField Name="type_uid" Column="type_uid"    Required="Y" Type="Text"/>
+        <BizField Name="type_uid" Column="type_uid"     Required="Y" />
         <BizField Name="oauth_class" Column="oauth_class" Length="255"   Required="Y" Type="Text"/>
         <BizField Name="oauth_token" Column="oauth_token"    Required="Y" Type="Text"/>
         <BizField Name="oauth_token_secret" Column="oauth_token_secret"    Required="Y" Type="Text"/>

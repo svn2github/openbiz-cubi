@@ -20,8 +20,8 @@ class qq extends oauthClass{
 		BizSystem::clientProxy()->ReDirectPage($redirectPage);
 	} 
 	function CallBack(){ 
-		//dump($_SESSION['qq']);
-		$this->checkUser();
+		$keys=Bizsystem::getSessionContext()->getVar('qq_keys');
+		$this->checkUser($keys['oauth_token'],$keys['oauth_token_secret']);
 		$userInfo=$this->userInfo();
 		$this->check($userInfo);
 	}
@@ -42,7 +42,8 @@ class qq extends oauthClass{
 		$keys = array_merge($_temp, $keys);
 	
 		$this->loginUrl = $o->getAuthorizeURL( $keys['oauth_token'] ,false , $call_back);
-		$_SESSION['qq']['keys'] = $keys;
+		Bizsystem::getSessionContext()->setVar('qq_keys',$keys);
+		//$_SESSION['qq']['keys'] = $keys;
 		return $this->loginUrl;
 	}
 
@@ -74,10 +75,9 @@ class qq extends oauthClass{
 	}
 
 	private function doClient($opt=''){
-
-		$oauth_token = ( $opt['oauth_token'] )? $opt['oauth_token']:$_SESSION['qq']['access_token']['oauth_token'];
-        $oauth_token_secret = ( $opt['oauth_token_secret'] )? $opt['oauth_token_secret']:$_SESSION['qq']['access_token']['oauth_token_secret'];
-
+		$tokens=Bizsystem::getSessionContext()->getVar('qq_access_token');
+		$oauth_token = ( $opt['oauth_token'] )? $opt['oauth_token']:$tokens['oauth_token'];
+        $oauth_token_secret = ( $opt['oauth_token_secret'] )? $opt['oauth_token_secret']:$tokens['oauth_token_secret'];
 		return new QqWeiboClient( $this->m_qq_akey ,$this->m_qq_skey ,  $oauth_token, $oauth_token_secret  );
 	}
 
@@ -87,10 +87,12 @@ class qq extends oauthClass{
 	}
 
 	//验证用户
-	function checkUser(){
-          $o = new QqWeiboOAuth($this->m_qq_akey ,$this->m_qq_skey  , $_SESSION['qq']['keys']['oauth_token'] , $_SESSION['qq']['keys']['oauth_token_secret']  );
+	function checkUser($oauth_token,$oauth_token_secret){
+		
+        $o = new QqWeiboOAuth($this->m_qq_akey ,$this->m_qq_skey  ,$oauth_token ,$oauth_token_secret );
         $access_token = $o->getAccessToken(  $_REQUEST['oauth_verifier'] ) ;
-		$_SESSION['qq']['access_token'] = $access_token;
+		//$_SESSION['qq']['access_token'] = $access_token;
+		Bizsystem::getSessionContext()->setVar('qq_access_token',$access_token);
 	}
 
 	//发布一条微博
