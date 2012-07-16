@@ -33,5 +33,6 @@ if(!in_array($service,$whitelist_arr)){
 	return;
 }
 
-call_user_method($service, $obj, "\t");
+//call_user_method($service, $obj, "\t");
+call_user_func(array($obj,$service));
  
