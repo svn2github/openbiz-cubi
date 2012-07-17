@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="OauthProviderListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Oauth Provider Management" Description="" BizDataObj="oauth.do.OauthProviderDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="oauth.Administer">
+<EasyForm Name="OauthProviderListForm" Class="EasyForm" FormType="List" jsClass="jbForm" icon="{RESOURCE_URL}/oauth/images/icon_oauth.png" Title="OAuth Login Setting" Description="OAuth feature allows users from 3rd-party platform login this system by using their own account." BizDataObj="oauth.do.OauthProviderDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="oauth.Administer">
     <DataPanel>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Hidden="Y" Sortable="Y" AllowURLParam="N" Link="javascript:">         
-         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
-                <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type" DefaultValue="default" Sortable="Y"/>
-                <Element Name="fld_key" Class="ColumnText" FieldName="key" Label="App ID" DefaultValue="default" Sortable="Y"/>
-                <Element Name="fld_value" Class="ColumnText" FieldName="value" Label="Secret"  Sortable="Y"/>
-			 <Element Name="fld_status" Class="LabelBool" FieldName="status"  Label="Status" Link="javascript:;">
-			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
+        <Element Name="fld_platform" Class="ColumnImage" FieldName="type" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" Label="Platform" DefaultValue="default" Sortable="Y" Link="javascript:">
+                 	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>
+		<Element Name="fld_status" Class="LabelBool" FieldName="status"  Label="Status" Link="javascript:;">
+				<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
 		</Element>
+		
+		<Element Name="fld_key" Class="ColumnText" FieldName="key" Label="App Key" DefaultValue="default" Sortable="Y"/>                
+		
+		<Element Name="fld_update_by" Class="ColumnText" FieldName="update_by" Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value,'short')}"  Label="Update By"  Sortable="Y"/>
+		<Element Name="fld_update_time" Class="ColumnText" FieldName="update_time" Label="Update Time"  Sortable="Y"/>
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_edit" Class="Button" Text="Setting" CssClass="button_gray_w" Description="edit record (Ctrl+E)" Access="oauth.Administer">
@@ -43,10 +47,5 @@
             <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
         </Element>
     </NavPanel> 
-    <SearchPanel>
-			<Element Name="qry_user_id" Class="AutoSuggest" SelectFrom="oauth.do.OauthProviderDO[user_id],[user_id] like '%{@:Elem[qry_user_id].Value}%' GROUP BY [user_id]" FuzzySearch="Y" FieldName="user_id" Label="" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
-        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
-            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
-        </Element>	
-    </SearchPanel>
+
 </EasyForm>

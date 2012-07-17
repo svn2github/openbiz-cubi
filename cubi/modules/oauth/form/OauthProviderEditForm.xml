@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="OauthProviderEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit Oauth Provider" Description="" BizDataObj="oauth.do.OauthProviderDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="" Access="oauth.Administer">
     <DataPanel>
-	    <Element Name="fld_type" Class="Listbox" FieldName="type" Label="Type"    AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus" SelectFrom="oauth.enum.Enum(oauthType)"/>
-        <Element Name="fld_key" Class="InputText" FieldName="key" Label="Key"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"  Required="Y" />
-        <Element Name="fld_value" Class="InputText" FieldName="value" Label="Value"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"  Required="Y" />
-		  <Element Name="fld_status" Class="Listbox" FieldName="status" Label="status"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"  SelectFrom="oauth.enum.Enum(status)"/>
+	    <Element Name="fld_type" Class="LabelList" FieldName="type" Label="Type"    AllowURLParam="N"  SelectFrom="oauth.enum.Enum(oauthType)"/>
+        <Element Name="fld_key" Class="InputText" FieldName="key" Label="Key"   AllowURLParam="N"  Required="Y" />
+        <Element Name="fld_value" Class="InputText" FieldName="value" Label="Value"   AllowURLParam="N"  Required="Y" />
+		  <Element Name="fld_status" Class="DropDownList" FieldName="status" Label="Status"   AllowURLParam="N"  SelectFrom="common.lov.CommLOV(EnableStatus)"/>
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
