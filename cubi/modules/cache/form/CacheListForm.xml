@@ -18,7 +18,7 @@
         		
     </DataPanel>
     <ActionPanel>
-		<Element Name="lnk_switch" Class="Button" Text="{@:m_ModeStatus=='Enabled'?On:Off}" CssClass="{@:m_ModeStatus =='Enabled'?button_switch_on:button_switch_off}" Description="switch mode">
+		<Element Name="lnk_switch" Class="Button" Text="{@:m_ModeStatus=='Enabled'?Off:On}" CssClass="{@:m_ModeStatus =='Enabled'?button_switch_off:button_switch_on}" Description="switch mode">
 			<EventHandler Name="lnk_switch_onclick" Event="onclick" EventLogMsg="" Function="SwitchMode()" ShortcutKey="Ctrl+O" ContextMenu="Switch"/>
         </Element> 
          <Element Name="btn_refresh" Class="Button" Text="Reload" CssClass="button_gray_m">
