@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="OauthProviderListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Oauth Provider Management" Description="" BizDataObj="oauth.do.OauthProviderDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="oauth.Administer">
     <DataPanel>
-        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:">         
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Hidden="Y" Sortable="Y" AllowURLParam="N" Link="javascript:">         
          	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
                 <Element Name="fld_type" Class="ColumnText" FieldName="type" Label="Type" DefaultValue="default" Sortable="Y"/>
-                <Element Name="fld_key" Class="ColumnText" FieldName="key" Label="Key" DefaultValue="default" Sortable="Y"/>
-                <Element Name="fld_value" Class="ColumnText" FieldName="value" Label="Value"  Sortable="Y"/>
+                <Element Name="fld_key" Class="ColumnText" FieldName="key" Label="App ID" DefaultValue="default" Sortable="Y"/>
+                <Element Name="fld_value" Class="ColumnText" FieldName="value" Label="Secret"  Sortable="Y"/>
 			 <Element Name="fld_status" Class="LabelBool" FieldName="status"  Label="Status" Link="javascript:;">
 			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
 		</Element>
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)" Access="oauth.Administer">
+        <Element Name="btn_edit" Class="Button" Text="Setting" CssClass="button_gray_w" Description="edit record (Ctrl+E)" Access="oauth.Administer">
             <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=oauth.form.OauthProviderEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
         <!-- 
