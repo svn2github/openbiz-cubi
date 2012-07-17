@@ -169,5 +169,25 @@
 			{php} } {/php}
 		</div>
 	</div>
+	<div class="dashboard_bg_light">
+		<div class="title">{t}Extension{/t}</div>
+		<div class="icons">		
+			{php} if(BizSystem::allowUserAccess('oauth.Administer') ){ {/php}
+			<a href="{$app_index}/oauth/provider_setting" class="icon_oauth">
+				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}OAuth{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('payment.Administer') ){ {/php}
+			<a href="{$app_index}/payment/provider_setting" class="icon_payment">
+				<img border="0" src="{$theme_url}/images/spacer.gif" />{t}Payment{/t}</a>
+			{php} } {/php}
+			
+			{php} if(BizSystem::allowUserAccess('sms.Administer') ){ {/php}
+			<a href="{$app_index}/sms/provider_setting" class="icon_sms">
+				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}SMS{/t}</a>
+			{php} } {/php}
+				
+		</div>
+	</div>		
 </div>
 </form>		
