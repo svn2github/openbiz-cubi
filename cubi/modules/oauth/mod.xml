@@ -1,18 +1,12 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="oauth" Description="oauth module" Version="0.1.1" OpenbizVersion="3.0">
+<Module Name="oauth" Description="OAuth extension module" Version="0.2" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="oauth">
-			<Action Name="Access" Description="Access Oauth Module Dashboard"/>
-		</Resource>
-		<Resource Name="oauth">
-            <Action Name="Access" Description="Access Oauth"/>
-            <Action Name="Manage" Description="Manage Oauth"/>
+            <Action Name="Administer" Description="Manage OAuth Provider Setting"/>
 		</Resource>
     </ACL>
     <Menu>
-			<MenuItem Name="Oauth" Title="Oauth Provider" Description="Oauth description" URL="/oauth/oauth_provider_list" Parent="" Order="10">
-				<MenuItem Name="Oauth.List" Title="Oauth Provider Manage" Description=""  URL="/oauth/oauth_provider_list" Order="10"/>
-			</MenuItem>
+		<MenuItem Name="Oauth.List" Title="OAuth Setting" Description=""  Parent="System.Extension" URL="/oauth/provider_setting" Order="10"/>
 	</Menu>
     <Dependency>
     	<Module Name="system"/>

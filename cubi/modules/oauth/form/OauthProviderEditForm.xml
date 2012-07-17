@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="OauthProviderEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit Oauth Provider" Description="" BizDataObj="oauth.do.OauthProviderDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+<EasyForm Name="OauthProviderEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit Oauth Provider" Description="" BizDataObj="oauth.do.OauthProviderDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="" Access="oauth.Administer">
     <DataPanel>
 	    <Element Name="fld_type" Class="Listbox" FieldName="type" Label="Type"    AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus" SelectFrom="oauth.enum.Enum(oauthType)"/>
         <Element Name="fld_key" Class="InputText" FieldName="key" Label="Key"   AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"  Required="Y" />

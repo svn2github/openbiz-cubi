@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="OauthProviderDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Title="Oauth Provider Detail" Description="" BizDataObj="oauth.do.OauthProviderDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
+<EasyForm Name="OauthProviderDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Title="Oauth Provider Detail" Description="" BizDataObj="oauth.do.OauthProviderDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="" Access="oauth.Administer">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
        	<Element Name="fld_type" ElementSet="General" Class="LabelText" FieldName="type" Label="Type" AllowURLParam="N"/>
