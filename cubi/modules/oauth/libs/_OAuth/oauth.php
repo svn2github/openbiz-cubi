@@ -4,7 +4,7 @@
 date_default_timezone_set('Asia/Chongqing');
 /* Generic exception class
  */
-class OAuthException extends Exception {
+class OAuthCustomedException extends Exception {
   // pass
 }
 
