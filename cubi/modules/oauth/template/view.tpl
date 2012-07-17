@@ -1,5 +1,4 @@
 {php}
-$left_menu = "oauth.widget.LeftMenu";
 $this->assign("left_menu", $left_menu);
 
 $js_url = $this->_tpl_vars['js_url'];
