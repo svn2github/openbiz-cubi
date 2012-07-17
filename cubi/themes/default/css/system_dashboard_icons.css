@@ -360,3 +360,35 @@
 #main #right_panel .dashboard_panel .icons .icon_location:active img {
 	background-position:-1740px -96px;
 }
+
+#main #right_panel .dashboard_panel .icons .icon_oauth img {
+	background-position:-1860px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_oauth:hover img {
+	background-position:-1860px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_oauth:active img {
+	background-position:-1860px -96px;
+}
+
+
+#main #right_panel .dashboard_panel .icons .icon_payment img {
+	background-position:-1800px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_payment:hover img {
+	background-position:-1800px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_payment:active img {
+	background-position:-1800px -96px;
+}
+
+#main #right_panel .dashboard_panel .icons .icon_sms img {
+	background-position:-1920px 0px;
+}
+#main #right_panel .dashboard_panel .icons .icon_sms:hover img {
+	background-position:-1920px -48px;
+}
+#main #right_panel .dashboard_panel .icons .icon_sms:active img {
+	background-position:-1920px -96px;
+}
+
