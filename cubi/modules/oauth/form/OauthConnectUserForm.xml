@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: RegisterForm.xml 3375 2012-05-31 06:23:11Z rockyswen@gmail.com $
 -->
-<EasyForm Name="OauthConnectUserForm" Class="OauthConnectUserForm" FormType="New" jsClass="jbForm" Title="Conenct 3rd-Party Account" Description="" BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="user_connect.tpl.html" MessageFile="oauth.ini">
+<EasyForm Name="OauthConnectUserForm" Class="OauthConnectUserForm" FormType="New" jsClass="jbForm" Title="Conenct 3rd-Party Account" Description="" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="user_connect.tpl.html" MessageFile="oauth.ini">
     <DataPanel>
         <Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="Id" Hidden="Y"/>
         <Element Name="fld_action" Class="Listbox" SelectFrom="oauth.lov.ConnectUserLOV(Action)" FieldName="action" Label="Connect Action" >
