@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ConnectUserView" Description="Connect 3rd-party account to Openbiz User" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="user_view.tpl.html" Access="">
+   <FormReferences>
+   		<Reference Name="oauth.form.OauthConnectUserForm"/>
+   </FormReferences>
+</EasyView>

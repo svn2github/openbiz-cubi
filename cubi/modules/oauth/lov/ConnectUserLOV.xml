@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+
+   <Action Value="1" text="Create New User"/>
+   <Action Value="0" text="Connect Exists User"/>
+</Selection>   
