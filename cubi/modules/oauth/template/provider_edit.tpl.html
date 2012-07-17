@@ -1,5 +1,24 @@
 <form id="{$form.name}" name="{$form.name}">
-
+<style>
+{literal}
+#fld_key_container .input_desc
+{
+background-image: url("{/literal}{$resource_url}{literal}/oauth/images/icon_key_small.png");
+background-position: 10px 0px;
+padding-top: 2px;
+padding-left: 45px;
+color:#999999;
+}
+#fld_value_container .input_desc
+{
+background-image: url("{/literal}{$resource_url}{literal}/oauth/images/icon_password_small.png");
+background-position: 10px 0px;
+padding-top: 2px;
+padding-left: 45px;
+color:#999999;
+}
+{/literal}
+</style>
 <div style="padding-left:25px; padding-right:40px;">
 {include file="system_appbuilder_btn.tpl.html"}
 	
@@ -48,6 +67,7 @@
              or $item.type eq 'RawData'
              or $item.type eq 'IDCardReader'
              or $item.type eq 'BarcodeScanner'
+             or $itemName eq 'fld_instructions_img'
              }
                 <table  id="{$itemName}_container" class="input_row">
                 {if $item.label}
