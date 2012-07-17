@@ -28,18 +28,18 @@ class OauthLogin extends Element
 {
 	public function render()
 	{
-		$recArr=BizSystem::sessionContext()->getVar("_OauthLogin");
-		if(!$recArr && BizSystem::getService('system.lib.ModuleService')->isModuleInstalled('oauth'))
+		$sHTML = "";
+		if(BizSystem::getService('system.lib.ModuleService')->isModuleInstalled('oauth'))
 		{
 			 $do=BizSystem::getObject('oauth.do.OauthProviderDO');
 			 $recArr=$do->directFetch ("[status]=1",30);
 			 $recArr=$recArr->toArray();
 			 BizSystem::sessionContext()->setVar("_OAUTH_{$this->m_Type}",$recArr);
+			 foreach($recArr as $oauthProvider)
+			 {
+				$sHTML.= "<span><a title=\"".$oauthProvider['type']."\"   href=\"".APP_URL."/oauth_callback_handler.php?type=".$oauthProvider['type']."&service=login\" class=\"link_highlight\" style=\"\">".$oauthProvider['type']."</a> </span>";
+			}
 		}		
-		$sHTML = "";
-		foreach($recArr as $oauthProvider){
-			$sHTML.= "<span><a title=\"".$oauthProvider['type']."\"   href=\"".APP_URL."/oauth_callback_handler.php?type=".$oauthProvider['type']."&service=login\" class=\"link_highlight\" style=\"\">".$oauthProvider['type']."</a> </span>";
-		}
 		return $sHTML;
 	}
 }
