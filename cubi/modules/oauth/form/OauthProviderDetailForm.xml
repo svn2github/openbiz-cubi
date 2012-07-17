@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="OauthProviderDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Icon="{RESOURCE_URL}/oauth/images/icon_oauth.png" Title="OAuth Provider Setting" Description="OAuth feature allows users from 3rd-party platform login this system by using their own account." BizDataObj="oauth.do.OauthProviderDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="" Access="oauth.Administer">
+<EasyForm Name="OauthProviderDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Icon="{RESOURCE_URL}/oauth/images/icon_oauth.png" Title="OAuth Provider Setting" Description="OAuth feature allows users from 3rd-party platform login this system by using their own account." BizDataObj="oauth.do.OauthProviderDO" TemplateEngine="Smarty" TemplateFile="provider_detail.tpl.html" EventName="" MessageFile="" Access="oauth.Administer">
     <DataPanel>
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
        	<Element Name="fld_platform" ElementSet="General" Class="LabelImage" FieldName="type" Label="Platform" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" AllowURLParam="N"/>
