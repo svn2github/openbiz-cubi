@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="OauthProviderEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Title="Edit Oauth Provider" Description="" BizDataObj="oauth.do.OauthProviderDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="" Access="oauth.Administer">
+<EasyForm Name="OauthProviderEditForm" Class="EasyForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/oauth/images/icon_oauth.png" Title="OAuth Provider Setting" Description="OAuth feature allows users from 3rd-party platform login this system by using their own account." BizDataObj="oauth.do.OauthProviderDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="" Access="oauth.Administer">
     <DataPanel>
-	    <Element Name="fld_type" Class="LabelList" FieldName="type" Label="Type"    AllowURLParam="N"  SelectFrom="oauth.enum.Enum(oauthType)"/>
-        <Element Name="fld_key" Class="InputText" FieldName="key" Label="Key"   AllowURLParam="N"  Required="Y" />
-        <Element Name="fld_value" Class="InputText" FieldName="value" Label="Value"   AllowURLParam="N"  Required="Y" />
-		  <Element Name="fld_status" Class="DropDownList" FieldName="status" Label="Status"   AllowURLParam="N"  SelectFrom="common.lov.CommLOV(EnableStatus)"/>
+	    <Element Name="fld_type" Class="LabelList" ElementSet="Setting" FieldName="type" Label="Type"    AllowURLParam="N"  SelectFrom="oauth.enum.Enum(oauthType)"/>
+        <Element Name="fld_key" Class="InputText" ElementSet="Setting" FieldName="key" Label="App Key"   AllowURLParam="N"  Required="Y" />
+        <Element Name="fld_value" Class="InputText" ElementSet="Setting" FieldName="value" Label="App Secret"   AllowURLParam="N"  Required="Y" />
+		<Element Name="fld_status" Class="DropDownList" ElementSet="Setting" FieldName="status" Label="Status"   AllowURLParam="N"  SelectFrom="common.lov.CommLOV(EnableStatus)"/>
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
