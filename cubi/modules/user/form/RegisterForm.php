@@ -83,22 +83,18 @@ class RegisterForm extends UserForm
         
         //init profile for future use like redirect to my account view
         $profile = $g_BizSystem->InituserProfile($userinfo['username']);
-        
 		//第三方登录用户关联帐号
 		$OauthUserInfo=BizSystem::sessionContext()->getVar('_OauthUserInfo');
 		if($OauthUserInfo && $userinfo['Id'])
 		{	
-			 $UserTokenObj = BizSystem::getObject('oauth.do.UserTokenDO');
-			 $UserTokenArr=array(
-								"user_id"=>$userinfo['Id'],
-								"type_uid"=>$OauthUserInfo['id'],
-								"oauth_class"=>$OauthUserInfo['type'],
-								"oauth_token"=>$OauthUserInfo['oauth_token'],
-								"oauth_token_secret"=>$OauthUserInfo['oauth_token_secret'],
-								"create_by"=>$userinfo['Id'],
-								"create_time"=> date("Y-m-d H:i:s")
-							);
-			 $UserTokenObj->insertRecord($UserTokenArr);
+			include_once(MODULE_PATH."/oauth/libs/oauth.class.php");
+			$OauthObj=new oauthClass();
+			if(!$OauthObj->saveUserOAuth($userinfo['Id'],$OauthUserInfo))
+			{
+				$errorMessage = $this->GetMessage("ASSOCIATED_USER_FAILS");
+				$errors['fld_UserOAuth'] = $errorMessage;
+				$this->processFormObjError($errors);
+			}
 		}
         $this->processPostAction();
     }
