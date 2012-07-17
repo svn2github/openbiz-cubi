@@ -105,6 +105,10 @@
 {
 	background-position:left -366px;
 }
+#main #left_panel .content .system .icon_extension
+{
+	background-position:left -382px;
+}
 /* --for hovers */
 #main #left_panel .content .system a:hover .icon_user,
 #main #left_panel .content .system a.current .icon_user,
@@ -225,4 +229,9 @@
 #main #left_panel .content .system a.current .icon_repository,
 #main #left_panel .content .system a:active .icon_repository{
 	background-position:right -366px;
+}
+#main #left_panel .content .system a:hover .icon_extension,
+#main #left_panel .content .system a.current .icon_extension,
+#main #left_panel .content .system a:active .icon_extension{
+	background-position:right -382px;
 }
