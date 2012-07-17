@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<Module Name="system" Description="system module, only administrator can access" Version="2.0" Author="Rocky" OpenbizVersion="3.0" LoadHandler="system.lib.SystemLoadHandler">
+<Module Name="system" Description="system module, only administrator can access" Version="2.1" Author="Rocky" OpenbizVersion="3.0" LoadHandler="system.lib.SystemLoadHandler">
 	<ACL>
 		<Resource Name="Site">
 			<Action Name="Administer_General" Description="General administration of the site"></Action>
@@ -63,6 +63,9 @@
 	    		<MenuItem Name="System.Setting.Database" Title="Database Connections" Description="" URL="/system/database_list" Order="10">
 	    		</MenuItem>
 	    		<MenuItem Name="System.Setting.Preference" Title="Preference Setting" Description="" URL="/system/user_preference" Order="20"/>
+	    	</MenuItem>
+	    	<MenuItem Name="System.Extension" Title="Extension" Description="System Extension" Access="System.Administer_System" IconImage="spacer.gif" IconCssClass="icon_extension" Order="18">
+	    		
 	    	</MenuItem>
 		</MenuItem>	
     </Menu>
