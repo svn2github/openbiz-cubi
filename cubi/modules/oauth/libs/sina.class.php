@@ -8,17 +8,25 @@ class sina extends oauthClass
 	protected $m_loginUrl;
 	private $m_sina_akey;
 	private $m_sina_skey;
+ 
 		
 	public function __construct() {
 		$recArr=$this->getProviderList(); 
 		$this->m_sina_akey = $recArr['key'];
 		$this->m_sina_skey =$recArr['value'];
+		$this->m_CallBack = SITE_URL.'oauth_callback_handler.php?type=sina&service=CallBack';
 	}
 	
   	function login(){	
 		$redirectPage=$this->getUrl();
 		BizSystem::clientProxy()->ReDirectPage($redirectPage);
 	} 
+	
+	function test($akey,$skey){
+		$o = new SinaWeiboOAuth( $akey ,$skey );
+        return $o->getRequestToken();
+	}
+	
 	function CallBack(){ 
 		$keys=Bizsystem::getSessionContext()->getVar('sina_keys');
 		if(!$keys)
@@ -40,7 +48,7 @@ class sina extends oauthClass
 		$o = new SinaWeiboOAuth( $this->m_sina_akey , $this->m_sina_skey  );
         $keys = $o->getRequestToken();
 		if (is_null($call_back)) {
-			$call_back =SITE_URL.'oauth_callback_handler.php?type=sina&service=CallBack';
+			$call_back =$this->m_CallBack;
 		}
 		$call_back=$call_back.'&oauth_token_secret='.$keys['oauth_token_secret'];
 		$this->loginUrl = $o->getAuthorizeURL( $keys['oauth_token'] ,false , $call_back);
@@ -59,6 +67,7 @@ class sina extends oauthClass
 		$user['province']    = $me['province'];
 		$user['city']        = $me['city'];
 		$user['location']    = $me['location'];
+		$user['email']         =  $me['data']['email'];
 		$user['userface']    = str_replace(  $user['id'].'/50/' , $user['id'].'/180/' ,$me['profile_image_url'] );
 		$user['sex']         = ($me['gender']=='m')?1:0; 
 		return $user;

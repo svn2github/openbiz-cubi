@@ -36,6 +36,7 @@ class oauthClass extends EasyForm
 	protected $m_UserOAuthDO;
  
 	protected $m_Providers;
+	protected $m_CallBack;
  
 	protected $m_oauthProviderDo='oauth.do.OauthProviderDO';
 	
@@ -110,18 +111,38 @@ class oauthClass extends EasyForm
 			BizSystem::clientProxy()->ReDirectPage($redirectPage);
 		}
 		else
-		{	
+		{	 
 			//未找到用户，跳转到注册页
 			BizSystem::sessionContext()->setVar('_OauthUserInfo',$oauth_data);
-			header("Location: ./bin/controller.php?view=user.view.RegisterView");
+			header("Location: ./bin/controller.php?view=oauth.view.ConnectUserView");
 		}
 		 	return $profile;
 	}
 	
 	
-	public function saveUserOAuth($user_id, $oauth_data)
+	public function saveUserOAuth($user_id, $OauthUserInfo)
 	{
-		
+		if(!$user_id || !$OauthUserInfo)
+		{
+			throw new Exception('Unknown UerInfo');
+			return;
+		}
+		 $UserTokenObj = BizSystem::getObject('oauth.do.UserTokenDO');
+		 $UserTokenArr=array(
+							"user_id"=>$user_id,
+							"type_uid"=>$OauthUserInfo['id'],
+							"oauth_class"=>$OauthUserInfo['type'],
+							"oauth_token"=>$OauthUserInfo['oauth_token'],
+							"oauth_token_secret"=>$OauthUserInfo['oauth_token_secret'],
+							"create_by"=>$user_id,
+							"create_time"=> date("Y-m-d H:i:s")
+						);
+		 $return= false;				
+		 if($UserTokenObj->insertRecord($UserTokenArr))
+		 {
+			$return= true;
+		 }
+		 return $return;
 	}
 
 	public function clearUserOAuth($user_id, $oauth_id)

@@ -13,12 +13,18 @@ class qq extends oauthClass{
 		$recArr=$this->getProviderList();
 		$this->m_qq_akey = $recArr['key'];
 		$this->m_qq_skey =$recArr['value'];
+		$this->m_CallBack =SITE_URL.'oauth_callback_handler.php?type=qq&service=CallBack';
 	}
 	
   	function login(){
-		$redirectPage=$this->getUrl(SITE_URL.'oauth_callback_handler.php?type=qq&service=CallBack');
+		$redirectPage=$this->getUrl($this->m_CallBack);
 		BizSystem::clientProxy()->ReDirectPage($redirectPage);
 	} 
+	function test($akey,$skey){
+		$o = new QqWeiboOAuth( $akey,$skey );
+        return $o->getRequestToken($this->m_CallBack);
+	}
+	
 	function CallBack(){ 
 		$keys=Bizsystem::getSessionContext()->getVar('qq_keys');
 		$this->checkUser($keys['oauth_token'],$keys['oauth_token_secret']);
