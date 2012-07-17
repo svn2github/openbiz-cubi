@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ProviderSettingView" Description="OAuth Provider Setting" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="oauth.Administer">
+   <FormReferences>
+   		<Reference Name="oauth.form.OauthProviderListForm"/>
+   </FormReferences>
+</EasyView>
