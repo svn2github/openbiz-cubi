@@ -89,6 +89,16 @@ class OauthConnectUserForm extends RegisterForm
     	}
 	}
 	
+	public function render(){
+		$oauth_data=BizSystem::sessionContext()->getVar('_OauthUserInfo');
+		if(!$oauth_data)
+		{
+			header("Location: ".APP_INDEX."/user/login");
+			exit;
+		}
+		return parent::render();
+	}
+	
 	public function fetchData()
 	{
 		//fill in open register status
@@ -99,18 +109,21 @@ class OauthConnectUserForm extends RegisterForm
         }else{
         	$this->m_OpenRegisterStatus = 1;
         }
-		return parent::fetchData();
+		$recrod =  parent::fetchData();
+		$oauth_data=BizSystem::sessionContext()->getVar('_OauthUserInfo');
+		$recrod['oauth_data'] = $oauth_data;
+		return $record;
 	}
 	
 	public function getNewRecord()
 	{
 		$oauth_data=BizSystem::sessionContext()->getVar('_OauthUserInfo');
 		$record= array(
-		"oauth_provider"=>$oauth_data['type'],
-		"oauth_username"=>$oauth_data['uname'],
+		"oauth_data"=>$oauth_data,
 		"username"=>$oauth_data['uname'],
 		"email" =>$oauth_data['email']
 		);
+		
 		return $record;
 	}
     protected function authUser()
