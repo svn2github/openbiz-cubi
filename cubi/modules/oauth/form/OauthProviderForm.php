@@ -31,6 +31,7 @@ class OauthProviderForm extends EasyForm
 			$this->m_key=$Record['key'];
 			$this->m_secret=$Record['value'];
 		}
+		
 		$oatuthType=MODULE_PATH."/oauth/libs/{$this->m_type}.class.php";
 		if(!file_exists($oatuthType))
 		{
