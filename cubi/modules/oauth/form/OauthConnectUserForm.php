@@ -4,6 +4,8 @@ class OauthConnectUserForm extends RegisterForm
 {
 	protected $username;
     protected $password;
+
+    protected $m_OpenRegisterStatus;
     
     public function CreateUser()
     {
@@ -85,6 +87,19 @@ class OauthConnectUserForm extends RegisterForm
 			BizSystem::ClientProxy()->showClientAlert($e->getMessage());
     	
     	}
+	}
+	
+	public function fetchData()
+	{
+		//fill in open register status
+		$do = BizSystem::getObject("myaccount.do.PreferenceDO");
+        $rs = $do->fetchOne("[user_id]='0' AND [name]='open_register'");
+        if(!$rs || $rs['value']==0){
+        	$this->m_OpenRegisterStatus = 0;	
+        }else{
+        	$this->m_OpenRegisterStatus = 1;
+        }
+		return parent::fetchData();
 	}
 	
 	public function getNewRecord()

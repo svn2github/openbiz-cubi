@@ -8,7 +8,7 @@
 <EasyForm Name="OauthConnectUserForm" Class="OauthConnectUserForm" FormType="New" jsClass="jbForm" Title="Conenct 3rd-Party Account" Description="" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="user_connect.tpl.html" MessageFile="oauth.ini">
     <DataPanel>
         <Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="Id" Hidden="Y"/>
-        <Element Name="fld_action" Class="Listbox" SelectFrom="oauth.lov.ConnectUserLOV(Action)" FieldName="action" Label="Connect Action" >
+        <Element Name="fld_action" Hidden="{@:m_OpenRegisterStatus==0?'Y':'N'}" Class="Listbox" SelectFrom="oauth.lov.ConnectUserLOV(Action)" FieldName="action" Label="Connect Action" >
         	<EventHandler Name="fld_action_onclick" Event="onchange" Function="UpdateForm()" />
         </Element>
 		<Element Name="fld_username" Class="InputText"  Description="between 3-10 letters or numbers" FieldName="username" Label="Username" required="Y" Width="200" Required="Y" Validator="{@validate:betweenLength([fld_username], 3, 10)}" HTMLAttr="maxlength='10'"/>
