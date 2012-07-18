@@ -11,6 +11,8 @@
         <Element Name="fld_action" Hidden="{@:m_OpenRegisterStatus==0?'Y':'N'}" Class="Listbox" SelectFrom="oauth.lov.ConnectUserLOV(Action)" FieldName="action" Label="Connect Action" >
         	<EventHandler Name="fld_action_onclick" Event="onchange" Function="UpdateForm()" />
         </Element>
+        <Element Name="fld_oauth_platform" Hidden="{@:Elem[fld_action].Value==1?'Y':'N'}" Class="LabelText"  FieldName="oauth_provider" Label="Platform"/>
+        <Element Name="fld_oauth_username" Hidden="{@:Elem[fld_action].Value==1?'Y':'N'}" Class="LabelText"  FieldName="oauth_username" Label="Username"/>
 		<Element Name="fld_username" Class="InputText"  Description="between 3-10 letters or numbers" FieldName="username" Label="Username" required="Y" Width="200" Required="Y" Validator="{@validate:betweenLength([fld_username], 3, 10)}" HTMLAttr="maxlength='10'"/>
         <Element Name="fld_password" Class="Password" Description="between 4-20 any charactors" label="Password" FieldName="password" Width="200" required="Y" Validator="{@validate:betweenLength([fld_password], 4, 20)}" HTMLAttr="maxlength='20'"/>
 		<Element Name="fld_password_repeat" Hidden="{@:Elem[fld_action].Value==1?'N':'Y'}" Class="Password"  Description="Input password again for confirmation" FieldName="password_repeat" Label="Password Repeat" Width="200" required="Y" HTMLAttr="maxlength='20'"/>
