@@ -1,4 +1,82 @@
 <form id="{$form.name}" name="{$form.name}">
+<style>
+{literal}
+.oauth_bar{
+float:left;
+width:150px;
+height:24px;
+}
+.oauth_bar a{
+	background-image:url({/literal}{$resource_url}{literal}/oauth/images/social_provider_icons.png);
+	background-repeat:no-repeat;
+	margin-right:0px;
+	display:block;
+	float:left;
+}
+a#oauth_sina{
+	background-position:0px 0px;
+	width:24px;
+	height:24px;
+}
+a#oauth_sina:hover{
+	background-position:0px -24px;
+}
+a#oauth_sina:active{
+	background-position:0px -48px;
+}
+
+a#oauth_qq{
+	background-position:-24px 0px;
+	width:24px;
+	height:24px;
+}
+a#oauth_qq:hover{
+	background-position:-24px -24px;
+}
+a#oauth_qq:active{
+	background-position:-24px -48px;
+}
+
+a#oauth_facebook{
+	background-position:-48px 0px;
+	width:24px;
+	height:24px;
+}
+a#oauth_facebook:hover{
+	background-position:-48px -24px;
+}
+a#oauth_facebook:active{
+	background-position:-48px -48px;
+}
+
+a#oauth_google{
+	background-position:-72px 0px;
+	width:24px;
+	height:24px;
+}
+a#oauth_google:hover{
+	background-position:-72px -24px;
+}
+a#oauth_google:active{
+	background-position:-72px -48px;
+}
+
+a#oauth_alipay{
+	background-position:-96px 0px;
+	width:24px;
+	height:24px;
+}
+a#oauth_alipay:hover{
+	background-position:-96px -24px;
+}
+a#oauth_alipay:active{
+	background-position:-96px -48px;
+}
+.button_highlight{
+margin-top:2px;
+}
+{/literal}
+</style>
 	<div class="cubi_logo_large"></div>
 	<div class="v_line"></div>
 	<div class="login_form">
@@ -13,7 +91,7 @@
 			<label style="width:60px;">{$dataPanel.username.label}</label>
 			<span style="width:200px; display:block;float:left;">{$dataPanel.username.element}</span>
 			{if $errors.username}
-			<span class="input_error_msg">{$errors.username}</span>
+			<!-- <span class="input_error_msg">{$errors.username}</span> -->
 			{/if}			
 		</p>
 		
@@ -21,7 +99,7 @@
 			<label style="width:60px;">{$dataPanel.password.label}</label>
 			<span style="width:200px; display:block;float:left;">{$dataPanel.password.element}</span>
 			{if $errors.password}
-			<span class="input_error_msg">{$errors.password}</span>
+			<!-- <span class="input_error_msg">{$errors.password}</span> -->
 			{/if}		
 		</p>
 		{/if}
@@ -75,24 +153,25 @@
 		</div>
 		{/if}
 						
-		<p class="input_row">
-			<span onclick="document.getElementById('login_indicator').className='show'">
+		<p class="input_row" >
+			<span onclick="document.getElementById('login_indicator').className='show'" style="height:30px;display:block;">
 			{foreach item=elem from=$actionPanel}
 			{$elem.element}
 			{/foreach}
 			</span>
-			
+		</p>
+			<!-- 
 			{if $errors.login_status}
-				<span id="login_indicator" class="show">
+				<span id="login_indicator" class="show" style="float:none;text-indent:0px;">
 				{$errors.login_status}
 				</span>
 			{else}
-				<span id="login_indicator" class="hidden">
+				<span id="login_indicator" class="hidden" style="float:none;text-indent:0px;">
 				{t}Processing login...{/t}
 				</span>
-			{/if}	
-			
-		</p>
+			{/if}
+			 -->	
+		
 	{if $notices}
 	    <div >
 	    {foreach item=noticeMsg from=$notices}
