@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS `oauth_provider` (
   `key` char(50) ,
   `value` varchar(255) NOT NULL,
   `status` int(2) NOT NULL default 0,
+  `sortorder` INT NOT NULL DEFAULT '50',
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL,

@@ -1,11 +1,12 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="OauthProviderDO" Description="" Class="BizDataObj" DBName="Default" Table="oauth_provider" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="oauth.Administer" UpdateCondition="oauth.Administer" DeleteCondition="oauth.Administer">
+<BizDataObj Name="OauthProviderDO" Description="" Class="BizDataObj" DBName="Default" Table="oauth_provider" SearchRule="" SortRule="[sortorder] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="oauth.Administer" UpdateCondition="oauth.Administer" DeleteCondition="oauth.Administer">
 	<BizFieldList>
         <BizField Name="Id" Column="id"     Type="Number"/>
-        <BizField Name="status" Column="status"   Type="Number"/>
         <BizField Name="type" Column="type" Length="30"   Required="N" Type="Text"/>
         <BizField Name="key" Column="key" Length="50"   Required="N" Type="Text"/>
         <BizField Name="value" Column="value" Length="255"   Required="N" Type="Text"/>
+        <BizField Name="status" Column="status"   Type="Number"/>        
+        <BizField Name="sortorder" Column="sortorder"    Required="N" Type="Text"/>
 		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
 		<BizField Name="create_time" Column="create_time"  Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
 		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>		

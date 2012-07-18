@@ -5,6 +5,11 @@ class OauthProviderForm extends EasyForm
 	protected $m_key;
 	protected $m_secret;
 
+	public function testAllProvider()
+	{
+		
+	}
+	
 	public function TestProvider($RecType=false)
 	{	
 		if(!$this->m_type)

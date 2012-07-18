@@ -3,6 +3,7 @@
     <DataPanel>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Hidden="Y" Sortable="Y" AllowURLParam="N" Link="javascript:">         
         </Element>
+        <Element Name="fld_status" Class="ColumnHidden" Hidden="Y" FieldName="status"  Label="Status" Link="javascript:;" Sortable="Y"></Element>
         
         <Element Name="fld_platform" Class="ColumnImage" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" Label="Platform" DefaultValue="default" Sortable="Y" Link="javascript:">
               <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderDetailForm,{@:Elem[fld_Id].Value})"   />
@@ -10,15 +11,18 @@
 		<Element Name="lnk_switch" Label="Status" Class="Button" Text="{@:Elem[fld_status].Value=='0'?Off:On}" CssClass="{@:Elem[fld_status].Value =='0'?button_switch_off:button_switch_on}" Style="color:#666666;" Description="Switch Status">
 				<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
         </Element>
-		
+
 		<Element Name="fld_key" Class="ColumnText" FieldName="key" Label="App Key" DefaultValue="default" Sortable="Y"/>                
-		
+        		
 		<Element Name="fld_update_by" Class="ColumnText" FieldName="update_by" Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value,'short')}"  Label="Update By"  Sortable="Y"/>
 		<Element Name="fld_update_time" Class="ColumnText" FieldName="update_time" Label="Update Time"  Sortable="Y"/>
 		
 		
-		<Element Name="fld_status" Class="ColumnHidden" Hidden="Y" FieldName="status"  Label="Status" Link="javascript:;" Sortable="Y">
-		</Element>
+		
+		 <Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sortorder" Label="Sorting"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})" />
+        	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value+5})" />
+        </Element>  		
         <Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="javascript:" Style="color:#666666;">
               <EventHandler Name="fld_edit_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderEditForm,{@:Elem[fld_Id].Value})"   />
         </Element>
@@ -28,8 +32,8 @@
             <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=oauth.form.OauthProviderEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
         <Element Name="btn_spacer" Class="Spacer" width="10" />		
-        <Element Name="btn_test" Class="Button" Text="Test" CssClass="button_gray_m" Description="Test Setting (Ctrl+T)" Access="oauth.Administer">
-            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="TestProvider()"  ContextMenu="Test" />
+        <Element Name="btn_test" Class="Button" Text="Test All" CssClass="button_gray_w" Description="Test Setting (Ctrl+T)" Access="oauth.Administer">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="TestAllProvider()"  ContextMenu="Test" />
         </Element>
         <!-- 
         <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
