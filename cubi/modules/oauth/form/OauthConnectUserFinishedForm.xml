@@ -16,6 +16,8 @@
         <Element  Name="btn_finish" Class="Button" Text="Finish" CssClass="button_highlight">
             <EventHandler Name="btn_register_onclick" Event="onclick" Function="Finish()"  ShortcutKey="Enter"/>
         </Element>
+         <Element Name="btn_back" Class="LabelText" Text="Back" CssClass="button" Link="{@home:url}/user/login" >            			
+        </Element>
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 

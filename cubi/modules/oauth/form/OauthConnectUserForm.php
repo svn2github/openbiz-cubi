@@ -91,11 +91,13 @@ class OauthConnectUserForm extends RegisterForm
 	
 	public function render(){
 		$oauth_data=BizSystem::sessionContext()->getVar('_OauthUserInfo');
+		/*
 		if(!$oauth_data)
 		{
 			header("Location: ".APP_INDEX."/user/login");
 			exit;
 		}
+		*/
 		return parent::render();
 	}
 	
