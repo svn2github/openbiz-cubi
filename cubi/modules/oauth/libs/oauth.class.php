@@ -114,7 +114,7 @@ class oauthClass extends EasyForm
 		{	 
 			//未找到用户，跳转到注册页
 			BizSystem::sessionContext()->setVar('_OauthUserInfo',$oauth_data);
-			header("Location: ./bin/controller.php?view=oauth.view.ConnectUserView");
+			header("Location: ".APP_INDEX."/oauth/connect_user");
 		}
 		 	return $profile;
 	}
