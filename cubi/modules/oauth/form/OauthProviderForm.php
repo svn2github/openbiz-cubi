@@ -14,7 +14,19 @@ class OauthProviderForm extends EasyForm
 	{	
 		if(!$this->m_type)
 		{
-			$Record=$this->getActiveRecord();
+			
+			switch(strtoupper($this->m_FormType))
+			{
+				case "EDIT":
+					$Record=$this->readInputRecord();
+					break;
+				case "DETAIL":
+					$Record=$this->fetchData();
+					break;
+				default:
+					$Record=$this->getActiveRecord();
+					break;
+			}
 			$this->m_type=$Record['type'];
 			$this->m_key=$Record['key'];
 			$this->m_secret=$Record['value'];
