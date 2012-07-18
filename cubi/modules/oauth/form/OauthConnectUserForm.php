@@ -4,6 +4,28 @@ class OauthConnectUserForm extends RegisterForm
 {
 	protected $username;
     protected $password;
+    
+    public function CreateUser()
+    {
+    	$userinfo = parent::_doCreateUser();
+    	
+    	//第三方登录用户关联帐号
+		$OauthUserInfo=BizSystem::sessionContext()->getVar('_OauthUserInfo');
+		if($OauthUserInfo && $userinfo['Id'])
+		{	
+			include_once(MODULE_PATH."/oauth/libs/oauth.class.php");
+			$OauthObj=new oauthClass();
+			if(!$OauthObj->saveUserOAuth($userinfo['Id'],$OauthUserInfo))
+			{
+				$errorMessage = $this->GetMessage("ASSOCIATED_USER_FAILS");
+				$errors['fld_UserOAuth'] = $errorMessage;
+				$this->processFormObjError($errors);
+			}
+		}
+    	
+		$this->processPostAction();
+    }
+    
 	public function ConnectUser()
 	{
 	  	// get the username and password	
