@@ -97,13 +97,12 @@ class oauthClass extends EasyForm
 		$oauth_data['oauth_token_secret']=$access_token['oauth_token_secret']; 
 		if($UserToken)
 		{
-			global $g_BizSystem; 
 			$userObj = BizSystem::getObject('system.do.UserDO');
 			$userinfo=$userObj->fetchOne("id='".$UserToken['user_id']."'");
 			$UserOAuthArr['oauth_token']=$oauth_data['oauth_token'];
 			$UserOAuthArr['oauth_token_secret']=$oauth_data['oauth_token_secret'];
 			$UserTokenObj->updateRecords($UserOAuthArr); 
-			$profile=$g_BizSystem->InituserProfile($userinfo['username']);
+			$profile=BizSystem::instance()->InituserProfile($userinfo['username']);
 			//获取当前用户角色的默认页
 			$index=$profile['roles'][0];  
 			$roleStartpage=$rec_info['roleStartpage'][$index];
