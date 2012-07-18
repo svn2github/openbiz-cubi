@@ -33,17 +33,17 @@ class OauthConnectUserForm extends RegisterForm
 	  	// get the username and password	
 		$this->username = BizSystem::ClientProxy()->getFormInputs("fld_username");
 		$this->password = BizSystem::ClientProxy()->getFormInputs("fld_password");				
-		global $g_BizSystem;		
 		$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
 		try {
     		if ($this->authUser()) 
     		{
 				  // after authenticate user: 1. init profile
-    			$profile = $g_BizSystem->InitUserProfile($this->username);
+    			$profile = BizSystem::instance()->InitUserProfile($this->username);
 				$OauthUserInfo=BizSystem::sessionContext()->getVar('_OauthUserInfo');
 				if(!$OauthUserInfo || !$profile['Id'])
 				{
-					BizSystem::ClientProxy()->showClientAlert($this->getMessage("TEST_FAILURE"));
+					$this->m_Errors = array($this->getMessage("TEST_FAILURE"));
+					$this->updateForm();
 					return false;		
 				}
 				
@@ -51,15 +51,16 @@ class OauthConnectUserForm extends RegisterForm
 				$OauthObj=new oauthClass();
 				if(!$OauthObj->saveUserOAuth($profile['Id'],$OauthUserInfo))
 				{
-					BizSystem::ClientProxy()->showClientAlert($this->getMessage("ASSOCIATED_USER_FAILS"));
+					$this->m_Errors = array("fld_password"=>$this->getMessage("ASSOCIATED_USER_FAILS"));
+					$this->updateForm();
 					return false;
 				}
 				else
 				{
-					BizSystem::ClientProxy()->showClientAlert($this->getMessage("ASSOCIATED_USER_SUCCESS"));
+					//BizSystem::ClientProxy()->showClientAlert($this->getMessage("ASSOCIATED_USER_SUCCESS"));
 				}
-		  
-
+				$this->switchForm("oauth.form.OauthConnectUserFinishedForm");
+/*
     	   	    $redirectPage = APP_INDEX.$profile['roleStartpage'][0];
     	   	   	if(!$profile['roleStartpage'][0])
     	   	   	{
@@ -71,7 +72,8 @@ class OauthConnectUserForm extends RegisterForm
        	        	BizSystem::clientProxy()->ReDirectPage($redirectPage);	
        	        }else{
        	        	parent::processPostAction();       	        	
-       	        }       	        
+       	        }       	  
+*/       	              
     		    return true;
     		}
     		else
@@ -80,7 +82,11 @@ class OauthConnectUserForm extends RegisterForm
     								$_SERVER['REMOTE_ADDR'],
     								$this->password);
 				$eventlog->log("LOGIN", "ASSOCIATED_LOGIN_FAILED", $logComment); 	
-				BizSystem::ClientProxy()->showClientAlert($this->getMessage("LOGIN_FAILED"));		
+				$this->m_Errors = array(
+				"fld_username"=>$this->getMessage("ASSOCIATED_USER_FAILS"),
+				"fld_password"=>" ");
+				$this->updateForm();	
+				return false;
     		}
     	}
     	catch (Exception $e) {    	
@@ -91,13 +97,13 @@ class OauthConnectUserForm extends RegisterForm
 	
 	public function render(){
 		$oauth_data=BizSystem::sessionContext()->getVar('_OauthUserInfo');
-		/*
+		
 		if(!$oauth_data)
 		{
 			header("Location: ".APP_INDEX."/user/login");
 			exit;
 		}
-		*/
+		
 		return parent::render();
 	}
 	
@@ -111,23 +117,15 @@ class OauthConnectUserForm extends RegisterForm
         }else{
         	$this->m_OpenRegisterStatus = 1;
         }
-		$recrod =  parent::fetchData();
+		$record =  parent::fetchData();
 		$oauth_data=BizSystem::sessionContext()->getVar('_OauthUserInfo');
-		$recrod['oauth_data'] = $oauth_data;
+		$record['oauth_data'] = $oauth_data;
+		$record['oauth_user'] = $oauth_data['uname'];
+		$record['oauth_location'] = $oauth_data['location'];
 		return $record;
 	}
 	
-	public function getNewRecord()
-	{
-		$oauth_data=BizSystem::sessionContext()->getVar('_OauthUserInfo');
-		$record= array(
-		"oauth_data"=>$oauth_data,
-		"username"=>$oauth_data['uname'],
-		"email" =>$oauth_data['email']
-		);
-		
-		return $record;
-	}
+	
     protected function authUser()
     {
     	$svcobj 	= BizSystem::getService(AUTH_SERVICE); 

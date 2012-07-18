@@ -58,7 +58,7 @@ display:block;
 border-bottom:1px solid #eeeeee;
 float:left;
 width:120px;
-line-height:24px;
+line-height:26px;
 height:24px;
 overflow:hidden;
 padding-left:10px;
@@ -110,28 +110,28 @@ width:120px;
 				</div>
 				<div style="padding-top:10px;">
 				<p class="input_row" >
-					<label style="width:60px; ">User{$item.label}</label>
-					<span>admin{$item.element}</span>					
+					<label style="width:60px; ">{$dataPanel.fld_local_user.label}</label>
+					<span>{$dataPanel.fld_local_user.element}</span>					
 				</p>
 				<p class="input_row" >
-					<label style="width:60px; ">Email{$item.label}</label>
-					<span>jixian@openbiz.me{$item.element}</span>					
+					<label style="width:60px; ">{$dataPanel.fld_local_email.label}</label>
+					<span>{$dataPanel.fld_local_email.element}</span>					
 				</p>
 				</div>
 			</td>
 			<td class="connect-icon"></td>
-			<td>
+			<td  >
 				<div style="height:60px;padding-top:5px;">
-				<img src="{$resource_url}/oauth/images/oauth_logo_sina.png"  />
+				<img src="{$resource_url}/oauth/images/oauth_logo_{$dataPanel.fld_oauth_data.element.type}.png"  />
 				</div>
 				<div style="padding-top:10px;">
 				<p class="input_row" >
-					<label style="width:60px; ">User{$item.label}</label>
-					<span>admin{$item.element}</span>					
+					<label style="width:60px; ">{$dataPanel.fld_oauth_user.label}</label>
+					<span>{$dataPanel.fld_oauth_user.element}</span>					
 				</p>
 				<p class="input_row" >
-					<label style="width:60px; ">Email{$item.label}</label>
-					<span>jixian@openbiz.me{$item.element}</span>					
+					<label style="width:60px; ">{$dataPanel.fld_oauth_location.label}</label>
+					<span>{$dataPanel.fld_oauth_location.element}</span>					
 				</p>	
 				</div>		
 			</td>

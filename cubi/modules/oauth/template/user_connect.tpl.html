@@ -58,7 +58,7 @@ display:block;
 border-bottom:1px solid #eeeeee;
 float:left;
 width:80px;
-line-height:24px;
+line-height:26px;
 height:24px;
 overflow:hidden;
 padding-left:10px;
@@ -112,11 +112,12 @@ width:100px;
 		<tr>
 			<td  >
 	{if $dataPanel.fld_password_repeat.label eq '' }
+			<div style="padding-left:70px">
 				<div class="system_name" style="padding-bottom:15px;">
 					<img src="{$app_url}/images/cubi_logo_large.png" height="65" style="float:left;" />
 					<h2>{$smarty.const.DEFAULT_SYSTEM_NAME}</h2>
 				</div>
-				
+			</div>	
 	
 	{/if}
 	{foreach item=item key=itemName from=$dataPanel}
@@ -133,12 +134,7 @@ width:100px;
 	{else}
 		<p class="input_row" style="height:40px;">
 			<label style="width:60px;">{$item.label}</label>
-			<span>{$item.element}</span>
-			{if $errors.$itemName}
-			<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
-			{elseif $item.description}
-			<span class="input_desc" style="width:240px;">{$item.description}</span>			
-			{/if}			
+			<span>{$item.element}</span>				
 		</p>
 	{/if}
 	{/foreach}
@@ -146,16 +142,16 @@ width:100px;
 			<td class="connect-icon"></td>
 			<td class="system-block" >
 				<div style="height:60px;padding-top:5px;">
-				<img src="{$resource_url}/oauth/images/oauth_logo_sina.png"  />
+				<img src="{$resource_url}/oauth/images/oauth_logo_{$dataPanel.fld_oauth_data.element.type}.png"  />
 				</div>
 				<div style="padding-top:10px;">
 				<p class="input_row" >
-					<label style="width:60px; ">User{$item.label}</label>
-					<span>admin{$item.element}</span>					
+					<label style="width:60px; ">{$dataPanel.fld_oauth_user.label}</label>
+					<span>{$dataPanel.fld_oauth_user.element}</span>					
 				</p>
 				<p class="input_row" >
-					<label style="width:60px; ">Email{$item.label}</label>
-					<span>jixian@openbiz.me{$item.element}</span>					
+					<label style="width:60px; ">{$dataPanel.fld_oauth_location.label}</label>
+					<span>{$dataPanel.fld_oauth_location.element}</span>					
 				</p>	
 				</div>		
 			</td>
