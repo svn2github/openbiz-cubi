@@ -35,10 +35,12 @@ class OauthLogin extends Element
 			 $recArr=$do->directFetch ("[status]=1",30);
 			 $recArr=$recArr->toArray();
 			 BizSystem::sessionContext()->setVar("_OAUTH_{$this->m_Type}",$recArr);
+			 $sHTML.= "<span class=\"oauth_bar\">";
 			 foreach($recArr as $oauthProvider)
 			 {
-				$sHTML.= "<span><a title=\"".$oauthProvider['type']."\"   href=\"".APP_URL."/oauth_callback_handler.php?type=".$oauthProvider['type']."&service=login\" class=\"link_highlight\" style=\"\">".$oauthProvider['type']."</a> </span>";
-			}
+				$sHTML.= "<a id=\"oauth_".$oauthProvider['type']."\" title=\"".$oauthProvider['type']."\"   href=\"".APP_URL."/oauth_callback_handler.php?type=".$oauthProvider['type']."&service=login\" style=\"\"></a>";
+			 }
+			 $sHTML.= "</span>";
 		}		
 		return $sHTML;
 	}
