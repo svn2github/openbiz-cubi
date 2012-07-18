@@ -5,6 +5,10 @@
 float:left;
 width:150px;
 height:24px;
+padding-left:8px;
+background-image:url({/literal}{$resource_url}{literal}/oauth/images/social_provider_spacer.png);
+background-repeat:no-repeat;
+background-position:0px 3px;
 }
 .oauth_bar a{
 	background-image:url({/literal}{$resource_url}{literal}/oauth/images/social_provider_icons.png);
@@ -154,7 +158,8 @@ margin-top:2px;
 		{/if}
 						
 		<p class="input_row" >
-			<span onclick="document.getElementById('login_indicator').className='show'" style="height:30px;display:block;">
+			<!-- onclick="document.getElementById('login_indicator').className='show'"  -->
+			<span style="height:30px;display:block;">
 			{foreach item=elem from=$actionPanel}
 			{$elem.element}
 			{/foreach}
