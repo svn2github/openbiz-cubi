@@ -1,4 +1,4 @@
-<?php 
+<?php
 class OauthProviderForm extends EasyForm
 {
 	protected $m_type;
@@ -73,9 +73,5 @@ class OauthProviderForm extends EasyForm
 			parent::UpdateRecord();
 		}
 	}
-	
-	function selectRecord(){
-		return true;
-	}
 }
-?>  
+?>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="OauthProviderDetailForm" Class="EasyForm" FormType="" jsClass="jbForm" Icon="{RESOURCE_URL}/oauth/images/icon_oauth.png" Title="OAuth Provider Setting" Description="OAuth feature allows users from 3rd-party platform login this system by using their own account." BizDataObj="oauth.do.OauthProviderDO" TemplateEngine="Smarty" TemplateFile="provider_edit.tpl.html" EventName="" MessageFile="" Access="oauth.Administer">
+<EasyForm Name="OauthProviderDetailForm" Class="OauthProviderForm" FormType="" jsClass="jbForm" Icon="{RESOURCE_URL}/oauth/images/icon_oauth.png" Title="OAuth Provider Setting" Description="OAuth feature allows users from 3rd-party platform login this system by using their own account." BizDataObj="oauth.do.OauthProviderDO" TemplateEngine="Smarty" TemplateFile="provider_edit.tpl.html" EventName="" MessageFile="" Access="oauth.Administer">
     <DataPanel>
         <Element Name="fld_instructions_img" Class="LabelImage" ElementSet="Instruction" FieldName="type" Text="{RESOURCE_URL}/oauth/images/instruction_{@:Elem[fld_platform].Value}.png" Label=""    AllowURLParam="N"  SelectFrom="oauth.enum.Enum(oauthType)"/>
     
@@ -15,6 +15,9 @@
         
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+         <Element Name="btn_test" Class="Button" Text="Test All" CssClass="button_gray_w" Description="Test Setting (Ctrl+T)" Access="oauth.Administer">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="TestAllProvider()"  ContextMenu="Test" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
