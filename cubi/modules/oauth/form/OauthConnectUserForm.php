@@ -105,9 +105,8 @@ class OauthConnectUserForm extends RegisterForm
 	public function getNewRecord()
 	{
 		$oauth_data=BizSystem::sessionContext()->getVar('_OauthUserInfo');
-		$oauth_provider=BizSystem::sessionContext()->getVar('_OauthProvider');
 		$record= array(
-		"oauth_provider"=>$oauth_provider,
+		"oauth_provider"=>$oauth_data['type'],
 		"oauth_username"=>$oauth_data['uname'],
 		"username"=>$oauth_data['uname'],
 		"email" =>$oauth_data['email']
