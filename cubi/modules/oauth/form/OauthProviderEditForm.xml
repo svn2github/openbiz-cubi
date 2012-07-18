@@ -12,6 +12,10 @@
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
             <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=oauth.form.OauthProviderDetailForm&amp;fld:Id={@oauth.do.OauthProviderDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
         </Element>
+         <Element Name="btn_spacer" Class="Spacer" width="10" />
+         <Element Name="btn_test" Class="Button" Text="Test" CssClass="button_gray_m" Description="Test Setting (Ctrl+T)" Access="oauth.Administer">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="TestProvider()"  ContextMenu="Test" />
+        </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
         </Element>

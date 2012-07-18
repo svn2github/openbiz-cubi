@@ -16,8 +16,9 @@
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
-         <Element Name="btn_test" Class="Button" Text="Test All" CssClass="button_gray_w" Description="Test Setting (Ctrl+T)" Access="oauth.Administer">
-            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="TestAllProvider()"  ContextMenu="Test" />
+        <Element Name="btn_spacer" Class="Spacer" width="10" />
+         <Element Name="btn_test" Class="Button" Text="Test" CssClass="button_gray_m" Description="Test Setting (Ctrl+T)" Access="oauth.Administer">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="TestProvider()"  ContextMenu="Test" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Back" CssClass="button_gray_m">
             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
