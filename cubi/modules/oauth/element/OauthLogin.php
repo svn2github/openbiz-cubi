@@ -34,7 +34,7 @@ class OauthLogin extends Element
 			 $do=BizSystem::getObject('oauth.do.OauthProviderDO');
 			 $recArr=$do->directFetch ("[status]=1",30);
 			 $recArr=$recArr->toArray();
-			 BizSystem::sessionContext()->setVar("_OAUTH_{$this->m_Type}",$recArr);
+
 			 if(count($recArr))
 			 {
 				 $sHTML.= "<span class=\"oauth_bar\" $style>";

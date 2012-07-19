@@ -1,0 +1,67 @@
+<form id='{$form.name}' name='{$form.name}'>
+<style>
+{literal}
+.oauth_list a img
+{
+padding-right:20px;
+padding-bottom:15px;
+}
+{/literal}
+</style>
+<div style="padding-left:25px;padding-right:40px; padding-top:26px;">
+	<table ><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon" style="float:left;padding-right:15px;"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+		<div style="float:left; width:310px;">
+		<h2>
+		{$form.title}
+		</h2> 
+		<p class="form_desc" style="padding-top:10px;">{$form.description}</p>
+		</div>
+	</td></tr></table>
+	<br/>
+	<div class="detail_form_panel_padding" >
+		<div>
+		{$dataPanel.fld_oauth_selector.element}
+		</div>
+		
+		<div style="height:10px;"></div>
+	 	{if $actionPanel|@count > 0}
+		<p class="input_row">
+			
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+		{/if}
+
+	{if $errors}
+	    <div id='errorsDiv' class='innerError errorBox'>
+	    {foreach item=errMsg from=$errors}
+	        <div>{$errMsg}</div>
+	    {/foreach}
+	    {literal}<script>try{setTimeout("$('errorsDiv').fade( {from: 1, to: 0});",3000);}catch(e){}</script>{/literal}
+	    </div>
+	{/if}
+	
+	{if $notices}
+	    <div id='noticeDiv' class='noticeBox' >
+	    {foreach item=noticeMsg from=$notices}
+	        <div>{$noticeMsg}</div>
+	    {/foreach}
+	    </div>
+	    {literal}<script>try{setTimeout("$('noticeDiv').fade( {from: 1, to: 0});",3000);}catch(e){};</script>{/literal}
+	{/if}
+
+	</div>
+	
+		<div style="height:15px;">
+		<div id='{$form.name}.load_disp' style="display:none;">
+		<img  src="{$image_url}/form_ajax_loader.gif"/>
+		</div>
+		</div>
+</div>
+</form>
+
+<script>Openbiz.Window.centerDialog(450,360); </script>

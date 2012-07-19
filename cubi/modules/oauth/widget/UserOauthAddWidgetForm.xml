@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="UserOauthAddWidgetForm" 
+			Class="EasyForm" 
+			FormType="New" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/oauth/images/icon_oauth.png"
+			Title="Associate New Social Account" 
+			Description="You can assoicate your social network account with current Cubi Account by click the icon below." 
+			BizDataObj="" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_data_quick_add.tpl.html" 
+			MessageFile="oauth.ini" 
+			Access="oauth.MyAccount">
+    <DataPanel>
+
+       	<Element Name="fld_oauth_selector" 
+       				
+       				Class="oauth.element.OauthSelector" 
+       				Label="Social Platform" 
+       				/>
+       
+    </DataPanel>
+    <ActionPanel>
+         <Element Name="btn_cancel" 
+        		Class="Button" 
+        		Text="Cancel" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="onclick" 
+            			Event="onclick" 
+            			Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
