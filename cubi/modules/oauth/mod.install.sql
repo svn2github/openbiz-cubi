@@ -26,29 +26,4 @@ INSERT INTO `oauth_provider`
 (4, 'google', '', '', 0, 1, '', 1, ''),
 (5, 'facebook', '', '', 0, 1, '', 1, '');
 
- 
-
-
-/*
-	保存第三方平台用户登录返回的密匙
-*/
-DROP TABLE IF EXISTS `oauth_user_token`;
-CREATE TABLE IF NOT EXISTS `oauth_user_token` (
-  `id` int(11) NOT NULL auto_increment,
-  `user_id` int(10) NOT NULL,
-  `type_uid` varchar(255) NOT NULL default '',
-  `oauth_class`  char(80) NOT NULL,
-  `oauth_token` varchar(150) default NULL,
-  `oauth_token_secret` varchar(150) default NULL,
-  `oauth_user_info` varchar(500) default NULL,
-  `is_sync` tinyint(1) NOT NULL,
-  `oauth_rawdata` longtext NOT NULL,
-  `create_by` int(11) NOT NULL,
-  `create_time` datetime NOT NULL,
-  `update_by` int(11) NOT NULL,
-  `update_time` datetime NOT NULL,
-  PRIMARY KEY  (`id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
- 
 

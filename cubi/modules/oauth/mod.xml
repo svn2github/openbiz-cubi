@@ -1,14 +1,18 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="oauth" Description="OAuth extension module" Version="0.2" OpenbizVersion="3.0">
+<Module Name="oauth" Description="OAuth extension module" Version="0.4" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="oauth">
             <Action Name="Administer" Description="Manage OAuth Provider Setting"/>
+            <Action Name="MyAccount" Description="Manage My Soical Accounts"/>
 		</Resource>
     </ACL>
     <Menu>
 		<MenuItem Name="Oauth.List" Title="OAuth Setting" Description=""  Parent="System.Extension" URL="/oauth/provider_setting" Order="10"/>
+		<MenuItem Name="Oauth.MyAccount" Title="My Social Account" Description=""  Parent="MyAccount.EditAccount" URL="/myaccount/my_social_account" Order="25"/>
 	</Menu>
     <Dependency>
+    	<Module Name="user"/>
+    	<Module Name="myaccount"/>
     	<Module Name="system"/>
     </Dependency>
 </Module>
