@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="UserOauthListWidgetForm" Class="UserOauthListWidgetForm" FormType="List" jsClass="jbForm" BizDataObj="system.do.UserOAuthDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="oauth.ini" Access="oauth.MyAccount">
+<EasyForm Name="UserOauthListWidgetForm" Class="UserOauthListWidgetForm" FormType="List" jsClass="jbForm" BizDataObj="system.do.UserOAuthDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_in_tab.tpl.html" EventName="" MessageFile="oauth.ini" Access="oauth.MyAccount">
     <DataPanel>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Hidden="Y" Sortable="Y" AllowURLParam="N" Link="javascript:">         
         </Element>
         
-        <Element Name="fld_platform" Class="ColumnImage" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" Label="Platform" DefaultValue="default" Sortable="Y" Link="javascript:">
+        <Element Name="fld_platform" Class="ColumnImage" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" Label="Platform"  Sortable="Y" Link="javascript:">
               <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
 		<Element Name="fld_nickname" Class="ColumnText" FieldName="uname" Label="Nickname" />
@@ -35,7 +35,17 @@
         </Element>	
     </ActionPanel> 
     <NavPanel>
-  		
+    	<!-- Page Selector -->
+		<Element  Name="page_selector" 
+					Class="PageSelector" 
+					Text="{@:m_CurrentPage}" 
+					Label="Go to Page" 
+					CssClass="input_select" 
+					CssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" 
+            				Event="onchange" 
+            				Function="GotoSelectedPage(page_selector)"/>
+        </Element>  		
         <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
             <EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
         </Element>      

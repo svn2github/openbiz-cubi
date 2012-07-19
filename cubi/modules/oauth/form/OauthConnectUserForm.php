@@ -16,7 +16,7 @@ class OauthConnectUserForm extends RegisterForm
 			return;
 		}
 		$userObj = BizSystem::getObject('oauth.do.UserTokenDO');
-		$OauthUser=$userObj->fetchOne("type_uid='".$OauthUserInfo['id']."'");
+		$OauthUser=$userObj->fetchOne("[oauth_uid]='".$OauthUserInfo['id']."'");
 		if(!$OauthUser)
 		{
 			$userinfo = parent::_doCreateUser();
