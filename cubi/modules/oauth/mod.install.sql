@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `oauth_user_token` (
   `oauth_class`  char(80) NOT NULL,
   `oauth_token` varchar(150) default NULL,
   `oauth_token_secret` varchar(150) default NULL,
+  `oauth_user_info` varchar(500) default NULL,
   `is_sync` tinyint(1) NOT NULL,
   `oauth_rawdata` longtext NOT NULL,
   `create_by` int(11) NOT NULL,

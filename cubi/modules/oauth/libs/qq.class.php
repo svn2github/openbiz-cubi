@@ -10,10 +10,10 @@ class qq extends oauthClass{
 	private $m_sina_skey;
 		
 	public function __construct() {
+		parent::__construct();
 		$recArr=$this->getProviderList();
 		$this->m_qq_akey = $recArr['key'];
 		$this->m_qq_skey =$recArr['value'];
-		$this->m_CallBack =SITE_URL.'oauth_callback_handler.php?type=qq&service=CallBack';
 	}
 	
   	function login(){

@@ -11,10 +11,10 @@ class sina extends oauthClass
  
 		
 	public function __construct() {
+		parent::__construct();
 		$recArr=$this->getProviderList(); 
 		$this->m_sina_akey = $recArr['key'];
 		$this->m_sina_skey =$recArr['value'];
-		$this->m_CallBack = SITE_URL.'oauth_callback_handler.php?type=sina&service=CallBack';
 	}
 	
   	function login(){	

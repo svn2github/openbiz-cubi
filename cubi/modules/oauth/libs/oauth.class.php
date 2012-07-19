@@ -41,9 +41,9 @@ class oauthClass extends EasyForm
 	protected $m_oauthProviderDo='oauth.do.OauthProviderDO';
 	
 	
-    function __construct()
+  public function __construct()  
     {
-         
+         $this->m_CallBack=SITE_URL.'oauth_callback_handler.php?type='.$this->m_Type.'&service=CallBack';
     } 
 
     
@@ -60,7 +60,10 @@ class oauthClass extends EasyForm
 			 {
 			 $do=BizSystem::getObject($this->m_oauthProviderDo);
 			 $recArr=$do->fetchOne("[status]=1 and [type]='{$this->m_Type}'",1);
-			 $recArr=$recArr->toArray();
+			 if($recArr)
+			 {
+				$recArr=$recArr->toArray();
+			 }
 			 BizSystem::sessionContext()->setVar("_OAUTH_{$this->m_Type}",$recArr);
 		 }
 		 return $recArr;
@@ -90,18 +93,27 @@ class oauthClass extends EasyForm
 			throw new Exception('Unknown oauth_token');
 			return;
 		}
+	
 		$UserTokenObj = BizSystem::getObject('oauth.do.UserTokenDO');
 		$UserToken=$UserTokenObj->fetchOne("type_uid='".$oauth_data['id']."'");
 		$access_token=Bizsystem::getSessionContext()->getVar($this->m_Type.'_access_token');
 		$oauth_data['oauth_token']=$access_token['oauth_token'] ; 
 		$oauth_data['oauth_token_secret']=$access_token['oauth_token_secret']; 
+		$oauth_data['access_token_json']=$access_token['access_token_json']; 
+	
 		if($UserToken)
 		{
+			 $UserOAuthArr['oauth_token']=$oauth_data['oauth_token'];
+			 $UserOAuthArr['oauth_token_secret']=$oauth_data['oauth_token_secret'];
+			 $UserOAuthArr['oauth_rawdata']=$oauth_data['access_token_json'];
+			 $UserOAuthArr['oauth_user_info']=serialize($oauth_data);
+		    // $dataRec = new DataRecord($UserOAuthArr, $UserTokenObj);
+			// $dataRec->id =$UserToken['Id'];
+			//$dataRec->save( ); 
+			$UserTokenObj->updateRecords($UserOAuthArr,"[Id]={$UserToken['Id']}"); 
 			$userObj = BizSystem::getObject('system.do.UserDO');
 			$userinfo=$userObj->fetchOne("id='".$UserToken['user_id']."'");
-			$UserOAuthArr['oauth_token']=$oauth_data['oauth_token'];
-			$UserOAuthArr['oauth_token_secret']=$oauth_data['oauth_token_secret'];
-			$UserTokenObj->updateRecords($UserOAuthArr); 
+		 
 			$profile=BizSystem::instance()->InituserProfile($userinfo['username']);
 			//获取当前用户角色的默认页
 			$index=$profile['roles'][0];  
@@ -127,12 +139,15 @@ class oauthClass extends EasyForm
 			return;
 		}
 		 $UserTokenObj = BizSystem::getObject('oauth.do.UserTokenDO');
+		
 		 $UserTokenArr=array(
 							"user_id"=>$user_id,
 							"type_uid"=>$OauthUserInfo['id'],
 							"oauth_class"=>$OauthUserInfo['type'],
 							"oauth_token"=>$OauthUserInfo['oauth_token'],
 							"oauth_token_secret"=>$OauthUserInfo['oauth_token_secret'],
+							"oauth_rawdata"=>$OauthUserInfo['access_token_json'],
+							"oauth_user_info"=>serialize($OauthUserInfo),
 							"create_by"=>$user_id,
 							"create_time"=> date("Y-m-d H:i:s")
 						);

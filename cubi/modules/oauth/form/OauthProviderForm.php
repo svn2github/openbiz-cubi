@@ -6,8 +6,37 @@ class OauthProviderForm extends EasyForm
 	protected $m_secret;
 
 	public function testAllProvider()
-	{
+	{	
+		 $do=BizSystem::getObject('oauth.do.OauthProviderDO');
+		 $recArr=$do->directFetch ("[status]=1",30);
+		 $recArr=$recArr->toArray();
+		 if($recArr)
+		 {
+			$ErrorKey=array();
+			foreach($recArr as $key=>$val)
+			{	
+				$this->m_type=$val['type'];
+				$this->m_key=$val['key'];
+				$this->m_secret=$val['value'];
+				if(!$this->GetTestOauth())
+				{
+					$ErrorKey[]=$val['Id'];
+				}
+			}
+		 }
 		
+		 if($ErrorKey)
+		 {
+			$where=implode(',',$ErrorKey);
+			$do->updateRecords('[status]=0',"[Id] in ($where)"); 
+			$this->m_Errors = array("test"=>$this->getMessage("OAUTH_OFF"));
+		 }
+		 else
+		 {
+			$this->m_Notices = array("test"=>$this->getMessage("TEST_SUCCESS"));
+		 }
+		
+		$this->rerender();
 	}
 	
 	public function TestProvider($RecType=false)
@@ -31,29 +60,16 @@ class OauthProviderForm extends EasyForm
 			$this->m_key=$Record['key'];
 			$this->m_secret=$Record['value'];
 		}
-		
-		$oatuthType=MODULE_PATH."/oauth/libs/{$this->m_type}.class.php";
-		if(!file_exists($oatuthType))
-		{
-			throw new Exception('Unknown type');
-			return;
-		}
-		$whitelist_arr=array('qq','sina','alipay','google','facebook');
-		if(!in_array($this->m_type,$whitelist_arr)){
-			throw new Exception('Unknown service');
-			return;
-		}
-		include_once $oatuthType;
-		$obj = new $this->m_type;
 
-		$rec_arr=$obj->test($this->m_key,$this->m_secret);
-		if($rec_arr['oauth_token'])
+		if($this->GetTestOauth())
 		{
 			$this->m_Notices = array("test"=>$this->getMessage("TEST_SUCCESS"));
 		}
 		else
 		{
 			$this->m_Errors = array("test"=>$this->getMessage("TEST_FAILURE"));
+			$do=BizSystem::getObject('oauth.do.OauthProviderDO');
+			$do->updateRecords('[status]=0',"[Id] ={$Record['Id']}"); 
 
 		}
 	
@@ -84,6 +100,32 @@ class OauthProviderForm extends EasyForm
 		if($this->TestProvider(true))
 		{
 			parent::UpdateRecord();
+		}
+	}
+	
+	public function GetTestOauth(){
+
+		$oatuthType=MODULE_PATH."/oauth/libs/{$this->m_type}.class.php";
+		if(!file_exists($oatuthType))
+		{
+			return false;
+		}
+		$whitelist_arr=array('qq','sina','alipay','google','facebook');
+		if(!in_array($this->m_type,$whitelist_arr)){
+			throw new Exception('Unknown service');
+			return;
+		}
+		include_once $oatuthType;
+		$obj = new $this->m_type;
+		$rec_arr=$obj->test($this->m_key,$this->m_secret);
+		if($rec_arr['oauth_token'])
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+
 		}
 	}
 }
