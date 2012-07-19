@@ -1,10 +1,22 @@
 <form id='{$form.name}' name='{$form.name}'>
 <style>
 {literal}
+.oauth_list{
+display:block;
+}
+.oauth_list a
+{
+padding-right:15px;
+padding-bottom:0px;
+}
 .oauth_list a img
 {
-padding-right:20px;
-padding-bottom:15px;
+padding:5px;
+border:3px solid #ffffff;
+}
+.oauth_list a:hover img
+{
+border:3px solid #dddddd;
 }
 {/literal}
 </style>
@@ -21,8 +33,11 @@ padding-bottom:15px;
 		</div>
 	</td></tr></table>
 	<br/>
-	<div class="detail_form_panel_padding" >
+	<div class="detail_form_panel_padding" style="padding-left:5px;">
 		<div>
+			<div style="height:28px;">
+			<label style="width:150px;color:#14A8F1;">{t}Supported Social Platform{/t}</label>
+			</div>
 		{$dataPanel.fld_oauth_selector.element}
 		</div>
 		
@@ -64,4 +79,4 @@ padding-bottom:15px;
 </div>
 </form>
 
-<script>Openbiz.Window.centerDialog(450,360); </script>
+<script>Openbiz.Window.centerDialog(450,380); </script>
