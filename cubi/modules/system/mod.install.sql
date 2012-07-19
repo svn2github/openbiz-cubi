@@ -300,8 +300,9 @@ CREATE TABLE IF NOT EXISTS `user_oauth` (
   `oauth_token` varchar(150) default NULL,
   `oauth_token_secret` varchar(150) default NULL,
   `oauth_user_info` varchar(500) default NULL,
-  `is_sync` tinyint(1) NOT NULL,
-  `oauth_rawdata` longtext NOT NULL,
+  `oauth_rawdata` longtext NOT NULL,  
+  `is_sync` tinyint(1) NOT NULL,  
+  `status` int(11) NOT NULL,  
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL,
@@ -309,4 +310,4 @@ CREATE TABLE IF NOT EXISTS `user_oauth` (
   PRIMARY KEY  (`id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
- 
+
