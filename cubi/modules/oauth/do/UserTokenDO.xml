@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<BizDataObj Name="UserTokenDO" Description="" Class="BizDataObj" InheritFrom="system.do.UserOAuth" IdGeneration="Identity" CacheLifeTime="0">
+<BizDataObj Name="UserTokenDO" Description="" Class="BizDataObj" InheritFrom="system.do.UserOAuthDO" IdGeneration="Identity" CacheLifeTime="0">
 	<BizFieldList>
 
 	</BizFieldList>
