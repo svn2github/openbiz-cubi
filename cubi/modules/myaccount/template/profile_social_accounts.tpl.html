@@ -31,7 +31,7 @@ table.input_row {
 		<div style="height:15px;"></div>
 		{/if}
 	<div style="padding-left:10px;" >
-		<div class="underline upline" style="height:240px;">
+		<div class=" upline" style="height:240px;">
 		<h2>{t}General Profile{/t}</h2>
 		<div style="float:left; width:140px; height:150px; text-align:center; padding-top:10px;">
 				{assign var=item value=$dataPanel.fld_photo}
@@ -127,10 +127,13 @@ table.input_row {
 		</div>
 		</div>
 		
-		<h2>{t}Social Accounts{/t}</h2>
-		<div>
-		{$dataPanel.fld_accounts.element}
+		<div class="upline underline" style="padding-bottom:15px;padding-top:5px;">
+			<h2>{t}Social Accounts{/t}</h2>
+			<div>
+			{$dataPanel.fld_accounts.element}
+			</div>			
 		</div>
+		
 		<div style="height:10px;"></div>
 		<p class="input_row">
 			
