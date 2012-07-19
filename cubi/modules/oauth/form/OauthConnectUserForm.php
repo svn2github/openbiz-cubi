@@ -127,13 +127,18 @@ class OauthConnectUserForm extends RegisterForm
         }
         
         if ($this->m_ActiveRecord != null)
+        {
+        	$oauth_data=BizSystem::sessionContext()->getVar('_OauthUserInfo');
+			$this->m_ActiveRecord['oauth_data'] = $oauth_data;
+			$this->m_ActiveRecord['oauth_user'] = $oauth_data['uname'];
+			$this->m_ActiveRecord['oauth_location'] = $oauth_data['location'];
             return $this->m_ActiveRecord;
-        
+        }
 
-        if (strtoupper($this->m_FormType) == "NEW")
+        if (strtoupper($this->m_FormType) == "NEW")       
             return $this->getNewRecord();
             
-		$record =  parent::fetchData();
+		//$record =  parent::fetchData();
 		$oauth_data=BizSystem::sessionContext()->getVar('_OauthUserInfo');
 		$record['oauth_data'] = $oauth_data;
 		$record['oauth_user'] = $oauth_data['uname'];
@@ -143,6 +148,19 @@ class OauthConnectUserForm extends RegisterForm
 		return $record;
 	}
 	
+	public function getNewRecord()
+	{
+		$oauth_data=BizSystem::sessionContext()->getVar('_OauthUserInfo');
+		$record= array(
+		"username"=>$oauth_data['uname'],
+		"email" =>$oauth_data['email']
+		);
+		$record['oauth_data'] = $oauth_data;
+		$record['oauth_user'] = $oauth_data['uname'];
+		$record['oauth_location'] = $oauth_data['location'];
+		$this->m_ActiveRecord = $record;
+		return $record;
+	}	
 	
     protected function authUser()
     {
