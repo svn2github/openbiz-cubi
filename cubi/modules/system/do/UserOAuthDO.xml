@@ -8,14 +8,18 @@
 <BizDataObj Name="UserOAuthDO" Description="" Class="BizDataObj" DBName="Default" Table="user_oauth" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
 	<BizFieldList>
         <BizField Name="Id" Column="id"     Type="Number"/>
-        <BizField Name="user_id" Column="user_id" />
-        <BizField Name="oauth_class" Column="oauth_class" Type="Text"/>
-		<BizField Name="oauth_secret" Column="oauth_secret" Type=""/>
-		<BizField Name="oauth_rawdata" Column="oauth_rawdata" Type=""/>
-        <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
-        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
-        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
-        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="user_id" Column="user_id"    Required="Y" Type="Number"/>
+        <BizField Name="oauth_uid" Column="oauth_uid"     Required="N" />
+        <BizField Name="type_uid" Column="oauth_uid"     Required="N" />
+        <BizField Name="oauth_class" Column="oauth_class" Length="255"   Required="Y" Type="Text"/>
+        <BizField Name="oauth_token" Column="oauth_token"    Required="Y" Type="Text"/>
+        <BizField Name="oauth_token_secret" Column="oauth_token_secret"    Required="Y" Type="Text"/>
+        <BizField Name="oauth_rawdata" Column="oauth_rawdata"   Type="Text"/>
+        <BizField Name="oauth_user_info" Column="oauth_user_info"   Type="Text"/>
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time" Column="create_time"  Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>		
+		<BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
 	</BizFieldList>
     <TableJoins>
     </TableJoins>

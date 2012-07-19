@@ -293,15 +293,20 @@ CREATE TABLE IF NOT EXISTS `session` (
 
 DROP TABLE IF EXISTS `user_oauth`;
 CREATE TABLE IF NOT EXISTS `user_oauth` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `oauth_class` varchar(255) NOT NULL,
-  `oauth_secret` text NOT NULL,
-  `oatuh_rawdata` longtext NOT NULL,
+ `id` int(11) NOT NULL auto_increment,
+  `user_id` int(10) NOT NULL,
+  `oauth_uid` varchar(255) NOT NULL default '',
+  `oauth_class`  char(80) NOT NULL,
+  `oauth_token` varchar(150) default NULL,
+  `oauth_token_secret` varchar(150) default NULL,
+  `oauth_user_info` varchar(500) default NULL,
+  `is_sync` tinyint(1) NOT NULL,
+  `oauth_rawdata` longtext NOT NULL,
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
   `update_by` int(11) NOT NULL,
   `update_time` datetime NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY  (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+ 
