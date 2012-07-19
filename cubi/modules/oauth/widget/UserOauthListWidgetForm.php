@@ -4,6 +4,18 @@ class UserOauthListWidgetForm extends EasyForm
 	public function fetchDataset()
 	{
 		$resultSet = parent::fetchDataSet();
+		foreach($resultSet as $key=>$value)
+		{
+			$userInfo = $value['oauth_user_info']; 
+			$userInfoArr = unserialize($userInfo);
+			if(is_array($userInfoArr)){
+				foreach($userInfoArr as $infoKey=>$infoValue)
+				{
+					$value[$infoKey]=$infoValue;
+				}
+			}
+			$resultSet[$key] = $value;
+		}
 		return $resultSet;
 	}
 	

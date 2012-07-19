@@ -4,13 +4,12 @@
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Hidden="Y" Sortable="Y" AllowURLParam="N" Link="javascript:">         
         </Element>
         
-        <Element Name="fld_platform" Class="ColumnImage" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" Label="Platform"  Sortable="Y" Link="javascript:">
+        <Element Name="fld_platform" Class="ColumnImage" Style="display:block;padding-left:5px;width:100px;" FieldName="oauth_class" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" Label="Platform"  Sortable="Y" Link="javascript:">
               <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
 		<Element Name="fld_nickname" Class="ColumnText" FieldName="uname" Label="Nickname" />
 		<Element Name="fld_location" Class="ColumnText" FieldName="location" Label="Location" />                        		
-		<Element Name="fld_update_by" Class="ColumnText" FieldName="update_by" Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value,'short')}"  Label="Update By"  Sortable="Y"/>
-		<Element Name="fld_update_time" Class="ColumnText" FieldName="update_time" Label="Update Time"  Sortable="Y"/>
+		<Element Name="fld_update_time" Class="ColumnText" FieldName="create_time" Label="Association Time"  Sortable="Y"/>
 		
 				
         <Element Name="fld_delete" Class="ColumnText" Text="Delete" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="javascript:" Style="color:#666666;">
