@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="UserOauthListWidgetForm" Class="UserOauthListWidgetForm" FormType="List" jsClass="jbForm" BizDataObj="system.do.UserOAuthDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="oauth.ini" Access="oauth.MyAccount">
+    <DataPanel>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Hidden="Y" Sortable="Y" AllowURLParam="N" Link="javascript:">         
+        </Element>
+        
+        <Element Name="fld_platform" Class="ColumnImage" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" Label="Platform" DefaultValue="default" Sortable="Y" Link="javascript:">
+              <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>
+		<Element Name="fld_nickname" Class="ColumnText" FieldName="uname" Label="Nickname" />
+		<Element Name="fld_location" Class="ColumnText" FieldName="location" Label="Location" />                        		
+		<Element Name="fld_update_by" Class="ColumnText" FieldName="update_by" Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value,'short')}"  Label="Update By"  Sortable="Y"/>
+		<Element Name="fld_update_time" Class="ColumnText" FieldName="update_time" Label="Update Time"  Sortable="Y"/>
+		
+				
+        <Element Name="fld_delete" Class="ColumnText" Text="Delete" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="javascript:" Style="color:#666666;">
+              <EventHandler Name="fld_edit_onclick" Event="onclick" Function="DeleteAccount({@:Elem[fld_Id].Value})"   />
+        </Element>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_add" Class="Button" Text="Add" CssClass="button_gray_add" >
+            <EventHandler Name="btn_add_onclick" 
+            			Event="onclick" 
+            			Function="LoadDialog(oauth.widget.UserOauthAddWidgetForm)"/>
+        </Element>
+        	
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="DeleteAccount()"  />
+        </Element>
+      
+      	<Element Name="btn_spacer" Class="Spacer" width="10" />
+      	
+      	<Element Name="btn_sync" Class="Button" Text="Sync All" CssClass="button_gray_w" >
+            <EventHandler Name="btn_sync_onclick" Event="onclick" EventLogMsg="" Function="SyncAccounts()"  />
+        </Element>	
+    </ActionPanel> 
+    <NavPanel>
+  		
+        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
+        </Element>      
+        <Element Name="btn_first" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+
+</EasyForm>
