@@ -96,8 +96,8 @@ class google extends oauthClass
 	function userInfo(){
 		$access_token=Bizsystem::getSessionContext()->getVar('google_access_token');
 		$client = new apiClient();
-		$client->setClientId=$this->m_akey;
-		$client->setClientSecret=$this->m_skey;
+		//$client->setClientId=$this->m_akey;
+		//$client->setClientSecret=$this->m_skey;
 		$client->setAccessToken($access_token['access_token_json']);
 		$oauth2 = new apiOauth2Service($client);
 		$me = $oauth2->userinfo->get();
