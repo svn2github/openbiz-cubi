@@ -14,8 +14,8 @@ class google extends oauthClass
 	public function __construct() {
 		parent::__construct();
 		$recArr=$this->getProviderList(); 
-		// $this->m_akey = $recArr['key'];
-		// $this->m_skey =$recArr['value'];
+		$this->m_akey = $recArr['key'];
+		 $this->m_skey =$recArr['value'];
 		global $apiConfig; 
 		if($apiConfig['oauth2_client_id']!=$recArr['key'] 
 		|| $apiConfig['oauth2_client_secret']!=$recArr['value'] 
@@ -47,13 +47,13 @@ class google extends oauthClass
 	
 	function CallBack(){  
 		$client = new apiClient();
-		// $client->setClientId=$this->m_akey;
-		// $client->setClientSecret=$this->m_skey;
+		 $client->setClientId=$this->m_akey;
+		 $client->setClientSecret=$this->m_skey;
 		// $client->setRedirectUri=$this->m_CallBack;
 		$oauth2 = new apiOauth2Service($client);
 		$client->authenticate();
 		$access_token_json=$client->getAccessToken();
-		
+	
 		$access_token=(array)json_decode($access_token_json);	
 		$access_token['oauth_token']=$access_token['access_token'];
 		$access_token['oauth_token_secret']=$access_token['id_token'];

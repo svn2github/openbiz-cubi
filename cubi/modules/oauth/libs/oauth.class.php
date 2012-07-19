@@ -106,10 +106,11 @@ class oauthClass extends EasyForm
 			 $UserOAuthArr['oauth_token']=$oauth_data['oauth_token'];
 			 $UserOAuthArr['oauth_token_secret']=$oauth_data['oauth_token_secret'];
 			 $UserOAuthArr['oauth_rawdata']=$oauth_data['access_token_json'];
-			 $UserOAuthArr['oauth_user_info']=serialize($oauth_data);
+			// $UserOAuthArr['oauth_user_info']=serialize($oauth_data);
 		    // $dataRec = new DataRecord($UserOAuthArr, $UserTokenObj);
 			// $dataRec->id =$UserToken['Id'];
 			//$dataRec->save( ); 
+		
 			$UserTokenObj->updateRecords($UserOAuthArr,"[Id]={$UserToken['Id']}"); 
 			$userObj = BizSystem::getObject('system.do.UserDO');
 			$userinfo=$userObj->fetchOne("id='".$UserToken['user_id']."'");
@@ -139,7 +140,7 @@ class oauthClass extends EasyForm
 			return;
 		}
 		 $UserTokenObj = BizSystem::getObject('oauth.do.UserTokenDO');
-		
+			
 		 $UserTokenArr=array(
 							"user_id"=>$user_id,
 							"oauth_uid"=>$OauthUserInfo['id'],
@@ -147,11 +148,11 @@ class oauthClass extends EasyForm
 							"oauth_token"=>$OauthUserInfo['oauth_token'],
 							"oauth_token_secret"=>$OauthUserInfo['oauth_token_secret'],
 							"oauth_rawdata"=>$OauthUserInfo['access_token_json'],
-							"oauth_user_info"=>serialize($OauthUserInfo),
+							//"oauth_user_info"=>serialize($OauthUserInfo),
 							"create_by"=>$user_id,
 							"create_time"=> date("Y-m-d H:i:s")
 						);
-		 $return= false;				
+		 $return= false;	
 		 if($UserTokenObj->insertRecord($UserTokenArr))
 		 {
 			$return= true;

@@ -44,7 +44,7 @@ class OauthLogin extends Element
 				 }
 				 $sHTML.= "</span>";
 			 }
-		}		
+		}	
 		return $sHTML;
 	}
 }

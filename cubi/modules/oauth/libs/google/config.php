@@ -1,14 +1,14 @@
 <?php
 /**
  *  @Created By fsl
- *  @Time:2012-07-19 17:09:02
+ *  @Time:2012-07-19 23:39:10
  */
  global $apiConfig;
 $apiConfig =array (
   'use_objects' => false,
   'application_name' => 'openbiz',
-  'oauth2_client_id' => '1040299489977.apps.googleusercontent.com',
-  'oauth2_client_secret' => 'qgWOCTOJu0APgekvt5TcbUUQ',
+  'oauth2_client_id' => '',
+  'oauth2_client_secret' => '',
   'oauth2_redirect_uri' => 'http://127.0.0.1/svn/openbiz/trunk/cubi/oauth_callback_handler.php?type=google&service=CallBack',
   'developer_key' => '',
   'oauth_consumer_key' => 'anonymous',

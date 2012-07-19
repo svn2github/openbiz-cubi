@@ -42,6 +42,7 @@ class OauthConnectUserForm extends RegisterForm
 		$this->username = BizSystem::ClientProxy()->getFormInputs("fld_username");
 		$this->password = BizSystem::ClientProxy()->getFormInputs("fld_password");				
 		$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
+		
 		try {
     		if ($this->authUser()) 
     		{
@@ -54,7 +55,7 @@ class OauthConnectUserForm extends RegisterForm
 					$this->updateForm();
 					return false;		
 				}
-				
+			
 				include_once(MODULE_PATH."/oauth/libs/oauth.class.php");
 				$OauthObj=new oauthClass();
 				if(!$OauthObj->saveUserOAuth($profile['Id'],$OauthUserInfo))
