@@ -125,11 +125,21 @@ class OauthConnectUserForm extends RegisterForm
         }else{
         	$this->m_OpenRegisterStatus = 1;
         }
-		//$record =  parent::fetchData();
+        
+        if ($this->m_ActiveRecord != null)
+            return $this->m_ActiveRecord;
+        
+
+        if (strtoupper($this->m_FormType) == "NEW")
+            return $this->getNewRecord();
+            
+		$record =  parent::fetchData();
 		$oauth_data=BizSystem::sessionContext()->getVar('_OauthUserInfo');
 		$record['oauth_data'] = $oauth_data;
 		$record['oauth_user'] = $oauth_data['uname'];
 		$record['oauth_location'] = $oauth_data['location'];
+		
+		$this->m_ActiveRecord = $record;
 		return $record;
 	}
 	
