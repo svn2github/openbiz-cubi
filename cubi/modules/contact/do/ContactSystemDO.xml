@@ -58,7 +58,7 @@
     </TableJoins>
     <ObjReferences>
         	<Object Name="location.do.LocationDO" Description="" Relationship="1-M" Table="location" CondColumn='type' CondValue='contact' Column="foreign_id" FieldRef="Id" />
-    
-        	<Object Name="changelog.do.ChangeLogDO" Description="" Relationship="1-M" Table="changelog" CondColumn='type' CondValue='contact' Column="foreign_id" FieldRef="Id" />    
+        	<Object Name="changelog.do.ChangeLogDO" Description="" Relationship="1-M" Table="changelog" CondColumn='type' CondValue='contact' Column="foreign_id" FieldRef="Id" />
+        	<Object Name="system.do.UserOAuth" Description="" Relationship="1-M" Table="user_oauth" Column="user_id" FieldRef="user_id" />    
     </ObjReferences>
 </BizDataObj>
