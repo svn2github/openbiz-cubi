@@ -10,7 +10,6 @@
         <BizField Name="Id" Column="id"     Type="Number"/>
         <BizField Name="user_id" Column="user_id"    Required="Y" Type="Number"/>
         <BizField Name="oauth_uid" Column="oauth_uid"     Required="N" />
-        <BizField Name="type_uid" Column="oauth_uid"     Required="N" />
         <BizField Name="oauth_class" Column="oauth_class" Length="255"   Required="Y" Type="Text"/>
         <BizField Name="oauth_token" Column="oauth_token"    Required="Y" Type="Text"/>
         <BizField Name="oauth_token_secret" Column="oauth_token_secret"    Required="Y" Type="Text"/>
