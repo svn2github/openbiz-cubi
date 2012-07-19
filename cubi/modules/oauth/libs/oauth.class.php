@@ -142,7 +142,7 @@ class oauthClass extends EasyForm
 		
 		 $UserTokenArr=array(
 							"user_id"=>$user_id,
-							"[oauth_uid]"=>$OauthUserInfo['id'],
+							"oauth_uid"=>$OauthUserInfo['id'],
 							"oauth_class"=>$OauthUserInfo['type'],
 							"oauth_token"=>$OauthUserInfo['oauth_token'],
 							"oauth_token_secret"=>$OauthUserInfo['oauth_token_secret'],
