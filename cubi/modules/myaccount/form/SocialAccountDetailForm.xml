@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: ProfileDetailForm.xml 3365 2012-05-31 06:07:55Z rockyswen@gmail.com $
 -->
-<EasyForm Name="SocialAccountDetailForm" Class="ProfileForm" Icon="{RESOURCE_URL}/oauth/images/icon_user_connect.png" SearchRule="[Id]='{@profile:profile_Id}'" FormType="" jsClass="jbForm" Title="My Social Accounts" Description="You can assoicate your social network account with current Cubi Account for quick login" BizDataObj="contact.do.ContactSystemDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="profile_detail_short.tpl.html" MessageFile="myaccount.ini" EventName="CONTACT" >
+<EasyForm Name="SocialAccountDetailForm" Class="ProfileForm" Icon="{RESOURCE_URL}/oauth/images/icon_user_connect.png" SearchRule="[Id]='{@profile:profile_Id}'" FormType="" jsClass="jbForm" Title="My Social Accounts" Description="You can assoicate your social network account with current Cubi Account for quick login" BizDataObj="contact.do.ContactSystemDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="profile_social_accounts.tpl.html" MessageFile="myaccount.ini" EventName="CONTACT" >
     <DataPanel>
     		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" />	         	        	        
 	        <Element Name="fld_first_name" Class="LabelText" ElementSet="Profile" FieldName="first_name" Label="Firstname"  AllowURLParam="N" />
@@ -15,6 +15,8 @@
 	        <Element Name="fld_department" Class="LabelText" ElementSet="Profile" FieldName="department" Label="Department"  AllowURLParam="N"/>    	        
 	        <Element Name="fld_position" Class="LabelText" ElementSet="Profile" FieldName="position" Label="Position"  AllowURLParam="N"/>    	        
 	        <Element Name="fld_photo_uploaded" Class="RawData"  ElementSet="Profile" FieldName="photo" Label="Select Photo"  AllowURLParam="N" CssClass="input_file"/>	        
+     	
+     		<Element Name="fld_accounts" Class="FormElement" FormReference="oauth.widget.UserOauthListWidgetForm" FieldName="" Label="" AllowURLParam="N" />
      	
 	    </DataPanel>
     <ActionPanel>       
