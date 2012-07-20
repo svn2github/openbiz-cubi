@@ -12,7 +12,7 @@
 				<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
         </Element>
 
-		<Element Name="fld_key" Class="ColumnText" FieldName="key" Label="App Key" DefaultValue="default" Sortable="Y"/>                
+		<Element Name="fld_key" MaxLength="15" Class="ColumnText" FieldName="key" Label="App Key" DefaultValue="default" Sortable="Y"/>                
         		
 		<Element Name="fld_update_by" Class="ColumnText" FieldName="update_by" Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value,'short')}"  Label="Update By"  Sortable="Y"/>
 		<Element Name="fld_update_time" Class="ColumnText" FieldName="update_time" Label="Update Time"  Sortable="Y"/>

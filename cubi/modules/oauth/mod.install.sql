@@ -4,8 +4,8 @@
 DROP TABLE IF EXISTS `oauth_provider`;
 CREATE TABLE IF NOT EXISTS `oauth_provider` (
   `id` int(11) unsigned NOT NULL auto_increment,
-  `type` char(30)  ,
-  `key` char(50) ,
+  `type` varchar(255)  ,
+  `key` varchar(255) ,
   `value` varchar(255) NOT NULL,
   `status` int(2) NOT NULL default 0,
   `sortorder` INT NOT NULL DEFAULT '50',
