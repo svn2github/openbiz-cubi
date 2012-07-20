@@ -17,7 +17,7 @@
         <Element Name="fld_local_email"  Class="RawData" Label="Location" FieldName="local_email"/>
     </DataPanel>
     <ActionPanel>
-        <Element  Name="btn_finish" Class="LabelText" Text="Finish" Link="{APP_INDEX}/user/login" CssClass="button_highlight">
+        <Element  Name="btn_finish" Class="LabelText" Text="Finish" Link="{APP_INDEX}/myaccount/my_social_account" CssClass="button_highlight">
         </Element>
     </ActionPanel> 
     <NavPanel>
