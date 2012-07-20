@@ -5,7 +5,6 @@
         </Element>
         
         <Element Name="fld_platform" Class="ColumnImage" Style="display:block;padding-left:5px;width:100px;" FieldName="oauth_class" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" Label="Platform"  Sortable="Y" Link="javascript:">
-              <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
 		<Element Name="fld_nickname" Class="ColumnText" FieldName="uname" Label="Nickname" />
 		<Element Name="fld_location" Class="ColumnText" FieldName="location" Label="Location" />    
