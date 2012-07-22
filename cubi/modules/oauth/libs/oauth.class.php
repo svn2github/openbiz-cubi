@@ -100,7 +100,7 @@ class oauthClass extends EasyForm
 		$oauth_data['oauth_token']=$access_token['oauth_token'] ; 
 		$oauth_data['oauth_token_secret']=$access_token['oauth_token_secret']; 
 		$oauth_data['access_token_json']=$access_token['access_token_json']; 
-	
+
 		if($UserToken)
 		{
 			 $UserOAuthArr['oauth_token']=$oauth_data['oauth_token'];
@@ -111,7 +111,7 @@ class oauthClass extends EasyForm
 			// $dataRec->id =$UserToken['Id'];
 			//$dataRec->save( ); 
 		//dump($UserOAuthArr);
-			$UserTokenObj->updateRecords($UserOAuthArr,"[Id]={$UserToken['Id']}"); 
+			//$UserTokenObj->updateRecords($UserOAuthArr,"[Id]={$UserToken['Id']}"); 
 			$userObj = BizSystem::getObject('system.do.UserDO');
 			$userinfo=$userObj->fetchOne("id='".$UserToken['user_id']."'");
 		
@@ -139,8 +139,8 @@ class oauthClass extends EasyForm
 			throw new Exception('Unknown UerInfo');
 			return;
 		}
+ 
 		 $UserTokenObj = BizSystem::getObject('oauth.do.UserTokenDO');
-			
 		 $UserTokenArr=array(
 							"user_id"=>$user_id,
 							"oauth_uid"=>$OauthUserInfo['id'],
