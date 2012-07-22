@@ -8,6 +8,8 @@ class google extends oauthClass
 	protected $m_loginUrl;
 	private $m_akey;
 	private $m_skey;
+	private $m_google;
+	private $m_oauth2;
 	
  
 		
@@ -15,45 +17,29 @@ class google extends oauthClass
 		parent::__construct();
 		$recArr=$this->getProviderList(); 
 		$this->m_akey = $recArr['key'];
-		 $this->m_skey =$recArr['value'];
-		global $apiConfig; 
-		if($apiConfig['oauth2_client_id']!=$recArr['key'] 
-		|| $apiConfig['oauth2_client_secret']!=$recArr['value'] 
-		|| $apiConfig['oauth2_redirect_uri']!=$this->m_CallBack )
-		{
-			
-			$apiConfig['oauth2_client_id']=$recArr['key'] ;
-			$apiConfig['oauth2_client_secret']=$recArr['value'] ;
-			$apiConfig['oauth2_redirect_uri']=$this->m_CallBack ;
-			$this->WriteConfig($apiConfig);
-		}	
+		$this->m_skey =$recArr['value'];	
+		$this->m_google= new apiClient();
+		$this->m_google->setClientId($recArr['key']) ;
+		$this->m_google->setClientSecret($recArr['value'] );
+		$this->m_google->setRedirectUri($this->m_CallBack);	
 	}
 	
   	function login(){	
 		$redirectPage=$this->getUrl(); 
 		BizSystem::clientProxy()->ReDirectPage($redirectPage);
 	} 
-	function WriteConfig($apiConfig){
-		$config = "<?php\r\n/**\r\n *  @Created By fsl\r\n *  @Time:" . date('Y-m-d H:i:s') . "\r\n */";
-		$config .= "\r\n".' global $apiConfig;'."\r\n".'$apiConfig =' . var_export($apiConfig, true) .  ";\r\n";
-		$config .= "\r\n?>";
-		$file=MODULE_PATH.'/oauth/libs/google/config.php';
-		file_put_contents($file,$config);
-	}
+
 	function test($akey,$skey){
 		//暂时没有发现如何验证GOOGLE的Client ID合法性
         return $rec_arr['oauth_token']='ok';
 	}
 	
 	function CallBack(){  
-		$client = new apiClient();
-		 $client->setClientId=$this->m_akey;
-		 $client->setClientSecret=$this->m_skey;
-		// $client->setRedirectUri=$this->m_CallBack;
-		$oauth2 = new apiOauth2Service($client);
-		$client->authenticate();
-		$access_token_json=$client->getAccessToken();
+		$this->oauth2 = new apiOauth2Service($this->m_google);
+		$this->m_google->authenticate();
 	
+		$access_token_json=$this->m_google->getAccessToken();
+
 		$access_token=(array)json_decode($access_token_json);	
 		$access_token['oauth_token']=$access_token['access_token'];
 		$access_token['oauth_token_secret']=$access_token['id_token'];
@@ -64,43 +50,33 @@ class google extends oauthClass
 		$this->check($userInfo);
 	}
 	function logout(){ 
-		$client = new apiClient();
-		// $client->setClientId=$this->m_akey;
-		// $client->setClientSecret=$this->m_skey;
 		Bizsystem::getSessionContext()->clearVar('google_access_token');
-		$client->revokeToken();
+		$this->m_google->revokeToken();
 	}
  
-    /*获取登录页*/
+    /*获取登录URL*/
     function getUrl($call_back = null) {
-		global $apiConfig;
-		if (!$apiConfig['oauth2_client_id'] || !$apiConfig['oauth2_client_secret'] )
+ 
+		if (!$this->m_akey || !$this->m_skey )
 		{
 			throw new Exception('Unknown akey');
 			return false;
 		}
+		$oauth2 = new apiOauth2Service($this->m_google);
 		
-		
-		$client = new apiClient();
-	
-		// $client->setClientId=$this->m_akey;
-		// $client->setClientSecret=$this->m_skey;
-		// $client->setRedirectUri=$this->m_CallBack;
-	
-		$oauth2 = new apiOauth2Service($client);
-		
-		return $client->createAuthUrl();
+		return $this->m_google->createAuthUrl();
 	} 
 
 	//用户资料
 	function userInfo(){
 		$access_token=Bizsystem::getSessionContext()->getVar('google_access_token');
-		$client = new apiClient();
-		//$client->setClientId=$this->m_akey;
-		//$client->setClientSecret=$this->m_skey;
-		$client->setAccessToken($access_token['access_token_json']);
-		$oauth2 = new apiOauth2Service($client);
-		$me = $oauth2->userinfo->get();
+		$this->m_google->setAccessToken($access_token['access_token_json']);
+		
+		if(!$this->oauth2)
+		{
+			$this->oauth2 = new apiOauth2Service($this->m_google); 
+		}	
+		$me = $this->oauth2->userinfo->get();	
 		$user['id']          = $me['id'];
 		$user['type']        = $this->m_Type;
 		$user['uname']       = $me['name'];

@@ -258,7 +258,7 @@ class apiClient {
    */
   public function setClientSecret($clientSecret) {
     global $apiConfig;
-    $apiConfig['oauth2_client_secret'] = $clientSecret;dump($auth);
+    $apiConfig['oauth2_client_secret'] = $clientSecret;
     self::$auth->clientSecret = $clientSecret;
   }
 

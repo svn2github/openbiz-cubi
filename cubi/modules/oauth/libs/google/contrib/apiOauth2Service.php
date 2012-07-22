@@ -152,7 +152,7 @@ class apiOauth2Service extends apiService {
     $this->restBasePath = '/';
     $this->version = 'v2';
     $this->serviceName = 'oauth2';
-
+ 
     $apiClient->addService($this->serviceName, $this->version);
     $this->userinfo = new UserinfoServiceResource($this, $this->serviceName, 'userinfo', json_decode('{"methods": {"get": {"path": "oauth2/v2/userinfo", "response": {"$ref": "Userinfo"}, "httpMethod": "GET", "id": "oauth2.userinfo.get"}}}', true));
     $this->userinfo_v2 = new UserinfoV2ServiceResource($this, $this->serviceName, 'v2', json_decode('{}', true));
