@@ -111,7 +111,7 @@ class oauthClass extends EasyForm
 			// $dataRec->id =$UserToken['Id'];
 			//$dataRec->save( ); 
 		//dump($UserOAuthArr);
-			//$UserTokenObj->updateRecords($UserOAuthArr,"[Id]={$UserToken['Id']}"); 
+			$UserTokenObj->updateRecords($UserOAuthArr,"[Id]={$UserToken['Id']}"); 
 			$userObj = BizSystem::getObject('system.do.UserDO');
 			$userinfo=$userObj->fetchOne("id='".$UserToken['user_id']."'");
 		
