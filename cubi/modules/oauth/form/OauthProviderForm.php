@@ -60,6 +60,10 @@ class OauthProviderForm extends EasyForm
 			$this->m_key=$Record['key'];
 			$this->m_secret=$Record['value'];
 		}
+		if(!$Record['Id'])
+		{
+			$Record['Id'] = $this->m_RecordId;
+		}
 
 		if($this->GetTestOauth())
 		{
@@ -77,7 +81,8 @@ class OauthProviderForm extends EasyForm
 		{
 			if($this->m_Errors)
 			{
-				BizSystem::ClientProxy()->showClientAlert($this->getMessage("TEST_FAILURE"));
+				//BizSystem::ClientProxy()->showClientAlert($this->getMessage("TEST_FAILURE"));
+				$this->updateForm();
 				return false;
 			}
 			else
