@@ -1,0 +1,134 @@
+<style>
+.pivot_table {
+	background-color: #FFFFFF;
+    border: 1px solid #BEE8FE;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    width: 100%;
+}
+.pivot_table th {
+    border-bottom: 1px solid #999;
+    border-right: 1px solid #BBB;
+	background-color: #FFF;
+    color: #666666;
+    font-size: 12px;
+	font-weight: bold;
+    height: 22px;
+    line-height: 22px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+    padding-top: 2px;
+}
+.pivot_table td {
+    border-bottom: 1px solid #DDDDDD;
+    border-right: 1px solid #BBB;
+	background-color: #FFF;
+    color: #666666;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    padding-bottom: 1px;
+    padding-left: 5px;
+    padding-top: 1px;
+}
+.pivot_table .total td {
+    /*background-color: #EFFBFF;*/
+	border-bottom: 1px solid #999;
+}
+</style>
+<?php $name = $this->form['name']; ?>
+<form id="<?php echo $name?>" name="<?php echo $name?>">
+<div style="padding-left:25px;padding-right:40px;">
+<h2 ><?php echo $this->title?></h2>
+
+<table cellspacing="0" cellpadding="2" >
+<tr>
+<td  align="left">
+   <table cellspacing="2" cellpadding="0">
+   <tr>  
+    <?php if (is_array($this->actionPanel)) :
+         foreach ($this->actionPanel as $elem ): ?>
+     <td><?php echo $elem['element']?></td>
+   <?php endforeach; endif;?>
+   <td><div id="<?php echo $name?>.load_disp" style="display:none"></div></td>
+   </tr>
+   </table>
+</td>
+</tr>
+<tr>
+<td colspan="9">
+   <div class="from_table_container">
+        <?php 
+		$leftColumns[0] = "id";
+		foreach ($this->form['meta']['rows'] as $k=>$label) {
+			$leftColumns[] = $label;
+		}
+		$headerRows = array();
+		displayTableHeader($this->form['headers'], 0, $headerRows);
+		$totalLeaves = count($headerRows[count($headerRows)-1]);
+		echo "<table border='0' cellpadding='0' cellspacing='0' class='pivot_table' id='".$name."_data_table'>";
+		// print table header
+		for ($i=0; $i<count($headerRows); $i++) {
+			echo "<tr>";
+			if ($i<count($headerRows)-1) {
+				echo "<th colspan='".count($leftColumns)."'></th>";
+			}
+			else {
+				foreach ($leftColumns as $cell) {
+					echo "<th>$cell</th>";
+				}
+			}
+			$row = $headerRows[$i];
+			foreach ($row as $cell) {
+				echo "<th colspan='".$totalLeaves/count($row)."'>$cell</td>";
+			}
+			echo "</tr>\n";
+		}
+		// print table body
+		foreach ($this->form['data'] as $datarow) {
+			// print total line with diff style
+			if (strpos($datarow[0],'TOT')===0 || strpos($datarow[1],'TOT')===0) {
+				echo "<tr class='total'>";
+			}
+			else {
+				echo "<tr>";
+			}
+			foreach ($datarow as $cell) {
+				echo "<td>$cell</td>";
+			}
+			echo "</tr>\n";
+		}
+		echo "</table>";
+        ?>
+
+   </div>
+</td>
+</tr>
+</table>
+</div>
+</form>
+
+<?php
+// helper function here
+function displayTableHeader($node, $level=0, &$headerRows)
+{
+	$tempArr = array();
+	$theaderHtml .= "";
+	//print_r($node);
+	if (!is_array($node)) return;
+	foreach ($node as $key=>$childNode) {
+		if (!empty($key)) {
+			$theaderHtml .= "<td colspan='".count($childNode)."'>$key</td>";
+			$headerRows[$level][] = $key;
+		}
+	}
+	foreach ($node as $key=>$childNode) {
+		if (!empty($key)) {
+			displayTableHeader($childNode, $level+1, $headerRows);
+		}
+		else {
+			displayTableHeader($childNode, $level, $headerRows);
+		}
+	}
+}
+?>
