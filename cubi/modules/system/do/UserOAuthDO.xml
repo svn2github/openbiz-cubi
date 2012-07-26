@@ -11,8 +11,8 @@
         <BizField Name="user_id" Column="user_id"    Required="Y" Type="Number"/>
         <BizField Name="oauth_uid" Column="oauth_uid"     Required="N" />
         <BizField Name="oauth_class" Column="oauth_class" Length="255"   Required="Y" Type="Text"/>
-        <BizField Name="oauth_token" Column="oauth_token"    Type="Text"/>
-        <BizField Name="oauth_token_secret" Column="oauth_token_secret"  Type="Text"/>
+        <BizField Name="oauth_token" Column="oauth_token"    Required="N" Type="Text"/>
+        <BizField Name="oauth_token_secret" Column="oauth_token_secret"    Required="N" Type="Text"/>
         <BizField Name="oauth_rawdata" Column="oauth_rawdata"   Type="Text"/>
         <BizField Name="oauth_user_info" Column="oauth_user_info"   Type="Text"/>
         <BizField Name="status" Column="status" ValueOnCreate="1"  Type="Number"/>
