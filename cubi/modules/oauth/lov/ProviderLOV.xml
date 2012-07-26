@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <Provider Value="qq" />
+   <Provider Value="sina" />
+   <Provider Value="alipay" />
+   <Provider Value="google" />
+   <Provider Value="facebook" />
+   <Provider Value="qzone" />
+   <Provider Value="twitter" />
+</Selection>   

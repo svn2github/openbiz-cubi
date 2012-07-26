@@ -110,7 +110,11 @@ class OauthProviderForm extends EasyForm
 		{
 			return false;
 		}
-		$whitelist_arr=array('qq','sina','alipay','google','facebook');
+		
+		
+		//$whitelist_arr=array('qq','sina','alipay','google','facebook');
+		$whitelist_arr = BizSystem::getService(LOV_SERVICE)->getDictionary("oauth.lov.ProviderLOV(Provider)");
+		
 		if(!in_array($this->m_type,$whitelist_arr)){
 			throw new Exception('Unknown service');
 			return;
