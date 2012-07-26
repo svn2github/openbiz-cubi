@@ -79,7 +79,7 @@ class alipay extends oauthClass
 			$recinfo['oauth_token_secret']=$_GET['token'];
 			$recinfo['access_token_json']=$_GET;
 			Bizsystem::getSessionContext()->setVar('alipay_access_token',$recinfo);
-			$userInfo=$this->userInfo();  
+			$userInfo=$this->userInfo(); 
 			$this->check($userInfo);
 		}
 		else
