@@ -14,41 +14,19 @@
 require_once "LicenseForm.php";
 class LicenseActiveForm extends LicenseForm
 {
-	public $m_ActiveModuleName;
-	public $m_LastView;
-	
- 	public function setSessionVars($sessionContext)
-    {               
-	 	$sessionContext->setObjVar("common.LicenseForm", "ActiveModuleName", $this->m_ActiveModuleName);       
-	 	$sessionContext->setObjVar("common.LicenseForm", "LastView", $this->m_LastView);
-     	parent::setSessionVars($sessionContext);        
-    }	
-	
-	public function getSessionVars($sessionContext)
-    {
-        $sessionContext->getObjVar("common.LicenseForm", "ActiveModuleName", $this->m_ActiveModuleName);
-        $sessionContext->getObjVar("common.LicenseForm", "LastView", $this->m_LastView);
-     	parent::getSessionVars($sessionContext);        
-    }	
+
 	
 	public function fetchData()
-	{
-		$this->m_LastView = base64_decode($_GET['lastview']);
-		$this->m_ActiveModuleName = $_GET['app'];
-		$this->m_ModuleName = $_GET['app'];
-		$result['license_code']=$this->getExistingLicenseCode();
+	{				
+		$result['license_code']=$url.$this->getExistingLicenseCode();
 		$this->getAppRegister();		
 		return $result;
 	}
 	
 	protected function getRedirectPage()
-	{
-		
-		if($this->m_LastView)
-		{
-			$view = $this->m_LastView;
-			return array($view,"");
-		}
+	{		
+		$view = BizSystem::instance()->getSessionContext()->getVar("LIC_SOURCE_URL");			
+		return array($view,"");
 	}
 	
 	public function activeLicense()
