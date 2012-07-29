@@ -14,10 +14,17 @@
 require_once "LicenseForm.php";
 class LicenseActiveForm extends LicenseForm
 {
-
+	public $m_ActiveModuleName;
+	public $m_LastView;
+	
+ 	public function readMetadata($xmlArr)
+ 	{
+ 		parent::readMetadata($xmlArr);
+ 		$this->m_ActiveModuleName = BizSystem::instance()->getSessionContext()->getVar("LIC_MODULE"); 		
+ 	}
 	
 	public function fetchData()
-	{				
+	{		
 		$result['license_code']=$url.$this->getExistingLicenseCode();
 		$this->getAppRegister();		
 		return $result;
