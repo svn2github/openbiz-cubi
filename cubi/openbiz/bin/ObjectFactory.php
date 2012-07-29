@@ -147,7 +147,6 @@ class ObjectFactory
             if (!$classPackage) $classPackage = $package;
             $xmlArr[$root]["ATTRIBUTES"]["PACKAGE"] = $package;
         }
-
         if ($class == "BizObj")  // convert BizObj to BizDataObj, support <1.2 version
             $class = "BizDataObj";
 
@@ -164,6 +163,7 @@ class ObjectFactory
             }
             include_once($classFile);
         }
+        
         if (class_exists($class, false))
         {
             //if ($objName == "collab.calendar.form.EventListForm") { print_r($xmlArr); exit; }
@@ -172,9 +172,19 @@ class ObjectFactory
             {
                 return $obj_ref;
             }
+        }        
+        else{
+	        if(function_exists("ioncube_read_file"))
+			{
+				$data = ioncube_read_file($classFile);
+				if (!strpos($data,"ionCube Loader")) {
+					trigger_error("Cannot find the class with name as $class in $classFile", E_USER_ERROR);		
+				}else{
+					
+				}
+			}
+        	
         }
-        else
-            trigger_error("Cannot find the class with name as $class in $classFile", E_USER_ERROR);
         return null;
     }
 
