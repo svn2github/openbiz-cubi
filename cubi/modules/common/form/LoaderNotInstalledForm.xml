@@ -11,6 +11,7 @@
     <ActionPanel>        
     
     	<Element Name="btn_install" Class="LabelText" Text="Install" CssClass="button_highlight" Link="http://www.ioncube.com/lw/" Target="_blank"></Element>
+        <Element Name="btn_test" Class="LabelText" Text="Check" CssClass="button_highlight" Link="javascript:window.location.reload()"></Element>
         <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button" Link="javascript:history.go(-1)"></Element>
     </ActionPanel> 
     <NavPanel>
