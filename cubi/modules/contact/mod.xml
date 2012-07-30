@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<Module Name="contact" Description="contact management module" Version="0.7.8" OpenbizVersion="3.0" LoadHandler="contact.lib.ContactLoadHandler">
+<Module Name="contact" Description="contact management module" Version="0.7.9" OpenbizVersion="3.0" LoadHandler="contact.lib.ContactLoadHandler">
 	<ACL>
 		<Resource Name="contact">
 			<Action Name="access" Description="access my contact"/>
@@ -20,13 +20,13 @@
 		</MenuItem>	
 		
     	<MenuItem Name="Contact" Title="Contacts" Parent="ContactTopMenu" Description="" IconImage="spacer.gif" IconCssClass="icon_contact" Order="10" Access="contact.access">		
-			<MenuItem Name="Contact.Manage" Title="Contact Manage" Description=""  URL="{@home:url}/contact/contact_list"  Order="10" Access="contact.access" >
-				<MenuItem Name="Contact.Detail" Title="Contact Detail" Description=""  URL="{@home:url}/contact/contact_detail" Order="5"  Access="contact.access" ></MenuItem>
-                <MenuItem Name="Contact.GCard" Title="View General Card" Description=""  URL="{@home:url}/contact/contact_general_card" Order="10" Access="contact.access"></MenuItem>
-                <MenuItem Name="Contact.DCard" Title="View Detailed Card" Description=""  URL="{@home:url}/contact/contact_detail_card" Order="20" Access="contact.access"></MenuItem>
-                <MenuItem Name="Contact.PhoneBook" Title="View Phone Book" Description=""  URL="{@home:url}/contact/contact_list"  Order="30" Access="contact.access"></MenuItem>
-                <MenuItem Name="Contact.Company" Title="View Company" Description=""  URL="{@home:url}/contact/company_list"  Order="40" Access="contact.access"></MenuItem>
-                <MenuItem Name="Contact.ByType" Title="View By Contact Type" Description=""  URL="{@home:url}/contact/contact_type_list"  Order="50" Access="contact.access"></MenuItem>				
+			<MenuItem Name="Contact.Manage" Title="Contact Manage" Description=""  URL="/contact/contact_list"  Order="10" Access="contact.access" >
+				<MenuItem Name="Contact.Detail" Title="Contact Detail" Description=""  URL="/contact/contact_detail" Order="5"  Access="contact.access" ></MenuItem>
+                <MenuItem Name="Contact.GCard" Title="View General Card" Description=""  URL="/contact/contact_general_card" Order="10" Access="contact.access"></MenuItem>
+                <MenuItem Name="Contact.DCard" Title="View Detailed Card" Description=""  URL="/contact/contact_detail_card" Order="20" Access="contact.access"></MenuItem>
+                <MenuItem Name="Contact.PhoneBook" Title="View Phone Book" Description=""  URL="/contact/contact_list"  Order="30" Access="contact.access"></MenuItem>
+                <MenuItem Name="Contact.Company" Title="View Company" Description=""  URL="/contact/company_list"  Order="40" Access="contact.access"></MenuItem>
+                <MenuItem Name="Contact.ByType" Title="View By Contact Type" Description=""  URL="/contact/contact_type_list"  Order="50" Access="contact.access"></MenuItem>				
 			</MenuItem>
 			<MenuItem Name="Contact.Map" Title="Contact Map" Description=""  URL="/contact/contact_map"  Order="15" Access="contact.access"></MenuItem>
 			<MenuItem Name="Contact.Garbber" Title="Contact Grabber" Description=""  URL="/contact/contact_import"  Order="20" Access="contact.access"></MenuItem>
