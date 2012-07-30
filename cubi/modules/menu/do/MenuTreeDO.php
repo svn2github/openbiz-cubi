@@ -88,12 +88,15 @@ class MenuTreeDO extends BizDataObj
     {
     	$recordList = $this->directFetch($nodeSearchRule);
     	if(count($recordList)>=1){
-    		
-    		if($recordList[0]['PId']!='' && $recordList[0]['PId']!='0'){
-    			$searchRule = "[Id]='".$recordList[0]['PId']."'";
+    		// find the record whose parent are not empty
+			for ($i=0; $i<count($recordList); $i++) {
+				if ($recordList[$i]['PId']!='') break;
+			}
+    		if($recordList[$i]['PId']!='' && $recordList[$i]['PId']!='0'){
+    			$searchRule = "[Id]='".$recordList[$i]['PId']."'";
     			$this->fetchNodePath($searchRule, $pathArray);
     		}
-    		$node = new MenuRecord($recordList[0]);
+    		$node = new MenuRecord($recordList[$i]);
     		array_push ($pathArray,$node);
     		return $pathArray;
     	}
