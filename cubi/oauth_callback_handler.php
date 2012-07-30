@@ -35,7 +35,7 @@ if(!file_exists($oatuthType))
 
 include_once $oatuthType;
 $obj = new $type;
-$whitelist_arr=array('CallBack','login');
+$whitelist_arr=array('callback','login');
 if(!in_array($service,$whitelist_arr)){
 	throw new Exception('Unknown service');
 	return;
