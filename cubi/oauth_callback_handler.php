@@ -35,10 +35,14 @@ if(!file_exists($oatuthType))
 
 include_once $oatuthType;
 $obj = new $type;
-$whitelist_arr=array('callback','login');
-if(!in_array($service,$whitelist_arr)){
-	throw new Exception('Unknown service');
-	return;
+switch(strtolower($service))
+{
+	case "callback":
+	case "login":
+		break;
+	default:
+		throw new Exception('Unknown service');
+		break;
 }
 
 //call_user_method($service, $obj, "\t");
