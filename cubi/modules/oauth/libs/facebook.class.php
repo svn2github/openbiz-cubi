@@ -34,7 +34,7 @@ class facebook extends oauthClass
         return $rec_arr['oauth_token']='ok';
 	}
 	
-	function CallBack(){ 
+	function callback(){ 
 		$access_token['oauth_token']=$this->m_facebook->getAccessToken();
 		if(!$access_token)
 		{

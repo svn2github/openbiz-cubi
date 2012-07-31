@@ -25,7 +25,7 @@ class qq extends oauthClass{
         return $o->getRequestToken($this->m_CallBack);
 	}
 	
-	function CallBack(){ 
+	function callback(){ 
 		$keys=Bizsystem::getSessionContext()->getVar('qq_keys');
 		$this->checkUser($keys['oauth_token'],$keys['oauth_token_secret']);
 		$userInfo=$this->userInfo();

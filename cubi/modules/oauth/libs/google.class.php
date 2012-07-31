@@ -34,7 +34,7 @@ class google extends oauthClass
         return $rec_arr['oauth_token']='ok';
 	}
 	
-	function CallBack(){  
+	function callback(){  
 		$this->oauth2 = new apiOauth2Service($this->m_google);
 		$this->m_google->authenticate();
 	

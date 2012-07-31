@@ -31,7 +31,7 @@ class twitter extends oauthClass
         return $Twitter->getRequestToken($this->m_CallBack);
 	}
 	
-	function CallBack(){ 
+	function callback(){ 
 		$oauth_token=Bizsystem::getSessionContext()->getVar('twitter_access_token');
 		$Twitter = new TwitterOAuth($this->m_akey ,$this->m_skey,$oauth_token['oauth_token'], $oauth_token['oauth_token_secret']);
 		$access_token = $Twitter->getAccessToken($_REQUEST['oauth_verifier']);

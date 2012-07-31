@@ -29,7 +29,7 @@ class sina extends oauthClass
         return $rec_arr['oauth_token']='ok';
 	}
 	
-	function CallBack(){ 
+	function callback(){ 
 		$keys = array();
 		$keys['code'] = $_REQUEST['code'];
 		$keys['redirect_uri'] = $this->m_CallBack;

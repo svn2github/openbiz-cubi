@@ -68,7 +68,7 @@ class alipay extends oauthClass
         return $rec_arr['oauth_token']='ok';
 	}
 	
-	function CallBack(){ 
+	function callback(){ 
 		$alipayNotify = new AlipayNotify($this->aliapy_config);
 		//暂时没解决签证验证问题，先取消验证
 		//$verifyReturn$alipayNotify->verifyReturn();

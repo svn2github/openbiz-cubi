@@ -56,6 +56,7 @@ class oauthClass extends EasyForm
 	public function getProviderList()
 	{
 	  	 $recArr=BizSystem::sessionContext()->getVar("_OAUTH_{$this->m_Type}");
+	  	 $recArr=false;
 		 if(!$recArr)
 			 {
 			 $do=BizSystem::getObject($this->m_oauthProviderDo);
@@ -111,7 +112,7 @@ class oauthClass extends EasyForm
 			// $dataRec->id =$UserToken['Id'];
 			//$dataRec->save( ); 
 		
-			$UserTokenObj->updateRecords($UserOAuthArr,"[Id]={$UserToken['Id']}"); 
+			//$UserTokenObj->updateRecords($UserOAuthArr,"[Id]={$UserToken['Id']}"); 
 			$userObj = BizSystem::getObject('system.do.UserDO');
 			$userinfo=$userObj->fetchOne("id='".$UserToken['user_id']."'");
 		
