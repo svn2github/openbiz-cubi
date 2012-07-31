@@ -21,7 +21,11 @@ class UserOauthListWidgetForm extends EasyForm
 	
 	public function deleteAccount($id=null)
 	{
-		$result = parent::deleteRecord($id);
+		$rec=$this->getDataObj()->fetchById($id);
+		$profile_id = BizSystem::getUserProfile("Id");
+		if($rec['user_id'] == $profile_id){
+			$result = parent::deleteRecord($id);
+		}
 		//also notify remote service provider		
 	}
 	
