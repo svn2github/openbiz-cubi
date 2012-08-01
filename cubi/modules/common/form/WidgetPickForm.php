@@ -4,7 +4,7 @@
  *
  * LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
  *
- * @package   cubi.myaccount.form
+ * @package   cubi.common.form
  * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
  * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
  * @link      http://code.google.com/p/openbiz-cubi/
@@ -13,6 +13,8 @@
 
 class WidgetPickForm extends PickerForm
 {
+	protected $userWidgetDOName = "myaccount.do.UserWidgetDO";
+	
 	public function PicktoParent()
 	{
 	 	if ($id==null || $id=='')
@@ -21,27 +23,40 @@ class WidgetPickForm extends PickerForm
         $selIds = BizSystem::clientProxy()->getFormInputs('row_selections', false);
         if ($selIds == null)
             $selIds[] = $id;
-                    
+        
         foreach ($selIds as $id)
         {
-            $rec = $this->getDataObj()->fetchById($id);           
-			$parentForm = BizSystem::objectFactory()->getObject($this->m_ParentFormName);
-			$parentDo = $parentForm->getDataObj();
-			$user_id = BizSystem::getUserProfile("Id");
-			
-			$newRec = array(
-				"user_id" => $user_id,
-				"widget" => $rec['name'],
-				"ordering" => 10,
-				"status" => 1
-			);
-			$parentDo->insertRecord($newRec);
+            $rec = $this->getDataObj()->fetchById($id);
+			$widgetName = $rec['name'];
+			$this->addWidget($widgetName);
         }
-        
-		
-		
+
 		$this->close();
-        $parentForm->rerender();
+        // reload current page
+		BizSystem::clientProxy()->runClientFunction("window.location.reload()");
+	}
+	
+	// add a widget to current dashboard view
+	protected function addWidget($widgetName)
+	{
+		// add widget to user_widget table
+		$userWidgetDo = BizSystem::getObject($this->userWidgetDOName);
+		$userWidgetTable = $userWidgetDo->m_MainTable;
+		$db = $userWidgetDo->getDbConnection();
+		
+		$myProfile = BizSystem::getUserProfile();
+		$myUserId = $myProfile['Id'];
+		$currentView = BizSystem::instance()->getCurrentViewName();
+		
+		$searchRule = "[user_id]=$myUserId and [widget]='$widgetName' and [view]='$currentView'";
+		$record = $userWidgetDo->fetchOne($searchRule);
+		if ($record) {
+			BizSystem::clientProxy()->showClientAlert("The widget $widgetName is already on the page.");
+		}
+		else {
+			$data = array('user_id'=>$myUserId, 'widget'=>$widgetName, 'view'=>$currentView, 'ordering'=>0);
+			$db->insert($userWidgetTable, $data);
+		}
 	}
 }
 ?>
