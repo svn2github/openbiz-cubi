@@ -32,7 +32,7 @@ class sina extends oauthClass
 	function callback(){ 
 		$keys = array();
 		$keys['code'] = $_REQUEST['code'];
-		$keys['redirect_uri'] = $this->m_CallBack;
+		$keys['redirect_uri'] = $this->m_CallBack;dump($this->m_sina);
 		$token = $this->m_sina->getAccessToken('code', $keys ) ; 
 		if(!$token )
 		{
