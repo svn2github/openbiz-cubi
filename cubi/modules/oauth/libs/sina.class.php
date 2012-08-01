@@ -33,7 +33,7 @@ class sina extends oauthClass
 		$keys = array();
 		$keys['code'] = $_REQUEST['code'];
 		$keys['redirect_uri'] = $this->m_CallBack;
-		$token = $this->m_sina->getAccessToken('code', $keys ) ;
+		$token = $this->m_sina->getAccessToken('code', $keys ) ; 
 		if(!$token )
 		{
 			throw new Exception('Unknown sina_access_token');
@@ -42,7 +42,7 @@ class sina extends oauthClass
 		$token['oauth_token']=$token['access_token'] ; 
 		$token['access_token_json']=$token; 
 		Bizsystem::getSessionContext()->setVar('sina_access_token',$token);
-		$userInfo=$this->userInfo($token['access_token']);  
+		$userInfo=$this->userInfo($token['access_token']); 
 		$this->check($userInfo);
 	}
     /*获取登录页*/
@@ -55,14 +55,16 @@ class sina extends oauthClass
 		$this->loginUrl = $this->m_sina->getAuthorizeURL($this->m_CallBack);
 		return $this->loginUrl;
 	} 
-
+ 
 	//用户资料
 	function userInfo($token){
 		$c = new SaeTClientV2( $this->m_sina_akey , $this->m_sina_skey, $token);
-		//$home  = $c->home_timeline(); // done
-		$uid_get = $c->get_uid();
+		dump($c );
+		$home  = $c->home_timeline(); // done
+		$uid_get = $c->get_uid(); 
 		$uid = $uid_get['uid'];
 		$me = $c->show_user_by_id( $uid);//根据ID获取用户等基本信息
+	 
 		$user['id']          = $me['id'];
 		$user['type']        = $this->m_Type;
 		$user['uname']       = $me['name'];
