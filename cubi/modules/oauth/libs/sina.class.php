@@ -32,7 +32,7 @@ class sina extends oauthClass
 	function callback(){ 
 		$keys = array();
 		$keys['code'] = $_REQUEST['code'];
-		$keys['redirect_uri'] = $this->m_CallBack;dump($this->m_sina);
+		$keys['redirect_uri'] = $this->m_CallBack;
 		$token = $this->m_sina->getAccessToken('code', $keys ) ; 
 		if(!$token )
 		{
@@ -59,7 +59,7 @@ class sina extends oauthClass
 	//用户资料
 	function userInfo($token){
 		$c = new SaeTClientV2( $this->m_sina_akey , $this->m_sina_skey, $token);
-		dump($c );
+		
 		$home  = $c->home_timeline(); // done
 		$uid_get = $c->get_uid(); 
 		$uid = $uid_get['uid'];
