@@ -33,7 +33,7 @@ class DashboardConfigWidget extends EasyForm
 			BizSystem::clientProxy()->showClientAlert("The widget $widgetName is already on the page.");
 		}
 		else {
-			$data = array('user_id'=>$myUserId, 'widget'=>'$widgetName', 'view'=>'$currentView', 'ordering'=>0);
+			$data = array('user_id'=>$myUserId, 'widget'=>$widgetName, 'view'=>$currentView, 'ordering'=>0);
 			$db->insert($userWidgetTable, $data);
 		}
 	}
@@ -53,9 +53,11 @@ class DashboardConfigWidget extends EasyForm
 		$searchRule = "[user_id]=$myUserId and [widget]='$widgetName' and [view]='$currentView'";
 		$record = $userWidgetDo->fetchOne($searchRule);
 		if ($record) {
-			echo "to delete id=".$record['Id'];
-			//$db->delete($userWidgetTable, "id=".$record['Id']);
+			//echo "to delete id=".$record['Id'];
+			$db->delete($userWidgetTable, "id=".$record['Id']);
 		}
+		 // reload current page
+		BizSystem::clientProxy()->runClientFunction("window.location.reload()");
 	}
 	
 	// reoder widgets on current dashboard view
@@ -98,6 +100,7 @@ class DashboardConfigWidget extends EasyForm
 		$currentView = BizSystem::instance()->getCurrentViewName();
 		$n = 1;
 		foreach ($orders as $widgetName) {
+			if (empty($widgetName)) continue;
 			// find the widget by name in the current view, set the new order
 			$searchRule = "[user_id]=$myUserId and [widget]='$widgetName' and [view]='$currentView'";
 			$record = $userWidgetDo->fetchOne($searchRule);
@@ -107,7 +110,7 @@ class DashboardConfigWidget extends EasyForm
 				$db->update($userWidgetTable, $data, "id=".$record['Id']);
 			}
 			else {	// insert a record with the order
-				$data = array('user_id'=>$myUserId, 'widget'=>'$widgetName', 'view'=>'$currentView', 'ordering'=>$ordering);
+				$data = array('user_id'=>$myUserId, 'widget'=>$widgetName, 'view'=>$currentView, 'ordering'=>$ordering);
 				$db->insert($userWidgetTable, $data);
 			}
 			$n++;

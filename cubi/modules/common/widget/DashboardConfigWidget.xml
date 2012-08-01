@@ -10,7 +10,7 @@
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_add" Class="Button" Text="Add Widgets" CssClass="button_gray_w">
-			<EventHandler Name="add_onclick" Event="onclick" Function="loadDialog(myaccount.form.WidgetPickForm)"/>
+			<EventHandler Name="add_onclick" Event="onclick" Function="loadDialog(common.form.WidgetPickForm)"/>
 		</Element>        
     </ActionPanel> 
     <NavPanel>
