@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="oauth" Description="OAuth extension module" Version="0.4" OpenbizVersion="3.0">
+<Module Name="oauth" Description="OAuth extension module" Version="0.4" OpenbizVersion="3.0" LoadHandler="oauth.lib.OAuthLoadHandler">
 	<ACL>
 		<Resource Name="oauth">
             <Action Name="Administer" Description="Manage OAuth Provider Setting"/>
