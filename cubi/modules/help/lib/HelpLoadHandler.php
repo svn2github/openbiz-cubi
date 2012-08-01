@@ -17,12 +17,23 @@ class HelpLoadHandler implements ModuleLoadHandler
 {
     public function beforeLoadingModule($moduelLoader)
     {
-        //echo "--- Test HelpLoadHandler::beforeLoadingModule \n";
     }
     
     public function postLoadingModule($moduelLoader)
     {
-        //echo "--- Test HelpLoadHandler::postLoadingModule \n";
+    	
+    	$roleRec = BizSystem::getObject("system.do.RoleDO")->fetchOne("[name]='Cubi Member'");
+    	$roleId = $roleRec['Id'];
+    	
+    	$actionRec = BizSystem::getObject("system.do.AclActionDO")->fetchOne("[module]='help' AND [resource]='Help' AND [action]='Access_Widget'");
+    	$actionId = $actionRec["Id"];
+    	
+    	$aclRecord = array(
+    		"role_id" =>  $roleId,
+    		"action_id" => $actionId,
+    		"access_level" => 1
+    	);
+    	BizSystem::getObject("system.do.AclRoleActionDO")->insertRecord($aclRecord);
     }
 }
 
