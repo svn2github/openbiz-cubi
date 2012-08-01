@@ -43,7 +43,7 @@ class oauthClass extends EasyForm
 	
   public function __construct()  
     {
-         $this->m_CallBack=SITE_URL.'oauth_callback_handler.php?type='.$this->m_Type.'&service=CallBack';
+         $this->m_CallBack=SITE_URL.'oauth_callback_handler.php?type='.$this->m_Type.'&service=callback';
     } 
 
     
@@ -67,6 +67,8 @@ class oauthClass extends EasyForm
 			 }
 			 BizSystem::sessionContext()->setVar("_OAUTH_{$this->m_Type}",$recArr);
 		 }
+		 $recArr['key']=trim($recArr['key']);
+		 $recArr['value']=trim($recArr['value']);
 		 return $recArr;
 	}
 	
@@ -112,7 +114,7 @@ class oauthClass extends EasyForm
 			// $dataRec->id =$UserToken['Id'];
 			//$dataRec->save( ); 
 		
-			//$UserTokenObj->updateRecords($UserOAuthArr,"[Id]={$UserToken['Id']}"); 
+			$UserTokenObj->updateRecords($UserOAuthArr,"[Id]={$UserToken['Id']}"); 
 			$userObj = BizSystem::getObject('system.do.UserDO');
 			$userinfo=$userObj->fetchOne("id='".$UserToken['user_id']."'");
 		
