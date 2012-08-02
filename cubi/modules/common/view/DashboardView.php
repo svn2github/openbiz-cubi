@@ -13,7 +13,7 @@
 
 class DashboardView extends EasyView
 {
-	protected $m_UserWidgetDO = "myaccount.do.UserWidgetDO";	
+	protected $m_UserWidgetDO = "common.do.UserWidgetDO";	
 	protected $columns;
 	
 	protected function readMetadata(&$xmlArr)
