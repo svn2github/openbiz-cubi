@@ -53,7 +53,7 @@ class ViewRenderer
     {
         // Assocative Array to hold all Template Values
         // Fill with default viewobj attributes
-        $tplAttributes = $viewObj->outputAttrs();
+        //$tplAttributes = $viewObj->outputAttrs();
         
         //Not sure what this is doing...
         $newClntObjs = '';
