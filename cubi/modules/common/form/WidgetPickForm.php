@@ -13,7 +13,7 @@
 
 class WidgetPickForm extends PickerForm
 {
-	protected $userWidgetDOName = "myaccount.do.UserWidgetDO";
+	protected $userWidgetDOName = "common.do.UserWidgetDO";
 	
 	public function PicktoParent()
 	{

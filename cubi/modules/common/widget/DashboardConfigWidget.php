@@ -13,7 +13,7 @@
 
 class DashboardConfigWidget extends EasyForm
 {
-	protected $userWidgetDOName = "myaccount.do.UserWidgetDO";
+	protected $userWidgetDOName = "common.do.UserWidgetDO";
 	
 	// add a widget to current dashboard view
 	public function addWidget($widgetName)
