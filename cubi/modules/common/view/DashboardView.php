@@ -14,6 +14,7 @@
 class DashboardView extends EasyView
 {
 	protected $m_UserWidgetDO = "myaccount.do.UserWidgetDO";	
+	protected $columns;
 	
 	protected function readMetadata(&$xmlArr)
     {
@@ -43,9 +44,18 @@ class DashboardView extends EasyView
 					),
 				"VALUE"=>null
 			);
+			$this->columns[$form['column']][] = $form['widget'];
 		}
 
 		return $formRefXML;
+	}
+	
+	public function outputAttrs() 
+	{
+		$out = parent::outputAttrs();
+		$out['columns'] = $this->columns;
+		//print_r($out['columns']);
+		return $out;
 	}
 	
 	public function loadWidgetPicker()

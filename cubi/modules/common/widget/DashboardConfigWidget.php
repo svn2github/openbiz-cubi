@@ -78,17 +78,7 @@ class DashboardConfigWidget extends EasyForm
 				$n++;
 			}
 		}
-		//print_r($columns); print_r($columnCounts); 
-		$orders = array();
-		// convert the inputs to ordering list
-		for ($j=0; $j<max($columnCounts); $j++) { 
-			for ($i=0; $i<count($columns); $i++) {
-				if (isset($columns[$i][$j])) {
-					$orders[] = $columns[$i][$j];
-				}
-			}
-		}
-		//print_r($orders);
+		//print_r($columns);
 		
 		// update ordering of all user_widget records
 		$userWidgetDo = BizSystem::getObject($this->userWidgetDOName);
@@ -98,22 +88,27 @@ class DashboardConfigWidget extends EasyForm
 		$myProfile = BizSystem::getUserProfile();
 		$myUserId = $myProfile['Id'];
 		$currentView = BizSystem::instance()->getCurrentViewName();
-		$n = 1;
-		foreach ($orders as $widgetName) {
-			if (empty($widgetName)) continue;
-			// find the widget by name in the current view, set the new order
-			$searchRule = "[user_id]=$myUserId and [widget]='$widgetName' and [view]='$currentView'";
-			$record = $userWidgetDo->fetchOne($searchRule);
-			$ordering = $n*10;
-			if ($record) {	// update the order
-				$data = array('ordering'=>$ordering);
-				$db->update($userWidgetTable, $data, "id=".$record['Id']);
+		
+		$m = 1;
+		foreach ($columns as $column) {
+			$n = 1;
+			foreach ($column as $widgetName) {
+				if (empty($widgetName)) continue;
+				// find the widget by name in the current view, set the new order
+				$searchRule = "[user_id]=$myUserId and [widget]='$widgetName' and [view]='$currentView'";
+				$record = $userWidgetDo->fetchOne($searchRule);
+				$ordering = $n*10;
+				if ($record) {	// update the order
+					$data = array('column'=>$m, 'ordering'=>$ordering);
+					$db->update($userWidgetTable, $data, "id=".$record['Id']);
+				}
+				else {	// insert a record with the order
+					$data = array('user_id'=>$myUserId, 'widget'=>$widgetName, 'view'=>$currentView, 'column'=>$m, 'ordering'=>$ordering);
+					$db->insert($userWidgetTable, $data);
+				}
+				$n++;
 			}
-			else {	// insert a record with the order
-				$data = array('user_id'=>$myUserId, 'widget'=>$widgetName, 'view'=>$currentView, 'ordering'=>$ordering);
-				$db->insert($userWidgetTable, $data);
-			}
-			$n++;
+			$m++;
 		}
 	}
 }
