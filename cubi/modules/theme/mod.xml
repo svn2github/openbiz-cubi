@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<Module Name="theme" Description="Theme management module" Author="Jixian" Version="0.5" OpenbizVersion="3.0">
+<Module Name="theme" Description="Theme management module" Author="Jixian" Version="0.6" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="Theme">
 			<Action Name="Administer_Theme" Description="Can manage system theme package for the application"/>
@@ -16,6 +16,7 @@
 		<MenuItem Name="System.Theme" Title="Theme" Description="Theme Management" Parent="System" IconImage="spacer.gif" IconCssClass="icon_theme" Order="50" Access="Theme.Administer_Theme">			
 			<MenuItem Name="System.Theme.Manage" Title="Manage Theme" Description=""  URL="/theme/manage_theme" Order="10" Access="Theme.Administer_Theme"/>			
 			<MenuItem Name="System.Theme.CustomLogo" Title="Custom Logo" Description=""  URL="/theme/custom_logo" Order="20" Access="Theme.Administer_Theme"/>			
+			<MenuItem Name="System.Theme.CustomHeader" Title="Custom Header" Description=""  URL="/theme/custom_header" Order="30" Access="Theme.Administer_Theme"/>
 
 		</MenuItem>
     </Menu>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ThemeNewForm.xml 3373 2012-05-31 06:21:21Z rockyswen@gmail.com $
+-->
+<EasyForm Name="CustomHeaderForm" Class="CustomHeaderForm" icon="icon_theme_list.gif" FormType="New" jsClass="jbForm" Title="Custom System Header" Description="You can replace the system default logo on login screen to your company logo." BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_custom_header.tpl.html" EventName="THEME" MessageFile="Theme.msg">
+    <DataPanel>
+		<Element Name="fld_logo" Class="ImageUploader"   UploadFolder="/custom_logo" FieldName="custom_header" Label="Image File"  AllowURLParam="N"  Description="398px * 62px, png file">
+	    </Element>   
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Upload" CssClass="button_gray_w">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="UpdateLogo()" RedirectPage="{APP_INDEX}/theme/custom_header"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

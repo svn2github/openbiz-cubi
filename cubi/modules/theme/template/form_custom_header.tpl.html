@@ -1,0 +1,99 @@
+<form id="{$form.name}" name="{$form.name}">
+{literal}
+<style>
+#preview{
+	background-image:url({/literal}{$resource_url}{literal}/theme/images/custom_logo_bg.png);
+	background-position:40px 0px;
+	background-repeat:no-repeat;
+	
+	
+}
+</style>
+{/literal}
+<div style="padding-left:25px; padding-right:40px;">
+{include file="system_appbuilder_btn.tpl.html"}
+	
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+	
+		<div style="float:left; width:600px;">
+			{if $form.title}
+			<h2>
+			{$form.title}
+			</h2>
+			{/if} 
+			{if $form.description}
+			<p class="input_row" style="line-height:20px;padding-bottom:5px;">		
+			<span>{$form.description}</span>
+			</p>
+			{else}
+			<div style="height:15px;"></div>
+			{/if}
+		</div>
+	</td></tr></table>
+	
+	<div class="detail_form_panel_padding"  id="preview" >
+	
+	<div class="underline" style="height:360px;"   >
+		<div style="padding-left:93px;padding-top:76px;">
+			<img src="../../../images/cubi_logo_large.png?rnd={php}echo rand();{/php}" style="width:120px;background-color:#ffffff;" />
+		</div>
+	</div>
+	
+	<div class="underline" style="height:50px;margin-bottom:10px;">
+		<div style="padding-left:90px;padding-top:13px;">
+		 
+		<table  id="_container" class="input_row">
+			<tr>
+				<td >			
+					<label style="text-align:left;width:60px;">{$dataPanel.fld_logo.label}</label>			
+				</td>
+				<td>
+					<span class="label_text" style="{if $item.width}width:{$item.width+15}px;{/if}">{$dataPanel.fld_logo.element}</span>
+					<span class="input_desc" style="width:160px;float:left;">{$dataPanel.fld_logo.description}</span>				
+				</td>
+			</tr>
+			</table>
+		</div>
+	</div>
+	
+		<div style="height:10px;"></div>
+	 	{if $actionPanel|@count > 0}
+		<p class="input_row">
+			
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+		{/if}
+
+	{if $errors}
+	    <div id='errorsDiv' class='innerError errorBox'>
+	    {foreach item=errMsg from=$errors}
+	        <div>{$errMsg}</div>
+	    {/foreach}
+	    {literal}<script>try{setTimeout("$('errorsDiv').fade( {from: 1, to: 0});",3000);}catch(e){}</script>{/literal}
+	    </div>
+	{/if}
+	
+	{if $notices}
+	    <div id='noticeDiv' class='noticeBox' >
+	    {foreach item=noticeMsg from=$notices}
+	        <div>{$noticeMsg}</div>
+	    {/foreach}
+	    </div>
+	    {literal}<script>try{setTimeout("$('noticeDiv').fade( {from: 1, to: 0});",3000);}catch(e){};</script>{/literal}
+	{/if}
+
+	</div>
+	
+		<div style="height:15px;">
+		<div id='{$form.name}.load_disp' style="display:none;">
+		<img  src="{$image_url}/form_ajax_loader.gif"/>
+		</div>
+		</div>
+	
+</div>
+</form>
