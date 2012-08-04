@@ -14,7 +14,7 @@
          	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(cronjob.form.CronjobDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>	
         	
-        <Element Name="fld_last_exec" Class="ColumnText" FieldName="last_exec_text" Label="Last Run"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_last_exec" Class="ColumnText" FieldName="last_exec" Text="{@:Elem[fld_last_exec].Value?date('Y-m-d H:i:s',@:Elem[fld_last_exec].Value):''}" Label="Last Run"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_status" Class="ColumnBool" FieldName="status" Sortable="Y" Label="Active" Link="javascript:;">
 			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
 		</Element>	
