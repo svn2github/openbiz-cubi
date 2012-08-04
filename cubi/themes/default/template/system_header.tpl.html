@@ -9,6 +9,19 @@ $menu_count = $widget->getDataObj()->recordCount($searchRule);
 $menu_item_width = 115;
 $menu_width = ($menu_count * $menu_item_width)."px";
 $this->assign('menu_count', $menu_count);
+
+$header_background_image = $this->_tpl_vars['header_background_image'];
+$custom_header_background_image = APP_HOME.'/images/cubi_top_header.png';
+if(file_exists($custom_header_background_image))
+{
+	$header_background_image_url = APP_URL.'/images/cubi_top_header.png';
+	$this->assign('header_background_image_url', $header_background_image_url);
+}
+elseif($header_background_image)
+{
+	$header_background_image_url = RESOURCE_URL.$header_background_image;
+	$this->assign('header_background_image_url', $header_background_image_url);
+}
 {/php}
 <script>
 var top_menu_item_width='{php}echo $menu_item_width;{/php}';
@@ -20,7 +33,7 @@ var top_menu_move_direction='';
 var top_menu_play_speed=1000;
 </script>
 <div id="header_bg">
-	<div id="header" {if $header_background_image!='' } style="background-image:url({$resource_url}{$header_background_image});" {/if}>
+	<div id="header" {if $header_background_image_url!='' } style="background-image:url({$header_background_image_url});" {/if}>
 		<div id="header_left"></div>
 		<div id="header_right">
 			<div id="user_actions">
