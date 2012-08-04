@@ -182,6 +182,14 @@ class UserPreferenceForm extends EasyForm
 	            			@file_put_contents($config_file,$data);
 	            		}
 	            		break;	
+	            	case "sessiontimeout":
+						//update default theme TIMEOUT
+	            		if($value!=TIMEOUT){
+	            			$data = file_get_contents($config_file);	            			
+	            			$data = preg_replace("/define\([\'\\\"]{1}TIMEOUT[\'\\\"]{1}.*?\)\;/i","define('TIMEOUT','$value');",$data);	            			
+	            			@file_put_contents($config_file,$data);
+	            		}
+	            		break;	
 	            	case "data_acl":
 						//update default theme DATA_ACL
 	            		if($value!=DATA_ACL){

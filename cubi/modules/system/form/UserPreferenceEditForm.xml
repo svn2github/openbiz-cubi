@@ -11,9 +11,11 @@
 		<Element Name="fld_system_name"  Class="InputText" ElementSet="General" FieldName="_system_name" Label="System Name"   />
 		<Element Name="fld_siteurl" ReadOnly="Y" Class="InputText" ElementSet="General" FieldName="_siteurl" Label="Site URL"   />     
 
-        <Element Name="fld_theme" ReadOnly="Y" Class="myaccount.form.ThemeSelector" ElementSet="General" label="Theme"  FieldName="_theme" Description="" CssClass="input_select_w" CssFocusClass="input_select_w_focus" CssHoverClass="input_select_w_hover"  />
-        <Element Name="fld_session" ReadOnly="Y" Class="DropDownList" SelectFrom="system.lov.Selection(SessionRestrict)" ElementSet="General" FieldName="_sessionstrict" Label="Session Strict"   />
+        <Element Name="fld_theme" ReadOnly="Y" Class="myaccount.form.ThemeSelector" ElementSet="General" label="Theme"  FieldName="_theme" Description="" CssClass="input_select_w" CssFocusClass="input_select_w_focus" CssHoverClass="input_select_w_hover"  />        
 		<Element Name="fld_appbuilder"  Class="DropDownList" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="General" Description="" FieldName="_appbuilder" Label="App Builder"  />
+		
+		<Element Name="fld_session" ReadOnly="Y" Class="DropDownList" SelectFrom="system.lov.Selection(SessionRestrict)" ElementSet="Session" FieldName="_sessionstrict" Label="Session Strict"   />
+		<Element Name="fld_session_timeout" ReadOnly="Y" Class="DropDownList" SelectFrom="system.lov.Selection(SessionTimeout)" ElementSet="Session" FieldName="_sessiontimeout" Label="Session Timeout"   />
 		
 		<Element Name="fld_language" ReadOnly="Y" Class="myaccount.form.LanguageSelector" ElementSet="Localization" FieldName="_language" Label="Default Language" CssClass="input_select_w" CssFocusClass="input_select_w_focus" CssHoverClass="input_select_w_hover"  />		
 		<Element Name="fld_continent" ReadOnly="Y" Class="myaccount.form.ContinentSelector" ElementSet="Localization" Description="" FieldName="_continent" Label="Default Continent" BlankOption="---">
