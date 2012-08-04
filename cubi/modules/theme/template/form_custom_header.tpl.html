@@ -2,14 +2,20 @@
 {literal}
 <style>
 #preview{
-	background-image:url({/literal}{$resource_url}{literal}/theme/images/custom_logo_bg.png);
+	background-image:url({/literal}{$resource_url}{literal}/theme/images/custom_header_bg.png);
 	background-position:40px 0px;
 	background-repeat:no-repeat;
-	
-	
 }
 </style>
 {/literal}
+{php}
+$custom_header_background_image = APP_HOME.'/images/cubi_top_header.png';
+if(file_exists($custom_header_background_image))
+{
+	$header_background_image_url = APP_URL.'/images/cubi_top_header.png';
+	$this->assign('header_background_image_url', $header_background_image_url);
+}
+{/php}
 <div style="padding-left:25px; padding-right:40px;">
 {include file="system_appbuilder_btn.tpl.html"}
 	
@@ -37,8 +43,10 @@
 	<div class="detail_form_panel_padding"  id="preview" >
 	
 	<div class="underline" style="height:360px;"   >
-		<div style="padding-left:93px;padding-top:76px;">
-			<img src="../../../images/cubi_logo_large.png?rnd={php}echo rand();{/php}" style="width:120px;background-color:#ffffff;" />
+		<div style="padding-left:31px;padding-top:0px;">
+		{if $header_background_image_url}
+			<img src="../../../images/cubi_top_header.png?rnd={php}echo rand();{/php}" style="width:220px;background-color:#ffffff;" />
+		{/if}
 		</div>
 	</div>
 	
