@@ -11,29 +11,11 @@
  * @version   $Id$
  */
 
-/**
- * Openbiz Cubi 
- *
- * LICENSE
- *
- * This source file is subject to the BSD license that is bundled
- * with this package in the file LICENSE.txt.
- *
- * @package   system.form
- * @copyright Copyright (c) 2005-2011, Rocky Swen
- * @license   http://www.opensource.org/licenses/bsd-license.php
- * @link      http://www.phpopenbiz.org/
- * @version   $Id$
- */
-
 define ('HASH_ALG','sha1');
 
 /**
- * UserForm class - implement the login of login form
+ * UserForm class - implement the logic of managing users
  *
- * @package system.form
- * @author Rocky Swen
- * @copyright Copyright (c) 2005-2009
  * @access public
  */
 class UserForm extends EasyForm
@@ -206,8 +188,6 @@ class UserForm extends EasyForm
             return;
         }
 
-
-        
         if (count($recArr) == 0)
             return;		        
             
@@ -416,10 +396,10 @@ class UserForm extends EasyForm
       
         if ($rs)
         {
-	        	foreach ($rs as $item)
-	        	{        		
-	        		$preference[$item["name"]] = $item["value"];        	
-	        	}	
+			foreach ($rs as $item)
+			{        		
+				$preference[$item["name"]] = $item["value"];        	
+			}	
         }  
 
         return $preference['smartcard_auth'];        		
