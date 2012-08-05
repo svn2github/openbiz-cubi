@@ -1,20 +1,18 @@
 <?PHP
 /**
- * FieldControl - class FieldControl is the base class of field control who binds with a bizfield
+ * Openbiz Cubi Application Platform
  *
- * @package BizView
- * @author rocky swen
- * @copyright Copyright (c) 2005
- * @version 1.2
- * @access public
+ * LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ *
+ * @package   cubi.system.form
+ * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
+ * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ * @link      http://code.google.com/p/openbiz-cubi/
+ * @version   $Id$
  */
+
 class AccessListbox extends Listbox
 {
-   /**
-    * FieldControl::render() - Draw the control according to the mode
-    *
-    * @returns stirng HTML text
-    */
     public function render()
     {
         // change name as name_actionid
