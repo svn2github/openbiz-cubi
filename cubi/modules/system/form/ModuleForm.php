@@ -11,30 +11,11 @@
  * @version   $Id$
  */
 
-/**
- * Openbiz Cubi 
- *
- * LICENSE
- *
- * This source file is subject to the BSD license that is bundled
- * with this package in the file LICENSE.txt.
- *
- * @package   system.form
- * @copyright Copyright (c) 2005-2011, Rocky Swen
- * @license   http://www.opensource.org/licenses/bsd-license.php
- * @link      http://www.phpopenbiz.org/
- * @version   $Id$
- */
-
 include_once MODULE_PATH."/system/lib/ModuleLoader.php";
-//include_once MODULE_PATH."/install/ModuleLoader.php";
 
 /**
- * ModuleForm class - implement the login of login form
+ * ModuleForm class - implement the logic for manage modules
  *
- * @package system.form
- * @author Rocky Swen
- * @copyright Copyright (c) 2005-2009
  * @access public
  */
 class ModuleForm extends EasyForm
@@ -79,8 +60,6 @@ class ModuleForm extends EasyForm
         }
         $this->rerender();
     }
-     
-
     
     /**
      * load module from the modules/$module/ directory
@@ -105,8 +84,7 @@ class ModuleForm extends EasyForm
         //reload current profile
         $svcobj = BizSystem::getService(PROFILE_SERVICE);								
 		$svcobj->InitProfile(BizSystem::getUserProfile("username"));
-			
-		
+
         $this->rerender();
     }
     
@@ -141,7 +119,6 @@ class ModuleForm extends EasyForm
     {
     	return $this->DeleteRecord($id,true);
     }
-    
     
 	public function rrmdir($dir) {
 	    foreach(glob($dir . '/*') as $file) {

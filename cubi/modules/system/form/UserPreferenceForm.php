@@ -12,27 +12,8 @@
  */
 
 /**
- * Openbiz Cubi 
+ * UserPreferenceForm class - implement the logic of setting user preferences
  *
- * LICENSE
- *
- * This source file is subject to the BSD license that is bundled
- * with this package in the file LICENSE.txt.
- *
- * @package   user.form
- * @copyright Copyright (c) 2005-2011, Rocky Swen
- * @license   http://www.opensource.org/licenses/bsd-license.php
- * @link      http://www.phpopenbiz.org/
- * @version   $Id$
- */
-
-
-/**
- * AccountEditForm class - implement the logic of edit my account form
- *
- * @package user.form
- * @author Rocky Swen
- * @copyright Copyright (c) 2005-2009
  * @access public
  */
 class UserPreferenceForm extends EasyForm
@@ -260,8 +241,6 @@ class UserPreferenceForm extends EasyForm
 	            }
             }
         }
-       	
-		
 
         // in case of popup form, close it, then rerender the parent form
         if ($this->m_ParentFormName)
@@ -274,6 +253,5 @@ class UserPreferenceForm extends EasyForm
         $this->processPostAction();
 
     }
-
 }  
 ?>
