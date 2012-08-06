@@ -31,7 +31,7 @@
 	<div id="content">
 
 				<div >
-					<div style="height:25px;"></div>					
+					<div style="height:20px;"></div>					
 					{foreach item=form from=$forms}
 					   <div>{$form}</div>
 					{/foreach}
@@ -39,16 +39,24 @@
 				
 				<div class="footer-content">
 					<h3>使用社交帐号登陆</h3>
-					<p>Openbiz Cubi Platform 是面向商业应用设计的快速开发平台。 它基于先进的Openbiz框架构建，提供了简单且智能的开发工具，并已实现了几乎所有非核心业务逻辑，剩下的事情 只是想清楚项目的业务逻辑关系。Openbiz Cubi让软件开发变得可以如此简单快捷。 </p>
+					<p>您可以将您的社交网络帐号与您的 Openbiz ID 绑定来实现快捷登陆。您的Openbiz 可以同时与多个社交帐号同时进行绑定。绑定后该社交帐号进行登陆将会自动识别为Openbiz ID的别名，该绑定不会涉及到您在社交网站上的隐私信息。如希望取消绑定，可以随时在“我的账户”解除关联。 </p>
 				
-					<h3>其它常见问题</h3>
-					<p style="padding-bottom:0px;">Openbiz Cubi Platform 是面向商业应用设计的快速开发平台。 它基于先进的Openbiz框架构建，提供了简单且智能的开发工具，并已实现了几乎所有非核心业务逻辑，剩下的事情 只是想清楚项目的业务逻辑关系。Openbiz Cubi让软件开发变得可以如此简单快捷。 </p>
+					<h3>其它注意事项</h3>
+					<p style="padding-bottom:0px;">
+					为了给您带来更好的使用体验，建议您使用 Firefox、Safari 或 Chrome 浏览器并将其更新至最新版本。<br/>
+					如果遇到无法登陆问题，请您需要确认浏览器是否已经开启允许 Cookies 功能。 <br/>
+					如果您在公用电脑登陆系统，当您结束使用时，请您点击“安全退出”按钮。
+					</p>
 				</div>
 				
+
+
+		</div>
+	</div>
 				<div id="loader_bg" ></div>
 				<div id="loader">
 					<div style="height:185px;"></div>
-					<div style="padding-left:300px; text-align:left">
+					<div style="margin-left:auto;margin-right:auto;width:200px;text-align:left">
 					<div class="loader_box">
 						<img src="{$image_url}/ajax_loader.gif" style="float:left; margin-top:8px;" />
 						<p style="float:left;margin-left:10px; padding-top:5px;" >
@@ -63,9 +71,6 @@
 					$('loader').fade( {from: 0, to: 1});
 				</script>
 				{/literal}
-
-		</div>
-	</div>
 	{include file='system_footer.tpl.html'}
 </div>
 

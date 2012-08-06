@@ -8,13 +8,13 @@ span#login_indicator{
 }
 #loader{
  height:456px; 
- width:792px; 
+ width:100%; 
  top:85px;
  position:absolute;
 }
 #loader_bg{
- height:456px; 
- width:880px; 
+ height:630px; 
+ width:100%; 
  top:85px;
  position:absolute;
  background-color:#ffffff;
@@ -89,7 +89,7 @@ background-image:url(../images/site/site-content-bg.png);
 background-position:center bottom;
 background-repeat:no-repeat;
 background-color:#ffffff;
-padding-bottom:70px;
+padding-bottom:60px;
 }
 #footer-wrapper{
     background-color: #EEEEEE;
@@ -107,7 +107,9 @@ padding-bottom:70px;
 }
 
 .footer-content{
-	padding-top:10px;
+padding-top:15px;
+padding-left:10px;
+width:780px;
 color:#757575;
 }
 .footer-content h3{
@@ -116,6 +118,7 @@ font-size:14px;
 }
 .footer-content p{
 padding-bottom:20px;
+line-height:22px;
 }
 .openbiz-certified{
 background-image:url(../images/site/icon-openbiz-certified.png);
