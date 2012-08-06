@@ -65,6 +65,12 @@ background-repeat:no-repeat;
 background-position:20px 60px;
 
 }
+.new-user-success{
+background-image:url(../images/site/site-new-user-register-success.png);
+background-repeat:no-repeat;
+background-position:80px 90px;
+
+}
 .forget-passwd{
 background-image:url(../images/site/site-forget-passwd.png);
 background-repeat:no-repeat;
@@ -120,6 +126,11 @@ padding-bottom:10px;display:block;line-height:22px;padding-left:0px;height:auto;
 .register-block .form-desc-3
 {
 padding-top:15px;		
+padding-bottom:10px;display:block;line-height:22px;padding-left:0px;height:auto;
+}
+.register-block .form-desc-4
+{
+padding-top:0px;		
 padding-bottom:10px;display:block;line-height:22px;padding-left:0px;height:auto;
 }
 .forget-passwd-sent .top_line
