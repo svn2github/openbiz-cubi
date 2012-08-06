@@ -91,6 +91,20 @@ padding-bottom:28px;
 {
 padding-bottom:30px;display:block;line-height:20px;padding-left:25px;
 }
+.register-block .form-desc-2
+{
+padding-bottom:25px;display:block;line-height:22px;padding-left:0px;height:auto;
+}
+.forget-passwd-sent .input_row
+{
+	padding-left:20px;
+}
+.forget-passwd-sent .top_line
+{
+	height:20px; width:550px;
+	border-bottom:1px solid #eeeeee;
+	background-image:none;
+}
 .register-block .form-title-forgetpass
 {
 	

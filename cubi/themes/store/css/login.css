@@ -71,7 +71,12 @@ background-repeat:no-repeat;
 background-position:50px 80px;
 padding-bottom:20px;
 }
-
+.forget-passwd-sent{
+background-image:url(../images/site/site-forget-passwd-mail-sent.png);
+background-repeat:no-repeat;
+background-position:40px 60px;
+padding-bottom:20px;
+}
 .register-block .form-title
 {
 	
@@ -87,6 +92,17 @@ padding-bottom:30px;
 padding-top:10px;
 line-height:22px;
 height:auto;
+}
+.register-block .form-desc-2
+{
+padding-top:15px;		
+padding-bottom:10px;display:block;line-height:22px;padding-left:0px;height:auto;
+}
+.forget-passwd-sent .top_line
+{
+	height:5px; width:380px;
+	border-bottom:1px solid #cccccc;
+	background-image:none;
 }
 .register-block .form-label
 {
