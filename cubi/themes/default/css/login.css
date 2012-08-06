@@ -23,6 +23,7 @@ div#login_box {
 	background-position:1px top;
 	text-align:left;
 	height:75px;
+	height:80px;width:auto;padding-bottom:20px;
 }
 .cubi_login_banner h1{
 	line-height: 38px;
@@ -36,6 +37,9 @@ div#login_box {
 	width:410px;
 	height:400px;
 	float:left;
+}
+.login-top-padding{
+	height:300px;padding-top:40px;
 }
 .v_line{
 	height:400px;
