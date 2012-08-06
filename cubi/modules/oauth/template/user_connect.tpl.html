@@ -76,11 +76,8 @@ width:100px;
 }
 {/literal}
 </style>
-<div style="float:left; width:100px; height:400px;">
-</div>
-<div style="float:left; width:620px; height:400px;">
-	<div style="height:35px;"></div>
-	<div style="height:55px;">
+<div class="register-block oauth-connect" >
+	
 	<table><tr><td>
 		{if $form.icon !='' }
 		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
@@ -101,8 +98,8 @@ width:100px;
 			{/if}
 		</div>
 	</td></tr></table>
-	</div>
-	<div style="height:20px;"></div>
+	
+	<div style="height:10px;"></div>
 	{if $dataPanel.fld_action.label != '' }
 		<p class="input_row" style="height:30px;padding-left:5px; margin-bottom:10px;border-bottom:1px solid #eeeeee;">
 			<label style="width:60px;">{$dataPanel.fld_action.label}</label>
