@@ -110,9 +110,11 @@ margin-top:2px;
 
 	<div class="v_line"></div>
 	<div class="login_form">
-		<table><tr><td  style="height:300px;padding-top:40px;" valign="top">
-		<div style="height:80px;width:auto;padding-bottom:20px;" class="cubi_login_banner">
-		<h1>{$smarty.const.DEFAULT_SYSTEM_NAME}</h1>
+		<table><tr><td class="login-top-padding" valign="top">
+		<div class="cubi_login_banner">
+		<h1 id="welcome-message">
+			{$smarty.const.DEFAULT_SYSTEM_NAME}{$use_login_welcome_message}
+		</h1>
 		</div>
 
 		
