@@ -125,7 +125,7 @@ function smarty_block_t($params, $text, &$smarty)
 				break;
 		}
 	}
-	
+	$text = str_replace('\n',"<br/>",$text);
 	return $text;
 }
 
