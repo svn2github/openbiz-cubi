@@ -4,10 +4,14 @@ body {
 	font-size: 12px;
 	border-top:6px solid #009af3;
 	font-family: Arial, Gadget, sans-serif;
-	background-color:#ffffff;
+	background-color:#EEEEEE;
 	height:100%;
 	width:100%;
 }
+#body-wrapper{
+background-color:#ffffff;	
+}
+
 body, p, form, div, h1, h2,ul, li, pre{
 	margin: 0px;
 	padding:0px;

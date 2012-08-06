@@ -25,9 +25,10 @@
 </head>
 
 <body>
-<div align="center">
+<div align="center" id="body-wrapper">
 	{include file='system_header.tpl.html'}
-	<div class="content">
+	<div id="content-wrapper">
+	<div id="content">
 
 				<div >
 					<div style="height:25px;"></div>					
@@ -35,6 +36,15 @@
 					   <div>{$form}</div>
 					{/foreach}
 				</div>
+				
+				<div class="footer-content">
+					<h3>使用社交帐号登陆</h3>
+					<p>Openbiz Cubi Platform 是面向商业应用设计的快速开发平台。 它基于先进的Openbiz框架构建，提供了简单且智能的开发工具，并已实现了几乎所有非核心业务逻辑，剩下的事情 只是想清楚项目的业务逻辑关系。Openbiz Cubi让软件开发变得可以如此简单快捷。 </p>
+				
+					<h3>其它常见问题</h3>
+					<p style="padding-bottom:0px;">Openbiz Cubi Platform 是面向商业应用设计的快速开发平台。 它基于先进的Openbiz框架构建，提供了简单且智能的开发工具，并已实现了几乎所有非核心业务逻辑，剩下的事情 只是想清楚项目的业务逻辑关系。Openbiz Cubi让软件开发变得可以如此简单快捷。 </p>
+				</div>
+				
 				<div id="loader_bg" ></div>
 				<div id="loader">
 					<div style="height:185px;"></div>
@@ -43,7 +53,7 @@
 						<img src="{$image_url}/ajax_loader.gif" style="float:left; margin-top:8px;" />
 						<p style="float:left;margin-left:10px; padding-top:5px;" >
 						<img src="{$image_url}/loading.gif" />
-						<br/><span style="padding-left:3px;color:#aaaaaa ">{t}Please wait a while ...{/t}</span></p>
+						<br/><span style="padding-left:3px;color:#aaaaaa ">{t}正在载入请稍候 ...{/t}</span></p>
 					</div>
 					</div>			
 				</div>
@@ -54,6 +64,7 @@
 				</script>
 				{/literal}
 
+		</div>
 	</div>
 	{include file='system_footer.tpl.html'}
 </div>
@@ -63,7 +74,7 @@
 window.onload=fade_loader;
 window.onunload=fadeout_loader;
 try{
-$('welcome-message').innerHTML='{/literal}{t}Welcome to Sign in{/t}{literal}';
+$('welcome-message').innerHTML='{/literal}{t}欢迎您登陆系统{/t}{literal}';
 }catch(e){}
 function fade_loader(){
 	window.setTimeout("$('loader').fade( {from: 0.7, to: 0});",800);

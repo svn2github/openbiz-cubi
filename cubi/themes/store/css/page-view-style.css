@@ -33,6 +33,7 @@ margin-right:auto;
 text-align:left;
 padding-top:14px;
 height:76px;
+background-color:#ffffff;
 }
 #header a{
 	color:#14B3F0;
@@ -76,9 +77,52 @@ padding-top:47px;
 color:#999999;
 }
 
-.content{
+#content{
 text-align:left;
 margin-left:auto;
 margin-right:auto;
 width:880px;
+
+}
+#content-wrapper{
+background-image:url(../images/site/site-content-bg.png);
+background-position:center bottom;
+background-repeat:no-repeat;
+background-color:#ffffff;
+padding-bottom:70px;
+}
+#footer-wrapper{
+    background-color: #EEEEEE;
+    background-image: url("../images/site/site-footer-wrapper_bg.png");
+    background-position: left top;
+    background-repeat: repeat-x;
+    padding-top: 5px;
+}
+#footer{
+	margin-left:auto;
+	margin-right:auto;
+	width:880px;
+	color:#999999;
+	text-align:left;
+}
+
+.footer-content{
+	padding-top:10px;
+color:#757575;
+}
+.footer-content h3{
+color:#333333;
+font-size:14px;
+}
+.footer-content p{
+padding-bottom:20px;
+}
+.openbiz-certified{
+background-image:url(../images/site/icon-openbiz-certified.png);
+background-position:right top;
+background-repeat:no-repeat;
+text-align:right;
+padding-top:48px;
+height:30px;
+margin-right:0px;
 }
