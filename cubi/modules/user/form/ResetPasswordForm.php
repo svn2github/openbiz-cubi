@@ -71,6 +71,11 @@ class ResetPasswordForm extends UserForm
         if (count($recArr) == 0)
             return;
 
+        $password = BizSystem::ClientProxy()->GetFormInputs("fld_password");            
+        if($password){
+        	$recArr['password'] = hash(HASH_ALG, $password);
+		}        
+        
         $this->_doUpdate($recArr, $currentRec);
         
         
