@@ -92,7 +92,14 @@ class ResetPasswordForm extends UserForm
         $this->processPostAction();
  
     }
-        
+    
+    public function fetchData(){
+    	$result = parent::fetchData();
+    	unset($result['password']);
+    	return $result;
+    	
+    }
+    
     private function validateToken($token){
     	if(empty($token))
     	{
@@ -118,5 +125,41 @@ class ResetPasswordForm extends UserForm
         }
         return true;
     }
+    
+	public function validateForm()
+    {	
+    
+    	//validate password
+    	$password = BizSystem::ClientProxy()->GetFormInputs("fld_password");
+		$validateSvc = BizSystem::getService(VALIDATE_SERVICE);
+		if(!$validateSvc->betweenLength($password,6,12))
+		{
+			$errorMessage = $this->GetMessage("PASSWORD_LENGTH");
+			$this->m_ValidateErrors['fld_password'] = $errorMessage;
+			throw new ValidationException($this->m_ValidateErrors);
+			return false;
+		}
+		
+    	// disable password validation if they are empty
+    	$password = BizSystem::ClientProxy()->GetFormInputs("fld_password");
+		$password_repeat = BizSystem::ClientProxy()->GetFormInputs("fld_password_repeat");
+    	if (!$password_repeat)
+    	    $this->getElement("fld_password")->m_Validator = null;
+    	if (!$password)
+    	    $this->getElement("fld_password_repeat")->m_Validator = null;
+
+    	
+        
+		if($password != "" && ($password != $password_repeat))
+		{
+			$passRepeatElem = $this->getElement("fld_password_repeat");
+			$errorMessage = $this->GetMessage("PASSOWRD_REPEAT_NOTSAME",array($passRepeatElem->m_Label));
+			$this->m_ValidateErrors['fld_password_repeat'] = $errorMessage;
+			throw new ValidationException($this->m_ValidateErrors);
+			return false;
+		}
+	
+        return true;
+    }     
 }  
 ?>   
