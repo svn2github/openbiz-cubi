@@ -6,18 +6,18 @@
 	
 	{foreach item=item key=itemName from=$dataPanel}
 		<p class="input_row" style="height:40px;">
-			<label style="width:120px; text-align:right">{$item.label}</label>
+			<label class="form-label">{$item.label}</label>
 			<span>{$item.element}</span>
 			{if $errors.$itemName}
 			<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
 			{elseif $item.description}
-			<span class="input_desc" style="width:240px;">{$item.description}</span>			
+			<span class="input_desc" >{$item.description}</span>			
 			{/if}			
 		</p>
 	{/foreach}
 
 		<p class="input_row">
-			<label style="width:120px; text-align:right"></label>
+			<label class="form-label"></label>
 			{foreach item=elem from=$actionPanel}
 				{$elem.element}
 			{/foreach}
