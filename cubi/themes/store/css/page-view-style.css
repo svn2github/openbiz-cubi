@@ -1,0 +1,84 @@
+span#login_indicator{
+	float:left;
+	color:#BEBEBE;
+	text-indent:10px;
+	height:22px;
+	line-height:22px;
+	font-size:9pt;
+}
+#loader{
+ height:456px; 
+ width:792px; 
+ top:85px;
+ position:absolute;
+}
+#loader_bg{
+ height:456px; 
+ width:880px; 
+ top:85px;
+ position:absolute;
+ background-color:#ffffff;
+}
+#forms{
+ position:absolute;
+ height:456px; 
+ width:792px; 
+}
+
+
+#header{
+width:880px;
+margin-left:auto;
+margin-right:auto;
+text-align:left;
+padding-top:14px;
+height:76px;
+}
+#header a{
+	color:#14B3F0;
+}
+#header a:hover{
+	color:#009af3;
+}
+#header .site-logo{
+float:left;
+background-image:url(../images/site/site-logo.png);
+background-position:0px 0px;
+background-repeat:no-repeat;
+width:180px;
+height:64px;
+}
+#header .site-name{
+float:left;
+border-left:1px solid #cccccc;
+padding-left:30px;
+padding-top:10px;
+margin-top:5px;
+padding-bottom:8px;
+}
+#header .site-name span{
+color:#333333;
+font-size:24px;
+line-height:32px;
+}
+#header .site-name p{
+color:#999999;
+}
+#header .site-login-state{
+background-image:url(../images/site/site-service-phone.png);
+background-position:right 6px;
+background-repeat:no-repeat;
+float:right;
+text-align:right;
+width:300px;
+height:64px;
+padding-top:47px;
+color:#999999;
+}
+
+.content{
+text-align:left;
+margin-left:auto;
+margin-right:auto;
+width:880px;
+}

@@ -2,9 +2,11 @@
 /* CSS Document */
 body {
 	font-size: 12px;
-	color: #666666;
+	border-top:6px solid #009af3;
 	font-family: Arial, Gadget, sans-serif;
-	background-color:#eef0ef;
+	background-color:#ffffff;
+	height:100%;
+	width:100%;
 }
 body, p, form, div, h1, h2,ul, li, pre{
 	margin: 0px;
@@ -18,10 +20,6 @@ input,select,option,label{
 input,select,option{
 	font-family: Arial, Gadget, sans-serif;
 	font-size:12px;
-}
-body{
-height:100%;
-width:100%;
 }
 img{
 border:none;

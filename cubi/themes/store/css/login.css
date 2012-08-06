@@ -9,41 +9,40 @@ div#login_box {
 } 
 
 .cubi_logo_large{
-	background-image:url(../../../images/cubi_logo_large.png);
+	background-image:url(../images/site/site-login-banner.png);
 	background-repeat:no-repeat;
-	background-position:125px 90px;
+	background-position:0px 15px;
 	text-align:left;
-	width:300px;
-	height:400px;
+	width:520px;
+	height:310px;
 	float:left;
 }
 .cubi_login_banner{
-	background-image:url(../../../images/login_banner.png);
+	background-image:url(../images/site/login_banner.png);
 	background-repeat:no-repeat;
-	background-position:1px top;
-	text-align:left;
-	height:75px;
+	background-position:1px bottom;
+	text-align:left;	
+	margin-bottom:15px;
 }
 .cubi_login_banner h1{
 	line-height: 38px;
-	font-size: 38px;
-    padding-top: 26px;
-    color:#149BC8;
+	font-size: 28px;
+    padding-top: 10px;
+    color:#999999;
     font-weight:normal;
+    padding-bottom:10px;
 }
 .login_form{
 	text-align:left;
-	width:410px;
-	height:400px;
+	width:210px;
 	float:left;
+	padding-top:20px;
 }
 .v_line{
-	height:400px;
-	width:35px;
-	float:left;
+	padding-left:35px;	
 	background-image:url(../images/v_line.jpg);
 	background-repeat:no-repeat;
-	background-position:left 100px;
+	background-position:left 70px;
 }
 span#login_indicator{
 	float:left;
@@ -52,20 +51,4 @@ span#login_indicator{
 	height:22px;
 	line-height:22px;
 	font-size:9pt;
-}
-#loader{
- height:456px; 
- width:792px; 
- position:absolute;
-}
-#loader_bg{
- height:456px; 
- width:792px; 
- position:absolute;
- background-color:#eef0ef;
-}
-#forms{
- position:absolute;
- height:456px; 
- width:792px; 
 }
