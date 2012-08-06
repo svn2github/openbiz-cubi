@@ -77,6 +77,12 @@ background-repeat:no-repeat;
 background-position:40px 60px;
 padding-bottom:20px;
 }
+.passwd-reset{
+background-image:url(../images/site/site-reset-passwd.png);
+background-repeat:no-repeat;
+background-position:60px 80px;
+padding-bottom:20px;
+}
 .register-block .form-title
 {
 	
@@ -84,6 +90,19 @@ background-repeat:no-repeat;
 background-position:0px 0px;	
 padding-left:0px;
 padding-bottom:20px;
+}
+.register-block .input_error_msg
+{
+display:block;
+overflow:hidden;
+width:155px;
+
+}
+.register-block p.input_row  .label_text
+{
+
+width:auto;
+
 }
 .register-block .form-desc
 {
@@ -94,6 +113,11 @@ line-height:22px;
 height:auto;
 }
 .register-block .form-desc-2
+{
+padding-top:15px;		
+padding-bottom:10px;display:block;line-height:22px;padding-left:0px;height:auto;
+}
+.register-block .form-desc-3
 {
 padding-top:15px;		
 padding-bottom:10px;display:block;line-height:22px;padding-left:0px;height:auto;
