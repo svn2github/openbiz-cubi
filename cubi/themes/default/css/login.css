@@ -43,8 +43,8 @@ div#login_box {
 }
 .v_line{
 	height:400px;
-	width:35px;
 	float:left;
+	padding-left:35px;
 	background-image:url(../images/v_line.jpg);
 	background-repeat:no-repeat;
 	background-position:left 100px;
