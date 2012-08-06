@@ -1,0 +1,25 @@
+.appbuilder_btn{
+	display:block;
+	height:16px;
+	width:16px;
+	overflow:hidden;
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+}
+.appbuilder_btn:hover{
+	background-position:-16px 0px;
+}
+.appbuilder_btn:active{
+	background-position:-32px 0px;
+}
+.appbuilder_btn_app_wizard{
+	background-image:url(../images/application_builder.gif);
+
+}
+.appbuilder_btn_view_edit{
+	background-image:url(../images/application_edit.gif);
+
+}
+.appbuilder_btn_form_edit{
+	background-image:url(../images/application_form_edit.gif);	
+}

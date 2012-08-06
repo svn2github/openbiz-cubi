@@ -1,0 +1,92 @@
+{php}
+$widget = Bizsystem::GetObject('menu.widget.MainTabMenu');
+if($widget->m_GlobalSearchRule && $widget->m_SearchRule){
+	$searchRule = $widget->m_GlobalSearchRule ." and ". $widget->m_SearchRule;
+}else{
+	$searchRule = $widget->m_SearchRule;
+}
+$menu_count = $widget->getDataObj()->recordCount($searchRule);
+$menu_item_width = 115;
+$menu_width = ($menu_count * $menu_item_width)."px";
+$this->assign('menu_count', $menu_count);
+
+$header_background_image = $this->_tpl_vars['header_background_image'];
+$custom_header_background_image = APP_HOME.'/images/cubi_top_header.png';
+if(file_exists($custom_header_background_image))
+{
+	$header_background_image_url = APP_URL.'/images/cubi_top_header.png';
+	$this->assign('header_background_image_url', $header_background_image_url);
+}
+elseif($header_background_image)
+{
+	$header_background_image_url = RESOURCE_URL.$header_background_image;
+	$this->assign('header_background_image_url', $header_background_image_url);
+}
+{/php}
+<script>
+var top_menu_item_width='{php}echo $menu_item_width;{/php}';
+var top_menu_width='{php}($menu_count * $menu_item_width);{/php}';
+var top_menu_count='{php}echo $menu_count;{/php}';
+var top_menu_first=0;
+var top_menu_play=false;
+var top_menu_move_direction='';
+var top_menu_play_speed=1000;
+</script>
+<div id="header_bg">
+	<div id="header" {if $header_background_image_url!='' } style="background-image:url({$header_background_image_url});" {/if}>
+		<div id="header_left"></div>
+		<div id="header_right">
+			<div id="user_actions">
+				<div style="height:10px;"></div>
+				<!-- user actions start -->
+				<ul>
+					<li><a class="icon_myaccount" href="{$app_index}/myaccount/dashboard" >{t}My Account{/t}</a></li>
+					<li><a class="icon_help" href="http://www.openbiz.me/web/product_cubi" target="_blank" >{t}Help{/t}</a></li>
+					<li><a class="icon_logout" href="{$app_index}/user/logout" >{t}Logout{/t}</a></li>												
+				</ul>
+				<!-- user actions end -->					
+			</div>
+			<div class="arrow_left">
+				{if $menu_count >5}
+				<a  onmouseover="top_menu_move_direction='left';top_menu_move();top_menu_play=true;" 
+					onmouseout="top_menu_play=false;"
+					href="javascript:;"><img height="29" width="10" src="{$image_url}/spacer.gif" ></a>
+				{/if}
+			</div>
+			<div id="menu">	
+				<div id="top_menu_list" style="width:{php}echo $menu_width;{/php};">
+				<!-- top menu start -->
+				{php}
+				$temp = Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
+				unset($temp);
+				echo Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
+				{/php}
+				<!-- top menu end -->	
+				</div>
+			</div>
+			<div  class="arrow_right">
+				{if $menu_count >5}
+				<a onmouseover="top_menu_move_direction='right';top_menu_move();top_menu_play=true;" 
+					onmouseout="top_menu_play=false;"				
+				 href="javascript:;"><img height="29" width="10" src="{$image_url}/spacer.gif" ></a>
+				{/if}
+			</div>
+			
+		</div>
+	</div>	
+</div>	
+	<div id="header_navi">
+		<div id="navi">
+		{php}echo Bizsystem::GetObject('menu.widget.BreadcrumbMenu')->render();{/php}
+		</div>
+		<div id="current_user_info">
+		<a class="screen_switch_max_btn" title="{t}Switch Theme{/t}"  href="javascript:;" onclick="Openbiz.switchTheme('fullwidth')" style="float:right;margin-left:5px; margin-top:6px;  " ></a>
+			{include file="system_appbuilder_btn.tpl.html"}		
+			<div>
+			{php}echo Bizsystem::GetObject('system.widget.SwitchUserWidget')->render();{/php}
+			</div>
+		</div>			
+	</div>
+{if $menu_count >5}
+<script>init_top_menu_pos();</script>
+{/if}	

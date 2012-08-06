@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metafile version="1.5"  client="site" >
+	<name>Openbiz Online Store</name>
+	<preview>theme_screenshot.gif</preview>
+	<icon>theme_icon.gif</icon>
+	<version>1.0</version>
+	<creationDate>2012-08-06</creationDate>
+	<author>Jixian Wang</author>
+	<authorEmail>hellojixian@gmail.com</authorEmail>
+	<authorUrl>http://www.openbiz.cn/</authorUrl>
+	<copyright>Copyright (C) 2005 - 2010 Open Source Matters. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>Website style openbiz theme.\nused for openbiz live store system</description>
+</metafile>
