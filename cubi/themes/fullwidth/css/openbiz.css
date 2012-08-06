@@ -1007,7 +1007,29 @@ line-height:18px;
 	background-position:-44px bottom;
 	color:#666666;
 }
-
+.button_gray_l{
+	width:80px;
+	height:20px;
+	color:#666666;
+	background-image:url(../images/button_gray.gif);
+	background-position:-200px top;
+	background-repeat:no-repeat;
+	overflow:hidden;
+	display:block;
+	float:left;	
+	text-align:center;
+	text-decoration:none;
+	line-height:20px;
+	margin-right:3px;	
+}
+.button_gray_l:hover{
+	background-position:-200px -20px;
+	color:#454545;
+}
+.button_gray_l:active{
+	background-position:-200px bottom;
+	color:#666666;
+}
 
 .button_gray_w{
 	width:102px;
