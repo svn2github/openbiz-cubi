@@ -54,8 +54,11 @@ span#login_indicator{
 }
 .register-block
 {
-padding-left:280px;
+padding-left:380px;
 padding-top:45px;
+background-image:url(../images/site/site-new-user-register.png);
+background-repeat:no-repeat;
+background-position:left 30px;
 }
 .register-block .form-title
 {
@@ -64,4 +67,15 @@ background-repeat:no-repeat;
 background-position:0px 0px;	
 padding-left:0px;
 padding-bottom:28px;
+}
+.register-block .form-desc
+{
+display:block;
+padding-bottom:20px;
+padding-top:10px;
+line-height:22px;
+}
+.register-block .form-label
+{
+width:60px;
 }

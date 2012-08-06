@@ -83,9 +83,22 @@ padding-top:45px;
 	
 background-image:url(../images//icon_lock.gif);
 background-repeat:no-repeat;
-background-position:0px 0px;	
+background-position:0px 2px;	
 padding-left:35px;
 padding-bottom:28px;
+}
+.register-block .form-desc
+{
+padding-bottom:30px;display:block;line-height:20px;padding-left:25px;
+}
+.register-block .form-title-forgetpass
+{
+	
+background-image:url(../images//icon_profile.gif);
+background-repeat:no-repeat;
+background-position:0px 10px;	
+padding-left:35px;
+padding-bottom:20px;
 }
 .register-block .form-label
 {
