@@ -9,7 +9,7 @@
 			<label class="form-label">{$item.label}</label>
 			<span>{$item.element}</span>
 			{if $errors.$itemName}
-			<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+			<span class="input_error_msg" >{$errors.$itemName}</span>
 			{elseif $item.description}
 			<span class="input_desc" >{$item.description}</span>			
 			{/if}			
