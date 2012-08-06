@@ -52,3 +52,16 @@ span#login_indicator{
 	line-height:22px;
 	font-size:9pt;
 }
+.register-block
+{
+padding-left:280px;
+padding-top:45px;
+}
+.register-block .form-title
+{
+	
+background-repeat:no-repeat;
+background-position:0px 0px;	
+padding-left:0px;
+padding-bottom:28px;
+}
