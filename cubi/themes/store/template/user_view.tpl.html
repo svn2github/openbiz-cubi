@@ -78,9 +78,7 @@
 <script>
 window.onload=fade_loader;
 window.onunload=fadeout_loader;
-try{
-$('welcome-message').innerHTML='{/literal}{t}欢迎您登陆系统{/t}{literal}';
-}catch(e){}
+
 function fade_loader(){
 	window.setTimeout("$('loader').fade( {from: 0.7, to: 0});",800);
 	window.setTimeout("$('loader_bg').fade( {from: 0.7, to: 0});",800);	

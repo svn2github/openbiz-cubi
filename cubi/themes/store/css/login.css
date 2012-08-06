@@ -56,24 +56,37 @@ span#login_indicator{
 {
 padding-left:380px;
 padding-top:45px;
+
+}
+
+.new-user{
 background-image:url(../images/site/site-new-user-register.png);
 background-repeat:no-repeat;
-background-position:left 30px;
+background-position:20px 80px;
+
 }
+.forget-passwd{
+background-image:url(../images/site/site-forget-passwd.png);
+background-repeat:no-repeat;
+background-position:50px 80px;
+padding-bottom:20px;
+}
+
 .register-block .form-title
 {
 	
 background-repeat:no-repeat;
 background-position:0px 0px;	
 padding-left:0px;
-padding-bottom:28px;
+padding-bottom:20px;
 }
 .register-block .form-desc
 {
 display:block;
-padding-bottom:20px;
+padding-bottom:30px;
 padding-top:10px;
 line-height:22px;
+height:auto;
 }
 .register-block .form-label
 {
