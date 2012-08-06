@@ -89,6 +89,26 @@ background-repeat:no-repeat;
 background-position:60px 70px;
 padding-bottom:20px;
 }
+.oauth-connect{
+padding-left:10px;
+padding-top:20px;
+}
+.oauth-connect .system-block .input_row span
+{
+width:180px;
+}
+.oauth-connect table.system-block .input_row span{
+width:180px;
+}
+.oauth-connect .connect-icon
+{
+width:120px;
+background-position: 35px 50px;
+}
+.oauth-connect div.noticeBox
+{
+width:620px;
+} 
 .register-block .form-title
 {
 	
