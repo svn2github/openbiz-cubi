@@ -14,6 +14,12 @@
         <Element Name="btn_save" Class="Button" Text="Upload" CssClass="button_gray_w">
             <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="UpdateLogo()" RedirectPage="{APP_INDEX}/theme/custom_header"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
         </Element>
+        
+        <Element Name="btn_spacer" Class="Spacer" width="10" />
+        
+ 		<Element Name="btn_restore" Class="Button" Text="Restore" CssClass="button_gray_l">
+            <EventHandler Name="btn_restore_onclick" EventLogMsg="" Event="onclick" Function="Restore()" RedirectPage="{APP_INDEX}/theme/custom_header"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>        
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 

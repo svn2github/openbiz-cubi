@@ -12,5 +12,14 @@ class CustomLogoForm extends EasyForm
 		
         $this->processPostAction();
 	}
+	
+	public function Restore()
+	{
+		$logofile = APP_HOME.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'cubi_logo_large.png';		
+		$default_logofile = APP_HOME.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'cubi_logo_large_default.png';
+		
+		@copy($default_logofile,$logofile);
+		$this->processPostAction();
+	}	
 }
 ?>

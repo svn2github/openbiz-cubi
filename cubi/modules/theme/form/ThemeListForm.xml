@@ -18,7 +18,7 @@
 		<Element Name="fld_theme" Class="ColumnText" FieldName="name" Label="Theme"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
    			<EventHandler Name="fld_lang_onclick" Event="onclick" Function="SwitchForm(theme.form.ThemeDetailForm,{@:Elem[fld_Id].Value})"  />
         </Element>    
-        <Element Name="fld_description" MaxLenght="40" Class="ColumnText" FieldName="description" Label="Description"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
+        <Element Name="fld_description" MaxLength="30" Class="ColumnText" FieldName="description" Label="Description"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />        
         <Element Name="fld_author" Class="ColumnText" FieldName="author" Label="Author"  Link="mailto:{@:Elem[fld_author_email].Value}"   Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <!-- <Element Name="fld_version" Class="ColumnText" FieldName="version" Label="Version"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_createdate" Class="ColumnText" FieldName="creationDate" Label="Create Date"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" /> -->        	

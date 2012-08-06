@@ -12,5 +12,12 @@ class CustomHeaderForm extends EasyForm
 		
         $this->processPostAction();
 	}
+	
+	public function Restore()
+	{
+		$logofile = APP_HOME.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'cubi_top_header.png';
+		@unlink($logofile);
+		$this->processPostAction();
+	}
 }
 ?>
