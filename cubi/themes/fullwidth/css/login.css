@@ -72,3 +72,18 @@ span#login_indicator{
  height:456px; 
  width:792px; 
 }
+.register-block
+{
+width:620px; height:365px;
+padding-left:110px;
+padding-top:45px;
+}
+.register-block .form-title
+{
+	
+background-image:url(../images//icon_lock.gif);
+background-repeat:no-repeat;
+background-position:0px 0px;	
+padding-left:35px;
+padding-bottom:28px;
+}
