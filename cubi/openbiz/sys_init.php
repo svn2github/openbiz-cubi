@@ -66,7 +66,7 @@ define('APP_INDEX', APP_URL . $indexScript);
 define('MODULE_PATH', APP_HOME . DIRECTORY_SEPARATOR . "modules");
 
 /* define modules extension path that can store custom code who overrides default module logic */
-//define('MODULE_EX_PATH',APP_HOME.DIRECTORY_SEPARATOR."xmodules");
+define('MODULE_EX_PATH',APP_HOME.DIRECTORY_SEPARATOR."module_customized");
 
 /* define messages files path */
 define('MESSAGE_PATH', APP_HOME . DIRECTORY_SEPARATOR . "messages");
