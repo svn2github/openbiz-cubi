@@ -87,6 +87,22 @@ background-position:0px 2px;
 padding-left:35px;
 padding-bottom:28px;
 }
+.access-denied .form-title
+{
+background-image:url(../images/icon_forbidden.gif);
+padding-left:45px;
+padding-top:2px;
+padding-bottom:28px;
+margin-top:20px;
+}
+.security-deiend .form-title
+{
+background-image:url(../images/icon_forbidden_by_security.gif);
+padding-left:45px;
+padding-top:2px;
+padding-bottom:28px;
+margin-top:20px;
+}
 .register-block .form-title-forgetpass
 {
 	
@@ -95,6 +111,10 @@ background-repeat:no-repeat;
 background-position:0px 10px;	
 padding-left:35px;
 padding-bottom:20px;
+}
+.register-block .access-deiend .form-title
+{
+background-image:url(../images/icon_forbidden_by_security.gif);	
 }
 .register-block .form-desc
 {

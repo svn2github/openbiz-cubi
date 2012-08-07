@@ -89,6 +89,24 @@ background-repeat:no-repeat;
 background-position:60px 70px;
 padding-bottom:20px;
 }
+.access-denied{
+background-image:url(../images/site/site-access-denied.png);
+background-repeat:no-repeat;
+background-position:70px 60px;
+padding-bottom:20px;
+}
+.security-denied{
+background-image:url(../images/site/site-access-denied.png);
+background-repeat:no-repeat;
+background-position:70px 60px;
+padding-bottom:20px;
+}
+.session-timeout{
+background-image:url(../images/site/site-session-timeout.png);
+background-repeat:no-repeat;
+background-position:60px 70px;
+padding-bottom:20px;
+}
 .oauth-connect{
 padding-left:10px;
 padding-top:20px;
