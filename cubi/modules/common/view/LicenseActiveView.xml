@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyView Name="LicenseActiveView" Description="Software Activation" Class="EasyView" ViewSet="LicenseViewSet" TemplateEngine="Smarty" CacheLifeTime="0" TemplateFile="user_view.tpl.html">
+<EasyView Name="LicenseActiveView" Description="Software Activation" Class="EasyView" ViewSet="LicenseViewSet" TemplateEngine="Smarty" CacheLifeTime="0" TemplateFile="common_view.tpl.html">
    <FormReferences>
    		<Reference Name="common.form.LicenseActiveForm"/>
    </FormReferences>
