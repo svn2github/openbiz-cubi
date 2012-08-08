@@ -28,7 +28,7 @@ div#login_box {
 	line-height: 38px;
 	font-size: 28px;
     padding-top: 10px;
-    color:#999999;
+    color:#14B3F0;
     font-weight:normal;
     padding-bottom:10px;
 }
@@ -148,6 +148,10 @@ background-repeat:no-repeat;
 background-position:0px 0px;	
 padding-left:0px;
 padding-bottom:20px;
+}
+.register-block .form-title h1
+{
+color:#14B3F0;
 }
 .register-block .input_error_msg
 {
