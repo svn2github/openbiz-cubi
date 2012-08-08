@@ -103,6 +103,37 @@ padding-top:2px;
 padding-bottom:28px;
 margin-top:20px;
 }
+.session-timeout .form-title
+{
+background-image:url(../images/icon_no_access.gif);
+padding-left:45px;
+padding-top:2px;
+padding-bottom:28px;
+margin-top:20px;
+}
+.not-found .form-title
+{
+background-image:url(../images/icon_no_access.gif);
+padding-left:45px;
+padding-top:2px;
+padding-bottom:28px;
+margin-top:20px;
+}
+.server-error .form-title
+{
+background-image:url(../images/icon_forbidden.gif);
+padding-left:48px;
+padding-top:2px;
+padding-bottom:28px;
+margin-top:20px;
+}
+.server-error p.input_row,
+.access-denied p.input_row,
+.security-deiend p.input_row,
+.session-timeout p.input_row,
+.not-found p.input_row{
+padding-left:40px;
+}
 .register-block .form-desc
 {
 padding-bottom:30px;display:block;line-height:20px;padding-left:25px;

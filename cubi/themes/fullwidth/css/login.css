@@ -103,6 +103,29 @@ padding-top:2px;
 padding-bottom:28px;
 margin-top:20px;
 }
+.session-timeout .form-title
+{
+background-image:url(../images/icon_no_access.gif);
+padding-left:45px;
+padding-top:2px;
+padding-bottom:28px;
+margin-top:20px;
+}
+.not-found .form-title
+{
+background-image:url(../images/icon_no_access.gif);
+padding-left:45px;
+padding-top:2px;
+padding-bottom:28px;
+margin-top:20px;
+}
+.server-error p.input_row,
+.access-denied p.input_row,
+.security-deiend p.input_row,
+.session-timeout p.input_row,
+.not-found p.input_row{
+padding-left:40px;
+}
 .register-block .form-title-forgetpass
 {
 	
