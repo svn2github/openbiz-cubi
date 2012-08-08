@@ -27,7 +27,7 @@ span#login_indicator{
 
 
 #header{
-width:880px;
+width:960px;
 margin-left:auto;
 margin-right:auto;
 text-align:left;
@@ -101,7 +101,7 @@ padding-bottom:60px;
 #footer{
 	margin-left:auto;
 	margin-right:auto;
-	width:880px;
+	width:960px;
 	color:#999999;
 	text-align:left;
 }
