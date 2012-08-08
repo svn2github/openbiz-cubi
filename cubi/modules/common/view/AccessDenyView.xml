@@ -7,6 +7,6 @@
 -->
 <EasyView Name="AccessDenyView" Description="Access Denied" class="EasyView" TemplateEngine="Smarty"  CacheLifeTime="86400" TemplateFile="common_view.tpl.html">
    <FormReferences>
-   		<Reference Name="common.form.ErrorForm"></Reference>
+   		<Reference Name="common.form.AccessDenyForm"></Reference>
    </FormReferences>
 </EasyView>
