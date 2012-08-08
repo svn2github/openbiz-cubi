@@ -6,10 +6,81 @@
 }
 
 #main_warp{
-
-	padding-bottom:10px;
-	
 	background-color:#ffffff;
+	background-image: url("../images/site/site-content-wide-bg.png");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    color:#666666;
+}
+#site-certified
+{
+	height:60px;
+	width:860px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:right;
+	padding-right:150px;
+	padding-top:30px;
+	color:#999999;
+	line-height:22px;
+}
+#header_menu{
+	
+	padding-bottom:12px;
+	padding-top:10px;	
+	background-color:#ffffff;
+	width:970px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#header_menu ul{
+	background-image: url("../images/site/site-header-bg.png");
+    background-position: center top;
+    background-repeat: repeat-x;	
+display:block;
+height:30px;
+background-color:#38a6e4;
+border-radius:10px;
+over-flow:hidden;
+line-height:30px;
+padding-left:20px;
+padding-right:20px;
+border:1px solid #009df2;
+}
+#header_menu ul li{
+display:block;
+float:left;
+	background-image: url("../images/site/site-header-menu-spacer.png");
+    background-position: right top;
+    background-repeat: no-repeat;
+padding-right:1px;
+    
+}
+#header_menu ul li a{
+display:block;
+line-height:30px;
+color:#f0f0f0;
+padding-left:18px;
+padding-right:18px;
+text-decoration: none;
+}
+#header_menu ul li a.current,
+#header_menu ul li a.current:hover,
+#header_menu ul li a.current:active{
+display:block;
+background-color:#048bd8;
+color:#ffffff;
+	background-image: url("../images/site/site-header-bg.png");
+    background-position: center -60px;
+    background-repeat: repeat-x;	
+}
+#header_menu ul li a:hover{
+display:block;
+background-color:#37a0dc;
+color:#ffffff;
+	background-image: url("../images/site/site-header-bg.png");
+    background-position: center -30px;
+    background-repeat: repeat-x;	
 }
 #footer_warp{
 
@@ -21,104 +92,6 @@
 	background-image:url(../images/header_bg.png);
 	border-bottom:4px solid #006599;
 }
-#header #header_right #menu {
-	height:29px;
-	width:568px;
-	overflow:hidden;
-		float:left;
-	display:block;
-}
-#header #header_right div.arrow_left{
-	height:29px;
-	width:15px;
-	float:left;
-	display:block;
-	padding-top:2px;
-	padding-right:5px;
-}
-#header #header_right div.arrow_left a{
-	height:25px;
-	width:15px;
-	display:block;
-	background-image:url(../images/top_menu_arrow_bg.gif);
-	background-position: 0px 0px;
-}
-#header #header_right div.arrow_left a:hover{
-	background-position: 0px -29px;
-}
-#header #header_right div.arrow_left a:active{
-	background-position: 0px -58px;
-}
-#header #header_right div.arrow_right{
-	height:29px;
-	width:15px;
-	float:left;
-	display:block;
-	padding-top:2px;
-	padding-left:5px;
-}
-#header #header_right div.arrow_right a{
-	height:25px;
-	width:15px;
-	display:block;
-	background-image:url(../images/top_menu_arrow_bg.gif);
-	background-position: -15px 0px;
-}
-#header #header_right div.arrow_right a:hover{
-	background-position: -15px -29px;
-}
-#header #header_right div.arrow_right a:active{
-	background-position: -15px -58px;
-}
-#header #header_right #menu ul{
-	height:33px;
-}
-#header #header_right #menu ul li{
-	height:29px;
-	width:115px;
-	float:left;
-	list-style:none;
-}
-#header #header_right #menu ul li a{
-	height:29px;
-	width:108px;
-	display:block;
-	line-height:35px;
-	text-decoration:none;
-	text-align:center;
-	background-repeat:no-repeat;
-	background-image:url(../images/top_menu_bg.gif);
-	background-position:left 0px;
-	color:#C1EEFF;		
-	overflow:hidden;
-}
-
-#header #header_right #menu ul li a:hover{
-	background-position:left -30px;
-	color:#FFFFFF;
-}
-#header #header_right #menu ul li a:active{
-	background-position:left -60px;
-	color:#FFFFFF;
-}
-
-#header #header_right #menu ul li a.current {
-	background-position:left -90px;
-	line-height:32px;	
-	color:#FFFFFF;
-}
-#header #header_right #menu ul li a.current:hover{
-	background-position:left -119px;
-	line-height:32px;	
-	color:#FFFFFF;
-}
-#header #header_right #menu ul li a.current:active{
-	background-position:left -148px;
-	line-height:32px;	
-	color:#FFFFFF;
-}
-
-
 
 #header_navi{
 	width:1000px;
@@ -730,11 +703,14 @@ padding-left:22px;
 
 
 #main_loader{
- height:450px; width:1000px; position:absolute;
  z-index:150;
+  height:456px; 
+ width:100%; 
+ position:absolute;
 }
 #main_loader_bg{
- height:450px; width:1000px; 
+ height:100%; 
+ width:1000px; 
  position:absolute;
  background-color:#ffffff;
  z-index:100;
@@ -860,7 +836,7 @@ background-position:left bottom;
 /* styles for new app*/
 .newapp_bg {
 	height:420px;
-    background-image: url("../images/newapp/newapp_bg.png");
+    background-image:none;
     background-position: left bottom;
     background-repeat: no-repeat;
     padding-top:20px;    

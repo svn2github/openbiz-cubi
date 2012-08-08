@@ -19,6 +19,17 @@
 <div align="center" id="body_warp">
 	<div id="header_warp">
 	{include file='system_header.tpl.html'}
+
+	
+		<div id="header_menu">
+			<!-- top menu start -->
+			{php}
+			$temp = Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
+			unset($temp);
+			echo Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
+			{/php}
+			<!-- top menu end -->	
+		</div>
 	</div>
 	<!--main warp-->
 	<div id="main_warp">	
@@ -26,7 +37,6 @@
 		<div id="main" >
 			{include file='system_loader.tpl.html'}
 			<table id="main_content" border="0" cellpadding="0" cellspacing="0">
-				<tr><td><img src="{$image_url}/spacer.gif" style="height:15px;" /></td></tr>
 				<tr>
 					<td valign="top" style="width:18px;"><img src="{$image_url}/spacer.gif" style="width:18px;" /></td>
 					<td valign="top" id="left_panel">
@@ -47,7 +57,15 @@
 			  </table>		  
 			</div>
 			<!--main-->
-		
+			
+			<!-- certified message -->
+			<div id="site-certified">
+			{t}
+			如果您在公用电脑登陆系统，当您结束使用时，请您点击“安全退出”按钮。
+			为了给您带来更好的使用体验，建议您使用 Firefox、Safari 或 Chrome 浏览器并将其更新至最新版本。					
+			{/t}
+			</div>
+			
 		</div>		
 		<!--main wrap end-->
 		<!--footer-->
