@@ -53,7 +53,7 @@ class ResetPasswordForm extends UserForm
     
     public function resetPassword()
     {
-        $currentRec = $this->fetchData();
+        $currentRec = $this->fetchData();        
         $recArr = $this->readInputRecord();
         $this->setActiveRecord($recArr);
         try
@@ -96,9 +96,14 @@ class ResetPasswordForm extends UserForm
         $logComment=array($currentRec['username']);
     	$eventlog->log("USER_MANAGEMENT", "MSG_RESET_PASSWORD_BY_TOKEN", $logComment);       	
 	    
-        $this->m_Notices[] = $this->GetMessage("USER_DATA_UPDATED");
+        $this->m_Notices[] = $this->GetMessage("USER_DATA_UPDATED");                
         $this->updateForm();
  
+        if($recArr['_logoff']==1)
+        {        	
+			$url = APP_INDEX."/user/logout";
+			BizSystem::clientProxy()->redirectPage($url);	
+        }
     }
     
     public function checkPassword($password){
