@@ -215,7 +215,6 @@ class ExtendDataEditForm extends EasyForm
 		//if installed changelog then save change log
 		
 		if(BizSystem::getService("system.lib.ModuleService")->isModuleInstalled("changelog")){
-			
 			$formObj = BizSystem::getObject($this->m_ParentFormName);
 			$panel = new Panel($this->configDataPanel($translate = false),"",$this);
 			if(!is_array($oldRec)){
@@ -227,18 +226,19 @@ class ExtendDataEditForm extends EasyForm
 			$inputRecord['Id'] = $outputRecord['Id'] = $record_id;
 			foreach($inputRecord as $key=>$value)
 			{
-				if(!preg_match("/extend_field_/si",$key))
+				if(!preg_match("/^field_/si",$key))
 				{
 					unset($inputRecord[$key]);
 				}	
-			}
+			}			
 			foreach($outputRecord as $key=>$value)
 			{
-				if(!preg_match("/extend_field_/si",$key))
+				if(!preg_match("/^field_/si",$key))
 				{
 					unset($outputRecord[$key]);
 				}	
 			}
+			$outputRecord['Id'] = $record_id;			
 			BizSystem::getService("changelog.lib.ChangeLogService")
 						->LogDataChanges($formObj,$inputRecord,$outputRecord,null,$panel);
 			

@@ -64,7 +64,6 @@ class ChangeLogService
 			$logRecord[$fldName] = array('old'=>$oldVal, 'new'=>$fldVal, 'element'=>$elem);
 		}
 		
-		
 		if (empty($logRecord))
 			return true;
 			
