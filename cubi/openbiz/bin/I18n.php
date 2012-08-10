@@ -1,4 +1,5 @@
 <?php
+$XX = 0;
 /**
  * PHPOpenBiz Framework
  *
@@ -50,10 +51,22 @@ class I18n
     	if ($key && isset(I18n::$_langData[$module][$key]))
     		return I18n::$_langData[$module][$key];
     	
+		// try to load theme.THEME_NAME.ini
+		$module = '_theme';
+		if (!I18n::loadLangData($module))
+			return $text;
+		
+    	if ($key && isset(I18n::$_langData[$module][$key]))
+    		return I18n::$_langData[$module][$key];
+		
     	// try to load system.ini if previous steps can't find match
-    	if ($module != '_system')
-    		return self::t($text, $key, '_system');
-    		
+    	$module != '_system';
+    	if (!I18n::loadLangData($module))
+			return $text;
+		
+    	if ($key && isset(I18n::$_langData[$module][$key]))
+    		return I18n::$_langData[$module][$key];
+
     	return $text;
     }
     
@@ -68,6 +81,7 @@ class I18n
     	
     	// load language file
     	if ($module == '_system') $filename = 'system.ini';
+		else if ($module == '_theme') { $filename = 'theme.'.THEME_NAME.'.ini'; }
     	else $filename = "mod.$module.ini";
     	$langFile = LANGUAGE_PATH."/$langCode/$filename";
     	//echo "check ini file $langFile".nl;
@@ -77,7 +91,8 @@ class I18n
     	$inidata = parse_ini_file($langFile, false);
     	
     	I18n::$_langData[$module] = $inidata;
-    	//print_r(I18n::$_langData);
+    	//print_r(I18n::$_langData[$module]);
+
     	return true;
     } 
     
