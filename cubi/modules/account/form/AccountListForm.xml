@@ -83,7 +83,7 @@
         			Sortable="Y"
         			 />    
         	
-   
+   <!-- 
     
 		<Element Name="fld_website" 
         			Class="ColumnText" 
@@ -93,28 +93,9 @@
         			Sortable="Y"
         			 />    
         	
+    -->
+    
    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 		<Element Name="fld_color" 
 				Class="ColumnStyle" 
 				FieldName="type_color" 
