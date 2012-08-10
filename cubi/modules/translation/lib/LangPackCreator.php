@@ -37,7 +37,17 @@ class LangPackCreator
 			array_push($result,"Create language directory: $lang");
     		@mkdir($lang_dir);
 		}
-    	if ($this->systemOnly == false) {
+    	if ($this->systemOnly == false && strpos($this->module, 'themes/') === 0) {
+			// if module is like 'themes/theme_name', create theme lang package
+			if (strpos($this->module, 'themes/') === 0) {
+				$parts = explode("/", $this->module);
+				$theme_name = $parts[1];
+				$dir = APP_HOME.DIRECTORY_SEPARATOR."themes/$theme_name";
+				$strings = $this->getStringsFromTemplate("$theme_name",$dir);
+				$theme_strings[strtoupper($theme_name)]["TEMPLATE"]=$strings;  
+			}
+		}
+		if ($this->systemOnly == false && strpos($this->module, 'themes/') === false) {
 	    	//load modules strings
 	    	$module_strings= array();
 	    	foreach (glob(MODULE_PATH.DIRECTORY_SEPARATOR.$this->module,GLOB_ONLYDIR) as $dir)
@@ -79,7 +89,8 @@ class LangPackCreator
 	    	}
     	}
     	
-    	if ($this->module == '*') {
+    	//if ($this->module == '*') {
+		if ($this->systemOnly) {
     		//load general strings
 	    	if(CLI){
 				echo "Create System Strings: $lang".PHP_EOL;
@@ -108,6 +119,7 @@ class LangPackCreator
     	//$strings["Menu"]	= $menu_strings;
     	$strings["System"] 	= $system_strings;
     	//$strings["ACL"] 	= $acl_strings;
+		$strings["Theme"] 	= $theme_strings;
     	
     	if($translate){
     		$this->translateStrings($strings);
@@ -128,7 +140,7 @@ class LangPackCreator
 			echo "Loading translation files:".PHP_EOL;
 		} 
 		$lang = $this->lang;  
-		if ($this->systemOnly == false) {	
+		if ($this->systemOnly == false && isset($arr["Module"])) {	
 			foreach($arr["Module"] as $key=>$value){  
 				$module_name = strtolower($key);
 				$module_filename =  APP_HOME.DIRECTORY_SEPARATOR."languages".DIRECTORY_SEPARATOR.$this->lang.DIRECTORY_SEPARATOR."mod.".$module_name.".ini";
@@ -149,8 +161,30 @@ class LangPackCreator
 				}
 			}
 		}
+		if ($this->systemOnly == false && isset($arr["Theme"])) {	
+			foreach($arr["Theme"] as $key=>$value){  
+				$theme_name = strtolower($key);
+				$theme_filename =  APP_HOME.DIRECTORY_SEPARATOR."languages".DIRECTORY_SEPARATOR.$this->lang.DIRECTORY_SEPARATOR."theme.".$theme_name.".ini";
+				 
+				if(is_file($theme_name)){
+					$strArr = parse_ini_file($theme_name,true);
+					if(CLI){
+						echo "  Loading translation files: ".basename($theme_name)."".PHP_EOL;
+					}				
+					foreach($strArr as $section=>$strs){				
+						foreach($strs as $str_key=>$str_value)
+						{
+							if($arr["Theme"][$key][$section][$str_key] != $str_value){
+								$arr["Theme"][$key][$section][$str_key] = $str_value;
+							}
+						}
+					}
+				}
+			}
+		}
 		
-		if ($this->module == '*') {
+		//if ($this->module == '*') {
+		if ($this->systemOnly) {
 			//load menu.ini
 			$module_name = "SYSTEM_MENU";
 			$module_filename =  APP_HOME.DIRECTORY_SEPARATOR."languages".DIRECTORY_SEPARATOR.$this->lang.DIRECTORY_SEPARATOR."menu.ini";		
@@ -205,7 +239,7 @@ class LangPackCreator
 			echo "Generate translation files:".PHP_EOL;
 		} 
     	$lang = $this->lang;
-    	if ($this->systemOnly == false) {
+    	if ($this->systemOnly == false && isset($arr["Module"])) {	
 	    	foreach($arr["Module"] as $key=>$value){    		
 	    		$module_name = strtolower($key);
 	    		$module_filename =  APP_HOME.DIRECTORY_SEPARATOR."languages".DIRECTORY_SEPARATOR.$this->lang.DIRECTORY_SEPARATOR."mod.".$module_name.".ini";
@@ -225,9 +259,31 @@ class LangPackCreator
 				@unlink($module_filename);
 	    		file_put_contents($module_filename,$file_data);
 	    	}
+		}
+		if ($this->systemOnly == false && isset($arr["Theme"])) {	
+			foreach($arr["Theme"] as $key=>$value){    		
+	    		$theme_name = strtolower($key);
+	    		$theme_filename =  APP_HOME.DIRECTORY_SEPARATOR."languages".DIRECTORY_SEPARATOR.$this->lang.DIRECTORY_SEPARATOR."theme.".$theme_name.".ini";
+	    		$file_data="";
+	    		foreach ($value as $section=>$data){
+	    			$file_data .= "[$section]\n";
+	    			foreach($data as $string_name=>$string_value){
+	    				if ($this->comments[$string_name])
+	    					$file_data .= $this->comments[$string_name];
+	    				$file_data .= "$string_name=\"$string_value\"\n";
+	    			}
+	    			$file_data .= "\n";
+	    		}
+	    		if(CLI){
+					echo "  Generate translation file for theme: theme.$theme_name.ini ( ".strlen($file_data)." Bytes )".PHP_EOL;
+				}    		
+				@unlink($theme_filename);
+	    		file_put_contents($theme_filename,$file_data);
+	    	}
     	}
     	
-    	if ($this->module == '*') {
+    	//if ($this->module == '*') {
+		if ($this->systemOnly) {
 	    	//generate menu.ini
 	    	$module_name = "SYSTEM_MENU";
 	    	$module_filename =  APP_HOME.DIRECTORY_SEPARATOR."languages".DIRECTORY_SEPARATOR.$this->lang.DIRECTORY_SEPARATOR."menu.ini";
@@ -303,18 +359,20 @@ class LangPackCreator
     	$dictionary = new Dictionary('en',$target_lang);
 
     	if ($this->systemOnly == false) {
-	    	foreach($arr["Module"] as $key=>$value){  
+		  foreach (array("Module","Theme") as $mainKey) {
+			if (!isset($arr[$mainKey])) continue;
+	    	foreach($arr[$mainKey] as $key=>$value){  
 				$module_name = strtolower($key);
-				foreach($arr["Module"][$key] as $section=>$value){
-					$str_count = count($arr["Module"][$key][$section]);
+				foreach($arr[$mainKey][$key] as $section=>$value){
+					$str_count = count($arr[$mainKey][$key][$section]);
 					$i=0;
-					foreach($arr["Module"][$key][$section] as $str_key => $str_value){
+					foreach($arr[$mainKey][$key][$section] as $str_key => $str_value){
 						$i++;
-						//if($arr["Module"][$key][$section][$str_key]==$orgArr["Module"][$key][$section][$str_key])
+						//if($arr[$mainKey][$key][$section][$str_key]==$orgArr[$mainKey][$key][$section][$str_key])
 						{
 							$str_value_translated = $dictionary->translate($str_value);
 							if($str_value_translated){
-								$arr["Module"][$key][$section][$str_key]=$str_value_translated;
+								$arr[$mainKey][$key][$section][$str_key]=$str_value_translated;
 								if(CLI){
 									if($target_lang=='zh'){
 										$str_value_translated = iconv("UTF-8","GB2312",$str_value_translated);
@@ -326,66 +384,11 @@ class LangPackCreator
 					}
 				}
 	    	}
+		  }
     	}
     	
-    	if ($this->module == '*') {
-	    	/*
-    		//load menu.ini
-	    	if(CLI){
-				echo "Translation menu strings:".PHP_EOL;
-			}
-			$module_name = "SYSTEM_MENU";
-			$module_filename =  APP_HOME.DIRECTORY_SEPARATOR."languages".DIRECTORY_SEPARATOR.$this->lang.DIRECTORY_SEPARATOR."menu.ini";		
-			if(is_file($module_filename)){
-				//$strArr = parse_ini_file($module_filename);
-				$i=0;
-				$str_count = count($arr["Menu"]);
-				foreach($arr["Menu"] as $key=>$value){
-					$i++;
-					//if($arr["Menu"][$key] == $strArr[$key])
-					{
-						$str_value_translated = $dictionary->translate($value);
-						if($str_value_translated){
-							$arr["Menu"][$key]=$str_value_translated;
-							if(CLI){
-								if($target_lang=='zh'){
-									$str_value_translated = iconv("UTF-8","GB2312",$str_value_translated);
-								}
-								echo " $key: (".sprintf('%0'.strlen($str_count).'d',$i)."/$str_count) Translation string : $value => $str_value_translated".PHP_EOL;
-							}
-						}
-					}
-				}
-			}
-			
-	    	//load acl.ini
-	    	if(CLI){
-				echo "Translation ACL strings:".PHP_EOL;
-			}
-			$module_name = "SYSTEM_ACL";
-			$module_filename =  APP_HOME.DIRECTORY_SEPARATOR."languages".DIRECTORY_SEPARATOR.$this->lang.DIRECTORY_SEPARATOR."acl.ini";		
-			if(is_file($module_filename)){
-				//$strArr = parse_ini_file($module_filename);
-				$i=0;
-				$str_count = count($arr["ACL"]);
-				foreach($arr["ACL"] as $key=>$value){
-					$i++;
-					//if($arr["ACL"][$key] == $strArr[$key])
-					{
-						$str_value_translated = $dictionary->translate($value);
-						if($str_value_translated){
-							$arr["ACL"][$key]=$str_value_translated;
-							if(CLI){
-								if($target_lang=='zh'){
-									$str_value_translated = iconv("UTF-8","GB2312",$str_value_translated);
-								}
-								echo " $key: (".sprintf('%0'.strlen($str_count).'d',$i)."/$str_count) Translation string : $value => $str_value_translated".PHP_EOL;
-							}
-						}
-					}
-				}
-			}
-			*/
+    	//if ($this->module == '*') {
+		if ($this->systemOnly) {
 			//load system.ini
 	    	if(CLI){
 				echo "Translation System strings:".PHP_EOL;
