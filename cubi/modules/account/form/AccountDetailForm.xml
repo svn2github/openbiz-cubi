@@ -21,10 +21,14 @@
     </Element>
     
     <Element Name="fld_related_contact" Access="contact.access" TabSet="More Detail" ElementSet="Alternate Contact" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-    <Element Name="btn_manage_contact" Access="contact.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" TabSet="More Detail" ElementSet="Alternate Contact" Class="Button" CssClass="button_gray_w" Text="Manage" Style="color:#666666;margin-left:5px;margin-top:2px;">
+    <Element Name="btn_manage_contact" Access="account.Manage" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" TabSet="More Detail" ElementSet="Alternate Contact" Class="Button" CssClass="button_gray_w" Text="Manage" Style="color:#666666;margin-left:5px;margin-top:2px;">
       <EventHandler Name="btn_manage_billingaddress_onclick" Event="onclick" Function="SwitchForm(account.form.AccountEditContactForm,{@:Elem[fld_Id].Value})"/>
     </Element>
     
+    <Element Name="fld_related_user" Access="account.Access" TabSet="More Detail" ElementSet="Administrator" Class="FormElement" FormReference="account.widget.AccountUserListWidgetForm" FieldName="" Label="" AllowURLParam="N" />
+    <Element Name="btn_manage_user" Access="account.Manage" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" TabSet="More Detail" ElementSet="Administrator" Class="Button" CssClass="button_gray_w" Text="Manage" Style="color:#666666;margin-left:5px;margin-top:2px;">
+      <EventHandler Name="btn_manage_user_onclick" Event="onclick" Function="SwitchForm(account.form.AccountEditUserForm,{@:Elem[fld_Id].Value})"/>
+    </Element>
     
     <Element Name="fld_website" TabSet="Extra Information" ElementSet="Additional" Class="LabelText" FieldName="website" Label="Website" AllowURLParam="N"/>
     <Element Name="fld_employee" TabSet="Extra Information" ElementSet="Additional" Class="LabelText" FieldName="employee" Label="Employee" AllowURLParam="N"/>

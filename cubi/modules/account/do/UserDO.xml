@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="UserDO" Class="BizDataObj" DBName="Default" InheritFrom="system.do.UserDO">
+  <BizFieldList>
+  </BizFieldList>
+  <TableJoins>
+  </TableJoins>
+  <ObjReferences>
+  </ObjReferences>
+</BizDataObj>
