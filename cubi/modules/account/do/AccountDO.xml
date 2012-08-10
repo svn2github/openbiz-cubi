@@ -11,16 +11,6 @@
     <BizField Name="website" Description="Website" Column="website" Type="Text" Required="N"/>
     <BizField Name="employee" Description="Employee" Column="employee" Type="Number" Required="N"/>
     <BizField Name="annual_revenue" Description="Annual Revenue" Column="annual_revenue" Type="Number" Required="N"/>
-    <BizField Name="billing_country" Description="Billing Country" Column="billing_country" Type="Text" Required="N"/>
-    <BizField Name="billing_zip" Description="Billing Zip" Column="billing_zip" Type="Number" Required="N"/>
-    <BizField Name="billing_state" Description="Billing State" Column="billing_state" Type="Text" Required="N"/>
-    <BizField Name="billing_city" Description="Billing City" Column="billing_city" Type="Text" Required="N"/>
-    <BizField Name="billing_street" Description="Billing Street" Column="billing_street" Type="Text" Required="N"/>
-    <BizField Name="shipping_country" Description="Shipping Country" Column="shipping_country" Type="Text" Required="N"/>
-    <BizField Name="shipping_zip" Description="Shipping Zip" Column="shipping_zip" Type="Number" Required="N"/>
-    <BizField Name="shipping_state" Description="Shipping State" Column="shipping_state" Type="Text" Required="N"/>
-    <BizField Name="shipping_city" Description="Shipping City" Column="shipping_city" Type="Text" Required="N"/>
-    <BizField Name="shipping_street" Description="Shipping Street" Column="shipping_street" Type="Text" Required="N"/>
     <BizField Name="create_time" Description="Create Time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
     <BizField Name="update_by" Description="Update By" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
     <BizField Name="create_by" Description="Create By" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
