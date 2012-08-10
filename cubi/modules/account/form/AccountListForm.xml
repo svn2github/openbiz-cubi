@@ -61,14 +61,7 @@
 					/> 
         	
    
-    
-		<Element Name="fld_description" 
-        			Class="ColumnText" 
-        			FieldName="description" 
-        			Label="Description" 
-        			MaxLength="15"        			 
-        			Sortable="Y"
-        			 />    
+
         	
    
     
