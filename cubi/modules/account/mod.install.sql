@@ -107,6 +107,19 @@ CREATE TABLE IF NOT EXISTS `account_user` (
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+DROP TABLE IF EXISTS `account_contact` ;
+CREATE TABLE IF NOT EXISTS `account_contact` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `account_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `contact_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,  
+  PRIMARY KEY (`id`),
+  KEY `account_id` (`account_id`),
+  KEY `contact_id` (`contact_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
 
 
 DROP TABLE IF EXISTS `account_product` ;

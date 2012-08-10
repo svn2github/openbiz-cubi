@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EasyForm Name="AccountDetailForm" Class="EasyForm" FormType="Detail" jsClass="Openbiz.Form" Icon="{RESOURCE_URL}/account/images/icon_mod_account_detail.png" Title="CRM Account Detail" Description="Account Description" BizDataObj="account.do.AccountDO" TemplateEngine="Smarty" TemplateFile="form_detail_adv_custom.tpl.html" MessageFile="Account.ini" Access="account.Access">
   <DataPanel>
-    <Element Name="fld_industry" Hidden="{@:Elem[fld_industry].Value?'N':'Y'}" ElementSet="General" Class="LabelText" Label="Industry" FieldName="industry_name"/>
     <Element Name="fld_form_title" Class="LabelText" FieldName="name" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N"/>
     <Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
     <Element Name="fld_form_description" BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="account.do.AccountTypeDO[name:Id:color]" AllowURLParam="N"/>
@@ -29,10 +28,6 @@
     <Element Name="fld_related_product" TabSet="Related Data" ElementSet="Product" Class="FormElement" FormReference="product.widget.ProductListWidgetForm" FieldName="" Label="" AllowURLParam="N" Access="product.Access"/>
     <Element Name="btn_manage_product" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" TabSet="Related Data" ElementSet="Product" Class="Button" CssClass="button_gray_w" Text="Manage" Style="color:#666666;margin-left:5px;margin-top:2px;" Access="product.Access">
       <EventHandler Name="btn_manage_product_onclick" Event="onclick" Function="SwitchForm(account.form.AccountEditProductForm,{@:Elem[fld_Id].Value})"/>
-    </Element>
-    <Element Name="fld_related_data" TabSet="Related Data" ElementSet="Related" Class="FormElement" FormReference="account.widget.AccountListRelatedWidgetForm" FieldName="" Label="" AllowURLParam="N"/>
-    <Element Name="btn_manage_related" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Related" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
-      <EventHandler Name="btn_manage_related_onclick" Event="onclick" Function="SwitchForm(account.form.AccountEditRelatedForm,{@:Elem[fld_Id].Value})"/>
     </Element>
     <Element Name="fld_changelog" TabSet="Extra Information" Access="changelog.access" ElementSet="Change Log" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetForm" FieldName="" Label="" AllowURLParam="N"/>
     <Element Name="fld_create_time" Class="LabelText" ElementSet="Misc" FieldName="create_time" Label="Create Time" AllowURLParam="N" TabSet="Extra Information"/>
