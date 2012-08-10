@@ -71,5 +71,6 @@
     	<Object Name="collab.document.do.DocumentDO" Description="" Relationship="M-M" Table="document" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="contact_document" XColumn1="contact_id" XColumn2="document_id" XDataObj="collab.contact.do.ContactDocumentDO"/>
     	<Object Name="collab.project.do.ProjectDO" Description="" Relationship="M-M" Table="project" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="project_contact" XColumn1="contact_id" XColumn2="project_id" XDataObj="collab.contact.do.ContactProjectDO"/>
     	<Object Name="collab.task.do.TaskDO" Description="" Relationship="M-M" Table="task" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="task_contact" XColumn1="contact_id" XColumn2="task_id" XDataObj="collab.contact.do.ContactTaskDO"/>
+    	<Object Name="account.do.AccountDO" Description="" Relationship="M-M" Table="account" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="account_contact" XColumn1="contact_id" XColumn2="account_id" XDataObj="account.do.AccountContactDO"/>
     </ObjReferences>
 </BizDataObj>
