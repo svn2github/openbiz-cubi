@@ -6,6 +6,7 @@ if ($argc<3) {
 	echo "generate language pack for system only: # php gen_lang.php ! zh_CN -t".PHP_EOL;
 	echo "generate language pack for one module: # php gen_lang.php user zh_CN -t".PHP_EOL;
 	echo "generate language pack for all modules and system: # php gen_lang.php all zh_CN -t".PHP_EOL;
+	echo "generate language pack for a theme: # php gen_lang.php themes/default zh_CN -t".PHP_EOL;
 	exit;
 }
 $argv_bak = $argv;
