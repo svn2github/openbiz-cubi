@@ -11,15 +11,13 @@
 				Text="{RESOURCE_URL}/contact/images/icon_contact.gif"
 				FieldName="" Label="Icon"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
 		</Element>	 
-		<!-- 
-		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y"/>
-		 -->
-        <Element Name="fld_display_name" Class="ColumnText" FieldName="display_name" Label="Display Name" Sortable="Y" Link="javascript:;" >
+		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y"/>
+		 
+        <Element Name="fld_display_name" Class="ColumnText" Text="{BizSystem::GetProfileName(@:Elem[fld_Id].Value)}" FieldName="Id" Label="Display Name" Sortable="Y" Link="javascript:;" >
         </Element>
-        <Element Name="fld_email" Maxlength="8" Class="ColumnText" FieldName="email" Label="Email" Sortable="Y"/>
-		<Element Name="fld_access_level" Class="ColumnList" FieldName="account_access_level" Label="Access Level" Sortable="Y"/>
-        <Element Name="fld_status" Class="ColumnBool" FieldName="account_status" Label="Status" Sortable="Y"/>
-        <Element Name="fld_assoc_time" Class="ColumnText" FieldName="account_create_time" Label="Assoc Time" Sortable="Y"/>
+		<Element Name="fld_access_level" Class="ColumnList" SelectFrom="account.lov.AccountLOV(AdminPermission)" FieldName="account_access_level" Label="Access Level" Sortable="N"/>
+        <Element Name="fld_status" Class="ColumnBool" FieldName="account_status" Label="Status" Sortable="N"/>
+        <Element Name="fld_assoc_time" Class="ColumnText" FieldName="account_create_time" Label="Assoc Time" Sortable="N"/>
     </DataPanel>
     <ActionPanel>
     </ActionPanel> 

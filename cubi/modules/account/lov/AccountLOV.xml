@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <AdminPermission Value="3" text="Full Control"/>
+   <AdminPermission Value="2" text="Read and Write"/>
+   <AdminPermission Value="1" text="Read Only"/>
+   <AdminPermission Value="0" text="No Access"/>
+</Selection>

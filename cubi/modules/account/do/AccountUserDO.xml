@@ -21,6 +21,9 @@
         <BizField Name="user_id" Column="user_id" Type="Number" />
         <BizField Name="access_level" Column="access_level" Type="Number" />
         <BizField Name="default" Column="default" Type="Number" />
+        <BizField Name="status" Column="status" ValueOnCreate="1" Type="Number" />
+        <BizField Name="create_time" Description="Create Time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+    	<BizField Name="create_by" Description="Create By" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
     </BizFieldList>
     <TableJoins/>    
     <ObjReferences/>
