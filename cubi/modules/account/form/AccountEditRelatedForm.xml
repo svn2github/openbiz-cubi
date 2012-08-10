@@ -4,7 +4,7 @@
 			FormType="Edit" 
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/account/images/icon_mod_account_related.png"
-			Title="Edit CRM Account Related Record" 
+			Title="Edit Account Related Record" 
 			Description="This form could help you manage account related data record." 
 			BizDataObj="account.do.AccountDO" 
 			TemplateEngine="Smarty" 

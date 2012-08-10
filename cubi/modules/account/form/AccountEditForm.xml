@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="AccountEditForm" Class="changelog.form.ChangeLogForm" FormType="Edit" jsClass="Openbiz.Form" Icon="{RESOURCE_URL}/account/images/icon_mod_account_edit.png" Title="Edit CRM Account" Description="Account Description" BizDataObj="account.do.AccountDO" TemplateEngine="Smarty" TemplateFile="form_edit.tpl.html" MessageFile="Account.ini" Access="account.Manage">
+<EasyForm Name="AccountEditForm" Class="changelog.form.ChangeLogForm" FormType="Edit" jsClass="Openbiz.Form" Icon="{RESOURCE_URL}/account/images/icon_mod_account_edit.png" Title="Edit Account" Description="Account Description" BizDataObj="account.do.AccountDO" TemplateEngine="Smarty" TemplateFile="form_edit.tpl.html" MessageFile="Account.ini" Access="account.Manage">
   <DataPanel>
     <Element Name="fld_industry" ElementSet="General" Class="Hidden" FieldName="industry_id" Label="Industry"/>
     <Element Name="fld_industry_name" ElementSet="General" Class="InputPicker" FieldName="industry_name" Label="Industry" Enabled="N" UpdateForm="Y" ValuePicker="account.Industry.widget.AccountIndustrySinglePickWidgetForm" PickerMap="fld_industry:fld_Id,fld_industry_name:fld_name" DefaultValue="{@:Elem[fld_industry].Value&gt;0?@:Field[industry_name].Value:''}"/>

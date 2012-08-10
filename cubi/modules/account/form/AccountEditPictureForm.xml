@@ -4,7 +4,7 @@
 			FormType="Edit" 
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/account/images/icon_mod_account_picture.png"
-			Title="Edit CRM Account Pictures" 
+			Title="Edit Account Pictures" 
 			Description="This form could help you manage account pictures." 
 			BizDataObj="account.do.AccountDO" 
 			TemplateEngine="Smarty" 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="AccountDetailForm" Class="EasyForm" FormType="Detail" jsClass="Openbiz.Form" Icon="{RESOURCE_URL}/account/images/icon_mod_account_detail.png" Title="CRM Account Detail" Description="Account Description" BizDataObj="account.do.AccountDO" TemplateEngine="Smarty" TemplateFile="form_detail_adv_custom.tpl.html" MessageFile="Account.ini" Access="account.Access">
+<EasyForm Name="AccountDetailForm" Class="EasyForm" FormType="Detail" jsClass="Openbiz.Form" Icon="{RESOURCE_URL}/account/images/icon_mod_account_detail.png" Title="Account Detail" Description="Account Description" BizDataObj="account.do.AccountDO" TemplateEngine="Smarty" TemplateFile="form_detail_adv_custom.tpl.html" MessageFile="Account.ini" Access="account.Access">
   <DataPanel>
     <Element Name="fld_form_title" Class="LabelText" FieldName="name" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N"/>
     <Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
@@ -8,11 +8,11 @@
     <Element Name="fld_type_id" Class="LabelText" ElementSet="General" Hidden="Y" FieldName="type_id" Label="Type" AllowURLParam="N"/>
     <Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description" AllowURLParam="N"/>
     <Element Name="fld_phone" ElementSet="General" Class="LabelText" FieldName="phone" Label="Phone" AllowURLParam="N"/>
-    <Element Name="fld_fax" ElementSet="Additional" Class="LabelText" FieldName="fax" Label="Fax" AllowURLParam="N"/>
-    <Element Name="fld_website" ElementSet="Additional" Class="LabelText" FieldName="website" Label="Website" AllowURLParam="N"/>
-    <Element Name="fld_employee" ElementSet="Additional" Class="LabelText" FieldName="employee" Label="Employee" AllowURLParam="N"/>
-    <Element Name="fld_annual_revenue" ElementSet="Additional" Class="LabelText" FieldName="annual_revenue" Label=" Revenue" AllowURLParam="N"/>
-  	<Element Name="fld_extend_fields" ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N"/>
+    <Element Name="fld_fax" ElementSet="General" Class="LabelText" FieldName="fax" Label="Fax" AllowURLParam="N"/>
+    <Element Name="fld_website" TabSet="Extra Information" ElementSet="Additional" Class="LabelText" FieldName="website" Label="Website" AllowURLParam="N"/>
+    <Element Name="fld_employee" TabSet="Extra Information" ElementSet="Additional" Class="LabelText" FieldName="employee" Label="Employee" AllowURLParam="N"/>
+    <Element Name="fld_annual_revenue" TabSet="Extra Information" ElementSet="Additional" Class="LabelText" FieldName="annual_revenue" Label=" Revenue" AllowURLParam="N"/>
+  	<Element Name="fld_extend_fields" TabSet="Extra Information" ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N"/>
     <Element Name="fld_related_attachment" TabSet="Extra Information" Access="attachment.access" ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N"/>
     <Element Name="btn_manage_attachment" TabSet="Extra Information" Access="attachment.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
       <EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(account.form.AccountEditAttachmentForm,{@:Elem[fld_Id].Value})"/>
