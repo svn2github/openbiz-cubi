@@ -57,7 +57,15 @@
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />        			
-        	
+  
+		<Element Name="fld_street" 
+        			Class="ColumnText" 
+        			FieldName="street" 
+        			Label="Street" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />    
+            	
      
 		<Element Name="fld_country" 
         			Class="ColumnText" 

@@ -100,6 +100,7 @@ CREATE TABLE IF NOT EXISTS `account_user` (
   `account_id` int(10) unsigned NOT NULL DEFAULT '0',
   `user_id` int(10) unsigned NOT NULL DEFAULT '0',
   `access_level` int(10) unsigned NOT NULL DEFAULT '0',
+  `default` int(10) unsigned NOT NULL DEFAULT '0',
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,  
   PRIMARY KEY (`id`),

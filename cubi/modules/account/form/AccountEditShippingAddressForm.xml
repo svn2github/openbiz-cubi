@@ -9,7 +9,7 @@
     <Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description" AllowURLParam="N"/>
     <Element Name="fld_phone" ElementSet="General" Class="LabelText" FieldName="phone" Label="Phone" AllowURLParam="N"/>
     <Element Name="fld_fax" ElementSet="General" Class="LabelText" FieldName="fax" Label="Fax" AllowURLParam="N"/>
-    <Element Name="fld_related_shippingaddress" Access="account.Access" ElementSet="ShippingAddress" TabSet="Related Data" Class="FormElement" FormReference="account.shipping.widget.AccountShippingAddressListEditableWidgetForm"/>
+    <Element Name="fld_related_shippingaddress" Access="account.Access" ElementSet="Shipping Address" TabSet="Related Data" Class="FormElement" FormReference="account.shipping.widget.AccountShippingAddressListEditableWidgetForm"/>
   </DataPanel>
   <ActionPanel>
     <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">

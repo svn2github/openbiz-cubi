@@ -34,19 +34,7 @@
         			AllowURLParam="N" 
         			Link="javascript:;" />   
 			        			     
-   
-    
-		<Element Name="fld_account_id" 
-        			Class="ColumnText" 
-        			FieldName="account_id" 
-        			Label="Account"         			 
-        			Sortable="Y" 
-        			MaxLength="15"
-        			Link="{APP_INDEX}/account/account_billing_address_detail/{@:Elem[fld_Id].Value}"        			
-        			DefaultValue="0" 
-					/> 
-        	
-   
+
     
 		<Element Name="fld_name" 
         			Class="ColumnText" 
@@ -54,10 +42,11 @@
         			Label="Name" 
         			MaxLength="15"        			 
         			Sortable="Y"
+        			Link="{APP_INDEX}/account/account_billing_address_detail/{@:Elem[fld_Id].Value}"
+        			
         			 />    
         	
-   
-    
+
 		<Element Name="fld_phone" 
         			Class="ColumnText" 
         			FieldName="phone" 
@@ -76,7 +65,14 @@
         			Sortable="Y"
         			 />    
         	
-   
+   		<Element Name="fld_street" 
+        			Class="ColumnText" 
+        			FieldName="street" 
+        			Label="Street" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />    
+    
     
 		<Element Name="fld_country" 
         			Class="ColumnText" 

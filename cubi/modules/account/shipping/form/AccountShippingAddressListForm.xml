@@ -36,21 +36,13 @@
 			        			     
    
     
-		<Element Name="fld_account_id" 
-        			Class="ColumnText" 
-        			FieldName="account_id" 
-        			Label="Account"         			 
-        			Sortable="Y" 
-        			MaxLength="15"
-        			Link="{APP_INDEX}/account/account_shipping_address_detail/{@:Elem[fld_Id].Value}"        			
-        			DefaultValue="0" 
-					/> 
-        	
+
    
     
 		<Element Name="fld_name" 
         			Class="ColumnText" 
         			FieldName="name" 
+        			Link="{APP_INDEX}/account/account_shipping_address_detail/{@:Elem[fld_Id].Value}"
         			Label="Name" 
         			MaxLength="15"        			 
         			Sortable="Y"
@@ -76,7 +68,14 @@
         			Sortable="Y"
         			 />    
         	
-   
+  		<Element Name="fld_street" 
+        			Class="ColumnText" 
+        			FieldName="street" 
+        			Label="Street" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />    
+     
     
 		<Element Name="fld_country" 
         			Class="ColumnText" 
