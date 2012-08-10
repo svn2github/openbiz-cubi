@@ -134,10 +134,10 @@ CREATE TABLE IF NOT EXISTS `account_product` (
 
 
 
--- Dumping structure for table: `account_shipping_address`
+-- Dumping structure for table: `account_billing_address`
 
-DROP TABLE IF EXISTS `account_shipping_address`;
-CREATE TABLE `account_shipping_address` (
+DROP TABLE IF EXISTS `account_billing_address`;
+CREATE TABLE `account_billing_address` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `account_id` int(10) unsigned NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL,
@@ -160,6 +160,28 @@ CREATE TABLE `account_shipping_address` (
 
 DROP TABLE IF EXISTS `account_billing_address`;
 CREATE TABLE `account_billing_address` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `account_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `mobile` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `state` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `street` varchar(255) NOT NULL,
+  `zip` int(11) NOT NULL,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `account_id` (`account_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- Dumping structure for table: `account_shipping_address`
+
+DROP TABLE IF EXISTS `account_shipping_address`;
+CREATE TABLE `account_shipping_address` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `account_id` int(10) unsigned NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL,

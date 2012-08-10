@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="AccountBillingAddressCopyForm" Class="EasyForm" FormType="Copy" jsClass="Openbiz.Form" Icon="{RESOURCE_URL}/account/images/icon_mod_account_billing_address_copy.png" Title="Copy Account Billing Address" Description="Account Billing Address" BizDataObj="account.billing.do.AccountBillingDO" TemplateEngine="Smarty" TemplateFile="form_edit.tpl.html" MessageFile="AccountBillingAddress.ini" Access="account.Manage">
+  <DataPanel>
+    <Element Name="fld_account" ElementSet="General" Class="Hidden" FieldName="account_id" Label="Account"/>
+    <Element Name="fld_account_name" ElementSet="General" Class="InputPicker" FieldName="account_name" Label="Account" Enabled="N" UpdateForm="Y" ValuePicker="account.widget.AccountSinglePickWidgetForm" PickerMap="fld_account:fld_Id,fld_account_name:fld_name" DefaultValue="{@:Elem[fld_account].Value&gt;0?@:Field[account_name].Value:''}"/>
+    <Element Name="fld_name" ElementSet="General" Class="InputText" FieldName="name" Label="Name" AllowURLParam="N"/>
+    <Element Name="fld_phone" ElementSet="General" Class="InputText" FieldName="phone" Label="Phone" AllowURLParam="N"/>
+    <Element Name="fld_mobile" ElementSet="General" Class="InputText" FieldName="mobile" Label="Mobile" AllowURLParam="N"/>
+    <Element Name="fld_country" ElementSet="Address" Class="InputText" FieldName="country" Label="Country" AllowURLParam="N"/>
+    <Element Name="fld_state" ElementSet="Address" Class="InputText" FieldName="state" Label="State" AllowURLParam="N"/>
+    <Element Name="fld_city" ElementSet="Address" Class="InputText" FieldName="city" Label="City" AllowURLParam="N"/>
+    <Element Name="fld_street" ElementSet="Address" Class="InputText" FieldName="street" Label="Street" AllowURLParam="N"/>
+    <Element Name="fld_zip" ElementSet="Address" Class="InputText" FieldName="zip" Label="Zip" AllowURLParam="N"/>
+  </DataPanel>
+  <ActionPanel>
+    <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+      <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="{APP_INDEX}/account/account_billing_address_detail/{@account.billing.do.AccountBillingDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save"/>
+    </Element>
+    <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+      <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()" ShortcutKey="Escape" ContextMenu="Cancel"/>
+    </Element>
+  </ActionPanel>
+  <NavPanel>
+    </NavPanel>
+  <SearchPanel>
+    </SearchPanel>
+</EasyForm>

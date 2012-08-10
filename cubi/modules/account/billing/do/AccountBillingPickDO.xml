@@ -1,0 +1,110 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<BizDataObj Name="AccountBillingPickDO" 
+		Description="Account Billing Address" 
+		DataPermControl="N"
+		Class="BizDataObj" 
+		DBName="Default" 
+		Table="account_billing_address" 
+		SearchRule="" 
+		SortRule="" 
+		OtherSQLRule=""
+		Uniqueness="" 
+		Stateless="N" 
+		IdGeneration="Identity" 
+		CacheLifeTime="0" 
+		CreateCondition="account.Manage" 
+		UpdateCondition="account.Manage" 
+		DeleteCondition="account.Manage" >
+	<BizFieldList>
+		<BizField Name="Id"			
+				Description="Id"	
+				Column="id"    
+				Required="N" 
+				Type="Number"/>
+		<BizField Name="account_id"		
+				Description="Account Id"	
+				Column="account_id" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="name"		
+				Description="Name"	
+				Column="name" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="phone"		
+				Description="Phone"	
+				Column="phone" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="mobile"		
+				Description="Mobile"	
+				Column="mobile" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="country"		
+				Description="Country"	
+				Column="country" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="state"		
+				Description="State"	
+				Column="state" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="city"		
+				Description="City"	
+				Column="city" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="street"		
+				Description="Street"	
+				Column="street" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="zip"		
+				Description="Zip"	
+				Column="zip" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="create_by"	
+				Description="Create By"	
+				Column="create_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time"	
+				Description="Create Time"	
+				Column="create_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="update_by"	
+				Description="Update By"	
+				Column="update_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"	
+				ValueOnUpdate="{@profile:Id}"/>
+		<BizField Name="update_time"	
+				Description="Update Time"	
+				Column="update_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"	
+				ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+	<TableJoins>
+				    	
+	</TableJoins>
+</BizDataObj>

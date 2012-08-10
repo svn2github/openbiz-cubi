@@ -59,18 +59,18 @@
 		        			URL="{APP_INDEX}/account/account_type" 
 		        			IconImage="spacer.gif" 
 		        			IconCssClass="" 
-		        			Order="55" 
+		        			Order="60" 
 		        			Access="" >
 		        </MenuItem>		
 	        			
 				<MenuItem Name="account_billing_manage" 
-		        			Title="Billing Address" 	        			
-		        			Description="Manage of Billing Addresses" 
+		        			Title="Billing Manage" 	        			
+		        			Description="Manage of Billing" 
 		        			URL="{APP_INDEX}/account/account_billing_address_manage" 
 		        			IconImage="spacer.gif" 
 		        			IconCssClass="" 
-		        			Order="60" 
-		        			Access="account.Access" >
+		        			Order="70" 
+		        			Access="" >
 						<MenuItem Name="account_billing_detail" 
 				        			Title="Billing Detail" 	        			
 				        			Description="Detail of Billing" 
@@ -78,17 +78,17 @@
 				        			IconImage="spacer.gif" 
 				        			IconCssClass="" 
 				        			Order="50" 
-				        			Access="account.Access" />
+				        			Access="" />
 		        </MenuItem>		
 	        			
 				<MenuItem Name="account_shipping_manage" 
-		        			Title="Shipping Address" 	        			
-		        			Description="Manage of Shipping Addresses"  
+		        			Title="Shipping Manage" 	        			
+		        			Description="Manage of Shipping" 
 		        			URL="{APP_INDEX}/account/account_shipping_address_manage" 
 		        			IconImage="spacer.gif" 
 		        			IconCssClass="" 
-		        			Order="70" 
-		        			Access="" >
+		        			Order="80" 
+		        			Access="account.Access" >
 						<MenuItem Name="account_shipping_detail" 
 				        			Title="Shipping Detail" 	        			
 				        			Description="Detail of Shipping" 
@@ -96,12 +96,8 @@
 				        			IconImage="spacer.gif" 
 				        			IconCssClass="" 
 				        			Order="50" 
-				        			Access="" />
+				        			Access="account.Access" />
 		        </MenuItem>		
-		        
-		        
-
-		        
 			</MenuItem>
 		</MenuItem>	
 	</Menu>

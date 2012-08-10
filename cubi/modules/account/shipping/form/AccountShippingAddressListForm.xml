@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="AccountShippingAddressListForm" 
+			Class="EasyForm"			  
+			FormType="List" 
+			jsClass="Openbiz.TableForm" 
+			Icon="{RESOURCE_URL}/account/images/icon_mod_account_shipping_address_list.png"
+			Title="Account Shipping Address Management" 
+			Description="Account Shipping Address" 
+			BizDataObj="account.shipping.do.AccountShippingDO" 
+			PageSize="10" 
+			DefaultForm="Y" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_grid.tpl.html" 
+			EventName="AccountShippingAddress" 
+			MessageFile="AccountShippingAddress.ini" 
+			Access="account.Access">
+	<DataPanel>
+            
+		<Element Name="row_selections" 
+        			Class="RowCheckbox"  
+        			Label="" 
+        			FieldName="Id"/>
+		<Element Name="fld_Id" 
+        			Class="common.element.ColumnTitle" 
+        			FieldName="Id" 
+        			Label="ID" 
+        			Sortable="Y" 
+        			AllowURLParam="N" 
+        			Link="javascript:;" />   
+			        			     
+   
+    
+		<Element Name="fld_account_id" 
+        			Class="ColumnText" 
+        			FieldName="account_id" 
+        			Label="Account"         			 
+        			Sortable="Y" 
+        			MaxLength="15"
+        			Link="{APP_INDEX}/account/account_shipping_address_detail/{@:Elem[fld_Id].Value}"        			
+        			DefaultValue="0" 
+					/> 
+        	
+   
+    
+		<Element Name="fld_name" 
+        			Class="ColumnText" 
+        			FieldName="name" 
+        			Label="Name" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />    
+        	
+   
+    
+		<Element Name="fld_phone" 
+        			Class="ColumnText" 
+        			FieldName="phone" 
+        			Label="Phone" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />    
+        	
+   
+    
+		<Element Name="fld_mobile" 
+        			Class="ColumnText" 
+        			FieldName="mobile" 
+        			Label="Mobile" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />    
+        	
+   
+    
+		<Element Name="fld_country" 
+        			Class="ColumnText" 
+        			FieldName="country" 
+        			Label="Country" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />    
+        	
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+	</DataPanel>
+    <ActionPanel>
+    	<!-- Create New Record Button -->
+        <Element Name="btn_new" 
+        			Class="Button" 
+        			Text="Add" 
+        			CssClass="button_gray_add" 
+        			Description="New record (Insert)" 
+        			Access="account.Manage">
+            <EventHandler Name="lnk_new_onclick" 
+            				Event="onclick" 
+            				EventLogMsg="" 
+            				Function="SwitchForm(account.shipping.form.AccountShippingAddressNewForm)"  
+            				ShortcutKey="Insert" 
+            				ContextMenu="New"/>
+        </Element>
+        
+        <!-- Edit Selected Record Button -->
+        <Element Name="btn_edit" 
+        			Class="Button" 
+        			Text="Edit" 
+        			CssClass="button_gray_m" 
+        			Description="Edit record (Ctrl+E)" 
+        			Access="account.Manage">
+            <EventHandler Name="btn_edit_onclick" 
+            				Event="onclick" 
+            				EventLogMsg="" 
+            				Function="EditRecord()" 
+            				RedirectPage="form=account.shipping.form.AccountShippingAddressEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
+            				ShortcutKey="Ctrl+E" 
+            				ContextMenu="Edit" />
+        </Element>
+        
+        <!-- Copy Selected Record Button -->
+        <Element Name="btn_copy" 
+        			Class="Button" 
+        			Text="Copy" 
+        			CssClass="button_gray_m" 
+        			Description="Copy record (Ctrl+C)" 
+        			Access="account.Manage">
+            <EventHandler Name="btn_copy_onclick" 
+            				Event="onclick" 
+            				EventLogMsg="" 
+            				Function="CopyRecord()" 
+            				RedirectPage="form=account.shipping.form.AccountShippingAddressCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
+            				ShortcutKey="Ctrl+C" 
+            				ContextMenu="Copy"/>
+        </Element>
+        
+        <!-- Delete Selected Record Button -->
+        <Element Name="btn_delete" 
+        			Class="Button" 
+        			Text="Delete" 
+        			CssClass="button_gray_m" 
+        			Description="Delete record"
+        			Access="account.Manage">
+            <EventHandler Name="del_onclick" 
+            				Event="onclick" 
+            				EventLogMsg="" 
+            				Function="DeleteRecord()" 
+            				ShortcutKey="Ctrl+Delete" 
+            				ContextMenu="Delete"/>
+        </Element>
+        
+        <!-- Export Records Button -->
+        <Element Name="btn_excel" 
+        			Class="Button" 
+        			Text="Export" 
+        			Description="Export records"
+        			CssClass="button_gray_m">
+            <EventHandler Name="export_onclick" 
+            				Event="onclick" 
+            				EventLogMsg="" 
+            				Function="CallService(excelService,renderCSV)" 
+            				FunctionType="Popup" 
+            				ShortcutKey="Ctrl+Shift+X" 
+            				ContextMenu="Export"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    	
+    	<!-- Page Selector -->
+		<Element  Name="page_selector" 
+					Class="PageSelector" 
+					Text="{@:m_CurrentPage}" 
+					Label="Go to Page" 
+					CssClass="input_select" 
+					CssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" 
+            				Event="onchange" 
+            				Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        
+        <!-- Page Size Selector -->
+        <Element  Name="pagesize_selector" 
+        			Class="PagesizeSelector" 
+        			Text="{@:m_Range}" 
+        			Label="Show Rows" 
+        			CssClass="input_select" 
+        			CssFocusClass="input_select_focus">
+            <EventHandler Name="btn_pagesize_selector_onchange" 
+            				Event="onchange" 
+            				Function="SetPageSize(pagesize_selector)"/>
+        </Element> 
+        
+        <!-- Goto First Page Button -->   
+        <Element  Name="btn_first" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage(1)"/>
+        </Element>
+        
+        <!-- Goto Previous Page Button -->   
+        <Element Name="btn_prev" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_CurrentPage - 1})" 
+            				ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        
+        <!-- Display Current Page / Total Pages -->
+        <Element Name="txt_page" 
+        			Class="LabelText" 
+        			Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        
+        <!-- Goto Next Page Button -->  
+        <Element Name="btn_next" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_CurrentPage + 1})" 
+            				ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        
+        <!-- Goto Last Page Button -->  
+        <Element  Name="btn_last" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+        
+    </NavPanel> 
+    <SearchPanel>
+	
+		<Element Name="qry_account_id" 
+					Class="AutoSuggest" 
+					SelectFrom="account.shipping.do.AccountShippingDO[account_id],[account_id] like '%{@:Elem[qry_account_id].Value}%' GROUP BY [account_id]" 
+					FuzzySearch="Y" 
+					FieldName="account_id" 
+					Label="" 
+					CssFocusClass="input_text_search_focus" 
+					CssClass="input_text_search" />
+        <Element Name="btn_dosearch" 
+        			Class="Button" 
+        			Text="Go" 
+        			CssClass="button_gray">
+            <EventHandler Name="search_onclick" 
+            				Event="onclick" 
+            				Function="RunSearch()" 
+            				ShortcutKey="Enter"/>
+        </Element>	
+       
+    </SearchPanel>
+</EasyForm>

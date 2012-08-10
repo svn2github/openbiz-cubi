@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="AccountBillingAddressQuickAddWidgetForm" 
+			Class="PickerForm" 
+			FormType="New" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/account/images/icon_mod_account_billing_address_add.png"
+			Title="Quick Add Account Billing Address" 
+			Description="Create a new account billing address and edit its content later." 
+			BizDataObj="account.billing.do.AccountBillingPickDO" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_data_quick_add.tpl.html" 
+			MessageFile="AccountBillingAddress.ini" 
+			Access="account.Manage">
+    <DataPanel>
+  				
+				
+       								   	
+
+
+       	<Element Name="fld_account_id" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="account_id" 
+       				Label="Account" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_name" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="name" 
+       				Label="Name" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_phone" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="phone" 
+       				Label="Phone" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_mobile" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="mobile" 
+       				Label="Mobile" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_country" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="country" 
+       				Label="Country" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_state" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="state" 
+       				Label="State" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_city" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="city" 
+       				Label="City" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_street" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="street" 
+       				Label="Street" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_zip" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="zip" 
+       				Label="Zip" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" 
+        		Class="Button" 
+        		Text="Save" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" 
+            			EventLogMsg="" 
+            			Event="onclick" 
+            			Function="insertToParent()"   
+            			ShortcutKey="Ctrl+Enter" 
+            			ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" 
+        		Class="Button" 
+        		Text="Cancel" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="onclick" 
+            			Event="onclick" 
+            			Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

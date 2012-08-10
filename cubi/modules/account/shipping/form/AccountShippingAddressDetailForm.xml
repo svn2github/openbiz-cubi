@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="AccountShippingAddressDetailForm" Class="EasyForm" FormType="Detail" jsClass="Openbiz.Form" Icon="{RESOURCE_URL}/account/images/icon_mod_account_shipping_address_detail.png" Title="Account Shipping Address Detail" Description="Account Shipping Address" BizDataObj="account.shipping.do.AccountShippingDO" TemplateEngine="Smarty" TemplateFile="form_detail.tpl.html" MessageFile="AccountShippingAddress.ini" Access="account.Access">
+  <DataPanel>
+    <Element Name="fld_account" Hidden="{@:Elem[fld_account].Value?'N':'Y'}" ElementSet="General" Class="LabelText" Label="Account" FieldName="account_name"/>
+    <Element Name="fld_Id" Class="LabelText" ElementSet="General" Hidden="Y" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+    <Element Name="fld_account_id" ElementSet="General" Class="LabelText" FieldName="account_id" Label="Account" AllowURLParam="N"/>
+    <Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
+    <Element Name="fld_phone" ElementSet="General" Class="LabelText" FieldName="phone" Label="Phone" AllowURLParam="N"/>
+    <Element Name="fld_mobile" ElementSet="General" Class="LabelText" FieldName="mobile" Label="Mobile" AllowURLParam="N"/>
+    <Element Name="fld_country" ElementSet="Address" Class="LabelText" FieldName="country" Label="Country" AllowURLParam="N"/>
+    <Element Name="fld_state" ElementSet="Address" Class="LabelText" FieldName="state" Label="State" AllowURLParam="N"/>
+    <Element Name="fld_city" ElementSet="Address" Class="LabelText" FieldName="city" Label="City" AllowURLParam="N"/>
+    <Element Name="fld_street" ElementSet="Address" Class="LabelText" FieldName="street" Label="Street" AllowURLParam="N"/>
+    <Element Name="fld_zip" ElementSet="Address" Class="LabelText" FieldName="zip" Label="Zip" AllowURLParam="N"/>
+    <Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>
+    <Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
+    <Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By" Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>
+    <Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+  </DataPanel>
+  <ActionPanel>
+    <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="New record (Insert)">
+      <EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(account.shipping.form.AccountShippingAddressNewForm)" ShortcutKey="Insert" ContextMenu="New"/>
+    </Element>
+    <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="Edit record (Ctrl+E)">
+      <EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(account.shipping.form.AccountShippingAddressEditForm,{@:Elem[fld_Id].Value})" ShortcutKey="Ctrl+E" ContextMenu="Edit"/>
+    </Element>
+    <Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="Copy record (Ctrl+C)">
+      <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=account.shipping.form.AccountShippingAddressCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+    </Element>
+    <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="Delete record (Delete)">
+      <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})" RedirectPage="{APP_INDEX}/account/account_shipping_address_manage" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+    </Element>
+    <Element Name="btn_cancel" Class="LabelBack" Text="Back" CssClass="button_gray_m" Link="account/account_shipping_address_manage"/>
+  </ActionPanel>
+  <NavPanel>
+    </NavPanel>
+  <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -9,10 +9,20 @@
     <Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description" AllowURLParam="N"/>
     <Element Name="fld_phone" ElementSet="General" Class="LabelText" FieldName="phone" Label="Phone" AllowURLParam="N"/>
     <Element Name="fld_fax" ElementSet="General" Class="LabelText" FieldName="fax" Label="Fax" AllowURLParam="N"/>
+    
+    <Element Name="fld_related_shippingaddress" TabSet="More Detail" ElementSet="Shipping Address" Class="FormElement" FormReference="account.shipping.widget.AccountShippingAddressListWidgetForm" FieldName="" Label="" AllowURLParam="N" Access="account.Access"/>
+    <Element Name="btn_manage_shippingaddress" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" TabSet="More Detail" ElementSet="Shipping Address" Class="Button" CssClass="button_gray_w" Text="Manage" Style="color:#666666;margin-left:5px;margin-top:2px;" Access="account.Access">
+      <EventHandler Name="btn_manage_shippingaddress_onclick" Event="onclick" Function="SwitchForm(account.form.AccountEditShippingAddressForm,{@:Elem[fld_Id].Value})"/>
+    </Element>
+    <Element Name="fld_related_billingaddress" TabSet="More Detail" ElementSet="Billing Address" Class="FormElement" FormReference="account.billing.widget.AccountBillingAddressListWidgetForm" FieldName="" Label="" AllowURLParam="N" Access="account.Access"/>
+    <Element Name="btn_manage_billingaddress" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" TabSet="More Detail" ElementSet="Billing Address" Class="Button" CssClass="button_gray_w" Text="Manage" Style="color:#666666;margin-left:5px;margin-top:2px;" Access="account.Access">
+      <EventHandler Name="btn_manage_billingaddress_onclick" Event="onclick" Function="SwitchForm(account.form.AccountEditBillingAddressForm,{@:Elem[fld_Id].Value})"/>
+    </Element>
+    
     <Element Name="fld_website" TabSet="Extra Information" ElementSet="Additional" Class="LabelText" FieldName="website" Label="Website" AllowURLParam="N"/>
     <Element Name="fld_employee" TabSet="Extra Information" ElementSet="Additional" Class="LabelText" FieldName="employee" Label="Employee" AllowURLParam="N"/>
     <Element Name="fld_annual_revenue" TabSet="Extra Information" ElementSet="Additional" Class="LabelText" FieldName="annual_revenue" Label=" Revenue" AllowURLParam="N"/>
-  	<Element Name="fld_extend_fields" TabSet="Extra Information" ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N"/>
+    <Element Name="fld_extend_fields" TabSet="Extra Information" ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N"/>
     <Element Name="fld_related_attachment" TabSet="Extra Information" Access="attachment.access" ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N"/>
     <Element Name="btn_manage_attachment" TabSet="Extra Information" Access="attachment.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
       <EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(account.form.AccountEditAttachmentForm,{@:Elem[fld_Id].Value})"/>

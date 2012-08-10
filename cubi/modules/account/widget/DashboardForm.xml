@@ -1,5 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
 <MenuWidget Name="DashboardForm" 
-		Title="Account" 
+		Title="Account"
+		Description="Account Module Description"  
 		Class="menu.widget.MenuWidget" 
 		CssCLass="account" 
 		BizDataObj="menu.do.MenuTreeDO" 

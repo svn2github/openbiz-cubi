@@ -5,13 +5,13 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyView Name="DashboardView" 
-	Description="Dashboard View of Account Shipping Address" 
-	Class="EasyView" 	
-	Access="" 
+<EasyView Name="AccountBillingAddressManageView" 
+	Description="Account Billing Address Management" 
+	Class="EasyView" 
+	Access="account.Access" 
 	TemplateEngine="Smarty" 
 	TemplateFile="view.tpl">
    <FormReferences>
-   		<Reference Name="account.widget.DashboardForm"/>
+   		<Reference Name="account.billing.form.AccountBillingAddressListForm"/>
    </FormReferences>       
 </EasyView>
