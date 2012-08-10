@@ -5,11 +5,10 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="AccountBillingAddressDetailForm" Class="EasyForm" FormType="Detail" jsClass="Openbiz.Form" Icon="{RESOURCE_URL}/account/images/icon_mod_account_billing_address_detail.png" Title="Account Billing Address Detail" Description="Account Billing Address" BizDataObj="account.billing.do.AccountBillingDO" TemplateEngine="Smarty" TemplateFile="form_detail.tpl.html" MessageFile="AccountBillingAddress.ini" Access="account.Access">
+<EasyForm Name="AccountBillingAddressDetailForm" Class="EasyForm" FormType="Detail" jsClass="Openbiz.Form" Icon="{RESOURCE_URL}/account/images/icon_mod_account_billing_address_detail.png" Title="Account Billing Address Detail" Description="Account Billing Address" BizDataObj="account.billing.do.AccountBillingDO" TemplateEngine="Smarty" TemplateFile="form_edit.tpl.html" MessageFile="AccountBillingAddress.ini" Access="account.Access">
   <DataPanel>
     <Element Name="fld_account" Hidden="{@:Elem[fld_account].Value?'N':'Y'}" ElementSet="General" Class="LabelText" Label="Account" FieldName="account_name"/>
     <Element Name="fld_Id" Class="LabelText" ElementSet="General" Hidden="Y" FieldName="Id" Label="Id" AllowURLParam="Y"/>
-    <Element Name="fld_account_id" ElementSet="General" Class="LabelText" FieldName="account_id" Label="Account" AllowURLParam="N"/>
     <Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" AllowURLParam="N"/>
     <Element Name="fld_phone" ElementSet="General" Class="LabelText" FieldName="phone" Label="Phone" AllowURLParam="N"/>
     <Element Name="fld_mobile" ElementSet="General" Class="LabelText" FieldName="mobile" Label="Mobile" AllowURLParam="N"/>
