@@ -870,5 +870,6 @@ background-position:left bottom;
     background-position: left 25px;
     background-repeat: no-repeat;
 }
-.content_block .content .appbuilder_bg{
+.content_block .content #appbuilder\.widget\.WelcomeForm .appbuilder_bg{
+	background-image:none;
 }
