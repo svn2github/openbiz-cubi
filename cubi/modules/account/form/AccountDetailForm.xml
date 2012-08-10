@@ -14,10 +14,17 @@
     <Element Name="btn_manage_shippingaddress" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" TabSet="More Detail" ElementSet="Shipping Address" Class="Button" CssClass="button_gray_w" Text="Manage" Style="color:#666666;margin-left:5px;margin-top:2px;" Access="account.Access">
       <EventHandler Name="btn_manage_shippingaddress_onclick" Event="onclick" Function="SwitchForm(account.form.AccountEditShippingAddressForm,{@:Elem[fld_Id].Value})"/>
     </Element>
+    
     <Element Name="fld_related_billingaddress" TabSet="More Detail" ElementSet="Billing Address" Class="FormElement" FormReference="account.billing.widget.AccountBillingAddressListWidgetForm" FieldName="" Label="" AllowURLParam="N" Access="account.Access"/>
     <Element Name="btn_manage_billingaddress" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" TabSet="More Detail" ElementSet="Billing Address" Class="Button" CssClass="button_gray_w" Text="Manage" Style="color:#666666;margin-left:5px;margin-top:2px;" Access="account.Access">
       <EventHandler Name="btn_manage_billingaddress_onclick" Event="onclick" Function="SwitchForm(account.form.AccountEditBillingAddressForm,{@:Elem[fld_Id].Value})"/>
     </Element>
+    
+    <Element Name="fld_related_contact" Access="contact.access" TabSet="More Detail" ElementSet="Alternate Contact" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+    <Element Name="btn_manage_contact" Access="contact.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" TabSet="More Detail" ElementSet="Alternate Contact" Class="Button" CssClass="button_gray_w" Text="Manage" Style="color:#666666;margin-left:5px;margin-top:2px;">
+      <EventHandler Name="btn_manage_billingaddress_onclick" Event="onclick" Function="SwitchForm(account.form.AccountEditContactForm,{@:Elem[fld_Id].Value})"/>
+    </Element>
+    
     
     <Element Name="fld_website" TabSet="Extra Information" ElementSet="Additional" Class="LabelText" FieldName="website" Label="Website" AllowURLParam="N"/>
     <Element Name="fld_employee" TabSet="Extra Information" ElementSet="Additional" Class="LabelText" FieldName="employee" Label="Employee" AllowURLParam="N"/>
