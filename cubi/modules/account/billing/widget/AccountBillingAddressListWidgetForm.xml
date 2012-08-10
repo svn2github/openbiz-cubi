@@ -18,11 +18,7 @@
 			Access="account.Access">	
     <DataPanel>           
             
-		<Element Name="row_selections" 
-        			Class="RowCheckbox"  
-        			Label="" 
-        			FieldName="Id"/>
-        			
+
 		<Element Name="fld_Id" 
         			Class="common.element.ColumnTitle" 
         			FieldName="Id" 
