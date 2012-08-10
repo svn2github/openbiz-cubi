@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<BizDataObj Name="AccountUserDO" 
+			Description="Intermediate Data Object for Account and User" 
+			Class="BizDataObj" 
+			DBName="Default" 
+			Table="account_user" 
+			DataPermControl="N" 
+			SearchRule="" 
+			SortRule="" 
+			OtherSQLRule="" 
+			IdGeneration="Identity">
+	<BizFieldList>
+	    <BizField Name="Id" Column="id" Type="Number" />
+        <BizField Name="account_id" Column="account_id" Type="Number" />
+        <BizField Name="user_id" Column="user_id" Type="Number" />
+        <BizField Name="access_level" Column="access_level" Type="Number" />
+        <BizField Name="default" Column="default" Type="Number" />
+    </BizFieldList>
+    <TableJoins/>    
+    <ObjReferences/>
+</BizDataObj>
