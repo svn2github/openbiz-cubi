@@ -867,6 +867,72 @@ line-height:18px;
 	border:0px;	
 	margin-right:5px;
 }
+
+
+.input_text_bar{
+	width:110px;
+	height:18px;
+	border:none;
+	padding-left:10px;
+	padding-right:10px;
+	background-image:url(../images/input_bar.gif);
+	background-position:0px 0px;
+	background-repeat:no-repeat;
+	overflow:hidden;
+	display:block;
+	float:left;
+	color:#999999;
+	line-height:18px;
+	border:0px;	
+	margin-right:5px;
+
+}
+.input_text_bar:focus{
+	background-position:0px bottom;
+	color:#454545;
+}
+.input_text_bar_focus{
+	line-height:18px;
+	width:110px;
+	height:18px;
+	border:none;
+	padding-left:10px;
+	padding-right:10px;
+	background-image:url(../images/input_bar.gif);
+	background-position:0px bottom;
+	background-repeat:no-repeat;
+	overflow:hidden;
+	display:block;
+	float:left;
+	color:#454545;	
+	border:0px;	
+	margin-right:5px;
+}
+.input_text_bar_error{
+line-height:18px;
+	width:110px;
+	height:18px;
+	border:none;
+	padding-left:10px;
+	padding-right:10px;
+	background-image:url(../images/input_bar.gif);
+	background-position:0px bottom;
+	background-repeat:no-repeat;
+	overflow:hidden;
+	display:block;
+	float:left;
+	color:#454545;	
+	border:0px;	
+	margin-right:5px;
+}
+.input_text_bar:hover{
+	background-position:0px -20px;
+	color:#454545;
+	width:110px;
+	height:18px;	
+	padding-left:10px;
+}
+
 .button_gray_add{
 	width:54px;
 	height:20px;
