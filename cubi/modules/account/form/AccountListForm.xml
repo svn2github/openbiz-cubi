@@ -173,22 +173,7 @@
             				ShortcutKey="Ctrl+E" 
             				ContextMenu="Edit" />
         </Element>
-        
-        <!-- Copy Selected Record Button -->
-        <Element Name="btn_copy" 
-        			Class="Button" 
-        			Text="Copy" 
-        			CssClass="button_gray_m" 
-        			Description="Copy record (Ctrl+C)" 
-        			Access="account.Manage">
-            <EventHandler Name="btn_copy_onclick" 
-            				Event="onclick" 
-            				EventLogMsg="" 
-            				Function="CopyRecord()" 
-            				RedirectPage="form=account.form.AccountCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
-            				ShortcutKey="Ctrl+C" 
-            				ContextMenu="Copy"/>
-        </Element>
+       
         
         <!-- Delete Selected Record Button -->
         <Element Name="btn_delete" 

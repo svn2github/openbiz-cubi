@@ -53,31 +53,63 @@ CREATE TABLE IF NOT EXISTS `account_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
--- Dumping structure for table: `account_industry`
 
-DROP TABLE IF EXISTS `account_industry`;
-CREATE TABLE `account_industry` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `account_billing_address` ;
+CREATE TABLE IF NOT EXISTS `account_billing_address` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `account_id` int(10) unsigned NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL,
-  `description` text,
-  `owner_id` int(11) DEFAULT '0',
-  `group_id` int(11) DEFAULT '1',
-  `group_perm` int(11) DEFAULT '1',
-  `other_perm` int(11) DEFAULT '1',
-  `status` int(2) NOT NULL,
-  `update_by` int(11) NOT NULL,
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `phone` varchar(255) NOT NULL,
+  `mobile` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,  
+  `state` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `street` varchar(255) NOT NULL,
+  `zip` int(11) NOT NULL,
   `create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,  
   PRIMARY KEY (`id`),
-  KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Industry ';
+  KEY `account_id` (`account_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS `account_shipping_address` ;
+CREATE TABLE IF NOT EXISTS `account_shipping_address` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `account_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `mobile` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,  
+  `state` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `street` varchar(255) NOT NULL,
+  `zip` int(11) NOT NULL,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,  
+  PRIMARY KEY (`id`),
+  KEY `account_id` (`account_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS `account_user` ;
+CREATE TABLE IF NOT EXISTS `account_user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `account_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `user_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `access_level` int(10) unsigned NOT NULL DEFAULT '0',
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,  
+  PRIMARY KEY (`id`),
+  KEY `account_id` (`account_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
 
 DROP TABLE IF EXISTS `account_product` ;
-
-
 CREATE TABLE IF NOT EXISTS `account_product` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `account_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -88,14 +120,4 @@ CREATE TABLE IF NOT EXISTS `account_product` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
-DROP TABLE IF EXISTS `account_product` ;
 
-
-CREATE TABLE IF NOT EXISTS `account_product` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `account_id` int(10) unsigned NOT NULL DEFAULT '0',
-  `product_id` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `account_id` (`account_id`),
-  KEY `product_id` (`product_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

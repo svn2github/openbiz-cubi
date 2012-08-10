@@ -12,7 +12,7 @@
             <MenuItem Name="account_account_manage" Title="Account Manage" Description="Manage of Account" URL="{APP_INDEX}/account/account_manage" IconImage="spacer.gif" IconCssClass="" Order="50" Access="">
             <MenuItem Name="account_account_detail" Title="Account Detail" Description="Detail of Account" URL="{APP_INDEX}/account/account_detail" IconImage="spacer.gif" IconCssClass="" Order="50" Access=""/>
         </MenuItem>
-        <MenuItem Name="account_account_type" Title="Account Type" Description="Type of Account" URL="{APP_INDEX}/account/account_type" IconImage="spacer.gif" IconCssClass="" Order="60" Access="">
+        <MenuItem Name="account_account_type" Title="Account Type" Description="Type of Account" URL="{APP_INDEX}/account/account_type" IconImage="spacer.gif" IconCssClass="" Order="90" Access="">
     </MenuItem>
 
 </MenuItem>

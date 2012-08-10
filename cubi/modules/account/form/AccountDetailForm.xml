@@ -13,17 +13,7 @@
     <Element Name="fld_website" ElementSet="Additional" Class="LabelText" FieldName="website" Label="Website" AllowURLParam="N"/>
     <Element Name="fld_employee" ElementSet="Additional" Class="LabelText" FieldName="employee" Label="Employee" AllowURLParam="N"/>
     <Element Name="fld_annual_revenue" ElementSet="Additional" Class="LabelText" FieldName="annual_revenue" Label=" Revenue" AllowURLParam="N"/>
-    <Element Name="fld_billing_country" ElementSet="Billing" Class="LabelText" FieldName="billing_country" Label=" Country" AllowURLParam="N"/>
-    <Element Name="fld_billing_zip" ElementSet="Billing" Class="LabelText" FieldName="billing_zip" Label=" Zip" AllowURLParam="N"/>
-    <Element Name="fld_billing_state" ElementSet="Billing" Class="LabelText" FieldName="billing_state" Label=" State" AllowURLParam="N"/>
-    <Element Name="fld_billing_city" ElementSet="Billing" Class="LabelText" FieldName="billing_city" Label=" City" AllowURLParam="N"/>
-    <Element Name="fld_billing_street" ElementSet="Billing" Class="LabelText" FieldName="billing_street" Label=" Street" AllowURLParam="N"/>
-    <Element Name="fld_shipping_country" ElementSet="Shipping" Class="LabelText" FieldName="shipping_country" Label=" Country" AllowURLParam="N"/>
-    <Element Name="fld_shipping_zip" ElementSet="Shipping" Class="LabelText" FieldName="shipping_zip" Label=" Zip" AllowURLParam="N"/>
-    <Element Name="fld_shipping_state" ElementSet="Shipping" Class="LabelText" FieldName="shipping_state" Label=" State" AllowURLParam="N"/>
-    <Element Name="fld_shipping_city" ElementSet="Shipping" Class="LabelText" FieldName="shipping_city" Label=" City" AllowURLParam="N"/>
-    <Element Name="fld_shipping_street" ElementSet="Shipping" Class="LabelText" FieldName="shipping_street" Label=" Street" AllowURLParam="N"/>
-    <Element Name="fld_extend_fields" ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N"/>
+  	<Element Name="fld_extend_fields" ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N"/>
     <Element Name="fld_related_attachment" TabSet="Extra Information" Access="attachment.access" ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N"/>
     <Element Name="btn_manage_attachment" TabSet="Extra Information" Access="attachment.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
       <EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(account.form.AccountEditAttachmentForm,{@:Elem[fld_Id].Value})"/>
@@ -60,9 +50,6 @@
     </Element>
     <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="Edit record (Ctrl+E)">
       <EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(account.form.AccountEditForm,{@:Elem[fld_Id].Value})" ShortcutKey="Ctrl+E" ContextMenu="Edit"/>
-    </Element>
-    <Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="Copy record (Ctrl+C)">
-      <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=account.form.AccountCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
     </Element>
     <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="Delete record (Delete)">
       <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})" RedirectPage="{APP_INDEX}/account/account_manage" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
