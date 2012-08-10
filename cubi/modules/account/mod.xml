@@ -1,27 +1,115 @@
 <?xml version="1.0" standalone="no"?>
-<Module Name="account" Description="Account Module Description" Version="0.42" OpenbizVersion="3.0" Author="System, Admin" LoadHandler="AccountLoadHandler.php">
-    <ACL>
-        <Resource Name="account">
-            <Action Name="Access" Description="Data access permission of account"/>
-            <Action Name="Manage" Description="Data manage permission of account"/>
-        </Resource>
-    </ACL>
-    <Menu>
-    <MenuItem Name="account" Title="Account" Description="" URL="{APP_INDEX}/account/dashboard" Order="50" Access="account.Access">
-        <MenuItem Name="account_account" Title="Account" Description="" URL="" IconImage="spacer.gif" IconCssClass="icon_account" Order="50" Access="">
-            <MenuItem Name="account_account_manage" Title="Account Manage" Description="Manage of Account" URL="{APP_INDEX}/account/account_manage" IconImage="spacer.gif" IconCssClass="" Order="50" Access="">
-            <MenuItem Name="account_account_detail" Title="Account Detail" Description="Detail of Account" URL="{APP_INDEX}/account/account_detail" IconImage="spacer.gif" IconCssClass="" Order="50" Access=""/>
-        </MenuItem>
-        <MenuItem Name="account_account_type" Title="Account Type" Description="Type of Account" URL="{APP_INDEX}/account/account_type" IconImage="spacer.gif" IconCssClass="" Order="90" Access="">
-    </MenuItem>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<Module Name="account" 
+		Description="Account Module Description" 
+		Version="0.1" 
+		OpenbizVersion="3.0" 
+		Author="System, Admin"
+		LoadHandler="AccountLoadHandler.php" >
+	<ACL>
+		<Resource Name="account">
+			<Action Name="Access" 
+					Description="Data access permission of account"/>
+			<Action Name="Manage" 
+					Description="Data manage permission of account"/>
+		</Resource>
+	</ACL>
+	<Menu>
+		<MenuItem Name="account" 
+				Title="Account" 
+				Description="" 
+				URL="{APP_INDEX}/account/dashboard" 
+				Order="50" 
+				Access="account.Access">		
+	        <MenuItem Name="account_account" 
+	        			Title="Account" 	        			
+	        			Description="" 
+	        			URL="" 
+	        			IconImage="spacer.gif" 
+	        			IconCssClass="icon_account" 
+	        			Order="50" 
+	        			Access="" >
+	        			
+				<MenuItem Name="account_account_manage" 
+		        			Title="Account Manage" 	        			
+		        			Description="Manage of Account" 
+		        			URL="{APP_INDEX}/account/account_manage" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="50" 
+		        			Access="" >
+						<MenuItem Name="account_account_detail" 
+				        			Title="Account Detail" 	        			
+				        			Description="Detail of Account" 
+				        			URL="{APP_INDEX}/account/account_detail" 
+				        			IconImage="spacer.gif" 
+				        			IconCssClass="" 
+				        			Order="50" 
+				        			Access="" />
+		        </MenuItem>		
+	        			
+				<MenuItem Name="account_account_type" 
+		        			Title="Account Type" 	        			
+		        			Description="Type of Account" 
+		        			URL="{APP_INDEX}/account/account_type" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="55" 
+		        			Access="" >
+		        </MenuItem>		
+	        			
+				<MenuItem Name="account_billing_manage" 
+		        			Title="Billing Address" 	        			
+		        			Description="Manage of Billing Addresses" 
+		        			URL="{APP_INDEX}/account/account_billing_address_manage" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="60" 
+		        			Access="account.Access" >
+						<MenuItem Name="account_billing_detail" 
+				        			Title="Billing Detail" 	        			
+				        			Description="Detail of Billing" 
+				        			URL="{APP_INDEX}/account/account_billing_address_detail" 
+				        			IconImage="spacer.gif" 
+				        			IconCssClass="" 
+				        			Order="50" 
+				        			Access="account.Access" />
+		        </MenuItem>		
+	        			
+				<MenuItem Name="account_shipping_manage" 
+		        			Title="Shipping Address" 	        			
+		        			Description="Manage of Shipping Addresses"  
+		        			URL="{APP_INDEX}/account/account_shipping_address_manage" 
+		        			IconImage="spacer.gif" 
+		        			IconCssClass="" 
+		        			Order="70" 
+		        			Access="" >
+						<MenuItem Name="account_shipping_detail" 
+				        			Title="Shipping Detail" 	        			
+				        			Description="Detail of Shipping" 
+				        			URL="{APP_INDEX}/account/account_shipping_address_detail" 
+				        			IconImage="spacer.gif" 
+				        			IconCssClass="" 
+				        			Order="50" 
+				        			Access="" />
+		        </MenuItem>		
+		        
+		        
 
-</MenuItem>
-</MenuItem>
-</Menu>
-<Dependency>
-    <Module Name="system"/>
-    <Module Name="menu"/>
-</Dependency>
-<ChangeLog>
-</ChangeLog>
+		        
+			</MenuItem>
+		</MenuItem>	
+	</Menu>
+	<Dependency>
+		<Module Name="system" /> 
+		<Module Name="menu" /> 
+	</Dependency>	
+	<ChangeLog>
+	    
+	</ChangeLog>    
 </Module>
