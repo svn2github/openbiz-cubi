@@ -5,7 +5,7 @@
 			jsClass="Openbiz.TableForm" 
 			Icon="{RESOURCE_URL}/account/images/icon_mod_account_list.png"
 			Title="Account Management" 
-			Description="Account Description" 
+			Description="Typically account means a client company. Each account can be managed by multiple users." 
 			BizDataObj="account.do.AccountDO" 
 			PageSize="10" 
 			DefaultForm="Y" 
