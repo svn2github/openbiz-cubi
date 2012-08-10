@@ -867,7 +867,7 @@ line-height:18px;
 
 }
 .input_text_bar:focus{
-	background-position:0px bottom;
+	background-position:0px -40px;
 	color:#454545;
 }
 .input_text_bar_focus{
@@ -878,7 +878,7 @@ line-height:18px;
 	padding-left:10px;
 	padding-right:10px;
 	background-image:url(../images/input_bar.gif);
-	background-position:0px bottom;
+	background-position:0px -40px;
 	background-repeat:no-repeat;
 	overflow:hidden;
 	display:block;
@@ -900,7 +900,7 @@ line-height:18px;
 	overflow:hidden;
 	display:block;
 	float:left;
-	color:#454545;	
+	color:#ff0000;	
 	border:0px;	
 	margin-right:5px;
 }
