@@ -16,8 +16,8 @@
     <Element Name="fld_status" Class="LabelBool" ElementSet="General" FieldName="status" Label="Status" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">				
 		</Element>
     <Element Name="fld_extend_fields" ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N"/>
-    <Element Name="fld_related_goods" TabSet="Extra Information" ElementSet="Goods" Class="FormElement" FormReference="store.product.widget.StoreProductListWidgetForm" FieldName="" Label="" AllowURLParam="N" Access="store.Access"/>
-    <Element Name="btn_manage_goods" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" TabSet="Extra Information" ElementSet="Goods" Class="Button" CssClass="button_gray_w" Text="Manage" Style="color:#666666;margin-left:5px;margin-top:2px;" Access="store.Access">
+    <Element Name="fld_related_goods" Access="store.Access" TabSet="Extra Information" ElementSet="Store Goods" Class="FormElement" FormReference="store.product.widget.StoreProductListWidgetForm" FieldName="" Label="" AllowURLParam="N" />
+    <Element Name="btn_manage_goods" Access="store.Access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" TabSet="Extra Information" ElementSet="Store Goods" Class="Button" CssClass="button_gray_w" Text="Manage" Style="color:#666666;margin-left:5px;margin-top:2px;" >
       <EventHandler Name="btn_manage_goods_onclick" Event="onclick" Function="SwitchForm(product.form.ProductEditGoodsForm,{@:Elem[fld_Id].Value})"/>
     </Element>
     <Element Name="fld_related_attachment" TabSet="Extra Information" Access="attachment.access" ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N"/>
