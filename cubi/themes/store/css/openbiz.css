@@ -1164,7 +1164,8 @@ line-height:24px;
 }
 
 table.input_row td{
-	vertical-align:top;
+	/*vertical-align:top;*/
+	vertical-align:center;
 }
 table.input_row label{
 /*width:80px; */
