@@ -47,15 +47,7 @@
    
     
    
-    
-		<Element Name="fld_sku" 
-        			Class="ColumnText" 
-        			FieldName="sku" 
-        			Label="SKU Number"         			 
-        			Sortable="Y" 
-        			MaxLength="15"
-        			Link="{APP_INDEX}/product/product_detail/{@:Elem[fld_Id].Value}"        			
-        			 /> 
+
         	
    
     
