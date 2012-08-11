@@ -24,7 +24,7 @@
 				Title="Product" 
 				Description="" 
 				URL="{APP_INDEX}/product/dashboard" 
-				Order="50" 
+				Order="60" 
 				Access="product.Access">		
 	        <MenuItem Name="product_product" 
 	        			Title="Product" 	        			
