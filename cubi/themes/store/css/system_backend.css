@@ -497,6 +497,9 @@ padding-bottom:5px;
 	text-align:left;
 	padding-left:1px;
 }
+#main #right_panel .content table.input_row td .label_text img {    
+    margin-top: 6px;    
+}
 #main #right_panel .content table.input_row td .label_textarea{
 	width:700px;
 	display:block;
