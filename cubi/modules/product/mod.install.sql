@@ -4,7 +4,6 @@ DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(11) NOT NULL,
-  `sku` varchar(255) NOT NULL COMMENT 'SKU Number',
   `name` varchar(255) NOT NULL,
   `description` text,
   `owner_id` int(11) DEFAULT '0',

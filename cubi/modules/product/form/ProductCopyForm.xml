@@ -40,24 +40,7 @@
 				AllowURLParam="N" />
 				
   	  
-       								   	
 
-		
-
-       								   	
-
-		
-
-       	<Element Name="fld_sku" 
-       				ElementSet="General"
-       				Class="InputText" 
-       				FieldName="sku" 
-       				Label="SKU Number" 
-       				AllowURLParam="N"
-       				/>   
-       								   	
-
-		
 
        	<Element Name="fld_name" 
        				ElementSet="General"

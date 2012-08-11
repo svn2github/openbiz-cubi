@@ -7,7 +7,7 @@
 -->
 <Module Name="product" 
 		Description="Product Module Description" 
-		Version="0.1" 
+		Version="0.2" 
 		OpenbizVersion="3.0" 
 		Author="System, Admin"
 		LoadHandler="ProductLoadHandler.php" >

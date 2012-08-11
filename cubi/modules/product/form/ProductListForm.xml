@@ -51,22 +51,7 @@
 							Event="onclick" 
 							Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
 		</Element>
-			        			     
-   
-    
-   
-    
-		<Element Name="fld_sku" 
-        			Class="ColumnText" 
-        			FieldName="sku" 
-        			Label="SKU Number"         			 
-        			Sortable="Y" 
-        			MaxLength="15"
-        			Link="{APP_INDEX}/product/product_detail/{@:Elem[fld_Id].Value}"        			
-        			 
-					/> 
-        	
-   
+
     
 		<Element Name="fld_name" 
         			Class="ColumnText" 
@@ -75,26 +60,7 @@
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />    
-        	
-   
-    
-		<Element Name="fld_description" 
-        			Class="ColumnText" 
-        			FieldName="description" 
-        			Label="Description" 
-        			MaxLength="15"        			 
-        			Sortable="Y"
-        			 />    
-        	
-   
-    
-   
-    
-   
-    
-   
-    
-   
+
     
 		<Element Name="fld_status" 
 					Class="ColumnBool" 

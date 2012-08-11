@@ -9,7 +9,6 @@
   <BizFieldList>
     <BizField Name="Id" Description="Id" Column="id" Required="N" Type="Number"/>
     <BizField Name="type_id" Description="Type Id" Column="type_id" Type="Number" Required="N"/>
-    <BizField Name="sku" Description="SKU Number" Column="sku" Type="Text" Required="N"/>
     <BizField Name="name" Description="Name" Column="name" Type="Text" Required="N"/>
     <BizField Name="description" Description="Description" Column="description" Type="Text" Required="N"/>
     <BizField Name="owner_id" Description="Owner Id" Column="owner_id" ValueOnCreate="{@profile:Id}" Required="N" Type="Number"/>
