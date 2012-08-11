@@ -10,8 +10,8 @@
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
 			Icon="{RESOURCE_URL}/product/images/icon_mod_product_list.png"
-			Title="Product Data Management" 
-			Description="Product Description" 
+			Title="Product Management" 
+			Description="You can manage products in this module. These product data could be used by Store or Inventory apps." 
 			BizDataObj="product.do.ProductDO" 
 			PageSize="10" 
 			DefaultForm="Y" 
@@ -57,7 +57,16 @@
         			Class="ColumnText" 
         			FieldName="name" 
         			Label="Name" 
-        			MaxLength="15"        			 
+        			MaxLength="25"        			 
+        			Sortable="Y"
+        			Link="{@APP_INDEX}/product/product_detail/{@Elem[fld_Id].Value}"
+        			 />    
+
+		<Element Name="fld_desc" 
+        			Class="ColumnText" 
+        			FieldName="description" 
+        			Label="Description" 
+        			MaxLength="10"        			 
         			Sortable="Y"
         			 />    
 

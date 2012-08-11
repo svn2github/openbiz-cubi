@@ -33,12 +33,7 @@
 				Type="Number"
 				Required="N" 
 				 />
-		<BizField Name="sku"		
-				Description="SKU Number"	
-				Column="sku" 
-				Type="Text"
-				Required="N" 
-				 />
+
 		<BizField Name="name"		
 				Description="Name"	
 				Column="name" 
