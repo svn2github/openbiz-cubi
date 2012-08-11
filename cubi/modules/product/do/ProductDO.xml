@@ -33,5 +33,6 @@
     <Object Name="product.do.ProductRefDO" Description="Reference to Related Records" Relationship="Self-Self" Table="product" Column="id" FieldRef="Id" OnDelete="SetNull" OnUpdate="" XTable="product_related" XColumn1="product_id" XColumn2="related_id" XDataObj="product.do.ProductRelatedDO"/>
     <Object Name="extend.do.ExtendDataDO" Description="Reference to Extend Data Field Record" Relationship="1-M" Table="extend_data" CondColumn="module" CondValue="product" Column="type_id" FieldRef="type_id" Column2="record_id" FieldRef2="Id" onDelete="Cascade"/>
     <Object Name="account.do.AccountDO" Description="Reference to account.do.AccountDO with M-M relationship" Relationship="M-M" Table="account" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="Cascade" XTable="account_product" XColumn1="product_id" XColumn2="account_id" XDataObj="product.do.ProductAccountDO"/>
+    <Object Name="store.product.do.ProductDO" Description="Reference to store" Relationship="1-M" Table="store_product" Column="product_id" FieldRef="Id"/>
   </ObjReferences>
 </BizDataObj>
