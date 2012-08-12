@@ -6,6 +6,7 @@
     <Element Name="fld_form_title" Class="LabelText" FieldName="name" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N"/>
     <Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="color" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
     <Element Name="fld_form_description" BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="description" Label="" KeepCookie="Y" SelectFrom="account.do.AccountTypeDO[name:Id:color]" AllowURLParam="N"/>
+
     
    <Element Name="fld_published" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
     <Element Name="fld_published_other" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
