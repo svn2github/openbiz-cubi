@@ -6,7 +6,7 @@
   Version $Id$
 -->
 <EasyForm Name="AccountShippingAddressQuickAddWidgetForm" 
-			Class="PickerForm" 
+			Class="account.lib.AddressPickerForm" 
 			FormType="New" 
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/account/images/icon_mod_account_shipping_address_add.png"
@@ -23,97 +23,18 @@
        								   	
 
 
-       	<Element Name="fld_account_id" 
-       				ElementSet="General" 
-       				Class="InputText" 
-       				FieldName="account_id" 
-       				Label="Account" 
-       				AllowURLParam="N"/>     
-       								   	
+<Element Name="fld_account" ElementSet="General" Class="Hidden" FieldName="account_id" Label="Account"/>
+    <Element Name="fld_account_name" ElementSet="General" Class="InputPicker" FieldName="account_name" Label="Account" Enabled="N" UpdateForm="Y" ValuePicker="account.widget.AccountSinglePickWidgetForm" PickerMap="fld_account:fld_Id,fld_account_name:fld_name" />
 
 
-       	<Element Name="fld_name" 
-       				ElementSet="General" 
-       				Class="InputText" 
-       				FieldName="name" 
-       				Label="Name" 
-       				AllowURLParam="N"/>     
-       								   	
-
-
-       	<Element Name="fld_phone" 
-       				ElementSet="General" 
-       				Class="InputText" 
-       				FieldName="phone" 
-       				Label="Phone" 
-       				AllowURLParam="N"/>     
-       								   	
-
-
-       	<Element Name="fld_mobile" 
-       				ElementSet="General" 
-       				Class="InputText" 
-       				FieldName="mobile" 
-       				Label="Mobile" 
-       				AllowURLParam="N"/>     
-       								   	
-
-
-       	<Element Name="fld_country" 
-       				ElementSet="General" 
-       				Class="InputText" 
-       				FieldName="country" 
-       				Label="Country" 
-       				AllowURLParam="N"/>     
-       								   	
-
-
-       	<Element Name="fld_state" 
-       				ElementSet="General" 
-       				Class="InputText" 
-       				FieldName="state" 
-       				Label="State" 
-       				AllowURLParam="N"/>     
-       								   	
-
-
-       	<Element Name="fld_city" 
-       				ElementSet="General" 
-       				Class="InputText" 
-       				FieldName="city" 
-       				Label="City" 
-       				AllowURLParam="N"/>     
-       								   	
-
-
-       	<Element Name="fld_street" 
-       				ElementSet="General" 
-       				Class="InputText" 
-       				FieldName="street" 
-       				Label="Street" 
-       				AllowURLParam="N"/>     
-       								   	
-
-
-       	<Element Name="fld_zip" 
-       				ElementSet="General" 
-       				Class="InputText" 
-       				FieldName="zip" 
-       				Label="Zip" 
-       				AllowURLParam="N"/>     
-       								   	
-
-
-       								   	
-
-
-       								   	
-
-
-       								   	
-
-
-       								   	
+      <Element Name="fld_name" ElementSet="General" Class="InputText" FieldName="name" Label="Name" AllowURLParam="N"/>
+    <Element Name="fld_phone" ElementSet="General" Class="InputText" FieldName="phone" Label="Phone" AllowURLParam="N"/>
+    <Element Name="fld_mobile" ElementSet="General" Class="InputText" FieldName="mobile" Label="Mobile" AllowURLParam="N"/>
+    <Element Name="fld_country" ElementSet="Address" Class="InputText" FieldName="country" Label="Country" AllowURLParam="N"/>
+    <Element Name="fld_state" ElementSet="Address" Class="InputText" FieldName="state" Label="State" AllowURLParam="N"/>
+    <Element Name="fld_city" ElementSet="Address" Class="InputText" FieldName="city" Label="City" AllowURLParam="N"/>
+    <Element Name="fld_street" ElementSet="Address" Class="InputText" FieldName="street" Label="Street" AllowURLParam="N"/>
+    <Element Name="fld_zip" ElementSet="Address" Class="InputText" FieldName="zip" Label="Zip" AllowURLParam="N"/>
 
 
        

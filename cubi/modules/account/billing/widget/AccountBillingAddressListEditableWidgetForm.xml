@@ -102,7 +102,7 @@
         <Element Name="btn_spacer" 
         		Class="Spacer" 
         		Width="10" /> 
-        		   
+        <!-- 
         <Element Name="btn_pick" 
         		Class="Button" 
         		Text="Pick Data" 
@@ -111,13 +111,14 @@
             			Event="onclick" 
             			Function="LoadDialog(account.billing.widget.AccountBillingAddressMultiPickWidgetForm)"/>
         </Element>
+         -->
         <Element Name="btn_remove" 
         		Class="Button" 
-        		Text="Remove" 
+        		Text="Delete" 
         		CssClass="button_gray_w">
             <EventHandler Name="remove_onclick" 
             			Event="onclick" 
-            			Function="RemoveRecord()"/>
+            			Function="DeleteRecord()"/>
         </Element>
     </ActionPanel> 
     <NavPanel>
