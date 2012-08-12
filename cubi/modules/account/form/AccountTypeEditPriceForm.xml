@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="AccountTypeEditPriceForm" Class="EasyForm" FormType="Detail" jsClass="Openbiz.Form" Icon="{RESOURCE_URL}/account/images/icon_mod_account_type_detail.png" Title="CRM Account Type Detail" Description="Please fill in below field to create a new data type." BizDataObj="account.do.AccountTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_detail_elementset.tpl.html" EventName="Account" MessageFile="Account.ini" Access="account.Access">
+  <DataPanel>
+    <Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+    <Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
+    <Element Name="fld_description" ElementSet="General" Class="LabelText" FieldName="description" Label="Description" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
+    <Element Name="fld_color_code" ElementSet="General" Class="ColorPicker" Mode="viewOnly" FieldName="color" Label="Color Code" AllowURLParam="N"/>
+    <Element Name="fld_published" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
+    <Element Name="fld_published_other" ElementSet="General" Class="LabelList" SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
+    <Element Name="fld_sortorder" ElementSet="General" Class="LabelText" SelectFrom="common.lov.CommLOV(Order)" FieldName="sortorder" Label="Ordering" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>
+    <Element Name="fld_related_price" Access="store.Access" ElementSet="Price" TabSet="Related Data" Class="FormElement" FormReference="store.price.widget.StoreProductPriceListEditableWidgetForm"/>
+  </DataPanel>
+  <ActionPanel>
+    <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+      <EventHandler Name="btn_save_onclick" Event="onclick" ShortcutKey="Ctrl+Enter" ContextMenu="Save" Function="SwitchForm(account.form.AccountTypeDetailForm,{@:Elem[fld_Id].Value})"/>
+    </Element>
+    <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+      <EventHandler Name="btn_cancel_onclick" Event="onclick" ShortcutKey="Escape" ContextMenu="Cancel" Function="SwitchForm()"/>
+    </Element>
+  </ActionPanel>
+  <NavPanel>
+    </NavPanel>
+  <SearchPanel>
+    </SearchPanel>
+</EasyForm>

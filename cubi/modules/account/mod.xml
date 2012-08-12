@@ -61,6 +61,14 @@
 		        			IconCssClass="" 
 		        			Order="60" 
 		        			Access="" >
+		        			<MenuItem Name="account_account_typedetail" 
+				        			Title="Account Type Detail" 	        			
+				        			Description="Detail of Account" 
+				        			URL="{APP_INDEX}/account/account_type_detail" 
+				        			IconImage="spacer.gif" 
+				        			IconCssClass="" 
+				        			Order="50" 
+				        			Access="" />
 		        </MenuItem>		
 	        			
 				<MenuItem Name="account_billing_manage" 

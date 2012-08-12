@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="AccountTypeSinglePickWidgetForm" 
+			Class="PickerForm"			  
+			FormType="List" 
+			Icon="{RESOURCE_URL}/account/images/icon_mod_account_list.png"
+			Title="Please select a CRM Account" 
+			Description="To select a crm account click on a row and click to Select button" 
+			jsClass="Openbiz.TableForm" 
+			BizDataObj="account.do.AccountTypePickDO" 
+			PageSize="10" 
+			DefaultForm="Y" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_data_picker.tpl.html" 
+			MessageFile="Account.ini" 
+			Access="account.Access">	
+    <DataPanel>
+            
+        			
+		<Element Name="fld_Id" 
+        			Class="common.element.ColumnTitle" 
+        			FieldName="Id" 
+        			Label="ID" 
+        			Sortable="Y" 
+        			AllowURLParam="N" 
+        			Link="javascript:;" />   
+      <Element Name="fld_share" 
+        		Class="ColumnShare" 
+				MyPrivateImg="{RESOURCE_URL}/account/images/icon_data_type_private.gif"
+				MySharedImg="{RESOURCE_URL}/account/images/icon_data_type_shared.gif"  
+				GroupSharedImg="{RESOURCE_URL}/account/images/icon_data_type_shared_group.gif"
+				OtherSharedImg="{RESOURCE_URL}/account/images/icon_data_type_shared_other.gif"				
+				FieldName="create_by" 
+				Label="Share"  
+				Sortable="Y" 
+				AllowURLParam="N" 
+				Translatable="N" 
+				OnEventLog="N" 
+				Link="javascript:;">
+			<EventHandler Name="fld_share_onclick" 
+							Event="onclick" 
+							Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
+		</Element>
+        <Element Name="fld_Id" 
+        		Class="Hidden" 
+        		Hidden="Y" 
+        		FieldName="Id" 
+        		Label="ID" 
+        		Sortable="Y" 
+        		AllowURLParam="N" />
+        <Element Name="fld_name" 
+        		Class="ColumnText" 
+        		FieldName="name" 
+        		Label="Name"  
+        		Sortable="Y" 
+        		AllowURLParam="N" 
+        		Translatable="N" 
+        		OnEventLog="N" 
+        		Link="javascript:">         
+         	
+        </Element>	
+        <Element Name="fld_description"  
+        		MaxLength="30"  
+        		Class="ColumnText" 
+        		FieldName="description" 
+        		Label="Description"  
+        		Sortable="Y" 
+        		AllowURLParam="N" 
+        		Translatable="N" 
+        		OnEventLog="N" />	
+        <Element Name="fld_color_code" 
+        		Class="ColorPicker" 
+        		Mode="ViewOnly" 
+        		FieldName="color" 
+        		Label="Color Code"  
+        		Sortable="Y">
+        </Element>
+        <Element Name="fld_status" 
+        		Class="ColumnBool" 
+        		FieldName="group_perm" 
+        		Label="Group Share"  
+        		Sortable="Y" 
+        		AllowURLParam="N" 
+        		Translatable="N"
+        		OnEventLog="N" 
+        		Link="javascript:;">
+				
+		</Element>					        
+ 
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_select" 
+        		Class="Button" 
+        		Text="Select" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="btn_select_onclick" 
+            			Event="onclick" 
+            			Function="PickToParent()"/>
+        </Element>
+        <Element Name="btn_close" 
+        		Class="Button" 
+        		Text="Close" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="btn_close_onclick" 
+            			Event="onclick" 
+            			Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+   <NavPanel>
+    	
+    	<!-- Page Selector -->
+		<Element  Name="page_selector" 
+					Class="PageSelector" 
+					Text="{@:m_CurrentPage}" 
+					Label="Go to Page" 
+					CssClass="input_select" 
+					CssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" 
+            				Event="onchange" 
+            				Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        
+        <!-- Page Size Selector -->
+        <Element  Name="pagesize_selector" 
+        			Class="PagesizeSelector" 
+        			Text="{@:m_Range}" 
+        			Label="Show Rows" 
+        			CssClass="input_select" 
+        			CssFocusClass="input_select_focus">
+            <EventHandler Name="btn_pagesize_selector_onchange" 
+            				Event="onchange" 
+            				Function="SetPageSize(pagesize_selector)"/>
+        </Element> 
+        
+        <!-- Goto First Page Button -->   
+        <Element  Name="btn_first" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage(1)"/>
+        </Element>
+        
+        <!-- Goto Previous Page Button -->   
+        <Element Name="btn_prev" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_CurrentPage - 1})" 
+            				ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        
+        <!-- Display Current Page / Total Pages -->
+        <Element Name="txt_page" 
+        			Class="LabelText" 
+        			Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        
+        <!-- Goto Next Page Button -->  
+        <Element Name="btn_next" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_CurrentPage + 1})" 
+            				ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        
+        <!-- Goto Last Page Button -->  
+        <Element  Name="btn_last" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+        
+    </NavPanel>  
+    <SearchPanel>
+		<!-- Data Permission Filter -->  
+		<Element Name="data_filter" 
+    				BlankOption="All Data" 
+    				Cssclass="input_select_m" 
+    				Class="common.element.ShareDataFilter" 
+    				FieldName="create_by" 
+    				SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
+            <EventHandler Name="datafilter_onchange" 
+            				Event="onchange" 
+            				Function="RunSearch()"/>
+        </Element>  
+      
+		<!-- Data Type Filter -->  
+    	<Element Name="type_selector"  
+    				BlankOption="All Types" 
+    				Cssclass="input_select_m" 
+    				Class="common.lib.TypeSelector" 
+    				FieldName="type_id" 
+    				SelectFrom="account.do.AccountTypeDO[name:Id:color]" >
+            <EventHandler Name="type_selector_onchange" 
+            				Event="onchange" 
+            				Function="RunSearch()"/>
+        </Element> 
+	
+		<Element Name="qry_name" 
+					Class="AutoSuggest" 
+					SelectFrom="account.do.AccountPickDO[name],[name] like '%{@:Elem[qry_name].Value}%' GROUP BY [name]" 
+					FuzzySearch="Y" 
+					FieldName="name" 
+					Label="" 
+					CssFocusClass="input_text_search_focus" 
+					CssClass="input_text_search" />
+        <Element Name="btn_dosearch" 
+        			Class="Button" 
+        			Text="Go" 
+        			CssClass="button_gray">
+            <EventHandler Name="search_onclick" 
+            				Event="onclick" 
+            				Function="RunSearch()" 
+            				ShortcutKey="Enter"/>
+        </Element>	
+    </SearchPanel>
+</EasyForm>

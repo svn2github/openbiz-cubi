@@ -1,0 +1,101 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="AccountTypePickDO" 
+	Description="Account Type Description" 
+	DataPermControl="Y" 
+	Class="BizDataObj" 
+	DBName="Default" 
+	Table="account_type" 
+	SearchRule="" 
+	SortRule="" 
+	OtherSQLRule="" 
+	Uniqueness="name" 
+	Stateless="N" 
+	IdGeneration="Identity" 
+	CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" 
+				Column="id"	
+				Description="Record ID" />
+		<BizField Name="name" 
+				Column="name"	
+				Description="Type Name"	 
+				Length="255"   
+				Required="Y" />
+		<BizField Name="description" 
+				Description="Type Description"	 
+				Column="description"    
+				Required="Y" />
+		<BizField Name="color" 
+				Column="color" 
+				Description="Color Code"	 
+				Type="Text" />
+		<BizField Name="sortorder" 
+				Column="sortorder"  
+				Description="Sort Order"	  
+				Required="Y" />
+	    
+		<BizField Name="group_id" 
+				Column="group_id"	
+				Description="Group Id"	 
+				ValueOnCreate="{@profile:default_group}"  
+				Required="N" 
+				Type="Number"/>
+		<BizField Name="group_perm" 
+				Column="group_perm"	
+				Description="Group Permission" 
+				ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   
+				Required="N" 
+				Type="Number"/>
+		<BizField Name="other_perm" 
+				Column="other_perm"	
+				Description="Other Group Permission" 
+				ValueOnCreate="1"   
+				Required="N" 
+				Type="Number"/>   		
+	    
+		<BizField Name="create_by" 
+				Column="create_by" 	
+				Description="Create By" 
+				Type="Number" 
+				ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time" 
+				Column="create_time" 	
+				Description="Create Time" 
+				Type="Datetime" 
+				ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="update_by" 
+				Column="update_by" 	
+				Description="Update By" 
+				Type="Number" 
+				ValueOnCreate="{@profile:Id}" 
+				ValueOnUpdate="{@profile:Id}"/>
+		<BizField Name="update_time" 
+				Column="update_time" 	
+				Description="Update Time" 
+				Type="Datetime" 
+				ValueOnCreate="{date('Y-m-d H:i:s')}" 
+				ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	 </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+        <Object Name="account.do.AccountDO" 
+        		Description="Reference to Main Data Record" 
+        		Relationship="1-M" 
+        		Table="account" 
+        		Column="type_id" 
+        		FieldRef="Id" 
+        		onDelete="Restrict"/>
+	        		
+		<Object Name="extend.do.ExtendSettingDO" 
+				Description="Reference to Extend Data Field Setting Records" 
+				Relationship="1-M" 
+				Table="extend_setting" 
+				CondColumn='module' 
+				CondValue='account' 
+				Column="type_id" 
+				FieldRef="Id" 
+				onDelete="Cascade"/>    
+				
+    </ObjReferences>
+</BizDataObj>
