@@ -1831,6 +1831,9 @@ span.input_select_w_hover{
 	height:20px;
 	float:left;	
 }
+.div_input_select .dropdownlist{
+	width:70px;
+}
 .div_input_select_m .dropdownlist{
 	height:200px;width:190px;overflow:auto;z-index:50;
 }
