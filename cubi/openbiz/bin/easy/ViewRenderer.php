@@ -110,7 +110,7 @@ class ViewRenderer
             $tplAttributes["title"] = $viewObj->m_Description;
             
     	if(DEFAULT_SYSTEM_NAME){
-        	$tplAttributes["title"] = DEFAULT_SYSTEM_NAME.' - '.$tplAttributes["title"];
+        	$tplAttributes["title"] = $tplAttributes["title"].' - '.DEFAULT_SYSTEM_NAME;
         }
         return $tplAttributes;
     }
