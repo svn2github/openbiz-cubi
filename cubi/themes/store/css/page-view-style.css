@@ -234,3 +234,99 @@ margin-right:0px;
 .wizard_progress_bar .future_step {
     color: #AAAAAA;
 }
+.button_next_highlight {
+    background-image: url("../images/btn_bg.png");
+    background-position: -72px top;
+    background-repeat: no-repeat;
+    color: #EFEFEF;
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 3px;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 14px;
+    width: 72px;
+}
+.button_next_highlight:hover {
+    background-position: -72px -20px;
+    color: #FFFFFF;
+}
+.button_next_highlight:active {
+    background-position: -72px bottom;
+    color: #FFFFFF;
+}
+.button_back {
+    background-image: url("../images/btn_bg.png");
+    background-position: 0 top;
+    background-repeat: no-repeat;
+    color: #EFEFEF;
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 3px;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 14px;
+    width: 72px;
+}
+.button_back:hover {
+    background-position: 0 -20px;
+    color: #FFFFFF;
+}
+.button_back:active {
+    background-position: 0 bottom;
+    color: #FFFFFF;
+}
+.button_cancel {
+    background-image: url("../images/btn_bg.png");
+    background-position: -144px top;
+    background-repeat: no-repeat;
+    color: #EFEFEF;
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 3px;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 16px;
+    width: 72px;
+}
+.button_cancel:hover {
+    background-position: -144px -20px;
+    color: #FFFFFF;
+}
+.button_cancel:active {
+    background-position: -144px bottom;
+    color: #FFFFFF;
+}
+.button_finished {
+    background-image: url("../images/btn_bg.png");
+    background-position: -216px top;
+    background-repeat: no-repeat;
+    color: #EFEFEF;
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 3px;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 16px;
+    width: 72px;
+}
+.button_finished:hover {
+    background-position: -216px -20px;
+    color: #FFFFFF;
+}
+.button_finished:active {
+    background-position: -216px bottom;
+    color: #FFFFFF;
+}
