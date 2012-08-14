@@ -3,7 +3,7 @@
    <TriggerCondition Expression="" ExtraSearchRule="" />
    <TriggerActions>
       <TriggerAction Action="CallService" Immediate="Y" DelayMinutes="" RepeatMinutes="">
-         <ActionArgument Name="Service" Value="Sms.lib.SmsService" />
+         <ActionArgument Name="Service" Value="Sms.lib.TaskService" />
          <ActionArgument Name="Method" Value="insertSmsQueue" /> 
          <ActionArgument Name="type" Value="{@}" />         
       </TriggerAction>
