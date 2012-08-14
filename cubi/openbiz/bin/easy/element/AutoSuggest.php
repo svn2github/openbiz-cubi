@@ -41,14 +41,14 @@ class AutoSuggest extends OptionElement
      */
     public function render ()
     {
-        //$loadScript = "Openbiz.Util.loadScript('');\n";
-        $inputName = $this->m_Name;
-		$style = $this->getStyle();
-		$sHTML = "<input type=\"text\" id=\"$inputName\" name=\"$inputName\" value=\"$this->m_Value\"/ $style>\n";
-		$sHTML .= "<script>Openbiz.AutoSuggest.init('$this->m_FormName','AutoSuggest','$inputName');</script>";
-		return $sHTML;
+        if (defined('JSLIB_BASE') && JSLIB_BASE == 'JQUERY') {
+			$inputName = $this->m_Name;
+			$style = $this->getStyle();
+			$sHTML = "<input type=\"text\" id=\"$inputName\" name=\"$inputName\" value=\"$this->m_Value\"/ $style>\n";
+			$sHTML .= "<script>Openbiz.AutoSuggest.init('$this->m_FormName','AutoSuggest','$inputName');</script>";
+			return $sHTML;
+		}
 		
-		/*
 		BizSystem::clientProxy()->appendScripts("scriptaculous", "scriptaculous.js");
         $selFrom = $this->m_SelectFrom;
         $pos0 = strpos($selFrom, "[");
@@ -74,7 +74,7 @@ class AutoSuggest extends OptionElement
             $sHTML .= "<div id=\"$inputChoice\" class=\"autocomplete\" style=\"display:none\"></div>\n";
             $sHTML .= "<script>Openbiz.AutoSuggest.init('$this->m_FormName','AutoSuggest','$inputName','$inputChoice');</script>";
         }
-        return $sHTML;*/
+        return $sHTML;
     }
 
     public function matchRemoteMethod ($method)
