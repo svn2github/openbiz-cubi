@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
  * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
  * @link      http://code.google.com/p/openbiz-cubi/
- * @version   $Id$
+ * @version   $Id: app_init.php 3815 2012-08-02 16:07:17Z rockyswen@gmail.com $
  */
  
 /****************************************************************************
@@ -79,8 +79,13 @@ define('THEME_PATH', APP_HOME . DIRECTORY_SEPARATOR . "themes");    // absolutio
 define('DEFAULT_THEME_NAME', 'default');     // name of the theme. theme files are under themes/theme_name
 define('SMARTY_CPL_PATH', APP_HOME . DIRECTORY_SEPARATOR . "files/tpl_cpl");    // smarty template compiling path
 
+/* js lib base, prototype (old) or jquery (new) */
+define('JSLIB_BASE', "PROTOTYPE");
+//define('JSLIB_BASE', "JQUERY");
 /* define javascript path */
-define('JS_URL', APP_URL . "/js");
+if (JSLIB_BASE == 'JQUERY') define('JS_URL', APP_URL . "/js/jq");
+else define('JS_URL', APP_URL . "/js");
+
 define('OTHERS_URL', APP_URL . "/others");
 /* Log file path */
 define("LOG_PATH", APP_HOME . DIRECTORY_SEPARATOR . "log");
