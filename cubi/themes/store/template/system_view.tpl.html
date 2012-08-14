@@ -79,8 +79,5 @@
 $('main_loader_bg').style.height = $('main_content').offsetHeight+'px';
 </script>
 {/literal}
-{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
-<script src="{$js_url}/ios_webapp.js"></script>
-{php}}{/php}
 </body>
 </html>
