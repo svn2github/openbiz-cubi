@@ -101,34 +101,34 @@ class FileUploader extends FileInput
     		} 
     	}
     	if(count($_FILES)>0)
-	        {
-	            if(!$this->m_Uploaded)
-	            {
-	                $file = $_FILES[$this->m_Name];
-	
-	                if(!is_dir($this->m_UploadRoot.$this->m_UploadFolder))
-	                {
-	                    mkdir($this->m_UploadRoot.$this->m_UploadFolder ,0777,true);
-	                }
-	                if($this->m_UseRawName){
-	                	$uploadFile = $this->m_UploadFolder."/".$file['name'];
-	                }else{
-	                	$uploadFile = $this->m_UploadFolder."/".date("YmdHis")."-".md5($file['name']);
-	                }
-	                if($this->m_UploadFileType){
-	                	$pattern = "/".$this->m_UploadFileType."$/si";
-	                	if(!preg_match($pattern,$file['name'])){
-	                		return;
-	                	}	                		                	
-	                }
-	                if(move_uploaded_file($file['tmp_name'], $this->m_UploadRoot.$uploadFile))
-	                {
-	                    $this->m_Value = $this->m_UploadRootURL.$uploadFile;
-	                    $this->m_Uploaded=true;
-	                }	                	                
-	                return $uploadFile;		
-	            }
-	        }    	
+		{
+			if(!$this->m_Uploaded && $_FILES[$this->m_Name]["size"] > 0)
+			{
+				$file = $_FILES[$this->m_Name];
+
+				if(!is_dir($this->m_UploadRoot.$this->m_UploadFolder))
+				{
+					mkdir($this->m_UploadRoot.$this->m_UploadFolder ,0777,true);
+				}
+				if($this->m_UseRawName){
+					$uploadFile = $this->m_UploadFolder."/".$file['name'];
+				}else{
+					$uploadFile = $this->m_UploadFolder."/".date("YmdHis")."-".md5($file['name']);
+				}
+				if($this->m_UploadFileType){
+					$pattern = "/".$this->m_UploadFileType."$/si";
+					if(!preg_match($pattern,$file['name'])){
+						return;
+					}	                		                	
+				}
+				if(move_uploaded_file($file['tmp_name'], $this->m_UploadRoot.$uploadFile))
+				{
+					$this->m_Value = $this->m_UploadRootURL.$uploadFile;
+					$this->m_Uploaded=true;
+				}	                	                
+				return $uploadFile;		
+			}
+		}    	
     }
 
     public function render()

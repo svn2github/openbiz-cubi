@@ -72,11 +72,8 @@ class ImageUploader extends FileUploader
      */
     function setValue($value)
     {
-    	
     	if($this->m_Deleteable=='N' )
     	{
-   	
-    	
     	}
 	    else
     	{
@@ -97,49 +94,48 @@ class ImageUploader extends FileUploader
     	}
     	
    		if(count($_FILES)>0)
-	        {
-	        	
-	            if(!$this->m_Uploaded)
-	            {
-	                $picFileName = parent::setValue($value);
-	                if((int)$this->m_PicWidth>0 || (int)$this->m_PicHeight>0)
-	                {
-	                    //resize picture size
-	                    $fileName = $this->m_UploadRoot.$picFileName;
-	                    $width = $this->m_PicWidth;
-	                    $height = $this->m_PicHeight;
-	                    $quality = $this->m_PicQuality;
-	
-	                    $this->resizeImage($fileName, $fileName, $width, $height, $quality);
-	                }
-	                if(
-	                ((int)$this->m_ThumbWidth>0 || (int)$this->m_ThumbHeight>0) &&
-	                        $this->m_ThumbFolder!=""
-	                )
-	                {
-	                    //generate thumbs picture
-	                    if(!is_dir($this->m_UploadRoot.$this->m_ThumbFolder))
-	                    {
-	                        mkdir($this->m_UploadRoot.$this->m_ThumbFolder ,0777,true);
-	                    }
-	                    $file = $_FILES[$this->m_Name];
-	                    $thumbPath = $this->m_ThumbFolder."/thumbs-".date("YmdHis")."-".urlencode($file['name']);
-	                    $thumbFileName = $this->m_UploadRoot.$thumbPath;
-	                    $width = $this->m_ThumbWidth;
-	                    $height = $this->m_ThumbHeight;
-	                    $quality = $this->m_ThumbQuality;
-	
-	                    $this->resizeImage($fileName, $thumbFileName, $width, $height, $quality);
-	
-	                    $result=array('picture'=>$this->m_UploadRootURL.$picFileName,'thumbpic'=>$this->m_UploadRootURL.$thumbPath);	                    
-	                    $this->m_Value=serialize($result);
-	                }
-	            }
-	        }
-	        else
-	        {
-				$this->m_Value = $value;        	
-	        }    	 
+		{
+			if(!$this->m_Uploaded && $_FILES[$this->m_Name]["size"] > 0)
+			{
+				$picFileName = parent::setValue($value);
+				if((int)$this->m_PicWidth>0 || (int)$this->m_PicHeight>0)
+				{
+					//resize picture size
+					$fileName = $this->m_UploadRoot.$picFileName;
+					$width = $this->m_PicWidth;
+					$height = $this->m_PicHeight;
+					$quality = $this->m_PicQuality;
+
+					$this->resizeImage($fileName, $fileName, $width, $height, $quality);
+				}
+				if(
+				((int)$this->m_ThumbWidth>0 || (int)$this->m_ThumbHeight>0) &&
+						$this->m_ThumbFolder!=""
+				)
+				{
+					//generate thumbs picture
+					if(!is_dir($this->m_UploadRoot.$this->m_ThumbFolder))
+					{
+						mkdir($this->m_UploadRoot.$this->m_ThumbFolder ,0777,true);
+					}
+					$file = $_FILES[$this->m_Name];
+					$thumbPath = $this->m_ThumbFolder."/thumbs-".date("YmdHis")."-".urlencode($file['name']);
+					$thumbFileName = $this->m_UploadRoot.$thumbPath;
+					$width = $this->m_ThumbWidth;
+					$height = $this->m_ThumbHeight;
+					$quality = $this->m_ThumbQuality;
+
+					$this->resizeImage($fileName, $thumbFileName, $width, $height, $quality);
+
+					$result=array('picture'=>$this->m_UploadRootURL.$picFileName,'thumbpic'=>$this->m_UploadRootURL.$thumbPath);	                    
+					$this->m_Value=serialize($result);
+				}
+			}
+		}
+		else
+		{
+			$this->m_Value = $value;        	
+		}    	 
     }
 
     /**
