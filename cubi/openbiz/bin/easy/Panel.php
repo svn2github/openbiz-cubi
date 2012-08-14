@@ -58,6 +58,7 @@ class Panel extends MetaIterator implements iUIControl
                 $panel[$elem->m_Name]['elementsetcode'] = $elem->m_ElementSetCode;
                 $panel[$elem->m_Name]['tabset'] = $elem->m_TabSet;
                 $panel[$elem->m_Name]['tabsetcode'] = $elem->m_TabSetCode;
+                $panel[$elem->m_Name]['extra'] = $elem->m_Extra;                
                 if (isset($elem->m_Label) && $elem->m_Label !== null)
                     $panel[$elem->m_Name]['label'] = $elem->renderLabel();
                 if (isset($elem->m_Value) && $elem->m_Value !== null)

@@ -42,6 +42,7 @@ class Element extends MetaObject implements iUIControl
     public $m_SortFlag;
     public $m_Value = "";
     public $m_FormName;
+    public $m_Extra;
     public $m_ElementSet;
     public $m_ElementSetCode;
     public $m_TabSet;
@@ -106,7 +107,7 @@ class Element extends MetaObject implements iUIControl
         $this->m_AllowURLParam = isset($xmlArr["ATTRIBUTES"]["ALLOWURLPARAM"]) ? $xmlArr["ATTRIBUTES"]["ALLOWURLPARAM"] : 'Y';
         $this->m_KeepCookie = isset($xmlArr["ATTRIBUTES"]["KEEPCOOKIE"]) ? $xmlArr["ATTRIBUTES"]["KEEPCOOKIE"] : 'N';
         $this->m_CookieLifetime = isset($xmlArr["ATTRIBUTES"]["COOKIELIFETIME"]) ? (int)$xmlArr["ATTRIBUTES"]["COOKIELIFETIME"] : '3600';
-
+		$this->m_Extra = isset($xmlArr["ATTRIBUTES"]["EXTRA"]) ? $xmlArr["ATTRIBUTES"]["EXTRA"] : null;
         // read EventHandler element
         if (isset($xmlArr["EVENTHANDLER"]))  // 2.1 eventhanlders
             $this->m_EventHandlers = new MetaIterator($xmlArr["EVENTHANDLER"],"EventHandler");
