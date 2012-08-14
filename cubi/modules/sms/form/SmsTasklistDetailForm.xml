@@ -108,7 +108,7 @@
         			Description="New record (Insert)">
 			<EventHandler Name="btn_new_onclick" 
 							Event="onclick" 
-							Function="SwitchForm(sms.form.SmsTasklistNewForm)"  
+							Function="SwitchForm(sms.form.SmsTestSendNewForm)"  
 							ShortcutKey="Insert" 
 							ContextMenu="New" />
         </Element>          
