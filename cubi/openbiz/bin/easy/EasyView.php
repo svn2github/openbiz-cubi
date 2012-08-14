@@ -83,7 +83,7 @@ class EasyView extends MetaObject implements iSessionObject
         	$this->m_Widgets = new MetaIterator($xmlArr["EASYVIEW"]["WIDGETS"]["REFERENCE"],"FormReference",$this);
         }
         $this->m_MessageFile = isset($xmlArr["EASYVIEW"]["ATTRIBUTES"]["MESSAGEFILE"]) ? $xmlArr["EASYVIEW"]["ATTRIBUTES"]["MESSAGEFILE"] : null;
-        $this->m_Messages = Resource::loadMessage($this->m_MessageFile);
+        $this->m_Messages = Resource::loadMessage($this->m_MessageFile, $this->m_Package);
         $this->m_CacheLifeTime = isset($xmlArr["EASYVIEW"]["ATTRIBUTES"]["CACHELIFETIME"]) ? $xmlArr["EASYVIEW"]["ATTRIBUTES"]["CACHELIFETIME"] : "0";
 		
         $this->readTile($xmlArr);	// TODO: is this needed as title supports expression?
