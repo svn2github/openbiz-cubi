@@ -27,6 +27,11 @@
 				Column="id"    
 				Required="N" 
 				Type="Number"/>
+		<BizField Name="tasklist_id"			
+				Description="tasklist_id"	
+				Column="tasklist_id"    
+				Required="N" 
+				Type="Number"/>		
 
 		<BizField Name="mobile"		
 				Description="mobile"	

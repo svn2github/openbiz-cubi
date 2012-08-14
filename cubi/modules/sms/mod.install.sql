@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `sms_tasklist` (
   `has_sent` int(10) NOT NULL COMMENT '已发送数量',
   `sms_number` int(10) NOT NULL COMMENT '收件人数量',
   `priority`int(10) NOT NULL,
-  `status` tinyint(2) NOT NULL,
+  `status` tinyint(2) default '1', NOT NULL,
   `mobile` text NOT NULL ,
   `provider` varchar(50) NOT NULL,
   `owner_id` int(11) default '0',

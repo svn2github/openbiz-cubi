@@ -28,8 +28,7 @@ class SmsForm extends EasyForm
 			$SmsProviderList=$SmsProviderList->toArray();
 			 foreach($SmsProviderList as $val)
 			 { 
-				$sms=new Sms( $val['type']);
-				$use_sms_count=$sms->getSentMessageCount();
+				$use_sms_count=Sms::getSentMessageCount($val['type'],$val);
 				$SmsProvider=$SmsProviderDO->updateRecords ("use_sms_count=$use_sms_count","Id=".$val['Id']);
 				if($SmsProvider && $use_sms_count)
 				{

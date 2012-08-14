@@ -24,14 +24,22 @@ class SmsService
     {
 		$this->m_SmsPreference=$this->getSmsPreference();
     } 
-	
-	public function SendSms($limit=50){
+	/**
+	 * 发送单条短信;
+	 */
+	public function SendSms($limit=1){
 		$time = time();
         $lock_expiry = $time + $this->m_lock_expire;
 		$TasklistDO = BizSystem::getObject($this->m_SmsTasklistDO);
 		$SmsQueueDO = BizSystem::getObject($this->m_SmsQueueDO);
-		$SmsQueueArr=$SmsQueueDO->directFetch("lock_expiry < $time and status!='sent'",$limit,0,"priority desc");
-		
+		$SmsProviderDO = BizSystem::getObject($this->m_SmsProviderDO);
+		$Provider=$this->getProvider();
+		if(!$Provider)
+		{
+			throw new Exception('Unknown Provider');
+			return false;
+		}
+		$SmsQueueArr=$SmsQueueDO->directFetch("lock_expiry < $time and status!='sent' and ifnull(mobile,'')<>''",$limit,0,"priority desc");
 		 if($SmsQueueArr)
 		 {
 			$SmsQueueArr=$SmsQueueArr->toArray();
@@ -42,19 +50,41 @@ class SmsService
             for ($i=0; $i < $sms_count; $i++)
             {
                 $sms_ids[] = $SmsQueueArr[$i]['Id'];
-                $mobile[] = $SmsQueueArr[$i]['Id'];
+              //  $mobile[] = $SmsQueueArr[$i]['mobile'];
             }
+			//$mobile=implode(',',$mobile);
+		
              //锁定
-			// $SmsQueueDO->updateRecords ("lock_expiry= $lock_expiry","Id".db_create_in($sms_ids));
-         	dump( $SmsQueueDO);
-			include_once(MODULE_PATH."/sms/lib/sms.class.php");
-			
+		   $SmsQueueDO->updateRecords ("lock_expiry= $lock_expiry","Id".db_create_in($sms_ids));
+         	
+			include_once(MODULE_PATH."/sms/lib/Sms.class.php");
             for ($i=0; $i < $sms_count; $i ++)
             {
-                 return;
+				$plantime=null;
+				if($SmsQueueArr[$i]['plantime'])
+				{
+					$plantime=$SmsQueueArr[$i]['plantime'];
+				}	
+			   $content=$SmsQueueArr[$i]['content'].'【'.$this->m_SmsPreference['content_sign'].'】';
+			   $recInfo=Sms::Send($Provider,$SmsQueueArr[$i]['mobile'], $content,$plantime);
+               if($recInfo)
+			   { 
+					$SmsQueueDO->updateRecords("status='sent'","Id={$SmsQueueArr[$i]['Id']}");
+					$TasklistDO->updateRecords("has_sent=has_sent+1","Id={$SmsQueueArr[$i]['tasklist_id']}");
+					$SmsProviderDO->updateRecords("use_sms_count={$recInfo['balance']},send_sms_count=send_sms_count+1","type='{$Provider['type']}'");
+			   }
+			   else
+			   {
+					$SmsQueueDO->updateRecords("status='sending'","Id={$SmsQueueArr[$i]['Id']}");
+			   }
             }
-        }		 
-		 
+        }
+	}
+	/**
+	 * 批量发送短信;
+	 */
+	public function BatchSendSms($limit=50){
+		return true;		  
 	}
 /**
  * 获取SMS设置信息;
@@ -83,10 +113,28 @@ class SmsService
  * 根据设置获取短信服务商信息;
  */
 	public function getProvider(){
-		$SmsProviderDO = BizSystem::getObject($this->m_SmsProviderDO);
-		$SmsPreference=$this->m_SmsPreference;
-	
-		//$SmsProviderDO->fetchOne()
+		$SmsProviderArr=BizSystem::sessionContext()->getVar("_SMSPROVIDER");
+		if(!$SmsProviderArr)
+		{
+			$SmsProviderDO = BizSystem::getObject($this->m_SmsProviderDO);
+			$SmsPreference=$this->m_SmsPreference;
+			switch($SmsPreference['dispatch'])
+			{
+				case 1://根据优先级获取
+				 $SmsProviderInfo=$SmsProviderDO->fetchOne('use_sms_count>0 and status=1','priority desc');
+				 break;
+				case 2://根据提供商的短信可用数量获取
+				 $SmsProviderInfo=$SmsProviderDO->fetchOne('use_sms_count>0 and status=1','use_sms_count desc,send_sms_count asc');
+				 break;
+				default:
+				 $SmsProviderInfo=$SmsProviderDO->fetchOne('use_sms_count>0 and status=1','create_time desc');
+			}
+			$SmsProviderArr['type']=$SmsProviderInfo['type'];
+			$SmsProviderArr['username']=$SmsProviderInfo['username'];
+			$SmsProviderArr['password']=$SmsProviderInfo['password'];
+			BizSystem::sessionContext()->setVar("_SMSPROVIDER",$SmsProviderArr);
+		}
+		return $SmsProviderArr;
 	}
 }
 

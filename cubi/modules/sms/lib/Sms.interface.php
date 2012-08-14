@@ -12,7 +12,7 @@
  */
 interface iSmsProvider
 {
-    public function send($mobile,$content,$ProviderInfo);
+    public function send($ProviderInfo,$mobile,$content,$time);
     public function getSentMessageCount($ProviderInfo);
 }
 
@@ -36,7 +36,7 @@ interface iSmsProvider
 class ProviderA  implements iSmsProvider
 {
 	public $m_url='http://18dx.cn/API/Services.aspx?';
-	public function send($mobile,$content,$ProviderInfo){
+	public function send($ProviderInfo,$mobile,$content,$time=null){
 	
 		$Param=array(
 					'action'=>'msgsend',
@@ -48,9 +48,20 @@ class ProviderA  implements iSmsProvider
 					'encode'=>'UTF-8'
 				);
 
-		$url=$this->m_url.http_build_query($Param);
+		$url=$this->m_url.http_build_query($Param); 
 		$recinfo=getHttpResponse($url);
-		return $this->getMsg($recinfo);
+		//$recinfo='1&errid=1&fee=1&balance=9&fails=&msgid=634805826699791739&msg=发送成功';
+		parse_str($recinfo,$recArr);
+		if($recArr['errid']!=1)
+		{	
+			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
+			$eventlog->log("SMSSEND", $recArr['msg'],$mobile.':'.$recinfo);
+			return false;
+		}
+		else
+		{
+			return $recArr;
+		}
 	}
 	public function getSentMessageCount($ProviderInfo){
 		$Param=array(
@@ -94,7 +105,7 @@ class ProviderA  implements iSmsProvider
  //http://www.c123.com
 class ProviderB implements iSmsProvider
 {
-	public function send($mobile,$content,$ProviderInfo){
+	public function send($ProviderInfo,$mobile,$content,$time=null){
 		return true;
 	}
 	public function getSentMessageCount($ProviderInfo){

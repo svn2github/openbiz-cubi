@@ -55,6 +55,7 @@
 				Description="Status"	
 				Column="status" 
 				Type="Number"
+				ValueOnCreate="1"	
 				Required="N" 
 				 />
 		<BizField Name="mobile"		
