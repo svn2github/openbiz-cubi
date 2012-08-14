@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: UserPreferenceEditForm.xml 3800 2012-08-04 12:58:18Z hellojixian@gmail.com $
+-->
+<EasyForm Name="SmsSendSettingEditForm" Class="SmsSendSettingForm" FormType="Edit" Icon="icon_user_list.gif" jsClass="jbForm"  SearchRule="[user_id]='0'" Title="Edit System Perference" Description="You can custom default user setting in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" Access="System.Administer_System" MessageFile="SmsProvider.ini" >
+    <DataPanel>
+		<Element Name="fld_content_sign"  Class="InputText" ElementSet="Sms" Description="" FieldName="_content_sign" Label="Sms content sign"  /> 
+
+        <Element Name="fld_dispatch"  Class="DropDownList" ElementSet="Sms" Description="" FieldName="_dispatch" Label="Sms round robin" SelectFrom="sms.lov.CommLOV(Dispatch)" />
+	 
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_w">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=sms.form.SmsSendSettingDetailForm" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

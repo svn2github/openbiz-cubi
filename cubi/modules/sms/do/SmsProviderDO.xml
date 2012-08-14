@@ -1,0 +1,180 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<BizDataObj Name="SmsProviderDO" 
+		Description="Sms Provider Description" 
+		DataPermControl="Y"
+		Class="BizDataObj" 
+		DBName="Default" 
+		Table="sms_provider" 
+		SearchRule="" 
+		SortRule="" 
+		OtherSQLRule=""
+		Uniqueness="" 
+		Stateless="N" 
+		IdGeneration="Identity" 
+		CacheLifeTime="0" 
+		CreateCondition="sms.Manage" 
+		UpdateCondition="sms.Manage" 
+		DeleteCondition="sms.Manage" >
+	<BizFieldList>
+		<BizField Name="Id"			
+				Description="Id"	
+				Column="id"    
+				Required="N" 
+				Type="Number"/>
+	<BizField Name="use_sms_count"			
+				Description="use_sms_count"	
+				Column="use_sms_count"    
+				Required="N" 
+				Type="Number"/>
+	<BizField Name="send_sms_count"			
+				Description="send_sms_count"	
+				Column="send_sms_count"    
+				Required="N" 
+				Type="Number"/>
+				
+		<BizField Name="password"		required="Y" 
+				Description="password"	
+				Column="password" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="site_url"	 
+				Description="site_url"	
+				Column="site_url" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="username"		required="Y" 
+				Description="username"	
+				Column="username" 
+				Type="Text"
+				Required="N" 
+				 />
+	 <BizField Name="type"		required="Y" 
+				Description="type"	
+				Column="type" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="description"		
+				Description="Description"	
+				Column="description" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="priority"			
+				Description="priority"	
+				Column="priority"    
+				Required="N" 
+				Type="Number"/>
+				 
+		<BizField Name="owner_id"	
+				Description="Owner Id"	
+				Column="owner_id"	
+				ValueOnCreate="{@profile:Id}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="group_id"	
+				Description="Group Id"	
+				Column="group_id"	
+				ValueOnCreate="{@profile:default_group}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="group_perm"	
+				Description="Group Perm"	
+				Column="group_perm"	
+				ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="other_perm"	
+				Description="Other Perm"	
+				Column="other_perm"	
+				ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="status"		
+				Description="Status"	
+				Column="status" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="update_by"	
+				Description="Update By"	
+				Column="update_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"	
+				ValueOnUpdate="{@profile:Id}"/>
+		<BizField Name="update_time"	
+				Description="Update Time"	
+				Column="update_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"	
+				ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="create_by"	
+				Description="Create By"	
+				Column="create_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time"	
+				Description="Create Time"	
+				Column="create_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+	<TableJoins>
+				    	
+	</TableJoins>
+	<ObjReferences>
+	
+		<Object Name="changelog.do.ChangeLogDO" 
+				Description="Reference to Change Log Records" 
+				Relationship="1-M" 
+				Table="changelog" 
+				CondColumn='type' 
+				CondValue='sms_provider' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="location.do.LocationDO" 
+				Description="Reference to Geographic Location Records" 
+				Relationship="1-M" 
+				Table="location" 
+				CondColumn='type' 
+				CondValue='sms_provider' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="attachment.do.AttachmentDO" 
+				Description="Reference to Attachment Records" 
+				Relationship="1-M" 
+				Table="attachment" 
+				CondColumn='type' 
+				CondValue='sms_provider' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="picture.do.PictureDO" 
+				Description="Reference to Picture Records" 
+				Relationship="1-M" 
+				Table="picture" 
+				CondColumn='type' 
+				CondValue='sms_provider' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="sms.do.SmsProviderRefDO" 
+				Description="Reference to Related Records" 
+				Relationship="Self-Self" 
+				Table="sms_provider" 
+				Column="id" 
+				FieldRef="Id" 
+				OnDelete="SetNull" 
+				OnUpdate="" 
+				XTable="sms_provider_related" 
+				XColumn1="sms_provider_id" 
+				XColumn2="related_id" 
+				XDataObj="sms.do.SmsProviderRelatedDO"/>
+	</ObjReferences>
+</BizDataObj>

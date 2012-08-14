@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="SmsProviderCopyForm" 
+			Class="EasyForm" 
+			FormType="Copy" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_provider_copy.png"
+			Title="Copy sms_provider" 
+			Description="Sms Provider Description" 
+			BizDataObj="sms.do.SmsProviderDO" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_edit.tpl.html" 
+			MessageFile="SmsProvider.ini" 
+			Access="sms.Manage">
+    <DataPanel>
+  	  
+       								   	
+
+		
+
+       	<Element Name="fld_password" 
+       				ElementSet="General"
+       				Class="InputText" 
+       				FieldName="password" 
+       				Label="Username" 
+       				AllowURLParam="N"
+       				/>   
+       								   	
+
+		
+
+       	<Element Name="fld_username" 
+       				ElementSet="General"
+       				Class="InputText" 
+       				FieldName="username" 
+       				Label="Username" 
+       				AllowURLParam="N"
+       				/>   
+       								   	
+
+		
+
+       								   	
+
+       	 	
+		<Element Name="fld_description" 
+					Class="Textarea" 
+					ElementSet="General"
+					FieldName="description" 
+					Label="Description"  />		
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		<Element Name="fld_status" 
+					Class="DropDownList" 
+					ElementSet="General"
+					FieldName="status" 
+					SelectFrom="common.lov.CommLOV(Bool)" 
+					Label="Status"  
+					Sortable="Y" 
+					AllowURLParam="N" 
+					Translatable="N" 
+					OnEventLog="N" 
+					Link="javascript:;">				
+		</Element>
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+       								   	
+
+		
+
+  
+		<Element Name="fld_published" 
+					Class="Listbox" 
+					ElementSet="Miscellaneous" 
+					KeepCookie="Y" 
+					SelectFrom="common.lov.CommLOV(Published)" 
+					DefaultValue="1" 
+					FieldName="group_perm" 
+					Label="Group Share"  />
+		<Element Name="fld_published_other" 
+					Class="Listbox" 
+					ElementSet="Miscellaneous" 
+					KeepCookie="Y" 
+					SelectFrom="common.lov.CommLOV(Published)" 
+					DefaultValue="0" 
+					FieldName="other_perm" 
+					Label="Other Group"  />
+    </DataPanel>
+    <ActionPanel>       
+        <Element Name="btn_save" 
+        			Class="Button" 
+        			Text="Save" 
+        			CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" 
+            			EventLogMsg="" 
+            			Event="onclick" 
+            			Function="InsertRecord()" 
+            			RedirectPage="{APP_INDEX}/sms/sms_provider_detail/{@sms.do.SmsProviderDO:Field[Id].Value}"  
+            			ShortcutKey="Ctrl+Enter" 
+            			ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" 
+        			Class="Button" 
+        			Text="Cancel" 
+        			CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" 
+            			Event="onclick" 
+            			Function="SwitchForm()"  
+            			ShortcutKey="Escape" 
+            			ContextMenu="Cancel"/>
+        </Element>      
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

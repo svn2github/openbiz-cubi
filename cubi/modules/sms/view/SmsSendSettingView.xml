@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: UserPreferenceView.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<EasyView Name="SmsSendSettingView" Title="Sms Send Setting" Description="Sms Send Setting" class="EasyView" TemplateEngine="Smarty" TemplateFile="view_pref.tpl" Access="System.Administer_System">
+    <FormReferences>
+        <Reference Name="sms.form.SmsSendSettingDetailForm"/>
+    </FormReferences>
+</EasyView>

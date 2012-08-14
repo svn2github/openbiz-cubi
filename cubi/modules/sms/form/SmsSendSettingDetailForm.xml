@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: UserPreferenceDetailForm.xml 3800 2012-08-04 12:58:18Z hellojixian@gmail.com $
+-->
+<EasyForm Name="SmsSendSettingDetailForm" Class="SmsSendSettingForm" FormType="" Icon="icon_user_list.gif" jsClass="jbForm" SearchRule="[user_id]='0'" Title="Sms Send Setting" Description="You can custom your Sms setting in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" Access="System.Administer_System">
+    <DataPanel>
+         
+		
+		<Element Name="fld_content_sign"  Class="LabelText" ElementSet="Sms" Description="" FieldName="_content_sign" Label="Sms content sign"  />
+		
+		<Element Name="fld_dispatch"  Class="LabelList" ElementSet="Sms" Description="" FieldName="_dispatch" Label="Sms dispatch" SelectFrom="sms.lov.CommLOV(Dispatch)" />
+ 
+		
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(sms.form.SmsSendSettingEditForm)"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_back" Class="LabelText" Text="Back" Link="{@home:url}/sms/SmsSendSetting" CssClass="button_gray_m"/>		
+         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

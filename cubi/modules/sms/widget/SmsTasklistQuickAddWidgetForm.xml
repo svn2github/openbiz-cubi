@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="SmsTasklistQuickAddWidgetForm" 
+			Class="PickerForm" 
+			FormType="New" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_tasklist_add.png"
+			Title="Quick Add Sms Tasklist" 
+			Description="Create a new sms tasklist and edit its content later." 
+			BizDataObj="sms.do.SmsTasklistPickDO" 
+			TemplateEngine="Smarty" 
+			TemplateFile="form_data_quick_add.tpl.html" 
+			MessageFile="" 
+			Access="sms.Manage">
+    <DataPanel>
+  				
+				
+       								   	
+
+
+       	<Element Name="fld_content" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="content" 
+       				Label=" Body" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_has_sent" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="has_sent" 
+       				Label="已发送数量" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_sms_number" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="sms_number" 
+       				Label="收件人数量" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_priority" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="priority" 
+       				Label="Priority" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_status" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="status" 
+       				Label="Status" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       	<Element Name="fld_mobile" 
+       				ElementSet="General" 
+       				Class="InputText" 
+       				FieldName="mobile" 
+       				Label="mobile" 
+       				AllowURLParam="N"/>     
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       								   	
+
+
+       
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" 
+        		Class="Button" 
+        		Text="Save" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" 
+            			EventLogMsg="" 
+            			Event="onclick" 
+            			Function="insertToParent()"   
+            			ShortcutKey="Ctrl+Enter" 
+            			ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" 
+        		Class="Button" 
+        		Text="Cancel" 
+        		CssClass="button_gray_m">
+            <EventHandler Name="onclick" 
+            			Event="onclick" 
+            			Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

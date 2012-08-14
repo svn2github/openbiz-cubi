@@ -1,0 +1,169 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<BizDataObj Name="SmsTasklistDO" 
+		Description="Sms Tasklist Description" 
+		DataPermControl="Y"
+		Class="BizDataObj" 
+		DBName="Default" 
+		Table="sms_tasklist" 
+		SearchRule="" 
+		SortRule="" 
+		OtherSQLRule=""
+		Uniqueness="" 
+		Stateless="N" 
+		IdGeneration="Identity" 
+		CacheLifeTime="0" 
+		CreateCondition="sms.Manage" 
+		UpdateCondition="sms.Manage" 
+		DeleteCondition="sms.Manage" >
+	<BizFieldList>
+		<BizField Name="Id"			
+				Description="Id"	
+				Column="id"    
+				Required="N" 
+				Type="Number"/>
+		<BizField Name="content"		
+				Description="Sms content"	
+				Column="content" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="has_sent"		
+				Description="has_sent"	
+				Column="has_sent" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="sms_number"		
+				Description="sms_number"	
+				Column="sms_number" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="priority"		
+				Description="Priority"	
+				Column="priority" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="status"		
+				Description="Status"	
+				Column="status" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="mobile"		
+				Description="mobile"	
+				Column="mobile" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="provider"		
+				Description="provider"	
+				Column="provider" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="owner_id"	
+				Description="Owner Id"	
+				Column="owner_id"	
+				ValueOnCreate="{@profile:Id}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="group_id"	
+				Description="Group Id"	
+				Column="group_id"	
+				ValueOnCreate="{@profile:default_group}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="group_perm"	
+				Description="Group Perm"	
+				Column="group_perm"	
+				ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="other_perm"	
+				Description="Other Perm"	
+				Column="other_perm"	
+				ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="update_by"	
+				Description="Update By"	
+				Column="update_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"	
+				ValueOnUpdate="{@profile:Id}"/>
+		<BizField Name="update_time"	
+				Description="Update Time"	
+				Column="update_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"	
+				ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="create_by"	
+				Description="Create By"	
+				Column="create_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time"	
+				Description="Create Time"	
+				Column="create_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+	<TableJoins>
+				    	
+	</TableJoins>
+	<ObjReferences>
+	
+		<Object Name="changelog.do.ChangeLogDO" 
+				Description="Reference to Change Log Records" 
+				Relationship="1-M" 
+				Table="changelog" 
+				CondColumn='type' 
+				CondValue='sms_tasklist' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="location.do.LocationDO" 
+				Description="Reference to Geographic Location Records" 
+				Relationship="1-M" 
+				Table="location" 
+				CondColumn='type' 
+				CondValue='sms_tasklist' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="attachment.do.AttachmentDO" 
+				Description="Reference to Attachment Records" 
+				Relationship="1-M" 
+				Table="attachment" 
+				CondColumn='type' 
+				CondValue='sms_tasklist' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="picture.do.PictureDO" 
+				Description="Reference to Picture Records" 
+				Relationship="1-M" 
+				Table="picture" 
+				CondColumn='type' 
+				CondValue='sms_tasklist' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="sms.do.SmsTasklistRefDO" 
+				Description="Reference to Related Records" 
+				Relationship="Self-Self" 
+				Table="sms_tasklist" 
+				Column="id" 
+				FieldRef="Id" 
+				OnDelete="SetNull" 
+				OnUpdate="" 
+				XTable="sms_tasklist_related" 
+				XColumn1="sms_tasklist_id" 
+				XColumn2="related_id" 
+				XDataObj="sms.do.SmsTasklistRelatedDO"/>
+	</ObjReferences>
+</BizDataObj>
