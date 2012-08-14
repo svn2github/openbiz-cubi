@@ -64,11 +64,11 @@ color:#666666;
 			{elseif $item.type eq 'CKEditor' or $item.type eq 'RichText' 
 				or $item.type eq 'Textarea' or $item.type eq 'LabelTextarea'
 				or $item.type eq 'HTMLPreview'
-				or $item.type eq 'LabelTextarea' or $item.type eq 'LabelImage'
+				or $item.type eq 'LabelTextarea' or ( $item.type eq 'LabelImage' and $item.extra eq '')
 				 or $item.type eq 'RawData'
 				 or $item.type eq 'IDCardReader'
 				 or $item.type eq 'FormElement'
-			}
+			}			
 				<table  id="{$itemName}_container" class="input_row">
 				{if $item.label}
 				<tr>				
@@ -143,7 +143,7 @@ color:#666666;
 			{elseif $item.type eq 'CKEditor' or $item.type eq 'RichText' 
 				or $item.type eq 'Textarea' or $item.type eq 'LabelTextarea'
 				or $item.type eq 'HTMLPreview'
-				or $item.type eq 'LabelTextarea' or $item.type eq 'LabelImage'
+				or $item.type eq 'LabelTextarea' or ( $item.type eq 'LabelImage' and $item.extra eq '')
 				 or $item.type eq 'RawData'
 				 or $item.type eq 'IDCardReader'
 				 or $item.type eq 'FormElement'
@@ -252,7 +252,7 @@ color:#666666;
 			{if $item.type eq 'CKEditor' or $item.type eq 'RichText' 
 				or $item.type eq 'Textarea' or $item.type eq 'LabelTextarea'
 				or $item.type eq 'HTMLPreview'
-				or $item.type eq 'LabelTextarea' or $item.type eq 'LabelImage'
+				or $item.type eq 'LabelTextarea'  or ( $item.type eq 'LabelImage' and $item.extra eq '')
 				 or $item.type eq 'RawData'
 				 or $item.type eq 'IDCardReader'
 				 or $item.type eq 'FormElement'

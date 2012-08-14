@@ -330,3 +330,56 @@ margin-right:0px;
     background-position: -216px bottom;
     color: #FFFFFF;
 }
+
+.gray-button-buy {
+    background-image: url("../images/gray-button_bg.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    color: #666666;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    padding-left: 20px;
+    text-align: center;
+    width: 50px;
+}
+.gray-button-buy:hover {
+    background-position: 0 -20px;
+}
+.gray-button-buy:active {
+    background-position: 0 -40px;
+}
+.gray-button {
+    background-image: url("../images/gray-button-more_bg.png");
+    background-position: left top;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    display: block;
+    height: 27px;
+    line-height: 26px;
+    text-align: center;
+    width: 80px;
+}
+.gray-button:hover {
+    background-position: left -27px;
+}
+.gray-button:active {
+    background-position: left -54px;
+}
+.gray-button-small {
+    background-image: url("../images/gray-button_bg.png");
+    background-position: -70px 0;
+    background-repeat: no-repeat;
+    color: #666666;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    width: 44px;
+}
+.gray-button-small:hover {
+    background-position: -70px -20px;
+}
+.gray-button-small:active {
+    background-position: -70px -40px;
+}

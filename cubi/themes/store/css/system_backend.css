@@ -489,7 +489,7 @@ padding-bottom:5px;
 
 #main #right_panel .content table.input_row td .label_text{
 	/*width:250px;*/
-	height:26px;
+	height:auto;
 	float:left;
 	display:block;
 	word-break:break-all; 
