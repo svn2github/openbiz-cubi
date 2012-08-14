@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ProductTypeDO.xml 3480 2012-06-17 02:51:42Z hellojixian@gmail.com $
+-->
+<BizDataObj Name="ProductTypeSystemDO" 
+	Description="Product Type Description" 
+	DataPermControl="N" 
+	Class="BizDataObj"
+	InheritFrom="product.do.ProductTypeDO" 
+	>	
+</BizDataObj>
