@@ -624,7 +624,7 @@ class ClientProxy
         if (isset($this->_extraScripts['colorpicker']))
             return;
         $style = "<link rel=\"stylesheet\" href=\"".Resource::getJsUrl()."/colorpicker/css/colorpicker.css\" type=\"text/css\">";
-        $script = "<script type=\"text/javascript\" src=\"".Resource::getJsUrl()."/jquery.js\"></script>";
+        //$script = "<script type=\"text/javascript\" src=\"".Resource::getJsUrl()."/jquery.js\"></script>";
         $script .= "<script type=\"text/javascript\" src=\"".Resource::getJsUrl()."/colorpicker/js/eye.js\"></script>";
         $script .= "<script type=\"text/javascript\" src=\"".Resource::getJsUrl()."/colorpicker/js/utils.js\"></script>";
         $script .= "<script type=\"text/javascript\" src=\"".Resource::getJsUrl()."/colorpicker/js/colorpicker.js\"></script>";

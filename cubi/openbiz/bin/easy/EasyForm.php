@@ -1654,7 +1654,22 @@ class EasyForm extends MetaObject implements iSessionObject
      */
     public function autoSuggest($input)
     {
-    	$foo = $_POST;
+		if (defined('JSLIB_BASE') && JSLIB_BASE == 'JQUERY') {
+			$value = $_GET["term"];
+			// get the select from list of the element
+			$element = $this->getElement($input);
+			$element->setValue($value);
+			$fromlist = array();
+			$element->getFromList($fromlist);
+			$arr = array();
+			$i = 0;
+			foreach ($fromlist as $item) {
+				$arr[$i++] = array('label'=>$item['txt'], 'value'=>$item['val']);
+			}
+			echo json_encode($arr);
+			return;
+		}
+		$foo = $_POST;
     	$hidden_flag = FALSE;
         if (strpos($input, '_hidden'))
         {
@@ -1963,12 +1978,22 @@ class EasyForm extends MetaObject implements iSessionObject
         $str .= "</ul>\n";
         $str .= "<div class=\"contextMenu_footer\" ></div>\n";
         $str .= "</div>\n";
-        $str .= "
+		if (defined('JSLIB_BASE') && JSLIB_BASE == 'JQUERY') {
+			$str .= "
+<script>
+$(jq('".$this->m_Name."')).removeAttr('onContextMenu');
+$(jq('".$this->m_Name."'))[0].oncontextmenu=function(event){return Openbiz.Menu.show(event, '".$this->m_Name."_contextmenu');};
+$(jq('".$this->m_Name."')).bind('click',Openbiz.Menu.hide);
+</script>";
+		}
+		else {
+			$str .= "
 <script>
 $('".$this->m_Name."').removeAttribute('onContextMenu');
 $('".$this->m_Name."').oncontextmenu=function(event){return Openbiz.Menu.show(event, '".$this->m_Name."_contextmenu');};
 $('".$this->m_Name."').observe('click',Openbiz.Menu.hide);
 </script>";
+		}
         return $str;
     }
 

@@ -13,7 +13,7 @@
  * @link      http://www.phpopenbiz.org/
  * @version   $Id: AutoSuggest.php 2553 2010-11-21 08:36:48Z mr_a_ton $
  */
-include_once ("InputElement.php");
+include_once ("OptionElement.php");
 
 /**
  * AutoSuggest class  is element for AutoSuggest
@@ -41,7 +41,15 @@ class AutoSuggest extends OptionElement
      */
     public function render ()
     {
-        BizSystem::clientProxy()->appendScripts("scriptaculous", "scriptaculous.js");
+        //$loadScript = "Openbiz.Util.loadScript('');\n";
+        $inputName = $this->m_Name;
+		$style = $this->getStyle();
+		$sHTML = "<input type=\"text\" id=\"$inputName\" name=\"$inputName\" value=\"$this->m_Value\"/ $style>\n";
+		$sHTML .= "<script>Openbiz.AutoSuggest.init('$this->m_FormName','AutoSuggest','$inputName');</script>";
+		return $sHTML;
+		
+		/*
+		BizSystem::clientProxy()->appendScripts("scriptaculous", "scriptaculous.js");
         $selFrom = $this->m_SelectFrom;
         $pos0 = strpos($selFrom, "[");
         $pos1 = strpos($selFrom, "]");
@@ -66,7 +74,7 @@ class AutoSuggest extends OptionElement
             $sHTML .= "<div id=\"$inputChoice\" class=\"autocomplete\" style=\"display:none\"></div>\n";
             $sHTML .= "<script>Openbiz.AutoSuggest.init('$this->m_FormName','AutoSuggest','$inputName','$inputChoice');</script>";
         }
-        return $sHTML;
+        return $sHTML;*/
     }
 
     public function matchRemoteMethod ($method)
