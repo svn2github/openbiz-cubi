@@ -164,3 +164,73 @@ padding-top:48px;
 height:30px;
 margin-right:0px;
 }
+
+
+
+.wizard_progress_bar {
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top:10px;
+
+}
+.wizard_progress_bar table {
+    border: medium none;
+    width: 950px;
+}
+.wizard_progress_bar table td {
+    border: medium none;
+}
+.wizard_progress_bar table td span {
+    display: block;
+    text-align: center;
+}
+.wizard_progress_bar .progress_side_start {
+    background-image: url("../images/progress_bar_side.png");
+    background-position: left 0;
+    background-repeat:no-repeat;
+    height: 30px;
+    width: 4px;
+}
+.wizard_progress_bar .progress_side_end {
+    background-image: url("../images/progress_bar_side.png");
+    background-position: right -60px;
+    background-repeat:no-repeat;
+    height: 30px;
+    width: 4px;
+}
+.wizard_progress_bar .progress_side_end_completed {
+    background-image: url("../images/progress_bar_side.png");
+    background-position: left -90px;
+    height: 30px;
+    width: 4px;
+}
+.wizard_progress_bar .progress_bar {
+    background-image: url("../images/progress_bar_bg.png");
+    background-position: center 0;
+    height: 30px;
+    text-align: center;
+}
+.wizard_progress_bar .progress_bar_past {
+    background-position: center 0;
+    color: #EFEFEF;
+}
+.wizard_progress_bar .progress_bar_current {
+    background-position: center -30px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.wizard_progress_bar .progress_bar_future {
+    background-position: center -60px;
+    color: #CCCCCC;
+}
+.wizard_progress_bar .past_step {
+    color: #666666;
+}
+.wizard_progress_bar .current_step {
+    color: #149BC8;
+    font-weight: bold;
+}
+.wizard_progress_bar .future_step {
+    color: #AAAAAA;
+}
