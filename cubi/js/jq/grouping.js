@@ -1,29 +1,29 @@
 function switch_datasheet(id){
 	var c = new Cookies();
-	if($(id).style.display=='none'){
-		$(id).show();
+	if($(jq(id)).is(':visible')==false){
+		$(jq(id)).show();
 		c.set(id,'show');
-		$(id+"_switcher").className='shrink';
+		$(jq(id+"_switcher")).attr('class','shrink');
 	}else{
-		$(id).hide();
+		$(jq(id)).hide();
 		c.set(id,'hide');
-		$(id+"_switcher").className='expand';		
+		$(jq(id+"_switcher")).attr('class','expand');	
 	}	
 }
 
 function load_default_status(id){	
-	if($(id)){
+	if($(jq(id))){
 		var c = new Cookies();
 		status = c.get(id);
 		switch(status){
 			default:
 			case 'show':
-				$(id).show();
-				$(id+"_switcher").className='shrink';
+				$(jq(id)).show();
+				$(jq(id+"_switcher")).attr('class','shrink');
 				break;
 			case 'hide':
-				$(id).hide();
-				$(id+"_switcher").className='expand';					
+				$(jq(id)).hide();
+				$(jq(id+"_switcher")).attr('class','expand');					
 				break;
 		
 		}

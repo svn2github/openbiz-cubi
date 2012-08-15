@@ -1,7 +1,7 @@
 /**
  * Openbiz Report Form class
  */
-Openbiz.PackageForm = Class.create(Openbiz.Form,
+Openbiz.PackageForm = Openbiz.Form.extend (
 {
     install: function(paramArray, options)
     {
