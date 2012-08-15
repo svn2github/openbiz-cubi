@@ -8,13 +8,11 @@ BizSystem::clientProxy()->includeColorPickerScripts();
 BizSystem::clientProxy()->includeCalendarScripts(); 
 $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 $includedScripts .= "
-<script>try{var \$j=jQuery.noConflict();}catch(e){}</script>
 <script type=\"text/javascript\" src=\"$js_url/cookies.js\"></script>
-<script type=\"text/javascript\" src=\"$theme_js_url/general_ui.js\"></script>
+<script type=\"text/javascript\" src=\"$js_url/general_ui.js\"></script>
 <script type='text/javascript' src='".Resource::getJsUrl()."/Openbiz.PackageForm.js'></script>
 <script type='text/javascript' src='$js_url/uploadify/swfobject.js'></script>
 <script type='text/javascript' src='$js_url/uploadify/jquery.uploadify.v2.1.4.js'></script>
-<script type='text/javascript' src='$js_url/jquery-ui-1.8.12.custom.min.js'></script>
 <style>
 .action_panel{
 width:292px;
@@ -24,6 +22,12 @@ width:398px;
 }
 </style>
 ";
+if (JSLIB_BASE!='JQUERY') {
+	$includedScripts .= "
+	<script>try{var \$j=jQuery.noConflict();}catch(e){}</script>
+	<script src=\"".JS_URL."/jquery-ui-1.8.12.custom.min.js\"></script>
+	";
+}
 $this->_tpl_vars['scripts'] = $includedScripts;
 
 $appendStyle = BizSystem::clientProxy()->getAppendedStyles();
