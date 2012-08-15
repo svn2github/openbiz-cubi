@@ -73,7 +73,8 @@ class userSmsService extends MetaObject
 			   $recInfo=Sms::Send($Provider,$SmsQueueArr[$i]['mobile'], $content,$plantime);
                if($recInfo)
 			   { 
-					$SmsQueueDO->updateRecords("status='sent'","Id={$SmsQueueArr[$i]['Id']}");
+					$time=date("Y-m-d H:i:s"); 
+					$SmsQueueDO->updateRecords("status='sent',sent_time='{$time}'","Id={$SmsQueueArr[$i]['Id']}");
 					$TasklistDO->updateRecords("has_sent=has_sent+1","Id={$SmsQueueArr[$i]['tasklist_id']}");
 					if($recInfo['balance'])//如果接口支持返回剩余的短信数量
 					{
