@@ -8,10 +8,12 @@
 <title>{$title}</title>
 <link rel="stylesheet" href="{$css_url}/general.css" type="text/css" />
 <link rel="stylesheet" href="{$css_url}/login.css" type="text/css" />
+{php} if (JSLIB_BASE!='JQUERY') : {/php}
 <script src="{$js_url}/jquery.js"></script>
 <script src="{$js_url}/jquery-ui-1.8.12.custom.min.js"></script>
 <script src="{$js_url}/jquery.textbox.hinter.js"></script>
 <script>{literal}try{var $j=jQuery.noConflict();}catch(e){}{/literal}</script>
+{php} endif;{/php}
 {$style_sheets}
 {$scripts}
 {php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
@@ -50,18 +52,29 @@
 				</div>
 				{literal}
 				<script>
-					$('loader_bg').fade( {from: 1, to: 0.7});
-					$('loader').fade( {from: 0, to: 1});
+					//$('loader_bg').fade( {from: 1, to: 0.7});
+					//$('loader').fade( {from: 0, to: 1});
 				</script>
 				{/literal}
 		</div>
 	</div>
 </div>
 
-{literal}
 <script>
 window.onload=fade_loader;
 window.onunload=fadeout_loader;
+{php} if (JSLIB_BASE=='JQUERY') : {/php}
+{literal}
+function fade_loader(){
+	$('#loader').fadeOut('slow');
+	$('#loader_bg').fadeOut('slow');	
+}
+function fadeout_loader(){	
+	$('#loader_bg').fadeIn('slow');
+}
+{/literal}
+{php} else : {/php}
+{literal}
 function fade_loader(){
 	window.setTimeout("$('loader').fade( {from: 0.7, to: 0});",800);
 	window.setTimeout("$('loader_bg').fade( {from: 0.7, to: 0});",800);	
@@ -71,8 +84,10 @@ function fade_loader(){
 function fadeout_loader(){	
 	$('loader_bg').fade( {from: 0.5, to: 1});
 }
-</script>
 {/literal}
+{php} endif; {/php}
+</script>
+
 {php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
 <script src="{$js_url}/ios_webapp.js"></script>
 {php}}{/php}
