@@ -115,36 +115,32 @@ $j(function(){
 			</div>
 			<div style="padding-left:5px;">
 			<div class="column" id="column_1">
-			{foreach key=formname item=form from=$forms name=dashPanel}
-				{if $smarty.foreach.dashPanel.iteration % 2 == 1}
-					<div class="dragbox" id="{$formname}" >
+			{foreach item=formname from=$columns[1] name=dashPanel}
+					<div class="dragbox" id="{$formname}_widget" >
 					<div class="widget_header">
 						<span class="widget_title">Handle</span>
 						<a href="#" class="delete">X</a>
 						<a href="#" class="maxmin">V</a>
 					</div>
 					<div class="dragbox-content" >
-						{$form}
+						{$forms[$formname]}
 					</div>
 					</div>
-				{/if}
 		    {/foreach}
 			</div>
 			
 			<div class="column" id="column_2">
-			{foreach key=formname item=form from=$forms name=dashPanel}
-				{if $smarty.foreach.dashPanel.iteration %2 == 0}
-					<div class="dragbox" id="{$formname}" >
+			{foreach item=formname from=$columns[2] name=dashPanel}
+					<div class="dragbox" id="{$formname}_widget" >
 					<div class="widget_header">
 						<span class="widget_title">Handle</span>
 						<a href="#" class="delete">X</a>
 						<a href="#" class="maxmin">V</a>
 					</div>
 					<div class="dragbox-content" >
-						{$form}
+						{$forms[$formname]}
 					</div>
 					</div>
-				{/if}
 		    {/foreach}
 			</div>
 			</div>
