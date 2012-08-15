@@ -27,7 +27,7 @@ class TaskService
 		}
 		$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
 		$eventlog->log("SMSTRIGGER", "insertSmsQueue", $taskId);
-		
+		 
 		$TasklistDO = BizSystem::getObject($this->m_SmsTasklistDO);
 		$SmsQueueDO = BizSystem::getObject($this->m_SmsQueueDO);
 		$TasklistArr=$TasklistDO->fetchOne('id='.$taskId);

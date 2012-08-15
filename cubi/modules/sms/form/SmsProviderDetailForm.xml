@@ -136,34 +136,8 @@
 					
     </DataPanel>
     <ActionPanel>  
-    	  
-    	 <Element Name="btn_share" 
-    	 			Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
-    	 			Class="Button"   
-    	 			Text="Share" 
-    	 			CssClass="button_gray_share" 
-    	 			Description="Share">
-			<EventHandler Name="btn_update_onclick" 
-							Event="onclick" 
-							Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})" />
-        </Element>  
-        <Element Name="btn_spacer_for_share" 
-	        		Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" 
-	        		Class="Spacer" 
-	        		Width="10" />
-    	  
-    	
-        <Element Name="btn_new" 
-        			Class="Button" 
-        			Text="Add" 
-        			CssClass="button_gray_add" 
-        			Description="New record (Insert)">
-			<EventHandler Name="btn_new_onclick" 
-							Event="onclick" 
-							Function="SwitchForm(sms.form.SmsProviderNewForm)"  
-							ShortcutKey="Insert" 
-							ContextMenu="New" />
-        </Element>          
+
+        
         <Element Name="btn_edit" 
         			Class="Button" 
         			Text="Edit" 
@@ -175,32 +149,7 @@
 							ShortcutKey="Ctrl+E" 
 							ContextMenu="Edit" />
         </Element>
-		<Element Name="btn_copy" 
-					Class="Button" 
-					Text="Copy" 
-					CssClass="button_gray_m" 
-					Description="Copy record (Ctrl+C)">
-            <EventHandler Name="onclick" 
-            				Event="onclick" 
-            				EventLogMsg="" 
-            				Function="CopyRecord({@:Elem[fld_Id].Value})" 
-            				RedirectPage="form=sms.form.SmsProviderCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
-            				ShortcutKey="Ctrl+C" 
-            				ContextMenu="Copy"/>
-        </Element> 
-        <Element Name="btn_delete" 
-        			Class="Button" 
-        			Text="Delete" 
-        			CssClass="button_gray_m" 
-        			Description="Delete record (Delete)">
-            <EventHandler Name="del_onclick" 
-            				Event="onclick" 
-            				EventLogMsg="" 
-            				Function="DeleteRecord({@:Elem[fld_Id].Value})"  
-            				RedirectPage="{APP_INDEX}/sms/sms_provider_manage" 
-            				ShortcutKey="Ctrl+Delete" 
-            				ContextMenu="Delete" />
-        </Element>
+
         <Element Name="btn_cancel" 
         			Class="LabelBack" 
         			Text="Back" 

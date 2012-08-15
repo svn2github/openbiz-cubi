@@ -11,7 +11,7 @@
 		Class="BizDataObj" 
 		DBName="Default" 
 		Table="sms_tasklist" 
-		SearchRule="" 
+		SearchRule="[create_by]='{@profile:Id}'" 
 		SortRule="" 
 		OtherSQLRule=""
 		Uniqueness="" 

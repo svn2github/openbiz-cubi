@@ -72,39 +72,7 @@
 		</Element>
 		
 
-       								   	
-
-		
-
-       								   	
-
-		
-
-       								   	
-
-		
-
-       								   	
-
-		
-
-  
-		<Element Name="fld_published" 
-					Class="Listbox" 
-					ElementSet="Miscellaneous" 
-					KeepCookie="Y" 
-					SelectFrom="common.lov.CommLOV(Published)" 
-					DefaultValue="1" 
-					FieldName="group_perm" 
-					Label="Group Share"  />
-		<Element Name="fld_published_other" 
-					Class="Listbox" 
-					ElementSet="Miscellaneous" 
-					KeepCookie="Y" 
-					SelectFrom="common.lov.CommLOV(Published)" 
-					DefaultValue="0" 
-					FieldName="other_perm" 
-					Label="Other Group"  />
+ 
     </DataPanel>
     <ActionPanel>       
         <Element Name="btn_save" 

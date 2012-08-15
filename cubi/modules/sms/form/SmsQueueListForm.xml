@@ -6,7 +6,7 @@
   Version $Id$
 -->
 <EasyForm Name="SmsQueueListForm" 
-			Class="EasyForm"			  
+			Class="SmsQueueForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
 			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_queue_list.png"
@@ -32,9 +32,8 @@
         			Label="ID" 
         			Sortable="Y" 
         			AllowURLParam="N" 
+					Hidden="Y"
         			Link="javascript:;" />   
-			        			     
-   
     
 		<Element Name="fld_sender" 
         			Class="ColumnText" 
@@ -47,15 +46,6 @@
 					/> 
         	
    
-    
-		<Element Name="fld_mobile_name" 
-        			Class="ColumnText" 
-        			FieldName="mobile_name" 
-        			Label=" Name" 
-        			MaxLength="15"        			 
-        			Sortable="Y"
-        			 />    
-        	
    
     
 		<Element Name="fld_mobile" 
@@ -68,109 +58,60 @@
         	
    
     
-		<Element Name="fld_subject" 
+		<Element Name="fld_content" 
         			Class="ColumnText" 
-        			FieldName="subject" 
-        			Label="Subject" 
+        			FieldName="content" 
+        			Label="content" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />    
         	
    
     
-		<Element Name="fld_mobile" 
+		<Element Name="fld_status" 
         			Class="ColumnText" 
-        			FieldName="mobile" 
-        			Label="Mobile" 
+        			FieldName="status" 
+        			Label="status" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />    
         	
-   
-    
-    
-    
-    
+		<Element Name="fld_create_time" 
+        			Class="ColumnText" 
+        			FieldName="create_time" 
+        			Label="create_time" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />    		
+		<Element Name="fld_sent_time" 
+        			Class="ColumnText" 
+        			FieldName="sent_time" 
+        			Label="sent_time" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />    
+        	
     
   
 	</DataPanel>
-    <ActionPanel>
-    	<!-- Create New Record Button -->
-        <Element Name="btn_new" 
-        			Class="Button" 
-        			Text="Add" 
-        			CssClass="button_gray_add" 
-        			Description="New record (Insert)" 
-        			Access="sms.Manage">
-            <EventHandler Name="lnk_new_onclick" 
-            				Event="onclick" 
-            				EventLogMsg="" 
-            				Function="SwitchForm(sms.form.SmsQueueNewForm)"  
-            				ShortcutKey="Insert" 
-            				ContextMenu="New"/>
-        </Element>
-        
-        <!-- Edit Selected Record Button -->
-        <Element Name="btn_edit" 
-        			Class="Button" 
-        			Text="Edit" 
-        			CssClass="button_gray_m" 
-        			Description="Edit record (Ctrl+E)" 
-        			Access="sms.Manage">
-            <EventHandler Name="btn_edit_onclick" 
-            				Event="onclick" 
-            				EventLogMsg="" 
-            				Function="EditRecord()" 
-            				RedirectPage="form=sms.form.SmsQueueEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
-            				ShortcutKey="Ctrl+E" 
-            				ContextMenu="Edit" />
-        </Element>
-        
-        <!-- Copy Selected Record Button -->
-        <Element Name="btn_copy" 
-        			Class="Button" 
-        			Text="Copy" 
-        			CssClass="button_gray_m" 
-        			Description="Copy record (Ctrl+C)" 
-        			Access="sms.Manage">
-            <EventHandler Name="btn_copy_onclick" 
-            				Event="onclick" 
-            				EventLogMsg="" 
-            				Function="CopyRecord()" 
-            				RedirectPage="form=sms.form.SmsQueueCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" 
-            				ShortcutKey="Ctrl+C" 
-            				ContextMenu="Copy"/>
-        </Element>
-        
+    <ActionPanel>        
         <!-- Delete Selected Record Button -->
-        <Element Name="btn_delete" 
-        			Class="Button" 
-        			Text="Delete" 
-        			CssClass="button_gray_m" 
-        			Description="Delete record"
-        			Access="sms.Manage">
-            <EventHandler Name="del_onclick" 
-            				Event="onclick" 
-            				EventLogMsg="" 
-            				Function="DeleteRecord()" 
-            				ShortcutKey="Ctrl+Delete" 
-            				ContextMenu="Delete"/>
+       <Element Name="btn_send_all" Class="Button" Text="Send All" CssClass="button_gray_w" >
+            <EventHandler Name="btn_send_all_onclick" Event="onclick" Function="SendAllPendingSms()" EventLogMsg="MSG_EMAIL_QUEUE_SEND_ALL_PENDING" ShortcutKey="Ctrl+Shift+A" ContextMenu="Send All" />            
         </Element>
-        
-        <!-- Export Records Button -->
-        <Element Name="btn_excel" 
-        			Class="Button" 
-        			Text="Export" 
-        			Description="Export records"
-        			CssClass="button_gray_m">
-            <EventHandler Name="export_onclick" 
-            				Event="onclick" 
-            				EventLogMsg="" 
-            				Function="CallService(excelService,renderCSV)" 
-            				FunctionType="Popup" 
-            				ShortcutKey="Ctrl+Shift+X" 
-            				ContextMenu="Export"/>
+		<Element Name="btn_send_selected" Class="Button" Text="Send" CssClass="button_gray_m">
+            <EventHandler Name="btn_send_selected_onclick" Event="onclick" Function="SendSms()" ShortcutKey="Ctrl+S" ContextMenu="Send" />
         </Element>
+        <Element Name="btn_delete_selected" Class="Button" Text="Delete" CssClass="button_gray_m">
+            <EventHandler Name="btn_delete_selected_onclick" Event="onclick" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        </Element>       
+		<Element Name="btn_delete_sent" Class="Button" Text="Delete Sent" CssClass="button_gray_w">
+            <EventHandler Name="btn_delete_sent_onclick" Event="onclick" Function="DeleteSentSms()" EventLogMsg="MSG_EMAIL_QUEUE_DELETE_SENT"  ContextMenu="Delete Sent"/>
+        </Element>         
+		<Element Name="btn_delete_all" Class="Button" Text="Delete All" CssClass="button_gray_w">
+            <EventHandler Name="btn_delete_all_onclick" Event="onclick" Function="DeleteAllSms()" EventLogMsg="MSG_EMAIL_QUEUE_DELETE_ALL"  ContextMenu="Delete All" />
+        </Element>     
+		
     </ActionPanel> 
     <NavPanel>
     	
