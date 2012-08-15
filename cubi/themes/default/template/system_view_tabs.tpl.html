@@ -87,8 +87,40 @@
 	</div>
 </div>
 
-{literal}
 <script>
+{php} if (JSLIB_BASE=='JQUERY') : {/php}
+{literal}
+$('#main_loader_bg')[0].style.height = $('#main_content')[0].offsetHeight+'px';
+//document.bind("Form:Load",SwitchTab);
+var targetTabname;
+function SwitchTab(){
+	if(targetTabname){
+		HideTabs();
+		$(jq('tab_form_'+targetTabname)).show();
+		$(jq('tab_form_'+targetTabname)).show();
+		$(jq('tab_link_'+targetTabname)).attr('class','current');
+	}	
+}
+
+function ShowTab(tabname,formname,id){	
+	targetTabname = tabname;
+}
+function HideTabs(){
+	$('.tab_form').hide();
+	$('.tab_link').children().attr('class','');
+}
+function InitTabs(){
+	fade_loader();
+	$('.tab_form').hide();
+	$('.tab_form').first().show();
+
+	$('.tab_link').children().attr('class','');
+	$('.tab_link').children().first().attr('class','current');
+}
+window.onload=InitTabs;
+{/literal}
+{php} else : {/php}
+{literal}
 $('main_loader_bg').style.height = $('main_content').offsetHeight+'px';
 document.observe("Form:Load",SwitchTab);
 var targetTabname;
@@ -136,8 +168,10 @@ function InitTabs(){
 //	window.setTimeout("init_first_tab()",1500);
 }
 window.onload=InitTabs;
-</script>
 {/literal}
+{php} endif; {/php}
+</script>
+
 {php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
 <script src="{$js_url}/ios_webapp.js"></script>
 {php}}{/php}

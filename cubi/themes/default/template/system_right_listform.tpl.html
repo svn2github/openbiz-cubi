@@ -128,7 +128,11 @@
 <script>
 {if $form.status eq 'Enabled'}
 {elseif $form.status eq 'Disabled'}
+{php} if (JSLIB_BASE=='JQUERY') : {/php}
+$(jq('{$form.name}_data_table')).fadeTo("slow", 0.35);
+{php} else : {/php}
 $('{$form.name}_data_table').fade({literal}{ duration: 0.5, from: 1, to: 0.35 }{/literal});
+{php} endif; {/php}
 {/if}
 </script>
 <span id='{$form.name}_selected_id' style="display:none">{$default_selected_id}</span>
