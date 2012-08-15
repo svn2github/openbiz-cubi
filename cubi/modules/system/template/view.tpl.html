@@ -4,15 +4,18 @@ $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 $includedScripts.="\n"."
 <script src=\"".JS_URL."/cookies.js\"></script>
 <script src=\"".JS_URL."/grouping.js\"></script>
-<script src=\"".JS_URL."/jquery.js\"></script>
-<script type=\"text/javascript\" src=\"$theme_js_url/general_ui.js\"></script>
-<script>try{var \$j=jQuery.noConflict();}catch(e){}</script>
-<script src=\"".JS_URL."/jquery-ui-1.8.12.custom.min.js\"></script>
+<script src=\"".JS_URL."/general_ui.js\"></script>
 <script type=\"text/javascript\" src=\"".JS_URL."/DateRangePicker/daterangepicker.jQuery.js\"></script>
 <link rel=\"stylesheet\" href=\"".JS_URL."/DateRangePicker/css/ui.daterangepicker.css\" type=\"text/css\" />
 <link rel=\"stylesheet\" href=\"".JS_URL."/DateRangePicker/css/redmond/jquery-ui-1.7.1.custom.css\" type=\"text/css\" />
 ";
-
+if (JSLIB_BASE!='JQUERY') {
+	$includedScripts .= "
+	<script src=\"".JS_URL."/jquery.js\"></script>
+	<script>try{var \$j=jQuery.noConflict();}catch(e){}</script>
+	<script src=\"".JS_URL."/jquery-ui-1.8.12.custom.min.js\"></script>
+	";
+}
 $this->_tpl_vars['scripts'] = $includedScripts; 
 
 $css_url = $this->_tpl_vars['css_url'];
