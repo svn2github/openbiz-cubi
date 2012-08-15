@@ -8,7 +8,7 @@
 <EasyView Name="DashboardView" 
 	Description="Dashboard View of Product Description" 
 	Class="EasyView" 	
-	Access="" 
+	Access="product.Access" 
 	TemplateEngine="Smarty" 
 	TemplateFile="view.tpl">
    <FormReferences>

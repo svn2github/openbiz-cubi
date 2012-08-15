@@ -52,13 +52,7 @@
        				Label="Id"  
        				AllowURLParam="Y"/>     
    				  		
-					
-       	<Element Name="fld_sku" 
-       				ElementSet="General" 
-       				Class="LabelText" 
-       				FieldName="sku" 
-       				Label="SKU Number" 
-       				AllowURLParam="N"/>
+	
        	<Element Name="fld_description" 
        				ElementSet="General" 
        				Class="LabelTextarea" 
