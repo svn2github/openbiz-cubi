@@ -509,7 +509,7 @@ Openbiz.Window =
 		var d = document.createElement('DIV');
 		document.body.appendChild(d);
 		$(d).attr('id', 'modal_dialog');
-		options = {width:w, height:h, modal: true};
+		options = {width:w, modal: true};
         $(d).load(_url, function() { $(this).dialog(options); });
 		
 		//$("#myDiv").dialog({ autoOpen: false }).load(url, function() { $(this).dialog("open"); });
@@ -526,7 +526,7 @@ Openbiz.Window =
         d.innerHTML = text;
         document.body.appendChild(d);
 		$(d).attr('id', 'modal_dialog');
-		options = {width:w, height:h, modal: true};
+		options = {width:w, modal: true};
 		$(d).dialog(options);
 		
 		//var parameters = {className: "dialog",zIndex:10000, width:w, height:h, closable:true, resizable:true, draggable:true};
