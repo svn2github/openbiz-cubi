@@ -30,7 +30,7 @@ class userSmsService extends MetaObject
 	/**
 	 * 发送单条短信;
 	 */
-	public function SendSms($limit=1){
+	public function SendSms($SmsQueue=null,$limit=10){
 		$time = time();
         $lock_expiry = $time + $this->m_lock_expire;
 		$TasklistDO = BizSystem::getObject($this->m_SmsTasklistDO);
@@ -43,54 +43,68 @@ class userSmsService extends MetaObject
 			$eventlog->log("SMSSEND_ERROR", 'SendSms','Unknown Provider');
 			return false;
 		}
-		$SmsQueueArr=$SmsQueueDO->directFetch("lock_expiry < $time and status!='sent' and ifnull(mobile,'')<>''",$limit,0,"priority desc");
-		 if($SmsQueueArr)
-		 {
-			$SmsQueueArr=$SmsQueueArr->toArray();
+		if(!$SmsQueue)
+		{
+			$SmsQueueArr=$SmsQueueDO->directFetch("lock_expiry < $time and status!='sent' and ifnull(mobile,'')<>''",$limit,0,"priority desc");
+			 if($SmsQueueArr)
+			 {
+				$SmsQueueArr=$SmsQueueArr->toArray();
+			 }	
+		}
+		else
+		{
+			$SmsQueueArr=$SmsQueue;
+		}
+
+		$sms_count = count($SmsQueueArr);
+		if(!$sms_count)
+		{
+			return false;
+		}
+		$sms_ids = array();
+		$mobile = array();
+		for ($i=0; $i < $sms_count; $i++)
+		{
+			$sms_ids[] = $SmsQueueArr[$i]['Id'];
+		  //  $mobile[] = $SmsQueueArr[$i]['mobile'];
+		}
+		//$mobile=implode(',',$mobile);
+	
+		 //锁定
+	   $SmsQueueDO->updateRecords ("lock_expiry= $lock_expiry","Id".$this->db_create_in($sms_ids));
 		
-			$sms_count = count($SmsQueueArr);
-            $sms_ids = array();
-            $mobile = array();
-            for ($i=0; $i < $sms_count; $i++)
-            {
-                $sms_ids[] = $SmsQueueArr[$i]['Id'];
-              //  $mobile[] = $SmsQueueArr[$i]['mobile'];
-            }
-			//$mobile=implode(',',$mobile);
-		
-             //锁定
-		   $SmsQueueDO->updateRecords ("lock_expiry= $lock_expiry","Id".$this->db_create_in($sms_ids));
-         	
-			include_once(MODULE_PATH."/sms/lib/Sms.class.php");
-            for ($i=0; $i < $sms_count; $i ++)
-            {
-				$plantime=null;
-				if($SmsQueueArr[$i]['plantime'])
+		include_once(MODULE_PATH."/sms/lib/Sms.class.php");
+		for ($i=0; $i < $sms_count; $i ++)
+		{
+			$plantime=null;
+			if($SmsQueueArr[$i]['plantime'])
+			{
+				$plantime=$SmsQueueArr[$i]['plantime'];
+			}	
+		   $content=$SmsQueueArr[$i]['content'].'【'.$this->m_SmsPreference['content_sign'].'】';
+		   $recInfo=Sms::Send($Provider,$SmsQueueArr[$i]['mobile'], $content,$plantime);
+		   if($recInfo)
+		   { 
+				$time=date("Y-m-d H:i:s"); 
+				$SmsQueueDO->updateRecords("status='sent',sent_time='{$time}'","Id={$SmsQueueArr[$i]['Id']}");
+				$TasklistDO->updateRecords("has_sent=has_sent+1","Id={$SmsQueueArr[$i]['tasklist_id']}");
+				if($recInfo['balance'])//如果接口支持返回剩余的短信数量
 				{
-					$plantime=$SmsQueueArr[$i]['plantime'];
-				}	
-			   $content=$SmsQueueArr[$i]['content'].'【'.$this->m_SmsPreference['content_sign'].'】';
-			   $recInfo=Sms::Send($Provider,$SmsQueueArr[$i]['mobile'], $content,$plantime);
-               if($recInfo)
-			   { 
-					$time=date("Y-m-d H:i:s"); 
-					$SmsQueueDO->updateRecords("status='sent',sent_time='{$time}'","Id={$SmsQueueArr[$i]['Id']}");
-					$TasklistDO->updateRecords("has_sent=has_sent+1","Id={$SmsQueueArr[$i]['tasklist_id']}");
-					if($recInfo['balance'])//如果接口支持返回剩余的短信数量
-					{
-						$SmsProviderDO->updateRecords("use_sms_count={$recInfo['balance']},send_sms_count=send_sms_count+1","type='{$Provider['type']}'");
-					}
-					else
-					{
-						$SmsProviderDO->updateRecords("use_sms_count=use_sms_count-1,send_sms_count=send_sms_count+1","type='{$Provider['type']}'");
-					}
-			   }
-			   else
-			   {
-					$SmsQueueDO->updateRecords("status='sending'","Id={$SmsQueueArr[$i]['Id']}");
-			   }
-            }
-        }
+					$SmsProviderDO->updateRecords("use_sms_count={$recInfo['balance']},send_sms_count=send_sms_count+1","type='{$Provider['type']}'");
+				}
+				else
+				{
+					$SmsProviderDO->updateRecords("use_sms_count=use_sms_count-1,send_sms_count=send_sms_count+1","type='{$Provider['type']}'");
+				}
+				return true;
+		   }
+		   else
+		   {
+				$SmsQueueDO->updateRecords("status='sending'","Id={$SmsQueueArr[$i]['Id']}");
+				return false;
+		   }
+		}
+        
 	}
 	/**
 	 * 批量发送短信;
