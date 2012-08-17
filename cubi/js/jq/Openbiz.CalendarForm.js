@@ -1,11 +1,12 @@
 /**
  * Openbiz Calendar Form class
  */
-Openbiz.CalendarForm = Class.create(Openbiz.Form,
+Openbiz.CalendarForm = Openbiz.Form.extend (
 {
-	collectData: function($super)
+	collectData: function()
     {
-    	formData = $super() + "&_selectedId=" + this.selectedId
+    	formData = this._parent();
+        formData = formData + "&_selectedId=" + this.selectedId
     						+ "&dayDelta=" + this.dayDelta
     						+ "&minuteDelta=" + this.minuteDelta
     						+ "&allDay=" + this.allDay
