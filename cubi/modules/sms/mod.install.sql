@@ -47,6 +47,25 @@ CREATE TABLE IF NOT EXISTS `sms_queue` (
   KEY `flag` (`status`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
+DROP TABLE IF EXISTS `sms_log`;
+CREATE TABLE IF NOT EXISTS `sms_log` (
+  `id` int(11) NOT NULL auto_increment,
+  `tasklist_id` int(11) NOT NULL ,
+  `result` varchar(255) NOT NULL,
+  `mobile` varchar(11) NOT NULL,
+  `content` longtext NOT NULL,
+   `provider`  varchar(100) NOT NULL,
+   `lock_expiry`  varchar(20) NOT NULL,
+   `priority`int(10) NOT NULL,
+  `status` enum('pending','sending','sent') NOT NULL,
+    `plantime` datetime NOT NULL,
+	`create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `sent_time` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `flag` (`status`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
 DROP TABLE IF EXISTS `sms_tasklist`;
 CREATE TABLE IF NOT EXISTS `sms_tasklist` (
   `id` int(11) NOT NULL auto_increment,

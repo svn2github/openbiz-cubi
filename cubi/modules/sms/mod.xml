@@ -3,63 +3,25 @@
   Openbiz Cubi Application Platform
   LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
   Copyright (c) 2005-2011, Openbiz Technology LLC
-  Version $Id$
+  Version $Id: mod.xml 3358 2012-05-31 05:57:58Z rockyswen@gmail.com $
 -->
-<Module Name="sms" 
-		Description="Sms Module Description" 
-		Version="0.1" 
-		OpenbizVersion="3.0" 
-		Author="System, Admin"
-		LoadHandler="SmsLoadHandler.php" >
+<Module Name="Sms" Description="Sms module is to provide Sms queue and log functions" Version="0.6" Author="Fsl" OpenbizVersion="3.0">
 	<ACL>
-		<Resource Name="sms">
-			<Action Name="Access" 
-					Description="Data access permission of sms"/>
-			<Action Name="Manage" 
-					Description="Data manage permission of sms"/>
+		<Resource Name="SmsSetting">
+			<Action Name="System.Administer_System" Description="Can manage system Sms"/>
 		</Resource>
-	</ACL>
-	<Menu>
-		<MenuItem Name="sms" 
-				Title="Sms" 
-				Description="" 
-				URL="{APP_INDEX}/sms/dashboard" 
-				Order="50" 
-				Access="sms.Access">		
-	        <MenuItem Name="sms_sms_provider" 
-	        			Title="Sms Provider" 	        			
-	        			Description="" 
-	        			URL="" 
-	        			IconImage="spacer.gif" 
-	        			IconCssClass="icon_sms" 
-	        			Order="50" 
-	        			Access="" >
-	        			
-				<MenuItem Name="sms_sms_provider_manage" 
-		        			Title="Sms Provider Manage" 	        			
-		        			Description="Manage of Sms Provider" 
-		        			URL="{APP_INDEX}/sms/sms_provider_manage" 
-		        			IconImage="spacer.gif" 
-		        			IconCssClass="" 
-		        			Order="50" 
-		        			Access="sms.Access" >
-						<MenuItem Name="sms_sms_provider_detail" 
-				        			Title="Sms Provider Detail" 	        			
-				        			Description="Detail of Sms Provider" 
-				        			URL="{APP_INDEX}/sms/sms_provider_detail" 
-				        			IconImage="spacer.gif" 
-				        			IconCssClass="" 
-				        			Order="50" 
-				        			Access="sms.Access" />
-		        </MenuItem>		
-			</MenuItem>
+    </ACL>
+    <Menu>
+    <!-- System menus -->
+		<MenuItem Name="System.Sms" Title="Sms" Description="System Sms Management" Parent="System" IconImage="spacer.gif" IconCssClass="icon_Sms_queue" Order="30">
+			<MenuItem Name="System.Sms.Queue" Title="Manage Sms Queue" Description=""  URL="/Sms/SmsQueueManage" Order="10"/>
+			 
+			<MenuItem Name="System.Sms.Setting" Title="Manage Sms Setting" Description=""  URL="/Sms/Sms_Send_Setting" Order="20"/>			
+			<MenuItem Name="System.Sms.Provider" Title="Manage Sms Provider" Description=""  URL="/Sms/sms_provider_manage" Order="20"/>
 		</MenuItem>	
-	</Menu>
-	<Dependency>
-		<Module Name="system" /> 
-		<Module Name="menu" /> 
-	</Dependency>	
-	<ChangeLog>
-	    
-	</ChangeLog>    
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
 </Module>

@@ -8,7 +8,7 @@
 <EasyView Name="SmsProviderManageView" 
 	Description="Sms Provider Description Management" 
 	Class="EasyView" 
-	Access="sms.Access" 
+	Access="System.Administer_System" 
 	TemplateEngine="Smarty" 
 	TemplateFile="view.tpl">
    <FormReferences>

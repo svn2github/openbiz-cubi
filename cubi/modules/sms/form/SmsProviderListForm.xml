@@ -6,7 +6,7 @@
   Version $Id$
 -->
 <EasyForm Name="SmsProviderListForm" 
-			Class="SmsForm"			  
+			Class="SmsTestSendNewForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
 			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_provider_list.png"
@@ -80,7 +80,7 @@
         </Element>
      <Element Name="btn_test" Class="Button" Text="Test Send" CssClass="button_gray_w"   Access="oauth.Administer">
             <EventHandler Name="btn_edit_onclick" Event="onclick" 
-				Function="LoadDialog(sms.form.SmsTestSendNewForm)"  />
+				Function="LoadDialog(sms.form.SmsTestSendNewForm)" />
         </Element>
      <Element Name="btn_sync" Class="Button" Text="Sync Sms Count" CssClass="button_gray_w"   Access="oauth.Administer">
             <EventHandler Name="btn_edit_onclick" Event="onclick" 

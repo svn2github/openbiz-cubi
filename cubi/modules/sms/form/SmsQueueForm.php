@@ -16,25 +16,73 @@ class SmsQueueForm extends EasyForm
 {
 	public function SendAllPendingSms()
 	{
-
+		BizSystem::getService('userSmsService')->SendSms();
+		$this->runEventLog();
+        $this->processPostAction();
 		return true;
 	}
 	
 	public function sendSms()
 	{
+		$Record=$this->getActiveRecord();
+		if(is_array($Record))
+		{
+			$arr[0]=$Record;
+			BizSystem::getService('userSmsService')->SendSms($arr);
+		} 
+	 if (strtoupper($this->m_FormType) == "LIST")
+            $this->rerender();
 
+        $this->runEventLog();
+        $this->processPostAction();
 		return true;
 	}
 
-	public function deleteAllSms()
+	public function DeleteAllSms()
 	{
+       if ($this->m_Resource != "" && !$this->allowAccess($this->m_Resource.".delete"))
+          //  return BizSystem::clientProxy()->redirectView(ACCESS_DENIED_VIEW);
 
+        try
+        {
+          $this->getDataObj()->deleteRecords();
+        } 
+        catch (BDOException $e)
+        {
+           $this->processBDOException($e);
+           return;
+        }
+       
+        if (strtoupper($this->m_FormType) == "LIST")
+            $this->rerender();
+
+        $this->runEventLog();
+        $this->processPostAction();
 		return true;
 	}
 
 	
-	public function deleteSentSms()
-	{
+	public function DeleteSentSms()
+	{ 
+       if ($this->m_Resource != "" && !$this->allowAccess($this->m_Resource.".delete"))
+            //return BizSystem::clientProxy()->redirectView(ACCESS_DENIED_VIEW);
+
+        try
+        {
+          $this->getDataObj()->deleteRecords("[status]='sent'");
+        } 
+        catch (BDOException $e)
+        {
+           $this->processBDOException($e);
+           return;
+        }
+		
+       
+        if (strtoupper($this->m_FormType) == "LIST")
+            $this->rerender();
+
+        $this->runEventLog();
+        $this->processPostAction();
 		return true;
 	}
 	

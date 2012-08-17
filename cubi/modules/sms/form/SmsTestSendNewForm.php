@@ -16,7 +16,7 @@
  *
  * @access public
  */
-class SmsForm extends EasyForm
+class SmsTestSendNewForm extends EasyForm
 {
 	public function getSentMessageCount(){
 		 include_once(MODULE_PATH."/sms/lib/sms.class.php");
@@ -45,30 +45,26 @@ class SmsForm extends EasyForm
 		$this->rerender();
 	}
     public function InsertRecord(){
-		$TasklistDO = BizSystem::getObject('sms.do.SmsTasklistDO');
-		$SmsQueueDO = BizSystem::getObject('sms.do.SmsQueueDO');
-		$TasklistArr=$TasklistDO->fetchOne('id=1');
-		 if($TasklistArr)
-		 {
-			$TasklistArr=$TasklistArr->toArray();
-		 }
-		$data=array(
-				'tasklist_id'=>$TasklistArr['Id'],
-				'mobile'=>$TasklistArr['mobile'],
-				'provider'=>$TasklistArr['provider'],
-				'content'=>$TasklistArr['content'],
-				'status'=>'pending'
-				);
-		$SmsQueueDO->insertRecord($data);		
 		$readInput=$this->readInputRecord();
 		preg_match('/13\d{9}/',$readInput['mobile'],$mobile);
 		if(!$mobile)
 		{
-			$this->m_Errors = array("test"=>$this->getMessage("mobile_ERROR"));
+			$this->m_Errors = array("test"=>$this->getMessage("MOBILE_ERROR"));
 			$this->updateForm();
 			return false;
 		}
-		return parent::InsertRecord();
+		parent::InsertRecord();
+		//触发器的机制没有效果暂用如下代码先实现
+		$SmsQueueDO = BizSystem::getObject('sms.do.SmsQueueDO');
+		$data=array(
+				'tasklist_id'=>$this->getRecordId(),
+				'mobile'=>$readInput['mobile'],
+				'provider'=>$readInput['provider'],
+				'content'=>$readInput['content'],
+				'status'=>'pending'
+				);
+		 $SmsQueueDO->insertRecord($data);	
+		return true;
     }    
 }  
 ?>

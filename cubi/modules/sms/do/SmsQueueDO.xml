@@ -12,7 +12,7 @@
 		DBName="Default" 
 		Table="sms_queue" 
 		SearchRule="" 
-		SortRule="" 
+		SortRule="[Id] DESC"
 		OtherSQLRule=""
 		Uniqueness="" 
 		Stateless="N" 

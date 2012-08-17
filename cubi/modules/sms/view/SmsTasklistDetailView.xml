@@ -8,7 +8,7 @@
 <EasyView Name="SmsTasklistDetailView" 
 	Description="Detail View of Sms Tasklist Description" 
 	Class="EasyView" 	
-	Access="sms.Access" 
+	Access="System.Administer_System" 
 	TemplateEngine="Smarty" 
 	TemplateFile="view.tpl">
    <FormReferences>

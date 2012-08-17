@@ -18,7 +18,7 @@
 			TemplateEngine="Smarty" 
 			TemplateFile="form_data_picker.tpl.html" 
 			MessageFile="SmsProvider.ini" 
-			Access="sms.Access">	
+			Access="System.Administer_System">	
     <DataPanel>
             
         			

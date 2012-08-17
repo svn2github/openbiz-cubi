@@ -15,7 +15,7 @@
 			TemplateEngine="Smarty" 
 			TemplateFile="element_listform_lite.tpl.html" 
 			MessageFile="" 
-			Access="sms.Access">	
+			Access="System.Administer_System">	
     <DataPanel>           
             
 		<Element Name="row_selections" 

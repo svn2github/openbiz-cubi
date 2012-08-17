@@ -8,7 +8,7 @@
 <EasyView Name="SmsQueueDetailView" 
 	Description="Detail View of Sms Queue Description" 
 	Class="EasyView" 	
-	Access="sms.Access" 
+	Access="System.Administer_System" 
 	TemplateEngine="Smarty" 
 	TemplateFile="view.tpl">
    <FormReferences>

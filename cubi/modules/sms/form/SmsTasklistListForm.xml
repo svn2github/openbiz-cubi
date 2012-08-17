@@ -19,7 +19,7 @@
 			TemplateFile="form_grid_adv.tpl.html" 
 			EventName="SmsTasklist" 
 			MessageFile="" 
-			Access="sms.Access"
+			Access="System.Administer_System"
 			SearchRule="[create_by]='{@profile:Id}'" 
 			SortRule="[create_time] desc"
 			>

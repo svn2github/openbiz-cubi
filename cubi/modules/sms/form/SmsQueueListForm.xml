@@ -19,7 +19,7 @@
 			TemplateFile="form_grid.tpl.html" 
 			EventName="SmsQueue" 
 			MessageFile="" 
-			Access="sms.Access">
+			Access="System.Administer_System">
 	<DataPanel>
             
 		<Element Name="row_selections" 
@@ -97,7 +97,7 @@
     <ActionPanel>        
         <!-- Delete Selected Record Button -->
        <Element Name="btn_send_all" Class="Button" Text="Send All" CssClass="button_gray_w" >
-            <EventHandler Name="btn_send_all_onclick" Event="onclick" Function="SendAllPendingSms()" EventLogMsg="MSG_EMAIL_QUEUE_SEND_ALL_PENDING" ShortcutKey="Ctrl+Shift+A" ContextMenu="Send All" />            
+            <EventHandler Name="btn_send_all_onclick" Event="onclick" Function="SendAllPendingSms()" EventLogMsg="MSG_SMS_QUEUE_SEND_ALL_PENDING" ShortcutKey="Ctrl+Shift+A" ContextMenu="Send All" />            
         </Element>
 		<Element Name="btn_send_selected" Class="Button" Text="Send" CssClass="button_gray_m">
             <EventHandler Name="btn_send_selected_onclick" Event="onclick" Function="SendSms()" ShortcutKey="Ctrl+S" ContextMenu="Send" />
@@ -106,10 +106,10 @@
             <EventHandler Name="btn_delete_selected_onclick" Event="onclick" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
         </Element>       
 		<Element Name="btn_delete_sent" Class="Button" Text="Delete Sent" CssClass="button_gray_w">
-            <EventHandler Name="btn_delete_sent_onclick" Event="onclick" Function="DeleteSentSms()" EventLogMsg="MSG_EMAIL_QUEUE_DELETE_SENT"  ContextMenu="Delete Sent"/>
+            <EventHandler Name="btn_delete_sent_onclick" Event="onclick" Function="DeleteSentSms()" EventLogMsg="MSG_SMS_QUEUE_DELETE_SENT"  ContextMenu="Delete Sent"/>
         </Element>         
 		<Element Name="btn_delete_all" Class="Button" Text="Delete All" CssClass="button_gray_w">
-            <EventHandler Name="btn_delete_all_onclick" Event="onclick" Function="DeleteAllSms()" EventLogMsg="MSG_EMAIL_QUEUE_DELETE_ALL"  ContextMenu="Delete All" />
+            <EventHandler Name="btn_delete_all_onclick" Event="onclick" Function="DeleteAllSms()" EventLogMsg="MSG_SMS_QUEUE_DELETE_ALL"  ContextMenu="Delete All" />
         </Element>     
 		
     </ActionPanel> 

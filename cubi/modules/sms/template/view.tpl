@@ -23,12 +23,11 @@ $appendStyle = BizSystem::clientProxy()->getAppendedStyles();
 $appendStyle .= "
 <link rel=\"stylesheet\" href=\"$css_url/general.css\" type=\"text/css\" />
 <link rel=\"stylesheet\" href=\"$css_url/system_backend.css\" type=\"text/css\" />
-<link rel=\"stylesheet\" href=\"".RESOURCE_URL."/sms/css/sms_menu_icons.css\" type=\"text/css\" />
+<link rel=\"stylesheet\" href=\"$css_url/system_menu_icons.css\" type=\"text/css\" />
 ";
 $this->_tpl_vars['style_sheets'] = $appendStyle;
 
-$left_menu = "sms.widget.SmsLeftMenu";
-$this->assign('left_menu', $left_menu);
+
 
 $this->assign('template_file', 'system_view.tpl.html');
 {/php}

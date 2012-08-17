@@ -6,7 +6,7 @@
   Version $Id$
 -->
 <EasyForm Name="SmsTestSendNewForm" 
-			Class="SmsForm" 
+			Class="SmsTestSendNewForm" 
 			FormType="New" 
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_tasklist_add.png"

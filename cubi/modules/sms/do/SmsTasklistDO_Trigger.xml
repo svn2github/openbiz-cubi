@@ -5,7 +5,7 @@
       <TriggerAction Action="CallService" Immediate="Y" DelayMinutes="" RepeatMinutes="">
          <ActionArgument Name="Service" Value="sms.lib.TaskService" />
          <ActionArgument Name="Method" Value="insertSmsQueue" /> 
-         <ActionArgument Name="type" Value="{@}" />         
+         <ActionArgument Name="id" Value="{Id}" />         
       </TriggerAction>
         
    </TriggerActions>
