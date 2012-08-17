@@ -208,9 +208,9 @@ class MenuTreeDO extends BizDataObj
     	foreach($rs as $record)
     	{
     		$access = $record['access'];
-    		if(BizSystem::allowUserAccess($access))
+    		if(empty($access) || BizSystem::allowUserAccess($access))
     		{
-    			$counter++;
+				$counter++;
     		}
     	}
     	return $counter;

@@ -106,8 +106,8 @@ class MenuWidget extends MetaObject implements iUIControl {
     	$attrs['css'] = $this->m_CssClass;
     	$attrs['description'] = $this->m_Description;
     	$attrs['menu'] = $this->fetchMenuTree();
-    	$attrs['breadcrumb']= $this->getDataObj()->getBreadCrumb();    	
-    	//if ($this->m_Name=="menu.widget.TabMenu") { print_r($attrs['menu']);   print_r($attrs['breadcrumb']);  }
+    	$attrs['breadcrumb']= $this->getDataObj()->getBreadCrumb();
+    	//if ($this->m_Name=="menu.widget.MainTabMenu") { print_r($attrs['menu']);   print_r($attrs['breadcrumb']);  }
     	return $attrs;
     }
     
