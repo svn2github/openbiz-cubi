@@ -125,30 +125,74 @@ class DropDownList extends InputElement
                 
         $this->setValue($value);
         $display_value = strip_tags($display_value);
+		
+		$elem_id = $formNameStr.$this->m_Name;
+		$elem_scroll_id = $formNameStr.$this->m_Name."_scroll";
+		$elem_list_id = $formNameStr.$this->m_Name."_list";
+		$elem_hidden_id = $formNameStr.$this->m_Name."_hidden";
         
-        	$onchange_func = $this->getOnChangeFunction();
-	        $sHTML .= $optionList;
-        	$sHTML .= "<div $display_span>";
-	        
-	        $sHTML .= "<span ID=\"span_" . $formNameStr.$this->m_Name ."\"  $this->m_HTMLAttr $style
-		        			onclick=\"if($('".$formNameStr.$this->m_Name."_list').visible()){\$('".$formNameStr.$this->m_Name."_list').hide();\$('".$formNameStr.$this->m_Name."_scroll').hide();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssClass."'}else{\$('".$formNameStr.$this->m_Name."_list').show();\$('".$formNameStr.$this->m_Name."_scroll').show();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssFocusClass."'}\"
-		        			onmouseover=\"$('span_".$formNameStr.$this->m_Name."').className='".$this->m_cssHoverClass."'\"
-		        			onmouseout=\"$('span_".$formNameStr.$this->m_Name."').className='".$this->m_cssClass."'\"
-		        			>$display_value</span>";
-	        $sHTML .= "</div>";
-	        $sHTML .= "<div $display_input>";
-	        $sHTML .= "<INPUT NAME=\"" . $formNameStr.$this->m_Name . "\" ID=\"" . $formNameStr.$this->m_Name ."\" VALUE=\"" . $display_value . "\" $disabledStr $this->m_HTMLAttr $style 
-		        			onclick=\"if($('".$formNameStr.$this->m_Name."_list').visible()){\$('".$formNameStr.$this->m_Name."_list').hide();\$('".$formNameStr.$this->m_Name."_scroll').hide();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssClass."'}else{\$('".$formNameStr.$this->m_Name."_list').show();\$('".$formNameStr.$this->m_Name."_scroll').show();$('".$formNameStr.$this->m_Name."').className='".$this->m_cssFocusClass."'}\"
-		        			onmouseover=\"$('".$formNameStr.$this->m_Name."').className='".$this->m_cssHoverClass."'\"
-		        			onmouseout=\"$('".$formNameStr.$this->m_Name."').className='".$this->m_cssClass."'\"
-		        			onchange=\"$('".$formNameStr.$this->m_Name."_hidden').setValue(this.value);$onchange_func;\"
-		        			/>";
-	        $sHTML .= "<INPUT NAME=\"" . $formNameStr.$this->m_Name . "\" ID=\"" . $formNameStr.$this->m_Name ."_hidden\" VALUE=\"" . $value . "\" type=\"hidden\" $func />";	        
-	        $sHTML .= "</div>";	        
+		$onchange_func = $this->getOnChangeFunction();
+		$sHTML .= $optionList;
+		$sHTML .= "\n<div $display_span>";
+		// jquery $j('a.maxmin').click(function() {...});
+		// jquery $j('a.maxmin').hover(function() {...}, function() {...});
+		if (defined('JSLIB_BASE') && JSLIB_BASE == 'JQUERY') {
+			$sHTML .= "\n<span ID=\"span_$elem_id\"  $this->m_HTMLAttr $style>$display_value</span>\n";
+		}
+		else {
+	        $sHTML .= "<span ID=\"span_$elem_id\"  $this->m_HTMLAttr $style
+						onclick=\"if($('$elem_list_id').visible()){\$('$elem_list_id').hide();\$('$elem_scroll_id').hide();$('$elem_id').className='".$this->m_cssClass."'}else{\$('$elem_list_id').show();\$('$elem_scroll_id').show();$('$elem_id').className='".$this->m_cssFocusClass."'}\"
+						onmouseover=\"$('span_$elem_id').className='".$this->m_cssHoverClass."'\"
+						onmouseout=\"$('span_$elem_id').className='".$this->m_cssClass."'\"
+						>$display_value</span>";
+		}
+		$sHTML .= "</div>";
+		$sHTML .= "<div $display_input>";
+		if (defined('JSLIB_BASE') && JSLIB_BASE == 'JQUERY') {
+			$sHTML .= "<INPUT NAME=\"$elem_id\" ID=\"$elem_id\" VALUE=\"" . $display_value . "\" $disabledStr $this->m_HTMLAttr $style />\n";
+		}
+		else {
+			$sHTML .= "<INPUT NAME=\"$elem_id\" ID=\"$elem_id\" VALUE=\"" . $display_value . "\" $disabledStr $this->m_HTMLAttr $style 
+						onclick=\"if($('$elem_list_id').visible()){\$('$elem_list_id').hide();\$('$elem_scroll_id').hide();$('$elem_id').className='".$this->m_cssClass."'}else{\$('$elem_list_id').show();\$('$elem_scroll_id').show();$('$elem_id').className='".$this->m_cssFocusClass."'}\"
+							onmouseover=\"$('span_$elem_id').className='".$this->m_cssHoverClass."'\"
+							onmouseout=\"$('span_$elem_id').className='".$this->m_cssClass."'\"
+						/>";
+		}
+		$sHTML .= "<INPUT NAME=\"$elem_id\" ID=\"$elem_hidden_id\" VALUE=\"" . $value . "\" type=\"hidden\" $func />";	        
+		$sHTML .= "</div>";	        
         	
         $sHTML .= "</div>";
         
-        $sHTML .= "<script>$('".$formNameStr.$this->m_Name."_list').hide()</script>";
+if (defined('JSLIB_BASE') && JSLIB_BASE == 'JQUERY') {
+	$sHTML .= "<script>$('#$elem_list_id').hide();
+	$('#span_$elem_id, #$elem_id').click(
+		function() {
+			$('#$elem_list_id, #$elem_scroll_id').toggle();
+		}
+	);
+	$('#span_$elem_id, #$elem_id').hover(
+		function () {
+			$(this).attr('class','$this->m_cssHoverClass');
+		},
+		function () {
+			$(this).attr('class','$this->m_cssClass');
+		}
+	);
+	$('#$elem_list_id li').click(
+		function(){
+			$('#$elem_list_id, #$elem_scroll_id').hide();
+			$('#$elem_id').val($(this).attr('disp_value'));
+			$('#$elem_hidden_id').val($(this).attr('real_value'));
+			$('#span_$elem_id').html($(this).html());
+			$('#$elem_id').attr('class','$this->m_cssClass');
+			$onchange_func;
+		}
+	);
+	</script>";
+}
+else {
+	$sHTML .= "<script>$('$elem_list_id').hide();</script>";
+}
         return $sHTML;
     }
     
@@ -174,7 +218,6 @@ class DropDownList extends InputElement
         			$this->getSimpleFromList($list, $selectFrom);
         		}				
         	}
-        	
         }
             
        	if(!is_array($list)||count($list)==0){
@@ -214,8 +257,12 @@ class DropDownList extends InputElement
         }    	
     	
     	$value = $this->m_Value!==null ? $this->m_Value : $this->getText();
-    	$sHTML = "<div  class=\"dropdownlist\"  id=\"".$formNameStr.$this->m_Name."_scroll\" style=\"display:none;\">".
-    	$sHTML .= "<ul style=\"display:none;z-index:50\" id=\"".$formNameStr.$this->m_Name."_list\">";
+		$elem_id = $formNameStr.$this->m_Name;
+		$elem_scroll_id = $formNameStr.$this->m_Name."_scroll";
+		$elem_list_id = $formNameStr.$this->m_Name."_list";
+		$elem_hidden_id = $formNameStr.$this->m_Name."_hidden";
+    	$sHTML = "\n<div  class=\"dropdownlist\"  id=\"$elem_scroll_id\" style=\"display:none;\">".
+    	$sHTML .= "\n<ul style=\"display:none;z-index:50\" id=\"$elem_list_id\">\n";
     	if(!$list){$list=array();}
     	foreach($list as $item){
     		$val = $item['val'];
@@ -241,9 +288,8 @@ class DropDownList extends InputElement
     	    	$li_option_value =  $str_pic."<span>".$txt."</span>";
     	    }
     	    else{
-    	    	$li_option_value =$txt ;
+    	    	$li_option_value = "<span>".$txt."</span>"; //$txt ;
     	    }
-    	    
     	    
     	    if($val==$value)
     	    {    	    	
@@ -251,18 +297,22 @@ class DropDownList extends InputElement
     	    }else{
     	    	$option_item_style=" onmouseover=\"this.className='hover'\" onmouseout=\"this.className=''\" ";
     	    }
-    	    
-    		$sHTML .= "<li $option_item_style				
-				onclick=\"$('".$formNameStr.$this->m_Name."_list').hide();
-							$('".$formNameStr.$this->m_Name."_scroll').hide();
-							$('".$formNameStr.$this->m_Name."').setValue('".addslashes($display_value)."');
-							$('".$formNameStr.$this->m_Name."_hidden').setValue('".addslashes($val)."');
-							$('span_".$formNameStr.$this->m_Name."').innerHTML = this.innerHTML;							
-							$onchange_func ;
-							$('".$formNameStr.$this->m_Name."').className='".$this->m_cssClass."'
-							\"					
-				>$li_option_value</li>";
-    		
+    	    // jquery $j('a.maxmin').click( function () {...} );
+			if (defined('JSLIB_BASE') && JSLIB_BASE == 'JQUERY') {
+				$sHTML .= "<li $option_item_style disp_value='$display_value' real_value='$val'>$li_option_value</li>\n";
+			}
+			else {
+				$sHTML .= "<li $option_item_style			
+							onclick=\"$('$elem_list_id').hide();
+									$('$elem_scroll_id').hide();
+									$('$elem_id').setValue('".addslashes($display_value)."');
+									$('$elem_hidden_id').setValue('".addslashes($val)."');
+									$('span_$elem_id').innerHTML = this.innerHTML;
+									$onchange_func ;
+									$('$elem_id').className='".$this->m_cssClass."'
+									\"	
+					>$li_option_value</li>";
+    		}
     		if($val == $value){
     			$this->m_DefaultDisplayValue="".$str_pic."<span>".$txt."</span>";
     		}		
@@ -271,7 +321,6 @@ class DropDownList extends InputElement
     	$sHTML .= "</div>";
     	return $sHTML;
     }
-    
     
     protected function getList(){
     	$list= array();
@@ -347,8 +396,7 @@ class DropDownList extends InputElement
                     {
                         $list[$i]['txt'] = $list[$i]['val'];
                     }
-                    $i++;
-                    
+                    $i++; 
                 }
                 $this->translateList($list, $tag);	// supprot multi-language
             }
@@ -408,7 +456,6 @@ class DropDownList extends InputElement
                 $list[$i]['pic'] = $rec[$fieldName_p];
                 $i++;
             }
-           
             return true;
         }
         return false;
@@ -453,8 +500,7 @@ class DropDownList extends InputElement
             throw new BDOException($this->m_ErrorMessage);
             return null;
         }
-    }    
-
+    }
     
     protected function getOnChangeFunction()
     {
@@ -476,18 +522,17 @@ class DropDownList extends InputElement
             }else{
             	$events[$event]=$eventHandler->getFormedFunction();
             }
-
         }
 		
-			$function=$events['onchange'];
-			if(is_array($function)){
-				foreach($function as $f){
-					$function_str.=$f.";";
-				}
-				$func .= $function_str;
-			}else{
-				$func .= $function;
+		$function=$events['onchange'];
+		if(is_array($function)){
+			foreach($function as $f){
+				$function_str.=$f.";";
 			}
+			$func .= $function_str;
+		}else{
+			$func .= $function;
+		}
 		
         return $func;
     }    
@@ -504,7 +549,4 @@ class DropDownList extends InputElement
     	}
     }    
 }
-
-
-
 ?>
