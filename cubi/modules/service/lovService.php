@@ -1,4 +1,4 @@
-<?php
+	<?php
 /**
  * Openbiz Cubi Application Platform
  *
@@ -23,10 +23,12 @@ class lovService extends MetaObject
     {
     	$dict = array();
     	$list = $this->getList($selectFrom);
-    	foreach ($list as $item)
-    	{
-    		$dict[$item['val']] = $item['txt'];
-    	}
+		if ($list) {
+			foreach ($list as $item)
+			{
+				$dict[$item['val']] = $item['txt'];
+			}
+		}
     	return $dict;
     }
 	
