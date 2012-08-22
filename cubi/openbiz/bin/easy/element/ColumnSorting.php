@@ -12,7 +12,7 @@ class ColumnSorting extends ColumnText
 		//$this->m_EventHandlers = null;
 		$value = $this->m_Text ? $this->getText() : $this->m_Value;
         
-        if ($value == null || $value =="")
+        if ($value === null || $value ==="")
             return "";
 
         $style = $this->getStyle();
@@ -33,7 +33,7 @@ class ColumnSorting extends ColumnText
 	        }
         }
         
-        if ($value!=null)
+        if ($value!==null)
         {
         	if($this->m_DisplayFormat)
         	{
