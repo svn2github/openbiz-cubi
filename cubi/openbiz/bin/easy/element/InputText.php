@@ -53,12 +53,13 @@ class InputText extends InputElement
         $func = $this->getFunction();
         
         $formobj = $this->GetFormObj();
-    	if($formobj->m_Errors[$this->m_Name]){
-			$func .= "onchange=\"this.className='$this->m_cssClass'\"";
-		}else{
-			$func .= "onfocus=\"this.className='$this->m_cssFocusClass'\" onblur=\"this.className='$this->m_cssClass'\"";
-		}        
-        
+		if (CLIENT_DEVICE != 'mobile') { 
+			if($formobj->m_Errors[$this->m_Name]){
+				$func .= "onchange=\"this.className='$this->m_cssClass'\"";
+			}else{
+				$func .= "onfocus=\"this.className='$this->m_cssFocusClass'\" onblur=\"this.className='$this->m_cssClass'\"";
+			}        
+        }
         $sHTML = "<INPUT NAME=\"" . $this->m_Name . "\" ID=\"" . $this->m_Name ."\" VALUE=\"" . $value . "\" $disabledStr $this->m_HTMLAttr $style $func />";
         if($this->m_Hint){
         	$sHTML.="<script>        	

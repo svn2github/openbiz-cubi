@@ -55,6 +55,8 @@ class Element extends MetaObject implements iUIControl
 	public $m_CookieLifetime = 3600;
 	public $m_BackgroundColor;
 	
+	public $m_DataRole = "";
+	
     /**
      * Initialize Element with xml array
      *
@@ -107,7 +109,9 @@ class Element extends MetaObject implements iUIControl
         $this->m_AllowURLParam = isset($xmlArr["ATTRIBUTES"]["ALLOWURLPARAM"]) ? $xmlArr["ATTRIBUTES"]["ALLOWURLPARAM"] : 'Y';
         $this->m_KeepCookie = isset($xmlArr["ATTRIBUTES"]["KEEPCOOKIE"]) ? $xmlArr["ATTRIBUTES"]["KEEPCOOKIE"] : 'N';
         $this->m_CookieLifetime = isset($xmlArr["ATTRIBUTES"]["COOKIELIFETIME"]) ? (int)$xmlArr["ATTRIBUTES"]["COOKIELIFETIME"] : '3600';
+		$this->m_DataRole = isset($xmlArr["ATTRIBUTES"]["DATAROLE"]) ? $xmlArr["ATTRIBUTES"]["DATAROLE"] : null;
 		$this->m_Extra = isset($xmlArr["ATTRIBUTES"]["EXTRA"]) ? $xmlArr["ATTRIBUTES"]["EXTRA"] : null;
+
         // read EventHandler element
         if (isset($xmlArr["EVENTHANDLER"]))  // 2.1 eventhanlders
             $this->m_EventHandlers = new MetaIterator($xmlArr["EVENTHANDLER"],"EventHandler");
@@ -118,7 +122,8 @@ class Element extends MetaObject implements iUIControl
                 $eventHandler->setFormName($this->m_FormName, $this->m_Name);
         }
 
-        // add description and client validator on HTMLAttr
+        // additional data in HTMLAttr
+		$this->m_HTMLAttr .= ($this->m_DataRole) ? " data-role='".$this->m_DataRole."'" : "";
         $this->m_HTMLAttr .= " title='".$this->m_Description."'"." clientValidator='".$this->m_ClientValidator."'";
     }
 

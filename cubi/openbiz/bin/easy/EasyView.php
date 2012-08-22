@@ -333,27 +333,7 @@ class EasyView extends MetaObject implements iSessionObject
      */
     protected function setClientScripts()
     {
-		if (defined('JSLIB_BASE') && JSLIB_BASE == 'JQUERY') {
-			BizSystem::clientProxy()->appendScripts("jquery", "jquery.js");
-			BizSystem::clientProxy()->appendScripts("jquery_class", "jquery.class.js");
-			BizSystem::clientProxy()->appendScripts("jquery_dollarj", "<script>try{var \$j=\$;}catch(e){}</script>", false); 
-			BizSystem::clientProxy()->appendScripts("openbiz", "openbiz.js");      
-			BizSystem::clientProxy()->appendStyles("default", "openbiz.css");
-			BizSystem::clientProxy()->appendScripts("jquery_ui", "jquery-ui-1.8.16.custom.min.js");
-			$style = "<link rel=\"stylesheet\" href=\"".Resource::getJsUrl()."/jquery-ui/ui-lightness/jquery-ui-1.8.16.custom.css\" type=\"text/css\">";
-			$style .= "<link rel=\"stylesheet\" href=\"".Resource::getJsUrl()."/jquery-ui/ui-openbiz/jquery.css\" type=\"text/css\">";
-			BizSystem::clientProxy()->appendStyles("jquery_ui_css", $style, false);
-			return;
-		}
-		// prototype is still the default js lib
-        BizSystem::clientProxy()->appendScripts("prototype", "prototype.js");
-        BizSystem::clientProxy()->appendScripts("scriptaculous", "scriptaculous.js");
-        BizSystem::clientProxy()->appendScripts("openbiz", "openbiz.js");      
-        BizSystem::clientProxy()->appendStyles("default", "openbiz.css");
-        // window lib
-        BizSystem::clientProxy()->includePropWindowScripts();
-        // validator lib
-        //BizSystem::clientProxy()->includeValidatorScripts();
+		BizSystem::clientProxy()->includeBaseClientScripts();
     }
 
     /**

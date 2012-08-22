@@ -261,6 +261,15 @@ class Resource
         }
         $xmlFile .= ".xml";
         $xmlFile = "/" . $xmlFile;
+		
+		// find device path first
+        if (defined('CLIENT_DEVICE')) {
+            $path = dirname($xmlFile);
+            if (strpos($path, 'view')>0 || strpos($path, 'form')>0 || strpos($path, 'widget')>0) {
+                $fname = basename($xmlFile);
+                $xmlFileList[] = MODULE_PATH."/$path/".CLIENT_DEVICE."/$fname";
+            }
+        }
         
         // search in modules directory first
         $xmlFileList[] = MODULE_PATH . $xmlFile;
@@ -311,6 +320,10 @@ class Resource
             $templateRoot . "/$templateFile"
         );
         if ($checkExtModule && defined('MODULE_EX_PATH')) array_unshift($searchTpls, MODULE_EX_PATH . "/$packagePath/template/$templateFile");
+		
+		// device
+		if (defined('CLIENT_DEVICE')) array_unshift($searchTpls, MODULE_PATH."/$moduleName/template/".CLIENT_DEVICE."/$templateFile");
+		
         foreach ($searchTpls as $tplFile)
         {
             if (file_exists($tplFile))
