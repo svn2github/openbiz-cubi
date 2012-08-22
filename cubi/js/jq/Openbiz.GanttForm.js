@@ -1,7 +1,7 @@
 /**
  * Openbiz Sticky Form class
  */
-Openbiz.GanttForm = Class.create(Openbiz.Form,
+Openbiz.GanttForm = Openbiz.Form.extend (
 {
 	SelectRecord: function(paramArray)
     {
@@ -24,9 +24,10 @@ Openbiz.GanttForm = Class.create(Openbiz.Form,
         //	return;
         this.CallFunction("selectRecord", [recordId]);
     },
-	collectData: function($super)
+	collectData: function()
     {
-    	formData = $super() + "&_selectedId=" + this.selectedId
+    	formData = this._parent();
+        formData = formData + "&_selectedId=" + this.selectedId
     						+ "&start_time=" +  this.start_time
     						+ "&duration=" + this.duration
     						+ "&move_child=" + this.move_child

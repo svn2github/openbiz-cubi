@@ -72,8 +72,11 @@
 }
 
 .ui-dialog .ui-widget-content { border: 1px solid #dddddd; background: #ffffff; color: #333333; }
-.ui-dialog .ui-widget-header { border: 1px solid #0033CC; background: #0066FF; color: #ffffff; font-weight: bold; }
-.ui-dialog .ui-dialog-content { position: relative; border: 0; padding: 0; background: #ffffff; overflow: auto; zoom: 1; }
+.ui-dialog .ui-widget-header { border: 1px solid #0033CC; background: #5C9CCC; color: #ffffff; font-weight: bold; }
+.ui-dialog .ui-dialog-content { position: relative; border: 0; padding: 0; background: #ffffff; padding-bottom: 20px; overflow: auto; zoom: 1; }
+
+.ui-daterangepickercontain  .ui-widget-content { border: 1px solid #dddddd; background: #ffffff; color: #333333; }
+.ui-daterangepickercontain  .ui-widget-header { border: 1px solid #0033CC; background: #5C9CCC; color: #ffffff; font-weight: bold; }
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
     background-color:#efefef;
