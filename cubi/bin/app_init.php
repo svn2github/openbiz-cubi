@@ -12,6 +12,8 @@
  * @version   $Id: app_init.php 3815 2012-08-02 16:07:17Z rockyswen@gmail.com $
  */
  
+include_once ('device_util.php');
+ 
 /****************************************************************************
   openbiz core path
  *************************************************************************** */
@@ -72,16 +74,20 @@ define('MODULE_PATH', APP_HOME . DIRECTORY_SEPARATOR . "modules");
 /* define messages files path */
 define('MESSAGE_PATH', APP_HOME . DIRECTORY_SEPARATOR . "messages");
 
+/* device */
+if (DeviceUtil::$DEVICE) define('CLIENT_DEVICE',DeviceUtil::$DEVICE);
+
 /* define themes const */
 define('USE_THEME', 1);
 define('THEME_URL', APP_URL . "/themes");
 define('THEME_PATH', APP_HOME . DIRECTORY_SEPARATOR . "themes");    // absolution path the themes
-define('DEFAULT_THEME_NAME', 'default');     // name of the theme. theme files are under themes/theme_name
+if (DeviceUtil::$PHONE_TOUCH) define('DEFAULT_THEME_NAME','touch');	// default theme for touch screen phone
+else define('DEFAULT_THEME_NAME', 'default');     // name of the theme. theme files are under themes/theme_name
 define('SMARTY_CPL_PATH', APP_HOME . DIRECTORY_SEPARATOR . "files/tpl_cpl");    // smarty template compiling path
 
 /* js lib base, prototype (old) or jquery (new) */
-define('JSLIB_BASE', "PROTOTYPE");
-//define('JSLIB_BASE', "JQUERY");
+if (DeviceUtil::$PHONE_TOUCH) define('JSLIB_BASE', "JQUERY");
+else /*define('JSLIB_BASE', "JQUERY");*/ define('JSLIB_BASE', "PROTOTYPE");
 /* define javascript path */
 if (JSLIB_BASE == 'JQUERY') define('JS_URL', APP_URL . "/js/jq");
 else define('JS_URL', APP_URL . "/js");
@@ -131,7 +137,7 @@ define('CACHE_DATA_PATH', APP_HOME . DIRECTORY_SEPARATOR . "files" . DIRECTORY_S
   application system level constances
  * ************************************************************************** */
 /* whether print debug infomation or not */
-define("DEBUG", 1);
+define("DEBUG", 0);
 
 /* check whether user logged in */
 define("CHECKUSER", "Y");
