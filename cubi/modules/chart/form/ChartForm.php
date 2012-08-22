@@ -149,7 +149,8 @@ class ChartForm extends EasyForm
     
     public function draw()
     {
-    	$path = MODULE_PATH.'/chart/lib';
+    	ob_clean();
+		$path = MODULE_PATH.'/chart/lib';
     	set_include_path(get_include_path() . PATH_SEPARATOR . $path);    	
         if(strtolower(FusionChartVersion)=="pro"){
     		require_once(dirname(dirname(__FILE__)).'/lib/fusionpro/FusionCharts_Gen.php'); 		
