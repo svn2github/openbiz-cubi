@@ -1,0 +1,23 @@
+<div data-role="header">
+	<a href="#app_menus_page">Menu</a>
+	<h1>{$title}</h1>
+    <a href="#app_tabs_page" data-icon="home" data-iconpos="notext">Home</a>
+</div><!-- /header -->
+
+<div data-role="content" data-theme="d">
+{assign var=row_counter value=0}
+{foreach key=formname item=form from=$forms name=view_forms}							    
+	<div>
+    {$form}
+	</div>
+    {assign var=row_counter value=$row_counter+1}
+    {if $row_counter < $smarty.foreach.view_forms.total}
+    <div style="height:30px;"></div>
+    {/if}
+{/foreach}
+<a id='lnkDialog' href="#app_dialog_page" data-rel="dialog" data-transition="pop" style="display:none">link dialog</a>
+</div>
+
+<div data-role="footer">
+	<h2>Page Footer</h2>
+</div><!-- /footer -->

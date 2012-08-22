@@ -1,0 +1,32 @@
+{php}
+$widget = Bizsystem::GetObject('menu.widget.MainTabMenu');
+if($widget->m_GlobalSearchRule && $widget->m_SearchRule){
+	$searchRule = $widget->m_GlobalSearchRule ." and ". $widget->m_SearchRule;
+}else{
+	$searchRule = $widget->m_SearchRule;
+}
+$menu_count = $widget->getDataObj()->directfetch($searchRule)->count();
+$menu_item_width = 115;
+$menu_width = ($menu_count * $menu_item_width)."px";
+$this->assign('menu_count', $menu_count);
+{/php}
+
+<div data-role="header">
+	<h1>Cubi</h1>
+</div><!-- /header -->
+
+<div data-role="content">
+	{php}
+	echo Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
+	{/php}
+	<p style="height:5px; display:block"/>
+	<ul data-role="listview" data-inset="true">
+		<li><a class="icon_myaccount" href="{$app_index}/myaccount/dashboard" >{t}My Account{/t}</a></li>
+		<li><a class="icon_help" href="http://www.openbiz.me/product_cubi" target="_blank" >{t}Help{/t}</a></li>
+		<li><a class="icon_logout" href="{$app_index}/user/logout" >{t}Logout{/t}</a></li>
+	</ul>	
+</div><!-- /content -->
+	
+<div data-role="footer">
+	<h2>Page Footer</h2>
+</div><!-- /footer -->

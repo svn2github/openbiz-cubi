@@ -1,0 +1,64 @@
+/* CSS Document */
+div#login_box {
+	background-image:url(../images/login_box_bg.png);
+	background-repeat:no-repeat;
+	width:792px;
+	height:456px;
+	overflow:hidden;
+	text-align:left;
+} 
+
+.cubi_logo_large{
+	background-image:url(../../../images/cubi_logo_large.jpg);
+	background-repeat:no-repeat;
+	background-position:125px 90px;
+	text-align:left;
+	width:290px;
+	height:400px;
+	float:left;
+}
+.cubi_login_banner{
+	background-image:url(../../../images/login_banner.gif);
+	background-repeat:no-repeat;
+	background-position:left top;
+	text-align:left;
+	height:75px;
+}
+.login_form{
+	text-align:left;
+	width:420px;
+	height:400px;
+	float:left;
+}
+.v_line{
+	height:400px;
+	width:35px;
+	float:left;
+	background-image:url(../images/v_line.jpg);
+	background-repeat:no-repeat;
+	background-position:left 80px;
+}
+span#login_indicator{
+	float:left;
+	color:#BEBEBE;
+	text-indent:10px;
+	height:22px;
+	line-height:22px;
+	font-size:9pt;
+}
+#loader{
+ height:456px; 
+ width:792px; 
+ position:absolute;
+}
+#loader_bg{
+ height:456px; 
+ width:792px; 
+ position:absolute;
+ background-color:#eef0ef;
+}
+#forms{
+ position:absolute;
+ height:456px; 
+ width:792px; 
+}

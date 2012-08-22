@@ -1,0 +1,49 @@
+<form id='{$form.name}' name='{$form.name}'>
+<h3>{$form.title}</h3> 
+{if $searchPanel }	
+<div data-role="collapsible" data-theme="b">
+    <h3>Search</h3>
+    {foreach item=elem from=$searchPanel}
+        {if $elem.label} {$elem.label} {/if} {$elem.element}
+    {/foreach}
+</div>
+{/if}
+{if $actionPanel}
+<div class="ui-bar ui-bar-d" style="margin:0 -10px; padding-left: 5px">
+    {foreach item=elem from=$actionPanel}
+        {$elem.element}
+    {/foreach}
+</div>
+{/if}
+
+<div style="height:20px; display:block"> </div>
+
+<!-- data list start --> 
+<ul id="{$form.name}_list" data-role="listview" data-inset="false">
+	{assign var=row_counter value=0}
+	{foreach item=row from=$dataPanel.data}
+	<li id="{$form.name}-{$dataPanel.ids[$row_counter]}" {if $dataPanel.elems.row_selections}class="ui-li-has-icon"{/if} style="padding-top:0;padding-bottom:0">
+    <!-- find the fld_listlink element and wrap all element in the LinkList <a> ... </a> ---> 
+        {if $row.fld_listlink}{$row.fld_listlink|replace:'</a>':''}{/if}
+		{foreach key=name item=cell key=cell_name from=$row}
+            {if $cell_name != 'fld_listlink'}
+			{$cell}
+            {/if}
+		{/foreach}
+        {if $row.fld_listlink}</a>{/if}
+	</li>
+    {assign var=row_counter value=$row_counter+1}
+	{/foreach}
+</ul>
+
+{if $navPanel }
+<div style="height:15px; display:block"> </div>
+<div class="ui-bar ui-bar-d" style="margin:0 -20px">
+<table width="100%"><tr>
+    {foreach item=elem from=$navPanel}
+    	<td style="text-align:center">{$elem.element}</td>
+    {/foreach}
+</tr></table>
+</div>
+{/if}
+</form>

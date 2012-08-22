@@ -1,0 +1,23 @@
+{php}
+if($this->_tpl_vars['left_menu']){
+	$left_menu = $this->_tpl_vars['left_menu'];
+}else{
+	$left_menu = "menu.widget.ApplicationMenu";
+}
+$obj = Bizsystem::GetObject($left_menu);
+$left_menu_content = $obj->render();
+$this->assign('system_left_menu_content', 	$left_menu_content);
+{/php}
+
+<div data-role="header">
+	<a href="#app_tabs_page" data-icon="home" data-iconpos="notext">Home</a>
+	<h1>Main Menu</h1>
+</div><!-- /header -->
+
+<div data-role="content">
+{$system_left_menu_content}
+</div>
+
+<div data-role="footer">
+	<h2>Page Footer</h2>
+</div><!-- /footer -->
