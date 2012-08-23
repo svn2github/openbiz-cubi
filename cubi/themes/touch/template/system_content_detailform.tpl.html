@@ -1,15 +1,32 @@
 <form id="{$form.name}" name="{$form.name}">
 
 <h2>{$form.title}</h2>
-    
-<div>
-	{foreach item=item key=itemName from=$dataPanel}
-    <div data-role="fieldcontain" style="padding: 5px 0">
-        <label for="{$itemName}" class="select">{$item.label}</label>
+
+{foreach item=item key=itemName from=$dataPanel}
+	{if $item.elementset eq ''}
+    <div data-role="fieldcontain" style="padding: 5px 0; font-size:small;">
+        <label for="{$itemName}" style="font-weight:bold;width:100px">{$item.label}</label>
         {$item.element}
     </div>
+	{/if}
+{/foreach}
+	
+{assign var=es_counter value=0}
+{foreach item=setname name=elemsets  from=$form.elementSets}
+	<div data-role="collapsible" data-mini="true" {if $es_counter==0}data-collapsed="false"{/if}>
+	<h3>{$setname}</h3>
+	{foreach item=item key=itemName from=$dataPanel}
+	{if $item.elementset eq $setname}
+    <div data-role="fieldcontain" style="padding: 5px 0; font-size:small;">
+        <label for="{$itemName}" style="font-weight:bold;width:100px">{$item.label}</label>
+        {$item.element}
+    </div>
+	{/if}
 	{/foreach}
-		
+	</div>
+	{assign var=es_counter value=$es_counter+1}	
+{/foreach}
+	
     <div style="height:10px;"></div>
     {if $actionPanel}
     <div class="ui-bar ui-bar-d" style="margin:0 -20px">
@@ -18,7 +35,5 @@
         {/foreach}
     </div>
     {/if}
-
-</div>
 
 </form>

@@ -39,11 +39,9 @@
 {if $navPanel }
 <div style="height:15px; display:block"> </div>
 <div class="ui-bar ui-bar-d" style="margin:0 -20px">
-<table width="100%"><tr>
     {foreach item=elem from=$navPanel}
-    	<td style="text-align:center">{$elem.element}</td>
+    	{$elem.element}
     {/foreach}
-</tr></table>
 </div>
 {/if}
 </form>
