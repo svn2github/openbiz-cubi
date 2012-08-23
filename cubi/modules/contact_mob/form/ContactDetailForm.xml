@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ContactDetailForm.xml 3761 2012-07-30 07:36:15Z rockyswen@gmail.com $
+-->
+<EasyForm Name="ContactDetailForm" Class="contact.form.ContactForm" FormType="" Icon="icon_my_profile.gif" jsClass="jbForm" Title="Contact Details" Description="Detailed information about contact" BizDataObj="contact.do.ContactDO"  TemplateEngine="Smarty" TemplateFile="system_content_detailform.tpl.html" EventName="CONTACT" Access="contact.access">
+    <DataPanel>
+		<Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="Y" />
+		
+		<Element Name="fld_first_name" Class="LabelText" ElementSet="Profile" FieldName="first_name" Label="Firstname" />
+		<Element Name="fld_last_name" Class="LabelText" ElementSet="Profile" FieldName="last_name" Label="Lastname"  AllowURLParam="N" />
+		<Element Name="fld_company" Class="LabelText" ElementSet="Profile" FieldName="company" Label="Company"  AllowURLParam="N"/>	        
+		<Element Name="fld_department" Class="LabelText" ElementSet="Profile" FieldName="department" Label="Department"  AllowURLParam="N"/>
+		<Element Name="fld_position" Class="LabelText" ElementSet="Profile" FieldName="position" Label="Position"  AllowURLParam="N"/>
+	
+		<Element Name="fld_phone" Class="LabelText" ElementSet="Phone" FieldName="phone" Label="Phone"  AllowURLParam="N"/>    	        
+		<Element Name="fld_mobile" Class="LabelText" ElementSet="Phone" FieldName="mobile" Label="Mobile"  AllowURLParam="N"/>    	        
+		<Element Name="fld_fax" Class="LabelText" ElementSet="Phone" FieldName="fax" Label="Fax"  AllowURLParam="N"/>
+	  
+		<Element Name="fld_country" Class="LabelText" ElementSet="Address" FieldName="country" Label="Country"  AllowURLParam="N"/>
+		<Element Name="fld_province" Class="LabelText" ElementSet="Address" FieldName="province" Label="Province"  AllowURLParam="N"/>    	        
+		<Element Name="fld_city" Class="LabelText" ElementSet="Address" FieldName="city" Label="City"  AllowURLParam="N"/>    	        
+		<Element Name="fld_street" Class="LabelText" ElementSet="Address" FieldName="street" Label="Street"  AllowURLParam="N"/>		
+		<Element Name="fld_zipcode" Class="LabelText" ElementSet="Address" FieldName="zipcode" Label="Zipcode"  AllowURLParam="N"/>
+	
+		<Element Name="fld_email" Class="LabelText"  ElementSet="Online Contact" FieldName="email" Label="Email"  AllowURLParam="N"/>    	        
+		<Element Name="fld_webpage" Class="LabelText" ElementSet="Online Contact"  FieldName="webpage" Label="Webpage"  AllowURLParam="N"/>
+		<Element Name="fld_qq" Class="LabelText" ElementSet="Online Contact"  FieldName="qq" Label="QQ"  AllowURLParam="N"/>    	        
+		<Element Name="fld_icq" Class="LabelText" ElementSet="Online Contact"  FieldName="icq" Label="ICQ"  AllowURLParam="N"/>    	        
+		<Element Name="fld_skype" Class="LabelText" ElementSet="Online Contact"  FieldName="skype" Label="Skype"  AllowURLParam="N"/>    	        
+		<Element Name="fld_yahoo" Class="LabelText" ElementSet="Online Contact"  FieldName="yahoo" Label="Yahoo"  AllowURLParam="N"/>
+		
+	</DataPanel>
+    <ActionPanel>
+         <Element Name="btn_back" Class="LabelText" Text="Back" DataRole="button" HTMLAttr="data-inline='true'" Link="{APP_INDEX}/contact_mob/contact_list">
+        </Element>
+		<Element Name="btn_edit"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button" DataRole="button" HTMLAttr="data-inline='true'" Text="Edit" Description="Edit contact">
+			<EventHandler Name="btn_edit_onclick" Event="onclick" Function="SwitchForm(contact_mob.form.ContactEditForm,{@:Elem[fld_Id].Value})"/>
+        </Element>		
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

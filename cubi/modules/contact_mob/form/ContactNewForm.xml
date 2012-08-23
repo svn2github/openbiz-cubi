@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ContactEditForm.xml 3604 2012-07-12 04:00:33Z hellojixian@gmail.com $
+-->
+<EasyForm Name="ContactNewForm" Class="contact.form.ContactForm" FormType="New"  Icon="icon_my_profile.gif" jsClass="jbForm" Title="Edit Contact Profile" Description="Here you can edit personal contact information" BizDataObj="contact.do.ContactDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_content_detailform.tpl.html" EventName="CONTACT" Access="contact.access">
+    <DataPanel>
+		<Element Name="fld_first_name" Class="InputText" ElementSet="Profile" FieldName="first_name" Label="Firstname" />
+		<Element Name="fld_last_name" Class="InputText" ElementSet="Profile" FieldName="last_name" Label="Lastname"  AllowURLParam="N" />
+		<Element Name="fld_display_name" Class="contact.form.DisplayNameBox" KeepCookie="Y" ElementSet="Profile" SelectFrom="common.lov.CommLOV(NameDisplayMode)" FieldName="display_name" Label="Display As"  AllowURLParam="N" />
+		<Element Name="fld_type_id" Class="Listbox" ElementSet="Profile" KeepCookie="Y" SelectFrom="contact.do.ContactTypeDO[name:Id]" FieldName="type_id" Label="Contact Type" /> 
+		<Element Name="fld_company" Class="InputText" ElementSet="Profile" FieldName="company" Label="Company"  AllowURLParam="N"/>	        
+		<Element Name="fld_department" Class="InputText" ElementSet="Profile" FieldName="department" Label="Department"  AllowURLParam="N"/>
+		<Element Name="fld_position" Class="InputText" ElementSet="Profile" FieldName="position" Label="Position"  AllowURLParam="N"/>
+	
+		<Element Name="fld_phone" Class="InputText" ElementSet="Phone" FieldName="phone" Label="Phone"  AllowURLParam="N"/>    	        
+		<Element Name="fld_mobile" Class="InputText" ElementSet="Phone" FieldName="mobile" Label="Mobile"  AllowURLParam="N"/>    	        
+		<Element Name="fld_fax" Class="InputText" ElementSet="Phone" FieldName="fax" Label="Fax"  AllowURLParam="N"/>
+	  
+		<Element Name="fld_country" Class="InputText" ElementSet="Address" FieldName="country" Label="Country"  AllowURLParam="N"/>
+		<Element Name="fld_province" Class="InputText" ElementSet="Address" FieldName="province" Label="Province"  AllowURLParam="N"/>    	        
+		<Element Name="fld_city" Class="InputText" ElementSet="Address" FieldName="city" Label="City"  AllowURLParam="N"/>    	        
+		<Element Name="fld_street" Class="InputText" ElementSet="Address" FieldName="street" Label="Street"  AllowURLParam="N"/>		
+		<Element Name="fld_zipcode" Class="InputText" ElementSet="Address" FieldName="zipcode" Label="Zipcode"  AllowURLParam="N"/>
+	
+		<Element Name="fld_email" Class="InputText"  ElementSet="Online Contact" FieldName="email" Label="Email"  AllowURLParam="N"/>    	        
+		<Element Name="fld_webpage" Class="InputText" ElementSet="Online Contact"  FieldName="webpage" Label="Webpage"  AllowURLParam="N"/>
+		<Element Name="fld_qq" Class="InputText" ElementSet="Online Contact"  FieldName="qq" Label="QQ"  AllowURLParam="N"/>    	        
+		<Element Name="fld_icq" Class="InputText" ElementSet="Online Contact"  FieldName="icq" Label="ICQ"  AllowURLParam="N"/>    	        
+		<Element Name="fld_skype" Class="InputText" ElementSet="Online Contact"  FieldName="skype" Label="Skype"  AllowURLParam="N"/>    	        
+		<Element Name="fld_yahoo" Class="InputText" ElementSet="Online Contact"  FieldName="yahoo" Label="Yahoo"  AllowURLParam="N"/>
+	</DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" DataRole="button" HTMLAttr="data-inline='true'" >
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="InsertRecord()" RedirectPage="form=contact_mob.form.ContactDetailForm&amp;fld:Id={@contact.do.ContactDO:Field[Id].Value}" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" DataRole="button" HTMLAttr="data-inline='true'" >
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

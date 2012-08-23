@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ContactListForm.xml 3751 2012-07-27 07:50:53Z rockyswen@gmail.com $
+-->
+<EasyForm Name="ContactListForm" Class="contact.form.ContactForm" Icon="{RESOURCE_URL}/contact/images/icon_phonebook.gif" FormType="List" jsClass="jbForm" Title="Contact Phone Book" Description="Telephone directory (also called a telephone book and phone book) is a listing of telephone." BizDataObj="contact.do.ContactDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_content_listform.tpl.html" EventName="CONTACT" Access="contact.access">
+    <DataPanel>
+        <!--<Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id" CssClass="ui-li-icon"/> -->
+		<Element Name="fld_Id" Class="LabelText" Hidden="Y" FieldName="Id" Label="ID"/>
+        <Element Name="fld_display_name" Class="LabelText" FieldName="display_name" Label="Contact Name" CssClass="ui-li-heading"/>
+        <Element Name="fld_email" Class="LabelText" FieldName="email" Label="Email" Text="Email: {@:Elem[fld_email].Value}" CssClass="ui-li-desc" Style="font-weight:bold"/>	
+        <Element Name="fld_mobile" Class="LabelText"   FieldName="mobile" Label="Mobile" Text="Cell: {@:Elem[fld_mobile].Value}" Sortable="Y" CssClass="ui-li-desc"/>	
+		<Element Name="fld_type" Class="LabelText"  FieldName="type_name" Label="Type" Text="Type: {@:Elem[fld_type].Value}" CssClass="ui-li-desc"/>
+		<Element Name="fld_Id_side" Class="LabelText" FieldName="Id" Label="ID" Text="Id: {@:Elem[fld_Id_side].Value}" CssClass="ui-li-aside ui-li-desc"/>
+		<Element Name="fld_listlink" Class="LabelText" Label="ListLink" Link="{APP_INDEX}/contact_mob/contact_detail/{@:Elem[fld_Id].Value}" Text=" " Style="white-space:normal;padding-top:0;padding-bottom:0;" HTMLAttr="rel='external'"/>
+    </DataPanel>
+    <ActionPanel>
+		<!--<Element Name="lnk_new" Class="Button" Text="Add" DataRole="button" HTMLAttr="data-inline='true'" Description="Add a contact" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(contact.form.ContactNewForm)"/>
+        </Element>
+		<Element Name="btn_delete" Class="Button" Text="Delete" DataRole="button" HTMLAttr="data-inline='true'" Description="Delete a contact" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()"/>
+        </Element>-->
+	</ActionPanel>
+
+    <NavPanel>
+		<Element Name="lnk_new" Class="Button" Text="Add Contact" DataRole="button" HTMLAttr="data-inline='true'" Description="Add a contact" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(contact_mob.form.ContactNewForm)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="&lt; Prev" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})"/>
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Next &gt;" DataRole="button" HTMLAttr="data-inline='true'">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+		<Element Name="qry_name"  Class="InputText" FieldName="display_name" FuzzySearch="Y" HTMLAttr="type=search" Text="Name"/>
+        <Element Name="btn_dosearch" Class="Button" text="Go" DataRole="button">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()"/>
+        </Element> 
+    </SearchPanel>
+</EasyForm>
