@@ -266,6 +266,7 @@ Openbiz.Form = jQuery.Class(
 			//dt.innerHTML = stripAndExecuteScript(content);
 			jQuery(dt).html(content);
             jQuery(dt).trigger("create");
+			$('html, body').animate({scrollTop:0}, 'fast');
         }
     },
     updateFields: function(fieldValues)
