@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: ContactEditForm.xml 3604 2012-07-12 04:00:33Z hellojixian@gmail.com $
 -->
-<EasyForm Name="ContactNewForm" Class="contact.form.ContactForm" FormType="New"  Icon="icon_my_profile.gif" jsClass="jbForm" Title="Edit Contact Profile" Description="Here you can edit personal contact information" BizDataObj="contact.do.ContactDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_content_detailform.tpl.html" EventName="CONTACT" Access="contact.access">
+<EasyForm Name="ContactNewForm" Class="contact.form.ContactForm" FormType="New"  Icon="icon_my_profile.gif" jsClass="jbForm" Title="Add New Contact" Description="Here you can edit personal contact information" BizDataObj="contact.do.ContactDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_content_detailform.tpl.html" EventName="CONTACT" Access="contact.access">
     <DataPanel>
 		<Element Name="fld_first_name" Class="InputText" ElementSet="Profile" FieldName="first_name" Label="Firstname" />
 		<Element Name="fld_last_name" Class="InputText" ElementSet="Profile" FieldName="last_name" Label="Lastname"  AllowURLParam="N" />
