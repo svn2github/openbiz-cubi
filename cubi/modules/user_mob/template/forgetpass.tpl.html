@@ -1,0 +1,34 @@
+<form id="{$form.name}" name="{$form.name}">
+
+<h2>{$form.title}</h2>
+
+<div style="height:10px;"></div>
+
+		<p style="font-size:14px">
+		{t}Don't worry if you just forgot your password. 
+		Please fill in following form and we will send you an email with a link 
+		which you can reset your password by clicking the link.{/t}
+		</p>
+		
+{foreach item=item key=itemName from=$dataPanel}
+	{if $item.elementset eq ''}
+    <div data-role="fieldcontain" style="padding: 5px 0; font-size:small;">
+        <label for="{$itemName}" style="font-weight:bold;width:100px">{$item.label}</label>
+        {$item.element}
+    </div>
+	{/if}
+{/foreach}
+		
+<div style="height:10px;"></div>
+		
+{if $actionPanel}
+<div class="ui-bar ui-bar-d" style="margin:0 -20px">
+	{foreach item=elem from=$actionPanel}
+		{$elem.element}
+	{/foreach}
+</div>
+{/if}
+</form>
+
+
+

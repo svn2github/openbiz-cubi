@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: RegisterSuccessedForm.xml 3835 2012-08-06 09:54:05Z hellojixian@gmail.com $
+-->
+<EasyForm Name="RegisterSuccessedForm" Class="EasyForm" FormType="" jsClass="jbForm" Title="Register Successfully" BizDataObj="system.do.UserDO" TemplateEngine="Smarty" TemplateFile="register_successful.tpl.html">
+    <DataPanel>
+        <Element Name="fld_Id" Hidden="Y" Class="Hidden" FieldName="Id" Label="Id"/>
+        <Element Name="fld_username" Class="LabelText" FieldName="username" Label="Username"/>
+        <Element Name="fld_email" Class="LabelText" FieldName="email" Label="Email Address"/>
+		<Element Name="fld_lastlogin" Class="LabelText" FieldName="lastlogin" Label="Last Login" />
+    </DataPanel>
+    <ActionPanel>
+		<element Name="lnk_goto" Class="LabelText" DataRole="button" HTMLAttr="data-inline='true' data-theme='b'" Text="Goto Home" link="{@home:url}/user_mob/login"/>    		
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
