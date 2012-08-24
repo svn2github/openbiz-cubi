@@ -25,8 +25,8 @@
 include 'app_init.php';
 
 $DEFAULT_VIEW = "LoginView";
-$DEFAULT_MODULE = "user";
-$DEFAULT_URL = "index.php/user/login";
+$DEFAULT_MODULE = CLIENT_DEVICE=='mobile' ? "user_mob" : "user";
+$DEFAULT_URL = "index.php/$DEFAULT_MODULE/login";
 
 if ($_SERVER["REDIRECT_QUERY_STRING"]) {
     $url = $_SERVER["REDIRECT_QUERY_STRING"];
@@ -53,12 +53,13 @@ $url = $match[1];
 $urlArr = array();
 if ($url) {
     $urlArr = preg_split("/\//si", $url);
+	
     if (preg_match("/^[a-z_]*$/si", $urlArr[1])) {
-        // http://localhost/?/ModuleName/FormName/
+        // http://localhost/?/ModuleName/ViewName/
         $module_name = $urlArr[0];
         $view_name = getViewName($urlArr);
     } elseif (preg_match("/^[a-z_]*$/si", $urlArr[0])) {
-        // http://localhost/?/FormName/
+        // http://localhost/?/ViewName/
         $module_name = $DEFAULT_MODULE;
         $view_name = getViewName($urlArr);
     }
@@ -66,11 +67,11 @@ if ($url) {
         //if its empty
         unset($urlArr[count($urlArr) - 1]);
     }
-    if (preg_match("/\./si", $urlArr[count($urlArr) - 1])) {
+    /*if (preg_match("/\./si", $urlArr[count($urlArr) - 1])) {
         // if its trying to solve a file, like something.jpg, should be return a 404 header
    //     header("HTTP/1.1 404 Not Found");
    //     exit;
-    }
+    }*/
 } else {
     // http://localhost/
     $module_name = $DEFAULT_MODULE;
