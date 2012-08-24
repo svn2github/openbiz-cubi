@@ -2,6 +2,24 @@
 
 <h2>{$form.title}</h2>
 
+	{if $notices}
+	    <div data-role="collapsible" data-collapsed="false">
+	    {foreach item=noticeMsg from=$notices}
+	        <div>{$noticeMsg}</div>
+	    {/foreach}
+	    </div>	   
+	{/if}
+	
+	{if $errors}
+		<div id='errorsDiv' data-role="collapsible" data-collapsed="false" data-theme="e" data-content-theme="d">
+		<h3>Errors</h3>
+		{foreach item=errMsg key=itemName from=$errors}
+			<div>{$itemName}, {$errMsg}</div>
+		{/foreach}
+		</div>
+		{literal}<script>$('#errorsDiv').fadeOut(10000);</script>{/literal}
+	{/if}
+
 {foreach item=item key=itemName from=$dataPanel}
 	{if $item.elementset eq ''}
     <div data-role="fieldcontain" style="padding: 5px 0; font-size:small;">
@@ -12,15 +30,6 @@
 {/foreach}
 
 <div style="height:10px;"></div>
-
-{if $errors}
-	<div id='errorsDiv' class='innerError errorBox'>
-	{foreach item=errMsg key=itemName from=$errors}
-		<div>{$itemName}, {$errMsg}</div>
-	{/foreach}
-	{literal}<script>try{setTimeout("$('errorsDiv').fadeOut('slow');",3000);}catch(e){}</script>{/literal}
-	</div>
-{/if}
 
 {if $actionPanel}
 <div class="ui-bar ui-bar-d" style="margin:0 -20px">

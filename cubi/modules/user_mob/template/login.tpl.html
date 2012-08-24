@@ -1,5 +1,24 @@
 <form id="{$form.name}" name="{$form.name}">
 <h2>{$form.title}</h2>
+
+	{if $notices}
+	    <div data-role="collapsible" data-collapsed="false">
+	    {foreach item=noticeMsg from=$notices}
+	        <div>{$noticeMsg}</div>
+	    {/foreach}
+	    </div>	   
+	{/if}
+	
+	{if $errors}
+		<div id='errorsDiv' data-role="collapsible" data-collapsed="false" data-theme="e" data-content-theme="d">
+		<h3>Errors</h3>
+		{foreach item=errMsg key=itemName from=$errors}
+			<div>{$itemName}, {$errMsg}</div>
+		{/foreach}
+		</div>
+		{literal}<script>$('#errorsDiv').fadeOut(10000);</script>{/literal}
+	{/if}
+	
 <div>
     {if $dataPanel.username.label}
     <div data-role="fieldcontain" style="padding: 5px 0">
@@ -13,6 +32,7 @@
     </div>
     {/if}
 	
+	
     <div style="height:10px;"></div>
     {if $actionPanel}
     <div class="" style="margin:0 -10px; padding-left: 5px">
@@ -21,14 +41,6 @@
         {/foreach}
     </div>
     {/if}
-    
-	{if $notices}
-	    <div >
-	    {foreach item=noticeMsg from=$notices}
-	        <div>{$noticeMsg}</div>
-	    {/foreach}
-	    </div>	   
-	{/if}
 	
     <ul data-role="listview" data-inset="true">	
         <li>{$dataPanel.register_new.element}</li>
