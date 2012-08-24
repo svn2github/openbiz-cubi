@@ -2,13 +2,14 @@
 <h2>{$form.title}</h2> 
 <div style="height:10px; display:block"> </div>
 {if $searchPanel }	
-<div data-role="collapsible" data-theme="d">
-    <h3>Search</h3>
+<!--<div data-role="collapsible" data-theme="d">
+    <h3>Search</h3>-->
     {foreach item=elem from=$searchPanel}
         {if $elem.label} {$elem.label} {/if} {$elem.element}
     {/foreach}
-</div>
+<!--</div>-->
 {/if}
+<div style="height:10px; display:block"> </div>
 {if $actionPanel}
 <div class="ui-bar ui-bar-d" style="margin:0 -20px;">
     {foreach item=elem from=$actionPanel}
