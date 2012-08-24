@@ -51,11 +51,11 @@ class Resource
             // 2. MODULE_PATH . "/$moduleName/message/" . $messageFile;
             // 3. CORE_MODULE_PATH . "/$moduleName/message/" . $messageFile;
             // APP_HOME / MESSAGE_PATH : APP_HOME / messages
-            if (is_file(MESSAGE_PATH . "/" . $messageFile))
-            {
+            if (is_file(MESSAGE_PATH . "/" . $messageFile)) {
                 return parse_ini_file(MESSAGE_PATH . "/" . $messageFile);
-            } else
-            {
+            } else if (is_file(MODULE_PATH . "/" . $messageFile)) {
+				return parse_ini_file(MODULE_PATH . "/" . $messageFile);
+			} else {
                 if (isset($packageName) && $packageName != "")
                 {
                     $dirs = explode('.', $packageName);
