@@ -25,62 +25,7 @@ width:20px;
 	margin-right:5px;
 	width:210px;
 }
-.button_highlight {
-/*	background-image: url(../images/button_bg.gif);
-	background-repeat:no-repeat;
-	background-position:left top;
-	height:20px;
-	width:71px;
-	display:block;
-	float:left;
-	line-height:20px;
-	text-decoration:none;
-	color:#FFFFFF;
-	text-align:center;
-	margin-right:10px;*/
-}
-.button_highlight:hover{
-	background-position:left bottom;
-	color:#FFFFFF;
-}
 
-.button_m_highlight {
-	background-image: url(../images/button_bg.gif);
-	background-repeat:no-repeat;
-	background-position:-71px top;
-	height:20px;
-	width:98px;
-	display:block;
-	float:left;
-	line-height:20px;
-	text-decoration:none;
-	color:#FFFFFF;
-	text-align:center;
-	margin-right:10px;
-}
-.button_m_highlight:hover{
-	background-position:-71px bottom;
-	color:#FFFFFF;
-}
-
-.button_w_highlight {
-	background-image: url(../images/button_bg.gif);
-	background-repeat:no-repeat;
-	background-position:-169px top;
-	height:20px;
-	width:154px;
-	display:block;
-	float:left;
-	line-height:20px;
-	text-decoration:none;
-	color:#FFFFFF;
-	text-align:center;
-	margin-right:10px;
-}
-.button_w_highlight:hover{
-	background-position:-169px bottom;
-	color:#FFFFFF;
-}
 
 .button {
 	background-image: url(../images/button_bg.gif);
