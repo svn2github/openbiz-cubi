@@ -37,9 +37,11 @@
         </Element>
     </NavPanel> 
     <SearchPanel>
-		<Element Name="qry_name"  Class="InputText" FieldName="display_name" FuzzySearch="Y" HTMLAttr="type=search" Text="Name"/>
-        <Element Name="btn_dosearch" Class="Button" text="Go" DataRole="button">
+		<Element Name="qry_name"  Class="InputText" FieldName="display_name" FuzzySearch="Y" HTMLAttr="type=search placeholder='Name'">
+			<EventHandler Name="search_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>
+        <!--<Element Name="btn_dosearch" Class="Button" text="Go" DataRole="button">
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()"/>
-        </Element> 
+        </Element> -->
     </SearchPanel>
 </EasyForm>

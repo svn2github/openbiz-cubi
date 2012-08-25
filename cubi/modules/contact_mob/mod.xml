@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: mod.xml 3760 2012-07-30 07:34:26Z rockyswen@gmail.com $
+-->
+<Module Name="contact_mob" Description="Contact mobile module" Version="0.1.2" OpenbizVersion="3.0">
+	<ACL>
+	</ACL>
+    <Menu>
+    	<MenuItem Name="ContactMobile" Title="Contacts" Parent="MobileRoot" Description="" URL="/contact_mob/contact_list" IconImage="spacer.gif" IconCssClass="icon_contact" Order="10" Access="contact.access">		
+			<MenuItem Name="ContactMobile.Manage" Title="View Contacts" Description=""  URL="/contact_mob/contact_list"  Order="10" Access="contact.access" >
+			</MenuItem>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+    <ChangeLog>
+    </ChangeLog>        
+</Module>

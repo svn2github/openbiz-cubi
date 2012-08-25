@@ -13,7 +13,7 @@ $includedScripts .= "
 ";
 $this->_tpl_vars['scripts'] = $includedScripts;
 
-$left_menu = "contact.widget.ContactLeftMenu";
+$left_menu = "contact_mob.widget.ContactLeftMenu";
 $this->assign('left_menu', $left_menu);
 
 $appendStyle = BizSystem::clientProxy()->getAppendedStyles();
