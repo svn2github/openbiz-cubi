@@ -26,7 +26,7 @@ width:20px;
 	width:210px;
 }
 .button_highlight {
-	background-image: url(../images/button_bg.gif);
+/*	background-image: url(../images/button_bg.gif);
 	background-repeat:no-repeat;
 	background-position:left top;
 	height:20px;
@@ -37,7 +37,7 @@ width:20px;
 	text-decoration:none;
 	color:#FFFFFF;
 	text-align:center;
-	margin-right:10px;
+	margin-right:10px;*/
 }
 .button_highlight:hover{
 	background-position:left bottom;

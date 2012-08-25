@@ -25,6 +25,7 @@ outline:none;
 }
 :focus { -moz-outline-style: none; outline:none; }
 h1{
+font-size:22px;
 }
 h2{
 }
@@ -48,7 +49,7 @@ label{
 }
 p.input_row {
 	display:block;
-	height:35px;
+	/*height:35px;*/
 }
 
 .hidden{
