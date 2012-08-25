@@ -490,7 +490,12 @@ class Resource
     	if (Resource::$_currentTheme != null)
             return Resource::$_currentTheme;
             
-        $currentTheme = BizSystem::sessionContext()->getVar("THEME");        
+        if (defined('THEME_NAME')) {
+			$currentTheme = THEME_NAME;
+		}
+		else {
+			$currentTheme = BizSystem::sessionContext()->getVar("THEME");
+		}
         // default language
         if ($currentTheme == ""){
         	$currentTheme = BizSystem::getUserPreference("theme");
