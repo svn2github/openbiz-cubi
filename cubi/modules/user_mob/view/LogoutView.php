@@ -35,7 +35,9 @@ class LogoutView extends EasyView
     	setcookie("SYSTEM_SESSION_PASSWORD",null,time()-100,"/");
 			
 		// Redirect:
-		header("Location: login");    	
+		//header("Location: ".APP_INDEX."/user_mob/login");    	
+		echo APP_INDEX."/user_mob/login";
+		exit;
     }
 }
 ?>

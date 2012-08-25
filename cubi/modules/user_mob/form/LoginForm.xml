@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<EasyForm Name="LoginForm" Class="user.form.LoginForm" FormType="edit" jsClass="jbForm" Title="User Login" SearchRule="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="login.tpl.html" MessageFile="user/message/login.msg">
+<EasyForm Name="LoginForm" Class="MobileLoginForm" FormType="edit" jsClass="jbForm" Title="User Login" SearchRule="" BizDataObj="" TemplateEngine="Smarty" TemplateFile="login.tpl.html" MessageFile="user/message/login.msg">
    <DataPanel>
       <Element Name="username" Hidden="{@:auth_method=='smartcard'?'Y':'N'}" FieldName="fld_username" Label="Username" Class="InputText" required="{@:auth_method=='smartcard'?'N':'Y'}" HTMLATTR="maxlength='25'"/>
       <Element Name="password" Hidden="{@:auth_method=='smartcard'?'Y':'N'}" FieldName="fld_password" Label="Password" Class="Password" required="{@:auth_method=='smartcard'?'N':'Y'}" HTMLATTR="maxlength='25'"/>
