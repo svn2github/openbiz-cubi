@@ -9,11 +9,15 @@
     <DataPanel>
     </DataPanel>
     <ActionPanel>
-        <Element Name="btn_report" Class="Button" Text="Report to admin" CssClass="button_w_highlight" >
-        	<EventHandler Name="btn_report_onclick" Event="onclick" Function="Report()" ShortcutKey="Enter"/>
+        <Element Name="btn_report" Class="Button" Text="Report to admin" CssClass="button_w_highlight" DataRole="button" >
+        	<EventHandler Name="btn_report_onclick" Event="onclick" Function="Report()"/>
         </Element>
-        <Element Name="btn_showerr" Class="LabelText" Text="Show Error" CssClass="button_m" Link="javascript:showError()"></Element>        
-        <Element Name="btn_back" Class="LabelText" Text="Back" CssClass="button_highlight" Link="javascript:history.go(-1);"></Element>
+		<Element Name="btn_showerr" Class="Button" Text="Show Error" CssClass="button_highlight" DataRole="button">
+            <EventHandler Name="onclick" Event="onclick" Function="js:showError()"/>            
+        </Element> 
+        <Element Name="btn_back" Class="Button" Text="Back" CssClass="button_highlight" DataRole="button">
+            <EventHandler Name="onclick" Event="onclick" Function="js:history.go(-1)"/>            
+        </Element>
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 
