@@ -24,7 +24,7 @@ $this->assign('_OauthLogin', $recArr);
  * @author jixian
  *
  */
-class OauthLogin extends Element
+class OauthLogin extends InputElement
 {
 	public function render()
 	{
