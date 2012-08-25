@@ -16,24 +16,10 @@
 <!-- Start of application content page 
      this page has menu button to #app_menu_page and home button to #app_tab_page
 -->
-<div data-role="page" id="app_content_page">
-    <div data-role="header">
-        <h1>{$title}</h1>
-    </div><!-- /header -->
 
-    <div data-role="content">
-    {foreach key=formname item=form from=$forms}							    
-        <div>
-        {if !preg_match("/LeftWidget$/si",$formname)}
-            {$form}
-        {/if}
-        </div>
-    {/foreach}
-    </div>
-
-    <div data-role="footer">
-        <h2>Page Footer</h2>
-    </div><!-- /footer -->
+<!-- Start of application tab/header page -->
+<div data-role="page" id="app_tabs_page">
+{include file='system_tabs.tpl.html'}
 </div><!-- /page -->
 
 </body>

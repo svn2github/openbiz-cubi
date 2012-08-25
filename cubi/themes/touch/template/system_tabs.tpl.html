@@ -1,5 +1,6 @@
 {php}
 $widget = Bizsystem::GetObject('menu.widget.MainTabMenu');
+$widget->m_SearchRule = "[PId]='MobileRoot'";
 if($widget->m_GlobalSearchRule && $widget->m_SearchRule){
 	$searchRule = $widget->m_GlobalSearchRule ." and ". $widget->m_SearchRule;
 }else{
@@ -12,7 +13,7 @@ $this->assign('menu_count', $menu_count);
 {/php}
 
 <div data-role="header">
-	<h1>Cubi</h1>
+	<h1>Application Home</h1>
 </div><!-- /header -->
 
 <div data-role="content">
@@ -21,9 +22,8 @@ $this->assign('menu_count', $menu_count);
 	{/php}
 	<p style="height:5px; display:block"/>
 	<ul data-role="listview" data-inset="true">
-		<li><a class="icon_myaccount" href="{$app_index}/myaccount/dashboard" >{t}My Account{/t}</a></li>
-		<li><a class="icon_help" href="http://www.openbiz.me/product_cubi" target="_blank" >{t}Help{/t}</a></li>
-		<li><a class="icon_logout" href="{$app_index}/user/logout" >{t}Logout{/t}</a></li>
+		<li><a class="icon_help" href="http://www.openbiz.me/" target="_blank" >{t}Help{/t}</a></li>
+		<li><a class="icon_logout" href="{$app_index}/user_mob/logout" >{t}Logout{/t}</a></li>
 	</ul>	
 </div><!-- /content -->
 	
