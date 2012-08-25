@@ -210,7 +210,7 @@ class LoginForm extends EasyForm
        			$currentLanguage = BizSystem::ClientProxy()->getFormInputs("current_language");
    				if($currentLanguage!=''){
    				   	if($currentLanguage=='user_default'){
-		   				$currentTheme = DEFAULT_LANGUAGE;
+		   				$currentLanguage = DEFAULT_LANGUAGE;
 		   			}else{
        					BizSystem::sessionContext()->setVar("LANG",$currentLanguage );
 		   			}
