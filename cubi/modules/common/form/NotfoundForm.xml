@@ -9,7 +9,10 @@
     <DataPanel>
     </DataPanel>
     <ActionPanel>        
-        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button_highlight" Link="javascript:history.go(-1)"></Element>
+        <!--<Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button_highlight" Link="javascript:history.go(-1)"></Element>-->
+		<Element Name="btn_back" Class="Button" Text="Back" CssClass="button_highlight" DataRole="button">
+            <EventHandler Name="onclick" Event="onclick" Function="js:history.go(-1)"/>            
+        </Element> 
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 
