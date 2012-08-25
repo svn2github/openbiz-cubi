@@ -1,21 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
-{include file='ios_webapp.tpl.html'}
-{php}}{/php}
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{$title}</title>
 <meta name="description" content="{$description}"/>
 <meta name="keywords" content="{$keywords}"/>
+<script src="{$js_url}/ckeditor/ckeditor.js"></script>
 {$style_sheets}
 {$scripts}
-{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
-<link rel="stylesheet" href="{$css_url}/ipad.css" type="text/css" />
-{php}}{/php}
-{php}if(preg_match('/Android/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
-<link rel="stylesheet" href="{$css_url}/andriod.css" type="text/css" />
-{php}}{/php}
+<link rel="stylesheet" href="{$css_url}/page-view-style.css" type="text/css" />
+<link rel="stylesheet" href="{$app_url}/languages/{$lang_name}/localization.css" type="text/css" />
+</head>
 
 </head>
 
@@ -23,6 +18,15 @@
 <div align="center" id="body_warp">
 	<div id="header_warp">
 	{include file='system_header.tpl.html'}
+		<div id="header_menu">
+			<!-- top menu start -->
+			{php}
+			$temp = Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
+			unset($temp);
+			echo Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
+			{/php}
+			<!-- top menu end -->	
+		</div>
 	</div>
 	<!--main warp-->
 	<div id="main_warp">	
@@ -31,7 +35,6 @@
 			
 			{include file='system_loader.tpl.html'}
 				<table id="main_content" border="0" cellpadding="0" cellspacing="0">
-					<tr><td><img src="{$image_url}/spacer.gif" style="height:15px;" /></td></tr>
 					<tr>
 						<td valign="top" style="width:18px;"><img src="{$image_url}/spacer.gif" style="width:18px;" /></td>
 						<td valign="top" id="left_panel">
@@ -85,7 +88,6 @@
 		<!-- footer end -->
 	
 	</div>
-</div>
 
 {literal}
 <script>
@@ -138,8 +140,5 @@ function InitTabs(){
 window.onload=InitTabs;
 </script>
 {/literal}
-{php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
-<script src="{$js_url}/ios_webapp.js"></script>
-{php}}{/php}
 </body>
 </html>
