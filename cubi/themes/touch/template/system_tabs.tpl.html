@@ -20,7 +20,7 @@ $this->assign('menu_count', $menu_count);
 	{php}
 	echo Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
 	{/php}
-	<p style="height:5px; display:block"/>
+	<div style="height:5px; display:block"></div>
 	<ul data-role="listview" data-inset="true">
 		<li><a class="icon_help" href="http://www.openbiz.me/" target="_blank" >{t}Help{/t}</a></li>
 		<li><a class="icon_logout" href="{$app_index}/user_mob/logout" >{t}Logout{/t}</a></li>
