@@ -17,7 +17,7 @@
    </DataPanel>
    <ActionPanel>
         <Element Name="btn_login" Class="Button" Text="Login" DataRole="button" HTMLAttr="data-inline='true' data-theme='b'">
-            <EventHandler Name="onclick" Event="onclick" Function="Login()" FunctionType="Aim"/>            
+            <EventHandler Name="onclick" Event="onclick" Function="Login()" FunctionType="Aim" ShortcutKey="Enter"/>            
         </Element>             
     </ActionPanel> 
 </EasyForm>
