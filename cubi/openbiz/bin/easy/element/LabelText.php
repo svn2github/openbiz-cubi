@@ -160,18 +160,16 @@ class LabelText extends Element
         		}        		        		
         	}
         	
-        	
-        	
             if ($this->m_Link)
             {
                 $link = $this->getLink();
                 $target = $this->getTarget();
                 //$sHTML = "<a href=\"$link\" onclick=\"SetOnLoadNewView();\" $style>" . $val . "</a>";
-                $sHTML = "<a title=\"$value_org\" id=\"$id\" href=\"$link\" $target $func $style>" . $value . "</a>";
+                $sHTML = "<a title=\"$value_org\" id=\"$id\" href=\"$link\" $target $func $style $this->m_HTMLAttr>" . $value . "</a>";
             }
             else
             {
-                $sHTML = "<span  title=\"$value_org\" $style $func>" . $value . "</span>";
+                $sHTML = "<span  title=\"$value_org\" $style $func $this->m_HTMLAttr>" . $value . "</span>";
             }
             if($this->m_BackgroundColor)
             {
