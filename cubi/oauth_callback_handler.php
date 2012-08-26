@@ -18,6 +18,18 @@ include_once OPENBIZ_HOME."/bin/ErrorHandler.php";
 $type=BizSystem::ClientProxy()->getRequestParam("type");  
 $service=BizSystem::ClientProxy()->getRequestParam("service");
 
+$redirectURL=BizSystem::ClientProxy()->getRequestParam("redirect_url");
+if($redirectURL)
+{
+	BizSystem::sessionContext()->setVar("oauth_redirect_url", $redirectURL);
+}
+
+$assocURL	=BizSystem::ClientProxy()->getRequestParam("assoc_url");
+if($assocURL)
+{
+	BizSystem::sessionContext()->setVar("oauth_assoc_url", $assocURL);
+}
+
 //$whitelist_arr=array('qq','sina','alipay','google','facebook','qzone','twitter');
 $whitelist_arr = BizSystem::getService(LOV_SERVICE)->getDictionary("oauth.lov.ProviderLOV(Provider)");
 
