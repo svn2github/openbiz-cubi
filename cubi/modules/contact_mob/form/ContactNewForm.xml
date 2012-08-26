@@ -33,10 +33,10 @@
 		<Element Name="fld_yahoo" Class="InputText" ElementSet="Online Contact"  FieldName="yahoo" Label="Yahoo"  AllowURLParam="N"/>
 	</DataPanel>
     <ActionPanel>
-        <Element Name="btn_save" Class="Button" Text="Save" DataRole="button" HTMLAttr="data-inline='true'" >
+        <Element Name="btn_save" Class="Button" Text="Save" DataRole="button" HTMLAttr="data-inline='true' data-icon='check'" >
             <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="InsertRecord()" RedirectPage="form=contact_mob.form.ContactDetailForm&amp;fld:Id={@contact.do.ContactDO:Field[Id].Value}" />
         </Element>
-        <Element Name="btn_cancel" Class="Button" Text="Cancel" DataRole="button" HTMLAttr="data-inline='true'" >
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" DataRole="button" HTMLAttr="data-inline='true' data-icon='back'" >
             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()" />
         </Element>
     </ActionPanel> 

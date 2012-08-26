@@ -26,13 +26,13 @@
 	</ActionPanel>
 
     <NavPanel>
-		<Element Name="lnk_new" Class="Button" Text="Add Contact" DataRole="button" HTMLAttr="data-inline='true'" Description="Add a contact" >
+		<Element Name="lnk_new" Class="Button" Text="Contact" DataRole="button" HTMLAttr="data-inline='true' data-icon='plus'" Description="Add a contact" >
             <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(contact_mob.form.ContactNewForm)"/>
         </Element>
-        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="&lt; Prev" DataRole="button" HTMLAttr="data-inline='true'">
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="Prev" DataRole="button" HTMLAttr="data-inline='true' data-icon='arrow-l'">
             <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})"/>
         </Element>
-        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Next &gt;" DataRole="button" HTMLAttr="data-inline='true'">
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="Next" DataRole="button" HTMLAttr="data-inline='true' data-icon='arrow-r' data-iconpos='right'">
             <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})"/>
         </Element>
     </NavPanel> 

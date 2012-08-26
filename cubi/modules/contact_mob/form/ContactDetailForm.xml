@@ -34,9 +34,10 @@
 		
 	</DataPanel>
     <ActionPanel>
-         <Element Name="btn_back" Class="LabelText" Text="Back" DataRole="button" HTMLAttr="data-inline='true'" Link="{APP_INDEX}/contact_mob/contact_list">
+         <Element Name="btn_back" Class="Button" Text="Back" DataRole="button" HTMLAttr="data-inline='true' data-icon='back'">
+			<EventHandler Name="back_onclick" Event="onclick" Function="js:history.go(-1)"/>  
         </Element>
-		<Element Name="btn_edit"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button" DataRole="button" HTMLAttr="data-inline='true'" Text="Edit" Description="Edit contact">
+		<Element Name="btn_edit"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button" DataRole="button" HTMLAttr="data-inline='true' data-icon='gear'" Text="Edit" Description="Edit contact">
 			<EventHandler Name="btn_edit_onclick" Event="onclick" Function="SwitchForm(contact_mob.form.ContactEditForm,{@:Elem[fld_Id].Value})"/>
         </Element>		
     </ActionPanel> 
