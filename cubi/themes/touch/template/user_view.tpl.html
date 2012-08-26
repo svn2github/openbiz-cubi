@@ -7,8 +7,10 @@
 <meta name="description" content="{$description}"/>
 <meta name="keywords" content="{$keywords}"/>
 <link rel="stylesheet" href="{$css_url}/general.css" type="text/css" />
+<link rel="stylesheet" href="{$css_url}/system_backend.css" type="text/css" />
 {$style_sheets}
 {$scripts}
+<script type='text/javascript' src='{$js_url}/shortcut.js'></script>
 </head>
 
 <body>
@@ -31,9 +33,9 @@
     {/foreach}
     </div>
 
-    <div data-role="footer">
-        <h2>Page Footer</h2>
-    </div><!-- /footer -->
+    <div id="footer">
+	{include file='system_footer_info.tpl.html'}
+	</div>
 </div><!-- /page -->
 
 </body>
