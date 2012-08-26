@@ -38,10 +38,10 @@
     </NavPanel> 
     <SearchPanel>
 		<Element Name="qry_name"  Class="InputText" FieldName="display_name" FuzzySearch="Y" HTMLAttr="type=search placeholder='Name'">
-			<EventHandler Name="search_onchange" Event="onchange" Function="RunSearch()"/>
+			<EventHandler Name="search_onchange" Event="onchange" Function="RunSearch()" ShortcutKey="Enter"/>
         </Element>
         <!--<Element Name="btn_dosearch" Class="Button" text="Go" DataRole="button">
-            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()"/>
-        </Element> -->
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element>-->
     </SearchPanel>
 </EasyForm>
