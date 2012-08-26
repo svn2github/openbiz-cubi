@@ -14,7 +14,7 @@
         <Element Name="fld_mobile" Class="LabelText"   FieldName="mobile" Label="Mobile" Text="Cell: {@:Elem[fld_mobile].Value}" Sortable="Y" CssClass="ui-li-desc"/>	
 		<Element Name="fld_type" Class="LabelText"  FieldName="type_name" Label="Type" Text="Type: {@:Elem[fld_type].Value}" CssClass="ui-li-desc"/>
 		<Element Name="fld_Id_side" Class="LabelText" FieldName="Id" Label="ID" Text="Id: {@:Elem[fld_Id_side].Value}" CssClass="ui-li-aside ui-li-desc"/>
-		<Element Name="fld_listlink" Class="LabelText" Label="ListLink" Link="{APP_INDEX}/contact_mob/contact_detail/{@:Elem[fld_Id].Value}" Text=" " Style="white-space:normal;padding-top:0;padding-bottom:0;" HTMLAttr="rel='external'"/>
+		<Element Name="fld_listlink" Class="LabelText" Label="ListLink" Link="{APP_INDEX}/contact_mob/contact_detail/{@:Elem[fld_Id].Value}" Text=" " Style="white-space:normal;padding-top:0;padding-bottom:0;"/>
     </DataPanel>
     <ActionPanel>
 		<!--<Element Name="lnk_new" Class="Button" Text="Add" DataRole="button" HTMLAttr="data-inline='true'" Description="Add a contact" >
