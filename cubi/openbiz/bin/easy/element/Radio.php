@@ -55,7 +55,15 @@ class Radio extends OptionElement
         }
         foreach ($fromList as $option) {        	
             $checkedStr = ($option['val'] == $value) ? "CHECKED" : "";            
-            $sHTML .= "<label style=\"text-align:left;width:$width\" class=\"radio_option\"><INPUT TYPE=RADIO NAME='".$this->m_Name."' ID=\"" . $this->m_Name ."_".$option['val']."\" VALUE=\"" . $option['val'] . "\" $checkedStr $disabledStr $style $this->m_HTMLAttr $func />" . $option['txt'] . "</label>";
+            if($option['pic'])
+            {
+            	$option_display = "<img src=\"".Expression::evaluateExpression($option['pic'],$this->getFormObj())."\" />";
+            }
+            else 
+            {
+            	$option_display = $option['txt'];
+            }
+            $sHTML .= "<label style=\"text-align:left;width:$width\" class=\"radio_option\"><INPUT TYPE=RADIO NAME='".$this->m_Name."' ID=\"" . $this->m_Name ."_".$option['val']."\" VALUE=\"" . $option['val'] . "\" $checkedStr $disabledStr $style $this->m_HTMLAttr $func />" . $option_display . "</label>";
         }
         
         return $sHTML;
