@@ -2890,7 +2890,7 @@ $.widget( "mobile.page", $.mobile.widget, {
 					if( plfEvent.isDefaultPrevented() ){
 						return;
 					}
-
+/*
 					// Remove loading message.
 					if ( settings.showLoadMsg ) {
 
@@ -2906,7 +2906,7 @@ $.widget( "mobile.page", $.mobile.widget, {
 								$( this ).remove();
 							});
 					}
-
+*/
 					deferred.reject( absUrl, options );
 				}
 			});
