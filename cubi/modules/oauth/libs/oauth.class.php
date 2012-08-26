@@ -150,7 +150,7 @@ class oauthClass extends EasyForm
 	{
 		if(!$user_id || !$OauthUserInfo)
 		{
-			throw new Exception('Unknown UerInfo');
+			throw new Exception('Unknown UserInfo');
 			return;
 		}
  
