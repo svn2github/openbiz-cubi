@@ -123,13 +123,24 @@ class oauthClass extends EasyForm
 			$index=$profile['roles'][0];  
 			$roleStartpage=$rec_info['roleStartpage'][$index];
 			$redirectPage = APP_INDEX.$roleStartpage;
+			$redirectURL = BizSystem::sessionContext()->getVar("oauth_redirect_url");
+			if($redirectURL){
+				$redirectPage = $redirectURL;
+			}
 			BizSystem::clientProxy()->ReDirectPage($redirectPage);
 		}
 		else
 		{	 
 			//未找到用户，跳转到注册页
 			BizSystem::sessionContext()->setVar('_OauthUserInfo',$oauth_data);
-			header("Location: ".APP_INDEX."/oauth/connect_user");
+			$assocURL = BizSystem::sessionContext()->getVar("oauth_assoc_url");
+			if($assocURL){
+				header("Location: ".$assocURL);
+			}
+			else
+			{
+				header("Location: ".APP_INDEX."/oauth/connect_user");
+			}
 		}
 		 	return $profile;
 	}
