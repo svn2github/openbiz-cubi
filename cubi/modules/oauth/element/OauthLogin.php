@@ -26,6 +26,17 @@ $this->assign('_OauthLogin', $recArr);
  */
 class OauthLogin extends InputElement
 {
+	protected $m_RedirectURL;
+	protected $m_AssocURL;
+	
+	public function readMetaData($xmlArr)
+	{
+		$result = parent::readMetaData($xmlArr);
+		$this->m_RedirectURL = isset($xmlArr["ATTRIBUTES"]["REDIRECTURL"]) ? $xmlArr["ATTRIBUTES"]["REDIRECTURL"] : null;
+		$this->m_AssocURL 	= isset($xmlArr["ATTRIBUTES"]["ASSOCURL"]) ? $xmlArr["ATTRIBUTES"]["ASSOCURL"] : null;
+		return $result;
+	}
+	
 	public function render()
 	{
 		$sHTML = "";
@@ -35,12 +46,24 @@ class OauthLogin extends InputElement
 			 $recArr=$do->directFetch ("[status]=1",30);
 			 $recArr=$recArr->toArray();
 
+			 if($this->m_RedirectURL)
+			 {
+			 	$this->m_RedirectURL = Expression::evaluateExpression($this->m_RedirectURL, $this);
+			 	$url_append.="&redirect_url=".urlencode($this->m_RedirectURL);
+			 }
+			 if($this->m_AssocURL)
+			 {
+			 	$this->m_AssocURL = Expression::evaluateExpression($this->m_AssocURL, $this);
+			 	$url_append.="&assoc_url=".urlencode($this->m_AssocURL);
+			 }
 			 if(count($recArr))
 			 {
 				 $sHTML.= "<span class=\"oauth_bar\" $style>";
 				 foreach($recArr as $oauthProvider)
 				 {
-					$sHTML.= "<a id=\"oauth_".$oauthProvider['type']."\" title=\"".$oauthProvider['type']."\"   href=\"".APP_URL."/oauth_callback_handler.php?type=".$oauthProvider['type']."&service=login\" style=\"\"></a>";
+				 	$url = APP_URL."/oauth_callback_handler.php?type=".$oauthProvider['type']."&service=login";
+				 	$url.= $url_append;
+					$sHTML.= "<a id=\"oauth_".$oauthProvider['type']."\" title=\"".$oauthProvider['type']."\"   href=\"$url\" style=\"\"></a>";
 				 }
 				 $sHTML.= "</span>";
 			 }
