@@ -255,7 +255,15 @@ class profileService
 
     public function GetGroupName($group_id, $type = 'full')
     {
-        return BizSystem::getObject($this->m_groupDataObj)->fetchById($group_id)->name;        
+        $groupName = BizSystem::getObject($this->m_groupDataObj)->fetchById($group_id)->name;
+        if($groupName)
+        {
+        	return $groupName;
+        }
+        else
+        {
+        	return "-- Not Available --";
+        }
     }
     
     public function GetProfileName($account_id, $type = 'full')
