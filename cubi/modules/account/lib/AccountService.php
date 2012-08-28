@@ -12,5 +12,10 @@ class AccountService {
 		$accountId = $assocRec['account_id'];
 		return $accountId;
 	}
+	
+	public function getDisplayName($accountId)
+	{
+		return BizSystem::getObject("account.do.AccountDO")->fetchById($accountId)->name;		
+	}
 }
 ?>
