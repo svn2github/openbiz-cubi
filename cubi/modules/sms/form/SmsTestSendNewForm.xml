@@ -9,10 +9,10 @@
 			Class="SmsTestSendNewForm" 
 			FormType="New" 
 			jsClass="Openbiz.Form" 
-			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_tasklist_add.png"
-			Title="New Sms Tasklist" 
-			Description="Sms Tasklist Description" 
-			BizDataObj="sms.do.SmsTasklistDO" 
+			Icon="{RESOURCE_URL}/sms/images/icon_mod_add.png"
+			Title="Test Send SMS" 
+			Description="Test Send SMS" 
+			BizDataObj="sms.do.SmsTaskListDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_edit.tpl.html" 
 			MessageFile="SmsProvider.ini" 
@@ -60,7 +60,7 @@
 	            			EventLogMsg="" 
 	            			Event="onclick" 
 	            			Function="InsertRecord()" 
-	            			RedirectPage="{APP_INDEX}/sms/sms_tasklist_detail/{@sms.do.SmsTasklistDO:Field[Id].Value}"  
+	            			RedirectPage="{APP_INDEX}/sms/sms_tasklist_detail/{@sms.do.SmsTaskListDO:Field[Id].Value}"  
 	            			ShortcutKey="Ctrl+Enter" 
 	            			ContextMenu="Save" />
 	        </Element>        

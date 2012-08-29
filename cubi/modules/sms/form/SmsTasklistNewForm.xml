@@ -9,10 +9,10 @@
 			Class="EasyForm" 
 			FormType="New" 
 			jsClass="Openbiz.Form" 
-			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_tasklist_add.png"
+			Icon="{RESOURCE_URL}/sms/images/icon_mod_add.png"
 			Title="New Sms Tasklist" 
 			Description="Sms Tasklist Description" 
-			BizDataObj="sms.do.SmsTasklistDO" 
+			BizDataObj="sms.do.SmsTaskListDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_edit.tpl.html" 
 			MessageFile="" 
@@ -55,7 +55,7 @@
 	            			EventLogMsg="" 
 	            			Event="onclick" 
 	            			Function="InsertRecord()" 
-	            			RedirectPage="{APP_INDEX}/sms/sms_tasklist_detail/{@sms.do.SmsTasklistDO:Field[Id].Value}"  
+	            			RedirectPage="{APP_INDEX}/sms/sms_tasklist_detail/{@sms.do.SmsTaskListDO:Field[Id].Value}"  
 	            			ShortcutKey="Ctrl+Enter" 
 	            			ContextMenu="Save" />
 	        </Element>        

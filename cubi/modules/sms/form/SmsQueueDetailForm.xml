@@ -16,7 +16,7 @@
 			TemplateEngine="Smarty" 
 			TemplateFile="form_detail.tpl.html" 
 			MessageFile="" 
-			Access="System.Administer_System">
+			Access="sms.Manage">
     <DataPanel>
 
        	<Element Name="fld_Id" 

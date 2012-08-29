@@ -1,11 +1,11 @@
-<PluginService Name="SmsTasklistDO_Trigger" Description="" Package="" Class="doTriggerService" BizObjectName="sms.do.SmsTasklistDO">  
-  <DOTrigger TriggerType="CREATE">
+<PluginService Name="SmsTaskListDO_Trigger" Description="" Package="" Class="doTriggerService" BizObjectName="sms.do.SmsTaskListDO">  
+  <DOTrigger TriggerType="INSERT">
    <TriggerCondition Expression="" ExtraSearchRule="" />
    <TriggerActions>
       <TriggerAction Action="CallService" Immediate="Y" DelayMinutes="" RepeatMinutes="">
          <ActionArgument Name="Service" Value="sms.lib.TaskService" />
          <ActionArgument Name="Method" Value="insertSmsQueue" /> 
-         <ActionArgument Name="id" Value="{Id}" />         
+         <ActionArgument Name="type" Value="{@}" />          
       </TriggerAction>
         
    </TriggerActions>

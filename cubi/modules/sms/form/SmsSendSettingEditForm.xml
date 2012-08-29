@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: UserPreferenceEditForm.xml 3800 2012-08-04 12:58:18Z hellojixian@gmail.com $
 -->
-<EasyForm Name="SmsSendSettingEditForm" Class="SmsSendSettingForm" FormType="Edit" Icon="icon_user_list.gif" jsClass="jbForm"  SearchRule="[user_id]='0'" Title="Edit System Perference" Description="You can custom default user setting in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" Access="System.Administer_System" MessageFile="SmsProvider.ini" >
+<EasyForm Name="SmsSendSettingEditForm" Class="SmsSendSettingForm" FormType="Edit" Icon="icon_user_list.gif" jsClass="jbForm"  SearchRule="[user_id]='0'" Title="Edit System Perference" Description="You can custom default user setting in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" Access="sms.Manage" MessageFile="SmsProvider.ini" >
     <DataPanel>
 		<Element Name="fld_content_sign"  Class="InputText" ElementSet="Sms" Description="" FieldName="_content_sign" Label="Sms content sign"  /> 
 

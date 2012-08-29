@@ -13,19 +13,18 @@
  include_once(MODULE_PATH."/sms/lib/sms.class.php");
 class TaskService 
 {
-	protected $m_SmsTasklistDO='sms.do.SmsTasklistDO';
+	protected $m_SmsTasklistDO='sms.do.SmsTaskListDO';
 	protected $m_SmsQueueDO='sms.do.SmsQueueDO';
 	
 	public function insertSmsQueue($taskId){
-		$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
-		$eventlog->log("SMSTRIGGER", "insertSmsQueue", serialize($taskId));
 		if(!$taskId)
 		{
 			return false;
 		}
+		$RecrdArr=$taskId->getActiveRecord();
 		$TasklistDO = BizSystem::getObject($this->m_SmsTasklistDO);
 		$SmsQueueDO = BizSystem::getObject($this->m_SmsQueueDO);
-		$TasklistArr=$TasklistDO->fetchOne('id='.$taskId);
+		$TasklistArr=$TasklistDO->fetchOne('id='.$RecrdArr['Id']);
 		 if($TasklistArr)
 		 {
 			$TasklistArr=$TasklistArr->toArray();
@@ -34,7 +33,7 @@ class TaskService
 				'tasklist_id'=>$TasklistArr['Id'],
 				'mobile'=>$TasklistArr['mobile'],
 				'provider'=>$TasklistArr['provider'],
-				'content'=> serialize($taskId),//$TasklistArr['content'],
+				'content'=> $TasklistArr['content'],
 				'status'=>$TasklistArr['pending']
 				);
 		$SmsQueueDO->insertRecord($data);

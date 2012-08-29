@@ -9,7 +9,7 @@
 			Class="EasyForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
-			BizDataObj="sms.do.SmsTasklistDO" 			
+			BizDataObj="sms.do.SmsTaskListDO" 			
 			PageSize="10" 
 			DefaultForm="Y" 
 			TemplateEngine="Smarty" 

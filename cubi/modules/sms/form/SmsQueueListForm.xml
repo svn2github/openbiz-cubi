@@ -9,7 +9,7 @@
 			Class="SmsQueueForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
-			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_queue_list.png"
+			Icon="{RESOURCE_URL}/sms/images/icon_mod_list.png"
 			Title="Sms Queue Management" 
 			Description="Sms Queue Description" 
 			BizDataObj="sms.do.SmsQueueDO" 
@@ -19,7 +19,7 @@
 			TemplateFile="form_grid.tpl.html" 
 			EventName="SmsQueue" 
 			MessageFile="" 
-			Access="System.Administer_System">
+			Access="sms.Manage">
 	<DataPanel>
             
 		<Element Name="row_selections" 
@@ -79,14 +79,14 @@
 		<Element Name="fld_create_time" 
         			Class="ColumnText" 
         			FieldName="create_time" 
-        			Label="create_time" 
+        			Label="create time" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />    		
 		<Element Name="fld_sent_time" 
         			Class="ColumnText" 
         			FieldName="sent_time" 
-        			Label="sent_time" 
+        			Label="sent time" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />    

@@ -9,14 +9,14 @@
 			Class="EasyForm" 
 			FormType="Detail" 
 			jsClass="Openbiz.Form" 
-			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_tasklist_detail.png"
+			Icon="{RESOURCE_URL}/sms/images/icon_mod_detail.png"
 			Title="Sms Tasklist Detail" 
 			Description="Sms Tasklist Description" 
-			BizDataObj="sms.do.SmsTasklistDO" 
+			BizDataObj="sms.do.SmsTaskListDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_detail.tpl.html" 
 			MessageFile="" 
-			Access="System.Administer_System">
+			Access="sms.Manage">
     <DataPanel>
 
        	<Element Name="fld_Id" 
@@ -46,7 +46,7 @@
        				ElementSet="General"
        				Class="LabelText" 
        				FieldName="has_sent" 
-       				Label="has_sent" 
+       				Label="has sent" 
        				AllowURLParam="N"
 					/>
         				         				  				      				
@@ -54,7 +54,7 @@
        				ElementSet="General"
        				Class="LabelText" 
        				FieldName="sms_number" 
-       				Label="sms_number" 
+       				Label="sms number" 
        				AllowURLParam="N"
 					/>
         				         				  				      				

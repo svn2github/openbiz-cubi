@@ -5,9 +5,9 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<BizDataObj Name="SmsTasklistDO" 
+<BizDataObj Name="SmsTaskListDO" 
 		Description="Sms Tasklist Description" 
-		DataPermControl="Y"
+		
 		Class="BizDataObj" 
 		DBName="Default" 
 		Table="sms_tasklist" 

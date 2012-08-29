@@ -7,8 +7,8 @@
 -->
 <Module Name="Sms" Description="Sms module is to provide Sms queue and log functions" Version="0.6" Author="Fsl" OpenbizVersion="3.0">
 	<ACL>
-		<Resource Name="SmsSetting">
-			<Action Name="System.Administer_System" Description="Can manage system Sms"/>
+		<Resource Name="sms">
+			<Action Name="Manage" Description="Can manage system Sms"/>
 		</Resource>
     </ACL>
     <Menu>
