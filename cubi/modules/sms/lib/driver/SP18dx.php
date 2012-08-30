@@ -6,7 +6,7 @@ require_once MODULE_PATH.'/sms/lib/utilService.php';
 class SP18dx  extends utilService implements iSMS 
 {
 	protected $m_ProviderId = 1;
-	
+	public $m_type = '18dx';
 	protected function _getProviderInfo()
 	{
 		$SmsProviderDO = BizSystem::getObject($this->m_ProviderDo);

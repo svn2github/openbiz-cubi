@@ -6,6 +6,7 @@ require_once MODULE_PATH.'/sms/lib/utilService.php';
 class SPc123 extends utilService implements iSMS 
 {
 	protected $m_ProviderId = 2;
+	protected $m_type = 'c123';
 	protected $m_ProviderDo = 'sms.provider.do.ProviderDO';
 	private  $m_url='http://http.c123.com/tx/?';
 	private  $m_url_mm='http://http.c123.com/mm/?';

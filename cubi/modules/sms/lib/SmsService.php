@@ -34,6 +34,7 @@ class SmsService extends MetaObject
 		$SmsQueueDO = BizSystem::getObject($this->m_SmsQueueDO);
 		$SmsProviderDO = BizSystem::getObject($this->m_SmsProviderDO);
 		$Provider=$this->_getProvider();
+		$ProviderType=BizSystem::sessionContext()->getVar("_SMSPROVIDER");
 	
 		if(!$Provider)
 		{
@@ -84,11 +85,11 @@ class SmsService extends MetaObject
 				$TasklistDO->updateRecords("has_sent=has_sent+1","Id={$SmsQueueArr[$i]['tasklist_id']}");
 				if($recInfo['balance'])//如果接口支持返回剩余的短信数量
 				{
-					$SmsProviderDO->updateRecords("use_sms_count={$recInfo['balance']},send_sms_count=send_sms_count+1","type='{$Provider['type']}'");
+					$SmsProviderDO->updateRecords("use_sms_count={$recInfo['balance']},send_sms_count=send_sms_count+1","type='{$ProviderType['type']}'");
 				}
 				else
 				{
-					$SmsProviderDO->updateRecords("use_sms_count=use_sms_count-1,send_sms_count=send_sms_count+1","type='{$Provider['type']}'");
+					$SmsProviderDO->updateRecords("use_sms_count=use_sms_count-1,send_sms_count=send_sms_count+1","type='{$ProviderType['type']}'");
 				}
 				return true;
 		   }
