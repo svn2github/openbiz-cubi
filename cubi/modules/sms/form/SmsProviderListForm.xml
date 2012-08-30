@@ -10,8 +10,8 @@
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
 			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_provider_list.png"
-			Title="sms_provider Management" 
-			Description="Sms Provider Description" 
+			Title="SMS Intergration Setting" 
+			Description="SMS Intergration feature could enable Cubi system send messages to users mobile for notification." 
 			BizDataObj="sms.do.SmsProviderDO" 
 			PageSize="10" 
 			DefaultForm="Y" 
@@ -35,34 +35,28 @@
 		<Element Name="fld_username" 
         			Class="ColumnText" 
         			FieldName="username" 
-        			Label="UserName" 
+        			Label="Username" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />    
+        			 
+         	<Element Name="fld_send_sms_count" 
+        			Class="ColumnText" 
+        			FieldName="send_sms_count" 
+        			Label="Sent Msgs" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />  
+        			         			 
        	<Element Name="fld_use_sms_count" 
         			Class="ColumnText" 
         			FieldName="use_sms_count" 
-        			Label="可用的短信条数" 
+        			Label="Remain Msgs" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />  
    
-         	<Element Name="fld_send_sms_count" 
-        			Class="ColumnText" 
-        			FieldName="send_sms_count" 
-        			Label="已发短信条数" 
-        			MaxLength="15"        			 
-        			Sortable="Y"
-        			 />  
- 
-     	<Element Name="fld_site_url" 
-        			Class="ColumnText" 
-        			FieldName="site_url" 
-					Link="{@:Elem[fld_site_url].Value}"
-        			Label="site url" 
-        			MaxLength="15"        			 
-        			Sortable="Y"
-        			 />  
+
 		<Element Name="fld_priority" Class="ColumnSorting" FieldName="priority" Label="Priority"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
         	<EventHandler Name="fld_priority_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value-5})" />
         	<EventHandler Name="fld_priority_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value+5})" />
