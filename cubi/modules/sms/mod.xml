@@ -5,20 +5,18 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: mod.xml 3358 2012-05-31 05:57:58Z rockyswen@gmail.com $
 -->
-<Module Name="Sms" Description="Sms module is to provide Sms queue and log functions" Version="0.7" Author="Fsl" OpenbizVersion="3.0">
+<Module Name="sms" Description="Sms module is to provide Sms queue and log functions" Version="0.6" Author="Feng ShengLong" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="sms">
-			<Action Name="Manage" Description="Can manage system Sms"/>
+			<Action Name="Manage" Description="Can manage system SMS intergration"/>
 		</Resource>
     </ACL>
     <Menu>
     <!-- System menus -->
-		<MenuItem Name="System.Sms" Title="Sms" Description="System Sms Management" Parent="System" IconImage="spacer.gif" IconCssClass="icon_Sms_queue" Order="30">
-			<MenuItem Name="System.Sms.Queue" Title="Manage Sms Queue" Description=""  URL="/Sms/Sms_Queue_Manage" Order="10"/>
-			 
-			<MenuItem Name="System.Sms.Setting" Title="Manage Sms Setting" Description=""  URL="/Sms/Sms_Send_Setting" Order="20"/>			
-			<MenuItem Name="System.Sms.Provider" Title="Manage Sms Provider" Description=""  URL="/Sms/sms_provider_manage" Order="20"/>
-		</MenuItem>	
+			<MenuItem Name="System.Sms.Provider" Title="Manage SMS Provider"  Parent="System.Extension" Description=""  URL="/sms/sms_provider_manage" Order="20">
+							<MenuItem Name="System.Sms.Setting" Title="Manage SMS Setting" Description=""  URL="/sms/sms_send_setting" Order="20"/>
+							<MenuItem Name="System.Sms.Queue" Title="Manage SMS Queue" Description=""  URL="/Sms/SmsQueueManage" Order="10"/>							
+			</MenuItem>
     </Menu>
     <Dependency>
     	<Module Name="system"/>
