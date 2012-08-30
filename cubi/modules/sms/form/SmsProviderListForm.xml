@@ -69,18 +69,26 @@
 		
 	</DataPanel>
     <ActionPanel>
-          <Element Name="btn_edit" Class="Button" Text="Setting" CssClass="button_gray_w" Description="Edit Setting (Ctrl+E)" Access="oauth.Administer">
+        <Element Name="btn_edit" Class="Button" Text="Setting" CssClass="button_gray_w" Description="Edit Setting (Ctrl+E)" Access="sms.Manage">
             <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=sms.form.SmsProviderEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
-     <Element Name="btn_test" Class="Button" Text="Send SMS" CssClass="button_gray_w"   Access="oauth.Administer">
+        <Element Name="btn_spacer" Class="Spacer" width="10" />		
+     	<Element Name="btn_test" Class="Button" Text="Send SMS" CssClass="button_gray_w"   Access="sms.Manage">
             <EventHandler Name="btn_edit_onclick" Event="onclick" 
 				Function="SwitchForm(sms.form.SmsTestSendNewForm)" />
 				
         </Element>
-     <Element Name="btn_sync" Class="Button" Text="Update Counter" CssClass="button_gray_w"   Access="oauth.Administer">
+     	<Element Name="btn_sync" Class="Button" Text="Update Counter" CssClass="button_gray_w"   Access="sms.Manage">
             <EventHandler Name="btn_edit_onclick" Event="onclick" 
 				Function="getSentMessageCount()"  />
         </Element>
+        <Element Name="btn_spacer_2" Class="Spacer" width="10" />		
+        <Element Name="btn_queue" Class="LabelText" Text="Queue" CssClass="button_gray_m"  Link="{APP_INDEX}/sms/sms_queue_manage" Access="sms.Manage">          
+        </Element>
+        <Element Name="btn_config" Class="Button" Text="Config" CssClass="button_gray_m"  Access="sms.Manage">
+	        <EventHandler Name="btn_edit_onclick" Event="onclick" 
+					Function="SwitchForm(sms.form.SmsSendSettingDetailForm)" />
+		</Element>					
     </ActionPanel> 
     <NavPanel>
     	

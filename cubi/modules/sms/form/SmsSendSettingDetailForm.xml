@@ -19,8 +19,9 @@
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(sms.form.SmsSendSettingEditForm)"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
-        <Element Name="btn_back" Class="LabelText" Text="Back" Link="{@home:url}/sms/SmsSendSetting" CssClass="button_gray_m"/>		
-         
+		<Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>         
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 
