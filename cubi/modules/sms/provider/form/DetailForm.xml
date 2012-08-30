@@ -5,14 +5,14 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="SmsProviderDetailForm" 
+<EasyForm Name="DetailForm" 
 			Class="EasyForm" 
 			FormType="Detail" 
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_provider_detail.png"
 			Title="sms_provider Detail" 
 			Description="Sms Provider Description" 
-			BizDataObj="sms.do.SmsProviderDO" 
+			BizDataObj="sms.provider.do.ProviderDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_detail.tpl.html" 
 			MessageFile="SmsProvider.ini" 

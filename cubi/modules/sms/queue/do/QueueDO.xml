@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<BizDataObj Name="SmsQueueDO" 
+<BizDataObj Name="QueueDO" 
 		Description="Sms Queue Description" 
 		DataPermControl="N"
 		Class="BizDataObj" 

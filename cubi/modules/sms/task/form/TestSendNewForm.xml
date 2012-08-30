@@ -5,14 +5,14 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="SmsTestSendNewForm" 
-			Class="SmsTestSendNewForm" 
+<EasyForm Name="TestSendNewForm" 
+			Class="TestSendNewForm" 
 			FormType="New" 
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/sms/images/icon_mod_add.png"
 			Title="Test Send SMS" 
 			Description="Test Send SMS" 
-			BizDataObj="sms.do.SmsTaskListDO" 
+			BizDataObj="sms.task.do.TaskDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_edit.tpl.html" 
 			MessageFile="SmsProvider.ini" 
@@ -60,7 +60,7 @@
 	            			EventLogMsg="" 
 	            			Event="onclick" 
 	            			Function="InsertRecord()" 
-	            			RedirectPage="{APP_INDEX}/sms/sms_tasklist_detail/{@sms.do.SmsTaskListDO:Field[Id].Value}"  
+	            			RedirectPage="{APP_INDEX}/sms/Intergration_Setting"  
 	            			ShortcutKey="Ctrl+Enter" 
 	            			ContextMenu="Save" />
 	        </Element>        

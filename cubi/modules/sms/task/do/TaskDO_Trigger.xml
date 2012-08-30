@@ -1,0 +1,13 @@
+<PluginService Name="TaskDO_Trigger" Description="" Package="" Class="doTriggerService" BizObjectName="sms.Task.do.TaskDO">  
+  <DOTrigger TriggerType="INSERT">
+   <TriggerCondition Expression="" ExtraSearchRule="" />
+   <TriggerActions>
+      <TriggerAction Action="CallService" Immediate="Y" DelayMinutes="" RepeatMinutes="">
+         <ActionArgument Name="Service" Value="sms.lib.TaskService" />
+         <ActionArgument Name="Method" Value="insertSmsQueue" /> 
+         <ActionArgument Name="type" Value="{@}" />          
+      </TriggerAction>
+        
+   </TriggerActions>
+  </DOTrigger>  
+</PluginService>

@@ -12,7 +12,7 @@
  */
 
 
-class SmsQueueForm extends EasyForm
+class QueueForm extends EasyForm
 {
 	public function SendAllPendingSms()
 	{

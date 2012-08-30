@@ -5,14 +5,14 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="SmsProviderListForm" 
-			Class="SmsTestSendNewForm"			  
+<EasyForm Name="ListForm" 
+			Class="ListForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
-			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_provider_list.png"
+			Icon="{RESOURCE_URL}/sms/images/icon_mod_list.png"
 			Title="SMS Intergration Setting" 
 			Description="SMS Intergration feature could enable Cubi system send messages to users mobile for notification." 
-			BizDataObj="sms.do.SmsProviderDO" 
+			BizDataObj="sms.provider.do.ProviderDO" 
 			PageSize="10" 
 			DefaultForm="Y" 
 			TemplateEngine="Smarty" 
@@ -21,11 +21,13 @@
 			MessageFile="SmsProvider.ini" 
 			Access="sms.Manage">
 	<DataPanel>
+		
 	     <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Hidden="Y" Sortable="Y" AllowURLParam="N" Link="javascript:">         
         </Element>	
+		
 		<Element Name="fld_status" Class="ColumnHidden" Hidden="Y" FieldName="status"  Label="Status" Link="javascript:;" Sortable="Y"></Element>
 		  <Element Name="fld_platform" Class="ColumnImage" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/sms/images/icon_{@:Elem[fld_platform].Value}.png" Label="Platform" DefaultValue="default" Sortable="Y" Link="javascript:">
-              <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(sms.form.SmsProviderEditForm,{@:Elem[fld_Id].Value})"   />
+              <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(sms.provider.form.EditForm,{@:Elem[fld_Id].Value})"   />
         </Element>
   
      
@@ -63,17 +65,17 @@
         </Element>  
 		
 		<Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="javascript:" Style="color:#666666;">
-              <EventHandler Name="fld_edit_onclick" Event="onclick" Function="SwitchForm(sms.form.SmsProviderEditForm,{@:Elem[fld_Id].Value})"   />
+              <EventHandler Name="fld_edit_onclick" Event="onclick" Function="SwitchForm(sms.provider.form.EditForm,{@:Elem[fld_Id].Value})"   />
         </Element>
 	</DataPanel>
     <ActionPanel>
         <Element Name="btn_edit" Class="Button" Text="Setting" CssClass="button_gray_w" Description="Edit Setting (Ctrl+E)" Access="sms.Manage">
-            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=sms.form.SmsProviderEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=sms.provider.form.EditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
         <Element Name="btn_spacer" Class="Spacer" width="10" />		
      	<Element Name="btn_test" Class="Button" Text="Send SMS" CssClass="button_gray_w"   Access="sms.Manage">
             <EventHandler Name="btn_edit_onclick" Event="onclick" 
-				Function="SwitchForm(sms.form.SmsTestSendNewForm)" />
+				Function="SwitchForm(sms.task.form.TestSendNewForm)" />
 				
         </Element>
      	<Element Name="btn_sync" Class="Button" Text="Update Counter" CssClass="button_gray_w"   Access="sms.Manage">
@@ -83,11 +85,11 @@
         <Element Name="btn_spacer_2" Class="Spacer" width="10" />		
         <Element Name="btn_queue" Class="Button" Text="Queue" CssClass="button_gray_m"  Access="sms.Manage">          
         	<EventHandler Name="btn_edit_onclick" Event="onclick" 
-					Function="SwitchForm(sms.form.SmsQueueListForm)" />
+					Function="SwitchForm(sms.queue.form.ListForm)" />
         </Element>
         <Element Name="btn_config" Class="Button" Text="Config" CssClass="button_gray_m"  Access="sms.Manage">
 	        <EventHandler Name="btn_edit_onclick" Event="onclick" 
-					Function="SwitchForm(sms.form.SmsSendSettingDetailForm)" />
+					Function="SwitchForm(sms.setting.form.DetailForm)" />
 		</Element>					
     </ActionPanel> 
     <NavPanel>

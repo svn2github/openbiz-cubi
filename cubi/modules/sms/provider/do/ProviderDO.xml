@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<BizDataObj Name="SmsProviderDO" 
+<BizDataObj Name="ProviderDO" 
 		Description="Sms Provider Description" 
 		DataPermControl="Y"
 		Class="BizDataObj" 
@@ -50,7 +50,8 @@
 				Type="Text"
 				Required="N" 
 				 />
-		<BizField Name="username"		required="Y" 
+		<BizField Name="username"		
+				required="Y" 
 				Description="username"	
 				Column="username" 
 				Type="Text"

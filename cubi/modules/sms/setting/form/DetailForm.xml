@@ -5,19 +5,19 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: UserPreferenceDetailForm.xml 3800 2012-08-04 12:58:18Z hellojixian@gmail.com $
 -->
-<EasyForm Name="SmsSendSettingDetailForm" Class="SmsSendSettingForm" FormType="" Icon="icon_user_list.gif" jsClass="jbForm" SearchRule="[user_id]='0'" Title="Sms Send Setting" Description="You can custom your Sms setting in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" Access="sms.Manage">
+<EasyForm Name="DetailForm" Class="SettingForm" FormType="" Icon="icon_user_list.gif" jsClass="jbForm" SearchRule="[user_id]='0'" Title="Sms Send Setting" Description="You can custom your Sms setting in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" Access="sms.Manage">
     <DataPanel>
          
 		
 		<Element Name="fld_content_sign"  Class="LabelText" ElementSet="Sms" Description="" FieldName="_content_sign" Label="Sms content sign"  />
 		
-		<Element Name="fld_dispatch"  Class="LabelList" ElementSet="Sms" Description="" FieldName="_dispatch" Label="Sms dispatch" SelectFrom="sms.lov.CommLOV(Dispatch)" />
+		<Element Name="fld_dispatch"  Class="LabelList" ElementSet="Sms" Description="" FieldName="_dispatch" Label="Sms round robin" SelectFrom="sms.lov.CommLOV(Dispatch)" />
  
 		
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
-			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(sms.form.SmsSendSettingEditForm)"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(sms.setting.form.EditForm)"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
 		<Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />

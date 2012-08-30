@@ -5,14 +5,14 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="SmsProviderEditForm" 
-			Class="SmsTestSendNewForm" 
+<EasyForm Name="EditForm" 
+			Class="EasyForm" 
 			FormType="Edit" 
 			jsClass="Openbiz.Form" 
-			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_provider_edit.png"
+			Icon="{RESOURCE_URL}/sms/images/icon_mod_edit.png"
 			Title="Edit sms_provider" 
 			Description="Sms Provider Description" 
-			BizDataObj="sms.do.SmsProviderDO" 
+			BizDataObj="sms.provider.do.ProviderDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_edit.tpl.html" 
 			MessageFile="SmsProvider.ini" 
@@ -83,7 +83,7 @@
             			EventLogMsg="" 
             			Event="onclick" 
             			Function="UpdateRecord()" 
-            			RedirectPage="{APP_INDEX}/sms/sms_provider_detail/{@sms.do.SmsProviderDO:Field[Id].Value}"  
+            			RedirectPage="{APP_INDEX}/sms/Intergration_Setting"  
             			ShortcutKey="Ctrl+Enter" 
             			ContextMenu="Save" />
         </Element>

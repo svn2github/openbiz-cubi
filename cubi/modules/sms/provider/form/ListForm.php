@@ -16,11 +16,11 @@
  *
  * @access public
  */
-class SmsTestSendNewForm extends EasyForm
+class ListForm extends EasyForm
 {
 	public function getSentMessageCount(){
 		 include_once(MODULE_PATH."/sms/lib/sms.class.php");
-		 $SmsProviderDO = BizSystem::getObject('sms.do.SmsProviderDO');
+		 $SmsProviderDO = BizSystem::getObject('sms.provider.do.ProviderDO');
 		 $SmsProviderList=$SmsProviderDO->directFetch("status=1",10,0,"priority desc");
 		 
 		 if($SmsProviderList)
@@ -43,30 +43,6 @@ class SmsTestSendNewForm extends EasyForm
 		 }
 		$this->updateForm();
 		$this->rerender();
-	}
-    public function InsertRecord(){
-		$readInput=$this->readInputRecord();
-		preg_match('/1\d{10}/',$readInput['mobile'],$mobile);
-		if(!$mobile)
-		{
-			$this->m_Errors = array("test"=>$this->getMessage("MOBILE_ERROR"));
-			$this->updateForm();
-			return false;
-		}
-		
-		/*
-		 * 触发器的机制没有效果暂用如下代码先实现
-		$SmsQueueDO = BizSystem::getObject('sms.do.SmsQueueDO');
-		$data=array(
-				'tasklist_id'=>$this->getRecordId(),
-				'mobile'=>$readInput['mobile'],
-				'provider'=>$readInput['provider'],
-				'content'=>$readInput['content'],
-				'status'=>'pending'
-				);
-		 $SmsQueueDO->insertRecord($data);	
-		 */
-		return parent::InsertRecord();
-    }    
+	}  
 }  
 ?>

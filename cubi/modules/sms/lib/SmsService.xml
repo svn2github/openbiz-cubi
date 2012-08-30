@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: SmsService.xml 3371 2012-08-30 fsliit@gmail.com $
+-->
+<PluginService Name="SmsService" Package="service" Class="SmsService" >														
+</PluginService>

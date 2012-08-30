@@ -17,7 +17,7 @@
  * @access public
  */
 include_once(MODULE_PATH."/system/form/UserPreferenceForm.php");
-class SmsSendSettingForm extends UserPreferenceForm
+class SettingForm extends UserPreferenceForm
 {
     protected $_userId = null;
     
