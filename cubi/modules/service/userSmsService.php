@@ -122,10 +122,16 @@ class userSmsService extends MetaObject
 	public function BatchSendSms($limit=50){
 		return true;		  
 	}
+	
+	protected function _getContentSignature()
+	{
+		$prefInfo = $this->_getSmsPreference();
+		return $prefInfo['sign'];
+	}
 /**
  * 获取SMS设置信息;
  */
-	public function getSmsPreference(){
+	protected  function _getSmsPreference(){
 		$SmsPreferenceInfo=BizSystem::sessionContext()->getVar("_SMSPREFERENCE");
 		$SmsPreferenceInfo=false;
 		 if(!$SmsPreference)
