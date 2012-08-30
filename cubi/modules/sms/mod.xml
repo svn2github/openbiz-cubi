@@ -13,7 +13,7 @@
     </ACL>
     <Menu>
     <!-- System menus -->
-			<MenuItem Name="System.Sms.Provider" Title="Manage SMS Provider"  Parent="System.Extension" Description=""  URL="/sms/sms_provider_manage" Order="20">
+			<MenuItem Name="System.Sms.Provider" Title="SMS Intergration"  Parent="System.Extension" Description=""  URL="/sms/sms_provider_manage" Order="20">
 							<MenuItem Name="System.Sms.Setting" Title="Manage SMS Setting" Description=""  URL="/sms/sms_send_setting" Order="20"/>
 							<MenuItem Name="System.Sms.Queue" Title="Manage SMS Queue" Description=""  URL="/Sms/SmsQueueManage" Order="10"/>							
 			</MenuItem>

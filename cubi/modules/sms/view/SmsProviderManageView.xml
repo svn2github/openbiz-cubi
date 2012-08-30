@@ -6,7 +6,7 @@
   Version $Id$
 -->
 <EasyView Name="SmsProviderManageView" 
-	Description="Sms Provider Description Management" 
+	Description="SMS Intergration Setting" 
 	Class="EasyView" 
 	Access="sms.Manage" 
 	TemplateEngine="Smarty" 
