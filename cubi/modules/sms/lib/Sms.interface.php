@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
  * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
  * @link      http://code.google.com/p/openbiz-cubi/
- * @version   $Id: oauthService.php 3371 2012-05-31 06:17:21Z rockyswen@gmail.com $
+ * @version   $Id: Sms.interface.php 3371 2012-08-30 06:17:21Z fsliit@gmail.com $
  */
 interface iSmsProvider
 {	
