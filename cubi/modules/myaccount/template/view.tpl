@@ -6,7 +6,7 @@ $css_url = $this->_tpl_vars['css_url'];
 $includedScripts = BizSystem::clientProxy()->getAppendedScripts();
 $includedScripts .= "
 <script type=\"text/javascript\" src=\"$js_url/cookies.js\"></script>
-<script type=\"text/javascript\" src=\"$theme_js_url/general_ui.js\"></script>
+<script type=\"text/javascript\" src=\"$js_url/general_ui.js\"></script>
 ";
 $this->_tpl_vars['scripts'] = $includedScripts;
 
