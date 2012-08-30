@@ -7,7 +7,7 @@
 		</Resource>
     </ACL>
     <Menu>
-		<MenuItem Name="Oauth.List" Title="OAuth Setting" Description=""  Parent="System.Extension" URL="/oauth/provider_setting" Order="10"/>
+		<MenuItem Name="Oauth.List" Title="OAuth Intergration" Description=""  Parent="System.Extension" URL="/oauth/provider_setting" Order="10"/>
 		<MenuItem Name="Oauth.MyAccount" Title="My Social Account" Description=""  Parent="MyAccount.EditAccount" URL="/myaccount/my_social_account" Order="25"/>
 	</Menu>
     <Dependency>
