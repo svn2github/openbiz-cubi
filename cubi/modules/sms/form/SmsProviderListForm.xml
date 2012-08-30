@@ -65,8 +65,6 @@
 		<Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="javascript:" Style="color:#666666;">
               <EventHandler Name="fld_edit_onclick" Event="onclick" Function="SwitchForm(sms.form.SmsProviderEditForm,{@:Elem[fld_Id].Value})"   />
         </Element>
-
-		
 	</DataPanel>
     <ActionPanel>
         <Element Name="btn_edit" Class="Button" Text="Setting" CssClass="button_gray_w" Description="Edit Setting (Ctrl+E)" Access="sms.Manage">
@@ -83,7 +81,9 @@
 				Function="getSentMessageCount()"  />
         </Element>
         <Element Name="btn_spacer_2" Class="Spacer" width="10" />		
-        <Element Name="btn_queue" Class="LabelText" Text="Queue" CssClass="button_gray_m"  Link="{APP_INDEX}/sms/sms_queue_manage" Access="sms.Manage">          
+        <Element Name="btn_queue" Class="Button" Text="Queue" CssClass="button_gray_m"  Access="sms.Manage">          
+        	<EventHandler Name="btn_edit_onclick" Event="onclick" 
+					Function="SwitchForm(sms.form.SmsQueueListForm)" />
         </Element>
         <Element Name="btn_config" Class="Button" Text="Config" CssClass="button_gray_m"  Access="sms.Manage">
 	        <EventHandler Name="btn_edit_onclick" Event="onclick" 

@@ -2,4 +2,7 @@
 <Selection>
    <Provider Value="18DX" text="八信科技"/>
    <Provider Value="c123" text="创明短信"/>
+   
+   <ProviderDrvier Value="18DX" Text="sms.lib.driver.SP18dx"/>
+   <ProviderDrvier Value="c123" Text="sms.lib.driver.SPc123"/>   
 </Selection>   

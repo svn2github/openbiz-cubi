@@ -30,6 +30,8 @@ class Sms  extends EasyForm
 				$recInfo='Unknown Provider';
 		 }
 		 return $recInfo;
+		 
+		 
 	}	
 	//获取剩余短信条数
 	public Static function getSentMessageCount($type,$Provider)
