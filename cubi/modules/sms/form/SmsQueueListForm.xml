@@ -41,7 +41,8 @@
         			Label="Sender"         			 
         			Sortable="Y" 
         			MaxLength="15"
-        			Link="{APP_INDEX}/sms/sms_queue_detail/{@:Elem[fld_Id].Value}"        			
+        			Text="{BizSystem::GetProfileName(@:Elem[fld_sender].Value)}" 
+     			
         			 
 					/> 
         	

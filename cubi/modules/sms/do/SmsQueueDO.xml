@@ -27,12 +27,21 @@
 				Column="id"    
 				Required="N" 
 				Type="Number"/>
+				
+		<BizField Name="sender"			
+				Description="sender"	
+				Column="Sender"    
+				Required="N" 
+				Type="Number"
+				ValueOnCreate="{@profile:Id}"
+				/>	
+				
 		<BizField Name="tasklist_id"			
 				Description="tasklist_id"	
 				Column="tasklist_id"    
-				Required="N" 
-				Type="Number"/>		
-
+				Required="Y" 
+				Type="Number"
+				/>		
 		<BizField Name="mobile"		
 				Description="mobile"	
 				Column="mobile" 
@@ -57,6 +66,7 @@
 				Type="Datetime"
 				Required="N" 
 				 />
+			
 		<BizField Name="create_time"	
 				Description="Create Time"	
 				Column="create_time"	

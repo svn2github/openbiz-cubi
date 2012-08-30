@@ -32,6 +32,7 @@ DROP TABLE IF EXISTS `sms_queue`;
 CREATE TABLE IF NOT EXISTS `sms_queue` (
   `id` int(11) NOT NULL auto_increment,
   `tasklist_id` int(11) NOT NULL ,
+  `sender` int(11) NOT NULL ,
   `mobile` varchar(11) NOT NULL,
   `content` longtext NOT NULL,
    `provider`  varchar(100) NOT NULL,
