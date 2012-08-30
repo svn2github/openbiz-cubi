@@ -11,7 +11,7 @@ class SP18dx implements iSMS
 		
 	}
 	
-	public function send($mobile,$content,$delay=null)
+	public function send($mobile,$content)
 	{
 		$providerInfo = $this->_getProviderInfo();
 			

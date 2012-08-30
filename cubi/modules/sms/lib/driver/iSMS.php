@@ -1,7 +1,7 @@
 <?php 
 interface iSMS
 {	
-    public function send($mobile,$content,$delay=null);
+    public function send($mobile,$content);
 
     public function getSentCount();
 }
