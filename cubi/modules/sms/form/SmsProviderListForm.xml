@@ -29,7 +29,7 @@
         </Element>
   
      
-	 <Element Name="lnk_switch" Label="Status" Class="Button" Text="{@:Elem[fld_status].Value=='0'?Off:On}" CssClass="{@:Elem[fld_status].Value =='0'?button_switch_off:button_switch_on}" Style="color:#666666;" Description="Switch Status">
+	 <Element Name="lnk_switch" Label="Status" Sortable="Y" Class="Button" Text="{@:Elem[fld_status].Value=='0'?Off:On}" CssClass="{@:Elem[fld_status].Value =='0'?button_switch_off:button_switch_on}" Style="color:#666666;" Description="Switch Status">
 				<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
         </Element>  	     
 		<Element Name="fld_username" 
@@ -72,12 +72,12 @@
           <Element Name="btn_edit" Class="Button" Text="Setting" CssClass="button_gray_w" Description="Edit Setting (Ctrl+E)" Access="oauth.Administer">
             <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=sms.form.SmsProviderEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
-     <Element Name="btn_test" Class="Button" Text="Test Send" CssClass="button_gray_w"   Access="oauth.Administer">
+     <Element Name="btn_test" Class="Button" Text="Send SMS" CssClass="button_gray_w"   Access="oauth.Administer">
             <EventHandler Name="btn_edit_onclick" Event="onclick" 
 				Function="SwitchForm(sms.form.SmsTestSendNewForm)" />
 				
         </Element>
-     <Element Name="btn_sync" Class="Button" Text="Sync Sms Count" CssClass="button_gray_w"   Access="oauth.Administer">
+     <Element Name="btn_sync" Class="Button" Text="Update Counter" CssClass="button_gray_w"   Access="oauth.Administer">
             <EventHandler Name="btn_edit_onclick" Event="onclick" 
 				Function="getSentMessageCount()"  />
         </Element>

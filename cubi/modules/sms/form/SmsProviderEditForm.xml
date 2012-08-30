@@ -6,7 +6,7 @@
   Version $Id$
 -->
 <EasyForm Name="SmsProviderEditForm" 
-			Class="changelog.form.ChangeLogForm" 
+			Class="SmsTestSendNewForm" 
 			FormType="Edit" 
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_provider_edit.png"
