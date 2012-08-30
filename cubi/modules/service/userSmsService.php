@@ -82,7 +82,17 @@ class userSmsService extends MetaObject
 				$plantime=$SmsQueueArr[$i]['plantime'];
 			}	
 		   $content=$SmsQueueArr[$i]['content'].'【'.$this->m_SmsPreference['content_sign'].'】';
+		   
+		   
+		   
+		   
+		   
+		   
+		   
 		   $recInfo=Sms::Send($Provider,$SmsQueueArr[$i]['mobile'], $content,$plantime);
+		   
+		   $Provider->send($SmsQueueArr[$i]['mobile'], $content);
+		   
 		   if($recInfo)
 		   { 
 				$time=date("Y-m-d H:i:s"); 
@@ -160,8 +170,23 @@ class userSmsService extends MetaObject
 			$SmsProviderArr['password']=$SmsProviderInfo['password'];
 			BizSystem::sessionContext()->setVar("_SMSPROVIDER",$SmsProviderArr);
 		}
-		return $SmsProviderArr;
+		
+		$providerType = $SmsProviderArr['type'];
+		$installedProviders = BizSystem::getService(LOV_SERVICE)->getDict("sms.lov.ProviderLOV(ProviderDriver)");
+		$this->_loadProviderDriver($installedProviders[$providerType]);		
+		$provderClass = new $installedProviders[$providerType];
+		
+				
+		return $provderClass;
 	}
+	
+	protected function _loadProviderDriver($providerClass)
+	{
+		//translate sms.lib.driver.SP18dx => MODULE_PATH.'/sms/lib/driver/SP18dx.php'
+		
+		//require_once the driver file
+	}
+	
 
 /**
  * 创建像这样的查询: "IN('a','b')";
