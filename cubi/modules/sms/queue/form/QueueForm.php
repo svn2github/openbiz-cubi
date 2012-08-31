@@ -16,7 +16,7 @@ class QueueForm extends EasyForm
 {
 	public function SendAllPendingSms()
 	{
-		BizSystem::getService('userSmsService')->SendSms();
+		BizSystem::getService('sms.lib.SmsService')->SendSms();
 		$this->runEventLog();
         $this->processPostAction();
 		return true;
@@ -28,7 +28,7 @@ class QueueForm extends EasyForm
 		if(is_array($Record))
 		{
 			$arr[0]=$Record;
-			BizSystem::getService('userSmsService')->SendSms($arr);
+			BizSystem::getService('sms.lib.SmsService')->SendSms($arr);
 		} 
 	 if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();
