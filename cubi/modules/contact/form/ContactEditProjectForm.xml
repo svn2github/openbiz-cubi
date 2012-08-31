@@ -20,7 +20,7 @@
 	        <Element Name="fld_photo_uploaded" Class="RawData"  ElementSet="Profile" FieldName="photo" Label="Select Photo"  AllowURLParam="N" CssClass="input_file"/>	        
  			<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
  	        
-	    	<Element Name="fld_related_project"   ElementSet="Projects" Class="FormElement" FormReference="collab.project.widget.ProjectListEditForm" FieldName="" Label="" AllowURLParam="N" />
+	    	<Element Name="fld_related_project"   ElementSet="Projects" Class="FormElement" FormReference="project.project.widget.ProjectListEditForm" FieldName="" Label="" AllowURLParam="N" />
     </DataPanel>
     <ActionPanel>        
     	<Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">

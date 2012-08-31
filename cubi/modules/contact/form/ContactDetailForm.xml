@@ -76,22 +76,22 @@
 		    <Element Name="btn_manage_related" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Document" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 				<EventHandler Name="btn_manage_related_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactEditDocumentForm,{@:Elem[fld_Id].Value})"   />
 	       	</Element>		
-			
-			<Element Name="fld_related_projects" Access="collab_project.access"  TabSet="Related Data"   ElementSet="Project" Class="FormElement" FormReference="collab.project.widget.ProjectListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-			<Element Name="btn_manage_projects" Access="collab_project.access" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Project" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			-->
+			<Element Name="fld_related_projects" Access="project_project.access"  TabSet="Related Data"   ElementSet="Project" Class="FormElement" FormReference="project.project.widget.ProjectListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+			<Element Name="btn_manage_projects" Access="project_project.access" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Project" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 				<EventHandler Name="btn_manage_projects_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactEditProjectForm,{@:Elem[fld_Id].Value})"   />
 	       	</Element>
 			
-			<Element Name="fld_related_tasks" Access="collab_task.access"  TabSet="Related Data"   ElementSet="Task" Class="FormElement" FormReference="collab.task.widget.TaskListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-			<Element Name="btn_manage_tasks" Access="collab_task.access" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Task" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<Element Name="fld_related_tasks" Access="project_task.access"  TabSet="Related Data"   ElementSet="Task" Class="FormElement" FormReference="project.task.widget.TaskListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+			<Element Name="btn_manage_tasks" Access="project_task.access" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Task" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 				<EventHandler Name="btn_manage_tasks_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactEditTaskForm,{@:Elem[fld_Id].Value})"   />
-	       	</Element>	
+	       	</Element>
 			
-			<Element Name="fld_related_events" Access="collab_calendar.access"  TabSet="Related Data"   ElementSet="Events" Class="FormElement" FormReference="collab.calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
-			<Element Name="btn_manage_events" Access="collab_calendar.access" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Events" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<Element Name="fld_related_events" Access="calendar.access"  TabSet="Related Data"   ElementSet="Events" Class="FormElement" FormReference="calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+			<Element Name="btn_manage_events" Access="calendar.access" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Events" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 				<EventHandler Name="btn_manage_events_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactEditEventForm,{@:Elem[fld_Id].Value})"   />
 	       	</Element>
-	       	-->
+	       	
 
 	    </DataPanel>
     <ActionPanel>       
@@ -118,7 +118,7 @@
         </Element>
          -->  
          <Element Name="btn_spacer_for_cancel"  Class="Spacer" Width="10"></Element>
-         <Element Name="btn_back" Class="LabelText" Text="Back" CssClass="button_gray_m" Link="{APP_INDEX}/collab/contact_list">
+         <Element Name="btn_back" Class="LabelText" Text="Back" CssClass="button_gray_m" Link="{APP_INDEX}/contact/contact_list">
         </Element>       
     </ActionPanel> 
     <NavPanel>
