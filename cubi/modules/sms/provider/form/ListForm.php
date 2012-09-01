@@ -21,7 +21,7 @@ class ListForm extends EasyForm
 	public function getSentMessageCount(){
 		 include_once(MODULE_PATH."/sms/lib/sms.class.php");
 		 $SmsProviderDO = BizSystem::getObject('sms.provider.do.ProviderDO');
-		 $SmsProviderList=$SmsProviderDO->directFetch("status=1",10,0,"priority desc");
+		 $SmsProviderList=$SmsProviderDO->directFetch("[status]=1",10,0,"[priority] DESC");
 		 
 		 if($SmsProviderList)
 		 {
@@ -44,5 +44,6 @@ class ListForm extends EasyForm
 		$this->updateForm();
 		$this->rerender();
 	}  
+
 }  
 ?>
