@@ -3,7 +3,7 @@
 			Class="AssetQueryForm" 
 			FormType="New" 
 			jsClass="Openbiz.Form" 
-			Icon="{RESOURCE_URL}/asset/images/icon_mod_asset_add.png"
+			Icon="{RESOURCE_URL}/asset/images/icon_mod_asset_query.png"
 			Title="Scan a Item Barcode" 
 			Description="You can use your barcode scanner to quickly input the code number." 
 			BizDataObj="asset.do.AssetDO" 
