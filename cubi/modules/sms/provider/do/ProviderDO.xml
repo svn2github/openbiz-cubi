@@ -12,7 +12,7 @@
 		DBName="Default" 
 		Table="sms_provider" 
 		SearchRule="" 
-		SortRule="" 
+		SortRule="[priority] DESC" 
 		OtherSQLRule=""
 		Uniqueness="" 
 		Stateless="N" 

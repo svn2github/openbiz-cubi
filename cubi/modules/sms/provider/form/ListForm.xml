@@ -60,8 +60,8 @@
    
 
 		<Element Name="fld_priority" Class="ColumnSorting" FieldName="priority" Label="Priority"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
-        	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value-5})" />
-        	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value+5})" />
+        	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value+5})" />
+        	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value-5})" />
         </Element>  
 		
 		<Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="javascript:" Style="color:#666666;">

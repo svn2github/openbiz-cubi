@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
 <Selection>
-   <Dispatch Value="1" text="by priority"/>
-   <Dispatch Value="2" text="round robin"/>
+   <Dispatch Value="1" text="by Priority"/>
+   <Dispatch Value="2" text="Round Robin"/>
 </Selection>   
