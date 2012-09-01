@@ -10,8 +10,8 @@
 			FormType="New" 
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/sms/images/icon_mod_add.png"
-			Title="Test Send SMS" 
-			Description="Test Send SMS" 
+			Title="Send SMS Message" 
+			Description="You can send a SMS message to a mobile number from selected provider." 
 			BizDataObj="sms.task.do.TaskDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="form_edit.tpl.html" 
@@ -19,43 +19,32 @@
 			Access="sms.Manage">
     <DataPanel>
 
-<Element Name="fld_provider"  Class="DropDownList" ElementSet="Sms Send" Description="" FieldName="provider" Label="Sms provider" SelectFrom="sms.lov.ProviderLOV(Provider)" />	
+	<Element Name="fld_provider"  Class="DropDownList" ElementSet="Provider" Description="" FieldName="provider" Label="Provider" SelectFrom="sms.lov.ProviderLOV(Provider)" />	
 	<Element Name="fld_mobile" 
        				Class="InputText" 
        				FieldName="mobile" 
-       				Label="mobile" 
+       				Label="Mobile" 
        				AllowURLParam="N"
-					 ElementSet="Sms Send"  
+					 ElementSet="Message"  
 					 Required="Y"
 					 HTMLAttr="maxlength='11'"
        				/>  
       	<Element Name="fld_content" 
        				Class="Textarea" 
        				FieldName="content" 
-       				Label="content" 
+       				Label="Content" 
        				AllowURLParam="N"
-					 ElementSet="Sms Send"
+					 ElementSet="Message"
 					  Required="Y"
 					   HTMLAttr="maxlength='250'"
        				/>      
-       								   	
-			
-				
-       	<Element Name="fld_priority" 
-       				Class="InputText" 
-       				FieldName="priority" 
-       				Label="Priority" 
-       				AllowURLParam="N"
-					 ElementSet="Sms Send"
-					 DefaultValue="99"
-					 Hidden="Y"
-       				/>     		  
+  
     </DataPanel>
     <ActionPanel>       
         	        <Element Name="btn_save" 
 	        			Class="Button" 
-	        			Text="Save" 
-	        			CssClass="button_gray_m">
+	        			Text="Send Now" 
+	        			CssClass="button_gray_w">
 	            <EventHandler Name="save_onclick" 
 	            			EventLogMsg="" 
 	            			Event="onclick" 

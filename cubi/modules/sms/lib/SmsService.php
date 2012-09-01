@@ -36,8 +36,10 @@ class SmsService extends MetaObject
      * @param integer $defer -- the message will be send after $defer seconds from now 
      * @param bool $delay    -- if delay is force , then the message will not go into queue , 
      * 							instead of call driver to send it directly  
+     * @param integer $providerId -- if its not null, then used specified provider to send this message
      */
-    public function SendSMS($mobile,$content,$defer=null,$delay=true)
+    public function SendSMS($mobile,	$content,	$defer=null,
+    						$delay=true,	$providerId=null)
     {
     	
     }

@@ -18,31 +18,10 @@
  */
 class ListForm extends EasyForm
 {
-	public function getSentMessageCount(){
-		 include_once(MODULE_PATH."/sms/lib/sms.class.php");
-		 $SmsProviderDO = BizSystem::getObject('sms.provider.do.ProviderDO');
-		 $SmsProviderList=$SmsProviderDO->directFetch("[status]=1",10,0,"[priority] DESC");
+	public function updateMessageCounter(){
 		 
-		 if($SmsProviderList)
-		 {
-			$SmsProviderList=$SmsProviderList->toArray();
-			 foreach($SmsProviderList as $val)
-			 { 
-				$use_sms_count=Sms::getSentMessageCount($val['type'],$val);
-				$SmsProvider=$SmsProviderDO->updateRecords ("use_sms_count=$use_sms_count","Id=".$val['Id']);
-				if($SmsProvider && $use_sms_count)
-				{
-					$this->m_Notices = array("test"=>$this->getMessage("SYNC_SUCCESS"));
-				}
-				else
-				{
-					$this->m_Errors = array("test"=>$this->getMessage("SYNC_FAILURE"));	
-				}
-				
-			 }
-		 }
-		$this->updateForm();
-		$this->rerender();
+		BizSystem::getService("sms.lib.SmsService")->UpdateProviderCounter();
+		$this->updateForm();		
 	}  
 
 }  

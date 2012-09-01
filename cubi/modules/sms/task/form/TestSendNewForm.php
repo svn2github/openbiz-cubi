@@ -14,15 +14,23 @@
 class TestSendNewForm extends EasyForm
 {
     public function InsertRecord(){
-		$readInput=$this->readInputRecord();
-		preg_match('/1\d{10}/',$readInput['mobile'],$mobile);
+		$inputRec=$this->readInputRecord();
+		preg_match('/1\d{10}/',$inputRec['mobile'],$mobile);
 		if(!$mobile)
 		{
-			$this->m_Errors = array("test"=>$this->getMessage("MOBILE_ERROR"));
+			$this->m_Errors = array("fld_mobile"=>$this->getMessage("MOBILE_ERROR"));
 			$this->updateForm();
 			return false;
 		}
-		return parent::InsertRecord();
+		$providerId = $inputRec['provider'];
+		$mobile 	= $inputRec['mobile'];
+		$content 	= $inputRec['content'];
+		
+		//send the message from specified provider directly 
+		BizSystem::getService("sms.lib.SmsService")->sendSMS($mobile,$content,0,false,$providerId);
+		
+		$this->m_Notices = array("test"=>$this->getMessage("SMS_SENT_SUCCESSFUL"));
+		$this->updateForm();
     }    
 }  
 ?>

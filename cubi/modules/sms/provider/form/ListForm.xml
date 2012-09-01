@@ -16,7 +16,7 @@
 			PageSize="10" 
 			DefaultForm="Y" 
 			TemplateEngine="Smarty" 
-			TemplateFile="form_grid.tpl.html" 
+			TemplateFile="provider_gird.tpl.html" 
 			EventName="SmsProvider" 
 			MessageFile="SmsProvider.ini" 
 			Access="sms.Manage">
@@ -80,14 +80,14 @@
         </Element>
      	<Element Name="btn_sync" Class="Button" Text="Update Counter" CssClass="button_gray_w"   Access="sms.Manage">
             <EventHandler Name="btn_edit_onclick" Event="onclick" 
-				Function="getSentMessageCount()"  />
+				Function="UpdateMessageCounter()"  />
         </Element>
         <Element Name="btn_spacer_2" Class="Spacer" width="10" />		
-        <Element Name="btn_queue" Class="Button" Text="Queue" CssClass="button_gray_m"  Access="sms.Manage">          
+        <Element Name="btn_queue" Class="Button" Text="Queue" CssClass="button_gray_w"  Access="sms.Manage">          
         	<EventHandler Name="btn_edit_onclick" Event="onclick" 
 					Function="SwitchForm(sms.queue.form.ListForm)" />
         </Element>
-        <Element Name="btn_config" Class="Button" Text="Config" CssClass="button_gray_m"  Access="sms.Manage">
+        <Element Name="btn_config" Class="Button" Text="Config" CssClass="button_gray_w"  Access="sms.Manage">
 	        <EventHandler Name="btn_edit_onclick" Event="onclick" 
 					Function="SwitchForm(sms.setting.form.DetailForm)" />
 		</Element>					
