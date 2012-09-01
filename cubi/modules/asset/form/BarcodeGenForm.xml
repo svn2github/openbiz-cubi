@@ -3,7 +3,7 @@
 			Class="BarcodeGenForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
-			Icon="{RESOURCE_URL}/asset/images/icon_mod_asset_list.png"
+			Icon="{RESOURCE_URL}/asset/images/icon_mod_asset_barcode.png"
 			Title="Batch Barcode Generate" 
 			Description="This tool will can help you easily create batch of barcodes" 
 			BizDataObj="asset.do.AssetDO" 
