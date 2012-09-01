@@ -10,35 +10,31 @@
 			FormType="Detail" 
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_provider_detail.png"
-			Title="sms_provider Detail" 
-			Description="Sms Provider Description" 
+			Title="SMS Provider Detail" 
+			Description="You can setup crediential for selected SMS provider" 
 			BizDataObj="sms.provider.do.ProviderDO" 
 			TemplateEngine="Smarty" 
-			TemplateFile="form_detail.tpl.html" 
+			TemplateFile="provider_detail.tpl.html" 
 			MessageFile="SmsProvider.ini" 
 			Access="sms.Manage">
     <DataPanel>
 
-       	<Element Name="fld_Id" 
-       				Class="LabelText" 
-       				ElementSet="General"
-       				Hidden="Y" 
-       				FieldName="Id" 
-       				Label="Id"  
-       				AllowURLParam="Y"/>  
-        				         				  				      				
-  	<Element Name="fld_password" 
-       				ElementSet="General"
-       				Class="LabelText" 
-       				FieldName="password" 
-       				Label="password" 
-       				AllowURLParam="N"
-       				/>
-    
-       								   	
-
-		
-
+  		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       	
+  
+		<Element Name="fld_platform" ElementSet="Provider"  Class="LabelImage" Link="{@:Elem[fld_site_url].Value}" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/sms/images/icon_{@:Elem[fld_platform].Value}.png" Label="Provider" DefaultValue="default" Sortable="Y" Target="_blank">
+        </Element>  	  
+  	  
+		<Element Name="fld_site_url" 
+					ElementSet="Provider" 
+        			Class="LabelText" 
+        			FieldName="site_url" 
+        			Label="Website" 
+        			AllowURLParam="N"
+        			Link="{@:Elem[fld_site_url].Value}"
+        			Target="_blank"
+        			 />  
+       						  	  
+  	  
        	<Element Name="fld_username" 
        				ElementSet="General"
        				Class="LabelText" 
@@ -49,28 +45,15 @@
     
        								   	
 
-		
-		<Element Name="fld_site_url" 
-					ElementSet="General" 
-        			Class="LabelText" 
-        			FieldName="site_url" 
-        			Label="site_url" 
-        			MaxLength="15"        			 
-        			AllowURLParam="N"
-        			 />  
-        				         				  				      				
-       	<Element Name="fld_description" 
+       	<Element Name="fld_password" 
        				ElementSet="General"
-       				Class="LabelTextarea" 
-       				FieldName="description" 
-       				Label="Description" 
+       				Class="LabelPassword" 
+       				FieldName="password" 
+       				Label="Password" 
        				AllowURLParam="N"
-					/>
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
+       				/>
+		
+		   	
 		<Element Name="fld_status" 
 					Class="LabelBool" 
 					ElementSet="General"
@@ -82,79 +65,33 @@
 					OnEventLog="N" 
 					Link="javascript:;">				
 		</Element>
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
-        				         				  				      				
+       	 	
+		<Element Name="fld_description" 
+					Class="LabelTextarea" 
+					ElementSet="General"
+					FieldName="description" 
+					Label="Description"  />		
+		
 
-		<Element Name="fld_changelog" 
-				TabSet="Extra Information"  
-				Access="changelog.access"   
-				ElementSet="Change Log" 
-				Class="FormElement" 
-				FormReference="changelog.widget.ChangeLogWidgetForm" 
-				FieldName="" 
-				Label="" 
-				AllowURLParam="N" />
-
-       	<Element Name="fld_update_by" 
-       				Class="LabelText" 
-       				ElementSet="Miscellaneous" 
-       				FieldName="update_by" 
-       				Label="Update By" 
-       				Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" 
-       				AllowURLParam="N"
-       				 />  
-       				   	
-       	<Element Name="fld_update_time" 
-       				Class="LabelText" 
-       				ElementSet="Miscellaneous" 
-       				FieldName="update_time" 
-       				Label="Update Time"  
-       				AllowURLParam="N"
-       				 />       	
-
-					
-       	<Element Name="fld_create_by" 
-       				Class="LabelText" 
-       				ElementSet="Miscellaneous" 
-       				FieldName="create_by" 
-       				Label="Create By" 
-       				Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" 
-       				AllowURLParam="N"
-       				 />  
-       				   	
-       	<Element Name="fld_create_time" 
-       				Class="LabelText" 
-       				ElementSet="Miscellaneous" 
-       				FieldName="create_time" 
-       				Label="Create Time"  
-       				AllowURLParam="N"
-       				 />       	
+       								   	
+				   	
 
 					
     </DataPanel>
-    <ActionPanel>  
-
-        
-        <Element Name="btn_edit" 
-        			Class="Button" 
-        			Text="Edit" 
-        			CssClass="button_gray_m" 
-        			Description="Edit record (Ctrl+E)">
-			<EventHandler Name="btn_new_onclick" 
-							Event="onclick" 
-							Function="SwitchForm(sms.form.SmsProviderEditForm,{@:Elem[fld_Id].Value})"  
-							ShortcutKey="Ctrl+E" 
-							ContextMenu="Edit" />
+    <ActionPanel>       
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(sms.provider.form.EditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
-
         <Element Name="btn_cancel" 
-        			Class="LabelBack" 
-        			Text="Back" 
-        			CssClass="button_gray_m"
-        			Link="sms/sms_provider_manage" />        
+        			Class="Button" 
+        			Text="Cancel" 
+        			CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" 
+            			Event="onclick" 
+            			Function="SwitchForm()"  
+            			ShortcutKey="Escape" 
+            			ContextMenu="Cancel"/>
+        </Element>      
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 

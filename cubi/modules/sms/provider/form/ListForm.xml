@@ -26,8 +26,8 @@
         </Element>	
 		
 		<Element Name="fld_status" Class="ColumnHidden" Hidden="Y" FieldName="status"  Label="Status" Link="javascript:;" Sortable="Y"></Element>
-		  <Element Name="fld_platform" Class="ColumnImage" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/sms/images/icon_{@:Elem[fld_platform].Value}.png" Label="Platform" DefaultValue="default" Sortable="Y" Link="javascript:">
-              <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(sms.provider.form.EditForm,{@:Elem[fld_Id].Value})"   />
+		  <Element Name="fld_platform" Class="ColumnImage" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/sms/images/icon_{@:Elem[fld_platform].Value}.png" Label="Provider" DefaultValue="default" Sortable="Y" Link="javascript:">
+              <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(sms.provider.form.DetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
   
      
