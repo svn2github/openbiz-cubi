@@ -21,7 +21,7 @@
 		</Element>	 
 		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y"/>
 
-        <Element Name="fld_display_name" Class="ColumnText" FieldName="display_name" Label="Display Name" Sortable="Y" Link="{APP_INDEX}/collab/contact_detail/{@:Elem[fld_Id].Value}" >
+        <Element Name="fld_display_name" Class="ColumnText" FieldName="display_name" Label="Display Name" Sortable="Y" Link="{APP_INDEX}/contact/contact_detail/{@:Elem[fld_Id].Value}" >
                  	        
         </Element>
         <Element Name="fld_phone" Class="ColumnText" FieldName="phone" Label="Phone" Sortable="Y"/>
