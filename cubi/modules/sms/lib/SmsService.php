@@ -25,10 +25,41 @@ class SmsService extends MetaObject
     {
 		
     } 
+    
+    /**
+     * 
+     * public interface for SMS service, 
+     * the consumer module could call this function to send out messages
+     * 
+     * @param $mobile
+     * @param $content
+     * @param integer $defer -- the message will be send after $defer seconds from now 
+     * @param bool $delay    -- if delay is force , then the message will not go into queue , 
+     * 							instead of call driver to send it directly  
+     */
+    public function SendSMS($mobile,$content,$defer=null,$delay=true)
+    {
+    	
+    }
+    
+    
+    /**
+     * 
+     * this function will update all registered SMS providers message counter,
+     * total sent message and remaining message quota will be updated in system.
+     */
+    public function UpdateProviderCounter()
+    {
+    	
+    }
+    
+    
+    
+    
 	/**
-	 * 发送单条短信;
+	 * 发送队列中的短信;
 	 */
-	public function SendSms($SmsQueue=null,$limit=10){
+	public function SendSmsFromQueue($SmsQueue=null,$limit=10){
 		$time = time();
 		$TasklistDO = BizSystem::getObject($this->m_SmsTasklistDO);
 		$SmsQueueDO = BizSystem::getObject($this->m_SmsQueueDO);
@@ -100,12 +131,6 @@ class SmsService extends MetaObject
 		   }
 		}
         
-	}
-	/**
-	 * 批量发送短信;
-	 */
-	public function BatchSendSms($limit=50){
-		return true;		  
 	}
 	
 	protected function _getContentSignature()
