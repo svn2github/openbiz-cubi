@@ -19,7 +19,13 @@
 			Access="sms.Manage">
     <DataPanel>
 
-	<Element Name="fld_provider"  Class="DropDownList" ElementSet="Provider" Description="" FieldName="provider" Label="Provider" SelectFrom="sms.lov.ProviderLOV(Provider)" />	
+	<Element Name="fld_provider"  
+				Class="DropDownList" 
+				ElementSet="Provider" 
+				Description="" 
+				FieldName="provider" 
+				Label="Provider" 
+				SelectFrom="sms.provider.do.ProviderDO[type:Id],[status]=1 AND [username]!=''" />	
 	<Element Name="fld_mobile" 
        				Class="InputText" 
        				FieldName="mobile" 
