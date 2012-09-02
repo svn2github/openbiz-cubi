@@ -21,6 +21,8 @@
 
   		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       	
   
+        <Element Name="fld_instructions_img" Class="LabelImage" ElementSet="Instruction" FieldName="type" Text="{RESOURCE_URL}/sms/images/instruction_{@:Elem[fld_platform].Value}.png" Label=""    AllowURLParam="N"  SelectFrom="oauth.enum.Enum(oauthType)"/>
+  
 		<Element Name="fld_platform" ElementSet="Provider"  Class="LabelImage" Link="{@:Elem[fld_site_url].Value}" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/sms/images/icon_{@:Elem[fld_platform].Value}.png" Label="Provider" DefaultValue="default" Sortable="Y" Target="_blank">
         </Element>  	  
   	  
