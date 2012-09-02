@@ -4,8 +4,8 @@
     	    
 	    <Element Name="fld_instructions_img" Class="LabelImage" ElementSet="Instruction" FieldName="type" Text="{RESOURCE_URL}/oauth/images/instruction_{@:Elem[fld_platform].Value}.png" Label=""    AllowURLParam="N"  SelectFrom="oauth.enum.Enum(oauthType)"/>
        	<Element Name="fld_platform" ElementSet="Setting" Class="LabelImage" FieldName="type" Label="Platform" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" AllowURLParam="N"/>
-        <Element Name="fld_key" Class="InputText" ElementSet="Setting" FieldName="key" Label="App Key"  Description="Filling the app key from provider"  AllowURLParam="N"  Required="Y" />
-        <Element Name="fld_value" Class="InputText" ElementSet="Setting" FieldName="value" Label="App Secret"  Description="Filling the app secret from provider" AllowURLParam="N"  Required="Y" />
+        <Element Name="fld_key" Class="InputText" ElementSet="Setting" FieldName="key" Label="App Key"  Description="Fill in the app key from provider"  AllowURLParam="N"  Required="Y" />
+        <Element Name="fld_value" Class="InputText" ElementSet="Setting" FieldName="value" Label="App Secret"  Description="Fill in the app secret from provider" AllowURLParam="N"  Required="Y" />
 		<Element Name="fld_type" Class="Hidden" ElementSet="Setting" FieldName="type"   />
 		<Element Name="fld_status" Class="DropDownList" ElementSet="Setting" FieldName="status" Label="Status"   AllowURLParam="N"  SelectFrom="common.lov.CommLOV(EnableStatus)"/>
     </DataPanel>
