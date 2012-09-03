@@ -54,8 +54,7 @@
 		<BizField Name="status"		
 				Description="Status"	
 				Column="status" 
-				Type="Number"
-				ValueOnCreate="1"	
+				Type="Text"
 				Required="N" 
 				 />
 		<BizField Name="mobile"		

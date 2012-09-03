@@ -6,7 +6,9 @@ require_once MODULE_PATH.'/sms/lib/utilService.php';
 class SP18dx  extends utilService implements iSMS 
 {
 	protected $m_ProviderId = 1;
-	public $m_type = '18dx';
+	protected $m_type = '18dx';
+	protected $m_ProviderDo = 'sms.provider.do.ProviderDO';
+	private  $m_url='http://18dx.cn/API/Services.aspx?';
 	protected function _getProviderInfo()
 	{
 		$SmsProviderDO = BizSystem::getObject($this->m_ProviderDo);
@@ -49,8 +51,9 @@ class SP18dx  extends utilService implements iSMS
 					'encode'=>'UTF-8'
 				);
 
-		//$url=$this->m_url.http_build_query($Param); 
-		$recinfo=$this->curl($this->m_url,$Param);
+		$url=$this->m_url.http_build_query($Param); 
+		//$recinfo=$this->curl($this->m_url,$Param);
+		$recinfo=$this->getHttpResponse($url);
 		//$recinfo='1&errid=1&fee=1&balance=9&fails=&msgid=634805826699791739&msg=发送成功';
 		parse_str($recinfo,$recArr);
 		if($recArr['errid']!=1)
@@ -66,7 +69,7 @@ class SP18dx  extends utilService implements iSMS
 	}
 
     public function getSentCount()
-    {
+    {	
     	$ProviderInfo = $this->_getProviderInfo();
 		$Param=array(
 					'action'=>'getbalance',
@@ -88,5 +91,24 @@ class SP18dx  extends utilService implements iSMS
 			return $recinfo;
 		}
     }
+	private function getMsg($recinfo){
+		$msg=array
+		(
+			"1"=>"全部成功",
+			"2"=>"部分成功",
+			"0"=>"系统原因失败",
+			"-1"=>"用户不存在或已禁用",
+			"-2"=>"hashcode或密码不正确",
+			"-3"=>"接收号码不正确",
+			"-4"=>"内容为空或超长（不超过250字）",
+			"-5"=>"个性短信内容与号码长度不一致",
+			"-6"=>"内容含非法字符",
+			"-7"=>"帐户余额不足",
+			"-8"=>"提交过于频繁(超过1分钟的最大提交批次限定,1分钟内最多允许提交20个批次)",
+			"-9"=>"小批次短信已达到最大限定值",
+			"-10"=>"未添加通道企业签名"
+		);
+		return $msg[$recinfo];
+	}
 }
 ?>

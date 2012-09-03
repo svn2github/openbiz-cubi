@@ -93,6 +93,17 @@ public function db_create_in($item_list, $field_name = '')
 		}
 		curl_close($ch);
 		return $reponse;
+	}	
+//GET请求函数
+	public function getHttpResponse($url)
+	{
+			$ch = curl_init();
+			curl_setopt ($ch, CURLOPT_URL, $url);
+			curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 5);
+			$file_contents = curl_exec($ch);
+			curl_close($ch);
+			return $file_contents;
 	}
 }
 

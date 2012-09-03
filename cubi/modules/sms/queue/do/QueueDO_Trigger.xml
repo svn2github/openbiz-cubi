@@ -1,10 +1,10 @@
-<PluginService Name="TaskDO_Trigger" Description="" Package="" Class="doTriggerService" BizObjectName="sms.task.do.TaskDO">  
-  <DOTrigger TriggerType="INSERT">
+<PluginService Name="QueueDO_Trigger" Description="" Package="" Class="doTriggerService" BizObjectName="sms.queue.do.QueueDO">  
+  <DOTrigger TriggerType="DELETE">
    <TriggerCondition Expression="" ExtraSearchRule="" />
    <TriggerActions>
       <TriggerAction Action="CallService" Immediate="Y" DelayMinutes="" RepeatMinutes="">
          <ActionArgument Name="Service" Value="sms.lib.DoService" />
-         <ActionArgument Name="Method" Value="insertSmsQueue" /> 
+         <ActionArgument Name="Method" Value="insertSmsLog" /> 
          <ActionArgument Name="type" Value="{@}" />          
       </TriggerAction>
         

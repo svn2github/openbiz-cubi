@@ -35,13 +35,35 @@ class SmsService extends MetaObject
      * @param $content
      * @param integer $defer -- the message will be send after $defer seconds from now 
      * @param bool $delay    -- if delay is force , then the message will not go into queue , 
-     * 							instead of call driver to send it directly  
+     * 							instead of call driverr to send it directly  
      * @param integer $providerId -- if its not null, then used specified provider to send this message
      */
     public function SendSMS($mobile,	$content,	$defer=null,
-    						$delay=true,	$providerId=null)
+    						$delay=true,	$providerCode=null)
     {
-    	
+		if(!$this->validateMobile($mobile))
+		{
+			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
+			$eventlog->log("SMSSEND_ERROR", 'SendSMS','validateMobile Error');
+			return false;
+		}
+		if($providerCode)
+		{
+			$ProviderObj=$this->_loadProviderDriver($providerCode);
+		}
+		else
+		{
+			$ProviderObj=$this->_getProvider();
+		}
+		if($delay==false)
+		{
+			$return=$this->_addSmsQueueInfo($mobile,$content,$defer,$providerCode);
+		}
+		else
+		{
+			$return=$ProviderObj->send($mobile,$content); 
+		}
+		return $return;
     }
     
     
@@ -52,7 +74,25 @@ class SmsService extends MetaObject
      */
     public function UpdateProviderCounter()
     {
-    	
+		
+		 $SmsProviderDO = BizSystem::getObject('sms.provider.do.ProviderDO');
+		 $SmsProviderList=$SmsProviderDO->directFetch("[status]=1",10,0,"priority desc");
+		 $return=false;
+		 if($SmsProviderList)
+		 {
+			$SmsProviderList=$SmsProviderList->toArray();
+			 foreach($SmsProviderList as $val)
+			 {	
+				$use_sms_count= $this->getSentCount($val['type']); 
+				$use_sms_count=$use_sms_count?$use_sms_count:0;
+				$SmsProvider=$SmsProviderDO->updateRecords ("[use_sms_count]=$use_sms_count","[Id]=".$val['Id']);
+				if($SmsProvider && $use_sms_count)
+				{
+					 $return=true;
+				}
+			 }
+		 }
+    	return $return;
     }
     
     
@@ -62,19 +102,10 @@ class SmsService extends MetaObject
 	 * 发送队列中的短信;
 	 */
 	public function SendSmsFromQueue($SmsQueue=null,$limit=10){
-		$time = time();
-		$TasklistDO = BizSystem::getObject($this->m_SmsTasklistDO);
-		$SmsQueueDO = BizSystem::getObject($this->m_SmsQueueDO);
 		$SmsProviderDO = BizSystem::getObject($this->m_SmsProviderDO);
 		$Provider=$this->_getProvider();
-		$ProviderType=BizSystem::sessionContext()->getVar("_SMSPROVIDER");
-	
-		if(!$Provider)
-		{
-			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
-			$eventlog->log("SMSSEND_ERROR", 'SendSms','Unknown Provider');
-			return false;
-		}
+		$providerInfo=BizSystem::sessionContext()->getVar("_SMSPROVIDER");
+		$return=false;
 		if(!$SmsQueue)
 		{   
 			//获取接收短信的号码
@@ -84,13 +115,11 @@ class SmsService extends MetaObject
 		{
 			$SmsQueueArr=$SmsQueue;
 		}
-
 		$sms_count = count($SmsQueueArr);
 		if(!$sms_count)
 		{
 			return false;
 		}
-		require_once MODULE_PATH.'/sms/lib/utilService.php';
 		$sms_ids = array();
 		//$mobile = array();
 		$util=new utilService();
@@ -106,39 +135,105 @@ class SmsService extends MetaObject
 			if($SmsQueueArr[$i]['plantime'])
 			{
 				$plantime=$SmsQueueArr[$i]['plantime'];
-			}	  
-		  $content=$SmsQueueArr[$i]['content'].' sign:'.$this->_getContentSignature();
+			}	
+			//加上短信签名		
+		  $content=$SmsQueueArr[$i]['content'].$this->_getContentSignature();
 		  //设置队列号码为正在发送状态
-		  $SmsQueueDO->updateRecords("status='sending'","Id {$util->db_create_in($sms_ids)}");	
-		  $recInfo= $Provider->send($SmsQueueArr[$i]['mobile'], $content);
+		  $this->_updateSmsQueueStatus('all_sending',$SmsQueueArr[$i]['Id']);
+		  $recInfo= $Provider->send($SmsQueueArr[$i]['mobile'], $content); 
 		   if($recInfo)
 		   { 
-				$time=date("Y-m-d H:i:s"); 
-				$SmsQueueDO->updateRecords("status='sent',sent_time='{$time}'","Id={$SmsQueueArr[$i]['Id']}");
-				$TasklistDO->updateRecords("has_sent=has_sent+1","Id={$SmsQueueArr[$i]['tasklist_id']}");
-				if($recInfo['balance'])//如果接口支持返回剩余的短信数量
-				{
-					$SmsProviderDO->updateRecords("use_sms_count={$recInfo['balance']},send_sms_count=send_sms_count+1","type='{$ProviderType['type']}'");
-				}
-				else
-				{
-					$SmsProviderDO->updateRecords("use_sms_count=use_sms_count-1,send_sms_count=send_sms_count+1","type='{$ProviderType['type']}'");
-				}
-				return true;
+				$this->_updateSmsQueueStatus('sent',$SmsQueueArr[$i]['Id']);
+				$this->_updateSmsTaskStatus('sent',$SmsQueueArr[$i]['tasklist_id']);
+				$SmsProviderDO->updateRecords("send_sms_count=send_sms_count+1","type='{$providerInfo['type']}'");
+				$return=true;
 		   }
 		   else
-		   {
-				$SmsQueueDO->updateRecords("status='pending'","Id={$SmsQueueArr[$i]['Id']}");
-				return false;
+		   {	
+				$this->_updateSmsQueueStatus('pending',$SmsQueueArr[$i]['Id']);
+				$return=false;
 		   }
 		}
-        
+		$this->getSentCount($providerInfo['type']);
+		return $return;
 	}
-	
+	/**
+	 * 获取短信签名;
+	 */
 	protected function _getContentSignature()
 	{
 		$prefInfo = $this->_getSmsPreference();
-		return $prefInfo['content_sign'];
+		$sign= $prefInfo['content_sign']?' sign:'.$prefInfo['content_sign']:'';
+		return $sign;
+	}
+	
+	/**
+	 * 更新任务的发送状态;
+	 */
+	protected function _updateSmsTaskStatus($action,$id)
+	{
+		$SmsTaskDO = BizSystem::getObject($this->m_SmsTasklistDO);
+		$return=false;
+		switch($action)
+		{
+			case 'pending':
+				$return=$SmsTaskDO->updateRecords("[status]='pending'","[Id]={$id}");
+				 break;
+			case 'sending':
+				$return=$SmsTaskDO->updateRecords("[status]='sending'","[Id]={$id}");
+				 break;
+			case 'sent':
+				$return=$SmsTaskDO->updateRecords("[has_sent]=has_sent+1,status='sent'","[Id]={$id}");
+				 break;
+		}
+		return $return;
+	}
+	/**
+	 * 更新队列中的发送状态;
+	 */
+	protected function _updateSmsQueueStatus($action,$id)
+	{
+		$SmsQueueDO = BizSystem::getObject($this->m_SmsQueueDO);
+		$date=date("Y-m-d H:i:s"); 
+		$return=false;
+		switch($action)
+		{
+			case 'pending':
+				$return=$SmsQueueDO->updateRecords("[status]='pending'","[Id]={$id}");
+				 break;
+			case 'sending':
+				$return=$SmsQueueDO->updateRecords("[status]='sending'","[Id]={$id}");
+				 break;
+			case 'sent':
+				$return=$SmsQueueDO->updateRecords("[sent_time]='{$date}',[status]='sent'","[Id]={$id}");
+				 break;
+			case 'all_sending':	 
+			    require_once MODULE_PATH.'/sms/lib/utilService.php';
+				$util = new utilService();
+				$return=$SmsQueueDO->updateRecords("[status]='sending'","[Id] {$util->db_create_in($sms_ids)}");
+				 break;
+		}
+		return $return;
+	}
+	/**
+	 * 短信添加到队列中;
+	 */
+	protected function _addSmsQueueInfo($mobile,$content,$defer,$providerCode)
+	{
+		$SmsQueueDO = BizSystem::getObject($this->m_SmsQueueDO);
+		if(!$this->validateMobile($mobile))
+		{
+			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
+			$eventlog->log("SMSSEND_ERROR", '_addSmsQueueInfo','validateMobile Error');
+			return false;
+		}
+		$data=array(
+				'mobile'=>$mobile,
+				'content'=>$content,
+				'plantime'=>$defer,
+				'provider'=>$providerCode
+				);
+		return $SmsQueueDO->insertRecord($data);
 	}
 	/**
 	 * 获取接收的短信的号码;
@@ -181,10 +276,11 @@ class SmsService extends MetaObject
  */
 	protected function _getProvider(){
 		$SmsProviderArr=BizSystem::sessionContext()->getVar("_SMSPROVIDER");
+		$SmsProviderArr=false;
 		if(!$SmsProviderArr)
 		{
 			$SmsProviderDO = BizSystem::getObject($this->m_SmsProviderDO);
-			$SmsPreference=$this->m_SmsPreference;
+			$SmsPreference=$this->_getSmsPreference();
 			switch($SmsPreference['dispatch'])
 			{
 				case 1://根据优先级获取
@@ -196,34 +292,91 @@ class SmsService extends MetaObject
 				default:
 				 $SmsProviderInfo=$SmsProviderDO->fetchOne('[use_sms_count]>0 and [status]=1','create_time desc');
 			}
+			if(!$SmsProviderInfo)
+			{
+				$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
+				$eventlog->log("SMSSEND_ERROR", '_getProvider','Unknown Provider');
+				return false;
+			}
 			$SmsProviderArr['type']=$SmsProviderInfo['type'];
+			$SmsProviderArr['driver']=$SmsProviderInfo['driver'];
 			BizSystem::sessionContext()->setVar("_SMSPROVIDER",$SmsProviderArr);
 		}
-		
-		$providerType = $SmsProviderArr['type'];
-		$installedProviders = BizSystem::getService(LOV_SERVICE)->getDict("sms.lov.ProviderLOV(ProviderDrvier)");
-		$ClassFile=$installedProviders[$providerType];
-		$ClassName=explode('.',$ClassFile);
-		//获取需要实例的类名
-		$ClassName=$ClassName[count($ClassName)-1];
-		$this->_loadProviderDriver($installedProviders[$providerType]);		
-		$provderClass = new $ClassName;
-		return $provderClass;
+		$obj=$this->_loadProviderDriver($SmsProviderArr['type'],$SmsProviderArr['driver']);	
+		if(!is_object($obj))
+		{
+			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
+			$eventlog->log("SMSSEND_ERROR", '_getProvider','Unknown Provider obj');
+			return false;
+		}		
+		return $obj;
 	}
 /**
  * 加载短信驱动类
  */
-	protected function _loadProviderDriver($providerClass)
+	protected function _loadProviderDriver($providerCode,$driver=null)
 	{
-		$ClassName=str_replace('.','/', $providerClass);
-		$driverFile=MODULE_PATH.'/'.$ClassName.'.php';
-		if(!file_exists($driverFile))
+		if(!$providerCode)
 		{
-			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
-			$eventlog->log("SMSSEND_ERROR", '_loadProviderDriver','Unknown driverFile');
 			return false;
 		}
-		require_once($driverFile);
+		if($driver)
+		{
+			$FileName=str_replace('.','/', $driver);
+		}
+		else
+		{
+			$SmsProviderDO = BizSystem::getObject($this->m_SmsProviderDO);
+			$ProvidersInfo =$SmsProviderDO->fetchOne
+			("[use_sms_count]>0 and [status]=1 and [type]='{$providerCode}'",'create_time desc');
+			if(!$ProvidersInfo)
+			{
+				$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
+				$eventlog->log("SMSSEND_ERROR", '_loadProviderDriver','Unknown driver');
+				return false;
+			}
+			$FileName=str_replace('.','/', $ProvidersInfo['driver']);
+			$driver=$ProvidersInfo['driver'];
+		}
+
+		$driverrFile=MODULE_PATH.'/'.$FileName.'.php';
+		if(!file_exists($driverrFile))
+		{
+			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
+			$eventlog->log("SMSSEND_ERROR", '_loadProviderDriver','Unknown driverrFile');
+			return false;
+		}
+		else
+		{
+			require_once($driverrFile);
+		}
+		$ClassName=explode('.',$driver);
+		//获取需要实例的类名
+		$ClassName=$ClassName[count($ClassName)-1];
+		$provderClass = new $ClassName;
+		return $provderClass;
+	}
+	/**
+	 * 获取帐号可用短信数量
+	 */
+	public function getSentCount($providerCode)
+	{ 
+		$obj=$this->_loadProviderDriver($providerCode);
+		return $obj->getSentCount();
+	}
+	
+	/**
+	 * 验证手机号码
+	 */
+	public function  validateMobile($mobile)
+	{
+		$return=true;
+		preg_match('/1\d{10}/',$mobile,$validate);
+		if(!$validate)
+		{
+			$return=false;
+		}
+		return $return;
 	}
 }
 

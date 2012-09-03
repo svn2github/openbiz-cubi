@@ -20,8 +20,18 @@ class ListForm extends EasyForm
 {
 	public function updateMessageCounter(){
 		 
-		BizSystem::getService("sms.lib.SmsService")->UpdateProviderCounter();
-		$this->updateForm();		
+		$rec=BizSystem::getService("sms.lib.SmsService")->UpdateProviderCounter();
+		if($rec)
+		{
+			$this->m_Notices = array("test"=>$this->getMessage("SYNC_SUCCESS"));
+		}
+		else
+		{
+			$this->m_Errors = array("test"=>$this->getMessage("SYNC_FAILURE"));	
+		}
+		$this->updateForm();
+		$this->rerender();
+ 	
 	}  
 
 }  

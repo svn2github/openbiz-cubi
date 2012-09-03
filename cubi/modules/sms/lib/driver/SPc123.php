@@ -56,7 +56,6 @@ class SPc123 extends utilService implements iSMS
 				);
 		//$url=$this->m_url.http_build_query($Param); 
 		$recinfo=$this->curl($this->m_url,$Param);
-		
 		if($recinfo!=100)
 		{	
 			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);

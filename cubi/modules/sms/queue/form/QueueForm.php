@@ -16,7 +16,9 @@ class QueueForm extends EasyForm
 {
 	public function SendAllPendingSms()
 	{
-		BizSystem::getService('sms.lib.SmsService')->SendSms();
+		BizSystem::getService('sms.lib.SmsService')->SendSmsFromQueue();
+		if (strtoupper($this->m_FormType) == "LIST")
+            $this->rerender();
 		$this->runEventLog();
         $this->processPostAction();
 		return true;
@@ -25,10 +27,10 @@ class QueueForm extends EasyForm
 	public function sendSms()
 	{
 		$Record=$this->getActiveRecord();
-		if(is_array($Record))
+		if(is_array($Record) && $Record['status']!='sent')
 		{
 			$arr[0]=$Record;
-			BizSystem::getService('sms.lib.SmsService')->SendSms($arr);
+			BizSystem::getService('sms.lib.SmsService')->SendSmsFromQueue($arr);
 		} 
 	 if (strtoupper($this->m_FormType) == "LIST")
             $this->rerender();

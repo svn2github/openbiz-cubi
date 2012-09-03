@@ -5,12 +5,12 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<BizDataObj Name="QueueDO" 
-		Description="Sms Queue Description" 
+<BizDataObj Name="LogDO" 
+		Description="Sms log" 
 		DataPermControl="N"
 		Class="BizDataObj" 
 		DBName="Default" 
-		Table="sms_queue" 
+		Table="sms_log" 
 		SearchRule="" 
 		SortRule="[Id] DESC"
 		OtherSQLRule=""
@@ -42,12 +42,18 @@
 				Required="Y" 
 				Type="Number"
 				/>	
+		<BizField Name="queue_id"			
+				Description="queue_id"	
+				Column="queue_id"    
+				Required="Y" 
+				Type="Number"
+				/>
 		<BizField Name="provider"			
 				Description="provider"	
 				Column="provider"    
-				Required="Y" 
+				Required="N" 
 				Type="Text"
-				/>		
+				/>				
 		<BizField Name="mobile"		
 				Description="mobile"	
 				Column="mobile" 

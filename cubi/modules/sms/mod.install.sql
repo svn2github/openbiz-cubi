@@ -4,6 +4,8 @@
 DROP TABLE IF EXISTS `sms_provider`;
 CREATE TABLE `sms_provider` (
   `id` int(11) NOT NULL auto_increment,
+  `driver` varchar(50) NOT NULL  ,
+  `name` varchar(50) NOT NULL  ,
   `username` varchar(255) NOT NULL  ,
   `password` varchar(255) NOT NULL  ,
   `type` varchar(255) NOT NULL  ,
@@ -24,9 +26,10 @@ CREATE TABLE `sms_provider` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务商';
 
-INSERT INTO `sms_provider` (`id`, `username`, `password`, `type`, `site_url`, `description`, `priority`, `owner_id`, `use_sms_count`, `send_sms_count`, `group_id`, `group_perm`, `other_perm`, `status`, `update_by`, `update_time`, `create_by`, `create_time`) VALUES
-(1, '', '', '18dx', 'http://www.18dx.cn/', '长沙八信通讯科技有限公司是一家专注于移动通讯领域的科技公司。', 50, 1, 9, 0, 1, 1, 0, 1, 1, '2012-08-15 13:46:08', 1, '2012-08-01 23:10:17'),
-(2, '', '', 'c123', 'http://www.c123.com', '短信接口是面向有一定技术开发能力的用户而单独研发的短信(sms)接口。', 50, 0, 1, 3, 1, 1, 1, 1, 1, '2012-08-15 14:40:09', 0, '0000-00-00 00:00:00');
+
+INSERT INTO `sms_provider` (`id`, `username`, `password`, `type`, `site_url`, `description`, `owner_id`, `use_sms_count`, `send_sms_count`, `group_id`, `group_perm`, `other_perm`, `priority`, `status`, `update_by`, `update_time`, `create_by`, `create_time`, `driver`, `name`) VALUES
+(1, 'pr@openbiz.me', '', '18dx', 'http://www.18dx.cn/', '长沙八信通讯科技有限公司是一家专注于移动通讯领域的科技公司。', 1, 13, 0, 1, 1, 0, 0, 1, 1, '2012-09-03 11:31:27', 1, '2012-08-01 23:10:17', 'sms.lib.driver.SP18dx', '八信科技'),
+(2, '148840', '', 'c123', 'http://www.c123.com', '用户名：openbizadmin\n', 0, 991, 8, 1, 1, 1, 0, 1, 1, '2012-09-03 15:05:40', 0, '0000-00-00 00:00:00', 'sms.lib.driver.SPc123', '创明短信');
 
 DROP TABLE IF EXISTS `sms_queue`;
 CREATE TABLE IF NOT EXISTS `sms_queue` (
@@ -36,9 +39,8 @@ CREATE TABLE IF NOT EXISTS `sms_queue` (
   `mobile` varchar(11) NOT NULL,
   `content` longtext NOT NULL,
    `provider`  varchar(100) NOT NULL,
-   `lock_expiry`  varchar(20) NOT NULL,
    `priority`int(10) NOT NULL,
-  `status` enum('pending','sending','sent') NOT NULL,
+  `status` enum('pending','sending','sent')  default 'pending',
     `plantime` datetime NOT NULL,
 	`create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
@@ -51,13 +53,13 @@ DROP TABLE IF EXISTS `sms_log`;
 CREATE TABLE IF NOT EXISTS `sms_log` (
   `id` int(11) NOT NULL auto_increment,
   `tasklist_id` int(11) NOT NULL ,
-  `result` varchar(255) NOT NULL,
+  `queue_id` int(11) NOT NULL ,
+  `sender` int(11) NOT NULL ,
   `mobile` varchar(11) NOT NULL,
   `content` longtext NOT NULL,
    `provider`  varchar(100) NOT NULL,
-   `lock_expiry`  varchar(20) NOT NULL,
    `priority`int(10) NOT NULL,
-  `status` enum('pending','sending','sent') NOT NULL,
+  `status` enum('pending','sending','sent')  default 'pending',
     `plantime` datetime NOT NULL,
 	`create_by` int(11) NOT NULL,
   `create_time` datetime NOT NULL,
@@ -73,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `sms_tasklist` (
   `has_sent` int(10) NOT NULL COMMENT '已发送数量',
   `sms_number` int(10) NOT NULL COMMENT '收件人数量',
   `priority`int(10) NOT NULL,
-  `status` tinyint(2) default '1' NOT NULL,
+ `status` enum('pending','sending','sent') default 'pending',
   `mobile` longtext NOT NULL ,
   `provider` varchar(50) NOT NULL,
   `owner_id` int(11) default '0',

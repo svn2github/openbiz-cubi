@@ -15,21 +15,30 @@ class TestSendNewForm extends EasyForm
 {
     public function InsertRecord(){
 		$inputRec=$this->readInputRecord();
-		preg_match('/1\d{10}/',$inputRec['mobile'],$mobile);
-		if(!$mobile)
+		$SmsObj=BizSystem::getService("sms.lib.SmsService");
+		if(!$SmsObj->validateMobile($inputRec['mobile']))
 		{
 			$this->m_Errors = array("fld_mobile"=>$this->getMessage("MOBILE_ERROR"));
 			$this->updateForm();
 			return false;
 		}
+		
 		$providerId = $inputRec['provider'];
 		$mobile 	= $inputRec['mobile'];
 		$content 	= $inputRec['content'];
-		
+		$SmsProviderDO = BizSystem::getObject('sms.provider.do.ProviderDO');
+		$ProvidersInfo =$SmsProviderDO->fetchOne("[use_sms_count]>0 and [status]=1 and [Id]='{$providerId}'");
 		//send the message from specified provider directly 
-		BizSystem::getService("sms.lib.SmsService")->sendSMS($mobile,$content,0,false,$providerId);
+		$rec=$SmsObj->sendSMS($mobile,$content,0,false,$ProvidersInfo['type']);
+		if($rec)
+		{
+			$this->m_Notices = array("test"=>$this->getMessage("SMS_SENT_SUCCESSFUL"));
+		}
+		else
+		{
+			$this->m_Errors = array("test"=>$this->getMessage("SMS_SENT_FAILURE"));
+		}
 		
-		$this->m_Notices = array("test"=>$this->getMessage("SMS_SENT_SUCCESSFUL"));
 		$this->updateForm();
     }    
 }  

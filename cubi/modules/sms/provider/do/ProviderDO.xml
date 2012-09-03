@@ -27,6 +27,13 @@
 				Column="id"    
 				Required="N" 
 				Type="Number"/>
+				
+	<BizField Name="driver"			
+				Description="driver"	
+				Column="driver"    
+				Required="N" 
+				Type="Text"/>
+				 
 	<BizField Name="use_sms_count"			
 				Description="use_sms_count"	
 				Column="use_sms_count"    
@@ -128,54 +135,4 @@
 				Type="Datetime"	
 				ValueOnCreate="{date('Y-m-d H:i:s')}"/>
 	</BizFieldList>
-	<TableJoins>
-				    	
-	</TableJoins>
-	<ObjReferences>
-	
-		<Object Name="changelog.do.ChangeLogDO" 
-				Description="Reference to Change Log Records" 
-				Relationship="1-M" 
-				Table="changelog" 
-				CondColumn='type' 
-				CondValue='sms_provider' 
-				Column="foreign_id" 
-				FieldRef="Id" />	
-		<Object Name="location.do.LocationDO" 
-				Description="Reference to Geographic Location Records" 
-				Relationship="1-M" 
-				Table="location" 
-				CondColumn='type' 
-				CondValue='sms_provider' 
-				Column="foreign_id" 
-				FieldRef="Id" />	
-		<Object Name="attachment.do.AttachmentDO" 
-				Description="Reference to Attachment Records" 
-				Relationship="1-M" 
-				Table="attachment" 
-				CondColumn='type' 
-				CondValue='sms_provider' 
-				Column="foreign_id" 
-				FieldRef="Id" />	
-		<Object Name="picture.do.PictureDO" 
-				Description="Reference to Picture Records" 
-				Relationship="1-M" 
-				Table="picture" 
-				CondColumn='type' 
-				CondValue='sms_provider' 
-				Column="foreign_id" 
-				FieldRef="Id" />	
-		<Object Name="sms.do.SmsProviderRefDO" 
-				Description="Reference to Related Records" 
-				Relationship="Self-Self" 
-				Table="sms_provider" 
-				Column="id" 
-				FieldRef="Id" 
-				OnDelete="SetNull" 
-				OnUpdate="" 
-				XTable="sms_provider_related" 
-				XColumn1="sms_provider_id" 
-				XColumn2="related_id" 
-				XDataObj="sms.do.SmsProviderRelatedDO"/>
-	</ObjReferences>
 </BizDataObj>
