@@ -55,15 +55,15 @@ class SmsService extends MetaObject
 		{
 			$ProviderObj=$this->_getProvider();
 		}
-		if($delay==false)
+		if($delay==true)
 		{
-			$return=$this->_addSmsQueueInfo($mobile,$content,$defer,$providerCode);
+			$result=$this->_addSmsQueueInfo($mobile,$content,$defer,$providerCode);
 		}
 		else
 		{
-			$return=$ProviderObj->send($mobile,$content); 
+			$result=$ProviderObj->send($mobile,$content); 
 		}
-		return $return;
+		return $result;
     }
     
     
@@ -76,7 +76,7 @@ class SmsService extends MetaObject
     {
 		
 		 $SmsProviderDO = BizSystem::getObject('sms.provider.do.ProviderDO');
-		 $SmsProviderList=$SmsProviderDO->directFetch("[status]=1",10,0,"priority desc");
+		 $SmsProviderList=$SmsProviderDO->directFetch("[status]=1",10,0,"[priority] DESC");
 		 $return=false;
 		 if($SmsProviderList)
 		 {
@@ -145,7 +145,7 @@ class SmsService extends MetaObject
 		   { 
 				$this->_updateSmsQueueStatus('sent',$SmsQueueArr[$i]['Id']);
 				$this->_updateSmsTaskStatus('sent',$SmsQueueArr[$i]['tasklist_id']);
-				$SmsProviderDO->updateRecords("send_sms_count=send_sms_count+1","type='{$providerInfo['type']}'");
+				$SmsProviderDO->updateRecords("[send_sms_count]=[send_sms_count]+1","[type]='{$providerInfo['type']}'");
 				$return=true;
 		   }
 		   else
@@ -163,7 +163,7 @@ class SmsService extends MetaObject
 	protected function _getContentSignature()
 	{
 		$prefInfo = $this->_getSmsPreference();
-		$sign= $prefInfo['content_sign']?' sign:'.$prefInfo['content_sign']:'';
+		$sign= $prefInfo['content_sign']?' - '.$prefInfo['content_sign']:'';
 		return $sign;
 	}
 	
@@ -183,7 +183,7 @@ class SmsService extends MetaObject
 				$return=$SmsTaskDO->updateRecords("[status]='sending'","[Id]={$id}");
 				 break;
 			case 'sent':
-				$return=$SmsTaskDO->updateRecords("[has_sent]=has_sent+1,status='sent'","[Id]={$id}");
+				$return=$SmsTaskDO->updateRecords("[has_sent]=[has_sent]+1,[status]='sent'","[Id]={$id}");
 				 break;
 		}
 		return $return;
@@ -241,7 +241,7 @@ class SmsService extends MetaObject
 	protected function _getSmsQueue($limit=1)
 	{
 		$SmsQueueDO = BizSystem::getObject($this->m_SmsQueueDO);
-		$SmsQueueArr=$SmsQueueDO->directFetch("status='pending' and ifnull(mobile,'')<>''",$limit,0,"priority desc");
+		$SmsQueueArr=$SmsQueueDO->directFetch("[status]='pending' AND [mobile] IS NOT NULL",$limit,0,"[priority] DESC");
 		 if($SmsQueueArr)
 		 {
 			$SmsQueueArr=$SmsQueueArr->toArray();
@@ -257,7 +257,7 @@ class SmsService extends MetaObject
 		 if(!$SmsPreference)
 		 {
 			$PreferenceDO = BizSystem::getObject($this->m_PreferenceDO);
-			$PreferenceArr=$PreferenceDO->directFetch("section='Sms'");
+			$PreferenceArr=$PreferenceDO->directFetch("[section]='Sms'");
 			 if($PreferenceArr)
 			 {
 				$SmsPreference=$PreferenceArr->toArray();
@@ -284,13 +284,13 @@ class SmsService extends MetaObject
 			switch($SmsPreference['dispatch'])
 			{
 				case 1://根据优先级获取
-				 $SmsProviderInfo=$SmsProviderDO->fetchOne('[use_sms_count]>0 and [status]=1','priority desc');
+				 $SmsProviderInfo=$SmsProviderDO->fetchOne('[use_sms_count]>0 AND [status]=1','[priority] DESC');
 				 break;
 				case 2://根据提供商的短信可用数量获取
-				 $SmsProviderInfo=$SmsProviderDO->fetchOne('[use_sms_count]>0 and [status]=1','use_sms_count desc,send_sms_count asc');
+				 $SmsProviderInfo=$SmsProviderDO->fetchOne('[use_sms_count]>0 AND [status]=1','[use_sms_count] DESC,[send_sms_count] ASC');
 				 break;
 				default:
-				 $SmsProviderInfo=$SmsProviderDO->fetchOne('[use_sms_count]>0 and [status]=1','create_time desc');
+				 $SmsProviderInfo=$SmsProviderDO->fetchOne('[use_sms_count]>0 AND [status]=1','[create_time] DESC');
 			}
 			if(!$SmsProviderInfo)
 			{
@@ -328,7 +328,7 @@ class SmsService extends MetaObject
 		{
 			$SmsProviderDO = BizSystem::getObject($this->m_SmsProviderDO);
 			$ProvidersInfo =$SmsProviderDO->fetchOne
-			("[use_sms_count]>0 and [status]=1 and [type]='{$providerCode}'",'create_time desc');
+			("[use_sms_count]>0 AND [status]=1 AND [type]='{$providerCode}'",'[create_time] DESC');
 			if(!$ProvidersInfo)
 			{
 				$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);

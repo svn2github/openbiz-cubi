@@ -24,7 +24,7 @@ class DoService
 		$RecrdArr=$taskId->getActiveRecord();
 		$TasklistDO = BizSystem::getObject($this->m_SmsTasklistDO);
 		$SmsQueueDO = BizSystem::getObject($this->m_SmsQueueDO);
-		$TasklistArr=$TasklistDO->fetchOne('id='.$RecrdArr['Id']);
+		$TasklistArr=$TasklistDO->fetchOne('[Id]='.$RecrdArr['Id']);
 		 if($TasklistArr)
 		 {
 			$TasklistArr=$TasklistArr->toArray();
