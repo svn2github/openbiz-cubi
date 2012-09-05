@@ -55,6 +55,10 @@ class SmsService extends MetaObject
 		{
 			$ProviderObj=$this->_getProvider();
 		}
+		
+		//加上短信签名		
+		$content.=$this->_getContentSignature();
+		
 		if($delay==true)
 		{
 			$result=$this->_addSmsQueueInfo($mobile,$content,$defer,$providerCode);
@@ -136,8 +140,7 @@ class SmsService extends MetaObject
 			{
 				$plantime=$SmsQueueArr[$i]['plantime'];
 			}	
-			//加上短信签名		
-		  $content=$SmsQueueArr[$i]['content'].$this->_getContentSignature();
+		
 		  //设置队列号码为正在发送状态
 		  $this->_updateSmsQueueStatus('all_sending',$SmsQueueArr[$i]['Id']);
 		  $recInfo= $Provider->send($SmsQueueArr[$i]['mobile'], $content); 
