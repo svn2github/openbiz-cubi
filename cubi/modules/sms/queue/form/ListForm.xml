@@ -75,20 +75,14 @@
         			Sortable="Y"
         			 />    
         	
-		<Element Name="fld_create_time" 
+		<Element Name="fld_update_time" 
         			Class="ColumnText" 
-        			FieldName="create_time" 
-        			Label="Create Time" 
+        			FieldName="update_time" 
+        			Label="Update Time" 
         			MaxLength="15"        			 
         			Sortable="Y"
         			 />    		
-		<Element Name="fld_sent_time" 
-        			Class="ColumnText" 
-        			FieldName="sent_time" 
-        			Label="Send Time" 
-        			MaxLength="15"        			 
-        			Sortable="Y"
-        			 />    
+	 
         	
     
   

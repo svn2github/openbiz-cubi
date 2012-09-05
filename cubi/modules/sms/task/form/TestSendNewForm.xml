@@ -19,13 +19,7 @@
 			Access="sms.Manage">
     <DataPanel>
 
-	<Element Name="fld_provider"  
-				Class="DropDownList" 
-				ElementSet="Provider" 
-				Description="" 
-				FieldName="provider" 
-				Label="Provider" 
-				SelectFrom="sms.provider.do.ProviderDO[name:type],[status]=1 AND [username]!=''" />	
+      	
 	<Element Name="fld_mobile" 
        				Class="InputText" 
        				FieldName="mobile" 
@@ -44,14 +38,29 @@
 					  Required="Y"
 					   HTMLAttr="maxlength='250'"
        				/>      
-      	<Element Name="fld_method" 
+  
+		<Element Name="fld_method" 
      				Class="DropDownList" 
      				FieldName="queue" 
      				Label="Queue" 
      				SelectFrom="sms.lov.CommLOV(SendtoQueue)"
 				 	ElementSet="Option"
-				  
-     				/>     
+     				>
+     				 <EventHandler Name="fld_method_onchange" 
+            			Event="onchange" 
+            			Function="UpdateForm()"  
+            			/>
+     	</Element>   
+
+	<Element Name="fld_provider"  
+				Hidden="{@:Elem[fld_method].Value==1?'Y':'N'}"
+				Class="DropDownList" 
+				ElementSet="Option" 
+				Description="" 
+				FieldName="provider" 
+				Label="Provider" 
+				SelectFrom="sms.provider.do.ProviderDO[name:type],[status]=1 AND [username]!=''" />	  
+  
     </DataPanel>
     <ActionPanel>       
         	        <Element Name="btn_save" 

@@ -34,17 +34,20 @@
 				Required="N" 
 				Type="Text"/>
 				 
-	<BizField Name="use_sms_count"			
-				Description="use_sms_count"	
-				Column="use_sms_count"    
+	<BizField Name="msg_sent_count"			
+				Description="msg_sent_count"	
+				Column="msg_sent_count"    
 				Required="N" 
 				Type="Number"/>
-	<BizField Name="send_sms_count"			
-				Description="send_sms_count"	
-				Column="send_sms_count"    
+	<BizField Name="msg_balance"			
+				Description="msg_balance"	
+				Column="msg_balance"    
 				Required="N" 
 				Type="Number"/>
-				
+	<BizField Name="msg_last_sendtime"			
+				Description="msg_last_sendtime"	
+				Column="msg_last_sendtime"    
+				/>				
 		<BizField Name="password"		required="Y" 
 				Description="password"	
 				Column="password" 

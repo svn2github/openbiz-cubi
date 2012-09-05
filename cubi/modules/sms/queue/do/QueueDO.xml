@@ -35,19 +35,7 @@
 				Type="Number"
 				ValueOnCreate="{@profile:Id}"
 				/>	
-				
-		<BizField Name="tasklist_id"			
-				Description="tasklist_id"	
-				Column="tasklist_id"    
-				Required="Y" 
-				Type="Number"
-				/>	
-		<BizField Name="provider"			
-				Description="provider"	
-				Column="provider"    
-				Required="Y" 
-				Type="Text"
-				/>		
+		
 		<BizField Name="mobile"		
 				Description="mobile"	
 				Column="mobile" 
@@ -68,19 +56,23 @@
 				 />
 		<BizField Name="priority"							
 				Column="priority" 								 
-				 />				 
-		<BizField Name="sent_time"		
-				Description="Sent Time"	
-				Column="sent_time" 
-				Type="Datetime"
-				Required="N" 
-				 />
-			
+				 />	
+		<BizField Name="schedule"							
+				Column="schedule" 	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"							 
+				 />			 			 
+
 		<BizField Name="create_time"	
 				Description="Create Time"	
 				Column="create_time"	
 				Type="Datetime"	
 				ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="update_time"	
+				Description="Update Time"	
+				Column="update_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"	
+				ValueOnUpdate="{date('Y-m-d H:i:s')}"/>				
 	</BizFieldList>
 	<TableJoins>
 				    	

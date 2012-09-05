@@ -1,7 +1,8 @@
 <?xml version="1.0" standalone="no"?>
 <Selection>
-   <Dispatch Value="1" text="by Priority"/>
-   <Dispatch Value="2" text="Round Robin"/>
+   <Dispatch Value="1" text="By Priority"/>
+   <Dispatch Value="2" text="By Balance"/>
+   <Dispatch Value="3" text="Round Robin"/>
    
    <SendtoQueue Value="0" text="Direct Send to Provider"/>
    <SendtoQueue Value="1" text="Send to System Queue"/>

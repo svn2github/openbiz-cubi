@@ -1,26 +1,16 @@
 <?php 
 require_once 'iSMS.php';
+require_once 'SPDriver.php';
 //SP = Service Provider 18dx
 
-class SPc123 implements iSMS 
+class SPc123 extends SPDriver implements iSMS 
 {
 	protected $m_ProviderId = 2;
 	protected $m_type = 'c123';
-	protected $m_ProviderDo = 'sms.provider.do.ProviderDO';
 	private  $m_url='http://http.c123.com/tx/?';
 	private  $m_url_mm='http://http.c123.com/mm/?';
 	
-	public function _getProviderInfo()
-	{
-		$SmsProviderDO = BizSystem::getObject($this->m_ProviderDo);
-		$recObj=$SmsProviderDO->fetchOne("[Id]={$this->m_ProviderId}");
-		$recArr=array();
-		if($recObj)
-		{
-			$recArr=$recObj->toArray();
-		}
-		return $recArr;
-	}
+
  /*
   * http://www.c123.com
 	 GET/POST操作格式：
@@ -56,20 +46,20 @@ class SPc123 implements iSMS
 				);
 		$recinfo=BizSystem::getService("sms.lib.SmsUtilService")->curl($this->m_url,$Param);
 		if($recinfo!=100)
-		{	
-			var_dump($recinfo);
+		{				
 			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
 			$eventlog->log("SMSSEND_ERROR", 'send','c123：'.$mobile.':'.$recinfo);
 			return false;
 		}
 		else
 		{
+			$this->HitMessageCounter();
 			return true;
 		}
 			
 	}
 
-    public function getSentCount()
+    public function getMsgBalance()
     {
     	$ProviderInfo = $this->_getProviderInfo();
 		if(!$ProviderInfo)
@@ -92,7 +82,9 @@ class SPc123 implements iSMS
 		}
 		else
 		{
-			return $recArr[1];
+			$balance = $recArr[1];
+			$this->updateMsgBalance($balance);
+			return $balance;
 		}
 	}
     	

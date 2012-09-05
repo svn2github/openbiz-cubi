@@ -15,11 +15,18 @@
  */
 class SmsService extends MetaObject
 {
-	protected $m_SmsTasklistDO='sms.Task.do.TaskDO';
+	
+	const DISPATCH_BY_PRIORITY	=1;
+	const DISPATCH_BY_BALANCE	=2;
+	const DISPATCH_ROUND_ROBIN	=3;
+	
+	protected $m_SmsTaskDO='sms.Task.do.TaskDO';
 	protected $m_SmsProviderDO='sms.provider.do.ProviderDO';
 	protected $m_SmsQueueDO='sms.queue.do.QueueDO';
 	protected $m_PreferenceDO='myaccount.do.PreferenceDO';
 
+	protected $m_SmsPreference;
+	
 	public function __construct()  
     {
 		
@@ -77,25 +84,11 @@ class SmsService extends MetaObject
      */
     public function UpdateProviderCounter()
     {
-		
-		 $SmsProviderDO = BizSystem::getObject('sms.provider.do.ProviderDO');
-		 $SmsProviderList=$SmsProviderDO->directFetch("[status]=1",10,0,"[priority] DESC");
-		 $return=false;
-		 if($SmsProviderList)
-		 {
-			$SmsProviderList=$SmsProviderList->toArray();
-			 foreach($SmsProviderList as $val)
-			 {	
-				$use_sms_count= $this->getSentCount($val['type']); 
-				$use_sms_count=$use_sms_count?$use_sms_count:0;
-				$SmsProvider=$SmsProviderDO->updateRecords ("[use_sms_count]=$use_sms_count","[Id]=".$val['Id']);
-				if($SmsProvider && $use_sms_count)
-				{
-					 $return=true;
-				}
-			 }
+		 foreach(BizSystem::getObject($this->m_SmsProviderDO)->directFetch("[status]=1") as $providerRec)
+		 {	
+			$this->getMsgBalance($providerRec['type']); 
 		 }
-    	return $return;
+    	return true;
     }
     
     
@@ -107,7 +100,6 @@ class SmsService extends MetaObject
 	public function SendSmsFromQueue($SmsQueue=null,$limit=10){
 		$SmsProviderDO = BizSystem::getObject($this->m_SmsProviderDO);
 		$Provider=$this->_getProvider();
-		$providerInfo=BizSystem::sessionContext()->getVar("_SMSPROVIDER");
 		$return=false;
 		if(!$SmsQueue)
 		{   
@@ -131,20 +123,19 @@ class SmsService extends MetaObject
 
 		for ($i=0; $i < $sms_count; $i ++)
 		{
-			$plantime=null;
-			if($SmsQueueArr[$i]['plantime'])
+			$schedule=null;
+			if($SmsQueueArr[$i]['schedule'])
 			{
-				$plantime=$SmsQueueArr[$i]['plantime'];
+				$schedule=$SmsQueueArr[$i]['schedule'];
 			}	
 		
 		  //设置队列号码为正在发送状态
-		  $this->_updateSmsQueueStatus('all_sending',$SmsQueueArr[$i]['Id']);
-		  $recInfo= $Provider->send($SmsQueueArr[$i]['mobile'], $content); 
+		  $this->_updateSmsQueueStatus('batch_sending',$SmsQueueArr[$i]['Id']);
+		  $recInfo= $Provider->send($SmsQueueArr[$i]['mobile'], $SmsQueueArr[$i]['content'],$schedule); 
 		   if($recInfo)
 		   { 
 				$this->_updateSmsQueueStatus('sent',$SmsQueueArr[$i]['Id']);
 				$this->_updateSmsTaskStatus('sent',$SmsQueueArr[$i]['tasklist_id']);
-				$SmsProviderDO->updateRecords("[send_sms_count]=[send_sms_count]+1","[type]='{$providerInfo['type']}'");
 				$return=true;
 		   }
 		   else
@@ -153,7 +144,6 @@ class SmsService extends MetaObject
 				$return=false;
 		   }
 		}
-		$this->getSentCount($providerInfo['type']);
 		return $return;
 	}
 	/**
@@ -170,19 +160,17 @@ class SmsService extends MetaObject
 	 * 更新任务的发送状态;
 	 */
 	protected function _updateSmsTaskStatus($action,$id)
-	{
-		$SmsTaskDO = BizSystem::getObject($this->m_SmsTasklistDO);
-		$return=false;
+	{	
 		switch($action)
 		{
 			case 'pending':
-				$return=$SmsTaskDO->updateRecords("[status]='pending'","[Id]={$id}");
+				$return=BizSystem::getObject($this->m_SmsTaskDO)->updateRecords("[status]='pending'","[Id]={$id}");
 				 break;
 			case 'sending':
-				$return=$SmsTaskDO->updateRecords("[status]='sending'","[Id]={$id}");
+				$return=BizSystem::getObject($this->m_SmsTaskDO)->updateRecords("[status]='sending'","[Id]={$id}");
 				 break;
 			case 'sent':
-				$return=$SmsTaskDO->updateRecords("[has_sent]=[has_sent]+1,[status]='sent'","[Id]={$id}");
+				$return=BizSystem::getObject($this->m_SmsTaskDO)->updateRecords("[status]='sent'","[Id]={$id}");
 				 break;
 		}
 		return $return;
@@ -192,22 +180,19 @@ class SmsService extends MetaObject
 	 */
 	protected function _updateSmsQueueStatus($action,$id)
 	{
-		$SmsQueueDO = BizSystem::getObject($this->m_SmsQueueDO);
-		$date=date("Y-m-d H:i:s"); 
-		$return=false;
 		switch($action)
 		{
 			case 'pending':
-				$return=$SmsQueueDO->updateRecords("[status]='pending'","[Id]={$id}");
+				$return=BizSystem::getObject($this->m_SmsQueueDO)->updateRecords("[status]='pending'","[Id]={$id}");
 				 break;
 			case 'sending':
-				$return=$SmsQueueDO->updateRecords("[status]='sending'","[Id]={$id}");
+				$return=BizSystem::getObject($this->m_SmsQueueDO)->updateRecords("[status]='sending'","[Id]={$id}");
 				 break;
 			case 'sent':
-				$return=$SmsQueueDO->updateRecords("[sent_time]='{$date}',[status]='sent'","[Id]={$id}");
+				$return=BizSystem::getObject($this->m_SmsQueueDO)->updateRecords("[status]='sent'","[Id]={$id}");
 				 break;
-			case 'all_sending':	 			    
-				$return=$SmsQueueDO->updateRecords("[status]='sending'","[Id] ".BizSystem::getService("sms.lib.SmsUtilService")->db_create_in($sms_ids));
+			case 'batch_sending':	 			    
+				$return=BizSystem::getObject($this->m_SmsQueueDO)->updateRecords("[status]='sending'","[Id] ".BizSystem::getService("sms.lib.SmsUtilService")->db_create_in($sms_ids));
 				 break;
 		}
 		return $return;
@@ -215,7 +200,7 @@ class SmsService extends MetaObject
 	/**
 	 * 短信添加到队列中;
 	 */
-	protected function _addSmsQueueInfo($mobile,$content,$defer,$providerCode)
+	protected function _addSmsQueueInfo($mobile,$content,$defer)
 	{
 		$SmsQueueDO = BizSystem::getObject($this->m_SmsQueueDO);
 		if(!$this->validateMobile($mobile))
@@ -224,11 +209,14 @@ class SmsService extends MetaObject
 			$eventlog->log("SMSSEND_ERROR", '_addSmsQueueInfo','validateMobile Error');
 			return false;
 		}
+		if(!$defer)
+		{
+			$defer=date("Y-m-d H:i:s");
+		}
 		$data=array(
 				'mobile'=>$mobile,
 				'content'=>$content,
-				'plantime'=>$defer,
-				'provider'=>$providerCode
+				'schedule'=>$defer,
 				);
 		return $SmsQueueDO->insertRecord($data);
 	}
@@ -250,55 +238,58 @@ class SmsService extends MetaObject
  * 获取SMS设置信息;
  */
 	protected  function _getSmsPreference(){
-		$SmsPreferenceInfo=BizSystem::sessionContext()->getVar("_SMSPREFERENCE");
-		 if(!$SmsPreference)
+
+		if($this->m_SmsPreference)
+		{
+			return $this->m_SmsPreference;
+		}
+		
+		$PreferenceDO = BizSystem::getObject($this->m_PreferenceDO);
+		$PreferenceArr=$PreferenceDO->directFetch("[section]='Sms'");
+		 if($PreferenceArr)
 		 {
-			$PreferenceDO = BizSystem::getObject($this->m_PreferenceDO);
-			$PreferenceArr=$PreferenceDO->directFetch("[section]='Sms'");
-			 if($PreferenceArr)
-			 {
-				$SmsPreference=$PreferenceArr->toArray();
-			 }
-			 
-			 foreach($SmsPreference as $info)
-			 {
-				$SmsPreferenceInfo[$info['name']]=$info['value'];
-			 }
-			 BizSystem::sessionContext()->setVar("_SMSPREFERENCE",$SmsPreferenceInfo);
+			$SmsPreference=$PreferenceArr->toArray();
 		 }
-		return $SmsPreferenceInfo;
+		 
+		 foreach($SmsPreference as $info)
+		 {
+			$SmsPreferenceInfo[$info['name']]=$info['value'];
+		 }
+		 $this->m_SmsPreference = $SmsPreferenceInfo;
+		 return $SmsPreferenceInfo;
+		
+		
 	} 
 /**
  * 根据设置获取短信服务商信息;
  */
 	protected function _getProvider(){
-		$SmsProviderArr=BizSystem::sessionContext()->getVar("_SMSPROVIDER");
-		$SmsProviderArr=false;
-		if(!$SmsProviderArr)
+
+		$SmsProviderDO = BizSystem::getObject($this->m_SmsProviderDO);
+		$SmsPreference=$this->_getSmsPreference();
+		switch($SmsPreference['dispatch'])
 		{
-			$SmsProviderDO = BizSystem::getObject($this->m_SmsProviderDO);
-			$SmsPreference=$this->_getSmsPreference();
-			switch($SmsPreference['dispatch'])
-			{
-				case 1://根据优先级获取
-				 $SmsProviderInfo=$SmsProviderDO->fetchOne('[use_sms_count]>0 AND [status]=1','[priority] DESC');
+			case self::DISPATCH_BY_PRIORITY:
+				 $SmsProviderInfo=$SmsProviderDO->fetchOne('[msg_balance]>0 AND [status]=1','[priority] DESC');
 				 break;
-				case 2://根据提供商的短信可用数量获取
-				 $SmsProviderInfo=$SmsProviderDO->fetchOne('[use_sms_count]>0 AND [status]=1','[use_sms_count] DESC,[send_sms_count] ASC');
+			case self::DISPATCH_BY_BALANCE:
+				 $SmsProviderInfo=$SmsProviderDO->fetchOne('[msg_balance]>0 AND [status]=1','[msg_balance] DESC,[msg_sent_count] ASC');
 				 break;
-				default:
-				 $SmsProviderInfo=$SmsProviderDO->fetchOne('[use_sms_count]>0 AND [status]=1','[create_time] DESC');
-			}
-			if(!$SmsProviderInfo)
-			{
-				$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
-				$eventlog->log("SMSSEND_ERROR", '_getProvider','Unknown Provider');
-				return false;
-			}
-			$SmsProviderArr['type']=$SmsProviderInfo['type'];
-			$SmsProviderArr['driver']=$SmsProviderInfo['driver'];
-			BizSystem::sessionContext()->setVar("_SMSPROVIDER",$SmsProviderArr);
+			case self::DISPATCH_ROUND_ROBIN:
+				 $SmsProviderInfo=$SmsProviderDO->fetchOne('[msg_balance]>0 AND [status]=1','[msg_last_sendtime] DESC');
+				 break;
+			default:
+			 	 $SmsProviderInfo=$SmsProviderDO->fetchOne('[msg_balance]>0 AND [status]=1','[create_time] DESC');
 		}
+		if(!$SmsProviderInfo)
+		{
+			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
+			$eventlog->log("SMSSEND_ERROR", '_getProvider','Unknown Provider');
+			return false;
+		}
+		$SmsProviderArr['type']=$SmsProviderInfo['type'];
+		$SmsProviderArr['driver']=$SmsProviderInfo['driver'];
+	
 		$obj=$this->_loadProviderDriver($SmsProviderArr['type'],$SmsProviderArr['driver']);	
 		if(!is_object($obj))
 		{
@@ -325,7 +316,7 @@ class SmsService extends MetaObject
 		{
 			$SmsProviderDO = BizSystem::getObject($this->m_SmsProviderDO);
 			$ProvidersInfo =$SmsProviderDO->fetchOne
-			("[use_sms_count]>0 AND [status]=1 AND [type]='{$providerCode}'",'[create_time] DESC');
+			("[msg_balance]>0 AND [status]=1 AND [type]='{$providerCode}'");
 			if(!$ProvidersInfo)
 			{
 				$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
@@ -356,10 +347,10 @@ class SmsService extends MetaObject
 	/**
 	 * 获取帐号可用短信数量
 	 */
-	public function getSentCount($providerCode)
+	public function getMsgBalance($providerCode)
 	{ 
 		$obj=$this->_loadProviderDriver($providerCode);
-		return $obj->getSentCount();
+		return $obj->getMsgBalance();
 	}
 	
 	/**

@@ -1,24 +1,14 @@
 <?php 
 require_once 'iSMS.php';
+require_once 'SPDriver.php';
 //SP = Service Provider 18dx
 
-class SP18dx   implements iSMS 
+class SP18dx extends SPDriver  implements iSMS 
 {
 	protected $m_ProviderId = 1;
 	protected $m_type = '18dx';
-	protected $m_ProviderDo = 'sms.provider.do.ProviderDO';
 	private  $m_url='http://18dx.cn/API/Services.aspx?';
-	protected function _getProviderInfo()
-	{
-		$SmsProviderDO = BizSystem::getObject($this->m_ProviderDo);
-		$recObj=$SmsProviderDO->fetchOne("[Id]={$this->m_ProviderId}");
-		$recArr=array();
-		if($recObj)
-		{
-			$recArr=$recObj->toArray();
-		}
-		return $recArr;
-	}
+
  /*
 	官方网：www.18dx.cn
 	参数变量	 说明
@@ -61,11 +51,12 @@ class SP18dx   implements iSMS
 		}
 		else
 		{
-			return $recArr;
+			$this->HitMessageCounter();			
+			return true;
 		}	
 	}
 
-    public function getSentCount()
+    public function getMsgBalance()
     {	
     	$ProviderInfo = $this->_getProviderInfo();
 		$Param=array(
@@ -83,7 +74,9 @@ class SP18dx   implements iSMS
 		}
 		else
 		{
-			return $recinfo;
+			$balance = $recinfo;
+			$this->updateMsgBalance($balance);
+			return $balance;
 		}
     }
 	private function getMsg($recinfo){

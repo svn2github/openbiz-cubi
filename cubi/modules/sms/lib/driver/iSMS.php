@@ -3,6 +3,11 @@ interface iSMS
 {	
     public function send($mobile,$content);
 
-    public function getSentCount();
+    public function getMsgBalance();    
+    
+    public function HitMessageCounter();
+    
+    public function getMessageCounter();
+    
 }
 ?>
