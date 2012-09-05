@@ -5,8 +5,8 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyView Name="MyDashboardView" Description="My Dashboard Setting" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="myaccount.access">
+<EasyView Name="MyDashboardView" Description="Account Dashboard" class="common.view.DashboardView" Tab="" TemplateEngine="Smarty" TemplateFile="dashboard_view.tpl" Access="myaccount.access">
     <FormReferences>
-        <Reference Name="myaccount.form.MyDashboardForm" />
+
     </FormReferences>
 </EasyView>

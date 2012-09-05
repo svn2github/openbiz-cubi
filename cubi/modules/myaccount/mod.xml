@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<Module Name="myaccount" Description="My Account Module" Version="0.71" OpenbizVersion="3.0"  LoadHandler="myaccount.lib.MyAccountLoadHandler">
+<Module Name="myaccount" Description="My Account Module" Version="0.72" OpenbizVersion="3.0"  LoadHandler="myaccount.lib.MyAccountLoadHandler">
 	<ACL>
 		<Resource Name="myaccount">
 			<Action Name="access" Description="access my account dashboard"/>
@@ -18,7 +18,7 @@
                 <MenuItem Name="MyAccount.EditLocation" Title="My Locations" Description="" URL="/myaccount/my_location" Order="15"/>
                 <MenuItem Name="MyAccount.EditPicture" Title="My Pictures" Description="" URL="/myaccount/my_picture" Order="18"/>
                 <MenuItem Name="MyAccount.EditPref" Title="My Preferences" Description="" URL="/myaccount/my_preference" Order="20"/>
-				<!-- <MenuItem Name="MyAccount.EditDashboard" Title="My Dashboard" Description="" URL="/myaccount/my_dashboard" Order="25"/> -->
+				<MenuItem Name="MyAccount.EditDashboard" Title="My Dashboard" Description="" URL="/myaccount/my_dashboard" Order="25"/>
 				<MenuItem Name="MyAccount.ViewEventLog" Title="My Event Log" Description="" URL="/myaccount/my_event_log" Order="30"/>
 				<MenuItem Name="MyAccount.SetPassword" Title="Change Password" Description="" URL="/myaccount/reset_password" Order="40"/>
                 
@@ -31,7 +31,8 @@
     	<Module Name="contact"/>
     </Dependency>
     <Widgets>
-    	<Widget Name="myaccount.widget.DashboardForm" Title="My Account Features" Description="Features sitemap of my account module, including shortcuts of my preference and change password etc." Ordering="10" />
+    	<Widget Name="myaccount.widget.DashboardWidget" Title="My Account Features" Description="" Ordering="10" />
+		<Widget Name="myaccount.widget.EventLogWidget" Title="My Event Logs" Description="" Ordering="20" />
     </Widgets>
     <ChangeLog>
     	<Version Name="0.7">
