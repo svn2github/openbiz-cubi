@@ -1,9 +1,9 @@
 <?php 
 require_once 'iSMS.php';
-require_once MODULE_PATH.'/sms/lib/utilService.php';
+require_once 'absSMSDriver.php';
 //SP = Service Provider 18dx
 
-class SPc123 extends utilService implements iSMS 
+class SPc123 extends absSMSDriver implements iSMS 
 {
 	protected $m_ProviderId = 2;
 	protected $m_type = 'c123';
@@ -46,9 +46,10 @@ class SPc123 extends utilService implements iSMS
 		{
 			return false;
 		}
+
 		$Param=array(
 					'uid'=>$ProviderInfo['username'],
-					'pwd'=>strtoupper(md5($ProviderInfo['password'])),
+					'pwd'=>md5($ProviderInfo['password']),
 					'mobile'=>$mobile,
 					'content'=>$content,
 					'time'=>$time,
@@ -58,6 +59,7 @@ class SPc123 extends utilService implements iSMS
 		$recinfo=$this->curl($this->m_url,$Param);
 		if($recinfo!=100)
 		{	
+			var_dump($recinfo);
 			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
 			$eventlog->log("SMSSEND_ERROR", 'send','c123：'.$mobile.':'.$recinfo);
 			return false;

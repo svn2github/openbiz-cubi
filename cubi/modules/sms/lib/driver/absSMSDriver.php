@@ -10,9 +10,14 @@
  * @link      http://code.google.com/p/openbiz-cubi/
  * @version   $Id: utilService.php 3506 2012-06-05  fsliit@gmail.com $
  */
-class utilService
-{
 
+require_once 'iSMS.php';
+
+class absSMSDriver implements  iSMS
+{
+    public function send($mobile,$content){}
+
+    public function getSentCount(){}
 	
 /**
  * 创建像这样的查询: "IN('a','b')";

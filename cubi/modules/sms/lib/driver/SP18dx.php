@@ -1,9 +1,9 @@
 <?php 
 require_once 'iSMS.php';
-require_once MODULE_PATH.'/sms/lib/utilService.php';
+require_once 'absSMSDriver.php';
 //SP = Service Provider 18dx
 
-class SP18dx  extends utilService implements iSMS 
+class SP18dx  extends absSMSDriver implements iSMS 
 {
 	protected $m_ProviderId = 1;
 	protected $m_type = '18dx';
