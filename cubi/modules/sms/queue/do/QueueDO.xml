@@ -66,6 +66,9 @@
 				Type="Text"
 				Required="N" 
 				 />
+		<BizField Name="priority"							
+				Column="priority" 								 
+				 />				 
 		<BizField Name="sent_time"		
 				Description="Sent Time"	
 				Column="sent_time" 

@@ -44,7 +44,14 @@
 					  Required="Y"
 					   HTMLAttr="maxlength='250'"
        				/>      
-  
+      	<Element Name="fld_method" 
+     				Class="DropDownList" 
+     				FieldName="queue" 
+     				Label="Queue" 
+     				SelectFrom="sms.lov.CommLOV(SendtoQueue)"
+				 	ElementSet="Option"
+				  
+     				/>     
     </DataPanel>
     <ActionPanel>       
         	        <Element Name="btn_save" 

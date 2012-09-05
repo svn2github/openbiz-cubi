@@ -26,8 +26,9 @@ class TestSendNewForm extends EasyForm
 		$provider 	= $inputRec['provider'];
 		$mobile 	= $inputRec['mobile'];
 		$content 	= $inputRec['content'];
+		$queue		= $inputRec['queue'];
 		//send the message from specified provider directly 
-		$rec=$SmsObj->sendSMS($mobile,$content,0,false,$provider);
+		$rec=$SmsObj->sendSMS($mobile,$content,0,$queue,$provider);
 		if($rec)
 		{
 			$this->m_Notices = array("test"=>$this->getMessage("SMS_SENT_SUCCESSFUL"));
