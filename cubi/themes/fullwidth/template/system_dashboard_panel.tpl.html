@@ -88,18 +88,35 @@ $j(function(){
 	background: #f0f0f0;
 	border:1px dashed #ddd;
 }
-.dragbox .widget_header .collapse{
-	background:#f0f0f0 url('collapse.png') no-repeat top right;
-}
 .dragbox .widget_header .configure{
 	font-size:11px; font-weight:normal;
 	margin-right:30px; float:right;
 }
-.maxmin {
-	float:right; padding-right:3px;
+.dragbox .widget_header .maxmin {
+	float:right; 
+	margin-right:2px; margin-top:2px;
+	width:16px; height:16px;
+	display:block;
+	opacity:0.8;
+{/literal}
+	background:#f0f0f0 url('{$image_url}/minimize.gif') no-repeat top right;
+{literal}
 }
-.delete {
+.dragbox .widget_header a.maxmin:hover {
+	opacity:1.0;
+}
+.dragbox .widget_header a.delete {
 	float:right;
+	margin-top:2px;
+	width:16px; height:16px;
+	display:block;
+	opacity:0.8;
+{/literal}
+	background:#f0f0f0 url('{$image_url}/close.gif') no-repeat top right;
+{literal}
+}
+.dragbox .widget_header a.delete:hover {
+	opacity:1.0;
 }
 </style>
 {/literal}
@@ -118,8 +135,8 @@ $j(function(){
 					<div class="dragbox" id="{$formname}_widget" >
 					<div class="widget_header">
 						<span class="widget_title">Handle</span>
-						<a href="#" class="delete">X</a>
-						<a href="#" class="maxmin">V</a>
+						<a href="javascript:void()" class="delete"> </a>
+						<a href="javascript:void()" class="maxmin"> </a>
 					</div>
 					<div class="dragbox-content" >
 						{$forms[$formname]}
@@ -133,8 +150,8 @@ $j(function(){
 					<div class="dragbox" id="{$formname}_widget" >
 					<div class="widget_header">
 						<span class="widget_title">Handle</span>
-						<a href="#" class="delete">X</a>
-						<a href="#" class="maxmin">V</a>
+						<a href="javascript:void()" class="delete"> </a>
+						<a href="javascript:void()" class="maxmin"> </a>
 					</div>
 					<div class="dragbox-content" >
 						{$forms[$formname]}
