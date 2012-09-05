@@ -1,9 +1,8 @@
 <?php 
 require_once 'iSMS.php';
-require_once 'absSMSDriver.php';
 //SP = Service Provider 18dx
 
-class SPc123 extends absSMSDriver implements iSMS 
+class SPc123 implements iSMS 
 {
 	protected $m_ProviderId = 2;
 	protected $m_type = 'c123';
@@ -55,8 +54,7 @@ class SPc123 extends absSMSDriver implements iSMS
 					'time'=>$time,
 					'encode'=>'utf8'
 				);
-		//$url=$this->m_url.http_build_query($Param); 
-		$recinfo=$this->curl($this->m_url,$Param);
+		$recinfo=BizSystem::getService("sms.lib.SmsUtilService")->curl($this->m_url,$Param);
 		if($recinfo!=100)
 		{	
 			var_dump($recinfo);
@@ -84,7 +82,7 @@ class SPc123 extends absSMSDriver implements iSMS
 					'encode'=>'utf8'
 				);
 		//$url=$this->m_url_mm.http_build_query($Param);
-		$recinfo=$this->curl($this->m_url_mm,$Param);
+		$recinfo=BizSystem::getService("sms.lib.SmsUtilService")->curl($this->m_url_mm,$Param);
 		$recArr=explode('||',$recinfo);
 		if($recArr[0]!=100)
 		{

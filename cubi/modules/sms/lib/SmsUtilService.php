@@ -11,14 +11,10 @@
  * @version   $Id: utilService.php 3506 2012-06-05  fsliit@gmail.com $
  */
 
-require_once 'iSMS.php';
 
-class absSMSDriver implements  iSMS
+class SmsUtilService
 {
-    public function send($mobile,$content){}
 
-    public function getSentCount(){}
-	
 /**
  * 创建像这样的查询: "IN('a','b')";
  *
@@ -28,7 +24,7 @@ class absSMSDriver implements  iSMS
  *
  * @return   void
  */
-public function db_create_in($item_list, $field_name = '')
+public  function db_create_in($item_list, $field_name = '')
 {
     if (empty($item_list))
     {
@@ -66,7 +62,7 @@ public function db_create_in($item_list, $field_name = '')
 }
 
  //POST请求函数
- public function curl($url, $postFields = null)
+ public  function curl($url, $postFields = null)
 	{
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
@@ -99,8 +95,9 @@ public function db_create_in($item_list, $field_name = '')
 		curl_close($ch);
 		return $reponse;
 	}	
-//GET请求函数
-	public function getHttpResponse($url)
+
+	//GET请求函数
+	public  function getHttpResponse($url)
 	{
 			$ch = curl_init();
 			curl_setopt ($ch, CURLOPT_URL, $url);

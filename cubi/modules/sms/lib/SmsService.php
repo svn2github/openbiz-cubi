@@ -10,7 +10,6 @@
  * @link      http://code.google.com/p/openbiz-cubi/
  * @version   $Id: SmsService.php 3506 2012-06-05  fsliit@gmail.com $
  */
-
 /**
  * User sms service 
  */
@@ -125,12 +124,9 @@ class SmsService extends MetaObject
 			return false;
 		}
 		$sms_ids = array();
-		//$mobile = array();
-		$util=new utilService();
 		for ($i=0; $i < $sms_count; $i++)
 		{
 			$sms_ids[] = $SmsQueueArr[$i]['Id'];
-		  //  $mobile[] = $SmsQueueArr[$i]['mobile'];
 		}
 
 		for ($i=0; $i < $sms_count; $i ++)
@@ -210,10 +206,8 @@ class SmsService extends MetaObject
 			case 'sent':
 				$return=$SmsQueueDO->updateRecords("[sent_time]='{$date}',[status]='sent'","[Id]={$id}");
 				 break;
-			case 'all_sending':	 
-			    require_once MODULE_PATH.'/sms/lib/utilService.php';
-				$util = new utilService();
-				$return=$SmsQueueDO->updateRecords("[status]='sending'","[Id] {$util->db_create_in($sms_ids)}");
+			case 'all_sending':	 			    
+				$return=$SmsQueueDO->updateRecords("[status]='sending'","[Id] ".BizSystem::getService("sms.lib.SmsUtilService")->db_create_in($sms_ids));
 				 break;
 		}
 		return $return;

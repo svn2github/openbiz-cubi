@@ -1,9 +1,8 @@
 <?php 
 require_once 'iSMS.php';
-require_once 'absSMSDriver.php';
 //SP = Service Provider 18dx
 
-class SP18dx  extends absSMSDriver implements iSMS 
+class SP18dx   implements iSMS 
 {
 	protected $m_ProviderId = 1;
 	protected $m_type = '18dx';
@@ -52,9 +51,7 @@ class SP18dx  extends absSMSDriver implements iSMS
 				);
 
 		$url=$this->m_url.http_build_query($Param); 
-		//$recinfo=$this->curl($this->m_url,$Param);
-		$recinfo=$this->getHttpResponse($url);
-		//$recinfo='1&errid=1&fee=1&balance=9&fails=&msgid=634805826699791739&msg=发送成功';
+		$recinfo=BizSystem::getService("sms.lib.SmsUtilService")->getHttpResponse($url);
 		parse_str($recinfo,$recArr);
 		if($recArr['errid']!=1)
 		{	
@@ -76,7 +73,7 @@ class SP18dx  extends absSMSDriver implements iSMS
 					'user'=>$ProviderInfo['username'],
 					'hashcode'=>strtoupper(md5($ProviderInfo['password']))
 				);
-		$recinfo=$this->curl($this->m_url,$Param);
+		$recinfo=BizSystem::getService("sms.lib.SmsUtilService")->curl($this->m_url,$Param);
 		$errorInfo=$this->getMsg($recinfo);
 		if($errorInfo)
 		{
