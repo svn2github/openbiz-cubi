@@ -70,6 +70,12 @@
 				Type="Text"
 				Required="N" 
 				 />
+		<BizField Name="name"		
+				Description="Name"	
+				Column="name" 
+				Type="Text"
+				Required="N" 
+				 />				 
 		<BizField Name="description"		
 				Description="Description"	
 				Column="description" 

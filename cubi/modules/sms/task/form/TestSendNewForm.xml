@@ -25,7 +25,7 @@
 				Description="" 
 				FieldName="provider" 
 				Label="Provider" 
-				SelectFrom="sms.provider.do.ProviderDO[type:Id],[status]=1 AND [username]!=''" />	
+				SelectFrom="sms.provider.do.ProviderDO[name:type],[status]=1 AND [username]!=''" />	
 	<Element Name="fld_mobile" 
        				Class="InputText" 
        				FieldName="mobile" 
