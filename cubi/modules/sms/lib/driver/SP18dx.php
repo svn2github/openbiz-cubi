@@ -74,10 +74,8 @@ class SP18dx  extends absSMSDriver implements iSMS
 		$Param=array(
 					'action'=>'getbalance',
 					'user'=>$ProviderInfo['username'],
-					'hashcode'=>strtoupper(md5($ProviderInfo['password'])),
-					'hashcode'=>$ProviderInfo['password']
+					'hashcode'=>strtoupper(md5($ProviderInfo['password']))
 				);
-		//$url=$this->m_url.http_build_query($Param);
 		$recinfo=$this->curl($this->m_url,$Param);
 		$errorInfo=$this->getMsg($recinfo);
 		if($errorInfo)
