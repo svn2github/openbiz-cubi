@@ -137,5 +137,21 @@ class OauthProviderForm extends EasyForm
 
 		}
 	}
+	
+	public function updateFieldValue($id,$fld_name,$value)
+	{
+		if($fld_name=='fld_status' && $value==1){
+			$rec = $this->getDataObj()->fetchById($id);
+			if(!$rec['key'] || !$rec['secret'])
+			{
+				$rec['status'] = $value;
+				$rec->save();
+				$this->switchForm("oauth.form.OauthProviderEditForm",$id);
+				return;
+			}
+			
+		}
+		parent::updateFieldValue($id,$fld_name,$value);
+	}	
 }
 ?>
