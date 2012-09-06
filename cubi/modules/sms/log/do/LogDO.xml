@@ -26,11 +26,9 @@
 				Type="Number"/>
 
 
-		<BizField Name="provider"			
-				Description="provider"	
-				Column="provider"    
-				Required="N" 
-				Type="Text"
+		<BizField Name="provider_id"			
+				Column="provider_id"    
+				
 				/>				
 		<BizField Name="mobile"		
 				Description="mobile"	

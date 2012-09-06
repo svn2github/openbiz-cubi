@@ -92,7 +92,7 @@
         	<EventHandler Name="btn_edit_onclick" Event="onclick" 
 					Function="SwitchForm(sms.queue.form.ListForm)" />
         </Element>
-        <Element Name="btn_config" Class="Button" Text="Config" CssClass="button_gray_w"  Access="sms.Manage">
+        <Element Name="btn_config" Class="Button" Text="Setting" CssClass="button_gray_w"  Access="sms.Manage">
 	        <EventHandler Name="btn_edit_onclick" Event="onclick" 
 					Function="SwitchForm(sms.setting.form.DetailForm)" />
 		</Element>					

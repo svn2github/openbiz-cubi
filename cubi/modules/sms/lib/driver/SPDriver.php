@@ -4,6 +4,7 @@ require_once 'iSMS.php';
 
 class SPDriver implements iSMS 
 {
+	protected $m_ProviderId;
 	protected $m_ProviderDo = 'sms.provider.do.ProviderDO';
 	protected $m_LogDo	 	= 'sms.log.do.LogDO';		
 	

@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: UserPreferenceDetailForm.xml 3800 2012-08-04 12:58:18Z hellojixian@gmail.com $
 -->
-<EasyForm Name="DetailForm" Class="SettingForm" FormType="" Icon="icon_user_list.gif" jsClass="jbForm" SearchRule="[user_id]='0'" Title="SMS Service Configuration" Description="You can modify system SMS configuration in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" Access="sms.Manage">
+<EasyForm Name="DetailForm" Class="SettingForm" FormType="" Icon="icon_user_list.gif" jsClass="jbForm" SearchRule="[user_id]='0'" Title="SMS Service Setting" Description="You can modify system SMS configuration in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" Access="sms.Manage">
     <DataPanel>
          
 		
