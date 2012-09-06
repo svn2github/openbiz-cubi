@@ -4,12 +4,13 @@ require_once 'iSMS.php';
 
 class SPDriver implements iSMS 
 {
-	protected $m_ProviderDo = 'sms.provider.do.ProviderDO';	
+	protected $m_ProviderDo = 'sms.provider.do.ProviderDO';
+	protected $m_LogDo	 	= 'sms.log.do.LogDO';		
 	
-	public function send($mobile,$content){}
+	public function send($mobile,$content,$schedule){}
 	
 	public function getMsgBalance(){}
-
+	
 	public function updateMsgBalance($balance)
 	{
 		$providerRec=BizSystem::getObject($this->m_ProviderDo)->fetchOne("[Id]={$this->m_ProviderId}");
@@ -33,6 +34,19 @@ class SPDriver implements iSMS
 		$providerRec=BizSystem::getObject($this->m_ProviderDo)->fetchOne("[Id]={$this->m_ProviderId}");		
 		return $providerRec['msg_send_counter'];
 	}
+	
+    protected  function _Log($mobile,$content,$schedule=null)
+    {
+    	$record = array(
+    		"provider_id" 	=> $this->m_ProviderId,
+    		"mobile" 		=> $mobile,
+    		"content" 		=> $content,
+    		"schedule"		=> $schedule,
+    		"sent_time"		=> date("Y-m-d H:i:s")
+    	);
+    	return BizSystem::getObject($this->m_LogDo)->insertRecord($record);
+    }
+	
 	
 	protected  function _getProviderInfo()
 	{

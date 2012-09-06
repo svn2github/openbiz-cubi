@@ -26,7 +26,7 @@ class SP18dx extends SPDriver  implements iSMS
 	多个手机号请用半角“,”隔开，如：13888888886,13888888887,1388888888 。
 	短信内容支持长短信，最多250个字，67个字按一条短信计费。
 */
-	public function send($mobile,$content)
+	public function send($mobile,$content,$schedule=null)
 	{
 		$ProviderInfo = $this->_getProviderInfo();
 		$Param=array(
@@ -36,7 +36,7 @@ class SP18dx extends SPDriver  implements iSMS
 					'mobile'=>$mobile,
 					'content'=>$content,
 					'msgid'=>0,
-					'time'=>$time,
+					'time'=>$schedule,
 					'encode'=>'UTF-8'
 				);
 
@@ -51,7 +51,8 @@ class SP18dx extends SPDriver  implements iSMS
 		}
 		else
 		{
-			$this->HitMessageCounter();			
+			$this->HitMessageCounter();		
+			$this->_log($mobile,$content,$schedule);	
 			return true;
 		}	
 	}

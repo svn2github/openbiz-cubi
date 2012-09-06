@@ -67,7 +67,7 @@
 				Type="Text"
 				Required="N" 
 				 />
-	 <BizField Name="type"		required="Y" 
+	 <BizField Name="type"	
 				Description="type"	
 				Column="type" 
 				Type="Text"
@@ -91,30 +91,7 @@
 				Required="N" 
 				Type="Number"/>
 				 
-		<BizField Name="owner_id"	
-				Description="Owner Id"	
-				Column="owner_id"	
-				ValueOnCreate="{@profile:Id}"	
-				Required="N"	
-				Type="Number"/>
-		<BizField Name="group_id"	
-				Description="Group Id"	
-				Column="group_id"	
-				ValueOnCreate="{@profile:default_group}"	
-				Required="N"	
-				Type="Number"/>
-		<BizField Name="group_perm"	
-				Description="Group Perm"	
-				Column="group_perm"	
-				ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"	
-				Required="N"	
-				Type="Number"/>
-		<BizField Name="other_perm"	
-				Description="Other Perm"	
-				Column="other_perm"	
-				ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"	
-				Required="N"	
-				Type="Number"/>
+		
 		<BizField Name="status"		
 				Description="Status"	
 				Column="status" 

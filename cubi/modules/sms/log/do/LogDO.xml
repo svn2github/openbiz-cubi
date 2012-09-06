@@ -17,37 +17,15 @@
 		Uniqueness="" 
 		Stateless="N" 
 		IdGeneration="Identity" 
-		CacheLifeTime="0" 
-		CreateCondition="sms.Manage" 
-		UpdateCondition="sms.Manage" 
-		DeleteCondition="sms.Manage" >
+		CacheLifeTime="0"  >
 	<BizFieldList>
 		<BizField Name="Id"			
 				Description="Id"	
 				Column="id"    
 				Required="N" 
 				Type="Number"/>
-				
-		<BizField Name="sender"			
-				Description="sender"	
-				Column="Sender"    
-				Required="N" 
-				Type="Number"
-				ValueOnCreate="{@profile:Id}"
-				/>	
-				
-		<BizField Name="tasklist_id"			
-				Description="tasklist_id"	
-				Column="tasklist_id"    
-				Required="Y" 
-				Type="Number"
-				/>	
-		<BizField Name="queue_id"			
-				Description="queue_id"	
-				Column="queue_id"    
-				Required="Y" 
-				Type="Number"
-				/>
+
+
 		<BizField Name="provider"			
 				Description="provider"	
 				Column="provider"    
@@ -66,12 +44,10 @@
 				Type="Text"
 				Required="N" 
 				 />
-		<BizField Name="status"		
-				Description="Status"	
-				Column="status" 
-				Type="Text"
-				Required="N" 
-				 />
+		<BizField Name="schedule"							
+				Column="schedule" 	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"							 
+				 />	
 		<BizField Name="sent_time"		
 				Description="Sent Time"	
 				Column="sent_time" 
@@ -79,11 +55,6 @@
 				Required="N" 
 				 />
 			
-		<BizField Name="create_time"	
-				Description="Create Time"	
-				Column="create_time"	
-				Type="Datetime"	
-				ValueOnCreate="{date('Y-m-d H:i:s')}"/>
 	</BizFieldList>
 	<TableJoins>
 				    	

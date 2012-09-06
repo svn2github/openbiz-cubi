@@ -1,7 +1,7 @@
 <?php 
 interface iSMS
 {	
-    public function send($mobile,$content);
+    public function send($mobile,$content,$schedule=null);
 
     public function getMsgBalance();    
     

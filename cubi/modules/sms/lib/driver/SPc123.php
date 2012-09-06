@@ -28,7 +28,7 @@ class SPc123 extends SPDriver implements iSMS
 	GET　 方式每次最多可以提交50条号码
 	POST　方式每次最多可以提交2000条号码[建议用POST方式提交]
  */
-	public function send($mobile,$content)
+	public function send($mobile,$content,$schedule=null)
 	{
 		$ProviderInfo = $this->_getProviderInfo(); 
 		if(!$ProviderInfo)
@@ -41,7 +41,7 @@ class SPc123 extends SPDriver implements iSMS
 					'pwd'=>md5($ProviderInfo['password']),
 					'mobile'=>$mobile,
 					'content'=>$content,
-					'time'=>$time,
+					'time'=>$schedule,
 					'encode'=>'utf8'
 				);
 		$recinfo=BizSystem::getService("sms.lib.SmsUtilService")->curl($this->m_url,$Param);
@@ -54,6 +54,7 @@ class SPc123 extends SPDriver implements iSMS
 		else
 		{
 			$this->HitMessageCounter();
+			$this->_log($mobile,$content,$schedule);	
 			return true;
 		}
 			

@@ -37,7 +37,7 @@
     
 		<Element Name="fld_sender" 
         			Class="ColumnText" 
-        			FieldName="sender" 
+        			FieldName="create_by" 
         			Label="Sender"         			 
         			Sortable="Y" 
         			MaxLength="15"

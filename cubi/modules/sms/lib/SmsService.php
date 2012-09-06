@@ -226,7 +226,7 @@ class SmsService extends MetaObject
 	protected function _getSmsQueue($limit=1)
 	{
 		$SmsQueueDO = BizSystem::getObject($this->m_SmsQueueDO);
-		$SmsQueueArr=$SmsQueueDO->directFetch("[status]='pending' AND [mobile] IS NOT NULL",$limit,0,"[priority] DESC");
+		$SmsQueueArr=$SmsQueueDO->directFetch("[status]='pending' AND [mobile] IS NOT NULL",$limit,0,"[Id] ASC");
 		 if($SmsQueueArr)
 		 {
 			$SmsQueueArr=$SmsQueueArr->toArray();

@@ -18,9 +18,7 @@
 		Stateless="N" 
 		IdGeneration="Identity" 
 		CacheLifeTime="0" 
-		CreateCondition="sms.Manage" 
-		UpdateCondition="sms.Manage" 
-		DeleteCondition="sms.Manage" >
+		 >
 	<BizFieldList>
 		<BizField Name="Id"			
 				Description="Id"	
@@ -28,14 +26,7 @@
 				Required="N" 
 				Type="Number"/>
 				
-		<BizField Name="sender"			
-				Description="sender"	
-				Column="Sender"    
-				Required="N" 
-				Type="Number"
-				ValueOnCreate="{@profile:Id}"
-				/>	
-		
+
 		<BizField Name="mobile"		
 				Description="mobile"	
 				Column="mobile" 
@@ -54,14 +45,15 @@
 				Type="Text"
 				Required="N" 
 				 />
-		<BizField Name="priority"							
-				Column="priority" 								 
-				 />	
 		<BizField Name="schedule"							
 				Column="schedule" 	
 				ValueOnCreate="{date('Y-m-d H:i:s')}"							 
 				 />			 			 
-
+		<BizField Name="create_by"	
+				Description="Create By"	
+				Column="create_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"/>
 		<BizField Name="create_time"	
 				Description="Create Time"	
 				Column="create_time"	
@@ -79,49 +71,5 @@
 	</TableJoins>
 	<ObjReferences>
 	
-		<Object Name="changelog.do.ChangeLogDO" 
-				Description="Reference to Change Log Records" 
-				Relationship="1-M" 
-				Table="changelog" 
-				CondColumn='type' 
-				CondValue='sms_queue' 
-				Column="foreign_id" 
-				FieldRef="Id" />	
-		<Object Name="location.do.LocationDO" 
-				Description="Reference to Geographic Location Records" 
-				Relationship="1-M" 
-				Table="location" 
-				CondColumn='type' 
-				CondValue='sms_queue' 
-				Column="foreign_id" 
-				FieldRef="Id" />	
-		<Object Name="attachment.do.AttachmentDO" 
-				Description="Reference to Attachment Records" 
-				Relationship="1-M" 
-				Table="attachment" 
-				CondColumn='type' 
-				CondValue='sms_queue' 
-				Column="foreign_id" 
-				FieldRef="Id" />	
-		<Object Name="picture.do.PictureDO" 
-				Description="Reference to Picture Records" 
-				Relationship="1-M" 
-				Table="picture" 
-				CondColumn='type' 
-				CondValue='sms_queue' 
-				Column="foreign_id" 
-				FieldRef="Id" />	
-		<Object Name="sms.do.SmsQueueRefDO" 
-				Description="Reference to Related Records" 
-				Relationship="Self-Self" 
-				Table="sms_queue" 
-				Column="id" 
-				FieldRef="Id" 
-				OnDelete="SetNull" 
-				OnUpdate="" 
-				XTable="sms_queue_related" 
-				XColumn1="sms_queue_id" 
-				XColumn2="related_id" 
-				XDataObj="sms.do.SmsQueueRelatedDO"/>
 	</ObjReferences>
 </BizDataObj>
