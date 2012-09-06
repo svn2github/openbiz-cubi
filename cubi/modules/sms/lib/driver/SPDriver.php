@@ -7,7 +7,7 @@ class SPDriver implements iSMS
 	protected $m_ProviderDo = 'sms.provider.do.ProviderDO';
 	protected $m_LogDo	 	= 'sms.log.do.LogDO';		
 	
-	public function send($mobile,$content,$schedule){}
+	public function send($mobile,$content,$schedule=null){}
 	
 	public function getMsgBalance(){}
 	

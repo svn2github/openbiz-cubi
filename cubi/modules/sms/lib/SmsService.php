@@ -39,12 +39,12 @@ class SmsService extends MetaObject
      * 
      * @param $mobile
      * @param $content
-     * @param integer $defer -- the message will be send after $defer seconds from now 
+     * @param datetime $schdule -- the message will be send on schduled time
      * @param bool $delay    -- if delay is force , then the message will not go into queue , 
      * 							instead of call driverr to send it directly  
      * @param integer $providerId -- if its not null, then used specified provider to send this message
      */
-    public function SendSMS($mobile,	$content,	$defer=null,
+    public function SendSMS($mobile,	$content,	$schdule=null,
     						$delay=true,	$providerCode=null)
     {
 		if(!$this->validateMobile($mobile))
@@ -52,7 +52,7 @@ class SmsService extends MetaObject
 			return false;
 		}
 		if($providerCode)
-		{
+		{			
 			$ProviderObj=$this->_loadProviderDriver($providerCode);
 		}
 		else
@@ -61,15 +61,15 @@ class SmsService extends MetaObject
 		}
 		
 		//加上短信签名		
-		$content.=$this->_getContentSignature();
+		$content.=$this->_getContentSignature();				
 		
 		if($delay==true)
 		{
-			$result=$this->_addSmsQueueInfo($mobile,$content,$defer,$providerCode);
+			$result=$this->_addSmsQueueInfo($mobile,$content,$schdule,$providerCode);
 		}
 		else
 		{
-			$result=$ProviderObj->send($mobile,$content); 
+			$result=$ProviderObj->send($mobile,$content,$schdule); 
 		}
 		return $result;
     }
@@ -297,7 +297,7 @@ class SmsService extends MetaObject
  * 加载短信驱动类
  */
 	protected function _loadProviderDriver($providerCode,$driver=null)
-	{
+	{		
 		if(!$providerCode)
 		{
 			return false;
@@ -310,7 +310,7 @@ class SmsService extends MetaObject
 		{
 			$SmsProviderDO = BizSystem::getObject($this->m_SmsProviderDO);
 			$ProvidersInfo =$SmsProviderDO->fetchOne
-			("[msg_balance]>0 AND [status]=1 AND [type]='{$providerCode}'");
+			("[status]=1 AND [type]='{$providerCode}'");
 			if(!$ProvidersInfo)
 			{
 				BizSystem::getService(LOG_SERVICE)->log(LOG_ERR,"SMS","No available provider found");				
@@ -319,7 +319,7 @@ class SmsService extends MetaObject
 			$FileName=str_replace('.','/', $ProvidersInfo['driver']);
 			$driver=$ProvidersInfo['driver'];
 		}
-
+		
 		$driverrFile=MODULE_PATH.'/'.$FileName.'.php';
 		if(!file_exists($driverrFile))
 		{
