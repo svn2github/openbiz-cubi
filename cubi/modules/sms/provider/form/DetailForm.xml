@@ -6,7 +6,7 @@
   Version $Id$
 -->
 <EasyForm Name="DetailForm" 
-			Class="EasyForm" 
+			Class="ProviderForm" 
 			FormType="Detail" 
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_provider_detail.png"

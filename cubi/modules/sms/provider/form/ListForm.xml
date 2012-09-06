@@ -6,7 +6,7 @@
   Version $Id$
 -->
 <EasyForm Name="ListForm" 
-			Class="ListForm"			  
+			Class="ProviderForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
 			Icon="{RESOURCE_URL}/sms/images/icon_mod_list.png"

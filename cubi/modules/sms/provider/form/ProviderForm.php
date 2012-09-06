@@ -16,23 +16,15 @@
  *
  * @access public
  */
-class ListForm extends EasyForm
+class ProviderForm extends EasyForm
 {
-	public function updateMessageCounter(){
+	public function updateRecord(){
 		 
-		$rec=BizSystem::getService("sms.lib.SmsService")->UpdateProviderCounter();
-		if($rec)
-		{
-			$this->m_Notices = array("test"=>$this->getMessage("SYNC_SUCCESS"));
-		}
-		else
-		{
-			$this->m_Errors = array("test"=>$this->getMessage("SYNC_FAILURE"));	
-		}
-		$this->updateForm();
-		$this->rerender();
- 	
+		BizSystem::getService("sms.lib.SmsService")->UpdateProviderCounter();
+		return parent::updateRecord(); 	
 	}  
+	
+	
 
 	public function updateFieldValue($id,$fld_name,$value)
 	{
