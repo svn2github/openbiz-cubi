@@ -56,3 +56,5 @@ CREATE TABLE IF NOT EXISTS `sms_queue` (
   KEY `flag` (`status`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
+INSERT INTO `cronjob` ( `name`, `minute`, `hour`, `day`, `month`, `weekday`, `command`, `sendmail`, `max_run`, `num_run`, `description`, `status`, `last_exec`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+( 'Sending Email Job', '*', '*', '*', '*', '*', '{APP_HOME}/bin/cronjob/run_svc.php  sms.lib.SmsService SendSmsFromQueue', '', 1, 0, 'System SMS Queue Service', 1, 1296586403, 1, '2011-02-01 10:24:31', 1, '2011-02-01 10:51:04');
