@@ -34,5 +34,20 @@ class ListForm extends EasyForm
  	
 	}  
 
+	public function updateFieldValue($id,$fld_name,$value)
+	{
+		if($fld_name=='fld_status' && $value==1){
+			$rec = $this->getDataObj()->fetchById($id);
+			if(!$rec['username'] || !$rec['password'])
+			{
+				$rec['status'] = $value;
+				$rec->save();
+				$this->switchForm("sms.provider.form.EditForm",$id);
+				return;
+			}
+			
+		}
+		parent::updateFieldValue($id,$fld_name,$value);
+	}
 }  
 ?>
