@@ -26,7 +26,7 @@
         </Element>	
 		
 		<Element Name="fld_status" Class="ColumnHidden" Hidden="Y" FieldName="status"  Label="Status" Link="javascript:;" Sortable="Y"></Element>
-		 
+		 <!-- 
 		 <Element Name="fld_name" 
         			Class="ColumnText" 
         			FieldName="name" 
@@ -36,11 +36,11 @@
         			 >
         			 <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(sms.provider.form.DetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>   
-		 <!-- 
+		 -->
 		 <Element Name="fld_platform" Class="ColumnImage" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/sms/images/icon_{@:Elem[fld_platform].Value}.png" Label="Provider" DefaultValue="default" Sortable="Y" Link="javascript:">
               <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(sms.provider.form.DetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
-   		-->
+   		
      
 	 	<Element Name="lnk_switch" Label="Status" Sortable="Y" Class="Button" Text="{@:Elem[fld_status].Value=='0'?Off:On}" CssClass="{@:Elem[fld_status].Value =='0'?button_switch_off:button_switch_on}" Style="color:#666666;" Description="Switch Status">
 				<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
