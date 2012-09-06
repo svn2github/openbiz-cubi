@@ -44,10 +44,14 @@ class SPc123 extends SPDriver implements iSMS
 					'time'=>$schedule,
 					'encode'=>'utf8'
 				);
+		if($schedule=="0000-00-00 00:00:00")
+		{
+			unset($Param['time']);
+		}
 		$recinfo=BizSystem::getService("sms.lib.SmsUtilService")->curl($this->m_url,$Param);
 		if($recinfo!=100)
 		{				
-			BizSystem::getService(LOG_SERVICE)->log(LOG_ERR,"SMS","sendMessage: ". $recArr['msg']." c123：".$mobile.':'.$recinfo);
+			BizSystem::getService(LOG_SERVICE)->log(LOG_ERR,"SMS","sendMessage: ". $content." c123：".$mobile.':'.$recinfo);
 			return false;
 		}
 		else

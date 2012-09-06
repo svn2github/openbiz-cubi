@@ -20,7 +20,6 @@ class SmsService extends MetaObject
 	const DISPATCH_BY_BALANCE	=2;
 	const DISPATCH_ROUND_ROBIN	=3;
 	
-	protected $m_SmsTaskDO='sms.Task.do.TaskDO';
 	protected $m_SmsProviderDO='sms.provider.do.ProviderDO';
 	protected $m_SmsQueueDO='sms.queue.do.QueueDO';
 	protected $m_PreferenceDO='myaccount.do.PreferenceDO';
@@ -127,8 +126,8 @@ class SmsService extends MetaObject
 				$schedule=$SmsQueueArr[$i]['schedule'];
 			}	
 		
-		  //设置队列号码为正在发送状态
-		  $this->_updateSmsQueueStatus('batch_sending',$SmsQueueArr[$i]['Id']);
+		  //设置队列号码为正在发送状态			
+		  $this->_updateSmsQueueStatus('batch_sending',$SmsQueueArr[$i]['Id']);		 
 		  $recInfo= $Provider->send($SmsQueueArr[$i]['mobile'], $SmsQueueArr[$i]['content'],$schedule); 
 		   if($recInfo)
 		   { 
@@ -138,7 +137,7 @@ class SmsService extends MetaObject
 		   }
 		   else
 		   {	
-				$this->_updateSmsQueueStatus('pending',$SmsQueueArr[$i]['Id']);
+				$this->_updateSmsQueueStatus('failed',$SmsQueueArr[$i]['Id']);
 				$return=false;
 		   }
 		}
@@ -159,19 +158,8 @@ class SmsService extends MetaObject
 	 */
 	protected function _updateSmsTaskStatus($action,$id)
 	{	
-		switch($action)
-		{
-			case 'pending':
-				$return=BizSystem::getObject($this->m_SmsTaskDO)->updateRecords("[status]='pending'","[Id]={$id}");
-				 break;
-			case 'sending':
-				$return=BizSystem::getObject($this->m_SmsTaskDO)->updateRecords("[status]='sending'","[Id]={$id}");
-				 break;
-			case 'sent':
-				$return=BizSystem::getObject($this->m_SmsTaskDO)->updateRecords("[status]='sent'","[Id]={$id}");
-				 break;
-		}
-		return $return;
+		
+		return null;
 	}
 	/**
 	 * 更新队列中的发送状态;
@@ -205,10 +193,7 @@ class SmsService extends MetaObject
 		{
 			return false;
 		}
-		if(!$defer)
-		{
-			$defer=date("Y-m-d H:i:s");
-		}
+		
 		$data=array(
 				'mobile'=>$mobile,
 				'content'=>$content,

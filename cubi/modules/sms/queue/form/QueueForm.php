@@ -42,7 +42,7 @@ class QueueForm extends EasyForm
 
 	public function DeleteAllSms()
 	{
-       if ($this->m_Resource != "" && !$this->allowAccess($this->m_Resource.".delete"))
+       if ($this->m_Resource != "" && !$this->allowAccess("sms.Manage"))
            return BizSystem::clientProxy()->redirectView(ACCESS_DENIED_VIEW);
 
         try
@@ -66,7 +66,7 @@ class QueueForm extends EasyForm
 	
 	public function DeleteSentSms()
 	{ 
-       if ($this->m_Resource != "" && !$this->allowAccess($this->m_Resource.".delete"))
+       if ($this->m_Resource != "" && !$this->allowAccess("sms.Manage"))
             return BizSystem::clientProxy()->redirectView(ACCESS_DENIED_VIEW);
 
         try

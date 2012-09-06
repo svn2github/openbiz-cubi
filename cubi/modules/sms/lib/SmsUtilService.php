@@ -68,7 +68,6 @@ public  function db_create_in($item_list, $field_name = '')
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_FAILONERROR, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
 		if (is_array($postFields) && 0 < count($postFields))
 		{
 			$postBodyString = "";

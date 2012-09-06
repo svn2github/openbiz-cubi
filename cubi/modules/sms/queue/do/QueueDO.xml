@@ -46,8 +46,7 @@
 				Required="N" 
 				 />
 		<BizField Name="schedule"							
-				Column="schedule" 	
-				ValueOnCreate="{date('Y-m-d H:i:s')}"							 
+				Column="schedule" 											 
 				 />			 			 
 		<BizField Name="create_by"	
 				Description="Create By"	

@@ -39,7 +39,10 @@ class SP18dx extends SPDriver  implements iSMS
 					'time'=>$schedule,
 					'encode'=>'UTF-8'
 				);
-
+		if($schedule=="0000-00-00 00:00:00")
+		{
+			unset($Param['time']);
+		}
 		$url=$this->m_url.http_build_query($Param); 
 		$recinfo=BizSystem::getService("sms.lib.SmsUtilService")->getHttpResponse($url);
 		parse_str($recinfo,$recArr);
