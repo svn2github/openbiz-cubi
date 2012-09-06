@@ -1,2 +1,3 @@
 DROP TABLE IF EXISTS `sms_provider`;
-DROP TABLE IF EXISTS `sms_provider_related`;
+DROP TABLE IF EXISTS `sms_log`;
+DROP TABLE IF EXISTS `sms_queue`;
