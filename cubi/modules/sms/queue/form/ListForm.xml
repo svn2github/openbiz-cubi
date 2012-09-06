@@ -40,8 +40,7 @@
         			FieldName="create_by" 
         			Label="Sender"         			 
         			Sortable="Y" 
-        			MaxLength="15"
-        			Text="{BizSystem::GetProfileName(@:Elem[fld_sender].Value)}" 
+        			Text="{BizSystem::GetProfileName(@:Elem[fld_sender].Value,1)}" 
 					/> 
         	
    
