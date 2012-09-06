@@ -27,9 +27,12 @@
 
 
 		<BizField Name="provider_id"			
-				Column="provider_id"    
-				
-				/>				
+				Column="provider_id"    				
+				/>		
+		<BizField Name="provider_name"			
+				Column="name"
+				Join="JoinProvider"    				
+				/>		
 		<BizField Name="mobile"		
 				Description="mobile"	
 				Column="mobile" 
@@ -55,7 +58,7 @@
 			
 	</BizFieldList>
 	<TableJoins>
-				    	
-	</TableJoins>
+    	<Join Name="JoinProvider" Table="sms_provider" Column="id" ColumnRef="provider_id" JoinType="LEFT JOIN"/>
+  	</TableJoins>
 	
 </BizDataObj>

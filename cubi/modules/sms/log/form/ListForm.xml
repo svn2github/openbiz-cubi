@@ -6,26 +6,21 @@
   Version $Id$
 -->
 <EasyForm Name="ListForm" 
-			Class="QueueForm"			  
+			Class="LogForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
 			Icon="{RESOURCE_URL}/sms/images/icon_mod_list.png"
-			Title="SMS Queue Management" 
-			Description="You can view and manage system SMS queue or manual send or delete a message from queue." 
-			BizDataObj="sms.queue.do.QueueDO" 
-			PageSize="10" 
-			DefaultForm="Y" 
+			Title="SMS Sent Log" 
+			Description="You can view or export SMS sent logs." 
+			BizDataObj="sms.log.do.LogDO" 
+			PageSize="10" 			
 			TemplateEngine="Smarty" 
-			TemplateFile="queue_grid.tpl.html" 
-			EventName="SmsQueue" 
+			TemplateFile="form_grid.tpl.html" 		
 			MessageFile="" 
 			Access="sms.Manage">
 	<DataPanel>
             
-		<Element Name="row_selections" 
-        			Class="RowCheckbox"  
-        			Label="" 
-        			FieldName="Id"/>
+
 		<Element Name="fld_Id" 
         			Class="common.element.ColumnTitle" 
         			FieldName="Id" 
@@ -35,16 +30,13 @@
 					
         			Link="javascript:;" />   
     
-		<Element Name="fld_sender" 
+		<Element Name="fld_provider" 
         			Class="ColumnText" 
-        			FieldName="create_by" 
-        			Label="Sender"         			 
+        			FieldName="provider_name" 
+        			Label="Provider"         			 
         			Sortable="Y" 
-        			Text="{BizSystem::GetProfileName(@:Elem[fld_sender].Value,1)}" 
 					/> 
         	
-   
-   
     
 		<Element Name="fld_mobile" 
         			Class="ColumnText" 
@@ -60,25 +52,16 @@
         			Class="ColumnText" 
         			FieldName="content" 
         			Label="Content" 
-        			MaxLength="15"        			 
+        			MaxLength="30"        			 
         			Sortable="Y"
         			 />    
         	
    
     
-		<Element Name="fld_status" 
+		<Element Name="fld_sent_time" 
         			Class="ColumnText" 
-        			FieldName="status" 
-        			Label="Status" 
-        			MaxLength="15"        			 
-        			Sortable="Y"
-        			 />    
-        	
-		<Element Name="fld_update_time" 
-        			Class="ColumnText" 
-        			FieldName="update_time" 
-        			Label="Update Time" 
-        			MaxLength="15"        			 
+        			FieldName="sent_time" 
+        			Label="Sent Time" 
         			Sortable="Y"
         			 />    		
 	 
@@ -100,21 +83,11 @@
     	
     	<Element Name="btn_spacer" Class="Spacer" width="10" />
     			
-        <!-- Delete Selected Record Button -->
-       <Element Name="btn_send_all" Class="Button" Text="Send All" CssClass="button_gray_w" >
-            <EventHandler Name="btn_send_all_onclick" Event="onclick" Function="SendAllPendingSms()" EventLogMsg="MSG_SMS_QUEUE_SEND_ALL_PENDING" ShortcutKey="Ctrl+Shift+A" ContextMenu="Send All" />            
-        </Element>
-		<Element Name="btn_send_selected" Class="Button" Text="Send" CssClass="button_gray_m">
-            <EventHandler Name="btn_send_selected_onclick" Event="onclick" Function="SendSms()" ShortcutKey="Ctrl+S" ContextMenu="Send" />
-        </Element>
-        <Element Name="btn_delete_selected" Class="Button" Text="Delete" CssClass="button_gray_m">
-            <EventHandler Name="btn_delete_selected_onclick" Event="onclick" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
-        </Element>       
-		<Element Name="btn_delete_sent" Class="Button" Text="Delete Sent" CssClass="button_gray_w">
-            <EventHandler Name="btn_delete_sent_onclick" Event="onclick" Function="DeleteSentSms()" EventLogMsg="MSG_SMS_QUEUE_DELETE_SENT"  ContextMenu="Delete Sent"/>
-        </Element>         
-		<Element Name="btn_delete_all" Class="Button" Text="Delete All" CssClass="button_gray_w">
-            <EventHandler Name="btn_delete_all_onclick" Event="onclick" Function="DeleteAllSms()" EventLogMsg="MSG_SMS_QUEUE_DELETE_ALL"  ContextMenu="Delete All" />
+        <Element Name="btn_excel" Class="Button" Text="Export"  CssClass="button_gray_w">
+            <EventHandler Name="onclick" Event="onclick" Function="ExportCSV()" EventLogMsg="MSG_EMAIL_LOG_EXPORT" FunctionType="Popup"  ShortcutKey="Ctrl+E" ContextMenu="Export Logs" />
+        </Element>          
+		<Element Name="btn_delete_all" Class="Button" Text="Clear All" CssClass="button_gray_w">
+            <EventHandler Name="btn_delete_all_onclick" Event="onclick" Function="ClearLog()" EventLogMsg="MSG_SMS_QUEUE_DELETE_ALL"  ContextMenu="Delete All" />
         </Element>     
 		
     </ActionPanel> 
