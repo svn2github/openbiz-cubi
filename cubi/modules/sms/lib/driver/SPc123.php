@@ -47,8 +47,7 @@ class SPc123 extends SPDriver implements iSMS
 		$recinfo=BizSystem::getService("sms.lib.SmsUtilService")->curl($this->m_url,$Param);
 		if($recinfo!=100)
 		{				
-			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
-			$eventlog->log("SMSSEND_ERROR", 'send','c123：'.$mobile.':'.$recinfo);
+			BizSystem::getService(LOG_SERVICE)->log(LOG_ERR,"SMS","sendMessage: ". $recArr['msg']." c123：".$mobile.':'.$recinfo);
 			return false;
 		}
 		else
@@ -77,8 +76,7 @@ class SPc123 extends SPDriver implements iSMS
 		$recArr=explode('||',$recinfo);
 		if($recArr[0]!=100)
 		{
-			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
-			$eventlog->log("SMSSEND_ERROR", 'getSentMessageCount',$recinfo);
+			BizSystem::getService(LOG_SERVICE)->log(LOG_ERR,"SMS","getSentMessageCount c123: ".$recinfo);
 			return false;
 		}
 		else

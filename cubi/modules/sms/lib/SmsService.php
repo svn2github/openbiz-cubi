@@ -49,8 +49,6 @@ class SmsService extends MetaObject
     {
 		if(!$this->validateMobile($mobile))
 		{
-			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
-			$eventlog->log("SMSSEND_ERROR", 'SendSMS','validateMobile Error');
 			return false;
 		}
 		if($providerCode)
@@ -205,8 +203,6 @@ class SmsService extends MetaObject
 		$SmsQueueDO = BizSystem::getObject($this->m_SmsQueueDO);
 		if(!$this->validateMobile($mobile))
 		{
-			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
-			$eventlog->log("SMSSEND_ERROR", '_addSmsQueueInfo','validateMobile Error');
 			return false;
 		}
 		if(!$defer)
@@ -283,8 +279,7 @@ class SmsService extends MetaObject
 		}
 		if(!$SmsProviderInfo)
 		{
-			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
-			$eventlog->log("SMSSEND_ERROR", '_getProvider','Unknown Provider');
+			BizSystem::getService(LOG_SERVICE)->log(LOG_ERR,"SMS","No available provider found");
 			return false;
 		}
 		$SmsProviderArr['type']=$SmsProviderInfo['type'];
@@ -293,8 +288,7 @@ class SmsService extends MetaObject
 		$obj=$this->_loadProviderDriver($SmsProviderArr['type'],$SmsProviderArr['driver']);	
 		if(!is_object($obj))
 		{
-			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
-			$eventlog->log("SMSSEND_ERROR", '_getProvider','Unknown Provider obj');
+			BizSystem::getService(LOG_SERVICE)->log(LOG_ERR,"SMS","Cannot load provider driver :".$SmsProviderArr['driver']);			
 			return false;
 		}		
 		return $obj;
@@ -319,8 +313,7 @@ class SmsService extends MetaObject
 			("[msg_balance]>0 AND [status]=1 AND [type]='{$providerCode}'");
 			if(!$ProvidersInfo)
 			{
-				$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
-				$eventlog->log("SMSSEND_ERROR", '_loadProviderDriver','Unknown driver');
+				BizSystem::getService(LOG_SERVICE)->log(LOG_ERR,"SMS","No available provider found");				
 				return false;
 			}
 			$FileName=str_replace('.','/', $ProvidersInfo['driver']);
@@ -330,8 +323,7 @@ class SmsService extends MetaObject
 		$driverrFile=MODULE_PATH.'/'.$FileName.'.php';
 		if(!file_exists($driverrFile))
 		{
-			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
-			$eventlog->log("SMSSEND_ERROR", '_loadProviderDriver','Unknown driverrFile');
+			BizSystem::getService(LOG_SERVICE)->log(LOG_ERR,"SMS","Cannot load provider driver :".$ProvidersInfo['driver']);			
 			return false;
 		}
 		else

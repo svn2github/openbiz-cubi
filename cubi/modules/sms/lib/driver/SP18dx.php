@@ -45,8 +45,7 @@ class SP18dx extends SPDriver  implements iSMS
 		parse_str($recinfo,$recArr);
 		if($recArr['errid']!=1)
 		{	
-			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
-			$eventlog->log("SMSSEND_ERROR", $recArr['msg'],'18dx:'.$mobile.':'.$recinfo);
+			BizSystem::getService(LOG_SERVICE)->log(LOG_ERR,"SMS","sendMessage: ". $recArr['msg'].' 18dx:'.$mobile.':'.$recinfo);
 			return false;
 		}
 		else
@@ -68,9 +67,8 @@ class SP18dx extends SPDriver  implements iSMS
 		$recinfo=BizSystem::getService("sms.lib.SmsUtilService")->curl($this->m_url,$Param);
 		$errorInfo=$this->getMsg($recinfo);
 		if($errorInfo)
-		{
-			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
-			$eventlog->log("SMSSEND_ERROR",'getSentMessageCount','18dx:'.$errorInfo);
+		{			
+			BizSystem::getService(LOG_SERVICE)->log(LOG_ERR,"SMS","getSentMessageCount 18dx:".$errorInfo);
 			return false;
 		}
 		else
