@@ -32,7 +32,7 @@ class Button extends InputElement
      * @var string
      */
     public $m_Image;
-
+ 	public $m_Sortable;
     /**
      * Read array meta data, and store to meta object
      *
@@ -43,6 +43,8 @@ class Button extends InputElement
     {
         parent::readMetaData($xmlArr);
         $this->m_Image = isset($xmlArr["ATTRIBUTES"]["IMAGE"]) ? $xmlArr["ATTRIBUTES"]["IMAGE"] : null;
+        $this->m_Sortable = isset($xmlArr["ATTRIBUTES"]["SORTABLE"]) ? $xmlArr["ATTRIBUTES"]["SORTABLE"] : null;        
+        
     }
 
     /**
@@ -72,6 +74,54 @@ class Button extends InputElement
 
         return $out . "\n" . $this->addSCKeyScript();
     }
+    
+ /**
+     * Set the sort flag of the element
+     *
+     * @param integer $flag 1 or 0
+     * @return void
+     */
+    public function setSortFlag($flag=null)
+    {
+        $this->m_SortFlag = $flag;
+    }
+
+    /**
+     * Render label,
+     * When render table, it return the table header; when render array, it return the display name
+     *
+     * @return string HTML text
+     */
+    public function renderLabel()
+    {
+        if ($this->m_Sortable == "Y")
+        {
+            $rule = $this->m_Name;
+
+            $function = $this->m_FormName . ".SortRecord($rule,$this->m_SortFlag)";
+            if($this->m_SortFlag == "ASC" || $this->m_SortFlag == "DESC"){
+            	$class=" class=\"current\" ";
+            }else{
+            	$class=" class=\"normal\" ";
+            }
+            if ($this->m_SortFlag == "ASC")
+            	$span_class = " class=\"sort_up\" ";
+            else if ($this->m_SortFlag == "DESC")
+                $span_class = " class=\"sort_down\" ";
+            $sHTML = "<a href=javascript:Openbiz.CallFunction('" . $function . "') $class ><span $span_class >" . $this->m_Label ."</span>";            
+            $sHTML .= "</a>";
+        }
+        else
+        {
+            $sHTML = $this->m_Label;
+        }
+        return $sHTML;
+    }
+    
+    public function matchRemoteMethod($method)
+    {
+        return ($this->m_Sortable == "Y" && $method == "sortrecord");
+    }    
 }
 
 ?>
