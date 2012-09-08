@@ -95,12 +95,12 @@
 				Function="SwitchForm(sms.task.form.TestSendNewForm)" />
 				
         </Element>
-        <!-- 
+      
      	<Element Name="btn_sync" Class="Button" Text="Update Counter" CssClass="button_gray_w"   Access="sms.Manage">
             <EventHandler Name="btn_edit_onclick" Event="onclick" 
 				Function="UpdateMessageCounter()"  />
         </Element>
-         -->
+        
         <Element Name="btn_spacer_2" Class="Spacer" width="10" />		
         <Element Name="btn_queue" Class="Button" Text="Queue" CssClass="button_gray_w"  Access="sms.Manage">          
         	<EventHandler Name="btn_edit_onclick" Event="onclick" 

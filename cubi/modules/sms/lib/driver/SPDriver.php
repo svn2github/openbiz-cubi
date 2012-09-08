@@ -25,7 +25,7 @@ class SPDriver implements iSMS
 	public function HitMessageCounter()
 	{		
 		$providerRec=BizSystem::getObject($this->m_ProviderDo)->fetchOne("[Id]={$this->m_ProviderId}");
-		$providerRec['msg_send_counter']+=1;
+		$providerRec['msg_sent_count']=(int)$providerRec['msg_sent_count']+1;
 		$providerRec['msg_last_sendtime']=date("Y-m-d H:i:s");
 		$providerRec->save();
 		$this->getMsgBalance();

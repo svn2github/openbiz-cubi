@@ -18,13 +18,16 @@
  */
 class ProviderForm extends EasyForm
 {
-	public function updateRecord(){
-		 
+	public function updateRecord()
+	{		
 		BizSystem::getService("sms.lib.SmsService")->UpdateProviderCounter();
 		return parent::updateRecord(); 	
 	}  
 	
-	
+	public function UpdateMessageCounter()
+	{
+		BizSystem::getService("sms.lib.SmsService")->UpdateProviderCounter();
+	}
 
 	public function updateFieldValue($id,$fld_name,$value)
 	{

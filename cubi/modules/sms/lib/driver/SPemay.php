@@ -24,7 +24,7 @@ class SPemay extends SPDriver implements iSMS
 		}
 		$serialNumber = $ProviderInfo['username'];
 		$password = $ProviderInfo['password'];
-		$sessionKey = $ProviderInfo['password'];
+		$sessionKey = $ProviderInfo['username'];
 		
 		$connectTimeOut = 2;
 		$readTimeOut = 10;
@@ -49,6 +49,7 @@ class SPemay extends SPDriver implements iSMS
 			return false;
 		}
 		$result = $this->getClientObj()->login($ProviderInfo['username']);
+		$this->getMsgBalance();
 		return $result;
 	}
 	
@@ -60,8 +61,9 @@ class SPemay extends SPDriver implements iSMS
 		}else{
 			$schedule = date('YmdHis',strtotime($schedule));
 		}
-		$result = $this->getClientObj()->sendSMS(array($mobile),$content,$schedule,'','UTF-8');
 
+		$result = $this->getClientObj()->sendSMS(array($mobile),$content,$schedule,'','UTF-8');
+		
 		if($result)
 		{				
 			BizSystem::getService(LOG_SERVICE)->log(LOG_ERR,"SMS","sendMessage: ". $content." emay：".$mobile.':'.$result);
@@ -78,9 +80,11 @@ class SPemay extends SPDriver implements iSMS
 
     public function getMsgBalance()
     {
-    	$balance = $this->getClientObj()->sendSMS(array($mobile),$content,$schedule,'','UTF-8');
-    	$this->updateMsgBalance($balance);
-		return $balance;
+    	$balance = $this->getClientObj()->getBalance();
+    	$unitPrice = $this->getClientObj()->getEachFee();
+    	$count = (int)($balance/$unitPrice);
+    	$this->updateMsgBalance($count);
+		return $count;
 	}
     	
   
