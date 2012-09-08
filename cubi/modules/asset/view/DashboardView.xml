@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <EasyView Name="DashboardView" 
-	Description="Dashboard View of Asset Manage" 
+	Description="Welcome to use Asset Manage" 
 	Class="EasyView" 	
 	Access="" 
 	TemplateEngine="Smarty" 
