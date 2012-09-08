@@ -9,5 +9,6 @@ interface iSMS
     
     public function getMessageCounter();
     
+    public function activeService();
 }
 ?>
