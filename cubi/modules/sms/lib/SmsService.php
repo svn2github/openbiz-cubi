@@ -226,7 +226,7 @@ class SmsService extends MetaObject
 		}
 		
 		$PreferenceDO = BizSystem::getObject($this->m_PreferenceDO);
-		$PreferenceArr=$PreferenceDO->directFetch("[section]='Sms'");
+		$PreferenceArr=$PreferenceDO->directFetch("[section]='SMS'");
 		 if($PreferenceArr)
 		 {
 			$SmsPreference=$PreferenceArr->toArray();
