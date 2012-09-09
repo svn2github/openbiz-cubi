@@ -16,7 +16,10 @@ class DeviceUtil
 	{
 		$device = '';
 		$style = '';
-
+		if(!isset($_SERVER['HTTP_USER_AGENT']))
+		{
+			return ;
+		}
 		if( stristr($_SERVER['HTTP_USER_AGENT'],'ipad') ) {
 			$device = "ipad";
 			$style = "touch";
