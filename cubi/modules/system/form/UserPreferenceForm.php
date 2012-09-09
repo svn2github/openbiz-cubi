@@ -202,6 +202,13 @@ class UserPreferenceForm extends EasyForm
 	            			@file_put_contents($config_file,$data);	            			
 	            		}
 	            		break;
+	            	case "debug":
+	            	    if($value!=DEBUG){	            			
+	            			$data = file_get_contents($config_file);	            			
+	            			$data = preg_replace("/define\([\'\\\"]{1}DEBUG[\'\\\"]{1}.*?\)\;/i","define('DEBUG','$value');",$data);	            			
+	            			@file_put_contents($config_file,$data);	            			
+	            		}
+	            		break;
 	            	case "timezone":
 	            	    if($value!=DEFAULT_TIMEZONE){
 	            			//update default theme DEFAULT_THEME_NAME

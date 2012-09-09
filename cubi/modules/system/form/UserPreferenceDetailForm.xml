@@ -14,7 +14,8 @@
         <Element Name="fld_session" ReadOnly="Y" Class="LabelList"  SelectFrom="system.lov.Selection(SessionRestrict)"  ElementSet="Session" FieldName="_sessionstrict" Label="Session Strict"   />
         <Element Name="fld_session_timeout" ReadOnly="Y" Class="LabelList" SelectFrom="system.lov.Selection(SessionTimeout)"  ElementSet="Session" FieldName="_sessiontimeout" Label="Session Timeout"   />
         
-        <Element Name="fld_appbuilder"  Class="LabelBool" ElementSet="General" label="AppBuilder"  FieldName="_appbuilder" Description=""   />
+        <Element Name="fld_appbuilder"  Class="LabelBool" ElementSet="General" label="App Builder"  FieldName="_appbuilder" Description=""   />
+        <Element Name="fld_debug"  Class="LabelBool" ElementSet="General" label="Debug Mode"  FieldName="_debug" Description=""   />
         
 		<Element Name="fld_language"  Class="LabelText" Text="{BizSystem::GetObject('service.localeService')->getDefaultLangName()}"  ElementSet="Localization" FieldName="_language" Label="Default Language"   />
         <Element Name="fld_continent"  Class="LabelText" ElementSet="Localization" Description="" FieldName="_continent" Label="Default Continent"  />
