@@ -28,6 +28,7 @@ class SPc8686 extends SPDriver implements iSMS
 		}
 
 		$sender=new BayouSmsSender();
+		$content_log = $content;
 		$content= urlEncode(urlEncode(mb_convert_encoding($content, 'gb2312' ,'utf-8')));
 		$result=$sender->sendsms($providerInfo['username'],md5($providerInfo['password']),
 								$mobile,$content,$schedule);		
@@ -41,7 +42,7 @@ class SPc8686 extends SPDriver implements iSMS
 		{
 			$this->m_balance = $result['balance'];
 			$this->HitMessageCounter();
-			$this->_log($mobile,$content,$schedule);	
+			$this->_log($mobile,$content_log,$schedule);	
 			return true;
 		}
 			

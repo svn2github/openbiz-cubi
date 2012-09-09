@@ -50,6 +50,9 @@ class SPtclk extends SPDriver implements iSMS
 		}else{
 			$schedule = date('YmdHis',strtotime($schedule));
 		}
+		$mobile_log = $mobile;
+		$content_log = $content;
+		
 		$mobile  = urlencode($mobile);
 		$content = urlencode(iconv("UTF-8","GBK",$content));
 		
@@ -67,7 +70,7 @@ class SPtclk extends SPDriver implements iSMS
 		else
 		{			
 			$this->HitMessageCounter();
-			$this->_log($mobile,$content,$schedule);	
+			$this->_log($mobile_log,$content_log,$schedule);	
 			return true;
 		}
 			
