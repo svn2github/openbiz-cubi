@@ -123,14 +123,15 @@
 }
 .asset_barcode_txt{
 	position:absolute;
-	margin-left:100px;
+	margin-left:0px;
 	margin-top:205px;	
+	text-align:right;
 }
 #main #right_panel .asset_barcode_txt h2{
-	width:230px;
+	width:200px;
 }
 .asset_barcode_txt p{
-	width:230px;
+	width:220px;
 }	
 
 
