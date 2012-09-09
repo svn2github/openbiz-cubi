@@ -60,7 +60,7 @@ if(!defined('DEBUG')) define("DEBUG", 1);
 if(!defined('PROFILING')) define("PROFILING", 1);
 
 /* check whether user logged in */
-if(!defined('CHECKUSER')) define("CHECKUSER", "N");
+//if(!defined('CHECKUSER')) define("CHECKUSER", "N");
 /* session timeout seconds */
 if(!defined('TIMEOUT')) define("TIMEOUT", -1);  // -1 means never timeout.
 

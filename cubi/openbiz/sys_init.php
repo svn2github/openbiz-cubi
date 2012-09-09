@@ -128,7 +128,7 @@ define('CACHE_DATA_PATH', APP_HOME . DIRECTORY_SEPARATOR . "files" . DIRECTORY_S
 define("DEBUG", 1);
 
 /* check whether user logged in */
-define("CHECKUSER", "Y");
+//define("CHECKUSER", "Y");
 /* session timeout seconds */
 define("TIMEOUT", 86400);  // 86400 = 1 day
 //I18n
