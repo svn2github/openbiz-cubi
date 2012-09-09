@@ -27,9 +27,9 @@ define('APP_HOME', dirname(dirname(__FILE__)));
 
 /* website url. please change the localhost to real url */
 if (isset($_SERVER["HTTP_HOST"])) {
-    define('SITE_URL', 'http://dev.openbiz.cn/cubi');
+    define('SITE_URL', 'http://local.openbiz.me/');
 } else {
-    define('SITE_URL', 'http://dev.openbiz.cn/cubi');
+    define('SITE_URL', 'http://local.openbiz.me/');
 }
 
 define('DEFAULT_SYSTEM_NAME', 'Cubi Platform');
@@ -82,7 +82,7 @@ define('USE_THEME', 1);
 define('THEME_URL', APP_URL . "/themes");
 define('THEME_PATH', APP_HOME . DIRECTORY_SEPARATOR . "themes");    // absolution path the themes
 if (DeviceUtil::$PHONE_TOUCH) define('DEFAULT_THEME_NAME','touch');	// default theme for touch screen phone
-else define('DEFAULT_THEME_NAME', 'default');     // name of the theme. theme files are under themes/theme_name
+else define('DEFAULT_THEME_NAME', 'store');     // name of the theme. theme files are under themes/theme_name
 define('SMARTY_CPL_PATH', APP_HOME . DIRECTORY_SEPARATOR . "files/tpl_cpl");    // smarty template compiling path
 
 /* js lib base, prototype (old) or jquery (new) */
@@ -140,12 +140,12 @@ define('CACHE_DATA_PATH', APP_HOME . DIRECTORY_SEPARATOR . "files" . DIRECTORY_S
 define("DEBUG", 0);
 
 /* check whether user logged in */
-define("CHECKUSER", "Y");
+//define("CHECKUSER", "Y");
 /* session timeout seconds */
 define("TIMEOUT", 86400);  // 86400 = 1 day
 //I18n
 //define('DEFAULT_LANGUAGE','en_US');
-define('DEFAULT_CURRENCY', 'EUR');
+define('DEFAULT_CURRENCY', 'CNY');
 define('DEFAULT_LANGUAGE', 'en_US');
 define("LANGUAGE_PATH", APP_HOME . DIRECTORY_SEPARATOR . "languages");
 /* define locale to be set in typemanager.php depending on selected language */
