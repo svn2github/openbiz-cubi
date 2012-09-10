@@ -15,7 +15,7 @@ class OauthSelector extends Element
 				 foreach($recArr as $oauthProvider)
 				 {
 				 	$img = "<img src=\"".RESOURCE_URL.'/oauth/images/oauth_logo_'.$oauthProvider['type'].".png\" />";
-					$sHTML.= "<a id=\"oauth_".$oauthProvider['type']."\" title=\"".$oauthProvider['type']."\"   href=\"".APP_URL."/oauth_callback_handler.php?type=".$oauthProvider['type']."&service=login\" style=\"\">$img</a>";
+					$sHTML.= "<a id=\"oauth_".$oauthProvider['type']."\" title=\"".$oauthProvider['type']."\"   href=\"".APP_URL."/ws.php/oauth/callback/?method=login&type=".$oauthProvider['type']."\" style=\"\">$img</a>";
 				 }
 				 $sHTML.= "</span>";
 			 }
