@@ -73,17 +73,15 @@ class BayouSmsSender
 	}
 	
 	public function getBalance($username,$password)
-	{
-		$mobiles="ABCD";	
-		$msg="getbalance";
+	{		
 		$content = urlEncode(urlEncode(mb_convert_encoding($content, 'gb2312' ,'utf-8')));
-		$apidata="func=sendsms&username=$username&password=$password&mobiles=$mobiles&message=$msg&smstype=0&timerflag=$timerFlag&timervalue=$timerValue&timertype=1&timerid=0";
+		$apidata="func=getreply&username=$username&password=$password&msgcount=1&message=&encodetype=";
 		$apiurl = "http://sms.c8686.com/Api/BayouSmsApiEx.aspx";
 		$ret= $this->request($apiurl,$apidata);
 		$ret = $ret["body"];
 		$ret = iconv("GB2312","UTF-8",$ret);		
 		preg_match("/msgcount\>(.*?)\<\/msgcount/si",$ret,$matches);	
-		return $matches[1];		
+		return (int)$matches[1];		
 	}
     /**
      * 构造函数
