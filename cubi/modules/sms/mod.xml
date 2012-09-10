@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: mod.xml 3358 2012-05-31 05:57:58Z rockyswen@gmail.com $
 -->
-<Module Name="sms" Description="Sms module is to provide Sms queue and log functions" Version="0.6" Author="Feng ShengLong" OpenbizVersion="3.0">
+<Module Name="sms" Description="Sms module provides SMS queue and log functions" Version="0.6" Author="Feng ShengLong" OpenbizVersion="3.0">
 	<ACL>
 		<Resource Name="sms">
 			<Action Name="Manage" Description="Can manage system SMS intergration"/>
