@@ -53,6 +53,9 @@ $service = isset($inputs[1]) ? $inputs[1] : $_REQUEST['service'];
 
 OB_ErrorHandler::$errorMode = 'text';
 if($module && $service){
+if(!preg_match("/Service$/s",$service)){
+	$service.="Service";
+}
 $websvc = $module.".websvc.".$service;
 // get service object
 $svcObj = BizSystem::getObject($websvc);
