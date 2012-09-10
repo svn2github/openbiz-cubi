@@ -20,7 +20,7 @@ class OauthSelector extends Element
 				 $sHTML.= "</span>";
 			 }
 		}		
-		return $sHTML;
+		return $sHTML;˙
 	}
 }
 ?>

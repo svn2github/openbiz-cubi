@@ -43,7 +43,7 @@ class oauthClass extends EasyForm
 	
   public function __construct()  
     {
-         $this->m_CallBack=SITE_URL.'oauth_callback_handler.php?type='.$this->m_Type.'&service=callback';
+         $this->m_CallBack=SITE_URL.'ws.php/oauth/callback/?method=callback&type='.$this->m_Type;
     } 
 
     
