@@ -81,8 +81,8 @@ class WebsvcService
     
     protected function getInput($name)
     {
-        $val = isset($_POST[$name]) ? $_POST[$name] : null;
-        //$val = isset($_REQUEST[$name]) ? $_REQUEST[$name] : null;
+        //$val = isset($_POST[$name]) ? $_POST[$name] : null;
+        $val = isset($_REQUEST[$name]) ? $_REQUEST[$name] : null;
         return $val;
     }
     
