@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: mod.xml 3358 2012-05-31 05:57:58Z rockyswen@gmail.com $
+-->
+<Module Name="payment" Description="payment intergration could be used for Store system" Version="0.6" Author="Feng ShengLong" OpenbizVersion="3.0">
+	<ACL>
+		<Resource Name="payment">
+			<Action Name="Manage" Description="Can manage system Payment intergration"/>
+		</Resource>
+    </ACL>
+    <Menu>
+    <!-- System menus -->
+			<MenuItem Name="System.Payment.Provider" Title="Payment Intergration"  Parent="System.Extension" Description=""  URL="/payment/intergration_setting" Order="20"></MenuItem>
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    </Dependency>
+</Module>
