@@ -5,10 +5,21 @@
     
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       	
        	<Element Name="fld_platform" ElementSet="General" Class="LabelImage" FieldName="type" Label="Platform" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" AllowURLParam="N"/>       	
+		<Element Name="fld_site_url" 
+					ElementSet="General" 
+        			Class="LabelText" 
+        			FieldName="site_url" 
+        			Label="Website" 
+        			AllowURLParam="N"
+        			Link="{@:Elem[fld_site_url].Value}"
+        			Target="_blank"
+        			 />  
        	<Element Name="fld_key" ElementSet="General" Class="LabelText" FieldName="key" Label="App Key" AllowURLParam="N"/>
        	<Element Name="fld_value" ElementSet="General" Class="LabelText" FieldName="value" Label="App Secret" AllowURLParam="N"/>
        	<Element Name="fld_status" ElementSet="General" Class="LabelBool" FieldName="status" Label="Status"   AllowURLParam="N"  />    	
-       
+
+
+       					       
        <Element Name="fld_callback" ElementSet="Callback" Class="LabelText" FieldName="" Label="Callback URL" Text="{SITE_URL}ws.php/oauth/callback/?method=callback&amp;type={@:Elem[fld_platform].Value}" AllowURLParam="N"/>
        
        	<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By" Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>       	
