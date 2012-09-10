@@ -30,7 +30,9 @@ include_once 'bin/app_init.php';
 include_once OPENBIZ_HOME."/bin/ErrorHandler.php";
 
 // find the module name and service name
-if(preg_match("/\?\/?(.*?)(\.html)?$/si", $_SERVER['REQUEST_URI'],$match))
+$script = "\\".$_SERVER['SCRIPT_NAME'];
+$pattern = "/^$script?\?\/?(.*?)(\.html)?$/si";
+if(preg_match($pattern, $_SERVER['REQUEST_URI'],$match))
 {
 	//supports for http://localhost/?/user/login format
 	//supports for http://localhost/index.php?/user/login format
