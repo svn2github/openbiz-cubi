@@ -60,6 +60,7 @@ class WebsvcService
         
         $service = $this->getInput('service');
         $method = $this->getInput('method');
+        
         if ($this->checkAccess($username, $method) == false) {
             $this->output(null, $format);
             return;
@@ -81,7 +82,6 @@ class WebsvcService
     
     protected function getInput($name)
     {
-        //$val = isset($_POST[$name]) ? $_POST[$name] : null;
         $val = isset($_REQUEST[$name]) ? $_REQUEST[$name] : null;
         return $val;
     }
