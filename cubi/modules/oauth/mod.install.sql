@@ -3,8 +3,9 @@
 */
 DROP TABLE IF EXISTS `oauth_provider`;
 CREATE TABLE IF NOT EXISTS `oauth_provider` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL auto_increment,  
   `type` varchar(255)  ,
+  `site_url` varchar(255)  ,
   `key` varchar(255) ,
   `value` varchar(255) NOT NULL,
   `status` int(2) NOT NULL default 0,
@@ -18,14 +19,12 @@ CREATE TABLE IF NOT EXISTS `oauth_provider` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 INSERT INTO `oauth_provider`
- (`id`, `type`, `key`, `value`, `status`, `create_by`, `create_time`, `update_by`, `update_time`) 
+ (`id`, `type`,`site_url`, `key`, `value`, `status`, `create_by`, `create_time`, `update_by`, `update_time`) 
  VALUES
-(1, 'sina', '', '', 0, 1, '', 1, ''),
-(2, 'qq', '', '', 0, 1, '', 1, ''),
-(3, 'alipay', '', '', 0, 1, '', 1, ''),
-(4, 'google', '', '', 0, 1, '', 1, ''),
-(5, 'facebook', '', '', 0, 1, '', 1, ''),
-(6, 'qzone', '', '', 0, 1, '', 1, ''),
-(7, 'twitter', '', '', 0, 1, '', 1, '');
-
-
+(1, 'sina', 'http://open.weibo.com/', '', '', 0, 1, '', 1, ''),
+(2, 'qq', 'http://dev.t.qq.com/','', '', 0, 1, '', 1, ''),
+(3, 'alipay', 'https://b.alipay.com/', '', 0, 1, '', 1, ''),
+(4, 'google', 'https://code.google.com/apis/console/','', '', 0, 1, '', 1, ''),
+(5, 'facebook', 'http://developers.facebook.com/','', '', 0, 1, '', 1, ''),
+(6, 'qzone', 'http://open.qq.com/',  '', '', 0, 1, '', 1, ''),
+(7, 'twitter', 'https://dev.twitter.com/','', '', 0, 1, '', 1, '');
