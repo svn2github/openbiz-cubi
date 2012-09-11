@@ -48,7 +48,7 @@
 				Description="msg_last_sendtime"	
 				Column="msg_last_sendtime"    
 				/>				
-		<BizField Name="password"		required="Y" 
+		<BizField Name="password"
 				Description="password"	
 				Column="password" 
 				Type="Text"
