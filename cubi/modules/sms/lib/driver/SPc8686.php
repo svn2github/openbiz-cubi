@@ -9,7 +9,6 @@ class SPc8686 extends SPDriver implements iSMS
 	protected $m_ProviderId = 4;
 	protected $m_type = 'c8686';
 
-	protected $m_balance;
 		
 	public function activeService()
 	{
@@ -40,7 +39,6 @@ class SPc8686 extends SPDriver implements iSMS
 		}
 		else
 		{
-			$this->m_balance = $result['balance'];
 			$this->HitMessageCounter();
 			$this->_log($mobile,$content_log,$schedule);	
 			return true;
@@ -50,17 +48,12 @@ class SPc8686 extends SPDriver implements iSMS
 
     public function getMsgBalance()
     {       
-    	if($this->m_balance)
-    	{
-    		$this->updateMsgBalance($this->m_balance);    		
-    		return (int)$this->m_balance;
-    	}
+    	
     	$providerInfo  = $this->_getProviderInfo();
     	$sender=new BayouSmsSender();
     	$balance=$sender->getBalance($providerInfo['username'],md5($providerInfo['password']));
-    	$this->m_balance = $balance;		
-    	$this->updateMsgBalance($this->m_balance);
-    	return (int)$this->m_balance;
+    	$this->updateMsgBalance($balance);
+    	return $balance;
 	}
     	
   
