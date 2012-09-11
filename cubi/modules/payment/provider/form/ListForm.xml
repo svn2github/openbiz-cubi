@@ -53,7 +53,7 @@
         -->		
      	<Element Name="btn_test" Class="Button" Text="New Payment" CssClass="button_gray_w"   Access="sms.Manage">
             <EventHandler Name="btn_edit_onclick" Event="onclick" 
-				Function="SwitchForm(payment.task.form.TestPaymentForm)" />
+				Function="SwitchForm(payment.test.form.TestPaymentForm)" />
         </Element>
       
         
