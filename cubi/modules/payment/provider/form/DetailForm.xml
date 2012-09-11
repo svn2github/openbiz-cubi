@@ -9,14 +9,14 @@
 			Class="ProviderForm" 
 			FormType="Detail" 
 			jsClass="Openbiz.Form" 
-			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_provider_detail.png"
-			Title="SMS Provider Detail" 
-			Description="You can setup crediential for selected SMS provider" 
-			BizDataObj="sms.provider.do.ProviderDO" 
+			Icon="{RESOURCE_URL}/payment/images/icon_mod_payment_provider_detail.png"
+			Title="Edit Payment Payment Setting" 
+			Description="Payment Intergration feature could enable Cubi system to receive payment from users"
+			BizDataObj="payment.provider.do.ProviderDO" 
 			TemplateEngine="Smarty" 
 			TemplateFile="provider_detail.tpl.html" 
-			MessageFile="SmsProvider.ini" 
-			Access="sms.Manage">
+			MessageFile="PaymentProvider.ini" 
+			Access="payment.Manage">
     <DataPanel>
 
   		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       	

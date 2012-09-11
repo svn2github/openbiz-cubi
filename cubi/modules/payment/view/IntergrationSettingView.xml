@@ -12,6 +12,6 @@
 	TemplateEngine="Smarty" 
 	TemplateFile="view.tpl">
    <FormReferences>
-   		<Reference Name="sms.provider.form.ListForm"/>
+   		<Reference Name="payment.provider.form.ListForm"/>
    </FormReferences>       
 </EasyView>
