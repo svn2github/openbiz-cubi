@@ -9,7 +9,7 @@
 			Class="ProviderForm" 
 			FormType="Edit" 
 			jsClass="Openbiz.Form" 
-			Icon="{RESOURCE_URL}/payment/images/icon_mod_edit.png"
+			Icon="{RESOURCE_URL}/payment/images/icon_payment_edit.png"
 			Title="Edit Payment Payment Setting" 
 			Description="Payment Intergration feature could enable Cubi system to receive payment from users" 
 			BizDataObj="payment.provider.do.ProviderDO" 
@@ -18,8 +18,12 @@
 			MessageFile="PaymentProvider.ini" 
 			Access="payment.Manage">
     <DataPanel>
-	    <Element Name="fld_instructions_img" Class="LabelImage" ElementSet="Instruction" FieldName="type" Text="{RESOURCE_URL}/oauth/images/instruction_{@:Elem[fld_platform].Value}.png" Label=""    AllowURLParam="N"  SelectFrom="oauth.enum.Enum(oauthType)"/>
-       	<Element Name="fld_platform" ElementSet="Setting" Class="LabelImage" FieldName="type" Label="Platform" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" AllowURLParam="N"/>
+    	<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       	
+    
+    	<Element Name="fld_require_auth" ElementSet="General" Hidden="Y" Class="RawData" FieldName="require_auth" Label="Id" AllowURLParam="Y"/>
+    
+	    <Element Name="fld_instructions_img" Class="LabelImage" ElementSet="Instruction" FieldName="type" Text="{RESOURCE_URL}/payment/images/instruction_{@:Elem[fld_platform].Value}.png" Label=""    AllowURLParam="N"  SelectFrom="payment.enum.Enum(paymentType)"/>
+       	<Element Name="fld_platform" ElementSet="Setting" Class="LabelImage" FieldName="type" Label="Platform" Text="{RESOURCE_URL}/payment/images/icon_{@:Elem[fld_platform].Value}.png" AllowURLParam="N"/>
         <Element Name="fld_site_url" 
 					ElementSet="Setting" 
         			Class="LabelText" 
@@ -28,9 +32,10 @@
         			AllowURLParam="N"
         			Link="{@:Elem[fld_site_url].Value}"
         			Target="_blank"
-        			 />  
-        <Element Name="fld_key" Class="InputText" ElementSet="Setting" FieldName="key" Label="App Key"  Description="Fill in the app key from provider"  AllowURLParam="N"  Required="Y" />
-        <Element Name="fld_value" Class="InputText" ElementSet="Setting" FieldName="value" Label="App Secret"  Description="Fill in the app secret from provider" AllowURLParam="N"  Required="Y" />
+        			 />
+        <Element Name="fld_account" Class="InputText" ElementSet="Setting" FieldName="account" Label="Account"  Description="Fill in the account name"  AllowURLParam="N"  Required="Y" />  
+        <Element Name="fld_key" Hidden="{@:Elem[fld_require_auth].Value==0?'Y':'N'}" Class="InputText" ElementSet="Setting" FieldName="key" Label="App Key"  Description="Fill in the app key from provider"  AllowURLParam="N"   />
+        <Element Name="fld_secret" Hidden="{@:Elem[fld_require_auth].Value==0?'Y':'N'}" Class="InputText" ElementSet="Setting" FieldName="secret" Label="App Secret"  Description="Fill in the app secret from provider" AllowURLParam="N"  />
 		<Element Name="fld_type" Class="Hidden" ElementSet="Setting" FieldName="type"   />
 		<Element Name="fld_status" Class="DropDownList" ElementSet="Setting" FieldName="status" Label="Status"   AllowURLParam="N"  SelectFrom="common.lov.CommLOV(EnableStatus)"/>
 
@@ -44,7 +49,7 @@
             			EventLogMsg="" 
             			Event="onclick" 
             			Function="UpdateRecord()" 
-            			RedirectPage="form=sms.provider.form.DetailForm&amp;fld:Id={@:Elem[fld_Id].Value}"  
+            			RedirectPage="form=payment.provider.form.DetailForm&amp;fld:Id={@:Elem[fld_Id].Value}"  
             			ShortcutKey="Ctrl+Enter" 
             			ContextMenu="Save" />
         </Element>

@@ -9,7 +9,7 @@
 			Class="ProviderForm" 
 			FormType="Detail" 
 			jsClass="Openbiz.Form" 
-			Icon="{RESOURCE_URL}/payment/images/icon_mod_payment_provider_detail.png"
+			Icon="{RESOURCE_URL}/payment/images/icon_payment.png"
 			Title="Edit Payment Payment Setting" 
 			Description="Payment Intergration feature could enable Cubi system to receive payment from users"
 			BizDataObj="payment.provider.do.ProviderDO" 
@@ -20,11 +20,12 @@
     <DataPanel>
 
   		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       	
+  		<Element Name="fld_require_auth" ElementSet="General" Hidden="Y" Class="RawData" FieldName="require_auth" Label="Id" AllowURLParam="Y"/>
   
-          <Element Name="fld_instructions_img" Class="LabelImage" ElementSet="Instruction" FieldName="type" Text="{RESOURCE_URL}/oauth/images/instruction_{@:Elem[fld_platform].Value}.png" Label=""    AllowURLParam="N"  SelectFrom="oauth.enum.Enum(oauthType)"/>
+          <Element Name="fld_instructions_img" Class="LabelImage" ElementSet="Instruction" FieldName="type" Text="{RESOURCE_URL}/payment/images/instruction_{@:Elem[fld_platform].Value}.png" Label=""    AllowURLParam="N"  SelectFrom="payment.enum.Enum(paymentType)"/>
     
 		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       	
-       	<Element Name="fld_platform" ElementSet="General" Class="LabelImage" FieldName="type" Label="Platform" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" AllowURLParam="N"/>       	
+       	<Element Name="fld_platform" ElementSet="General" Class="LabelImage" FieldName="type" Label="Platform" Text="{RESOURCE_URL}/payment/images/icon_{@:Elem[fld_platform].Value}.png" AllowURLParam="N"/>       	
 		<Element Name="fld_site_url" 
 					ElementSet="General" 
         			Class="LabelText" 
@@ -34,13 +35,15 @@
         			Link="{@:Elem[fld_site_url].Value}"
         			Target="_blank"
         			 />  
-       	<Element Name="fld_key" ElementSet="General" Class="LabelText" FieldName="key" Label="App Key" AllowURLParam="N"/>
-       	<Element Name="fld_value" ElementSet="General" Class="LabelText" FieldName="value" Label="App Secret" AllowURLParam="N"/>
+        			 
+        <Element Name="fld_account" Class="LabelText" ElementSet="General" FieldName="account" Label="Account"  />          
+       	<Element Name="fld_key" Hidden="{@:Elem[fld_require_auth].Value==0?'Y':'N'}" ElementSet="General" Class="LabelText" FieldName="key" Label="App Key" AllowURLParam="N"/>
+       	<Element Name="fld_secret" Hidden="{@:Elem[fld_require_auth].Value==0?'Y':'N'}" ElementSet="General" Class="LabelText" FieldName="secret" Label="App Secret" AllowURLParam="N"/>
        	<Element Name="fld_status" ElementSet="General" Class="LabelBool" FieldName="status" Label="Status"   AllowURLParam="N"  />    	
 
 
        					       
-       <Element Name="fld_callback" ElementSet="Callback" Class="LabelText" FieldName="" Label="Callback URL" Text="{SITE_URL}ws.php/oauth/callback/?method=callback&amp;type={@:Elem[fld_platform].Value}" AllowURLParam="N"/>
+       <Element Name="fld_callback" ElementSet="Callback" Class="LabelText" FieldName="" Label="Callback URL" Text="{SITE_URL}ws.php/payment/callback/?method=callback&amp;type={@:Elem[fld_platform].Value}" AllowURLParam="N"/>
        
        	<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By" Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>       	
        	<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time"  AllowURLParam="N"/>       	
@@ -51,7 +54,7 @@
     </DataPanel>
     <ActionPanel>       
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
-			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(sms.provider.form.EditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(payment.provider.form.EditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
         <Element Name="btn_cancel" 
         			Class="Button" 

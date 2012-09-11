@@ -13,13 +13,11 @@
 
 class ProviderForm extends EasyForm
 {
-	
-
 	public function updateFieldValue($id,$fld_name,$value)
 	{
 		if($fld_name=='fld_status' && $value==1){
 			$rec = $this->getDataObj()->fetchById($id);
-			if(!$rec['username'] || !$rec['password'])
+			if(!$rec['account'])
 			{
 				$rec['status'] = $value;
 				$rec->save();

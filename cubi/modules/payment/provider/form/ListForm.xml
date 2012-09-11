@@ -9,7 +9,7 @@
 			Class="ProviderForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
-			Icon="{RESOURCE_URL}/payment/images/icon_mod_list.png"
+			Icon="{RESOURCE_URL}/payment/images/icon_payment.png"
 			Title="Payment Intergration Setting" 
 			Description="Payment Intergration feature could enable Cubi system to receive payment from users" 
 			BizDataObj="payment.provider.do.ProviderDO" 
@@ -25,22 +25,19 @@
 		
 		<Element Name="fld_status" Class="ColumnHidden" Hidden="Y" FieldName="status"  Label="Status" Link="javascript:;" Sortable="Y"></Element>
         
-        <Element Name="fld_platform" Class="ColumnImage" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" Label="Platform" DefaultValue="default" Sortable="Y" Link="javascript:">
-              <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderDetailForm,{@:Elem[fld_Id].Value})"   />
+        <Element Name="fld_platform" Class="ColumnImage" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/payment/images/icon_{@:Elem[fld_platform].Value}.png" Label="Platform" DefaultValue="default" Sortable="Y" Link="javascript:">
+              <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(payment.provider.form.DetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>
 		<Element Name="lnk_switch" Label="Status" Sortable="Y" FieldName="status" Class="Button" Text="{@:Elem[fld_status].Value=='0'?Off:On}" CssClass="{@:Elem[fld_status].Value =='0'?button_switch_off:button_switch_on}" Style="color:#666666;" Description="Switch Status">
 				<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
         </Element>
 
-		<Element Name="fld_key" MaxLength="15" Class="ColumnText" FieldName="key" Label="App Key" DefaultValue="default" Sortable="Y"/>                
-        		
-		<Element Name="fld_update_by" Class="ColumnText" FieldName="update_by" Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value,'short')}"  Label="Update By"  Sortable="Y"/>
-		<Element Name="fld_update_time" Class="ColumnText" FieldName="update_time" Label="Update Time"  Sortable="Y"/>
-		
-		<Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sortorder" Label="Sorting"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
-        	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})" />
-        	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value+5})" />
-        </Element>  	
+		<Element Name="fld_account"  Class="ColumnText" FieldName="account" Label="Account"  Sortable="Y"/>                
+
+		<Element Name="fld_priority" Class="ColumnSorting" FieldName="priority" Label="Priority"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value+5})" />
+        	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value-5})" />
+        </Element>  
         	
         <Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="javascript:" Style="color:#666666;">
               <EventHandler Name="fld_edit_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderEditForm,{@:Elem[fld_Id].Value})"   />
