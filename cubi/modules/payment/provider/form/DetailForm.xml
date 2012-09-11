@@ -21,13 +21,12 @@
 
   		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       	
   
-        <Element Name="fld_instructions_img" Class="LabelImage" ElementSet="Instruction" FieldName="type" Text="{RESOURCE_URL}/sms/images/instruction_{@:Elem[fld_platform].Value}.png" Label=""    AllowURLParam="N"  SelectFrom="oauth.enum.Enum(oauthType)"/>
-  
-		<Element Name="fld_platform" ElementSet="Provider"  Class="LabelImage" Link="{@:Elem[fld_site_url].Value}" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/sms/images/icon_{@:Elem[fld_platform].Value}.png" Label="Provider" DefaultValue="default" Sortable="Y" Target="_blank">
-        </Element>  	  
-  	  
+          <Element Name="fld_instructions_img" Class="LabelImage" ElementSet="Instruction" FieldName="type" Text="{RESOURCE_URL}/oauth/images/instruction_{@:Elem[fld_platform].Value}.png" Label=""    AllowURLParam="N"  SelectFrom="oauth.enum.Enum(oauthType)"/>
+    
+		<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>       	
+       	<Element Name="fld_platform" ElementSet="General" Class="LabelImage" FieldName="type" Label="Platform" Text="{RESOURCE_URL}/oauth/images/icon_{@:Elem[fld_platform].Value}.png" AllowURLParam="N"/>       	
 		<Element Name="fld_site_url" 
-					ElementSet="Provider" 
+					ElementSet="General" 
         			Class="LabelText" 
         			FieldName="site_url" 
         			Label="Website" 
@@ -35,47 +34,17 @@
         			Link="{@:Elem[fld_site_url].Value}"
         			Target="_blank"
         			 />  
-       						  	  
-  	  
-       	<Element Name="fld_username" 
-       				ElementSet="General"
-       				Class="LabelText" 
-       				FieldName="username" 
-       				Label="Username" 
-       				AllowURLParam="N"
-       				/>
-    
-       								   	
+       	<Element Name="fld_key" ElementSet="General" Class="LabelText" FieldName="key" Label="App Key" AllowURLParam="N"/>
+       	<Element Name="fld_value" ElementSet="General" Class="LabelText" FieldName="value" Label="App Secret" AllowURLParam="N"/>
+       	<Element Name="fld_status" ElementSet="General" Class="LabelBool" FieldName="status" Label="Status"   AllowURLParam="N"  />    	
 
-       	<Element Name="fld_password" 
-       				ElementSet="General"
-       				Class="LabelPassword" 
-       				FieldName="password" 
-       				Label="Password" 
-       				AllowURLParam="N"
-       				/>
-		
-		   	
-		<Element Name="fld_status" 
-					Class="LabelBool" 
-					ElementSet="General"
-					FieldName="status" 
-					Label="Status"  
-					Sortable="Y" 
-					AllowURLParam="N" 
-					Translatable="N" 
-					OnEventLog="N" 
-					Link="javascript:;">				
-		</Element>
-       	 	
-		<Element Name="fld_description" 
-					Class="LabelTextarea" 
-					ElementSet="General"
-					FieldName="description" 
-					Label="Description"  />		
-		
 
-       								   	
+       					       
+       <Element Name="fld_callback" ElementSet="Callback" Class="LabelText" FieldName="" Label="Callback URL" Text="{SITE_URL}ws.php/oauth/callback/?method=callback&amp;type={@:Elem[fld_platform].Value}" AllowURLParam="N"/>
+       
+       	<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By" Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>       	
+       	<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time"  AllowURLParam="N"/>       	
+						   	
 				   	
 
 					
