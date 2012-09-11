@@ -5,5 +5,6 @@ interface iPayment
 
     public function ValidateNotification();    
     
+    public function log();
 }
 ?>

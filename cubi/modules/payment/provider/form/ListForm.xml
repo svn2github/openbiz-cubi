@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="ListForm" 
+			Class="ProviderForm"			  
+			FormType="List" 
+			jsClass="Openbiz.TableForm" 
+			Icon="{RESOURCE_URL}/payment/images/icon_mod_list.png"
+			Title="Payment Intergration Setting" 
+			Description="Payment Intergration feature could enable Cubi system to receive payment from users" 
+			BizDataObj="payment.provider.do.ProviderDO" 
+			PageSize="10" 
+			DefaultForm="Y" 
+			TemplateEngine="Smarty" 
+			TemplateFile="provider_gird.tpl.html" 
+			MessageFile="PaymentProvider.ini" 
+			Access="payment.Manage">
+	<DataPanel>
+		
+	     <Element Name="fld_Id" Class="ColumnHidden" FieldName="Id" Label="Id" Hidden="Y" Sortable="Y" AllowURLParam="N" Link="javascript:">         
+        </Element>	
+		
+		<Element Name="fld_status" Class="ColumnHidden" Hidden="Y" FieldName="status"  Label="Status" Link="javascript:;" Sortable="Y"></Element>
+		 <!-- 
+		 <Element Name="fld_name" 
+        			Class="ColumnText" 
+        			FieldName="name" 
+        			Label="Provider" 
+        			Sortable="Y"
+        			Link="javascript:;"
+        			 >
+        			 <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(sms.provider.form.DetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>   
+		 -->
+		 <Element Name="fld_platform" Class="ColumnImage" Style="display:block;padding-left:5px;width:100px;" FieldName="type" Text="{RESOURCE_URL}/sms/images/icon_{@:Elem[fld_platform].Value}.png" Label="Provider" DefaultValue="default" Sortable="Y" Link="javascript:">
+              <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(sms.provider.form.DetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>
+   		
+     
+	 	<Element Name="lnk_switch" FieldName="status" Label="Status" Sortable="Y" Class="Button" Text="{@:Elem[fld_status].Value=='0'?Off:On}" CssClass="{@:Elem[fld_status].Value =='0'?button_switch_off:button_switch_on}" Style="color:#666666;" Description="Switch Status">
+				<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
+        </Element>  	     
+		
+		
+		
+		<Element Name="fld_username" 
+        			Class="ColumnText" 
+        			FieldName="username" 
+        			Label="Username" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />    
+        			 
+         	<Element Name="fld_smsg_sent_count" 
+        			Class="ColumnText" 
+        			FieldName="msg_sent_count" 
+        			Label="Sent Msgs" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />  
+        			         			 
+       	<Element Name="fld_msg_balance" 
+        			Class="ColumnText" 
+        			FieldName="msg_balance" 
+        			Label="Msgs Balance" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />  
+   
+
+		<Element Name="fld_priority" Class="ColumnSorting" FieldName="priority" Label="Priority"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value+5})" />
+        	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value-5})" />
+        </Element>  
+		
+		<Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="javascript:" Style="color:#666666;">
+              <EventHandler Name="fld_edit_onclick" Event="onclick" Function="SwitchForm(sms.provider.form.EditForm,{@:Elem[fld_Id].Value})"   />
+        </Element>
+	</DataPanel>
+    <ActionPanel>
+     <!-- 
+        <Element Name="btn_edit2" Class="Button" Text="Edit" CssClass="button_gray_m" Description="Edit Setting (Ctrl+E)" Access="sms.Manage">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=sms.provider.form.EditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        
+        <Element Name="btn_spacer" Class="Spacer" width="10" />
+        -->		
+     	<Element Name="btn_test" Class="Button" Text="Send SMS" CssClass="button_gray_w"   Access="sms.Manage">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" 
+				Function="SwitchForm(sms.task.form.TestSendNewForm)" />
+				
+        </Element>
+      
+     	<Element Name="btn_sync" Class="Button" Text="Update Counter" CssClass="button_gray_w"   Access="sms.Manage">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" 
+				Function="UpdateMessageCounter()"  />
+        </Element>
+        
+        <Element Name="btn_spacer_2" Class="Spacer" width="10" />		
+        <Element Name="btn_queue" Class="Button" Text="Queue" CssClass="button_gray_w"  Access="sms.Manage">          
+        	<EventHandler Name="btn_edit_onclick" Event="onclick" 
+					Function="SwitchForm(sms.queue.form.ListForm)" />
+        </Element>
+        <Element Name="btn_log" Class="Button" Text="Sent Log" CssClass="button_gray_w"  Access="sms.Manage">          
+        	<EventHandler Name="btn_log_onclick" Event="onclick" 
+					Function="SwitchForm(sms.log.form.ListForm)" />
+        </Element>
+        <Element Name="btn_spacer" Class="Spacer" width="10" />
+        <Element Name="btn_config" Class="Button" Text="Setting" CssClass="button_gray_w"  Access="sms.Manage">
+	        <EventHandler Name="btn_edit_onclick" Event="onclick" 
+					Function="SwitchForm(sms.setting.form.DetailForm)" />
+		</Element>					
+    </ActionPanel> 
+    <NavPanel>
+    	
+    	<!-- Page Selector -->
+		<Element  Name="page_selector" 
+					Class="PageSelector" 
+					Text="{@:m_CurrentPage}" 
+					Label="Go to Page" 
+					CssClass="input_select" 
+					CssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" 
+            				Event="onchange" 
+            				Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        
+        <!-- Page Size Selector -->
+        <Element  Name="pagesize_selector" 
+        			Class="PagesizeSelector" 
+        			Text="{@:m_Range}" 
+        			Label="Show Rows" 
+        			CssClass="input_select" 
+        			CssFocusClass="input_select_focus">
+            <EventHandler Name="btn_pagesize_selector_onchange" 
+            				Event="onchange" 
+            				Function="SetPageSize(pagesize_selector)"/>
+        </Element> 
+        
+        <!-- Goto First Page Button -->   
+        <Element  Name="btn_first" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage(1)"/>
+        </Element>
+        
+        <!-- Goto Previous Page Button -->   
+        <Element Name="btn_prev" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_CurrentPage - 1})" 
+            				ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        
+        <!-- Display Current Page / Total Pages -->
+        <Element Name="txt_page" 
+        			Class="LabelText" 
+        			Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        
+        <!-- Goto Next Page Button -->  
+        <Element Name="btn_next" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_CurrentPage + 1})" 
+            				ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        
+        <!-- Goto Last Page Button -->  
+        <Element  Name="btn_last" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+        
+    </NavPanel> 
+ 
+</EasyForm>
