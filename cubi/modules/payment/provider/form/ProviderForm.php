@@ -23,6 +23,11 @@ class ProviderForm extends EasyForm
 				$rec->save();
 				$this->switchForm("payment.provider.form.EditForm",$id);
 				return;
+			}elseif($recp['require_auth']==1 && (!$rec['username'] || !$rec['password']) ){
+				$rec['status'] = $value;
+				$rec->save();
+				$this->switchForm("payment.provider.form.EditForm",$id);
+				return;
 			}
 		}		
 		parent::updateFieldValue($id,$fld_name,$value);
