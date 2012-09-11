@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS `payment_provider` (
   `type` varchar(255) NOT NULL,
   `site_url` varchar(255) NOT NULL,
   `description` text,  
+  `priority` int(2) DEFAULT '1',
   `status` int(2) NOT NULL DEFAULT '1',
   `update_by` int(11) NOT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

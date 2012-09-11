@@ -71,7 +71,13 @@
 				Type="Text"
 				Required="N" 
 				 />
-	
+				 
+		<BizField Name="priority"			
+				Description="priority"	
+				Column="priority"    
+				Required="N" 
+				Type="Number"/>
+				 
 		<BizField Name="status"		
 				Description="Status"	
 				Column="status" 
