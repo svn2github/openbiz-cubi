@@ -40,7 +40,7 @@
         </Element>  
         	
         <Element Name="fld_edit" Class="ColumnText" Text="Edit" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="javascript:" Style="color:#666666;">
-              <EventHandler Name="fld_edit_onclick" Event="onclick" Function="SwitchForm(oauth.form.OauthProviderEditForm,{@:Elem[fld_Id].Value})"   />
+              <EventHandler Name="fld_edit_onclick" Event="onclick" Function="SwitchForm(payment.provider.form.EditForm,{@:Elem[fld_Id].Value})"   />
         </Element>
 	</DataPanel>
     <ActionPanel>
