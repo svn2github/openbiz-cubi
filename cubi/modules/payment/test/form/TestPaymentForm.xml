@@ -49,7 +49,7 @@
 	
     </DataPanel>
     <ActionPanel>       
-        	        <Element Name="btn_go" 
+        <Element Name="btn_go" 
 	        			Class="Button" 
 	        			Text="Make Payment" 
 	        			CssClass="button_gray_w">

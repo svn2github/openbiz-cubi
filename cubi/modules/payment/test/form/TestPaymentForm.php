@@ -6,7 +6,6 @@ class TestPaymentForm extends EasyForm
 	public function MakePayment()
 	{
 		$rec= $this->readInputRecord();
-		
 		$title = $rec['title'];
 		$amount = $rec['amount'];
 		$providerType = $rec['provider_type'];

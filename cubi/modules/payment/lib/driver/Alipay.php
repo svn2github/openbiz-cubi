@@ -1,10 +1,13 @@
 <?php 
 require_once 'PaymentAdapter.php';
 require_once dirname(dirname(__FILE__))."/dll/alipay/lib/alipay_service.class.php" ;
+require_once dirname(dirname(__FILE__))."/dll/alipay/lib/alipay_submit.class.php" ;
 
 class Alipay extends PaymentAdapter
 {
 	protected $m_ProviderId = 2;
+	
+	protected $m_APIURL = 'https://mapi.alipay.com/gateway.do?';
 	
 	public function __construct()
 	{
@@ -31,7 +34,7 @@ class Alipay extends PaymentAdapter
 	{
 		$alipay_config = $this->_getConfig();
 		$out_trade_no = time();
-		$body = "test ";
+		$body = "test";
 		
 		//构造要请求的参数数组
 		$parameter = array(
@@ -55,18 +58,16 @@ class Alipay extends PaymentAdapter
 				"anti_phishing_key"	=> $anti_phishing_key,
 				"exter_invoke_ip"	=> $exter_invoke_ip,
 				
-				"show_url"			=> $show_url,
+				"show_url"			=> SITE_URL,
 				"extra_common_param"=> $extra_common_param,
 				
 				"royalty_type"		=> $royalty_type,
 				"royalty_parameters"=> $royalty_parameters
 		);
 		//构造即时到帐接口
-		$alipayService = new AlipayService($alipay_config);
-		$html_text = $alipayService->create_direct_pay_by_user($parameter);
+		$alipaySubmit = new AlipaySubmit();
+		$url = $this->m_APIURL. $alipaySubmit->buildRequestParaToString($parameter,$alipay_config);
 		
-		var_dump($html_text);
-		$url = "http://sss.com.cn";
 		return $url;
 	}
 }
