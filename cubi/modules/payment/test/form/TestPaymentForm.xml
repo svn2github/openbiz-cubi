@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="TestPaymentForm" 
+			Class="TestPaymentForm" 
+			FormType="New" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/payment/images/icon_payment.png"
+			Title="Test Payment" 
+			Description="Try to make a payment by using selected provider." 
+			BizDataObj="" 
+			TemplateEngine="Smarty" 
+			TemplateFile="payment_test.tpl.html" 
+			MessageFile="PaymentProvider.ini" 
+			Access="payment.Manage">
+    <DataPanel>
+
+      	
+		<Element Name="fld_title" 
+       				Class="InputText" 
+       				FieldName="title" 
+       				Label="Payment Title" 
+       				AllowURLParam="N"
+					Required="Y"
+					DefaultValue="Test Payment API"
+       				/>  
+  
+		<Element Name="fld_amount" 
+       				Class="InputText" 
+       				FieldName="amount" 
+       				Label="Payment Amount" 
+       				AllowURLParam="N"
+					Required="Y"
+					DefaultValue="10.0"
+       				/> 
+  
+   		<Element Name="fld_payment_provider" 
+      			Class="payment.element.ProviderSelector" 
+      			FieldName=""    
+      			Label="Payment Provider"    
+      			DefaultValue="alipay"
+      			SelectFrom="payment.provider.do.ProviderDO[name:type:type],[status]=1"
+      			 /> 
+
+	
+    </DataPanel>
+    <ActionPanel>       
+        	        <Element Name="btn_go" 
+	        			Class="Button" 
+	        			Text="Make Payment" 
+	        			CssClass="button_gray_w">
+	            <EventHandler Name="btn_go_onclick" 
+	            			EventLogMsg="" 
+	            			Event="onclick" 
+	            			Function="MakePayment()" 
+	            			ShortcutKey="Ctrl+Enter" 
+	            			ContextMenu="Save" />
+	        </Element>        
+                <Element Name="btn_cancel" 
+        			Class="Button" 
+        			Text="Cancel" 
+        			CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" 
+            			Event="onclick" 
+            			Function="SwitchForm()"  
+            			ShortcutKey="Escape" 
+            			ContextMenu="Cancel"/>
+        </Element>      
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
