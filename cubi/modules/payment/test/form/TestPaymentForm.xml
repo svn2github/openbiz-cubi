@@ -19,16 +19,31 @@
 			Access="payment.Manage">
     <DataPanel>
 
-      	
+      	<Element Name="fld_order_id" 
+       				Class="InputText" 
+       				FieldName="order_id" 
+       				Label="Order ID" 
+       				AllowURLParam="N"
+					Required="Y"
+					DefaultValue="{tx}@:getOrderID(){/tx}"
+       				/>
 		<Element Name="fld_title" 
        				Class="InputText" 
        				FieldName="title" 
-       				Label="Payment Title" 
+       				Label="Payment Subject" 
        				AllowURLParam="N"
 					Required="Y"
-					DefaultValue="Test Payment API"
+					DefaultValue="Openbiz Payment Intergration - Test"
        				/>  
-  
+  		
+       	<Element Name="fld_desc_url" 
+       				Class="InputText" 
+       				FieldName="url" 
+       				Label="Reference URL" 
+       				AllowURLParam="N"
+					Required="Y"
+					DefaultValue="{SITE_URL}"
+       				/> 
 		<Element Name="fld_amount" 
        				Class="InputText" 
        				FieldName="amount" 
@@ -45,7 +60,14 @@
       			DefaultValue="alipay"
       			SelectFrom="payment.provider.do.ProviderDO[name:type:type],[status]=1"
       			 /> 
-
+		<Element Name="fld_desc" 
+       				Class="Textarea" 
+       				FieldName="description" 
+       				Label="Description" 
+       				AllowURLParam="N"
+					Required="Y"
+					DefaultValue=""
+       				/>  
 	
     </DataPanel>
     <ActionPanel>       

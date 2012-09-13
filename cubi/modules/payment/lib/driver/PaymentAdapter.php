@@ -26,7 +26,7 @@ class PaymentAdapter implements iPayment
 		$this->m_ReturnURL  = SITE_URL.APP_INDEX.'/payment/payment_finished';
 	}
 	
-    public function GetPaymentURL($amount,$title=null){}
+    public function GetPaymentURL($orderId, $amount, $title=null,$body=null,$descURL=SITE_URL){}
 
     public function ValidateNotification($txn_id){}    
     

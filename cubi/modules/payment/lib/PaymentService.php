@@ -3,11 +3,11 @@ class PaymentService
 {
 	protected $m_ProviderDO = "payment.provider.do.ProviderDO";
 	
-	public function goPayment($amount, $type, $title=null)
+	public function goPayment($orderId, $amount, $type, $title=null,$body=null,$descURL=null)
 	{		
 		$amount = round($amount,2);
 		$providerObj = $this->getProviderObj($type);
-		$url = $providerObj->getPaymentURL($amount,$title);
+		$url = $providerObj->getPaymentURL($orderId,$amount,$title,$body,$descURL);
 		if($url)
 		{
 			$script="<script>window.open('$url');</script>";

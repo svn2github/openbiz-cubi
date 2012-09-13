@@ -30,11 +30,10 @@ class Alipay extends PaymentAdapter
 		return $alipay_config;
 	}
 	
-	public function GetPaymentURL($amount,$title=null)
+	public function GetPaymentURL($orderId, $amount, 
+								  $title=null,$body=null,$descURL=SITE_URL)
 	{
 		$alipay_config = $this->_getConfig();
-		$out_trade_no = time();
-		$body = "test";
 		
 		//构造要请求的参数数组
 		$parameter = array(
@@ -47,7 +46,7 @@ class Alipay extends PaymentAdapter
 		        "return_url"		=> trim($this->m_ReturnURL),
 		        "notify_url"		=> trim($this->m_NotifyURL),
 				
-				"out_trade_no"		=> $out_trade_no,
+				"out_trade_no"		=> $orderId,
 				"subject"			=> $title,
 				"body"				=> $body,
 				"total_fee"			=> $amount,
@@ -58,7 +57,7 @@ class Alipay extends PaymentAdapter
 				"anti_phishing_key"	=> $anti_phishing_key,
 				"exter_invoke_ip"	=> $exter_invoke_ip,
 				
-				"show_url"			=> SITE_URL,
+				"show_url"			=> $descURL,
 				"extra_common_param"=> $extra_common_param,
 				
 				"royalty_type"		=> $royalty_type,
