@@ -196,11 +196,11 @@ Openbiz.Form = jQuery.Class(
         
         switch (type) {
             case Openbiz.ActionType.PAGE:
-                Openbiz.Net.loadPage(url); break;
+                Openbiz.Net.loadPage(url+'&'+formData); break;
             case Openbiz.ActionType.FORM:
                 this.submit(url); break;
             case Openbiz.ActionType.POPUP:
-                Openbiz.Window.openPopup(url); break;
+                Openbiz.Window.openPopup(url+'&'+formData); break;
             case Openbiz.ActionType.AIM:
                 Openbiz.Net.postFile(url, this.form, formData); break;
             default:
