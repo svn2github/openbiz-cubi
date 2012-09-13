@@ -40,7 +40,7 @@
   
    		<Element Name="fld_payment_provider" 
       			Class="payment.element.ProviderSelector" 
-      			FieldName=""    
+      			FieldName="provider_type"    
       			Label="Payment Provider"    
       			DefaultValue="alipay"
       			SelectFrom="payment.provider.do.ProviderDO[name:type:type],[status]=1"
