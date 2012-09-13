@@ -458,7 +458,10 @@ class ClientProxy
         if ($pageURL == "#back")
             $this->_otherOutput[] = $this->_callClientFunction("history.go(-1)");
         else
+        {
+        	$pageURL = str_replace("&", "&amp;", $pageURL);
             $this->_otherOutput[] = $this->_callClientFunction("Openbiz.Net.redirectPage('$pageURL')");
+        }
     }
 
     /**
