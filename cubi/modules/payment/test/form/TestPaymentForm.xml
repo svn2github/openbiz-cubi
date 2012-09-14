@@ -36,14 +36,7 @@
 					DefaultValue="Openbiz Payment Intergration - Test"
        				/>  
   		
-       	<Element Name="fld_desc_url" 
-       				Class="InputText" 
-       				FieldName="url" 
-       				Label="Reference URL" 
-       				AllowURLParam="N"
-					Required="Y"
-					DefaultValue="{SITE_URL}"
-       				/> 
+
 		<Element Name="fld_amount" 
        				Class="InputText" 
        				FieldName="amount" 
@@ -60,14 +53,7 @@
       			DefaultValue="alipay"
       			SelectFrom="payment.provider.do.ProviderDO[name:type:type],[status]=1"
       			 /> 
-		<Element Name="fld_desc" 
-       				Class="Textarea" 
-       				FieldName="description" 
-       				Label="Description" 
-       				AllowURLParam="N"
-					Required="Y"
-					DefaultValue=""
-       				/>  
+
 	
     </DataPanel>
     <ActionPanel>       

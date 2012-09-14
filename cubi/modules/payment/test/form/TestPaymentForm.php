@@ -8,12 +8,10 @@ class TestPaymentForm extends EasyForm
 		$rec= $this->readInputRecord();
 		$orderId = $rec['order_id'];
 		$title = $rec['title'];
-		$body = $rec['description'];
-		$url = $rec['url'];
 		$amount = $rec['amount'];
 		$providerType = $rec['provider_type'];
 
-		BizSystem::GetService($this->m_PaymentService)->goPayment($orderId,$amount,$providerType,$title,$body,$url);		
+		BizSystem::GetService($this->m_PaymentService)->goPayment($orderId,$amount,$providerType,$title);		
 		return true;
 	}
 	

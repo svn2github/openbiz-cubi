@@ -84,6 +84,14 @@ class paypal_class {
                 echo "</body></html>\n";
         }
    
+        public function build_param_url()
+        {
+        	$paypal_url = ($_GET['sandbox'] == 1) ? SSL_SAND_URL : SSL_P_URL;       
+        	foreach ($this->fields as $name => $value) {
+        		$query .= $name.'='.urlencode($value)."&";
+        	}
+        	return $paypal_url.'?'.$query;
+        }
 /**
  * validate the IPN
  *

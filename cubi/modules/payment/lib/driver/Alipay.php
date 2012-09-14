@@ -6,14 +6,9 @@ require_once dirname(dirname(__FILE__))."/dll/alipay/lib/alipay_submit.class.php
 class Alipay extends PaymentAdapter
 {
 	protected $m_ProviderId = 2;
+	protected $m_Type = 'alipay';
 	
 	protected $m_APIURL = 'https://mapi.alipay.com/gateway.do?';
-	
-	public function __construct()
-	{
-		parent::__construct();
-		$this->m_NotifyURL  .= "&type=alipay";
-	}
 	
 	
 	protected function _getConfig()
@@ -31,10 +26,9 @@ class Alipay extends PaymentAdapter
 	}
 	
 	public function GetPaymentURL($orderId, $amount, 
-								  $title=null,$body=null,$descURL=SITE_URL,$customData=null)
+								  $title=null,$customData=null)
 	{
 		$alipay_config = $this->_getConfig();
-		
 		//构造要请求的参数数组
 		$parameter = array(
 				"service"			=> "create_direct_pay_by_user",
@@ -48,7 +42,6 @@ class Alipay extends PaymentAdapter
 				
 				"out_trade_no"		=> $orderId,
 				"subject"			=> $title,
-				"body"				=> $body,
 				"total_fee"			=> $amount,
 				
 				"paymethod"			=> $paymethod,
@@ -57,8 +50,8 @@ class Alipay extends PaymentAdapter
 				"anti_phishing_key"	=> $anti_phishing_key,
 				"exter_invoke_ip"	=> $exter_invoke_ip,
 				
-				"show_url"			=> $descURL,
-				"extra_common_param"=> $customData,
+				"show_url"			=> SITE_URL,
+				"extra_common_param"=> serialize($customData),
 				
 				"royalty_type"		=> $royalty_type,
 				"royalty_parameters"=> $royalty_parameters
