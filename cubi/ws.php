@@ -59,10 +59,13 @@ if(count($inputs)>=3)
 	for($i=3;$i<count($inputs);$i++)
 	{
 		$param = $inputs[$i];
-		preg_match("/^(.*?)_(.*)$/s",$param,$match);
-		$key = $match[1];
-		$value = $match[2];
-		$_REQUEST[$key]=$value;
+		if($param)
+		{
+			preg_match("/^(.*?)_(.*)$/s",$param,$match);
+			$key = $match[1];
+			$value = $match[2];
+			$_REQUEST[$key]=$value;
+		}
 	}
 }
 

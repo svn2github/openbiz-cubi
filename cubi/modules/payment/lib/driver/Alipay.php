@@ -31,7 +31,7 @@ class Alipay extends PaymentAdapter
 	}
 	
 	public function GetPaymentURL($orderId, $amount, 
-								  $title=null,$body=null,$descURL=SITE_URL)
+								  $title=null,$body=null,$descURL=SITE_URL,$customData=null)
 	{
 		$alipay_config = $this->_getConfig();
 		
@@ -58,7 +58,7 @@ class Alipay extends PaymentAdapter
 				"exter_invoke_ip"	=> $exter_invoke_ip,
 				
 				"show_url"			=> $descURL,
-				"extra_common_param"=> $extra_common_param,
+				"extra_common_param"=> $customData,
 				
 				"royalty_type"		=> $royalty_type,
 				"royalty_parameters"=> $royalty_parameters
@@ -69,5 +69,12 @@ class Alipay extends PaymentAdapter
 		
 		return $url;
 	}
+	
+	public function GetReturnData(){
+		$data = array();
+		
+		return $data;		
+	}
+
 }
 ?>
