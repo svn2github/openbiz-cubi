@@ -61,7 +61,7 @@ class OauthLogin extends InputElement
 				 $sHTML.= "<span class=\"oauth_bar\" $style>";
 				 foreach($recArr as $oauthProvider)
 				 {
-				 	$url = APP_URL."/ws.php/oauth/callback/login/?type=".$oauthProvider['type'];
+				 	$url = APP_URL."/ws.php/oauth/callback/login/type_".$oauthProvider['type'];
 				 	$url.= $url_append;
 					$sHTML.= "<a id=\"oauth_".$oauthProvider['type']."\" title=\"".$oauthProvider['type']."\"   href=\"$url\" style=\"\"></a>";
 				 }
