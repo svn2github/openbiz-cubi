@@ -79,6 +79,7 @@
 	            			EventLogMsg="" 
 	            			Event="onclick" 
 	            			Function="MakePayment()" 
+	            			FunctionType="Form"
 	            			ShortcutKey="Ctrl+Enter" 
 	            			ContextMenu="Save" />
 	        </Element>        
