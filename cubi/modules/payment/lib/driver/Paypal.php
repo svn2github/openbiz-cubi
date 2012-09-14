@@ -8,7 +8,7 @@ class Paypal extends PaymentAdapter
 	protected $m_ProviderId = 3;
 	protected $m_Type = 'paypal';
 	
-	protected $m_CurrencyCode = 'CNY';
+	protected $m_CurrencyCode = 'USD';
 	
 	public function GetPaymentURL($orderId, $amount, 
 								  $title=null,$customData=null)
