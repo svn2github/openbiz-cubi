@@ -50,9 +50,20 @@ elseif(strlen($_SERVER['REQUEST_URI'])>strlen($_SERVER['SCRIPT_NAME']))
 $inputs = explode("/", $url);
 $module = $inputs[0];
 $service = isset($inputs[1]) ? $inputs[1] : $_REQUEST['service'];
-if(isset($inputs[3])){
+if(isset($inputs[2]) && !preg_match("/^\?.*/si",$inputs[2])){
 	//http://local.openbiz.me/ws.php/oauth/callback/login/?type=qzone
 	$_REQUEST['method'] = $inputs[2];	
+}
+if(count($inputs)>=3)
+{
+	for($i=3;$i<count($inputs);$i++)
+	{
+		$param = $inputs[$i];
+		preg_match("/^(.*?)_(.*)$/s",$param,$match);
+		$key = $match[1];
+		$value = $match[2];
+		$_REQUEST[$key]=$value;
+	}
 }
 
 OB_ErrorHandler::$errorMode = 'text';
