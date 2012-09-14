@@ -28,9 +28,12 @@ $DEFAULT_VIEW = "LoginView";
 $DEFAULT_MODULE = CLIENT_DEVICE=='mobile' ? "user_mob" : "user";
 $DEFAULT_URL = "index.php/$DEFAULT_MODULE/login";
 
+$script = "\\".$_SERVER['SCRIPT_NAME'];
+$pattern = "/^$script?\?\/?(.*?)(\.html)?$/si";
+
 if ($_SERVER["REDIRECT_QUERY_STRING"]) {
     $url = $_SERVER["REDIRECT_QUERY_STRING"];
-} elseif (preg_match("/\?\/?(.*?)(\.html)?$/si", $_SERVER['REQUEST_URI'], $match)) {
+} elseif (preg_match($pattern, $_SERVER['REQUEST_URI'], $match)) {
     //supports for http://localhost/?/user/login format
     //supports for http://localhost/index.php?/user/login format
     $url = $match[1];
