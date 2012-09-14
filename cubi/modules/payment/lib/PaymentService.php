@@ -9,9 +9,8 @@ class PaymentService
 		$providerObj = $this->getProviderObj($type);
 		$url = $providerObj->getPaymentURL($orderId,$amount,$title,$body,$descURL);
 		if($url)
-		{
-			$script="<script>window.open('$url');</script>";
-			BizSystem::ClientProxy()->RunClientScript($script);
+		{			
+			BizSystem::ClientProxy()->redirectPage($url);		
 			return true;
 		}
 		return false;
