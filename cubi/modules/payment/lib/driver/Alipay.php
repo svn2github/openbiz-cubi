@@ -73,6 +73,7 @@ class Alipay extends PaymentAdapter
 	public function GetReturnData(){
 		$data = array();
 		$data['buyer_account'] 	= $_REQUEST['buyer_email'];
+		$data['buyer_id'] 		= $_REQUEST['buyer_id'];
 		$data['order_id'] 		= $_REQUEST['out_trade_no'];
 		$data['trans_id'] 		= $_REQUEST['trade_no'];
 		$data['txn_id'] 		= $_REQUEST['notify_id'];
@@ -84,6 +85,7 @@ class Alipay extends PaymentAdapter
 	
 	public function ValidateNotification($txn_id)
 	{
+		parent::ValidateNotification($txn_id);
 		$alipay_config = $this->_getConfig();
 		$alipayNotify = new AlipayNotify($alipay_config);		
 		return $alipayNotify->getResponse($txn_id);

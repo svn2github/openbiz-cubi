@@ -47,6 +47,7 @@ class Paypal extends PaymentAdapter
 		$data = array();		
 		
 		$data['buyer_account'] 	= $_REQUEST['payer_email'];
+		$data['buyer_id']	 	= $_REQUEST['payer_id'];
 		$data['order_id'] 		= $_REQUEST['item_number'];
 		$data['trans_id'] 		= $_REQUEST['txn_id'];
 		$data['txn_id'] 		= $_REQUEST['txn_id'];
@@ -59,6 +60,7 @@ class Paypal extends PaymentAdapter
 	
 	public function ValidateNotification($txn_id)
 	{
+		parent::ValidateNotification($txn_id);
 		$paypal = new paypal_class();
 		$paypal->paypal_mail = $config['account'];
 		$result = $paypal->validate_ipn();		

@@ -1,0 +1,62 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<BizDataObj Name="LogDO" 
+		DataPermControl="N"
+		Class="BizDataObj" 
+		DBName="Default" 
+		Table="payment_log" 
+		SearchRule="" 
+		OtherSQLRule=""
+		Uniqueness="" 
+		Stateless="N" 
+		IdGeneration="Identity" 
+		CacheLifeTime="0" 
+		CreateCondition="payment.Manage" 
+		UpdateCondition="payment.Manage" 
+		DeleteCondition="payment.Manage" >
+	<BizFieldList>
+		<BizField Name="Id"			
+				Description="Id"	
+				Column="id"    
+				Required="N" 
+				Type="Number"/>
+				
+		<BizField Name="provider_id"			
+				Column="provider_id"  />	
+
+		<BizField Name="txn_id"			
+				Column="txn_id"  />	
+		
+		<BizField Name="order_id"			
+				Column="order_id"  />
+				
+		<BizField Name="payer_email"			
+				Column="payer_email"  />
+		
+		<BizField Name="payer_id"			
+				Column="payer_id"  />
+				
+		<BizField Name="payment_subject"			
+				Column="payment_subject"  />				
+
+		<BizField Name="payment_amount"			
+				Column="payment_amount"  />
+				
+		<BizField Name="payment_status"			
+				Column="payment_status"  />				
+		
+		<BizField Name="rawdata"			
+				Column="rawdata"  />
+		
+		<BizField Name="create_time"	
+				Description="Create Time"	
+				Column="create_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+</BizDataObj>

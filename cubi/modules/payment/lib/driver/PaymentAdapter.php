@@ -9,6 +9,7 @@ class PaymentAdapter implements iPayment
 	protected $m_Type = '';
 		
 	protected $m_ProviderDO = "payment.provider.do.ProviderDO";
+	protected $m_LogDO = "payment.log.do.LogDO";
 	
 	protected function _getProviderInfo()
 	{
@@ -31,11 +32,73 @@ class PaymentAdapter implements iPayment
 	
     public function GetPaymentURL($orderId, $amount,  $title=null,$customData=null){}
 
-    public function ValidateNotification($txn_id){}    
+    public function ValidateNotification($txn_id){
+    	$this->_log();    	
+    }    
     
 	public function GetReturnData(){}
 	
-    public function log(){}	
+	public function ProcessCustomTrigger($data)
+	{
+		//if there is no log record, then process it to make sure its only been process once
+		if(!$data['custom'])
+    	{
+    		return;    		
+    	}
+    	
+		$customArr = unserialize($data['custom']);
+    	if(!is_array($customArr))
+    	{
+    		return;
+    	}
+    	
+    	$txn_id = $data['txn_id'];
+    	if($this->CheckLogExists($txn_id))
+    	{
+    		return;
+    	}
+    	
+    	$obj 	= $customArr['Object'];
+    	$method = $customArr['Method'];
+    	return BizSystem::getObject($obj)->$method($data); 	
+	}
+	
+	public function CheckLogExists($txn_id)
+	{
+		$searchRule = "[txn_id]='$txn_id' AND [provider_id]='".$this->m_ProviderId."' ";
+		$record = BizSystem::getObject($this->m_LogDO)->fetchOne($searchRule);
+		if($record)
+		{
+			return $record['Id'];
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+    protected  function _log()
+    {
+    	$logArr = $this->GetReturnData();
+    	$logArr['provider_id'] 		= $this->m_ProviderId;
+    	$logArr['payer_email'] 		= $logArr['buyer_account'];
+    	$logArr['payer_id'] 		= $logArr['buyer_id'];
+    	$logArr['payment_subject'] 	= $logArr['subject'];
+    	$logArr['payment_amount'] 	= $logArr['amount'];
+    	$logArr['payment_status'] 	= $logArr['status']; 
+    	$logArr['rawdata'] = serialize($_REQUEST);
+    	
+    	if($logArr['custom'])
+    	{
+    		$customArr = unserialize($logArr['custom']);
+    		if(is_array($customArr))
+    		{
+    			$this->ProcessCustomTrigger($logArr);
+    		}
+    	}
+    	
+    	return BizSystem::getObject($this->m_LogDO)->insertRecord($logArr);    	
+    }	
     
 }
 ?>

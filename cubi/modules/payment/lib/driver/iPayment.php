@@ -7,6 +7,5 @@ interface iPayment
     
     public function GetReturnData();
     
-    public function log();
 }
 ?>
