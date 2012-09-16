@@ -83,7 +83,7 @@ class Alipay extends PaymentAdapter
 		return $data;		
 	}
 	
-	public function ValidateNotification($txn_id)
+	public function ValidateNotification($txn_id=null)
 	{
 		parent::ValidateNotification($txn_id);
 		$alipay_config = $this->_getConfig();

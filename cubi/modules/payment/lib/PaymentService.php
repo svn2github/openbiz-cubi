@@ -35,7 +35,7 @@ class PaymentService
 		return $this->getProviderObj($type)->getReturnData();
 	}
 	
-	public function ValidateNotification($type,$txn_id)
+	public function ValidateNotification($type,$txn_id=null)
 	{
 		return $this->getProviderObj($type)->ValidateNotification($txn_id);
 	}

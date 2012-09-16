@@ -32,7 +32,12 @@ class PaymentAdapter implements iPayment
 	
     public function GetPaymentURL($orderId, $amount,  $title=null,$customData=null){}
 
-    public function ValidateNotification($txn_id){
+    public function ValidateNotification($txn_id=null){
+    	if(!$txn_id)
+    	{
+    		$data = $this->GetReturnData();
+    		$txn_id = $data['txn_id'];
+    	}
     	$this->_log();    	
     }    
     

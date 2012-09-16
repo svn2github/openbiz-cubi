@@ -58,7 +58,7 @@ class Paypal extends PaymentAdapter
 		return $data;		
 	}
 	
-	public function ValidateNotification($txn_id)
+	public function ValidateNotification($txn_id=null)
 	{
 		parent::ValidateNotification($txn_id);
 		$paypal = new paypal_class();

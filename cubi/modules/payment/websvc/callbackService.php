@@ -5,8 +5,8 @@ class callbackService extends  WebsvcService
 	protected  $svc = "payment.lib.PaymentService";
 	 
 	public function verify()
-	{		
-		$type = $_REQUEST['type'];
+	{
+		return BizSystem::getObject($this->svc)->ValidateNotification($_REQUEST['type']);
 	}
 }
 ?>
