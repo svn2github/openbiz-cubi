@@ -13,11 +13,72 @@
 
 class LocationForm extends EasyForm
 {
+	public $canUpdate = 0;
+	protected $geocode_url = "http://maps.googleapis.com/maps/api/geocode/json?sensor=false";
+	
+	// keep canUpdate in session
+	public function getSessionVars($sessionContext)
+    {
+        parent::getSessionVars($sessionContext);
+		$sessionContext->getObjVar($this->m_Name, "canUpdate", $this->canUpdate);
+	}
+	
+	public function setSessionVars($sessionContext)
+    {
+        parent::setSessionVars($sessionContext);
+		$sessionContext->setObjVar($this->m_Name, "canUpdate", $this->canUpdate);
+	}
 	
 	public function close(){
 		return parent::close();
 	}
 	
+	public function InsertRecord()
+	{
+		parent::InsertRecord();
+		$this->close();
+	}
+	
+	public function UpdateRecord()
+	{
+		parent::UpdateRecord();
+		$this->close();
+	}
+	
+	protected function readInputRecord()
+	{
+		$recArr = parent::readInputRecord();
+		$loc = $this->getLatLong($recArr['address']);
+		if ($loc) {
+			$recArr['latitude'] = $loc['lat'];
+			$recArr['longtitude'] = $loc['lng'];
+		}
+		return $recArr;
+	}
+	
+	protected function getLatLong($address)
+	{
+		require_once 'Zend/Json.php';
+		$jsonValue = file_get_contents($this->geocode_url."&address=".urlencode($address));
+		$jsonArray = Zend_Json::decode($jsonValue,true);
+		if ($jsonArray['status']!='OK') {
+			$errorMessage = "Invalid address"; //$this->getMessage("FORM_ELEMENT_REQUIRED",array($elementName));
+			$this->m_ValidateErrors['fld_address'] = $errorMessage;
+			return null;
+		}
+		$location = $jsonArray['results'][0]['geometry']['location'];
+		return $location;
+	}
+	
+	protected function validateForm($cleanError = true)
+	{
+		if (count($this->m_ValidateErrors) > 0)
+        {
+            throw new ValidationException($this->m_ValidateErrors);
+            return false;
+        }
+		parent::validateForm($cleanError);
+	}
 
 	public function deleteLocation($id)
 	{

@@ -7,10 +7,23 @@
 -->
 <EasyForm Name="LocationListDetailForm" Class="LocationForm" FormType="List" jsClass="jbForm" BizDataObj="location.do.LocationDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="location_list_lite.tpl.html"  Access="location.access">
     <DataPanel>        
-        <Element Name="fld_Id" Class="RawData"  FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />        
-        <Element Name="fld_title" Class="RawData" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-		<Element Name="fld_description" Class="RawData" FieldName="description" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_longtitude"  Class="RawData" FieldName="longtitude" Label="longtitude" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_latitude" Class="RawData" FieldName="latitude"  Label="latitude" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
+        <Element Name="fld_Id" Class="RawData"  FieldName="Id" Label="Id" AllowURLParam="N" Link="javascript:" />        
+        <Element Name="fld_title" Class="RawData" FieldName="title" Label="Title"  ></Element>
+		<Element Name="fld_address" Class="RawData" FieldName="address" Label="Address"  ></Element>
+		<Element Name="fld_description" Class="RawData" FieldName="description" Label="Title"  ></Element>
+        <Element Name="fld_longtitude"  Class="RawData" FieldName="longtitude" Label="longtitude" ></Element>
+        <Element Name="fld_latitude" Class="RawData" FieldName="latitude"  Label="latitude" ></Element>	
+		<Element Name="fld_update_time" Class="RawData" FieldName="update_time"  Label="update_time" ></Element>
+		<Element Name="fld_edit" Class="LabelText" Label="Action" text="Edit" Link="javascript:;" Hidden="{@:canUpdate=='1'?'N':'Y'}">
+            <EventHandler Name="edit_onclick" Event="onclick" Function="LoadDialog(location.widget.LocationEditForm,{@:Elem[fld_Id].Value},1)"/>
+        </Element>
+		<Element Name="fld_delete" Class="LabelText" Label="Action" text="Delete" Link="javascript:;" Hidden="{@:canUpdate=='1'?'N':'Y'}">
+            <EventHandler Name="delete_onclick" Event="onclick" Function="DeleteRecord({@:Elem[fld_Id].Value})"/>
+        </Element>
 	</DataPanel>
+	<ActionPanel>
+		<Element Name="btn_add" Class="Button" text="Add Location" CssClass="button_gray_w" Hidden="{@:canUpdate=='1'?'N':'Y'}">
+            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(location.widget.LocationNewForm)"/>
+        </Element>
+	</ActionPanel>
 </EasyForm>

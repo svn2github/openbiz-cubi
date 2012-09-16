@@ -8,13 +8,15 @@
 <EasyForm Name="LocationEditForm" Class="LocationForm" Icon="{RESOURCE_URL}/location/images/icon_location.png" FormType="Detail" jsClass="jbForm" Title="Location Detail" Description="You can edit title and description for a uploaded location." BizDataObj="location.do.LocationPickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_location_quick_edit.tpl.html"  Access="location.access">
     <DataPanel>        
     	<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>   
-        <Element Name="fld_title" Class="InputText" FieldName="title" Label="Title"   />	        
-        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"   />        
+        <Element Name="fld_title" Class="InputText" FieldName="title" Label="Title"/>	        
+        <Element Name="fld_address" DefaultValue="" Class="InputText" FieldName="address" Label="Address" Required="Y"/>
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"/>
+		<Element Name="fld_longtitude" HTMLattr="style='display:none;'" DefaultValue="{@:Params[longtitude]}" Class="Hidden" FieldName="longtitude" Label=""/>
+		<Element Name="fld_latitude"  HTMLattr="style='display:none;'" DefaultValue="{@:Params[latitude]}" Class="Hidden" FieldName="latitude" Label=""/> 
     </DataPanel>
     <ActionPanel>
-	 
-		<Element Name="btn_edit" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="btn_close_onclick" Event="onclick" Function="UpdateRecord()" RedirectPage="form=location.widget.LocationDetailForm&amp;fld:Id={@location.do.LocationDO:Field[Id].Value}" />
+		<Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="btn_save_onclick" Event="onclick" Function="UpdateRecord()" />
         </Element>
         
         <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">

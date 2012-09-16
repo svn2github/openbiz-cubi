@@ -1,31 +1,21 @@
 <div id='{$form.name}' name='{$form.name}'>
 <style>
 {literal}
-.picture_line{
-border-bottom:1px solid #d6d6d6;padding:10px;width:620px;overflow:hidden;
-}
-.picture_item{
-display:block;
-float:left;
-/*width:100px;*/
-height:100px;
-line-height:100px;
+.attach_line{
+border-bottom:1px solid #d6d6d6;
+padding:10px;
+width:620px;
 overflow:hidden;
-position:relative;
-z-index:1;	
 }
-.picture_item img{
-float:left;
-}
-.picture_title{
+.attach_title{
 font-size:14px;
 line-height:20px;
-}
-.picture_attr{
-background-color:#f8f8f8;
-display:block;
-padding:5px 10px 10px 10px;
-}
+height:30px;
+padding-left:30px;
+display:block;{/literal}
+background-image: url('{php} echo RESOURCE_URL.'/attachment/images/icon_attachment_private.png';{/php}');
+background-repeat:no-repeat;
+{literal}}
 {/literal}
 </style>
 <div style="padding-left:0px;padding-right:0px;">
@@ -34,29 +24,25 @@ padding:5px 10px 10px 10px;
 <div class="from_table_container" style="width:642px;">
 <!-- table start -->
 
+
 {foreach item=row from=$dataPanel.data}
-<div class="picture_line">
-	<div class="picture_item">
-		<a href="{$row.fld_url}" target="_blank"><img title="{$row.fld_title}" src="{php} echo APP_URL.'/rs.php?h=100&f=';{/php}{$row.fld_url}"  border="0" ></a>
+<div class='attach_line'>
+	<div style="padding:0px;">
+		<span class="attach_title"><a href="{$row.fld_url}" target="_blank">{$row.fld_title}</a></span>
 	</div>
-	<div style="float:left; padding-left:20px;">
-		<div style="padding:0px;">
-			<a href="{$row.fld_url}" target="_blank" class="picture_title">{$row.fld_title}</a>
-		</div>
-		<p>
-		{if $row.fld_description}<span>{$row.fld_description}</span><br/>{/if}
-		<span>{$row.fld_filename} ( {$row.fld_filesize} )</span><br/>
-		<span>{t}Uploaded on: {/t} {$row.fld_create_time}</span><br/>
-		</p>
-		<p>
-		<table border="0"><tr>
-		<td>{$row.fld_edit}</td>
-		<td>{$row.fld_delete}</td>
-		</tr></table>
-		</p>
-	</div>
+	<p>
+	{if $row.fld_description}<span>{$row.fld_description}</span><br/>{/if}
+	<span>{$row.fld_filename} ( {$row.fld_filesize} )</span>
+	<span>{t}Uploaded on: {/t} {$row.fld_create_time}</span><br/>
+	</p>
+	<p>
+	<table border="0"><tr>
+	<td>{$row.fld_download_file}</td>
+	<td>{$row.fld_edit}</td>
+	<td>{$row.fld_delete}</td>
+	</tr></table>
+	</p>
 </div>
-<div style="clear:both"></div>
 {/foreach}
 
 {if $actionPanel or $searchPanel }	

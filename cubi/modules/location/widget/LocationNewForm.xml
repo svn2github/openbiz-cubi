@@ -5,9 +5,10 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="LocationNewForm" Class="LocationForm" Icon="{RESOURCE_URL}/location/images/icon_location.png" FormType="New" jsClass="jbForm" Title="New Location" Description="Please select files from your computer to upload locations." BizDataObj="location.do.LocationPickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_location_quick_add.tpl.html"  Access="location.access">
+<EasyForm Name="LocationNewForm" Class="LocationForm" Icon="{RESOURCE_URL}/location/images/icon_location.png" FormType="New" jsClass="jbForm" Title="New Location" Description="Please select files from your computer to upload locations." BizDataObj="location.do.LocationPickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_location_quick_edit.tpl.html"  Access="location.access">
     <DataPanel>        
-        <Element Name="fld_title" DefaultValue="New Location" Class="InputText" FieldName="title" Label="Title"   />	
+        <Element Name="fld_title" DefaultValue="New Location" Class="InputText" FieldName="title" Label="Title"   />
+		<Element Name="fld_address" DefaultValue="New Address" Class="InputText" FieldName="address" Label="Address"   />
         <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"   />
 		<Element Name="fld_longtitude" HTMLattr="style='display:none;'" DefaultValue="{@:Params[longtitude]}" Class="Hidden" FieldName="longtitude" Label=""   />
 		<Element Name="fld_latitude"  HTMLattr="style='display:none;'" DefaultValue="{@:Params[latitude]}" Class="Hidden" FieldName="latitude" Label=""   />

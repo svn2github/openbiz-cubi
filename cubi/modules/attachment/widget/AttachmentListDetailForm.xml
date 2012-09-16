@@ -5,19 +5,42 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="AttachmentListDetailForm" Class="AttachmentForm" FormType="List" jsClass="jbForm" BizDataObj="attachment.do.AttachmentDO"   PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="attachment.access">
+<EasyForm Name="AttachmentListDetailForm" Class="AttachmentForm" FormType="List" jsClass="jbForm" BizDataObj="attachment.do.AttachmentDO"   PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="attachment_list_lite.tpl.html"  Access="attachment.access">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
         <Element Name="fld_icon" Class="ColumnImage" 
 				Text="{RESOURCE_URL}/attachment/images/icon_attachment_private.png"
-				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">							
+				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" Link="javascript:;">
 		</Element>
-        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
-        	<EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentDetailROForm,{@:Elem[fld_Id].Value})"/>
+		 <Element Name="fld_download_file" Class="LabelImage" 
+				Text="{RESOURCE_URL}/attachment/images/icon_download.png"
+				FieldName="" Label=""  Sortable="N" Link="javascript:;">
+			<EventHandler Name="btn_download_onclick" Event="onclick" FunctionType="Page" Function="FileDownload({@:Elem[fld_Id].Value})"/>
+		</Element>
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"   Link="javascript:">         
+        	<EventHandler Name="title_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentDetailROForm,{@:Elem[fld_Id].Value})"/>
         </Element>
-        <Element Name="fld_filename" MaxLength="20" Class="ColumnText" FieldName="filename" Label="Filename" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_filesize" Class="ColumnText" FieldName="filesize" Text="{tx}@util:format_bytes(@:Elem[fld_filesize].Value){/tx}" Label="Filesize" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
-        <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Timestamp"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-        <Element Name="fld_download" Class="ColumnText" FieldName="download_count" Label="Downloads" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_filename" Class="ColumnText" FieldName="filename" Label="Filename"  ></Element>
+		<Element Name="fld_description" Class="ColumnText" FieldName="description" Label="Description"  ></Element>
+        <Element Name="fld_filesize" Class="ColumnText" FieldName="filesize" Text="{tx}@util:format_bytes(@:Elem[fld_filesize].Value){/tx}" Label="Filesize"  ></Element>		
+        <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Timestamp"   ></Element>
+        <Element Name="fld_download" Class="ColumnText" FieldName="download_count" Label="Downloads"  ></Element>
+		<Element Name="fld_edit" Class="LabelText" Label="Action" text="Edit" Link="javascript:;" Hidden="{@:canUpdate=='1'?'N':'Y'}">
+            <EventHandler Name="edit_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentEditForm,{@:Elem[fld_Id].Value},1)"/>
+        </Element>
+		<Element Name="fld_delete" Class="LabelText" Label="Action" text="Delete" Link="javascript:;" Hidden="{@:canUpdate=='1'?'N':'Y'}">
+            <EventHandler Name="delete_onclick" Event="onclick" Function="DeleteRecord({@:Elem[fld_Id].Value})"/>
+        </Element>
     </DataPanel>
+	<ActionPanel>
+		<Element Name="btn_add" Class="Button" text="Add attachment" CssClass="button_gray_w" Hidden="{@:canUpdate=='1'?'N':'Y'}">
+            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentNewForm)"/>
+        </Element>
+		<!--<Element Name="btn_edit" Class="Button" text="Edit" CssClass="button_gray_m">
+            <EventHandler Name="edit_onclick" Event="onclick" Function="LoadDialog(attachment.widget.AttachmentEditForm,,1)"/>
+        </Element>
+         <Element Name="btn_delete" Class="Button" text="Delete" CssClass="button_gray_m">
+            <EventHandler Name="delete_onclick" Event="onclick" Function="DeleteRecord()"/>
+        </Element>-->
+	</ActionPanel>
 </EasyForm>

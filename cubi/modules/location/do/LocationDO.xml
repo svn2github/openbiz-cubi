@@ -10,10 +10,10 @@
 		<BizField Name="Id" Column="id"     Type=""/>
 		<BizField Name="title" Column="title" Length="255"   Required="N" Type=""/>
 		<BizField Name="description" Column="description" Type=""/>
+		<BizField Name="address" Column="address" Type=""/>
 		
 		<BizField Name="longtitude" Column="longtitude" Type=""/>		
 		<BizField Name="latitude" Column="latitude" Type=""/>
-
    		
 		<BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>
         <BizField Name="group_perm" Column="group_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   Required="N" Type="Number"/>
