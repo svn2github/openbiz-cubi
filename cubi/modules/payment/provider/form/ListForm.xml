@@ -45,13 +45,13 @@
 	</DataPanel>
     <ActionPanel>
      <!-- 
-        <Element Name="btn_edit2" Class="Button" Text="Edit" CssClass="button_gray_m" Description="Edit Setting (Ctrl+E)" Access="sms.Manage">
+        <Element Name="btn_edit2" Class="Button" Text="Edit" CssClass="button_gray_m" Description="Edit Setting (Ctrl+E)" Access="payment.Manage">
             <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=sms.provider.form.EditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>
         
         <Element Name="btn_spacer" Class="Spacer" width="10" />
         -->		
-     	<Element Name="btn_test" Class="Button" Text="New Payment" CssClass="button_gray_w"   Access="sms.Manage">
+     	<Element Name="btn_test" Class="Button" Text="New Payment" CssClass="button_gray_w"   Access="payment.Manage">
             <EventHandler Name="btn_edit_onclick" Event="onclick" 
 				Function="SwitchForm(payment.test.form.TestPaymentForm)" />
         </Element>
@@ -59,7 +59,7 @@
         
         <Element Name="btn_spacer_2" Class="Spacer" width="10" />		
         
-        <Element Name="btn_log" Class="Button" Text="Trans Log" CssClass="button_gray_w"  Access="sms.Manage">          
+        <Element Name="btn_log" Class="Button" Text="Trans Log" CssClass="button_gray_w"  Access="payment.Manage">          
         	<EventHandler Name="btn_log_onclick" Event="onclick" 
 					Function="SwitchForm(payment.log.form.ListForm)" />
         </Element>

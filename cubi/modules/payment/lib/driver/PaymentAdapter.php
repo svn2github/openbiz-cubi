@@ -102,7 +102,12 @@ class PaymentAdapter implements iPayment
     		}
     	}
     	
-    	return BizSystem::getObject($this->m_LogDO)->insertRecord($logArr);    	
+    	if(!$this->CheckLogExists($logArr['txn_id']))
+    	{
+    		BizSystem::getObject($this->m_LogDO)->insertRecord($logArr);
+    	}   
+
+    	return;
     }	
     
 }

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="ListForm" 
+			Class="LogForm"			  
+			FormType="List" 
+			jsClass="Openbiz.TableForm" 
+			Icon="{RESOURCE_URL}/sms/images/icon_mod_list.png"
+			Title="Payment Transcation Log" 
+			Description="You can view payment nofitication logs which sent from payment service providers." 
+			BizDataObj="payment.log.do.LogDO" 
+			PageSize="10" 			
+			TemplateEngine="Smarty" 
+			TemplateFile="form_grid.tpl.html" 		
+			MessageFile="" 
+			Access="payment.Manage">
+	<DataPanel>
+            
+
+		<Element Name="fld_Id" 
+        			Class="common.element.ColumnTitle" 
+        			FieldName="Id" 
+        			Label="ID" 
+        			Hidden="Y"
+        			Sortable="Y" 
+        			AllowURLParam="N" 
+        			Link="javascript:;" />   
+        			
+		<Element Name="fld_trans_id" 
+        			Class="ColumnText" 
+        			FieldName="txn_id" 
+        			Label="Transcation ID" 
+        			MaxLength="10" 
+        			Sortable="Y"
+        			 />      
+    
+		<Element Name="fld_provider" 
+        			Class="ColumnText" 
+        			FieldName="provider_name" 
+        			Label="Provider"         			 
+        			Sortable="Y" 
+					/> 
+        	
+        <Element Name="fld_payer_email" 
+        			Class="ColumnText" 
+        			FieldName="payer_email" 
+        			Label="Payer Email" 
+        			Sortable="Y"
+        			 />   
+    
+		<Element Name="fld_payment_subject" 
+        			Class="ColumnText" 
+        			FieldName="payment_subject" 
+        			Label="Payment Subject" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />    
+        	
+   
+    
+		<Element Name="fld_amount" 
+        			Class="ColumnText" 
+        			FieldName="payment_amount" 
+        			Label="Amount" 
+        			Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_amount].Value)}"
+        			Style="color:#ff0000"
+        			MaxLength="30"        			 
+        			Sortable="Y"
+        			 />    
+        	
+     
+    
+		<Element Name="fld_create_time" 
+        			Class="ColumnText" 
+        			FieldName="create_time" 
+        			Label="Create Time" 
+        			Sortable="Y"
+        			 />    		
+	 
+        	
+    
+  
+	</DataPanel>
+    <ActionPanel>        
+        <Element Name="btn_cancel" 
+        			Class="Button" 
+        			Text="Back" 
+        			CssClass="button_gray_w">
+            <EventHandler Name="cancel_onclick" 
+            			Event="onclick" 
+            			Function="SwitchForm()"  
+            			ShortcutKey="Escape" 
+            			ContextMenu="Cancel"/>
+        </Element>     
+    	
+    	<Element Name="btn_spacer" Class="Spacer" width="10" />
+    			
+        <Element Name="btn_excel" Class="Button" Text="Export"  CssClass="button_gray_w">
+            <EventHandler Name="onclick" Event="onclick" Function="ExportCSV()" EventLogMsg="MSG_EMAIL_LOG_EXPORT" FunctionType="Popup"  ShortcutKey="Ctrl+E" ContextMenu="Export Logs" />
+        </Element>          
+		<Element Name="btn_delete_all" Class="Button" Text="Clear All" CssClass="button_gray_w">
+            <EventHandler Name="btn_delete_all_onclick" Event="onclick" Function="ClearLog()" EventLogMsg="MSG_SMS_QUEUE_DELETE_ALL"  ContextMenu="Delete All" />
+        </Element>     
+		
+    </ActionPanel> 
+    <NavPanel>
+    	
+    	<!-- Page Selector -->
+		<Element  Name="page_selector" 
+					Class="PageSelector" 
+					Text="{@:m_CurrentPage}" 
+					Label="Go to Page" 
+					CssClass="input_select" 
+					CssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" 
+            				Event="onchange" 
+            				Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        
+        <!-- Page Size Selector -->
+        <Element  Name="pagesize_selector" 
+        			Class="PagesizeSelector" 
+        			Text="{@:m_Range}" 
+        			Label="Show Rows" 
+        			CssClass="input_select" 
+        			CssFocusClass="input_select_focus">
+            <EventHandler Name="btn_pagesize_selector_onchange" 
+            				Event="onchange" 
+            				Function="SetPageSize(pagesize_selector)"/>
+        </Element> 
+        
+        <!-- Goto First Page Button -->   
+        <Element  Name="btn_first" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage(1)"/>
+        </Element>
+        
+        <!-- Goto Previous Page Button -->   
+        <Element Name="btn_prev" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_CurrentPage - 1})" 
+            				ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        
+        <!-- Display Current Page / Total Pages -->
+        <Element Name="txt_page" 
+        			Class="LabelText" 
+        			Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        
+        <!-- Goto Next Page Button -->  
+        <Element Name="btn_next" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_CurrentPage + 1})" 
+            				ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        
+        <!-- Goto Last Page Button -->  
+        <Element  Name="btn_last" 
+        			Class="Button" 
+        			Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" 
+        			CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" 
+            				Event="onclick" 
+            				Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+        
+    </NavPanel> 
+   
+</EasyForm>
