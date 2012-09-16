@@ -36,7 +36,10 @@
         			Label="Transcation ID" 
         			MaxLength="10" 
         			Sortable="Y"
-        			 />      
+        			Link="javascript:;"
+        			 >
+        			<EventHandler Name="onclick" Event="onclick" Function="SwitchForm(payment.log.form.DetailForm,{@:Elem[fld_Id].Value})"  /> 
+        </Element>      
     
 		<Element Name="fld_provider" 
         			Class="ColumnText" 
@@ -72,7 +75,7 @@
         			Sortable="Y"
         			 />    
         	
-     
+
     
 		<Element Name="fld_create_time" 
         			Class="ColumnText" 

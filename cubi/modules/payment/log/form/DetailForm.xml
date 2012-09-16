@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: EmailQueueDetailForm.xml 3358 2012-05-31 05:57:58Z rockyswen@gmail.com $
+-->
+<EasyForm Name="DetailForm" 
+		Class="LogForm" 
+		jsClass="jbForm" 
+		Icon="{RESOURCE_URL}/payment/images/icon_payment.png"		
+		Title="Transcation Log Detail" 
+		Description="Detailed inforamtion of transcation log record." 
+		BizDataObj="payment.log.do.LogDO" 
+		DefaultForm="Y" 
+		TemplateEngine="Smarty" 
+		TemplateFile="log_detail.tpl.html" 
+		Access="payment.Manage" >
+    <DataPanel>
+    	 <Element Name="fld_Id" 
+        			Class="Hidden" 
+        			FieldName="Id" 
+        			Label="ID" 
+        			Hidden="Y"
+        			Sortable="Y" 
+        			AllowURLParam="N" 
+        			Link="javascript:;" />   
+
+		<Element Name="fld_platform" 
+       				Class="LabelImage" 
+       				FieldName="provider_type" 
+       				Label="Payment Provider"        	
+       				Text="{RESOURCE_URL}/payment/images/icon_{@:Elem[fld_platform].Value}.png" 			
+       				/> 
+       				        			
+		<Element Name="fld_trans_id" 
+        			Class="LabelText" 
+        			FieldName="txn_id" 
+        			Label="Transcation ID" 
+        			Sortable="Y"
+        			 />      
+    
+
+        	
+        <Element Name="fld_payer_email" 
+        			Class="LabelText" 
+        			FieldName="payer_email" 
+        			Label="Payer Email" 
+        			Sortable="Y"
+        			 />   
+    
+		<Element Name="fld_payment_subject" 
+        			Class="LabelText" 
+        			FieldName="payment_subject" 
+        			Label="Payment Subject" 
+        			MaxLength="15"        			 
+        			Sortable="Y"
+        			 />    
+        	
+   
+    
+		<Element Name="fld_amount" 
+        			Class="LabelText" 
+        			FieldName="payment_amount" 
+        			Label="Amount" 
+        			Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_amount].Value)}"
+        			Style="color:#ff0000"
+        			MaxLength="30"        			 
+        			Sortable="Y"
+        			 />    
+        	
+
+    
+		<Element Name="fld_create_time" 
+        			Class="LabelText" 
+        			FieldName="create_time" 
+        			Label="Create Time" 
+        			Sortable="Y"
+        			 />    	
+        			 
+     	<Element Name="fld_rawdata" 
+        			Class="payment.log.element.RawDataDisplay" 
+        			FieldName="rawdata" 
+        			Label="Raw Data" 
+        			 />               			 	
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_back" Class="Button" Text="Back to list" CssClass="button_gray_w"  >
+        	<EventHandler Name="btn_back_onclick" Event="onclick" Function="SwitchForm(payment.log.form.ListForm)" ShortcutKey="Escape" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel>  
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

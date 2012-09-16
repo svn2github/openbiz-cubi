@@ -31,7 +31,11 @@
 		<BizField Name="provider_name"			
 				Column="name"
 				Join="JoinProvider"    				
-				/>		
+				/>	
+		<BizField Name="provider_type"			
+				Column="type"
+				Join="JoinProvider"    				
+				/>						
 		<BizField Name="txn_id"			
 				Column="txn_id"  />	
 		
