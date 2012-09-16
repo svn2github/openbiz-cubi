@@ -53,6 +53,7 @@
         			FieldName="payer_email" 
         			Label="Payer Email" 
         			Sortable="Y"
+        			Link="mailto:{@:Elem[fld_payer_email].Value}"
         			 />   
     
 		<Element Name="fld_payment_subject" 

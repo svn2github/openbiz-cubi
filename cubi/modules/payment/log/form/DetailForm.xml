@@ -46,6 +46,7 @@
         			Class="LabelText" 
         			FieldName="payer_email" 
         			Label="Payer Email" 
+        			Link="mailto:{@:Elem[fld_payer_email].Value}"
         			Sortable="Y"
         			 />   
     
