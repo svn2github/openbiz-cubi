@@ -1,0 +1,25 @@
+<form id="{$form.name}" name="{$form.name}">
+
+<div class="payment-block payment-finished" >
+	
+	<div class="form-title" style="padding-bottom:10px;"><img src="{$form.icon}" style="float:left;margin-right:10px;"><h1 style="line-height:32px;">{$form.title}</h1></div>
+	<div style="color:#666666;padding-bottom:20px;">{$form.description}</div>
+	{foreach item=item key=itemName from=$dataPanel}
+		<p class="input_row" style="height:26px;padding-left:2px;">
+			<label class="form-label">{$item.label}</label>
+			<span>{$item.element}</span>
+			{if $errors.$itemName}
+			<span class="input_error_msg" >{$errors.$itemName}</span>
+			{elseif $item.description}
+			<span class="input_desc" >{$item.description}</span>			
+			{/if}			
+		</p>
+	{/foreach}
+
+		<p class="input_row" style="padding-top:10px;">
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>
+</div>
+</form>

@@ -17,21 +17,33 @@
 			MessageFile="PaymentProvider.ini" 
 			Access="">
     <DataPanel>
+
+		<Element Name="fld_platform" 
+       				Class="LabelImage" 
+       				FieldName="" 
+       				Label="Payment Provider"        	
+       				Text="{RESOURCE_URL}/payment/images/icon_{$_GET['type']}.png" 			
+       				/> 
       	<Element Name="fld_buyer_account" 
        				Class="LabelText" 
        				FieldName="buyer_account" 
        				Label="Buyer Account"        				
+       				/>           				
+		<Element Name="fld_trans_id" 
+       				Class="LabelText" 
+       				FieldName="trans_id" 
+       				Label="Trans ID"        				
        				/>    
+       				    
+
+		<!-- 
 		<Element Name="fld_subject" 
        				Class="LabelText" 
        				FieldName="subject" 
        				Label="Subject"        				
        				/>  
-		<Element Name="fld_trans_id" 
-       				Class="LabelText" 
-       				FieldName="trans_id" 
-       				Label="Trans ID"        				
-       				/>        				
+    	 -->
+    	 
 		<Element Name="fld_order_id" 
        				Class="LabelText" 
        				FieldName="order_id" 

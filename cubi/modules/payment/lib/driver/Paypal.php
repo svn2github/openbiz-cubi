@@ -27,6 +27,7 @@ class Paypal extends PaymentAdapter
 		$paypal->add_field("item_number",	$orderId);
 		$paypal->add_field("undefined_quantity",0);
 		$paypal->add_field("no_shipping",	1);
+		$paypal->add_field("no_note",		1);
 		$paypal->add_field("rm",			2);
 		$paypal->add_field("custom",		serialize($customData));
 		$paypal->add_field("charset",		'utf-8');
@@ -34,6 +35,25 @@ class Paypal extends PaymentAdapter
 		
 		$url = $paypal->build_param_url();
 		return $url;
-	}							  
+	}
+
+	public function GetReturnData(){
+		$data = array();		
+		
+		$data['buyer_account'] 	= $_REQUEST['payer_email'];
+		$data['order_id'] 		= $_REQUEST['item_number'];
+		$data['trans_id'] 		= $_REQUEST['txn_id'];
+		$data['txn_id'] 		= $_REQUEST['txn_id'];
+		$data['subject'] 		= $_REQUEST['item_name'];
+		$data['amount'] 		= $_REQUEST['mc_gross'];
+		$data['status'] 		= $_REQUEST['payment_status'];
+
+		return $data;		
+	}
+	
+	public function ValidateNotification($txn_id)
+	{
+		
+	}	
 }
 ?>

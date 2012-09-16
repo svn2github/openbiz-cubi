@@ -5,40 +5,33 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="FinishedForm" 
-			Class="FinishedForm" 
+<EasyForm Name="CancelledForm" 
+			Class="CancelledForm" 
 			FormType="New" 
 			jsClass="Openbiz.Form" 
 			Icon="{RESOURCE_URL}/payment/images/icon_cancelled.png"
-			Title="Payment Finished" 
+			Title="Payment Cancelled" 
+			Description="We are sorry to acknowledge that \n your payment request has been cancelled.\n The specified provider will not charge money from your bank account."
 			BizDataObj="" 
 			TemplateEngine="Smarty" 
-			TemplateFile="payment_finished.tpl.html" 
+			TemplateFile="payment_cancelled.tpl.html" 
 			MessageFile="PaymentProvider.ini" 
 			Access="">
     <DataPanel>
-
-      	<Element Name="fld_buyer_account" 
-       				Class="InputText" 
-       				FieldName="buyer_account" 
-       				Label="Buyer Account"        				
-       				/>
-		<Element Name="fld_order_id" 
-       				Class="LabelText" 
-       				FieldName="order_id" 
-       				Label="Order ID"        				
-       				/>  
-
-
-	
+		<Element Name="fld_platform" 
+       				Class="LabelImage" 
+       				FieldName="" 
+       				Label="Payment Provider"        	
+       				Text="{RESOURCE_URL}/payment/images/icon_{$_GET['type']}.png" 			
+       				/> 
     </DataPanel>
     <ActionPanel>       
       
                 <Element Name="btn_cancel" 
         			Class="LabelText"
         			Link="{APP_INDEX}" 
-        			Text="Cancel" 
-        			CssClass="button_gray_m">
+        			Text="Back" 
+        			CssClass="button">
         </Element>      
     </ActionPanel> 
     <NavPanel>
