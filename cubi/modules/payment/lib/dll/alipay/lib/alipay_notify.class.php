@@ -131,9 +131,8 @@ class AlipayNotify {
 		else {
 			$veryfy_url = $this->http_verify_url;
 		}
-		$veryfy_url = $veryfy_url."partner=" . $partner . "&notify_id=" . $notify_id;
+		$veryfy_url = $veryfy_url."partner=" . $partner . "&notify_id=" . $notify_id;		
 		$responseTxt = getHttpResponse($veryfy_url);
-		
 		return $responseTxt;
 	}
 }

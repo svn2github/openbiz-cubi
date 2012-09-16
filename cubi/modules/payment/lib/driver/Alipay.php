@@ -2,6 +2,7 @@
 require_once 'PaymentAdapter.php';
 require_once dirname(dirname(__FILE__))."/dll/alipay/lib/alipay_service.class.php" ;
 require_once dirname(dirname(__FILE__))."/dll/alipay/lib/alipay_submit.class.php" ;
+require_once dirname(dirname(__FILE__))."/dll/alipay/lib/alipay_notify.class.php" ;
 
 class Alipay extends PaymentAdapter
 {
@@ -65,8 +66,21 @@ class Alipay extends PaymentAdapter
 	
 	public function GetReturnData(){
 		$data = array();
-		
+		$data['buyer_account'] 	= $_REQUEST['buyer_email'];
+		$data['order_id'] 		= $_REQUEST['out_trade_no'];
+		$data['trans_id'] 		= $_REQUEST['trade_no'];
+		$data['txn_id'] 		= $_REQUEST['notify_id'];
+		$data['subject'] 		= $_REQUEST['subject'];
+		$data['amount'] 		= $_REQUEST['total_fee'];
+		$data['status'] 		= $_REQUEST['trade_status'];
 		return $data;		
+	}
+	
+	public function ValidateNotification($txn_id)
+	{
+		$alipay_config = $this->_getConfig();
+		$alipayNotify = new AlipayNotify($alipay_config);		
+		return $alipayNotify->getResponse($txn_id);
 	}
 
 }

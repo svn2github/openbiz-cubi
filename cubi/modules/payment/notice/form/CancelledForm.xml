@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<EasyForm Name="FinishedForm" 
+			Class="FinishedForm" 
+			FormType="New" 
+			jsClass="Openbiz.Form" 
+			Icon="{RESOURCE_URL}/payment/images/icon_cancelled.png"
+			Title="Payment Finished" 
+			BizDataObj="" 
+			TemplateEngine="Smarty" 
+			TemplateFile="payment_finished.tpl.html" 
+			MessageFile="PaymentProvider.ini" 
+			Access="">
+    <DataPanel>
+
+      	<Element Name="fld_buyer_account" 
+       				Class="InputText" 
+       				FieldName="buyer_account" 
+       				Label="Buyer Account"        				
+       				/>
+		<Element Name="fld_order_id" 
+       				Class="LabelText" 
+       				FieldName="order_id" 
+       				Label="Order ID"        				
+       				/>  
+
+
+	
+    </DataPanel>
+    <ActionPanel>       
+      
+                <Element Name="btn_cancel" 
+        			Class="LabelText"
+        			Link="{APP_INDEX}" 
+        			Text="Cancel" 
+        			CssClass="button_gray_m">
+        </Element>      
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

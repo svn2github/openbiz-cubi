@@ -29,5 +29,16 @@ class PaymentService
 		$obj = new $driverName;
 		return $obj;		
 	}
+	
+	public function getReturnData($type)
+	{
+		return $this->getProviderObj($type)->getReturnData();
+	}
+	
+	public function ValidateNotification($type,$txn_id)
+	{
+		return $this->getProviderObj($type)->ValidateNotification($txn_id);
+	}
+	
 }
 ?>

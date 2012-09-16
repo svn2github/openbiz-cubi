@@ -9,26 +9,41 @@
 			Class="FinishedForm" 
 			FormType="New" 
 			jsClass="Openbiz.Form" 
-			Icon="{RESOURCE_URL}/payment/images/icon_payment.png"
-			Title="Payment Finished" 
+			Icon="{RESOURCE_URL}/payment/images/icon_finished.png"
+			Title="Payment Received" 
 			BizDataObj="" 
 			TemplateEngine="Smarty" 
 			TemplateFile="payment_finished.tpl.html" 
 			MessageFile="PaymentProvider.ini" 
 			Access="">
     <DataPanel>
-
       	<Element Name="fld_buyer_account" 
-       				Class="InputText" 
+       				Class="LabelText" 
        				FieldName="buyer_account" 
        				Label="Buyer Account"        				
-       				/>
+       				/>    
+		<Element Name="fld_subject" 
+       				Class="LabelText" 
+       				FieldName="subject" 
+       				Label="Subject"        				
+       				/>  
+		<Element Name="fld_trans_id" 
+       				Class="LabelText" 
+       				FieldName="trans_id" 
+       				Label="Trans ID"        				
+       				/>        				
 		<Element Name="fld_order_id" 
        				Class="LabelText" 
        				FieldName="order_id" 
        				Label="Order ID"        				
-       				/>  
-
+       				/>   
+      	<Element Name="fld_amount" 
+       				Class="LabelText" 
+       				FieldName="amount" 
+       				Label="Amount"    
+       				Style="color:#ff0000;font-size:20px;"
+       				Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_amount].Value)}"    				
+       				/> 
 
 	
     </DataPanel>
@@ -37,8 +52,8 @@
                 <Element Name="btn_cancel" 
         			Class="LabelText"
         			Link="{APP_INDEX}" 
-        			Text="Cancel" 
-        			CssClass="button_gray_m">
+        			Text="Back" 
+        			CssClass="button">
         </Element>      
     </ActionPanel> 
     <NavPanel>

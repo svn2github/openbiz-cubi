@@ -5,6 +5,8 @@ interface iPayment
 
     public function ValidateNotification($txn_id);    
     
+    public function GetReturnData();
+    
     public function log();
 }
 ?>
