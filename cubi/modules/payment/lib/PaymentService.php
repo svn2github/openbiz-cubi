@@ -3,11 +3,11 @@ class PaymentService
 {
 	protected $m_ProviderDO = "payment.provider.do.ProviderDO";
 	
-	public function goPayment($orderId, $amount, $type, $title=null,$body=null,$descURL=null)
+	public function goPayment($orderId, $amount, $type, $title=null,$customData=null)
 	{		
 		$amount = round($amount,2);
 		$providerObj = $this->getProviderObj($type);
-		$url = $providerObj->getPaymentURL($orderId,$amount,$title,$body,$descURL);
+		$url = $providerObj->GetPaymentURL($orderId, $amount,  $title=null,$customData=null);
 		if($url)
 		{			
 			BizSystem::ClientProxy()->redirectPage($url);		
