@@ -9,7 +9,7 @@
 			Class="LogForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
-			Icon="{RESOURCE_URL}/sms/images/icon_mod_list.png"
+			Icon="{RESOURCE_URL}/payment/images/icon_payment.png"
 			Title="Payment Transcation Log" 
 			Description="You can view payment nofitication logs which sent from payment service providers." 
 			BizDataObj="payment.log.do.LogDO" 
