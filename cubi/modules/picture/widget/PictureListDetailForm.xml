@@ -20,15 +20,15 @@
         <Element Name="fld_filename" Class="RawData" FieldName="filename" Label="Filename" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
         <Element Name="fld_filesize" Class="RawData" FieldName="filesize" Text="{tx}@util:format_bytes(@:Elem[fld_filesize].Value){/tx}" Label="Filesize" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
         <Element Name="fld_create_time" Class="RawData" FieldName="create_time" Label="Timestamp"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
-		<Element Name="fld_edit" Class="LabelText" Label="Action" text="Edit" Link="javascript:;" Hidden="{@:canUpdate=='1'?'N':'Y'}">
+		<Element Name="fld_edit" Class="LabelText" Label="Action" text="Edit" Link="javascript:;" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}">
             <EventHandler Name="edit_onclick" Event="onclick" Function="LoadDialog(picture.widget.PictureEditForm,{@:Elem[fld_Id].Value},1)"/>
         </Element>
-		<Element Name="fld_delete" Class="LabelText" Label="Action" text="Delete" Link="javascript:;" Hidden="{@:canUpdate=='1'?'N':'Y'}">
+		<Element Name="fld_delete" Class="LabelText" Label="Action" text="Delete" Link="javascript:;" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}">
             <EventHandler Name="delete_onclick" Event="onclick" Function="DeleteRecord({@:Elem[fld_Id].Value})"/>
         </Element>
     </DataPanel>
 	<ActionPanel>
-		<Element Name="btn_add" Class="Button" text="Add Picture" CssClass="button_gray_w" Hidden="{@:canUpdate=='1'?'N':'Y'}">
+		<Element Name="btn_add" Class="Button" text="Add Picture" CssClass="button_gray_w" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}">
             <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(picture.widget.PictureNewForm)"/>
         </Element>
 		<!--<Element Name="btn_edit" Class="Button" text="Edit" CssClass="button_gray_m">

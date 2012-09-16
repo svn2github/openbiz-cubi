@@ -13,20 +13,19 @@
 
 class LocationForm extends EasyForm
 {
-	public $canUpdate = 0;
 	protected $geocode_url = "http://maps.googleapis.com/maps/api/geocode/json?sensor=false";
 	
 	// keep canUpdate in session
 	public function getSessionVars($sessionContext)
     {
         parent::getSessionVars($sessionContext);
-		$sessionContext->getObjVar($this->m_Name, "canUpdate", $this->canUpdate);
+		$sessionContext->getObjVar($this->m_Name, "CanUpdateRecord", $this->m_CanUpdateRecord);
 	}
 	
 	public function setSessionVars($sessionContext)
     {
         parent::setSessionVars($sessionContext);
-		$sessionContext->setObjVar($this->m_Name, "canUpdate", $this->canUpdate);
+		$sessionContext->setObjVar($this->m_Name, "CanUpdateRecord", $this->m_CanUpdateRecord);
 	}
 	
 	public function close(){

@@ -13,20 +13,19 @@
 
 class PictureForm extends PickerForm
 {
-	public $canUpdate = 0;
 	public $m_BasePath = 'picture';
 	
 	// keep canUpdate in session
 	public function getSessionVars($sessionContext)
     {
         parent::getSessionVars($sessionContext);
-		$sessionContext->getObjVar($this->m_Name, "canUpdate", $this->canUpdate);
+		$sessionContext->getObjVar($this->m_Name, "CanUpdateRecord", $this->m_CanUpdateRecord);
 	}
 	
 	public function setSessionVars($sessionContext)
     {
         parent::setSessionVars($sessionContext);
-		$sessionContext->setObjVar($this->m_Name, "canUpdate", $this->canUpdate);
+		$sessionContext->setObjVar($this->m_Name, "CanUpdateRecord", $this->m_CanUpdateRecord);
 	}
 	
 	public function uploadFile()
