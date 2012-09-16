@@ -71,7 +71,7 @@ class FormElement extends InputElement
         $formElementObj = BizSystem::GetObject($this->m_FormReference);
         $formElementObj->m_ParentFormName = $formObj->m_Name;
         $formElementObj->m_ParentFormElementMeta = $this->m_XMLMeta;
-		$formElementObj->canUpdate = $formObj->m_CanUpdateRecord;
+		$formElementObj->m_CanUpdateRecord = $formObj->m_CanUpdateRecord;
         if (method_exists($formObj,"SetSubForms"))
         {
                 $formObj->setSubForms($this->m_FormReference);   
