@@ -98,14 +98,14 @@ class paypal_class {
  * @return bool IPN validation result
  */
         public function validate_ipn() {
-               
+               /*
                 $hostname = gethostbyaddr ( $_SERVER ['REMOTE_ADDR'] );
                 if (! preg_match ( '/paypal\.com$/', $hostname )) {
                         $this->ipn_status = 'Validation post isn\'t from PayPal';
                         $this->log_ipn_results ( false );
                         return false;
                 }
-               
+               */
                 if (isset($this->paypal_mail) && strtolower ( $_POST['receiver_email'] ) != strtolower(trim( $this->paypal_mail ))) {
                         $this->ipn_status = "Receiver Email Not Match";
                         $this->log_ipn_results ( false );
@@ -159,9 +159,8 @@ class paypal_class {
                    }
                   fclose($fp); // close connection
                 }
-               
                 // Invalid IPN transaction.  Check the $ipn_status and log for details.
-                if (! eregi("VERIFIED",$this->ipn_response)) {
+                if (! preg_match("/VERIFIED/s",$this->ipn_response)) {
                         $this->ipn_status = 'IPN Validation Failed';
                         $this->log_ipn_results(false);  
                         return false;

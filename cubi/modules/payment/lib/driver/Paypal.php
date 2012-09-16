@@ -16,6 +16,11 @@ class Paypal extends PaymentAdapter
 		
 		$config = $this->_getProviderInfo();
 		
+		if($customData)
+		{
+			$customData = serialize($customData);
+		}
+		
 	  	$paypal = new paypal_class();
 		$paypal->add_field("cmd", 			"_xclick");
 		$paypal->add_field("business", 		$config['account']);
@@ -29,11 +34,12 @@ class Paypal extends PaymentAdapter
 		$paypal->add_field("no_shipping",	1);
 		$paypal->add_field("no_note",		1);
 		$paypal->add_field("rm",			2);
-		$paypal->add_field("custom",		serialize($customData));
+		$paypal->add_field("custom",		$customData);
 		$paypal->add_field("charset",		'utf-8');
 		$paypal->add_field("currency_code",	$this->m_CurrencyCode);
 		
 		$url = $paypal->build_param_url();
+
 		return $url;
 	}
 
@@ -47,13 +53,16 @@ class Paypal extends PaymentAdapter
 		$data['subject'] 		= $_REQUEST['item_name'];
 		$data['amount'] 		= $_REQUEST['mc_gross'];
 		$data['status'] 		= $_REQUEST['payment_status'];
-
+		
 		return $data;		
 	}
 	
 	public function ValidateNotification($txn_id)
 	{
-		
+		$paypal = new paypal_class();
+		$paypal->paypal_mail = $config['account'];
+		$result = $paypal->validate_ipn();		
+		return $result;	
 	}	
 }
 ?>

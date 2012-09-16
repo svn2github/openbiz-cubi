@@ -43,7 +43,7 @@
 
 
        					       
-       <Element Name="fld_callback" ElementSet="Callback" Class="LabelText" FieldName="" Label="Callback URL" Text="{SITE_URL}ws.php/payment/callback/?method=callback&amp;type={@:Elem[fld_platform].Value}" AllowURLParam="N"/>
+       <Element Name="fld_callback" ElementSet="Callback" Class="LabelText" FieldName="" Label="Callback URL" Text="{SITE_URL}ws.php/payment/callback/verify/type_{@:Elem[fld_platform].Value}/" AllowURLParam="N"/>
        
        	<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By" Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>       	
        	<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time"  AllowURLParam="N"/>       	

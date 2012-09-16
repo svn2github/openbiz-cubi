@@ -30,6 +30,12 @@ class Alipay extends PaymentAdapter
 								  $title=null,$customData=null)
 	{
 		$alipay_config = $this->_getConfig();
+		
+		if($customData)
+		{
+			$customData = serialize($customData);
+		}
+		
 		//构造要请求的参数数组
 		$parameter = array(
 				"service"			=> "create_direct_pay_by_user",
@@ -52,7 +58,7 @@ class Alipay extends PaymentAdapter
 				"exter_invoke_ip"	=> $exter_invoke_ip,
 				
 				"show_url"			=> SITE_URL,
-				"extra_common_param"=> serialize($customData),
+				"extra_common_param"=> $customData,
 				
 				"royalty_type"		=> $royalty_type,
 				"royalty_parameters"=> $royalty_parameters
