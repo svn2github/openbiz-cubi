@@ -28,7 +28,8 @@
       	<Element Name="fld_buyer_account" 
        				Class="LabelText" 
        				FieldName="buyer_account" 
-       				Label="Buyer Account"        				
+       				Label="Buyer Account"    
+       				Link="mailto:{@:Elem[fld_buyer_account].Value}"    				
        				/>      
        				    
 		<Element Name="fld_subject" 
