@@ -205,15 +205,20 @@ width:60px;
 .payment-block
 {
 padding-left:280px;
-padding-top:45px;
+padding-top:25px;
 }
 .payment-block .form-title h1
 {
 color:#14B3F0;
 }
+.payment-block .input_row label
+{
+color:#333333;
+}
 .payment-block .input_row span
 {
 line-height:24px;
+color:#666666;
 }
 .payment-finished{
 background-image:url(../images/site/site-payment.png);
