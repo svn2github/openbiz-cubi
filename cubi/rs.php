@@ -25,10 +25,12 @@ $file = $_GET['f'];
 $list = explode('.',$file);
 $ext = $list[count($list)-1];
 if ($ext == 'jpg' || $ext == 'gif' || $ext == 'png' || $ext == 'swf') {
-    include "img.php";
+	$_GET['img'] = $file;
+    include "bin/img.php";
 }
-else {
+/*else {
     // include minify index
     include "bin/min/index.php";
 }
-
+*/
+?>
