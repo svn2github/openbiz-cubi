@@ -42,17 +42,11 @@ background-color:#f8f8f8;
           {if $row_counter is odd}
 		   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
 		   			style="{$row_style}"
-		   			class="odd"  normal="odd" select="selected"
-					onmouseover="if(this.className!='selected')this.className='hover'" 
-					onmouseout="if(this.className!='selected')this.className='even'" 
-					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+		   			class="odd">
          {else}
 			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
 					style="{$row_style}"
-					class="even"  normal="even" select="selected"
-					onmouseover="if(this.className!='selected')this.className='hover'" 
-					onmouseout="if(this.className!='selected')this.className='even'" 
-					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+					class="even">
          {/if}
          
          {assign var=col_counter value=0}    
@@ -87,6 +81,20 @@ background-color:#f8f8f8;
   
 							
 </table>
+{if $actionPanel or $searchPanel }	
+	<div class="" style="width:640px;">	
+		<div class="action_panel" style="width:350px;">
+		{foreach item=elem from=$actionPanel}
+			{$elem.element}
+		{/foreach}
+		</div>
+		<div class="search_panel" style="width:250px;">
+		{foreach item=elem from=$searchPanel}
+			{if $elem.label} {$elem.label} {/if} {$elem.element}
+		{/foreach}
+		</div>
+	</div>
+{/if}
 {if $navPanel}
 <div class="form_footer_panel" style="width:640px;">
 		<div class="ajax_indicator" style="width:130px;">
