@@ -1164,7 +1164,7 @@ p.input_row .label_text{
 	width:400px;
 }
 table.input_row{
-padding-bottom:2px;
+/*padding-bottom:2px;*/
 line-height:24px;
 }
 
@@ -2146,7 +2146,7 @@ h2.element_set_title a.shrink{
 }
 div.element_set_panel{
 	padding-left:0px;
-	padding-top:10px;
-	padding-bottom:10px;
+	padding-top:0px;
+	padding-bottom:0px;
 }
 
