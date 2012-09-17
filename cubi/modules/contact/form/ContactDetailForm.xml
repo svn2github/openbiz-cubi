@@ -68,9 +68,9 @@
 		    <!-- M-M -->
 		    
 		    <Element Name="fld_related_contacts" Access="contact.access" TabSet="Related Data"   ElementSet="Contacts" Class="FormElement" FormReference="contact.widget.ContactListRelatedForm" FieldName="" Label="" AllowURLParam="N" />
-			<Element Name="btn_manage_contacts" Access="contact.access" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Contacts" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<!--<Element Name="btn_manage_contacts" Access="contact.access" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Contacts" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
 				<EventHandler Name="btn_manage_contacts_onclick" Event="onclick" Function="SwitchForm(contact.form.ContactEditRelatedForm,{@:Elem[fld_Id].Value})"   />
-	       	</Element>
+	       	</Element>-->
 	       	<!--
 		    <Element Name="fld_related_docs" TabSet="Related Data"   ElementSet="Document" Class="FormElement" FormReference="collab.document.widget.DocumentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		    <Element Name="btn_manage_related" TabSet="Related Data" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Document" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
