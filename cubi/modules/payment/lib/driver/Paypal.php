@@ -18,7 +18,7 @@ class Paypal extends PaymentAdapter
 		
 		if($customData)
 		{
-			$customData = serialize($customData);
+			$customData = json_encode($customData);
 		}
 		
 	  	$paypal = new paypal_class();

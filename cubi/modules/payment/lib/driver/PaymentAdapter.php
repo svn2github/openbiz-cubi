@@ -95,7 +95,7 @@ class PaymentAdapter implements iPayment
     	
     	if($logArr['custom'])
     	{
-    		$customArr = unserialize($logArr['custom']);
+    		$customArr = json_decode($logArr['custom']);
     		if(is_array($customArr))
     		{
     			$this->ProcessCustomTrigger($logArr);

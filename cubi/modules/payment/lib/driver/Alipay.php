@@ -33,7 +33,7 @@ class Alipay extends PaymentAdapter
 		
 		if($customData)
 		{
-			$customData = serialize($customData);
+			$customData = json_encode($customData);
 		}
 		
 		//构造要请求的参数数组
@@ -76,7 +76,7 @@ class Alipay extends PaymentAdapter
 		$data['buyer_id'] 		= $_REQUEST['buyer_id'];
 		$data['order_id'] 		= $_REQUEST['out_trade_no'];
 		$data['trans_id'] 		= $_REQUEST['trade_no'];
-		$data['txn_id'] 		= $_REQUEST['notify_id'];
+		$data['txn_id'] 		= $_REQUEST['trade_no'];
 		$data['subject'] 		= $_REQUEST['subject'];
 		$data['amount'] 		= $_REQUEST['total_fee'];
 		$data['status'] 		= $_REQUEST['trade_status'];
