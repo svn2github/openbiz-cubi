@@ -4,6 +4,7 @@ CREATE TABLE `location` (
   `type` varchar(255) default '',
   `foreign_id` int(11) NOT NULL,
   `title` varchar(255) default '',
+  `address` varchar(255) DEFAULT '',
   `description` text NOT NULL,  
   
   `longtitude` varchar(255) default '',
