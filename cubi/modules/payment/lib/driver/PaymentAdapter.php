@@ -63,8 +63,8 @@ class PaymentAdapter implements iPayment
     		return;
     	}
     	
-    	$obj 	= $customArr['Object'];
-    	$method = $customArr['Method'];
+    	$obj 	= $customArr['object'];
+    	$method = $customArr['method'];
     	return BizSystem::getObject($obj)->$method($data); 	
 	}
 	
