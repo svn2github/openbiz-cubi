@@ -80,6 +80,7 @@ class Alipay extends PaymentAdapter
 		$data['subject'] 		= $_REQUEST['subject'];
 		$data['amount'] 		= $_REQUEST['total_fee'];
 		$data['status'] 		= $_REQUEST['trade_status'];
+		$data['custom'] 		= $_REQUEST['extra_common_param'];
 		return $data;		
 	}
 	

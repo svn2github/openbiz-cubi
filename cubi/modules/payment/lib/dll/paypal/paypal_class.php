@@ -191,6 +191,7 @@ class paypal_class {
         }
        
         private function write_to_log() {
+        	return;
                 if (! $this->ipn_log)
                         return; // is logging turned off?
 

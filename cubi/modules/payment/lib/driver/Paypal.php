@@ -54,6 +54,7 @@ class Paypal extends PaymentAdapter
 		$data['subject'] 		= $_REQUEST['item_name'];
 		$data['amount'] 		= $_REQUEST['mc_gross'];
 		$data['status'] 		= $_REQUEST['payment_status'];
+		$data['custom'] 		= $_REQUEST['custom'];
 		
 		return $data;		
 	}

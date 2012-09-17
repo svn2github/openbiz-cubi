@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `payment_log` (
   `payment_amount` float NOT NULL,
   `payment_status` varchar(255) NOT NULL,
   `rawdata` longtext NOT NULL,
+  `processed` int(2) NOT NULL,
   `create_time` datetime NOT NULL,  
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

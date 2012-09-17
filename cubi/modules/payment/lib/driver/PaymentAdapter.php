@@ -51,21 +51,51 @@ class PaymentAdapter implements iPayment
     		return;    		
     	}
     	
-		$customArr = unserialize($data['custom']);
-    	if(!is_array($customArr))
+		$customObj = json_decode($data['custom']);
+    	if(!$customObj)
     	{
     		return;
     	}
     	
     	$txn_id = $data['txn_id'];
-    	if($this->CheckLogExists($txn_id))
+    	if($this->CheckLogProcessed($txn_id))
     	{
     		return;
     	}
     	
-    	$obj 	= $customArr['object'];
-    	$method = $customArr['method'];
-    	return BizSystem::getObject($obj)->$method($data); 	
+    	$this->_MarkLogProcessed($txn_id);    	
+    	$obj 	= $customObj->object;
+    	$method = $customObj->method;
+    	$result =  BizSystem::getObject($obj)->$method($data);
+    	return $result; 	
+	}
+	
+	protected function _MarkLogProcessed($txn_id)
+	{
+		$searchRule = "[txn_id]='$txn_id' AND [provider_id]='".$this->m_ProviderId."' ";
+		$record = BizSystem::getObject($this->m_LogDO)->fetchOne($searchRule);
+		if($record)
+		{
+			$record['processed']=1;
+			$record->save();
+			return true;
+		}
+		return false;
+		
+	}
+	
+	public function CheckLogProcessed($txn_id)
+	{
+		$searchRule = "[txn_id]='$txn_id' AND [provider_id]='".$this->m_ProviderId."' AND [processed]=1";
+		$record = BizSystem::getObject($this->m_LogDO)->fetchOne($searchRule);
+		if($record)
+		{
+			return $record['Id'];
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	public function CheckLogExists($txn_id)
@@ -93,19 +123,19 @@ class PaymentAdapter implements iPayment
     	$logArr['payment_status'] 	= $logArr['status']; 
     	$logArr['rawdata'] = serialize($_REQUEST);
     	
-    	if($logArr['custom'])
-    	{
-    		$customArr = json_decode($logArr['custom']);
-    		if(is_array($customArr))
-    		{
-    			$this->ProcessCustomTrigger($logArr);
-    		}
-    	}
-    	
     	if(!$this->CheckLogExists($logArr['txn_id']))
     	{
     		BizSystem::getObject($this->m_LogDO)->insertRecord($logArr);
-    	}   
+    	} 
+    	
+    	if($logArr['custom'])
+    	{
+    		$customArr = json_decode($logArr['custom']);    		
+    		if($customArr)
+    		{    			    			
+    			$this->ProcessCustomTrigger($logArr);
+    		}
+    	}    	
 
     	return;
     }	

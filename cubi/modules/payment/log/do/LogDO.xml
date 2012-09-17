@@ -59,7 +59,10 @@
 		
 		<BizField Name="rawdata"			
 				Column="rawdata"  />
-		
+		<BizField Name="processed"			
+				Column="processed"
+				ValueOnCreate="0"
+				  />
 		<BizField Name="create_time"	
 				Description="Create Time"	
 				Column="create_time"	
