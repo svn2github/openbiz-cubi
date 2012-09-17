@@ -7,7 +7,7 @@ class PaymentService
 	{		
 		$amount = round($amount,2);
 		$providerObj = $this->getProviderObj($type);
-		$url = $providerObj->GetPaymentURL($orderId, $amount,  $title=null,$customData=null);
+		$url = $providerObj->GetPaymentURL($orderId, $amount,  $title , $customData);
 		if($url)
 		{			
 			BizSystem::ClientProxy()->redirectPage($url);		

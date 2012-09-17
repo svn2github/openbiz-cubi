@@ -66,7 +66,7 @@ class Alipay extends PaymentAdapter
 		//构造即时到帐接口
 		$alipaySubmit = new AlipaySubmit();
 		$url = $this->m_APIURL. $alipaySubmit->buildRequestParaToString($parameter,$alipay_config);
-		
+
 		return $url;
 	}
 	
