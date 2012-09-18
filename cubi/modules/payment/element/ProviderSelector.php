@@ -1,5 +1,6 @@
 <?php 
-require_once OPENBIZ_BIN.'/easy/element/radio.php';
+include_once(OPENBIZ_BIN.'/easy/element/Radio.php');
+
 class ProviderSelector extends Radio
 {
 	public function getFromList(&$list, $selectFrom=null)
