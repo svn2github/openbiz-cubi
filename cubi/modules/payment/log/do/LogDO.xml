@@ -16,9 +16,7 @@
 		Stateless="N" 
 		IdGeneration="Identity" 
 		CacheLifeTime="0" 
-		CreateCondition="payment.Manage" 
-		UpdateCondition="payment.Manage" 
-		DeleteCondition="payment.Manage" >
+		>
 	<BizFieldList>
 		<BizField Name="Id"			
 				Description="Id"	
