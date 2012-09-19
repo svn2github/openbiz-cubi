@@ -13,4 +13,9 @@
         ALTER TABLE `user_widget` ADD COLUMN `view` VARCHAR(255) DEFAULT '' NOT NULL AFTER `widget`; 
         ]]></UpgradeSql>
     </Version>
+	<Version Name="1.0.1">
+        <UpgradeSql><![CDATA[
+        ALTER TABLE `user_widget` ADD COLUMN `column` INT(2) DEFAULT '1' NOT NULL AFTER `view`; 
+        ]]></UpgradeSql>
+    </Version>
 </Upgrade>
