@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<Module Name="location" Description="locations management module" Version="0.2" OpenbizVersion="3.0" Author="Jixian" LoadHandler="location.lib.LocationLoadHandler">
+<Module Name="location" Description="locations management module" Version="0.3" OpenbizVersion="3.0" Author="Jixian" LoadHandler="location.lib.LocationLoadHandler">
 	<ACL>
 		<Resource Name="location">
 			<Action Name="access" Description="access location"/>
