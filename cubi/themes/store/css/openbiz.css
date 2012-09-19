@@ -1437,6 +1437,12 @@ border-bottom:1px solid #00aaff;
 	display:block;
 	float:left;
 }
+.form_table td span.button_gray_m{
+	 height: 20px;
+	 width: 54px;
+	display:block;
+	float:left;
+}
 .form_table td a{
 	text-decoration:none;
 	color:#0eaadb;
