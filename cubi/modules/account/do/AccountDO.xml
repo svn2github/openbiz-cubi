@@ -3,6 +3,7 @@
   <BizFieldList>
     <BizField Name="Id" Description="Id" Column="id" Required="N" Type="Number"/>
     <BizField Name="type_id" Description="Type Id" Column="type_id" Type="Number" Required="N"/>
+    <BizField Name="code" Description="Code" Column="code" ValueOnCreate="{BizSystem::getService('account.lib.AccountService')->genAccountCode()}" Type="Text" Required="N"/>
     <BizField Name="name" Description="Name" Column="name" Type="Text" Required="N"/>
     <BizField Name="description" Description="Description" Column="description" Type="Text" Required="N"/>
     <BizField Name="phone" Description="Phone" Column="phone" Type="Text" Required="N"/>

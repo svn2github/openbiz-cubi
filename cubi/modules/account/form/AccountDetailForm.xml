@@ -7,9 +7,10 @@
     <Element Name="fld_Id" Class="LabelText" ElementSet="General" Hidden="Y" FieldName="Id" Label="Id" AllowURLParam="Y"/>
     <Element Name="fld_account_type_id" Class="LabelText" ElementSet="General" Hidden="Y" FieldName="account_type_id" Label="Id" AllowURLParam="N"/>
     <Element Name="fld_type_id" Class="LabelText" ElementSet="General" Hidden="Y" FieldName="type_id" Label="Type" AllowURLParam="N"/>
-    <Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description" AllowURLParam="N"/>
+    <Element Name="fld_code" ElementSet="General" Class="LabelText" FieldName="code" Label="Code" AllowURLParam="N"/>
     <Element Name="fld_phone" ElementSet="General" Class="LabelText" FieldName="phone" Label="Phone" AllowURLParam="N"/>
     <Element Name="fld_fax" ElementSet="General" Class="LabelText" FieldName="fax" Label="Fax" AllowURLParam="N"/>
+    <Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description" AllowURLParam="N"/>
     
     <Element Name="fld_related_shippingaddress" TabSet="More Detail" ElementSet="Shipping Address" Class="FormElement" FormReference="account.shipping.widget.AccountShippingAddressListWidgetForm" FieldName="" Label="" AllowURLParam="N" Access="account.Access"/>
     <Element Name="btn_manage_shippingaddress" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" TabSet="More Detail" ElementSet="Shipping Address" Class="Button" CssClass="button_gray_w" Text="Manage" Style="color:#666666;margin-left:5px;margin-top:2px;" Access="account.Access">

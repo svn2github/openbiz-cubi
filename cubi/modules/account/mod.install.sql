@@ -5,6 +5,7 @@ CREATE TABLE `account` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `code` VARCHAR( 255 ) NOT NULL,
   `description` text NOT NULL,
   `phone` varchar(255) NOT NULL,
   `fax` varchar(255) NOT NULL,
