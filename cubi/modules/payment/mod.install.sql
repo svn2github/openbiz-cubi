@@ -19,6 +19,13 @@ CREATE TABLE IF NOT EXISTS `payment_provider` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+INSERT INTO `payment_provider` (`id`, `driver`, `require_auth`, `name`, `account`, `key`, `secret`, `type`, `site_url`, `description`, `priority`, `status`, `update_by`, `update_time`, `create_by`, `create_time`) VALUES
+(1, 'payment.lib.driver.PaypalCN', 0, 'Paypal 贝宝', '', '', '', 'paypalcn', 'http://www.paypal.cn', NULL, 50, 0, 1, '2012-09-13 17:46:51', 0, '0000-00-00 00:00:00'),
+(2, 'payment.lib.driver.Alipay', 1, '支付宝', '', '', '', 'alipay', 'https://b.alipay.com/', NULL, 55, 0, 1, '2012-09-16 19:07:15', 1, '0000-00-00 00:00:00'),
+(3, 'payment.lib.driver.Paypal', 0, 'Paypal', '', '', '', 'paypal', 'http://www.paypal.com/', NULL, 50, 0, 1, '2012-09-14 18:10:53', 1, '0000-00-00 00:00:00'),
+(4, 'payment.lib.driver.ChinaBank', 1, '网银在线', '', '', '', 'chinabank', 'http://www.chinabank.com.cn/', NULL, 50, 0, 1, '2012-09-20 12:28:03', 1, '0000-00-00 00:00:00');
+
+
 DROP TABLE IF EXISTS `payment_log`;
 CREATE TABLE IF NOT EXISTS `payment_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
