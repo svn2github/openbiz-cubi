@@ -1441,8 +1441,10 @@ class EasyForm extends MetaObject implements iSessionObject
 	
 	        if ($this->_doUpdate($recArr, $currentRec) == false)
 	            return;
-        
+			
+			$this->commitFormElements(); // commit change in FormElement
         }
+		
         // in case of popup form, close it, then rerender the parent form
         if ($this->m_ParentFormName)
         {
@@ -1450,10 +1452,8 @@ class EasyForm extends MetaObject implements iSessionObject
 
             $this->renderParent();
         }
-
         
         $this->processPostAction();
-
     }
 
     
@@ -1465,7 +1465,6 @@ class EasyForm extends MetaObject implements iSessionObject
     		$value++;
     	}
 		return $this->updateFieldValue($id,$fld_name,$value);
-
     }        
     
 	public function updateFieldValueXor($id,$fld_name,$value)
@@ -1476,7 +1475,6 @@ class EasyForm extends MetaObject implements iSessionObject
     		$value_xor = 1;
     	}
 		return $this->updateFieldValue($id,$fld_name,$value_xor);
-
     }    
     
 	/**
@@ -1505,8 +1503,6 @@ class EasyForm extends MetaObject implements iSessionObject
      */
     protected function _doUpdate($inputRecord, $currentRecord)
     {
-
-
         $dataRec = new DataRecord($currentRecord, $this->getDataObj());
 
         foreach ($inputRecord as $k => $v){
@@ -1539,7 +1535,17 @@ class EasyForm extends MetaObject implements iSessionObject
         $this->runEventLog();
         return true;
     }
-
+	
+	protected function commitFormElements()
+	{
+		foreach ($this->m_DataPanel as $element)
+		{
+			if (is_a($element, "FormElement")) {
+				$element->setValue('');
+			}
+		}
+	}
+	
     /**
      * Insert new record
      *
@@ -1564,7 +1570,7 @@ class EasyForm extends MetaObject implements iSessionObject
 
         $this->_doInsert($recArr);
         
-        
+        $this->commitFormElements(); // commit change in FormElement
 
         // in case of popup form, close it, then rerender the parent form
         if ($this->m_ParentFormName)
@@ -1781,7 +1787,6 @@ class EasyForm extends MetaObject implements iSessionObject
             $value = BizSystem::clientProxy()->getFormInputs($element->m_Name);
             if ($value ===null && (
             	   !is_a($element,"FileUploader")
-            	&& !is_a($element,"FormElement")
             	&& !is_subclass_of($element,"FileUploader")
             	&& !is_a($element,"Checkbox")            	
             	)){           
