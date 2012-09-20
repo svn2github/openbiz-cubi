@@ -39,7 +39,11 @@ var top_menu_play_speed=1000;
 				<div style="height:10px;"></div>
 				<!-- user actions start -->
 				<ul>
+					{if $view.module eq 'mystore' ||  $view.module eq 'cart'}
+					<li><a class="icon_myaccount" href="{$app_index}/mystore/profile" >{t}My Account{/t}</a></li>
+					{else}
 					<li><a class="icon_myaccount" href="{$app_index}/myaccount/dashboard" >{t}My Account{/t}</a></li>
+					{/if}					
 					<li><a class="icon_help" href="http://code.google.com/p/openbiz-cubi" target="_blank" >{t}Help{/t}</a></li>
 					<li><a class="icon_logout" href="{$app_index}/user/logout" >{t}Logout{/t}</a></li>												
 				</ul>

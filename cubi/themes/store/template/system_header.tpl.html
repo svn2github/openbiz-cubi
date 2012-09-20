@@ -13,7 +13,6 @@
 		$this->assign('profile', $profile_display);
 		$this->assign('profile_email', $profile_email);
 		$this->assign('profile_id', $profile_id);
-		
 		{/php}
 		
 		{if $form.show_widget }
@@ -27,9 +26,13 @@
 			<div class="site-user-info">
 			{t}User:{/t} {$profile}<br/>
 			{t}Openbiz ID:{/t} {$profile_email}<br/>
-				<div style="padding-top:5px;">
+				<div style="padding-top:5px;">				
 				<a class="icon_logout" href="{$app_index}/user/logout" >{t}Logout{/t}</a>
-				<a class="icon_myaccount" href="{$app_index}/myaccount/dashboard" >{t}My Account{/t}</a>			
+				{if $view.module eq 'mystore' ||  $view.module eq 'cart'}
+				<a class="icon_myaccount" href="{$app_index}/mystore/profile" >{t}My Account{/t}</a>
+				{else}
+				<a class="icon_myaccount" href="{$app_index}/myaccount/dashboard" >{t}My Account{/t}</a>
+				{/if}			
 				</div>
 			</div>
 		{else}
