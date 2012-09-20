@@ -20,7 +20,7 @@
 		</MenuItem>	
 		
     	<MenuItem Name="Contact" Title="Contacts" Parent="ContactTopMenu" Description="" IconImage="spacer.gif" IconCssClass="icon_contact" Order="10" Access="contact.access">		
-			<MenuItem Name="Contact.Manage" Title="Contact Manage" Description=""  URL="/contact/contact_list"  Order="10" Access="contact.access" >
+			<MenuItem Name="Contact.Manage" Title="View Contacts" Description=""  URL="/contact/contact_list"  Order="10" Access="contact.access" >
 				<MenuItem Name="Contact.Detail" Title="Contact Detail" Description=""  URL="/contact/contact_detail" Order="5"  Access="contact.access" ></MenuItem>
                 <MenuItem Name="Contact.GCard" Title="View General Card" Description=""  URL="/contact/contact_general_card" Order="10" Access="contact.access"></MenuItem>
                 <MenuItem Name="Contact.DCard" Title="View Detailed Card" Description=""  URL="/contact/contact_detail_card" Order="20" Access="contact.access"></MenuItem>
@@ -28,9 +28,10 @@
                 <MenuItem Name="Contact.Company" Title="View Company" Description=""  URL="/contact/company_list"  Order="40" Access="contact.access"></MenuItem>
                 <MenuItem Name="Contact.ByType" Title="View By Contact Type" Description=""  URL="/contact/contact_type_list"  Order="50" Access="contact.access"></MenuItem>				
 			</MenuItem>
+			<MenuItem Name="Contact.New" Title="New Contact" Description=""  URL="/contact/contact_new"  Order="12" Access="contact.access"></MenuItem>
 			<MenuItem Name="Contact.Map" Title="Contact Map" Description=""  URL="/contact/contact_map"  Order="15" Access="contact.access"></MenuItem>
-			<MenuItem Name="Contact.Garbber" Title="Contact Grabber" Description=""  URL="/contact/contact_import"  Order="20" Access="contact.access"></MenuItem>
-			<MenuItem Name="Contact.Type" Title="Contact Type" Description=""  URL="/contact/contact_type"  Order="30" Access="contact.access" ></MenuItem>
+			<MenuItem Name="Contact.Garbber" Title="Import Contacts" Description=""  URL="/contact/contact_import"  Order="20" Access="contact.access"></MenuItem>
+			<MenuItem Name="Contact.Type" Title="Contact Types" Description=""  URL="/contact/contact_type"  Order="30" Access="contact.access" ></MenuItem>
 		</MenuItem>	
     </Menu>
     <Dependency>

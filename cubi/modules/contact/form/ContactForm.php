@@ -42,7 +42,7 @@ class ContactForm extends ChangeLogForm
 
         $this->_doInsert($recArr);
         
-        
+        $this->commitFormElements(); // commit change in FormElement
 
         // in case of popup form, close it, then rerender the parent form
         if ($this->m_ParentFormName)
@@ -114,12 +114,11 @@ class ContactForm extends ChangeLogForm
 				return;
 	        }  
 	        
-	        	//auto update user's email
-	        	$email = $currentRec['email'];
-	        	$userRec = BizSystem::getObject("system.do.UserDO",1)->fetchById($currentRec['user_id']);
-	        	$userRec['email'] = $recArr['email'];
-	        	$userRec->save();
-	        
+			//auto update user's email
+			$email = $currentRec['email'];
+			$userRec = BizSystem::getObject("system.do.UserDO",1)->fetchById($currentRec['user_id']);
+			$userRec['email'] = $recArr['email'];
+			$userRec->save();
         }
         
         if (count($recArr) != 0){
@@ -136,7 +135,8 @@ class ContactForm extends ChangeLogForm
 	
 	        if ($this->_doUpdate($recArr, $currentRec) == false)
 	            return;
-        
+				
+			$this->commitFormElements(); // commit change in FormElement
         }
         // in case of popup form, close it, then rerender the parent form
         if ($this->m_ParentFormName)
