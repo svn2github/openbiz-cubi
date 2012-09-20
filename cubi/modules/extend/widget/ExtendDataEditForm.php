@@ -56,8 +56,12 @@ class ExtendDataEditForm extends EasyForm
 			return $this->m_SearchRule;
 		}
 		
-		$elem_name = BizSystem::getObject($this->m_ParentFormName)->m_DataPanel->getByField($column_name)->m_Name;		
-		$type_id = BizSystem::ClientProxy()->getFormInputs($elem_name);;
+		$prtFormObj = BizSystem::getObject($this->m_ParentFormName);
+		$elem_name = $prtFormObj->m_DataPanel->getByField($column_name)->m_Name;		
+		$type_id = BizSystem::ClientProxy()->getFormInputs($elem_name);
+		if (!$type_id && $elem_name) {
+			$type_id = $prtFormObj->getElement($elem_name)->getValue();
+		}
 		if($elem_name && $type_id)
 		{
 			$column_value = $type_id;
@@ -88,7 +92,7 @@ class ExtendDataEditForm extends EasyForm
 	{
 		$searchRule = $this->getSettingSearchRule();
 		$fieldsDO = BizSystem::getObject($this->m_ExtendSettingDO,1);
-		$fieldRecs = $fieldsDO->directfetch($searchRule);				
+		$fieldRecs = $fieldsDO->directfetch($searchRule);
 		
 		if(!$fieldRecs->count()){
 			return ;
@@ -128,7 +132,7 @@ class ExtendDataEditForm extends EasyForm
 			
 		}
 		if(count($xmlArr)==1){
-				$xmlArr=$xmlArr[0];
+			$xmlArr=$xmlArr[0];
 		}
 		return $xmlArr;	
 	}
@@ -169,7 +173,7 @@ class ExtendDataEditForm extends EasyForm
 		return $rec;
 	}
 	
-	public function setValue($value){	
+	public function setValue($value='') {	
 		if(	strtolower($_GET['P1'])=='[updateform]' 
 			|| strtolower($_GET['P1'])=='[switchform]'
 			|| $_GET['P1']==''){
