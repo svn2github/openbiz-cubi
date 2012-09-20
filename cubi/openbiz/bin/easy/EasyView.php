@@ -408,6 +408,7 @@ class EasyView extends MetaObject implements iSessionObject
     public function outputAttrs() 
     {
         $out['name'] = $this->m_Name;
+        $out['module'] = $this->getModuleName($this->m_Name);
         $out['description'] = $this->m_Description;
         $out["keywords"] = $this->m_Keywords;
         if ($this->m_Title)
