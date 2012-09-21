@@ -223,13 +223,21 @@ class lovService extends MetaObject
     	for ($i=0; $i<count($list); $i++)
     	{
     		$key = 'SELECTION_'.strtoupper($tag).'_'.$i.'_TEXT';
-    		$list[$i]['txt'] = I18n::t($list[$i]['txt'], $key, $module);
+    		$list[$i]['txt'] = I18n::t($list[$i]['txt'], $key, $module, $this->getTransLOVPrefix());
     	}
     	return $list;
     }
     
 
-    
+    protected function getTransLOVPrefix()
+    {    	
+    	$nameArr = explode(".",$this->m_SelectFrom);
+    	for($i=1;$i<count($nameArr)-1;$i++)
+    	{
+    		$prefix .= strtoupper($nameArr[$i])."_";
+    	}    	
+    	return $prefix;
+    }       
 
 }
 ?>
