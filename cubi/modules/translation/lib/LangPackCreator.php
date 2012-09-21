@@ -573,6 +573,13 @@ class LangPackCreator
     	$filelist = $this->getFileList($dir,".xml");
     	libxml_use_internal_errors(true);
     	foreach($filelist as $file){
+    		$fileArr = explode(DIRECTORY_SEPARATOR,str_replace(MODULE_PATH.DIRECTORY_SEPARATOR,"",$file));
+    		$prefix = "";
+    		for($i=1;$i<count($fileArr)-1; $i++)
+    		{
+    			$prefix .= strtoupper($fileArr[$i])."_"; 
+    		}
+    		
     		$shortFileName = str_replace($dir.DIRECTORY_SEPARATOR,"",$file);
     		if(CLI){
 				echo "   Analyst XML File : ".str_replace(MODULE_PATH.DIRECTORY_SEPARATOR,"",$file)." ".PHP_EOL;
@@ -586,7 +593,15 @@ class LangPackCreator
     			else {
 					$xmlArr = BizSystem::getXmlArray($file);
 		    		$tmp = $this->analystXML($xmlArr);
-		    		$strings = array_merge($strings,$tmp);
+		    		$tmpNew = array();
+    				if(is_array($tmp))
+		    		{
+			    		foreach($tmp as $key=>$value)
+			    		{
+			    			$tmpNew[$prefix.$key]=$value;
+			    		}
+		    		}
+		    		$strings = array_merge($strings,$tmpNew);
     			}
     		}
     	}
