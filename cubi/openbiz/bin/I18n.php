@@ -36,21 +36,24 @@ class I18n
     protected static $_langData;
     protected static $_langCode;
     
-    public static function t($text, $key=null, $module)
+    public static function t($text, $key=null, $module, $prefix=null)
     {
     	// TODO: use cache, apc cache? special handling for menu?
     	
     	//echo "to translate $text, $key, $module".nl;
     	if (!I18n::loadLangData($module))	// cannot load lang data, return orig text
 			return $text;
-		
-    	if ($key && isset(I18n::$_langData[$module][$key]))
-    		return I18n::$_langData[$module][$key];
+					
+		if ($key && isset(I18n::$_langData[$module][$prefix.$key]) && I18n::$_langData[$module][$prefix.$key]!=$text)
+    		return I18n::$_langData[$module][$prefix.$key];	
+			    	    	
+    	$str_key = strtoupper('STRING_'.md5($text));
+    	if ($key && isset(I18n::$_langData[$module][$str_key])  && I18n::$_langData[$module][$str_key]!=$text)
+    		return I18n::$_langData[$module][$str_key];
     	
-    	$key = strtoupper('STRING_'.md5($text));
     	if ($key && isset(I18n::$_langData[$module][$key]))
-    		return I18n::$_langData[$module][$key];
-    	
+    		return I18n::$_langData[$module][$key];	
+    		
 		// try to load theme.THEME_NAME.ini
 		$module = '_theme';
 		if (!I18n::loadLangData($module))

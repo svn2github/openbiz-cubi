@@ -422,15 +422,25 @@ class EasyView extends MetaObject implements iSessionObject
     protected function translate()
     {
     	$module = $this->getModuleName($this->m_Name);
-    	$trans_string = I18n::t($this->m_Title, $this->getTransKey('Title'), $module);
+    	$trans_string = I18n::t($this->m_Title, $this->getTransKey('Title'), $module, $this->getTransPrefix());
     	if($trans_string){
     		$this->m_Title =  $trans_string;
     	}
-    	$trans_string = I18n::t($this->m_Description, $this->getTransKey('Description'), $module);
+    	$trans_string = I18n::t($this->m_Description, $this->getTransKey('Description'), $module, $this->getTransPrefix());
     	if($trans_string){
     		$this->m_Description = $trans_string;
     	}
     }
+
+	protected function getTransPrefix()
+    {    	
+    	$nameArr = explode(".",$this->m_Name);
+    	for($i=1;$i<count($nameArr)-1;$i++)
+    	{
+    		$prefix .= strtoupper($nameArr[$i])."_";
+    	}
+    	return $prefix;
+    }    
     
     protected function getTransKey($name)
     {

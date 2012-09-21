@@ -556,18 +556,28 @@ class Element extends MetaObject implements iUIControl
     {
     	$module = $this->getModuleName($this->m_FormName);
     	if (!empty($this->m_Text))
-    		$this->m_Text = I18n::t($this->m_Text, $this->getTransKey('Text'), $module);
+    		$this->m_Text = I18n::t($this->m_Text, $this->getTransKey('Text'), $module, $this->getTransPrefix());
     	if (!empty($this->m_Label))
-    		$this->m_Label = I18n::t($this->m_Label, $this->getTransKey('Label'), $module);
+    		$this->m_Label = I18n::t($this->m_Label, $this->getTransKey('Label'), $module, $this->getTransPrefix());
     	if (!empty($this->m_Description))
-    		$this->m_Description = I18n::t($this->m_Description, $this->getTransKey('Description'), $module);
+    		$this->m_Description = I18n::t($this->m_Description, $this->getTransKey('Description'), $module, $this->getTransPrefix());
         if (!empty($this->m_DefaultValue) && !preg_match("/\{/si",$this->m_DefaultValue))
-    		$this->m_DefaultValue = I18n::t($this->m_DefaultValue, $this->getTransKey('DefaultValue'), $module);
+    		$this->m_DefaultValue = I18n::t($this->m_DefaultValue, $this->getTransKey('DefaultValue'), $module, $this->getTransPrefix());
 		if (!empty($this->m_ElementSet))
-    		$this->m_ElementSet = I18n::t($this->m_ElementSet, $this->getTransKey('ElementSet'), $module);
+    		$this->m_ElementSet = I18n::t($this->m_ElementSet, $this->getTransKey('ElementSet'), $module, $this->getTransPrefix());
     	if (!empty($this->m_TabSet))
-    		$this->m_TabSet = I18n::t($this->m_TabSet, $this->getTransKey('TabSet'), $module);    		
+    		$this->m_TabSet = I18n::t($this->m_TabSet, $this->getTransKey('TabSet'), $module, $this->getTransPrefix());    		
     }
+
+	protected function getTransPrefix()
+    {    	
+    	$nameArr = explode(".",$this->m_FormName);
+    	for($i=1;$i<count($nameArr)-1;$i++)
+    	{
+    		$prefix .= strtoupper($nameArr[$i])."_";
+    	}
+    	return $prefix;
+    }    
     
     protected function getTransKey($name)
     {
