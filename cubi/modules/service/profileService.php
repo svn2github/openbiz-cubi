@@ -28,7 +28,7 @@ class profileService
     protected $m_Profile;
     protected $m_profileObj = "contact.do.ContactSystemDO";
     protected $m_contactObj = "contact.do.ContactSystemDO";
-    protected $m_userDataObj = "system.do.UserDO";
+    protected $m_userDataObj = "system.do.UserSystemDO";
     protected $m_groupDataObj = "system.do.GroupDO";
     protected $m_user_roleDataObj = "system.do.UserRoleDO";
     protected $m_user_groupDataObj = "system.do.UserGroupDO";
