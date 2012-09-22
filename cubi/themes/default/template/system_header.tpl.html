@@ -40,7 +40,7 @@ var top_menu_play_speed=1000;
 				<div style="height:10px;"></div>
 				<!-- user actions start -->
 				<ul>
-					{if $view.module eq 'mystore' ||  $view.module eq 'cart'}
+					{if $view.module eq 'mystore' ||  $view.module eq 'cart'  ||  $view.module eq 'common'}
 					<li><a class="icon_myaccount" href="{$app_index}/mystore/profile" >{t}My Account{/t}</a></li>
 					{else}
 					<li><a class="icon_myaccount" href="{$app_index}/myaccount/dashboard" >{t}My Account{/t}</a></li>
