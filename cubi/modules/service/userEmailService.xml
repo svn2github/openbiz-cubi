@@ -73,5 +73,11 @@
 				Title="Would you have time for this planned event" 
 				EmailAccount="CubiNotification" 
 				Template="event_notice_email.tpl" />						
+	
+	
+	<Template   Name="ProfileVerifyEmail" 
+				Title="Openbiz电子邮件身份验证码" 
+				EmailAccount="SystemNotifier" 
+				Template="profile_verify_email.tpl" />
 																
 </PluginService>
