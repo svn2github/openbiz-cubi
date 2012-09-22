@@ -9,7 +9,7 @@
 			Class="LogForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
-			Icon="{RESOURCE_URL}/sms/images/icon_mod_list.png"
+			Icon="{RESOURCE_URL}/sms/images/icon_sms_log.png"
 			Title="SMS Sent Log" 
 			Description="You can view or export SMS sent logs." 
 			BizDataObj="sms.log.do.LogDO" 

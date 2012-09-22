@@ -9,7 +9,7 @@
 			Class="ProviderForm" 
 			FormType="Detail" 
 			jsClass="Openbiz.Form" 
-			Icon="{RESOURCE_URL}/sms/images/icon_mod_sms_provider_detail.png"
+			Icon="{RESOURCE_URL}/sms/images/icon_sms_provider.png"
 			Title="SMS Provider Detail" 
 			Description="You can setup crediential for selected SMS provider" 
 			BizDataObj="sms.provider.do.ProviderDO" 

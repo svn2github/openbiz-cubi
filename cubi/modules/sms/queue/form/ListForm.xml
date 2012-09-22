@@ -9,7 +9,7 @@
 			Class="QueueForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
-			Icon="{RESOURCE_URL}/sms/images/icon_mod_list.png"
+			Icon="{RESOURCE_URL}/sms/images/icon_sms_queue.png"
 			Title="SMS Queue Management" 
 			Description="You can view and manage system SMS queue or manual send or delete a message from queue." 
 			BizDataObj="sms.queue.do.QueueDO" 

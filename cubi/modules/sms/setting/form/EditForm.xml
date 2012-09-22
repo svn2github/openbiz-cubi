@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: UserPreferenceEditForm.xml 3800 2012-08-04 12:58:18Z hellojixian@gmail.com $
 -->
-<EasyForm Name="EditForm" Class="SettingForm" FormType="Edit" Icon="icon_user_list.gif" jsClass="jbForm"  SearchRule="[user_id]='0'" Title="SMS Service Setting" Description="You can modify system SMS configuration in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" Access="sms.Manage" MessageFile="SmsProvider.ini" >
+<EasyForm Name="EditForm" Class="SettingForm" FormType="Edit" Icon="{RESOURCE_URL}/sms/images/icon_sms_setting.png" jsClass="jbForm"  SearchRule="[user_id]='0'" Title="SMS Service Setting" Description="You can modify system SMS configuration in below form." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" Access="sms.Manage" MessageFile="SmsProvider.ini" >
     <DataPanel>
 		<Element Name="fld_content_sign"  Class="InputText" ElementSet="General" Description="" FieldName="_content_sign" Label="Signature"  /> 
 

@@ -9,7 +9,7 @@
 			Class="ProviderForm"			  
 			FormType="List" 
 			jsClass="Openbiz.TableForm" 
-			Icon="{RESOURCE_URL}/sms/images/icon_mod_list.png"
+			Icon="{RESOURCE_URL}/sms/images/icon_sms_provider.png"
 			Title="SMS Intergration Setting" 
 			Description="SMS Intergration feature could enable Cubi system send messages to users mobile for notification." 
 			BizDataObj="sms.provider.do.ProviderDO" 

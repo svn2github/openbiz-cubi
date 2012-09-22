@@ -9,7 +9,7 @@
 			Class="TestSendNewForm" 
 			FormType="New" 
 			jsClass="Openbiz.Form" 
-			Icon="{RESOURCE_URL}/sms/images/icon_mod_add.png"
+			Icon="{RESOURCE_URL}/sms/images/icon_sms_send.png"
 			Title="Send SMS Message" 
 			Description="You can send a SMS message to a mobile number from selected provider." 
 			BizDataObj="sms.task.do.TaskDO" 
