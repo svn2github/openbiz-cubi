@@ -16,7 +16,7 @@
     <BizField Name="state" Description="State" Column="state" Type="Text" Required="N"/>
     <BizField Name="city" Description="City" Column="city" Type="Text" Required="N"/>
     <BizField Name="street" Description="Street" Column="street" Type="Text" Required="N"/>
-    <BizField Name="zip" Description="Zip" Column="zip" Type="Number" Required="N"/>
+    <BizField Name="zip" Description="Zip" Column="zip"  Required="N"/>
     <BizField Name="create_by" Description="Create By" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
     <BizField Name="create_time" Description="Create Time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
     <BizField Name="update_by" Description="Update By" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
