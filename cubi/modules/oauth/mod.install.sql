@@ -26,5 +26,5 @@ INSERT INTO `oauth_provider`
 (3, 'alipay', 'https://b.alipay.com/','', '', 0, 1, '', 1, ''),
 (4, 'google', 'https://code.google.com/apis/console/','', '', 0, 1, '', 1, ''),
 (5, 'facebook', 'http://developers.facebook.com/','', '', 0, 1, '', 1, ''),
-(6, 'qzone', 'http://open.qq.com/',  '', '', 0, 1, '', 1, ''),
+(6, 'qzone', 'http://connect.qq.com',  '', '', 0, 1, '', 1, ''),
 (7, 'twitter', 'https://dev.twitter.com/','', '', 0, 1, '', 1, '');
