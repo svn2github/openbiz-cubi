@@ -83,17 +83,15 @@
 		</table>
 		
 		<div class="page-splitter"></div>	
-		<h2>电子邮件集成</h2>
+		<h2>Email Integration</h2>
 		<img src="image/modules/email-intergrated.png" style="padding:10px;padding-left:0px;" />
-		<p  style="padding-bottom:20px;">在现代企业应用中，客户通常都会提出需要与电子邮件系统集成的需求，例如，通过电子邮件对关键事件进行通知，或者手动向指定人群批量发送系统邮件。
-		Openbiz Cubi为此类应用设计了友好的用户界面，让您在开发此类应用的时候只需要将经历集中于如何触发邮件发送行为，而邮件内容模板如何让客户编辑，发件人SMTP帐号设定，邮件发送队列和发送日至这些将花掉您大部分精力而通常不容易被客户认可的事情，让Openbiz Cubi全部为您搞定就好了。
+		<p  style="padding-bottom:20px;">In modern enterprise applications, end users usually ask for email integration. For example, notify events by email, mass sending system messages by email. Openbiz Cubi provides user-friendly interface for managing email templates, setting SMTP account and managing email queue. These functions are normally not regonizable to your clients, but they take a lot of time to implement and test if you do youself. Now Openbiz Cubi have all ready for you to use.
 		</p>
 		
 		<div class="page-splitter"></div>	
-		<h2>高级系统特性</h2>
+		<h2>Advanced Features</h2>
 		<img src="image/modules/system-mng.png" style="padding:10px;padding-left:0px;" />
-		<p style="padding-bottom:20px;">Openbiz Cubi还为您考虑了更多高级系统特性，通过图形用户界面的方式来完成系统的各项设定，数据库链接池配置，<br/>
-		系统备份还原，更新以及和外部系统对接的Web Service服务。
+		<p style="padding-bottom:20px;">Openbiz Cubi also provides advanced features including editing system settings, editing application database connections, system backup, system update, and web service setup. 
 		</p>
 		
 		<div class="page-splitter"></div>	
