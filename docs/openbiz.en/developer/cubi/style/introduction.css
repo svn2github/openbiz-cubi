@@ -1,0 +1,29 @@
+#cubi-introduction-banner-wrapper{	
+ 	height:320px;
+    background-image: url("../../cubi/image/introduction/banner_bg.png");
+    background-position: center bottom;
+    background-repeat: no-repeat; 	
+}
+#cubi-introduction-banner-wrapper .desc
+{
+	padding-left:185px;
+	padding-top:60px;
+}
+
+.content table.features
+{
+padding:0px;
+margin:0px;
+border-top:1px solid #eeeeee;
+border-bottom:none;
+margin-bottom:10px;
+}
+.content table.features td {
+    padding: 5px 10px 10px;
+    vertical-align: middle;
+border-bottom:1px solid #eeeeee;    
+}
+
+.content table.news th {
+ vertical-align: middle;
+}

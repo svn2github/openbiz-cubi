@@ -1,0 +1,282 @@
+﻿/*  
+	-------------------------------------------------------------
+	Cascade Style Sheet - jQuery Timeline slider
+	Description: jQuery Plugin for building web timelines
+	Author: pezflash - http: //www.codecanyon.net/user/pezflash
+	Version: 1.0
+	-------------------------------------------------------------
+*/ 
+
+
+/* ------------------ Global ------------------ */
+ 
+
+strong {
+	font-weight: 700;
+}
+
+img {
+	border: 0px;
+}
+
+.ie a {
+	text-decoration: none;
+	outline: 0;
+}
+
+.timeline_container_outter {
+	padding-top:30px;
+	padding-bottom:35px;
+}
+
+.timeline_container_outter .shadow {
+	position: absolute;
+	top: 454px;
+	left: -5px;
+}
+
+.timeline_container_outter .preload {
+	position: absolute;
+	top: 220px;
+	left: 450px;
+}
+
+
+
+
+/* ----------------- Timeline ----------------- */
+
+/* -- Global -- */
+#timeline_container {
+	position:relative;
+	background-color:#ffffff;
+	opacity: 0;
+}
+
+#timeline {
+	/* set your own css here, if needed */
+}
+
+#timeline .hidden {
+	display: none;
+}
+/* -- End Global -- */
+
+
+
+/* -- Viewport -- */
+#timeline .viewport {
+	overflow: hidden;
+	position: relative;
+	background: url(../image/timeline/background.jpg) no-repeat 0 0;
+}
+
+#timeline .viewport .images {
+	position: absolute;
+	padding: 0px;
+	margin: 0px;
+}
+
+#timeline .viewport .images img{
+	float: left;
+}
+/* -- End Viewport -- */
+
+
+
+/* -- Milestones -- */
+#timeline .milestones {
+	overflow: hidden;
+	position: relative;
+	border-top: 4px solid #bbb;
+}
+
+#timeline .milestones .content {
+	position: absolute;
+	padding: 0px;
+	margin: 0px;
+}
+
+#timeline .column_first {
+	float: left;
+	padding: 0px 0px 0px 0px;
+	margin: 14px 0px 0px 20px;
+}
+
+#timeline .column {
+	float: left;
+	padding: 0px 0px 0px 10px;
+	margin: 14px 0px 0px 50px;
+	height: 180px;
+	border-left: 1px solid #ddd;
+}
+
+#timeline .c100 { width: 100px; }
+#timeline .c125 { width: 125px; }
+#timeline .c150 { width: 150px; }
+#timeline .c175 { width: 175px; }
+#timeline .c200 { width: 200px; }
+#timeline .c225 { width: 225px; }
+#timeline .c250 { width: 250px; }
+#timeline .c275 { width: 275px; }
+#timeline .c300 { width: 300px; }
+#timeline .c325 { width: 325px; }
+#timeline .c350 { width: 350px; }
+#timeline .c375 { width: 375px; }
+#timeline .c400 { width: 400px; }
+
+/* -- c201 START -- */
+.c201
+{
+	text-align:left;
+	line-height:20px;
+	padding:0px 0px 0px 20px;
+	color:#666666;
+}
+.c201 a
+{
+	font-size:12px;
+	color:#666666;
+}
+.c202
+{
+	text-align:left;
+	line-height:15px;
+	padding:0px 0px 0px 20px;
+	color:#666666;
+}
+.c202 a
+{
+	font-size:12px;
+	color:#666666;
+}
+/* -- c201 END -- */
+#timeline span {
+	display: block;
+}
+
+#timeline .date {
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 16px;
+	color: #0096ff;
+
+}
+
+#timeline .txt {
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 20px;
+	color: #666666;
+	margin: 8px 0px 0px 0px;
+}
+
+#timeline .thumb_description {
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 12px;
+	color: #6f6f6f;
+	clear: left;
+}
+
+#timeline .thumb {
+	margin: 5px 0px 0px 0px;
+}
+
+#timeline .video_rollover, #timeline .image_rollover {
+	position:relative;
+	float:left;
+}
+
+#timeline .video_rollover span, #timeline .image_rollover span {
+	left: 0px;
+	top: 0px;
+	display: none;
+	position: absolute;
+}
+#timeline .video_rollover span, #timeline .image_rollover span {
+	background: url('../image/timeline/thumb_video_hover.png') no-repeat;
+	width: 113px;
+	height: 67px;
+}
+
+#timeline .image_rollover span {
+	background: url('../image/timeline/thumb_image_hover.png') no-repeat;
+	width: 140px;
+	height: 95px;
+}
+
+#timeline .link {
+	font-size: 12px;
+	font-weight: 700;
+}
+
+#timeline .link a {
+	color: #888;	
+}
+	
+#timeline .link a:hover {
+	color: #0096ff;
+	text-decoration: underline;
+}
+
+#timeline .big_link {
+	font-size: 11px;
+	font-weight: 700;
+	margin: 10px 0px 0px 0px;
+	padding: 1px 5px 2px 5px;
+	float: left;
+	background-color: #bbb;
+}
+
+#timeline .big_link a {
+	color: #0096ff;	
+	text-decoration: none;
+}
+	
+#timeline .big_link a:hover {
+	color: #fff;
+}
+
+/* -- End Milestones -- */
+
+
+
+/* -- Scrollbar -- */
+#timeline .scrollbar{
+	background: transparent url(../image/timeline/scrollbar_background.png) repeat-x 0 0;
+	position: absolute;
+}
+
+#timeline .dragger {
+	background: transparent url(../image/timeline/scrollbar_dragger.png) no-repeat 0 0;
+	cursor: pointer;
+	position: absolute;
+}
+
+#timeline .mark {
+	background: transparent url(../image/timeline/scrollbar_mark.png) no-repeat 0 0;
+	cursor: pointer;
+	height: 21px;
+	width: 13px;
+	left: 600px;
+	position: absolute;
+	display: none;
+	opacity: 0;
+}
+/* -- End Scrollbar -- */
+
+
+
+/* -- Miscellaneous -- */
+#timeline .drag_icon {
+	cursor:url(../image/timeline/drag_icon.png), e-resize;
+}
+
+#timeline .audio_player {
+	position: absolute;
+	top: 1px;
+	right: 7px;
+}
+/* -- End Miscellaneous -- */
+

@@ -1,0 +1,13 @@
+.cubi-logo-gray{
+width:135px;
+height:30px;
+display:block;
+background-image: url("../image/cubi-logo-gray.png");
+background-position: left bottom;
+background-repeat: no-repeat;
+}
+.content p
+{
+padding-bottom:10px;
+line-height:20px;
+}

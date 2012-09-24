@@ -1,0 +1,82 @@
+#cubi-intro-banner-wrapper
+{
+	background-image: url("../../general/image/developer-banner_bg.png");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    height: 340px;
+}
+#cubi-quick-start-banner-wrapper{	
+ 	height:330px;
+    background-image: url("../../cubi/image/quickstart/banner_bg.png");
+    background-position: 350px 50px;
+    background-repeat: no-repeat;
+    width:880px;
+    margin-left:auto;
+    margin-right:auto; 	
+}
+#cubi-quick-start-banner-wrapper .desc
+{
+	padding-left:0px;
+	padding-top:30px;
+}
+.content p.se-blue-dot{
+	background-image:url("../../../general/image/widget/blue-dot.png");
+	background-position: left center ;
+    background-repeat: no-repeat;
+    padding:0px 0px 0px 20px; 
+}
+.content ul.three-se li{
+	list-style:none;
+	padding-left:20px;
+	background-image:url("../../../general/image/widget/blue-dot.png");
+	background-position: left center ;
+    background-repeat: no-repeat;
+}
+.content table.present-features{
+	padding:0px 0px 20px 0px;
+	width:860px;
+}
+.content table.present-features tr td{
+	padding:0px 0px 10px 0px;
+}
+.content table.present-features h4{
+	padding:0px 0px 0px 0px;
+}
+.content table.present-features tr td img{
+	padding:0px 30px 0px 0px;
+}
+.content table.env-req h4{
+	padding:0px 0px 0px 0px;
+}
+.content table.env-req tr td{
+	padding:0px 10px 0px 0px;
+}
+.content table.learning-files h4{
+	padding:10px 0px 10px 0px;
+}
+.content table.learning-files tr td{
+	padding:0px 0px 0px 0px;
+}
+.content .other-resource {
+	padding-top:0px;
+	padding-bottom:30px;
+	padding-left:10px;
+}
+.content .other-resource p{
+	padding-top:10px;
+	padding-bottom:10px
+}
+.content .other-resource ul{
+	height:70px;
+	display:block;
+}
+.content .other-resource ul li{
+	background-image: url("../../../general/image/widget/blue-dot.png");
+    background-position: left 10px;
+    background-repeat: no-repeat; 
+    list-style:none;
+    padding-left:14px;	
+    float:left;
+    width:270px;
+    height:45px;
+}

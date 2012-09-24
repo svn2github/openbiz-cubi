@@ -1,0 +1,145 @@
+#developer-banner-wrapper{
+ 	height:310px;
+    background-image: url("../image/developer-banner_bg.png");
+    background-position: center bottom;
+    background-repeat: no-repeat; 	
+    min-width:880px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#developer-appbuilder-banner-wrapper{
+	height:400px;
+    background-image: url("../image/developer-banner_bg.png");
+    background-position: center bottom;
+    background-repeat: no-repeat; 	
+    min-width:880px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#developer-framework-banner-wrapper{
+	height:400px;
+    background-image: url("../image/developer-banner_bg.png");
+    background-position: center 110px;
+    background-repeat: no-repeat; 	
+    min-width:880px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#developer-frontpage-banner-wrapper{
+	height:400px;
+    background-image: url("../image/banner_bg.png");
+    background-position: center 50px;
+    background-repeat: no-repeat; 	
+    min-width:880px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#developer-banner
+{
+padding-top:60px;
+padding-left:20px;
+}
+
+.related-product-block {
+    padding-top: 10px;
+    width: 300px;
+}
+.related-product-block .preview {
+    padding-right: 15px;
+}
+.related-product-block h2 {
+    padding-top: 8px;
+}
+.related-product-block .preview img {
+    padding-top: 0px;
+}
+.related-product-block p {
+    padding: 10px 0;
+}
+.related-product-block .action {
+    padding: 10px 0;
+}
+.related-product-block .action a {
+    float: left;
+    margin-right: 5px;
+}
+
+.banner{
+	width:880px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+}
+.banner h2{
+	padding-top:14px;
+	padding-bottom:10px;
+}
+.banner p{
+	line-height:22px;
+	padding-bottom:5px;
+}
+.banner .buttons{
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.banner .buttons a{
+	float:left;
+	margin-right:10px;
+}
+
+.content
+{
+	width:880px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+	padding-top:5px;
+	
+}
+
+.content .intro-table{
+	width:890px;
+	margin:0px;
+	padding:0px;
+}
+
+.content .intro-table td{
+	margin:0px;
+	padding:0px;
+	padding-right:5px;
+}
+.content .intro-table td .content-block{
+	padding-top:5px;
+	padding-bttom:5px;
+}
+.content .intro-table td .content-block h3{
+	color:#333333;
+	border-bottom:1px solid #dddddd;
+	margin-bottom:5px;
+}
+.content .intro-table td .content-block .learn-more
+{
+	float:right;
+	padding-top:5px;
+	color:#999999;
+}
+.content .intro-table td .content-block .learn-more:hover
+{	
+	color:#14B3F0;
+}
+.content .bottom-info-block table
+{
+	padding-top:10px;
+}
+.content .bottom-info-block table td
+{
+	 vertical-align: middle;
+	 padding-left:0px;
+	 padding-right:20px;
+}
+.content .bottom-info-block table td p
+{
+	 padding-left:20px;
+	 border-left:1px solid #cccccc;
+	 padding-bottom:0px;
+}
