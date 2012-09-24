@@ -95,25 +95,23 @@
 		</p>
 		
 		<div class="page-splitter"></div>	
-		<h2>扩展特性</h2>
+		<h2>More Features</h2>
 		<table class="module-intro－2column">
 			<tr>			
 				<td>
 					<img src="image/modules/icon-oauth.png" style="padding:0px;" />
 				</td>
 				<td>
-					<p style="width:330px;padding-right:50px;">
-						Oauth扩展可以通过简单配置的方式，允许用户使用他们自己的社交网络帐号例如Facebook帐号，QQ空间帐号等登陆您的应用系统。而无需每次都输入密码验证身份。
+					<p style="width:330px;padding-right:50px;">	Oauth extension allows users to login the application with their social network account (facebook, QQ, ...). They don't need to enter username and password every time to enter the application.  
 					</p>
 				</td>
 				<td>
-					<img src="image/modules/icon-help.png" style="padding:0px;" />
+					<img src="image/modules/icon-cache.png" style="padding:0px;" />
 				</td>
 				<td>
-					<p>
-						联机帮助模块管理用户界面左侧的帮助提示系统，您可以使用这个模块为您开发的应用作出更友好的使用帮助提示。
-					</p>
-				</td>				
+					<p style="width:330px;padding-right:30px;">
+Sytem cache management gives application admin a simple view of their cache status. It also allows reset of cached data. </p>
+				</td>
 			</tr>
 			
 			<tr>			
@@ -122,7 +120,7 @@
 				</td>
 				<td>
 					<p style="width:330px;padding-right:30px;">
-主题模块可以为系统安装、切换更多主题风格和界面，当您遇到对UI指定要求非常严格的用户时，您可以通过该模块为用户单独定制主题风格。
+Theme module enables chanding different look and feel for the application by switching theme. 
 					</p>
 				</td>
 				<td>
@@ -130,26 +128,27 @@
 				</td>
 				<td>
 					<p>
-语言管理模块可以帮助您在不需要修改程序代码的情况下将您的应用系统快速翻译为多用户语言。
+Translation module allows you to pick preferred language pack and translate system strings without code change.
 					</p>
 				</td>				
 			</tr>
 			
 			
-			<tr>			
-				<td>
-					<img src="image/modules/icon-location.png" style="padding:0px;" />
-				</td>
-				<td>
-					<p style="width:330px;padding-right:30px;">
-该模块可以让您在为客户开发的应用中简单扩展地图特性。它底层调用Google 地图API，来完成丰富的用户交互，而您只许几行代码就可以为您的应用添加如此高级的特性。					</p>
-				</td>
+			<tr>
 				<td>
 					<img src="image/modules/icon-log.png" style="padding:0px;" />
 				</td>
 				<td>
 					<p>
-该模块帮您记录用户的关键行为，例如登陆、退出等操作。并提供友好的日志查看界面。您可以基于该模块为您的应用轻松扩展操作日志功能。					</p>
+Event Log module helps record user key activities like login, logout and purchase. It provides application admin a view for list all event logs. Developers can use this module to log all other user activities. </p>
+				</td>	
+				<td>
+					<img src="image/modules/icon-help.png" style="padding:0px;" />
+				</td>
+				<td>
+					<p>
+Help module sets help tips for your application. The help tips link to the current page, it answers common questions on the page.
+					</p>
 				</td>				
 			</tr>
 			
@@ -160,29 +159,14 @@
 				</td>
 				<td>
 					<p style="width:330px;padding-right:30px;">
-安全增强模块是Openbiz Cubi内建的安全及敏感信息过滤系统，可以对URL,POST,GET中的数据针对指定的关键词进行基于时间控制的过滤策略。					</p>
+Security module blocks unsecure requests out of application. It filters IP, keyword, in user requests with given time window. It plays a role like a firewall.</p>
 				</td>
 				<td>
 					<img src="image/modules/icon-cronjob.png" style="padding:0px;" />
 				</td>
 				<td>
 					<p>
-系统计划任务模块与操作系统底层的Cronjob对接，可以让您通过友好的用户界面的方式来管理您的应用中需要定期触发的业务逻辑，例如：每天夜间为用户生成数据报表等。					</p>
-				</td>				
-			</tr>
-			
-			
-			<tr>			
-				<td>
-					<img src="image/modules/icon-cache.png" style="padding:0px;" />
-				</td>
-				<td>
-					<p style="width:330px;padding-right:30px;">
-系统高级缓存管理，用直观可视的方式让用户了解系统缓存的负载情况，可以允许用户手工对缓存数据进行清除操作。他让您用最直观的方式告诉您的客户，“看，它是这样工作的。”					</p>
-				</td>
-				<td>
-				</td>
-				<td>
+Cronjob module provide user-friendly pages to set recurring execution jobs. For example, a job can generate report on every day midnight. </p>
 				</td>				
 			</tr>
 			
@@ -193,9 +177,8 @@
 		<div class="bottom-info-block">
 			<table>
 				<tr>
-					<td><a class="blue-button-go" href="#" >免费获取</a></td>
-					<td><p>Openbiz Cubi具有丰富的应用模块，并其以涉及了几乎所有企业应用的周边业务逻辑，您仅需专注于核心业务逻辑即可。<br/>
-						还等什么？赶快下载Openbiz Cubi，专为企业级应用开发而设计。</p>
+					<td><a class="blue-button-go" href="#" >Download</a></td>
+					<td><p>Download Openbiz Cubi today to boost your application development speed.</p>
 					</td>
 				</tr>
 			</table>
