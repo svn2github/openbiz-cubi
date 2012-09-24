@@ -41,13 +41,14 @@ class qq extends oauthClass{
 		
 		$keys = $o->getRequestToken($call_back);
 
-		$call_back=$call_back.'&oauth_token_secret='.$keys['oauth_token_secret'];
+		
  
 		// QQ 返回的oauth_token 的键名有问题，在此临时修正
 		$_temp['oauth_token'] = array_shift($keys);
 		$keys = array_merge($_temp, $keys);
 	
 		$this->loginUrl = $o->getAuthorizeURL( $keys['oauth_token'] ,false , $call_back);
+		$this->loginUrl .= '&oauth_token_secret='.$keys['oauth_token_secret'];;
 		Bizsystem::getSessionContext()->setVar('qq_keys',$keys);
 		//$_SESSION['qq']['keys'] = $keys;
 		return $this->loginUrl;
