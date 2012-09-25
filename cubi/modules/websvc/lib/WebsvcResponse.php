@@ -69,7 +69,7 @@ class WebsvcResponse
         //print json_encode($this->response);
         $x = json_encode($this->response);
         $y = json_decode($x);
-        print_r($callback.'='.$x);
+        print_r($callback.'('.$x.')');
     }
     
 }
