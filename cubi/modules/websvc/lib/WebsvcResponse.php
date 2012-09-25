@@ -31,11 +31,18 @@ class WebsvcResponse
     
     public function output($format)
     {
-        if ($format == 'xml')
-            return $this->printXml();
-        elseif ($format == 'json')
-            return $this->printJson();
-        print_r($this->response);
+    	switch (strtolower($format))
+    	{
+    		case "xml":
+    			return $this->printXml();
+    		case "json":
+    			 return $this->printJson();
+    		case "jsonp":
+    			return $this->printJsonp();
+    		default:
+    			print_r($this->response);
+    	}
+        
     }
 
     protected function printXml()
@@ -53,6 +60,16 @@ class WebsvcResponse
         $x = json_encode($this->response);
         $y = json_decode($x);
         print_r($x);
+    }
+    
+    protected function printJsonp()
+    {
+    	$callback = $_GET['callback'];
+        header("Content-type: application/json; charset=utf-8");
+        //print json_encode($this->response);
+        $x = json_encode($this->response);
+        $y = json_decode($x);
+        print_r($callback.'='.$x);
     }
     
 }
