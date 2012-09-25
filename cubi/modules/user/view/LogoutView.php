@@ -35,7 +35,16 @@ class LogoutView extends EasyView
     	setcookie("SYSTEM_SESSION_PASSWORD",null,time()-100,"/");
 			
 		// Redirect:
-		header("Location: login");    	
+		if(isset($_GET['redirect_url']))
+		{
+			$url = $_GET['redirect_url'];
+		}
+		else
+		{
+			$url = "login";	
+		}
+		
+		header("Location: $url");    	
     }
 }
 ?>
