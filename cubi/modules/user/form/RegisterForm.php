@@ -70,13 +70,29 @@ class RegisterForm extends UserForm
         //set default user role to member
 		$userinfo = $this->getActiveRecord();
         $userRoleObj = BizSystem::getObject('system.do.UserRoleDO');
-        $uesrRoloArr =array(
+        foreach( BizSystem::getObject('system.do.GroupDO')->directfetch("[default]='1'") as $groupRec)
+        {
+        	$roleId = $groupRec['Id'];
+        	$uesrRoleArr =array(
         				"user_id"=>$userinfo['Id'],
-        				"role_id"=>"2",  //role 2 is Member
-        				); 
-         
-        $userRoleObj->insertRecord($uesrRoloArr);
+        				"role_id"=>$roleId,  //role 2 is Member
+        				);          
+        	$userRoleObj->insertRecord($uesrRoleArr);
+        }
 		
+        //set default group to member
+        $userGroupObj = BizSystem::getObject('system.do.UserGroupDO');
+        foreach( BizSystem::getObject('system.do.GroupDO')->directfetch("[default]='1'") as $groupRec)
+        {
+			$groupId = $groupRec['Id'];
+			$uesrGroupArr =array(
+        				"user_id"=>$userinfo['Id'],
+        				"group_id"=>$groupId,  
+        				);
+        	$userGroupObj->insertRecord($uesrGroupArr); 			
+        }
+        
+        
         //record event log   
         global $g_BizSystem;     
         $eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
