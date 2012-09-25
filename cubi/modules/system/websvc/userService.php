@@ -9,6 +9,8 @@ class userService extends  WebsvcService
 		if($userId)
 		{
 			$result['login_status'] = 1;
+			$result['display_name'] = BizSystem::getUserProfile("display_name");
+			$result['email'] 		= BizSystem::getUserProfile("email");
 		}
 		else
 		{
