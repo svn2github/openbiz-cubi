@@ -454,12 +454,14 @@ display:block;
 }
 #site-header .top-header .menu ul li a{
 	display:block;
-	padding-left:28px;
-	padding-right:28px;
+	padding-left:20px;
+	padding-right:20px;
 	padding-top:38px;
 	padding-bottom:10px;
 	color:#666666;
 	border-bottom:none;
+	font-size:14px;
+	font-weight:bold;
 }
 #site-header .top-header .menu ul li a:hover{
 	padding-bottom:10px;
