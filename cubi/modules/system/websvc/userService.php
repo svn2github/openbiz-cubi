@@ -16,6 +16,5 @@ class userService extends  WebsvcService
 		}
 		return $result;
 	}
-	
 }
 ?>
