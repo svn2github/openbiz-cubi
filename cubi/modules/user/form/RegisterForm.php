@@ -70,9 +70,9 @@ class RegisterForm extends UserForm
         //set default user role to member
 		$userinfo = $this->getActiveRecord();
         $userRoleObj = BizSystem::getObject('system.do.UserRoleDO');
-        foreach( BizSystem::getObject('system.do.RoleDO')->directfetch("[default]='1'") as $groupRec)
+        foreach( BizSystem::getObject('system.do.RoleDO')->directfetch("[default]='1'") as $roleRec)
         {
-        	$roleId = $groupRec['Id'];
+        	$roleId = $roleRec['Id'];
         	$uesrRoleArr =array(
         				"user_id"=>$userinfo['Id'],
         				"role_id"=>$roleId,  //role 2 is Member
