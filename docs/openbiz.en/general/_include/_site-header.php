@@ -12,7 +12,7 @@
 					<li><a class="developer"		href="/developer">面向研发人员</a></li>				
 					<li><a class="hardware"			href="/hardware">扩展设备</a></li>
 					<li><a class="certification"	href="/certification">认证培训</a></li>	-->
-					<li><a class="cubi"				href="/cubi.php">Openbiz Cubi</a></li>	
+					<li><a class="cubi"		href="/cubi">Openbiz Cubi</a></li>	
 					<li><a class="framework"		href="/framework.php">The Framework</a></li>
 					<li><a class="document"			href="/document">Document</a></li>
 					<li><a class="extension"		href="/extension">Extensions</a></li>

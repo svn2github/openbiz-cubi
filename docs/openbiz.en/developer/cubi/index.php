@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>System Overview － Openbiz Cubi Platform － <?php echo SITE_NAME;?></title>
+<title>System Overview - Openbiz Cubi Platform - <?php echo SITE_NAME;?></title>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
 <link href="../../general/style/general.css" rel="stylesheet" type="text/css" />

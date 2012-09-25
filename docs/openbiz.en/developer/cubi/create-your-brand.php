@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>创建你的品牌 － Openbiz Cubi Platform － <?php echo SITE_NAME;?></title>
+<title>Create Your Brand - Openbiz Cubi Platform - <?php echo SITE_NAME;?></title>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
 <link href="../../general/style/general.css" rel="stylesheet" type="text/css" />
@@ -35,10 +35,10 @@
 				<div class="desc">
 					<h1 style="height:auto;"><a href="cubi/"><img src="image/license/banner-title.png" title="Openbiz Cubi Platform"/></a></h1>
 					<div style="padding-left:5px;">
-					<h2 >基于Cubi创建你自己的品牌</h2>
-					<p>Openbiz Cubi友好开放的使用许可协议 <br/>允许您在其之上打造您的自有品牌</p>
+					<h2 >Use Cubi to build your brand</h2>
+					<p>Openbiz Cubi business friendly license <br/>allows to build your branded applications</p>
 					<p class="buttons">
-						<a class="blue-button-go" href="#" >免费获取</a>
+						<a class="blue-button-go" href="#" >Download</a>
 					</p>
 					</div>
 				</div>
@@ -49,39 +49,40 @@
 	
 	<div class="content">
 		<div class="page-splitter"></div>	
-		<h2>友好、开放的许可协议</h2>
+		<h2>Business-Friendly Opensource License</h2>
 		<p>
-		它的设计就是为了让您可以站在我们的肩膀上前进。Openbiz Cubi的许可协议如果系统自身一样高度开放。
-		它允许您可以合法的再其之上构建<br />您自己的商业应用程序甚至您的自有品牌的产品。无须担心法律许可问题。
+		The goal of the platform is to enable your application on top of itself. Openbiz Cubi is released with BSD opensource license. It allows you to build and pulish your own branded applications freely without worrying about legal issues. 
 		</p>
 		
 		<div class="page-splitter"></div>
-		<h2>替换您自己的Logo</h2>
-		<p>简单到只需要点几下鼠标，就把它变成专为您的设计的产品。</p>
+		<h2>User Your Own Logo</h2>
+		<p>Simply click mouse to change logos and names to your own text</p>
 		<table class="replace-logo" style="padding:0px;padding-bottom:15px;" cellspacing="0">
 			<tr >
 				<td>
-					<img src="image/license/replace-logo-step-1.png" />
-				</td>
-				<td>
-					<img src="image/license/replace-logo-step-2.png" />
-				</td>
-				<td>
-					<img src="image/license/replace-logo-step-3.png" />
+					<p>Change Login Logo <br/>
+					<img src="image/license/replace-logo-step-1.png" /></p>
+					
+					<p>Change Application Logo <br/>
+					<img src="image/license/replace-logo-step-2.png" /></p>
+					
+					<p>Change Application Name <br/>
+					<img src="image/license/replace-logo-step-3.png" /></p>
+					
 				</td>
 			</tr>			
 		</table>
 		
 		<div class="page-splitter"></div>
 		
-		<h2>设计您自己的界面主题</h2>
-		<p>简单到只需要点几下鼠标，就把它变成专为您的设计的产品。</p>
+		<h2>Set Your Own Theme</h2>
+		<p>You can rename the application by simple mouse clicks</p>
 		<img src="image/license/custom-theme.png" style="padding-bottom:15px;"/>
-		<p>为了真正要让他从内向外的改头换面，您还可以为Openbiz Cubi来定制符合您的企业形象的主题风格。例如，把整体颜色改为红色、把左右菜单的布局换个位置，甚至让他完全变个摸样（但依然保留所有高级特性）。</p>
+		<p>You can pick the theme fit for your applications. For example, you can change the color to red, change the position of menu, or make any layout change.</p>
 		
 		<div class="page-splitter"></div>
-		<h2>打造您自己的产品</h2>
-		<p>Openbiz Cubi主题风格基于标准的Smarty模板引擎构建，修改模板只需要了解HTML和Smarty的基础语法即可上手。</p>
+		<h2>Code Custom Theme</h2>
+		<p>Openbiz Cubi theme is based on standard Smarty or PHP tempalte, you can create your own theme by modifying default theme as long as your know HTML and Smarty.</p>
 		<table class="custom-theme" style="padding:0px;padding-bottom:15px;padding-top:10px;" cellspacing="0">
 			<tr >
 				<td>
@@ -104,10 +105,10 @@
 		<div class="bottom-info-block">
 			<table>
 				<tr>
-					<td><a class="blue-button-go" href="#" >免费获取</a></td>
+					<td><a class="blue-button-go" href="#" >Download</a></td>
 					<td><p>
-						Openbiz Cubi友好开放的使用许可协议允许您在其之上打造您的自有品牌。<br/>
-						赶快下载Openbiz Cubi，专为企业级应用开发而设计。</p>
+						Download Openbiz Cubi today to build your branded applications.<br/>
+						</p>
 					</td>
 				</tr>
 			</table>
