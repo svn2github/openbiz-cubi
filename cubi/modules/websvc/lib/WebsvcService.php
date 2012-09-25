@@ -129,7 +129,7 @@ class WebsvcService
         $validMethod = false;
         foreach ($this->m_PublicMethods as $pmethod)
         {
-            if ($method == $pmethod->m_Name) {
+            if (strtolower($method) == strtolower($pmethod->m_Name)) {
                 $validMethod = true;
                 break;
             }
