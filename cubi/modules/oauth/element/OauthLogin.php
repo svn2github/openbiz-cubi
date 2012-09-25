@@ -49,20 +49,22 @@ class OauthLogin extends InputElement
 			 if($this->m_RedirectURL)
 			 {
 			 	$this->m_RedirectURL = Expression::evaluateExpression($this->m_RedirectURL, $this);
-			 	$url_append.="&redirect_url=".urlencode($this->m_RedirectURL);
+			 	$url_append.="redirect_url=".urlencode($this->m_RedirectURL)."&";
 			 }
 			 if($this->m_AssocURL)
 			 {
 			 	$this->m_AssocURL = Expression::evaluateExpression($this->m_AssocURL, $this);
-			 	$url_append.="&assoc_url=".urlencode($this->m_AssocURL);
+			 	$url_append.="assoc_url=".urlencode($this->m_AssocURL)."&";
 			 }
 			 if(count($recArr))
 			 {
 				 $sHTML.= "<span class=\"oauth_bar\" $style>";
 				 foreach($recArr as $oauthProvider)
 				 {
-				 	$url = APP_URL."/ws.php/oauth/callback/login/type_".$oauthProvider['type'];
-				 	$url.= $url_append;
+				 	$url = APP_URL."/ws.php/oauth/callback/login/type_".$oauthProvider['type'].'/';
+				 	if($url_append){
+				 		$url.= '?'.$url_append;
+				 	}
 					$sHTML.= "<a id=\"oauth_".$oauthProvider['type']."\" title=\"".$oauthProvider['type']."\"   href=\"$url\" style=\"\"></a>";
 				 }
 				 $sHTML.= "</span>";
