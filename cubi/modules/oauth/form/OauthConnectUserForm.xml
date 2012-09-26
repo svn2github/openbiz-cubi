@@ -16,7 +16,7 @@
         <Element Name="fld_action" Hidden="{@:m_OpenRegisterStatus==0?'Y':'N'}" Class="Listbox" SelectFrom="oauth.lov.ConnectUserLOV(Action)" FieldName="action" Label="Action" >
         	<EventHandler Name="fld_action_onclick" Event="onchange" Function="UpdateForm()" />
         </Element>
-		<Element Name="fld_username" Class="InputText" FieldName="username" Label="Username" required="Y"  Required="Y" Validator="{@validate:betweenLength([fld_username], 3, 10)}" HTMLAttr="maxlength='10'"/>		
+		<Element Name="fld_username" Class="InputText" FieldName="username" Label="Username" required="Y"  Required="Y" Validator="{@validate:betweenLength([fld_username], 3, 20)}" HTMLAttr="maxlength='20'"/>		
         <Element Name="fld_password" Class="Password"  label="Password" FieldName="password"  required="Y" Validator="{@validate:betweenLength([fld_password], 4, 20)}" HTMLAttr="maxlength='20'"/>
 		<Element Name="fld_password_repeat" Hidden="{@:Elem[fld_action].Value==1?'N':'Y'}" Class="Password"  FieldName="password_repeat" Label="Confirm"  required="Y" HTMLAttr="maxlength='20'"/>
         <Element Name="fld_email" Hidden="{@:Elem[fld_action].Value==1?'N':'Y'}" required="Y" Class="InputText"  FieldName="email" Label="Email"  Validator="{@validate:email('[fld_email]')}" HTMLAttr="maxlength='50'"/>
