@@ -75,7 +75,7 @@ class RegisterForm extends UserForm
         	$roleId = $roleRec['Id'];
         	$uesrRoleArr =array(
         				"user_id"=>$userinfo['Id'],
-        				"role_id"=>$roleId,  //role 2 is Member
+        				"role_id"=>$roleId, 
         				);          
         	$userRoleObj->insertRecord($uesrRoleArr);
         }
