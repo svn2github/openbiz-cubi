@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>快速上手指南 － Openbiz Cubi － <?php echo SITE_NAME;?></title>
+<title>Quick Start - Openbiz Cubi - <?php echo SITE_NAME;?></title>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
 <link href="../../general/style/general.css" rel="stylesheet" type="text/css" />
@@ -34,12 +34,13 @@
 			<div id="framework-banner" class="banner" >
 				<div class="desc">
 					<h1 style="height:auto; padding-top:45px;"><a href="../cubi.php"><img src="image/quickstart/banner-title.png" title="Openbiz Cubi"/></a></h1>
-					<h2>轻便灵活的内建描述语言</h2>
-					<p style="padding-bottom:12px;padding-top:4px;">
-						将Openbiz部署到现有的系统 
-					</p>									
+					<h2>Learn how to use Openbiz Cubi</h2>
+					<p style="padding-bottom:0px;padding-top:4px;">
+						Start developing your first Cubi module <br/>
+						Stand on the should of a solid platform
+					</p>
 						<p style="width:100px;padding-top:15px;">
-							<a class="blue-button-go" href="#" >免费获取</a>
+							<a class="blue-button-go" href="#" >Download</a>
 						</p>
 				</div>
 			</div>
@@ -48,16 +49,16 @@
 	
 	<div class="content">
 		<div class="page-splitter"></div>	
-		<h2>快速本地安装指南</h2>
-		<p>Openbiz 允许开发人员通过实现插入式服务的方式编写自己的特殊逻辑。Openbiz服务对象同样是基于元数据驱动的对象。</p>
+		<h2>Download and Install Openbiz Cubi</h2>
+		<p>Follow the easy steps to get youself start Openbiz Cubi - download, unzip, then launch installation wizard.</p>
 		<table class="present-features" cellspacing="0">
 		<tr>
 			<td>				
 				<img src="image/quickstart/icon-env.png" />
 			</td>
 			<td>
-				<h3>1、准备环境</h3>
-				<p>根据习用环境要求，来安装设置所需软件</p>
+				<h3>1. Prepare environment</h3>
+				<p>Standard LAMP (Linux, Apache, Mysql, PHP) environment or WAMP (Windows, Apache, Mysql, PHP)</p>
 			</td>			
 		</tr>			
 		<tr>
@@ -65,8 +66,8 @@
 				<img src="image/quickstart/icon-get.png" />
 			</td>
 			<td>
-				<h3>2、获取Cubi</h3>
-				<p>通过完成在线订单的方式获取Cubi的下载地址并注册您的OpenbizID，不必担心此过程免费。您的OpenbizID将用于您日后获取技术支持使用</p>
+				<h3>2. Get Openbiz Cubi</h3>
+				<p>Download release packages or pull source code from <a href="http://code.google.com/p/openbiz-cubi/" target="_blank">Google project page</a></p>
 			</td>			
 		</tr>		
 		<tr>
@@ -74,9 +75,9 @@
 				<img src="image/quickstart/icon-unzip.png" />
 			</td>
 			<td>
-				<h3>3、解压缩</h3>
+				<h3>3. Unzip</h3>
 				<p>
-					将Cubi源代码包内的文件解压缩到您的Web根文件夹中
+					Unzip Cubi source code to your web root directory.
 				</p>
 			</td>			
 		</tr>
@@ -85,9 +86,9 @@
 				<img src="image/quickstart/icon-lock.png" />
 			</td>
 			<td>
-				<h3>4、设置权限</h3>
+				<h3>4. Set permission</h3>
 				<p>
-					给Web根文件夹为您的Web服务器的用户的写入权限
+					Give write permission on cubi installed directory to the web server user.
 				</p>
 			</td>		
 		</tr>
@@ -96,55 +97,55 @@
 				<img src="image/quickstart/icon-web.png" />
 			</td>
 			<td>
-				<h3>5、Web初始化</h3>
+				<h3>5. Installation wizard</h3>
 				<p>
-					打开浏览器，输入http://localhost/，根据系统向导完成初始化操作
+					Open a web browser, launch Cubi installation wizard with http://localhost/cubi/install. Follow the wizard to complete installation.
 				</p>
 			</td>			
 		</tr>				
 		</table>
 		<div class="page-splitter"></div>			
-		<h2>系统环境要求</h2>
+		<h2>Environment Requirements</h2>
 		<table class="env-req">
 			<tr>
 				<td>
-					<h4>支持操作系统:</h4>
+					<h4>Supported Operation Systems:</h4>
 					
 				</td>
 				<td>
-					Microsoft Windows 2008,Microsoft Windows 2003,FreeBSD,Linux,Macintosh
+					Microsoft Windows 2008, Microsoft Windows 2003, FreeBSD, Linux, Macintosh
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h4>支持Web服务器:</h4>
+					<h4>Supported Web Servers:</h4>
 					
 				</td>
 				<td>
-					Apache Web Server 2.0,Microsoft IIS 5.0,Lighttpd 1.4
+					Apache Web Server 2.0, Microsoft IIS 6.0, Lighttpd 1.4
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h4>支持数据库:</h4>
+					<h4>Supported Databases:</h4>
 					
 				</td>
 				<td>
-					MySQL 5.0 (推荐),Microsoft SQL Server,PostgreSQL
+					MySQL 5.0 (recommended), Oracle, Microsoft SQL Server, PostgreSQL
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h4>脚本引擎:</h4>
+					<h4>PHP Runtime:</h4>
 					
 				</td>
 				<td>
-					PHP 5.3 并启用如下扩展,mod_curl,mod_pdo,mod_pdo-mysql,mod_mcrypt 
+					PHP 5.2 with extensions, mod_curl, mod_pdo, mod_pdo-mysql, mod_mcrypt 
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<h4>加密引擎：</h4>
+					<h4>Supported PHP Encoder：</h4>
 					
 				</td>
 				<td>
@@ -153,71 +154,17 @@
 			</tr>			
 		</table>
 		<div class="page-splitter"></div>			
-		<h2>学习资料</h2>
-		<table class="learning-files">
-			<tr>
-				<td>					
-					<img src="image/quickstart/pic-video.png" />
-				</td>
-				<td>
-					<h4>Windows XP 安装Openbiz Cubi 视频教程</h4>
-					让我们通过短片来了解如何通过Openbiz Appbuilder来快速开发搭建企业级应用的雏形。以及它都为我们带来了哪些先进的高级特性。
-					让我们通过短片来了解如何通过Openbiz Appbuilder来快速开发搭建企业级应用的雏形。
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<img src="image/quickstart/pic-video.png" />					
-				</td>
-				<td>
-					<h4>Openbiz Cubi管理员视频教程</h4>
-					让我们通过短片来了解如何通过Openbiz Appbuilder来快速开发搭建企业级应用的雏形。
-					以及它都为我们带来了哪些先进的高级特性。让我们通过短片来了解如何通过Openbiz Appbuilder来快速开发搭建企业级应用的雏形。
-				</td>
-			</tr>
-			<tr>
-				<td colspan=2>
-					<h4>通过范例学习Openbiz Cubi应用开发</h4>
-					让我们通过短片来了解如何通过Openbiz Appbuilder来快速开发搭建企业级应用的雏形。以及它都为我们带来了哪些先进的高级特性。
-					让我们通过短片来了解如何通过Openbiz Appbuilder来快速开发搭建企业级应用的雏形。以及它都为我们带来了哪些先进的高级特性。
-					<a href="#" target="_blank">阅读全文</a>
-				</td>
-			</tr>
-			<tr>
-				<td colspan=2>
-					<h4>Cubi快速开始构建应用程序</h4>
-					让我们通过短片来了解如何通过Openbiz Appbuilder来快速开发搭建企业级应用的雏形。以及它都为我们带来了哪些先进的高级特性。
-					让我们通过短片来了解如何通过Openbiz Appbuilder来快速开发搭建企业级应用的雏形。以及它都为我们带来了哪些先进的高级特性。
-					<a href="#" target="_blank">阅读全文</a>
-				</td>
-			</tr>
-			<tr>
-				<td colspan=2>
-					<h4>如何撰写Cubi模块</h4>
-					让我们通过短片来了解如何通过Openbiz Appbuilder来快速开发搭建企业级应用的雏形。以及它都为我们带来了哪些先进的高级特性。
-					让我们通过短片来了解如何通过Openbiz Appbuilder来快速开发搭建企业级应用的雏形。以及它都为我们带来了哪些先进的高级特性。
-					<a href="#" target="_blank">阅读全文</a>
-				</td>
-			</tr>
-			<tr>
-				<td colspan=2>
-					<h4>如何撰写Cubi模块</h4>
-					让我们通过短片来了解如何通过Openbiz Appbuilder来快速开发搭建企业级应用的雏形。以及它都为我们带来了哪些先进的高级特性。
-					让我们通过短片来了解如何通过Openbiz Appbuilder来快速开发搭建企业级应用的雏形。以及它都为我们带来了哪些先进的高级特性。
-					<a href="#" target="_blank">阅读全文</a>
-				</td>
-			</tr>		
-		</table>
-		<div class="page-splitter"></div>
+		<h2>Documents</h2>
 		<div class="other-resource">
-				<h2>培训与学习资料</h2>
-				<p>关于推荐的技术学习资料列表，请访问如下链接：</p>
+				<p>The links below list Openbiz Cubi online documents</p>
 				<ul>
 					<li>Openbiz at Google Code <br/><a href="http://openbiz-cubi.googlecode.com" target="_blank">http://openbiz-cubi.googlecode.com/</a></li>
-					<li>Openbiz 在线产品文档<br/><a href="http://docs.openbiz.cn" target="_blank">http://docs.openbiz.cn/</a></li>
-					<li>优库视频学习资料<br/><a href="http://u.youku.com/openbiz" target="_blank">http://u.youku.com/openbiz</a></li>
-					<li>土豆视频学习资料<br/><a href="http://www.tudou.com/home/Openbiz/" target="_blank">http://www.tudou.com/home/Openbiz</a></li>
-					<li>Openbiz 新浪博客<br/><a href="http://blog.sina.com.cn/openbiz" target="_blank">http://blog.sina.com.cn/openbiz</a></li>
+					<li>Openbiz Facebook page<br/><a href="http://www.facebook.com/OpenbizSolution" target="_blank">http://www.facebook.com/OpenbizSolution</a></li>
+					<li>Openbiz discusion group<br/><a href="http://groups.google.com/group/openbiz-cubi" target="_blank">http://groups.google.com/group/openbiz-cubi</a></li>
+					<li>Openbiz Chinese documents<br/><a href="http://docs.openbiz.cn" target="_blank">http://docs.openbiz.cn/</a></li>
+					<li>Openbiz video at youku<br/><a href="http://u.youku.com/openbiz" target="_blank">http://u.youku.com/openbiz</a></li>
+					<li>Openbiz video at tudou<br/><a href="http://www.tudou.com/home/Openbiz/" target="_blank">http://www.tudou.com/home/Openbiz</a></li>
+					
 				</ul>
 			</div>
 		
