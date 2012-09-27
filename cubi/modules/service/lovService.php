@@ -21,6 +21,7 @@ class lovService extends MetaObject
 	
     public function getDictionary($selectFrom)
     {
+    	$this->m_SelectFrom=$selectFrom;
     	$dict = array();
     	$list = $this->getList($selectFrom);
 		if ($list) {
