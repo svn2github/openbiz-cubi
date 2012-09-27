@@ -565,6 +565,8 @@ class Element extends MetaObject implements iUIControl
     		$this->m_DefaultValue = I18n::t($this->m_DefaultValue, $this->getTransKey('DefaultValue'), $module, $this->getTransPrefix());
 		if (!empty($this->m_ElementSet))
     		$this->m_ElementSet = I18n::t($this->m_ElementSet, $this->getTransKey('ElementSet'), $module, $this->getTransPrefix());
+    	if (!empty($this->m_BlankOption))
+    		$this->m_BlankOption = I18n::t($this->m_BlankOption, $this->getTransKey('BlankOption'), $module, $this->getTransPrefix());
     	if (!empty($this->m_TabSet))
     		$this->m_TabSet = I18n::t($this->m_TabSet, $this->getTransKey('TabSet'), $module, $this->getTransPrefix());    		
     }
