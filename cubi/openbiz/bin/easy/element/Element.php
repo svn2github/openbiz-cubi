@@ -512,11 +512,23 @@ class Element extends MetaObject implements iUIControl
             return false;
         else if ($this->m_Required == "Y")
             $required = true;
-        else if($required != "N")
+        else if($this->m_Required == "N")
             $required = false;
-        else
+        else{
             $required = Expression::evaluateExpression($this->m_Required, $this->getFormObj());
-
+            if(strtoupper($required)=='Y')
+            {
+            	$required=true;
+            }
+            elseif(strtoupper($required)=='N')
+            {
+            	
+            }
+            else
+            {            	
+            	$required=false;
+            }
+        }
         return $required;
     }
 
