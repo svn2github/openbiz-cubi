@@ -2,7 +2,7 @@
 class AccountService {
 	
 	protected $m_AccountDO = 'account.do.AccountDO';
-	public function getDefaultAccountId($userId = null)
+	public function GetDefaultAccountId($userId = null)
 	{
 		if(!$userId)
 		{
@@ -14,7 +14,7 @@ class AccountService {
 		return $accountId;
 	}
 	
-	public function getDisplayName($accountId)
+	public function GetDisplayName($accountId)
 	{
 		return BizSystem::getObject($this->m_AccountDO)->fetchById($accountId)->name;		
 	}
@@ -28,6 +28,29 @@ class AccountService {
 		}else{
 			return $code;
 		}
+	}
+	
+	public function AssocAccountUser($accountId,$userId,$accessLevel='3')//accessLevel = 3 is full control
+	{
+		$assocRec = array(
+			"account_id" => $accountId,
+			"user_id"	=>	$userId,
+			"access_level" => $accessLevel,
+			"default" => '1',
+			"status"  => '1'
+		);
+		return BizSystem::getObject("account.do.AccountUserDO")->insertRecord($assocRec);
+	}
+	
+	public function CreateAccount($rec)
+	{
+		$rec['code'] = $this->GenAccountCode();
+		return BizSystem::getObject($this->m_AccountDO)->insertRecord($rec);
+	}
+	
+	public function ValidateAccountToken($accountCode , $tokenCode)
+	{
+		return false;
 	}
 }
 ?>
