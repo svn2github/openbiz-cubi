@@ -58,7 +58,11 @@ class userEmailService extends MetaObject
         	        
         $userData = $data[0];
         $data 	  = array("userinfo"=>$userData);
-               
+        $data['app_index'] = APP_INDEX;
+		$data['app_url'] = APP_URL;
+		$data['operator_name'] = BizSystem::GetProfileName(BizSystem::getUserProfile("Id"));
+		$data['refer_url'] = SITE_URL;
+		       
 		//render the email tempalte
 		$tplFile = BizSystem::getTplFileWithPath($template, "email");
 		$content = $this->renderEmail($data, $tplFile);
@@ -86,6 +90,10 @@ class userEmailService extends MetaObject
         	return false;        
         $userId = $data[0]['user_id'];
 		$data 	 = $data[0];
+		$data['app_index'] = APP_INDEX;
+		$data['app_url'] = APP_URL;
+		$data['operator_name'] = BizSystem::GetProfileName(BizSystem::getUserProfile("Id"));
+		$data['refer_url'] = SITE_URL;
 		
         $userObj = BizSystem::getObject("system.do.UserDO");
         $userData = $userObj->directFetch("[Id]='".$userId."'", 1);                	        
