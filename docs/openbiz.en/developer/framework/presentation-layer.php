@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>图形表现层 － Openbiz Framework － <?php echo SITE_NAME;?></title>
+<title>Presentation Layer - Openbiz Framework - <?php echo SITE_NAME;?></title>
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
 <link href="../../general/style/general.css" rel="stylesheet" type="text/css" />
@@ -52,13 +52,13 @@ $(document).ready(function(){
 			<div id="framework-banner" class="banner" >
 				<div class="desc">
 					<h1 style="height:auto; padding-top:45px;"><a href="../framework.php"><img src="image/presentationlayer/banner-title.png" title="Openbiz Framework"/></a></h1>
-					<h2>处理视图与表单对象的底层关联</h2>
+					<h2>Page and Form upon Data Object</h2>
 					<p style="padding-bottom:12px;padding-top:4px;">
-						丰富的图形表现形势<br/>
-						轻松满足企业应用中的各种需求
+						Wide collection of UI elements<br/>
+						to meet all requests in your applications
 					</p>									
 						<p style="width:100px;padding-top:15px;">
-							<a class="blue-button-go" href="#" >免费获取</a>
+							<a class="blue-button-go" href="#" >Download</a>
 						</p>
 				</div>
 			</div>
@@ -68,19 +68,16 @@ $(document).ready(function(){
 	<div class="content">
 		<div class="page-splitter"></div>	
 		<div>
-			<h2>图形表现层介绍</h2>
+			<h2>Presentation Layer Overview</h2>
 			<p>
-				Openbiz的图形表现层主要分为 视图对象 表单对象 和 表单控件对象。<br/>
-				其主要表现逻辑封装于 Openbiz Cubi 应用平台中，作为框架底层在 Openbiz Framework中负责处理这些对象之间的调用关系，而不负责对其样式和外观进行风格化。<br/> 
-				例如在父子表单联动的案例中，Openbiz负责的部分是当父表单触发了 SelectRecord方法后自动刷新与其关联的子表单。但这两个表单具体外观是什么样子是由Smarty模板定义的。在Openbiz Cubi中为开发人员提供了支持全部特性的模板。
+				Openbiz Data Object (DO) plays a data unit, and Openbiz Form plays as corresponding presentation unit. Each Form declares a DO name and mapping between DO Fields to Form Elements. Openbiz View plays as a presentation container of Forms. In web technology, View is same as a web page and Form is a logic block within a page.
 			</p>			
 		</div>		
 		<div class="page-splitter"></div>
 		<div class="" style="padding-top: 10px;padding-bottom:10px;">
-			<h2>视图对象</h2>
+			<h2>View</h2>
 			<p>
-				Openbiz的视图对象相当于整个页面，它负责定义该页面如何装载表单、菜单和其他小部件。
-				以及适应在各种设备上显示页面。在MVC结构中它与表单对象的实现类文件共同作为控制器(Controller)。
+				Openbiz View is same as a web page. A View is a container of Forms and Elements. It's layout is defined in its template file. A typical view layout contains header, footer, content area and navigation menus.
 			</p>
 			<img class="image-border" src="image/presentationlayer/pic-vo-1.png"></img>
 			<img class="image-border" src="image/presentationlayer/pic-vo-2.png" style="margin:0px 10px 0px 10px;"></img>
@@ -88,115 +85,114 @@ $(document).ready(function(){
 		</div>
 		<div class="page-splitter"></div>
 		<div class="" style="padding-top: 10px;padding-bottom:10px;">
-			<h2>表单对象</h2>
+			<h2>Form</h2>
 			<p>
-				Openbiz 表单对象是系统的主要数据逻辑部分，它负责数据的展示逻辑，通常每个表单对象都会绑定一个数据对象。<br/>
-				常见的表单对象有 列表、详情、编辑、新建、复制几种类型，表单对象可以被潜入在视图中也可以作为内嵌或弹出窗口（层）来使用。
+				Openbiz Form presents the data of Data Object to web pages. Usually a Form links with Data Object. It defines how data displayed to users.</p>
+			<p>
+				In most data-driven applications, data is presented in different form types including List form, Detail form, Edit form, New form and Copy form. A Form can be in a View or in a popup dialog.
 			</p>
 			<img class="image-border" src="image/presentationlayer/pic-fo-1.png"></img>
 			<img class="image-border" src="image/presentationlayer/pic-fo-2.png" style="margin:0px 10px 0px 10px;"></img>
 			<img class="image-border" src="image/presentationlayer/pic-fo-3.png"></img>
 		</div>
 		<div class="page-splitter"></div>
-		<h2>表单控件对象 - Elements</h2>
-		<p>
-				Openbiz 的表单控件对象是用于在表单对象中绑定数据对象字段使用的。通常每个表单控件会映射到该表单对象所绑定的数据对象的某个列上。
-				不同的表单控件提供了不同的数据展示或输入逻辑，除了标准的Web表单控件（文本框、单选菜单、多选菜单、复选框）外，
-				Openbiz Framework 还提供了高级控件的支持，例如：条码扫瞄控件、智能卡读卡控件、颜色选择控件、富文本编辑控件等。
-				表单控件通常还可以触发事件，事件的定义与HTML控件事件相似，事件行为可以是触发服务器端的对象自定义方法、在表单之间或者客户端Javascript代码 
+		<h2>Elements</h2>
+			<p>
+				Openbiz Form Element is a smallest display unit (such as a inputbox) or a group of display units (such as rich text editor). An Element can bind a Field defined in Form's Data Object. Different Elements provide different display and input logic. Beyond standard HTML elements (input, list, checkbox, radio, password,...), Openbiz framework brings you many advanced elements. For example, card scanner, calendar picker, color picker, rich text editor, and so on.
+			</p>
+		<p>	Developers can set event handler on each Element. These events are same as HTML events. The handlers is either a javascript function call or AJAX call to form method. 
 		</p>
-		<h2>Openbiz的高级表单控件展示</h2>
+		<h2>Openbiz Avdanced Element Samples</h2>
 		<table class="present-features screenshots" cellspacing="0" style="padding-top:10px;">
 		<tr>
 			<td style="width:85px;">
-				<a rel="screenshots" href="image/presentationlayer/pic-card.png" title="Openbiz Framework - 智能卡读卡器控件截面">
+				<a rel="screenshots" href="image/presentationlayer/pic-card.png" title="Openbiz Framework - Card Reader">
 				<img src="image/presentationlayer/pic-card-small.png" />
 				</a>
 			</td>
 			<td  style="width:330px;">
-				<h4>智能卡读卡器控件</h4>
-				<p>该控件直接支持键盘口的智能卡读卡器设备，可以捕获设备在浏览器窗口防围内传入的任何自负序列，常用于开发智能卡应用系统使用。例如会员卡管理系统。</p>
+				<h4>Card Reader</h4>
+				<p>Card reader can read a card number as typed from keyboard. It can be used in use login with card.</p>
 			</td>
 			<td  style="width:85px;">
-				<a rel="screenshots" href="image/presentationlayer/pic-on-off.png" title="Openbiz Framework - 开关按钮截面">
+				<a rel="screenshots" href="image/presentationlayer/pic-on-off.png" title="Openbiz Framework - OnOff button">
 				<img src="image/presentationlayer/pic-on-off-small.png" />
 				</a>
 			</td>
 			<td>
-				<h4>开关按钮</h4>
-				<p>可以通过直观的开关方式更有好的展示布尔形数据字段</p>
+				<h4>On and Off Button</h4>
+				<p>It provide easy way for user to change boolean data</p>
 			</td>
 		</tr>			
 		<tr>
 			<td>
-				<a rel="screenshots" href="image/presentationlayer/pic-scanner.png" title="Openbiz Framework - 条码扫描枪截面">
+				<a rel="screenshots" href="image/presentationlayer/pic-scanner.png" title="Openbiz Framework - Scanner">
 				<img src="image/presentationlayer/pic-scanner-small.png" />
 				</a>
 			</td>
 			<td>
-				<h4>条码扫描枪</h4>
-				<p>该控件可以直接读取键盘口的条码扫描枪，可以捕获设备在浏览器窗口防围内传入的任何自负序列，
-				常用于开发条码应用系统使用，例如产品库存管理等</p>
+				<h4>Scanner Gun</h4>
+				<p>This element can be used to read barcode in applications that manages assets.</p>
 			</td>
 			<td>
-				<a rel="screenshots" href="image/presentationlayer/pic-sort.png" title="Openbiz Framework - 表格数据排序截面">
+				<a rel="screenshots" href="image/presentationlayer/pic-sort.png" title="Openbiz Framework - Column sort">
 				<img src="image/presentationlayer/pic-sort-small.png" />
 				</a>
 			</td>
 			<td>
-				<h4>表格数据排序</h4>
-				<p>常用于列表表单，可以让用户对表单数据的排序权重进行快捷调整。</p>
+				<h4>Column Sorter</h4>
+				<p>Column Sorter provides a simple way to change the order of a record in list form</p>
 			</td>
 		</tr>		
 		<tr>
 			<td>
-				<a rel="screenshots" href="image/presentationlayer/pic-color.png" title="Openbiz Framework - 颜色选择控件截面">
+				<a rel="screenshots" href="image/presentationlayer/pic-color.png" title="Openbiz Framework - Color Picker">
 				<img src="image/presentationlayer/pic-color-small.png" />
 				</a>
 			</td>
 			<td>
-				<h4>颜色选择控件</h4>
-				<p>框架集成了jQuery ColorPicker控件，可以让用户更加直观的进行颜色选择，该特性在Openbiz的商业产品的按类型定义颜色特性中有大量使用。</p>
+				<h4>Color Picker</h4>
+				<p>Color Picker is based on jQuery color picker plugin.</p>
 			</td>
 			<td>
-				<a rel="screenshots" href="image/presentationlayer/pic-search.png" title="Openbiz Framework - 自动提示文本框截面">
+				<a rel="screenshots" href="image/presentationlayer/pic-search.png" title="Openbiz Framework - Auto Suggestion">
 				<img src="image/presentationlayer/pic-search-small.png" />
 				</a>
 			</td>
 			<td>
-				<h4>自动提示文本框</h4>
-				<p>常用于列表表单，可以根据用户已经输入的部分文字自动匹配相关选项</p>
+				<h4>Auto Suggestion</h4>
+				<p>It is used in many places like search input, contact picker, ...</p>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a rel="screenshots" href="image/presentationlayer/pic-list.png" title="Openbiz Framework - 带图标的下拉菜单截面">
+				<a rel="screenshots" href="image/presentationlayer/pic-list.png" title="Openbiz Framework - Dropdown list with icon">
 				<img src="image/presentationlayer/pic-list-small.png" />
 				</a>
 			</td>
 			<td>
-				<h4>带图标的下拉菜单</h4>
-				<p>比浏览器自带的下拉菜单更加精美的下拉菜单方式，允许开发人员在每个选项上增加图标样式。</p>
+				<h4>Dropdown list with icon</h4>
+				<p>The dropdown list can display list of values with icons</p>
 			</td>
 			<td>
-				<a rel="screenshots" href="image/presentationlayer/pic-bar.png" title="Openbiz Framework - 进度条控件截面">
+				<a rel="screenshots" href="image/presentationlayer/pic-bar.png" title="Openbiz Framework - Progress bar">
 				<img src="image/presentationlayer/pic-bar-small.png" />
 				</a>
 			</td>
 			<td>
-				<h4>进度条控件</h4>
-				<p>常用于列表表单，可以直观的展现某项数据的进度，用于绑定整数型字段</p>
+				<h4>Progress bar</h4>
+				<p>The progress bar is usually to display progress of a task, project...</p>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a rel="screenshots" href="image/presentationlayer/pic-text.png" title="Openbiz Framework - 富文本编辑控件截面">
+				<a rel="screenshots" href="image/presentationlayer/pic-text.png" title="Openbiz Framework - Rich Text Editor">
 				<img src="image/presentationlayer/pic-text-small.png" />
 				</a>
 			</td>
 			<td>
-				<h4>富文本编辑控件</h4>
-				<p>框架友好的集成了CKEditor的富文本编辑器，可以让用户通过直观既得的方式编辑HTML代码或文档。</p>
+				<h4>Rich Text Editor</h4>
+				<p>A CKEditor based rich text editor enable intuitive text editing</p>
 			</td>
 		</tr>				
 		</table>			
@@ -206,11 +202,10 @@ $(document).ready(function(){
 		<div class="bottom-info-block">
 			<table>
 				<tr>
-					<td><a class="blue-button-go" href="#" >免费获取</a></td>
+					<td><a class="blue-button-go" href="#" >Download</a></td>
 					<td>
 						<p>
-							Openbiz Framework图形表现层，处理视图与表单对象的底层关联，满足企业中的各种需求。<br/>
-							赶快下载Openbiz Framework感受企业应用系统的动力之源。
+							Download Openbiz Framework today to feel the fine touch of stylish UI 
 						</p>
 					</td>
 				</tr>
