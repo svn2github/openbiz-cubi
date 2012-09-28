@@ -123,7 +123,7 @@ class oauthClass extends EasyForm
 			$userinfo=$userObj->fetchOne("[Id]='".$UserToken['user_id']."'");
 		
 			$userinfo['lastlogin'] = date("Y-m-d H:i:s");
-			$userinfo->save();
+			
 			
 			$profile=BizSystem::instance()->InituserProfile($userinfo['username']);
 			//获取当前用户角色的默认页
@@ -134,6 +134,7 @@ class oauthClass extends EasyForm
 			if($redirectURL){
 				$redirectPage = $redirectURL;
 			}
+			$userinfo->save();
 			BizSystem::clientProxy()->ReDirectPage($redirectPage);
 		}
 		else
