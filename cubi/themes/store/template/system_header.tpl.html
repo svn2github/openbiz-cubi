@@ -8,7 +8,7 @@
 	
 		{php}
 		$profile_id = BizSystem::getUserProfile("Id");
-		$profile_display = BizSystem::GetProfileName($profile_id);
+		$profile_display = BizSystem::GetProfileName($profile_id,'short');
 		$profile_email = BizSystem::GetProfileEmail($profile_id);
 		
 		$this->assign('profile', $profile_display);
