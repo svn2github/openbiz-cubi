@@ -12,9 +12,10 @@
 		<span style="font-size:30px;color:#02a5ea;display:block;padding:5px;height:40px;line-height:40px;">{$code}</span>
 		
 	您可以通过 <a style="color:#02a5ea;" href="{$refer_url}/index.php/mystore/email_verify/code_{$code}">点击这里</a> 来完成身份认证，或登陆 <a href="{$refer_url}">Openbiz 客户服务中心</a>将您的身份验证码手工输入到对话框中即可完成电子邮件身份验证过程。<br/>
+	<br/>顺祝商祺<br/>
 	{$action_timestamp}
 		</p>
-		<p style="font-size:14px; padding-left:300px;padding-top:20px;color:#333333;">Openbiz 客户服务中心</p>
+		<p style="font-size:14px; text-align:right;padding-right:50px;padding-top:20px;color:#333333;">Openbiz 客户服务中心<br/><a href="{$refer_url}"></a>{$refer_url}</p>
 	</div>
 	</td></tr>
 	<tr><td width="600" height="152"  style="width:600px;height:152px;background-image: url({$refer_url}/images/email_background_footer.jpg);background-repeat:no-repeat;background-position: bottom center;"><img width="600" height="152" alt="Openbiz Email Footer" src="{$refer_url}/images/email_background_footer.jpg" border="0" style="width:600px;height:152px;border:none;"/></td></tr>
