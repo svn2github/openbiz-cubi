@@ -14,9 +14,9 @@
 					<li><a class="certification"	href="/certification">认证培训</a></li>	-->
 					<li><a class="cubi"		href="/cubi">Openbiz Cubi</a></li>	
 					<li><a class="framework"		href="/framework.php">The Framework</a></li>
-					<li><a class="document"			href="/document">Document</a></li>
 					<li><a class="extension"		href="/extension">Extensions</a></li>
-					<li><a class="about"			href="/about">About us</a></li>
+					<li><a class="document"			href="http://code.google.com/p/openbiz-cubi/">Document</a></li>
+					<li><a class="demo"			href="">Demo</a></li>
 				</ul>
 			</div>
 		</div>
