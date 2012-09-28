@@ -10,10 +10,10 @@
         <Element Name="fld_Id" Hidden="Y" Class="Hidden" FieldName="Id" Label="Id"/>
         <Element Name="fld_username" Class="LabelText" FieldName="username" Label="Username"/>
         <Element Name="fld_email" Class="LabelText" FieldName="email" Label="Email Address"/>
-		<Element Name="fld_lastlogin" Class="LabelText" FieldName="lastlogin" Label="Last Login" />
+		<Element Name="fld_lastlogin" Class="LabelText" FieldName="create_time" Label="Creation Time" />
     </DataPanel>
     <ActionPanel>
-		<element Name="lnk_goto" label="" Class="LabelText" CssClass="button_m_highlight" text="Goto Home" link="{@home:url}/user/login"/>    		
+		<element Name="lnk_goto" label="" Class="LabelText" CssClass="button_m_highlight" text="Goto Home" link="{APP_INDEX}"/>    		
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 
