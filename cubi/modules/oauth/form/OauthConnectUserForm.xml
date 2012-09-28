@@ -23,10 +23,10 @@
     </DataPanel>
     <ActionPanel>
         <Element Hidden="{@:Elem[fld_action].Value==1?'N':'Y'}" Name="btn_register" Class="Button" Text="Create" CssClass="button_highlight">
-            <EventHandler Name="btn_register_onclick" Event="onclick" Function="CreateUser()" RedirectPage="form=user.form.RegisterSuccessedForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Enter"/>
+            <EventHandler Name="btn_register_onclick" Event="onclick" Function="CreateUser()" RedirectPage="form=oauth.form.OauthConnectUserFinishedForm" ShortcutKey="Enter"/>
         </Element>
         <Element Hidden="{@:Elem[fld_action].Value==1?'Y':'N'}" Name="btn_connect" Class="Button" Text="Connect" CssClass="button_highlight">
-            <EventHandler Name="btn_connect_onclick" Event="onclick" Function="ConnectUser()" RedirectPage="{APP_INDEX}/myaccount/dashboard" ShortcutKey="Enter"/>
+            <EventHandler Name="btn_connect_onclick" Event="onclick" Function="ConnectUser()" ShortcutKey="Enter"/>
         </Element>
         <Element Name="btn_back" Class="LabelText" Text="Back" CssClass="button" Link="{@home:url}/user/login" >            			
         </Element>        
