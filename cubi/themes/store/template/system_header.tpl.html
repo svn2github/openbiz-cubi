@@ -29,7 +29,7 @@
 			{t}Openbiz ID:{/t} {$profile_email}<br/>
 				<div style="padding-top:5px;">				
 				<a class="icon_logout" href="{$app_index}/user/logout" >{t}Logout{/t}</a>
-				{if $view.module eq 'mystore' ||  $view.module eq 'cart' ||  $view.module eq 'common'||  $view.module eq 'payment'}
+				{if $view.module eq 'mystore' ||  $view.module eq 'cart' ||  $view.module eq 'common'||  $view.module eq 'payment'||  $view.module eq 'oauth'}
 				<a class="icon_myaccount" href="{$app_index}/mystore/profile" >{t}My Account{/t}</a>
 				{else}
 				<a class="icon_myaccount" href="{$app_index}/myaccount/dashboard" >{t}My Account{/t}</a>
