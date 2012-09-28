@@ -10,7 +10,7 @@
 				SendtoQueue="Y" >
 	
 	<Template   Name="WelcomeEmail" 
-				Title="Welcome New User" 
+				Title="欢迎您加入 Openbiz 中国" 
 				EmailAccount="SystemNotifier" 
 				Template="welcome_email.tpl" />
 				
