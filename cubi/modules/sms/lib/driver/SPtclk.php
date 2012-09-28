@@ -13,6 +13,7 @@ class SPtclk extends SPDriver implements iSMS
 		
 	public function activeService()
 	{
+		return true;
 		$providerInfo = $this->_getProviderInfo();
 		$CorpID = $providerInfo['username'];
 		$Pwd = $providerInfo['password'];
