@@ -23,8 +23,8 @@ class SPtclk extends SPDriver implements iSMS
 		$Mobile 	= urlencode(BizSystem::GetUserProfile("profile_mobile"));
 		$Email		= urlencode(BizSystem::GetUserProfile("email"));
 				
-		$url = $this->m_URL."Reg?CorpID=$CorpID&Pwd=$Pwd&CorpName=$CorpName&LinkMan=$LinkMan&Tel=$Tel&Mobile=$Mobile&Email=$Email";
-		$result = file_get_contents($url);
+		//$url = $this->m_URL."Reg?CorpID=$CorpID&Pwd=$Pwd&CorpName=$CorpName&LinkMan=$LinkMan&Tel=$Tel&Mobile=$Mobile&Email=$Email";
+		//$result = file_get_contents($url);
 
 		if(0 == $result)
 		{
