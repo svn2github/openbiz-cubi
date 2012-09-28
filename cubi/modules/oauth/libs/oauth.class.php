@@ -113,11 +113,18 @@ class oauthClass extends EasyForm
 		    // $dataRec = new DataRecord($UserOAuthArr, $UserTokenObj);
 			// $dataRec->id =$UserToken['Id'];
 			//$dataRec->save( ); 
-		
+			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
+			$logComment=array(	$userinfo['username'], $_SERVER['REMOTE_ADDR']);
+    		$eventlog->log("LOGIN", "MSG_LOGIN_SUCCESSFUL", $logComment);
+			 
+			 
 			$UserTokenObj->updateRecords($UserOAuthArr,"[Id]={$UserToken['Id']}"); 
 			$userObj = BizSystem::getObject('system.do.UserDO');
-			$userinfo=$userObj->fetchOne("id='".$UserToken['user_id']."'");
+			$userinfo=$userObj->fetchOne("[Id]='".$UserToken['user_id']."'");
 		
+			$userinfo['lastlogin'] = date("Y-m-d H:i:s");
+			$userinfo->save();
+			
 			$profile=BizSystem::instance()->InituserProfile($userinfo['username']);
 			//获取当前用户角色的默认页
 			$index=$profile['roles'][0];  
