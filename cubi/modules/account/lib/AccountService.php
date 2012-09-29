@@ -16,7 +16,19 @@ class AccountService {
 	
 	public function GetDisplayName($accountId)
 	{
-		return BizSystem::getObject($this->m_AccountDO)->fetchById($accountId)->name;		
+		if(!$accountId)
+		{
+			return "-- Not available --";
+		}
+		$name =  BizSystem::getObject($this->m_AccountDO)->fetchById($accountId)->name;
+		if($name)
+		{
+			return $name;
+		}		
+		else 
+		{
+			return "-- Deleted Account ( $accountId ) --";
+		}
 	}
 	
 	public function GenAccountCode()
