@@ -12,10 +12,10 @@
 					<li><a class="developer"		href="/developer">面向研发人员</a></li>				
 					<li><a class="hardware"			href="/hardware">扩展设备</a></li>
 					<li><a class="certification"	href="/certification">认证培训</a></li>	-->
-					<li><a class="cubi"		href="/cubi">Openbiz Cubi</a></li>	
-					<li><a class="framework"		href="/framework.php">The Framework</a></li>
-					<li><a class="extension"		href="/extension">Extensions</a></li>
-					<li><a class="document"			href="http://code.google.com/p/openbiz-cubi/">Document</a></li>
+					<li><a class="cubi"		href="<?php echo SITE_URL.'/developer/cubi.php';?>">Openbiz Cubi</a></li>	
+					<li><a class="framework"		href="<?php echo SITE_URL.'/developer/framework.php';?>">The Framework</a></li>
+					<li><a class="extension"		href="">Extensions</a></li>
+					<li><a class="document"			href="http://code.google.com/p/openbiz-cubi/" target="_blank">Document</a></li>
 					<li><a class="demo"			href="">Demo</a></li>
 				</ul>
 			</div>
