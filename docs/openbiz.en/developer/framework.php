@@ -33,47 +33,47 @@
 				<div class="desc" style="padding-top:80px;float:none;padding-left:500px;">
 					<h1 style="height:auto;"><a href="framework"><img src="framework/image/banner-title.png" title="Openbiz framework"/></a></h1>
 					<p>
-						企业应用系统动力之源<br/>
-						基于元数据的面向企业应用而设计的<br/>
-						极致面向对象的开源PHP框架
+						The Engine of Enterprise Applications<br/>
+						Build applications on XML Metadata<br/>
+						Pure OOP Opensource Web Framework
 					</p>
 					<p class="buttons">
-						<a class="blue-button-go" href="#" >免费获取</a>
-						<a class="gray-button" href="framework" >了解详情</a>
+						<a class="blue-button-go" href="#" >Download</a>
+						<a class="gray-button" href="framework" >Know more</a>
 					</p>
 				</div>
 				
 				<table class="features">
 						<tr>
 							<td >
-								<a href="framework/metadata-oriented.php" title="Openbiz Framework - 面向元数据">
-								<img src="framework/image/icon-metadata.png" /><br/>面向元数据
+								<a href="framework/metadata-oriented.php" title="Openbiz Framework - Metadata">
+								<img src="framework/image/icon-metadata.png" /><br/>Metadata
 								</a>
 							</td>
 							<td >
-								<a href="framework/architecture.php" title="Openbiz Framework - MVC 架构">
-								<img src="framework/image/icon-mvc.png" /><br/>MVC 架构
+								<a href="framework/architecture.php" title="Openbiz Framework - MVC">
+								<img src="framework/image/icon-mvc.png" /><br/>MVC
 								</a>
 							</td>						
 							<td>
-								<a href="framework/data-abstract-layer.php" title="Openbiz Framework - ORM 映射">
-								<img src="framework/image/icon-orm.png" /><br/>ORM 映射
+								<a href="framework/data-abstract-layer.php" title="Openbiz Framework - ORM">
+								<img src="framework/image/icon-orm.png" /><br/>ORM
 								</a>
 							</td>
 							<td>
-								<a href="framework/plugin-service.php" title="Openbiz Framework - 扩展服务">
-								<img src="framework/image/icon-plugin.png" /><br/>扩展服务
+								<a href="framework/plugin-service.php" title="Openbiz Framework - Plugin">
+								<img src="framework/image/icon-plugin.png" /><br/>Plugin
 								</a>
 							</td>
 							<td>
-								<a href="framework/index.php" title="Openbiz Framework - 开源免费">
-								<img src="framework/image/icon-opensource.png" /><br/>开源免费
+								<a href="framework/index.php" title="Openbiz Framework - Opensource">
+								<img src="framework/image/icon-opensource.png" /><br/>Opensource
 								</a>
 							</td>
 							<td style="text-align: left;">
 							 <p style="line-height:20px;padding-top:12px;">
-							 Openbiz Framework是为搭建企业应用而设计的<br/>PHP的基于面向对象的快速开发框架。<br/>
-							 它可以帮助专业软件开发人员来构建用于网络上的企业级应用。
+							 Openbiz Framework is designed for enterprise applications<br/>PHP Object-Oriented Multi-layer application framework.<br/>
+							 It helps software professionals to fast develop web applications.
 							 </p>
 							</td>
 						</tr>
@@ -87,8 +87,8 @@
 				<tr>					
 					<td>
 						<div class="content-block" style="width: 310px;height:130px;">
-						<a class="learn-more" href="framework/">了解更多</a>						
-						<h3  style="margin-bottom:10px;">学习资料</h3>
+						<a class="learn-more" href="framework/">Know more</a>						
+						<h3  style="margin-bottom:10px;">Document</h3>
 						<table class="features">
 						<tr>
 							<td>
@@ -96,10 +96,9 @@
 							</td>
 							<td>
 								<p>
+									<a href="http://tinyurl.com/openbiz3-googledoc" target="_blank">Openbiz Developer Guide<br/></a> 
 									<a href="http://docs.openbiz.cn" target="_blank">Openbiz 企业应用开发手册<br/></a> 
-									Openbiz 开发手册 3.0 英文<br/>
-									更多免费学习资料请参考如下网址<br/>
-									<a href="http://code.google.com/p/openbiz-cubi/" target="_blank">谷歌项目页</a>
+									<a href="http://code.google.com/p/openbiz-cubi/" target="_blank">Openbiz Cubi Google Project</a>
 								</p>
 							</td>
 						</tr>
@@ -108,17 +107,16 @@
 					</td>
 					<td>
 						<div class="content-block" style="width: 510px;height:130px;">
-						<a class="learn-more" href="framework/">了解更多</a>						
-						<h3  style="margin-bottom:10px;">框架开发工程师认证</h3>
+						<a class="learn-more" href="cubi/">Know more</a>						
+						<h3  style="margin-bottom:10px;">Learn Openbiz Cubi</h3>
 						<table class="features">
 						<tr>
 							<td>
-								<img src="framework/image/banner-framework-medal.png" title="Openbiz medal"/>
+								<img src="cubi/image/product-pic-small.png" title="Openbiz Cubi" style="width:60px"/>
 							</td>
 							<td>
 								<p>
-									成为Openbiz认证研发工程师，Openbiz认证是一个卓越的行业标准，并且这绝对是证明你已经精通Openbiz商业应用开发技术的最佳方式。<br/>
-									拥有此项认证意味着该您可以熟练的在基于Openbiz Cubi Platform应用平台之上搭建以数据处理为核心的企业级应用程序。
+									Openbiz Cubi is the application platform built on top of Openbiz Framework. It provides a rich collection of common components and handy tools that fully demonstrates the power of the framework. With Openbz Cubi platform, developers can create applications with much higher productivity.
 								</p>
 							</td>
 						</tr>
