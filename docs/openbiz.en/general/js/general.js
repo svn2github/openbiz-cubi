@@ -5,21 +5,12 @@ function highlight_menu(){
 	});
 	
 	var url = window.location.toString();
-	if( url.match(/\/about\/(.*)/) ){
-		$('#site-header .menu .about').addClass('current');
+	if( url.match(/\/cubi(.*)/) ){
+		$('#site-header .menu .cubi').addClass('current');
 	}
-	else if(url.match(/\/enterprise\/(.*)/)){
-		$('#site-header .menu .enterprise').addClass('current');
+	else if(url.match(/\/framework(.*)/)){
+		$('#site-header .menu .framework').addClass('current');
 	}
-	else if(url.match(/\/developer\/(.*)/)){
-		$('#site-header .menu .developer').addClass('current');
-	}
-	else if(url.match(/\/certification\/(.*)/)){
-		$('#site-header .menu .certification').addClass('current');
-	}
-	else if(url.match(/\/hardware\/(.*)/)){
-		$('#site-header .menu .hardware').addClass('current');
-	}	
 	else{
 		$('#site-header .menu .homepage').addClass('current');
 	}
