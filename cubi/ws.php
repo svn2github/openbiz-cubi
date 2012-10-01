@@ -30,7 +30,7 @@ include_once 'bin/app_init.php';
 include_once OPENBIZ_HOME."/bin/ErrorHandler.php";
 
 // find the module name and service name
-$script = "\\".$_SERVER['SCRIPT_NAME'];
+$script = preg_quote("\\".$_SERVER['SCRIPT_NAME'],'/');
 $pattern = "/^$script?\?\/?(.*?)(\.html)?$/si";
 if(preg_match($pattern, $_SERVER['REQUEST_URI'],$match))
 {
