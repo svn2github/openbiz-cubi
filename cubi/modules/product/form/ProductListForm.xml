@@ -59,7 +59,7 @@
         			Label="Name" 
         			MaxLength="25"        			 
         			Sortable="Y"
-        			Link="{@APP_INDEX}/product/product_detail/{@Elem[fld_Id].Value}"
+        			Link="{@APP_INDEX}/product/product_detail/{@:Elem[fld_Id].Value}"
         			 />    
 
 		<Element Name="fld_desc" 
