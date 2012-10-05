@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `help` (
   PRIMARY KEY  (`id`),
   KEY `create_by` (`create_by`),
   KEY `update_by` (`update_by`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 --
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `help_category` (
   `update_time` datetime NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `parent_id` (`parent_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 --
 --
@@ -134,4 +134,4 @@ CREATE TABLE IF NOT EXISTS `help_category_mapping` (
   PRIMARY KEY  (`id`),
   KEY `url` (`url`),
   KEY `cat_id` (`cat_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=78 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
