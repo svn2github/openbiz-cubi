@@ -1,8 +1,0 @@
-Options -Indexes +FollowSymLinks
-ErrorDocument 400 /errors/bad-request.php
-ErrorDocument 403 /errors/not-found.php
-ErrorDocument 404 /errors/not-found.php
-ErrorDocument 500 /errors/internal-error.php
-
-RewriteEngine On
-RewriteRule ^certification/([0-9]{13})$ /certification/validation.php?code=$1 [L]
