@@ -153,7 +153,7 @@ function loadModules()
 	}
    	giveActionAccess("", 1);	// admin to access all actions
 	//giveActionAccess("module='user'", 2);
-	file_put_contents(APP_FILE_PATH.'/install.log', $log);
+	file_put_contents(APP_FILE_PATH.'/install.log', $logs);
     echo "SUCCESS. Modules are loaded in Cubi. ###\n".$logs;
 }
 
@@ -202,6 +202,9 @@ function replaceDbConfig()
    $xml->DataSource->Database[0]['Password'] = $_REQUEST['dbPassword'];
    $xml->DataSource->Database[0]['DBName'] = $_REQUEST['dbName'];
    $xml->DataSource->Database[0]['Port'] = $_REQUEST['dbHostPort'];
+   if (isset($xml->DataSource->Database[0]['Status'])) {
+      $xml->DataSource->Database[0]['Status'] = 1;
+   }
    $fp = fopen ($filename, 'w');
    if (fwrite($fp, $xml->asXML()) === FALSE) {
         echo "ERROR: Cannot write to file ($filename)";
