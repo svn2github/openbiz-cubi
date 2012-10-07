@@ -18,16 +18,69 @@
 	<div id="header_warp">
 	{include file='system_header.tpl.html'}
 
-	
+{php}
+$widget = Bizsystem::GetObject('menu.widget.MainTabMenu');
+if($widget->m_GlobalSearchRule && $widget->m_SearchRule){
+	$searchRule = $widget->m_GlobalSearchRule ." and ". $widget->m_SearchRule;
+}else{
+	$searchRule = $widget->m_SearchRule;
+}
+$menu_count = $widget->getDataObj()->recordCount($searchRule);
+$menu_item_width = 115;
+$menu_width = ($menu_count * $menu_item_width)."px";
+$this->assign('menu_count', $menu_count);
+
+$header_background_image = $this->_tpl_vars['header_background_image'];
+$custom_header_background_image = APP_HOME.'/images/cubi_top_header.png';
+if(file_exists($custom_header_background_image))
+{
+	$header_background_image_url = APP_URL.'/images/cubi_top_header.png';
+	$this->assign('header_background_image_url', $header_background_image_url);
+}
+elseif($header_background_image)
+{
+	$header_background_image_url = RESOURCE_URL.$header_background_image;
+	$this->assign('header_background_image_url', $header_background_image_url);
+}
+{/php}
+<script>
+var top_menu_item_width='{php}echo $menu_item_width;{/php}';
+var top_menu_width='{php}echo ($menu_count * $menu_item_width);{/php}';
+var top_menu_count='{php}echo $menu_count;{/php}';
+var top_menu_first=0;
+var top_menu_play=false;
+var top_menu_move_direction='';
+var top_menu_play_speed=1000;
+</script>
+<div style="padding-top:10px;padding-bottom:12px">
 		<div id="header_menu">
-			<!-- top menu start -->
-			{php}
-			$temp = Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
-			unset($temp);
-			echo Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
-			{/php}
-			<!-- top menu end -->	
+		<div class="arrow_left">
+			{if $menu_count >5}
+			<a  onmouseover="top_menu_move_direction='left';top_menu_move();top_menu_play=true;" 
+				onmouseout="top_menu_play=false;"
+				href="javascript:;"><img height="29" width="10" src="{$image_url}/spacer.gif" /></a>
+			{/if}
+		</div>	
+		<div class="menu" style="position: relative;">
+			<div id="top_menu_list" style="width: {php}echo ($menu_count * $menu_item_width);{/php}px; position: relative; left: 0px; padding-left: 0px; top: 0px;" >
+				<!-- top menu start -->
+				{php}
+				$temp = Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
+				unset($temp);
+				echo Bizsystem::GetObject('menu.widget.MainTabMenu')->render();
+				{/php}
+				<!-- top menu end -->	
+			</div>
 		</div>
+		<div  class="arrow_right">
+			{if $menu_count >5}
+			<a onmouseover="top_menu_move_direction='right';top_menu_move();top_menu_play=true;" 
+				onmouseout="top_menu_play=false;"				
+			 href="javascript:;"><img height="29" width="10" src="{$image_url}/spacer.gif" /></a>
+			{/if}
+		</div>	
+		</div>
+</div>			
 	</div>
 	<!--main warp-->
 	<div id="main_warp">	

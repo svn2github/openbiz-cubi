@@ -26,14 +26,11 @@
 }
 #header_menu{
 	
-	padding-bottom:12px;
-	padding-top:10px;	
 	background-color:#ffffff;
-	width:962px;
+	width:942px;
 	margin-left:auto;
 	margin-right:auto;
-}
-#header_menu ul{
+	
 	background-image: url("../images/site/site-header-bg.png");
     background-position: center top;
     background-repeat: repeat-x;	
@@ -43,9 +40,59 @@ background-color:#38a6e4;
 border-radius:8px;
 over-flow:hidden;
 line-height:30px;
-padding-left:20px;
-padding-right:20px;
-border:1px solid #009df2;
+padding-left:10px;
+padding-right:10px;
+border:1px solid #009df2;	
+}
+#header_menu div.menu{
+float:left;
+width:900px;
+ overflow: hidden;
+}
+#header_menu div.arrow_left {
+    display: block;
+    float: left;
+    height: 29px;
+    padding-right: 5px;
+    padding-top: 2px;
+    width: 15px;
+}
+#header_menu div.arrow_left a {
+    background-image: url("../images/top_menu_arrow_bg.gif");
+    background-position: 0 0;
+    display: block;
+    height: 25px;
+    width: 15px;
+}
+#header_menu div.arrow_left a:hover {
+    background-position: 0 -29px;
+}
+#header_menu div.arrow_left a:active {
+    background-position: 0 -58px;
+}
+#header_menu div.arrow_right {
+    display: block;
+    float: left;
+    height: 29px;
+    padding-left: 5px;
+    padding-top: 2px;
+    width: 15px;
+}
+#header_menu div.arrow_right a {
+    background-image: url("../images/top_menu_arrow_bg.gif");
+    background-position: -15px 0;
+    display: block;
+    height: 25px;
+    width: 15px;
+}
+#header_menu div.arrow_right a:hover {
+    background-position: -15px -29px;
+}
+#header_menu div.arrow_right a:active {
+    background-position: -15px -58px;
+}
+#header_menu ul{
+
 }
 #header_menu ul li{
 display:block;
