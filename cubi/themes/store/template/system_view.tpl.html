@@ -55,7 +55,7 @@ var top_menu_play_speed=1000;
 <div style="padding-top:10px;padding-bottom:12px">
 		<div id="header_menu">
 		<div class="arrow_left">
-			{if $menu_count >5}
+			{if $menu_count >10}
 			<a  onmouseover="top_menu_move_direction='left';top_menu_move();top_menu_play=true;" 
 				onmouseout="top_menu_play=false;"
 				href="javascript:;"><img height="29" width="10" src="{$image_url}/spacer.gif" /></a>
@@ -73,7 +73,7 @@ var top_menu_play_speed=1000;
 			</div>
 		</div>
 		<div  class="arrow_right">
-			{if $menu_count >5}
+			{if $menu_count >10}
 			<a onmouseover="top_menu_move_direction='right';top_menu_move();top_menu_play=true;" 
 				onmouseout="top_menu_play=false;"				
 			 href="javascript:;"><img height="29" width="10" src="{$image_url}/spacer.gif" /></a>
