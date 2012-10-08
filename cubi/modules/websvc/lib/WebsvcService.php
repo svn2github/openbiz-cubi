@@ -159,10 +159,18 @@ class WebsvcService
         return true;
     }
     
-    protected function output($response=null, $format='xml')
+    /**
+     * 
+     * output result to remtoe client 
+     * @param unknown_type $response
+     * @param unknown_type $format
+     * @param String  $checksumKey  remote client may use this key to validate response data, this logic has been used in app cloud cluster countrol
+     */
+    protected function output($response=null, $format='xml', $checksumKey = null)
     {
         $errMsg = WebsvcError::getErrorMessage($this->errorCode);
         $wsResp = new WebsvcResponse();
+        $wsResp->setChecksumKey($checksumKey);
         $wsResp->setError($this->errorCode, $errMsg);
         $wsResp->setData($response);
         $wsResp->output($format);

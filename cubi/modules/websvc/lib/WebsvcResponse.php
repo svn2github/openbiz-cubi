@@ -16,7 +16,18 @@ include_once 'Array2Xml.php';
 
 class WebsvcResponse
 {   
-    protected $response = array('error'=>null, 'data'=>null);
+	protected $checksumKey;
+    protected $response = array('error'=>null, 'data'=>null, 'checksum'=>null);
+    
+    public function setChecksumKey($key)
+    {
+    	$this->checksumKey = $key;
+    }
+    
+    public function genCheckSum()
+    {
+    	$this->response['checksum'] = md5(serialize($this->response['data']).$this->checksumKey);
+    }
     
     public function setError($errorCode, $errorMsg)
     {
@@ -31,6 +42,7 @@ class WebsvcResponse
     
     public function output($format)
     {
+    	$this->genchecksum();
     	switch (strtolower($format))
     	{
     		case "xml":
