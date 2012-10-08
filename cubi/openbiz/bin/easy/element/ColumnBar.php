@@ -46,9 +46,13 @@ class ColumnBar extends ColumnText
         $height = $this->m_Height;
         $width = $this->m_Width;        
         $max_value = Expression::evaluateExpression($this->m_MaxValue, $this->getFormObj());
-        
-        $width_rate = ($value/$max_value);
-        
+       
+        if($max_value)
+        {        	        
+        	$width_rate = ($value/$max_value);
+        }else{
+        	$width_rate = 0;
+        }
         if($width_rate>1){
         	$width_rate=1;
         }
