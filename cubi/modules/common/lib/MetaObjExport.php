@@ -4,8 +4,12 @@ class MetaObjExport
 	protected $m_Object;
 	protected $m_Doc;
 	protected $m_XmlFile;
+	protected $m_ObjType;
+	protected $m_RelXmlFile;
+	protected $comments = "<!--\n #object_type# Object '#object_name#', file path #object_file#. Please change the 'myproj' to your own module name. \n-->\n";
 	protected $firstAttrs = array('Name','Class','Description','Title');
 	protected $skipAttrs = array('Package','Percent','TotalPages','OrigFunction','FormName','HTMLAttr','BizObjName','Index','DATAFORMAT');
+	protected $convertAttrs = array('DataObjName'=>'BizDataObj','MainTable'=>'Table','Range'=>'PageSize');
 	
 	public function __construct($object)
 	{
@@ -17,6 +21,7 @@ class MetaObjExport
         if ($this->m_Doc) 
             return $this->m_Doc;
         $this->m_XmlFile = MODULE_PATH."/".str_replace(".","/",$this->m_Object->m_Name).".xml";
+		$this->m_RelXmlFile = "cubi/modules/".str_replace(".","/",$this->m_Object->m_Name).".xml";
 
         //if (!file_exists($this->m_XmlFile)) 
         //   return null;
@@ -32,12 +37,15 @@ class MetaObjExport
 	public function MetaObj2XML()
 	{
 		if (is_a($this->m_Object, "EasyForm")) {
+			$this->m_ObjType = "Form";
 			return $this->Form2XML();
 		}
 		else if (is_a($this->m_Object, "EasyView")) {
+			$this->m_ObjType = "View";
 			return $this->View2XML();
 		}
 		else if (is_a($this->m_Object, "BizDataObj")) {
+			$this->m_ObjType = "DataObject";
 			return $this->DataObj2XML();
 		}
 	}
@@ -47,7 +55,8 @@ class MetaObjExport
 		$doc = $this->GetDocDocument();
 		$docElem = $this->DataObj2XMLElement($this->m_Object);
 		$doc->appendChild($docElem);
-		echo xmlpp($doc->saveXML());
+		$xmlStr = xmlpp($doc->saveXML());
+		return $xmlStr;
 	}
 	
 	protected function DataObj2XMLElement($obj, $clz='')
@@ -57,6 +66,9 @@ class MetaObjExport
 		$className = get_class($obj);
 		$elemName = $className;	// element use class name by default
 		$vars = get_object_vars($obj);
+		if ($className == "TableJoin") {
+			$elemName = "Join";
+		}
 		if ($className == "BizRecord") {
 			$vars = $obj;
 			$elemName = "BizFieldList";
@@ -92,9 +104,9 @@ class MetaObjExport
 			}
 			else if ($value!="") {
 				//echo "set attr ($name, $value)\n";
-				$elemName = str_replace('m_','',$name);
-				$attrList[$elemName] = $value;
-				//$elem->setAttribute($elemName, $value);
+				$attrName = str_replace('m_','',$name);
+				$attrList[$attrName] = $value;
+				if ($elemName == "BizDataObj" && $attrName == "Name") $attrList[$attrName] = $this->getShortName($value);
 			}
         }
 		$this->setElemAttrs($attrList, $elem);
@@ -107,7 +119,9 @@ class MetaObjExport
 		$doc = $this->GetDocDocument();
 		$docElem = $this->FormObj2XMLElement($this->m_Object);
 		$doc->appendChild($docElem);
-		echo xmlpp($doc->saveXML());
+		//$xmlStr = str_replace(array('#object_type#','#object_name#','#object_file#'),array($this->m_ObjType,$this->m_Object->m_Name,$this->m_RelXmlFile),$this->comments);
+		$xmlStr = xmlpp($doc->saveXML());
+		return $xmlStr;
 	}
 	
 	protected function FormObj2XMLElement($obj, $clz='')
@@ -165,9 +179,10 @@ class MetaObjExport
 						$value = $matches[1];
 					}
 				}
-				$elemName = str_replace('m_','',$name);
-				$attrList[$elemName] = $value;
-				//$elem->setAttribute($elemName, $value);
+				$attrName = str_replace('m_','',$name);
+				$attrList[$attrName] = $value;
+				if ($elemName == "EasyForm" && $attrName == "Name") $attrList[$attrName] = $this->getShortName($value);
+				if ($elemName == "EasyForm" && $attrName == "TemplateFile") $attrList[$attrName] = $this->getShortName($value);
 			}
         }
 		$this->setElemAttrs($attrList, $elem);
@@ -178,14 +193,25 @@ class MetaObjExport
 	{
 		// set attributes with order Name, Class, Description, Title, ...
 		foreach ($this->firstAttrs as $attrName) {
-			if (isset($attrList[$attrName]))
+			if (isset($attrList[$attrName])) {
 				$elem->setAttribute($attrName, $attrList[$attrName]);
+			}
 		}
 		foreach ($attrList as $k=>$v) {
 			if (in_array($k, $this->firstAttrs)) continue;
 			if (in_array($k, $this->skipAttrs)) continue;
+			if (isset($this->convertAttrs[$k])) $k = $this->convertAttrs[$k];
 			$elem->setAttribute($k, $v);
 		}
+	}
+	
+	protected function getShortName($value)
+	{
+		if (strpos($value,'.')>0) {
+			$parts = explode('.',$value);
+			$value = $parts[count($parts)-1];
+		}
+		return $value;
 	}
 	
 	public function View2XML()
@@ -193,7 +219,9 @@ class MetaObjExport
 		$doc = $this->GetDocDocument();
 		$docElem = $this->ViewObj2XMLElement($this->m_Object);
 		$doc->appendChild($docElem);
-		echo xmlpp($doc->saveXML());
+		//$xmlStr = str_replace(array('#object_type#','#object_name#','#object_file#'),array($this->m_ObjType,$this->m_Object->m_Name,$this->m_RelXmlFile),$this->comments);
+		$xmlStr = xmlpp($doc->saveXML());
+		return $xmlStr;
 	}
 	
 	protected function ViewObj2XMLElement($obj)
@@ -228,9 +256,9 @@ class MetaObjExport
 			}
 			else if ($value!="") {
 				//echo "set attr ($name, $value)\n";
-				$elemName = str_replace('m_','',$name);
-				//$elem->setAttribute($elemName, $value);
-				$attrList[$elemName] = $value;
+				$attrName = str_replace('m_','',$name);
+				$attrList[$attrName] = $value;
+				if ($elemName == "EasyView" && $attrName == "Name") $attrList[$attrName] = $this->getShortName($value);
 			}
         }
 		$this->setElemAttrs($attrList, $elem);
