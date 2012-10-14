@@ -82,7 +82,7 @@ define('USE_THEME', 1);
 define('THEME_URL', APP_URL . "/themes");
 define('THEME_PATH', APP_HOME . DIRECTORY_SEPARATOR . "themes");    // absolution path the themes
 if (DeviceUtil::$PHONE_TOUCH) define('DEFAULT_THEME_NAME','touch');	// default theme for touch screen phone
-else define('DEFAULT_THEME_NAME', 'store');     // name of the theme. theme files are under themes/theme_name
+else define('DEFAULT_THEME_NAME', 'default');     // name of the theme. theme files are under themes/theme_name
 define('SMARTY_CPL_PATH', APP_HOME . DIRECTORY_SEPARATOR . "files/tpl_cpl");    // smarty template compiling path
 
 /* js lib base, prototype (old) or jquery (new) */
