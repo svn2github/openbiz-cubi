@@ -79,5 +79,10 @@
 				Title="Openbiz电子邮件身份验证码" 
 				EmailAccount="SystemNotifier" 
 				Template="profile_verify_email.tpl" />
+	
+	<Template   Name="ProductActivedEmail" 
+				Title="Openbiz 产品已激活通知" 
+				EmailAccount="SystemNotifier" 
+				Template="product_actived_email.tpl" />
 																
 </PluginService>
