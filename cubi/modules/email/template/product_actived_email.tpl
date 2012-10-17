@@ -11,7 +11,7 @@
 		亲爱的 {$display_name} ，<br/>您在客户服务中心的激活的产品代码如下：<br/>
 		<span style="font-size:30px;color:#02a5ea;display:block;padding:5px;height:40px;line-height:40px;">{$code}</span>
 		
-		该产品的相信信息如下：<br/>
+		该产品的详细信息如下：<br/>
 		<br/>
 		{$product_info}<br/>
 		<br/>
