@@ -11,8 +11,6 @@
 		<MenuItem Name="Oauth.MyAccount" Title="My Social Account" Description=""  Parent="MyAccount.EditAccount" URL="/myaccount/my_social_account" Order="25"/>
 	</Menu>
     <Dependency>
-    	<Module Name="user"/>
-    	<Module Name="myaccount"/>
     	<Module Name="system"/>
     </Dependency>
 </Module>
