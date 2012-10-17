@@ -68,7 +68,7 @@ class InputText extends InputElement
 			});
         	</script>";
         }
-        return $sHTML . "\n" . $this->addSCKeyScript();
+        return $sHTML;// . "\n" . $this->addSCKeyScript();
     }
 
 }
