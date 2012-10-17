@@ -24,7 +24,7 @@ $obj = BizSystem::getService($svcName);
 if ($obj) {
 	if (method_exists($obj, $methodName))
     {
-		echo "START - Call $svcName"."."."$methodName(".implode(',',$arg_list).")\n";
+		echo "START - Call $svcName"."::"."$methodName(".implode(',',$arg_list).")\n";
     	switch (count($arg_list)) 
         {
         	case 0: $rt_val = $obj->$methodName(); break;
