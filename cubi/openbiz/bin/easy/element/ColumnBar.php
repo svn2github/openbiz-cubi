@@ -18,8 +18,8 @@ class ColumnBar extends ColumnText
         $this->m_Height = isset($xmlArr["ATTRIBUTES"]["HEIGHT"]) ? $xmlArr["ATTRIBUTES"]["HEIGHT"] : "14";
     }
 
-    public function render(){
-    	$value = $this->m_Text ? $this->getText() : $this->m_Value;
+    public function render(){    	
+    	$value =  $this->m_Value;
     	if($this->m_Color)
     	{
     		$formObj = $this->getFormObj();
@@ -66,6 +66,7 @@ class ColumnBar extends ColumnText
 		}else{
 			$bar = "<span class=\"bar_data\" style=\"".$bgcolor_str."height:".$height."px;width:".$width_bar."px;opacity: 0.4;filter: alpha(opacity=40);\"></span>";
 		}
+		$value = $this->m_Text ? $this->getText() : $this->m_Value;
         $sHTML = "
     	<span id=\"$id\" $func $style >
     		
