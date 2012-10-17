@@ -8,15 +8,15 @@
 	<div style="padding-left:60px;">
 		<h1 style="font-size:24px; padding:0px; margin:0px;color:#333333;">您的产品已经激活成功</h1>
 		<p style="font-size:14px; padding:0px; margin:0px;padding-top:30px;line-height:22px;color:#333333;padding-right:60px;">
-		亲爱的 {$operator_name} ，<br/>您在客户服务中心的激活的产品代码如下：<br/>
+		亲爱的 {$display_name} ，<br/>您在客户服务中心的激活的产品代码如下：<br/>
 		<span style="font-size:30px;color:#02a5ea;display:block;padding:5px;height:40px;line-height:40px;">{$code}</span>
 		
 		该产品的相信信息如下：<br/>
 		<br/>
 		{$product_info}<br/>
 		<br/>
-	 	请登陆 <a style="color:#02a5ea;"  href="{$refer_url}">Openbiz 客户服务中心</a> 来查看或管理您所购买的产品。如果您在产品使用中遇到问题，欢迎您 <a style="color:#02a5ea;"  href="http://www.openbiz.cn/about/contact.php">联系我们</a> 寻求支持。
-	 	<br/>
+	 	您可以通过登陆 <a style="color:#02a5ea;"  href="{$refer_url}">Openbiz 客户服务中心</a> 来查看或管理您所购买的产品。<br/>
+	 	如果您在产品使用中遇到问题，欢迎您 <a style="color:#02a5ea;"  href="http://www.openbiz.cn/about/contact.php">联系我们</a> 寻求支持。<br/>
 		
 		<br/>顺祝商祺<br/>
 		{$action_timestamp}

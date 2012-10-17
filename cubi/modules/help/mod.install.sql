@@ -1,4 +1,4 @@
-
+DROP TABLE IF EXISTS `help`; 
 CREATE TABLE IF NOT EXISTS `help` (
   `id` int(11) NOT NULL auto_increment,
   `category_id` int(11) NOT NULL,
@@ -79,6 +79,7 @@ INSERT INTO `help` (`id`, `category_id`, `title`, `description`, `sort_order`, `
 --
 --
 
+DROP TABLE IF EXISTS `help_category`;
 CREATE TABLE IF NOT EXISTS `help_category` (
   `id` int(11) NOT NULL auto_increment,
   `parent_id` int(11) default '0',
