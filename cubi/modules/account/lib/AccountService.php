@@ -14,6 +14,20 @@ class AccountService {
 		return $accountId;
 	}
 	
+	public function GetAccountUserIds($accountId, $access_level=null)
+	{
+		$searchRule = "[account_id]='$accountId'";
+		if($access_level){
+			$searchRule.= " AND [access_level] >= '$access_level' ";
+		}
+		$users=array();
+		foreach(BizSystem::getObject("account.do.AccountUserDO")->directFetch($searchRule) as $rec)
+		{
+			$users[] = $rec['user_id'];
+		}
+		return $users;
+	}
+	
 	public function GetDisplayName($accountId)
 	{
 		if(!$accountId)
