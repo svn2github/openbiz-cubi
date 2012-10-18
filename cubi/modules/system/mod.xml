@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<Module Name="system" Description="system module, only administrator can access" Version="2.1" Author="Rocky" OpenbizVersion="3.0" LoadHandler="system.lib.SystemLoadHandler">
+<Module Name="system" Description="system module, only administrator can access" Version="2.2" Author="Rocky" OpenbizVersion="3.0" LoadHandler="system.lib.SystemLoadHandler">
 	<ACL>
 		<Resource Name="Site">
 			<Action Name="Administer_General" Description="General administration of the site"></Action>
@@ -72,6 +72,9 @@
     <Dependency>
     </Dependency>
     <ChangeLog>
+    	<Version Name="2.1">
+	    	<Change Name="system_feature_21" Type="New_Feature"  Status="Finished" PublishDate="2012-10-17" Description="added system initialize feature"></Change>
+	    </Version>
     	<Version Name="2.0">
 	    	<Change Name="system_feature_20" Type="New_Feature"  Status="Finished" PublishDate="2012-04-30" Description="Added OAuth supports"></Change>
 	    </Version>

@@ -242,6 +242,15 @@ class LoginForm extends EasyForm
     	   	    	setcookie("SYSTEM_SESSION_PASSWORD",$password,time()+(int)$cookies,"/");
     	   	    }
     	   	    
+    	   	    //if its admin first time login, then show init system wizard
+    	   	    $initLock = APP_HOME.'/files/initialize.lock';
+    	   	    if($profile['Id']==1 && !is_file($initLock))
+    	   	    {
+    	   	    	$redirectPage = APP_INDEX."/system/initialize";
+    	   	    	BizSystem::clientProxy()->ReDirectPage($redirectPage);
+    	   	    	return true;
+    	   	    }
+    	   	    
     	   	    if($this->m_LastViewedPage!=""){
     	   	    	BizSystem::clientProxy()->ReDirectPage($this->m_LastViewedPage);
     	   	    }
