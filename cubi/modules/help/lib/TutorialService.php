@@ -18,10 +18,9 @@ class TutorialService
 		if($this->_checkNeedShowTutorial($tutorialId))
 		{
 			//show the form		
-			$formObj->loadDialog($this->m_TutorialForm,$tutorialId);
-			
-			//set it has been shown
-			//$this->_setTutorialShown($tutorialId);
+			$formObj->loadDialog($this->m_TutorialForm,$tutorialId);			
+			//set it has been shown in session
+			$this->_setTutorialShownInSession($tutorialId);
 		}
 		return true;
 	}
@@ -52,13 +51,20 @@ class TutorialService
 		}
 	}
 	
-	public function SetTutorialShown($tutorialId,$showOnNextLogin)
+	
+	protected function _setTutorialShownInSession($tutorialId)
 	{
 		$tutorialShown = BizSystem::sessionContext()->getvar(self::SESSION_VAR_NAME);
 		$tutorialShown[$tutorialId]=true;				
 		BizSystem::sessionContext()->setVar(self::SESSION_VAR_NAME,$tutorialShown);
+	}
+	
+	public function SetTutorialShown($tutorialId,$showOnNextLogin)
+	{
+		$this->_setTutorialShownInSession($tutorialId);
 		$userId = BizSystem::getUserProfile("Id");
-		if(!BizSystem::getObject($this->m_TutorialUserDO)->fetchOne("[tutorial_id]='$tutorialId' AND [user_id]='$userId'"))
+		$logRec = BizSystem::getObject($this->m_TutorialUserDO)->fetchOne("[tutorial_id]='$tutorialId' AND [user_id]='$userId'");
+		if(!$logRec)
 		{
 			$rec = array(
 				"tutorial_id" => $tutorialId,
@@ -66,6 +72,10 @@ class TutorialService
 				"autoshow"	  => $showOnNextLogin
 			);
 			BizSystem::getObject($this->m_TutorialUserDO)->insertRecord($rec);
+		}
+		else{
+			$logRec['autoshow']=$showOnNextLogin;
+			$logRec->save();
 		}
 		return true;
 	}
