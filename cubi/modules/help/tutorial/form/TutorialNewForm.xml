@@ -9,9 +9,10 @@
     <DataPanel>
 		<Element Name="fld_Id" Hidden="Y" Class="InputText" FieldName="Id" Label="Id"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>	        
         <Element Name="fld_url_match" Class="InputText"  FieldName="url_match" Label="URL Match"  AllowURLParam="N" />
-        <Element Name="fld_subject" Class="InputText" FieldName="subject" Label="Subject"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_subject" Class="InputText" FieldName="subject" Label="Subject"  AllowURLParam="N" />
      	<Element Name="fld_content" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="content" Label="Content"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
- 
+ 		<Element Name="fld_width" Class="InputText" FieldName="width" DefaultValue="750" Label="Width"  AllowURLParam="N" Description="Width of tutorial POPUP window"/>
+ 		<Element Name="fld_height" Class="InputText" FieldName="height" DefaultValue="400" Label="Height"  AllowURLParam="N"  Description="Height of tutorial POPUP window"/>
         </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">

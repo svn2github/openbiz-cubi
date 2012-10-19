@@ -11,6 +11,8 @@
 		        <Element Name="fld_url_match" Class="LabelText" FieldName="url_match" Label="URL Match" AllowURLParam="N"/>
 		        <Element Name="fld_subject" Class="LabelText" FieldName="subject" Label="Subject" AllowURLParam="N"/>
 		        <Element Name="fld_content" Class="HTMLPreview" Height="500" FieldName="content" Label="Content" AllowURLParam="N"/>
+		        <Element Name="fld_width" Class="LabelText" Text="{@:Elem[fld_width].Value} pixals"  FieldName="width" Label="Width"  AllowURLParam="N" Description="Width of tutorial POPUP window"/>
+ 				<Element Name="fld_height" Class="LabelText" Text="{@:Elem[fld_height].Value} pixals" FieldName="height" Label="Height"  AllowURLParam="N"  Description="Height of tutorial POPUP window"/>
 	    </DataPanel>
     <ActionPanel>       
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">

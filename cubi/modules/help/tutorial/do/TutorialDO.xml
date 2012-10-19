@@ -11,6 +11,8 @@
        	<BizField Name="url_match" Column="url_match"   />
        	<BizField Name="subject" Column="subject"  />
        	<BizField Name="content" Column="content"    Required="N" Type="Text" />
+       	<BizField Name="width" Column="width"  />
+       	<BizField Name="height" Column="height"  />
         <BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
         <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
         <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>

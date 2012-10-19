@@ -138,19 +138,21 @@ CREATE TABLE IF NOT EXISTS `help_category_mapping` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 
-
 DROP TABLE IF EXISTS `help_tutorial`;
 CREATE TABLE IF NOT EXISTS `help_tutorial` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `url_match` varchar(255) NOT NULL,
   `subject` varchar(255) NOT NULL,
   `content` longtext NOT NULL,
+  `width` int(11) NOT NULL,
+  `height` int(11) NOT NULL,
   `create_by` int(1) NOT NULL,
   `create_time` datetime NOT NULL,
   `update_by` int(1) NOT NULL,
   `update_time` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
 
 DROP TABLE IF EXISTS `help_tutorial_user`;
 CREATE TABLE IF NOT EXISTS `help_tutorial_user` (

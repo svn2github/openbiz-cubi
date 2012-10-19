@@ -11,11 +11,12 @@
         <Element Name="fld_url_match" Class="InputText"  FieldName="url_match" Label="URL Match"  AllowURLParam="N" />
         <Element Name="fld_subject" Class="InputText" FieldName="subject" Label="Subject"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
      	<Element Name="fld_content" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="content" Label="Content"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
- 
+ 		<Element Name="fld_width" Class="InputText" FieldName="width" Label="Width"  AllowURLParam="N" Description="Width of tutorial POPUP window"/>
+ 		<Element Name="fld_height" Class="InputText" FieldName="height" Label="Height"  AllowURLParam="N"  Description="Height of tutorial POPUP window"/>
         </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=help.tutorial.form.TutorialDetailForm&amp;fld:Id={@help.tutorial.do.TutorialDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="UpdateRecord()" RedirectPage="form=help.tutorial.form.TutorialDetailForm&amp;fld:Id={@help.tutorial.do.TutorialDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>

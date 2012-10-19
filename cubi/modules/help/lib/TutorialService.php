@@ -20,7 +20,7 @@ class TutorialService
 			//show the form		
 			$formObj->loadDialog($this->m_TutorialForm,$tutorialId);			
 			//set it has been shown in session
-			$this->_setTutorialShownInSession($tutorialId);
+			//$this->_setTutorialShownInSession($tutorialId);
 		}
 		return true;
 	}

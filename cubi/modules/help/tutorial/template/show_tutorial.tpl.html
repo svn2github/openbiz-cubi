@@ -27,4 +27,7 @@
 </div>
 
 </form>
+{if $dataPanel.fld_width.element and $dataPanel.fld_height.element }
+<script>Openbiz.Window.centerDialog({$dataPanel.fld_width.element},{$dataPanel.fld_height.element}); </script>
+{/if}
 </div>

@@ -10,6 +10,8 @@
 		        <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Category" AllowURLParam="N"/>
 		        <Element Name="fld_subject" Class="RawData" FieldName="subject" Label="Subject" AllowURLParam="N"/>
 		        <Element Name="fld_content" Class="RawData" FieldName="content" Label="Content" AllowURLParam="N"/>
+		        <Element Name="fld_width" Class="RawData" FieldName="width" Label="Width" AllowURLParam="N"/>
+		        <Element Name="fld_height" Class="RawData" FieldName="height" Label="Height" AllowURLParam="N"/>
 	    </DataPanel>
     <SearchPanel>       
         
