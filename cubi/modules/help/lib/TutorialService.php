@@ -34,7 +34,7 @@ class TutorialService
 			return false;
 		}
 		$userId = BizSystem::getUserProfile("Id");
-		$showLog = BizSystem::getObject($this->m_TutorialUserDO)->fetchOne("[tutorial_id]='$tutorialId' AND [user_id]='$userId'");
+		$showLog = BizSystem::getObject($this->m_TutorialUserDO)->fetchOne("[tutorial_id]='$tutorialId' AND [user_id]='$userId'");		
 		if(!$showLog)
 		{
 			return true;
