@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<Module Name="help" Description="help management module" Version="0.5" OpenbizVersion="3.0" LoadHandler="help.lib.HelpLoadHandler">
+<Module Name="help" Description="help management module" Version="1.0" OpenbizVersion="3.0" LoadHandler="help.lib.HelpLoadHandler">
 	<ACL>
 		<Resource Name="Help">
 			<Action Name="Administer_Help" Description="Can manage help content for the application"/>
@@ -17,10 +17,16 @@
 		<MenuItem Name="System.Help" Title="Help" Description="Help Management" Parent="System" IconImage="spacer.gif" IconCssClass="icon_help" Order="50">
 			<MenuItem Name="System.Help.Cat" Title="Manage Help Category" Description=""  URL="/help/help_category" Order="10"/>
 			<MenuItem Name="System.Htlp.Tip" Title="Manage Help Tips" Description=""  URL="/help/help_list" Order="20"/>
+			<MenuItem Name="System.Htlp.Tutorial" Title="Manage Tutorial" Description=""  URL="/help/tutorial" Order="30"/>
 		</MenuItem>
     </Menu>
     <Dependency>
     	<Module Name="system"/>
     	<Module Name="menu"/>
     </Dependency>
+    <ChangeLog>
+    	<Version Name="1.0">
+	    	<Change Name="help_feature_10" Type="New_Feature"  Status="Finished" PublishDate="2012-10-18" Description="Help module support user tutorial feature"></Change>
+	    </Version>
+	</ChangeLog>
 </Module>

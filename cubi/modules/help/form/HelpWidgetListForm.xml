@@ -44,6 +44,9 @@
         <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
             <EventHandler Name="search_js_onclick" Event="onclick" Function="js:var c = new Cookies();c.set('help_form','shown');" />
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" />
-        </Element>           
+        </Element>   
+        <Element Name="btn_autoshow_tutorial" Class="Hidden" text="Go" >
+            <EventHandler Name="btn_autoshow_tutorial_onclick" Event="onclick" Function="ShowTutorial()" />
+        </Element>         
     </SearchPanel>
 </EasyForm>

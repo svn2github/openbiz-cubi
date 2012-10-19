@@ -94,5 +94,21 @@ class HelpWidgetForm extends EasyForm
 		return parent::fetchDataSet();
 	}
 	
+	public function render(){
+		$result = parent::render();		
+		if($result){
+			$url = '/'.$this->GetURL();
+			$url = base64_encode($url);
+			$script ="<script>setTimeout(\"Openbiz.CallFunction('help.form.HelpWidgetListForm.ShowTutorial($url)')\",1000);</script>";
+			$result.= $script;
+		}
+		return $result;
+	}
+	
+	public function showTutorial($url_base64)
+	{		
+		$url = base64_decode($url_base64);
+		BizSystem::getService("help.lib.TutorialService")->autoShowTutorial($url,$this);
+	}
 }
 ?>

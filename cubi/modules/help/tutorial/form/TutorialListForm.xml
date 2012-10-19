@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: HelpListForm.xml 3660 2012-07-18 02:31:35Z hellojixian@gmail.com $
+-->
+<EasyForm Name="TutorialListForm" Class="EasyForm" Icon="icon_help_tips.gif" FormType="List" jsClass="jbForm" Title="Management Tutorial" Description="Tutorial feature will show user tutorial information for current view ." BizDataObj="help.tutorial.do.TutorialDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="HELP" MessageFile="">
+    <DataPanel>
+        
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N"/>                  	
+        <Element Name="fld_url_match" Class="ColumnText"  FieldName="url_match" Label="URL Match"  Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_subject" Class="ColumnText"  MaxLength="30" FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:">
+        <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(help.tutorial.form.TutorialDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>	
+        <Element Name="fld_update_time" Class="ColumnText"  FieldName="update_time" Label="Update Time"  Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />        	
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(help.tutorial.form.TutorialNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=help.tutorial.form.TutorialEditForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+                
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" ShortcutKey="Ctrl+Delete" ContextMenu="Delete"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+        <Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+        	<EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+        	<EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
+        </Element>
+        <Element Name="btn_first"  Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+        <Element Name="qry_form_subject"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="help.do.HelpDO[subject],[subject] like '%{$_POST['qry_form_subject']}%' GROUP BY [subject]" FieldName="subject" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element>           
+    </SearchPanel>
+</EasyForm>
