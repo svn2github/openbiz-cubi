@@ -140,7 +140,12 @@ padding-bottom:60px;
 	text-align:left;
 	padding-bottom:60px; 
 }
-
+#footer .links{
+padding-left:10px;
+}
+#footer .links a{
+	color:#999999;
+}
 .footer-content{
 padding-top:15px;
 padding-left:10px;
