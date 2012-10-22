@@ -78,7 +78,7 @@ function top_menu_move(){
 	}
 	pos=0-top_menu_first*top_menu_item_width ;
 	c.set('top_menu_first',top_menu_first);
-	new Effect.Move($('top_menu_list'), { x: pos, y: 0, mode: 'absolute' });
+	$('#top_menu_list').animate({ left: pos, top: 0});
 }
 
 function init_top_menu_pos(){
@@ -86,14 +86,14 @@ function init_top_menu_pos(){
 	if(c.get('top_menu_first')){
 		top_menu_first=c.get('top_menu_first');		
 	}
-	$('menu').style.position='relative';
-	$('top_menu_list').style.position='relative';
+	$('#menu').css('position','relative');
+	$('#top_menu_list').css('position','relative');
 	pos = (0-top_menu_first*top_menu_item_width);
-	$('top_menu_list').style.left=pos+'px';
+	$('#top_menu_list').css('left',pos+'px');
 	try{
-		$('top_menu_list').style.paddingLeft=pos+'px';
+		$('#top_menu_list').css('paddingLeft',pos+'px');
 	}catch(e){}
-	new Effect.Move($('top_menu_list'), { x: pos, y: 0, mode: 'absolute' });
+	$('#top_menu_list').animate({ left: pos, top: 0});
 	top_menu_play_daemon();
 }
 
