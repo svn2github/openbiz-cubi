@@ -21,7 +21,7 @@ class ModuleService
 		$modRec = $do->fetchOne("[name]='$module'");
 		if($modRec)
 		{
-			return true;
+			return $modRec['version'];
 		}
 		else
 		{
