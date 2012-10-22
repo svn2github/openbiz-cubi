@@ -47,10 +47,15 @@
 	</div>
 </div>
 
-{literal}
 <script>
+{php} if (JSLIB_BASE=='JQUERY') : {/php}
+
+{php} else : {/php}
+{literal}
 $('main_loader_bg').style.height = $('main_content').offsetHeight+'px';
-</script>
 {/literal}
+{php} endif; {/php}
+</script>
+
 </body>
 </html>
