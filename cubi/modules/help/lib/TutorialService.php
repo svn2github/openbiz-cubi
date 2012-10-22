@@ -7,8 +7,25 @@ class TutorialService
 	protected $m_TutorialUserDO 	= "help.tutorial.do.TutorialUserDO";
 	protected $m_TutorialForm 		= "help.tutorial.widget.TutorialForm";	
 	
+	public function checkInstalledVersion()
+	{
+		$installedVersion = BizSystem::getService("system.lib.ModuleService")->isModuleInstalled("help");
+		if(version_compare($installedVersion, "1.0") >=0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
 	public function AutoShowTutorial($url,$formObj)
 	{
+		if(!$this->checkInstalledVersion())
+		{
+			return false;
+		}
 		$tutorialRec = BizSystem::getObject($this->m_TutorialDO)->fetchOne("[url_match]='$url'");
 		$tutorialId = $tutorialRec['Id'];
 		if(!$tutorialId)
