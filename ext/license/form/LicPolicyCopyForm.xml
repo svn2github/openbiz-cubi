@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: LicPolicyCopyForm.xml 3361 2012-05-31 06:01:42Z rockyswen@gmail.com $
+-->
+<EasyForm Name="LicPolicyCopyForm" Class="EasyForm" FormType="Copy" jsClass="jbForm" Title="Copy License Policy" Description="" BizDataObj="license.do.LicPolicyDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_time_limit" Class="InputText" FieldName="time_limit" Label="Days Limit" />
+		<Element Name="fld_limit_server" Class="Listbox" FieldName="limit_server" Label="Limit Server" SelectFrom="common.lov.CommLOV(EnableStatus)" BlankOption="---"/>
+		<Element Name="fld_limit_domain" Class="Listbox" FieldName="limit_domain" Label="Limit Domain" SelectFrom="common.lov.CommLOV(EnableStatus)" BlankOption="---"/>
+		<Element Name="fld_limit_ip" Class="Listbox" FieldName="limit_ip" Label="Limit IP" SelectFrom="common.lov.CommLOV(EnableStatus)" BlankOption="---"/>
+		<Element Name="fld_cust_properties" Class="Textarea" FieldName="cust_properties" Label="Other Properties"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=license.form.LicPolicyDetailForm&amp;fld:Id={@license.do.LicPolicyDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
