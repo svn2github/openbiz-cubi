@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: DashboardView.xml 3361 2012-05-31 06:01:42Z rockyswen@gmail.com $
+-->
+<EasyView Name="DashboardView" Description="License Dashboard" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="license.Access">
+    <FormReferences>
+        <Reference Name="license.widget.DashboardForm"/>
+    </FormReferences>
+</EasyView>

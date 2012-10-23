@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: LicenseService.xml 3361 2012-05-31 06:01:42Z rockyswen@gmail.com $
+-->
+<PluginService Name="LicenseService" Class="LicenseService" BizDataObj="websvc.do.WebsvcDO"  MessageFile="">
+    <PublicMethod Name="foo" Access=""/>
+    <PublicMethod Name="acquireLicense" Access=""/>
+</PluginService>

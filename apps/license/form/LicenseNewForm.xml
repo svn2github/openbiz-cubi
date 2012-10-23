@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: LicenseNewForm.xml 3361 2012-05-31 06:01:42Z rockyswen@gmail.com $
+-->
+<EasyForm Name="LicenseNewForm" Class="EasyForm" FormType="New" jsClass="jbForm" Title="New License" Description="" BizDataObj="license.do.LicenseDO" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="" MessageFile="">
+    <DataPanel>
+		<Element Name="fld_license_key" Class="InputText" FieldName="license_key" Label="License Key"/>
+        <Element Name="fld_contact_id" Class="Hidden" FieldName="contact_id" Label="Contact ID" />
+		<Element Name="fld_contact_name" Class="InputPicker" FieldName="contact_name" Label="Contact" ValuePicker="contact.widget.ContactPickForm" PickerMap="fld_contact_id:fld_Id,fld_contact_name:fld_display_name" Enabled="N"/>
+        <Element Name="fld_activation_code" Class="InputPicker" FieldName="activation_code" Label="Activation Code" ValuePicker="license.form.LicActcodePickForm" PickerMap="fld_activation_code:fld_activation_code,fld_sku:fld_sku,fld_policy_id:fld_policy_id,fld_policy_name:fld_policy_name" Enabled="N" />
+		<Element Name="fld_sku" Class="InputText" FieldName="sku" Label="Product SKU" Enabled="N" />
+		<Element Name="fld_policy_id" Class="Hidden" FieldName="policy_id" Label="Policy ID"/>
+		<Element Name="fld_policy_name" Class="InputText" FieldName="policy_name" Label="Policy" Enabled="N" />
+        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" DefaultValue="1" SelectFrom="common.lov.CommLOV(EnableStatus)" BlankOption="---" />
+		<Element Name="fld_start_time" Class="InputDatetime" DateFormat="%Y-%m-%d %H:%M:%S" FieldName="start_time" Label="Start Time" DefaultValue="{date('Y-m-d')}" DefaultValueRename="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_end_time" Class="InputDatetime" DateFormat="%Y-%m-%d %H:%M:%S" FieldName="end_time" Label="End Time" DefaultValue="{date('Y-m-d',time()+30*24*3600)}" DefaultValueRename="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_server_domain" Class="InputText" FieldName="server_domain" Label="Server Domain" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_server_ip" Class="InputText" FieldName="server_ip" Label="Server IP" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_server_data" Class="Textarea" FieldName="server_data" Label="Server Data"/>
+		<Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=license.form.LicenseDetailForm&amp;fld:Id={@license.do.LicenseDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: LicPolicyDO.xml 3361 2012-05-31 06:01:42Z rockyswen@gmail.com $
+-->
+<BizDataObj Name="LicPolicyDO" Description="" Class="BizDataObj" DBName="Default" Table="lic_policy" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="license.Manage" UpdateCondition="license.Manage" DeleteCondition="license.Manage">
+	<BizFieldList>
+        <BizField Name="Id" Column="id"     Type="Number"/>
+        <BizField Name="name" Column="name" Length="64"   Required="Y" Type="Text"/>
+        <BizField Name="time_limit" Column="time_limit"    Required="Y" Type="Number"/>
+        <BizField Name="limit_server" Column="limit_server" Type="Number"/>
+        <BizField Name="limit_domain" Column="limit_domain" Type="Number"/>
+		<BizField Name="limit_ip" Column="limit_ip" Type="Number"/>
+		<BizField Name="cust_propertis" Column="cust_properties" Type="Text"/>
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time" Column="create_time"  Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>		
+		<BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
