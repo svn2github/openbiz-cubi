@@ -911,11 +911,7 @@ Openbiz.ImageSelector =
 {
     reset: function(element)
     {
-		arr = $(element).childElements();
-		arr.each(function(node){
-		      node.className='normal';
-		      
-		   });
+		$(jq(element)).children().css('class','normal');
     }
 }
 
