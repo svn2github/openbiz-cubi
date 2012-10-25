@@ -67,7 +67,8 @@ class BizController
             {
                 $view = $this->_accessDeniedView;
             }
-            $this->renderView($view);
+            //$this->renderView($view);
+            BizSystem::clientProxy()->redirectView($view);
             return false;
         }
         return true;
@@ -83,7 +84,8 @@ class BizController
         if ($this->_isSessionTimeout())  // show timeout view
         {
             BizSystem::sessionContext()->destroy();
-            return $this->renderView($this->_userTimeoutView);
+            //return $this->renderView($this->_userTimeoutView);
+            return BizSystem::clientProxy()->redirectView($this->_userTimeoutView);
         }
 
         if ($this->_hasView())

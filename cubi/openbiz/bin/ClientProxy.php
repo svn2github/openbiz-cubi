@@ -449,7 +449,12 @@ class ClientProxy
      */
     public function redirectPage($pageURL)
     {
-        if (!$this->m_bRPCFlag)
+        if (!$this->m_bRPCFlag) {
+            $func = (isset($_REQUEST['F']) ? $_REQUEST['F'] : "");
+            if ($func == "RPCInvoke") 
+                $this->m_bRPCFlag = true;
+        }
+		if (!$this->m_bRPCFlag)
         {
             ob_clean();
             header("Location: $pageURL");
@@ -474,13 +479,15 @@ class ClientProxy
      */
     public function redirectView($view, $rule=null)
     {
-        if (!$this->m_bRPCFlag)
-        {
-            ob_clean();
-            header("Location: controller.php?view=$view");
-            return;
-        }
-        $this->_otherOutput[] = $this->_callClientFunction("GoToView('$view','$rule')");
+        // get the view url form view name
+        $viewParts = explode('.',$view);
+        $viewMod = $viewParts[0];
+        $viewName = $viewParts[count($viewParts)-1];
+        $viewName = str_replace("View","",$viewName);
+        $url = APP_INDEX."/$viewMod/$viewName";
+        //echo "$view page url is $url. $this->m_bRPCFlag";
+        $this->redirectPage($url);
+        BizSystem::clientProxy()->printOutput();
     }
 
     /**
