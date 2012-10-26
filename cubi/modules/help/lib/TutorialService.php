@@ -42,6 +42,19 @@ class TutorialService
 		return true;
 	}
 
+	public function getTutorialId($url)
+	{
+		$tutorialRec = BizSystem::getObject($this->m_TutorialDO)->fetchOne("[url_match]='$url'");
+		$tutorialId = $tutorialRec['Id'];
+		return (int)$tutorialId;
+	}
+	
+	public function ShowTutorial($tutorialId,$formObj)
+	{		
+		$formObj->loadDialog($this->m_TutorialForm,$tutorialId);					
+		return true;
+	}	
+	
 	protected function _checkNeedShowTutorial($tutorialId)
 	{
 		$tutorialShown = BizSystem::sessionContext()->getvar(self::SESSION_VAR_NAME);

@@ -13,6 +13,9 @@
 
 class HelpWidgetForm extends EasyForm
 {
+	public $m_EncodedURL ;
+	public $m_TutorialId =false;
+	
 	protected $m_CategoryDO 		= "help.do.HelpCategoryDO";
 	protected $m_CategoryMappingDO 	= "help.do.HelpCategoryMappingDO";
 	
@@ -46,11 +49,13 @@ class HelpWidgetForm extends EasyForm
 	
 	public function SetSearchRule(){
 		$url = $this->GetURL();
-		
 		if(!$url){
 			return ;
 		}
 		
+		$this->m_EncodedURL = base64_encode('/'.$url);;		
+		$this->m_TutorialId = BizSystem::getService("help.lib.TutorialService")->getTutorialId('/'.$url);
+	
 		//search cat_id from mapping table
 		$mappingObj  =  BizSystem::GetObject($this->m_CategoryMappingDO,1);
     	
@@ -94,19 +99,28 @@ class HelpWidgetForm extends EasyForm
 		return parent::fetchDataSet();
 	}
 	
-	public function render(){
-		$result = parent::render();		
+	public function render(){		
+		$result = parent::render();				
 		if($result){
-			$url = '/'.$this->GetURL();
-			$url = base64_encode($url);
-			$script ="<script>setTimeout(\"Openbiz.CallFunction('help.form.HelpWidgetListForm.ShowTutorial($url)')\",1000);</script>";
+			$script ="<script>setTimeout(\"Openbiz.CallFunction('help.form.HelpWidgetListForm.ShowTutorial($this->m_EncodedURL)')\",1000);</script>";
 			$result.= $script;
 		}
 		return $result;
 	}
 	
-	public function showTutorial($url_base64)
+	public function showTutorial($tutoralId)
 	{		
+		if(!$tutoralId){
+			return ;
+		}
+		BizSystem::getService("help.lib.TutorialService")->ShowTutorial($tutoralId,$this);
+	}
+	
+	public function AutoShowTutorial($url_base64=null)
+	{		
+		if(!$url_base64){
+			return ;
+		}
 		$url = base64_decode($url_base64);
 		BizSystem::getService("help.lib.TutorialService")->autoShowTutorial($url,$this);
 	}

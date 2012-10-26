@@ -8,17 +8,23 @@
 <div style="margin:20px;">
 <form id="{$form.name}" name="{$form.name}">
 
+{if $dataPanel.fld_type.element eq 'content' }
 <div style="padding-left:25px; ">
-
 	<div>
 		<div style="padding-bottom: 10px"><h2>{$dataPanel.fld_subject.element}</h2></div>
 		<div class="fld_content">
 			<div class="label_text">{$dataPanel.fld_content.element}</div>
 		</div>
 	</div>
-		
+</div>
+{else}
+<div>
+{$dataPanel.fld_content_url.element}
+</div>
+{/if}
+<div style="padding-left:0px; ">		
 	<div style="height:10px;"></div>
-	<p class="input_row">
+	<p class="input_row" style="height:20px;">
 		{foreach item=elem from=$searchPanel}
 			{$elem.element}{$elem.description}
 		{/foreach}
@@ -28,6 +34,6 @@
 
 </form>
 {if $dataPanel.fld_width.element and $dataPanel.fld_height.element }
-<script>Openbiz.Window.centerDialog({$dataPanel.fld_width.element},{$dataPanel.fld_height.element}); </script>
+<script>Openbiz.Window.centerDialog({$dataPanel.fld_width.element}+40,{$dataPanel.fld_height.element}+80); </script>
 {/if}
 </div>

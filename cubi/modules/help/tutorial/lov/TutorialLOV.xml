@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: CommLOV.xml 3355 2012-05-31 05:43:33Z rockyswen@gmail.com $
+-->
+<Selection>
+	<Type Value="url" Text="External URL"/>
+	<Type Value="content" Text="HTML Content"/>
+</Selection>

@@ -15,7 +15,9 @@
         </Element>	
     </DataPanel>
     <ActionPanel>
- 
+         <Element Name="btn_show_tutorial" Hidden="{@:m_TutorialId!=0?'N':'Y'}" Class="LabelText" Text="Show Tutorial" Style="float:left;color:#999999;text-decoration:none" Link="javascript:;" CssClass="btn_tutorial" >
+            <EventHandler Name="btn_show_tutorial_onclick" Event="onclick" Function="ShowTutorial({@:m_TutorialId})" />
+        </Element>    
     </ActionPanel> 
     <NavPanel>
         <Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
@@ -45,8 +47,8 @@
             <EventHandler Name="search_js_onclick" Event="onclick" Function="js:var c = new Cookies();c.set('help_form','shown');" />
             <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" />
         </Element>   
-        <Element Name="btn_autoshow_tutorial" Class="Hidden" text="Go" >
-            <EventHandler Name="btn_autoshow_tutorial_onclick" Event="onclick" Function="ShowTutorial()" />
-        </Element>         
+        <Element Name="btn_autoshow_tutorial"  Class="Hidden" Text="Show Tutorial"  >
+            <EventHandler Name="btn_autoshow_tutorial_onclick" Event="onclick" Function="AutoShowTutorial()" />
+        </Element>
     </SearchPanel>
 </EasyForm>

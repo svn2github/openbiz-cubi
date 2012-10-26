@@ -6,9 +6,13 @@
 		<div class="content" >
 <table></table>
 <div class="title">
-	<h2>{$form.title}</h2>
+	<h2 style="width:65px;">{$form.title}</h2>
 	<p style="float:right">
-	<span><a href="javascript:">{t}Help Center{/t}</a></span> 
+	{if $actionPanel.btn_show_tutorial.element} 
+		{$actionPanel.btn_show_tutorial.element} 		
+ 	{else}
+		<span><a href="javascript:">{t}Help Center{/t}</a></span>
+	{/if} 
 	<a onclick="switch_help_content()" href="javascript:"><img id="switch_help_content_btn" class="btn_max"  src="{$image_url}/spacer.gif" border="0" /></a>	</p>
 </div>
 <div id="help_content" style="display:none">

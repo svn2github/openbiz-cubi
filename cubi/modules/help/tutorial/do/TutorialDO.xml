@@ -9,6 +9,8 @@
 	<BizFieldList>
     	<BizField Name="Id" Column="id"     Type="Number"/>
        	<BizField Name="url_match" Column="url_match"   />
+       	<BizField Name="type" Column="type"  />
+       	<BizField Name="content_url" Column="content_url"  />
        	<BizField Name="subject" Column="subject"  />
        	<BizField Name="content" Column="content"    Required="N" Type="Text" />
        	<BizField Name="width" Column="width"  />

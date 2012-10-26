@@ -54,4 +54,11 @@ CREATE TABLE IF NOT EXISTS `help_tutorial_user` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
         ]]></UpgradeSql>
     </Version>
+    <Version Name="1.1">
+        <UpgradeSql><![CDATA[
+ALTER TABLE `help_tutorial` ADD `type` ENUM( 'url', 'content' ) NOT NULL AFTER `url_match` ,
+ADD `content_url` VARCHAR( 255 ) NOT NULL AFTER `type` ,
+ADD INDEX ( `type` ) 
+        ]]></UpgradeSql>
+    </Version>    
 </Upgrade>

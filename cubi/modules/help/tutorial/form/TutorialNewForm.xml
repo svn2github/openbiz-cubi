@@ -9,8 +9,13 @@
     <DataPanel>
 		<Element Name="fld_Id" Hidden="Y" Class="InputText" FieldName="Id" Label="Id"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>	        
         <Element Name="fld_url_match" Class="InputText"  FieldName="url_match" Label="URL Match"  AllowURLParam="N" />
-        <Element Name="fld_subject" Class="InputText" FieldName="subject" Label="Subject"  AllowURLParam="N" />
-     	<Element Name="fld_content" Class="CKEditor"  mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="content" Label="Content"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
+		<Element Name="fld_subject" Class="InputText"  FieldName="subject" Label="Subject"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        <Element Name="fld_type" DefaultValue="url" DefaultValueRename="N"  Class="Radio" SelectFrom="help.tutorial.lov.TutorialLOV(Type)"  FieldName="type" Label="Content Type"  AllowURLParam="N" >
+        	<EventHandler Name="fld_type_onclick" EventLogMsg="" Event="onclick" Function="UpdateForm()"    />
+        </Element>
+        <Element Name="fld_url" DefaultValueRename="N" DefaultValue="http://" Class="InputText" Hidden="{@:Elem[fld_type].Value=='url'?'N':'Y'}" FieldName="content_url" Label="External URL"  AllowURLParam="N" />
+        
+     	<Element Name="fld_content" Class="CKEditor"  Hidden="{@:Elem[fld_type].Value=='url'?'Y':'N'}" mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="content" Label="Content"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
  		<Element Name="fld_width" Class="InputText" FieldName="width" DefaultValue="750" Label="Width"  AllowURLParam="N" Description="Width of tutorial POPUP window"/>
  		<Element Name="fld_height" Class="InputText" FieldName="height" DefaultValue="400" Label="Height"  AllowURLParam="N"  Description="Height of tutorial POPUP window"/>
         </DataPanel>

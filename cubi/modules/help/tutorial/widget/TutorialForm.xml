@@ -8,6 +8,9 @@
 <EasyForm Name="TutorialForm" Class="TutorialForm"  FormType="" jsClass="jbForm" Title="Tutorial Detail" Description="Tutorial feature will show user tutorial information for current view ."  BizDataObj="help.tutorial.do.TutorialDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="show_tutorial.tpl.html" EventName="HELP" MessageFile="">
     <DataPanel>
 		        <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Category" AllowURLParam="N"/>
+		        <Element Name="fld_type" Class="RawData" FieldName="type" Label="Content Type" AllowURLParam="N"/>
+		        <Element Name="fld_url_value" hidden="Y" Class="LabelText" FieldName="content_url" Label="Category" AllowURLParam="N"/>
+		        <Element Name="fld_content_url" Hidden="{@:Elem[fld_type].Value=='url'?'N':'Y'}"  Class="IFrameBox" SCROLLING="no" Width="{@:Elem[fld_width].Value}" Height="{@:Elem[fld_height].Value}" Link="{@:Elem[fld_url_value].Value}?lang={i18n::getCurrentLangCode()}" FieldName="content_url" Label="Content" AllowURLParam="N"/>
 		        <Element Name="fld_subject" Class="RawData" FieldName="subject" Label="Subject" AllowURLParam="N"/>
 		        <Element Name="fld_content" Class="RawData" FieldName="content" Label="Content" AllowURLParam="N"/>
 		        <Element Name="fld_width" Class="RawData" FieldName="width" Label="Width" AllowURLParam="N"/>

@@ -8,9 +8,13 @@
 <EasyForm Name="TutorialDetailForm" Class="EasyForm" Icon="icon_help_tips.gif"  FormType="" jsClass="jbForm" Title="Tutorial Detail" Description="Tutorial feature will show user tutorial information for current view ."  BizDataObj="help.tutorial.do.TutorialDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="HELP" MessageFile="Help.msg">
     <DataPanel>
 		        <Element Name="fld_Id" hidden="Y" Class="LabelText" FieldName="Id" Label="Category" AllowURLParam="N"/>
+		        <Element Name="fld_url_value" hidden="Y" Class="LabelText" FieldName="content_url" Label="Category" AllowURLParam="N"/>
 		        <Element Name="fld_url_match" Class="LabelText" FieldName="url_match" Label="URL Match" AllowURLParam="N"/>
 		        <Element Name="fld_subject" Class="LabelText" FieldName="subject" Label="Subject" AllowURLParam="N"/>
-		        <Element Name="fld_content" Class="HTMLPreview" Height="500" FieldName="content" Label="Content" AllowURLParam="N"/>
+		        <Element Name="fld_type" Class="LabelList" SelectFrom="help.tutorial.lov.TutorialLOV(Type)" FieldName="type" Label="Content Type" AllowURLParam="N"/>
+		        
+		        <Element Name="fld_content_url" Hidden="{@:Elem[fld_type].Value=='url'?'N':'Y'}"  Class="IFrameBox" SCROLLING="no" Width="{@:Elem[fld_width].Value}" Height="{@:Elem[fld_height].Value}" Link="{@:Elem[fld_url_value].Value}?lang={i18n::getCurrentLangCode()}" FieldName="content_url" Label="Content" AllowURLParam="N"/>
+		        <Element Name="fld_content" Hidden="{@:Elem[fld_type].Value=='url'?'Y':'N'}"  Class="HTMLPreview" Height="500" FieldName="content" Label="Content" AllowURLParam="N"/>
 		        <Element Name="fld_width" Class="LabelText" Text="{@:Elem[fld_width].Value} pixals"  FieldName="width" Label="Width"  AllowURLParam="N" Description="Width of tutorial POPUP window"/>
  				<Element Name="fld_height" Class="LabelText" Text="{@:Elem[fld_height].Value} pixals" FieldName="height" Label="Height"  AllowURLParam="N"  Description="Height of tutorial POPUP window"/>
 	    </DataPanel>

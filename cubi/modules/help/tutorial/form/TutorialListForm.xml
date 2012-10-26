@@ -9,12 +9,13 @@
     <DataPanel>
         
         <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
-        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N"/>                  	
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N"/>                  	        
         <Element Name="fld_url_match" Class="ColumnText"  FieldName="url_match" Label="URL Match"  Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />
         <Element Name="fld_subject" Class="ColumnText"  MaxLength="30" FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:">
         <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(help.tutorial.form.TutorialDetailForm,{@:Elem[fld_Id].Value})"   />
         </Element>	
-        <Element Name="fld_update_time" Class="ColumnText"  FieldName="update_time" Label="Update Time"  Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />        	
+        <Element Name="fld_type" Class="ColumnList" SelectFrom="help.tutorial.lov.TutorialLOV(Type)" FieldName="type" Label="Content Type"  Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />        	
+        <Element Name="fld_update_time" Class="ColumnText"  FieldName="update_time" Label="Update Time"  Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />
     </DataPanel>
     <ActionPanel>
         <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
