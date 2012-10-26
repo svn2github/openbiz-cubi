@@ -10,7 +10,7 @@ class TutorialService
 	public function checkInstalledVersion()
 	{
 		$installedVersion = BizSystem::getService("system.lib.ModuleService")->isModuleInstalled("help");
-		if(version_compare($installedVersion, "1.0") >=0)
+		if(version_compare($installedVersion, "1.1") >=0)
 		{
 			return true;
 		}
