@@ -94,6 +94,8 @@ class ModuleLoader
         $this->invokeLoadHandler("postLoadingModule");
         
         $this->log("$module is loaded.");
+        //clear Module Cache DO
+        BizSystem::getObject("system.do.ModuleCachedDO")->cleanCache();        
         return true;
     }
     
