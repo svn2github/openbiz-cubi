@@ -22,7 +22,7 @@
         </Element>
 	</DataPanel>
 	<ActionPanel>
-		<Element Name="btn_add" Class="Button" text="Add Location" CssClass="button_gray_w" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}">
+		<Element Name="btn_add" Class="Button" text="Add Location" CssClass="button_gray_w" Style="color:#666666" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}">
             <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(location.widget.LocationNewForm)"/>
         </Element>
 	</ActionPanel>
