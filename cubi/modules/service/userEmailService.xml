@@ -84,5 +84,9 @@
 				Title="Openbiz 产品已激活通知" 
 				EmailAccount="SystemNotifier" 
 				Template="product_actived_email.tpl" />
-																
+
+	<Template   Name="OrderPaidEmail" 
+				Title="Openbiz 订单已付款通知" 
+				EmailAccount="SystemNotifier" 
+				Template="order_paid_email.tpl" />																
 </PluginService>
