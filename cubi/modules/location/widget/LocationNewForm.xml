@@ -16,7 +16,7 @@
     <ActionPanel>
 	    
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="addLocation()"   ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="addLocation()"   />
         </Element>
         <Element Name="Spacer" Class="Spacer" Width="10" />
         <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
