@@ -44,6 +44,10 @@ class TutorialService
 
 	public function getTutorialId($url)
 	{
+		if(!$this->checkInstalledVersion())
+		{
+			return 0;
+		}
 		$tutorialRec = BizSystem::getObject($this->m_TutorialDO)->fetchOne("[url_match]='$url'");
 		$tutorialId = $tutorialRec['Id'];
 		return (int)$tutorialId;
