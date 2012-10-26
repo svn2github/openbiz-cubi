@@ -483,7 +483,7 @@ class ClientProxy
         $viewParts = explode('.',$view);
         $viewMod = $viewParts[0];
         $viewName = $viewParts[count($viewParts)-1];
-        $viewName = str_replace("View","",$viewName);
+        $viewName = strtolower(str_replace("View","",$viewName));
         $url = APP_INDEX."/$viewMod/$viewName";
         //echo "$view page url is $url. $this->m_bRPCFlag";
         $this->redirectPage($url);
