@@ -31,9 +31,10 @@ class FormElement extends InputElement
     		}else{
     			return;
     		}
-    	}else{
-	    	$count = (int)$formElementObj->getDataObj()->count();
-	    	
+    	}else{	    	
+	    	$prtDO = $formElementObj->getDataObj();
+	    	$prtDO->clearSearchRule();
+	    	$count = $prtDO->count();
     	}
     	
    	 	if($count<0){
