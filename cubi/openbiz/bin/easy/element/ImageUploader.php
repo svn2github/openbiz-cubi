@@ -43,6 +43,7 @@ class ImageUploader extends FileUploader
     {
         parent::__construct($xmlArr, $formObj);
         $this->readMetaData($xmlArr);
+        $this->translate();
     }
 
     /**
