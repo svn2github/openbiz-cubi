@@ -12,7 +12,7 @@
 		<br/>
 		<table>
 			<tr>
-				<td>交易流水号</td>
+				<td style="padding-right:10px;">交易流水号</td>
 				<td>{$code}</td>
 			</tr>
 			<tr>
