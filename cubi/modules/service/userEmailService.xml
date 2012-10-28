@@ -88,5 +88,15 @@
 	<Template   Name="OrderPaidEmail" 
 				Title="Openbiz 订单已付款通知" 
 				EmailAccount="SystemNotifier" 
-				Template="order_paid_email.tpl" />																
+				Template="order_paid_email.tpl" />			
+				
+	<Template   Name="TransactionDebitEmail" 
+				Title="Openbiz 财务帐户充值确认通知" 
+				EmailAccount="SystemNotifier" 
+				Template="transcation_debit_email.tpl" />
+				
+	<Template   Name="TransactionCreditEmail" 
+				Title="Openbiz 财务帐户消费通知" 
+				EmailAccount="SystemNotifier" 
+				Template="transcation_credit_email.tpl" />			
 </PluginService>
