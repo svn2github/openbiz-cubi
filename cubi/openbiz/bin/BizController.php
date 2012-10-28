@@ -67,8 +67,8 @@ class BizController
             {
                 $view = $this->_accessDeniedView;
             }
-            //$this->renderView($view);
-            BizSystem::clientProxy()->redirectView($view);
+            $this->renderView($view);
+            //BizSystem::clientProxy()->redirectView($view);
             return false;
         }
         return true;
