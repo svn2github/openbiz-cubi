@@ -158,6 +158,18 @@ CREATE TABLE IF NOT EXISTS `help_tutorial` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
+INSERT INTO `help_tutorial` (`id`, `url_match`, `type`, `content_url`, `subject`, `content`, `width`, `height`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+(2, '/system/general_default', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-welcome.php', 'cubi初次登陆', '', 580, 300, 1, '2012-10-27 16:17:32', 1, '2012-10-27 16:20:27'),
+(3, '/system/group_list', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-group.php', '用户部门设置', '', 550, 280, 1, '2012-10-27 16:27:31', 1, '2012-10-27 16:30:19'),
+(4, '/system/group_data_sharing', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-share.php', '部门共享设置', '', 500, 280, 1, '2012-10-27 16:36:57', 1, '2012-10-27 16:37:41'),
+(5, '/system/user_list', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-user.php', '用户设置', '', 550, 260, 1, '2012-10-29 18:45:17', 1, '2012-10-29 18:54:00'),
+(6, '/system/user_preference', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-system.php', '系统偏好设置', '', 550, 200, 1, '2012-10-29 19:21:49', 1, '2012-10-29 19:21:49'),
+(7, '/system/module_list', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-module.php', '模块管理', '', 500, 240, 1, '2012-10-29 19:34:35', 1, '2012-10-29 19:38:58'),
+(8, '/backup/backup_list', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-backup.php', '备份数据', '', 550, 260, 1, '2012-10-29 19:46:25', 1, '2012-10-29 19:46:25'),
+(9, '/email/email_setting_list', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-email.php', '系统邮件账户', '', 550, 300, 1, '2012-10-29 19:53:13', 1, '2012-10-29 19:53:13');
+
+
+
 DROP TABLE IF EXISTS `help_tutorial_user`;
 CREATE TABLE IF NOT EXISTS `help_tutorial_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
