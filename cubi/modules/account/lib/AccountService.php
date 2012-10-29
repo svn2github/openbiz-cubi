@@ -1,7 +1,7 @@
 <?php 
 class AccountService {
 	
-	protected $m_AccountDO = 'account.do.AccountDO';
+	protected $m_AccountDO = 'account.do.AccountSystemDO';
 	public function GetDefaultAccountId($userId = null)
 	{
 		if(!$userId)

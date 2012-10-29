@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="AccountSystemDO" Description="Account Description" DataPermControl="N" Class="BizDataObj" DBName="Default" Table="account" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
+  <BizFieldList>
+    <BizField Name="Id" Description="Id" Column="id" Required="N" Type="Number"/>
+    <BizField Name="type_id" Description="Type Id" Column="type_id" Required="N"/>
+    <BizField Name="code" Description="Code" Column="code" ValueOnCreate="{BizSystem::getService('account.lib.AccountService')->genAccountCode()}" Type="Text" Required="N"/>
+    <BizField Name="name" Description="Name" Column="name" Type="Text" Required="N"/>
+    <BizField Name="description" Description="Description" Column="description" Type="Text" Required="N"/>
+    <BizField Name="phone" Description="Phone" Column="phone" Type="Text" Required="N"/>
+    <BizField Name="fax" Description="Fax" Column="fax" Type="Text" Required="N"/>
+    <BizField Name="website" Description="Website" Column="website" Type="Text" Required="N"/>
+    <BizField Name="employee" Description="Employee" Column="employee" Type="Number" Required="N"/>
+    <BizField Name="annual_revenue" Description="Annual Revenue" Column="annual_revenue" Type="Number" Required="N"/>
+    <BizField Name="create_time" Description="Create Time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+    <BizField Name="update_by" Description="Update By" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+    <BizField Name="create_by" Description="Create By" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+    <BizField Name="update_time" Description="Update Time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+    <BizField Name="group_id" Description="Group Id" Column="group_id" ValueOnCreate="{@profile:default_group}" Required="N" Type="Number"/>
+    <BizField Name="owner_id" Description="Owner Id" Column="owner_id" ValueOnCreate="{@profile:Id}" Required="N" Type="Number"/>
+    <BizField Name="group_perm" Description="Group Perm" Column="group_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(group)}" Required="N" Type="Number"/>
+    <BizField Name="other_perm" Description="Other Perm" Column="other_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(other)}" Required="N" Type="Number"/>
+    <BizField Name="type_color" Column="color" Join="JoinType"/>
+    <BizField Name="type_name" Column="name" Join="JoinType"/>
+  </BizFieldList>
+  <TableJoins>
+    <Join Name="JoinType" Table="account_type" Column="id" ColumnRef="type_id" JoinType="LEFT JOIN"/>
+  </TableJoins>
+  <ObjReferences>
+    <Object Name="changelog.do.ChangeLogDO" Description="Reference to Change Log Records" Relationship="1-M" Table="changelog" CondColumn="type" CondValue="account" Column="foreign_id" FieldRef="Id"/>
+    <Object Name="location.do.LocationDO" Description="Reference to Geographic Location Records" Relationship="1-M" Table="location" CondColumn="type" CondValue="account" Column="foreign_id" FieldRef="Id"/>
+    <Object Name="attachment.do.AttachmentDO" Description="Reference to Attachment Records" Relationship="1-M" Table="attachment" CondColumn="type" CondValue="account" Column="foreign_id" FieldRef="Id"/>
+    <Object Name="picture.do.PictureDO" Description="Reference to Picture Records" Relationship="1-M" Table="picture" CondColumn="type" CondValue="account" Column="foreign_id" FieldRef="Id"/>
+    <Object Name="extend.do.ExtendDataDO" Description="Reference to Extend Data Field Record" Relationship="1-M" Table="extend_data" CondColumn="module" CondValue="account" Column="type_id" FieldRef="type_id" Column2="record_id" FieldRef2="Id" onDelete="Cascade"/>
+    <Object Name="product.do.ProductDO" Description="Reference to product.do.ProductDO with M-M relationship" Relationship="M-M" Table="product" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="Cascade" XTable="account_product" XColumn1="account_id" XColumn2="product_id" XDataObj="account.do.AccountProductDO"/>
+    <Object Name="contact.do.ContactDO" Description="Reference to contact.do.ContactDO with M-M relationship" Relationship="M-M" Table="contact" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="Cascade" XTable="account_contact" XColumn1="account_id" XColumn2="contact_id" XDataObj="account.do.AccountContactDO"/>
+    <Object Name="account.do.UserDO" Description="Reference to account.do.UserDO with M-M relationship" Relationship="M-M" Table="user" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="Cascade" XTable="account_user" XColumn1="account_id" XColumn2="user_id" XDataObj="account.do.AccountUserDO"/>    
+    <Object Name="account.billing.do.AccountBillingDO" Description="Reference to account" Relationship="1-M" Table="account_billing_address" Column="account_id" FieldRef="Id"/>
+    <Object Name="account.shipping.do.AccountShippingDO" Description="Reference to account" Relationship="1-M" Table="account_shipping_address" Column="account_id" FieldRef="Id"/>
+  </ObjReferences>
+</BizDataObj>
