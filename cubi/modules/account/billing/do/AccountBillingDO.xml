@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<BizDataObj Name="AccountBillingDO" Description="Account Billing Address" DataPermControl="N" Class="BizDataObj" DBName="Default" Table="account_billing_address" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="account.Manage" UpdateCondition="account.Manage" DeleteCondition="account.Manage">
+<BizDataObj Name="AccountBillingDO" Description="Account Billing Address" DataPermControl="N" Class="BizDataObj" DBName="Default" Table="account_billing_address" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
   <BizFieldList>
     <BizField Name="Id" Description="Id" Column="id" Required="N" Type="Number"/>
     <BizField Name="account_id" Description="Account Id" Column="account_id" Type="Number" Required="N"/>
