@@ -8,6 +8,8 @@ $obj = Bizsystem::GetObject($left_menu);
 $left_menu_content = $obj->render();
 $this->assign('system_left_menu_content', 	$left_menu_content);
 {/php}
+	{if $system_left_top_content}{$system_left_top_content}{/if}
+	
 	<!-- left menu block start -->
 	<div class="content_block">
 		<div class="header"></div>
