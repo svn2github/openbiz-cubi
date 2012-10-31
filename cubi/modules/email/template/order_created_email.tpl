@@ -15,8 +15,12 @@
 		<br/>
 		{$order_info}
 		<br/>
+		您可以通过如下方式为订单付款：<br/>		
+		<br/>
+		{$order_payment}
+		<br/>
+		该订单将于 <span style="color:#02a5ea;">{$expire_in}日</span> 后过期，并被自动撤销。<br/>
 	 	您可以通过登陆 <a style="color:#02a5ea;"  href="{$refer_url}">Openbiz 客户服务中心</a> 来激活您所购买的产品。<br/>
-	 	在您正式激活产品之前，此时间段将不会被算作产品的使用时间。<br/>
 	 	如果您在产品使用中遇到问题，欢迎您 <a style="color:#02a5ea;"  href="http://www.openbiz.cn/about/contact.php">联系我们</a> 寻求支持。<br/>
 		
 		<br/>顺祝商祺<br/>
