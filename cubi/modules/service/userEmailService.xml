@@ -76,27 +76,42 @@
 	
 	
 	<Template   Name="ProfileVerifyEmail" 
-				Title="Openbiz电子邮件身份验证码" 
+				Title="您在 Openbiz 的电子邮件身份验证码" 
 				EmailAccount="SystemNotifier" 
 				Template="profile_verify_email.tpl" />
 	
 	<Template   Name="ProductActivedEmail" 
-				Title="Openbiz 产品已激活通知" 
+				Title="您在 Openbiz 购买的产品已被激活" 
 				EmailAccount="SystemNotifier" 
 				Template="product_actived_email.tpl" />
 
 	<Template   Name="OrderPaidEmail" 
-				Title="Openbiz 订单已付款通知" 
+				Title="您在 Openbiz 的产品订单已付款" 
 				EmailAccount="SystemNotifier" 
 				Template="order_paid_email.tpl" />			
+
+	<Template   Name="OrderCreatedEmail" 
+				Title="您在 Openbiz 的产品订单已提交成功" 
+				EmailAccount="SystemNotifier" 
+				Template="order_created_email.tpl" />	
+	
+	<Template   Name="OrderPendingEmail" 
+				Title="您在 Openbiz 的产品订单尚未付款" 
+				EmailAccount="SystemNotifier" 
+				Template="order_pending_email.tpl" />
+				
+	<Template   Name="OrderPaidEmail" 
+				Title="您在 Openbiz 的产品订单已交付" 
+				EmailAccount="SystemNotifier" 
+				Template="order_paid_email.tpl" />					
 				
 	<Template   Name="TransactionDebitEmail" 
-				Title="Openbiz 财务帐户充值确认通知" 
+				Title="您在 Openbiz 的财务帐户充值确认" 
 				EmailAccount="SystemNotifier" 
 				Template="transcation_debit_email.tpl" />
 				
 	<Template   Name="TransactionCreditEmail" 
-				Title="Openbiz 财务帐户消费通知" 
+				Title="您在 Openbiz 的财务帐户消费通知" 
 				EmailAccount="SystemNotifier" 
 				Template="transcation_credit_email.tpl" />			
 </PluginService>
