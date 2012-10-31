@@ -48,6 +48,9 @@ class DatabaseForm extends EasyForm
     }	
 	
 	public function fetchData(){
+		if ($this->m_ActiveRecord != null)
+            return $this->m_ActiveRecord;
+            
 		if (strtoupper($this->m_FormType) == "NEW")
             return $this->getNewRule();
             
@@ -223,7 +226,6 @@ class DatabaseForm extends EasyForm
         $this->setActiveRecord($recArr);
         if (count($recArr) == 0)
             return;
-		
         preg_match("/\[(.*?)\]=\'(.*?)\'/si",$this->m_FixSearchRule,$match);
 		$name = $match[2];		
         
