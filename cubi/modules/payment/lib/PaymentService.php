@@ -16,6 +16,14 @@ class PaymentService
 		return false;
 	}
 	
+	public function getPaymentLink($orderId, $amount, $type, $title=null,$customData=null)
+	{
+		$amount = round($amount,2);
+		$providerObj = $this->getProviderObj($type);
+		$url = $providerObj->GetPaymentURL($orderId, $amount,  $title , $customData);
+		return $url;
+	}
+	
 	protected function getProviderObj($type)
 	{
 		$providerRec = BizSystem::getObject($this->m_ProviderDO)->fetchOne("[type]='$type'");
