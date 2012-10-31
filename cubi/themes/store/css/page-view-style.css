@@ -311,6 +311,82 @@ margin-right:0px;
     background-position: -144px bottom;
     color: #FFFFFF;
 }
+
+.button_back {
+    background-image: url("../images/btn_store.png");
+    background-position: 0px top;
+    background-repeat: no-repeat;
+    color: #EFEFEF;
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 3px;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 16px;
+    width: 72px;
+}
+.button_back:hover {
+    background-position: 0px -20px;
+    color: #FFFFFF;
+}
+.button_back:active {
+    background-position: 0px bottom;
+    color: #FFFFFF;
+}
+
+.button_active {
+    background-image: url("../images/btn_store.png");
+    background-position: -72px top;
+    background-repeat: no-repeat;
+    color: #EFEFEF;
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 3px;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 16px;
+    width: 72px;
+}
+.button_active:hover {
+    background-position: -72px -20px;
+    color: #FFFFFF;
+}
+.button_active:active {
+    background-position: -72px bottom;
+    color: #FFFFFF;
+}
+
+.button_restart {
+    background-image: url("../images/btn_store.png");
+    background-position: -144px top;
+    background-repeat: no-repeat;
+    color: #EFEFEF;
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 3px;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 16px;
+    width: 72px;
+}
+.button_restart:hover {
+    background-position: -144px -20px;
+    color: #FFFFFF;
+}
+.button_restart:active {
+    background-position: -144px bottom;
+    color: #FFFFFF;
+}
+
 .button_finished {
     background-image: url("../images/btn_bg.png");
     background-position: -216px top;
