@@ -15,7 +15,7 @@
 		<br/>
 		{$order_info}
 		<br/>
-		您可以通过如下方式为订单付款：<br/>		
+		您可以通过点击如下链接完成订单付款：<br/>
 		<br/>
 		{$order_payment}
 		<br/>

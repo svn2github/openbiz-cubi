@@ -6,7 +6,7 @@
 	<tr><td valign="top"><img width="600" height="178" alt="Openbiz 客户服务中心" src="{$refer_url}/images/email_background_store_header.png" border="0" style="width:600px;height:178px;border:none;"/></td></tr>
 	<tr><td valign="top">
 	<div style="padding-left:60px;">
-		<h1 style="font-size:24px; padding:0px; margin:0px;color:#333333;">您的订单已经创建成功</h1>
+		<h1 style="font-size:24px; padding:0px; margin:0px;color:#333333;">您的订单已经提交成功</h1>
 		<p style="font-size:14px; padding:0px; margin:0px;padding-top:30px;line-height:22px;color:#333333;padding-right:60px;">
 		亲爱的 {$display_name} ，<br/>您在客户服务中心提交的订单编号如下：<br/>
 		<span style="font-size:30px;color:#02a5ea;display:block;padding:5px;height:40px;line-height:40px;">{$code}</span>
@@ -15,7 +15,7 @@
 		<br/>
 		{$order_info}
 		<br/>
-		您可以通过如下方式为订单付款：<br/>		
+		您可以通过点击如下链接完成订单付款：<br/>		
 		<br/>
 		{$order_payment}
 		<br/>
