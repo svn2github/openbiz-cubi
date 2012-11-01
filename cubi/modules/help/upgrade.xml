@@ -45,10 +45,10 @@ CREATE TABLE IF NOT EXISTS `help_tutorial_user` (
   `tutorial_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `autoshow` int(11) NOT NULL,
-  `create_by` int(11) NOT NULL,
-  `create_time` int(11) NOT NULL,
-  `update_by` int(11) NOT NULL,
-  `update_time` int(11) NOT NULL,
+  `create_by` int(1) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(1) NOT NULL,
+  `update_time` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `tutorial_id` (`tutorial_id`,`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
