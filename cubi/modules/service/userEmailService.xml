@@ -85,6 +85,16 @@
 				EmailAccount="SystemNotifier" 
 				Template="product_actived_email.tpl" />
 
+	<Template   Name="ProductAboutToExpireEmail" 
+				Title="您在 Openbiz 购买的产品即将到期，请尽快续费" 
+				EmailAccount="SystemNotifier" 
+				Template="product_about_to_expire_email.tpl" />
+
+	<Template   Name="ProductAboutToDeleteEmail" 
+				Title="您在 Openbiz 购买的产品即将被删除，请尽快续费" 
+				EmailAccount="SystemNotifier" 
+				Template="product_about_to_delete_email.tpl" />
+
 	<Template   Name="OrderPaidEmail" 
 				Title="您在 Openbiz 的产品订单已付款" 
 				EmailAccount="SystemNotifier" 
@@ -113,5 +123,6 @@
 	<Template   Name="TransactionCreditEmail" 
 				Title="您在 Openbiz 的财务帐户消费通知" 
 				EmailAccount="SystemNotifier" 
-				Template="transcation_credit_email.tpl" />			
+				Template="transcation_credit_email.tpl" />		
+											
 </PluginService>
