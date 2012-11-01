@@ -12,7 +12,7 @@
 		<span style="font-size:30px;color:#02a5ea;display:block;padding:5px;height:40px;line-height:40px;">{$code}</span>
 		
 		该产品的即将在 <span style="color:#02a5ea;">{$product_expire_in}日</span> 后（{$product_expire_time}）到期并被系统停止服务。<br/>
-		如果您需要继续使用该产品，为避中断服务给您造成的不便和损失，请您尽快续费。<br/>
+		如果您需要继续使用该产品，为避服务中断给您造成的不便和损失，请您尽快续费。<br/>
 		<br/>
 		{$product_info}<br/>
 		<br/>
