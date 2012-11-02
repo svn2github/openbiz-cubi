@@ -19,12 +19,12 @@ CREATE TABLE IF NOT EXISTS `oauth_provider` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 INSERT INTO `oauth_provider`
- (`id`, `type`,`site_url`, `key`, `value`, `status`, `create_by`, `create_time`, `update_by`, `update_time`) 
+ (`id`, `type`,`site_url`, `key`, `value`, `status`, `create_by`,  `update_by`) 
  VALUES
-(1, 'sina', 'http://open.weibo.com/', '', '', 0, 1, '', 1, ''),
-(2, 'qq', 'http://dev.t.qq.com/','', '', 0, 1, '', 1, ''),
-(3, 'alipay', 'https://b.alipay.com/','', '', 0, 1, '', 1, ''),
-(4, 'google', 'https://code.google.com/apis/console/','', '', 0, 1, '', 1, ''),
-(5, 'facebook', 'http://developers.facebook.com/','', '', 0, 1, '', 1, ''),
-(6, 'qzone', 'http://connect.qq.com',  '', '', 0, 1, '', 1, ''),
-(7, 'twitter', 'https://dev.twitter.com/','', '', 0, 1, '', 1, '');
+(1, 'sina', 'http://open.weibo.com/', '', '', 0, 1, 1),
+(2, 'qq', 'http://dev.t.qq.com/','', '', 0, 1, 1),
+(3, 'alipay', 'https://b.alipay.com/','', '', 0, 1, 1),
+(4, 'google', 'https://code.google.com/apis/console/','', '', 0, 1, 1),
+(5, 'facebook', 'http://developers.facebook.com/','', '', 0, 1, 1),
+(6, 'qzone', 'http://connect.qq.com',  '', '', 0, 1, 1),
+(7, 'twitter', 'https://dev.twitter.com/','', '', 0, 1, 1);
