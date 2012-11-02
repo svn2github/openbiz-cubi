@@ -12,7 +12,7 @@
         <Element Name="fld_server" DefaultValue="localhost" Class="InputText" FieldName="SERVER" Label="Server" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_port" DefaultValue="3306" Class="InputText" FieldName="PORT" Label="Port" Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="fld_username" DefaultValue="root" Class="InputText" FieldName="USER" Label="Username"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
-        <Element Name="fld_password" Class="InputPassword" FieldName="PASSWORD" Label="Password"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_password" Class="Password" FieldName="PASSWORD" Label="Password"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" />
         <Element Name="btn_load" Class="Button" Text="Load Database" HTMLattr="style='color:#666666';" CssClass="button_gray_w">
             <EventHandler Name="load_onclick" EventLogMsg="" Event="onclick" Function="UpdateForm()" />
         </Element>

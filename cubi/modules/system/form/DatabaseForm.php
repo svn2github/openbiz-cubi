@@ -212,15 +212,18 @@ class DatabaseForm extends EasyForm
 			"ATTRIBUTES" => null,
 			"VALUE" => null
 		);        
+		$recArr["STATUS"]="1";
 		foreach($recArr as $key=>$value){
 			$nodeArr["ATTRIBUTES"][strtoupper($key)]=$value;
 			if(strtoupper($key)=='NAME')
 			{
 				$newName = $value;
 			}
-		}       
+		}   
         $this->addNode($nodeArr);
-        $this->m_RecordId = $newName?$newName:$recArr["NAME"];
+        $recArr["NAME"]=$newName?$newName: $recArr["NAME"];
+        $this->m_RecordId = $recArr["NAME"];
+        $this->setActiveRecord($recArr);
         $this->processPostAction();		
 	}    
 
