@@ -214,9 +214,13 @@ class DatabaseForm extends EasyForm
 		);        
 		foreach($recArr as $key=>$value){
 			$nodeArr["ATTRIBUTES"][strtoupper($key)]=$value;
+			if(strtoupper($key)=='NAME')
+			{
+				$newName = $value;
+			}
 		}       
         $this->addNode($nodeArr);
-        $this->m_RecordId = $recArr["NAME"];
+        $this->m_RecordId = $newName?$newName:$recArr["NAME"];
         $this->processPostAction();		
 	}    
 
@@ -244,11 +248,15 @@ class DatabaseForm extends EasyForm
 		);        
 		foreach($recArr as $key=>$value){
 			$nodeArr["ATTRIBUTES"][strtoupper($key)]=$value;
+			if(strtoupper($key)=='NAME')
+			{
+				$newName = $value;
+			}
 		}		
-		$nodeArr["ATTRIBUTES"]["NAME"]=$name;
+		//$nodeArr["ATTRIBUTES"]["NAME"]=$name;
         $this->updateNode($name, $nodeArr);
         
-		$this->m_RecordId = $name;
+		$this->m_RecordId = $newName?$newName:$name;
         $this->processPostAction();		
 	}	
 	
