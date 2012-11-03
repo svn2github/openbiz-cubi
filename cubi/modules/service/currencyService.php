@@ -61,7 +61,7 @@ class currencyService
 	{
 		$current_locale = I18n::getCurrentLangCode();		
 		setlocale(LC_MONETARY, $current_locale);
-		return $prefix.money_format('%i', $amount);
+		return $prefix.money_format('%i', (float)$amount);
 		
 		//Zend Currency is crazy slow
 		require_once('Zend/Currency.php');
