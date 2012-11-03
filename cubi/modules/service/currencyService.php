@@ -60,7 +60,7 @@ class currencyService
 	public function getFormatCurrency($amount,$prefix='')
 	{				
 		$current_locale = I18n::getCurrentLangCode();		
-		setlocale(LC_MONETARY, $current_locale);
+		setlocale(LC_MONETARY, $current_locale.'.utf8');
 		
 		if(function_exists("money_format") && false )
 		{
@@ -69,6 +69,11 @@ class currencyService
 		else
 		{
 			$locale_info = localeconv();
+			if(!$locale_info[currency_symbol])
+			{
+				setlocale(LC_MONETARY, $current_locale);
+				$locale_info = localeconv();
+			}
 			$display_amount = 	$locale_info[currency_symbol].' '.sprintf("%.2f",(float)$amount);
 		}		
 		return $prefix.$display_amount;
