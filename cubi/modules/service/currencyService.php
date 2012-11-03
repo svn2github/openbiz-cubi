@@ -59,13 +59,16 @@ class currencyService
 	
 	public function getFormatCurrency($amount,$prefix='')
 	{
-		
 		$current_locale = I18n::getCurrentLangCode();		
+		setlocale(LC_MONETARY, $current_locale);
+		return $prefix.money_format('%i', $amount);
+		
+		//Zend Currency is crazy slow
 		require_once('Zend/Currency.php');
 		$current_currency = DEFAULT_CURRENCY;		
 		if(!$current_currency){
 			$current_currency = "USD";
-		}
+		}				
 		$currency = new Zend_Currency($current_currency,$current_locale);	
 		$amount = floatval($amount);
 		$display_name = $currency->toCurrency($prefix.$amount);
