@@ -60,6 +60,10 @@ if ($appPath == '/') {
     }
 }
 
+/* define xhprof setting */
+define('XHPROF', 0);
+define('XHPROF_ROOT', '/Users/jixian/xhprof/'); /*Paht to xhPorf libs root*/
+define('XHPROF_URL', 'http://localhost/xhprof/xhprof_html/index.php?source=xhprof_testing&run=');
 
 /* APP_INDEX is /a/b/index.php in case of http://host/a/b/index.php?... */
 $indexScript = "/index.php"; // or "", or "/?"
