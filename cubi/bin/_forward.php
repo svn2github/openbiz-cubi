@@ -97,8 +97,23 @@ if (isset($PARAM_MAPPING)) {
     }
 }
 
+if(XHPROF && function_exists("xhprof_enable"))
+{
+	xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
+}
+
 $foo = __FILE__;
 include dirname(__FILE__) . '/controller.php';
+
+if(XHPROF && function_exists("xhprof_disable"))
+{
+	$xhprof_data = xhprof_disable();
+	include_once XHPROF_ROOT . "/xhprof_lib/utils/xhprof_lib.php";
+	include_once XHPROF_ROOT . "/xhprof_lib/utils/xhprof_runs.php";
+	$xhprof_runs = new XHProfRuns_Default();
+	$run_id = $xhprof_runs->save_run($xhprof_data, "xhprof_testing");
+	echo "<div style=\"text-align:center\">xhprof id: <a target=\"_target\" href=\"".XHPROF_URL."$run_id\">$run_id</a></div>";
+}
 
 function getViewName($urlArr)
 {
