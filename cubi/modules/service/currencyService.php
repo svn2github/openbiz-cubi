@@ -62,7 +62,7 @@ class currencyService
 		$current_locale = I18n::getCurrentLangCode();		
 		setlocale(LC_MONETARY, $current_locale);
 		
-		if(function_exists("money_format") )
+		if(function_exists("money_format") && false )
 		{
 			$display_amount = 	money_format('%n', (float)$amount);
 		}
