@@ -95,6 +95,11 @@
 				EmailAccount="SystemNotifier" 
 				Template="product_about_to_delete_email.tpl" />
 
+	<Template   Name="ProductRenewedEmail" 
+				Title="您在 Openbiz 购买的产品已成功续费" 
+				EmailAccount="SystemNotifier" 
+				Template="product_renewed_email.tpl" />
+
 	<Template   Name="OrderPaidEmail" 
 				Title="您在 Openbiz 的产品订单已付款" 
 				EmailAccount="SystemNotifier" 
