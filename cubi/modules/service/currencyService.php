@@ -60,7 +60,7 @@ class currencyService
 	public function getFormatCurrency($amount,$prefix='')
 	{				
 		$current_locale = I18n::getCurrentLangCode();		
-		
+		/*
 		switch($current_locale)
 		{
 			case "zh_CN":
@@ -73,8 +73,8 @@ class currencyService
 		}
 		$display_amount.= number_format(floatval($amount));
 		return $prefix.$display_amount;
+		*/
 		
-		/*
 		setlocale(LC_MONETARY, $current_locale.'.utf8');
 		
 		if(function_exists("money_format") && false )
@@ -92,7 +92,7 @@ class currencyService
 			$display_amount = 	$locale_info[currency_symbol].' '.sprintf("%.2f",(float)$amount);
 		}		
 		return $prefix.$display_amount;
-		*/
+		
 		
 		/*
 		//Zend Currency is crazy slow
