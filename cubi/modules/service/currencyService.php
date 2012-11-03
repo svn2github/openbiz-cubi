@@ -58,18 +58,19 @@ class currencyService
 	}	
 	
 	public function getFormatCurrency($amount,$prefix='')
-	{
+	{				
 		$current_locale = I18n::getCurrentLangCode();		
+		setlocale(LC_MONETARY, $current_locale);
 		
-		if(function_exists("money_format"))
+		if(function_exists("money_format") )
 		{
-			setlocale(LC_MONETARY, $current_locale);
 			$display_amount = 	money_format('%n', (float)$amount);
 		}
 		else
 		{
-			$display_amount = 	$amount;
-		}
+			$locale_info = localeconv();
+			$display_amount = 	$locale_info[currency_symbol].' '.sprintf("%.2f",(float)$amount);
+		}		
 		return $prefix.$display_amount;
 		
 		/*
