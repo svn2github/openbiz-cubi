@@ -32,7 +32,7 @@ class PaymentService
 		$driverName = explode(".", $driver);
 		$driverName = $driverName[count($driverName)-1];
 		
-		if(!$driverFile){return false;}
+		if(!is_file($driverFile)){return false;}
 		require_once $driverFile;
 		$obj = new $driverName;
 		return $obj;		
