@@ -214,26 +214,28 @@ CREATE TABLE IF NOT EXISTS `pass_token` (
 
 DROP TABLE IF EXISTS `menu`;
 
-CREATE TABLE `menu` (                                 
-  `name` varchar(100) NOT NULL default '',      
-  `module` varchar(100) default NULL,           
-  `title` varchar(100) default NULL,                 
-  `link` varchar(255) default NULL,      
-  `url_match` varchar(255) default NULL,        
-  `view` varchar(255) default NULL,             
-  `type` varchar(50) NOT NULL default '',       
-  `published` tinyint(1) NOT NULL default '1',  
-  `parent` varchar(255) default '',             
-  `ordering` int(4) default '10',               
-  `access` varchar(100) default NULL,           
-  `icon` varchar(100) default NULL,             
-  `icon_css` varchar(100) default NULL,     
-  `description` varchar(255) default NULL,
-  `create_by` int(10) default 1,
-  `create_time` datetime default NULL,
-  `update_by` int(10) default 1,
-  `update_time` datetime default NULL,
-  PRIMARY KEY  (`name`)                         
+
+CREATE TABLE IF NOT EXISTS `menu` (
+  `name` varchar(100) NOT NULL DEFAULT '',
+  `module` varchar(100) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `url_match` varchar(255) DEFAULT NULL,
+  `view` varchar(255) DEFAULT NULL,
+  `type` varchar(50) NOT NULL DEFAULT '',
+  `published` tinyint(1) NOT NULL DEFAULT '1',
+  `parent` varchar(255) DEFAULT '',
+  `ordering` int(4) DEFAULT '10',
+  `access` varchar(100) DEFAULT NULL,
+  `icon` varchar(100) DEFAULT NULL,
+  `icon_css` varchar(100) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `create_by` int(10) DEFAULT '1',
+  `create_time` datetime DEFAULT NULL,
+  `update_by` int(10) DEFAULT '1',
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`name`),
+  KEY `parent` (`parent`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
   
 /*Data for the table `menu` */
