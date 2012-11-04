@@ -1,19 +1,25 @@
-DROP TABLE IF EXISTS `help`; 
+
+DROP TABLE IF EXISTS `help`;
 CREATE TABLE IF NOT EXISTS `help` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `category_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `sort_order` int(11) NOT NULL default '10',
+  `sort_order` int(11) NOT NULL DEFAULT '10',
   `content` longtext,
-  `create_by` int(11) default NULL,
-  `create_time` datetime default NULL,
-  `update_by` int(11) default NULL,
-  `update_time` datetime default NULL,
-  PRIMARY KEY  (`id`),
+  `add1` varchar(255) DEFAULT NULL,
+  `add2` int(10) DEFAULT NULL,
+  `add3` varchar(255) DEFAULT NULL,
+  `add4` int(10) DEFAULT NULL,
+  `create_by` int(11) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `update_by` int(11) DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `create_by` (`create_by`),
-  KEY `update_by` (`update_by`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+  KEY `update_by` (`update_by`),
+  KEY `category_id` (`category_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 --
