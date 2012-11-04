@@ -145,6 +145,7 @@ CREATE TABLE IF NOT EXISTS `help_category_mapping` (
 
 
 
+
 DROP TABLE IF EXISTS `help_tutorial`;
 CREATE TABLE IF NOT EXISTS `help_tutorial` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -160,8 +161,10 @@ CREATE TABLE IF NOT EXISTS `help_tutorial` (
   `update_by` int(1) NOT NULL,
   `update_time` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `type` (`type`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  KEY `type` (`type`),
+  KEY `url_match` (`url_match`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
 
 
 INSERT INTO `help_tutorial` (`id`, `url_match`, `type`, `content_url`, `subject`, `content`, `width`, `height`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
@@ -176,6 +179,7 @@ INSERT INTO `help_tutorial` (`id`, `url_match`, `type`, `content_url`, `subject`
 
 
 
+
 DROP TABLE IF EXISTS `help_tutorial_user`;
 CREATE TABLE IF NOT EXISTS `help_tutorial_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -187,5 +191,7 @@ CREATE TABLE IF NOT EXISTS `help_tutorial_user` (
   `update_by` int(1) NOT NULL,
   `update_time` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `tutorial_id` (`tutorial_id`,`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  KEY `tutorial_id` (`tutorial_id`,`user_id`),
+  KEY `tutorial_id_2` (`tutorial_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
