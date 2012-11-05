@@ -233,4 +233,3 @@ define('DATA_ACL', '1');
 define('DEFAULT_OWNER_PERM', '3');
 define('DEFAULT_GROUP_PERM', '1');
 define('DEFAULT_OTHER_PERM', '0');
-
