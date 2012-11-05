@@ -5,12 +5,12 @@ if(!defined("CLI")){
 	exit;
 }
 
-$moduleName = $argv[1];
+$buildFile = $argv[1]?$argv[1]:'cubi';
 
 
 // invoke cubi/build/build mod_build.xml -Dbuild.module=$moduleName -Dbuild.number=$buildNumber
 echo "---------------------------------------\n";
-execPhing("cubi.xml");
+execPhing($buildFile.".xml");
 
 function execPhing($buildFile, $options=null)
 {
