@@ -61,7 +61,7 @@ jsMin, SvnCheckout, Version, Documentor
         <include name="modules/changelog/**" />
         <include name="modules/chart/**" />
         <include name="modules/common/**" />        
-        <include name="modules/contact\/**" />
+        <include name="modules/contact/**" />
         <include name="modules/cronjob/**" />
         <include name="modules/email/**" />
         <include name="modules/eventlog/**" />
@@ -79,7 +79,7 @@ jsMin, SvnCheckout, Version, Documentor
 		<include name="modules/theme/**" />
         <include name="modules/tool/**" />  
 		<include name="modules/translation/**" />		
-        <include name="modules/user\/**" />	
+        <include name="modules/user/**" />	
         <include name="modules/websvc/**" />
     </fileset>
     
