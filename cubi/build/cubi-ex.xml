@@ -81,6 +81,14 @@ jsMin, SvnCheckout, Version, Documentor
 		<include name="modules/translation/**" />		
         <include name="modules/user/**" />	
         <include name="modules/websvc/**" />
+        
+        <!-- Cubi Ex modules -->
+        <include name="modules/oauth/**" />
+        <include name="modules/sms/**" />
+        <include name="modules/payment/**" />
+        <include name="modules/repository/**" />
+        <include name="modules/account/**" />
+        <include name="modules/product/**" />
     </fileset>
     
     <fileset dir="openbiz" id="openbizsrc">

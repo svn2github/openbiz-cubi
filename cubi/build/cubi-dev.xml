@@ -81,6 +81,18 @@ jsMin, SvnCheckout, Version, Documentor
 		<include name="modules/translation/**" />		
         <include name="modules/user/**" />	
         <include name="modules/websvc/**" />
+        
+        <!-- Cubi Ex modules -->
+        <include name="modules/oauth/**" />
+        <include name="modules/sms/**" />
+        <include name="modules/payment/**" />
+        <include name="modules/repository/**" />
+        <include name="modules/account/**" />
+        <include name="modules/product/**" />
+    </fileset>
+    
+    <fileset dir="." id="appbuildersrc">
+        <include name="build/encoded/cubi_appbuilder/modules/appbuilder/**" />
     </fileset>
     
     <fileset dir="openbiz" id="openbizsrc">
@@ -113,7 +125,11 @@ jsMin, SvnCheckout, Version, Documentor
         <copy file="build/cubi.license.txt" tofile="${builddir}/license.txt" />
         <echo msg="Copy cubi source files..." />
         <copy todir="${builddir}">
-            <fileset refid="cubisrc" />
+            <fileset refid="openbizsrc" />
+        </copy>
+        <echo msg="Copy appbuilder encoded files..." />
+        <copy todir="${builddir}/modules/appbuilder">
+            <fileset refid="appbuildersrc" />
         </copy>
         <echo msg="Copy openbiz source files..." />
         <copy todir="${builddir}/openbiz">
