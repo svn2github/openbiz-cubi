@@ -19,7 +19,7 @@
 		<table class="input_row">
 		<tr>		
 		<td >	
-			<label style="text-align:left;line-height:24px;font-size:20px;color:#333333;line-height:24px;width:550px;">{$record.data_record}</label>
+			<label style="text-align:left;line-height:24px;font-size:20px;color:#333333;line-height:24px;width:550px;">{$form.record_name}</label>
 		</td>
 		</tr>
 		</table>
@@ -28,7 +28,7 @@
 	<div class="form_header_panel" style="width:550px;">					
 		<div class="action_panel" style="width:540px;">
 		{foreach item=elem from=$searchPanel}
-			{if $elem.label} <span style="float:left;padding-right:10px;line-height:22px;">{$elem.label}</span> {/if} {$elem.element}
+			{if $elem.label} <span style="float:left;padding-right:10px;line-height:22px;">{$form.elem.label}</span> {/if} {$elem.element}
 		{/foreach}
 		</div>
 	</div>
