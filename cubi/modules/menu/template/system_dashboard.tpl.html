@@ -169,6 +169,7 @@
 			{php} } {/php}
 		</div>
 	</div>
+	{php} if(BizSystem::allowUserAccess('oauth.Administer') || BizSystem::allowUserAccess('payment.Manage') || BizSystem::allowUserAccess('sms.Manage')  ){ {/php}
 	<div class="dashboard_bg_light">
 		<div class="title">{t}Extension{/t}</div>
 		<div class="icons">		
@@ -187,7 +188,8 @@
 				<img border="0" src="{$theme_url}/images/spacer.gif"  />{t}SMS{/t}</a>
 			{php} } {/php}
 				
-		</div>
+		</div>	
 	</div>		
+	{php} } {/php}
 </div>
 </form>		
