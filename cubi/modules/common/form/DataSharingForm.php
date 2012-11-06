@@ -14,6 +14,8 @@
 class DataSharingForm extends EasyForm
 {
 	public $m_hasOwnerField = false;
+	public $m_DataRecordName ;
+	
 	protected  $m_LogDO = "changelog.do.ChangeLogDO";
 	
 	public function SetPrtRecordId($id)
@@ -87,7 +89,7 @@ class DataSharingForm extends EasyForm
 		}	
 		elseif($dataRec['subject']!='')
 		{
-			$result['data_record'] = $dataRec['subject'];
+			$result['data_record'] = $dataRec['subject'];			
 		}
 		elseif($dataRec['title']!='')
 		{
@@ -100,6 +102,7 @@ class DataSharingForm extends EasyForm
 		{
 			$result['data_record'] = $dataRec['Id'];
 		}
+		$this->m_DataRecordName = $result['data_record'];
 				
 		if($this->m_hasOwnerField){
 			$owner_id = $dataRec['owner_id'];			
@@ -420,6 +423,7 @@ class DataSharingForm extends EasyForm
     	$result = parent::outputAttrs();
     	$rec = $this->fetchData();
     	$result['record'] = $rec;
+    	$result['record_name'] = $this->m_DataRecordName;      	  
     	return $result;
     }
 
