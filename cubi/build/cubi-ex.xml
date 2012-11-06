@@ -113,6 +113,22 @@ jsMin, SvnCheckout, Version, Documentor
         <include name="others/ZendX/**"/>
     </fileset>
 
+    <fileset dir="." id="asset">
+        <include name="build/encoded/cubi_asset/modules/asset/**" />
+    </fileset>
+
+	<fileset dir="." id="calendar">
+        <include name="build/encoded/cubi_calendar/modules/calendar/**" />
+    </fileset>
+    
+    <fileset dir="." id="project">
+        <include name="build/encoded/cubi_project/modules/project/**" />
+    </fileset>
+    
+    <fileset dir="." id="collab">
+        <include name="build/encoded/cubi_collab/modules/collab/**" />
+    </fileset>
+    
     <!-- ============================================  -->
     <!-- Target: build                                 -->
     <!-- ============================================  -->
@@ -123,6 +139,19 @@ jsMin, SvnCheckout, Version, Documentor
         <copy todir="${builddir}">
             <fileset refid="cubisrc" />
         </copy>
+        <echo msg="Copy encoded module files..." />
+        <copy todir="${builddir}/modules/asset">
+            <fileset refid="asset" />
+        </copy>     
+        <copy todir="${builddir}/modules/calendar">
+            <fileset refid="calendar" />
+        </copy>
+        <copy todir="${builddir}/modules/project">
+            <fileset refid="project" />
+        </copy>
+        <copy todir="${builddir}/modules/collab">
+            <fileset refid="collab" />
+        </copy>   
         <echo msg="Copy openbiz source files..." />
         <copy todir="${builddir}/openbiz">
             <fileset refid="openbizsrc" />
