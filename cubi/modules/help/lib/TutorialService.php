@@ -51,7 +51,7 @@ class TutorialService
 		$tutorialRec = BizSystem::getObject($this->m_TutorialDO)->fetchOne("[url_match]='$url'");
 		if(!$tutorialRec)
 		{
-			$tutorialRec = BizSystem::getObject($this->m_TutorialDO)->fetchOne("[url_match] LIKE '$url%'");
+			//$tutorialRec = BizSystem::getObject($this->m_TutorialDO)->fetchOne("[url_match] LIKE '$url%'");
 		}
 		$tutorialId = $tutorialRec['Id'];
 		return (int)$tutorialId;
