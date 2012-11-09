@@ -15,7 +15,7 @@
         <Element Name="fld_latitude" Class="RawData" FieldName="latitude"  Label="latitude" ></Element>	
 		<Element Name="fld_update_time" Class="RawData" FieldName="update_time"  Label="update_time" ></Element>
 		<Element Name="fld_edit" Class="LabelText" Label="Action" text="Edit" Link="javascript:;" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}">
-            <EventHandler Name="edit_onclick" Event="onclick" Function="LoadDialog(location.widget.LocationEditForm,{@:Elem[fld_Id].Value},1)"/>
+            <EventHandler Name="edit_onclick" Event="onclick" Function="LoadDialog(location.widget.LocationEditForm,{@:Elem[fld_Id].Value})"/>
         </Element>
 		<Element Name="fld_delete" Class="LabelText" Label="Action" text="Delete" Link="javascript:;" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}">
             <EventHandler Name="delete_onclick" Event="onclick" Function="DeleteRecord({@:Elem[fld_Id].Value})"/>
