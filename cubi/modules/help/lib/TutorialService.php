@@ -25,9 +25,8 @@ class TutorialService
 		if(!$this->checkInstalledVersion())
 		{
 			return false;
-		}
-		$tutorialRec = BizSystem::getObject($this->m_TutorialDO)->fetchOne("[url_match]='$url'");
-		$tutorialId = $tutorialRec['Id'];
+		}		
+		$tutorialId = $this->getTutorialId($url);
 		if(!$tutorialId)
 		{
 			return false;
@@ -38,7 +37,7 @@ class TutorialService
 			$formObj->loadDialog($this->m_TutorialForm,$tutorialId);			
 			//set it has been shown in session
 			//$this->_setTutorialShownInSession($tutorialId);
-		}
+		}		
 		return true;
 	}
 
@@ -51,7 +50,7 @@ class TutorialService
 		$tutorialRec = BizSystem::getObject($this->m_TutorialDO)->fetchOne("[url_match]='$url'");
 		if(!$tutorialRec)
 		{
-			foreach(BizSystem::getObject($this->m_TutorialDO)->directfetch("[url_match] LIKE '%.*%'") as $rec)
+			foreach(BizSystem::getObject($this->m_TutorialDO)->directfetch("[url_match] LIKE '%.*%'") as $record)
 			{
 				$match = $record['url_match'];
 				$pattern = "@".$match."@si";
