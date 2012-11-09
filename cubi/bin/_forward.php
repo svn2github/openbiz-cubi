@@ -28,8 +28,10 @@ $DEFAULT_VIEW = "LoginView";
 $DEFAULT_MODULE = CLIENT_DEVICE=='mobile' ? "user_mob" : "user";
 $DEFAULT_URL = "index.php/$DEFAULT_MODULE/login";
 
-$script = "\\".$_SERVER['SCRIPT_NAME'];
-$pattern = "/^$script?\?\/?(.*?)(\.html)?$/si";
+$script = $_SERVER['SCRIPT_NAME'];
+$script = quotemeta($script);
+
+$pattern = "|^$script?\?\/?(.*?)(\.html)?$|si";
 
 if ($_SERVER["REDIRECT_QUERY_STRING"]) {
     $url = $_SERVER["REDIRECT_QUERY_STRING"];
