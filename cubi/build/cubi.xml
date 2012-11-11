@@ -81,6 +81,10 @@ jsMin, SvnCheckout, Version, Documentor
 		<include name="modules/translation/**" />		
         <include name="modules/user/**" />	
         <include name="modules/websvc/**" />
+        
+        <include name="modules/oauth/**" />
+        <include name="modules/sms/**" />
+        <include name="modules/payment/**" />
     </fileset>
     
     <fileset dir="openbiz" id="openbizsrc">
