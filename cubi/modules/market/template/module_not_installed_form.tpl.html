@@ -1,0 +1,27 @@
+<form id="{$form.name}" name="{$form.name}">
+<br/>
+<div style="padding-left:35px; ">
+	<div style="height:110px;">
+	<h2>{$form.title}</h2>
+	<table><tr><td>
+		
+	
+		<div style="width:380px;padding-top:10px;">
+			{$form.description}
+			
+		</div>
+	</td></tr></table>
+	
+		<div style="height:10px;"></div>
+		<p class="input_row" style="height:28px;">
+			
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+		</p>	
+</div>
+	
+<script>
+Openbiz.Window.centerDialog(455,230); 
+</script>
+</form>

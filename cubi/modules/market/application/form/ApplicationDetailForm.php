@@ -87,5 +87,16 @@ class ApplicationDetailForm extends AppListForm
    		}
 	}
 	
+	public function CallInstallerForm($formName,$param)
+	{
+		if(function_exists("curl_init"))
+		{
+			return $this->loadDialog($formName,$param);
+		}
+		else
+		{
+			return $this->loadDialog("market.application.form.CURLModuleNotInstalled");
+		}
+	}
 }
 ?>

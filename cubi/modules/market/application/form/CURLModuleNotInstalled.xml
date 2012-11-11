@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ApplicationInstallerForm.xml 3363 2012-05-31 06:04:56Z rockyswen@gmail.com $
+-->
+<EasyForm Name="CURLModuleNotInstalled"   Class="EasyForm" FormType="Detail" jsClass="Openbiz.Form"  Title="PHP CURL extension is not installed" Description="Openbiz Market Installer needs php curl extension to fetch latest software package from remote repository server. \n\n We can not detected php_curl in loaded on this server. \n\n Please make sure you have installed it on Cubi server properly and close this window, try it again." BizDataObj="" TemplateEngine="Smarty" TemplateFile="module_not_installed_form.tpl.html" >
+    <DataPanel>
+    			
+    </DataPanel>
+    <ActionPanel>
+		<Element Name="btn_cancel" Class="Button" Text="Close" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
