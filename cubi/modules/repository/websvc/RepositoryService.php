@@ -154,6 +154,10 @@ class RepositoryService extends WebsvcService
     		$searchRule .= " AND [cat_id]=$cat_id ";
     	}
     	$sortRule 	= $param['sortRule'];
+    	if(!$sortRule)
+    	{
+    		$sortRule = "[release_time] DESC";	
+    	}
     	$userSearchRule = $param['searchRule'];
     	$startItem 	= $param['startItem'];
     	$range 	= $param['range'];
