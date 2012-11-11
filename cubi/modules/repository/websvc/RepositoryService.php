@@ -126,6 +126,10 @@ class RepositoryService extends WebsvcService
     {
     	$searchRule = "[status]=1 AND [release_time] < NOW() AND [featured]=1";
     	$sortRule 	= $param['sortRule'];
+    	if(!$sortRule)
+    	{
+    		$sortRule = "[release_time] DESC";	
+    	}
     	$userSearchRule = $param['searchRule'];
     	$startItem 	= $param['startItem'];
     	$range 	= $param['range'];
