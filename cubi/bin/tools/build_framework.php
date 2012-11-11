@@ -2,10 +2,7 @@
 /*
  * build module command line script
  */
-if ($argc<2) {
-	echo "usage: php build_framework.php lang_name".PHP_EOL;
-	exit;
-}
+
 
 include_once ("../app_init.php");
 if(!defined("CLI")){
