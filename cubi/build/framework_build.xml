@@ -6,7 +6,7 @@ jsMin, SvnCheckout, Version, Documentor
 
 <project name="cubi_framework" basedir="../" default="dist">	
 
-    <property name="package"  value="lang_${buildName}" override="true" />
+    <property name="package"  value="openbiz_framework" override="true" />
     <property name="builddir" value="build/src/${package}" override="true" />
     <property name="srcdir"   value="${project.basedir}" override="true" />
     <property name="distdir" value="build/dist/${package}" override="true" />
