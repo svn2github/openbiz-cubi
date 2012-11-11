@@ -3,7 +3,7 @@
  * build module command line script
  */
 if ($argc<2) {
-	echo "usage: php build_lang.php lang_name".PHP_EOL;
+	echo "usage: php build_framework.php lang_name".PHP_EOL;
 	exit;
 }
 
@@ -18,7 +18,7 @@ $ext = "tar.gz";
 
 // invoke cubi/build/build mod_build.xml -Dbuild.module=$moduleName -Dbuild.number=$buildNumber
 echo "---------------------------------------\n";
-execPhing("lang_build.xml", "\"-DbuildName=$langName\" \"-DbuildNumber=$buildNumber\" \"-Dext=$ext\"");
+execPhing("framework_build.xml", "\"-DbuildName=$langName\" \"-DbuildNumber=$buildNumber\" \"-Dext=$ext\"");
 
 function execPhing($buildFile, $options)
 {
