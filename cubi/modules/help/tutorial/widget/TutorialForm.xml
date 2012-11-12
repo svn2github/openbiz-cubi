@@ -17,14 +17,15 @@
 		        <Element Name="fld_height" Class="RawData" FieldName="height" Label="Height" AllowURLParam="N"/>
 	    </DataPanel>
     <SearchPanel>       
-        
-        <Element Name="chk_show_on_next" Class="Checkbox" Text="" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Description="show this tutorail on next login">
-        </Element>
         <Element Name="btn_close" Class="Button" Text="Close" CssClass="button_gray_m">
             <!-- 
             <EventHandler Name="btn_close_onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
              -->
             <EventHandler Name="btn_close_onclick_onserver" Event="onclick" Function="closeTutorial()"/>
-        </Element>        
+        </Element>    
+        
+        <Element Name="chk_show_on_next" Class="Checkbox" Text="" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Description="show this tutorail on next login">
+        </Element>
+    
     </SearchPanel> 
 </EasyForm>
