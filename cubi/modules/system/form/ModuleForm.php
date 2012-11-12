@@ -82,8 +82,7 @@ class ModuleForm extends EasyForm
 		$this->giveActionAccess($module, $role_id);        
         
         //reload current profile
-        $svcobj = BizSystem::getService(ACL_SERVICE);
-        $svcobj->clearACLCache();
+        BizSystem::getService(ACL_SERVICE)->clearACLCache();
 
         $this->rerender();
     }
