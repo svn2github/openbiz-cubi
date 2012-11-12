@@ -247,8 +247,7 @@ class InstallerService extends PackageService
         $time = date('Y-m-d H:i:s');
 
         //reload current profile
-        $svcobj = BizSystem::getService(ACL_SERVICE);
-        $svcobj->clearACLCache();
+        BizSystem::getService(ACL_SERVICE)->clearACLCache();
 
         $this->setInstallInfo($package, array("time"=>$time,"version"=>$package['version'],"state"=>"OK","log"=>"Completed"));
     }    
