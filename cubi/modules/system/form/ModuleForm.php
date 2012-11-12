@@ -27,6 +27,7 @@ class ModuleForm extends EasyForm
      */
     public function loadNewModules($skipOld = true)
     {        
+		BizSystem::getService(ACL_SERVICE)->clearACLCache();
        	$mods = array();
         $dir = MODULE_PATH;
         if ($dh = opendir($dir)) {
