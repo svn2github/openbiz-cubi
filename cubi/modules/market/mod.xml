@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<Module Name="market" Description="Openbiz Cubi app market module" Author="Jixian Wang" Version="0.5" OpenbizVersion="2.4">
+<Module Name="market" Description="Openbiz Cubi app market module" Author="Jixian Wang" Version="0.6" OpenbizVersion="2.4">
 	<ACL>
 		<Resource Name="Market">
             <Action Name="Manage" Description="Manage App market repository and app installation"/>
