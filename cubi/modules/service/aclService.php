@@ -91,6 +91,7 @@ class aclService
      */
     public function clearACLCache() 
     {
+		aclService::$_accessMatrix = null;
     	BizSystem::sessionContext()->setVar("_ACCESS_MATRIX", array());
     }
 }
