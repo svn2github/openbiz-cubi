@@ -18,6 +18,8 @@ class DashboardConfigWidget extends EasyForm
 	// add a widget to current dashboard view
 	public function addWidget($widgetName)
 	{
+		// remove "_widget" from the widget name
+		$widgetName = str_replace("_widget", "", $widgetName);
 		// add widget to user_widget table
 		$userWidgetDo = BizSystem::getObject($this->userWidgetDOName);
 		$userWidgetTable = $userWidgetDo->m_MainTable;
@@ -41,6 +43,8 @@ class DashboardConfigWidget extends EasyForm
 	// remove a widget from current dashboard view
 	public function removeWidget($widgetName)
 	{
+		// remove "_widget" from the widget name
+		$widgetName = str_replace("_widget", "", $widgetName);
 		// remove widget from the user_widget table
 		$userWidgetDo = BizSystem::getObject($this->userWidgetDOName);
 		$userWidgetTable = $userWidgetDo->m_MainTable;
@@ -94,6 +98,8 @@ class DashboardConfigWidget extends EasyForm
 			$n = 1;
 			foreach ($column as $widgetName) {
 				if (empty($widgetName)) continue;
+				// remove "_widget" from the widget name
+				$widgetName = str_replace("_widget", "", $widgetName);
 				// find the widget by name in the current view, set the new order
 				$searchRule = "[user_id]=$myUserId and [widget]='$widgetName' and [view]='$currentView'";
 				$record = $userWidgetDo->fetchOne($searchRule);
