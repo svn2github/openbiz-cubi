@@ -26,7 +26,6 @@ class aclService
         {
             // get the access matrix from session
             aclService::$_accessMatrix = BizSystem::sessionContext()->getVar("_ACCESS_MATRIX");
-
             if (!aclService::$_accessMatrix || count(aclService::$_accessMatrix) == 0)
             {
                 // get user profile
@@ -93,5 +92,6 @@ class aclService
     {
 		aclService::$_accessMatrix = null;
     	BizSystem::sessionContext()->setVar("_ACCESS_MATRIX", array());
+    	BizSystem::sessionContext()->clearVar("_ACCESS_MATRIX");
     }
 }
