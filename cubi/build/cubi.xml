@@ -44,6 +44,7 @@ jsMin, SvnCheckout, Version, Documentor
         <include name="js/uploadify/**" />
         <include name="js/window/**" />
         <include name="js/yav/**" />
+		<include name="js/jq/**" />
         <include name="languages/dictionary/**" />
         <include name="languages/en_US/**" />
         <include name="languages/zh_CN/**" />
@@ -55,36 +56,38 @@ jsMin, SvnCheckout, Version, Documentor
         <include name="resources/.htaccess" />
         <include name="themes/default/**" />
         <include name="themes/fullwidth/**" />
+		<include name="themes/touch/**" />
         <include name="modules/attachment/**" />
 		<include name="modules/backup/**" />
 		<include name="modules/cache/**" />
         <include name="modules/changelog/**" />
-        <include name="modules/chart/**" />
+        <!--<include name="modules/chart/**" />-->
         <include name="modules/common/**" />        
         <include name="modules/contact/**" />
         <include name="modules/cronjob/**" />
         <include name="modules/email/**" />
         <include name="modules/eventlog/**" />
         <include name="modules/extend/**" />
-        <include name="modules/help/**" />
+        <!--<include name="modules/help/**" />-->
         <include name="modules/location/**" />
-        <include name="modules/market/**" />
+        <!--<include name="modules/market/**" />-->
         <include name="modules/menu/**" />
         <include name="modules/myaccount/**" />
-        <include name="modules/notification/**" />
+        <!--<include name="modules/notification/**" />-->
         <include name="modules/picture/**" />  
 		<include name="modules/security/**" />
         <include name="modules/service/**" />
         <include name="modules/system/**" />
 		<include name="modules/theme/**" />
-        <include name="modules/tool/**" />  
+        <!--<include name="modules/tool/**" />-->
 		<include name="modules/translation/**" />		
         <include name="modules/user/**" />	
         <include name="modules/websvc/**" />
-        
+        <!--
         <include name="modules/oauth/**" />
         <include name="modules/sms/**" />
         <include name="modules/payment/**" />
+		-->
     </fileset>
     
     <fileset dir="openbiz" id="openbizsrc">
