@@ -34,6 +34,8 @@ class ApplicationDetailForm extends AppListForm
 			$appInfo['latest_release'] = $releaseInfo;
 			$appInfo['version_description'] = $releaseInfo['description'];
 		}
+		
+		BizSystem::getService(ACL_SERVICE)->clearACLCache();
 		return $appInfo;
 	}
 	

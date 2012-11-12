@@ -80,6 +80,7 @@ class AppListForm extends EasyForm
         }
        	      	
        	$this->m_RemoteSearchRule = $searchRule;
+       	BizSystem::getService(ACL_SERVICE)->clearACLCache();
 	}
 	
 	public function _fetchDataSet()
