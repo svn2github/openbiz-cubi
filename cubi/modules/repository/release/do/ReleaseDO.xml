@@ -13,6 +13,8 @@
 		<BizField Name="pltfm_ver" Column="pltfm_ver" />
 		<BizField Name="description" Column="description" Type=""/>
 		
+		<BizField Name="type" Column="type" Join="JoinApp"/>
+		
 		<BizField Name="filename" Column="filename" Type=""/>		
 		<BizField Name="filesize" Column="filesize" Type=""/>
 		<BizField Name="path" Column="path" Type=""/>
@@ -26,6 +28,7 @@
         <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
 	</BizFieldList>
     <TableJoins>
+    	<Join Name="JoinApp" Table="repo_application" Column="id" ColumnRef="app_id" JoinType="INNER JOIN"/>
     </TableJoins>
     <ObjReferences>
     </ObjReferences>
