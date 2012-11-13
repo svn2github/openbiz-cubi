@@ -2,25 +2,24 @@
 
 function getSystemStatus()
 {
-	$status[0]['item'] = 'Operation System';
+	$status[0]['item'] = STR_OPERATION_SYSTEM;
 	$status[0]['value'] = PHP_OS;
 	$status[0]['status'] = 'OK';
 	
-	$status[1]['item'] = 'PHP version';
+	$status[1]['item'] = STR_PHP_VERSION;
 	$status[1]['value'] = PHP_VERSION;
-	//$ver_num = intval(str_replace('.', '', PHP_VERSION));
-	$status[1]['status'] = version_compare(PHP_VERSION, "5.1.4") >= 0 ? 'OK' : 'FAIL - Zend Framework required PHP5.1.4 or later';
+	$status[1]['status'] = version_compare(PHP_VERSION, "5.1.4") >= 0 ? 'OK' : STR_PHP_VERSION_FAIL;
 	
-	$status[2]['item'] = 'Openbiz Path';
+	$status[2]['item'] = STR_OPENBIZ_PATH;
 	$status[2]['value'] = OPENBIZ_HOME;
 	$status[2]['status'] = "OK";
 	if (!file_exists(OPENBIZ_HOME))
-		$status[2]['status'] = "FAIL - OPENBIZ_HOME doesn't point to Openbiz installed path";
+		$status[2]['status'] = STR_OPENBIZ_PATH_FAIL;
 	
-	$status[3]['item'] = 'Zend Framework Path';
+	$status[3]['item'] = STR_ZEND_PATH;
 	$status[3]['value'] = defined('ZEND_FRWK_HOME') ? ZEND_FRWK_HOME : 'Undefined';
 	if (defined('ZEND_FRWK_HOME') && !file_exists(ZEND_FRWK_HOME))
-		$status[3]['status'] = "FAIL - ZEND_FRWK_HOME doesn't point to Zend Framework installed path. Please modify ZEND_FRWK_HOME in ".OPENBIZ_HOME."/bin/sysheader_inc.php";
+		$status[3]['status'] = STR_ZEND_PATH_FAIL;
 	else if (defined('ZEND_FRWK_HOME') && file_exists(ZEND_FRWK_HOME)) {
 		require_once 'Zend/Version.php';
         $status[3]['status'] = Zend_Version::compareVersion('1.0.0') < 0 ? 'OK - Version 1.0.0 or later is recommended' : 'FAIL';
@@ -35,7 +34,7 @@ function getSystemStatus()
 		$status[4]['status'] = Zend_Version::compareVersion('1.0.0') < 0 ? 'OK - Version 1.0.0 or later is recommended' : 'FAIL';
 	}*/
 	
-	$status[5]['item'] = 'PDO extensions';
+	$status[5]['item'] = STR_PDO_EXTENSION;
 	$pdos = array();
 	if (extension_loaded('pdo')) $pdos[] = "pdo";
 	if (extension_loaded('pdo_mysql')) $pdos[] = "pdo_mysql";
@@ -43,7 +42,7 @@ function getSystemStatus()
 	if (extension_loaded('pdo_oci')) $pdos[] = "pdo_oci";
 	if (extension_loaded('pdo_pgsql')) $pdos[] = "pdo_pgsql";
 	$status[5]['value'] = implode(", ", $pdos);
-	$status[5]['status'] = $pdos[0]=='pdo' ? 'OK' : 'FAIL - PDO extensions are required.';
+	$status[5]['status'] = ($pdos[0]=='pdo' && $pdos[1]=='pdo_mysql') ? 'OK' : STR_PDO_EXTENSION_FAIL;
 	
 	return $status;
 }
