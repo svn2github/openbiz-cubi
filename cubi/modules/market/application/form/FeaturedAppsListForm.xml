@@ -23,7 +23,7 @@
         
     </DataPanel>
     <ActionPanel>
-        <Element Name="lnk_refresh" Class="Button" Text="Refresh" CssClass="button_gray_w"  Access="Repository.Manage">
+        <Element Name="lnk_refresh" Class="Button" Style="float:right;"  Text="Refresh" CssClass="button_gray_w"  Access="Repository.Manage">
             <EventHandler Name="lnk_refresh_onclick" Event="onclick" EventLogMsg="" Function="UpdateForm()"  />
         </Element>        
     </ActionPanel> 
