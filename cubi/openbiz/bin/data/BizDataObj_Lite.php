@@ -491,7 +491,7 @@ class BizDataObj_Lite extends BizDataObj_Abstract
     private function _getNumberRecords($db, $sql)
     {
 	$has_subquery=false;
-	if(preg_match("/\(\s*?SELECT\s*?\S+\)/si",$sql)){
+	if(preg_match("/\(\s*?SELECT\s*?.+\)/si",$sql)){
 		$has_subquery=true;
 	}
         if (preg_match("/^\s*SELECT\s+DISTINCT/is", $sql) || preg_match('/\s+GROUP\s+BY\s+/is',$sql))
