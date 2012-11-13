@@ -13,8 +13,7 @@ jsMin, SvnCheckout, Version, Documentor
     <property name="distfile" value="${distdir}/${package}-${buildNumber}.${ext}" override="true" />
 
     <!-- Fileset for base source files -->
-    <fileset dir="." id="basesrc">
-        <include name="modules/${buildName}/**" />
+    <fileset dir="modules/${buildName}" id="basesrc">
     </fileset>
 
     <!-- ============================================  -->
@@ -40,11 +39,11 @@ jsMin, SvnCheckout, Version, Documentor
 	function ${module}_register_handler($server_data){}
 	 -->
     <target name="encode">
-	    <ioncubeencoder phpVersion="5" binary="false" ioncubepath="C:/ioncube/" optimize="max"
+	    <ioncubeencoder phpVersion="5" binary="false" ioncubepath="/Users/jixian/ioncube" optimize="max"
 		  targetoption="replace" withoutruntimeloadersupport="false"  Encrypt="*.tpl *.html *.htm *.xml"
 		  CallbackFile ="license_expection.php"   ActionIfNoLoader="header('Location: '.APP_INDEX.'/common/loader_not_installed');"
 		  Copy="register_handler.php mod.xml upgrade.xml resource/"
-		  fromdir="build/src/" todir="build/encoded/" licensepath="license.key" passphrase="${passphrase}">		  
+		  fromdir="build/src/${package}" todir="build/encoded/${package}" licensepath="license.key" passphrase="${passphrase}">		  
 		</ioncubeencoder>
     </target>
     
@@ -58,8 +57,7 @@ jsMin, SvnCheckout, Version, Documentor
         <mkdir dir="${distdir}" />
         <delete file="${distfile}" />
         <tar destfile="${distfile}" compression="gzip">
-            <fileset dir="build/encoded/">
-                <include name="${package}/**" />
+            <fileset dir="build/encoded/${package}">                
             </fileset>
         </tar>
         <echo msg="Distribution file is created in build directory OK!" />
