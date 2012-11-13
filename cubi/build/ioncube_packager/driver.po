@@ -1,0 +1,1316 @@
+# Master file for language translation of IPF Installer Driver messages.
+# Copyright (c) 2006 ionCube Ltd.
+# This file is distributed under the same license as the IPF package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-10-13 21:03+0100\n"
+"PO-Revision-Date: 2012-04-05 16:43+0800\n"
+"Last-Translator: Jixian Wang <hellojixian@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "ionCube Package Foundry"
+msgstr "ionCube Package Foundry"
+
+msgid "Dialog"
+msgstr "对话框"
+
+#, c-format
+msgid "Installation (ionCube Package Foundry DEMO) - %s"
+msgstr "安装 （ionCube Package Foundry DEMO） - %s"
+
+#, c-format
+msgid "Installation - %s"
+msgstr "安装 - %s"
+
+msgid "This package was created with an evaluation license.\n"
+msgstr "该安装包是使用评估许可证创建的。\n"
+
+msgid ""
+"This license has now expired.\n"
+"\n"
+msgstr ""
+"这个许可证已经过期。\n"
+"\n"
+
+#, c-format
+msgid ""
+"Please contact %s\n"
+"to obtain a new copy of this product.\n"
+msgstr ""
+"请联系 %s \n"
+"来获得一个新的产品安装包\n"
+
+msgid "Your system clock is set more than 24 hours before the program was downloaded.\n"
+msgstr "您的系统时钟设置居然比程序下载时间提前了24个小时。\n"
+
+msgid "Please set your clock accurately to evaluate this software.\n"
+msgstr "如需测试该软件，请正确设置您的系统时钟。\n"
+
+msgid "&Next >"
+msgstr "下一步(&N) >"
+
+msgid "&Cancel"
+msgstr "取消(&C)"
+
+msgid "&Help"
+msgstr "帮助(&H)"
+
+msgid "< &Back"
+msgstr "< 返回(&B)"
+
+msgid ""
+"a\n"
+"b "
+msgstr ""
+"a\n"
+"b"
+
+#, c-format
+msgid ""
+"This wizard will install %s onto your local machine or a remote server.\n"
+"\n"
+"Click Next to continue or Cancel to exit.\n"
+msgstr ""
+"本向导将安装 %s 到您的本地计算机或一个远程计算机。\n"
+"\n"
+"请点击“下一步”来继续或“取消”退出安装。\n"
+
+msgid "Fresh install"
+msgstr "全新安装"
+
+msgid "Configure previous install"
+msgstr "配置之前的安装"
+
+msgid "Continue previous install"
+msgstr "继续之前的安装"
+
+msgid "Uninstall"
+msgstr "卸载"
+
+msgid "Select previous installation"
+msgstr "选择一个之前的安装"
+
+msgid "Evaluation version licensed to: "
+msgstr "评估许可证已被授权给："
+
+#, c-format
+msgid ""
+"Welcome to the %s\n"
+"Installation Wizard"
+msgstr "欢迎使用 %s安装向导"
+
+msgid "A previous installation of this package has been detected.\n"
+msgstr "检测到本安装包之前的实例。\n"
+
+msgid ""
+"Choose an option below to modify an existing installation or\n"
+"install a fresh copy.\n"
+msgstr ""
+"请选择修改一个已经存在的安装实例或\n"
+"安装一个全新的实例"
+
+#, c-format
+msgid "The folder '%s' already exists on the server.\n"
+msgstr "文件夹 \"%s\" 已经存在于远程服务器。\n"
+
+msgid "Overwrite the previous installation?"
+msgstr "覆盖之前的安装？"
+
+msgid "The upload folder is not empty.\n"
+msgstr "安装文件夹不是空的。\n"
+
+msgid "Files in the upload folder may be overwritten during installation.\n"
+msgstr "在上传文件夹中的文件将会在安装过程中被覆盖。\n"
+
+msgid "Continue?"
+msgstr "继续？"
+
+msgid "Please check settings then click Next to try again."
+msgstr "请检查设置然后点击下一步进行重试。"
+
+msgid "Last response from FTP server:\n"
+msgstr "最后回应从FTP服务器：\n"
+
+msgid "Unable to create a folder on the FTP server.\n"
+msgstr "不能在FTP服务器上创建文件夹。\n"
+
+msgid "Please check the FTP user has write permissions in the target folder."
+msgstr "请检查FTP用户对于目标文件夹是否具有写入权限。"
+
+msgid ""
+"The connection failed while trying to transfer a file,\n"
+"although creation of a temporary folder was possible.\n"
+"\n"
+msgstr ""
+"在尝试传送文件时连接失败，\n"
+"尽管创建临时文件的时候没有发生问题。\n"
+"\n"
+
+msgid ""
+"Please check connection settings.\n"
+"\n"
+msgstr ""
+"请检查连接设置\n"
+"\n"
+
+msgid "It is possible a firewall is preventing the FTP connection."
+msgstr "也许您的防火墙阻断了FTP连接。"
+
+msgid ""
+"This program was unable to upload a file to the FTP server,\n"
+"although creation of a temporary folder was possible.\n"
+msgstr ""
+"程序无法将文件上传到FTP服务器，\n"
+"尽管创建临时文件的时候没有发生问题。\n"
+
+msgid "Please check permissions on the target FTP server."
+msgstr "请检查远程FTP服务器的权限设置。"
+
+msgid ""
+"Unable to delete a temporary file on the FTP server,\n"
+"although creation of a temporary folder\n"
+"and uploading of a test file was possible.\n"
+msgstr ""
+"无法删除临时文件在FTP服务器上，\n"
+"尽管创建临时文件时没有发生问题\n"
+"并且上传测试文件也没有发生问题\n"
+
+msgid "Unable to delete a temporary folder on the FTP server.\n"
+msgstr "无法在FTP服务器上删除临时文件夹。\n"
+
+msgid "Please wait"
+msgstr "请稍候"
+
+msgid "Checking network settings"
+msgstr "检测网络设置"
+
+msgid "Checking for previous installation"
+msgstr "检测之前的安装实例"
+
+msgid "Checking ability to create folders"
+msgstr "检测创建文件夹的权限"
+
+msgid "Checking ability to upload files"
+msgstr "检测上传文件的权限"
+
+msgid "Checking ability to overwrite files"
+msgstr "检测覆盖文件的权限"
+
+msgid "Checking ability to delete files"
+msgstr "检测删除文件的权限"
+
+msgid "Checking ability to remove folders"
+msgstr "检测删除文件夹的权限"
+
+msgid "Creating work folder"
+msgstr "创建工作文件夹"
+
+msgid "Uploading utility file 1/2"
+msgstr "上传工具文件 1/2"
+
+msgid "Uploading utility file 2/2"
+msgstr "上传工具文件 2/2"
+
+msgid "Current File:"
+msgstr "当前文件："
+
+msgid "Overall Progress:"
+msgstr "总体进度："
+
+msgid "Unpacking files"
+msgstr "解压文件"
+
+msgid "Calculating..."
+msgstr "计算..."
+
+msgid "Transferring Package"
+msgstr "传送包文件"
+
+msgid "Step:"
+msgstr "步骤："
+
+msgid "Connecting to server"
+msgstr "连接到服务器"
+
+msgid "Creating package folder structure on server"
+msgstr "在服务器端创建安装包目录结构"
+
+msgid "Setting package file and folder permissions"
+msgstr "设置安装包文件与文件夹权限"
+
+msgid "Uploading package archive"
+msgstr "正在上传安装包"
+
+msgid "Removing partial installation"
+msgstr "正在删除不完整的安装实例"
+
+#, c-format
+msgid " (attempt %i)"
+msgstr "(尝试 %i)"
+
+msgid "Installing ionCube Loaders"
+msgstr "安装 ionCube 加速器"
+
+msgid "Establishing connection to ionCube"
+msgstr "建立到 ionCube 的连接"
+
+msgid "Transferring Loaders from ionCube to target server"
+msgstr "正在从 ionCube 到目标服务器传送加速器"
+
+msgid "Download Progress:"
+msgstr "下载进度："
+
+msgid "Downloading Loaders to local machine"
+msgstr "正在下载加速器到本地计算机"
+
+msgid "Upload Progress:"
+msgstr "上传进度："
+
+msgid "Uploading Loaders to target server"
+msgstr "正在上传加速器到目标服务器"
+
+msgid "Removing temporary files"
+msgstr "正在删除临时文件"
+
+msgid "Retry?"
+msgstr "重试？"
+
+msgid "Error uploading file to FTP server:\n"
+msgstr "在上传文件到FTP服务器时发生错误：\n"
+
+msgid "An error was encountered while setting permissions on the FTP server.\n"
+msgstr "在FTP服务器上设置文件权限时发生了一个错误。\n"
+
+msgid ""
+"The server returned the following response:\n"
+"\n"
+msgstr ""
+"服务器返回如下回应信息：\n"
+"\n"
+
+#, c-format
+msgid "File %i/%i:"
+msgstr "文件 %i/%i:"
+
+#, c-format
+msgid "%i bytes of %i bytes (%i%%)"
+msgstr "%i bytes of %i bytes (%i%%)"
+
+#, c-format
+msgid "%iKB of %iKB (%i%%)"
+msgstr "%iKB of %iKB (%i%%)"
+
+msgid "Transfer stalled..."
+msgstr "传送已失速..."
+
+msgid ""
+"Please enter a username and password,\n"
+"then try again."
+msgstr ""
+"请输入一个用户名和密码，\n"
+"然后重新尝试。"
+
+msgid ""
+"Please enter the address of an FTP server,\n"
+"then try again."
+msgstr ""
+"请输入FTP服务器的地址，\n"
+"然后重新尝试。"
+
+msgid ""
+"You have entered an absolute path for the install folder,\n"
+"but an absolute path can not be used.\n"
+"\n"
+"Please enter the path of the install folder relative to\n"
+"the ftp account's home folder, then click Next to continue."
+msgstr ""
+"您为安装文件夹输入了一个绝对路径，\n"
+"但是绝对路径无法被使用。\n"
+"\n"
+"请输入一个相对于FTP账户根目录的 相对路径\n"
+"然后点击下一步继续。"
+
+msgid "Please wait: Removing temporary installation files"
+msgstr "请稍候：正在移除临时安装文件"
+
+msgid "Please wait: Checking network settings"
+msgstr "请稍后：正在检查网络设置"
+
+#, c-format
+msgid ""
+"The %s installer requires access to a\n"
+"web server for some installation tasks.\n"
+"\n"
+msgstr ""
+"%s 安装程序为了完成安装任务\n"
+"需要访问一个web服务器。\n"
+"\n"
+
+msgid ""
+"Installation can be completed by running this installer\n"
+"again at a later time\n"
+msgstr "请稍后再次运行本安装程序以完成安装。"
+
+msgid ""
+"Please enter a valid URL for your web server\n"
+"or check 'My web server is not running yet',\n"
+"then click Next to try again."
+msgstr ""
+"请为您的web服务器输入一个有效的URL\n"
+"或点击“我的web服务器尚未运行”，\n"
+"然后点击下一步进行重试。"
+
+msgid "Remote Server Details"
+msgstr "远程服务器详情"
+
+msgid "Enter your FTP account password, then click Next to continue."
+msgstr "输入您的FTP账户密码，然后点击下一步继续。"
+
+msgid "Enter the details of your FTP account and install location"
+msgstr "输入FTP账户的详情和安装路径"
+
+msgid "Please enter an absolute path."
+msgstr "请输入一个绝对路径。"
+
+#, c-format
+msgid "%s does not exist.\n"
+msgstr "%s 不存在。\n"
+
+msgid "Would you like to create this folder?"
+msgstr "你是否希望创建这个文件夹？"
+
+msgid "Unable to create folder:\n"
+msgstr "无法创建文件夹：\n"
+
+msgid "Install"
+msgstr "安装"
+
+msgid "Remote install"
+msgstr "远程安装"
+
+msgid "Local install"
+msgstr "本地安装"
+
+msgid "Installation type:\n"
+msgstr "安装类型：\n"
+
+msgid "FTP settings:\n"
+msgstr "FTP 设置：\n"
+
+msgid "\tHost:\t\t"
+msgstr "\t主机：\t\t"
+
+msgid "\tUser:\t\t"
+msgstr "\t用户名：\t"
+
+msgid "\tPassword:\t"
+msgstr "\t密码：\t"
+
+msgid "\tDirectory:\t\t"
+msgstr "\t目录：\t\t"
+
+msgid "FTP Server Attributes:\n"
+msgstr "FTP 服务器属性：\t"
+
+msgid "\tSet Permissions:\t"
+msgstr "\t设置权限：\t"
+
+msgid "yes"
+msgstr "是"
+
+msgid "no"
+msgstr "否"
+
+msgid "Destination Location:\n"
+msgstr "目标未知：\n"
+
+msgid "HTTP Settings:\n"
+msgstr "HTTP 设置：\n"
+
+msgid "\tDirectory URL:\t"
+msgstr "\t目录URL：\t"
+
+msgid "Web Server Attributes:\n"
+msgstr "Web 服务器属性：\n"
+
+msgid "\tServer Software:\t"
+msgstr "\t服务器软件：\t"
+
+msgid "Server PHP Attributes:\n"
+msgstr "服务器PHP属性：\n"
+
+msgid "\tPHP Version:\t"
+msgstr "\tPHP版本：\t"
+
+msgid "\tExt Folder:\t"
+msgstr "\t扩展文件夹：\t"
+
+msgid ""
+"\tionCube Loaders\n"
+"\tInstalled:\t\t"
+msgstr ""
+"\tionCube 加速器\n"
+"\tInstalled:\t\t"
+
+msgid "\tRun-time Loading:\t"
+msgstr "\t运行时载入：\t"
+
+msgid "Rollback is not complete."
+msgstr "回滚操作没有完成。"
+
+msgid "If you quit now, some installation files may persist."
+msgstr "如果您现在退出，一些安装文件将被保留。"
+
+msgid "Exit this program?"
+msgstr "退出这个程序？"
+
+msgid "Installation is not complete."
+msgstr "安装尚未完成。"
+
+msgid "If you quit now, the application will not be installed."
+msgstr "如果您现在退出，该程序将不会被安装。"
+
+#, c-format
+msgid ""
+"It was not possible to delete some files or folders\n"
+"from the folder '%s'."
+msgstr "无法从文件夹'%s'中删除一些文件或文件夹。"
+
+msgid "You may need to delete these items manually."
+msgstr "您也许需要手动删除这些条目。"
+
+#, c-format
+msgid "Testing server capabilities (step %i of %i)"
+msgstr "测试服务器兼容性  (步骤 %i / %i)"
+
+msgid "Next"
+msgstr "下一步"
+
+#, c-format
+msgid ""
+"There was a problem sending the error report to:\n"
+"%s"
+msgstr ""
+"这里有一个问题，正在发送错误报告给：\n"
+"%s"
+
+#, c-format
+msgid ""
+"This application will now open Explorer to show the folder\n"
+"containing the log file '%s'\n"
+"\n"
+msgstr ""
+"该程序将开打资源管理器来显示文件夹\n"
+"包含日志文件 '%s' \n"
+"\n"
+
+msgid "Please email this file to ipf@ioncube.com"
+msgstr "请将此文件发送至 ipf@ioncube.com"
+
+msgid "The report was sent successfully."
+msgstr "报告已经被成功发送"
+
+msgid ""
+"Would you like to send a log of this setup procedure\n"
+"to the provider of this installer in order to report this event?"
+msgstr ""
+"为了报告此事件，您是否希望发送\n"
+"一个安装过程日志给这个安装包的供应商？"
+
+msgid "Click Next to begin uploading, or Cancel to exit this program."
+msgstr "点击下一步开始上传，或点击取消退出本程序。"
+
+msgid "You entered your FTP home folder for the install location on your FTP server.\n"
+msgstr "您输入了您FTP服务器的根文件夹作为安装位置。\n"
+
+#, c-format
+msgid "You entered '%s' for the install location on your FTP server.\n"
+msgstr "您输入的 '%s' 在FTP服务器上作为安装位置。\n"
+
+msgid "Please enter the URL of the install location on your web server."
+msgstr "请输入位于您的Web服务器的安装位置相对应的URL。"
+
+#, c-format
+msgid ""
+"You entered the following path for the install location on your computer:\n"
+"%s\n"
+"\n"
+msgstr ""
+"您输入的下列路径作为安装位置在您的本地计算机上：\n"
+"%s\n"
+"\n"
+
+msgid "Please enter the URL of the install location on your local web server."
+msgstr "请输入在您本地web服务器上安装位置所对应的URL。"
+
+msgid "Web Server Settings"
+msgstr "Web服务器设置"
+
+msgid "Please enter the URL corresponding to the install location"
+msgstr "请输入相关到安装位置的URL"
+
+msgid "Local Web Server Settings"
+msgstr "本地Web服务器设置"
+
+msgid "Please enter the URL corresponding to the local install folder"
+msgstr "请输入相关到本地安装文件夹的URL"
+
+msgid "Install wizard Completed"
+msgstr "安装向导已完成"
+
+msgid ""
+"This wizard has successfully completed all installation tasks.\n"
+"\n"
+"Click Finish to exit the wizard."
+msgstr ""
+"本想到已经成功的安装完成所有任务。\n"
+"\n"
+"点击完成来退出本向导。"
+
+msgid "View Readme"
+msgstr "阅读使用手册"
+
+msgid "Run Configuration Tool"
+msgstr "运行配置工具"
+
+msgid "Please click Finish to exit this wizard and configure the application."
+msgstr "请点击完成按钮来退出向导并配置该程序。"
+
+msgid ""
+"The FTP server does not support the setting\n"
+"of file or folder permissions."
+msgstr "FTP服务器不支持设置文件或文件夹权限。"
+
+msgid ""
+"The following permissions can be set manually\n"
+"in order to secure this product."
+msgstr ""
+"为了安全使用本产品\n"
+"下列文件权限可以被手工设置。"
+
+msgid ""
+"Permissions are given in the format of the UNIX\n"
+"'chmod' command:"
+msgstr "文件权限应按UNIX'chmod'命令的格式被设置。"
+
+msgid "A problem occured during installation."
+msgstr "在安装过程中发生了问题。"
+
+msgid "You may run this installer again to complete the tasks."
+msgstr "您需要重新运行本安装程序来完成任务。"
+
+msgid "This wizard has successfully completed all installation tasks."
+msgstr "本向导已经完成了所有的安装任务。"
+
+#, c-format
+msgid "Click Finish to configure %s.\n"
+msgstr "点击完成按钮进行配置 %s。\n"
+
+#, c-format
+msgid "You may need to run this installer again to complete configuration of %s using the target web server.\n"
+msgstr "您需要重新运行本安装向导来完成配置 %s 使用目标web服务器。\n"
+
+msgid "The application must be configured before use."
+msgstr "程序在使用前必须进行正确配置。"
+
+#, c-format
+msgid "Click Finish to exit the wizard and configure %s."
+msgstr "点击完成来退出本向导并配置 %s。"
+
+msgid "Domain"
+msgstr "域名"
+
+msgid "Directory"
+msgstr "目录"
+
+msgid "User"
+msgstr "用户"
+
+msgid "Version (stage)"
+msgstr "版本 ( 阶段 )"
+
+msgid "Local Install"
+msgstr "本地安装"
+
+msgid "configured"
+msgstr "已配置"
+
+msgid "installed"
+msgstr "已安装"
+
+msgid "incomplete"
+msgstr "未完成"
+
+msgid "uploaded"
+msgstr "已上传"
+
+msgid "not uploaded"
+msgstr "未上传"
+
+msgid ""
+"\n"
+"\n"
+"Installation notes have been provided with this package.\n"
+"\n"
+"Clicking the button below will allow the notes to be viewed\n"
+"and kept open as the installation proceeds.\n"
+msgstr ""
+"\n"
+"\n"
+"安装记录已经被这个安装包提供n\n"
+"点击下面的按钮将允许查看记录\n"
+"并且保持与在安装过程同步。\n"
+
+msgid ""
+"Please review the following installation instructions,\n"
+"then click Next to continue."
+msgstr ""
+"请阅读下列安装说明，\n"
+"然后点击下一步继续。"
+
+msgid "&Finish"
+msgstr "完成 (&F)"
+
+#, c-format
+msgid "This installer will create an install folder called '%s'"
+msgstr "本安装程序将创建一个安装文件夹叫'%s'"
+
+msgid "Create install folder in:"
+msgstr "创建安装文件夹在："
+
+msgid "Upload files into folder:"
+msgstr "上传文件到文件夹："
+
+msgid "This installer will upload files and folders to the location specified below."
+msgstr "本安装程序将上传文件和文件夹到指定的位置："
+
+msgid "Save files into folder:"
+msgstr "保存文件到文件夹："
+
+msgid "This installer will save files and folders into the location specified below."
+msgstr "本安装程序将保存文件和文件夹到指定的位置："
+
+msgid "Setup"
+msgstr "安装"
+
+msgid "Please specify the correct startup parameters, and retry."
+msgstr "请制定正确的启动参数，并重试。"
+
+#, c-format
+msgid ""
+"Installation file not found at:\n"
+"%s"
+msgstr ""
+"安装文件未找到：\n"
+"%s"
+
+msgid "Installation (ionCube Package Foundry DEMO) - "
+msgstr "安装 (ionCube Package Foundry DEMO) - "
+
+msgid "This package was created with an evaluation version of the ionCube Package Foundry"
+msgstr "安装包创建于评估版的 ionCube Package Foundry"
+
+#, c-format
+msgid ""
+"licensed to %s.\n"
+"\n"
+msgstr ""
+"许可给 %s 。\n"
+"\n"
+
+msgid ""
+"Commercial use of this evaluation software is prohibited.\n"
+"\n"
+msgstr ""
+"禁止使用本软件的评估版本用于商业用途。\n"
+"\n"
+
+msgid "The full version is not time-limited, and does not display this message."
+msgstr "完整版不是基于时间限制的，并且不会显示此信息。"
+
+msgid ""
+"This installer has encountered a problem and must close.\n"
+"\n"
+"Please contact the provider of this installer, quoting your\n"
+"machine specification and operating system."
+msgstr ""
+"安装程序遇到了一个错误并且必须被关闭。\n"
+"\n"
+"请联系这个安装程序的供应商，\n"
+"并附上您的机器配置和操作系统。"
+
+msgid ""
+"This installer appears to be corrupt.\n"
+"\n"
+msgstr ""
+"安装程序被占用。\n"
+"\n"
+
+msgid ""
+"Please contact the provider of this product\n"
+"to obtain a new copy.\n"
+msgstr ""
+"请联系这个产品的供应商\n"
+"来获取一个新的拷贝。\n"
+
+#, c-format
+msgid ""
+"A server error (code %i) was encountered\n"
+"while testing HTTP settings.\n"
+"\n"
+msgstr ""
+"在测试HTTP设置时发生了一个错误(代码 %i)\n"
+"\n"
+
+msgid "Please check settings, then click Next to try again."
+msgstr "请检查设置，然后点击下一步重试。"
+
+#, c-format
+msgid ""
+"The folder '%s' has been created, but access was denied to the folder\n"
+"by the web server.\n"
+"\n"
+msgstr ""
+"文件夹 '%s' 已经被创建，但是无法通过web方式进行访问。\n"
+"访问已被拒绝。\n"
+"\n"
+
+msgid ""
+"Please check folder permissions on the target web server,\n"
+"then click Next to retry."
+msgstr ""
+"请检查目标web服务器的文件夹权限，\n"
+"并点击下一步重试。"
+
+#, c-format
+msgid ""
+"A folder '%s' has been created, but cannot be located\n"
+"on the web server.\n"
+"\n"
+msgstr ""
+"一个文件夹 '%s' 已经被创建，\n"
+"但是不能被存放到web服务器上。\n"
+"\n"
+
+msgid ""
+"Please adjust the URL so that it points to the location\n"
+"of the package install folder on the web, then click \n"
+"Next to retry."
+msgstr ""
+"请调整URL设置，\n"
+"将它指向到web服务器上的安装文件夹\n"
+"然后点击下一步重试。"
+
+#, c-format
+msgid "Unable to connect to the host '%s'\n"
+msgstr "无法连接到目标主机 '%s'\n"
+
+msgid ""
+"Please check settings, check whether the server is available,\n"
+"and click Next to try again."
+msgstr ""
+"请检查设置，检查服务器是否可用，\n"
+"并点击下一步重试。"
+
+msgid "Settings changed.\n"
+msgstr "设置已经改变。\n"
+
+msgid "Delete installation files created with previous settings?"
+msgstr "删除包含之前设置信息的安装文件？"
+
+msgid "Unable to read the package archive."
+msgstr "无法读取安装包。"
+
+msgid "The following error occured when creating a package folder:\n"
+msgstr "在创建安装包文件夹时发生了如下错误：\n"
+
+msgid "The following error occured while trying to write a package file to disk:\n"
+msgstr "在将安装包写入磁盘时发生了如下错误：\n"
+
+msgid "The following error occured while trying to create the package folder:\n"
+msgstr "在尝试创建安装包文件夹时发生了如下错误：\n"
+
+msgid "The following error occured while trying to create a temporary directory:\n"
+msgstr "在创建临时文件夹时发生了如下错误：\n"
+
+#, c-format
+msgid ""
+"It was not possible to delete some temporary files or folders\n"
+"in the server's working folder '%s'.\n"
+"\n"
+msgstr ""
+"在服务器的工作文件夹'%s'中\n"
+"不能删除一些临时文件或文件夹。\n"
+"\n"
+
+msgid "You may need to delete these items manually.\n"
+msgstr "您需要手动删除这些条目。\n"
+
+msgid "An ionCube Loader is required to complete installation.\n"
+msgstr "为了完成安装 ionCube加速器 是必须的。\n"
+
+msgid ""
+"A temporary problem has prevented a connection to the ionCube download site.\n"
+"\n"
+msgstr ""
+"一个临时性的问题已经阻断了到ionCube下载网站的连接。\n"
+"\n"
+
+msgid "Please check your internet connection and try again later.\n"
+msgstr "请检查您的网络连接并稍后再试。\n"
+
+msgid "The following error occured while trying to write a file to the installation folder:\n"
+msgstr "当尝试对安装文件夹写入文件时发生了如下错误：\n"
+
+msgid "Application files have now been uploaded and installed.\n"
+msgstr "应用程序文件现在已经被更新且安装。\n"
+
+#, c-format
+msgid ""
+"An ionCube Loader is also needed by %s in order to run,\n"
+"however your server configuration does not permit the automatic installation\n"
+"of this component.\n"
+"\n"
+msgstr ""
+"ionCube 加速器还依赖于 %s 才能运行，\n"
+"但是您的服务器配置不允许自动安装这个组件\n"
+"\n"
+
+msgid "A page has been uploaded to your server which helps install the Loader.\n"
+msgstr "一个页面已经被上传到您的服务器，它将帮助您安装加速器。\n"
+
+msgid "Click OK to view this page in your web browser.\n"
+msgstr "点击确定来在您的浏览器中查看本页面。\n"
+
+msgid ""
+"Settings changed.\n"
+"Delete installation files created with previous settings?"
+msgstr ""
+"设置已被改变。\n"
+"删除安装文件及之前的设置？"
+
+#, c-format
+msgid ""
+"Unable to open package.\n"
+"File: %s\n"
+"Position: %i\n"
+"Size: %i"
+msgstr ""
+"无法打开安装包。\n"
+"文件： %s\n"
+"位置： %i\n"
+"大小： %i"
+
+msgid "An error was encountered while trying to extract the package archive."
+msgstr "在解压安装包时发生了一个错误。"
+
+msgid ""
+"An unexpected error occured during extraction of the Loaders\n"
+"on the remote server.\n"
+msgstr "在远程服务器上解压加速器是发生了未知的错误。"
+
+msgid "After closing this dialog an alternative method will be tried.\n"
+msgstr "在关闭本对话框之后将尝试使用备用方法。\n"
+
+msgid "An error occured in calling the PHP setup script on the remote server:\n"
+msgstr "再调用远程服务器的PHP安装脚本时发生了一个错误：\n"
+
+msgid "Clicking Cancel will use an alternative method.\n"
+msgstr "点击取消将使用被备用方法。\n"
+
+msgid "A problem occured during Loader installation.\n"
+msgstr "在安装加速器时发生了一个问题。\n"
+
+msgid "An alternative Loader transfer method will be tried.\n"
+msgstr "将尝试使用备用的加速器传送方法。\n"
+
+msgid "PHP setup script not found on the remote server.\n"
+msgstr "PHP 安装脚本在远程服务器上未找到。\n"
+
+msgid "Error downloading Loaders from:\n"
+msgstr "下载加速器时发生错误：\n"
+
+msgid ""
+"Response:\n"
+"\n"
+msgstr ""
+"回应：\n"
+"\n"
+
+msgid "Unable to create temporary file for Loaders.\n"
+msgstr "无法为加速器创建文件。\n"
+
+msgid "Unable to open the Loader archive."
+msgstr "无法打开加速器包。"
+
+msgid ""
+"Unable to write Loader to disk.\n"
+"\n"
+msgstr ""
+"无法写入加速器到磁盘。\n"
+"\n"
+
+msgid "Unable to open Loaders temporary file for reading.\n"
+msgstr "无法打开加速器临时文件用于读取。\n"
+
+msgid "An error occured while uploading the Loaders to the server:\n"
+msgstr "当在上传加速器到服务器时发生了一个错误：\n"
+
+#, c-format
+msgid ""
+"Unable to locate Loaders compatible with the \n"
+"%s server configuration.\n"
+msgstr ""
+"无法找到兼容的加速器为\n"
+"%s 服务器配置\n"
+
+#, c-format
+msgid ""
+"The Loaders have been transferred but there is a problem with the current\n"
+"%s server configuration.\n"
+msgstr ""
+"加速器已经被传送完成但是关于\n"
+"%s 服务器配置发现了一个问题。\n"
+
+#, c-format
+msgid ""
+"The PHP extension folder '%s'\n"
+"may be incompatible with the encoded file's headers,\n"
+"but Loaders might work with an edited php.ini file.\n"
+msgstr ""
+"PHP扩展文件夹'%s'\n"
+"也许与加密的文件头不兼容，\n"
+"但是通过编辑php.ini文件，加速器也许还可以正常工作。\n"
+
+msgid "Configuration file not found at:\n"
+msgstr "未知文件没有找到在：\n"
+
+msgid "Unable to open configuration file at:\n"
+msgstr "无法打开配置文件位于：\n"
+
+msgid "An error occured while retrieving the configuration files:\n"
+msgstr "在读取配置文件时发生了错误：\n"
+
+msgid "An error occured while connecting to the FTP server:\n"
+msgstr "在连接到FTP服务器时发生了错误：\n"
+
+#, c-format
+msgid ""
+"The package folder '%s'\n"
+"could not be found on the FTP server.\n"
+"\n"
+"It may be necessary to reinstall the application."
+msgstr ""
+"安装包文件夹'%s'\n"
+"无法在FTP服务器上被找到。\n"
+"\n"
+"您也许需要重新安装该应用程序。"
+
+msgid "Unable to open configuration file for writing at:\n"
+msgstr "无法打开配置文件用于写入在：\n"
+
+msgid "There was an error saving the configuration files:\n"
+msgstr "在保存配置文件时发生了错误：\n"
+
+msgid "Unable to execute post-install script:\n"
+msgstr "无法执行初始化脚本：\n"
+
+msgid "Task:"
+msgstr "任务："
+
+msgid "do not translate!"
+msgstr "不翻译！"
+
+msgid "File:"
+msgstr "文件："
+
+msgid "Speed:"
+msgstr "速度："
+
+msgid "0 KB/s"
+msgstr "0 KB/s"
+
+msgid "Elapsed Time:"
+msgstr "已用时间："
+
+msgid "0s"
+msgstr "0s"
+
+msgid "Remaining Time:"
+msgstr "剩余时间："
+
+msgid "Current File:                    "
+msgstr "当前文件："
+
+msgid "filename"
+msgstr "文件名"
+
+msgid "Overall Progress:                      "
+msgstr "总体进度："
+
+msgid "Installer Actions"
+msgstr "安装程序行为"
+
+msgid "Please wait while the installer carries out tasks"
+msgstr "请等待安装程序正在完成任务"
+
+msgid "FTP login"
+msgstr "FTP 登录"
+
+msgid "FTP server address:"
+msgstr "FTP 服务器地址："
+
+msgid "FTP port:"
+msgstr "FTP 端口号："
+
+msgid "FTP username:"
+msgstr "FTP 用户名："
+
+msgid "FTP password:"
+msgstr "FTP 密码："
+
+msgid "Install location on FTP server"
+msgstr "在 FTP 服务器上的安装位置"
+
+#, c-format
+msgid "This installer will create a folder called '%s'"
+msgstr "这个安装程序将创建一个名为“%s”的文件夹"
+
+msgid "Change"
+msgstr "修改"
+
+msgid ""
+"This folder on the FTP server will contain the package folder.\n"
+"An example might be 'public_html'."
+msgstr ""
+"这个在FTP服务器上的文件夹将用来包含安装包目录。\n"
+"例如： “public_html”或“httpdocs”"
+
+msgid "Browse"
+msgstr "浏览"
+
+msgid "Advanced"
+msgstr "高级"
+
+msgid "This installer needs a web server for some tasks"
+msgstr "本安装程序需要一个Web服务器来完成某些任务"
+
+msgid "Instructions"
+msgstr "说明"
+
+msgid "Install location URL:"
+msgstr "安装位置的URL："
+
+msgid "My web server is not running yet"
+msgstr "我的Web服务器尚未运行"
+
+msgid "Action being carried out by page"
+msgstr "行为正在通过网页方式完成"
+
+msgid "Install location on this computer"
+msgstr "在本地计算机上的安装位置"
+
+msgid "Specify Install Location"
+msgstr "指定安装位置"
+
+msgid "Where should the files be installed?"
+msgstr "文件应该被安装在哪里？"
+
+msgid "Please read the following License Agreement. You must agree to the terms before continuing."
+msgstr "请阅读如下许可协议。在继续安装前您必须同意如下条款。"
+
+msgid "I accept the agreement"
+msgstr "我同意该许可协议"
+
+msgid "I do not accept the agreement"
+msgstr "我不同意该许可协议"
+
+msgid "License Agreement"
+msgstr "许可协议"
+
+msgid "Please read the following information before continuing"
+msgstr "在继续安装之前请阅读如下信息"
+
+msgid "Install to a remote machine"
+msgstr "安装到远程服务器"
+
+msgid "Install to this machine"
+msgstr "安装到本机"
+
+msgid "Click Next to continue, or Cancel to exit this program."
+msgstr "点击下一步继续安装，或点击取消来退出本程序。"
+
+msgid "Installation Type"
+msgstr "安装类型"
+
+msgid "Choose whether to perform a local or remote installation"
+msgstr "请选择进行本地安装还是远程安装"
+
+msgid "Click Back to make changes, or Install to begin installation."
+msgstr "点击后退来修改，或者安装按钮来开始安装。"
+
+msgid "Ready to Install"
+msgstr "已准备好安装"
+
+msgid "Installation may now proceed"
+msgstr "安装将被立即处理"
+
+msgid "Intro message"
+msgstr "介绍消息"
+
+msgid "View"
+msgstr "查看"
+
+msgid "Introduction"
+msgstr "介绍"
+
+msgid "Installation notes"
+msgstr "安装记录"
+
+msgid "Welcome to the *** configuration tool"
+msgstr "欢迎使用 *** 配置工具"
+
+msgid "Double-click an item below to edit, then click Apply to commit changes"
+msgstr "双击一个条目来进行编辑，然后点击应用来提交改变。"
+
+msgid "Items to configure"
+msgstr "要配置的条目"
+
+msgid "FTP Settings"
+msgstr "FTP 设置"
+
+msgid "User:"
+msgstr "用户："
+
+msgid "Static text"
+msgstr "静态文本"
+
+msgid "Target:"
+msgstr "目标："
+
+msgid "myServer"
+msgstr "我的服务器"
+
+msgid "Help"
+msgstr "帮助"
+
+msgid "Apply"
+msgstr "应用"
+
+msgid "Launch"
+msgstr "启动"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Item"
+msgstr "条目"
+
+msgid "State"
+msgstr "状态"
+
+msgid "Install Folder"
+msgstr "安装文件夹"
+
+msgid "downloading..."
+msgstr "下载中..."
+
+msgid "unsaved"
+msgstr "未保存"
+
+msgid "unconfigured"
+msgstr "未配置"
+
+msgid ""
+"A configuration file has been edited locally\n"
+"but not saved to the server.\n"
+"\n"
+msgstr ""
+"一个配置文件已经在本地被修改\n"
+"但是尚未保存到服务器上。\n"
+"\n"
+
+msgid "Apply changes before exiting?"
+msgstr "在退出前保存更改？"
+
+msgid "saving..."
+msgstr "保存中..."
+
+msgid "A configuration file has not been saved to the server.\n"
+msgstr "一个配置文件还没有被保存到服务器上。\n"
+
+msgid "Save file before launch?"
+msgstr "在启用前保存文件？"
+
+msgid "Configuration"
+msgstr "配置"
+
+msgid "FTP pipelining"
+msgstr "FTP 流水线操作"
+
+msgid "Use multiple connections when possible"
+msgstr "如果可用尝试多重连接"
+
+msgid "Max connections:"
+msgstr "最大连接数："
+
+msgid "FTP port"
+msgstr "FTP 端口"
+
+msgid "Port number:"
+msgstr "端口号："
+
+msgid "Custom package folder name"
+msgstr "自定义包文件夹名称"
+
+msgid "Folder name:"
+msgstr "文件夹名称："
+
+msgid "OK"
+msgstr "确定"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Please enter a valid name for the package folder.\n"
+msgstr "请为包文件夹输入一个有效的名字。\n"
+
+msgid "The name can be empty or short string like 'my_folder'."
+msgstr "名字可以是空白或者是一个简短的字符串，例如“my_folder”。"
+
+msgid "Please enter a valid port number.\n"
+msgstr "请输入一个可用的版本号。\n"
+
+msgid "Connection timed out."
+msgstr "连接超时。"
+
+msgid "Unable to resolve host."
+msgstr "无法解析目标主机。"
+
+msgid "A data transfer error occured.\n"
+msgstr "数据传送发生了错误。\n"
+
+msgid "Perhaps a firewall is blocking the connection?"
+msgstr "也许是您的防火墙拦截了本次连接？"
+
+msgid "Unable to connect to the FTP server."
+msgstr "无法连接到FTP服务器"
+
+msgid "FTP password incorrect."
+msgstr "FTP密码错误"
+
+msgid "Unknown FTP username."
+msgstr "未知的FTP用户名"
+
+msgid "FTP access denied to this folder.\n"
+msgstr "该文件FTP访问被拒绝。\n"
+
+msgid "Please check the folder exists and that you can access it."
+msgstr "请检查安装文件夹并且您有权限访问它。"
+
