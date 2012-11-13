@@ -13,9 +13,10 @@ jsMin, SvnCheckout, Version, Documentor
     <property name="distfile" value="${distdir}/${package}-${buildNumber}.${ext}" override="true" />
 
     <!-- Fileset for base source files -->
-    <fileset dir="modules/${buildName}" id="basesrc">
+    <fileset dir="." id="basesrc">
+        <include name="modules/${buildName}/**" />
     </fileset>
-
+    
     <!-- ============================================  -->
     <!-- Target: build                                 -->
     <!-- ============================================  -->
@@ -57,7 +58,8 @@ jsMin, SvnCheckout, Version, Documentor
         <mkdir dir="${distdir}" />
         <delete file="${distfile}" />
         <tar destfile="${distfile}" compression="gzip">
-            <fileset dir="build/encoded/${package}">                
+            <fileset dir="build/src/">
+                <include name="${package}/**" />
             </fileset>
         </tar>
         <echo msg="Distribution file is created in build directory OK!" />
