@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<BizDataObj Name="ApplicationDO" Description="" Class="BizDataObj" DBName="Default" Table="repo_application" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
+<BizDataObj Name="ApplicationDO" Description="" Class="BizDataObj" DBName="Default" Table="repo_application" SearchRule="" SortRule="[pkg_release_time] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
 	<BizFieldList>
         <BizField Name="Id" Column="id" Type="Number"/>
         <BizField Name="package_id" Column="package_id" Length="255" Required="Y" Type="Text"/>
@@ -19,7 +19,7 @@
         <BizField Name="status" Column="status" Required="N" Type="Number"/>
         <BizField Name="featured" Column="featured" Required="N" Type="Number"/>
         <BizField Name="release_time" Column="release_time" Required="N" Type="Datetime"/>
-        <BizField Name="pkg_release_time" SQLExpr="SELECT create_time FROM repo_release WHERE repo_release.app_id=repo_application.id ORDER BY repo_release.id DESC LIMIT 0,1" Alias="pkg_release_time" />
+        <BizField Name="pkg_release_time" SQLExpr="(SELECT create_time FROM repo_release WHERE repo_release.app_id=repo_application.id ORDER BY repo_release.id DESC LIMIT 0,1)" Alias="pkg_release_time" />
 		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
 		<BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
 		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>		
