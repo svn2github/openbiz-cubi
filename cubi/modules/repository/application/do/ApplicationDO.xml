@@ -20,6 +20,7 @@
         <BizField Name="featured" Column="featured" Required="N" Type="Number"/>
         <BizField Name="release_time" Column="release_time" Required="N" Type="Datetime"/>
         <BizField Name="pkg_release_time" SQLExpr="(SELECT create_time FROM repo_release WHERE T0.id=repo_release.app_id ORDER BY repo_release.id DESC LIMIT 0,1)" Alias="pkg_release_time" />
+        <BizField Name="pkg_release_version" SQLExpr="(SELECT version FROM repo_release WHERE T0.id=repo_release.app_id ORDER BY repo_release.id DESC LIMIT 0,1)" Alias="pkg_release_version" />
 		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
 		<BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
 		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>		
