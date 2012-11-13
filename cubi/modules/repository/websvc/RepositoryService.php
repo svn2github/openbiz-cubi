@@ -160,7 +160,7 @@ class RepositoryService extends WebsvcService
     	$sortRule 	= $param['sortRule'];
     	if(!$sortRule)
     	{
-    		$sortRule = "[release_time] DESC";	
+    		$sortRule = "[pkg_release_time] DESC";	
     	}
     	$userSearchRule = $param['searchRule'];
     	$startItem 	= $param['startItem'];
