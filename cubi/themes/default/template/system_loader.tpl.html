@@ -13,6 +13,16 @@
 	</div>
 </div>
 
+{literal}
+<!--[if gte IE 6]>
+<style type="text/css">
+#main_loader .loader_box
+{
+background-image:url({/literal}{$theme_url}{literal}/images/loading_bg.gif);
+}
+</style>
+<![endif]-->
+{/literal}
 
 <script>
 {php} if (JSLIB_BASE=='JQUERY') : {/php}

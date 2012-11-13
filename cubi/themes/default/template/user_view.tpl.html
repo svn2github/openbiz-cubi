@@ -62,7 +62,16 @@
 		</div>
 	</div>
 </div>
-
+{literal}
+<!--[if gte IE 6]>
+<style type="text/css">
+#loader .loader_box
+{
+background-image:url({/literal}{$theme_url}{literal}/images/loading_bg.gif);
+}
+</style>
+<![endif]-->
+{/literal}
 <script>
 window.onload=fade_loader;
 window.onunload=fadeout_loader;
