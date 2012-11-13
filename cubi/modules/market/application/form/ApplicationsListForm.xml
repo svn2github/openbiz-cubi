@@ -14,7 +14,8 @@
         
         <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Sortable="Y"  Link="{APP_INDEX}/market/application_detail/repo_{@:m_RepoID}/{@:Elem[fld_Id].Value}" ></Element>        
         <Element Name="fld_author" Class="RawData" FieldName="author" Label="" Sortable="Y"  ></Element>
-        <Element Name="fld_release_time" Class="ColumnText" Text="{date('Y-m-d',strtotime(@:Elem[fld_release_time].Value))}" FieldName="pkg_release_time" Label="Release Date"  Sortable="Y"/>
+        <Element Name="fld_release_time" Class="ColumnText" Style="line-height:18px;" Text="{date('Y-m-d',strtotime(@:Elem[fld_release_time].Value))}" FieldName="pkg_release_time" Label="Release Info"  Sortable="Y"/>
+        <Element Name="fld_release_version" Class="ColumnText" Style="line-height:20px;" Text="Version {@:Elem[fld_release_version].Value}" FieldName="pkg_release_version" Label="Version"  />
         
         <Element Name="fld_desc" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y"  ></Element>
         <Element Name="fld_detail" Class="ColumnText" Text="Detail" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="{APP_INDEX}/market/application_detail/repo_{@:m_RepoID}/{@:Elem[fld_Id].Value}" ></Element>

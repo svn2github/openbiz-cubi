@@ -5,20 +5,24 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="AppUpdateListForm" Icon="{RESOURCE_URL}/market/images/icon_update.png" Class="AppUpdateListForm" FormType="List" jsClass="jbForm" Title="Application Updates" Description="This module can manage repositroy applications " BizDataObj="market.installed.do.InstalledDO" SearchRule="[install_state]='OK'" PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="app_list_grid.tpl.html" EventName="" MessageFile="" Access="Market.Manage">
+<EasyForm Name="AppUpdateListForm" Icon="{RESOURCE_URL}/market/images/icon_update.png" Class="AppUpdateListForm" FormType="List" jsClass="jbForm" Title="Application Updates" Description="This module can manage repositroy applications " BizDataObj="market.installed.do.InstalledDO" SearchRule="[install_state]='OK'" PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="app_update_list_grid.tpl.html" EventName="" MessageFile="" Access="Market.Manage">
     <DataPanel>
-    	<Element Name="fld_repo_id" Class="Hidden" Hidden="Y" FieldName="repo_id" Label="ID" Sortable="Y" AllowURLParam="N">         
+    	<Element Name="fld_repo_id" Class="Hidden" Hidden="Y" FieldName="repo_id" Label="ID"  AllowURLParam="N">         
         </Element>
-        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N">         
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" AllowURLParam="N">         
         </Element>
          <Element Name="fld_icon"  width="60" Class="ColumnImage" FieldName="icon" Label="Icon"  Sortable="N" >
         </Element>     
         
-        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Sortable="Y"  Link="{APP_INDEX}/market/application_update_detail/repo_{@:Elem[fld_repo_id].Value}/{@:Elem[fld_Id].Value}" ></Element>        
-        <Element Name="fld_author" Class="RawData" FieldName="author" Label="" Sortable="Y"  ></Element>
-        <Element Name="fld_release_time" Class="ColumnText" Text="{date('Y-m-d',strtotime(@:Elem[fld_release_time].Value))}" FieldName="release_time" Label="Release Date"  Sortable="Y"/>
+        <Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name"  Link="{APP_INDEX}/market/application_update_detail/repo_{@:Elem[fld_repo_id].Value}/{@:Elem[fld_Id].Value}" ></Element>        
+        <Element Name="fld_author" Class="RawData" FieldName="author" Label=""  ></Element>
+        <Element Name="fld_install_time" Class="ColumnText" Style="line-height:18px;" Text="{date('Y-m-d',strtotime(@:Elem[fld_install_time].Value))}" FieldName="install_time" Label="Installed"  />
+        <Element Name="fld_install_version" Class="ColumnText" Style="line-height:20px;" Text="Version {@:Elem[fld_install_version].Value}" FieldName="version" Label="Installed Version"  />
         
-        <Element Name="fld_desc" Class="ColumnText" FieldName="description" Label="Description" Sortable="Y"  ></Element>
+        <Element Name="fld_release_time" Class="ColumnText" Style="line-height:18px;" Text="{date('Y-m-d',strtotime(@:Elem[fld_release_time].Value))}" FieldName="pkg_release_time" Label="Latest Update"  />
+        <Element Name="fld_release_version" Class="ColumnText" Style="line-height:20px;" Text="Version {@:Elem[fld_release_version].Value}" FieldName="latest_version" Label="Updated Version"  />
+        
+        <Element Name="fld_desc" Class="ColumnText" FieldName="description" Label="Description"   ></Element>
         <Element Name="fld_detail" Class="ColumnText" Text="Detail" cssClass="button_gray_m" FieldName="name" Label="Action" Sortable="N"  Link="{APP_INDEX}/market/application_update_detail/repo_{@:Elem[fld_repo_id].Value}/{@:Elem[fld_Id].Value}" ></Element>
     </DataPanel>
     <ActionPanel>
