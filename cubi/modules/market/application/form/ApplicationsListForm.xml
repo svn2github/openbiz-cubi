@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="ApplicationsListForm" Icon="{RESOURCE_URL}/market/images/icon_market.png" Class="ApplicationsListForm" FormType="List" jsClass="jbForm" Title="Application Market" Description="This module can manage repositroy applications " BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="app_list_grid.tpl.html" EventName="" MessageFile="" Access="Market.Manage">
+<EasyForm Name="ApplicationsListForm" Icon="{RESOURCE_URL}/market/images/icon_market.png" Class="ApplicationsListForm" FormType="List" jsClass="jbForm" Title="Application Market" Description="This module can manage repositroy applications " BizDataObj="" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="app_list_grid.tpl.html" EventName="" MessageFile="market.ini" Access="Market.Manage">
     <DataPanel>
         <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N">         
         </Element>
@@ -23,9 +23,13 @@
         
     </DataPanel>
     <ActionPanel>
-        <Element Name="lnk_refresh" Class="Button" Text="Refresh" CssClass="button_gray_w"  Access="Repository.Manage">
-            <EventHandler Name="lnk_refresh_onclick" Event="onclick" EventLogMsg="" Function="UpdateForm()"  />
-        </Element>        
+    	<Element Name="btn_refresh" Style="float:right;" Class="Button" Text="Refresh" CssClass="button_gray_w"  Access="Repository.Manage">
+            <EventHandler Name="btn_refresh_onclick" Event="onclick" EventLogMsg="" Function="UpdateForm()"  />
+        </Element>   
+    	<Element Name="btn_cleanup" Style="float:right;margin-right:5px;" Hidden="{@:isNeedCleanup()?'N':'Y'}" Class="Button" Text="Cleanup" CssClass="button_gray_w"  Access="Repository.Manage">
+            <EventHandler Name="btn_cleanup_onclick" Event="onclick" EventLogMsg="" Function="Cleanup()"  />
+        </Element> 
+             
     </ActionPanel> 
     <NavPanel>
    

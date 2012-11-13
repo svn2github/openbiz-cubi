@@ -14,6 +14,8 @@
 include_once 'AppListForm.php';
 class ApplicationsListForm extends AppListForm
 {
+	protected $m_MarketInstalledDO = "market.installed.do.InstalledDO";
+	
 	public function fetchDataSet()
 	{
 		parent::fetchDataSet();				
@@ -42,6 +44,22 @@ class ApplicationsListForm extends AppListForm
             $this->m_TotalPages = ceil($this->m_TotalRecords/$this->m_Range);
 		
 		return $resultSet;
+	}
+	
+	public function isNeedCleanup()
+	{
+		$searchRule = "[app_id]=0 OR [install_state]!='OK'";
+		return BizSystem::getObject($this->m_MarketInstalledDO)->directFetch($searchRule)->count();		
+	}
+	
+	public function Cleanup()
+	{
+		$searchRule = "[app_id]=0 OR [install_state]!='OK'";
+		BizSystem::getObject($this->m_MarketInstalledDO)->deleteRecords($searchRule);
+		$this->m_Notices = array(
+			"cleanup"=>$this->getMessage("MSG_CLEANUP")
+		);
+		$this->rerender();
 	}
 }
 ?>
