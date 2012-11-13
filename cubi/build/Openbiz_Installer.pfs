@@ -16,6 +16,7 @@ upload-as-archive no
 use-server-permissions no
 allow-pfn-edit no
 disable-local-installs no
+with "SSL"
 add-language-pack "de"
 add-language-pack "fr"
 add-language-pack "ko"
@@ -28,15 +29,15 @@ default-folder-mode "777"
 main-page "/index.php"
 compression-type "gzip"
 default-file-mode "666"
-compression-level 9
+compression-level 0
 log-url "http://downloads.ioncube.com/mailer.php"
 contact-email "team@openbiz.me"
-stub-version "2.0"
+stub-version "3.0"
 stub-product "Openbiz Cubi"
 stub-copyright "Openbiz LLC"
 stub-description "Openbiz Installer"
 stub-icon "Y:\jixian\Workspace\Openbiz_Project_Google\cubi\build\images\icon.ico"
 post-install-php-interactive no
-disable-permissions-warning yes
+disable-permissions-warning no
 hide-product-info yes
 use-package-file no
