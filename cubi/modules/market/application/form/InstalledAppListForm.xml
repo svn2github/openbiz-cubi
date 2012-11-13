@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="InstalledAppListForm" Icon="{RESOURCE_URL}/market/images/icon_market.png" Class="InstalledAppListForm" FormType="List" jsClass="jbForm" Title="Installed Applications" Description="This module can manage installed applications " BizDataObj="market.installed.do.InstalledDO" SearchRule="[install_state]='OK'" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="app_installed_list_grid.tpl.html" EventName="" MessageFile="" Access="Market.Manage">
+<EasyForm Name="InstalledAppListForm" Icon="{RESOURCE_URL}/market/images/icon_market.png" Class="InstalledAppListForm" FormType="List" jsClass="jbForm" Title="Installed Applications" Description="This module can manage installed applications " BizDataObj="market.installed.do.InstalledDO" SearchRule="[install_state]='OK'" SortRule="[install_time] DESC" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="app_installed_list_grid.tpl.html" EventName="" MessageFile="" Access="Market.Manage">
     <DataPanel>
     	<Element Name="fld_repo_id" Class="Hidden" Hidden="Y" FieldName="repo_id" Label="ID"  AllowURLParam="N">         
         </Element>
