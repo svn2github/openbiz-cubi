@@ -31,7 +31,7 @@ class ErrorReportService
         	$uri .= '/';
         }
         
-        $uri .= "ws.php/errorreport/ErrorCollect";            
+        $uri .= "ws.php/errorreport/collect";            
            
         if($cacheSvc->test($cache_id) && (int) $this->m_CacheLifeTime>0)
         {
