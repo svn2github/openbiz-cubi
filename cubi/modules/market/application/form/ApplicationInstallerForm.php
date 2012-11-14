@@ -50,7 +50,7 @@ class ApplicationInstallerForm extends EasyForm
     	$svc = BizSystem::getService("market.lib.PackageService");
     	$result = $svc->discoverAppInfo($repo_uri,$app_id);    	
     	$this->m_AppIcon = $repo_uri.$result['icon'];
-    	$this->m_AppReleaseDate = date('Y-m-d',strtotime($result['release_time']));
+    	$this->m_AppReleaseDate = date('Y-m-d',strtotime($result['pkg_release_time']));
     	 
     	
     	
