@@ -45,7 +45,7 @@ define('STR_PASSWORD',			'密码');
 
 
 define('STR_INSTALLATION_COMPLETED',		'安装已经完成');
-define('STR_INSTALLATION_COMPLETED_DESC',	'祝贺您已经完成了 Openbiz Cubi 安装向导。  <br />为了安全原因, <strong style="color:#666666;">我们强烈建议您现在动手删除 install 目录，<br/>并赋予 application.xml 只读的权限。</strong><br />并且在您正式使用系统前修改掉默认的系统密码。');
+define('STR_INSTALLATION_COMPLETED_DESC',	'祝贺您已经完成了 Openbiz Cubi 安装向导。  <br />为了降低安全风险, <strong style="color:#666666;">我们强烈建议您现在动手删除 install 目录，<br/>并赋予 application.xml 只读的权限。</strong><br />并且在您正式使用系统前修改掉默认的系统密码。');
 define('STR_DEFAULT_LOGIN_INFO',			'默认登陆信息');
 define('STR_USERNAME',						'用户名');
 define('STR_READY_GO',						'立即开始');

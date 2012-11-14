@@ -8,7 +8,8 @@ require_once('include/install_controller.php');
 <title><?php echo STR_WIZARD_TITLE;?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="x-ua-compatible" content="ie=7" />
-<link rel="stylesheet" href="style/default.css" type="text/css" /> 
+<link rel="stylesheet" href="style/default.css" type="text/css" />
+<link rel="stylesheet" href="style/<?php echo $lang;?>.css" type="text/css" /> 
 <link rel="stylesheet" href="../themes/default/css/openbiz.css" type="text/css" /> 
 <script type="text/javascript" src="../js/prototype.js"></script>
 <script type="text/javascript" src="../js/scriptaculous.js"></script>

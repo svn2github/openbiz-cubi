@@ -4,7 +4,7 @@
 	<div class="step_4">
 		<div style="padding-left:330px;padding-top:65px;width:500px;">
 		
-			<table style="padding-bottom:20px;">
+			<table style="margin-bottom:10px;">
 				<tr>
 					<td style="padding-right:20px;">
 						<img border="0" src="images/icon_finished.png" />
@@ -18,10 +18,10 @@
 				</tr>
 			</table>
 			
-		    <table style="padding-bottom:25px;">
+		    <table style="margin-bottom:15px;">
 				<tr>
 					<td style="padding-right:80px;">
-						<h4 style="font-size:18px;"><?php echo STR_DEFAULT_LOGIN_INFO;?></h4>
+						<h4 ><?php echo STR_DEFAULT_LOGIN_INFO;?></h4>
 					    <p style="padding-bottom:0px;">    
 					     <?php echo STR_USERNAME;?>: <strong style="color:#ff0000;">admin</strong><br />
 					     <?php echo STR_PASSWORD;?>: <strong style="color:#ff0000;">admin</strong><br />
@@ -34,7 +34,7 @@
 			</table>
 		    
 		      
-		    <h4 style="font-size:18px;"><?php echo STR_REFERENCE_DOCUMENT;?></h4>
+		    <h4 ><?php echo STR_REFERENCE_DOCUMENT;?></h4>
 		    
 		    <ul class="list">
 		    <li><a href="http://www.openbiz.me/" target="_blank">Openbiz Cubi International Website</a></li>

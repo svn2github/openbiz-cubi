@@ -140,10 +140,11 @@ p,form
 	margin-right:auto;
 	text-align:left;
 }
+
 .step_4 .list
 {
 	padding:0px;
-	padding-left:15px;
+	padding-left:0px;
 	padding-top:5px;
 	margin:0px;
 	line-height:18px;
@@ -151,15 +152,24 @@ p,form
 }
 .step_4 .list li
 {
-	width:200px;
+	width:195px;
 	float:left;
 	margin-right:40px;
+	padding-left:15px;
+	background-image:url(../images/blue-dot.png);
+	background-position:0px 8px;
+	background-repeat:no-repeat;
 }
 .step_4 .list a
 {
 	color:#0584ae;
+	text-decoration:none;
 }
-
+.step_4 .list a:hover
+{
+	color:#0584ae;
+	text-decoration:underline;
+}
 .btn_highlight
 {
 	width:154px;
