@@ -149,11 +149,13 @@ p,form
 	margin:0px;
 	line-height:18px;
 	width:500px;
+	list-style:none;
 }
 .step_4 .list li
 {
 	width:195px;
 	float:left;
+	list-style:none;
 	margin-right:40px;
 	padding-left:15px;
 	background-image:url(../images/blue-dot.png);

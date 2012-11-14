@@ -22,7 +22,7 @@
 				<tr>
 					<td style="padding-right:80px;">
 						<h4 ><?php echo STR_DEFAULT_LOGIN_INFO;?></h4>
-					    <p style="padding-bottom:0px;">    
+					    <p style="padding-bottom:0px;padding-top:5px;">    
 					     <?php echo STR_USERNAME;?>: <strong style="color:#ff0000;">admin</strong><br />
 					     <?php echo STR_PASSWORD;?>: <strong style="color:#ff0000;">admin</strong><br />
 					    </p>  
