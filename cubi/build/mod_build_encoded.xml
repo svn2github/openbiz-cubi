@@ -58,7 +58,7 @@ jsMin, SvnCheckout, Version, Documentor
         <mkdir dir="${distdir}" />
         <delete file="${distfile}" />
         <tar destfile="${distfile}" compression="gzip">
-            <fileset dir="build/src/">
+            <fileset dir="build/encoded/">
                 <include name="${package}/**" />
             </fileset>
         </tar>
