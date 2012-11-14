@@ -33,6 +33,9 @@ class SelectorView extends EasyView
 		);
 		$xmlArr = $newForm;
         $formObj=BizSystem::GetObject($this->m_FormSelector);
+    	if(!$formObj){
+			return;
+		}
         $targetForm = $formObj->getViewMode();
         $newForm = array(
 			"ATTRIBUTES"=>array(
