@@ -24,7 +24,7 @@ class ErrorForm extends EasyForm
 				$this->m_Errors = array("system"=>$_GET['ob_err_msg']);
         	}	      
 	    }        
-/*
+
 	    public function getSessionVars($sessionContext)
 	    {
 	        parent::getSessionVars($sessionContext);
@@ -36,14 +36,18 @@ class ErrorForm extends EasyForm
 	    	parent::setSessionVars($sessionContext);
 	        $sessionContext->setObjVar($this->m_Name, "Errors", $this->m_Errors);      
 	    }
-*/	    
+   
         public function Report()
         {
         	//send an email to admin includes error messages;
-        	$recipient['email'] = $this->m_AdminEmail;
-			$recipient['name']  = $this->m_AdminName;
-        	$emailObj 	= BizSystem::getService(USER_EMAIL_SERVICE);
-       	 	$emailObj->SystemInternalErrorEmail($recipient,$this->m_Errors["system"]);       	 	
+        	$report = array(
+        		"error_info"	=>$this->m_Errors["system"],
+        		"server_info"	=>$_SERVER,
+        		"php_version"	=>phpversion(),
+        		"php_extension"	=>get_loaded_extensions()
+        	);
+
+        	BizSystem::getObject("common.lib.ErrorReportService")->report($report);
         	$this->m_Notices = array("status"=>"REPORTED");
         	$this->ReRender();
         }
