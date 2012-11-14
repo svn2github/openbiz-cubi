@@ -1,0 +1,176 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id$
+-->
+<BizDataObj Name="ErrorReportDO" 
+		Description="Error Report Description" 
+		DataPermControl="Y"
+		Class="BizDataObj" 
+		DBName="Default" 
+		Table="error_report" 
+		SearchRule="" 
+		SortRule="" 
+		OtherSQLRule=""
+		Uniqueness="" 
+		Stateless="N" 
+		IdGeneration="Identity" 
+		CacheLifeTime="0" 
+		CreateCondition="errorreport.Manage" 
+		UpdateCondition="errorreport.Manage" 
+		DeleteCondition="errorreport.Manage" >
+	<BizFieldList>
+		<BizField Name="Id"			
+				Description="Id"	
+				Column="id"    
+				Required="N" 
+				Type="Number"/>
+		<BizField Name="name"		
+				Description="Name"	
+				Column="name" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="description"		
+				Description="Description"	
+				Column="description" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="error_data"		
+				Description="Error Data"	
+				Column="error_data" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="php_version"		
+				Description="Php Version"	
+				Column="php_version" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="php_extension"		
+				Description="Php Extension"	
+				Column="php_extension" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="server_info"		
+				Description="Server Info"	
+				Column="server_info" 
+				Type="Text"
+				Required="N" 
+				 />
+		<BizField Name="owner_id"	
+				Description="Owner Id"	
+				Column="owner_id"	
+				ValueOnCreate="{@profile:Id}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="group_id"	
+				Description="Group Id"	
+				Column="group_id"	
+				ValueOnCreate="{@profile:default_group}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="group_perm"	
+				Description="Group Perm"	
+				Column="group_perm"	
+				ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="other_perm"	
+				Description="Other Perm"	
+				Column="other_perm"	
+				ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"	
+				Required="N"	
+				Type="Number"/>
+		<BizField Name="status"		
+				Description="Status"	
+				Column="status" 
+				Type="Number"
+				Required="N" 
+				 />
+		<BizField Name="update_by"	
+				Description="Update By"	
+				Column="update_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"	
+				ValueOnUpdate="{@profile:Id}"/>
+		<BizField Name="update_time"	
+				Description="Update Time"	
+				Column="update_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"	
+				ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="create_by"	
+				Description="Create By"	
+				Column="create_by"	
+				Type="Number"	
+				ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time"	
+				Description="Create Time"	
+				Column="create_time"	
+				Type="Datetime"	
+				ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="type_id" 
+				Column="type_id"  
+				 />	
+		<BizField Name="type_color" 
+				Column="color"  
+				Join="JoinType" />
+				
+	    <BizField Name="type_name" 
+	    		Column="name" 
+	    		Join="JoinType" />
+	</BizFieldList>
+	<TableJoins>
+		<Join Name="JoinType" 
+				Table="error_report_type" 
+				Column="id" 
+				ColumnRef="type_id" 
+				JoinType="LEFT JOIN" />
+				    	
+	</TableJoins>
+	<ObjReferences>
+	
+		<Object Name="changelog.do.ChangeLogDO" 
+				Description="Reference to Change Log Records" 
+				Relationship="1-M" 
+				Table="changelog" 
+				CondColumn='type' 
+				CondValue='error_report' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="attachment.do.AttachmentDO" 
+				Description="Reference to Attachment Records" 
+				Relationship="1-M" 
+				Table="attachment" 
+				CondColumn='type' 
+				CondValue='error_report' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="picture.do.PictureDO" 
+				Description="Reference to Picture Records" 
+				Relationship="1-M" 
+				Table="picture" 
+				CondColumn='type' 
+				CondValue='error_report' 
+				Column="foreign_id" 
+				FieldRef="Id" />	
+		<Object Name="errorreport.do.ErrorReportRefDO" 
+				Description="Reference to Related Records" 
+				Relationship="Self-Self" 
+				Table="error_report" 
+				Column="id" 
+				FieldRef="Id" 
+				OnDelete="SetNull" 
+				OnUpdate="" 
+				XTable="error_report_related" 
+				XColumn1="error_report_id" 
+				XColumn2="related_id" 
+				XDataObj="errorreport.do.ErrorReportRelatedDO"/>
+	</ObjReferences>
+</BizDataObj>
