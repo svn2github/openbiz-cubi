@@ -10,11 +10,9 @@
 						<img border="0" src="images/icon_finished.png" />
 					</td>
 					<td>
-						<h2>Installation Completed</h2>
+						<h2><?php echo STR_INSTALLATION_COMPLETED;?></h2>
 					    <p>
-					    Congratulations for completing Openbiz Cubi Setup Wizard. <br />
-					    For security reason, <strong style="color:#666666;">we strongly recommend you to delete install folder and remove write permission on applicaiton.xml now.</strong><br />
-					    And also please change default login info before use.
+					    <?php echo STR_INSTALLATION_COMPLETED_DESC;?>
 					    </p>
 					</td>
 				</tr>
@@ -23,20 +21,20 @@
 		    <table style="padding-bottom:25px;">
 				<tr>
 					<td style="padding-right:80px;">
-						<h4 style="font-size:18px;">Default Login Info</h4>
+						<h4 style="font-size:18px;"><?php echo STR_DEFAULT_LOGIN_INFO;?></h4>
 					    <p style="padding-bottom:0px;">    
-					     Username : <strong style="color:#ff0000;">admin</strong><br />
-					     Password : <strong style="color:#ff0000;">admin</strong><br />
+					     <?php echo STR_USERNAME;?>: <strong style="color:#ff0000;">admin</strong><br />
+					     <?php echo STR_PASSWORD;?>: <strong style="color:#ff0000;">admin</strong><br />
 					    </p>  
 					</td>
 					<td>
-						<a href="../index.php/user/login" class='btn_highlight' style="text-align:center">Ready Go<span>Login to Openbiz Cubi</span></a>
+						<a href="../index.php/user/login" class='btn_highlight' style="text-align:center"><?php echo STR_READY_GO;?><span><?php echo STR_LOGIN_TO_OPENBIZ;?></span></a>
 					</td>
 				</tr>
 			</table>
 		    
 		      
-		    <h4 style="font-size:18px;">Reference Doucments</h4>
+		    <h4 style="font-size:18px;"><?php echo STR_REFERENCE_DOCUMENT;?></h4>
 		    
 		    <ul class="list">
 		    <li><a href="http://www.openbiz.me/" target="_blank">Openbiz Cubi International Website</a></li>

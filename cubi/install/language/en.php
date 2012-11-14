@@ -41,4 +41,13 @@ define('STR_PORT',				'Port');
 define('STR_DBNAME',			'DBName');
 define('STR_USER',				'User');
 define('STR_PASSWORD',			'Password');
+
+
+define('STR_INSTALLATION_COMPLETED',		'Installation Completed');
+define('STR_INSTALLATION_COMPLETED_DESC',	'Congratulations for completing Openbiz Cubi Setup Wizard. <br />For security reason, <strong style="color:#666666;">we strongly recommend you to delete install folder and remove write permission on applicaiton.xml now.</strong><br />And also please change default login info before use.');
+define('STR_DEFAULT_LOGIN_INFO',			'Default Login Info');
+define('STR_USERNAME',						'Username');
+define('STR_READY_GO',						'Ready Go');
+define('STR_LOGIN_TO_OPENBIZ',				'Login to Openbiz Cubi');
+define('STR_REFERENCE_DOCUMENT',			'Reference Documents');
 ?>
