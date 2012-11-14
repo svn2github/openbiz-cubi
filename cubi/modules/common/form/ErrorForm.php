@@ -13,9 +13,7 @@
 
 class ErrorForm extends EasyForm
 {
-        public $m_AdminEmail = "jixian2003@qq.com";
-        public $m_AdminName  = "Administrator";
-        
+       
 	    function __construct(&$xmlArr)
 	    {
 	        parent::readMetadata($xmlArr);
