@@ -43,6 +43,9 @@ CREATE TABLE `error_report_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+INSERT INTO `error_report_type` (`id`, `name`, `description`, `color`, `sortorder`, `group_id`, `group_perm`, `other_perm`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+(1, 'Cubi Error', 'Cubi Error', 'ffb8b8', 50, 2, 1, 1, 1, '2012-11-14 12:38:49', 1, '2012-11-14 12:38:49');
+
 -- Dumping structure for table: `error_report_related`
 
 DROP TABLE IF EXISTS `error_report_related`;
