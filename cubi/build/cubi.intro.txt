@@ -2,17 +2,17 @@ Requirement
 ===============================================
 PHP version greater than 5.1.2
 PHP extensions: 
-	pdo,
-	pdo_mysql, 
-	curl, 
-	gd, 
-	simpleXML, 
-	ioncube_loader( optional to run encoded apps )
+    pdo,
+    pdo_mysql, 
+    curl, 
+    gd, 
+    simpleXML, 
+    ioncube_loader( optional to run encoded apps )
 
 Apache version greater than 2.0
 Apache modules: 
-	mod_rewrite, 
-	mod_expires
+    mod_rewrite, 
+    mod_expires
 
 MySQL version greater than 5.0
 
