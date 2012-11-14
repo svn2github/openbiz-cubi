@@ -7,7 +7,7 @@ jsMin, SvnCheckout, Version, Documentor
 <project name="cubi" basedir="../" default="dist">
     <property file="build/cubi.properties" />
 
-    <property name="package"  value="${phing.project.name}" override="true" />
+    <property name="package"  value="cubi-dev" override="true" />
     <property name="builddir" value="build/src/${package}" override="true" />
     <property name="srcdir"   value="${project.basedir}" override="true" />
     <property name="distdir" value="build/dist/${package}" override="true" />
@@ -24,6 +24,7 @@ jsMin, SvnCheckout, Version, Documentor
         <include name="build/*" />
         <include name="build/src" />
         <include name="build/dist" />
+        <include name="build/encoded" />
         <include name="files/cache" />
         <include name="files/sec_upload" />
         <include name="files/tpl_cpl" />
@@ -35,15 +36,7 @@ jsMin, SvnCheckout, Version, Documentor
         <include name="images/nations/16x12/*" />
         <include name="images/nations/22x14/*" />
         <include name="install/**" />
-        <include name="js/*.js" />
-        <include name="js/ckeditor/**" />
-        <include name="js/jscalendar/**" />
-        <include name="js/colorpicker/**" />
-        <include name="js/jquery-ui/**" />
-        <include name="js/jstree/**" />
-        <include name="js/uploadify/**" />
-        <include name="js/window/**" />
-        <include name="js/yav/**" />
+        <include name="js/**" />       
         <include name="languages/dictionary/**" />
         <include name="languages/en_US/**" />
         <include name="languages/zh_CN/**" />

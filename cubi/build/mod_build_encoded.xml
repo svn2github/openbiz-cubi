@@ -21,6 +21,9 @@ jsMin, SvnCheckout, Version, Documentor
     <!-- Target: build                                 -->
     <!-- ============================================  -->
     <target name="build" description="build source">
+    	<delete dir="${builddir}" />
+    	<delete dir="${builddir_encoded}" />
+        <delete file="${distfile}" />
         <echo msg="Copy source files..." />
         <copy todir="${builddir}">
             <fileset refid="basesrc" />
@@ -43,7 +46,7 @@ jsMin, SvnCheckout, Version, Documentor
 	    <ioncubeencoder phpVersion="5" binary="false" ioncubepath="/Users/jixian/ioncube" optimize="max"
 		  targetoption="replace" withoutruntimeloadersupport="false"  Encrypt="*.tpl *.html *.htm *.xml"
 		  CallbackFile ="license_expection.php"   ActionIfNoLoader="header('Location: '.APP_INDEX.'/common/loader_not_installed');"
-		  Copy="register_handler.php mod.xml upgrade.xml resource/"
+		  Copy="*LoadHandler.php register_handler.php mod.xml upgrade.xml resource/"
 		  fromdir="build/src/${package}" todir="build/encoded/${package}" licensepath="license.key" passphrase="${passphrase}">		  
 		</ioncubeencoder>
     </target>
@@ -70,6 +73,7 @@ jsMin, SvnCheckout, Version, Documentor
     <!-- ============================================  -->
     <target name="rebuild" description="rebuilds this package">
         <delete dir="${builddir}" />
+        <delete dir="${builddir_encoded}" />
         <delete file="${distfile}" />
         <phingcall target="dist" />
     </target>

@@ -20,6 +20,8 @@ jsMin, SvnCheckout, Version, Documentor
     <!-- Target: build                                 -->
     <!-- ============================================  -->
     <target name="build" description="build source">
+    	<delete dir="${builddir}" />    	
+        <delete file="${distfile}" />
         <echo msg="Copy source files..." />
         <copy todir="${builddir}">
             <fileset refid="basesrc" />
