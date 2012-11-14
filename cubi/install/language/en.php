@@ -1,4 +1,5 @@
 <?php 
+define('STR_WIZARD_TITLE',		'Openbiz Cubi Installation');
 define('STR_BTN_START_NOW',		'Start Now!');
 define('STR_BTN_INSTALL_CUBI',	'Install Openbiz Cubi');
 define('STR_BACK',				'Back');

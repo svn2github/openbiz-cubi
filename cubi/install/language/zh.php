@@ -1,4 +1,5 @@
 <?php 
+define('STR_WIZARD_TITLE',		'Openbiz Cubi 安装部署向导');
 define('STR_BTN_START_NOW',		'现在开始!');
 define('STR_BTN_INSTALL_CUBI',	'安装 Openbiz Cubi');
 define('STR_BACK',				'上一步');
