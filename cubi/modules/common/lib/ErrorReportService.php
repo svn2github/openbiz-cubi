@@ -38,7 +38,7 @@ class ErrorReportService
             $resultSetArray = $cacheSvc->load($cache_id);
         }else{
         	try{        		
-		        $argsJson = json_encode($params);
+		        $argsJson = urlencode(json_encode($params));
         		$query = array(	"method=$method","format=json","argsJson=$argsJson");
 		        
 		        $httpClient = new HttpClient('POST');
