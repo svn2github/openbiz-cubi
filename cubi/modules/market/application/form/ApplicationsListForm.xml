@@ -23,10 +23,10 @@
         
     </DataPanel>
     <ActionPanel>
-    	<Element Name="btn_refresh" Style="float:right;" Class="Button" Text="Refresh" CssClass="button_gray_w"  Access="Repository.Manage">
+    	<Element Name="btn_refresh" Style="float:right;" Class="Button" Text="Refresh" CssClass="button_gray_w"  Access="">
             <EventHandler Name="btn_refresh_onclick" Event="onclick" EventLogMsg="" Function="UpdateForm()"  />
         </Element>   
-    	<Element Name="btn_cleanup" Style="float:right;margin-right:5px;" Hidden="{@:isNeedCleanup()?'N':'Y'}" Class="Button" Text="Cleanup" CssClass="button_gray_w"  Access="Repository.Manage">
+    	<Element Name="btn_cleanup" Style="float:right;margin-right:5px;" Hidden="{@:isNeedCleanup()?'N':'Y'}" Class="Button" Text="Cleanup" CssClass="button_gray_w"  Access="">
             <EventHandler Name="btn_cleanup_onclick" Event="onclick" EventLogMsg="" Function="Cleanup()"  />
         </Element> 
              
