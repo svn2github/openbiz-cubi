@@ -11,7 +11,7 @@ jsMin, SvnCheckout, Version, Documentor
     <property name="builddir" value="build/src/${package}" override="true" />
     <property name="srcdir"   value="${project.basedir}" override="true" />
     <property name="distdir" value="build/dist/${package}" override="true" />
-    <property name="distfile" value="${distdir}/${package}-ex-${build.version}.${build.release}.tar.gz" override="true" />
+    <property name="distfile" value="${distdir}/${package}-${build.version}.${build.release}.tar.gz" override="true" />
 
     <!-- Fileset for base source files -->
     <fileset dir="." id="cubisrc">
