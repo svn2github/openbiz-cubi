@@ -10,7 +10,7 @@
  * @link      http://code.google.com/p/openbiz-cubi/
  * @version   $Id$
  */
-
+set_time_limit(0);
 require_once "PackageService.php";
 
 class InstallerService extends PackageService
