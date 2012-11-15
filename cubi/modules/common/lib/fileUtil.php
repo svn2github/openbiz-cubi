@@ -14,12 +14,14 @@
 function ob_scandir($dir)
 {
     $retDirs = null;
-    $dir0s = scandir($dir);
-    foreach ($dir0s as $dir0) {
-        if (( $dir0 == '.' ) || ( $dir0 == '..' ) || ( $dir0 == '.svn' )) continue;
-        $retDirs[] = $dir0;
+    if(is_dir($dir)){
+	    $dir0s = scandir($dir);
+	    foreach ($dir0s as $dir0) {
+	        if (( $dir0 == '.' ) || ( $dir0 == '..' ) || ( $dir0 == '.svn' )) continue;
+	        $retDirs[] = $dir0;
+	    }
+	    //print_r($retDirs);
     }
-    //print_r($retDirs);
     return $retDirs;
 }
 
