@@ -276,7 +276,8 @@ abstract class Zend_Db_Adapter_Abstract
             throw new Zend_Db_Adapter_Exception("Configuration array must have a key for 'dbname' that names the database instance");
         }
 
-        if (! array_key_exists('password', $config)) {
+        
+        if (! array_key_exists('password', $config) && false) {
             /**
              * @see Zend_Db_Adapter_Exception
              */
