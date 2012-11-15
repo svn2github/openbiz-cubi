@@ -184,7 +184,10 @@ class UserPreferenceForm extends EasyForm
 	            			//update default theme DEFAULT_LANGUAGE
 	            			$data = file_get_contents($config_file);	            			
 	            			$data = preg_replace("/define\([\'\\\"]{1}DEFAULT_LANGUAGE[\'\\\"]{1}.*?\)\;/i","define('DEFAULT_LANGUAGE','$value');",$data);	            			
-	            			@file_put_contents($config_file,$data);	            			
+	            			@file_put_contents($config_file,$data);	   
+
+	            			//make changes now
+	            			BizSystem::sessionContext()->setVar("LANG",$value );
 	            		}
 	            		break;
 	            	case "currency":
