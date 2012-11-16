@@ -6,7 +6,6 @@ $isInstalled = false;
 if(is_file(dirname(dirname(dirname(__FILE__))).'/files/install.lock')){
 	$isInstalled = true;
 }
-$isInstalled = false;
 
 //detech default language
 $lang = strtolower(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
