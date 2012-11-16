@@ -58,7 +58,12 @@ padding-left:380px;
 padding-top:45px;
 
 }
+.register-block-oauth-connect
+{
+padding-left:380px;
+padding-top:45px;
 
+}
 .new-user{
 background-image:url(../images/site/site-new-user-register.png);
 background-repeat:no-repeat;
