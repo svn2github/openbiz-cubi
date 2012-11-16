@@ -1,4 +1,4 @@
-	<?php
+<?php
 /**
  * Openbiz Cubi Application Platform
  *
