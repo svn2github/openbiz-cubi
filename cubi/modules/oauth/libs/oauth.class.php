@@ -122,26 +122,31 @@ class oauthClass extends EasyForm
 			$userObj = BizSystem::getObject('system.do.UserDO');
 			$userinfo=$userObj->fetchOne("[Id]='".$UserToken['user_id']."'");
 		
+			if($userinfo){
 			
-			
-			
-			$profile=BizSystem::instance()->InituserProfile($userinfo['username']);
-			
-			
-			$userinfo['lastlogin'] = date("Y-m-d H:i:s");
-			$userinfo->save();
-			
-			
-			//获取当前用户角色的默认页
-			$index=$profile['roles'][0];  
-			$roleStartpage=$rec_info['roleStartpage'][$index];
-			$redirectPage = APP_INDEX.$roleStartpage;
-			$redirectURL = BizSystem::sessionContext()->getVar("oauth_redirect_url");
-			if($redirectURL){
-				$redirectPage = $redirectURL;
+				
+				$profile=BizSystem::instance()->InituserProfile($userinfo['username']);
+				
+				
+				$userinfo['lastlogin'] = date("Y-m-d H:i:s");
+				$userinfo->save();
+				
+				
+				//获取当前用户角色的默认页
+				$index=$profile['roles'][0];  
+				$roleStartpage=$rec_info['roleStartpage'][$index];
+				$redirectPage = APP_INDEX.$roleStartpage;
+				$redirectURL = BizSystem::sessionContext()->getVar("oauth_redirect_url");
+				if($redirectURL){
+					$redirectPage = $redirectURL;
+				}
+				
+				BizSystem::clientProxy()->ReDirectPage($redirectPage);
+			}else{
+				//found a isolate oauth account
+				$UserTokenObj->deleteRecords("[Id]={$UserToken['Id']}");
+				BizSystem::clientProxy()->ReDirectPage(APP_INDEX.'/user/logout');
 			}
-			
-			BizSystem::clientProxy()->ReDirectPage($redirectPage);
 		}
 		else
 		{	 
