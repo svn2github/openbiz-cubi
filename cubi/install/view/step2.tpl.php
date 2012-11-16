@@ -45,7 +45,7 @@ if(!$_REQUEST['dbtype']){
 			</tr>
 			<tr class="odd">
 				<td><label><?php echo STR_DATABASE_NAME;?></label></td>
-				<td><input class="input_text" onfocus="this.className='input_text_focus'" onblur="this.className='input_text'" 
+				<td><input id="input_dbname" class="input_text" onfocus="this.className='input_text_focus'" onblur="this.className='input_text'" 
 			    		type="text" name="dbName" value="<?php echo  isset($_REQUEST['dbName']) ? $_REQUEST['dbName'] : 'cubi'?>" tabindex="3"></td>
 			</tr>
 			<tr>

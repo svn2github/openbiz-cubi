@@ -96,6 +96,16 @@ function connectDB($noDB=false) {
         // perhaps factory() failed to load the specified Adapter class
         echo 'ERROR: '.$e->getMessage(); exit;
     }
+    
+    //if its connected then test is database empty
+    if (!$noDB)
+    {
+	    $tables = $db->listTables();    
+	    if(count($tables))
+	    {
+	    	echo 'ERROR: '.STR_DATABASE_NOT_EMPTY; exit;
+	    }
+    }
     return $conn;
 }
 
@@ -108,6 +118,7 @@ function createDB() {
     }
     
     $conn = connectDB(true);
+    
 	try {
 	   $conn->exec("CREATE DATABASE " . $_REQUEST['dbName']);
 	}

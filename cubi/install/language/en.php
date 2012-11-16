@@ -31,6 +31,8 @@ define('STR_DATABASE_NAME',			'Database Name');
 define('STR_DATABASE_USERNAME',		'Database Username');
 define('STR_DATABASE_PASSWORD',		'Database Password');
 define('STR_DATABASE_CREATE',		'Create Database');
+define('STR_DATABASE_NOT_EMPTY',	'Specified database already has tables. Please try another empty DB.');
+
 
 define('STR_APPLICATION_CONFIGURATION',		'Application Configuration');
 define('STR_CHECK_WRITABLE_DIR',			'Check Writable Directories:');

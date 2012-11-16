@@ -31,6 +31,7 @@ define('STR_DATABASE_NAME',			'数据库名称');
 define('STR_DATABASE_USERNAME',		'数据库帐户');
 define('STR_DATABASE_PASSWORD',		'数据库密码');
 define('STR_DATABASE_CREATE',		'自动创建该数据库');
+define('STR_DATABASE_NOT_EMPTY',	'您所选择的数据库中已经存在数据表，请尝试制定另一个空白的数据库.');
 
 define('STR_APPLICATION_CONFIGURATION',		'应用程序配置检测');
 define('STR_CHECK_WRITABLE_DIR',			'检查目录是否具有可写入权限');
