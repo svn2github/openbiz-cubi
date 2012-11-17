@@ -62,8 +62,7 @@
                 </tr>
                 {/if}
                 <tr><td colspan="2" align="center" >
-                    <span class="label_textarea" style="width:655px;">{$item.element}</span>
-                                
+                    {$item.element}     
                 </td></tr>
                 </table>		
             {else}
@@ -139,9 +138,9 @@
 	</div>
 	
 		<div style="height:15px;">
-		<div id='{$form.name}.load_disp' style="display:none;">
-		<img  src="{$image_url}/form_ajax_loader.gif"/>
-		</div>
+			<div id='{$form.name}.load_disp' style="display:none;">
+				<img  src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
 		</div>
 	
 </div>
