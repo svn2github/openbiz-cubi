@@ -10,7 +10,7 @@
 			TemplateEngine="Smarty" 
 			TemplateFile="form_data_quick_add.tpl.html" 
 			MessageFile="oauth.ini" 
-			Access="oauth.MyAccount">
+			Access="">
     <DataPanel>
 
        	<Element Name="fld_oauth_selector" 

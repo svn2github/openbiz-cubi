@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="UserOauthListWidgetForm" Class="UserOauthListWidgetForm" SearchRule="[user_id]='{@profile:Id}'" FormType="List" jsClass="jbForm" BizDataObj="system.do.UserOAuthDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_in_tab.tpl.html" EventName="" MessageFile="oauth.ini" Access="oauth.MyAccount">
+<EasyForm Name="UserOauthListWidgetForm" Class="UserOauthListWidgetForm" SearchRule="[user_id]='{@profile:Id}'" FormType="List" jsClass="jbForm" BizDataObj="system.do.UserOAuthDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_in_tab.tpl.html" EventName="" MessageFile="oauth.ini" Access="">
     <DataPanel>
         <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Hidden="Y" Sortable="Y" AllowURLParam="N" Link="javascript:">         
         </Element>
