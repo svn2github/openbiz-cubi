@@ -39,7 +39,7 @@ padding:5px 10px 10px 10px;
 	<div class="picture_item">
 		<a href="{$row.fld_url}" target="_blank"><img title="{$row.fld_title}" src="{php} echo APP_URL.'/rs.php?h=100&f=';{/php}{$row.fld_url}"  border="0" ></a>
 	</div>
-	<div style="float:left; padding-left:20px;">
+	<div style="float:left; text-align:left;padding-left:20px;">
 		<div style="padding:0px;">
 			<a href="{$row.fld_url}" target="_blank" class="picture_title">{$row.fld_title}</a>
 		</div>
@@ -61,7 +61,7 @@ padding:5px 10px 10px 10px;
 
 {if $actionPanel or $searchPanel }	
 	<div class="" style="width:640px;">	
-		<div class="action_panel" style="width:350px;">
+		<div class="action_panel" style="width:350px;padding-left:0px;">
 		{foreach item=elem from=$actionPanel}
 			{$elem.element}
 		{/foreach}
@@ -95,7 +95,7 @@ padding:5px 10px 10px 10px;
 	</div>
 	{if $actionPanel or $searchPanel }	
 		<div class="" style="width:640px;">	
-			<div class="action_panel" style="width:350px;">
+			<div class="action_panel" style="padding-left:0px;width:350px;">
 			{foreach item=elem from=$actionPanel}
 				{$elem.element}
 			{/foreach}
