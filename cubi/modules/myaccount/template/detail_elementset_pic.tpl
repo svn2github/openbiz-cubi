@@ -15,7 +15,7 @@
 			</h2>
 			{/if} 
 			{if $form.description}
-			<p class="input_row" style="line-height:20px;padding-bottom:5px;">		
+			<p class="input_row" style="line-height:20px;padding-bottom:0px;height:25px;">		
 			<span>{$form.description}</span>
 			</p>
 			{else}
@@ -28,9 +28,9 @@
 	{assign var=es_counter value=0}
 	{foreach item=setname name=elemsets  from=$form.elementSets}
 		{if $smarty.foreach.elemsets.first}
-		<div id="element_set_{$es_counter}" class="underline upline">
+		<div id="element_set_{$es_counter}" class=" upline">
 		{else}
-		<div id="element_set_{$es_counter}" class="underline">
+		<div id="element_set_{$es_counter}" class="">
 		{/if}
 		<h2 class="element_set_title" style="padding-left:5px;">{$setname}</h2>
 			<div id="element_set_panel_{$es_counter}" class="element_set_panel" style="padding-top:5px; padding-bottom:5px;">

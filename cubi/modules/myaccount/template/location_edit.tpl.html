@@ -8,7 +8,7 @@
 		<div ><h2>{$form.title}</h2></div>
 	</div>
 		{if $form.description}
-		<p class="input_row" style="line-height:20px;padding-bottom:20px;height:20px;">		
+		<p class="input_row" style="line-height:20px;padding-bottom:0px;height:25px;">		
 		<span>{$form.description}</span>
 		</p>
 		{else}
@@ -17,7 +17,7 @@
 	<div style="padding-left:10px;" >
 
 		<!-- Location Section -->
-		<div class="underline" style="height:auto;border-top: 1px solid #CCCCCC;">
+		<div class="upline" style="height:auto;">
 			{foreach name=phone item=item key=itemName from=$dataPanel}
 				{if $item.elementsetcode eq "Locations"}			
 					{if $smarty.foreach.phone.index is odd}
