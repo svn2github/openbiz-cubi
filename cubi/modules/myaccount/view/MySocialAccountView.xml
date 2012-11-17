@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: MyPreferenceView.xml 3365 2012-05-31 06:07:55Z rockyswen@gmail.com $
 -->
-<EasyView Name="MySocialAccountView" Description="My Social Account Association" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="oauth.MyAccount">
+<EasyView Name="MySocialAccountView" Description="My Social Account Association" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="">
     <FormReferences>
         <Reference Name="myaccount.form.SocialAccountDetailForm"/>
     </FormReferences>
