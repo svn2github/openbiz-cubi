@@ -37,7 +37,10 @@ function recurse_copy($src,$dst) {
                 recurse_copy($src . '/' . $file,$dst . '/' . $file);
             }
             else {
-                copy($src . '/' . $file,$dst . '/' . $file);
+            	if(is_file($src . '/' . $file))
+            	{
+                	copy($src . '/' . $file,$dst . '/' . $file);
+            	}
             }
         }
     }
