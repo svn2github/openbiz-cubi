@@ -314,7 +314,7 @@ class PickerForm extends EasyForm
      * @param string $pickerMap pickerMap defined in metadata
      * @return array picker map array
      */
-    private function _parsePickerMap($pickerMap)
+    protected function _parsePickerMap($pickerMap)
     {
         $returnList = array();
         $pickerList = explode(",", $pickerMap);
