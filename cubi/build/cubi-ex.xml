@@ -40,6 +40,7 @@ jsMin, SvnCheckout, Version, Documentor
         <include name="languages/dictionary/**" />
         <include name="languages/en_US/**" />
         <include name="languages/zh_CN/**" />
+        <include name="languages/id_ID/**" />
         <include name="log/.htaccess" />
         <include name="messages/**" />
         <include name="docs/**" />
