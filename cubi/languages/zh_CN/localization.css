@@ -3,5 +3,6 @@ h1,h2,h3,.title{
 }
 label {
 min-width:60px;
+max-width:100px;
 width:auto;
 }
