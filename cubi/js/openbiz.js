@@ -430,9 +430,11 @@ Openbiz.Net =
         }
         catch (e) {
             if (response.indexOf("Parse error")>=0)
-                Openbiz.Window.openPopupT(response,'Error',500,300);
+                //Openbiz.Window.openPopupT(response,'Error',500,300);
+				Openbiz.Window.openDialogT(response,500,300);
             else
-                alert("Json error: "+e,'Error',600,500);
+                //alert("Json error: "+e,'Error',600,500);
+				Openbiz.Window.openDialogT(response,500,300);
             return;
         }
         for (i=0; i < respJson.length; i++) 
@@ -443,7 +445,7 @@ Openbiz.Net =
             switch (tgtName) 
             {
                 case "ERROR":
-                    Openbiz.Window.openPopupT(content,'Error',500,300); continue;
+                    Openbiz.Window.openDialogT(content,500,300); continue;
                 case "POPUP":
                     Openbiz.Window.openPopupT(content,'Openbiz popup',600,500); continue;      
                 case "DIALOG":
@@ -458,6 +460,10 @@ Openbiz.Net =
                         formObj.CallbackFunction(content);
             }
         }
+		if (i==0 && response.length>0) {
+			Openbiz.Window.openDialogT(response,500,300);
+			return;
+		}	
     },
     loadPage: function(url, frameName)
     {
@@ -522,7 +528,7 @@ Openbiz.Window =
     {
         var parameters = {className: "dialog",zIndex:10000, width:w, height:h, closable:true, resizable:true, draggable:true};
         // may support confirm and alert dialog type later
-        Dialog.info(text, parameters); 
+        Dialog.info("<div style='padding:10px'>"+text+"</div>", parameters); 
     },
     centerDialog: function(w, h)
     {    	
