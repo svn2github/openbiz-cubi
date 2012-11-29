@@ -90,6 +90,10 @@ var Openbiz =
     	{
     		return formObj.invoke(action, paramsArray, type, target);
     	}
+    },
+	switchTheme: function(themeName)
+    {
+    	location.href = location.href+'/theme_'+themeName; 
     }
 }
 // call Openbiz init method
