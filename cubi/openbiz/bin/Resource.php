@@ -485,31 +485,29 @@ class Resource
         }
         return $xmlArr;
     }
+	
+	// theme selection priority: url, session, userpref, system(constant)
 	public static function getCurrentTheme ()
     {
     	if (Resource::$_currentTheme != null)
             return Resource::$_currentTheme;
-            
-        if (defined('THEME_NAME')) {
+        
+		$currentTheme = "";
+		if (isset($_GET['theme'])){
+            $currentTheme = $_GET['theme'];
+        }
+		if ($currentTheme == ""){
+        	$currentTheme = BizSystem::sessionContext()->getVar("THEME");
+        }
+		if ($currentTheme == ""){
+        	$currentTheme = BizSystem::getUserPreference("theme");
+        }
+        if ($currentTheme == "" && defined('THEME_NAME')) {
 			$currentTheme = THEME_NAME;
 		}
-		else {
-			$currentTheme = BizSystem::sessionContext()->getVar("THEME");
-		}
-        // default language
-        if ($currentTheme == ""){
-        	$currentTheme = BizSystem::getUserPreference("theme");
-        	
-        }
         if($currentTheme == ""){
             $currentTheme = Resource::DEFAULT_THEME;
         }
-        // language from url
-        if (isset($_GET['theme'])){
-            $currentTheme = $_GET['theme'];
-            BizSystem::sessionContext()->setVar("THEME",$currentTheme );
-        }
-
         // TODO: user pereference has language setting
         
         BizSystem::sessionContext()->setVar("THEME", $currentTheme);
