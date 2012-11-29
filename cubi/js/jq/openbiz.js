@@ -421,9 +421,11 @@ Openbiz.Net =
         }
         catch (e) {
             if (response.indexOf("Parse error")>=0)
-                Openbiz.Window.openPopupT(response,'Error',500,300);
+                //Openbiz.Window.openPopupT(response,'Error',500,300);
+				Openbiz.Window.openDialogT(response,500,300);
             else
-                alert("Json error: "+e,'Error',600,500);
+                //alert("Json error: "+e,'Error',600,500);
+				Openbiz.Window.openDialogT(response,500,300);
             return;
         }
         for (i=0; i < respJson.length; i++) 
@@ -434,7 +436,7 @@ Openbiz.Net =
             switch (tgtName) 
             {
                 case "ERROR":
-                    Openbiz.Window.openPopupT(content,'Error',500,300); continue;
+                    Openbiz.Window.openDialogT(content,500,300); continue;
                 case "POPUP":
                     Openbiz.Window.openPopupT(content,'Openbiz popup',600,500); continue;      
                 case "DIALOG":
@@ -449,6 +451,10 @@ Openbiz.Net =
                         formObj.CallbackFunction(content);
             }
         }
+		if (i==0 && response.length>0) {
+			Openbiz.Window.openDialogT(response,500,300);
+			return;
+		}
     },
     loadPage: function(url, frameName)
     {
@@ -526,6 +532,7 @@ Openbiz.Window =
         d.innerHTML = text;
         document.body.appendChild(d);
 		$(d).attr('id', 'modal_dialog');
+		$(d).attr('style', 'padding:10px');
 		options = {width:w, modal: true};
 		$(d).dialog(options);
 		
