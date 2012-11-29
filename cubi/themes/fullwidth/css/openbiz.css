@@ -2150,3 +2150,29 @@ div.element_set_panel{
 	padding-bottom:0px;
 }
 
+a.button_hidemenu{
+	background-image:url(../images/button_hidemenu.png);
+	background-position:0 0;
+	height:34px;
+	width:10px;
+	position: absolute;
+	left:0px;
+	display:block;
+	cursor:pointer;
+}
+a.button_hidemenu:hover{
+	background-position:10px 0;
+}
+a.button_showmenu{
+	background-image:url(../images/button_hidemenu.png);
+	background-position:0 35px;
+	height:36px;
+	width:10px;
+	position: absolute;
+	left:0px;
+	display:block;
+	cursor:pointer;
+}
+a.button_showmenu:hover{
+	background-position:10px 35px;
+}

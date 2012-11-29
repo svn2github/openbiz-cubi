@@ -33,7 +33,10 @@
 				<tr><td><img src="{$image_url}/spacer.gif" style="height:0px;" /></td></tr>
 				<tr>
 					<td valign="top" id="left_panel">
+					<a id="button_toggle_leftpanel" class="button_hidemenu" onclick="toggleLeftPanel();"></a>
+					<div id="main_left_panel">
 						{include file='system_left_panel.tpl.html'}
+					</div>
 					</td>
 					<td valign="top" id="right_panel">
 						<!-- notification block start -->
@@ -62,11 +65,25 @@
 	</div>
 </div>
 
-{literal}
 <script>
-$('main_loader_bg').style.height = $('main_content').offsetHeight+'px';
-</script>
+{php} if (JSLIB_BASE=='JQUERY') : {/php}
+{literal}
+function toggleLeftPanel() {
+	if ($('#main_left_panel').is(':visible')) { $('#main_left_panel').hide(); $('#button_toggle_leftpanel').attr('class','button_showmenu'); }
+	else { $('#main_left_panel').show(); $('#button_toggle_leftpanel').attr('class','button_hidemenu'); }
+}
 {/literal}
+{php} else : {/php}
+{literal}
+function toggleLeftPanel() {
+	if ($('main_left_panel').visible()) { $('main_left_panel').hide(); $('button_toggle_leftpanel').className="button_showmenu"; }
+	else { $('main_left_panel').show(); $('button_toggle_leftpanel').className="button_hidemenu"; }
+}
+$('main_loader_bg').style.height = $('main_content').offsetHeight+'px';
+{/literal}
+{php} endif; {/php}
+</script>
+
 {php}if(preg_match('/iPad/si',$_SERVER['HTTP_USER_AGENT']) || preg_match('/iPhone/si',$_SERVER['HTTP_USER_AGENT'])){ {/php}
 <script src="{$js_url}/ios_webapp.js"></script>
 {php}}{/php}
