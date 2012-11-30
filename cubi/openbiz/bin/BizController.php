@@ -80,20 +80,19 @@ class BizController
      * @return void
      */
     public function dispatchRequest()
-    {
-        if ($this->_isSessionTimeout())  // show timeout view
-        {
-            BizSystem::sessionContext()->destroy();
-            //return $this->renderView($this->_userTimeoutView);
-            return BizSystem::clientProxy()->redirectView($this->_userTimeoutView);
-        }
-
+    {        
         if ($this->_hasView())
         {
             return $this->_dispatchView();
         } else
         {
-            $this->_dispatchRPC();
+	        if ($this->_isSessionTimeout())  // show timeout view
+	        {
+	            BizSystem::sessionContext()->destroy();
+	            //return $this->renderView($this->_userTimeoutView);
+	            return BizSystem::clientProxy()->redirectView($this->_userTimeoutView);
+	        }
+        	$this->_dispatchRPC();
         }
     }
 
