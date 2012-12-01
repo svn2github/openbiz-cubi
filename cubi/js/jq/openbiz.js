@@ -426,10 +426,10 @@ Openbiz.Net =
         catch (e) {
             if (response.indexOf("Parse error")>=0)
                 //Openbiz.Window.openPopupT(response,'Error',500,300);
-				Openbiz.Window.openDialogT(response,500,300);
+				Openbiz.Window.openErrorDialog(response,500,300);
             else
                 //alert("Json error: "+e,'Error',600,500);
-				Openbiz.Window.openDialogT(response,500,300);
+				Openbiz.Window.openErrorDialog(response,500,300);
             return;
         }
         for (i=0; i < respJson.length; i++) 
@@ -440,7 +440,7 @@ Openbiz.Net =
             switch (tgtName) 
             {
                 case "ERROR":
-                    Openbiz.Window.openDialogT(content,500,300); continue;
+                    Openbiz.Window.openErrorDialog(content,500,300); continue;
                 case "POPUP":
                     Openbiz.Window.openPopupT(content,'Openbiz popup',600,500); continue;      
                 case "DIALOG":
@@ -456,7 +456,7 @@ Openbiz.Net =
             }
         }
 		if (i==0 && response.length>0) {
-			Openbiz.Window.openDialogT(response,500,300);
+			Openbiz.Window.openErrorDialog(response,500,300);
 			return;
 		}
     },
@@ -521,12 +521,6 @@ Openbiz.Window =
 		$(d).attr('id', 'modal_dialog');
 		options = {width:w, modal: true};
         $(d).load(_url, function() { $(this).dialog(options); });
-		
-		//$("#myDiv").dialog({ autoOpen: false }).load(url, function() { $(this).dialog("open"); });
-
-		//var parameters = {className: "dialog",zIndex:10000, width:w, height:h, closable:true, resizable:true, draggable:true};
-        // may support confirm and alert dialog type later
-        //Dialog.info({url: _url, options: {method: 'post'}}, parameters); 
     },
     openDialogT: function(text, w, h)
     {
@@ -539,11 +533,11 @@ Openbiz.Window =
 		$(d).attr('style', 'padding:10px');
 		options = {width:w, modal: true};
 		$(d).dialog(options);
-		
-		//var parameters = {className: "dialog",zIndex:10000, width:w, height:h, closable:true, resizable:true, draggable:true};
-        // may support confirm and alert dialog type later
-        //Dialog.info(text, parameters); 
     },
+	openErrorDialog: function(text, w, h)
+	{
+		Openbiz.Window.openDialogT("<div style='padding:10px'>"+text+"</div>", w, h);
+	},
     centerDialog: function(w, h)
     {    	
         //Dialog.setSize(w, h);
