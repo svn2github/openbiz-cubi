@@ -1048,7 +1048,7 @@ line-height:18px;
 	color:#454545;
 }
 
-.button_gray_m{
+table.input_row .label_text a.button_gray_m, .button_gray_m{
 	width:54px;
 	height:20px;
 	color:#666666;
@@ -1063,15 +1063,15 @@ line-height:18px;
 	line-height:20px;
 	margin-right:3px;	
 }
-.button_gray_m:hover{
+table.input_row .label_text  a.button_gray_m:hover, .button_gray_m:hover{
 	background-position:-44px -20px;
 	color:#454545;
 }
-.button_gray_m:active{
+table.input_row .label_text  a.button_gray_m:active, .button_gray_m:active{
 	background-position:-44px bottom;
 	color:#666666;
 }
-.button_gray_l{
+table.input_row .label_text  a.button_gray_l, .button_gray_l{
 	width:80px;
 	height:20px;
 	color:#666666;
@@ -1086,16 +1086,16 @@ line-height:18px;
 	line-height:20px;
 	margin-right:3px;	
 }
-.button_gray_l:hover{
+table.input_row .label_text  a.button_gray_l:hover, .button_gray_l:hover{
 	background-position:-200px -20px;
 	color:#454545;
 }
-.button_gray_l:active{
+table.input_row .label_text  a.button_gray_l:active, .button_gray_l:active{
 	background-position:-200px bottom;
 	color:#666666;
 }
 
-.button_gray_w{
+table.input_row .label_text a.button_gray_w, .button_gray_w{
 	width:102px;
 	height:20px;
 	color:#666666;
@@ -1110,11 +1110,11 @@ line-height:18px;
 	line-height:20px;
 	margin-right:3px;	
 }
-.button_gray_w:hover{
+table.input_row .label_text  a.button_gray_w:hover, .button_gray_w:hover{
 	background-position:-98px -20px;
 	color:#454545;
 }
-.button_gray_w:active{
+table.input_row .label_text  a.button_gray_w:active, .button_gray_w:active{
 	background-position:-98px bottom;
 	color:#454545;
 }
@@ -1166,7 +1166,7 @@ line-height:24px;
 }
 
 table.input_row td{
-	vertical-align:top;
+	/*vertical-align:top;*/
 }
 table.input_row label{
 /*width:80px; */
