@@ -1788,7 +1788,8 @@ class EasyForm extends MetaObject implements iSessionObject
             if ($value ===null && (
             	   !is_a($element,"FileUploader")
             	&& !is_subclass_of($element,"FileUploader")
-            	&& !is_a($element,"Checkbox")            	
+            	&& !is_a($element,"Checkbox")    
+            	&& !is_a($element,"FormElement")            	
             	)){           
             	continue;
             }
