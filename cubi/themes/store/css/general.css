@@ -12,7 +12,7 @@ body {
 background-color:#ffffff;	
 }
 
-body, p, form, div, h1, h2,ul, li, pre{
+body, p, form,  h1, h2,ul, li, pre{
 	margin: 0px;
 	padding:0px;
 	font-family: Arial, Gadget, sans-serif;
