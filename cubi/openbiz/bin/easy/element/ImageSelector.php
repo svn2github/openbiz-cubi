@@ -20,7 +20,12 @@ class ImageSelector extends OptionElement
     {
         $fromList = array();
         $this->getFromList($fromList);
-        $valueArray = explode(',', $this->m_Value);
+        
+        $value = $this->getValue()!='null' ? $this->getValue() : $this->getDefaultValue();
+        
+        $value = $value===null?$this->getDefaultValue():$value;
+        
+        $valueArray = explode(',', $value);
         $disabledStr = ($this->getEnabled() == "N") ? "DISABLED=\"true\"" : "";
         $style = $this->getStyle();
         $func = $this->getFunction();
@@ -32,7 +37,7 @@ class ImageSelector extends OptionElement
 			$func .= "onmouseover=\"this.className='$this->m_cssFocusClass'\" onmouseout=\"this.className='$this->m_cssClass'\"";
 		} 
 		
-        $sHTML = "<input type=\"hidden\" NAME=\"" . $this->m_Name . "\" ID=\"" . $this->m_Name ."\" value=\"".$this->m_Value."\" $disabledStr $this->m_HTMLAttr />";
+        $sHTML = "<input type=\"hidden\" NAME=\"" . $this->m_Name . "\" ID=\"" . $this->m_Name ."\" value=\"".$value."\" $disabledStr $this->m_HTMLAttr />";
 		$sHTML .= "<ul id=\"image_list_" . $this->m_Name ."\" $style $func >";
         if ($this->m_BlankOption) // ADD a blank option
         {
