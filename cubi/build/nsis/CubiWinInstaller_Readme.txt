@@ -13,14 +13,6 @@ Steps to create Cubi Windows Installer
    Install NSIS Studio from http://www.mediafire.com/?gnm3d4czslqat, select v2.1 to download
 
 2. Download xmapp lite from http://sourceforge.net/projects/xampp/files/XAMPP%20Windows/1.8.1/
-The following directories are needed (other directories are not needed to run Cubi)
-	- apache
-	- htdocs
-	- install
-	- mysql
-	- php. 
-	copy ioncube_loader_win_5.4.dll* under php/ext/ folder
-	*ionCube loader is downloaded from http://www.ioncube.com/loaders.php. Pick "Windows VC9 (x86)" zip file.
 
 3. Prepare the source
 Create c:\dev\build\, then copy the following files to it
@@ -34,6 +26,10 @@ Create c:\dev\build\package, in this folder
 	- copy package/license.txt
 	- copy package/php.ini to xampp/php/php.ini
 
+Make the changes below in xampp/php. This is to add and enable ionCube loader extension 
+	copy ioncube_loader_win_5.4.dll* under php/ext/ folder
+	*ionCube loader is downloaded from http://www.ioncube.com/loaders.php. Pick "Windows VC9 (x86)" zip file.
+	
 4. Edit 
 Edit the Openbiz-Cubi_v2.1.0.0_Setup.nsi directly with text editor
 
