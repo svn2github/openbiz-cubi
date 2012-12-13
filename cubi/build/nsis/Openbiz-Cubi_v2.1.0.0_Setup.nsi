@@ -13,6 +13,13 @@
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 !define PRODUCT_STARTMENU_REGVAL "NSIS:StartMenuDir"
 
+; Define build path and source path
+!define BUILD_PATH "C:\dev\build"
+!define BUILD_INSTALLER "${BUILD_PATH}\installer"
+!define BUILD_SOURCE "${BUILD_PATH}\package"
+!define BUILD_SOURCE_XAMPP "${BUILD_SOURCE}\xampp"
+!define BUILD_SOURCE_CUBI "${BUILD_SOURCE}\cubi-2.1\cubi"
+
 ; Define user variables
 
 SetCompress auto
@@ -72,7 +79,7 @@ var ICONS_GROUP
 
 
 Name "${PRODUCT_DISPLAY_NAME}"
-OutFile "C:\dev\build\installer\${PRODUCT_DISPLAY_NAME}_Setup.exe"
+OutFile "${BUILD_INSTALLER}\${PRODUCT_DISPLAY_NAME}_Setup.exe"
 InstallDir "C:\cubidev"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
@@ -95,22 +102,22 @@ VIAddVersionKey /LANG=${LANG_ENGLISH} "Comments" ""
 
 Section "xampp + cubi" SEC001
   SetOutPath "$INSTDIR"
-  File "C:\dev\build\package\license.txt"
-  File "C:\dev\build\package\README.txt"
+  File "${BUILD_SOURCE}\license.txt"
+  File "${BUILD_SOURCE}\README.txt"
   SetOutPath "$INSTDIR\xampp"
-  File "C:\dev\build\package\xampp\*.*"
+  File "${BUILD_SOURCE_XAMPP}\*.*"
   SetOutPath "$INSTDIR\xampp\apache"
-  File /r "C:\dev\build\package\xampp\apache\*.*"
+  File /r "${BUILD_SOURCE_XAMPP}\apache\*.*"
   SetOutPath "$INSTDIR\xampp\htdocs"
-  File /r "C:\dev\build\package\xampp\htdocs\*.*"
+  File /r "${BUILD_SOURCE_XAMPP}\htdocs\*.*"
   SetOutPath "$INSTDIR\xampp\install"
-  File /r "C:\dev\build\package\xampp\install\*.*"
+  File /r "${BUILD_SOURCE_XAMPP}\install\*.*"
   SetOutPath "$INSTDIR\xampp\mysql"
-  File /r "C:\dev\build\package\xampp\mysql\*.*"
+  File /r "${BUILD_SOURCE_XAMPP}\mysql\*.*"
   SetOutPath "$INSTDIR\xampp\php"
-  File /r /x "pear" "C:\dev\build\package\xampp\php\*.*"
+  File /r /x "pear" "${BUILD_SOURCE_XAMPP}\php\*.*"
   SetOutPath "$INSTDIR\xampp\htdocs\cubi"
-  File /r "C:\dev\build\package\cubi-2.1\cubi\*.*"
+  File /r "${BUILD_SOURCE_CUBI}\*.*"
 SectionEnd
 
 Function .onInit
