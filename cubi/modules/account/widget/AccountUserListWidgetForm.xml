@@ -18,6 +18,9 @@
 		<Element Name="fld_access_level" Class="ColumnList" SelectFrom="account.lov.AccountLOV(AdminPermission)" FieldName="account_access_level" Label="Access Level" Sortable="N"/>
         <Element Name="fld_status" Class="ColumnBool" FieldName="account_status" Label="Status" Sortable="N"/>
         <Element Name="fld_assoc_time" Class="ColumnText" FieldName="account_create_time" Label="Assoc Time" Sortable="N"/>
+        <Element Name="fld_switch" Access="User.Administer_Users" Class="ColumnText" FieldName="" Label="Switch" Text="Switch" Sortable="N" Link="Javascript:;">
+        	<EventHandler Name="fld_switch_onclick" Event="onclick" Function="SwitchUser({@:Elem[fld_Id].Value})" />
+        </Element>
     </DataPanel>
     <ActionPanel>
     </ActionPanel> 

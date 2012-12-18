@@ -4,6 +4,19 @@ class AccountUserWidgetForm extends EasyForm
 	public $m_AssocDO 	= "account.do.AccountUserDO";
 	public $m_UserDO 	= "system.do.UserDO";
 	
+	public function SwitchUser($user_id)
+	{
+		$userRec = BizSystem::getObject("system.do.UserDO")->fetchById($user_id);
+		$username = $userRec['username'];
+		$serviceObj = BizSystem::getService(PROFILE_SERVICE);
+
+        if (method_exists($serviceObj,'SwitchUserProfile')){
+            $serviceObj->SwitchUserProfile($username);
+        }        
+        $pageURL = APP_INDEX.'/mystore/profile';
+		BizSystem::clientProxy()->redirectPage($pageURL);   
+	}
+	
 	public function quickadd(){
 		
 		$username = BizSystem::clientProxy()->getFormInputs("fld_username");
