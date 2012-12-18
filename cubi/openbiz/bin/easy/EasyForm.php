@@ -752,6 +752,7 @@ class EasyForm extends MetaObject implements iSessionObject
             $pickerMap = $element->m_PickerMap;
         }
 		$currentRecord = $this->readInputRecord();
+		$pickerForm->setParentForm($this->m_Name);
         $pickerForm->setParentFormData($this->m_Name, $elementName, $pickerMap);
         $pickerForm->m_ParentFormRecord = $currentRecord;
         BizSystem::clientProxy()->redrawForm("DIALOG", $pickerForm->render());
@@ -766,6 +767,11 @@ class EasyForm extends MetaObject implements iSessionObject
             $paramFields["Id"] = $this->m_RecordId;
         $this->_showForm($formName, "Dialog", $paramFields);
     }
+	
+	public function setParentForm($parentFormName)
+	{
+		$this->m_ParentFormName = $parentFormName;
+	}
 
     /**
      * Call/Invoke service method, this EasyForm name is passed to the method
@@ -1268,11 +1274,11 @@ class EasyForm extends MetaObject implements iSessionObject
             switch ($target)
             {
                 case "Popup":
-                    $formObj->m_ParentFormName = $this->m_Name;
+                    $formObj->setParentForm($this->m_Name);
                     echo $formObj->render();
                     break;
                 case "Dialog":
-                    $formObj->m_ParentFormName = $this->m_Name;
+                    $formObj->setParentForm($this->m_Name);
                     BizSystem::clientProxy()->redrawForm("DIALOG", $formObj->render());
                     break;
                 default:
