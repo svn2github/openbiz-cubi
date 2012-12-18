@@ -84,6 +84,18 @@ class OptionElement extends InputElement
         return "";
     }
 
+    public function getValue()
+    {
+    	$this->m_Value = $this->m_Value?$this->m_Value:$this->getDefaultValue(); 
+    	return $this->m_Value;
+    }
+    
+    public function getDefaultValue()
+    {
+    	$value = Expression::evaluateExpression($this->m_DefaultValue, $this->getFormObj());
+    	return $value;
+    }    
+    
     /**
      * Get from list
      *
