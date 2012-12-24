@@ -5,7 +5,7 @@ if(!defined("CLI")){
 	exit;
 }
 
-$buildFile = $argv[1]?$argv[1]:'cubi';
+$buildFile = $argv[1]?$argv[1]:'cubi-ex';
 
 
 // invoke cubi/build/build mod_build.xml -Dbuild.module=$moduleName -Dbuild.number=$buildNumber
