@@ -47,7 +47,7 @@
 		
 		<h4 ><?php echo STR_DEFAULT_DATABASE_FILE;?></h4>
 		<?php $db = getDefaultDB(); ?>
-		<table class="form_table"  cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;width:600px;">
+		<table class="form_table"  cellpadding="0" cellspacing="0" border="0" style="width:600px;">
 		<tr>
 			<th><?php echo STR_NAME;?></th>
 			<th><?php echo STR_DRIVER;?></th>
@@ -76,25 +76,28 @@
 		<a href="javascript:showContent('loadmodules_results','load modules');" class="button_m">Show results</a>
 		</div>
 		<div>
-		<div id="loadmodules_img"  style="display:none;color:red" ><img src="images/indicator.white.gif" style="display:none"/>Loading modules, it will takes 1-2 mintues, please wait...</div>
+		<div id="loadmodules_img"  style="display:none;color:#00344d;padding-top:10px;height:30px;" >
+			<img src="images/ajax-loader.png" style="display:block;float:left;"/> <span style="display:block;float:left;line-height:22px;padding-left:16px;font-style:italic;">Loading modules, it will takes 1-2 mintues, please wait...</span>
+		</div>
 		<span id="loadmodules_status"></span>
 		</div>
 		<div id="loadmodules_results" style="display:none;" onclick="showContent('loadmodules_results','load modules');">
 		</div>
 		
-		<a href="index.php?step=2" class="btn_back"><?php echo STR_BACK;?></a>
-		<?php 
-		if (!$hasError){
-		?>
-		    <a href="javascript:load_modules();" class="btn_next"><?php echo STR_NEXT;?></a>
-		<?php
-		}else{
-		?>
-		    <a href="index.php?step=3" class="btn_next"><?php echo STR_RETRY;?></a>
-		<?php
-		}
-		?>
-		
+		<div style="padding-top:10px">
+			<a href="index.php?step=2" class="btn_back"><?php echo STR_BACK;?></a>
+			<?php 
+			if (!$hasError){
+			?>
+			    <a href="javascript:load_modules();" class="btn_next"><?php echo STR_NEXT;?></a>
+			<?php
+			}else{
+			?>
+			    <a href="index.php?step=3" class="btn_next"><?php echo STR_RETRY;?></a>
+			<?php
+			}
+			?>
+		</div>
 		</div>
 		<div id="error_message" class="popup_dialog" onclick="this.style.display='none';"></div>
 	</div>
