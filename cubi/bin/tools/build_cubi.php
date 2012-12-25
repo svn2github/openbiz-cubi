@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 
 include_once ("../app_init.php");
