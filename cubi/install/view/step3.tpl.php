@@ -77,7 +77,7 @@
 		</div>
 		<div>
 		<div id="loadmodules_img"  style="display:none;color:#00344d;padding-top:10px;height:30px;" >
-			<img src="images/ajax-loader.gifajax-loader.gif" style="display:block;float:left;"/> <span style="display:block;float:left;line-height:22px;padding-left:16px;font-style:italic;">Loading modules, it will takes 1-2 mintues, please wait...</span>
+			<img src="images/ajax-loader.gif" style="display:block;float:left;"/> <span style="display:block;float:left;line-height:22px;padding-left:16px;font-style:italic;">Loading modules, it will takes 1-2 mintues, please wait...</span>
 		</div>
 		<span id="loadmodules_status"></span>
 		</div>
