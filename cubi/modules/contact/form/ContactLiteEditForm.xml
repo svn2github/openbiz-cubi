@@ -5,10 +5,16 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: ContactEditForm.xml 3356 2012-05-31 05:47:51Z rockyswen@gmail.com $
 -->
-<EasyForm Name="ContactLiteEditForm" Class="ContactForm" FormType="Edit"  Icon="icon_my_profile.gif" InheritFrom="contact.form.ContactEditForm"  Access="contact.access">
+<EasyForm Name="ContactLiteEditForm" Class="ContactForm" FormType="Edit" ShowComment="N" Icon="icon_my_profile.gif" InheritFrom="contact.form.ContactEditForm"  Access="contact.access">
+    <DataPanel>
+    	<Element Name="fld_user_id" Class="Hidden" Hidden="Y" FieldName="user_id"  />
+    </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_w">
+           <!-- 
             <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=contact.form.ContactLiteDetailForm&amp;fld:Id={@contact.do.ContactDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+            -->
+            <EventHandler Name="save_onclick" Event="onclick" Function="UpdateRecord()" ShortcutKey="Ctrl+Enter" RedirectPage="{APP_INDEX}/system/user_detail/{@:Elem[fld_user_id].Value}"/>
         </Element>
          <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button_gray_m" Link="{APP_INDEX}/system/user_list">
         </Element>          
