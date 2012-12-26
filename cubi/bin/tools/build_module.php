@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 /*
  * build module command line script
