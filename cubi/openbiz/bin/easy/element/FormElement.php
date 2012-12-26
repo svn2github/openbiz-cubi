@@ -99,19 +99,25 @@ class FormElement extends InputElement
 
     public function setValue($value)
     {
-    	$formElementObj = BizSystem::GetObject($this->m_FormReference);
-    	if(method_exists($formElementObj, "setValue"))
+    	if($this->allowAccess())
     	{
-    		return $formElementObj->setValue($value);
+	    	$formElementObj = BizSystem::GetObject($this->m_FormReference);
+	    	if(method_exists($formElementObj, "setValue"))
+	    	{
+	    		return $formElementObj->setValue($value);
+	    	}
     	}
     }
     
     public function getValue()
     {
-    	$formElementObj = BizSystem::GetObject($this->m_FormReference);
-    	if(method_exists($formElementObj, "getValue"))
+    	if($this->allowAccess())
     	{
-    		return $formElementObj->getValue();
+	    	$formElementObj = BizSystem::GetObject($this->m_FormReference);
+	    	if(method_exists($formElementObj, "getValue"))
+	    	{
+	    		return $formElementObj->getValue();
+	    	}
     	}
     }    
 }
