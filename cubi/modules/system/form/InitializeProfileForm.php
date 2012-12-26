@@ -7,7 +7,7 @@ class InitializeProfileForm extends EasyForm
 	{
 	 	$currentRec = $this->fetchData();
         $recArr = $this->readInputRecord();
-
+		
         if (count($recArr) == 0)
             return;
 
@@ -64,8 +64,8 @@ class InitializeProfileForm extends EasyForm
         $contactRec->save();
         
         //send user data to Openbiz 
-        
-        
+        BizSystem::getService("system.lib.CubiService")->collectUserData($recArr['subscribe']);
+       
         //set initialized.lock 
         $initLock = APP_HOME.'/files/initialize_profile.lock';
         $data = '1';
@@ -80,10 +80,13 @@ class InitializeProfileForm extends EasyForm
         $contactRec = BizSystem::getObject("contact.do.ContactDO")->fetchById($profileId);
         $contactRec['fullname'] = $contactRec['display_name'];
         if($contactRec && $contactRec['display_name']!='System, Admin'){
-        	return  $contactRec->toArray();
-        }else{
-        	return array();
+        	$result =  $contactRec->toArray();
         }
+        else
+        {
+        	$result = array();
+        }
+        return $result;
 	}
 
 	public function allowAccess($access=null)

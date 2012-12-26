@@ -19,5 +19,29 @@ class CubiService
 	{
 		return self::CUBI_VERSION;
 	}
+	
+	public function collectUserData($sendContact=0)
+	{
+		//sendContact = 0 ; don't send contact info
+		//sendContact = 1 ; send contact info
+		
+		$uuid = $this->getSystemUUID();
+	}
+	
+	public function getSystemUUID()
+	{		
+		$dataFile = APP_HOME.'/files/system_uuid.data';
+		if(is_file($dataFile))
+		{
+			$uuid = file_get_contents($dataFile);
+			$uuid = trim($uuid);
+		}
+		else
+		{
+			$uuid = uniqid();
+			file_put_contents($dataFile,$uuid);	
+		}
+		return $uuid;
+	}
 }
 ?>
