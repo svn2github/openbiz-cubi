@@ -13,9 +13,11 @@
 
 class CubiService
 {
+	const CUBI_VERSION = "3.0";
+	
 	public function getVersion()
 	{
-		return "3.0";
+		return self::CUBI_VERSION;
 	}
 }
 ?>
