@@ -251,6 +251,15 @@ class LoginForm extends EasyForm
     	   	    	return true;
     	   	    }
     	   	    
+    	   	    //if admin is not init profile yet
+    			$initLock = APP_HOME.'/files/initialize_profile.lock';
+    	   	    if($profile['Id']==1 && !is_file($initLock))
+    	   	    {
+    	   	    	$redirectPage = APP_INDEX."/system/initialize_profile";
+    	   	    	BizSystem::clientProxy()->ReDirectPage($redirectPage);
+    	   	    	return true;
+    	   	    }
+    	   	    
     	   	    if($this->m_LastViewedPage!=""){
     	   	    	BizSystem::clientProxy()->ReDirectPage($this->m_LastViewedPage);
     	   	    }
