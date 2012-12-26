@@ -16,7 +16,7 @@
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
-            <EventHandler Name="save_onclick" Event="onclick" Function="CreateUser()" ShortcutKey="Enter" RedirectPage="{@home:url}/system/user_detail/{@:Elem[fld_Id].Value}"/>
+            <EventHandler Name="save_onclick" Event="onclick" Function="CreateUser()" ShortcutKey="Ctrl+Enter" RedirectPage="{@home:url}/system/user_detail/{@:Elem[fld_Id].Value}"/>
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
             <EventHandler Name="cancel_onclick" Event="onclick" Function="js:history.go(-1)"/>

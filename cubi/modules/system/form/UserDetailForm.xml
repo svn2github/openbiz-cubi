@@ -11,12 +11,12 @@
         <Element Name="fld_username" Class="LabelText" FieldName="username" Label="Username"/>
         <Element Name="fld_email" Class="LabelText" FieldName="email" Label="Email"/>
 		<Element Name="fld_smartcard" Class="LabelBool" TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" FieldName="smartcard" Text="{@:Elem[fld_smartcard].Value}" Sortable="Y" Label="ID Card" />
-		<Element Name="fld_smartcardcode" Class="LabelText" FieldName="smartcard" Label="ID Card Code" />
+		<Element Name="fld_smartcardcode" Hidden="{@:Elem[fld_smartcardcode].Value?'N':'Y'}"  Class="LabelText" FieldName="smartcard" Label="ID Card Code" />
 		<Element Name="fld_status" Class="LabelBool" FieldName="status" Label="Status" Link="javascript:;">
 			<EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>		
 		</Element>
-		<Element Name="fld_lastlogin" Class="LabelText" FieldName="lastlogin" Label="Last Login" />
-		<Element Name="fld_lastlogout" Class="LabelText" FieldName="lastlogout" Label="Last Logout" />
+		<Element Name="fld_lastlogin" Hidden="{@:Elem[fld_lastlogin].Value?'N':'Y'}" Class="LabelText" FieldName="lastlogin" Label="Last Login" />
+		<Element Name="fld_lastlogout" Hidden="{@:Elem[fld_lastlogout].Value?'N':'Y'}" Class="LabelText" FieldName="lastlogout" Label="Last Logout" />
     </DataPanel>
     <ActionPanel>
     
