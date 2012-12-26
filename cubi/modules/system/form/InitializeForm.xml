@@ -15,7 +15,7 @@
    </DataPanel>
    <ActionPanel>
         <Element Name="btn_init" Class="Button" Text="Initialize" CssClass="button_highlight">
-            <EventHandler Name="onclick" Event="onclick" Function="SystemInit()" RedirectPage="{APP_INDEX}/system/general_default"  ShortcutKey="Enter"/>            
+            <EventHandler Name="onclick" Event="onclick" Function="SystemInit()" RedirectPage="{APP_INDEX}/system/initialize_profile"  ShortcutKey="Ctrl+Enter"/>            
         </Element>         
               
     </ActionPanel> 

@@ -109,6 +109,18 @@ class InitializeForm extends EasyForm
         $this->processPostAction();
 	}
 	
+	public function allowAccess($access=null)
+	{
+		$initLock = APP_HOME.'/files/initialize.lock';
+		if(is_file($initLock))
+		{
+			$pageURL = APP_INDEX."/system/general_default";
+			BizSystem::clientProxy()->redirectPage($pageURL);
+			return;
+		}
+		return parent::allowAccess($access);
+	}
+	
 	public function fetchData(){
         if ($this->m_ActiveRecord != null)
             return $this->m_ActiveRecord;
