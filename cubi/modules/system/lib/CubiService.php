@@ -17,7 +17,7 @@ include_once(MODULE_PATH."/common/lib/httpClient.php");
 class CubiService
 {
 	const CUBI_VERSION = "3.0";
-	const UDC_SERVER = "http://dev.openbiz.cn/ws.php/udc/CollectService";
+	const UDC_SERVER_URI = "http://dev.openbiz.cn/ws.php/udc/CollectService";
 	//const UDC_SERVER_URI = "http://local.openbiz.me/ws.php/udc/CollectService";
 	
 	public function getVersion()
