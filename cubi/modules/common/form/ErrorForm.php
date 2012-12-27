@@ -48,8 +48,9 @@ class ErrorForm extends EasyForm
         		"php_extension"	=>get_loaded_extensions()
         	);
 
-        	BizSystem::getObject("common.lib.ErrorReportService")->report($report);
-        	$this->m_Notices = array("status"=>"REPORTED");
+        	$reportId = BizSystem::getObject("common.lib.ErrorReportService")->report($report);
+        	$this->m_Notices = array("status"=>"REPORTED",
+        							"report_id"=>$reportId);
         	$this->ReRender();
         }
 }
