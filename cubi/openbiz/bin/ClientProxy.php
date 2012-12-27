@@ -278,16 +278,23 @@ class ClientProxy
      */
     public function showErrorMessage ($errMsg, $flush=false)
     {
-    	if(!$errMsg){    		
+        if(!$errMsg){    		
     		return;
     	}
         if ($this->m_bRPCFlag)
         {
-            $this->_otherOutput[] = $this->_buildTargetContent("ERROR", $errMsg);
+            /*
+        	$this->_otherOutput[] = $this->_buildTargetContent("ERROR", $errMsg);
             if ($flush) {
                 $this->printOutput();
                 exit;
-            }
+            }*/
+        	$_GET['ob_err_msg']=$errMsg; 
+        	ob_end_clean();
+        	$form = "common.form.ErrorPopupForm";
+        	$html = BizSystem::getObject($form)->render();
+        	$html = $this->_buildTargetContent("DIALOG", $html);
+        	$this->_formsOutput[]=$html;        	 
         }
         else
         {
