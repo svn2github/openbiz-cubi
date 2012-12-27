@@ -1,29 +1,10 @@
 <form id="{$form.name}" name="{$form.name}">
-{literal}
-<script>
-function showError(){
-	msgbox = document.getElementById('notice_msg');
-	errbox = document.getElementById('detailed_error_msg');
-	spacer = document.getElementById('form-title');
-	if(msgbox.style.display=='block'){
-		msgbox.style.display='none';
-		errbox.style.display='block';
-		spacer.style.paddingBottom='10px';
-	}else{
-		msgbox.style.display='block';
-		errbox.style.display='none';
-		spacer.style.paddingBottom='28px';
-	}
-}
-</script>
-{/literal}
 <div class="register-block server-error" >
+{if $notices.status !='REPORTED'}
+	{if $form.show_error == false}	
+		<div id="form-title" class="form-title" style="margin-top:10px;"><h1 >{$form.title}</h1></div>
 	
-	<div id="form-title" class="form-title"><h1>{$form.title}</h1></div>
-	
-		<div id="notice_msg" style="display:block;">
-		
-		{if $notices.status !='REPORTED'}
+		<div id="notice_msg" style="display:block;">		
 		<p class="input_row" style="height:125px; line-height:20px;">
 		<span>{t}
 Sorry, our system is encountered an unexpected internal errors . 
@@ -31,26 +12,13 @@ Please REPORT the problem to our system administrator by clicking the below butt
 Our support team will try to solve the problem as soon as possible.
 
 We are sorry for any inconvenience.
-{/t}</span></p>
-		{else}
-		<p class="input_row" style="height:85px; line-height:20px;">
-		<span>{t}
-Thank you for reporting the problem.
-Our support team will try to solve the problem as soon as possible.
-
-We are sorry for any inconvenience.
-{/t}</span>
-</p>
-<p class="input_row" style="padding-top:10px;padding-bottom:0px;font-weight:bold;">
-	<span style="color:#999999;">Error Report ID:</span><span style="padding-left:10px;color:#ff0000;">{$notices.report_id}</span>
-</p>
-
-		{/if}
-
+{/t}
+		</span></p>		
 		</div>
-		
-		<div id="detailed_error_msg" style="display:none">
-		<p class="input_row" style="height:25px; line-height:20px;">
+	{else}
+		<div id="form-title" class="form-title" style="padding-bottom:10px;margin-top:10px;"><h1 >{$form.title}</h1></div>
+		<div id="detailed_error_msg" >
+		<p class="input_row" style="height:25px; line-height:20px;padding-left:0px;">
 		<span>{t}The detailed error message are below:{/t}</span>		
 		</p>
 		<div style="height:170px;">
@@ -60,9 +28,26 @@ We are sorry for any inconvenience.
 			</div>
 		</div>
 		</div>
-				
+	{/if}
+{else}
+<div id="form-title" class="form-title" style="margin-top:10px;"><h1 >{$form.title}</h1></div>
+	
+		<div id="notice_msg" style="display:block;">		
+		<p class="input_row" style="height:85px; line-height:20px;">
+		<span>{t}
+Thank you for reporting the problem.
+Our support team will try to solve the problem as soon as possible.
+
+We are sorry for any inconvenience.
+{/t}</span>
+		</p>
+		<p class="input_row" style="padding-top:10px;padding-bottom:0px;font-weight:bold;padding-left:40px;">
+			<span style="color:#999999;">Error Report ID:</span><span style="padding-left:10px;color:#ff0000;">{$notices.report_id}</span>
+		</p>
+</div>
+{/if}			
 		<div style="height:10px;"></div>
-		<p class="input_row">
+		<p class="input_row" {if $form.show_error == true}style="padding-left:0px;"{/if}>
 			{if $notices.status !='REPORTED'}
 			{$actionPanel.btn_report.element} {$actionPanel.btn_showerr.element}
 			{else}

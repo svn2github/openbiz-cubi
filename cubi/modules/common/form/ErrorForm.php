@@ -13,7 +13,7 @@
 
 class ErrorForm extends EasyForm
 {
-       
+		protected $m_ShowError = false;
 	    function __construct(&$xmlArr)
 	    {
 	        parent::readMetadata($xmlArr);
@@ -26,15 +26,35 @@ class ErrorForm extends EasyForm
 	    public function getSessionVars($sessionContext)
 	    {
 	        parent::getSessionVars($sessionContext);
-	        $sessionContext->getObjVar($this->m_Name, "Errors", $this->m_Errors);	        	          
+	        $sessionContext->getObjVar($this->m_Name, "Errors", $this->m_Errors);	  
+	        $sessionContext->getObjVar($this->m_Name, "showError", $this->m_ShowError);      	          
 	    }    
 	    
 	    public function setSessionVars($sessionContext)
 	    {
 	    	parent::setSessionVars($sessionContext);
-	        $sessionContext->setObjVar($this->m_Name, "Errors", $this->m_Errors);      
+	        $sessionContext->setObjVar($this->m_Name, "Errors", $this->m_Errors);   
+	        $sessionContext->setObjVar($this->m_Name, "showError", $this->m_ShowError);   
 	    }
    
+	    public function showError()
+	    {
+	    	if($this->m_ShowError)
+	    	{
+	    		$this->m_ShowError=false;
+	    	}else{
+	    		$this->m_ShowError=true;
+	    	}
+	    	$this->rerender();
+	    }
+	    
+	    public function outputAttrs()
+	    {
+	    	$result = parent::outputAttrs();
+	    	$result['show_error'] = $this->m_ShowError;
+	    	return $result;	
+	    }
+	    
         public function Report()
         {
         	//send an email to admin includes error messages;
