@@ -16,9 +16,13 @@ include_once(MODULE_PATH."/common/lib/httpClient.php");
 
 class CubiService
 {
-	const CUBI_VERSION = "3.0";
-	const UDC_SERVER_URI = "http://dev.openbiz.cn/ws.php/udc/CollectService";
-	//const UDC_SERVER_URI = "http://local.openbiz.me/ws.php/udc/CollectService";
+	const CUBI_VERSION = "3.0";	
+	protected $m_UDC_Server;
+	
+   	protected function readMetadata(&$xmlArr)
+   	{      
+     	 $this->m_UDC_Server 	= $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["REPORTSERVER"].'/ws.php/udc/CollectService';      
+   	}
 	
 	public function getVersion()
 	{
@@ -82,7 +86,7 @@ class CubiService
 		foreach ($query as $q)
 		        $httpClient->addQuery($q);
 		$headerList = array();
-		$out = $httpClient->fetchContents(self::UDC_SERVER_URI, $headerList);		        
+		$out = $httpClient->fetchContents($this->m_UDC_Server, $headerList);		        
 		$cats = json_decode($out, true);
 		$result = $cats['data'];
 		return $result;
