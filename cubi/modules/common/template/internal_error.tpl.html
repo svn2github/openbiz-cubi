@@ -33,13 +33,18 @@ Our support team will try to solve the problem as soon as possible.
 We are sorry for any inconvenience.
 {/t}</span></p>
 		{else}
-		<p class="input_row" style="height:105px; line-height:20px;">
+		<p class="input_row" style="height:85px; line-height:20px;">
 		<span>{t}
 Thank you for reporting the problem.
 Our support team will try to solve the problem as soon as possible.
 
 We are sorry for any inconvenience.
-{/t}</span></p>
+{/t}</span>
+</p>
+<p class="input_row" style="padding-top:10px;padding-bottom:0px;font-weight:bold;">
+	<span style="color:#999999;">Error Report ID:</span><span style="padding-left:10px;color:#ff0000;">{$notices.report_id}</span>
+</p>
+
 		{/if}
 
 		</div>
