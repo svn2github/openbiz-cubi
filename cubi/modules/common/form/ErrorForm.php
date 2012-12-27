@@ -38,7 +38,10 @@ class ErrorForm extends EasyForm
         public function Report()
         {
         	//send an email to admin includes error messages;
+        	$system_uuid = BizSystem::getService("system.lib.CubiService")->getSystemUUID();
+        	
         	$report = array(
+        		"system_uuid"   =>$system_uuid,
         		"error_info"	=>$this->m_Errors["system"],
         		"server_info"	=>$_SERVER,
         		"php_version"	=>phpversion(),
