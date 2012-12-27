@@ -48,7 +48,7 @@ class CubiService
 		$system_name 	= DEFAULT_SYSTEM_NAME;
 		$system_language = DEFAULT_LANGUAGE;
 		$system_url		= SITE_URL;		
-		$system_cubi_ver	= self::getVersion();
+		$system_cubi_ver	= $this->getVersion();
 		$system_openbiz_ver	= BizSystem::getVersion();		
 		$system_port	= $_SERVER['SERVER_PORT'];
 		$system_admin	= $_SERVER['SERVER_ADMIN'];
