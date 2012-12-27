@@ -14,14 +14,19 @@
 include_once(MODULE_PATH."/common/lib/fileUtil.php");
 include_once(MODULE_PATH."/common/lib/httpClient.php");
 
-class CubiService
+class CubiService extends  MetaObject
 {
 	const CUBI_VERSION = "3.0";	
 	protected $m_UDC_Server;
+  	
+	function __construct(&$xmlArr)
+   	{      
+   	   $this->readMetadata($xmlArr);
+   	}	
 	
    	protected function readMetadata(&$xmlArr)
    	{      
-     	 $this->m_UDC_Server 	= $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["REPORTSERVER"].'/ws.php/udc/CollectService';      
+     	 $this->m_UDC_Server 	= $xmlArr["PLUGINSERVICE"]["ATTRIBUTES"]["UDCSERVER"].'/ws.php/udc/CollectService';      
    	}
 	
 	public function getVersion()
@@ -81,7 +86,7 @@ class CubiService
 		);
 		$argsJson = json_encode($params);
         $query = array(	"method=$method","format=json","argsJson=$argsJson");		        
-        
+
 		$httpClient = new HttpClient('POST');
 		foreach ($query as $q)
 		        $httpClient->addQuery($q);
