@@ -1,5 +1,5 @@
 <form id="{$form.name}" name="{$form.name}">
-<div class="register-block server-error" style="{if $form.show_error == false}height:260px;{else}height:300px;{/if}padding:15px;padding-top:25px;padding-left:30px;background-image:url({$resource_url}/common/images/error_form_bg.png);background-repeat:no-repeat;background-position:center bottom" >
+<div class="register-block server-error" style="{if $form.show_error == false}height:260px;{else}height:300px;{/if}padding:15px;padding-top:25px;padding-left:35px;background-image:url({$resource_url}/common/images/error_form_bg.png);background-repeat:no-repeat;background-position:center bottom" >
 {if $notices.status !='REPORTED'}
 	{if $form.show_error == false}	
 		<div id="form-title" class="form-title" style="padding-left:44px;background-image:url({$theme_url}/images/icon_forbidden.gif);background-repeat:no-repeat;background-position:left top;"><h1 style="line-height:38px;">{$form.title}</h1></div>
