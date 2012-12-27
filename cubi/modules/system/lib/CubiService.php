@@ -74,14 +74,14 @@ class CubiService
 		);
 		
 		
-		$method = "collectUserData";
+		$method = "CollectUserData";
 		$params = array(
 			"contact_data" => $contactRec,
 			"system_data" => $systemRec
 		);
 		$argsJson = json_encode($params);
-        $query = array(	"method=$method","format=json","argsJson=$argsJson");
-		        
+        $query = array(	"method=$method","format=json","argsJson=$argsJson");		        
+        
 		$httpClient = new HttpClient('POST');
 		foreach ($query as $q)
 		        $httpClient->addQuery($q);
