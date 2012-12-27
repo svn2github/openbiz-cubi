@@ -18,7 +18,7 @@ class ErrorReportService
    	public function report($reportData)
 	{
 		$params['data'] = $reportData;	
-		return $this->_remoteCall('Collect',$params);
+		return $this->_remoteCall('CollectErrorReport',$params);
 	}	
    
 	protected function _remoteCall($method,$params=null)
@@ -31,7 +31,7 @@ class ErrorReportService
         	$uri .= '/';
         }
         
-        $uri .= "ws.php/errorreport/collect";            
+        $uri .= "ws.php/udc/CollectService";            
            
         if($cacheSvc->test($cache_id) && (int) $this->m_CacheLifeTime>0)
         {
