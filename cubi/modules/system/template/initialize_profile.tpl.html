@@ -12,7 +12,11 @@
 			{if $errors.$itemName}
 			<span class="input_error_msg" >{$errors.$itemName}</span>
 			{elseif $item.description}
-			<span class="input_desc" >{$item.description}</span>			
+				{if $itemName !='fld_phone' }
+					<span class="input_desc" >{$item.description}</span>
+				{else}
+					<span class="input_desc" style="background-image:none;padding-left:15px" >{$item.description}</span>
+				{/if}			
 			{/if}			
 		</div>
 		{/if}
