@@ -14,11 +14,15 @@
 require_once "LicenseForm.php";
 class LicenseInvalidForm extends LicenseForm
 {
+	public function fetchData()
+	{
+		$this->getAppRegister();	
+		return parent::fetchData();
+	}
 	
 	public function outputAttrs()
 	{
-		$this->getAppModuleName();
-		$this->getAppRegister();		
+		$this->getAppModuleName();			
 		$result = parent::outputAttrs();		
 		$result['license_message'] = $this->getErrorMessage();
 		return $result;

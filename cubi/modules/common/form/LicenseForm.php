@@ -18,6 +18,7 @@ class LicenseForm extends EasyForm
 	public $m_SourceURL;
 	public $m_ModuleName;
 	public $m_ModuleRegister;
+	public $m_ModuleTrial;
 	
  	public function setSessionVars($sessionContext)
     {       
@@ -52,9 +53,14 @@ class LicenseForm extends EasyForm
 				$mod_register_func = strtolower($this->m_ModuleName).'_register_handler';
 				if(function_exists($mod_register_func))
 				{
-					$this->m_ModuleRegister = $mod_register_func;
-					return $mod_register_func;
+					$this->m_ModuleRegister = $mod_register_func;					
 				}
+				$mod_trial_func = strtolower($this->m_ModuleName).'_trial_handler';
+				if(function_exists($mod_trial_func))
+				{
+					$this->m_ModuleTrial = $mod_trial_func;					
+				}
+				return $mod_register_func;
 			}
 		}
 		return ;
