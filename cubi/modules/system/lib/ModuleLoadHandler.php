@@ -13,14 +13,14 @@
 
 include_once (MODULE_PATH."/system/lib/ModuleLoader.php");
 
-interface iModuleLoadHandler
+interface ModuleLoadHandler
 {
     public function beforeLoadingModule($moduelLoader);
     
     public function postLoadingModule($moduelLoader);
 }
 
-class ModuleLoadHandler implements iModuleLoadHandler
+class DefaultModuleLoadHandler implements ModuleLoadHandler
 {
 	protected $m_RoleName;
 	protected $m_ModuleName;
