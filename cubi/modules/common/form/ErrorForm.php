@@ -16,11 +16,7 @@ class ErrorForm extends EasyForm
 		protected $m_ShowError = false;
 	    function __construct(&$xmlArr)
 	    {
-	        parent::readMetadata($xmlArr);
-	        if($_GET['ob_err_msg'])
-        	{
-				$this->m_Errors = array("system"=>$_GET['ob_err_msg']);
-        	}	      
+	        parent::readMetadata($xmlArr);     
 	    }        
 
 	    public function getSessionVars($sessionContext)
@@ -37,6 +33,15 @@ class ErrorForm extends EasyForm
 	        $sessionContext->setObjVar($this->m_Name, "showError", $this->m_ShowError);   
 	    }
    
+	    public function fetchData()
+	    {
+	    	if($_GET['ob_err_msg'])
+        	{
+				$this->m_Errors = array("system"=>$_GET['ob_err_msg']);
+        	}	 
+	    	return parent::fetchData();
+	    }
+	    
 	    public function showError()
 	    {
 	    	if($this->m_ShowError)
