@@ -723,11 +723,8 @@ class LangPackCreator
 				);
 				$tmp=array();
 				foreach ($matches[3] as $match)
-				{
-					$match_data=str_replace("\n",'\n',$match);
-					$match_data=str_replace("\r",'',$match_data);
-					//$tmp[strtoupper($module)."_".strtoupper(md5($match))]=$match_data;
-					$tmp["STRING_".strtoupper(md5($match))]=$match_data;
+				{					
+					$tmp["STRING_".strtoupper(md5(ltrim($match)))]=$match_data;
 				}
 				$strings = array_merge($strings,$tmp);
     	}    	
