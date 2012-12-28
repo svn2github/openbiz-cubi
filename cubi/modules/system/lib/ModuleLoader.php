@@ -110,11 +110,14 @@ class ModuleLoader
         $class = $dotPos>0 ? substr($modLoadHandler, $dotPos+1) : $modLoadHandler;
         if (BizSystem::loadClass($class, $package)) {
             $loadHandler = new $class();
-            if ($event == "beforeLoadingModule") {
-                $loadHandler->beforeLoadingModule($this);
-            }
-            else if ($event == "postLoadingModule") {
-                $loadHandler->postLoadingModule($this);
+            switch($event)
+            {
+            	case "beforeLoadingModule":
+            	case "postLoadingModule":
+            	case "beforeUnloadModule":
+            	case "postUnloadModule":
+            		$loadHandler->$event($this);
+            		break;
             }
         }
     }
@@ -171,6 +174,7 @@ class ModuleLoader
     {
 		$module = $this->name;
     	$db = $this->DBConnection();
+		$this->invokeLoadHandler("beforeUnloadModule");
 		
     	// check all modules depending on this module
     	try {
@@ -216,9 +220,11 @@ class ModuleLoader
 		try {
 	    	$db->exec($query);
 	    } catch (Exception $e) {
-	        $this->errors = $e->getMessage();
-	        return;
+	        $this->errors = $e->getMessage();	        
 	   	}
+	   	
+	   	$this->invokeLoadHandler("postUnloadModule");
+	   	return;
     }
     
     public function upgradeModule($forceUpgrade=false)

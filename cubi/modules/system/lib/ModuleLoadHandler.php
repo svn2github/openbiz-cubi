@@ -20,4 +20,52 @@ interface ModuleLoadHandler
     public function postLoadingModule($moduelLoader);
 }
 
+class ModuleLoadHandler implements ModuleLoadHandler
+{
+	protected $m_RoleName;
+	protected $m_ModuleName;
+	
+    public function beforeLoadingModule($moduelLoader)
+    {
+    }
+    
+    public function postLoadingModule($moduelLoader)
+    {
+
+    	$roleRec = BizSystem::getObject("system.do.RoleDO")->fetchOne("[name]='{$this->m_RoleName}'");
+    	$memberRoleId = $roleRec['Id'];
+    	
+    	$actionList = BizSystem::getObject("system.do.AclActionDO")->directfetch("[module]='{$this->m_ModuleName}'");
+    	foreach ($actionList as $actionRec){
+	    	$actionId = $actionRec["Id"];
+	    	
+	    	$aclRecord = array(
+	    		"role_id" =>  $memberRoleId,
+	    		"action_id" => $actionId,
+	    		"access_level" => 1
+	    	);
+	    	BizSystem::getObject("system.do.AclRoleActionDO")->insertRecord($aclRecord);
+
+    	}    	
+    }
+    
+    public function beforeUnloadModule($moduelLoader)
+    {
+    }    
+    
+    public function postUnloadModule($moduleLoader)
+    {
+    	$roleRec = BizSystem::getObject("system.do.RoleDO")->fetchOne("[name]='{$this->m_RoleName}'");
+    	$memberRoleId = $roleRec['Id'];
+    	$roleRec->delete();
+    	
+    	$actionList = BizSystem::getObject("system.do.AclActionDO")->directfetch("[module]='{$this->m_ModuleName}'");
+    	foreach ($actionList as $actionRec){
+	    	$actionId = $actionRec["Id"];	    		    
+	    	BizSystem::getObject("system.do.AclRoleActionDO")->deleteRecords("[action_id]='$actionId' AND [role_id]='$memberRoleId'");
+    	}
+    	
+    	BizSystem::getObject("system.do.AclActionDO")->deleteRecords("[module]='{$this->m_ModuleName}'");
+    }
+}
 ?>
