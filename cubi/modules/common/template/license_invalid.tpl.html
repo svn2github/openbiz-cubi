@@ -10,7 +10,7 @@
 	</div>
 	<div style="height:20px;"></div>
 		<p class="input_row" style="height:90px; line-height:20px;">
-		<label style="width:40px; height:90px;"></label>
+		<span style="width:40px; height:90px;display:block;float:left;"></span>
 		<span>{t}
 The application you are running is protected by a license, 
 But the license installed for this application is invaild
@@ -19,13 +19,13 @@ But the license installed for this application is invaild
 {if $form.license_message}
 {t}License error message below:{/t}
 </span></p>
-<div style="padding-left:48px;padding-bottom:15px;">
+<div style="padding-left:40px;padding-bottom:15px;">
 	<span style="border:1px solid #cccccc;display:block;width:420px;padding:5px 10px 5px 10px;background-color:#f0f0f0;">{$form.license_message}</span>
 </div>
 {/if}
 		<div style="height:10px;"></div>
 		<p class="input_row">
-			<label style="width:40px; text-align:right"></label>
+			<span style="width:40px; text-align:right;display:block;float:left;height:10px;"></span>
 			{foreach item=elem from=$actionPanel}
 				{$elem.element}
 			{/foreach}
