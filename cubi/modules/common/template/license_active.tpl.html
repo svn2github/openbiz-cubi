@@ -14,14 +14,14 @@ color:#666666;
 <div style="float:left; width:120px; height:400px;">
 </div>
 <div style="float:left; width:620px; height:400px;">
-	<div style="height:75px;"></div>
+	<div style="height:65px;"></div>
 	<div style="height:35px;">
 		<div style="float:left; width:50px;"><img src="{$image_url}/icon_info.gif" /></div>
 		<div style="float:left"><h1>{$form.title}</h1></div>
 	</div>
 	<div style="height:10px;"></div>
 		<p class="input_row" style="height:45px; line-height:20px;">
-		<label style="width:40px; height:90px;"></label>
+		<span style="width:40px; height:90px;display:block;float:left;"></span>
 		<span>{$form.description}</span></p>
 
 <div>
@@ -30,7 +30,7 @@ color:#666666;
 
 		<div style="height:10px;"></div>
 		<p class="input_row">
-			<label style="width:40px; text-align:right"></label>
+			<span style="width:40px; text-align:right;display:block;float:left;height:10px;"></span>
 			{foreach item=elem from=$actionPanel}
 				{$elem.element}
 			{/foreach}
