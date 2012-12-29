@@ -78,11 +78,15 @@ class OB_ErrorHandler
         $err = self::_getOutputErrorMsg($errno, $errmsg, $filename, $linenum, $back_trace);
 
         BizSystem::logError ($errno, "ExceptionHandler", $errmsg, null, $back_trace);
-        if ((defined('CLI') && CLI) || self::$errorMode == 'text')
+        if ((defined('CLI') && CLI) || self::$errorMode == 'text'){
         	echo $err;
-        else
+        }else{
         	BizSystem::clientProxy()->showErrorMessage($err, true);
-        exit();
+        }
+        if(!$exc->no_exit)
+        {
+        	exit();
+        }
     }
 
     /**

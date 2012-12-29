@@ -577,7 +577,9 @@ class EasyForm extends MetaObject implements iSessionObject
         $errorMsg = $e->getMessage();
         BizSystem::log(LOG_ERR, "DATAOBJ", "DataObj error = ".$errorMsg);
         //BizSystem::clientProxy()->showClientAlert($errorMsg);   //showErrorMessage($errorMsg);
-        BizSystem::clientProxy()->showErrorMessage($errorMsg);
+        //BizSystem::clientProxy()->showErrorMessage($errorMsg);	
+        $e->no_exit=true;        
+	    OB_ErrorHandler::ExceptionHandler($e);
     }
 
     /**
