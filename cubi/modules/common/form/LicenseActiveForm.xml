@@ -10,7 +10,7 @@
     	<Element Name="fld_license_code" Class="Textarea" FieldName="license_code" Label="License"  AllowURLParam="N" CssClass="lic_code" CssErrorClass="lic_code" CssFocusClass="lic_code"/>
     </DataPanel>
     <ActionPanel>            
-        <Element Name="btn_active" Class="LabelText" Text="Active" CssClass="button_highlight" Link="javascript:;">
+        <Element Name="btn_active" Class="LabelText" Text="Submit" CssClass="button_highlight" Link="javascript:;">
         	<EventHandler Name="btn_active_onclick" Event="onclick" Function="ActiveLicense()"/>
         </Element>
         <Element Name="btn_register" Hidden="{@:m_ModuleRegister!=''?'N':'Y'}" Class="LabelText" Text="Register" CssClass="button" Link="javascript:;">
