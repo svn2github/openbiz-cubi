@@ -128,3 +128,5 @@ CREATE TABLE `contact_related` (
 update `contact` set `group_id`=1,`group_perm`=1,`other_perm`=1;
 update `contact_type` set `group_id`=1,`group_perm`=1,`other_perm`=1;
 update `contact` set `owner_id`=`create_by`;
+
+insert  into `role`(`name`,`description`,`status`,`default`,`startpage`) values ('Contact Member','Openbiz Contact Member',1,1,'/contact/contact_list');

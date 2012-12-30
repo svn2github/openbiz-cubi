@@ -16,10 +16,10 @@
 	</ACL>
     <Menu>
 		<!-- Contact menus -->
-		<MenuItem Name="ContactTopMenu" Title="Contacts" Parent="" Description="" URL="/contact/contact_list" Order="50" Access="contact.access">
+		<MenuItem Name="ContactTopMenu" Title="Contact" Parent="" Description="" URL="/contact/contact_list" Order="50" Access="contact.access">
 		</MenuItem>	
 		
-    	<MenuItem Name="Contact" Title="Contacts" Parent="ContactTopMenu" Description="" IconImage="spacer.gif" IconCssClass="icon_contact" Order="10" Access="contact.access">		
+    	<MenuItem Name="Contact" Title="Contact" Parent="ContactTopMenu" Description="" IconImage="spacer.gif" IconCssClass="icon_contact" Order="10" Access="contact.access">		
 			<MenuItem Name="Contact.Manage" Title="View Contacts" Description=""  URL="/contact/contact_list"  Order="10" Access="contact.access" >
 				<MenuItem Name="Contact.Detail" Title="Contact Detail" Description=""  URL="/contact/contact_detail" Order="5"  Access="contact.access" ></MenuItem>
                 <MenuItem Name="Contact.GCard" Title="View General Card" Description=""  URL="/contact/contact_general_card" Order="10" Access="contact.access"></MenuItem>
