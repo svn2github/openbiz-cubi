@@ -59,6 +59,11 @@
     <ObjReferences>
         	<Object Name="location.do.LocationDO" Description="" Relationship="1-M" Table="location" CondColumn='type' CondValue='contact' Column="foreign_id" FieldRef="Id" />
         	<Object Name="changelog.do.ChangeLogDO" Description="" Relationship="1-M" Table="changelog" CondColumn='type' CondValue='contact' Column="foreign_id" FieldRef="Id" />
-        	<Object Name="system.do.UserOAuth" Description="" Relationship="1-M" Table="user_oauth" Column="user_id" FieldRef="user_id" />    
+        	<Object Name="system.do.UserOAuth" Description="" Relationship="1-M" Table="user_oauth" Column="user_id" FieldRef="user_id" />   
+        	    
+   		 	<Object Name="picture.do.PictureDO" Description="" Relationship="1-M" Table="picture" CondColumn='type' CondValue='contact' Column="foreign_id" FieldRef="Id" />
+    		<Object Name="attachment.do.AttachmentDO" Description="" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='contact' Column="foreign_id" FieldRef="Id" />   		
+			<Object Name="extend.do.ExtendDataDO" Relationship="1-M" Table="extend_data" CondColumn='module' CondValue='contact' Column="type_id" FieldRef="type_id" Column2="record_id" FieldRef2="Id" onDelete="Cascade"/>
+	 
     </ObjReferences>
 </BizDataObj>
