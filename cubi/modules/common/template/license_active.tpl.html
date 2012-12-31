@@ -52,13 +52,15 @@ font-style:italic;
 .license_form .purchase-block
 {
 float:right;
-padding-right:80px;
+padding-right:70px;
 padding-left:50px;
 width:200px;
+padding-top:10px;
 height:200px;
 background-image:url({/literal}{$resource_url}{literal}/common/images/license_bg_arrow.png);
 background-repeat:no-repeat;
-background-position:0px 60px;;
+background-position:0px 70px;;
+
 }
 .lic_code{
 width:310px;
@@ -72,9 +74,9 @@ font-size:10pt;
 </style>
 <div class="license_form" >
 {if $form.appInfo.APP_WEBSITE}
-	<a href="{$form.appInfo.APP_WEBSITE}"><img src="{$form.appInfo.APP_LOGO}" style="display:block;padding-bottom:0px;" border="0" /></a>
+	<a href="{$form.appInfo.APP_WEBSITE}"><img src="{$form.appInfo.APP_LOGO}" style="display:block;padding-bottom:10px;" border="0" /></a>
 {else}
-	<img src="{$resource_url}/common/images/license/app_logo.png" style="display:block;padding-bottom:0px;" border="0" />
+	<img src="{$resource_url}/common/images/license/app_logo.png" style="display:block;padding-bottom:10px;" border="0" />
 {/if}
 	<div class="purchase-block">
 {if $form.appInfo.APP_PREVIEW}	

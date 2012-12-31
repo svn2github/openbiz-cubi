@@ -14,7 +14,9 @@
         	<EventHandler Name="btn_active_onclick" Event="onclick" Function="ActiveLicense()"/>
         </Element>
      
-        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button" Link="javascript:history.go(-1)"></Element>
+        <Element Name="btn_cancel" Class="LabelText" Text="Back" CssClass="button" Link="javascript:;">
+        	<EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"/>
+        </Element>
     </ActionPanel> 
     <NavPanel>
     </NavPanel> 
