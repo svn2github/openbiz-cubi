@@ -64,9 +64,17 @@ background-position:0px 60px;;
 {/literal}
 </style>
 <div class="license_form" >
-	<a href="{$form.appInfo.APP_WEBSITE}"><img src="{$form.appInfo.APP_LOGO}" style="display:block;padding-bottom:10px;" border="0" /></a>
+{if $form.appInfo.APP_WEBSITE}
+	<a href="{$form.appInfo.APP_WEBSITE}"><img src="{$form.appInfo.APP_LOGO}" style="display:block;padding-bottom:0px;" border="0" /></a>
+{else}
+	<img src="{$resource_url}/common/images/license/app_logo.png" style="display:block;padding-bottom:0px;" border="0" />
+{/if}
 	<div class="purchase-block">
+{if $form.appInfo.APP_PREVIEW}	
 		<a href="{$form.appInfo.APP_WEBSITE}"><img src="{$form.appInfo.APP_PREVIEW}" style="display:block;padding-bottom:10px;" border="0" /></a>
+{else}
+		<img src="{$resource_url}/common/images/license/app_preview.png" style="display:block;padding-bottom:10px;" border="0" />
+{/if}		
 	</div>
 	<h1>{$form.title}</h1>
 	<div>{$form.description}</div>

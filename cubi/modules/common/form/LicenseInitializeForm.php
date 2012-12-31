@@ -13,6 +13,11 @@ class LicenseInitializeForm extends LicenseForm
 			return parent::rerender();
 		}
 		
+		$appInfo = $this->getAppInfo();
+		if(!$appInfo){
+			$rec['howto_active'] = 'ENTER';
+		}
+		
 		switch(strtoupper($rec['howto_active']))
 		{
 			case "ENTER":				
@@ -21,8 +26,7 @@ class LicenseInitializeForm extends LicenseForm
 			case "FREETRIAL":
 				$this->getTrailLicense();
 				break;
-			case "PURCHASE":
-				$appInfo = $this->getAppInfo();
+			case "PURCHASE":				
 				$url = $appInfo['APP_PURCHASE'];
 				BizSystem::clientProxy()->redirectPage($url);
 				break;
