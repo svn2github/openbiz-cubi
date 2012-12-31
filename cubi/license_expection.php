@@ -21,8 +21,19 @@ function ioncube_event_handler($err_code, $params)
 	BizSystem::instance()->getSessionContext()->setVar("LIC_SOURCE_URL", $_SERVER['REQUEST_URI']);
 	BizSystem::instance()->getSessionContext()->setVar("LIC_MODULE", $moduleName);
 	
+	
+	$rh_file = MODULE_PATH.DIRECTORY_SEPARATOR.$moduleName.DIRECTORY_SEPARATOR.'register_handler.php';
+	$rh_func = false;
+	if(is_file($rh_file))
+	{
+		include_once($rh_file);
+		if(function_exists($moduleName."_register_handler")){
+			$rh_func = true;
+		}
+	}
+	
 	$lic_file = MODULE_PATH.DIRECTORY_SEPARATOR.$moduleName.DIRECTORY_SEPARATOR.'license.key';
-	if(is_file($lic_file))
+	if(is_file($lic_file) && $rh_func)
 	{
 		$formObj = BizSystem::getObject("common.form.LicenseInvalidForm");
 		$formObj->m_SourceURL = $_SERVER['REQUEST_URI'];
