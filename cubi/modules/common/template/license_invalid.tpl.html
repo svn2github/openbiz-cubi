@@ -80,7 +80,7 @@ background-position:0px 70px;;
 	<h1>{$form.title}</h1>
 	<div>{$form.description}</div>
 	<div class="active_logic">
-		<span>{t}
+		<span  style="line-height:22px;">{t}
 The application you are running is protected by a license, 
 But the license installed for this application is invaild
 
@@ -88,12 +88,12 @@ But the license installed for this application is invaild
 {if $form.license_message}
 {t}License error message below:{/t}
 </span>
-<div style="padding-left:0px;padding-bottom:15px;margin-top:10px;">
+<div style="padding-left:0px;padding-bottom:10px;margin-top:5px;">
 	<span style="border:1px solid #cccccc;display:block;width:320px;padding:5px 10px 5px 10px;background-color:#f0f0f0;">{$form.license_message}</span>
 </div>
 {/if}
 	</div>
-<div class="hint" style="height:40px;" >{t}If the software works before, then your license may expired{/t}</div>
+<div class="hint" style="height:30px;" >{t}If the software works before, then your license may expired{/t}</div>
 	
 	<div style="padding-top:5px;">
 			{foreach item=elem from=$actionPanel}
