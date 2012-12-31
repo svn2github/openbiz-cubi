@@ -72,13 +72,27 @@ class UserForm extends EasyForm
         $roleDo = BizSystem::getObject($RoleDOName,1);
         $userRoleDo = BizSystem::getObject($UserRoleDOName,1);
         
-        $roleDo->setSearchRule("[default]=1");
+        $default_role_id = (int)$recArr['default_role'];
+        if($default_role_id)
+        {
+        	$searchRule = "[default]=1 or [Id]='$default_role_id'";
+        }else{
+        	$searchRule = "[default]=1";
+        }        
+        $roleDo->setSearchRule($searchRule);
         $defaultRoles = $roleDo->fetch();
         foreach($defaultRoles as $role){
         	$role_id = $role['Id'];
+        	if($role_id == $default_role_id)
+        	{
+        		$default = 1;
+        	}else{
+        		$default = 0;
+        	}
         	$userRoleArr = array(
         		"user_id" => $user_id,
-        		"role_id" => $role_id
+        		"role_id" => $role_id,
+        		"default" => $default
         	);
         	$userRoleDo->insertRecord($userRoleArr);
         }
@@ -90,17 +104,87 @@ class UserForm extends EasyForm
         $groupDo = BizSystem::getObject($GroupDOName,1);
         $userGroupDo = BizSystem::getObject($UserGroupDOName,1);
         
-        $groupDo->setSearchRule("[default]=1");
+        $default_group_id = (int)$recArr['default_group'];
+        if($default_group_id)
+        {
+        	$searchRule = "[default]=1 or [Id]='$default_group_id'";
+        }else{
+        	$searchRule = "[default]=1";
+        }  
+        $groupDo->setSearchRule($searchRule);
         $defaultGroups = $groupDo->fetch();
         foreach($defaultGroups as $group){
         	$group_id = $group['Id'];
+        	if($group_id == $default_group_id)
+        	{
+        		$default = 1;
+        	}else{
+        		$default = 0;
+        	}
         	$userGroupArr = array(
         		"user_id" => $user_id,
-        		"group_id" => $group_id
+        		"group_id" => $group_id,
+        		"default" => $default
         	);
         	$userGroupDo->insertRecord($userGroupArr);
         }        
         
+       //setup user default preference
+       $prefDo = BizSystem::getObject("myaccount.do.PreferenceDO");
+       //language 
+       if(isset($recArr['default_lang'])){
+       		$recArrParam = array(
+            		"user_id" => $user_id,
+            		"name"	  => 'language',
+            		"value"   => $recArr['default_lang'],
+	            	"section" => 'General',
+	            	"type" 	  => 'LanguageSelector',	            
+	        );
+	        $prefDo->insertRecord($recArrParam);
+       }
+       //theme 
+       if(isset($recArr['default_theme'])){
+       		$recArrParam = array(
+            		"user_id" => $user_id,
+            		"name"	  => 'theme',
+            		"value"   => $recArr['default_theme'],
+	            	"section" => 'General',
+	            	"type" 	  => 'ThemeSelector',	            
+	        );
+	        $prefDo->insertRecord($recArrParam);
+       }
+       //data perm 
+    	if(isset($recArr['owner_perm'])){
+       		$recArrParam = array(
+            		"user_id" => $user_id,
+            		"name"	  => 'owner_perm',
+            		"value"   => $recArr['owner_perm'],
+	            	"section" => 'Data Sharing',
+	            	"type" 	  => 'DropDownList',	            
+	        );
+	        $prefDo->insertRecord($recArrParam);
+       }
+       if(isset($recArr['group_perm'])){
+       		$recArrParam = array(
+            		"user_id" => $user_id,
+            		"name"	  => 'group_perm',
+            		"value"   => $recArr['group_perm'],
+	            	"section" => 'Data Sharing',
+	            	"type" 	  => 'DropDownList',	            
+	        );
+	        $prefDo->insertRecord($recArrParam);
+       }
+       if(isset($recArr['other_perm'])){
+       		$recArrParam = array(
+            		"user_id" => $user_id,
+            		"name"	  => 'other_perm',
+            		"value"   => $recArr['other_perm'],
+	            	"section" => 'Data Sharing',
+	            	"type" 	  => 'DropDownList',	            
+	        );
+	        $prefDo->insertRecord($recArrParam);
+       }
+       
        //create a default profile to new user
        $profile_id = BizSystem::getService(PROFILE_SERVICE)->CreateProfile($user_id);
 	   $this->switchForm($this->m_ProfileEditForm,$profile_id);   	

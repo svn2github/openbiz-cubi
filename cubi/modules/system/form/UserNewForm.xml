@@ -5,21 +5,31 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyForm Name="UserNewForm" Icon="icon_user_add.gif" Class="UserForm" FormType="New" jsClass="jbForm" Title="New user" Description="Please fill the form below to create a new user account" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform.tpl.html" MessageFile="system.msg"  Access="User.Administer_Users">
+<EasyForm Name="UserNewForm" Icon="icon_user_add.gif" Class="UserForm" FormType="New" jsClass="jbForm" Title="New user" Description="Please fill the form below to create a new user account" BizDataObj="system.do.UserDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform_elementset.tpl.html" MessageFile="system.msg"  Access="User.Administer_Users">
     <DataPanel>
-        <Element Name="fld_Id" Class="LabelText" FieldName="Id" Label="Id" Hidden="Y" />
-		<Element Name="fld_username" Class="InputText" FieldName="username" Required="Y" Label="Username"  HTMLAttr="maxlength='36'" Description="Between 6-20 charactors"/>
-        <Element Name="fld_password" Class="Password" FieldName="password" label="Password"  Required="Y"  HTMLAttr="maxlength='36'" Description="Between 6-12 charactors"/>
-		<Element Name="fld_password_repeat" Class="Password" FieldName="password" Description="Input password again for confirmation"  Label="Repeat"  required="Y"/>
-        <Element Name="fld_email" Class="InputText" FieldName="email" Label="Email" Description="User email address" />
-        <Element Name="fld_status" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)"/>
+        <Element Name="fld_Id"  ElementSet="General" Class="LabelText" FieldName="Id" Label="Id" Hidden="Y" />
+		<Element Name="fld_username" ElementSet="General" Class="InputText" FieldName="username" Required="Y" Label="Username"  HTMLAttr="maxlength='36'" Description="Between 6-20 charactors"/>
+        <Element Name="fld_password" ElementSet="General" Class="Password" FieldName="password" label="Password"  Required="Y"  HTMLAttr="maxlength='36'" Description="Between 6-12 charactors"/>
+		<Element Name="fld_password_repeat" ElementSet="General" Class="Password" FieldName="password" Description="Input password again for confirmation"  Label="Repeat"  required="Y"/>
+        <Element Name="fld_email" ElementSet="General" Class="InputText" FieldName="email" Label="Email" Description="User email address" />
+        <Element Name="fld_status" ElementSet="General" Class="DropDownList" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)"/>
+        
+        <Element Name="fld_default_group" ElementSet="Group and Role" DefaultValue="{BizSystem::getService('system.lib.SystemService')->getDefaultGroupId()}" Class="DropDownList" FieldName="default_group" Label="Default Group" SelectFrom="system.do.GroupPickDO[name:Id]"   Description="User default group for data sharing" />
+        <Element Name="fld_default_role" ElementSet="Group and Role" DefaultValue="{BizSystem::getService('system.lib.SystemService')->getDefaultRoleId()}" Class="DropDownList" FieldName="default_role" Label="Default Role" SelectFrom="system.do.RolePickDO[name:Id]"  Description="User default role and Login landing page" />
+        
+        <Element Name="fld_default_lang" ElementSet="Preference" DefaultValue="{DEFAULT_LANGUAGE}" Class="myaccount.form.LanguageSelector" FieldName="default_lang" Label="Default Language" Description="User Default Language" />
+        <Element Name="fld_default_theme" ElementSet="Preference" DefaultValue="{DEFAULT_THEME_NAME}" Class="myaccount.form.ThemeSelector" FieldName="default_theme" Label="Default Language" Description="User Default Language" />
+        
+        <Element Name="fld_owner_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing" Description="Default permission for my data " FieldName="owner_perm" Label="Owner Perm"  />
+        <Element Name="fld_group_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(GroupPerm)" ElementSet="Data Sharing" Description="Default permission for my group's users" FieldName="group_perm" Label="Group Perm"  />
+		<Element Name="fld_other_perm"  Class="DropDownList" SelectFrom="system.lov.DataPermLOV(OtherPerm)" ElementSet="Data Sharing" Description="Default permission for other users " FieldName="other_perm" Label="Other Perm"  />	
     </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
             <EventHandler Name="save_onclick" Event="onclick" Function="CreateUser()" ShortcutKey="Ctrl+Enter" RedirectPage="{@home:url}/system/user_detail/{@:Elem[fld_Id].Value}"/>
         </Element>
         <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
-            <EventHandler Name="cancel_onclick" Event="onclick" Function="js:history.go(-1)"/>
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="switchForm()"/>
         </Element>
     </ActionPanel> 
     <NavPanel>
