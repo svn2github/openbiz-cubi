@@ -18,25 +18,49 @@ class LicenseForm extends EasyForm
 	public $m_SourceURL;
 	public $m_ModuleName;
 	public $m_ModuleRegister;
-	public $m_ModuleTrial;
+	public $m_ModuleTrial;	
+	
+	public function outputAttrs()
+	{
+		$result = parent::outputAttrs();		
+		$result['appInfo'] = $this->getAppInfo();
+		return $result;
+	}
+	
+	public function getViewObject()
+	{
+		$viewObj = BizSystem::getObject("common.view.LicenseInvalidView");
+        return $viewObj;
+		
+	}
 	
  	public function setSessionVars($sessionContext)
     {       
         if($this->m_ErrorParams){
-	 		$sessionContext->setObjVar("common.LicenseForm", "SourceURL", $this->m_SourceURL);
-	        $sessionContext->setObjVar("common.LicenseForm", "ErrorCode", $this->m_ErrorCode);        	
-	        $sessionContext->setObjVar("common.LicenseForm", "ErrorParams", $this->m_ErrorParams);
+	 		$sessionContext->setObjVar("common.form.LicenseForm", "SourceURL", $this->m_SourceURL);
+	        $sessionContext->setObjVar("common.form.LicenseForm", "ErrorCode", $this->m_ErrorCode);        	
+	        $sessionContext->setObjVar("common.form.LicenseForm", "ErrorParams", $this->m_ErrorParams);
         }
      	parent::setSessionVars($sessionContext);        
     }	
 	
 	public function getSessionVars($sessionContext)
-    {
-        $sessionContext->getObjVar("common.LicenseForm", "SourceURL", $this->m_SourceURL);
-        $sessionContext->getObjVar("common.LicenseForm", "ErrorCode", $this->m_ErrorCode);
-        $sessionContext->getObjVar("common.LicenseForm", "ErrorParams", $this->m_ErrorParams);
+    {    	
+        $sessionContext->getObjVar("common.form.LicenseForm", "SourceURL", $this->m_SourceURL);
+        $sessionContext->getObjVar("common.form.LicenseForm", "ErrorCode", $this->m_ErrorCode);
+        $sessionContext->getObjVar("common.form.LicenseForm", "ErrorParams", $this->m_ErrorParams);
      	parent::getSessionVars($sessionContext);        
     }	    
+    
+    public function getAppInfo()
+    {
+    	if($this->getAppRegister())
+		{
+			$func = $this->m_ModuleName.'_get_product_info';
+			$result = $func();
+		}    	
+		return $result;
+    }
     
 	public function getAppRegister()
 	{

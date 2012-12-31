@@ -1,0 +1,72 @@
+<form id="{$form.name}" name="{$form.name}">
+<style>
+{literal}
+.license_form{
+padding-left:100px;
+padding-top:50px;
+height:340px;
+background-repeat:no-repeat;
+background-position:510px 105px;
+}
+.license_form .preview{
+float:right;
+margin-right:80px;
+margin-top:20px;
+}
+.license_form h1{
+font-size:20px;
+line-height:20px;
+display:block;
+font-weight:normal;
+padding-top:10px;
+padding-bottom:10px;
+}
+.license_form .label{
+color:#14A8F1;
+line-height:30px;
+}
+.license_form .eula{
+height:60px;
+padding-top:15px;
+
+width:400px;
+}
+.license_form .active_logic label{
+float:none;
+}
+.license_form .active_logic label strong{
+color:#ff0000;
+}
+.license_form .upline
+{
+background-image:url({/literal}{$resource_url}{literal}/common/images/h_line_short.png);
+background-repeat:no-repeat;
+background-position:0px 10px;
+}
+{/literal}
+</style>
+<div class="license_form" >
+	<a href="{$form.appInfo.APP_WEBSITE}"><img src="{$form.appInfo.APP_LOGO}" style="display:block;" border="0" /></a>
+	<a href="{$form.appInfo.APP_WEBSITE}"><img class="preview" src="{$form.appInfo.APP_PREVIEW}" style="display:block;" border="0" /></a>
+	<h1>{$form.title}</h1>
+	<div class="active_logic">
+		<div class="label">{$dataPanel.fld_how_to_active.label}</div>
+		<div>{$dataPanel.fld_how_to_active.element}</div>
+	</div>
+	
+	{if $dataPanel.fld_eula.label}
+	<div class="eula upline" {if $errors.fld_eula}style="height:70px;"{/if}>
+		<div class="label">{$dataPanel.fld_eula.label}</div>		
+		<div class="{if $errors.fld_eula}innerError errorBox{/if}" style="width:300px;height:20px;background-position:8px 5px;padding-bottom:8px;">
+		<label style="min-width:none;width:auto;">{$dataPanel.fld_eula.element}</label>
+		</div>
+	</div>
+	{/if}
+	
+	<div style="padding-top:5px;">
+			{foreach item=elem from=$actionPanel}
+				{$elem.element}
+			{/foreach}
+	</div>
+</div>
+</form>
