@@ -15,9 +15,8 @@ class LicenseInitializeForm extends LicenseForm
 		
 		switch(strtoupper($rec['howto_active']))
 		{
-			case "ENTER":
-				$url = APP_INDEX."/common/license_active";
-				BizSystem::clientProxy()->redirectPage($url);
+			case "ENTER":				
+				$this->switchForm("common.form.LicenseActiveForm");
 				break;
 			case "FREETRIAL":
 				$this->getTrailLicense();

@@ -1,16 +1,76 @@
 <form id="{$form.name}" name="{$form.name}">
-<div style="float:left; width:120px; height:400px;">
-</div>
+<style>
+{literal}
+.license_form{
+padding-left:100px;
+padding-top:50px;
+height:340px;
+background-repeat:no-repeat;
+background-position:510px 105px;
+}
+.license_form .preview{
+float:right;
+margin-right:80px;
+margin-top:20px;
+}
+.license_form h1{
+font-size:20px;
+line-height:20px;
+display:block;
+font-weight:normal;
+padding-top:10px;
+padding-bottom:10px;
+}
+.license_form .label{
+color:#14A8F1;
+line-height:30px;
+}
+.license_form .eula{
+height:60px;
+padding-top:15px;
 
-<div style="float:left; width:620px; height:400px;">
-	<div style="height:75px;"></div>
-	<div style="height:35px;">
-		<div style="float:left; width:50px;"><img src="{$image_url}/icon_info.gif" /></div>
-		<div style="float:left"><h1>{$form.title}</h1></div>
+width:400px;
+}
+.license_form .active_logic label{
+float:none;
+}
+.license_form .active_logic label strong{
+color:#ff0000;
+}
+.license_form .upline
+{
+background-image:url({/literal}{$resource_url}{literal}/common/images/h_line_short.png);
+background-repeat:no-repeat;
+background-position:0px 10px;
+}
+.license_form .hint
+{
+color:#999999;
+height:25px;
+font-style:italic;
+}
+.license_form .purchase-block
+{
+float:right;
+padding-right:80px;
+padding-left:50px;
+width:200px;
+height:200px;
+background-image:url({/literal}{$resource_url}{literal}/common/images/license_bg_arrow.png);
+background-repeat:no-repeat;
+background-position:0px 60px;;
+}
+
+{/literal}
+</style>
+<div class="license_form" >
+	<a href="{$form.appInfo.APP_WEBSITE}"><img src="{$form.appInfo.APP_LOGO}" style="display:block;padding-bottom:10px;" border="0" /></a>
+	<div class="purchase-block">
+		<a href="{$form.appInfo.APP_WEBSITE}"><img src="{$form.appInfo.APP_PREVIEW}" style="display:block;padding-bottom:10px;" border="0" /></a>
 	</div>
-	<div style="height:20px;"></div>
-		<p class="input_row" style="height:90px; line-height:20px;">
-		<span style="width:40px; height:90px;display:block;float:left;"></span>
+	<h1>{$form.title}</h1>
+	<div>{$form.description}</div>
+	<div class="active_logic">
 		<span>{t}
 The application you are running is protected by a license, 
 But the license installed for this application is invaild
@@ -18,17 +78,18 @@ But the license installed for this application is invaild
 {/t}
 {if $form.license_message}
 {t}License error message below:{/t}
-</span></p>
-<div style="padding-left:40px;padding-bottom:15px;">
-	<span style="border:1px solid #cccccc;display:block;width:420px;padding:5px 10px 5px 10px;background-color:#f0f0f0;">{$form.license_message}</span>
+</span>
+<div style="padding-left:0px;padding-bottom:15px;margin-top:10px;">
+	<span style="border:1px solid #cccccc;display:block;width:320px;padding:5px 10px 5px 10px;background-color:#f0f0f0;">{$form.license_message}</span>
 </div>
 {/if}
-		<div style="height:10px;"></div>
-		<p class="input_row">
-			<span style="width:40px; text-align:right;display:block;float:left;height:10px;"></span>
+	</div>
+<div class="hint">{t}If the software works before, then your license may expired{/t}</div>
+	
+	<div style="padding-top:5px;">
 			{foreach item=elem from=$actionPanel}
 				{$elem.element}
 			{/foreach}
-		</p>
+	</div>
 </div>
 </form>
