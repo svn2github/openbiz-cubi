@@ -21,7 +21,7 @@ table.input_row {
 	<div>
 	
 	<div style="padding-left:10px;" >
-		<div class="underline " style="height:280px;width:680px;" id="general">
+		<div class="upline " style="height:280px;width:680px;" id="general">
 		<h2 style="width:680px;"><span class="title_id" style="margin-right:10px;">{$form.currentRecordId}</span>{t}Contact Profile{/t}</h2>				
 		
 		<div style="height:80px;">
@@ -139,7 +139,7 @@ table.input_row {
 		</div>
 
 		<!-- Phone Section -->
-		<div class="underline" style="width:680px;">
+		<div class="upline" style="width:680px;">
 			<h2 style="width:680px;" class="element_set_title"><a id="element_set_btn_1" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','1')" >{t}Phone{/t}</a></h2>
 				<div id="element_set_panel_1" class="element_set_panel">
 				<table ><tr><td>		
@@ -169,7 +169,7 @@ table.input_row {
 		</script>
 		
 		<!-- Address Section -->
-		<div class="underline" style="width:680px;" >
+		<div class="upline" style="width:680px;" >
 			<h2 style="width:680px;" class="element_set_title"><a id="element_set_btn_2" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','2')" >{t}Address{/t}</a></h2>
 				<div id="element_set_panel_2" class="element_set_panel">
 				<table ><tr><td>
@@ -199,7 +199,7 @@ table.input_row {
 		</script>
 		
 		<!-- Online Contact Section -->
-		<div class="underline" style="width:680px;">		
+		<div class="upline" style="width:680px;">		
 			<h2 style="width:680px;" class="element_set_title"><a id="element_set_btn_3" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','3')" >{t}Online Contact{/t}</a></h2>
 				<div id="element_set_panel_3" class="element_set_panel">
 				<table ><tr><td>
@@ -244,7 +244,7 @@ table.input_row {
 		
 		{if $dataPanel.fld_changelog.element}
 		<!-- Change Log Section  -->		
-		<div class="underline" style="width:680px;">		
+		<div class="upline underline" style="width:680px;">		
 				<h2 class="element_set_title"><a id="element_set_btn_changelog" class="shrink" href="javascript:;" onclick="switch_elementset('{$form.name}','changelog')" >{$dataPanel.fld_changelog.elementset}</a></h2>
 				<div id="element_set_panel_changelog" class="element_set_panel">
 				{$dataPanel.fld_changelog.element}

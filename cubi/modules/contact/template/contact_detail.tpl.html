@@ -22,7 +22,7 @@ table.input_row label{
 		<div style="height:15px;"></div>
 		{/if}
 	<div style="padding-left:10px;" >
-		<div class="underline upline" style="height:210px;">
+		<div class="upline" style="height:210px;">
 		<h2>{t}General Profile{/t}</h2>
 		<div style="float:left; width:140px; height:150px; text-align:center; padding-top:10px;">
 				{assign var=item value=$dataPanel.fld_photo}
@@ -124,7 +124,7 @@ table.input_row label{
 		</div>
 
 		<!-- Phone Section -->
-		<div class="underline" style="height:95px;">
+		<div class="upline" style="height:95px;">
 			<h2>{t}Phone{/t}</h2>			
 			{foreach name=phone item=item key=itemName from=$dataPanel}
 				{if $item.elementsetcode eq "Phone"}			
@@ -147,7 +147,7 @@ table.input_row label{
 		</div>
 		
 		<!-- Address Section -->
-		<div class="underline" style="height:120px;">
+		<div class="upline" style="height:120px;">
 			<h2>{t}Address{/t}</h2>
 			{foreach name=address item=item key=itemName from=$dataPanel}
 				{if $item.elementsetcode eq "Address"}			
@@ -170,7 +170,7 @@ table.input_row label{
 		</div>
 
 		<!-- Online Contact Section -->
-		<div class="underline" style="height:120px;">
+		<div class="upline" style="height:120px;">
 			<h2>{t}Online Contact{/t}</h2>			
 			{foreach name=contact item=item key=itemName from=$dataPanel}				
 				{if $item.elementsetcode eq "Online Contact"}			
@@ -193,7 +193,7 @@ table.input_row label{
 		</div>
 		
 		<!-- Misc Section -->
-		<div class="underline" style="height:310px;">
+		<div class="upline underline" style="height:310px;">
 			<h2>{t}Miscellaneous{/t}</h2>			
 			{foreach item=item key=itemName from=$dataPanel}
 				{if $item.elementsetcode eq "Miscellaneous"}
