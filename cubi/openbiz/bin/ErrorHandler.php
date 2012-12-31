@@ -46,19 +46,23 @@ class OB_ErrorHandler
             return;
         if ($errNo == E_NOTICE || $errNo == E_STRICT) // || $errno == E_WARNING)
             return; // ignore notice error
-
         $debug_array = debug_backtrace();
         $back_trace = self::_errorBacktrace($debug_array);
         $err = self::_getOutputErrorMsg($errNo, $errMsg, $fileName, $lineNum, $back_trace);
         //Send Error to Log Service;
         BizSystem::logError ($errNo, "ErrorHandler", $errMsg, null, $back_trace);
         if ((defined('CLI') && CLI) || self::$errorMode == 'text')
+        {
         	echo $err;
+        }
         else
-        	BizSystem::clientProxy()->showErrorMessage($err, true);
-
-        if ($errNo == E_USER_ERROR || $errNo == E_ERROR)
-            exit();
+        {
+        	BizSystem::clientProxy()->showErrorMessage($err, true);     
+        }
+        if ($errNo == E_USER_ERROR || $errNo == E_ERROR){
+			BizSystem::clientProxy()->printOutput();
+        	exit();
+        }
     }
 
     /**
