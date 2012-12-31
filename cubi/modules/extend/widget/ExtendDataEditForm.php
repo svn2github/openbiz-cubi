@@ -189,6 +189,10 @@ class ExtendDataEditForm extends EasyForm
 		}
 		
 		$recArr = $this->readInputExtendRecord();
+		if(!$recArr)
+		{
+			return ;
+		}
 		$do = $this->getDataObj();
 		
 		$cond_column	= $do->m_Association['CondColumn'];
