@@ -124,6 +124,7 @@ class profileService
             "email" => $userInfo['email'],
             "company" => "N/A",
             "user_id" => $userId,
+        	"owner_id" => $userId,
             "group_perm" => '1',
             "type_id" => '1',
             "other_perm" => '1',
