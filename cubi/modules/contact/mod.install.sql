@@ -130,3 +130,7 @@ update `contact_type` set `group_id`=1,`group_perm`=1,`other_perm`=1;
 update `contact` set `owner_id`=`create_by`;
 
 insert  into `role`(`name`,`description`,`status`,`default`,`startpage`) values ('Contact Member','Openbiz Contact Member',1,1,'/contact/contact_list');
+
+/* install help tutorial */
+INSERT INTO `help_tutorial` (`url_match`, `type`, `content_url`, `subject`, `content`, `width`, `height`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
+('/contact/contact_list', 'url', 'http://www.openbiz.cn/enterprise/contact/tutorial/contact-manage.php', '联系人列表', '', 550, 330, 1, '2012-12-31 19:29:32', 1, '2012-12-31 19:29:32');
