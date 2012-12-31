@@ -11,7 +11,7 @@
         <Element Name="fld_username" Class="LabelText" FieldName="username" Label="Username"  Validator="{@validate:betweenLength([fld_username], 3, 10)}" HTMLAttr="maxlength='10'"/>
         <Element Name="fld_email" Class="LabelText" FieldName="email" Label="Email"  Validator="{@validate:email('[fld_email]')}"/>
         <Element Name="fld_smartcard" Class="LabelBool" TrueImg="idcard_enabled.gif" falseImg="idcard_disabled.gif" Link="{@home:url}/system/user_idcard/{@:Elem[fld_Id].Value}" FieldName="smartcard" Text="{@:Elem[fld_smartcard].Value}" Sortable="Y" Label="ID Card" />
-        <Element Name="fld_smartcardcode" Class="LabelText" FieldName="smartcard" Label="ID Card Code" />
+        <Element Name="fld_smartcardcode" Hidden="{@:Elem[fld_smartcardcode].Value?'N':'Y'}" Class="LabelText" FieldName="smartcard" Label="ID Card Code" />
         <Element Name="fld_status" Class="LabelList" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)"/>
 		
 		<Element Name="fld_cardcode" Class="IDCardReader" FieldName="smartcard" Label="Card Reader" />
