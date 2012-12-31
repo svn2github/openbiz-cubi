@@ -1166,7 +1166,10 @@ line-height:24px;
 }
 
 table.input_row td{
-	/*vertical-align:top;*/
+	/*vertical-align:top;*/	
+}
+table.input_row .div_input_select_w{
+margin-top:4px;
 }
 table.input_row label{
 /*width:80px; */
