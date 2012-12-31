@@ -79,11 +79,11 @@ class ContactForm extends ChangeLogForm
     }
     
 	public function updateRecord()
-	{
+	{		
 		$currentRec = $this->fetchData();
-        $recArr = $this->readInputRecord();
+        $recArr = $this->readInputRecord();                
 		$this->setActiveRecord($recArr);
-        
+		
 		//generate fast_index
         if($currentRec['display_name']!=$recArr['display_name']){
 		$svcobj=BizSystem::getService("service.chineseService");
@@ -121,7 +121,6 @@ class ContactForm extends ChangeLogForm
 			$userRec['email'] = $recArr['email'];
 			$userRec->save();
         }
-        
         if (count($recArr) != 0){
             	
 	        try
