@@ -32,6 +32,12 @@ class ErrorForm extends EasyForm
 	        $sessionContext->setObjVar($this->m_Name, "Errors", $this->m_Errors);   
 	        $sessionContext->setObjVar($this->m_Name, "showError", $this->m_ShowError);   
 	    }
+	    
+	    public function getViewObject()
+	    {
+	    	$viewObj = BizSystem::getObject("common.view.ErrorView");
+	    	return $viewObj;
+	    }
    
 	    public function fetchData()
 	    {
