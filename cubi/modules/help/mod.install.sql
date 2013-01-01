@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `help_tutorial` (
 
 
 INSERT INTO `help_tutorial` (`id`, `url_match`, `type`, `content_url`, `subject`, `content`, `width`, `height`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-(2, '/system/general_default', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-welcome.php', 'cubi初次登陆', '', 550, 265, 1, '2012-10-27 16:17:32', 1, '2012-10-29 20:27:28'),
+(2, '/system/general_default', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-welcome.php', 'cubi初次登陆', '', 550, 330, 1, '2012-10-27 16:17:32', 1, '2012-10-29 20:27:28'),
 (3, '/system/group_list', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-group.php', '用户部门设置', '', 550, 280, 1, '2012-10-27 16:27:31', 1, '2012-10-27 16:30:19'),
 (4, '/system/group_data_sharing', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-share.php', '部门共享设置', '', 500, 280, 1, '2012-10-27 16:36:57', 1, '2012-10-27 16:37:41'),
 (5, '/system/user_list', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-user.php', '用户设置', '', 550, 260, 1, '2012-10-29 18:45:17', 1, '2012-10-29 18:54:00'),
