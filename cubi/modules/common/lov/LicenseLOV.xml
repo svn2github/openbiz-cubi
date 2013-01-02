@@ -8,5 +8,6 @@
 <Selection>
    <ActiveLogic Value="ENTER" Text="Enter the product license code"/>
    <ActiveLogic Value="FREETRIAL" Text="Get a [strong]FREE[/strong] trial of the product for [strong][days] days[/strong]"/>
-   <ActiveLogic Value="PURCHASE" Text="Purchase a product license from its website"/>    
+   <ActiveLogic Value="PURCHASE" Text="Purchase a product license from its website"/>
+   <ActiveLogic Value="WEBSITE" Text="Go to the product official website"/>        
 </Selection>

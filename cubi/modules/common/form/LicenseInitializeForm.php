@@ -1,5 +1,10 @@
 <?php 
+include_once(MODULE_PATH."/common/lib/fileUtil.php");
+include_once(MODULE_PATH."/common/lib/httpClient.php");
+
 require_once "LicenseForm.php";
+
+
 class LicenseInitializeForm extends LicenseForm
 {
 	public function GoActive()
@@ -24,10 +29,18 @@ class LicenseInitializeForm extends LicenseForm
 				$this->switchForm("common.form.LicenseActiveForm");
 				break;
 			case "FREETRIAL":
-				$this->getTrailLicense();
+				if($this->getTrailLicense())
+				{
+					$scriptStr = 'location.reload();';
+					BizSystem::clientProxy()->runClientFunction($scriptStr);
+				}
 				break;
 			case "PURCHASE":				
 				$url = $appInfo['APP_PURCHASE'];
+				BizSystem::clientProxy()->redirectPage($url);
+				break;
+			case "WEBSITE":				
+				$url = $appInfo['APP_WEBSITE'];
 				BizSystem::clientProxy()->redirectPage($url);
 				break;
 		}
@@ -35,7 +48,9 @@ class LicenseInitializeForm extends LicenseForm
 	
 	public function getTrailLicense()
 	{
-		
+		$func = $this->m_ModuleName.'_trial_handler';
+		$result = $func();		
+		return $result;
 	}
 }
 ?>
