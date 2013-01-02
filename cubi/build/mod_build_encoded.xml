@@ -53,7 +53,7 @@ jsMin, SvnCheckout, Version, Documentor
 		<ioncubeencoder phpVersion="5" binary="false" ioncubepath="/Users/jixian/ioncube" optimize="max"
 		  targetoption="replace" withoutruntimeloadersupport="false"  
 		  CallbackFile ="license_expection.php"   ActionIfNoLoader="header('Location: '.APP_INDEX.'/common/loader_not_installed');"
-		  fromdir="build/src/${package}/register_handler.php" todir="build/encoded/${package}/register_handler.php" licensepath="" passphrase="">		  
+		  fromdir="build/src/${package}/modules/${buildName}/register_handler.php" todir="build/encoded/${package}/modules/${buildName}/register_handler.php" licensepath="" passphrase="">		  
 		</ioncubeencoder>
     </target>
     
