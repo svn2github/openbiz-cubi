@@ -36,6 +36,23 @@ class CubiService extends  MetaObject
 	
 	public function collectUserData($sendContact=1)
 	{
+		$method = "CollectUserData";
+		$params = $this->getSystemUserData($sendContact);				
+		$argsJson = urlencode(json_encode($params));
+        $query = array(	"method=$method","format=json","argsJson=$argsJson");		        
+
+		$httpClient = new HttpClient('POST');
+		foreach ($query as $q)
+		        $httpClient->addQuery($q);
+		$headerList = array();
+		$out = $httpClient->fetchContents($this->m_UDC_Server, $headerList);		        
+		$cats = json_decode($out, true);
+		$result = $cats['data'];
+		return $result;
+	}
+	
+	public function getSystemUserData($sendContact=1)
+	{
 		//sendContact = 0 ; don't send contact info
 		//sendContact = 1 ; send contact info
 		$contactRec = array();
@@ -79,12 +96,27 @@ class CubiService extends  MetaObject
 		);
 		
 		
-		$method = "CollectUserData";
+		
 		$params = array(
 			"contact_data" => $contactRec,
 			"system_data" => $systemRec
 		);
-		$argsJson = json_encode($params);
+		
+		return $params;
+	}
+	
+	public function GetSystemUUIDfromRemote()
+	{
+		$method = "CetSystemUUID";
+		if(function_exists("ioncube_server_data")){
+			$system_server_data = ioncube_server_data();
+		}else{
+			$system_server_data = "";
+		}
+		$params = array(
+			"system_server_data" => $system_server_data
+		);
+		$argsJson = urlencode(json_encode($params));
         $query = array(	"method=$method","format=json","argsJson=$argsJson");		        
 
 		$httpClient = new HttpClient('POST');
@@ -94,13 +126,22 @@ class CubiService extends  MetaObject
 		$out = $httpClient->fetchContents($this->m_UDC_Server, $headerList);		        
 		$cats = json_decode($out, true);
 		$result = $cats['data'];
+		if($result)
+		{
+			$dataFile = APP_HOME.'/files/system_uuid.data';
+			file_put_contents($dataFile,$result);
+		}
 		return $result;
-	}
-	
-
+	}	
 	
 	public function getSystemUUID()
 	{		
+		$uuid = $this->GetSystemUUIDfromRemote();
+		if($uuid)
+		{
+			return $uuid;
+		}
+		
 		$dataFile = APP_HOME.'/files/system_uuid.data';
 		if(is_file($dataFile))
 		{
