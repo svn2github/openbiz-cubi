@@ -49,6 +49,12 @@ jsMin, SvnCheckout, Version, Documentor
 		  Copy="*LoadHandler.php register_handler.php mod.xml upgrade.xml resource/"
 		  fromdir="build/src/${package}" todir="build/encoded/${package}" licensepath="license.key" passphrase="${passphrase}">		  
 		</ioncubeencoder>
+		
+		<ioncubeencoder phpVersion="5" binary="false" ioncubepath="/Users/jixian/ioncube" optimize="max"
+		  targetoption="replace" withoutruntimeloadersupport="false"  
+		  CallbackFile ="license_expection.php"   ActionIfNoLoader="header('Location: '.APP_INDEX.'/common/loader_not_installed');"
+		  fromdir="build/src/${package}/register_handler.php" todir="build/encoded/${package}/register_handler.php" licensepath="" passphrase="">		  
+		</ioncubeencoder>
     </target>
     
     <!-- 	<comment>Openbiz Collaboration</comment>	  
