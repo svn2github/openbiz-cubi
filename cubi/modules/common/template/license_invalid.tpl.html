@@ -55,28 +55,55 @@ float:right;
 padding-right:70px;
 padding-left:50px;
 width:200px;
-padding-top:10px;
+padding-top:35px;
 height:200px;
 background-image:url({/literal}{$resource_url}{literal}/common/images/license_bg_arrow.png);
 background-repeat:no-repeat;
-background-position:0px 70px;;
+background-position:0px 110px;;
 
+}
+.license_form .button_buy
+{
+	background-image:url({/literal}{$resource_url}{literal}/common/images/blue-button-buy_bg.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    display: block;
+    height: 27px;
+    line-height: 26px;
+    padding-right: 20px;
+    text-align: center;
+    width: 78px;
+    text-decoration:none;
+    margin-left:18px;
+}
+.license_form .button_buy:hover {
+    background-position: left -27px;
+}
+.license_form .button_buy:active {
+    background-position: left -54px;
 }
 {/literal}
 </style>
 <div class="license_form" >
+{if $form.appInfo.APP_PREVIEW}	
+	<div class="purchase-block">
+
+		<a href="{$form.appInfo.APP_WEBSITE}"><img src="{$form.appInfo.APP_PREVIEW}" style="display:block;padding-bottom:0px;" border="0" /></a>
+		<a href="{$form.appInfo.APP_PURCHASE}" class="button_buy" >{t}Purchase{/t}</a>
+	</div>
+{else}
+	<div class="purchase-block" style="padding-top:55px;background-position:0px 130px;">
+		<img src="{$resource_url}/common/images/license/app_preview.png" style="display:block;padding-bottom:10px;" border="0" />
+	</div>
+{/if}		
+
 {if $form.appInfo.APP_WEBSITE}
 	<a href="{$form.appInfo.APP_WEBSITE}"><img src="{$form.appInfo.APP_LOGO}" style="display:block;padding-bottom:10px;" border="0" /></a>
 {else}
 	<img src="{$resource_url}/common/images/license/app_logo.png" style="display:block;padding-bottom:10px;" border="0" />
 {/if}
-	<div class="purchase-block">
-{if $form.appInfo.APP_PREVIEW}	
-		<a href="{$form.appInfo.APP_WEBSITE}"><img src="{$form.appInfo.APP_PREVIEW}" style="display:block;padding-bottom:10px;" border="0" /></a>
-{else}
-		<img src="{$resource_url}/common/images/license/app_preview.png" style="display:block;padding-bottom:10px;" border="0" />
-{/if}		
-	</div>
+
 	<h1>{$form.title}</h1>
 	<div>{$form.description}</div>
 	<div class="active_logic">
