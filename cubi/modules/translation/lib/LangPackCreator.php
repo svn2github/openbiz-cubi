@@ -441,6 +441,7 @@ class LangPackCreator
 
     	switch($name){
     		case "TEXT":
+    		case "HINT":
     		case "DESCRIPTION":
     		case "LABEL":
     		case "TITLE":

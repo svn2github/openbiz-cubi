@@ -580,7 +580,9 @@ class Element extends MetaObject implements iUIControl
     	if (!empty($this->m_BlankOption))
     		$this->m_BlankOption = I18n::t($this->m_BlankOption, $this->getTransKey('BlankOption'), $module, $this->getTransPrefix());
     	if (!empty($this->m_TabSet))
-    		$this->m_TabSet = I18n::t($this->m_TabSet, $this->getTransKey('TabSet'), $module, $this->getTransPrefix());    		
+    		$this->m_TabSet = I18n::t($this->m_TabSet, $this->getTransKey('TabSet'), $module, $this->getTransPrefix());  
+    	if (!empty($this->m_Hint))
+    		$this->m_Hint = I18n::t($this->m_Hint, $this->getTransKey('Hint'), $module, $this->getTransPrefix());  		
     }
 
 	protected function getTransPrefix()
