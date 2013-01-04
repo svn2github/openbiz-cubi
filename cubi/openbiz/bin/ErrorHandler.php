@@ -85,10 +85,11 @@ class OB_ErrorHandler
         if ((defined('CLI') && CLI) || self::$errorMode == 'text'){
         	echo $err;
         }else{
-        	BizSystem::clientProxy()->showErrorMessage($err, true);
+        	BizSystem::clientProxy()->showErrorMessage($err, true);        	
         }
         if(!$exc->no_exit)
         {
+        	BizSystem::clientProxy()->printOutput();
         	exit();
         }
     }
