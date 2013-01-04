@@ -19,6 +19,8 @@
  
     </DataPanel>
     <ActionPanel>
+
+		    
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_w">
             <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=repository.setting.form.SettingDetailForm" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
         </Element>

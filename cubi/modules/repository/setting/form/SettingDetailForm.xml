@@ -19,6 +19,12 @@
 
     </DataPanel>
     <ActionPanel>
+    	<Element Name="btn_translate" Class="Button" Text="Translate" CssClass="button_gray_w">
+            <EventHandler Name="btn_translate_onclick" Event="onclick" Function="switchForm(repository.setting.form.SettingTranslateForm)"/>
+        </Element>
+        
+		<Element Name="Spacer" Class="Spacer" Width="10" />
+		    
         <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_w" Description="edit record (Ctrl+E)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(repository.setting.form.SettingEditForm)"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
         </Element>

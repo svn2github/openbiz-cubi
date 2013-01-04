@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: SettingEditForm.xml 3369 2012-05-31 06:13:56Z rockyswen@gmail.com $
+-->
+<EasyForm Name="SettingTranslateForm" Class="SettingTranslateForm" FormType="Edit" Icon="{RESOURCE_URL}/repository/images/icon_repo_setting.png" jsClass="jbForm"  SearchRule="[user_id]='0'" Title="Translate Repository Setting" Description="You can setup yoru repository setting for publish your apps." BizDataObj="myaccount.do.PreferenceDO" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl"  MessageFile="repository.ini">
+    <DataPanel>
+        <Element Name="fld_Id" Hidden="Y" Class="Hidden" ElementSet="General" FieldName="Id" Label="User Id"/>
+		<Element Name="fld_lang" ElementSet="General" DefaultValue="{I18n::getCurrentLangCode()}" ReadOnly="Y"  FieldName="lang" Label="Language" Class="myaccount.form.LanguageSelector"  >
+	        <EventHandler Name="lang_onchange" Event="onchange" Function="UpdateForm()" />	        	
+	  	</Element>
+	  	
+	  	<Element Name="fld_name_org" ElementSet="Translation"  Class="LabelText" FieldName="repo_name" Label="Name"   />
+        <Element Name="fld_name" ElementSet="Translation"  Class="InputText" FieldName="_repo_name" Label=""   />
+		
+		<Element Name="fld_desc_org" ElementSet="Translation"  Class="LabelText" FieldName="repo_desc" Label="Description"   />
+        <Element Name="fld_desc" ElementSet="Translation"  Class="Textarea" FieldName="_repo_desc" Label=""   />
+        
+        
+ 
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=repository.application.form.ApplicationDetailForm&amp;fld:Id={@repository.application.do.ApplicationDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>
