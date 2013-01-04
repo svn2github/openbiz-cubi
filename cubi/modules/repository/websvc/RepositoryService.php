@@ -22,6 +22,7 @@ class RepositoryService extends WebsvcService
 	protected $m_InstallLogDO 		= "repository.install.do.InstallLogDO";
 	protected $m_PictureDO	 		= "picture.do.PictureDO";
 	protected $m_RepositorySettingDO= "myaccount.do.PreferenceDO";
+	protected $m_RepositorySettingTransDO= "repository.setting.do.SettingTranslateDO";
 	protected $m_ApplicationVersionDO 		= "repository.application.do.ApplicationVersionDO";
 	
     public function fetchRepoInfo()
@@ -33,6 +34,22 @@ class RepositoryService extends WebsvcService
         foreach($resultRecords as $record){
         	$prefRecord["_".$record['name']] = $record["value"];
         }
+        //try to translate cats        
+       	$lang = $_REQUEST['lang'];
+       	if($lang){
+       		$settingTransDO = BizSystem::getObject($this->m_RepositorySettingTransDO,1);
+       		$transFields = array('repo_name','repo_desc');
+	    	 
+       		$recordId = $record['Id'];
+       		$transRec = $settingTransDO->fetchOne("[lang]='$lang'");	       		       	       		
+       		if($transRec)
+       		{
+       			foreach($transFields as $field){
+       				$prefRecord['_'.$field] = $transRec[$field]?$transRec[$field]:$prefRecord['_'.$field];
+       			}
+       		}
+	       	 
+       	}
         return $prefRecord;
     }
     
@@ -222,7 +239,7 @@ class RepositoryService extends WebsvcService
 	       	//translate cate name
 	       	$categoryTransDO = BizSystem::getObject($this->m_CategoryTransDO,1);
 	       	$catId = $result['category_id']; 
-	       	$categoryTransRec = $categoryTransDO->fetchOne("[repo_cat_id]='$catId'");
+	       	$categoryTransRec = $categoryTransDO->fetchOne("[repo_cat_id]='$catId' AND [lang]='$lang'");
 	       	if($categoryTransRec)     	 
 	       	{
 	       		$result['category_name']=$categoryTransRec['name'];
@@ -251,7 +268,7 @@ class RepositoryService extends WebsvcService
 	    	foreach($resultSetTrans as $record)
 	       	{
 	       		$recordId = $record['Id'];
-	       		$transRec = $categoryTransDO->fetchOne("[repo_cat_id]='$recordId'");
+	       		$transRec = $categoryTransDO->fetchOne("[repo_cat_id]='$recordId' AND [lang]='$lang'");
 	       		if($transRec)
 	       		{
 	       			foreach($transFields as $field){
