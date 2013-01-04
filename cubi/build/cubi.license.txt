@@ -1,7 +1,7 @@
 BSD Style-License for Openbiz Cubi 
 =========================================================================================================
 
-Copyright (c) 2009 Rocky Swen, Jixian Wang from Openbiz Foundation
+Copyright (c) 2009 - 2013 Rocky Swen, Jixian Wang from Openbiz Technology LLC
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
