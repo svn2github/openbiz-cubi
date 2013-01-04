@@ -15,7 +15,9 @@ include_once MODULE_PATH.'/websvc/lib/WebsvcService.php';
 class RepositoryService extends WebsvcService
 {
 	protected $m_CategoryDO 		= "repository.category.do.CategoryDO";
-	protected $m_ApplicationDO 		= "repository.application.do.ApplicationDO";	
+	protected $m_CategoryTransDO 	= "repository.category.do.CategoryTranslateDO";
+	protected $m_ApplicationDO 		= "repository.application.do.ApplicationDO";
+	protected $m_ApplicationTransDO = "repository.application.do.ApplicationTranslateDO";	
 	protected $m_ReleaseDO 			= "repository.release.do.ReleaseDO";
 	protected $m_InstallLogDO 		= "repository.install.do.InstallLogDO";
 	protected $m_PictureDO	 		= "picture.do.PictureDO";
@@ -59,6 +61,7 @@ class RepositoryService extends WebsvcService
        	{
        		$resultSet[] = $record;
        	}
+       	$resultSet = $this->translateAppList($resultSet);
         return $resultSet;
     }
     
@@ -72,6 +75,7 @@ class RepositoryService extends WebsvcService
        	{
        		$resultSet[] = $record;
        	}
+       	$resultSet = $this->translateAppList($resultSet);
         return $resultSet;
     }
     
@@ -84,11 +88,12 @@ class RepositoryService extends WebsvcService
         if($result)
         {
         	$result = $result->toArray();
+        	$result = $this->translateAppInfo($result);
         }
         else
         {
         	$result = array();
-        }
+        }        
         return $result;
     } 
 
@@ -146,6 +151,7 @@ class RepositoryService extends WebsvcService
        	{
        		$resultSet[] = $record;
        	}
+       	$resultSet = $this->translateAppList($resultSet);
        	$result['data'] = $resultSet;
        	$result['totalRecords'] = $dataObj->count();
         return $result;
@@ -178,20 +184,82 @@ class RepositoryService extends WebsvcService
        	{
        		$resultSet[] = $record;
        	}
+       	$resultSet = $this->translateAppList($resultSet);
        	$result['data'] = $resultSet;
        	$result['totalRecords'] = $dataObj->count();
         return $result;
     }        
 
+    protected function translateAppList($resultSet)
+    {
+        //try to translate cats
+       	$lang = $_REQUEST['lang'];
+       	if($lang){
+       		$resultSetTrans  = $resultSet;
+       		$resultSet = array();       		
+	    	foreach($resultSetTrans as $record)
+	       	{	       		
+	       		$resultSet[] = $this->translateAppInfo($record);
+	       	}
+       	}
+       	return $resultSet;
+    }
+    
+    protected function translateAppInfo($result)
+    {
+    	$lang = $_REQUEST['lang'];
+       	if($lang){       		       	
+	    	$applicationTransDO = BizSystem::getObject($this->m_ApplicationTransDO,1);
+	       	$transFields = array('name','description','author','type');
+	       	$recordId = $result['Id'];
+	    	$transRec = $applicationTransDO->fetchOne("[repo_app_id]='$recordId'");
+	       	if($transRec)
+	       	{
+	       		foreach($transFields as $field){
+	       			$result[$field] = $transRec[$field]?$transRec[$field]:$result[$field];
+	       		}	       		
+	       	}
+	       	//translate cate name
+	       	$categoryTransDO = BizSystem::getObject($this->m_CategoryTransDO,1);
+	       	$catId = $result['category_id']; 
+	       	$categoryTransRec = $categoryTransDO->fetchOne("[repo_cat_id]='$catId'");
+	       	if($categoryTransRec)     	 
+	       	{
+	       		$result['category_name']=$categoryTransRec['name'];
+	       	}  	
+       	}       	
+    	return $result;
+    }
+    
     public function fetchCategories()
     {
     	$searchRule = "[publish]=1";    	
-    	$dataObj = BizSystem::getObject($this->m_CategoryDO,1);    	   
+    	$dataObj = BizSystem::getObject($this->m_CategoryDO,1);      	    	  
         $resultRecords = $dataObj->directfetch($searchRule);  
         $resultSet = array();        
        	foreach($resultRecords as $record)
        	{
        		$resultSet[] = $record;
+       	}
+       	//try to translate cats
+       	$lang = $_REQUEST['lang'];
+       	if($lang){
+       		$resultSetTrans  = $resultSet;
+       		$resultSet = array();
+       		$categoryTransDO = BizSystem::getObject($this->m_CategoryTransDO,1);
+       		$transFields = array('name','description');
+	    	foreach($resultSetTrans as $record)
+	       	{
+	       		$recordId = $record['Id'];
+	       		$transRec = $categoryTransDO->fetchOne("[repo_cat_id]='$recordId'");
+	       		if($transRec)
+	       		{
+	       			foreach($transFields as $field){
+	       				$record[$field] = $transRec[$field]?$transRec[$field]:$record[$field];
+	       			}
+	       		}
+	       		$resultSet[] = $record;
+	       	}
        	}
         return $resultSet;
     }        
