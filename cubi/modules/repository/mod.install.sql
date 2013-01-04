@@ -73,3 +73,38 @@ CREATE TABLE IF NOT EXISTS `repo_release` (
   PRIMARY KEY (`id`),
   KEY `app_id` (`app_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+
+DROP TABLE IF EXISTS `repo_application_translation`;
+CREATE TABLE IF NOT EXISTS `repo_application_translation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `repo_app_id` int(11) NOT NULL,
+  `lang` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `repo_app_id` (`repo_app_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+DROP TABLE IF EXISTS `repo_category_translation`;
+CREATE TABLE IF NOT EXISTS `repo_category_translation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `repo_cat_id` int(11) NOT NULL,
+  `lang` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `repo_cat_id` (`repo_cat_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: ApplicationDO.xml 4703 2012-11-13 04:38:24Z hellojixian@gmail.com $
+-->
+<BizDataObj Name="ApplicationTranslateDO" Description="" Class="BizDataObj" DBName="Default" Table="repo_application" SearchRule="" SortRule="[Id] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
+	<BizFieldList>
+        <BizField Name="Id" Column="id" Type="Number"/>
+        <BizField Name="repo_app_id" Column="repo_app_id" />
+        <BizField Name="lang" Column="lang" />
+        <BizField Name="name" Column="name" Length="64" Required="Y" Type="Text"/>        
+        <BizField Name="type" Column="type" Length="64" Required="Y" Type="Text"/>        
+        <BizField Name="author" Column="author" Length="128" Required="Y" Type="Text"/>
+        <BizField Name="description" Column="description" Required="N" Type="Text"/>
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>		
+		<BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+    </BizFieldList>
+    <ObjReferences>
+    	<Object Name="repository.application.do.ApplicationDO" Relationship="1-M" Table="repo_application" Column="Id" FieldRef="repo_app_id" CascadeDelete="Y"/>
+    </ObjReferences>
+</BizDataObj>

@@ -20,6 +20,13 @@
        	<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By" Text="{BizSystem::GetProfileName(@:Elem[update_by].Value)}" AllowURLParam="N"/>       	
     </DataPanel>
     <ActionPanel>       
+    	
+    	<Element Name="btn_translate" Class="Button" Text="Translate" CssClass="button_gray_w">
+            <EventHandler Name="btn_translate_onclick" Event="onclick" Function="switchForm(repository.category.form.CategoryTranslateForm,{@:Elem[fld_Id].Value})"/>
+        </Element>
+        
+		<Element Name="Spacer" Class="Spacer" Width="10" />
+		    
         <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
 			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(repository.category.form.CategoryNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
         </Element>          
