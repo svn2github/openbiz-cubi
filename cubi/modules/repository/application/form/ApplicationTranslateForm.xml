@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: ApplicationEditForm.xml 3369 2012-05-31 06:13:56Z rockyswen@gmail.com $
 -->
-<EasyForm Name="ApplicationTranslateForm" Class="ApplicationTranslateForm" Icon="{RESOURCE_URL}/repository/images/repo_application_edit.gif"  FormType="Edit" jsClass="jbForm" Title="Edit Application" Description="Publish a new application , Allow other Cubi platfrom user to download it." BizDataObj="repository.application.do.ApplicationDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="repository.ini">
+<EasyForm Name="ApplicationTranslateForm" Class="ApplicationTranslateForm" Icon="{RESOURCE_URL}/repository/images/repo_application_edit.gif"  FormType="Edit" jsClass="jbForm" Title="Translate Application" Description="Publish a new application , Allow other Cubi platfrom user to download it." BizDataObj="repository.application.do.ApplicationDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="repository.ini">
     <DataPanel>
 		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
 		<Element Name="fld_lang" ElementSet="General" DefaultValue="{I18n::getCurrentLangCode()}" ReadOnly="Y"  FieldName="lang" Label="Language" Class="myaccount.form.LanguageSelector"  >
