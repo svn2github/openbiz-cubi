@@ -102,6 +102,9 @@ class CategoryTranslateForm extends PickerForm
         }
         try
         {
+			//test dump data
+        	//var_dump($currentRecord);
+        	//var_dump($dataRec->toArray());exit;
             $dataRec->save();
         }
         catch (ValidationException $e)
