@@ -109,7 +109,8 @@ class PackageService extends MetaObject
         }else{
         	try{        		
 		        $argsJson = urlencode(json_encode($params));
-        		$query = array(	"method=$method","format=json","argsJson=$argsJson");
+		        $lang = i18n::getCurrentLangCode();
+        		$query = array(	"method=$method","format=json","argsJson=$argsJson","lang=$lang");
 		        
 		        $httpClient = new HttpClient('POST');
 		        foreach ($query as $q)
