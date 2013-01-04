@@ -75,7 +75,6 @@ CREATE TABLE IF NOT EXISTS `repo_release` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
-
 DROP TABLE IF EXISTS `repo_application_translation`;
 CREATE TABLE IF NOT EXISTS `repo_application_translation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -90,7 +89,8 @@ CREATE TABLE IF NOT EXISTS `repo_application_translation` (
   `update_by` int(11) NOT NULL,
   `update_time` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `repo_app_id` (`repo_app_id`)
+  KEY `repo_app_id` (`repo_app_id`),
+  KEY `lang` (`lang`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
@@ -106,5 +106,22 @@ CREATE TABLE IF NOT EXISTS `repo_category_translation` (
   `update_by` int(11) NOT NULL,
   `update_time` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `repo_cat_id` (`repo_cat_id`)
+  KEY `repo_cat_id` (`repo_cat_id`),
+  KEY `lang` (`lang`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+
+DROP TABLE IF EXISTS `repo_setting_translation`;
+CREATE TABLE IF NOT EXISTS `repo_setting_translation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lang` varchar(255) NOT NULL,
+  `repo_name` varchar(255) NOT NULL,
+  `repo_desc` text NOT NULL,
+  `create_by` int(11) NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_by` int(11) NOT NULL,
+  `update_time` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `lang` (`lang`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

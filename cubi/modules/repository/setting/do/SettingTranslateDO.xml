@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: CategoryDO.xml 3369 2012-05-31 06:13:56Z rockyswen@gmail.com $
+-->
+<BizDataObj Name="SettingTranslateDO" Description="" Class="BizDataObj" DBName="Default" Table="repo_setting_translation" SearchRule="" SortRule="[Id] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" >
+	<BizFieldList>
+        <BizField Name="Id" Column="id" Type="Number"/>
+        <BizField Name="lang" Column="lang" />
+        <BizField Name="repo_name" Column="repo_name" Length="255" Type="Text"/>
+        <BizField Name="repo_desc" Column="repo_desc" Type="Text"/>
+		<BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>		
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
