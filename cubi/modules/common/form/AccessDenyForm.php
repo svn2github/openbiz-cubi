@@ -13,7 +13,7 @@
 
 class AccessDenyForm extends EasyForm
 {
-	public $m_isDefaultPage = false;
+	public $m_isDefaultPage = 0;
 	
     public function setSessionVars($sessionContext)
     {
@@ -29,10 +29,11 @@ class AccessDenyForm extends EasyForm
 		$default_url = APP_INDEX.$roleStartpages[0];		
 		if($url == $default_url)
 		{
-			$this->m_isDefaultPage = true;
+			$this->m_isDefaultPage = 1;
 		}else{
-			$this->m_isDefaultPage = false;
+			$this->m_isDefaultPage = 0;
 		}
+		return parent::fetchData();
     }
     
 	function getUrlAddress()
