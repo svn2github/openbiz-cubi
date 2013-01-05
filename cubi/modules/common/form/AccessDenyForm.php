@@ -22,7 +22,7 @@ class AccessDenyForm extends EasyForm
 		parent::setSessionVars($sessionContext);
     }
     
-    public function FetchData()
+    public function fetchData()
     {
 		$url = $_SERVER['REQUEST_URI'];
 		$roleStartpages = BizSystem::getUserProfile("roleStartpage");
