@@ -725,10 +725,11 @@ class LangPackCreator
 				$tmp=array();
 				foreach ($matches[3] as $match)
 				{					
-					$tmp["STRING_".strtoupper(md5(ltrim($match)))]=ltrim($match_data);
+					$tmp["STRING_".strtoupper(md5(ltrim($match)))]=ltrim($match);
 				}
 				$strings = array_merge($strings,$tmp);
     	}    	
+    	
     	return $this->mergeStrings($strings);
     }   
 
