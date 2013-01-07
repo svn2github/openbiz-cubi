@@ -76,6 +76,7 @@ class preferenceService
     public function setPreference($attribute,$value=null)
     {    	    	    
         $this->m_Preference[$attribute] = $value;
+        BizSystem::sessionContext()->setVar("_USER_PREFERENCE", $this->m_Preference);  
         //update user preference to DB 
         $do = BizSystem::getObject($this->m_PreferenceObj);
         if (!$do)
