@@ -725,7 +725,9 @@ class LangPackCreator
 				$tmp=array();
 				foreach ($matches[3] as $match)
 				{					
-					$tmp["STRING_".strtoupper(md5(ltrim($match)))]=ltrim($match);
+					$match_data=str_replace("\n",'\n',$match);
+					$match_data=str_replace("\r",'',$match_data);
+					$tmp["STRING_".strtoupper(md5(ltrim($match)))]=ltrim($match_data);
 				}
 				$strings = array_merge($strings,$tmp);
     	}    	
