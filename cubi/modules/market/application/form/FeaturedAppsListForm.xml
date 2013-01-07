@@ -52,7 +52,7 @@
     
     </NavPanel> 
     <SearchPanel>
-        <Element Name="fld_repo_id"  width="200" Class="Listbox" style="float:left;" SelectFrom="market.repository.do.RepositoryDO[repository_name:Id]" FieldName="repo_uri" Label=""  >
+        <Element Name="fld_repo_id"  width="200" Class="market.application.element.RepositoryListbox" style="float:left;" SelectFrom="market.repository.do.RepositoryDO[repository_name:Id:repository_uri]" FieldName="repo_uri" Label=""  >
         	<EventHandler Name="fld_repo_id_onchange" Event="onchange" Function="UpdateForm()" />
         </Element>
     </SearchPanel>

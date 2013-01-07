@@ -56,6 +56,19 @@ class RepositoryForm extends EasyForm
 		return $result;
 	}
 	
+	public function fetchDataSet()
+	{
+		$resultSet = parent::fetchDataSet();
+		$svc = BizSystem::getService("market.lib.PackageService");
+		foreach($resultSet as $key=>$record)
+		{
+			$repo_uri = $record['repository_uri'];
+			$repoInfo = $svc->discoverRepository($repo_uri);
+			$record['repository_name'] = $repoInfo['_repo_name'];
+			$resultSet[$key] = $record;
+		}
+		return $resultSet;
+	}
 	
 	public function insertRecord()
 	{

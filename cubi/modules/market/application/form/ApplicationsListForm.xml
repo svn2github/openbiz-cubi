@@ -56,7 +56,7 @@
    
     </NavPanel> 
     <SearchPanel>
-    	<Element Name="fld_repo_id"  width="165" Class="Listbox" style="float:left;" SelectFrom="market.repository.do.RepositoryDO[repository_name:Id]" FieldName="repo_uri" Label=""  >
+    	<Element Name="fld_repo_id"  width="165" Class="market.application.element.RepositoryListbox" style="float:left;" SelectFrom="market.repository.do.RepositoryDO[repository_name:Id:repository_uri]" FieldName="repo_uri" Label=""  >
         	<EventHandler Name="fld_repo_id_onchange" Event="onchange" Function="UpdateForm()" />
         </Element> 
         <Element Name="fld_cat_id"  BlankOption="-- All Categories --" width="165" Class="market.application.element.CategoryListbox" style="float:left;margin-left:10px;" FieldName="cat_id" Label=""  >
