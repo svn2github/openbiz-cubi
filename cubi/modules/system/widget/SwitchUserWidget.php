@@ -15,7 +15,9 @@ class SwitchUserWidget extends EasyForm
 {
 	public $m_ShowWidget = false;
 	public function fetchData()
-	{
+	{		
+		$this->processUserInit();
+		
 		if(!BizSystem::allowUserAccess('Session.Switch_Session'))
 		{
 			$this->m_ShowWidget = false;	
@@ -30,6 +32,29 @@ class SwitchUserWidget extends EasyForm
 		}		
 		$record['username'] = BizSystem::getUserProfile("username");
 		return $record;
+	}
+	
+	public function processUserInit()
+	{
+		$prefService = BizSystem::getService(PREFERENCE_SERVICE);
+		$userId = BizSystem::getUserProfile("Id");
+		$currentView = $this->getViewObject()->m_Name;
+		if($currentView!= 'myaccount.view.ResetPasswordView'){
+			if((int)$prefService->getPreference("force_change_passwd")==1)
+			{
+				BizSystem::clientProxy()->redirectPage(APP_INDEX.'/myaccount/reset_password/force');
+				return;
+			}
+		}
+		/*
+		if($currentView!= 'myaccount.view.ResetPasswordView'){
+			if($prefService->getPreference("force_change_passwd")==1)
+			{
+				BizSystem::clientProxy()->redirectPage(APP_INDEX.'/myaccount/reset_password/force');
+				return;
+			}
+		}
+		*/
 	}
 	
 	public function SwitchSession()
