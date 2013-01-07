@@ -46,15 +46,15 @@ class SwitchUserWidget extends EasyForm
 				return;
 			}
 		}
-		/*
-		if($currentView!= 'myaccount.view.ResetPasswordView'){
-			if($prefService->getPreference("force_change_passwd")==1)
-			{
-				BizSystem::clientProxy()->redirectPage(APP_INDEX.'/myaccount/reset_password/force');
+		
+		if($currentView!= 'myaccount.view.MyProfileView'){
+			if($prefService->getPreference("force_complete_profile")==1)
+			{				
+				BizSystem::clientProxy()->redirectPage(APP_INDEX.'/myaccount/my_profile/force');
 				return;
 			}
 		}
-		*/
+		
 	}
 	
 	public function SwitchSession()
