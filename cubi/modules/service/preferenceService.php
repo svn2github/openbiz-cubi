@@ -73,9 +73,17 @@ class preferenceService
      * 
      * @param <type> $preference 
      */
-    public function setPreference($preference)
-    {
-        $this->m_Preference = $preference;
+    public function setPreference($attribute,$value=null)
+    {    	    	    
+        $this->m_Preference[$attribute] = $value;
+        //update user preference to DB 
+        $do = BizSystem::getObject($this->m_PreferenceObj);
+        if (!$do)
+            return false;
+        $user_id = BizSystem::getUserProfile("Id");
+        $prefRec = $do->fetchOne("[user_id]='$user_id' AND [name]='$attribute'");
+        $prefRec['value'] = (string) $value;
+        return $prefRec->save();
     }
     
  
