@@ -38,9 +38,22 @@ include_once(MODULE_PATH."/system/form/UserForm.php");
 
 class ResetPasswordForm extends UserForm
 {
+	public $m_DefaultLogoff = 'Y';
+	
+	public function fetchData()
+	{
+		if($this->getViewObject()->isForceResetPassword())
+		{
+			$this->m_DefaultLogoff = 'N';
+		}else{
+			$this->m_DefaultLogoff = 'Y';
+		}
+		return parent::fetchData();
+	}
+	
     public function allowAccess(){
-    	parent::allowAccess();
-
+    	parent::allowAccess();		
+    	
     	if(BizSystem::getUserProfile("Id"))
     	{
   	 		return 1;
@@ -83,7 +96,10 @@ class ResetPasswordForm extends UserForm
 
         $this->_doUpdate($recArr, $currentRec);
         
-        
+        if( $this->getViewObject()->isForceResetPassword() )
+        {
+        	BizSystem::getService(PREFERENCE_SERVICE)->setPreference('force_change_passwd',0);
+        }
         // if 'notify email' option is checked, send confirmation email to user email address
         // ...
 
