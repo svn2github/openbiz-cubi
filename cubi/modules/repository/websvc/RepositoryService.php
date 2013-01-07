@@ -229,7 +229,7 @@ class RepositoryService extends WebsvcService
 	    	$applicationTransDO = BizSystem::getObject($this->m_ApplicationTransDO,1);
 	       	$transFields = array('name','description','author','type');
 	       	$recordId = $result['Id'];
-	    	$transRec = $applicationTransDO->fetchOne("[repo_app_id]='$recordId'");
+	    	$transRec = $applicationTransDO->fetchOne("[repo_app_id]='$recordId' AND [lang]='$lang'");
 	       	if($transRec)
 	       	{
 	       		foreach($transFields as $field){
