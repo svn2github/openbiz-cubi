@@ -15,11 +15,11 @@ include_once(MODULE_PATH."/contact/form/ContactForm.php");
 
 class ProfileForm extends ContactForm
 {
-	
+		
 	
     public function allowAccess(){
     	parent::allowAccess();
-
+    	
     	if(BizSystem::getUserProfile("Id"))
     	{
   	 		return 1;
@@ -29,8 +29,18 @@ class ProfileForm extends ContactForm
     		return 0;
     	}
     }
+    
+    public function _doUpdate($inputRecord, $currentRecord)
+    {
+    	$result = parent::_doUpdate($inputRecord, $currentRecord);
+    	if( $this->getViewObject()->isForceCompeleteProfile() )
+        {
+        	BizSystem::getService(PREFERENCE_SERVICE)->setPreference('force_complete_profile',0);
+        }
+    	return $result;
+    }
 	
-	public function fetchData(){
+	public function fetchData(){		
 		$svcobj = BizSystem::getService(PROFILE_SERVICE);
 		//echo BizSystem::getUserProfile("profile_Id");
 		//echo $svcobj->checkExist(BizSystem::getUserProfile("profile_Id"));
