@@ -39,6 +39,18 @@ class ProfileForm extends ContactForm
         }
     	return $result;
     }
+    
+    protected function processPostAction()
+    {
+    	if( $this->getViewObject()->isForceCompeleteProfile() )
+    	{
+    	    $profileDefaultPageArr = BizSystem::getUserProfile('roleStartpage');
+        	$pageURL = APP_INDEX.$profileDefaultPageArr[0];
+        	BizSystem::clientProxy()->redirectPage($pageURL);
+        	return ;
+    	}
+    	return parent::processPostAction();
+    }
 	
 	public function fetchData(){		
 		$svcobj = BizSystem::getService(PROFILE_SERVICE);

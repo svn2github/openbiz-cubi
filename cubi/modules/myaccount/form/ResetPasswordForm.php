@@ -96,10 +96,6 @@ class ResetPasswordForm extends UserForm
 
         $this->_doUpdate($recArr, $currentRec);
         
-        if( $this->getViewObject()->isForceResetPassword() )
-        {
-        	BizSystem::getService(PREFERENCE_SERVICE)->setPreference('force_change_passwd',0);
-        }
         // if 'notify email' option is checked, send confirmation email to user email address
         // ...
 
@@ -115,6 +111,14 @@ class ResetPasswordForm extends UserForm
         $this->m_Notices[] = $this->GetMessage("USER_DATA_UPDATED");                
         $this->updateForm();
  
+        if( $this->getViewObject()->isForceResetPassword() )
+        {
+        	BizSystem::getService(PREFERENCE_SERVICE)->setPreference('force_change_passwd',0);
+        	$profileDefaultPageArr = BizSystem::getUserProfile('roleStartpage');
+        	$pageURL = APP_INDEX.$profileDefaultPageArr[0];
+        	BizSystem::clientProxy()->redirectPage($pageURL);
+        }        
+        
         if($recArr['_logoff']==1)
         {        	
 			$url = APP_INDEX."/user/logout";
