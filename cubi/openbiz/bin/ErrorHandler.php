@@ -152,7 +152,9 @@ class OB_ErrorHandler
                         $msg .= $a;
                         break;
                     case 'string':
-                        $a = htmlspecialchars(substr($a, 0, 64)).((strlen($a) > 64) ? '...' : '');
+                        //$a = htmlspecialchars(substr($a, 0, 64)).((strlen($a) > 64) ? '...' : '');
+                        //$msg .= "\"$a\"";
+                        $a = htmlspecialchars($a);
                         $msg .= "\"$a\"";
                         break;
                     case 'array':
