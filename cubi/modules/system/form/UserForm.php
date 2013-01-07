@@ -185,6 +185,29 @@ class UserForm extends EasyForm
 	        $prefDo->insertRecord($recArrParam);
        }
        
+       //set default user profile flags
+	   if(isset($recArr['force_change_passwd'])){
+       		$recArrParam = array(
+            		"user_id" => $user_id,
+            		"name"	  => 'force_change_passwd',
+            		"value"   => $recArr['force_change_passwd'],
+	            	"section" => 'Initialization',
+	            	"type" 	  => 'Checkbox',	            
+	        );
+	        $prefDo->insertRecord($recArrParam);
+       }
+       
+	  if(isset($recArr['force_complete_profile'])){
+       		$recArrParam = array(
+            		"user_id" => $user_id,
+            		"name"	  => 'force_complete_profile',
+            		"value"   => $recArr['force_complete_profile'],
+	            	"section" => 'Initialization',
+	            	"type" 	  => 'Checkbox',	            
+	        );
+	        $prefDo->insertRecord($recArrParam);
+       }
+       
        //create a default profile to new user
        $profile_id = BizSystem::getService(PROFILE_SERVICE)->CreateProfile($user_id);
 	   $this->switchForm($this->m_ProfileEditForm,$profile_id);   	
