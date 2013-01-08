@@ -179,8 +179,8 @@ INSERT INTO `help_tutorial` (`id`, `url_match`, `type`, `content_url`, `subject`
 (10, '/mystore/profile', 'url', 'http://www.openbiz.cn/enterprise/store/tutorial/store-profile.php', '个人档案管理', '', 550, 300, 1, '2012-10-30 18:40:18', 1, '2012-10-30 18:42:48');
 
 INSERT INTO `help_tutorial` (`url_match`, `type`, `content_url`, `subject`, `content`, `width`, `height`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-('/myaccount/reset_password/force', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-firstlogin-passwd.php', '初次登陆密码重置', '', 550, 330, 1, '2013-01-07 19:12:07', 1, '2013-01-07 19:15:21'),
-('/myaccount/my_profile/force', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-firstlogin-profile.php', '初次登陆完善资料', '', 550, 330, 1, '2013-01-07 19:13:39', 1, '2013-01-07 19:13:39');
+('/myaccount/reset_password/force', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-firstlogin-passwd.php', '初次登陆密码重置', '', 550, 280, 1, '2013-01-07 19:12:07', 1, '2013-01-07 19:15:21'),
+('/myaccount/my_profile/force', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-firstlogin-profile.php', '初次登陆完善资料', '', 550, 280, 1, '2013-01-07 19:13:39', 1, '2013-01-07 19:13:39');
 
 
 DROP TABLE IF EXISTS `help_tutorial_user`;
