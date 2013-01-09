@@ -45,13 +45,13 @@ class Checkbox extends OptionElement
      */
     public function getValue()
     {
-       	/*
-    	if(strtoupper($this->getDefaultChecked())=='Y')
+       
+    	if(strtoupper($this->getDefaultChecked())=='Y' && !isset($_GET['F']) )
     	{
     		$this->m_Value = $this->getSelectFrom();
     		return $this->m_Value;
     	}
-    	*/
+    	
         if($this->m_Value!=null)
         {
             return $this->m_Value;
@@ -72,11 +72,11 @@ class Checkbox extends OptionElement
     {
         $boolValue = $this->getSelectFrom();
         $disabledStr = ($this->getEnabled() == "N") ? "DISABLED=\"true\"" : "";
-    
-        if(strtoupper($this->getDefaultChecked())=='Y')
-    	{
+        
+        if(strtoupper($this->getDefaultChecked())=='Y' && !isset($_GET['F']))
+    	{		
     		$checkedStr = "CHECKED";
-    	}else{
+    	}else{    		
         	$checkedStr = ($boolValue == $this->getValue()) ? "CHECKED" : "";
     	}        
         $defaultValue = $this->m_DefaultValue;
