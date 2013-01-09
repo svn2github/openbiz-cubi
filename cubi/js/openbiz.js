@@ -64,6 +64,7 @@ var Openbiz =
     },
     CallFunction: function(form_method_params, options)
     {
+		// TODO: block same ajax call 
         functionArray = Openbiz.Util.parseCallFunction(form_method_params);
 		formObj = Openbiz.getFormObject(functionArray[0]);
 		if (formObj)
@@ -367,10 +368,13 @@ Openbiz.TableForm = Class.create(Openbiz.Form,
  */
 Openbiz.Net =
 {
+	requestQueue: Array(),
     post: function (url, params)
     {
+		if (Openbiz.Net.requestQueue[url]==1) return;
     	new Ajax.Request(url, {
     		onLoading: function() {
+				Openbiz.Net.requestQueue[url]=1;
     			if (Openbiz.activeForm)
     				Openbiz.activeForm.displayLoading(true); 
     		},
@@ -379,6 +383,7 @@ Openbiz.Net =
     				Openbiz.activeForm.displayLoading(false);
     		},
     		onSuccess: function(transport){
+				delete Openbiz.Net.requestQueue[url];
     			var response = transport.responseText || "";
     			if (Openbiz.debug)
     				Openbiz.Window.debugWindow(response);
