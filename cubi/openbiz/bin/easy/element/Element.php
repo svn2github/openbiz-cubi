@@ -201,7 +201,7 @@ class Element extends MetaObject implements iUIControl
      */
     public function getProperty($propertyName)
     {
-        if ($propertyName == "Value") return $this->m_Value;
+        if ($propertyName == "Value") return $this->getValue();
         $ret = parent::getProperty($propertyName);
         if ($ret) return $ret;
         return $this->$propertyName;
