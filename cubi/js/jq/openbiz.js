@@ -376,13 +376,19 @@ Openbiz.TableForm = Openbiz.Form.extend (
  */
 Openbiz.Net =
 {
+	requestQueue: Array(),
     post: function (url, params)
     {
-		if (Openbiz.activeForm) Openbiz.activeForm.displayLoading(true);
+		if (Openbiz.Net.requestQueue[url]==1) return;
+		if (Openbiz.activeForm) { 
+			Openbiz.activeForm.displayLoading(true);
+			Openbiz.Net.requestQueue[url]=1;
+		}
 		$.post(  
             url,  
             params,  
             function(responseText){  
+				delete Openbiz.Net.requestQueue[url];
 				if (Openbiz.activeForm) Openbiz.activeForm.displayLoading(false); 
                 Openbiz.Net.callback(responseText);  
             },  
