@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: GroupEditForm.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
+-->
+<EasyForm Name="InitializeGroupForm" Class="InitializeGroupForm" FormType="Edit"  Icon="icon_group_add.gif" jsClass="jbForm" Title="Initialize User Groups" Description="Please initialize system groups setting for fit your company's situation." BizDataObj="system.do.GroupDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
+    <DataPanel>
+		<Element Name="fld_name" ElementSet="General" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N"/>
+        <Element Name="fld_status" ElementSet="General" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)"/>
+        <Element Name="fld_default" ElementSet="General" Class="Listbox" FieldName="default" Label="Default" SelectFrom="system.lov.Selection(Default)"/>
+        
+        <Element Name="fld_data_share"  Class="DropDownList" DefaultValue="{GROUP_DATA_SHARE}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="Data Sharing" Description="" FieldName="_group_data_share" Label="Data Sharing"  >
+        	<EventHandler Name="fld_data_share_onupdate" Event="onchange" Function="UpdateForm()"  />
+        </Element>
+        <Element Name="fld_data_acl" Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}"   Class="DropDownList" DefaultValue="{DATA_ACL}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="Data Sharing" Description="" FieldName="_data_acl" Label="Data ACL"  >
+        </Element>        
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="Initialize()" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

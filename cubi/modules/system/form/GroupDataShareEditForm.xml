@@ -7,10 +7,10 @@
 -->
 <EasyForm Name="GroupDataShareEditForm" Class="UserPreferenceForm" FormType="" Icon="icon_group_list.gif" jsClass="jbForm"  Title="Group Data Sharing" Description="You can set system default setting for group based data sharing feature." BizDataObj="myaccount.do.PreferenceDO"  SearchRule="[user_id]='0'"  TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl">
     <DataPanel>
-        <Element Name="fld_data_share"  Class="Radio" DefaultValue="{GROUP_DATA_SHARE}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="General" Description="" FieldName="_group_data_share" Label="Data Sharing"  >
+        <Element Name="fld_data_share"  Class="DropDownList" DefaultValue="{GROUP_DATA_SHARE}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="General" Description="" FieldName="_group_data_share" Label="Data Sharing"  >
         	<EventHandler Name="fld_data_share_onupdate" Event="onchange" Function="UpdateForm()"  />
         </Element>
-        <Element Name="fld_data_acl" Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}"   Class="Radio" DefaultValue="{DATA_ACL}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="General" Description="" FieldName="_data_acl" Label="Data ACL"  >
+        <Element Name="fld_data_acl" Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}"   Class="DropDownList" DefaultValue="{DATA_ACL}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="General" Description="" FieldName="_data_acl" Label="Data ACL"  >
         </Element>
         
         <Element Name="fld_owner_perm" Hidden="{@:Elem[fld_data_share].Value=='1'?'N':'Y'}" Description="Default permission for data owner " Class="DropDownList" DefaultValue="{DEFAULT_OWNER_PERM}" SelectFrom="system.lov.DataPermLOV(OwnerPerm)" ElementSet="Data Sharing"  FieldName="_owner_perm" Label="Owner Perm"  />
