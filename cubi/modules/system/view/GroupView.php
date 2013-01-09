@@ -33,5 +33,10 @@ class GroupView extends EasyView
 		}
 		return parent::allowAccess($access);
 	}
+	
+	public function getLastViewURL()
+	{
+		return BizSystem::sessionContext()->getVar("_GROUP_INITIALIZE_LASTVIEW");
+	}
 }
 ?>
