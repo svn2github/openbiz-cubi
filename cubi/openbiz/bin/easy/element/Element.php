@@ -346,7 +346,10 @@ class Element extends MetaObject implements iUIControl
         if ($this->m_Description == null)
             return null;
         $formobj = $this->getFormObj();
-        return Expression::evaluateExpression($this->m_Description, $formobj);
+        $text =  Expression::evaluateExpression($this->m_Description, $formobj);
+        $text = str_replace("[b]","<strong>",$text);
+        $text = str_replace("[/b]","</strong>",$text);
+        return $text;
     }    
 
     /**
