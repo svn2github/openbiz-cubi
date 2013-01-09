@@ -5,13 +5,13 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id: GroupEditForm.xml 3372 2012-05-31 06:19:06Z rockyswen@gmail.com $
 -->
-<EasyForm Name="InitializeGroupForm" Class="InitializeGroupForm" FormType="Edit"  Icon="icon_group_add.gif" jsClass="jbForm" Title="Initialize User Groups" Description="Please initialize system groups setting for fit your company's situation." BizDataObj="system.do.GroupDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
+<EasyForm Name="InitializeGroupForm" Class="InitializeGroupForm" FormType="Edit"  Icon="icon_group_add.gif" jsClass="jbForm" Title="Initialize User Groups" Description="Please initialize system groups setting for fit your company's situation." BizDataObj="" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="" MessageFile="">
     <DataPanel>
-		<Element Name="fld_name" ElementSet="General" Class="InputText" FieldName="name" Label="Name"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
-		<Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N"/>
-        <Element Name="fld_status" ElementSet="General" Class="Listbox" FieldName="status" Label="Status" SelectFrom="system.lov.Selection(Status)"/>
-        <Element Name="fld_default" ElementSet="General" Class="Listbox" FieldName="default" Label="Default" SelectFrom="system.lov.Selection(Default)"/>
-        
+    	<Element Name="fld_rename_default_group" ElementSet="Default Group" Class="Checkbox" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" FieldName="rename_default_group" Label="Rename Group" Description="Rename system default group to a new name" >
+    			<EventHandler Name="fld_rename_default_group_onclick" Event="onclick" Function="UpdateForm()"  />
+    	</Element>
+		<Element Name="fld_rename_default_group_name" Hidden="{@:Elem[fld_rename_default_group].Value!=0?'N':'Y'}" ElementSet="Default Group" Class="InputText" DefaultValue="IT Dept" FieldName="rename_default_group_name" Label="Default Group" Description="Rename system default group to this name" />
+		
         <Element Name="fld_data_share"  Class="DropDownList" DefaultValue="{GROUP_DATA_SHARE}" SelectFrom="common.lov.CommLOV(EnableStatus)" ElementSet="Data Sharing" Description="" FieldName="_group_data_share" Label="Data Sharing"  >
         	<EventHandler Name="fld_data_share_onupdate" Event="onchange" Function="UpdateForm()"  />
         </Element>
