@@ -1186,10 +1186,14 @@ color:#006599;
 table.input_row .label_text a:hover{
 color:#004569;
 }
+table.input_row .label_text strong{
+color:#14A8F1;
+}
 table.input_row .input_desc{
 padding-top:3px;
 height:auto;
 }
+
 .system_error_msg{
 	background-color:#FFD7D8;
 	display:block;
