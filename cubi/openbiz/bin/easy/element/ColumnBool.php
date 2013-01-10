@@ -80,7 +80,7 @@ class ColumnBool extends ColumnText
         {
             $link = $this->getLink();
             $target = $this->getTarget();
-            $sHTML = "<a alt=\"".$text."\" title=\"".$text."\"  id=\"$id\" href=\"$link\" $target $func $style><img src='$image_url' /></a>";
+            $sHTML = "<a  id=\"$id\" href=\"$link\" $target $func $style><img src='$image_url' /></a>";
         }else{
         	$sHTML = "<img id=\"$id\"  alt=\"".$text."\" title=\"".$text."\"  src='$image_url' />";
         }
