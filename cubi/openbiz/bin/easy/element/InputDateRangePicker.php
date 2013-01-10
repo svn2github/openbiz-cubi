@@ -78,16 +78,18 @@ class InputDateRangePicker extends InputText {
         ";
         
         $sHTML .= "
+        </div>
         <script>
-        //alert(\$j('#".$this->m_Name."').id);
-        \$j('#".$this->m_Name."').daterangepicker(
-        { arrows:true,
-          onChange:function(){
-	    		$event_onchange
-	    	}
+        \$j(document).ready(function(){
+	        \$j('#".$this->m_Name."').daterangepicker(
+	        { arrows:true,
+	          onChange:function(){
+		    		$event_onchange
+		    	}
+		    });
 	    });
         </script>
-        </div>
+        
         ";
         return $sHTML;
     }
