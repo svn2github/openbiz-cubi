@@ -83,7 +83,7 @@ if (DeviceUtil::$DEVICE)
 
 /* define themes const */
 define('USE_THEME', 1);
-define('FORCE_DEFAULT_THEME', 1);
+define('FORCE_DEFAULT_THEME', 0);
 define('THEME_URL', APP_URL . "/themes");
 define('THEME_PATH', APP_HOME . DIRECTORY_SEPARATOR . "themes");    // absolution path the themes
 if (DeviceUtil::$PHONE_TOUCH)
