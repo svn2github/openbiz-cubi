@@ -133,4 +133,4 @@ insert  into `role`(`name`,`description`,`status`,`default`,`startpage`) values 
 
 /* install help tutorial */
 INSERT INTO `help_tutorial` (`url_match`, `type`, `content_url`, `subject`, `content`, `width`, `height`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
-('/contact/contact_list', 'url', 'http://www.openbiz.cn/enterprise/contact/tutorial/contact-manage.php', '联系人列表', '', 550, 330, 1, '2012-12-31 19:29:32', 1, '2012-12-31 19:29:32');
+('/contact/contact_list', 'url', 'http://www.openbiz.cn/enterprise/contact/tutorial/contact-manage.php', '联系人列表', '', 550, 280, 1, '2012-12-31 19:29:32', 1, '2012-12-31 19:29:32');
