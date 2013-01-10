@@ -17,7 +17,7 @@
         
      	<Element Name="fld_content" Class="CKEditor"  Hidden="{@:Elem[fld_type].Value=='url'?'Y':'N'}" mode="adv"  Config="resize_maxWidth:640,resize_minWidth:640,resize_minHeight:300" width="640" height="300" FieldName="content" Label="Content"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  />
  		<Element Name="fld_width" Class="InputText" FieldName="width" DefaultValue="550" Label="Width"  AllowURLParam="N" Description="Width of tutorial POPUP window"/>
- 		<Element Name="fld_height" Class="InputText" FieldName="height" DefaultValue="330" Label="Height"  AllowURLParam="N"  Description="Height of tutorial POPUP window"/>
+ 		<Element Name="fld_height" Class="InputText" FieldName="height" DefaultValue="280" Label="Height"  AllowURLParam="N"  Description="Height of tutorial POPUP window"/>
         </DataPanel>
     <ActionPanel>
         <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
