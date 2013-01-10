@@ -11,18 +11,17 @@
  * @link      http://code.google.com/p/openbiz-cubi/
  * @version   $Id: app_init.php 3815 2012-08-02 16:07:17Z rockyswen@gmail.com $
  */
- 
 include_once ('device_util.php');
- 
-/****************************************************************************
+
+/* * **************************************************************************
   openbiz core path
- *************************************************************************** */
+ * ************************************************************************** */
 //define('OPENBIZ_HOME', 'absolute_dir/Openbiz');
 define('OPENBIZ_HOME', dirname(dirname(__FILE__)) . "/openbiz");
 
-/****************************************************************************
+/* * **************************************************************************
   application related path
- *************************************************************************** */
+ * ************************************************************************** */
 define('APP_HOME', dirname(dirname(__FILE__)));
 
 /* website url. please change the localhost to real url */
@@ -62,7 +61,7 @@ if ($appPath == '/') {
 
 /* define xhprof setting */
 define('XHPROF', 0);
-define('XHPROF_ROOT', '/Users/jixian/xhprof/'); /*Path to xhPorf libs root*/
+define('XHPROF_ROOT', '/Users/jixian/xhprof/'); /* Path to xhPorf libs root */
 define('XHPROF_URL', 'http://localhost/xhprof/xhprof_html/index.php?source=xhprof_testing&run=');
 
 /* APP_INDEX is /a/b/index.php in case of http://host/a/b/index.php?... */
@@ -79,22 +78,30 @@ define('MODULE_PATH', APP_HOME . DIRECTORY_SEPARATOR . "modules");
 define('MESSAGE_PATH', APP_HOME . DIRECTORY_SEPARATOR . "messages");
 
 /* device */
-if (DeviceUtil::$DEVICE) define('CLIENT_DEVICE',DeviceUtil::$DEVICE);
+if (DeviceUtil::$DEVICE)
+    define('CLIENT_DEVICE', DeviceUtil::$DEVICE);
 
 /* define themes const */
 define('USE_THEME', 1);
+define('FORCE_DEFAULT_THEME', 1);
 define('THEME_URL', APP_URL . "/themes");
 define('THEME_PATH', APP_HOME . DIRECTORY_SEPARATOR . "themes");    // absolution path the themes
-if (DeviceUtil::$PHONE_TOUCH) define('DEFAULT_THEME_NAME','touch');	// default theme for touch screen phone
-else define('DEFAULT_THEME_NAME', 'default');     // name of the theme. theme files are under themes/theme_name
+if (DeviceUtil::$PHONE_TOUCH)
+    define('DEFAULT_THEME_NAME', 'touch'); // default theme for touch screen phone
+else
+    define('DEFAULT_THEME_NAME', 'default');     // name of the theme. theme files are under themes/theme_name
 define('SMARTY_CPL_PATH', APP_HOME . DIRECTORY_SEPARATOR . "files/tpl_cpl");    // smarty template compiling path
 
 /* js lib base, prototype (old) or jquery (new) */
-if (DeviceUtil::$PHONE_TOUCH) define('JSLIB_BASE', "JQUERY");
-else /*define('JSLIB_BASE', "JQUERY");*/ define('JSLIB_BASE', "PROTOTYPE");
+if (DeviceUtil::$PHONE_TOUCH)
+    define('JSLIB_BASE', "JQUERY");
+else /* define('JSLIB_BASE', "JQUERY"); */
+    define('JSLIB_BASE', "PROTOTYPE");
 /* define javascript path */
-if (JSLIB_BASE == 'JQUERY') define('JS_URL', APP_URL . "/js/jq");
-else define('JS_URL', APP_URL . "/js");
+if (JSLIB_BASE == 'JQUERY')
+    define('JS_URL', APP_URL . "/js/jq");
+else
+    define('JS_URL', APP_URL . "/js");
 
 define('OTHERS_URL', APP_URL . "/others");
 /* Log file path */
@@ -109,7 +116,7 @@ define('APP_FILE_URL', APP_URL . "/files");
 if (is_file(APP_FILE_PATH . '/install.lock')) {
     define("SESSION_HANDLER", MODULE_PATH . "/system/lib/SessionDBHandler"); // save session in DATABASE 
     //define("SESSION_HANDLER", MODULE_PATH."/system/lib/SessionMCHandler"); // save session in MEMCACHE
-    define("SESSION_PATH", APP_HOME.DIRECTORY_SEPARATOR."session"); // for default FILE type session handler
+    define("SESSION_PATH", APP_HOME . DIRECTORY_SEPARATOR . "session"); // for default FILE type session handler
 } else {
     define("SESSION_PATH", APP_HOME . DIRECTORY_SEPARATOR . "session"); // for default FILE type session handler^M
 }
@@ -199,18 +206,21 @@ define('ALLOW_OWNER', 2);
 
 define('APPBUILDER', '1'); // 0: hidden, 1: show
 // load default theme
-if (@isset($_GET['theme'])) {
-    //$_GET
-    define('THEME_NAME', $_GET['theme']);
-    //save cookies
-    setcookie("THEME_NAME", $_GET['theme'], time() + 86400 * 365, "/");
-} elseif (@isset($_COOKIE['THEME_NAME'])) {
-    define('THEME_NAME', $_COOKIE['THEME_NAME']);
-} else {
-    //default
+if (FORCE_DEFAULT_THEME == 1) {
     define('THEME_NAME', DEFAULT_THEME_NAME);
+} else {
+    if (@isset($_GET['theme'])) {
+        //$_GET
+        define('THEME_NAME', $_GET['theme']);
+        //save cookies
+        setcookie("THEME_NAME", $_GET['theme'], time() + 86400 * 365, "/");
+    } elseif (@isset($_COOKIE['THEME_NAME'])) {
+        define('THEME_NAME', $_COOKIE['THEME_NAME']);
+    } else {
+        //default
+        define('THEME_NAME', DEFAULT_THEME_NAME);
+    }
 }
-
 include_once(OPENBIZ_HOME . "/bin/sysheader_inc.php");
 
 // service alias. used in expression engine
