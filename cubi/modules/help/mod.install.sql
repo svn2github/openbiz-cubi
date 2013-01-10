@@ -181,7 +181,7 @@ INSERT INTO `help_tutorial` (`id`, `url_match`, `type`, `content_url`, `subject`
 INSERT INTO `help_tutorial` (`url_match`, `type`, `content_url`, `subject`, `content`, `width`, `height`, `create_by`, `create_time`, `update_by`, `update_time`) VALUES
 ('/myaccount/reset_password/force', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-firstlogin-passwd.php', '初次登陆密码重置', '', 550, 280, 1, '2013-01-07 19:12:07', 1, '2013-01-07 19:15:21'),
 ('/myaccount/my_profile/force', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-firstlogin-profile.php', '初次登陆完善资料', '', 550, 280, 1, '2013-01-07 19:13:39', 1, '2013-01-07 19:13:39');
-
+('/contact/contact_detail/.*', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-user-profile.php', '完善联系人资料', '', 550, 280, 1, '2013-01-10 12:47:54', 1, '2013-01-10 12:52:00');
 
 DROP TABLE IF EXISTS `help_tutorial_user`;
 CREATE TABLE IF NOT EXISTS `help_tutorial_user` (
