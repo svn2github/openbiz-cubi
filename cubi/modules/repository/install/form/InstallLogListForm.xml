@@ -44,11 +44,11 @@
         	<EventHandler Name="sfld_cat_id_onchange" Event="onchange" Function="UpdateForm()" />
         </Element>
         
-        <Element Name="fld_app_id"  width="145"  Class="Listbox" style="float:left;margin-left:10px;" SelectFrom="repository.application.do.ApplicationDO[name:Id],[category_id]={@:Elem[fld_cat_id].Value}" FieldName="app_id" Label=""  >
+        <Element Name="fld_app_id"  width="145"  Class="Listbox" style="float:left;margin-left:10px;" SelectFrom="repository.application.do.ApplicationDO[name:Id],[category_id]='{@:Elem[fld_cat_id].Value}'" FieldName="app_id" Label=""  >
         	<EventHandler Name="sfld_cat_id_onchange" Event="onchange" Function="RunSearch()" />
         </Element>
         
-        <Element Name="fld_release_id"  width="100"  Class="Listbox" style="float:left;margin-left:10px;" SelectFrom="repository.release.do.ReleaseDO[version:Id],[app_id]={(int)@:Elem[fld_app_id].Value}" FieldName="release_id" Label=""  >
+        <Element Name="fld_release_id"  width="100"  Class="Listbox" style="float:left;margin-left:10px;" SelectFrom="repository.release.do.ReleaseDO[version:Id],[app_id]='{(int)@:Elem[fld_app_id].Value}'" FieldName="release_id" Label=""  >
         	<EventHandler Name="sfld_cat_id_onchange" Event="onchange" Function="RunSearch()" />
         </Element>
         
