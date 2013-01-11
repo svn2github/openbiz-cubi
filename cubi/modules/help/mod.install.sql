@@ -172,7 +172,7 @@ INSERT INTO `help_tutorial` (`id`, `url_match`, `type`, `content_url`, `subject`
 (3, '/system/group_list', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-group.php', '用户部门设置', '', 550, 280, 1, '2012-10-27 16:27:31', 1, '2012-10-27 16:30:19'),
 (4, '/system/group_data_sharing', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-share.php', '部门共享设置', '', 500, 280, 1, '2012-10-27 16:36:57', 1, '2012-10-27 16:37:41'),
 (5, '/system/user_list', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-user.php', '用户设置', '', 550, 260, 1, '2012-10-29 18:45:17', 1, '2012-10-29 18:54:00'),
-(6, '/system/user_preference', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-system.php', '系统偏好设置', '', 550, 200, 1, '2012-10-29 19:21:49', 1, '2012-10-29 19:21:49'),
+(6, '/system/user_preference', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-system.php', '系统偏好设置', '', 550, 280, 1, '2012-10-29 19:21:49', 1, '2012-10-29 19:21:49'),
 (7, '/system/module_list', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-module.php', '模块管理', '', 500, 240, 1, '2012-10-29 19:34:35', 1, '2012-10-29 19:38:58'),
 (8, '/backup/backup_list', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-backup.php', '备份数据', '', 550, 260, 1, '2012-10-29 19:46:25', 1, '2012-10-29 19:46:25'),
 (9, '/email/email_setting_list', 'url', 'http://www.openbiz.cn/developer/cubi/tutorial/cubi-email.php', '系统邮件账户', '', 550, 300, 1, '2012-10-29 19:53:13', 1, '2012-10-29 19:53:13'),
