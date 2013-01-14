@@ -13,7 +13,10 @@ echo "========================================\n";
 echo "========================================\n";
 echo "XML To Php Config (Array) Converter\n";
 echo "========================================\n";
+
+
 xml2ArrayFile(APP_HOME, 'application.xml');
+convertFilesInFolder(OPENBIZ_META);
 convertFilesInFolder(APP_HOME . DIRECTORY_SEPARATOR . 'modules');
 
 echo "========================================\n";
