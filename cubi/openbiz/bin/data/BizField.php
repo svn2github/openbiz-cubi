@@ -89,6 +89,7 @@ class BizField extends MetaObject
      */
     public $m_Value = null; 
     public $m_OldValue = null; // the old value of the field
+	public $m_IgnoreInQuery = false;
 
     /**
      * Initialize BizField with xml array
