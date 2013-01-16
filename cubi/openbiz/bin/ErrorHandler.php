@@ -44,8 +44,10 @@ class OB_ErrorHandler
         // was suppressed with a '@'
         if (error_reporting() == 0)
             return;
-        if ($errNo == E_NOTICE || $errNo == E_STRICT) // || $errno == E_WARNING)
-            return; // ignore notice error
+        if ($errNo == E_NOTICE || $errNo == E_STRICT) { // || $errno == E_WARNING) 
+			//echo "errorHandler ($errNo, $errMsg, $fileName, $lineNum, $vars)\n";
+			return; // ignore notice error
+		}
         $debug_array = debug_backtrace();
         $back_trace = self::_errorBacktrace($debug_array);
         $err = self::_getOutputErrorMsg($errNo, $errMsg, $fileName, $lineNum, $back_trace);

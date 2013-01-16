@@ -15,6 +15,7 @@
  */
 
 include_once(OPENBIZ_BIN.'data/BizDataObj_Abstract.php');
+include_once(OPENBIZ_BIN.'data/BizDataSql.php');
 include_once(OPENBIZ_BIN."util/QueryStringParam.php");
 include_once(OPENBIZ_BIN."data/DataSet.php");
 

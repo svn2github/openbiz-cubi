@@ -14,7 +14,7 @@
  * @version   $Id: BizDataObj.php 4108 2011-05-08 06:01:30Z jixian2003 $
  */
 
-include_once(OPENBIZ_BIN.'data/BizDataObj_Abstract.php');
+include_once(OPENBIZ_BIN.'data/BizDataObj_Lite.php');
 
 /**
  * BizDataObj class is the base class of all data object classes

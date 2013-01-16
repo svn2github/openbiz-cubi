@@ -33,6 +33,8 @@ class Resource
     private static $_cssUrl;
     private static $_jsUrl;
     private static $_currentTheme;
+	private static $_xmlFileList;
+	private static $_xmlArrayList;
 
     const DEFAULT_THEME = THEME_NAME;
     /**
@@ -247,7 +249,10 @@ class Resource
      * */
     public static function getXmlFileWithPath($xmlObj)
     {
-        $xmlFile = $xmlObj;
+        if (isset(self::$_xmlFileList[$xmlObj])) {
+			return self::$_xmlFileList[$xmlObj];
+		}
+		$xmlFile = $xmlObj;
         if (strpos($xmlObj, ".xml") > 0)  // remove .xml suffix if any
             $xmlFile = substr($xmlObj, 0, strlen($xmlObj) - 4);
 
@@ -279,9 +284,13 @@ class Resource
 
         foreach ($xmlFileList as $xmlFileItem)
         {
-            if (file_exists($xmlFileItem))
+            //echo "file_exists($xmlFileItem)\n";
+			if (file_exists($xmlFileItem)) {
+				self::$_xmlFileList[$xmlObj] = $xmlFileItem;
                 return $xmlFileItem;
-        }        
+			}
+        }
+		self::$_xmlFileList[$xmlObj] = null;
         return null;
     }
 
@@ -346,7 +355,9 @@ class Resource
     {
         if (!$className)
             return;
-        // search it in cache first
+        
+		//echo "getLibFileWithPath($className, $packageName)\n";
+		// search it in cache first
         $cacheKey = $className . "_path";
         if (extension_loaded('0') && ($filePath = apc_fetch($cacheKey)) != null)
             return $filePath;
@@ -375,6 +386,7 @@ class Resource
             if ($checkExtModule && defined('MODULE_EX_PATH')) array_unshift($classFiles, MODULE_EX_PATH . "/" . $path . "/" . $classFile);
             foreach ($classFiles as $classFile)
             {
+				//echo "file_exists($classFile)\n";
                 if (file_exists($classFile))
                 {
                     $filePath = $classFile;
@@ -403,13 +415,22 @@ class Resource
      */
     private static function _getCoreLibFilePath($className)
     {
+		//echo "_getCoreLibFilePath($className, $packageName)\n";
         $classFile = $className . '.php';
 
         // TODO: search the file under bin/, bin/data, bin/ui. bin/service, bin/easy, bin/easy/element.
-        $corePaths = array('', 'data/', 'easy/', 'easy/element/', 'ui/', 'service/');
+		// guess class type and folder
+		$lowClassName = strtolower($className);
+		if (strrpos($lowClassName,'service')>0) $corePaths = array('service/');
+		else if (strrpos($lowClassName,'form')>0 || strrpos($lowClassName,'form')===0) $corePaths = array('easy/');
+		else if (strrpos($lowClassName,'view')>0 || strrpos($lowClassName,'view')===0) $corePaths = array('easy/');
+		else if (strrpos($lowClassName,'dataobj')>0) $corePaths = array('data/');
+		else $corePaths = array('easy/element/','','data/', 'easy/', 'service/');
+        //$corePaths = array('', 'data/', 'easy/', 'easy/element/', 'ui/', 'service/');
         foreach ($corePaths as $path)
         {
             $_classFile = OPENBIZ_BIN . $path . $classFile;
+			//echo "file_exists($_classFile)\n";
             if (file_exists($_classFile))
                 return $_classFile;
         }
@@ -428,7 +449,11 @@ class Resource
      * */
     public static function &getXmlArray($xmlFile)
     {
+		if (isset(self::$_xmlArrayList[$xmlFile])) {
+			return self::$_xmlArrayList[$xmlFile];
+		}
         $objXmlFileName = $xmlFile;
+		//echo "getXmlArray($xmlFile)\n";
         //$objCmpFileName = dirname($objXmlFileName) . "/__cmp/" . basename($objXmlFileName, "xml") . ".cmp";
         //$_crc32 = sprintf('%08X', crc32(dirname($objXmlFileName)));
         $_crc32 = strtoupper(md5(dirname($objXmlFileName)));
@@ -483,6 +508,7 @@ class Resource
         {
             apc_store($cacheKey, $xmlArr);
         }
+		self::$_xmlArrayList[$xmlFile] = $xmlArr;
         return $xmlArr;
     }
 	

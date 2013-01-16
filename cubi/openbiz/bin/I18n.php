@@ -88,8 +88,10 @@ class I18n
     	else $filename = "mod.$module.ini";
     	$langFile = LANGUAGE_PATH."/$langCode/$filename";
     	//echo "check ini file $langFile".nl;
-    	if (!file_exists($langFile)) return false;
-    	
+    	if (!file_exists($langFile)) {
+			I18n::$_langData[$module] = array();
+			return false;
+    	}
     	//echo "parse ini file $langFile".nl;
     	$inidata = parse_ini_file($langFile, false);
     	

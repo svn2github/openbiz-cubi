@@ -15,6 +15,7 @@
  */
 
 include_once(OPENBIZ_BIN."/easy/Panel.php");
+include_once(OPENBIZ_BIN."/easy/FormRenderer.php");
 include_once(OPENBIZ_BIN."/util/QueryStringParam.php");
 
 /**
@@ -2063,7 +2064,6 @@ $('".$this->m_Name."').observe('click',Openbiz.Menu.hide);
      */
     protected function renderHTML()
     {    	    	    	
-        include_once(OPENBIZ_BIN."/easy/FormRenderer.php");
         $formHTML = FormRenderer::render($this);
         $otherHTML = $this->rendercontextmenu();
         
