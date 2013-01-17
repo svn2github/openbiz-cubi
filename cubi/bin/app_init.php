@@ -229,12 +229,16 @@ $g_ServiceAlias = array('validate' => VALIDATE_SERVICE, 'query' => QUERY_SERVICE
 
 //init default timezone setting 
 define('DEFAULT_TIMEZONE', 'Asia/Chongqing');
+
+/*
 $DefaultTimezone = BizSystem::sessionContext()->getVar("TIMEZONE");
 // default language
 if ($DefaultTimezone == "") {
     $DefaultTimezone = DEFAULT_TIMEZONE;
 }
 date_default_timezone_set($DefaultTimezone);
+*/
+
 
 define('FusionChartVersion', "Pro");
 

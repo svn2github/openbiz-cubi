@@ -152,7 +152,7 @@ class ObjectFactory
 
         if (!class_exists($class, false))
         {        	
-            $classFile= BizSystem::getLibFileWithPath($class, $classPackage);
+            $classFile= BizClassLoader::getLibFileWithPath($class, $classPackage);
             if (!$classFile)
             {
                 if ($package)

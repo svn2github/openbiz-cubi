@@ -77,8 +77,8 @@ define('Popup_Suffix', "_popupx_");
 set_include_path(get_include_path() . PATH_SEPARATOR . ZEND_FRWK_HOME);
 
 /* global variables */
-include_once("BizSystem.php");
-$g_BizSystem = BizSystem::instance();
+
+include_once("BizClassLoader.php");
 
 // error handling 
 error_reporting(E_ALL ^ (E_NOTICE | E_STRICT));
@@ -105,13 +105,15 @@ function __autoload_openbiz($className)
         include_once($filePath);
         return;
     }*/
-    BizSystem::loadClass($className);
+ BizClassLoader::loadClass($className);
 }
 if(!function_exists("__autoload"))
 {
 	spl_autoload_register("__autoload_openbiz");	
 }
 
+//include_once("BizSystem.php");
+$g_BizSystem = BizSystem::instance();
 /**
  * User error handler function
  *

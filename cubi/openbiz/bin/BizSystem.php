@@ -700,10 +700,10 @@ class BizSystem
      * @param string $className
      * @return string php library file path
      **/
-    public static function getLibFileWithPath($className, $packageName="")
-    {
-        return Resource::getLibFileWithPath($className, $packageName);
-    }
+    //public static function getLibFileWithPath($className, $packageName="")
+    //{
+    //    return Resource::getLibFileWithPath($className, $packageName);
+    //}
 
     /**
      * Get core path of class
@@ -712,10 +712,10 @@ class BizSystem
      * @param string $className class name
      * @return string full file name of class
      */
-    private static function _getCoreLibFilePath($className)
-    {
-        return Resource::getCoreLibFilePath($className);
-    }
+    //private static function _getCoreLibFilePath($className)
+    //{
+    //    return Resource::getCoreLibFilePath($className);
+    //}
 
     /**
      * Get Xml Array.
