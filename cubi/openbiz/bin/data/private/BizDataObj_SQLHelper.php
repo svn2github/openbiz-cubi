@@ -29,12 +29,15 @@ class BizDataObj_SQLHelper
      * @var BizDataSql
      */
     private $_dataSqlObj = null;
+	private $_dataSqlObjList;
 
     /**
      *
      * @var BizDataObj_SQLHelper
      */
     private static $_instance = null;
+	
+	private $_doRuleCache;
 
     /**
      * Get the singleton instance
@@ -65,10 +68,19 @@ class BizDataObj_SQLHelper
      *
      * @return BizDataSql
      */
-    protected function getNewDataSqlObj()
+    protected function getNewDataSqlObj($dataObj=null)
     {
-        $this->_dataSqlObj = null;
-        $this->_dataSqlObj = new BizDataSql();
+		if ($dataObj) {
+			$doName = $dataObj->m_Name;
+			if (!isset($this->_dataSqlObjList[$doName])) {
+				$this->_dataSqlObjList[$doName] = new BizDataSql();
+			}
+			$this->_dataSqlObj = $this->_dataSqlObjList[$doName];
+		}
+		else {
+			$this->_dataSqlObj = null;
+			$this->_dataSqlObj = new BizDataSql();
+		}
         return $this->_dataSqlObj;
     }
 
@@ -80,34 +92,37 @@ class BizDataObj_SQLHelper
      */
     public function buildQuerySQL($dataObj)
     {
-        // TODO: if no searchrule or sortrule change ...
+        //echo "buildQuerySQL ".$dataObj->m_Name."\n";
+		// TODO: the same dataobj re-uses the same datasqlobj ...
         // build the SQL statement based on the fields and search rule
-        $dataSqlObj = $this->getNewDataSqlObj();
-        // add table
-        $dataSqlObj->addMainTable($dataObj->m_MainTable);
-        // add join table
-        if ($dataObj->m_TableJoins)
-        {
-            foreach($dataObj->m_TableJoins as $tableJoin)
-            {
-				$tbl_col = $dataSqlObj->addJoinTable($tableJoin, $this);
-            }
-        }
-        // add columns
-        foreach($dataObj->m_BizRecord as $bizFld)
-        {
-            if ($bizFld->m_IgnoreInQuery) // field to be ignore in query - save memory
-                continue;
-            if ($bizFld->m_Column && $bizFld->m_Type == "Blob")   // ignore blob column
-                continue;
-            if ($bizFld->m_Column && !$bizFld->m_SqlExpression && (strpos($bizFld->m_Column,',') == 0))
-                $dataSqlObj->addTableColumn($bizFld->m_Join, $bizFld->m_Column, $bizFld->m_Alias);
-            if ($bizFld->m_SqlExpression)
-            {
-                $dataSqlObj->addSqlExpression($this->_convertSqlExpression($dataObj, $bizFld->m_SqlExpression),$bizFld->m_Alias);
-            }
-        }
-
+        $dataSqlObj = $this->getNewDataSqlObj($dataObj);
+		
+		if ($dataSqlObj->isfresh()) {
+			// add table
+			$dataSqlObj->addMainTable($dataObj->m_MainTable);
+			// add join table
+			if ($dataObj->m_TableJoins)
+			{
+				foreach($dataObj->m_TableJoins as $tableJoin)
+				{
+					$tbl_col = $dataSqlObj->addJoinTable($tableJoin, $this);
+				}
+			}
+			// add columns
+			foreach($dataObj->m_BizRecord as $bizFld)
+			{
+				if ($bizFld->m_IgnoreInQuery) // field to be ignore in query - save memory
+					continue;
+				if ($bizFld->m_Column && $bizFld->m_Type == "Blob")   // ignore blob column
+					continue;
+				if ($bizFld->m_Column && !$bizFld->m_SqlExpression && (strpos($bizFld->m_Column,',') == 0))
+					$dataSqlObj->addTableColumn($bizFld->m_Join, $bizFld->m_Column, $bizFld->m_Alias);
+				if ($bizFld->m_SqlExpression)
+				{
+					$dataSqlObj->addSqlExpression($this->_convertSqlExpression($dataObj, $bizFld->m_SqlExpression),$bizFld->m_Alias);
+				}
+			}
+		}
         $dataSqlObj->resetSQL();
 
         // append DataPerm in the WHERE clause
@@ -164,7 +179,7 @@ class BizDataObj_SQLHelper
 		
 		$querySQL = $dataSqlObj->getSqlStatement() . " ";
 
-        //echo $dataobj->m_QuerySQL."###<br>";
+        //echo $querySQL."###\n";
         return $querySQL;
     }
 
@@ -410,13 +425,53 @@ class BizDataObj_SQLHelper
      **/
     private function _ruleToSql($dataObj, $rule)
     {
-        $dataSqlObj = $this->getDataSqlObj();
+        $cacheKey = $dataObj->m_Name."-".$rule;
+		if (isset($this->_doRuleCache[$cacheKey])) {
+			return $this->_doRuleCache[$cacheKey];
+		}
+		//echo " _ruleToSql ".$dataObj->m_Name." ". $rule."\n";
+		$dataSqlObj = $this->getDataSqlObj();
 
         $rule = Expression::evaluateExpression($rule,$dataObj);
 
         // replace all [field] with table.column
+		// use regexp to find [] parts and replace with fields
+		if (!preg_match_all("/\[([0-9a-zA-Z_]+)\]/",$rule,$m)) {
+			$this->_doRuleCache[$cacheKey] = $rule;
+			return $rule;
+		}
+		foreach ($m[1] as $fld) {
+			$bizFld = $dataObj->getField($fld);
+			if (!$bizFld) continue;
+			$fld_pattern = "[".$bizFld->m_Name."]";
+			if ($bizFld->m_Column && (strpos($bizFld->m_Column,',') != 0))
+			{  // handle composite key.
+				if (!preg_match('/\['.$bizFld->m_Name.'\].*=.*\'(.+)\'/', $rule, $matches)) continue; //print_r($matches);
+				$keyval = $matches[1];
+				// replace the matching part [compkey field]='value' 
+				$compkey_value = $this->_compKeyRuleToSql($bizFld->m_Column,$keyval);
+				$rule = $str_replace($matches[0], $compkey_value, $rule);
+			}
+			else
+			{
+				if ($bizFld->m_Alias){
+					$rule = str_replace($fld_pattern, $bizFld->m_Alias, $rule);
+				}
+				elseif($bizFld->m_SqlExpression){
+					$rule = str_replace($fld_pattern, $bizFld->m_SqlExpression, $rule);
+				}
+				else
+				{
+					$tableColumn = $dataSqlObj->getTableColumn($bizFld->m_Join, $bizFld->m_Column);
+					$rule = str_replace($fld_pattern, $tableColumn, $rule);
+				}
+			}
+		}
+		
+		/*
         foreach($dataObj->m_BizRecord as $bizFld)
         {
+		echo "loop ".$dataObj->m_Name.".".$bizFld->m_Name."\n";
             if (!$bizFld->m_Column && !$bizFld->m_Alias && !$bizFld->m_SqlExpression)
                 continue;   // ignore if no column mapped
             $fld_pattern = "[".$bizFld->m_Name."]";
@@ -445,8 +500,8 @@ class BizDataObj_SQLHelper
                     }
                 }
             }
-        }
-
+        }*/
+		$this->_doRuleCache[$cacheKey] = $rule;
         return $rule;
     }
 

@@ -33,6 +33,7 @@ class DropDownList extends InputElement
     public $m_SelectFrom;
     public $m_SelectFromSQL;
     public $m_SelectedList;	
+	protected $_listCache;
 	
 	protected function readMetaData(&$xmlArr){
 		parent::readMetaData($xmlArr);
@@ -202,7 +203,8 @@ else {
     	{
     		return null;
     	}
-    	$selectFrom = $this->m_SelectFrom;
+		$list = $this->getList();
+    	/*$selectFrom = $this->m_SelectFrom;
     	$selectFrom = substr($selectFrom,0,strpos($selectFrom,','));
         
     	$list= array();        
@@ -218,7 +220,7 @@ else {
         			$this->getSimpleFromList($list, $selectFrom);
         		}				
         	}
-        }
+        }*/
             
        	if(!is_array($list)||count($list)==0){
        		return $value;
@@ -323,6 +325,7 @@ else {
     }
     
     protected function getList(){
+		if ($this->_listCache) return $this->_listCache;
     	$list= array();
         if (!$selectFrom) {
             $selectFrom = $this->getSelectFrom();
@@ -331,14 +334,17 @@ else {
         	return $this->getSQLFromList($list);
         }
         $this->getXMLFromList($list, $selectFrom);
-        if ($list != null)
-            return $list;            
+        if ($list != null) {
+            $this->_listCache=$list; return $list;
+		}			
         $this->getDOFromList($list, $selectFrom);
-        if ($list != null)
-            return $list;
+        if ($list != null) {
+            $this->_listCache=$list; return $list;
+		}
         $this->getSimpleFromList($list, $selectFrom);
-        if ($list != null)
-            return $list;
+        if ($list != null) {
+            $this->_listCache=$list; return $list;
+		}
                 
     	return $list;
     }

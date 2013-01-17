@@ -37,6 +37,11 @@ class BizDataSql
     public function __construct()
     {
     }
+	
+	public function isfresh()
+	{
+		return $this->_mainTable ? false : true;
+	}
 
     /**
      * Add main table in the sql statement T0 alias

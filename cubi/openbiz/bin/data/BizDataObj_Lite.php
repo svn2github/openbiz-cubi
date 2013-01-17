@@ -77,10 +77,6 @@ class BizDataObj_Lite extends BizDataObj_Abstract
         $sessionContext->getObjVar($this->m_Name, "SortRule", $this->m_SortRule);
         $sessionContext->getObjVar($this->m_Name, "OtherSqlRule", $this->m_OtherSQLRule);
         $sessionContext->getObjVar($this->m_Name, "Association", $this->m_Association);
-
-        // ??? need to save current record in session ???
-        foreach($this->m_BizRecord as $fieldName=>$bizField)
-            $bizField->setValue($this->m_CurrentRecord[$fieldName]);
     }
 
     /**
