@@ -230,7 +230,8 @@ $g_ServiceAlias = array('validate' => VALIDATE_SERVICE, 'query' => QUERY_SERVICE
 //init default timezone setting 
 define('DEFAULT_TIMEZONE', 'Asia/Chongqing');
 
-
+//please keep below code , the DEFAULT timezone sett could be change in your admin's preference setting panel,
+//if remove below may cause error, which break entire system, php will generate a warning level error and our handler will end up the script. 
 $DefaultTimezone = BizSystem::sessionContext()->getVar("TIMEZONE");
 // default language
 if ($DefaultTimezone == "") {
