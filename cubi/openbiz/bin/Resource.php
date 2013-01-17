@@ -478,6 +478,7 @@ class Resource
      * @author agus suhartono
      * @var array
      */
+    /*
     public static $coreClassMap = array(
             "BizController" => "/bin/BizController.php",
             "BizSystem" => "/bin/BizSystem.php",
@@ -621,5 +622,7 @@ class Resource
             "Smarty" => "/others/Smarty/libs/Smarty.class.php",
         
         );
+     * 
+     */
     
 }
