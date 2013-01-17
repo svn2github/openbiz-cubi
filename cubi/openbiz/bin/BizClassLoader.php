@@ -13,6 +13,7 @@
 class BizClassLoader {
     
     private static $_classNameCache = array();
+    protected static $coreClassMap = array();
     
     public static function loadClass($className, $packageName='')
     {
