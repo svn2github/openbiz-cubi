@@ -351,10 +351,10 @@ class Resource
      * @param string $className
      * @return string php library file path
      * */
-    //public static function getLibFileWithPath($className, $packageName="")
-    //{
-    //    return BizClassLoader::getLibFileWithPath($className, $packageName);
-    //}
+    public static function getLibFileWithPath($className, $packageName="")
+    {
+        return BizClassLoader::getLibFileWithPath($className, $packageName);
+    }
 
     
     /**
@@ -363,9 +363,9 @@ class Resource
      * @param string $className class name
      * @return string full file name of class
      */    
-    //public static function getCoreLibFilePath($className) {
-    //    return BizClassLoader::getCoreLibFilePath($className);
-    //}
+    public static function getCoreLibFilePath($className) {
+        return BizClassLoader::getCoreLibFilePath($className);
+    }
     
 
     /**
