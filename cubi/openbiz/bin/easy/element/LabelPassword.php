@@ -14,7 +14,7 @@
  * @version   $Id: LabelList.php 543 2009-10-03 08:50:00Z mr_a_ton$
  */
 
-include_once("LabelText.php");
+//include_once("LabelText.php");
 
 /**
  * LabelPassword class is element that show text with mask (for password)

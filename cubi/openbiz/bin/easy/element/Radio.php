@@ -14,7 +14,7 @@
  * @version   $Id: Radio.php 3671 2011-04-12 06:30:49Z jixian2003 $
  */
 
-include_once("OptionElement.php");
+//include_once("OptionElement.php");
 
 /**
  * Radio class is element that show RadioBox with data from Selection.xml

@@ -268,7 +268,7 @@ class EasyView extends MetaObject implements iSessionObject
             }
             else
             {
-                include_once(OPENBIZ_BIN."/easy/ViewRenderer.php");
+                //include_once(OPENBIZ_BIN."/easy/ViewRenderer.php");
                 $this->m_ConsoleOutput = false;
                 $output = ViewRenderer::render($this);
                 BizSystem::log(LOG_DEBUG, "VIEW", "Set cache. url = ".$pageUrl);
@@ -278,14 +278,15 @@ class EasyView extends MetaObject implements iSessionObject
         }
         else
         {
-            include_once(OPENBIZ_BIN."/easy/ViewRenderer.php");
+            //include_once(OPENBIZ_BIN."/easy/ViewRenderer.php");
             ViewRenderer::render($this);
         }
         return;
         /*
         $this->setClientScripts();
-      	include_once(OPENBIZ_BIN."/easy/ViewRenderer.php"); 
-	    return ViewRenderer::render($this);*/
+      	//include_once(OPENBIZ_BIN."/easy/ViewRenderer.php"); 
+	    return ViewRenderer::render($this);
+         */
     }
 
     /**

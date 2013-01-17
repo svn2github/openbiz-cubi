@@ -14,7 +14,7 @@
  * @version   $Id: CheckListbox.php 2553 2010-11-21 08:36:48Z mr_a_ton $
  */
 
-include_once("OptionElement.php");
+//include_once("OptionElement.php");
 
 /**
  * Listbox class is element that show ListBox with data from Selection.xml

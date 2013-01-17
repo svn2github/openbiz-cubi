@@ -14,7 +14,7 @@
  * @version   $Id: Hidden.php 2912 2010-12-17 18:30:31Z jixian2003 $
  */
 
-include_once("Element.php");
+//include_once("Element.php");
 
 /**
  * Button class is hidden element

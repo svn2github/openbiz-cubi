@@ -14,7 +14,7 @@
  * @version   $Id: InputText.php 3313 2011-02-24 04:32:17Z jixian2003 $
  */
 
-include_once(OPENBIZ_BIN."/easy/element/InputElement.php");
+//include_once(OPENBIZ_BIN."/easy/element/InputElement.php");
 
 /**
  * InputText class is element for input text

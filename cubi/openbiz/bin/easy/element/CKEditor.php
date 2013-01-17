@@ -14,7 +14,7 @@
  * @version   $Id: CKEditor.php 3486 2011-03-11 17:30:28Z jixian2003 $
  */
 
-include_once("InputElement.php");
+//include_once("InputElement.php");
 
 /**
  * CKEditor class is element for CKEditor

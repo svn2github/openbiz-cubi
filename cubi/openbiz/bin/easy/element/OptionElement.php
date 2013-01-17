@@ -14,7 +14,7 @@
  * @version   $Id: OptionElement.php 3561 2011-03-30 06:15:47Z jixian2003 $
  */
 
-include_once("InputElement.php");
+//include_once("InputElement.php");
 
 /**
  * OptionElement is the base class of element that render list (from Selection.xml)

@@ -14,7 +14,7 @@
  * @version   $Id: InputElement.php 3536 2011-03-28 19:13:05Z jixian2003 $
  */
 
-include_once("Element.php");
+//include_once("Element.php");
 
 /**
  * InputElement class is based element for all input element

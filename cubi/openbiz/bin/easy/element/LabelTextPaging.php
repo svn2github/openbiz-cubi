@@ -1,5 +1,5 @@
 <?PHP
-include_once("LabelText.php");
+//include_once("LabelText.php");
 
 
 class LabelTextPaging extends LabelText

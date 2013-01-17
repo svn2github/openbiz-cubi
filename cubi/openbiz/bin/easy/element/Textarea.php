@@ -14,7 +14,7 @@
  * @version   $Id: Textarea.php 2553 2010-11-21 08:36:48Z mr_a_ton $
  */
 
-include_once("OptionElement.php");
+//include_once("OptionElement.php");
 
 /**
  * Textarea class is element for render html Textarea

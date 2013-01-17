@@ -22,7 +22,7 @@
 /**
  * Base class for Element.
  */
-include_once("Element.php");
+//include_once("Element.php");
 
 /**
  * ColumnValue - class ColumnValue is element that view value in column

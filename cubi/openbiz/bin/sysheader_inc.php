@@ -121,7 +121,7 @@ $g_BizSystem = BizSystem::instance();
  */
 function userErrorHandler ($errno, $errmsg, $filename, $linenum, $vars)
 {
-    include_once(OPENBIZ_BIN.'ErrorHandler.php');
+    //include_once(OPENBIZ_BIN.'ErrorHandler.php');
     OB_ErrorHandler::ErrorHandler($errno, $errmsg, $filename, $linenum, $vars);
 }
 
@@ -132,7 +132,7 @@ function userErrorHandler ($errno, $errmsg, $filename, $linenum, $vars)
  */
 function userExceptionHandler ($exc)
 {
-    include_once(OPENBIZ_BIN.'ErrorHandler.php');
+    //include_once(OPENBIZ_BIN.'ErrorHandler.php');
     OB_ErrorHandler::ExceptionHandler($exc);
 }
 /*

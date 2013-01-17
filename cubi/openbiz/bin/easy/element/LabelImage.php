@@ -1,7 +1,7 @@
 <?PHP
 
 
-include_once("LabelText.php");
+//include_once("LabelText.php");
 
 
 class LabelImage extends LabelText

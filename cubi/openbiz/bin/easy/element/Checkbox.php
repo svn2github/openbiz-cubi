@@ -14,7 +14,7 @@
  * @version   $Id: Checkbox.php 3780 2011-04-18 18:26:11Z jixian2003 $
  */
 
-include_once("OptionElement.php");
+//include_once("OptionElement.php");
 
 /**
  * Checkbox class is element for Checkbox

@@ -14,7 +14,7 @@
  * @version   $Id: ColumnBool.php 3687 2011-04-12 19:58:36Z jixian2003 $
  */
 
-include_once("ColumnText.php");
+//include_once("ColumnText.php");
 
 /**
  * ColumnBool class is element for ColumnBool

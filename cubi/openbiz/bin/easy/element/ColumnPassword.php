@@ -14,7 +14,7 @@
  * @version   $Id: ColumnPassword.php 2553 2010-11-21 08:36:48Z mr_a_ton $
  */
 
-include_once("ColumnText.php");
+//include_once("ColumnText.php");
 
 /**
  * ColumnPassword class is element for ColumnPassword,

@@ -14,7 +14,7 @@
  * @version   $Id: BizDataTree.php 2585 2010-11-23 18:58:17Z jixian2003 $
  */
 
-include_once(OPENBIZ_BIN.'data/BizDataObj.php');
+//include_once(OPENBIZ_BIN.'data/BizDataObj.php');
 
 /**
  * BizDataTree class provide query for tree structured records

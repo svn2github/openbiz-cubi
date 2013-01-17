@@ -14,12 +14,12 @@
  * @version   $Id: BizDataObj_Abstract.php 4108 2011-05-08 06:01:30Z jixian2003 $
  */
 
-include_once(OPENBIZ_BIN.'data/private/BizRecord.php');
-include_once(OPENBIZ_BIN.'data/private/TableJoin.php');
-include_once(OPENBIZ_BIN.'data/private/ObjReference.php');
-include_once(OPENBIZ_BIN.'data/private/BizDataObj_Assoc.php');
-include_once(OPENBIZ_BIN.'data/private/BizDataObj_SQLHelper.php');
-include_once(OPENBIZ_BIN.'data/BizField.php');
+//include_once(OPENBIZ_BIN.'data/private/BizRecord.php');
+//include_once(OPENBIZ_BIN.'data/private/TableJoin.php');
+//include_once(OPENBIZ_BIN.'data/private/ObjReference.php');
+//include_once(OPENBIZ_BIN.'data/private/BizDataObj_Assoc.php');
+//include_once(OPENBIZ_BIN.'data/private/BizDataObj_SQLHelper.php');
+//include_once(OPENBIZ_BIN.'data/BizField.php');
 
 /**
  * BizDataObj_Abstract class contains data object metadata functions

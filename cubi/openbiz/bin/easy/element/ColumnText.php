@@ -14,7 +14,7 @@
  * @version   $Id: ColumnText.php 2553 2010-11-21 08:36:48Z mr_a_ton $
  */
 
-include_once("LabelText.php");
+//include_once("LabelText.php");
 
 /**
  * ColumnText class is element for ColumnText,

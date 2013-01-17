@@ -14,7 +14,7 @@
  * @version   $Id: ResetButton.php 2553 2010-11-21 08:36:48Z mr_a_ton $
  */
 
-include_once("InputElement.php");
+//include_once("InputElement.php");
 
 /**
  * ResetButton class is element for render html reset button

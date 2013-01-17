@@ -14,7 +14,7 @@
  * @version   $Id: FileUploader.php 3086 2011-01-22 20:06:43Z jixian2003 $
  */
 
-include_once("FileInput.php");
+//include_once("FileInput.php");
 
 /**
  * File class is the element for Upload File

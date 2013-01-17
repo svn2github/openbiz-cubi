@@ -14,7 +14,7 @@
  * @version   $Id: LabelBool.php 3640 2011-04-11 03:18:17Z jixian2003 $
  */
 
-include_once("LabelText.php");
+//include_once("LabelText.php");
 
 class LabelBool extends LabelText{
     public $m_TrueImg;

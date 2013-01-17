@@ -14,7 +14,7 @@
  * @version   $Id: RawData.php 3437 2011-03-08 16:40:19Z jixian2003 $
  */
 
-include_once("Element.php");
+//include_once("Element.php");
 
 /**
  * RawData class is element for render raw data

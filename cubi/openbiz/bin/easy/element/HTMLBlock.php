@@ -14,7 +14,7 @@
  * @version   $Id: HTMLBlock.php 2553 2010-11-21 08:36:48Z mr_a_ton $
  */
 
-include_once("Element.php");
+//include_once("Element.php");
 
 /**
  * HTMLBlock class is element that write HTML block borderd by <div> tag

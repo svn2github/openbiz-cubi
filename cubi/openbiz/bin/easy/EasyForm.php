@@ -14,9 +14,9 @@
  * @version   $Id: EasyForm.php 4203 2011-06-01 07:33:23Z rockys $
  */
 
-include_once(OPENBIZ_BIN."/easy/Panel.php");
-include_once(OPENBIZ_BIN."/easy/FormRenderer.php");
-include_once(OPENBIZ_BIN."/util/QueryStringParam.php");
+//include_once(OPENBIZ_BIN."/easy/Panel.php");
+//include_once(OPENBIZ_BIN."/easy/FormRenderer.php");
+//include_once(OPENBIZ_BIN."/util/QueryStringParam.php");
 
 /**
  * EasyForm class - contains form object metadata functions
@@ -1075,7 +1075,12 @@ class EasyForm extends MetaObject implements iSessionObject
      */
     public function runSearch()
     {
-        include_once(OPENBIZ_BIN."/easy/SearchHelper.php");
+        static $isSearchHelperLoaded = false;
+        
+        if (!$isSearchHelperLoaded) {
+            include_once(OPENBIZ_BIN."/easy/SearchHelper.php");
+            $isSearchHelperLoaded = true;
+        }
         $searchRule = "";
         foreach ($this->m_SearchPanel as $element)
         {

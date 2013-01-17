@@ -14,7 +14,7 @@
  * @version   $Id: ImageUploader.php 2825 2010-12-08 19:22:02Z jixian2003 $
  */
 
-include_once("FileUploader.php");
+//include_once("FileUploader.php");
 
 /**
  * File class is the element for Upload Image

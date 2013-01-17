@@ -14,7 +14,7 @@
  * @version   $Id: ColumnImage.php 3742 2011-04-16 07:25:29Z jixian2003 $
  */
 
-include_once("ColumnText.php");
+//include_once("ColumnText.php");
 
 /**
  * ColumnImage class is element for ColumnImage,

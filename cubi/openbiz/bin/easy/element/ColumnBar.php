@@ -1,5 +1,5 @@
 <?php 
-include_once("ColumnText.php");
+//include_once("ColumnText.php");
 class ColumnBar extends ColumnText
 {
     public $m_Percent;

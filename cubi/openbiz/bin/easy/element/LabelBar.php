@@ -1,5 +1,5 @@
 <?php 
-include_once ('ColumnBar.php');
+//include_once ('ColumnBar.php');
 class LabelBar extends ColumnBar {
     public function render(){
     	$value = $this->m_Text ? $this->getText() : $this->m_Value;

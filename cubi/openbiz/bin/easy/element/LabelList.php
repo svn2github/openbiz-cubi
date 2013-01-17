@@ -14,7 +14,7 @@
  * @version   $Id: LabelList.php 543 2009-10-03 08:50:00Z mr_a_ton$
  */
 
-include_once("OptionElement.php");
+//include_once("OptionElement.php");
 
 /**
  * LabelList class is element that show description (read only) from Selection.xml
