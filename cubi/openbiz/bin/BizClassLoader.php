@@ -41,7 +41,7 @@ class BizClassLoader {
     {
 		//echo "_getCoreLibFilePath($className, $packageName)\n";
         // use class map first
-        if (isset( self::$coreClassMap[$className]  )) {
+        if (is_array(self::$coreClassMap) && isset($className) && isset( self::$coreClassMap[$className]  )) {
             $classFile = OPENBIZ_HOME . self::$coreClassMap[$className];
             //if (file_exists($classFile)) // core file always exist
             return $classFile;
