@@ -275,7 +275,7 @@ class BizRecord extends MetaIterator
             $this->_setSqlRecord($sqlArr);
         $recArr = array();
         foreach ($this->m_var as $key=>$field){
-        	if(strtoupper($field->m_Encrypted)=='Y'){
+        	if($field->m_Encrypted=='Y'){
             	$svcobj = BizSystem::getService(CRYPT_SERVICE);        	
         		$value = $svcobj->decrypt($field->getValue()); 
             	$recArr[$key] = $value;

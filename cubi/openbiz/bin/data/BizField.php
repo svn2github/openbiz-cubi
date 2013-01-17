@@ -90,6 +90,8 @@ class BizField extends MetaObject
     public $m_Value = null; 
     public $m_OldValue = null; // the old value of the field
 	public $m_IgnoreInQuery = false;
+	
+	protected $_prevValue, $_getValueCache;
 
     /**
      * Initialize BizField with xml array
@@ -112,7 +114,7 @@ class BizField extends MetaObject
         $this->m_Format = isset($xmlArr["ATTRIBUTES"]["FORMAT"]) ? $xmlArr["ATTRIBUTES"]["FORMAT"] : null;
         $this->m_Length = isset($xmlArr["ATTRIBUTES"]["LENGTH"]) ? $xmlArr["ATTRIBUTES"]["LENGTH"] : null;
         $this->m_Required = isset($xmlArr["ATTRIBUTES"]["REQUIRED"]) ? $xmlArr["ATTRIBUTES"]["REQUIRED"] : null;
-        $this->m_Encrypted = isset($xmlArr["ATTRIBUTES"]["ENCRYPTED"]) ? $xmlArr["ATTRIBUTES"]["ENCRYPTED"] :"N";
+        $this->m_Encrypted = isset($xmlArr["ATTRIBUTES"]["ENCRYPTED"]) ? strtoupper($xmlArr["ATTRIBUTES"]["ENCRYPTED"]) :"N";
 //        if($this->m_Encrypted=='Y'){
 //        	$this->m_ClearText="N";
 //        }else{
@@ -248,6 +250,9 @@ class BizField extends MetaObject
         // need to ensure that value are retrieved from source/cache
         //if ($this->getDataObj()->CheckDataRetrieved() == false)    	
         //$this->getDataObj()->getActiveRecord();
+
+		if ($this->_prevValue == $this->m_Value) return $this->_getValueCache;
+		
         $value = stripcslashes($this->m_Value);
 
         $value = $this->m_Value;
@@ -259,6 +264,8 @@ class BizField extends MetaObject
         {
             $value = BizSystem::typeManager()->valueToFormattedString($this->m_Type, $this->m_Format, $value);
         }
+		$this->_prevValue = $this->m_Value;
+		$this->_getValueCache = $value;
         return $value;
     }
 

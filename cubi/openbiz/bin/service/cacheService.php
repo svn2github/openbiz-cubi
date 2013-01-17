@@ -112,10 +112,11 @@ class cacheService
     {
         foreach($configs as $config)
         {
-            if(strtoupper($config["ATTRIBUTES"]["VALUE"])=="Y")
+			$value_up = strtoupper($config["ATTRIBUTES"]["VALUE"]);
+            if($value_up=="Y")
             {
                 $config["ATTRIBUTES"]["VALUE"]=true;
-            }elseif(strtoupper($config["ATTRIBUTES"]["VALUE"])=="N")
+            }elseif($value_up=="N")
             {
                 $config["ATTRIBUTES"]["VALUE"]=false;
             }

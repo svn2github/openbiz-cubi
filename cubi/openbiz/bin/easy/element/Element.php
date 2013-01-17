@@ -279,6 +279,7 @@ class Element extends MetaObject implements iUIControl
      */
     protected function getHidden()
     {
+		if (!$this->m_Hidden || $this->m_Hidden=='N') return "N";
         $formObj = $this->getFormObj();
         return Expression::evaluateExpression($this->m_Hidden, $formObj);
     }
@@ -290,7 +291,7 @@ class Element extends MetaObject implements iUIControl
      */
     protected function getStyle()
     {        
-		$formobj = $this->getFormObj();    	
+		$formobj = $this->getFormObj();
         $htmlClass = Expression::evaluateExpression($this->m_cssClass, $formobj);
         $htmlClass = "CLASS='$htmlClass'";
         if(!$htmlClass){
