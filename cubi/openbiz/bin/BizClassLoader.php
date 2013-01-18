@@ -20,7 +20,7 @@ class BizClassLoader {
         if (isset(self::$_classNameCache[$packageName.$className])) return true;
         if (strpos($className, 'Zend') === 0) return true;
         $filePath = self::getLibFileWithPath($className, $packageName);
-        //echo $filePath;
+        //var_dump( $filePath);
         if ($filePath)
         {
             include_once($filePath); // auto_load
@@ -142,7 +142,7 @@ class BizClassLoader {
             "BizSystem" => "/bin/BizSystem.php",
             "ClientProxy" => "/bin/ClientProxy.php",
             "Configuration" => "/bin/Configuration.php",
-            "OB_ErrorHandler" => "/bin/ErrorHandler",
+            "OB_ErrorHandler" => "/bin/ErrorHandler.php",
             "Expression" => "/bin/Expression.php",
             "I18n" => "/bin/I18n.php",
             "ObjectFactory" => "/bin/ObjectFactory.php",
