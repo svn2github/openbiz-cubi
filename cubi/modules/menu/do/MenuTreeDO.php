@@ -30,6 +30,7 @@ class MenuTreeDO extends BizDataObj
 	protected $rootNodes;
 	protected $depth;
 	static protected $m_BreadCrumb = null; 
+	static protected $fullMenuTree = null; 
 
 	public function fetchTree($rootSearchRule, $depth)
 	{				
@@ -86,7 +87,9 @@ class MenuTreeDO extends BizDataObj
 
     public function fetchNodePath($nodeSearchRule, &$pathArray)
     {
-    	$recordList = $this->directFetch($nodeSearchRule);
+    	//echo "fetchNodePath($nodeSearchRule)";
+		$recordList = $this->directFetch($nodeSearchRule);
+		//print_r($recordList); exit;
     	if(count($recordList)>=1){
 			$i=0;
     		// find the record whose parent are not empty
@@ -215,6 +218,76 @@ class MenuTreeDO extends BizDataObj
     	}
     	return $counter;
     }
+	
+	public function directFetch($searchRule="", $count=-1, $offset=0,$sortRule="")
+	{
+		//return parent::directFetch($searchRule);
+		// use menu tree cache
+		$this->loadFullMenuTree();
+		
+		// search menu tree
+		$searchRule = str_replace(' = ','=',$searchRule);
+		if (!preg_match_all("/\[([a-zA-Z0-9_]+)\]=([^ ]+)/",$searchRule,$m)) {
+			return parent::directFetch($searchRule);
+		}
+		//echo "MenuTreeDO search rule is $searchRule";
+		//print_r($m); exit;
+		$n = count($m[1]);
+		$hasPId = 0;
+		$keyvals = array();
+		for($i=0; $i<$n; $i++) {
+			if ($m[1][$i]=='PId'){ $hasPId=1; $PId = str_replace("'","",$m[2][$i]); }
+			else $keyvals[$m[1][$i]] = str_replace("'","",$m[2][$i]);
+		}
+		if (!$hasPId) {
+			return parent::directFetch($searchRule);
+		}
+		if (!$PId) $PId = "__root__";
+		$menuItemIds = self::$fullMenuTree[$PId]['children'];
+		$rs = array();
+		if (empty($menuItemIds)) return $rs;
+		foreach ($menuItemIds as $mId) {
+			$rec = self::$fullMenuTree[$mId];
+			$matched = true;
+			foreach ($keyvals as $k=>$v) {
+				if ($rec[$k] != $v) { $matched = false; break; }
+			}
+			if ($matched) $rs[] = self::$fullMenuTree[$mId];
+		}
+		//print_r($rs);
+		return $rs;
+	}
+	
+	protected function loadFullMenuTree()
+	{
+		if (self::$fullMenuTree != null) return;
+		$cache_id = 'FULL_MENU_LIST';
+		$cacheSvc = BizSystem::getService(CACHE_SERVICE,1);
+		$cacheSvc->init($this->m_Name, 600);	// cache for 10 mins
+		if($cacheSvc->test($cache_id))
+		{
+			self::$fullMenuTree = $cacheSvc->load($cache_id);
+			return;
+		}
+		$rs = parent::directFetch();
+		foreach($rs as $record)
+		{
+			if (empty($record['PId'])) $record['PId'] = "__root__";
+			unset($record['create_by']);
+			unset($record['create_time']);
+			unset($record['update_by']);
+			unset($record['update_time']);
+			unset($record['name']); unset($record['parent']);
+			self::$fullMenuTree[$record['Id']] = $record;
+		}
+		foreach(self::$fullMenuTree as $mId=>$record)
+		{
+			self::$fullMenuTree[$record['PId']]['children'][] = $mId;
+		}
+		//print_r(self::$fullMenuTree);
+		$cacheSvc->save(self::$fullMenuTree,$cache_id);
+		// put it in apc or file cache
+	}
 }
 
 ?>
