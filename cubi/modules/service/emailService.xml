@@ -3,8 +3,7 @@
    <Accounts>  
    			   				   				   				<Account Name="System" Host="smtp.yourcompany.com" FromName="admin" FromEmail="admin@yourcompany.com" IsSMTP="Y" SMTPAuth="Y" Port="" Username="admin" Password="xxx" />
 	   				   				<Account Name="SystemNotifier" Host="" FromName="System Notification" FromEmail="notify@yourcompany.com" IsSMTP="Y" SMTPAuth="N" Port="" Username="" Password="" />
-	   				   				<Account Name="CubiNotification" Host="smtp.qq.com" FromName="Openbiz Collaboration" FromEmail="jixian2003@qq.com" IsSMTP="Y" SMTPAuth="Y" Port="25" Username="jixian2003" Password="jixianlik9ol" />
-	   				   				<Account Name="UDCNotifier" Host="smtp.gmail.com" FromName="Openbiz CN" FromEmail="no-reply@openbiz.me" IsSMTP="Y" SMTPAuth="Y" Port="465" Username="no-reply@openbiz.me" Password="jixianjack" ssl="ssl" />
+	   				   				<Account Name="CubiNotification" Host="smtp.qq.com" FromName="Openbiz Collaboration" FromEmail="notify@yourcompany.com" IsSMTP="Y" SMTPAuth="Y" Port="25" Username="notify" Password="" />
 	   						   </Accounts>  
    <Logging Type="DB" Object="email.do.EmailLogDO" Enabled="Y" />
 </PluginService>
