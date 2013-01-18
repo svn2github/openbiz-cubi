@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <PluginService Name="securityService" Package="service" Class="securityService">
-   <Security Mode="Enabled">
+   <Security Mode="Disabled">
       		      		   		<URLFILTER Mode="Disabled" >
    				   				   				<Rule Name="url_filter_1" Action="Deny" Match="\.\." EffectiveTime="0000-2359" Status="Enable" />
 	   				   				<Rule Name="url_filter_2" Action="Deny" Match="'" EffectiveTime="0000-2359" Status="Enable" />
