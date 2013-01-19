@@ -642,6 +642,8 @@ class ClientProxy
 		// prototype is still the default js lib
         BizSystem::clientProxy()->appendScripts("prototype", "prototype.js");
         BizSystem::clientProxy()->appendScripts("scriptaculous", "scriptaculous.js");
+        BizSystem::clientProxy()->appendScripts("effects", "effects.js");
+        BizSystem::clientProxy()->appendScripts("controls", "controls.js");
         BizSystem::clientProxy()->appendScripts("openbiz", "openbiz.js");      
         BizSystem::clientProxy()->appendStyles("default", "openbiz.css");
         // window lib
