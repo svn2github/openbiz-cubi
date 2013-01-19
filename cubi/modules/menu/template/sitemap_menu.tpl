@@ -1,6 +1,6 @@
 <form id="{$form.name}" name="{$form.name}">
 
-<div style="padding-left:25px; padding-right:40px;">
+<div style="padding-left:25px; padding-right:20px;">
 {include file="system_appbuilder_btn.tpl.html"}
 	<div>
 		<div ><h2>{$widget.title}</h2></div>

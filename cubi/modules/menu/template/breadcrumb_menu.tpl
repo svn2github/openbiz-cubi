@@ -1,5 +1,5 @@
 <div style="padding-left:20px;">
-<a href="javascript:"><img style="margin-top:6px;" border="0" src="{$image_url}/nav_root_icon.gif" />{t}Cubi System{/t}</a>
+<a href="javascript:"><img class="icon_dot_root" style="margin-top:5px;" border="0" src="{$image_url}/spacer.gif" />{t}Cubi System{/t}</a>
 	{foreach item=item from=$widget.breadcrumb}
 		{if $item->m_URL !=""}
 		<a href="{$item->m_URL}">
