@@ -89,7 +89,10 @@ class ViewRenderer
     	$cssCode = "<link rel=\"stylesheet\" href=\"$cssURL\" type=\"text/css\">";
     	
     	$html = preg_replace("/\<link.*?href\s?\=\s?\"(.*?\.css)\".*?\>/si","",$html);
-    	$html = str_replace($headEnd,$cssCode."\n".$headEnd,$html);    	
+    	$html = str_replace($headEnd,$cssCode."\n".$headEnd,$html);  
+		
+    	require_once APP_HOME.'/bin/min/lib/Minify/HTML.php';
+    	$html = Minify_HTML::minify($html);
     	return $html;
     } 
 
