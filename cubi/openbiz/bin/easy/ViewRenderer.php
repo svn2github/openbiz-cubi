@@ -83,12 +83,12 @@ class ViewRenderer
     	//add new js include
     	$html = str_replace($headEnd,$jsCode."\n".$headEnd,$html);
     	
-    	preg_match_all("/\<link.*?href\s?\=\s?\"(.*?\.css)\"/si",$html, $matches);
+    	preg_match_all("/\<link.*?href\s?\=\s?\"(.*?\.css)\"/i",$html, $matches);
     	$cssListStr = implode(array_unique($matches[1]), ',');
     	$cssURL = $minifyURL . '?f='.$cssListStr;
     	$cssCode = "<link rel=\"stylesheet\" href=\"$cssURL\" type=\"text/css\">";
     	
-    	$html = preg_replace("/\<link.*?href\s?\=\s?\"(.*?\.css)\".*?\>/si","",$html);
+    	$html = preg_replace("/\<link.*?href\s?\=\s?\"(.*?\.css)\".*?\>/i","",$html);
     	$html = str_replace($headEnd,$cssCode."\n".$headEnd,$html);  
 		
     	require_once APP_HOME.'/bin/min/lib/Minify/HTML.php';
