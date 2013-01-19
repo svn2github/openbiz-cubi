@@ -644,6 +644,7 @@ class ClientProxy
         BizSystem::clientProxy()->appendScripts("scriptaculous", "scriptaculous.js");
         BizSystem::clientProxy()->appendScripts("effects", "effects.js");
         BizSystem::clientProxy()->appendScripts("controls", "controls.js");
+        BizSystem::clientProxy()->appendScripts("cookies", "cookies.js");
         BizSystem::clientProxy()->appendScripts("openbiz", "openbiz.js");      
         BizSystem::clientProxy()->appendStyles("default", "openbiz.css");
         // window lib
