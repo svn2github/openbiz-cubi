@@ -22,6 +22,8 @@
 //($DEFAULT_MODULE="page")
 //http://localhost/?/article/catid_20 	 => http://localhost/bin/controller.php?view=page.view.ArticleView&catid=20
 //($DEFAULT_MODULE="page")
+define("USE_CUSTOM_SESSION_HANDLER",true);        	
+
 include 'app_init.php';
 
 $DEFAULT_VIEW = "LoginView";

@@ -120,7 +120,6 @@ if (is_file(APP_FILE_PATH . '/install.lock') && defined('USE_CUSTOM_SESSION_HAND
 } else {
     define("SESSION_PATH", APP_HOME . DIRECTORY_SEPARATOR . "session"); // for default FILE type session handler^M
 }
-
 /* resources path. */
 define('RESOURCE_PATH', APP_HOME . DIRECTORY_SEPARATOR . "resources");
 define('RESOURCE_URL', APP_URL . "/resources");
