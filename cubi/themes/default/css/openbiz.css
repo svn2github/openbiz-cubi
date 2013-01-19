@@ -305,9 +305,9 @@ width:20px;
 }
 
 .input_text{
-	background-image: url(../images/input_text.gif);
+	background-image: url(../images/ui-element.png);
 	background-repeat:no-repeat;
-	background-position:left top;
+	background-position:left -300px;
 	border-width:0px;
 	height:22px;
 	width:202px;	
@@ -321,9 +321,9 @@ width:20px;
 }
 
 .input_text_error{
-	background-image: url(../images/input_text.gif);
+	background-image: url(../images/ui-element.png);
 	background-repeat:no-repeat;
-	background-position:left bottom;
+	background-position:left -348px;
 	border-width:0px;
 	height:22px;
 	width:202px;	
@@ -338,9 +338,9 @@ width:20px;
 }
 
 .input_text_focus{
-	background-image: url(../images/input_text.gif);
+	background-image: url(../images/ui-element.png);
 	background-repeat:no-repeat;
-	background-position:left -24px;
+	background-position:left -324px;
 	border-width:0px;
 	height:22px;
 	width:202px;	
@@ -359,9 +359,9 @@ width:20px;
 }
 
 .input_text_s{
-	background-image: url(../images/input_text_s.gif);
+	background-image: url(../images/ui-element.png);
 	background-repeat:no-repeat;
-	background-position:left top;
+	background-position:left -372px;
 	border-width:0px;
 	height:22px;
 	width:100px;	
@@ -375,9 +375,9 @@ width:20px;
 }
 
 .input_text_s_error{
-	background-image: url(../images/input_text_s.gif);
+	background-image: url(../images/ui-element.png);
 	background-repeat:no-repeat;
-	background-position:left bottom;
+	background-position:left -420px;
 	border-width:0px;
 	height:22px;
 	width:100px;	
@@ -392,9 +392,9 @@ width:20px;
 }
 
 .input_text_s_focus{
-	background-image: url(../images/input_text_s.gif);
+	background-image: url(../images/ui-element.png);
 	background-repeat:no-repeat;
-	background-position:left -24px;
+	background-position:left -396px;
 	border-width:0px;
 	height:22px;
 	width:100px;	
@@ -656,8 +656,8 @@ height:14px;
 	display:block;
 	float:left;
 	width:50px;
-	background-image:url(../images/input_select.gif);
-	background-position:0px 0px;
+	background-image: url(../images/ui-element.png);
+	background-position:0px -120px;
 	background-repeat:no-repeat;
 	padding-left:10px;	
 	color:#999999;
@@ -673,8 +673,8 @@ height:14px;
 	display:block;
 	float:left;
 	width:50px;
-	background-image:url(../images/input_select.gif);
-	background-position:0px -40px;
+	background-image: url(../images/ui-element.png);
+	background-position:0px -160px;
 	background-repeat:no-repeat;
 	padding-left:10px;	
 	color:#666666;	
@@ -690,8 +690,8 @@ height:14px;
 	display:block;
 	float:left;
 	width:50px;
-	background-image:url(../images/input_select.gif);
-	background-position:0px -20px;
+	background-image: url(../images/ui-element.png);
+	background-position:0px -140px;
 	background-repeat:no-repeat;
 	padding-left:10px;	
 	color:#666666;	
@@ -707,8 +707,8 @@ height:14px;
 	display:block;
 	float:left;
 	width:90px;
-	background-image:url(../images/input_select.gif);
-	background-position:0px -60px;
+	background-image: url(../images/ui-element.png);
+	background-position:0px -180px;
 	background-repeat:no-repeat;
 	padding-left:10px;	
 	color:#999999;
@@ -724,8 +724,8 @@ height:14px;
 	display:block;
 	float:left;
 	width:90px;
-	background-image:url(../images/input_select.gif);
-	background-position:0px -100px;
+	background-image: url(../images/ui-element.png);
+	background-position:0px -220px;
 	background-repeat:no-repeat;
 	padding-left:10px;	
 	color:#666666;	
@@ -741,8 +741,8 @@ height:14px;
 	display:block;
 	float:left;
 	width:90px;
-	background-image:url(../images/input_select.gif);
-	background-position:0px -80px;
+	background-image: url(../images/ui-element.png);
+	background-position:0px -200px;
 	background-repeat:no-repeat;
 	padding-left:10px;	
 	color:#666666;	
@@ -758,8 +758,8 @@ height:14px;
 	display:block;
 	float:left;
 	width:170px;
-	background-image:url(../images/input_select.gif);
-	background-position:0px -120px;
+	background-image: url(../images/ui-element.png);
+	background-position:0px -240px;
 	background-repeat:no-repeat;
 	padding-left:10px;	
 	color:#999999;
@@ -775,8 +775,8 @@ height:14px;
 	display:block;
 	float:left;
 	width:170px;
-	background-image:url(../images/input_select.gif);
-	background-position:0px -160px;
+	background-image: url(../images/ui-element.png);
+	background-position:0px -280px;
 	background-repeat:no-repeat;
 	padding-left:10px;	
 	color:#666666;	
@@ -792,8 +792,8 @@ height:14px;
 	display:block;
 	float:left;
 	width:170px;
-	background-image:url(../images/input_select.gif);
-	background-position:0px -140px;
+	background-image: url(../images/ui-element.png);
+	background-position:0px -260px;
 	background-repeat:no-repeat;
 	padding-left:10px;	
 	color:#666666;	
@@ -808,8 +808,8 @@ height:14px;
 	border:none;
 	padding-left:30px;
 	padding-right:10px;
-	background-image:url(../images/input_search.gif);
-	background-position:0px 0px;
+	background-image: url(../images/ui-element.png);
+	background-position:0px -60px;
 	background-repeat:no-repeat;
 	overflow:hidden;
 	display:block;
@@ -821,7 +821,7 @@ height:14px;
 
 }
 .input_text_search:focus{
-	background-position:0px bottom;
+	background-position:0px -100px;
 	color:#454545;
 }
 .input_text_search_focus{
@@ -831,8 +831,8 @@ line-height:18px;
 	border:none;
 	padding-left:30px;
 	padding-right:10px;
-	background-image:url(../images/input_search.gif);
-	background-position:0px bottom;
+	background-image: url(../images/ui-element.png);
+	background-position:0px -100px;
 	background-repeat:no-repeat;
 	overflow:hidden;
 	display:block;
@@ -842,7 +842,7 @@ line-height:18px;
 	margin-right:5px;
 }
 .input_text_search:hover{
-	background-position:0px -20px;
+	background-position:0px -80px;
 	color:#454545;
 	width:90px;
 	height:18px;	
@@ -854,8 +854,8 @@ line-height:18px;
 	border:none;
 	padding-left:30px;
 	padding-right:10px;
-	background-image:url(../images/input_search.gif);
-	background-position:0px -20px;
+	background-image: url(../images/ui-element.png);	
+	background-position:0px -80px;
 	background-repeat:no-repeat;
 	overflow:hidden;
 	display:block;
@@ -935,8 +935,8 @@ line-height:18px;
 	width:54px;
 	height:20px;
 	color:#666666;
-	background-image:url(../images/button_add.gif);
-	background-position:0px top;
+	background-image:url(../images/ui-element.png);
+	background-position:-130px -60px;
 	background-repeat:no-repeat;
 	overflow:hidden;
 	display:block;
@@ -947,11 +947,11 @@ line-height:18px;
 	margin-right:3px;
 }
 .button_gray_add:hover{
-	background-position:0px -20px;
+	background-position:-130px -80px;
 	color:#454545;
 }
 .button_gray_add:active{
-	background-position:0px bottom;
+	background-position:-130px -100px;
 	color:#666666;
 }
 
@@ -959,7 +959,7 @@ line-height:18px;
 	width:44px;
 	height:20px;
 	color:#666666;
-	background-image:url(../images/button_gray.gif);
+	background-image:url(../images/ui-element.png);
 	background-position:0px top;
 	background-repeat:no-repeat;
 	overflow:hidden;
@@ -1052,7 +1052,7 @@ table.input_row .label_text a.button_gray_m, .button_gray_m{
 	width:54px;
 	height:20px;
 	color:#666666;
-	background-image:url(../images/button_gray.gif);
+	background-image:url(../images/ui-element.png);
 	background-position:-44px top;
 	background-repeat:no-repeat;
 	overflow:hidden;
@@ -1075,7 +1075,7 @@ table.input_row .label_text  a.button_gray_l, .button_gray_l{
 	width:80px;
 	height:20px;
 	color:#666666;
-	background-image:url(../images/button_gray.gif);
+	background-image:url(../images/ui-element.png);
 	background-position:-200px top;
 	background-repeat:no-repeat;
 	overflow:hidden;
@@ -1099,7 +1099,7 @@ table.input_row .label_text a.button_gray_w, .button_gray_w{
 	width:102px;
 	height:20px;
 	color:#666666;
-	background-image:url(../images/button_gray.gif);
+	background-image:url(../images/ui-element.png);
 	background-position:-98px top;
 	background-repeat:no-repeat;
 	overflow:hidden;
