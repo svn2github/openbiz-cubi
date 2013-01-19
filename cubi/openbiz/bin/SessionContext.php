@@ -48,7 +48,7 @@ class SessionContext
     function __construct()
     {        
         // get session save handler MC or DB
-        if (defined("SESSION_HANDLER") && SESSION_HANDLER != "") {
+        if (defined("SESSION_HANDLER") && SESSION_HANDLER != "" && defined('USE_CUSTOM_SESSION_HANDLER') && USE_CUSTOM_SESSION_HANDLER ==true) {
             include_once SESSION_HANDLER.".php";
         }
         else {
