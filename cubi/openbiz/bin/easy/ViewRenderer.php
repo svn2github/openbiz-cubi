@@ -72,14 +72,14 @@ class ViewRenderer
     	$headEnd="</head>";
     	
     	//fetch js requests
-    	preg_match_all("/\<script.*?src\s?\=\s?\"(.*?\.js)\"/si",$html, $matches);    	
+    	preg_match_all("/\<script.*?src\s?\=\s?\"(.*?\.js)\"/i",$html, $matches);    	
     	$jsListStr = implode(array_unique($matches[1]), ',');
     	$jsURL = $minifyURL . '?f='.$jsListStr;
     	$jsCode = "<script type=\"text/javascript\" src=\"$jsURL\"></script>";
     	
     	//remove old js include
     	$html = preg_replace("/\<script.*?src\s?\=\s?\".*?\.js\".*?\<\/script\>/i","",$html);
-    	
+
     	//add new js include
     	$html = str_replace($headEnd,$jsCode."\n".$headEnd,$html);
     	
@@ -92,7 +92,7 @@ class ViewRenderer
     	$html = str_replace($headEnd,$cssCode."\n".$headEnd,$html);  
 		
     	require_once APP_HOME.'/bin/min/lib/Minify/HTML.php';
-    	$html = Minify_HTML::minify($html);
+    	//$html = Minify_HTML::minify($html);
     	return $html;
     } 
 
