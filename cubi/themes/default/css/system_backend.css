@@ -357,7 +357,7 @@ background-position:left -486px;
 }
 #main #left_panel .menu_title
 {
-height:25px;padding-top:0px;margin-bottom:5px;border-bottom: 1px solid #D6D6D6;margin-left:10px;margin-right:20px;
+height:25px;padding-top:0px;margin-bottom:5px;border-bottom: 1px solid #D6D6D6;margin-left:10px;margin-right:10px;
 }	
 /*
  * Left Panel Styles 
@@ -366,7 +366,7 @@ height:25px;padding-top:0px;margin-bottom:5px;border-bottom: 1px solid #D6D6D6;m
 #main #left_panel .content .toplevel
 {
 	display:block;
-	padding-left:10px;
+	padding-left:8px;
 }
 #main #left_panel .content_tree .toplevel{
 	display:block;
