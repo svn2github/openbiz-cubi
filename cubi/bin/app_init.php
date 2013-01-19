@@ -24,6 +24,10 @@ define('OPENBIZ_HOME', dirname(dirname(__FILE__)) . "/openbiz");
  * ************************************************************************** */
 define('APP_HOME', dirname(dirname(__FILE__)));
 
+
+//enable minify 
+define('PAGE_MINIFY',1);
+
 /* website url. please change the localhost to real url */
 if (isset($_SERVER["HTTP_HOST"])) {
     define('SITE_URL', 'http://local.openbiz.me/');
