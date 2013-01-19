@@ -33,15 +33,64 @@ class ViewRenderer
      * @return string result of rendering process
      */
     static public function render ($viewObj)
-    {
+    {    	
         $tplEngine = $viewObj->m_TemplateEngine;
         $tplAttributes = ViewRenderer::buildTemplateAttributes($viewObj);
         
+        if(defined("PAGE_MINIFY") && PAGE_MINIFY==1)
+        {
+        	if(!ob_start("ob_gzhandler")) ob_start();
+        }
+        
         if ($tplEngine == "Smarty" || $tplEngine == null)
-            return ViewRenderer::renderSmarty($viewObj, $tplAttributes);
+            $result = ViewRenderer::renderSmarty($viewObj, $tplAttributes);
         else
-            return ViewRenderer::renderPHP($viewObj, $tplAttributes);
+            $result = ViewRenderer::renderPHP($viewObj, $tplAttributes);
+       
+        if(defined("PAGE_MINIFY") && PAGE_MINIFY==1)
+        {        	
+        	$html = ob_get_contents();
+        	ob_end_clean();
+        	$html = self::MinifyOutput($html);
+        	echo $html;
+        }    
+        return $html;
     }
+    
+    /**
+     * 
+     * Minify the HTML code and rewrite the code for 
+     * including CSS and JS files to make it redirect to /bin/min/index.php?f
+     * @param string $html
+     * @return string $html
+     */
+    static public function MinifyOutput($html)
+    {    	
+    	
+    	$minifyURL = APP_URL."/bin/min/index.php";
+    	$headEnd="</head>";
+    	
+    	//fetch js requests
+    	preg_match_all("/\<script.*?src\s?\=\s?\"(.*?\.js)\"/si",$html, $matches);    	
+    	$jsListStr = implode(array_unique($matches[1]), ',');
+    	$jsURL = $minifyURL . '?f='.$jsListStr;
+    	$jsCode = "<script type=\"text/javascript\" src=\"$jsURL\"></script>";
+    	
+    	//remove old js include
+    	$html = preg_replace("/\<script.*?src\s?\=\s?\".*?\.js\".*?\<\/script\>/i","",$html);
+    	
+    	//add new js include
+    	$html = str_replace($headEnd,$jsCode."\n".$headEnd,$html);
+    	
+    	preg_match_all("/\<link.*?href\s?\=\s?\"(.*?\.css)\"/si",$html, $matches);
+    	$cssListStr = implode(array_unique($matches[1]), ',');
+    	$cssURL = $minifyURL . '?f='.$cssListStr;
+    	$cssCode = "<link rel=\"stylesheet\" href=\"$cssURL\" type=\"text/css\">";
+    	
+    	$html = preg_replace("/\<link.*?href\s?\=\s?\"(.*?\.css)\".*?\>/si","",$html);
+    	$html = str_replace($headEnd,$cssCode."\n".$headEnd,$html);    	
+    	return $html;
+    } 
 
     /**
      * Gather all template variables needed. Should play well with Smarty or Zend templates
