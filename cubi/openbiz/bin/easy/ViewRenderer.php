@@ -39,7 +39,8 @@ class ViewRenderer
         
         if(defined("PAGE_MINIFY") && PAGE_MINIFY==1)
         {
-        	if(!ob_start("ob_gzhandler")) ob_start();
+        	//if(!ob_start("ob_gzhandler")) ob_start();
+        	ob_start();
         }
         
         if ($tplEngine == "Smarty" || $tplEngine == null)
