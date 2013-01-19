@@ -52,6 +52,7 @@ class OB_ErrorHandler
         $back_trace = self::_errorBacktrace($debug_array);
         $err = self::_getOutputErrorMsg($errNo, $errMsg, $fileName, $lineNum, $back_trace);
         //Send Error to Log Service;
+        require_once dirname(__FILE__).'/BizSystem.php';
         BizSystem::logError ($errNo, "ErrorHandler", $errMsg, null, $back_trace);
         if ((defined('CLI') && CLI) || self::$errorMode == 'text')
         {
