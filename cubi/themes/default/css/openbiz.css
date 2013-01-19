@@ -1068,7 +1068,7 @@ table.input_row .label_text  a.button_gray_m:hover, .button_gray_m:hover{
 	color:#454545;
 }
 table.input_row .label_text  a.button_gray_m:active, .button_gray_m:active{
-	background-position:-44px bottom;
+	background-position:-44px -40px;
 	color:#666666;
 }
 table.input_row .label_text  a.button_gray_l, .button_gray_l{
@@ -1091,7 +1091,7 @@ table.input_row .label_text  a.button_gray_l:hover, .button_gray_l:hover{
 	color:#454545;
 }
 table.input_row .label_text  a.button_gray_l:active, .button_gray_l:active{
-	background-position:-200px bottom;
+	background-position:-200px -40px;
 	color:#666666;
 }
 
@@ -1115,7 +1115,7 @@ table.input_row .label_text  a.button_gray_w:hover, .button_gray_w:hover{
 	color:#454545;
 }
 table.input_row .label_text  a.button_gray_w:active, .button_gray_w:active{
-	background-position:-98px bottom;
+	background-position:-98px -40px;
 	color:#454545;
 }
 
