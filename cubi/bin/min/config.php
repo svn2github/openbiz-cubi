@@ -5,7 +5,7 @@
  * 
  * @package Minify
  */
-
+require_once dirname(dirname(__FILE__)).'/app_init.php';
 
 /**
  * Allow use of the Minify URI Builder app. Only set this to true while you need it.
@@ -43,16 +43,22 @@ $min_allowDebugFlag = false;
  * For best performance, specify your temp directory here. Otherwise Minify
  * will have to load extra code to guess. Some examples below:
  */
-//$min_cachePath = 'c:\\WINDOWS\\Temp';
+//$min_cachePath = APP_FILE_PATH.DIRECTORY_SEPARATOR.'min';
 //$min_cachePath = '/tmp';
 //$min_cachePath = preg_replace('/^\\d+;/', '', session_save_path());
 /**
  * To use APC/Memcache/ZendPlatform for cache storage, require the class and
  * set $min_cachePath to an instance. Example below:
  */
-//require dirname(__FILE__) . '/lib/Minify/Cache/APC.php';
-//$min_cachePath = new Minify_Cache_APC();
-
+if(extension_loaded('apc')){
+	require dirname(__FILE__) . '/lib/Minify/Cache/APC.php';
+	$min_cachePath = new Minify_Cache_APC();
+}else{
+	$min_cachePath = APP_FILE_PATH.DIRECTORY_SEPARATOR.'min';
+	if(!$min_cachePath){
+		mkdir($min_cachePath,0777);
+	}
+}
 
 /**
  * Leave an empty string to use PHP's $_SERVER['DOCUMENT_ROOT'].
