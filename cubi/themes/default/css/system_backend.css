@@ -78,35 +78,36 @@ body{
 	color:#9fd7e6;
 	text-indent:25px;
 	background-repeat:no-repeat;
-	background-image:url(../images/header_action_icon.gif);
-	line-height:16px;
+	/*background-image:url(../images/header_action_icon.gif);*/
+	background-image:url(../images/system_backend_icons.gif);	
+	line-height:18px;
 }
 #header #header_right #user_actions li a.icon_myaccount{
-	background-position:left 0px;
+	background-position:-34px -177px;
 }
 #header #header_right #user_actions li a.icon_myaccount:hover{
-	background-position:left -18px;
+	background-position:-34px -195px;
 }
 #header #header_right #user_actions li a.icon_myaccount:active{
-	background-position:left -36px;
+	background-position:-34px -213px;
 }
 #header #header_right #user_actions li a.icon_help{
-	background-position:left -54px;
+	background-position:-34px -231px;
 }
 #header #header_right #user_actions li a.icon_help:hover{
-	background-position:left -72px;
+	background-position:-34px -249px;
 }
 #header #header_right #user_actions li a.icon_help:active{
-	background-position:left -90px;
+	background-position:-34px -267px;
 }
 #header #header_right #user_actions li a.icon_logout{
-	background-position:left -108px;
+	background-position:-34px -285px;
 }
 #header #header_right #user_actions li a.icon_logout:hover{
-	background-position:left -126px;
+	background-position:-34px -303px;
 }
 #header #header_right #user_actions li a.icon_logout:active{
-	background-position:left -144px;
+	background-position:-34px -321px;
 }
 
 #header #header_right #user_actions li a:hover{
@@ -134,14 +135,15 @@ body{
 	height:25px;
 	width:15px;
 	display:block;
-	background-image:url(../images/top_menu_arrow_bg.gif);
-	background-position: 0px 0px;
+	/*background-image:url(../images/top_menu_arrow_bg.gif);*/
+	background-image:url(../images/system_backend_icons.gif);
+	background-position: 0px -177px;
 }
 #header #header_right div.arrow_left a:hover{
-	background-position: 0px -29px;
+	background-position: 0px -206px;
 }
 #header #header_right div.arrow_left a:active{
-	background-position: 0px -58px;
+	background-position: 0px -235px;
 }
 #header #header_right div.arrow_right{
 	height:29px;
@@ -155,14 +157,15 @@ body{
 	height:25px;
 	width:15px;
 	display:block;
-	background-image:url(../images/top_menu_arrow_bg.gif);
-	background-position: -15px 0px;
+	/*background-image:url(../images/top_menu_arrow_bg.gif);*/
+	background-image:url(../images/system_backend_icons.gif);
+	background-position: -15px -177px;
 }
 #header #header_right div.arrow_right a:hover{
-	background-position: -15px -29px;
+	background-position: -15px -206px;
 }
 #header #header_right div.arrow_right a:active{
-	background-position: -15px -58px;
+	background-position: -15px -235px;
 }
 #header #header_right #menu ul{
 	height:33px;
@@ -181,7 +184,8 @@ body{
 	text-decoration:none;
 	text-align:center;
 	background-repeat:no-repeat;
-	background-image:url(../images/top_menu_bg.gif);
+	/*background-image:url(../images/top_menu_bg.gif);*/
+	background-image:url(../images/system_backend_icons.gif);
 	background-position:left 0px;
 	color:#C1EEFF;		
 	overflow:hidden;
@@ -251,15 +255,24 @@ body{
 	display:block;
 	float:left;
 }
+#header_navi #navi a .icon_dot_root{
+width:12px;
+height:12px;
+/*background-image:url(../images/nav_dot_icon.gif);*/
+background-image:url(../images/system_backend_icons.gif);
+background-position:left -464px;
+}
 #header_navi #navi a .icon_dot{
 margin-top:7px;
 width:8px;
 height:10px;
-background-image:url(../images/nav_dot_icon.gif);
-background-position:left top;
+/*background-image:url(../images/nav_dot_icon.gif);*/
+background-image:url(../images/system_backend_icons.gif);
+background-position:left -476px;
 }
 #header_navi #navi a:hover .icon_dot{
-background-position:left bottom;
+
+background-position:left -486px;
 }
 #header_navi #current_user_info{
 	width:340px;
@@ -324,8 +337,9 @@ background-position:left bottom;
     text-decoration: underline;
 }
 #main #left_panel .content .btn_dashboard{
-    background-image: url("../images/dashboard_icon.gif");
-    background-position: left top;
+    /*background-image: url("../images/dashboard_icon.gif");*/
+    background-image:url(../images/system_backend_icons.gif);
+	background-position:0px -452px;    
     background-repeat: no-repeat;
     display: block;
     float: left;
@@ -336,10 +350,10 @@ background-position:left bottom;
     width: 12px;
 }
 #main #left_panel .content .btn_dashboard:hover {
-    background-position: -12px top;
+    background-position: -12px -452px;
 }
 #main #left_panel .content .btn_dashboard:active {
-    background-position: -24px top;
+    background-position: -24px -452px;
 }
 #main #left_panel .menu_title
 {
@@ -542,35 +556,37 @@ padding-bottom:5px;
 	height:12px;
 	width:12px;
 	background-repeat:no-repeat;
-	background-position:left top;
-	background-image:url(../images/help_icon.gif);
+	/*background-image:url(../images/help_icon.gif);*/
+	background-image:url(../images/system_backend_icons.gif);
+	background-position:0px -428px;
 	margin-top:7px;
 	margin-left:5px;
 	display:block;
 	float:left;
 }
 #main #left_panel .content .title .btn_max:hover{
-	background-position:-12px top;
+	background-position:-12px -428px;
 }
 #main #left_panel .content .title .btn_max:active{
-	background-position:-24px top;
+	background-position:-24px -428px;
 }
 #main #left_panel .content .title .btn_min{
 	height:12px;
 	width:12px;
 	background-repeat:no-repeat;
-	background-position:left bottom;
-	background-image:url(../images/help_icon.gif);
+	/*background-image:url(../images/help_icon.gif);*/
+	background-image:url(../images/system_backend_icons.gif);
+	background-position:0px -440px;
 	margin-top:7px;
 	margin-left:5px;
 	display:block;
 	float:left;
 }
 #main #left_panel .content .title .btn_min:hover{
-	background-position:-12px bottom;
+	background-position:-12px -440px;
 }
 #main #left_panel .content .title .btn_min:active{
-	background-position:-24px bottom;
+	background-position:-24px -440px;
 }
 #main #left_panel #help_content ul{
 	display:block;
@@ -983,34 +999,38 @@ background-position:left top;
 background-position:left bottom;
 }
 .screen_switch_max_btn {
-    background-position: 0 -16px;
+    background-position: 0 -362px;
     background-repeat: no-repeat;
     display: block;
     height: 16px;
     overflow: hidden;
     width: 16px;
+    /*
     background-image: url("../images/screen_switch_icon.gif");
+    */
+    background-image:url(../images/system_backend_icons.gif);	
 }
 .screen_switch_max_btn:hover {
-    background-position: -16px -16px;
+    background-position: -16px -362px;
 }
 .screen_switch_max_btn:active {
-    background-position: -32px -16px;
+    background-position: -32px -362px;
 }
 .screen_switch_min_btn {
-    background-position: 0 0;
+    background-position: 0 -348px;
     background-repeat: no-repeat;
     display: block;
     height: 16px;
     overflow: hidden;
     width: 16px;
-    background-image: url("../images/screen_switch_icon.gif");
+    /*background-image: url("../images/screen_switch_icon.gif");*/
+    background-image:url(../images/system_backend_icons.gif);	
 }
 .screen_switch_min_btn:hover {
-    background-position: -16px 0px;
+    background-position: -16px -348px;
 }
 .screen_switch_min_btn:active {
-    background-position: -32px 0px;
+    background-position: -32px -348px;
 }
 /* styles for new app*/
 .newapp_bg {
