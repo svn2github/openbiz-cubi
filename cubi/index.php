@@ -15,7 +15,6 @@ header("Cache-Control: no-cache");
 header("Pragma: no-cache");
 if (is_file(dirname(__FILE__) . '/files/install.lock')
         && filesize(dirname(__FILE__) . '/files/install.lock') == 1) {
-	define("USE_CUSTOM_SESSION_HANDLER",true);        	
     include 'bin/_forward.php';
 } else {
     $script_name = $_SERVER['SCRIPT_NAME'];
