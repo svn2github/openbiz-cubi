@@ -12,10 +12,10 @@
  * obtain it through the world-wide-web, please send an email
  * to info@phpOpenBiz.org so we can send you a copy immediately.
  *
- * @category   phpOpenBiz
- * @package    phpOpenBiz.EasyForm.Element
- * @copyright  Copyright (c) 2005-2009 phpOpenBiz.org (rocky swen)
- * @license    http://www.phpOpenBiz.org/license/   BSD Style-License
+ * @package    openbiz.bin.easy.element
+ * @copyright Copyright (c) 2005-2011, Rocky Swen
+ * @license   http://www.opensource.org/licenses/bsd-license.php
+ * @link      http://www.phpopenbiz.org/
  * @version    $Id: LabelText.php 501 2009-08-30 20:36
  */
 
