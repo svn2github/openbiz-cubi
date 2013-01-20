@@ -1,5 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classauth_service.html#a8cfce1113ad6393e0632eafaeb03a835" title="authDBUser" alt="" coords="175,32,265,61"/>
-<area shape="rect" id="node5" href="$classauth_service.html#a4d6f35640b09c142b5dcf1245e335e3f" title="checkPassword" alt="" coords="333,5,448,35"/>
-<area shape="rect" id="node7" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="316,59,465,88"/>
-</map>

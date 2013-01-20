@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract::getDBConnection" alt="" coords="136,5,389,35"/>
-<area shape="rect" id="node9" href="$class_biz_data_obj___lite.html#aa593ade9bce0ebe2d57c99d8ae2017d7" title="BizDataObj_Lite::getField" alt="" coords="177,59,348,88"/>
-<area shape="rect" id="node11" href="$class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract::getMessage" alt="" coords="152,112,373,141"/>
-<area shape="rect" id="node13" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="185,165,340,195"/>
-<area shape="rect" id="node5" href="$class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem::dbConnection" alt="" coords="437,5,611,35"/>
-<area shape="rect" id="node7" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="660,5,801,35"/>
-<area shape="rect" id="node15" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="449,165,599,195"/>
-</map>

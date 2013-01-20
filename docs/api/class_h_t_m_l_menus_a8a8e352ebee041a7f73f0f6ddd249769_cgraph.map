@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_h_t_m_l_menus.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="123,5,181,35"/>
-<area shape="rect" id="node5" href="$class_h_t_m_l_menus.html#a17aebbf07bc4d99539f5a23bcf134dbc" title="renderMenuItems" alt="" coords="229,5,352,35"/>
-<area shape="rect" id="node7" href="$class_h_t_m_l_menus.html#a31b584f5cc3dfa5f7614e227bcb521af" title="renderSingleMenuItem" alt="" coords="401,5,551,35"/>
-<area shape="rect" id="node9" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="824,5,979,35"/>
-<area shape="rect" id="node11" href="$class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem::getUserProfile" alt="" coords="601,31,775,60"/>
-</map>

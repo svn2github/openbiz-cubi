@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element::getFormObj" alt="" coords="115,5,261,35"/>
-<area shape="rect" id="node9" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="113,59,263,88"/>
-<area shape="rect" id="node5" href="$class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem::objectFactory" alt="" coords="312,5,485,35"/>
-<area shape="rect" id="node7" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="535,5,676,35"/>
-</map>

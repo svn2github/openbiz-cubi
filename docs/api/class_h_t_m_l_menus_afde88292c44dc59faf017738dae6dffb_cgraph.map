@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_h_t_m_l_menus.html#a17aebbf07bc4d99539f5a23bcf134dbc" title="renderMenuItems" alt="" coords="112,32,235,61"/>
-<area shape="rect" id="node5" href="$class_h_t_m_l_menus.html#a31b584f5cc3dfa5f7614e227bcb521af" title="renderSingleMenuItem" alt="" coords="284,32,433,61"/>
-<area shape="rect" id="node7" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="721,5,876,35"/>
-<area shape="rect" id="node11" href="$class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem::getUserProfile" alt="" coords="484,57,657,87"/>
-<area shape="rect" id="node9" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="940,5,1089,35"/>
-<area shape="rect" id="node14" href="$class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem::sessionContext" alt="" coords="707,59,891,88"/>
-</map>

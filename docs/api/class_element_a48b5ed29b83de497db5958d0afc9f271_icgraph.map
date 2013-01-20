@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_element.html#a7fac6d7d61649e64b12681889f72527b" title="getContextMenu" alt="" coords="164,5,281,35"/>
-<area shape="rect" id="node5" href="$class_element.html#a8a66f9e4e198d439cfc261f0809765f1" title="getSCKeyFuncMap" alt="" coords="156,59,289,88"/>
-<area shape="rect" id="node7" href="$class_input_element.html#a27c5f8826518b7325863e6886f9b94d1" title="InputElement::addSCKeyScript" alt="" coords="339,59,541,88"/>
-<area shape="rect" id="node9" href="$class_button.html#afde88292c44dc59faf017738dae6dffb" title="Button::render" alt="" coords="589,59,693,88"/>
-</map>

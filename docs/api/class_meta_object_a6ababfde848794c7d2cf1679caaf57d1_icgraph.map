@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_element.html#a48b5ed29b83de497db5958d0afc9f271" title="Element::canDisplayed" alt="" coords="151,59,305,88"/>
-<area shape="rect" id="node13" href="$class_easy_view.html#afde88292c44dc59faf017738dae6dffb" title="EasyView::render" alt="" coords="167,112,289,141"/>
-<area shape="rect" id="node5" href="$class_element.html#a7fac6d7d61649e64b12681889f72527b" title="Element::getContextMenu" alt="" coords="364,5,537,35"/>
-<area shape="rect" id="node7" href="$class_element.html#a8a66f9e4e198d439cfc261f0809765f1" title="Element::getSCKeyFuncMap" alt="" coords="356,59,545,88"/>
-<area shape="rect" id="node9" href="$class_input_element.html#a27c5f8826518b7325863e6886f9b94d1" title="InputElement::addSCKeyScript" alt="" coords="595,59,797,88"/>
-<area shape="rect" id="node11" href="$class_button.html#afde88292c44dc59faf017738dae6dffb" title="Button::render" alt="" coords="845,59,949,88"/>
-<area shape="rect" id="node15" href="$class_easy_view.html#a30bcc620a40b8f755dbafb28ff1c76d4" title="EasyView::_render" alt="" coords="385,112,516,141"/>
-</map>

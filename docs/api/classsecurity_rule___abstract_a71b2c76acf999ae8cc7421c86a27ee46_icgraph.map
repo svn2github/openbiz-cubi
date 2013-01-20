@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_get_filter_rule.html#a7d4ad4038b036a67eece619e6f88c89e" title="GetFilterRule::process" alt="" coords="199,5,351,35"/>
-<area shape="rect" id="node5" href="$class_post_filter_rule.html#a7d4ad4038b036a67eece619e6f88c89e" title="PostFilterRule::process" alt="" coords="196,59,353,88"/>
-<area shape="rect" id="node7" href="$class_i_p_filter_rule.html#a7d4ad4038b036a67eece619e6f88c89e" title="IPFilterRule::process" alt="" coords="204,112,345,141"/>
-<area shape="rect" id="node9" href="$class_agent_filter_rule.html#a7d4ad4038b036a67eece619e6f88c89e" title="AgentFilterRule::process" alt="" coords="192,165,357,195"/>
-<area shape="rect" id="node11" href="$class_domain_filter_rule.html#a7d4ad4038b036a67eece619e6f88c89e" title="DomainFilterRule::process" alt="" coords="188,219,361,248"/>
-<area shape="rect" id="node13" href="$class_u_r_l_filter_rule.html#a7d4ad4038b036a67eece619e6f88c89e" title="URLFilterRule::process" alt="" coords="197,272,352,301"/>
-</map>

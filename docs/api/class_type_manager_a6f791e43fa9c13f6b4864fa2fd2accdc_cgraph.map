@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_type_manager.html#aa1b183f98b7935fe7be319a430e55c37" title="currencyToValue" alt="" coords="212,5,329,35"/>
-<area shape="rect" id="node5" href="$class_type_manager.html#a0e2a296ec304f5f430846ad0cd3c696d" title="datetimeToValue" alt="" coords="212,59,329,88"/>
-<area shape="rect" id="node9" href="$class_type_manager.html#aeb5ad4a1d4d856fd43f51181597c659e" title="dateToValue" alt="" coords="224,112,317,141"/>
-<area shape="rect" id="node12" href="$class_type_manager.html#a2577fc12f99acce4dcffbdc626b9b9f4" title="numberToValue" alt="" coords="215,165,327,195"/>
-<area shape="rect" id="node14" href="$class_type_manager.html#a0d2d6600885665f19a6babc044a51ea8" title="phoneToValue" alt="" coords="219,219,323,248"/>
-<area shape="rect" id="node16" href="$class_type_manager.html#ac2659c3f0169e585ad895fc2b6afdbe4" title="textToValue" alt="" coords="225,272,316,301"/>
-<area shape="rect" id="node7" href="$class_type_manager.html#a1523e78d4ec7048625257c99f9f08234" title="convertDatetimeFormat" alt="" coords="380,85,535,115"/>
-</map>

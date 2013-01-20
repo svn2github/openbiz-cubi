@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classemail_service.html#a3dfbfe7d3d191293fc58f512a4a5e576" title="logEmail" alt="" coords="136,5,208,35"/>
-<area shape="rect" id="node5" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="620,5,769,35"/>
-<area shape="rect" id="node7" href="$class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem::log" alt="" coords="257,31,367,60"/>
-<area shape="rect" id="node9" href="$class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem::getService" alt="" coords="416,31,571,60"/>
-</map>

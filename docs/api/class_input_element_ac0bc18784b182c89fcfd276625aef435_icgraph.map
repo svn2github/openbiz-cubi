@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_rich_text.html#afde88292c44dc59faf017738dae6dffb" title="RichText::render" alt="" coords="129,5,247,35"/>
-<area shape="rect" id="node5" href="$class_radio.html#afde88292c44dc59faf017738dae6dffb" title="Radio::render" alt="" coords="139,59,237,88"/>
-<area shape="rect" id="node7" href="$class_listbox.html#afde88292c44dc59faf017738dae6dffb" title="Listbox::render" alt="" coords="135,112,241,141"/>
-<area shape="rect" id="node9" href="$class_c_k_editor.html#afde88292c44dc59faf017738dae6dffb" title="CKEditor::render" alt="" coords="129,165,247,195"/>
-</map>

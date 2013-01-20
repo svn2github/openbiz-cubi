@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract::getDBConnection" alt="" coords="109,5,363,35"/>
-<area shape="rect" id="node9" href="$class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="getSQLHelper" alt="" coords="185,59,287,88"/>
-<area shape="rect" id="node5" href="$class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem::dbConnection" alt="" coords="432,5,605,35"/>
-<area shape="rect" id="node7" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="676,5,817,35"/>
-<area shape="rect" id="node11" href="$class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper::instance" alt="" coords="412,59,625,88"/>
-</map>

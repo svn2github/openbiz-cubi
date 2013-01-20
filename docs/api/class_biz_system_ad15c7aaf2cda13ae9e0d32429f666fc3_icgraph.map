@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_view_renderer.html#a288b4b665cf447481ca982c7ec7d004e" title="ViewRenderer::renderPHP" alt="" coords="177,5,351,35"/>
-<area shape="rect" id="node7" href="$class_form_renderer.html#a240405d51345da30f40261fb9b5522f1" title="FormRenderer::renderPHP" alt="" coords="177,59,351,88"/>
-<area shape="rect" id="node5" href="$class_view_renderer.html#a588ca768528b47207177dfd1ff7ced52" title="ViewRenderer::render" alt="" coords="401,5,548,35"/>
-<area shape="rect" id="node9" href="$class_form_renderer.html#a6bc1378b4d3403da3f5a0cdf19d2c110" title="FormRenderer::render" alt="" coords="401,59,548,88"/>
-</map>

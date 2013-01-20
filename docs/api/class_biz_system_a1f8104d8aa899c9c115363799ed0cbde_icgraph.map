@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$classreport_service.html#aeb9dec8acd53bf30e11a393a1c0bf26e" title="reportService::render" alt="" coords="215,5,356,35"/>
-<area shape="rect" id="node5" href="$class_h_t_m_l_tabs.html#afde88292c44dc59faf017738dae6dffb" title="HTMLTabs::render" alt="" coords="221,59,349,88"/>
-<area shape="rect" id="node9" href="$class_view_renderer.html#a271a8f8acd200d185367fb475f43df51" title="ViewRenderer::renderSmarty" alt="" coords="192,112,379,141"/>
-<area shape="rect" id="node13" href="$class_form_renderer.html#aaae8885482d48a3eba78c4856ff7ac0a" title="FormRenderer::renderSmarty" alt="" coords="191,165,380,195"/>
-<area shape="rect" id="node7" href="$class_h_t_m_l_tabs.html#a8a8e352ebee041a7f73f0f6ddd249769" title="HTMLTabs::rerender" alt="" coords="435,59,573,88"/>
-<area shape="rect" id="node11" href="$class_view_renderer.html#a588ca768528b47207177dfd1ff7ced52" title="ViewRenderer::render" alt="" coords="431,112,577,141"/>
-<area shape="rect" id="node15" href="$class_form_renderer.html#a6bc1378b4d3403da3f5a0cdf19d2c110" title="FormRenderer::render" alt="" coords="431,165,577,195"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem::clientProxy" alt="" coords="363,33,520,62"/>
-<area shape="rect" id="node7" href="$class_easy_form.html#aa69c8bf1f1dcf4e72552efff1fe3e87e" title="EasyForm::close" alt="" coords="168,33,288,62"/>
-<area shape="rect" id="node10" href="$class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm::getDataObj" alt="" coords="151,86,305,115"/>
-<area shape="rect" id="node12" href="$class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem::objectFactory" alt="" coords="355,86,528,115"/>
-<area shape="rect" id="node15" href="$class_easy_form.html#a214fbd6ab24d8a6efdcb305a5ecdae6b" title="EasyForm::getElement" alt="" coords="151,190,305,219"/>
-<area shape="rect" id="node5" href="$class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem::instance" alt="" coords="577,59,719,89"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_easy_form.html#af2761d5e4dc7c2fc4ac4955afe2ef1e8" title="EasyForm::inheritParentObj" alt="" coords="177,5,359,35"/>
-<area shape="rect" id="node7" href="$class_easy_view.html#a1db802d93a9f0badf186a646e1cdb161" title="EasyView::readMetadata" alt="" coords="185,112,351,141"/>
-<area shape="rect" id="node11" href="$class_easy_form.html#a1db802d93a9f0badf186a646e1cdb161" title="EasyForm::readMetadata" alt="" coords="184,59,352,88"/>
-<area shape="rect" id="node14" href="$class_biz_data_obj___abstract.html#a1db802d93a9f0badf186a646e1cdb161" title="BizDataObj_Abstract::readMetadata" alt="" coords="153,165,383,195"/>
-<area shape="rect" id="node5" href="$class_easy_form.html#a847d8d60f037d0a016aca7006cf9dec6" title="EasyForm::__construct" alt="" coords="464,32,621,61"/>
-<area shape="rect" id="node9" href="$class_easy_view.html#a847d8d60f037d0a016aca7006cf9dec6" title="EasyView::__construct" alt="" coords="465,112,620,141"/>
-<area shape="rect" id="node16" href="$class_biz_data_obj___abstract.html#a847d8d60f037d0a016aca7006cf9dec6" title="BizDataObj_Abstract::__construct" alt="" coords="433,165,652,195"/>
-</map>

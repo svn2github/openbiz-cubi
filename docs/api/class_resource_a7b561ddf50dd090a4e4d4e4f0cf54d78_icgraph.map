@@ -1,9 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_label_textarea.html#afde88292c44dc59faf017738dae6dffb" title="LabelTextarea::render" alt="" coords="145,5,292,35"/>
-<area shape="rect" id="node5" href="$class_label_bool.html#afde88292c44dc59faf017738dae6dffb" title="LabelBool::render" alt="" coords="157,59,280,88"/>
-<area shape="rect" id="node7" href="$class_image_selector.html#afde88292c44dc59faf017738dae6dffb" title="ImageSelector::render" alt="" coords="144,112,293,141"/>
-<area shape="rect" id="node9" href="$class_column_share.html#afde88292c44dc59faf017738dae6dffb" title="ColumnShare::render" alt="" coords="147,165,291,195"/>
-<area shape="rect" id="node11" href="$class_column_image.html#afde88292c44dc59faf017738dae6dffb" title="ColumnImage::render" alt="" coords="147,219,291,248"/>
-<area shape="rect" id="node13" href="$class_column_bool.html#afde88292c44dc59faf017738dae6dffb" title="ColumnBool::render" alt="" coords="151,272,287,301"/>
-<area shape="rect" id="node15" href="$class_button.html#afde88292c44dc59faf017738dae6dffb" title="Button::render" alt="" coords="167,325,271,355"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_easy_form.html#af2761d5e4dc7c2fc4ac4955afe2ef1e8" title="inheritParentObj" alt="" coords="144,32,259,61"/>
-<area shape="rect" id="node11" href="$class_easy_form.html#a1db802d93a9f0badf186a646e1cdb161" title="readMetadata" alt="" coords="151,85,252,115"/>
-<area shape="rect" id="node5" href="$class_biz_system.html#adf8b5ec7deab8481298eb73aa56493a0" title="BizSystem::getObject" alt="" coords="321,5,471,35"/>
-<area shape="rect" id="node7" href="$class_resource.html#a66826405edc53b33073ed69eac7b49f4" title="Resource::loadMessage" alt="" coords="315,59,477,88"/>
-<area shape="rect" id="node9" href="$class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource::getMessage" alt="" coords="535,59,689,88"/>
-<area shape="rect" id="node14" href="$class_meta_object.html#a7a34962e72564b47da11d86bfde7cf79" title="MetaObject::prefixPackage" alt="" coords="307,112,485,141"/>
-</map>
