@@ -1,0 +1,94 @@
+#projectname
+{
+font-size: 24px;
+font-family: Arial;
+color:#00b0ef;
+}
+#projectnumber
+{
+font-size:18px;
+}
+#projectbrief 
+{
+font-size:12px;
+color:#666666;
+}
+#doc-content 
+{
+background-image: url(content-bg.png);
+background-position: center bottom;
+background-repeat: no-repeat;
+}
+div.header{
+background-color:#ffffff;
+background-image:none;
+color:#2674BE;
+}
+h2.groupheader{
+color:#14B3F0;
+}
+.directory tr.even 
+{
+background:none;
+}
+a {
+color: #0076a3;
+}
+.contents a:visited {
+    color: #007ca9;
+}
+.tablist li,.tablist a,.tablist a:hover,.tablist li.current a ,.navpath ul, #nav-tree .selected, .memproto, dl.reflist dt,#nav-tree,.ui-resizable-e
+{
+background-image:none;
+}
+.ui-resizable-e{
+background-color: #eeeeee;
+border-right:1px solid #cccccc;
+}
+.tabs{
+background-image:none;
+background-color: #eeeeee;
+border-top:2px solid #089de6;
+border-bottom:1px solid #cccccc;
+}
+.tabs2, .tabs3 
+{
+background-image:none;
+background-color: #efefef;
+border-bottom:1px solid #cccccc;
+
+}
+.navpath li.footer {
+display: none;
+}
+.tablist li.current a {
+background-color: #009cd7;
+}
+.tablist a:hover {
+background-color: #17bee5;
+}
+#nav-tree .selected 
+{
+background-color: #009cd7;
+}
+#MSearchResultsWindow {
+background-color: #ebfaff;
+}
+#nav-tree-contents 
+{
+margin-top:0px;
+}
+div.ah {
+background-image: -moz-linear-gradient(center top , #EEEEEE 0%, #008dd4 40%, #004879);
+border: thin solid #089de6;
+}
+.navpath ul{
+background-color: #eeeeee;
+}
+.memproto, dl.reflist dt
+{
+background-color: #d7f0fa;
+}
+.memitem.glow {
+box-shadow: 0 0 15px #0181af;
+}

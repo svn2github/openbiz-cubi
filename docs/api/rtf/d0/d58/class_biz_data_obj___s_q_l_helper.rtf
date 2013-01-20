@@ -1,0 +1,684 @@
+{\rtf1\ansi\ansicpg1252\uc1 \deff0\deflang1033\deflangfe1033
+{\fonttbl {\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\f1\fswiss\fcharset0\fprq2{\*\panose 020b0604020202020204}Arial;}
+{\f2\fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}
+{\f3\froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}
+}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}
+{\stylesheet
+{\widctlpar\adjustright \fs20\cgrid \snext0 Normal;}
+{\s1\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs36\kerning36\cgrid \sbasedon0 \snext0 heading 1;}
+{\s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid \sbasedon0 \snext0 heading 2;}
+{\s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid \sbasedon0 \snext0 heading 3;}
+{\s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext0 heading 4;}{\*\cs10 \additive Default Paragraph Font;}
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext0 heading 5;}{\*\cs10 \additive Default Paragraph Font;}
+{\s15\qc\sb240\sa60\widctlpar\outlinelevel0\adjustright \b\f1\fs32\kerning28\cgrid \sbasedon0 \snext15 Title;}
+{\s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid \sbasedon0 \snext16 Subtitle;}
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid \sbasedon0 \snext17 BodyText;}
+{\s18\widctlpar\fs22\cgrid \sbasedon0 \snext18 DenseText;}
+{\s28\widctlpar\tqc\tx4320\tqr\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext28 header;}
+{\s29\widctlpar\tqc\tx4320\tqr\tx8640\qr\adjustright \fs20\cgrid \sbasedon0 \snext29 footer;}
+{\s30\li360\sa60\sb120\keepn\widctlpar\adjustright \b\f1\fs20\cgrid \sbasedon0 \snext30 GroupHeader;}
+{\s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext41 Code Example 0;}
+{\s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext42 Code Example 1;}
+{\s42\li720\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext43 Code Example 2;}
+{\s43\li1080\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext44 Code Example 3;}
+{\s44\li1440\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext45 Code Example 4;}
+{\s45\li1800\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext46 Code Example 5;}
+{\s46\li2160\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext47 Code Example 6;}
+{\s47\li2520\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext48 Code Example 7;}
+{\s48\li2880\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext49 Code Example 8;}
+{\s49\li3240\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid \sbasedon0 \snext49 Code Example 9;}
+{\s50\li0\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext51 List Continue 0;}
+{\s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext52 List Continue 1;}
+{\s52\li720\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext53 List Continue 2;}
+{\s53\li1080\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext54 List Continue 3;}
+{\s54\li1440\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext55 List Continue 4;}
+{\s55\li1800\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext56 List Continue 5;}
+{\s56\li2160\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext57 List Continue 6;}
+{\s57\li2520\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext58 List Continue 7;}
+{\s58\li2880\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext59 List Continue 8;}
+{\s59\li3240\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid \sbasedon0 \snext59 List Continue 9;}
+{\s60\li0\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext61 DescContinue 0;}
+{\s61\li360\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext62 DescContinue 1;}
+{\s62\li720\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext63 DescContinue 2;}
+{\s63\li1080\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext64 DescContinue 3;}
+{\s64\li1440\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext65 DescContinue 4;}
+{\s65\li1800\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext66 DescContinue 5;}
+{\s66\li2160\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext67 DescContinue 6;}
+{\s67\li2520\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext68 DescContinue 7;}
+{\s68\li2880\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext69 DescContinue 8;}
+{\s69\li3240\widctlpar\ql\adjustright \fs20\cgrid \sbasedon0 \snext69 DescContinue 9;}
+{\s70\li0\sa30\sb30\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext81 LatexTOC 0;}
+{\s71\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext82 LatexTOC 1;}
+{\s72\li720\sa24\sb24\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext83 LatexTOC 2;}
+{\s73\li1080\sa21\sb21\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext84 LatexTOC 3;}
+{\s74\li1440\sa18\sb18\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext85 LatexTOC 4;}
+{\s75\li1800\sa15\sb15\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext86 LatexTOC 5;}
+{\s76\li2160\sa12\sb12\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext87 LatexTOC 6;}
+{\s77\li2520\sa9\sb9\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext88 LatexTOC 7;}
+{\s78\li2880\sa6\sb6\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext89 LatexTOC 8;}
+{\s79\li3240\sa3\sb3\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid \sbasedon0 \snext89 LatexTOC 9;}
+{\s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid \sbasedon0 \snext81 \sautoupd List Bullet 0;}
+{\s81\fi-360\li720\widctlpar\jclisttab\tx720{\*\pn \pnlvlbody\ilvl0\ls2\pnrnot0\pndec }\ls2\adjustright \fs20\cgrid \sbasedon0 \snext82 \sautoupd List Bullet 1;}
+{\s82\fi-360\li1080\widctlpar\jclisttab\tx1080{\*\pn \pnlvlbody\ilvl0\ls3\pnrnot0\pndec }\ls3\adjustright \fs20\cgrid \sbasedon0 \snext83 \sautoupd List Bullet 2;}
+{\s83\fi-360\li1440\widctlpar\jclisttab\tx1440{\*\pn \pnlvlbody\ilvl0\ls4\pnrnot0\pndec }\ls4\adjustright \fs20\cgrid \sbasedon0 \snext84 \sautoupd List Bullet 3;}
+{\s84\fi-360\li1800\widctlpar\jclisttab\tx1800{\*\pn \pnlvlbody\ilvl0\ls5\pnrnot0\pndec }\ls5\adjustright \fs20\cgrid \sbasedon0 \snext85 \sautoupd List Bullet 4;}
+{\s85\fi-360\li2160\widctlpar\jclisttab\tx2160{\*\pn \pnlvlbody\ilvl0\ls6\pnrnot0\pndec }\ls6\adjustright \fs20\cgrid \sbasedon0 \snext86 \sautoupd List Bullet 5;}
+{\s86\fi-360\li2520\widctlpar\jclisttab\tx2520{\*\pn \pnlvlbody\ilvl0\ls7\pnrnot0\pndec }\ls7\adjustright \fs20\cgrid \sbasedon0 \snext87 \sautoupd List Bullet 6;}
+{\s87\fi-360\li2880\widctlpar\jclisttab\tx2880{\*\pn \pnlvlbody\ilvl0\ls8\pnrnot0\pndec }\ls8\adjustright \fs20\cgrid \sbasedon0 \snext88 \sautoupd List Bullet 7;}
+{\s88\fi-360\li3240\widctlpar\jclisttab\tx3240{\*\pn \pnlvlbody\ilvl0\ls9\pnrnot0\pndec }\ls9\adjustright \fs20\cgrid \sbasedon0 \snext89 \sautoupd List Bullet 8;}
+{\s89\fi-360\li3600\widctlpar\jclisttab\tx3600{\*\pn \pnlvlbody\ilvl0\ls10\pnrnot0\pndec }\ls10\adjustright \fs20\cgrid \sbasedon0 \snext89 \sautoupd List Bullet 9;}
+{\s90\fi-360\li360\widctlpar\fs20\cgrid \sbasedon0 \snext91 \sautoupd List Enum 0;}
+{\s91\fi-360\li720\widctlpar\fs20\cgrid \sbasedon0 \snext92 \sautoupd List Enum 1;}
+{\s92\fi-360\li1080\widctlpar\fs20\cgrid \sbasedon0 \snext93 \sautoupd List Enum 2;}
+{\s93\fi-360\li1440\widctlpar\fs20\cgrid \sbasedon0 \snext94 \sautoupd List Enum 3;}
+{\s94\fi-360\li1800\widctlpar\fs20\cgrid \sbasedon0 \snext95 \sautoupd List Enum 4;}
+{\s95\fi-360\li2160\widctlpar\fs20\cgrid \sbasedon0 \snext96 \sautoupd List Enum 5;}
+{\s96\fi-360\li2520\widctlpar\fs20\cgrid \sbasedon0 \snext96 \sautoupd List Enum 5;}
+{\s97\fi-360\li2880\widctlpar\fs20\cgrid \sbasedon0 \snext98 \sautoupd List Enum 7;}
+{\s98\fi-360\li3240\widctlpar\fs20\cgrid \sbasedon0 \snext99 \sautoupd List Enum 8;}
+{\s99\fi-360\li3600\widctlpar\fs20\cgrid \sbasedon0 \snext99 \sautoupd List Enum 9;}
+}
+{\comment begin body}
+\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
+BizDataObj_SQLHelper Class Reference\par \pard\plain 
+{\tc\tcl2 \v BizDataObj_SQLHelper}
+{\xe \v BizDataObj_SQLHelper}
+{\bkmkstart AAAAAAAAPX}
+{\bkmkend AAAAAAAAPX}
+Collaboration diagram for BizDataObj_SQLHelper:{
+\pard\plain 
+\par\pard \qc {\field\flddirty {\*\fldinst INCLUDEPICTURE "d9/dee/class_biz_data_obj___s_q_l_helper__coll__graph.png" \\d \\*MERGEFORMAT}{\fldrslt IMAGE}}\par
+}
+\par
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Public Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+{\b buildQuerySQL} ($dataObj)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+{\b buildUpdateSQL} ($dataObj)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+{\b buildUpdateSQLwithCondition} ($dataObj, $setValue, $condition=null)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+{\b buildDeleteSQL} ($dataObj)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+{\b buildDeleteSQLwithCondition} ($dataObj, $condition=null)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+{\b buildInsertSQL} ($dataObj, $joinValues=null)\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+{\b ruleToSql} ($dataObj, $rule)\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Static Public Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+static {\b instance} ()\par
+}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Protected Member Functions\par
+\pard\plain 
+
+{
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+{\b getDataSqlObj} ()\par
+\pard\plain \s80\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+{\b getNewDataSqlObj} ($dataObj=null)\par
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Detailed Description\par
+\pard\plain 
+{
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {
+Definition at line 25 of file BizDataObj_SQLHelper.php.}\par
+}
+{\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
+\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Member Function Documentation\par
+\pard\plain 
+{\xe \v buildDeleteSQL\:BizDataObj_SQLHelper}
+{\xe \v BizDataObj_SQLHelper\:buildDeleteSQL}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+buildDeleteSQL ( {\i $dataObj})}}
+\par
+{\bkmkstart AAAAAAAAPY}
+{\bkmkend AAAAAAAAPY}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build delete-sql DELETE FROM table WHERE idcol1='id1' AND idcol2='id2'\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Parameters:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx4374
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\b BizDataObj}\cell }{{\i $dataObj} \cell }{\cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Returns:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid string SQL statement \par
+}}{
+Definition at line 301 of file BizDataObj_SQLHelper.php.}\par
+{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid     \{\par
+        $sql = "DELETE FROM `" . $dataObj->m_MainTable ."`";\par
+        $whereStr = $dataObj->m_BizRecord->getKeySearchRule(false, true);  // use cur value and column name\par
+        $sql .= " WHERE " . $whereStr;\par
+     // append DataPerm in the WHERE clause\par
+        if($dataObj->m_DataPermControl=='Y')\par
+        \{\par
+         $svcObj = BizSystem::GetService(DATAPERM_SERVICE);\par
+         $hasOwnerField = $this->_hasOwnerField($dataObj);\par
+         $dataPermSQLRule = $svcObj->buildSqlRule($dataObj,'delete',$hasOwnerField);\par
+         $sqlSearchRule = $this->_convertSqlExpressionWithoutPrefix($dataObj, $dataPermSQLRule);\par
+         if($whereStr!='')\par
+         \{\par
+          $sql .= ' AND '.$sqlSearchRule;\par
+         \}else\par
+         \{         \par
+          $sql .= $sqlSearchRule;\par
+         \}\par
+        \}\par
+        return $sql;\par
+    \}\par
+}
+}
+{\xe \v buildDeleteSQLwithCondition\:BizDataObj_SQLHelper}
+{\xe \v BizDataObj_SQLHelper\:buildDeleteSQLwithCondition}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+buildDeleteSQLwithCondition ( {\i $dataObj},  {\i $condition} = {\f2 null})}}
+\par
+{\bkmkstart AAAAAAAAPZ}
+{\bkmkend AAAAAAAAPZ}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definition at line 324 of file BizDataObj_SQLHelper.php.}\par
+{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid     \{\par
+     \par
+        $sql = "DELETE FROM `" . $dataObj->m_MainTable . "`";  \par
+        if($condition)\par
+        \{\par
+         $whereStr = $this->_convertSqlExpressionWithoutPrefix($dataObj, $condition); \par
+         $sql .= " WHERE " . $whereStr;\par
+        \}\par
+     // append DataPerm in the WHERE clause\par
+        if($dataObj->m_DataPermControl=='Y')\par
+        \{\par
+         $svcObj = BizSystem::GetService(DATAPERM_SERVICE);\par
+         $hasOwnerField = $this->_hasOwnerField($dataObj);\par
+         $dataPermSQLRule = $svcObj->buildSqlRule($dataObj,'delete',$hasOwnerField);\par
+         $sqlSearchRule = $this->_convertSqlExpressionWithoutPrefix($dataObj, $dataPermSQLRule);\par
+         if($whereStr!='')\par
+         \{\par
+          $sql .= ' AND '.$sqlSearchRule;\par
+         \}else\par
+         \{         \par
+          $sql .= $sqlSearchRule;\par
+         \}\par
+        \}\par
+        return $sql;\par
+    \}\par
+}
+}
+{\xe \v buildInsertSQL\:BizDataObj_SQLHelper}
+{\xe \v BizDataObj_SQLHelper\:buildInsertSQL}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+buildInsertSQL ( {\i $dataObj},  {\i $joinValues} = {\f2 null})}}
+\par
+{\bkmkstart AAAAAAAAQA}
+{\bkmkend AAAAAAAAQA}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build insert-sql INSERT INTO table_name (column1, column2,...) VALUES (value1, value2,....)\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Parameters:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx4374
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\b BizDataObj}\cell }{{\i $dataObj} \cell }{\cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx4374
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{array\cell }{{\i $joinValues} \cell }{array of join values \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Returns:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid string Insert-SQL statement \par
+}}{
+Definition at line 359 of file BizDataObj_SQLHelper.php.}\par
+{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid     \{\par
+        // generate column value pairs.\par
+        $sqlFlds = $dataObj->m_BizRecord->getToSaveFields('CREATE');\par
+\par
+        $dbInfo = BizSystem::configuration()->getDatabaseInfo($dataObj->m_Database);\par
+        $dbType = $dbInfo["Driver"];\par
+\par
+        $sql_col = "";\par
+        $sql_val = "";\par
+        foreach($sqlFlds as $fldobj)\par
+        \{\par
+            $col = $fldobj->m_Column;\par
+\par
+            // if Field Id has null value and Id is an identity type, remove the Id's column from the array\par
+            if ($fldobj->m_Name == "Id" && $dataObj->m_IdGeneration == "Identity")\par
+                continue;\par
+\par
+            if ($fldobj->isLobField())  // special value for blob/clob type\par
+                $_val = $fldobj->getInsertLobValue($dbType);\par
+            else\par
+            \{\par
+             $_val = $fldobj->getSqlValue();\par
+                if ($_val =='' && $fldobj->m_ValueOnCreate != "")\par
+                    $_val = $fldobj->getValueOnCreate();                \par
+            \}\par
+\par
+            //if (!$_val || $_val == '') continue;\par
+            // modified by jixian for not ignore 0 value\par
+            if ( $_val === '') continue;\par
+            $sql_col .= "`" . $col . "`, ";\par
+            //$sql_val .= $_val. ", ";\par
+            $sql_val .= QueryStringParam::formatQueryValue($_val). ", ";\par
+        \}\par
+\par
+        // if joinValues is given then add join values in to the main table InsertSQL.\par
+        if(is_array($joinValues))\par
+        \{\par
+            foreach($joinValues as $joinColumn=>$joinValue)\par
+            \{\par
+                if (!$joinValue || $joinValue == '') continue;\par
+                $sql_col .= "`".$joinColumn. "`, ";\par
+                $sql_val .= "'".$joinValue. "', ";\par
+            \}\par
+        \}\par
+\par
+        $sql_col = substr($sql_col, 0, -2);\par
+        $sql_val = substr($sql_val, 0, -2);\par
+\par
+        $sql = "INSERT INTO  `" . $dataObj->m_MainTable . "` (" . $sql_col . ") VALUES (" . $sql_val.")";\par
+        return $sql;\par
+    \}\par
+}
+}
+{\xe \v buildQuerySQL\:BizDataObj_SQLHelper}
+{\xe \v BizDataObj_SQLHelper\:buildQuerySQL}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+buildQuerySQL ( {\i $dataObj})}}
+\par
+{\bkmkstart AAAAAAAAQB}
+{\bkmkend AAAAAAAAQB}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build the Select SQL statement based on the fields and search/sort rule\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Parameters:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx4374
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\b BizDataObj}\cell }{{\i $dataObj} \cell }{\cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Returns:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid void \par
+}}{
+Definition at line 93 of file BizDataObj_SQLHelper.php.}\par
+{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid     \{\par
+        //echo "buildQuerySQL ".$dataObj->m_Name."\\n";\par
+  // TODO: the same dataobj re-uses the same datasqlobj ...\par
+        // build the SQL statement based on the fields and search rule\par
+        $dataSqlObj = $this->getNewDataSqlObj($dataObj);\par
+  \par
+  if ($dataSqlObj->isfresh()) \{\par
+   // add table\par
+   $dataSqlObj->addMainTable($dataObj->m_MainTable);\par
+   // add join table\par
+   if ($dataObj->m_TableJoins)\par
+   \{\par
+    foreach($dataObj->m_TableJoins as $tableJoin)\par
+    \{\par
+     $tbl_col = $dataSqlObj->addJoinTable($tableJoin, $this);\par
+    \}\par
+   \}\par
+   // add columns\par
+   foreach($dataObj->m_BizRecord as $bizFld)\par
+   \{\par
+    if ($bizFld->m_IgnoreInQuery) // field to be ignore in query - save memory\par
+     continue;\par
+    if ($bizFld->m_Column && $bizFld->m_Type == "Blob")   // ignore blob column\par
+     continue;\par
+    if ($bizFld->m_Column && !$bizFld->m_SqlExpression && (strpos($bizFld->m_Column,',') == 0))\par
+     $dataSqlObj->addTableColumn($bizFld->m_Join, $bizFld->m_Column, $bizFld->m_Alias);\par
+    if ($bizFld->m_SqlExpression)\par
+    \{\par
+     $dataSqlObj->addSqlExpression($this->_convertSqlExpression($dataObj, $bizFld->m_SqlExpression),$bizFld->m_Alias);\par
+    \}\par
+   \}\par
+  \}\par
+        $dataSqlObj->resetSQL();\par
+\par
+        // append DataPerm in the WHERE clause\par
+        if($dataObj->m_DataPermControl=='Y')\par
+        \{\par
+         $svcObj = BizSystem::GetService(DATAPERM_SERVICE);\par
+         $hasOwnerField = $this->_hasOwnerField($dataObj);\par
+         $dataPermSQLRule = $svcObj->buildSqlRule($dataObj,'select',$hasOwnerField);\par
+         $sqlSearchRule = $this->_ruleToSql($dataObj, $dataPermSQLRule);\par
+         $dataSqlObj->addSqlWhere($sqlSearchRule);\par
+        \}\par
+        \par
+        // append SearchRule in the WHERE clause\par
+        $sqlSearchRule = $this->_ruleToSql($dataObj, $dataObj->m_SearchRule);\par
+        $dataSqlObj->addSqlWhere($sqlSearchRule);\par
+\par
+        // append SearchRule in the ORDER BY clause\par
+        $sqlSortRule = $this->_ruleToSql($dataObj, $dataObj->m_SortRule);\par
+        $dataSqlObj->addOrderBy($sqlSortRule);\par
+\par
+        // append SearchRule in the other SQL clause\par
+        $sqlOtherSQLRule = $this->_ruleToSql($dataObj, $dataObj->m_OtherSQLRule);\par
+        $dataSqlObj->addOtherSQL($sqlOtherSQLRule);\par
+\par
+        // append SearchRule in the AccessRule clause\par
+        $sqlAccessSQLRule = $this->_ruleToSql($dataObj, $dataObj->m_AccessRule);\par
+        $dataSqlObj->addSqlWhere($sqlAccessSQLRule);\par
+\par
+        // add association to SQL\par
+        if ($dataObj->m_Association["AsscObjName"] != ""\par
+                && $dataObj->m_Association["FieldRefVal"] == "")\par
+        \{\par
+            $asscObj = BizSystem::getObject($dataObj->m_Association["AsscObjName"]);\par
+            $dataObj->m_Association["FieldRefVal"] = $asscObj->getFieldValue($dataObj->m_Association["FieldRef"]);\par
+        \}\par
+        \par
+     if ($dataObj->m_Association["AsscObjName"] != ""\par
+                && $dataObj->m_Association["FieldRefVal2"] == "")\par
+        \{\par
+            $asscObj = BizSystem::getObject($dataObj->m_Association["AsscObjName"]);\par
+            $dataObj->m_Association["FieldRefVal2"] = $asscObj->getFieldValue($dataObj->m_Association["FieldRef2"]);\par
+        \}\par
+        \par
+        if($dataObj->m_Association["Relationship"]=="Self-Self")\par
+        \{         \par
+         $dataObj->m_Association["ParentRecordIdColumn"] = $dataObj->getField("Id")->m_Column;\par
+        \}\par
+        $dataSqlObj->addAssociation($dataObj->m_Association);\par
+\par
+        // apply _ruleToSql to JoinCondition if any\par
+  if ($dataSqlObj->hasJoinCondition) \{\par
+   $dataSqlObj->setTableJoinStm($this->_ruleToSql($dataObj, $dataSqlObj->getTableJoinStm()));\par
+  \}\par
+  \par
+  $querySQL = $dataSqlObj->getSqlStatement() . " ";\par
+\par
+        //echo $querySQL."###\\n";\par
+        return $querySQL;\par
+    \}\par
+}
+}
+{\xe \v buildUpdateSQL\:BizDataObj_SQLHelper}
+{\xe \v BizDataObj_SQLHelper\:buildUpdateSQL}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+buildUpdateSQL ( {\i $dataObj})}}
+\par
+{\bkmkstart AAAAAAAAQC}
+{\bkmkend AAAAAAAAQC}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Build update sql UPDATE table SET col1=val1, col2=val2 ... WHERE idcol1='id1' AND idcol2='id2'\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Parameters:\par}
+\pard\plain \s61\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx4374
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\b BizDataObj}\cell }{{\i $dataObj} \cell }{\cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Returns:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid mixed \par
+}}{
+Definition at line 195 of file BizDataObj_SQLHelper.php.}\par
+{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid     \{\par
+        // generate column value pairs. ignore those whose inputValue=fieldValue\par
+        $sqlFlds = $dataObj->m_BizRecord->getToSaveFields('UPDATE');\par
+        $colval_pairs = null;\par
+        foreach($sqlFlds as $fldobj)\par
+        \{\par
+            $col = $fldobj->m_Column;\par
+\par
+            // ignore empty vallue for Date or Datetime\par
+            if (($fldobj->m_Value == "" && $fldobj->m_OldValue == "")\par
+                    && ($fldobj->m_Type == "Date" || $fldobj->m_Type == "Datetime"))\par
+                continue;\par
+\par
+            if ($fldobj->m_ValueOnUpdate != "") // ignore ValueOnUpdate field first\par
+                continue;\par
+\par
+            if ($fldobj->isLobField())  // take care of blob/clob type later\par
+                continue;\par
+\par
+            // ignore the column where old value is same as new value; set the column only if new value is diff than the old value\par
+            if ($fldobj->m_OldValue == $fldobj->m_Value)\par
+                continue;\par
+\par
+            $_val = $fldobj->getSqlValue();\par
+            $colval_pairs[$col] = $_val; //($_val===null || $_val === '') ? "''" : $_val;\par
+        \}\par
+        if ($colval_pairs == null) return false;\par
+\par
+        // take care value on update fields only\par
+        foreach($sqlFlds as $fldobj)\par
+        \{\par
+            $col = $fldobj->m_Column;\par
+            if ($fldobj->m_ValueOnUpdate != "")\par
+            \{\par
+                $_val = $fldobj->getValueOnUpdate();\par
+                $colval_pairs[$col] = $_val; //($_val===null || $_val === '') ? "''" : $_val;\par
+            \}\par
+        \}\par
+\par
+        $sql = "";\par
+        foreach ($colval_pairs as $col=>$val)\par
+        \{\par
+            $queryString = QueryStringParam::formatQueryString("`$col`", "=", $val);\par
+            if ($sql!="") $sql .= ", $queryString";\par
+            else $sql .= $queryString;\par
+        \}\par
+\par
+        $sql = "UPDATE `" . $dataObj->m_MainTable . "` SET " . $sql;\par
+\par
+        $whereStr = $dataObj->m_BizRecord->getKeySearchRule(true, true);  // use old value and column name\par
+        $sql .= " WHERE " . $whereStr;\par
+     \par
+        // append DataPerm in the WHERE clause\par
+        if($dataObj->m_DataPermControl=='Y')\par
+        \{\par
+         $svcObj = BizSystem::GetService(DATAPERM_SERVICE);\par
+         $hasOwnerField = $this->_hasOwnerField($dataObj);\par
+         $dataPermSQLRule = $svcObj->buildSqlRule($dataObj,'update',$hasOwnerField);\par
+         $sqlSearchRule = $this->_convertSqlExpressionWithoutPrefix($dataObj, $dataPermSQLRule);\par
+         if($whereStr!='')\par
+         \{\par
+          $sql .= ' AND '.$sqlSearchRule;\par
+         \}else\par
+         \{         \par
+          $sql .= $sqlSearchRule;\par
+         \}\par
+        \}\par
+        return $sql;\par
+    \}\par
+}
+}
+{\xe \v buildUpdateSQLwithCondition\:BizDataObj_SQLHelper}
+{\xe \v BizDataObj_SQLHelper\:buildUpdateSQLwithCondition}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+buildUpdateSQLwithCondition ( {\i $dataObj},  {\i $setValue},  {\i $condition} = {\f2 null})}}
+\par
+{\bkmkstart AAAAAAAAQD}
+{\bkmkend AAAAAAAAQD}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definition at line 266 of file BizDataObj_SQLHelper.php.}\par
+{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid     \{   \par
+          \par
+        $setValueStr = $this->_convertSqlExpressionWithoutPrefix($dataObj, $setValue);                 \par
+        $sql = "UPDATE `" . $dataObj->m_MainTable ."` SET ".$setValueStr;\par
+     if($condition)\par
+        \{\par
+         $whereStr = $this->_convertSqlExpressionWithoutPrefix($dataObj, $condition); \par
+         $sql .= " WHERE " . $whereStr;\par
+        \}\par
+        \par
+     // append DataPerm in the WHERE clause\par
+        if($dataObj->m_DataPermControl=='Y')\par
+        \{\par
+         $svcObj = BizSystem::GetService(DATAPERM_SERVICE);\par
+         $hasOwnerField = $this->_hasOwnerField($dataObj);\par
+         $dataPermSQLRule = $svcObj->buildSqlRule($dataObj,'update',$hasOwnerField);\par
+         $sqlSearchRule = $this->_convertSqlExpressionWithoutPrefix($dataObj, $dataPermSQLRule);\par
+         if($whereStr!='')\par
+         \{\par
+          $sql .= ' AND '.$sqlSearchRule;\par
+         \}else\par
+         \{         \par
+          $sql .= $sqlSearchRule;\par
+         \}\par
+        \}\par
+        return $sql;\par
+    \}\par
+}
+}
+{\xe \v getDataSqlObj\:BizDataObj_SQLHelper}
+{\xe \v BizDataObj_SQLHelper\:getDataSqlObj}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+getDataSqlObj (){\f2 [protected]}}}
+\par
+{\bkmkstart AAAAAAAAQE}
+{\bkmkend AAAAAAAAQE}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Get curent {\b BizDataSql} object, if object=null, create new object\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Returns:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b BizDataSql} \par
+}}{
+Definition at line 59 of file BizDataObj_SQLHelper.php.}\par
+{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid     \{\par
+        if (!$this->_dataSqlObj)\par
+            $this->_dataSqlObj = new BizDataSql();\par
+        return $this->_dataSqlObj;\par
+    \}\par
+}
+}
+{\xe \v getNewDataSqlObj\:BizDataObj_SQLHelper}
+{\xe \v BizDataObj_SQLHelper\:getNewDataSqlObj}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+getNewDataSqlObj ( {\i $dataObj} = {\f2 null}){\f2 [protected]}}}
+\par
+{\bkmkstart AAAAAAAAQF}
+{\bkmkend AAAAAAAAQF}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Get new {\b BizDataSql} object and store on internal variable (current object)\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Returns:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b BizDataSql} \par
+}}{
+Definition at line 71 of file BizDataObj_SQLHelper.php.}\par
+{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid     \{\par
+  if ($dataObj) \{\par
+   $doName = $dataObj->m_Name;\par
+   if (!isset($this->_dataSqlObjList[$doName])) \{\par
+    $this->_dataSqlObjList[$doName] = new BizDataSql();\par
+   \}\par
+   $this->_dataSqlObj = $this->_dataSqlObjList[$doName];\par
+  \}\par
+  else \{\par
+   $this->_dataSqlObj = null;\par
+   $this->_dataSqlObj = new BizDataSql();\par
+  \}\par
+        return $this->_dataSqlObj;\par
+    \}\par
+}
+}
+{\xe \v instance\:BizDataObj_SQLHelper}
+{\xe \v BizDataObj_SQLHelper\:instance}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+static instance (){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAAQG}
+{\bkmkend AAAAAAAAQG}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Get the singleton instance\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
+Returns:\par}\pard\plain \s62\li720\widctlpar\ql\adjustright \fs20\cgrid {\b BizDataObj_SQLHelper} {\b BizDataObj_SQLHelper} object \par
+}}{
+Definition at line 47 of file BizDataObj_SQLHelper.php.}\par
+{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid     \{\par
+        if (self::$_instance == null)\par
+            self::$_instance = new BizDataObj_SQLHelper();\par
+        return self::$_instance;\par
+    \}\par
+}
+}
+{\xe \v ruleToSql\:BizDataObj_SQLHelper}
+{\xe \v BizDataObj_SQLHelper\:ruleToSql}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+ruleToSql ( {\i $dataObj},  {\i $rule})}}
+\par
+{\bkmkstart AAAAAAAAQH}
+{\bkmkend AAAAAAAAQH}
+{
+\pard\plain \s51\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+Definition at line 412 of file BizDataObj_SQLHelper.php.}\par
+{
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid  \{\par
+  return _ruleToSql($dataObj, $rule);\par
+ \}\par
+}
+}
+}

@@ -1,0 +1,28 @@
+var class_session_context =
+[
+    [ "__construct", "dc/dd1/class_session_context.html#a095c5d389db211932136b53f25f39685", null ],
+    [ "cleanObj", "dc/dd1/class_session_context.html#ac0fd4d8c2da7824d6daeb17bfe2e4650", null ],
+    [ "clearSessionObjects", "dc/dd1/class_session_context.html#af9b280d1fbfbd5001b3d76a9f510e0f8", null ],
+    [ "clearVar", "dc/dd1/class_session_context.html#a8da3f41a64ce2e547143c2b7979bcccf", null ],
+    [ "destroy", "dc/dd1/class_session_context.html#aa118461de946085fe42989193337044a", null ],
+    [ "getNamespace", "dc/dd1/class_session_context.html#a2614df64646ac71b70b1e1074258052b", null ],
+    [ "getObjVar", "dc/dd1/class_session_context.html#a06e6127f955237db8e26f89d1c1e1f00", null ],
+    [ "getVar", "dc/dd1/class_session_context.html#a65e9e5a7081d7b0d0e7f50ec77eff848", null ],
+    [ "getViewHistory", "dc/dd1/class_session_context.html#aac749f6c944ac881b7b8f20bc42ef041", null ],
+    [ "isTimeout", "dc/dd1/class_session_context.html#ae879905618efdf648141e26e76390b42", null ],
+    [ "isUserValid", "dc/dd1/class_session_context.html#a9b26dca7b344e42ad15a5d174d3ef3c0", null ],
+    [ "mergeVar", "dc/dd1/class_session_context.html#a053cd82cc91acd174c2f57bbc0a50934", null ],
+    [ "retrieveSessionObjects", "dc/dd1/class_session_context.html#a90358daf5009b0ee4a020356f47d6581", null ],
+    [ "saveJSONArray", "dc/dd1/class_session_context.html#a4f53b2798d5780c8f60b482d133df698", null ],
+    [ "saveSessionObjects", "dc/dd1/class_session_context.html#a57621c98b7c5fe807212963864fa0636", null ],
+    [ "setObjVar", "dc/dd1/class_session_context.html#a4cef06818566ff457f2c502afdda36fa", null ],
+    [ "setVar", "dc/dd1/class_session_context.html#a145fd8d048cee269f41f0bbf08c43e52", null ],
+    [ "setViewHistory", "dc/dd1/class_session_context.html#ac505decc50daf6991762019c0e275bdb", null ],
+    [ "varExists", "dc/dd1/class_session_context.html#ad02799e07792566910fb84ff16ce0073", null ],
+    [ "$_lastAccessTime", "dc/dd1/class_session_context.html#ad0640e85290bba2dbb14e3f3c8c0d602", null ],
+    [ "$_prevViewObjNames", "dc/dd1/class_session_context.html#ac404f3d277ce6812564d761c11721945", null ],
+    [ "$_sessObjArr", "dc/dd1/class_session_context.html#a5362ea44f2bffbefb7dff659c3ca7224", null ],
+    [ "$_statefulSessObjArr", "dc/dd1/class_session_context.html#a0a41e0a1c639925c8542ba14c88cdd14", null ],
+    [ "$_timeOut", "dc/dd1/class_session_context.html#ab48a7a56e3723ca4dd74db6bfd6decd9", null ],
+    [ "$_viewHistory", "dc/dd1/class_session_context.html#a092c7b6312d80a34e65ec34431aa326c", null ]
+];
