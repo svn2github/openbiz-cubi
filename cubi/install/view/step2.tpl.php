@@ -35,7 +35,7 @@ if(!$_REQUEST['dbtype']){
 				<td>
 			 
 			    <input class="input_text" onfocus="this.className='input_text_focus'" onblur="this.className='input_text'"
-			    	 type="text" name="dbHostName" value="<?php echo  isset($_REQUEST['dbHostName']) ? $_REQUEST['dbHostName'] : 'localhost'?>" tabindex="1" >
+			    	 type="text" name="dbHostName" value="<?php echo  isset($_REQUEST['dbHostName']) ? $_REQUEST['dbHostName'] : '127.0.0.1'?>" tabindex="1" >
 			    </td>
 			</tr>
 			<tr>
