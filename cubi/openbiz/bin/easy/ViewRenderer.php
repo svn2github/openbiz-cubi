@@ -92,7 +92,7 @@ class ViewRenderer
     	$html = str_replace($headEnd,$cssCode."\n".$headEnd,$html);  
 		
     	require_once APP_HOME.'/bin/min/lib/Minify/HTML.php';
-    	//$html = Minify_HTML::minify($html);
+    	$html = Minify_HTML::minify($html);
     	return $html;
     } 
 
