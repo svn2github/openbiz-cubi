@@ -55,7 +55,7 @@ if(extension_loaded('apc')){
 	$min_cachePath = new Minify_Cache_APC();
 }else{
 	$min_cachePath = APP_FILE_PATH.DIRECTORY_SEPARATOR.'min';
-	if(!$min_cachePath){
+	if(!is_dir($min_cachePath)){
 		mkdir($min_cachePath,0777);
 	}
 }
