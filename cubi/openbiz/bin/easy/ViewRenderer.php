@@ -69,16 +69,16 @@ class ViewRenderer
     {    	
     	
     	$minifyURL = APP_URL."/bin/min/index.php";
-    	$headEnd="</head>";
-    	
+    	$headEnd="</head>"; 
+
     	//fetch js requests
-    	preg_match_all("/\<script.*?src\s?\=\s?\"(.*?\.js)\"/i",$html, $matches);    	
+    	preg_match_all("/\<script.*?src\s?\=\s?[\"|\'](.*?\.js)[\"|\']/i",$html, $matches);    	
     	$jsListStr = implode(array_unique($matches[1]), ',');
     	$jsURL = $minifyURL . '?f='.$jsListStr;
     	$jsCode = "<script type=\"text/javascript\" src=\"$jsURL\"></script>";
-    	
+     
     	//remove old js include
-    	$html = preg_replace("/\<script.*?src\s?\=\s?\".*?\.js\".*?\<\/script\>/i","",$html);
+    	$html = preg_replace("/\<script.*?src\s?\=\s?[\"|\'].*?\.js[\"|\'].*?\<\/script\>/i","",$html);
 
     	//add new js include
     	$html = str_replace($headEnd,$jsCode."\n".$headEnd,$html);
