@@ -27,7 +27,7 @@
 /**
  * ColumnValue - class ColumnValue is element that view value in column
  *
- * @package BizView
+ * @package    openbiz.bin.easy.element
  * @author rocky swen
  * @copyright Copyright (c) 2005
  * @version 1.2
