@@ -37,9 +37,21 @@ color: #0076a3;
 .contents a:visited {
     color: #007ca9;
 }
-.tablist li,.tablist a,.tablist a:hover,.tablist li.current a ,.navpath ul, #nav-tree .selected, .memproto, dl.reflist dt,#nav-tree,.ui-resizable-e
+.tablist li,.current a ,.navpath ul, .memproto, dl.reflist dt,#nav-tree,.ui-resizable-e
 {
 background-image:none;
+}
+.tablist a {
+background-image:url('openbiz_tab_s.png');	
+}
+.tablist a:hover {
+background-image:url('openbiz_tab_z.png');
+}
+.tablist li.current a {
+background-image: url('openbiz_tab_c.png');
+}
+#nav-tree .selected {
+ background-image: url('openbiz_tab_a.png');
 }
 .ui-resizable-e{
 background-color: #eeeeee;
@@ -91,4 +103,7 @@ background-color: #d7f0fa;
 }
 .memitem.glow {
 box-shadow: 0 0 15px #0181af;
+}
+img .home_illustration{
+
 }
