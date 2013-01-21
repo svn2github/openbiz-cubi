@@ -313,7 +313,7 @@ class BizDataObj_Lite extends BizDataObj_Abstract
      * Fetch a data record by specified Id
      * 
      * @param $Id the Id value of this data object, typically its a numerical value. but  also could be string if the DO is defined for expected a string as Id.
-     * @return DataRecord the fetched data reocrd
+     * @return DataRecord 
      */
     public function fetchById($id)
     {
@@ -321,12 +321,28 @@ class BizDataObj_Lite extends BizDataObj_Abstract
         return $this->fetchOne($searchRule);
     }
     
+    /**
+     * 
+     * Fetch a data record by specified value of name field.
+     * its only used if the current data object has a name field. like typical Openbiz Cubi's data object does.
+     * 
+     * @param string $nameVal
+     * @return DataRecord 
+     */
     public function fetchByName($nameVal)
     {
         $searchRule = "[name] = '$nameVal'";
         return $this->fetchOne($searchRule);
     }
     
+    /**
+     * 
+     * Fetch a data record by specified search condition, if the query can return more than one record, 
+     * the sort rule will be used for decide which record will be record, like if sort by [Id] ASC, then the smallest id record will be return.
+     * @param string $searchRule
+     * @param string $sortRule
+     * @return DataRecord 
+     */
     public function fetchOne($searchRule,$sortRule="")
     {
         $recordList = $this->directFetch($searchRule, 1,0,$sortRule);
