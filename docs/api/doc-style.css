@@ -41,6 +41,18 @@ color: #0076a3;
 {
 background-image:none;
 }
+.tablist a {
+background-image:url('openbiz_tab_s.png');	
+}
+.tablist a:hover {
+background-image:url('openbiz_tab_z.png');
+}
+.tablist li.current a {
+background-image: url('openbiz_tab_c.png');
+}
+#nav-tree .selected {
+ background-image: url('openbiz_tab_a.png');
+}
 .ui-resizable-e{
 background-color: #eeeeee;
 border-right:1px solid #cccccc;
