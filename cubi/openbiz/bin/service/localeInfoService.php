@@ -23,7 +23,7 @@
  * @copyright Copyright (c) 2010, Rocky Swen
  * @access    public
  */
-class localeInfoService
+class localeInfoService extends  MetaObject
 {
 
     /**
