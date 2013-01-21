@@ -1,0 +1,5 @@
+<map id="MetaIterator" name="MetaIterator">
+<area shape="rect" id="node3" href="$d9/d86/class_biz_record.html" title="{BizRecord\n|+ $m_InputFields\l# $m_KeyFldColMap\l# $m_ColFldMap\l# $m_IgnoreInQuery\l|+ __construct()\l+ merge()\l+ getFieldByColumn()\l+ getEmptyRecordArr()\l+ getKeyValue()\l+ getKeyFields()\l+ getKeySearchRule()\l+ setRecordArr()\l+ setInputRecord()\l+ saveOldRecord()\l+ getRecordArr()\l+ convertSqlArrToRecArr()\l+ getJoinInputRecord()\l+ getJoinSearchRule()\l+ getToSaveFields()\l}" alt="" coords="4,443,181,797"/>
+<area shape="rect" id="node4" href="$df/d77/class_panel.html" title="{Panel\n|+ $m_FormName\l|+ __construct()\l+ render()\l+ renderRecord()\l+ renderTable()\l+ setRecordArr()\l+ getByField()\l+ hasFormElement()\l# getFormObj()\l}" alt="" coords="206,523,348,717"/>
+<area shape="rect" id="node5" href="$d0/db4/classsecurity_filter.html" title="{securityFilter\n|# $m_Name\l# $m_Mode\l# $m_Rules\l# $m_ErrorMessage\l|+ __construct()\l+ getErrorMessage()\l+ processRules()\l# readMetadata()\l}" alt="" coords="373,531,516,709"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="EasyForm" name="EasyForm">
+<area shape="rect" id="node4" href="$d6/d52/class_easy_form_grouping.html" title="{EasyFormGrouping\n|# $m_GroupBy\l|+ fetchDataGroup()\l+ fetchDataSet()\l+ outputAttrs()\l# readMetadata()\l}" alt="" coords="5,2811,141,2941"/>
+<area shape="rect" id="node5" href="$da/d8e/class_easy_form_tree.html" title="{EasyFormTree\n|+ $m_TitleField\l+ $m_RootSearchRule\l+ $m_TreeDepth\l|+ fetchDataSet()\l# readMetadata()\l}" alt="" coords="166,2811,321,2941"/>
+<area shape="rect" id="node6" href="$dc/d76/class_easy_form_wizard.html" title="{EasyFormWizard\n|+ $m_WizardPanel\l# $m_DropSession\l|+ getSessionVars()\l+ setSessionVars()\l+ goNext()\l+ skip()\l+ goBack()\l+ doFinish()\l+ doCancel()\l+ commit()\l+ dropSession()\l+ cancel()\l+ render()\l+ outputAttrs()\l# readMetadata()\l}" alt="" coords="346,2731,480,3021"/>
+<area shape="rect" id="node7" href="$d7/dcf/class_picker_form.html" title="{PickerForm\n|+ $m_ParentFormElemName\l+ $m_PickerMap\l+ $m_ParentFormRecord\l|+ getSessionVars()\l+ setSessionVars()\l+ setParentFormData()\l+ pickToParent()\l+ insertToParent()\l+ joinToParent()\l+ addToParent()\l# _parsePickerMap()\l}" alt="" coords="505,2763,700,2989"/>
+<area shape="rect" id="node2" href="$db/d4b/class_meta_object.html" title="{MetaObject\n|+ $m_Name\l+ $m_Class\l+ $m_Package\l+ $m_Description\l+ $m_Access\l|+ __construct()\l+ getModuleName()\l+ getProperty()\l+ allowAccess()\l# readMetadata()\l# readMetaCollection()\l# prefixPackage()\l# getElementObject()\l}" alt="" coords="166,6,321,263"/>
+<area shape="rect" id="node3" href="$d4/d6a/interfacei_session_object.html" title="{iSessionObject\n||+ setSessionVars()\l+ getSessionVars()\l}" alt="" coords="346,86,480,183"/>
+</map>

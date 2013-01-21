@@ -1,0 +1,4 @@
+<map id="AgentFilterRule" name="AgentFilterRule">
+<area shape="rect" id="node2" href="$d1/d18/classsecurity_rule___abstract.html" title="{securityRule_Abstract\n|+ $m_Name\l+ $m_Action\l+ $m_Match\l+ $m_Status\l+ $m_EffectiveTime\l+ $m_ErrorMessage\l|+ __construct()\l+ process()\l+ getErrorMessage()\l+ checkEffectiveTime()\l# readMetadata()\l}" alt="" coords="4,137,160,362"/>
+<area shape="rect" id="node3" href="$d6/d38/interfacei_security_rule.html" title="{iSecurityRule\n||+ process()\l}" alt="" coords="33,6,132,87"/>
+</map>
