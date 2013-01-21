@@ -251,16 +251,16 @@ Definition at line 68 of file ViewRenderer.php.}\par
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid     \{     \par
      \par
      $minifyURL = APP_URL."/bin/min/index.php";\par
-     $headEnd="</head>";\par
-     \par
+     $headEnd="</head>"; \par
+\par
      //fetch js requests\par
-     preg_match_all("/\\<script.*?src\\s?\\=\\s?\\"(.*?\\.js)\\"/i",$html, $matches);     \par
+     preg_match_all("/\\<script.*?src\\s?\\=\\s?[\\"|\\'](.*?\\.js)[\\"|\\']/i",$html, $matches);     \par
      $jsListStr = implode(array_unique($matches[1]), ',');\par
      $jsURL = $minifyURL . '?f='.$jsListStr;\par
      $jsCode = "<script type=\\"text/javascript\\" src=\\"$jsURL\\"></script>";\par
      \par
      //remove old js include\par
-     $html = preg_replace("/\\<script.*?src\\s?\\=\\s?\\".*?\\.js\\".*?\\<\\/script\\>/i","",$html);\par
+     $html = preg_replace("/\\<script.*?src\\s?\\=\\s?[\\"|\\'].*?\\.js[\\"|\\'].*?\\<\\/script\\>/i","",$html);\par
 \par
      //add new js include\par
      $html = str_replace($headEnd,$jsCode."\\n".$headEnd,$html);\par
@@ -274,7 +274,7 @@ Definition at line 68 of file ViewRenderer.php.}\par
      $html = str_replace($headEnd,$cssCode."\\n".$headEnd,$html);  \par
   \par
      require_once APP_HOME.'/bin/min/lib/Minify/HTML.php';\par
-     //$html = Minify_HTML::minify($html);\par
+     $html = Minify_HTML::minify($html);\par
      return $html;\par
     \} \par
 }

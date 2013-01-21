@@ -34,7 +34,7 @@
    <div id="projectname">Openbiz Framework API
    &#160;<span id="projectnumber">3.1</span>
    </div>
-   <div id="projectbrief">Open source PHP Framework thats designed for building web application.</div>
+   <div id="projectbrief">Open source PHP Framework that designed for building web application.</div>
   </td>
  </tr>
  </tbody>
@@ -275,16 +275,16 @@ Static Protected Member Functions</h2></td></tr>
 <div class="fragment"><div class="line">    {     </div>
 <div class="line">     </div>
 <div class="line">     $minifyURL = APP_URL.<span class="stringliteral">&quot;/bin/min/index.php&quot;</span>;</div>
-<div class="line">     $headEnd=<span class="stringliteral">&quot;&lt;/head&gt;&quot;</span>;</div>
-<div class="line">     </div>
+<div class="line">     $headEnd=<span class="stringliteral">&quot;&lt;/head&gt;&quot;</span>; </div>
+<div class="line"></div>
 <div class="line">     <span class="comment">//fetch js requests</span></div>
-<div class="line">     preg_match_all(<span class="stringliteral">&quot;/&lt;script.*?src\s?\=\s?\&quot;(.*?\.js)\&quot;/i&quot;</span>,$html, $matches);     </div>
+<div class="line">     preg_match_all(<span class="stringliteral">&quot;/&lt;script.*?src\s?\=\s?[\&quot;|\&#39;](.*?\.js)[\&quot;|\&#39;]/i&quot;</span>,$html, $matches);     </div>
 <div class="line">     $jsListStr = implode(array_unique($matches[1]), <span class="charliteral">&#39;,&#39;</span>);</div>
 <div class="line">     $jsURL = $minifyURL . <span class="stringliteral">&#39;?f=&#39;</span>.$jsListStr;</div>
 <div class="line">     $jsCode = <span class="stringliteral">&quot;&lt;script type=\&quot;text/javascript\&quot; src=\&quot;$jsURL\&quot;&gt;&lt;/script&gt;&quot;</span>;</div>
 <div class="line">     </div>
 <div class="line">     <span class="comment">//remove old js include</span></div>
-<div class="line">     $html = preg_replace(<span class="stringliteral">&quot;/&lt;script.*?src\s?\=\s?\&quot;.*?\.js\&quot;.*?&lt;\/script&gt;/i&quot;</span>,<span class="stringliteral">&quot;&quot;</span>,$html);</div>
+<div class="line">     $html = preg_replace(<span class="stringliteral">&quot;/&lt;script.*?src\s?\=\s?[\&quot;|\&#39;].*?\.js[\&quot;|\&#39;].*?&lt;\/script&gt;/i&quot;</span>,<span class="stringliteral">&quot;&quot;</span>,$html);</div>
 <div class="line"></div>
 <div class="line">     <span class="comment">//add new js include</span></div>
 <div class="line">     $html = str_replace($headEnd,$jsCode.<span class="stringliteral">&quot;\n&quot;</span>.$headEnd,$html);</div>
@@ -298,7 +298,7 @@ Static Protected Member Functions</h2></td></tr>
 <div class="line">     $html = str_replace($headEnd,$cssCode.<span class="stringliteral">&quot;\n&quot;</span>.$headEnd,$html);  </div>
 <div class="line">  </div>
 <div class="line">     require_once <a class="code" href="../../d1/df2/sys__init_8php.html#a252aacc48601a59f3f33f237c14b15c3">APP_HOME</a>.<span class="stringliteral">&#39;/bin/min/lib/Minify/HTML.php&#39;</span>;</div>
-<div class="line">     <span class="comment">//$html = Minify_HTML::minify($html);</span></div>
+<div class="line">     $html = Minify_HTML::minify($html);</div>
 <div class="line">     <span class="keywordflow">return</span> $html;</div>
 <div class="line">    } </div>
 </div><!-- fragment -->
@@ -538,7 +538,7 @@ Static Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d4/dfb/class_view_renderer.html">ViewRenderer</a></li>
-    <li class="footer">Generated on Sun Jan 20 2013 21:39:21 for Openbiz Framework API by
+    <li class="footer">Generated on Mon Jan 21 2013 12:49:27 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

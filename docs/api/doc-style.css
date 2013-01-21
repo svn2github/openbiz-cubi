@@ -2,7 +2,7 @@
 {
 font-size: 24px;
 font-family: Arial;
-color:#00b0ef;
+color:#007fb0;
 }
 #projectnumber
 {
@@ -33,9 +33,6 @@ background:none;
 }
 a {
 color: #0076a3;
-}
-.contents a:visited {
-    color: #007ca9;
 }
 .tablist li,.tablist a,.tablist a:hover,.tablist li.current a ,.navpath ul, #nav-tree .selected, .memproto, dl.reflist dt,#nav-tree,.ui-resizable-e
 {
@@ -87,8 +84,5 @@ background-color: #eeeeee;
 }
 .memproto, dl.reflist dt
 {
-background-color: #d7f0fa;
-}
-.memitem.glow {
-box-shadow: 0 0 15px #0181af;
+background-color: #efeff0;
 }
