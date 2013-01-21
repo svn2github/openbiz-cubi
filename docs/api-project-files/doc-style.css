@@ -70,7 +70,7 @@ background-color: #efefef;
 border-bottom:1px solid #cccccc;
 
 }
-.navpath li.footer {
+.navpath li.footer ,address.footer {
 display: none;
 }
 .tablist li.current a {
