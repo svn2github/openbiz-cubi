@@ -37,7 +37,7 @@ color: #0076a3;
 .contents a:visited {
     color: #007ca9;
 }
-.tablist li,.tablist a,.tablist a:hover,.tablist li.current a ,.navpath ul, #nav-tree .selected, .memproto, dl.reflist dt,#nav-tree,.ui-resizable-e
+.tablist li,.current a ,.navpath ul, .memproto, dl.reflist dt,#nav-tree,.ui-resizable-e
 {
 background-image:none;
 }
