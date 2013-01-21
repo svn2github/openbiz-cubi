@@ -310,9 +310,10 @@ class BizDataObj_Lite extends BizDataObj_Abstract
     }
 
     /**
-     * Fetch record by Id
-     *
-     * @return array record array
+     * Fetch a data record by specified Id
+     * 
+     * @param $Id the Id value of this data object, typically its a numerical value. but  also could be string if the DO is defined for expected a string as Id.
+     * @return DataRecord the fetched data reocrd
      */
     public function fetchById($id)
     {
