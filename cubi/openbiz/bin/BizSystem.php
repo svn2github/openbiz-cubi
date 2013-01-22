@@ -276,6 +276,8 @@ class BizSystem
 
 	/**
      * Get the openbiz data object by object name
+     * It's functional same as getObject() method, just this method can return more eclipse friendly result, 
+     * it can support IDE's code auto completaion.
      * 
      * @param string $objectName object name
      * @return BizDataObj|null if the return object is a BizDataObj then return, or return null
@@ -292,6 +294,8 @@ class BizSystem
 
 	/**
      * Get the openbiz form object by object name
+     * It's functional same as getObject() method, just this method can return more eclipse friendly result, 
+     * it can support IDE's code auto completaion.
      * 
      * @param string $objectName object name
      * @return EasyForm|null if the return object is a EasyForm then return, or return null
@@ -308,6 +312,8 @@ class BizSystem
 
 	/**
      * Get the openbiz view object by object name
+     * It's functional same as getObject() method, just this method can return more eclipse friendly result, 
+     * it can support IDE's code auto completaion.
      * 
      * @param string $objectName object name
      * @return EasyView|null if the return object is a EasyView then return, or return null
