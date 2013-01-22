@@ -99,7 +99,7 @@ class BizSystem
      * Return the version of phpOpenBiz
      *
      * @return string
-     * @example ../../sample/BizSystem.php
+     * @example ../../example/BizSystem.php
      */
     public static function getVersion()
     {
@@ -281,7 +281,7 @@ class BizSystem
      * 
      * @param string $objectName object name
      * @return BizDataObj|null if the return object is a BizDataObj then return, or return null
-     * @example ../../sample/DataObject.php
+     * @example ../../example/DataObject.php
      */
     public static function getDataObject($objectName)
     {
@@ -299,7 +299,7 @@ class BizSystem
      * 
      * @param string $objectName object name
      * @return EasyForm|null if the return object is a EasyForm then return, or return null
-     * @example ../../sample/FormObject.php
+     * @example ../../example/FormObject.php
      */
     public static function getFormObject($objectName)
     {
@@ -317,7 +317,7 @@ class BizSystem
      * 
      * @param string $objectName object name
      * @return EasyView|null if the return object is a EasyView then return, or return null
-     * @example ../../sample/ViewObject.php
+     * @example ../../example/ViewObject.php      
      */
     public static function getViewObject($objectName)
     {
