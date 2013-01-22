@@ -275,7 +275,7 @@ class BizSystem
     }
 
 	/**
-     * Get the openbiz data object by object name
+     * Get the openbiz data object by object name. 
      * It's functional same as getObject() method, just this method can return more eclipse friendly result, 
      * it can support IDE's code auto completaion.
      * 
@@ -293,7 +293,7 @@ class BizSystem
     }
 
 	/**
-     * Get the openbiz form object by object name
+     * Get the openbiz form object by object name. 
      * It's functional same as getObject() method, just this method can return more eclipse friendly result, 
      * it can support IDE's code auto completaion.
      * 
@@ -311,7 +311,7 @@ class BizSystem
     }
 
 	/**
-     * Get the openbiz view object by object name
+     * Get the openbiz view object by object name. 
      * It's functional same as getObject() method, just this method can return more eclipse friendly result, 
      * it can support IDE's code auto completaion.
      * 

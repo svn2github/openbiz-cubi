@@ -1916,6 +1916,7 @@ class EasyForm extends MetaObject implements iSessionObject
      * Query is issued before returning the html content.
      *
      * @return string - HTML text of this form's read mode
+     * @example ../../../example/FormObject.php
      */
     public function render()
     {

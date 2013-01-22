@@ -229,6 +229,7 @@ class EasyView extends MetaObject implements iSessionObject
      * Render this view.
      *
      * @return mixed either print html content, or return html content
+     * @example ../../../example/ViewObject.php     
      */
     public function render()
     {
