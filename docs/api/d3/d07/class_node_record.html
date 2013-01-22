@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -128,12 +129,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
+<tr class="memitem:a5b209d712f1b7f929d63e836b6339b7b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d07/class_node_record.html#a5b209d712f1b7f929d63e836b6339b7b">$m_ChildNodes</a></td></tr>
+<tr class="separator:a5b209d712f1b7f929d63e836b6339b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcddf507221abebf5d8db04f927ad38a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d07/class_node_record.html#afcddf507221abebf5d8db04f927ad38a">$m_Id</a></td></tr>
 <tr class="separator:afcddf507221abebf5d8db04f927ad38a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8aaa5eb3796696c924a7dc8b52c40c46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d07/class_node_record.html#a8aaa5eb3796696c924a7dc8b52c40c46">$m_PId</a></td></tr>
 <tr class="separator:a8aaa5eb3796696c924a7dc8b52c40c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b209d712f1b7f929d63e836b6339b7b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d07/class_node_record.html#a5b209d712f1b7f929d63e836b6339b7b">$m_ChildNodes</a></td></tr>
-<tr class="separator:a5b209d712f1b7f929d63e836b6339b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87c072c0b8caa2cee3a742e72946d811"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d07/class_node_record.html#a87c072c0b8caa2cee3a742e72946d811">$m_Record</a></td></tr>
 <tr class="separator:a87c072c0b8caa2cee3a742e72946d811"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -164,7 +165,12 @@ Data Fields</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 <p>Definition at line <a class="el" href="../../da/d49/_biz_data_tree_8php_source.html#l00162">162</a> of file <a class="el" href="../../da/d49/_biz_data_tree_8php_source.html">BizDataTree.php</a>.</p>
-
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $this-&gt;m_Id = $rec[<span class="stringliteral">&#39;Id&#39;</span>];</div>
+<div class="line">        $this-&gt;m_PId = $rec[<span class="stringliteral">&#39;PId&#39;</span>];</div>
+<div class="line">        $this-&gt;m_Record = $rec;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -230,7 +236,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/d07/class_node_record.html">NodeRecord</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:22:01 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:57 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

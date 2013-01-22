@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['sample',['sample',['../d2/d41/namespacesample.html',1,'']]],
   ['save',['save',['../db/da0/class_data_record.html#afc8a3c62679cf00ade9f15fb2a6d6132',1,'DataRecord\save()'],['../db/d43/classcache_service.html#a0a431ba63a6015c3b23bb5bac85e672d',1,'cacheService\save()']]],
   ['savejsonarray',['saveJSONArray',['../dc/dd1/class_session_context.html#a4f53b2798d5780c8f60b482d133df698',1,'SessionContext']]],
   ['saveoldrecord',['saveOldRecord',['../d9/d86/class_biz_record.html#ac7aa84aab57384308444311f8139b869',1,'BizRecord']]],

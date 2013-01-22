@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -127,10 +128,10 @@ $(document).ready(function(){initNavTree('db/d31/classcrypt_service.html','../..
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a847d8d60f037d0a016aca7006cf9dec6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d31/classcrypt_service.html#a847d8d60f037d0a016aca7006cf9dec6">__construct</a> (&amp;$xmlArr)</td></tr>
 <tr class="separator:a847d8d60f037d0a016aca7006cf9dec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a050171092e9791b9362fa1a62c4168bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d31/classcrypt_service.html#a050171092e9791b9362fa1a62c4168bf">encrypt</a> ($data, $key=null)</td></tr>
-<tr class="separator:a050171092e9791b9362fa1a62c4168bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aa7cd19a44fddccda76d894ba707876"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d31/classcrypt_service.html#a9aa7cd19a44fddccda76d894ba707876">decrypt</a> ($data, $key=null)</td></tr>
 <tr class="separator:a9aa7cd19a44fddccda76d894ba707876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a050171092e9791b9362fa1a62c4168bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d31/classcrypt_service.html#a050171092e9791b9362fa1a62c4168bf">encrypt</a> ($data, $key=null)</td></tr>
+<tr class="separator:a050171092e9791b9362fa1a62c4168bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
@@ -177,6 +178,11 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d4/d82/crypt_service_8php_source.html#l00030">30</a> of file <a class="el" href="../../d4/d82/crypt_service_8php_source.html">cryptService.php</a>.</p>
 
+<p>References <a class="el" href="../../d4/d82/crypt_service_8php_source.html#l00041">readMetadata()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $this-&gt;<a class="code" href="../../db/d31/classcrypt_service.html#a1db802d93a9f0badf186a646e1cdb161">readMetadata</a>($xmlArr);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -217,6 +223,29 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d4/d82/crypt_service_8php_source.html#l00071">71</a> of file <a class="el" href="../../d4/d82/crypt_service_8php_source.html">cryptService.php</a>.</p>
 
+<p>References <a class="el" href="../../d4/d82/crypt_service_8php_source.html#l00020">$m_DefaultKey</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">     <span class="keywordflow">if</span>(!function_exists(<span class="stringliteral">&quot;mcrypt_module_open&quot;</span>))</div>
+<div class="line">     {</div>
+<div class="line">      <span class="keywordflow">return</span> $data;</div>
+<div class="line">     }</div>
+<div class="line">      <span class="keywordflow">if</span>($key==null){</div>
+<div class="line">      $key = <a class="code" href="../../db/d31/classcrypt_service.html#a70cbac38a8b1a2abe15c93ccb7543833">$this-&gt;m_DefaultKey</a>;</div>
+<div class="line">     }     </div>
+<div class="line">     <span class="keywordflow">if</span>($data==null)</div>
+<div class="line">      <span class="keywordflow">return</span>;</div>
+<div class="line">        $td = mcrypt_module_open($this-&gt;m_Algorithm, <span class="stringliteral">&#39;&#39;</span>, $this-&gt;m_OperationMode, <span class="stringliteral">&#39;&#39;</span>);</div>
+<div class="line">        $iv = mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);        </div>
+<div class="line">        $ks = mcrypt_enc_get_key_size($td);</div>
+<div class="line">        $keystr = substr(md5($key), 0, $ks);</div>
+<div class="line">        mcrypt_generic_init($td, $keystr, $iv);</div>
+<div class="line">        $encrypted = pack( <span class="stringliteral">&quot;H*&quot;</span>, $data);</div>
+<div class="line">        $decrypted = mdecrypt_generic($td, $encrypted);</div>
+<div class="line">        mcrypt_generic_deinit($td);</div>
+<div class="line">        mcrypt_module_close($td);        </div>
+<div class="line">        <span class="keywordflow">return</span> trim($decrypted);</div>
+<div class="line">    }    </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a050171092e9791b9362fa1a62c4168bf"></a>
@@ -245,6 +274,29 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d4/d82/crypt_service_8php_source.html#l00048">48</a> of file <a class="el" href="../../d4/d82/crypt_service_8php_source.html">cryptService.php</a>.</p>
 
+<p>References <a class="el" href="../../d4/d82/crypt_service_8php_source.html#l00020">$m_DefaultKey</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">     <span class="keywordflow">if</span>(!function_exists(<span class="stringliteral">&quot;mcrypt_module_open&quot;</span>))</div>
+<div class="line">     {</div>
+<div class="line">      <span class="keywordflow">return</span> $data;</div>
+<div class="line">     }</div>
+<div class="line">     <span class="keywordflow">if</span>($key==null){</div>
+<div class="line">      $key = <a class="code" href="../../db/d31/classcrypt_service.html#a70cbac38a8b1a2abe15c93ccb7543833">$this-&gt;m_DefaultKey</a>;</div>
+<div class="line">     }</div>
+<div class="line">     <span class="keywordflow">if</span>($data==null)</div>
+<div class="line">      <span class="keywordflow">return</span>;</div>
+<div class="line">        $td = mcrypt_module_open($this-&gt;m_Algorithm, <span class="stringliteral">&#39;&#39;</span>, $this-&gt;m_OperationMode, <span class="stringliteral">&#39;&#39;</span>);</div>
+<div class="line">        $iv = mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);</div>
+<div class="line">       <span class="comment">// $iv =&quot;jixian&quot;;</span></div>
+<div class="line">        $ks = mcrypt_enc_get_key_size($td);</div>
+<div class="line">        $keystr = substr(md5($key), 0, $ks);</div>
+<div class="line">        mcrypt_generic_init($td, $keystr, $iv);</div>
+<div class="line">        $encrypted = mcrypt_generic($td, $data);</div>
+<div class="line">        mcrypt_module_close($td);</div>
+<div class="line">        $hexdata = bin2hex($encrypted);       </div>
+<div class="line">        <span class="keywordflow">return</span> $hexdata;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1db802d93a9f0badf186a646e1cdb161"></a>
@@ -279,6 +331,13 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d4/d82/crypt_service_8php_source.html#l00041">41</a> of file <a class="el" href="../../d4/d82/crypt_service_8php_source.html">cryptService.php</a>.</p>
 
+<p>Referenced by <a class="el" href="../../d4/d82/crypt_service_8php_source.html#l00030">__construct()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $this-&gt;m_DefaultKey  = strtolower($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DEFAULTKEY&quot;</span>]);</div>
+<div class="line">     $this-&gt;m_Algorithm   = strtolower($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;ALGORITHM&quot;</span>]);</div>
+<div class="line">        $this-&gt;m_OperationMode  = strtolower($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;OPERATIONMODE&quot;</span>]);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -327,6 +386,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d4/d82/crypt_service_8php_source.html#l00020">20</a> of file <a class="el" href="../../d4/d82/crypt_service_8php_source.html">cryptService.php</a>.</p>
 
+<p>Referenced by <a class="el" href="../../d4/d82/crypt_service_8php_source.html#l00071">decrypt()</a>, and <a class="el" href="../../d4/d82/crypt_service_8php_source.html#l00048">encrypt()</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ac472d4dbc674946a017325443cd517dc"></a>
@@ -349,7 +410,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d31/classcrypt_service.html">cryptService</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:21:46 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:53 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

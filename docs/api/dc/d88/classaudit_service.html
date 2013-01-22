@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -167,6 +168,11 @@ Protected Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../df/db7/audit_service_8php_source.html#l00035">35</a> of file <a class="el" href="../../df/db7/audit_service_8php_source.html">auditService.php</a>.</p>
 
+<p>References <a class="el" href="../../df/db7/audit_service_8php_source.html#l00046">readMetadata()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $this-&gt;<a class="code" href="../../dc/d88/classaudit_service.html#a1db802d93a9f0badf186a646e1cdb161">readMetadata</a>($xmlArr);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -205,6 +211,49 @@ Protected Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../df/db7/audit_service_8php_source.html#l00058">58</a> of file <a class="el" href="../../df/db7/audit_service_8php_source.html">auditService.php</a>.</p>
 
+<p>References <a class="el" href="../../d4/da0/openbiz_2bin_2_biz_system_8php_source.html#l00272">BizSystem\getObject()</a>, <a class="el" href="../../d4/da0/openbiz_2bin_2_biz_system_8php_source.html#l00368">BizSystem\getUserProfile()</a>, and <a class="el" href="../../d4/da0/openbiz_2bin_2_biz_system_8php_source.html#l00673">BizSystem\log()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        <span class="comment">// get audit dataobj</span></div>
+<div class="line">        $auditDataObj = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($this-&gt;m_AuditDataObj);</div>
+<div class="line">        <span class="keywordflow">if</span> (!$auditDataObj) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line">        <span class="comment">// get the source dataobj</span></div>
+<div class="line">        $srcDataObj = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($dataObjName);</div>
+<div class="line">        <span class="keywordflow">if</span> (!$srcDataObj) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line">        <span class="comment">// for each onaudit field, add a record in audit dataobj</span></div>
+<div class="line">        $auditFields = $srcDataObj-&gt;getOnAuditFields();</div>
+<div class="line">        <span class="keywordflow">foreach</span> ($auditFields as $field)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">if</span> ($field-&gt;m_OldValue == $field-&gt;m_Value)</div>
+<div class="line">                <span class="keywordflow">continue</span>;</div>
+<div class="line">            $recArr = $auditDataObj-&gt;newRecord();</div>
+<div class="line">            <span class="keywordflow">if</span> ($recArr == <span class="keyword">false</span>)</div>
+<div class="line">            {</div>
+<div class="line">                <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_ERR, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, $auditDataObj-&gt;getErrorMessage());</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            $profile = <a class="code" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17">BizSystem::getUserProfile</a>();</div>
+<div class="line">            $recArr[<span class="stringliteral">&#39;DataObjName&#39;</span>] = $dataObjName;</div>
+<div class="line">            $recArr[<span class="stringliteral">&#39;ObjectId&#39;</span>] = $srcDataObj-&gt;getFieldValue(<span class="stringliteral">&quot;Id&quot;</span>);</div>
+<div class="line">            $recArr[<span class="stringliteral">&#39;FieldName&#39;</span>] = $field-&gt;m_Name;</div>
+<div class="line">            $recArr[<span class="stringliteral">&#39;OldValue&#39;</span>] = $field-&gt;m_OldValue;</div>
+<div class="line">            $recArr[<span class="stringliteral">&#39;NewValue&#39;</span>] = $field-&gt;m_Value;</div>
+<div class="line">            $recArr[<span class="stringliteral">&#39;ChangeTime&#39;</span>] = date(<span class="stringliteral">&quot;Y-m-d H:i:s&quot;</span>);</div>
+<div class="line">            $recArr[<span class="stringliteral">&#39;ChangeBy&#39;</span>] = $profile[<span class="stringliteral">&quot;USERID&quot;</span>];</div>
+<div class="line">            $recArr[<span class="stringliteral">&#39;ChangeFrom&#39;</span>] = $_SERVER[<span class="stringliteral">&#39;REMOTE_ADDR&#39;</span>];</div>
+<div class="line">            $recArr[<span class="stringliteral">&#39;RequestURI&#39;</span>] = $_SERVER[<span class="stringliteral">&#39;REQUEST_URI&#39;</span>];</div>
+<div class="line">            $recArr[<span class="stringliteral">&#39;Timestamp&#39;</span>] = date(<span class="stringliteral">&quot;Y-m-d H:i:s&quot;</span>);</div>
+<div class="line">            $ok = $auditDataObj-&gt;insertRecord($recArr);</div>
+<div class="line">            <span class="keywordflow">if</span> ($ok == <span class="keyword">false</span>)</div>
+<div class="line">            {</div>
+<div class="line">                <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_ERR, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, $auditDataObj-&gt;getErrorMessage());</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -212,7 +261,7 @@ Protected Member Functions</h2></td></tr>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../dc/d88/classaudit_service_a48c7ab474d50fbe6d38a35cbfc477492_cgraph.png" border="0" usemap="#dc/d88/classaudit_service_a48c7ab474d50fbe6d38a35cbfc477492_cgraph" alt=""/></div>
 <map name="dc/d88/classaudit_service_a48c7ab474d50fbe6d38a35cbfc477492_cgraph" id="dc/d88/classaudit_service_a48c7ab474d50fbe6d38a35cbfc477492_cgraph">
-<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="553,9,698,37"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="138,34,244,62"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="104,86,277,114"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="339,34,490,62"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="325,86,504,114"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="556,86,694,114"/></map>
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="553,9,698,37"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="104,86,277,114"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="138,34,244,62"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="339,34,490,62"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="325,86,504,114"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="556,86,694,114"/></map>
 </div>
 </p>
 
@@ -250,6 +299,11 @@ Protected Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../df/db7/audit_service_8php_source.html#l00046">46</a> of file <a class="el" href="../../df/db7/audit_service_8php_source.html">auditService.php</a>.</p>
 
+<p>Referenced by <a class="el" href="../../df/db7/audit_service_8php_source.html#l00035">__construct()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $this-&gt;m_AuditDataObj  = $xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;BIZDATAOBJ&quot;</span>];</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -284,7 +338,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dc/d88/classaudit_service.html">auditService</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:21:36 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:51 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

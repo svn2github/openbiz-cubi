@@ -12,7 +12,8 @@ var searchData=
   ['bizdatatree_2ephp',['BizDataTree.php',['../da/d49/_biz_data_tree_8php.html',1,'']]],
   ['bizfield_2ephp',['BizField.php',['../d6/dfd/_biz_field_8php.html',1,'']]],
   ['bizrecord_2ephp',['BizRecord.php',['../d0/d71/_biz_record_8php.html',1,'']]],
-  ['bizsystem_2ephp',['BizSystem.php',['../d9/dd4/_biz_system_8php.html',1,'']]],
+  ['bizsystem_2ephp',['BizSystem.php',['../d1/dc7/example_2_biz_system_8php.html',1,'']]],
+  ['bizsystem_2ephp',['BizSystem.php',['../d4/da0/openbiz_2bin_2_biz_system_8php.html',1,'']]],
   ['block_2et_2ephp',['block.t.php',['../d8/d18/block_8t_8php.html',1,'']]],
   ['button_2ephp',['Button.php',['../de/d27/_button_8php.html',1,'']]]
 ];

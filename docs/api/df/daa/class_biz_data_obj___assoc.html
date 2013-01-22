@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -181,6 +182,36 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/d67/_biz_data_obj___assoc_8php_source.html#l00037">37</a> of file <a class="el" href="../../d8/d67/_biz_data_obj___assoc_8php_source.html">BizDataObj_Assoc.php</a>.</p>
 
+<p>Referenced by <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00874">BizDataObj\addRecord()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        <span class="keywordflow">if</span> ($dataObj-&gt;m_Association[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;M-M&quot;</span>  )</div>
+<div class="line">        {</div>
+<div class="line">            $isParentObjUpdated = <span class="keyword">false</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> self::_addRecordMtoM($dataObj, $recArr);</div>
+<div class="line">        }</div>
+<div class="line">        elseif($dataObj-&gt;m_Association[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;Self-Self&quot;</span>)</div>
+<div class="line">        {</div>
+<div class="line">         $isParentObjUpdated = <span class="keyword">false</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> self::_addRecordSelftoSelf($dataObj, $recArr);</div>
+<div class="line">        }</div>
+<div class="line">        elseif ($dataObj-&gt;m_Association[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;M-1&quot;</span></div>
+<div class="line">                || $dataObj-&gt;m_Association[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;1-1&quot;</span>)</div>
+<div class="line">        {</div>
+<div class="line">            $isParentObjUpdated = <span class="keyword">true</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> self::_addRecordMto1($dataObj, $recArr);</div>
+<div class="line">        }</div>
+<div class="line">     elseif ($dataObj-&gt;m_Association[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;1-M&quot;</span>)                </div>
+<div class="line">        {</div>
+<div class="line">            $isParentObjUpdated = <span class="keyword">false</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> self::_addRecord1toM($dataObj, $recArr);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span></div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a>(<span class="stringliteral">&quot;You cannot add a record in dataobj who doesn&#39;t have M-M or M-1 or Self-Self relationship with its parent object&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -244,6 +275,35 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d8/d67/_biz_data_obj___assoc_8php_source.html#l00209">209</a> of file <a class="el" href="../../d8/d67/_biz_data_obj___assoc_8php_source.html">BizDataObj_Assoc.php</a>.</p>
 
+<p>Referenced by <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00890">BizDataObj\removeRecord()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        <span class="keywordflow">if</span> ($dataObj-&gt;m_Association[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;M-M&quot;</span>)</div>
+<div class="line">        {</div>
+<div class="line">            $isParentObjUpdated = <span class="keyword">false</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> self::_removeRecordMtoM($dataObj, $recArr);</div>
+<div class="line">        }</div>
+<div class="line">     elseif ($dataObj-&gt;m_Association[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;Self-Self&quot;</span>)</div>
+<div class="line">        {</div>
+<div class="line">            $isParentObjUpdated = <span class="keyword">false</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> self::_removeRecordSelftoSelf($dataObj, $recArr);</div>
+<div class="line">        }</div>
+<div class="line">        elseif ($dataObj-&gt;m_Association[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;M-1&quot;</span> || $dataObj-&gt;m_Association[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;1-1&quot;</span>)</div>
+<div class="line">        {</div>
+<div class="line">            $isParentObjUpdated = <span class="keyword">true</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> self::_removeRecordMto1($dataObj, $recArr);</div>
+<div class="line">        }</div>
+<div class="line">     elseif ($dataObj-&gt;m_Association[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;1-M&quot;</span> )</div>
+<div class="line">        {</div>
+<div class="line">            $isParentObjUpdated = <span class="keyword">false</span>;</div>
+<div class="line">            <span class="keywordflow">return</span> self::_removeRecord1toM($dataObj, $recArr);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span></div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a>(<span class="stringliteral">&quot;You cannot add a record in dataobj who doesn&#39;t have M-M or M-1 or Self-Self relationship with its parent object&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -263,7 +323,7 @@ Static Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../df/daa/class_biz_data_obj___assoc.html">BizDataObj_Assoc</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:21:39 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:51 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

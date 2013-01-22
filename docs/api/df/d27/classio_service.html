@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -162,7 +163,9 @@ Protected Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 <p>Definition at line <a class="el" href="../../dc/da5/io_service_8php_source.html#l00033">33</a> of file <a class="el" href="../../dc/da5/io_service_8php_source.html">ioService.php</a>.</p>
-
+<div class="fragment"><div class="line">    {</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -190,6 +193,48 @@ Protected Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dc/da5/io_service_8php_source.html#l00043">43</a> of file <a class="el" href="../../dc/da5/io_service_8php_source.html">ioService.php</a>.</p>
 
+<p>References <a class="el" href="../../d4/da0/openbiz_2bin_2_biz_system_8php_source.html#l00272">BizSystem\getObject()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        <span class="comment">// get the current UI bizobj</span></div>
+<div class="line">        <span class="comment">/* @var $bizForm EasyForm */</span></div>
+<div class="line">        $bizForm = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($objName);    <span class="comment">// get the existing bizform object</span></div>
+<div class="line">        $bizObj = $bizForm-&gt;getDataObj();</div>
+<div class="line"></div>
+<div class="line">        $recList = array();</div>
+<div class="line">        $bizObj-&gt;fetchRecords(<span class="stringliteral">&quot;&quot;</span>, $recList, -1, -1, <span class="keyword">false</span>);</div>
+<div class="line"></div>
+<div class="line">        $xmlString = <span class="stringliteral">&quot;&lt;?xml version=&#39;1.0&#39; standalone=&#39;yes&#39;?&gt;\n&quot;</span>;</div>
+<div class="line">        $xmlString .= <span class="stringliteral">&quot;&lt;BizDataObj Name=\&quot;&quot;</span>.$bizObj-&gt;m_Name.<span class="stringliteral">&quot;\&quot;&gt;\n&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">foreach</span> ($recList as $rec)</div>
+<div class="line">        {</div>
+<div class="line">            $xmlRecord = <span class="stringliteral">&quot;\t&lt;Record&gt;\n&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">foreach</span> ($rec as $fld=&gt;$val)</div>
+<div class="line">            {</div>
+<div class="line">                $xmlRecord .= <span class="stringliteral">&quot;\t\t&lt;Field Name=\&quot;$fld\&quot; Value=\&quot;$val\&quot; /&gt;\n&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">            $xmlRecord .= <span class="stringliteral">&quot;\t&lt;/Record&gt;\n&quot;</span>;</div>
+<div class="line">            $xmlString .= $xmlRecord;</div>
+<div class="line">        }</div>
+<div class="line">        $xmlString .= <span class="stringliteral">&quot;&lt;/BizDataObj&gt;&quot;</span>;</div>
+<div class="line"></div>
+<div class="line">        <span class="comment">// output variables</span></div>
+<div class="line">        $name = str_replace(<span class="stringliteral">&quot;.&quot;</span>,<span class="stringliteral">&quot;_&quot;</span>,$bizObj-&gt;m_Name).<span class="stringliteral">&quot;.xml&quot;</span>;</div>
+<div class="line">        $size = strlen($xmlString);</div>
+<div class="line">        $type = <span class="stringliteral">&quot;text/plain&quot;</span>;</div>
+<div class="line"></div>
+<div class="line">        ob_clean();</div>
+<div class="line"></div>
+<div class="line">        header(<span class="stringliteral">&quot;Cache-Control: &quot;</span>);<span class="comment">// leave blank to avoid IE errors</span></div>
+<div class="line">        header(<span class="stringliteral">&quot;Pragma: &quot;</span>);<span class="comment">// leave blank to avoid IE errors</span></div>
+<div class="line">        header(<span class="stringliteral">&quot;Content-Disposition: attachment; filename=\&quot;$name\&quot;&quot;</span>);</div>
+<div class="line">        header(<span class="stringliteral">&quot;Content-length: $size&quot;</span>);</div>
+<div class="line">        header(<span class="stringliteral">&quot;Content-type: $type&quot;</span>);</div>
+<div class="line">        </div>
+<div class="line">        echo $xmlString;</div>
+<div class="line"></div>
+<div class="line">        exit;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -227,6 +272,82 @@ Protected Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dc/da5/io_service_8php_source.html#l00091">91</a> of file <a class="el" href="../../dc/da5/io_service_8php_source.html">ioService.php</a>.</p>
 
+<p>References <a class="el" href="../../d4/da0/openbiz_2bin_2_biz_system_8php_source.html#l00209">BizSystem\clientProxy()</a>, <a class="el" href="../../d4/da0/openbiz_2bin_2_biz_system_8php_source.html#l00272">BizSystem\getObject()</a>, and <a class="el" href="../../dc/da5/io_service_8php_source.html#l00173">reportError()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        <span class="comment">// read in file from $_FILE</span></div>
+<div class="line">        <span class="comment">// read in file data and attributes</span></div>
+<div class="line">        <span class="keywordflow">foreach</span> ($_FILES as $file)</div>
+<div class="line">        {</div>
+<div class="line">            $error = $file[<span class="stringliteral">&#39;error&#39;</span>];</div>
+<div class="line">            <span class="keywordflow">if</span> ($error != 0)</div>
+<div class="line">            {</div>
+<div class="line">                $this-&gt;<a class="code" href="../../df/d27/classio_service.html#a955d574cc8e55d32c7be0248b2153425">reportError</a>($error);</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            $tmpName  = $file[<span class="stringliteral">&#39;tmp_name&#39;</span>];</div>
+<div class="line">            $xml = simplexml_load_file($tmpName);</div>
+<div class="line">            <span class="keywordflow">if</span> (!$xml)</div>
+<div class="line">            {</div>
+<div class="line">                $errorMsg = <span class="stringliteral">&quot;Invalid input data format, could not create xml object.&quot;</span>;</div>
+<div class="line">                <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;showErrorMessage($errorMsg);</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="comment">// only read the first one</span></div>
+<div class="line">            <span class="keywordflow">break</span>;</div>
+<div class="line">        }</div>
+<div class="line"></div>
+<div class="line">        <span class="comment">// get the current UI bizobj</span></div>
+<div class="line">        <span class="comment">/* @var $form EasyForm */</span></div>
+<div class="line">        $form = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($objName);    <span class="comment">// get the existing bizform object</span></div>
+<div class="line">        <span class="comment">/* @var $parentForm EasyForm */</span></div>
+<div class="line">        $parentForm = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($form-&gt;GetParentForm());</div>
+<div class="line">        <span class="comment">/* @var $dataObj BizDataObj */</span></div>
+<div class="line">        $dataObj = $parentForm-&gt;getDataObj();</div>
+<div class="line"></div>
+<div class="line">        <span class="comment">//$oldCacheMode = $dataObj-&gt;GetCacheMode();</span></div>
+<div class="line">        <span class="comment">//$dataObj-&gt;SetCacheMode(0);    // turn off cache mode, not affect the current cache</span></div>
+<div class="line"></div>
+<div class="line">        <span class="comment">// check if BizDataObj name matches</span></div>
+<div class="line">        $dataObjName = $xml[<span class="stringliteral">&#39;Name&#39;</span>];</div>
+<div class="line">        <span class="keywordflow">if</span> ($dataObj-&gt;m_Name != $$dataObjName)</div>
+<div class="line">        {</div>
+<div class="line">            $errorMsg = <span class="stringliteral">&quot;Invalid input data. Input data object is not same as the current data object.&quot;</span>;</div>
+<div class="line">            <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;showErrorMessage($errorMsg);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line"></div>
+<div class="line">        <span class="comment">// read records</span></div>
+<div class="line">        <span class="keywordflow">foreach</span> ($xml-&gt;Record as $record)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="comment">// insert record</span></div>
+<div class="line">            <span class="comment">// todo: check if there&#39;s same user keys in the table</span></div>
+<div class="line">            $recArray = null;</div>
+<div class="line">            $recArray = $dataObj-&gt;newRecord();</div>
+<div class="line">            <span class="keywordflow">foreach</span> ($record as $field)</div>
+<div class="line">            {</div>
+<div class="line">                $value = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">                <span class="keywordflow">foreach</span> ($field-&gt;attributes() as $attributeName=&gt;$attributeValue)</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="keywordflow">if</span> ($attributeName == <span class="stringliteral">&#39;Name&#39;</span>) $name = $attributeValue.<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($attributeName == <span class="stringliteral">&#39;Value&#39;</span>) $value = $attributeValue.<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">if</span> ($name != <span class="stringliteral">&quot;Id&quot;</span>)</div>
+<div class="line">                    $recArray[$name] = $value;</div>
+<div class="line">            }</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (!$dataObj-&gt;insertRecord($recArray))</div>
+<div class="line">            {</div>
+<div class="line">                $errorMsg = $dataObj-&gt;getErrorMessage();</div>
+<div class="line">                <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;showErrorMessage($errorMsg);</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="comment">// $dataObj-&gt;SetCacheMode($oldCacheMode);  // restore cache mode</span></div>
+<div class="line"></div>
+<div class="line">        $form-&gt;setFormState(1); <span class="comment">// indicate the import is done</span></div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -234,7 +355,7 @@ Protected Member Functions</h2></td></tr>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../df/d27/classio_service_a2d6101bbc41fb01a5d524fcb81717d34_cgraph.png" border="0" usemap="#df/d27/classio_service_a2d6101bbc41fb01a5d524fcb81717d34_cgraph" alt=""/></div>
 <map name="df/d27/classio_service_a2d6101bbc41fb01a5d524fcb81717d34_cgraph" id="df/d27/classio_service_a2d6101bbc41fb01a5d524fcb81717d34_cgraph">
-<area shape="rect" id="node2" href="../../df/d27/classio_service.html#a955d574cc8e55d32c7be0248b2153425" title="reportError" alt="" coords="169,5,255,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="334,31,487,59"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="139,109,285,137"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="536,31,674,59"/></map>
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="334,23,487,51"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="139,23,285,51"/><area shape="rect" id="node5" href="../../df/d27/classio_service.html#a955d574cc8e55d32c7be0248b2153425" title="reportError" alt="" coords="169,75,255,103"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="536,23,674,51"/></map>
 </div>
 </p>
 
@@ -272,6 +393,29 @@ Protected Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dc/da5/io_service_8php_source.html#l00173">173</a> of file <a class="el" href="../../dc/da5/io_service_8php_source.html">ioService.php</a>.</p>
 
+<p>References <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00116">$g_BizSystem</a>, and <a class="el" href="../../d4/da0/openbiz_2bin_2_biz_system_8php_source.html#l00209">BizSystem\clientProxy()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../dc/da5/io_service_8php_source.html#l00091">importXML()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        <span class="keywordflow">if</span> ($error==1)</div>
+<div class="line">            $errorStr = <span class="stringliteral">&quot;The uploaded file exceeds the upload_max_filesize directive in php.ini&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($error==2)</div>
+<div class="line">            $errorStr = <span class="stringliteral">&quot;The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($error==3)</div>
+<div class="line">            $errorStr = <span class="stringliteral">&quot;The uploaded file was only partially uploaded&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($error==4)</div>
+<div class="line">            $errorStr = <span class="stringliteral">&quot;No file was uploaded&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($error==6)</div>
+<div class="line">            $errorStr = <span class="stringliteral">&quot;Missing a temporary folder&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($error==7)</div>
+<div class="line">            $errorStr = <span class="stringliteral">&quot;Failed to write file to disk&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span></div>
+<div class="line">            $errorStr = <span class="stringliteral">&quot;Error in file upload&quot;</span>;</div>
+<div class="line"></div>
+<div class="line">        global <a class="code" href="../../d3/d07/sysheader__inc_8php.html#a0cb3ec03bacff361c21e7450d93aed66">$g_BizSystem</a>;</div>
+<div class="line">        <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;showErrorMessage($errorStr);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -302,7 +446,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../df/d27/classio_service.html">ioService</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:21:58 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:56 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -147,6 +148,12 @@ Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d3/d5f/_configuration_8php_source.html#l00047">47</a> of file <a class="el" href="../../d3/d5f/_configuration_8php_source.html">Configuration.php</a>.</p>
 
+<p>References <a class="el" href="../../d4/da0/openbiz_2bin_2_biz_system_8php_source.html#l00785">BizSystem\getXmlArray()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $xmlFile = BizSystem::GetXmlFileWithPath(<span class="stringliteral">&quot;application&quot;</span>);</div>
+<div class="line">        $this-&gt;_xmlArr = &amp;<a class="code" href="../../d1/d7e/class_biz_system.html#afb3b9597319d812f889a89ab0c7c5e4b">BizSystem::getXmlArray</a>($xmlFile);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -185,6 +192,48 @@ Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d3/d5f/_configuration_8php_source.html#l00065">65</a> of file <a class="el" href="../../d3/d5f/_configuration_8php_source.html">Configuration.php</a>.</p>
 
+<p>References <a class="el" href="../../d4/da0/openbiz_2bin_2_biz_system_8php_source.html#l00798">BizSystem\getMessage()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        <span class="keywordflow">if</span> ($dbName &amp;&amp; $this-&gt;_databaseInfo[$dbName])</div>
+<div class="line">            <span class="keywordflow">return</span> $this-&gt;_databaseInfo[$dbName];</div>
+<div class="line">        <span class="keywordflow">if</span> (! $this-&gt;_xmlArr[<span class="stringliteral">&quot;APPLICATION&quot;</span>][<span class="stringliteral">&quot;DATASOURCE&quot;</span>])</div>
+<div class="line">        {</div>
+<div class="line">            $errMsg = <a class="code" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866">BizSystem::getMessage</a>(<span class="stringliteral">&quot;SYS_ERROR_NODBINFO&quot;</span>);</div>
+<div class="line">            trigger_error($errMsg, E_USER_ERROR);</div>
+<div class="line">        }</div>
+<div class="line">        $breakFlag = <span class="keyword">false</span>;</div>
+<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;_xmlArr[<span class="stringliteral">&quot;APPLICATION&quot;</span>][<span class="stringliteral">&quot;DATASOURCE&quot;</span>][<span class="stringliteral">&quot;DATABASE&quot;</span>] as $db)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">if</span> (array_key_exists(<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>, $this-&gt;_xmlArr[<span class="stringliteral">&quot;APPLICATION&quot;</span>][<span class="stringliteral">&quot;DATASOURCE&quot;</span>][<span class="stringliteral">&quot;DATABASE&quot;</span>]))</div>
+<div class="line">            {</div>
+<div class="line">                $db = $this-&gt;_xmlArr[<span class="stringliteral">&quot;APPLICATION&quot;</span>][<span class="stringliteral">&quot;DATASOURCE&quot;</span>][<span class="stringliteral">&quot;DATABASE&quot;</span>];</div>
+<div class="line">                $breakFlag = <span class="keyword">true</span>;</div>
+<div class="line">            }</div>
+<div class="line">            $tmp[<span class="stringliteral">&quot;Name&quot;</span>]     = $db[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAME&quot;</span>];</div>
+<div class="line">            $tmp[<span class="stringliteral">&quot;Driver&quot;</span>]   = $db[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DRIVER&quot;</span>];</div>
+<div class="line">            $tmp[<span class="stringliteral">&quot;Server&quot;</span>]   = $db[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;SERVER&quot;</span>];</div>
+<div class="line">            $tmp[<span class="stringliteral">&quot;DBName&quot;</span>]   = $db[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DBNAME&quot;</span>];</div>
+<div class="line">            $tmp[<span class="stringliteral">&quot;User&quot;</span>]     = $db[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;USER&quot;</span>];</div>
+<div class="line">            $tmp[<span class="stringliteral">&quot;Password&quot;</span>] = $db[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;PASSWORD&quot;</span>];</div>
+<div class="line">            $tmp[<span class="stringliteral">&quot;Port&quot;</span>]     = isset($db[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;PORT&quot;</span>]) ? $db[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;PORT&quot;</span>] : null;</div>
+<div class="line">            $tmp[<span class="stringliteral">&quot;Charset&quot;</span>]  = isset($db[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CHARSET&quot;</span>]) ? $db[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CHARSET&quot;</span>] : null;</div>
+<div class="line">            $tmp[<span class="stringliteral">&quot;Options&quot;</span>]  = isset($db[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;OPTIONS&quot;</span>]) ? $db[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;OPTIONS&quot;</span>] : null;</div>
+<div class="line">            $this-&gt;_databaseInfo[$tmp[<span class="stringliteral">&quot;Name&quot;</span>]] = $tmp;</div>
+<div class="line">            <span class="keywordflow">if</span> ($breakFlag)</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">        }</div>
+<div class="line"></div>
+<div class="line">        <span class="keywordflow">if</span> ($dbName &amp;&amp; $this-&gt;_databaseInfo[$dbName])</div>
+<div class="line">            <span class="keywordflow">return</span> $this-&gt;_databaseInfo[$dbName];</div>
+<div class="line">        <span class="keywordflow">if</span> ($dbName &amp;&amp; ! isset($this-&gt;_databaseInfo[$dbName]))</div>
+<div class="line">        {</div>
+<div class="line">            $errMsg = <a class="code" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866">BizSystem::getMessage</a>(<span class="stringliteral">&quot;DATA_INVALID_DBNAME&quot;</span>, array($dbName,$dbName));</div>
+<div class="line">            trigger_error($errMsg, E_USER_ERROR);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span> (! $dbName)</div>
+<div class="line">            <span class="keywordflow">return</span> $this-&gt;_databaseInfo;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -204,7 +253,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d54/class_configuration.html">Configuration</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:21:46 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:53 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

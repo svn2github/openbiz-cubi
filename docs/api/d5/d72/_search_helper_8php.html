@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3"/>
-<title>Openbiz Framework API: /Users/jixian/Workspace/Openbiz_Project_Google/cubi/openbiz/bin/easy/SearchHelper.php File Reference</title>
+<title>Openbiz Framework API: openbiz/bin/easy/SearchHelper.php File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -167,6 +168,94 @@ Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d5/d72/_search_helper_8php_source.html#l00025">25</a> of file <a class="el" href="../../d5/d72/_search_helper_8php_source.html">SearchHelper.php</a>.</p>
 
+<p>References <a class="el" href="../../da/d7e/_query_string_param_8php_source.html#l00051">QueryStringParam\formatQueryString()</a>, and <a class="el" href="../../d4/da0/openbiz_2bin_2_biz_system_8php_source.html#l00244">BizSystem\typeManager()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d6/d29/_easy_form_8php_source.html#l01076">EasyForm\runSearch()</a>.</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="comment">// todo: should check single quote for nonoperators clauses</span></div>
+<div class="line">    <span class="comment">// find locations for all sql key words</span></div>
+<div class="line">    <span class="comment">// search for starting &#39; and closing &#39; pair, check if sql key word in the pair</span></div>
+<div class="line"></div>
+<div class="line">    $val = strtoupper(trim($inputVal));</div>
+<div class="line">    <span class="comment">// check &quot; AND &quot;, &quot; OR &quot;</span></div>
+<div class="line">    <span class="keywordflow">if</span> (($pos=strpos($val, <span class="stringliteral">&quot; AND &quot;</span>))!==<span class="keyword">false</span>)</div>
+<div class="line">    {</div>
+<div class="line">        $inputArr = explode(<span class="stringliteral">&quot; AND &quot;</span>, $val);</div>
+<div class="line">        $retStr = null;</div>
+<div class="line">        <span class="keywordflow">foreach</span>($inputArr as $v)</div>
+<div class="line">            $retStr .= ($retStr) ? <span class="stringliteral">&quot; AND &quot;</span>.<a class="code" href="../../d5/d72/_search_helper_8php.html#adcd71bc23513acbade9981e7c6fabfb8">inputValToRule</a>($fieldName, $v, $formObj) : <a class="code" href="../../d5/d72/_search_helper_8php.html#adcd71bc23513acbade9981e7c6fabfb8">inputValToRule</a>($fieldName, $v, $formObj);</div>
+<div class="line">        <span class="keywordflow">return</span> $retStr;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (($pos=strpos($val, <span class="stringliteral">&quot; OR &quot;</span>))!==<span class="keyword">false</span>)</div>
+<div class="line">    {</div>
+<div class="line">        $inputArr = explode(<span class="stringliteral">&quot; OR &quot;</span>, $val);</div>
+<div class="line">        $retStr = null;</div>
+<div class="line">        <span class="keywordflow">foreach</span>($inputArr as $v)</div>
+<div class="line">            $retStr .= ($retStr) ? <span class="stringliteral">&quot; OR &quot;</span>.<a class="code" href="../../d5/d72/_search_helper_8php.html#adcd71bc23513acbade9981e7c6fabfb8">inputValToRule</a>($fieldName, $v, $formObj) : <a class="code" href="../../d5/d72/_search_helper_8php.html#adcd71bc23513acbade9981e7c6fabfb8">inputValToRule</a>($fieldName, $v, $formObj);</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="stringliteral">&quot;(&quot;</span>.$retStr.<span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">// check &gt;=, &gt;, &lt;=, &lt;, =</span></div>
+<div class="line">    <span class="keywordflow">if</span> (($pos=strpos($val, <span class="stringliteral">&quot;&lt;&gt;&quot;</span>))!==<span class="keyword">false</span> || ($pos=strpos($val, <span class="stringliteral">&quot;!=&quot;</span>))!==<span class="keyword">false</span>)</div>
+<div class="line">    {</div>
+<div class="line">        $opr = <span class="stringliteral">&quot;&lt;&gt;&quot;</span>;</div>
+<div class="line">        $oprlen = 2;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (($pos=strpos($val, <span class="stringliteral">&quot;&gt;=&quot;</span>))!==<span class="keyword">false</span>)</div>
+<div class="line">    {</div>
+<div class="line">        $opr = <span class="stringliteral">&quot;&gt;=&quot;</span>;</div>
+<div class="line">        $oprlen = 2;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (($pos=strpos($val, <span class="stringliteral">&quot;&gt;&quot;</span>))!==<span class="keyword">false</span>)</div>
+<div class="line">    {</div>
+<div class="line">        $opr = <span class="stringliteral">&quot;&gt;&quot;</span>;</div>
+<div class="line">        $oprlen = 1;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (($pos=strpos($val, <span class="stringliteral">&quot;&lt;=&quot;</span>))!==<span class="keyword">false</span>)</div>
+<div class="line">    {</div>
+<div class="line">        $opr = <span class="stringliteral">&quot;&lt;=&quot;</span>;</div>
+<div class="line">        $oprlen = 2;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (($pos=strpos($val, <span class="stringliteral">&quot;&lt;&quot;</span>))!==<span class="keyword">false</span>)</div>
+<div class="line">    {</div>
+<div class="line">        $opr = <span class="stringliteral">&quot;&lt;&quot;</span>;</div>
+<div class="line">        $oprlen = 1;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (($pos=strpos($val, <span class="stringliteral">&quot;=&quot;</span>))!==<span class="keyword">false</span>)</div>
+<div class="line">    {</div>
+<div class="line">        $opr = <span class="stringliteral">&quot;=&quot;</span>;</div>
+<div class="line">        $oprlen = 1;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> ($opr)</div>
+<div class="line">    {</div>
+<div class="line">        $val = trim(substr($val, $pos+$oprlen));</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">if</span> (strpos($val, <span class="stringliteral">&quot;*&quot;</span>) !== <span class="keyword">false</span>)</div>
+<div class="line">    {</div>
+<div class="line">        $opr = <span class="stringliteral">&quot;LIKE&quot;</span>;</div>
+<div class="line">        $val = str_replace(<span class="stringliteral">&quot;*&quot;</span>, <span class="stringliteral">&quot;%&quot;</span>, $val);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="comment">//if (strpos($val, &quot;&#39;&quot;) !== false) {   // not needed since addslashes() is called before</span></div>
+<div class="line">    <span class="comment">//   $val = str_replace(&quot;&#39;&quot;, &quot;\\&#39;&quot;, $val);</span></div>
+<div class="line">    <span class="comment">//}</span></div>
+<div class="line">    <span class="keywordflow">if</span> (!$opr)</div>
+<div class="line">        $opr = <span class="stringliteral">&quot;=&quot;</span>;</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">// unformat value to real value data</span></div>
+<div class="line">    <span class="keywordflow">if</span>($formObj-&gt;getDataObj()){</div>
+<div class="line">     $bizField = $formObj-&gt;getDataObj()-&gt;getField($fieldName);</div>
+<div class="line">     $realValue = <a class="code" href="../../d1/d7e/class_biz_system.html#ab657b15f46b32b11920d2021e9c257c3">BizSystem::typeManager</a>()-&gt;formattedStringToValue($bizField-&gt;m_Type, $bizField-&gt;m_Format, $val);</div>
+<div class="line">    }<span class="keywordflow">else</span>{</div>
+<div class="line">     $realValue = $val;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="comment">// set the query param</span></div>
+<div class="line">    $queryString = <a class="code" href="../../d1/d2c/class_query_string_param.html#afe4e61acb95e6bda80a154f68a579eb9">QueryStringParam::formatQueryString</a>(<span class="stringliteral">&quot;[$fieldName]&quot;</span>, $opr, $realValue);</div>
+<div class="line">    <span class="keywordflow">return</span> $queryString;</div>
+<div class="line"></div>
+<div class="line">    <span class="comment">//return &quot;[&quot; . $field . &quot;] &quot; . $opr . &quot; &#39;&quot; . $realVal . &quot;&#39;&quot;;</span></div>
+<div class="line">}</div>
+</div><!-- fragment -->
 <p><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -174,7 +263,7 @@ Functions</h2></td></tr>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d5/d72/_search_helper_8php_adcd71bc23513acbade9981e7c6fabfb8_cgraph.png" border="0" usemap="#d5/d72/_search_helper_8php_adcd71bc23513acbade9981e7c6fabfb8_cgraph" alt=""/></div>
 <map name="d5/d72/_search_helper_8php_adcd71bc23513acbade9981e7c6fabfb8_cgraph" id="d5/d72/_search_helper_8php_adcd71bc23513acbade9981e7c6fabfb8_cgraph">
-<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#ab657b15f46b32b11920d2021e9c257c3" title="BizSystem\\typeManager" alt="" coords="188,5,354,33"/><area shape="rect" id="node4" href="../../d1/d2c/class_query_string_param.html#afe4e61acb95e6bda80a154f68a579eb9" title="QueryStringParam\\formatQuery\lString" alt="" coords="166,57,375,101"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="424,5,562,33"/></map>
+<area shape="rect" id="node2" href="../../d1/d2c/class_query_string_param.html#afe4e61acb95e6bda80a154f68a579eb9" title="QueryStringParam\\formatQuery\lString" alt="" coords="166,5,375,49"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ab657b15f46b32b11920d2021e9c257c3" title="BizSystem\\typeManager" alt="" coords="188,73,354,101"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="424,73,562,101"/></map>
 </div>
 </p>
 
@@ -196,8 +285,8 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_9e51036813d6151dfecc72d5fa7c02b3.html">Users</a></li><li class="navelem"><a class="el" href="../../dir_b0446a7b2c4e13f76e78dcf7715ad478.html">jixian</a></li><li class="navelem"><a class="el" href="../../dir_c1d932a277628715986f941f0ae2ef99.html">Workspace</a></li><li class="navelem"><a class="el" href="../../dir_dd87cfccd83ac043527f7444db3022b2.html">Openbiz_Project_Google</a></li><li class="navelem"><a class="el" href="../../dir_583a7b4370c1d82f6d6d7fc9f59a4283.html">cubi</a></li><li class="navelem"><a class="el" href="../../dir_ac0478a135b22ff1f794c875c5bf9aa9.html">openbiz</a></li><li class="navelem"><a class="el" href="../../dir_0ee2580413d323b809fede65055b96ff.html">bin</a></li><li class="navelem"><a class="el" href="../../dir_cc998239cb888a67422d9062ec87da37.html">easy</a></li><li class="navelem"><a class="el" href="../../d5/d72/_search_helper_8php.html">SearchHelper.php</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:21:35 for Openbiz Framework API by
+    <li class="navelem"><a class="el" href="../../dir_e4e4c5f4edba5c3fa361c78d4ddae30e.html">openbiz</a></li><li class="navelem"><a class="el" href="../../dir_adf578fe019b0c440775390e615de841.html">bin</a></li><li class="navelem"><a class="el" href="../../dir_b635095b2f31361767d6705854b3fdf1.html">easy</a></li><li class="navelem"><a class="el" href="../../d5/d72/_search_helper_8php.html">SearchHelper.php</a></li>
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:50 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

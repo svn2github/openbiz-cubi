@@ -36,6 +36,7 @@ var searchData=
   ['_24divisionid',['$divisionId',['../d6/d59/classprofile_service.html#adb64f440d300509c7027269602d139ae',1,'profileService']]],
   ['_24errormode',['$errorMode',['../db/dba/class_o_b___error_handler.html#a8b176fc79ddee3fa9f90be96507cca40',1,'OB_ErrorHandler']]],
   ['_24expcontainers',['$expContainers',['../df/d03/class_expression.html#afcfdfa59b8c847c285ccf13e5a88e907',1,'Expression']]],
+  ['_24formhtml',['$formHTML',['../d1/d37/_form_object_8php.html#a8e7ef9c6748271e69e8b8e1af5b6ddeb',1,'FormObject.php']]],
   ['_24g_5fbizsystem',['$g_BizSystem',['../d3/d07/sysheader__inc_8php.html#a0cb3ec03bacff361c21e7450d93aed66',1,'sysheader_inc.php']]],
   ['_24g_5fservicealias',['$g_ServiceAlias',['../d1/df2/sys__init_8php.html#a29029bee8b3be2a793b4173b002ead1c',1,'sys_init.php']]],
   ['_24group',['$group',['../d6/d59/classprofile_service.html#ad530a85733b0ec1dc321859fd8faa0dc',1,'profileService']]],
@@ -368,6 +369,7 @@ var searchData=
   ['_24m_5fxmlmeta',['$m_XMLMeta',['../d5/d50/class_element.html#a873ca0528c0c11fea788b3e79355f9df',1,'Element']]],
   ['_24m_5fxmltemplatedata',['$m_XmlTemplateData',['../de/d18/classcompile_service.html#ad4b364e4556880793ceaaab8aa38f5cd',1,'compileService']]],
   ['_24m_5fxtable',['$m_XTable',['../da/d71/class_obj_reference.html#a443178552d4a327bce2bfaecb198cff6',1,'ObjReference']]],
+  ['_24objectname',['$objectName',['../d3/d1a/_data_object_8php.html#a1ed56cc20d722eac42736f271dbd90b8',1,'$objectName():&#160;DataObject.php'],['../d1/d37/_form_object_8php.html#a1ed56cc20d722eac42736f271dbd90b8',1,'$objectName():&#160;FormObject.php'],['../da/d6c/_view_object_8php.html#a1ed56cc20d722eac42736f271dbd90b8',1,'$objectName():&#160;ViewObject.php']]],
   ['_24org',['$org',['../d6/d59/classprofile_service.html#a5b2cb9a1d2cf3080e47d2fb92fe124b3',1,'profileService']]],
   ['_24orgid',['$orgId',['../d6/d59/classprofile_service.html#a06f74acd5af30cb9f5c7d0abcdefc8ef',1,'profileService']]],
   ['_24position',['$position',['../d6/d59/classprofile_service.html#a6e88dcb746884d18f6c89eb9b9c14a42',1,'profileService']]],
@@ -375,6 +377,12 @@ var searchData=
   ['_24role',['$role',['../d6/d59/classprofile_service.html#a1ea903cca285c7c0b4c9203932100309',1,'profileService']]],
   ['_24roleid',['$roleId',['../d6/d59/classprofile_service.html#a2dc58d8360e162ad02c5eebe0dfdfc4a',1,'profileService']]],
   ['_24services',['$services',['../df/d03/class_expression.html#a23d6d124a35cf4b31e238cc34be9d653',1,'Expression']]],
+  ['_24userdo',['$userDO',['../d3/d1a/_data_object_8php.html#a8e308d90bdab2c8ec8116f5742728ae4',1,'DataObject.php']]],
+  ['_24useremail',['$userEmail',['../d3/d1a/_data_object_8php.html#a4c35876b3667daa5ed347db17938afaf',1,'DataObject.php']]],
+  ['_24userform',['$userForm',['../d1/d37/_form_object_8php.html#a275a39901ecc9eb3577ed32d43f4c8f3',1,'FormObject.php']]],
+  ['_24userrecord',['$userRecord',['../d3/d1a/_data_object_8php.html#a0785b87a86f9e2ab38a450494b877c29',1,'$userRecord():&#160;DataObject.php'],['../d3/d1a/_data_object_8php.html#a203f31bf78aca75c28828e56a69fab87',1,'$userRecord():&#160;DataObject.php']]],
+  ['_24userview',['$userView',['../da/d6c/_view_object_8php.html#a463547ca0a3f2376557822ba664e44d4',1,'ViewObject.php']]],
   ['_24vals',['$vals',['../d2/d95/class_x_m_l_parser.html#a746c1e65be1b1dc482b633e025b71e2d',1,'XMLParser']]],
+  ['_24viewhtml',['$viewHTML',['../da/d6c/_view_object_8php.html#af4b883ce93ea4396e8b2580cbb2de34b',1,'ViewObject.php']]],
   ['_24xx',['$XX',['../d7/dbf/_i18n_8php.html#a6724d96da2648ee9ef51f5ecf37b4c0d',1,'I18n.php']]]
 ];

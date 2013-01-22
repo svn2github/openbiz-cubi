@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -157,7 +158,15 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../d2/d41/sysclass__inc_8php_source.html#l00488">488</a> of file <a class="el" href="../../d2/d41/sysclass__inc_8php_source.html">sysclass_inc.php</a>.</p>
-
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $this-&gt;m_Errors = $errors;</div>
+<div class="line">        $message = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">foreach</span> ($errors as $key=&gt;$err) {</div>
+<div class="line">            $message .= <span class="stringliteral">&quot;$key = $err, &quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        $this-&gt;message = $message;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -181,7 +190,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/dd2/class_validation_exception.html">ValidationException</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:22:08 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:59 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

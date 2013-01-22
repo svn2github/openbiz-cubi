@@ -1,6 +1,7 @@
 var annotated =
 [
     [ "openbiz", "d3/dbf/namespaceopenbiz.html", "d3/dbf/namespaceopenbiz" ],
+    [ "sample", "d2/d41/namespacesample.html", null ],
     [ "smarty", "d3/dde/namespacesmarty.html", null ],
     [ "accessService", "d1/d73/classaccess_service.html", "d1/d73/classaccess_service" ],
     [ "aclService", "db/d5d/classacl_service.html", "db/d5d/classacl_service" ],

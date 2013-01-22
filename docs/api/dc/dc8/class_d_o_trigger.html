@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -128,12 +129,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a7e1791dcd27fbaa6725e3a2f114f7b52"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc8/class_d_o_trigger.html#a7e1791dcd27fbaa6725e3a2f114f7b52">$m_TriggerType</a></td></tr>
-<tr class="separator:a7e1791dcd27fbaa6725e3a2f114f7b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dd837d1e3bea26e6ceae94cbf4377d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc8/class_d_o_trigger.html#a9dd837d1e3bea26e6ceae94cbf4377d1">$m_TriggerCondition</a></td></tr>
-<tr class="separator:a9dd837d1e3bea26e6ceae94cbf4377d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3042f5be87fd2b5bda28367bc287dcc2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc8/class_d_o_trigger.html#a3042f5be87fd2b5bda28367bc287dcc2">$m_TriggerActions</a></td></tr>
 <tr class="separator:a3042f5be87fd2b5bda28367bc287dcc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dd837d1e3bea26e6ceae94cbf4377d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc8/class_d_o_trigger.html#a9dd837d1e3bea26e6ceae94cbf4377d1">$m_TriggerCondition</a></td></tr>
+<tr class="separator:a9dd837d1e3bea26e6ceae94cbf4377d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e1791dcd27fbaa6725e3a2f114f7b52"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dc8/class_d_o_trigger.html#a7e1791dcd27fbaa6725e3a2f114f7b52">$m_TriggerType</a></td></tr>
+<tr class="separator:a7e1791dcd27fbaa6725e3a2f114f7b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -162,7 +163,21 @@ Data Fields</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 <p>Definition at line <a class="el" href="../../d5/de9/do_trigger_service_8php_source.html#l00364">364</a> of file <a class="el" href="../../d5/de9/do_trigger_service_8php_source.html">doTriggerService.php</a>.</p>
-
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $this-&gt;m_TriggerType = $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TRIGGERTYPE&quot;</span>];</div>
+<div class="line">        <span class="comment">// read in trigger condition</span></div>
+<div class="line">        $this-&gt;m_TriggerCondition[<span class="stringliteral">&quot;Expression&quot;</span>] = $xmlArr[<span class="stringliteral">&quot;TRIGGERCONDITION&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;EXPRESSION&quot;</span>];</div>
+<div class="line">        $this-&gt;m_TriggerCondition[<span class="stringliteral">&quot;ExtraSearchRule&quot;</span>] = $xmlArr[<span class="stringliteral">&quot;TRIGGERCONDITION&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;EXTRASEARCHRULE&quot;</span>];</div>
+<div class="line">        <span class="keywordflow">if</span>($xmlArr[<span class="stringliteral">&quot;TRIGGERACTIONS&quot;</span>][<span class="stringliteral">&quot;TRIGGERACTION&quot;</span>][0]){</div>
+<div class="line">         <span class="keywordflow">foreach</span>($xmlArr[<span class="stringliteral">&quot;TRIGGERACTIONS&quot;</span>][<span class="stringliteral">&quot;TRIGGERACTION&quot;</span>] as $key=&gt;$value){ </div>
+<div class="line">          $this-&gt;m_TriggerActions[] = <span class="keyword">new</span> <a class="code" href="../../d4/dfd/class_trigger_action.html">TriggerAction</a>($xmlArr[<span class="stringliteral">&quot;TRIGGERACTIONS&quot;</span>][<span class="stringliteral">&quot;TRIGGERACTION&quot;</span>][$key]);</div>
+<div class="line">         }</div>
+<div class="line">        }<span class="keywordflow">else</span>{</div>
+<div class="line">         $this-&gt;m_TriggerActions = <span class="keyword">new</span> <a class="code" href="../../dd/d21/class_meta_iterator.html">MetaIterator</a>($xmlArr[<span class="stringliteral">&quot;TRIGGERACTIONS&quot;</span>][<span class="stringliteral">&quot;TRIGGERACTION&quot;</span>], <span class="stringliteral">&quot;TriggerAction&quot;</span>);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -214,7 +229,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dc/dc8/class_d_o_trigger.html">DOTrigger</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:21:47 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:53 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

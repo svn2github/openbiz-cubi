@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.3"/>
-<title>Openbiz Framework API: /Users/jixian/Workspace/Openbiz_Project_Google/cubi/openbiz/bin/easy/EasyView.php Source File</title>
+<title>Openbiz Framework API: openbiz/bin/easy/EasyView.php Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -253,241 +254,241 @@ $(document).ready(function(){initNavTree('d9/dbd/_easy_view_8php_source.html','.
 <div class="line"><a name="l00225"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a006b8ed17c9cdc71597b45696fcde89d">  225</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a006b8ed17c9cdc71597b45696fcde89d">setParameters</a>()</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    {}</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
-<div class="line"><a name="l00233"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#afde88292c44dc59faf017738dae6dffb">  233</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#afde88292c44dc59faf017738dae6dffb">render</a>()</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    {</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;     <span class="keywordflow">if</span> (!$this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1">allowAccess</a>())</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        {</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            $accessDenyView = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject(<a class="code" href="../../d1/df2/sys__init_8php.html#ad3cf5ba482d7891d170dd35288cbf72c">ACCESS_DENIED_VIEW</a>);</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            <span class="keywordflow">return</span> $accessDenyView-&gt;render();</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        }</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a5ea617defced2833678b138544810d35">initAllForms</a>();</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <span class="comment">// check the &quot;fld_...&quot; arg in url and put it in the search rule</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a3c934047380a0debb627d77d51bb85c8">processRequest</a>();</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">return</span> $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a30bcc620a40b8f755dbafb28ff1c76d4">_render</a>();</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    }</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
-<div class="line"><a name="l00253"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a30bcc620a40b8f755dbafb28ff1c76d4">  253</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a30bcc620a40b8f755dbafb28ff1c76d4">_render</a>()</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    {</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a543d4488b170c3e8c3283cae6650b12b">setClientScripts</a>();</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <span class="keywordflow">if</span>($this-&gt;m_CacheLifeTime&gt;0)</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        {</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            $pageUrl = $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#aa4221641e5c21db69fa52c426b9017f5">curPageURL</a>();</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            $cache_id = md5($pageUrl);</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            <span class="comment">//try to process cache service.</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            $cacheSvc = <a class="code" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96">BizSystem::getService</a>(CACHE_SERVICE,1);</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;            $cacheSvc-&gt;init($this-&gt;m_Name,$this-&gt;m_CacheLifeTime);</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            <span class="keywordflow">if</span>($cacheSvc-&gt;test($cache_id))</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            {</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_DEBUG, <span class="stringliteral">&quot;VIEW&quot;</span>, <span class="stringliteral">&quot;Cache Hit. url = &quot;</span>.$pageUrl);</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                $output = $cacheSvc-&gt;load($cache_id);</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;            }</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            {</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                <span class="comment">//include_once(OPENBIZ_BIN.&quot;/easy/ViewRenderer.php&quot;);</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                $this-&gt;m_ConsoleOutput = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                $output = <a class="code" href="../../d4/dfb/class_view_renderer.html#a588ca768528b47207177dfd1ff7ced52">ViewRenderer::render</a>($this);</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_DEBUG, <span class="stringliteral">&quot;VIEW&quot;</span>, <span class="stringliteral">&quot;Set cache. url = &quot;</span>.$pageUrl);</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                $cacheSvc-&gt;save($output, $cache_id);</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            }</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            print $output;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        }</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        {</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            <span class="comment">//include_once(OPENBIZ_BIN.&quot;/easy/ViewRenderer.php&quot;);</span></div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            <a class="code" href="../../d4/dfb/class_view_renderer.html#a588ca768528b47207177dfd1ff7ced52">ViewRenderer::render</a>($this);</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        }</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="comment">/*</span></div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="comment">        $this-&gt;setClientScripts();</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="comment">       //include_once(OPENBIZ_BIN.&quot;/easy/ViewRenderer.php&quot;); </span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment">     return ViewRenderer::render($this);</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="comment">         */</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    }</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
-<div class="line"><a name="l00300"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#aa4221641e5c21db69fa52c426b9017f5">  300</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#aa4221641e5c21db69fa52c426b9017f5">curPageURL</a>()</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    {</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="keywordflow">return</span> $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#ae9a94dea2a8e11ebf9010683a124fabf">getCurrentPageUrl</a>();</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    }</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;</div>
-<div class="line"><a name="l00311"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#ae9a94dea2a8e11ebf9010683a124fabf">  311</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#ae9a94dea2a8e11ebf9010683a124fabf">getCurrentPageUrl</a>()</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    {</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        $pageURL = <span class="stringliteral">&#39;http&#39;</span>;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <span class="keywordflow">if</span> ($_SERVER[<span class="stringliteral">&quot;HTTPS&quot;</span>] == <span class="stringliteral">&quot;on&quot;</span>)</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        {</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;            $pageURL .= <span class="stringliteral">&quot;s&quot;</span>;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        }</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        $pageURL .= <span class="stringliteral">&quot;://&quot;</span>;</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        <span class="keywordflow">if</span> ($_SERVER[<span class="stringliteral">&quot;SERVER_PORT&quot;</span>] != <span class="stringliteral">&quot;80&quot;</span>)</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        {</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;            $pageURL .= $_SERVER[<span class="stringliteral">&quot;SERVER_NAME&quot;</span>].<span class="stringliteral">&quot;:&quot;</span>.$_SERVER[<span class="stringliteral">&quot;SERVER_PORT&quot;</span>].$_SERVER[<span class="stringliteral">&quot;REQUEST_URI&quot;</span>];</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        }</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        {</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            $pageURL .= $_SERVER[<span class="stringliteral">&quot;SERVER_NAME&quot;</span>].$_SERVER[<span class="stringliteral">&quot;REQUEST_URI&quot;</span>];</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        }</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="keywordflow">return</span> $pageURL;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    }</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;</div>
-<div class="line"><a name="l00335"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a543d4488b170c3e8c3283cae6650b12b">  335</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a543d4488b170c3e8c3283cae6650b12b">setClientScripts</a>()</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    {</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;includeBaseClientScripts();</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    }</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
-<div class="line"><a name="l00345"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a5ea617defced2833678b138544810d35">  345</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a5ea617defced2833678b138544810d35">initAllForms</a>()</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    {</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordflow">foreach</span> ($this-&gt;m_FormRefs as $formRef)</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        {</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            $formRef-&gt;setViewName($this-&gt;m_Name);</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            $formName = $formRef-&gt;m_Name;</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            $formObj = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject($formName);</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            <span class="keywordflow">if</span> ($formRef-&gt;m_SubForms &amp;&amp; method_exists($formObj,<span class="stringliteral">&quot;SetSubForms&quot;</span>))</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                $formObj-&gt;setSubForms($formRef-&gt;m_SubForms);</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        }</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    }</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;</div>
-<div class="line"><a name="l00362"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a3c934047380a0debb627d77d51bb85c8">  362</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a3c934047380a0debb627d77d51bb85c8">processRequest</a>()</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    {</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        <span class="comment">// if url has form=...</span></div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        $paramForm = isset($_REQUEST[<span class="stringliteral">&#39;form&#39;</span>]) ? $_REQUEST[<span class="stringliteral">&#39;form&#39;</span>] : null;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        <span class="comment">// check url arg as fld:name=val</span></div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        $getKeys = array_keys($_REQUEST);</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        $pageid = $_GET[<span class="stringliteral">&quot;pageid&quot;</span>];</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        </div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        $paramFields = null;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <span class="keywordflow">foreach</span> ($getKeys as $key)</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        {</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;            <span class="keywordflow">if</span> (substr($key, 0, 4) == <span class="stringliteral">&quot;fld:&quot;</span>)</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;            {</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;                $fieldName = substr($key, 4);</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                $fieldValue = $_REQUEST[$key];</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                $paramFields[$fieldName] = $fieldValue;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;            }</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        }</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        <span class="keywordflow">if</span> (!$paramFields &amp;&amp; !$pageid)</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;            <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        <span class="comment">// get the form object</span></div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        <span class="keywordflow">if</span> (!$paramForm)</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        { <span class="comment">// get the first form name if no form is given</span></div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;            <span class="keywordflow">foreach</span> ($this-&gt;m_FormRefs as $formRef)</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;            {</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                $paramForm = $formRef-&gt;m_Name;</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;            }</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        }</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        <span class="keywordflow">if</span> (!$paramForm)</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        $paramForm = $this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a7a34962e72564b47da11d86bfde7cf79">prefixPackage</a>($paramForm);</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        $formObj = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject($paramForm);</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        $formObj-&gt;setRequestParams($paramFields);</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        <span class="keywordflow">if</span>($pageid){</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;   $formObj-&gt;setCurrentPage($pageid);</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        }        </div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    }</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;</div>
-<div class="line"><a name="l00409"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#afbb8fcc4c21113c915263f4a1ca3c0c5">  409</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#afbb8fcc4c21113c915263f4a1ca3c0c5">outputAttrs</a>() </div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    {</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        $out[<span class="stringliteral">&#39;name&#39;</span>] = <a class="code" href="../../db/d4b/class_meta_object.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">$this-&gt;m_Name</a>;</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        $out[<span class="stringliteral">&#39;module&#39;</span>] = $this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e">getModuleName</a>($this-&gt;m_Name);</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        $out[<span class="stringliteral">&#39;description&#39;</span>] = <a class="code" href="../../db/d4b/class_meta_object.html#a62d29f50c8fc3b49f6e195be44c72881">$this-&gt;m_Description</a>;</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        $out[<span class="stringliteral">&quot;keywords&quot;</span>] = <a class="code" href="../../db/d40/class_easy_view.html#a9152e08069bc15093e5417117516b1c2">$this-&gt;m_Keywords</a>;</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        <span class="keywordflow">if</span> ($this-&gt;m_Title)</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            $title = <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>($this-&gt;m_Title,$this);</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;         $title = <a class="code" href="../../db/d4b/class_meta_object.html#a62d29f50c8fc3b49f6e195be44c72881">$this-&gt;m_Description</a>;</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        $out[<span class="stringliteral">&#39;title&#39;</span>] = $title;</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        <span class="keywordflow">return</span> $out;</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    }</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    </div>
-<div class="line"><a name="l00423"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a89ea6fc1dd64c515da7c373792fd74ff">  423</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a89ea6fc1dd64c515da7c373792fd74ff">translate</a>()</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    {</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;     $module = $this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e">getModuleName</a>($this-&gt;m_Name);</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;     $trans_string = <a class="code" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a">I18n::t</a>($this-&gt;m_Title, $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a23e530c2fd590d19ff1ff8ad2eba5b44">getTransKey</a>(<span class="stringliteral">&#39;Title&#39;</span>), $module, $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a22fdacfc845865345b35660767bf9073">getTransPrefix</a>());</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;     <span class="keywordflow">if</span>($trans_string){</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;      $this-&gt;m_Title =  $trans_string;</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;     }</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;     $trans_string = <a class="code" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a">I18n::t</a>($this-&gt;m_Description, $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a23e530c2fd590d19ff1ff8ad2eba5b44">getTransKey</a>(<span class="stringliteral">&#39;Description&#39;</span>), $module, $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a22fdacfc845865345b35660767bf9073">getTransPrefix</a>());</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;     <span class="keywordflow">if</span>($trans_string){</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;      $this-&gt;m_Description = $trans_string;</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;     }</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    }</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;</div>
-<div class="line"><a name="l00436"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a22fdacfc845865345b35660767bf9073">  436</a></span>&#160; <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a22fdacfc845865345b35660767bf9073">getTransPrefix</a>()</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    {     </div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;     $nameArr = explode(<span class="stringliteral">&quot;.&quot;</span>,$this-&gt;m_Name);</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;     <span class="keywordflow">for</span>($i=1;$i&lt;count($nameArr)-1;$i++)</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;     {</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;      $prefix .= strtoupper($nameArr[$i]).<span class="stringliteral">&quot;_&quot;</span>;</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;     }</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;     <span class="keywordflow">return</span> $prefix;</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    }    </div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    </div>
-<div class="line"><a name="l00446"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a23e530c2fd590d19ff1ff8ad2eba5b44">  446</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a23e530c2fd590d19ff1ff8ad2eba5b44">getTransKey</a>($name)</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    {</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;     $shortFormName = substr($this-&gt;m_Name,intval(strrpos($this-&gt;m_Name,<span class="charliteral">&#39;.&#39;</span>))+1);</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;     <span class="keywordflow">return</span> strtoupper($shortFormName.<span class="charliteral">&#39;_&#39;</span>.$name);</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    }</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;}</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;</div>
+<div class="line"><a name="l00234"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#afde88292c44dc59faf017738dae6dffb">  234</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#afde88292c44dc59faf017738dae6dffb">render</a>()</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    {</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;     <span class="keywordflow">if</span> (!$this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1">allowAccess</a>())</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        {</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            $accessDenyView = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject(<a class="code" href="../../d1/df2/sys__init_8php.html#ad3cf5ba482d7891d170dd35288cbf72c">ACCESS_DENIED_VIEW</a>);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            <span class="keywordflow">return</span> $accessDenyView-&gt;render();</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        }</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a5ea617defced2833678b138544810d35">initAllForms</a>();</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <span class="comment">// check the &quot;fld_...&quot; arg in url and put it in the search rule</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a3c934047380a0debb627d77d51bb85c8">processRequest</a>();</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <span class="keywordflow">return</span> $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a30bcc620a40b8f755dbafb28ff1c76d4">_render</a>();</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    }</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
+<div class="line"><a name="l00254"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a30bcc620a40b8f755dbafb28ff1c76d4">  254</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a30bcc620a40b8f755dbafb28ff1c76d4">_render</a>()</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    {</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a543d4488b170c3e8c3283cae6650b12b">setClientScripts</a>();</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">if</span>($this-&gt;m_CacheLifeTime&gt;0)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        {</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            $pageUrl = $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#aa4221641e5c21db69fa52c426b9017f5">curPageURL</a>();</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            $cache_id = md5($pageUrl);</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="comment">//try to process cache service.</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;            $cacheSvc = <a class="code" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96">BizSystem::getService</a>(CACHE_SERVICE,1);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            $cacheSvc-&gt;init($this-&gt;m_Name,$this-&gt;m_CacheLifeTime);</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            <span class="keywordflow">if</span>($cacheSvc-&gt;test($cache_id))</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_DEBUG, <span class="stringliteral">&quot;VIEW&quot;</span>, <span class="stringliteral">&quot;Cache Hit. url = &quot;</span>.$pageUrl);</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                $output = $cacheSvc-&gt;load($cache_id);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;            }</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            {</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                <span class="comment">//include_once(OPENBIZ_BIN.&quot;/easy/ViewRenderer.php&quot;);</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                $this-&gt;m_ConsoleOutput = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                $output = <a class="code" href="../../d4/dfb/class_view_renderer.html#a588ca768528b47207177dfd1ff7ced52">ViewRenderer::render</a>($this);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_DEBUG, <span class="stringliteral">&quot;VIEW&quot;</span>, <span class="stringliteral">&quot;Set cache. url = &quot;</span>.$pageUrl);</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                $cacheSvc-&gt;save($output, $cache_id);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            }</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            print $output;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        }</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        {</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            <span class="comment">//include_once(OPENBIZ_BIN.&quot;/easy/ViewRenderer.php&quot;);</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            <a class="code" href="../../d4/dfb/class_view_renderer.html#a588ca768528b47207177dfd1ff7ced52">ViewRenderer::render</a>($this);</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        }</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="comment">/*</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="comment">        $this-&gt;setClientScripts();</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="comment">       //include_once(OPENBIZ_BIN.&quot;/easy/ViewRenderer.php&quot;); </span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="comment">     return ViewRenderer::render($this);</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="comment">         */</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    }</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
+<div class="line"><a name="l00301"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#aa4221641e5c21db69fa52c426b9017f5">  301</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#aa4221641e5c21db69fa52c426b9017f5">curPageURL</a>()</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    {</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        <span class="keywordflow">return</span> $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#ae9a94dea2a8e11ebf9010683a124fabf">getCurrentPageUrl</a>();</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    }</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;</div>
+<div class="line"><a name="l00312"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#ae9a94dea2a8e11ebf9010683a124fabf">  312</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#ae9a94dea2a8e11ebf9010683a124fabf">getCurrentPageUrl</a>()</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    {</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        $pageURL = <span class="stringliteral">&#39;http&#39;</span>;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <span class="keywordflow">if</span> ($_SERVER[<span class="stringliteral">&quot;HTTPS&quot;</span>] == <span class="stringliteral">&quot;on&quot;</span>)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        {</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            $pageURL .= <span class="stringliteral">&quot;s&quot;</span>;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        }</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        $pageURL .= <span class="stringliteral">&quot;://&quot;</span>;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="keywordflow">if</span> ($_SERVER[<span class="stringliteral">&quot;SERVER_PORT&quot;</span>] != <span class="stringliteral">&quot;80&quot;</span>)</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        {</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            $pageURL .= $_SERVER[<span class="stringliteral">&quot;SERVER_NAME&quot;</span>].<span class="stringliteral">&quot;:&quot;</span>.$_SERVER[<span class="stringliteral">&quot;SERVER_PORT&quot;</span>].$_SERVER[<span class="stringliteral">&quot;REQUEST_URI&quot;</span>];</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        }</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;            $pageURL .= $_SERVER[<span class="stringliteral">&quot;SERVER_NAME&quot;</span>].$_SERVER[<span class="stringliteral">&quot;REQUEST_URI&quot;</span>];</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        }</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        <span class="keywordflow">return</span> $pageURL;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    }</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
+<div class="line"><a name="l00336"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a543d4488b170c3e8c3283cae6650b12b">  336</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a543d4488b170c3e8c3283cae6650b12b">setClientScripts</a>()</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    {</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;includeBaseClientScripts();</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    }</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;</div>
+<div class="line"><a name="l00346"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a5ea617defced2833678b138544810d35">  346</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a5ea617defced2833678b138544810d35">initAllForms</a>()</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    {</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        <span class="keywordflow">foreach</span> ($this-&gt;m_FormRefs as $formRef)</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        {</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            $formRef-&gt;setViewName($this-&gt;m_Name);</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;            $formName = $formRef-&gt;m_Name;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            $formObj = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject($formName);</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            <span class="keywordflow">if</span> ($formRef-&gt;m_SubForms &amp;&amp; method_exists($formObj,<span class="stringliteral">&quot;SetSubForms&quot;</span>))</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                $formObj-&gt;setSubForms($formRef-&gt;m_SubForms);</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        }</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    }</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
+<div class="line"><a name="l00363"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a3c934047380a0debb627d77d51bb85c8">  363</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a3c934047380a0debb627d77d51bb85c8">processRequest</a>()</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    {</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        <span class="comment">// if url has form=...</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        $paramForm = isset($_REQUEST[<span class="stringliteral">&#39;form&#39;</span>]) ? $_REQUEST[<span class="stringliteral">&#39;form&#39;</span>] : null;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <span class="comment">// check url arg as fld:name=val</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        $getKeys = array_keys($_REQUEST);</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        $pageid = $_GET[<span class="stringliteral">&quot;pageid&quot;</span>];</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        </div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        $paramFields = null;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <span class="keywordflow">foreach</span> ($getKeys as $key)</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        {</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;            <span class="keywordflow">if</span> (substr($key, 0, 4) == <span class="stringliteral">&quot;fld:&quot;</span>)</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;            {</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                $fieldName = substr($key, 4);</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;                $fieldValue = $_REQUEST[$key];</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;                $paramFields[$fieldName] = $fieldValue;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;            }</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        }</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        <span class="keywordflow">if</span> (!$paramFields &amp;&amp; !$pageid)</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        <span class="comment">// get the form object</span></div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        <span class="keywordflow">if</span> (!$paramForm)</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        { <span class="comment">// get the first form name if no form is given</span></div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;            <span class="keywordflow">foreach</span> ($this-&gt;m_FormRefs as $formRef)</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;            {</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                $paramForm = $formRef-&gt;m_Name;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;            }</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        }</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        <span class="keywordflow">if</span> (!$paramForm)</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        $paramForm = $this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a7a34962e72564b47da11d86bfde7cf79">prefixPackage</a>($paramForm);</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        $formObj = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject($paramForm);</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        $formObj-&gt;setRequestParams($paramFields);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="keywordflow">if</span>($pageid){</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;   $formObj-&gt;setCurrentPage($pageid);</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        }        </div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    }</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;</div>
+<div class="line"><a name="l00410"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#afbb8fcc4c21113c915263f4a1ca3c0c5">  410</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#afbb8fcc4c21113c915263f4a1ca3c0c5">outputAttrs</a>() </div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    {</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        $out[<span class="stringliteral">&#39;name&#39;</span>] = <a class="code" href="../../db/d4b/class_meta_object.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">$this-&gt;m_Name</a>;</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        $out[<span class="stringliteral">&#39;module&#39;</span>] = $this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e">getModuleName</a>($this-&gt;m_Name);</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        $out[<span class="stringliteral">&#39;description&#39;</span>] = <a class="code" href="../../db/d4b/class_meta_object.html#a62d29f50c8fc3b49f6e195be44c72881">$this-&gt;m_Description</a>;</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        $out[<span class="stringliteral">&quot;keywords&quot;</span>] = <a class="code" href="../../db/d40/class_easy_view.html#a9152e08069bc15093e5417117516b1c2">$this-&gt;m_Keywords</a>;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        <span class="keywordflow">if</span> ($this-&gt;m_Title)</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            $title = <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>($this-&gt;m_Title,$this);</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;         $title = <a class="code" href="../../db/d4b/class_meta_object.html#a62d29f50c8fc3b49f6e195be44c72881">$this-&gt;m_Description</a>;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        $out[<span class="stringliteral">&#39;title&#39;</span>] = $title;</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        <span class="keywordflow">return</span> $out;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    }</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    </div>
+<div class="line"><a name="l00424"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a89ea6fc1dd64c515da7c373792fd74ff">  424</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a89ea6fc1dd64c515da7c373792fd74ff">translate</a>()</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    {</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;     $module = $this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e">getModuleName</a>($this-&gt;m_Name);</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;     $trans_string = <a class="code" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a">I18n::t</a>($this-&gt;m_Title, $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a23e530c2fd590d19ff1ff8ad2eba5b44">getTransKey</a>(<span class="stringliteral">&#39;Title&#39;</span>), $module, $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a22fdacfc845865345b35660767bf9073">getTransPrefix</a>());</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;     <span class="keywordflow">if</span>($trans_string){</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;      $this-&gt;m_Title =  $trans_string;</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;     }</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;     $trans_string = <a class="code" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a">I18n::t</a>($this-&gt;m_Description, $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a23e530c2fd590d19ff1ff8ad2eba5b44">getTransKey</a>(<span class="stringliteral">&#39;Description&#39;</span>), $module, $this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a22fdacfc845865345b35660767bf9073">getTransPrefix</a>());</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;     <span class="keywordflow">if</span>($trans_string){</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;      $this-&gt;m_Description = $trans_string;</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;     }</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    }</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;</div>
+<div class="line"><a name="l00437"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a22fdacfc845865345b35660767bf9073">  437</a></span>&#160; <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a22fdacfc845865345b35660767bf9073">getTransPrefix</a>()</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    {     </div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;     $nameArr = explode(<span class="stringliteral">&quot;.&quot;</span>,$this-&gt;m_Name);</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;     <span class="keywordflow">for</span>($i=1;$i&lt;count($nameArr)-1;$i++)</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;     {</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;      $prefix .= strtoupper($nameArr[$i]).<span class="stringliteral">&quot;_&quot;</span>;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;     }</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;     <span class="keywordflow">return</span> $prefix;</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    }    </div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    </div>
+<div class="line"><a name="l00447"></a><span class="lineno"><a class="code" href="../../db/d40/class_easy_view.html#a23e530c2fd590d19ff1ff8ad2eba5b44">  447</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d40/class_easy_view.html#a23e530c2fd590d19ff1ff8ad2eba5b44">getTransKey</a>($name)</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    {</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;     $shortFormName = substr($this-&gt;m_Name,intval(strrpos($this-&gt;m_Name,<span class="charliteral">&#39;.&#39;</span>))+1);</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;     <span class="keywordflow">return</span> strtoupper($shortFormName.<span class="charliteral">&#39;_&#39;</span>.$name);</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    }</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;}</div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;</div>
-<div class="line"><a name="l00462"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html">  462</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/d96/class_form_reference.html">FormReference</a></div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;{</div>
-<div class="line"><a name="l00464"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">  464</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="../../db/d96/class_form_reference.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">$m_Name</a>;</div>
-<div class="line"><a name="l00465"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#abdb32f55c3be71f7b8cca7eae8a9b342">  465</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="../../db/d96/class_form_reference.html#abdb32f55c3be71f7b8cca7eae8a9b342">$m_SubForms</a>;</div>
-<div class="line"><a name="l00466"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#a62d29f50c8fc3b49f6e195be44c72881">  466</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="../../db/d96/class_form_reference.html#a62d29f50c8fc3b49f6e195be44c72881">$m_Description</a>;</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    <span class="keyword">private</span> $_parentForm;</div>
-<div class="line"><a name="l00468"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#afb978c97e00877aca5effb98946524b3">  468</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="../../db/d96/class_form_reference.html#afb978c97e00877aca5effb98946524b3">$m_Display</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00469"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#adeeef56e0bc4a6f066d379c32c298287">  469</a></span>&#160;    <span class="keyword">protected</span> <a class="code" href="../../db/d96/class_form_reference.html#adeeef56e0bc4a6f066d379c32c298287">$m_ViewName</a>;</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;</div>
-<div class="line"><a name="l00476"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#a71eb1365b44422050d8062c2c83af02a">  476</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d96/class_form_reference.html#a71eb1365b44422050d8062c2c83af02a">__construct</a>($xmlArr)</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    {</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;     <span class="keywordflow">foreach</span>($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>] as $name=&gt;$value)</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        {</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;         $name = <span class="stringliteral">&#39;m_&#39;</span>.ucfirst(strtolower($name));</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;         $this-&gt;$name = $value;</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;        }</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;        $this-&gt;m_Name = $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAME&quot;</span>];</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;        $this-&gt;m_SubForms = $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;SUBFORMS&quot;</span>];</div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        $this-&gt;m_Description = $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DESCRIPTION&quot;</span>];        </div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    }</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;</div>
-<div class="line"><a name="l00494"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#a2991fa95e2d6c4dba4340dffedcea68e">  494</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d96/class_form_reference.html#a2991fa95e2d6c4dba4340dffedcea68e">setParentForm</a>($formName)</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    {</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;        $this-&gt;_parentForm = $formName;</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    }</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    </div>
-<div class="line"><a name="l00499"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#a727850fb11d66a2df8cfd92c03c77df0">  499</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d96/class_form_reference.html#a727850fb11d66a2df8cfd92c03c77df0">setViewName</a>($viewName)</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    {</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;        $this-&gt;m_ViewName = $viewName;</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;        $this-&gt;<a class="code" href="../../db/d96/class_form_reference.html#a89ea6fc1dd64c515da7c373792fd74ff">translate</a>();</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    }</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    </div>
-<div class="line"><a name="l00505"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#a89ea6fc1dd64c515da7c373792fd74ff">  505</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d96/class_form_reference.html#a89ea6fc1dd64c515da7c373792fd74ff">translate</a>()</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    {</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;     $module = substr($this-&gt;m_ViewName,0,intval(strpos($this-&gt;m_ViewName,<span class="charliteral">&#39;.&#39;</span>)));</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        <span class="comment">//echo $this-&gt;getTransKey(&#39;Description&#39;);</span></div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;        $this-&gt;m_Description = <a class="code" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a">I18n::t</a>($this-&gt;m_Description, $this-&gt;<a class="code" href="../../db/d96/class_form_reference.html#a23e530c2fd590d19ff1ff8ad2eba5b44">getTransKey</a>(<span class="stringliteral">&#39;Description&#39;</span>), $module);</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    }</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    </div>
-<div class="line"><a name="l00512"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#a23e530c2fd590d19ff1ff8ad2eba5b44">  512</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d96/class_form_reference.html#a23e530c2fd590d19ff1ff8ad2eba5b44">getTransKey</a>($name)</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    {</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;     $shortViewName = substr($this-&gt;m_ViewName,intval(strrpos($this-&gt;m_ViewName,<span class="charliteral">&#39;.&#39;</span>)+1));</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;     <span class="keywordflow">return</span> strtoupper($shortViewName.<span class="charliteral">&#39;_&#39;</span>.$this-&gt;m_Name.<span class="charliteral">&#39;_&#39;</span>.$name);</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    }</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;}</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;?&gt;</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;</div>
+<div class="line"><a name="l00463"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html">  463</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/d96/class_form_reference.html">FormReference</a></div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;{</div>
+<div class="line"><a name="l00465"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">  465</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="../../db/d96/class_form_reference.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">$m_Name</a>;</div>
+<div class="line"><a name="l00466"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#abdb32f55c3be71f7b8cca7eae8a9b342">  466</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="../../db/d96/class_form_reference.html#abdb32f55c3be71f7b8cca7eae8a9b342">$m_SubForms</a>;</div>
+<div class="line"><a name="l00467"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#a62d29f50c8fc3b49f6e195be44c72881">  467</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="../../db/d96/class_form_reference.html#a62d29f50c8fc3b49f6e195be44c72881">$m_Description</a>;</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="keyword">private</span> $_parentForm;</div>
+<div class="line"><a name="l00469"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#afb978c97e00877aca5effb98946524b3">  469</a></span>&#160;    <span class="keyword">public</span> <a class="code" href="../../db/d96/class_form_reference.html#afb978c97e00877aca5effb98946524b3">$m_Display</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00470"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#adeeef56e0bc4a6f066d379c32c298287">  470</a></span>&#160;    <span class="keyword">protected</span> <a class="code" href="../../db/d96/class_form_reference.html#adeeef56e0bc4a6f066d379c32c298287">$m_ViewName</a>;</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;</div>
+<div class="line"><a name="l00477"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#a71eb1365b44422050d8062c2c83af02a">  477</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d96/class_form_reference.html#a71eb1365b44422050d8062c2c83af02a">__construct</a>($xmlArr)</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    {</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;     <span class="keywordflow">foreach</span>($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>] as $name=&gt;$value)</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        {</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;         $name = <span class="stringliteral">&#39;m_&#39;</span>.ucfirst(strtolower($name));</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;         $this-&gt;$name = $value;</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;        }</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;        $this-&gt;m_Name = $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAME&quot;</span>];</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        $this-&gt;m_SubForms = $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;SUBFORMS&quot;</span>];</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        $this-&gt;m_Description = $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DESCRIPTION&quot;</span>];        </div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    }</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;</div>
+<div class="line"><a name="l00495"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#a2991fa95e2d6c4dba4340dffedcea68e">  495</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d96/class_form_reference.html#a2991fa95e2d6c4dba4340dffedcea68e">setParentForm</a>($formName)</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    {</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;        $this-&gt;_parentForm = $formName;</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    }</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    </div>
+<div class="line"><a name="l00500"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#a727850fb11d66a2df8cfd92c03c77df0">  500</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="../../db/d96/class_form_reference.html#a727850fb11d66a2df8cfd92c03c77df0">setViewName</a>($viewName)</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    {</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;        $this-&gt;m_ViewName = $viewName;</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;        $this-&gt;<a class="code" href="../../db/d96/class_form_reference.html#a89ea6fc1dd64c515da7c373792fd74ff">translate</a>();</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    }</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    </div>
+<div class="line"><a name="l00506"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#a89ea6fc1dd64c515da7c373792fd74ff">  506</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d96/class_form_reference.html#a89ea6fc1dd64c515da7c373792fd74ff">translate</a>()</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    {</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;     $module = substr($this-&gt;m_ViewName,0,intval(strpos($this-&gt;m_ViewName,<span class="charliteral">&#39;.&#39;</span>)));</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;        <span class="comment">//echo $this-&gt;getTransKey(&#39;Description&#39;);</span></div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;        $this-&gt;m_Description = <a class="code" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a">I18n::t</a>($this-&gt;m_Description, $this-&gt;<a class="code" href="../../db/d96/class_form_reference.html#a23e530c2fd590d19ff1ff8ad2eba5b44">getTransKey</a>(<span class="stringliteral">&#39;Description&#39;</span>), $module);</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    }</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    </div>
+<div class="line"><a name="l00513"></a><span class="lineno"><a class="code" href="../../db/d96/class_form_reference.html#a23e530c2fd590d19ff1ff8ad2eba5b44">  513</a></span>&#160;    <span class="keyword">protected</span> <span class="keyword">function</span> <a class="code" href="../../db/d96/class_form_reference.html#a23e530c2fd590d19ff1ff8ad2eba5b44">getTransKey</a>($name)</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    {</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;     $shortViewName = substr($this-&gt;m_ViewName,intval(strrpos($this-&gt;m_ViewName,<span class="charliteral">&#39;.&#39;</span>)+1));</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;     <span class="keywordflow">return</span> strtoupper($shortViewName.<span class="charliteral">&#39;_&#39;</span>.$this-&gt;m_Name.<span class="charliteral">&#39;_&#39;</span>.$name);</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    }</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;}</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;?&gt;</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_9e51036813d6151dfecc72d5fa7c02b3.html">Users</a></li><li class="navelem"><a class="el" href="../../dir_b0446a7b2c4e13f76e78dcf7715ad478.html">jixian</a></li><li class="navelem"><a class="el" href="../../dir_c1d932a277628715986f941f0ae2ef99.html">Workspace</a></li><li class="navelem"><a class="el" href="../../dir_dd87cfccd83ac043527f7444db3022b2.html">Openbiz_Project_Google</a></li><li class="navelem"><a class="el" href="../../dir_583a7b4370c1d82f6d6d7fc9f59a4283.html">cubi</a></li><li class="navelem"><a class="el" href="../../dir_ac0478a135b22ff1f794c875c5bf9aa9.html">openbiz</a></li><li class="navelem"><a class="el" href="../../dir_0ee2580413d323b809fede65055b96ff.html">bin</a></li><li class="navelem"><a class="el" href="../../dir_cc998239cb888a67422d9062ec87da37.html">easy</a></li><li class="navelem"><a class="el" href="../../d9/dbd/_easy_view_8php.html">EasyView.php</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:21:27 for Openbiz Framework API by
+    <li class="navelem"><a class="el" href="../../dir_e4e4c5f4edba5c3fa361c78d4ddae30e.html">openbiz</a></li><li class="navelem"><a class="el" href="../../dir_adf578fe019b0c440775390e615de841.html">bin</a></li><li class="navelem"><a class="el" href="../../dir_b635095b2f31361767d6705854b3fdf1.html">easy</a></li><li class="navelem"><a class="el" href="../../d9/dbd/_easy_view_8php.html">EasyView.php</a></li>
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:49 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

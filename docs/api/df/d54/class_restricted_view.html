@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -125,10 +126,10 @@ $(document).ready(function(){initNavTree('df/d54/class_restricted_view.html','..
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a71eb1365b44422050d8062c2c83af02a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d54/class_restricted_view.html#a71eb1365b44422050d8062c2c83af02a">__construct</a> ($xmlArr)</td></tr>
 <tr class="separator:a71eb1365b44422050d8062c2c83af02a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a316e5b32c471ab5521721eb925632fca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d54/class_restricted_view.html#a316e5b32c471ab5521721eb925632fca">getViewName</a> ()</td></tr>
-<tr class="separator:a316e5b32c471ab5521721eb925632fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3589ce7d5e9671ab9a593abdbac80818"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d54/class_restricted_view.html#a3589ce7d5e9671ab9a593abdbac80818">getRoleList</a> ()</td></tr>
 <tr class="separator:a3589ce7d5e9671ab9a593abdbac80818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a316e5b32c471ab5521721eb925632fca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d54/class_restricted_view.html#a316e5b32c471ab5521721eb925632fca">getViewName</a> ()</td></tr>
+<tr class="separator:a316e5b32c471ab5521721eb925632fca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
@@ -162,7 +163,11 @@ Data Fields</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 <p>Definition at line <a class="el" href="../../d1/daa/access_service_8php_source.html#l00147">147</a> of file <a class="el" href="../../d1/daa/access_service_8php_source.html">accessService.php</a>.</p>
-
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $this-&gt;m_Name = $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAME&quot;</span>];</div>
+<div class="line">        $this-&gt;_roleList = <span class="keyword">new</span> <a class="code" href="../../dd/d21/class_meta_iterator.html">MetaIterator</a>($xmlArr[<span class="stringliteral">&quot;ROLE&quot;</span>],<span class="stringliteral">&quot;RestrictedRole&quot;</span>);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -182,7 +187,10 @@ Data Fields</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../dd/d21/class_meta_iterator.html">MetaIterator</a> </dd></dl>
 
 <p>Definition at line <a class="el" href="../../d1/daa/access_service_8php_source.html#l00168">168</a> of file <a class="el" href="../../d1/daa/access_service_8php_source.html">accessService.php</a>.</p>
-
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> $this-&gt;_roleList;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a316e5b32c471ab5521721eb925632fca"></a>
@@ -202,6 +210,11 @@ Data Fields</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d1/daa/access_service_8php_source.html#l00158">158</a> of file <a class="el" href="../../d1/daa/access_service_8php_source.html">accessService.php</a>.</p>
 
+<p>References <a class="el" href="../../d1/daa/access_service_8php_source.html#l00131">$m_Name</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="../../df/d54/class_restricted_view.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">$this-&gt;m_Name</a>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -217,6 +230,8 @@ Data Fields</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d1/daa/access_service_8php_source.html#l00131">131</a> of file <a class="el" href="../../d1/daa/access_service_8php_source.html">accessService.php</a>.</p>
 
+<p>Referenced by <a class="el" href="../../d1/daa/access_service_8php_source.html#l00158">getViewName()</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -225,7 +240,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../df/d54/class_restricted_view.html">RestrictedView</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:22:05 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:58 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

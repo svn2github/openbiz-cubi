@@ -18,21 +18,22 @@ var NAVTREE =
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ]
       ] ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/df2/sys__init_8php.html#a1d8bc2583019daad3cd3339d043c0e88",
-"d3/d10/class_easy_form.html#a7ac5ba710a8be599003dc86251b16828",
-"d4/dd8/class_data_set.html#ac751e87b3d4c4bf2feb03bee8b092755",
-"d6/db4/_user_setting_8php_source.html",
-"d9/d86/class_biz_record.html#a19419a3fa729a4161a263365b7a3ef08",
-"db/d60/class_object_factory.html#a276a15d5187194e2c92b31b8c1f23997",
-"dd/d21/class_meta_iterator.html",
-"df/de2/class_easy_view_wizard.html#afbb8fcc4c21113c915263f4a1ca3c0c5"
+"d1/dd9/class_c_k_editor.html#a5888f7e5883c7c2d486f7ddc1bd64760",
+"d3/d10/class_easy_form.html#a69fa9e0c4d5e4506a6e6fc38af5e53d8",
+"d4/dba/class_input_date_range_picker.html#afde88292c44dc59faf017738dae6dffb",
+"d6/d59/classprofile_service.html#a5b2cb9a1d2cf3080e47d2fb92fe124b3",
+"d8/db9/class_table_join.html#a9e77022d4c93c80692923ac6ac8e1ccd",
+"db/d4b/class_meta_object.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d",
+"dc/dd1/class_session_context.html#a9b26dca7b344e42ad15a5d174d3ef3c0",
+"df/db7/audit_service_8php_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

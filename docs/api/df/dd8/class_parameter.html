@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -130,14 +131,14 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a8dc06948da84d3c7f1ad5b7fc0f27b2d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/class_parameter.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">$m_Name</a></td></tr>
-<tr class="separator:a8dc06948da84d3c7f1ad5b7fc0f27b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acab8a119e17bf4955d23bd05c09ee4cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/class_parameter.html#acab8a119e17bf4955d23bd05c09ee4cd">$m_Value</a></td></tr>
-<tr class="separator:acab8a119e17bf4955d23bd05c09ee4cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53b27be2e8cb3e600ab5ca091c100dd1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/class_parameter.html#a53b27be2e8cb3e600ab5ca091c100dd1">$m_Required</a></td></tr>
-<tr class="separator:a53b27be2e8cb3e600ab5ca091c100dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca4597f18f86290e0e418b64a7b60993"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/class_parameter.html#aca4597f18f86290e0e418b64a7b60993">$m_InOut</a></td></tr>
 <tr class="separator:aca4597f18f86290e0e418b64a7b60993"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dc06948da84d3c7f1ad5b7fc0f27b2d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/class_parameter.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">$m_Name</a></td></tr>
+<tr class="separator:a8dc06948da84d3c7f1ad5b7fc0f27b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53b27be2e8cb3e600ab5ca091c100dd1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/class_parameter.html#a53b27be2e8cb3e600ab5ca091c100dd1">$m_Required</a></td></tr>
+<tr class="separator:a53b27be2e8cb3e600ab5ca091c100dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acab8a119e17bf4955d23bd05c09ee4cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dd8/class_parameter.html#acab8a119e17bf4955d23bd05c09ee4cd">$m_Value</a></td></tr>
+<tr class="separator:acab8a119e17bf4955d23bd05c09ee4cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -158,7 +159,13 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../d2/d41/sysclass__inc_8php_source.html#l00390">390</a> of file <a class="el" href="../../d2/d41/sysclass__inc_8php_source.html">sysclass_inc.php</a>.</p>
-
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $this-&gt;m_Name = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAME&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAME&quot;</span>] : null;</div>
+<div class="line">        $this-&gt;m_Value = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;VALUE&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;VALUE&quot;</span>] : null;</div>
+<div class="line">        $this-&gt;m_Required = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;REQUIRED&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;REQUIRED&quot;</span>] : null;</div>
+<div class="line">        $this-&gt;m_InOut = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;INOUT&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;INOUT&quot;</span>] : null;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -186,6 +193,12 @@ Data Fields</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d2/d41/sysclass__inc_8php_source.html#l00404">404</a> of file <a class="el" href="../../d2/d41/sysclass__inc_8php_source.html">sysclass_inc.php</a>.</p>
 
+<p>References <a class="el" href="../../d2/d41/sysclass__inc_8php_source.html#l00387">$m_Value</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        <span class="keywordflow">if</span> ($propertyName == <span class="stringliteral">&quot;Value&quot;</span>) <span class="keywordflow">return</span> <a class="code" href="../../df/dd8/class_parameter.html#acab8a119e17bf4955d23bd05c09ee4cd">$this-&gt;m_Value</a>;</div>
+<div class="line">        <span class="keywordflow">return</span> null;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -243,15 +256,20 @@ Data Fields</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d2/d41/sysclass__inc_8php_source.html#l00387">387</a> of file <a class="el" href="../../d2/d41/sysclass__inc_8php_source.html">sysclass_inc.php</a>.</p>
 
+<p>Referenced by <a class="el" href="../../d2/d41/sysclass__inc_8php_source.html#l00404">getProperty()</a>.</p>
+
 </div>
 </div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>openbiz/bin/<a class="el" href="../../d2/d41/sysclass__inc_8php_source.html">sysclass_inc.php</a></li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../df/dd8/class_parameter.html">Parameter</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:22:03 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:48:39 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -130,14 +131,14 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ae2c3448d09eb7b3b3fcc1a25acb6fb9f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d73/classgen_id_service.html#ae2c3448d09eb7b3b3fcc1a25acb6fb9f">getNewSYSID</a> ($conn, $tableName, $includePrefix=false, $base=-1)</td></tr>
-<tr class="separator:ae2c3448d09eb7b3b3fcc1a25acb6fb9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2676d0df30df16025b2e405aa6d7cf88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d73/classgen_id_service.html#a2676d0df30df16025b2e405aa6d7cf88">getNewGUID</a> ($conn, $dbType, $table=null, $column=null)</td></tr>
+<tr class="separator:a2676d0df30df16025b2e405aa6d7cf88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a229e99d1592e0fdbb6cfe8476d77be83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d73/classgen_id_service.html#a229e99d1592e0fdbb6cfe8476d77be83">getNewIdentity</a> ($conn, $dbType, $table=null, $column=null)</td></tr>
 <tr class="separator:a229e99d1592e0fdbb6cfe8476d77be83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad884d42cee6041432b8ef876e6991659"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d73/classgen_id_service.html#ad884d42cee6041432b8ef876e6991659">getNewSequence</a> ($conn, $dbtype, $sequenceName)</td></tr>
 <tr class="separator:ad884d42cee6041432b8ef876e6991659"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2676d0df30df16025b2e405aa6d7cf88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d73/classgen_id_service.html#a2676d0df30df16025b2e405aa6d7cf88">getNewGUID</a> ($conn, $dbType, $table=null, $column=null)</td></tr>
-<tr class="separator:a2676d0df30df16025b2e405aa6d7cf88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2c3448d09eb7b3b3fcc1a25acb6fb9f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d73/classgen_id_service.html#ae2c3448d09eb7b3b3fcc1a25acb6fb9f">getNewSYSID</a> ($conn, $tableName, $includePrefix=false, $base=-1)</td></tr>
+<tr class="separator:ae2c3448d09eb7b3b3fcc1a25acb6fb9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02a4b91713f7b0f5745259afff43a183"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d73/classgen_id_service.html#a02a4b91713f7b0f5745259afff43a183">getNewUUID</a> ()</td></tr>
 <tr class="separator:a02a4b91713f7b0f5745259afff43a183"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -167,7 +168,9 @@ Protected Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 <p>Definition at line <a class="el" href="../../d7/d58/gen_id_service_8php_source.html#l00034">34</a> of file <a class="el" href="../../d7/d58/gen_id_service_8php_source.html">genIdService.php</a>.</p>
-
+<div class="fragment"><div class="line">    {</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -228,6 +231,24 @@ Protected Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d7/d58/gen_id_service_8php_source.html#l00226">226</a> of file <a class="el" href="../../d7/d58/gen_id_service_8php_source.html">genIdService.php</a>.</p>
 
+<p>Referenced by <a class="el" href="../../d7/d58/gen_id_service_8php_source.html#l00048">getNewID()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $dbType = strtoupper($dbType);</div>
+<div class="line">        <span class="keywordflow">if</span> ($dbType == <span class="stringliteral">&#39;mysql&#39;</span> || $dbType == <span class="stringliteral">&#39;PDO_DBLIB&#39;</span>)</div>
+<div class="line">            $sql = <span class="stringliteral">&quot;select uuid()&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($dbType == <span class="stringliteral">&#39;oracle&#39;</span> || $dbType == <span class="stringliteral">&#39;oci8&#39;</span> || $dbType == <span class="stringliteral">&#39;PDO_OCI&#39;</span>)</div>
+<div class="line">            $sql = <span class="stringliteral">&quot;select rawtohex(sys_guid()) from dual&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($dbType == <span class="stringliteral">&#39;msql&#39;</span> || $dbType == <span class="stringliteral">&#39;PDO_MYSQL&#39;</span>)</div>
+<div class="line">            $sql = <span class="stringliteral">&quot;select newid()&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span></div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Error in generating new GUID: unsupported database type.&quot;</span>);</div>
+<div class="line">        <span class="comment">// execute sql to get the id</span></div>
+<div class="line">        $newId = $this-&gt;_getIdWithSql($conn, $sql);</div>
+<div class="line">        <span class="keywordflow">if</span> ($newId === <span class="keyword">false</span>)</div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Error in generating new GUID: unable to get a valid id.&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> $newId;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -297,6 +318,45 @@ Protected Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d7/d58/gen_id_service_8php_source.html#l00048">48</a> of file <a class="el" href="../../d7/d58/gen_id_service_8php_source.html">genIdService.php</a>.</p>
 
+<p>References <a class="el" href="../../d7/d58/gen_id_service_8php_source.html#l00226">getNewGUID()</a>, <a class="el" href="../../d7/d58/gen_id_service_8php_source.html#l00096">getNewSYSID()</a>, and <a class="el" href="../../d7/d58/gen_id_service_8php_source.html#l00250">getNewUUID()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        <span class="keywordflow">try</span></div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">if</span> (!$idGeneration || $idGeneration == <span class="stringliteral">&#39;Openbiz&#39;</span>)</div>
+<div class="line">            {</div>
+<div class="line">                $newid = $this-&gt;<a class="code" href="../../da/d73/classgen_id_service.html#ae2c3448d09eb7b3b3fcc1a25acb6fb9f">getNewSYSID</a>($conn, $table, <span class="keyword">true</span>);</div>
+<div class="line">            }</div>
+<div class="line">            elseif ($idGeneration == <span class="stringliteral">&#39;Identity&#39;</span>)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="comment">//$newid = $this-&gt;getNewIdentity($conn, $dbtype, $table, $column);</span></div>
+<div class="line">                $newid = $conn-&gt;lastInsertId($table, $column);   <span class="comment">// user zend_db method</span></div>
+<div class="line">            }</div>
+<div class="line">            elseif (strpos($idGeneration, <span class="stringliteral">&#39;Sequence:&#39;</span>)===0)</div>
+<div class="line">            {</div>
+<div class="line">                $seqname = substr($idGeneration, 9);</div>
+<div class="line">                <span class="comment">//$newid = $this-&gt;getNewSequence($conn, $dbtype, $seqname);</span></div>
+<div class="line">                $newid = $conn-&gt;nextSequenceId($seqname);   <span class="comment">// user zend_db method</span></div>
+<div class="line">            }</div>
+<div class="line">            elseif ($idGeneration == <span class="stringliteral">&#39;GUID&#39;</span>)</div>
+<div class="line">            {</div>
+<div class="line">                $newid = $this-&gt;<a class="code" href="../../da/d73/classgen_id_service.html#a2676d0df30df16025b2e405aa6d7cf88">getNewGUID</a>($conn, $dbType, $table, $column);</div>
+<div class="line">            }</div>
+<div class="line">            elseif ($idGeneration == <span class="stringliteral">&#39;UUID&#39;</span>)</div>
+<div class="line">            {</div>
+<div class="line">                $newid = $this-&gt;<a class="code" href="../../da/d73/classgen_id_service.html#a02a4b91713f7b0f5745259afff43a183">getNewUUID</a>();</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span></div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Error in generating new ID: unsupported generation type.&quot;</span>);</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">catch</span> (Exception $e)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception($e-&gt;getMessage());</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> $newid;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -304,7 +364,7 @@ Protected Member Functions</h2></td></tr>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../da/d73/classgen_id_service_a08a959ae3cbe3c15c48c47d67b87327b_cgraph.png" border="0" usemap="#da/d73/classgen_id_service_a08a959ae3cbe3c15c48c47d67b87327b_cgraph" alt=""/></div>
 <map name="da/d73/classgen_id_service_a08a959ae3cbe3c15c48c47d67b87327b_cgraph" id="da/d73/classgen_id_service_a08a959ae3cbe3c15c48c47d67b87327b_cgraph">
-<area shape="rect" id="node2" href="../../da/d73/classgen_id_service.html#ae2c3448d09eb7b3b3fcc1a25acb6fb9f" title="getNewSYSID" alt="" coords="133,5,240,33"/><area shape="rect" id="node3" href="../../da/d73/classgen_id_service.html#a2676d0df30df16025b2e405aa6d7cf88" title="getNewGUID" alt="" coords="137,57,237,85"/><area shape="rect" id="node4" href="../../da/d73/classgen_id_service.html#a02a4b91713f7b0f5745259afff43a183" title="getNewUUID" alt="" coords="137,109,236,137"/></map>
+<area shape="rect" id="node2" href="../../da/d73/classgen_id_service.html#a2676d0df30df16025b2e405aa6d7cf88" title="getNewGUID" alt="" coords="137,5,237,33"/><area shape="rect" id="node3" href="../../da/d73/classgen_id_service.html#ae2c3448d09eb7b3b3fcc1a25acb6fb9f" title="getNewSYSID" alt="" coords="133,57,240,85"/><area shape="rect" id="node4" href="../../da/d73/classgen_id_service.html#a02a4b91713f7b0f5745259afff43a183" title="getNewUUID" alt="" coords="137,109,236,137"/></map>
 </div>
 </p>
 
@@ -366,7 +426,29 @@ Protected Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>mixed new Id </dd></dl>
 
 <p>Definition at line <a class="el" href="../../d7/d58/gen_id_service_8php_source.html#l00162">162</a> of file <a class="el" href="../../d7/d58/gen_id_service_8php_source.html">genIdService.php</a>.</p>
-
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $dbType = strtoupper($dbType);</div>
+<div class="line">        <span class="keywordflow">if</span> ($dbType == <span class="stringliteral">&#39;mysql&#39;</span> || $dbType == <span class="stringliteral">&#39;PDO_MYSQL&#39;</span>)</div>
+<div class="line">        {</div>
+<div class="line">            $sql = <span class="stringliteral">&quot;select last_insert_id()&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($dbType == <span class="stringliteral">&#39;mssql&#39;</span> || $dbType == <span class="stringliteral">&#39;PDO_DBLIB&#39;</span>)</div>
+<div class="line">            $sql = <span class="stringliteral">&quot;select @@identity&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($dbType == <span class="stringliteral">&#39;sybase&#39;</span> || $dbType == <span class="stringliteral">&#39;PDO_DBLIB&#39;</span>)</div>
+<div class="line">            $sql = <span class="stringliteral">&quot;select @@identity&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($dbType == <span class="stringliteral">&#39;db2&#39;</span> || $dbType == <span class="stringliteral">&#39;PDO_ODBC&#39;</span>)</div>
+<div class="line">            $sql = <span class="stringliteral">&quot;values identity_val_local()&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($dbType == <span class="stringliteral">&#39;postgresql&#39;</span> || $dbType == <span class="stringliteral">&#39;PDO_PGSQL&#39;</span>)</div>
+<div class="line">            $sql = <span class="stringliteral">&quot;select currval(&#39;$table_$column_seq&#39;)&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span></div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Error in generating new identity: unsupported database type.&quot;</span>);</div>
+<div class="line">        <span class="comment">// execute sql to get the id</span></div>
+<div class="line">        $newid = $this-&gt;_getIdWithSql($conn, $sql);</div>
+<div class="line">        <span class="keywordflow">if</span> ($newid === <span class="keyword">false</span>)</div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Error in generating new identity: unable to get a valid id.&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> $newid;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad884d42cee6041432b8ef876e6991659"></a>
@@ -418,7 +500,25 @@ Protected Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>mixed </dd></dl>
 
 <p>Definition at line <a class="el" href="../../d7/d58/gen_id_service_8php_source.html#l00196">196</a> of file <a class="el" href="../../d7/d58/gen_id_service_8php_source.html">genIdService.php</a>.</p>
-
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $dbtype = strtoupper($dbtype);</div>
+<div class="line">        <span class="keywordflow">if</span> ($dbtype == <span class="stringliteral">&#39;oracle&#39;</span> || $dbtype == <span class="stringliteral">&#39;oci8&#39;</span> || $dbtype == <span class="stringliteral">&#39;PDO_OCI&#39;</span>)</div>
+<div class="line">            $sql = <span class="stringliteral">&quot;select $sequenceName.nextval from dual&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($dbtype == <span class="stringliteral">&#39;db2&#39;</span> || $dbtype == <span class="stringliteral">&#39;PDO_ODBC&#39;</span>)</div>
+<div class="line">            $sql = <span class="stringliteral">&quot;values nextval for $sequenceName&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($dbtype == <span class="stringliteral">&#39;postgresql&#39;</span> || $dbtype == <span class="stringliteral">&#39;PDO_PGSQL&#39;</span>)</div>
+<div class="line">            $sql = <span class="stringliteral">&quot;select nextval(&#39;$sequenceName&#39;)&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($dbtype == <span class="stringliteral">&#39;informix&#39;</span> || $dbtype == <span class="stringliteral">&#39;PDO_INFORMIX&#39;</span>)</div>
+<div class="line">            <span class="stringliteral">&quot;select $sequenceName.nextval from systables where tabid=1&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">else</span></div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Error in generating new sequence: unsupported database type.&quot;</span>);</div>
+<div class="line">        <span class="comment">// execute sql to get the id</span></div>
+<div class="line">        $newId = $this-&gt;_getIdWithSql($conn, $sql);</div>
+<div class="line">        <span class="keywordflow">if</span> ($newId === <span class="keyword">false</span>)</div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Error in generating new sequence: unable to get a valid id.&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> $newId;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ae2c3448d09eb7b3b3fcc1a25acb6fb9f"></a>
@@ -478,6 +578,62 @@ Protected Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d7/d58/gen_id_service_8php_source.html#l00096">96</a> of file <a class="el" href="../../d7/d58/gen_id_service_8php_source.html">genIdService.php</a>.</p>
 
+<p>Referenced by <a class="el" href="../../d7/d58/gen_id_service_8php_source.html#l00048">getNewID()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $maxRetry = 10;</div>
+<div class="line">        <span class="comment">// try to update the table idbody column</span></div>
+<div class="line">        <span class="keywordflow">for</span> ($try=1; $try &lt;= $maxRetry; $try++)</div>
+<div class="line">        {</div>
+<div class="line">            $sql = <span class="stringliteral">&quot;SELECT * FROM ob_sysids WHERE TABLENAME=&#39;$tableName&#39;&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">try</span></div>
+<div class="line">            {</div>
+<div class="line">                $rs = $conn-&gt;query($sql);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">catch</span> (Exception $e)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Error in query: &quot;</span> . $sql . <span class="stringliteral">&quot;. &quot;</span> . $e-&gt;getMessage());</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">            $row = $rs-&gt;fetch();</div>
+<div class="line">            unset($rs);</div>
+<div class="line">            list($tblname, $prefix, $idbody) = $row;</div>
+<div class="line">            <span class="keywordflow">if</span> (!$row)</div>
+<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Error in generating new system id: &#39;$tableName&#39; is not in ob_sysids table.&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">if</span> ($row)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">if</span> ($idbody == null &amp;&amp; $prefix) <span class="comment">// idbody is empty, return false</span></div>
+<div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Error in generating new system id: ob_sysids table does not have a valid sequence for &#39;$tableName&#39;.&quot;</span>);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="comment">// try to update the table idbody column</span></div>
+<div class="line">            $sql = <span class="stringliteral">&quot;UPDATE ob_sysids SET IDBODY=IDBODY+1 WHERE TABLENAME=&#39;$tableName&#39; AND IDBODY=$idbody&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">try</span></div>
+<div class="line">            {</div>
+<div class="line">                $rs = $conn-&gt;query($sql);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">catch</span> (Exception $e)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Error in query: &quot;</span> . $sql . <span class="stringliteral">&quot;. &quot;</span> . $e-&gt;getMessage());</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">if</span> ($rs-&gt;rowCount() &gt; 0)</div>
+<div class="line">            {</div>
+<div class="line">                $idbody += 1;</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span> ($try &lt;= $maxRetry)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">if</span> ($base&gt;=2 &amp;&amp; $base&lt;=36)</div>
+<div class="line">                $idbody = dec2base($idbody, $base);</div>
+<div class="line">            <span class="keywordflow">if</span> ($includePrefix)</div>
+<div class="line">                <span class="keywordflow">return</span> $prefix.<span class="stringliteral">&quot;_&quot;</span>.$idbody;</div>
+<div class="line">            <span class="keywordflow">return</span> $idbody;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span></div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Error in generating new system id: unable to get a valid id.&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -516,6 +672,11 @@ Protected Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d7/d58/gen_id_service_8php_source.html#l00250">250</a> of file <a class="el" href="../../d7/d58/gen_id_service_8php_source.html">genIdService.php</a>.</p>
 
+<p>Referenced by <a class="el" href="../../d7/d58/gen_id_service_8php_source.html#l00048">getNewID()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> uniqid();</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -535,7 +696,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/d73/classgen_id_service.html">genIdService</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:21:53 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:54 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

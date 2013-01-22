@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -126,10 +127,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a095c5d389db211932136b53f25f39685"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a5b6cf1f88172a4f69b93090959481f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/df8/classquery_service.html#a5a5b6cf1f88172a4f69b93090959481f">fetchAll</a> ($doName, $searchRule)</td></tr>
 <tr class="separator:a5a5b6cf1f88172a4f69b93090959481f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07662b138cb9dee2bf87f1281cdf1548"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/df8/classquery_service.html#a07662b138cb9dee2bf87f1281cdf1548">fetchRecord</a> ($doName, $searchRule)</td></tr>
-<tr class="separator:a07662b138cb9dee2bf87f1281cdf1548"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a870e92d961ec793a1a7f2b5cac8514e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/df8/classquery_service.html#a870e92d961ec793a1a7f2b5cac8514e1">fetchField</a> ($doName, $searchRule, $fieldName)</td></tr>
 <tr class="separator:a870e92d961ec793a1a7f2b5cac8514e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07662b138cb9dee2bf87f1281cdf1548"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/df8/classquery_service.html#a07662b138cb9dee2bf87f1281cdf1548">fetchRecord</a> ($doName, $searchRule)</td></tr>
+<tr class="separator:a07662b138cb9dee2bf87f1281cdf1548"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -151,7 +152,10 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 <p>Definition at line <a class="el" href="../../d5/d06/query_service_8php_source.html#l00033">33</a> of file <a class="el" href="../../d5/d06/query_service_8php_source.html">queryService.php</a>.</p>
-
+<div class="fragment"><div class="line">    {</div>
+<div class="line"></div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -190,6 +194,17 @@ Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d5/d06/query_service_8php_source.html#l00045">45</a> of file <a class="el" href="../../d5/d06/query_service_8php_source.html">queryService.php</a>.</p>
 
+<p>References <a class="el" href="../../d4/da0/openbiz_2bin_2_biz_system_8php_source.html#l00272">BizSystem\getObject()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $do = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($doName);</div>
+<div class="line">        <span class="keywordflow">if</span> (!$do)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;System cannot get object of $doName.&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> $do-&gt;directFetch($searchRule);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -245,6 +260,14 @@ Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d5/d06/query_service_8php_source.html#l00085">85</a> of file <a class="el" href="../../d5/d06/query_service_8php_source.html">queryService.php</a>.</p>
 
+<p>References <a class="el" href="../../d5/d06/query_service_8php_source.html#l00063">fetchRecord()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $rec = $this-&gt;<a class="code" href="../../d0/df8/classquery_service.html#a07662b138cb9dee2bf87f1281cdf1548">fetchRecord</a>($doName, $searchRule);</div>
+<div class="line">        <span class="keywordflow">if</span> ($rec)</div>
+<div class="line">            <span class="keywordflow">return</span> $rec[$fieldName];</div>
+<div class="line">        <span class="keywordflow">return</span> null;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -293,6 +316,22 @@ Public Member Functions</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d5/d06/query_service_8php_source.html#l00063">63</a> of file <a class="el" href="../../d5/d06/query_service_8php_source.html">queryService.php</a>.</p>
 
+<p>References <a class="el" href="../../d4/da0/openbiz_2bin_2_biz_system_8php_source.html#l00272">BizSystem\getObject()</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d5/d06/query_service_8php_source.html#l00085">fetchField()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $do = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($doName);</div>
+<div class="line">        <span class="keywordflow">if</span> (!$do)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;System cannot get object of $doName.&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        $r = $do-&gt;directFetch($searchRule, 1);</div>
+<div class="line">        <span class="keywordflow">if</span> (count($r)&gt;0)</div>
+<div class="line">            <span class="keywordflow">return</span> $r[0];</div>
+<div class="line">        <span class="keywordflow">return</span> null;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -323,7 +362,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/df8/classquery_service.html">queryService</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:22:04 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:58 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

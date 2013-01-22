@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search');
       <li><a href="../../index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="../../annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
+      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -128,10 +129,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a847d8d60f037d0a016aca7006cf9dec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1283beb73724b275210ef2ac269eb41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d18/classcompile_service.html#ac1283beb73724b275210ef2ac269eb41">compile</a> ($objName, $type)</td></tr>
 <tr class="separator:ac1283beb73724b275210ef2ac269eb41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fbc58c5861c2d97d39610074655bc3e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d18/classcompile_service.html#a1fbc58c5861c2d97d39610074655bc3e">encode</a> ($str, $key)</td></tr>
-<tr class="separator:a1fbc58c5861c2d97d39610074655bc3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae30242b5159bc2a18ec6f855e31bda9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d18/classcompile_service.html#aae30242b5159bc2a18ec6f855e31bda9">decode</a> ($str, $key)</td></tr>
 <tr class="separator:aae30242b5159bc2a18ec6f855e31bda9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fbc58c5861c2d97d39610074655bc3e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d18/classcompile_service.html#a1fbc58c5861c2d97d39610074655bc3e">encode</a> ($str, $key)</td></tr>
+<tr class="separator:a1fbc58c5861c2d97d39610074655bc3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -165,6 +166,11 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d8e/compile_service_8php_source.html#l00015">15</a> of file <a class="el" href="../../dd/d8e/compile_service_8php_source.html">compileService.php</a>.</p>
 
+<p>References <a class="el" href="../../dd/d8e/compile_service_8php_source.html#l00020">readMetadata()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $this-&gt;<a class="code" href="../../de/d18/classcompile_service.html#a1db802d93a9f0badf186a646e1cdb161">readMetadata</a>($xmlArr);</div>
+<div class="line">    } </div>
+</div><!-- fragment -->
 <p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -205,6 +211,21 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d8e/compile_service_8php_source.html#l00026">26</a> of file <a class="el" href="../../dd/d8e/compile_service_8php_source.html">compileService.php</a>.</p>
 
+<p>References <a class="el" href="../../dd/d8e/compile_service_8php_source.html#l00012">$m_ObjTemplateData</a>, and <a class="el" href="../../dd/d8e/compile_service_8php_source.html#l00013">$m_XmlTemplateData</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">     <span class="keywordflow">switch</span>(strtoupper($type))</div>
+<div class="line">     {</div>
+<div class="line">      <span class="keywordflow">case</span> <span class="stringliteral">&#39;XML&#39;</span>:</div>
+<div class="line">       $template = <a class="code" href="../../de/d18/classcompile_service.html#ad4b364e4556880793ceaaab8aa38f5cd">$this-&gt;m_XmlTemplateData</a>;</div>
+<div class="line">       <span class="keywordflow">break</span>;</div>
+<div class="line">      <span class="keywordflow">default</span>:</div>
+<div class="line">      <span class="keywordflow">case</span> <span class="stringliteral">&#39;OBJ&#39;</span>:</div>
+<div class="line">       $template = <a class="code" href="../../de/d18/classcompile_service.html#ade460c56600d0ffcc070f139e6987d7d">$this-&gt;m_ObjTemplateData</a>;</div>
+<div class="line">       <span class="keywordflow">break</span>;</div>
+<div class="line">     }</div>
+<div class="line">     $this-&gt;_doCompile($objName, $template);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="aae30242b5159bc2a18ec6f855e31bda9"></a>
@@ -232,7 +253,10 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../dd/d8e/compile_service_8php_source.html#l00060">60</a> of file <a class="el" href="../../dd/d8e/compile_service_8php_source.html">compileService.php</a>.</p>
-
+<div class="fragment"><div class="line">                                  {</div>
+<div class="line">  <span class="keywordflow">return</span> base64_decode(base64_decode($str));</div>
+<div class="line"> }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1fbc58c5861c2d97d39610074655bc3e"></a>
@@ -260,7 +284,10 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../dd/d8e/compile_service_8php_source.html#l00056">56</a> of file <a class="el" href="../../dd/d8e/compile_service_8php_source.html">compileService.php</a>.</p>
-
+<div class="fragment"><div class="line">                                  {</div>
+<div class="line">  <span class="keywordflow">return</span> base64_encode(base64_encode($str));</div>
+<div class="line"> }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a1db802d93a9f0badf186a646e1cdb161"></a>
@@ -287,6 +314,12 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d8e/compile_service_8php_source.html#l00020">20</a> of file <a class="el" href="../../dd/d8e/compile_service_8php_source.html">compileService.php</a>.</p>
 
+<p>Referenced by <a class="el" href="../../dd/d8e/compile_service_8php_source.html#l00015">__construct()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $this-&gt;m_ObjTemplateData = $xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;OBJLOADERTEMPLATE&quot;</span>][<span class="stringliteral">&quot;VALUE&quot;</span>];        </div>
+<div class="line">        $this-&gt;m_XmlTemplateData = $xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;XMLLOADERTEMPLATE&quot;</span>][<span class="stringliteral">&quot;VALUE&quot;</span>];</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -321,6 +354,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d8e/compile_service_8php_source.html#l00012">12</a> of file <a class="el" href="../../dd/d8e/compile_service_8php_source.html">compileService.php</a>.</p>
 
+<p>Referenced by <a class="el" href="../../dd/d8e/compile_service_8php_source.html#l00026">compile()</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ad4b364e4556880793ceaaab8aa38f5cd"></a>
@@ -343,6 +378,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../dd/d8e/compile_service_8php_source.html#l00013">13</a> of file <a class="el" href="../../dd/d8e/compile_service_8php_source.html">compileService.php</a>.</p>
 
+<p>Referenced by <a class="el" href="../../dd/d8e/compile_service_8php_source.html#l00026">compile()</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -351,7 +388,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../de/d18/classcompile_service.html">compileService</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 00:21:46 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:53 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>
