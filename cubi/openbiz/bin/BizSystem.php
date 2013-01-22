@@ -273,6 +273,51 @@ class BizSystem
         return BizSystem::ObjectFactory()->getObject($objectName, $isNew);
     }
 
+	/**
+     * Get the openbiz data object by object name
+     * 
+     * @param string $objectName object name
+     * @return BizDataObj|null if the return object is a BizDataObj then return, or return null
+     */
+    public static function getDataObject($objectName)
+    {
+        $obj = BizSystem::ObjectFactory()->getObject($objectName, 0);
+        if(is_a($obj,'BizDataObj'))
+        {
+        	return $obj;
+        }
+    }
+
+	/**
+     * Get the openbiz form object by object name
+     * 
+     * @param string $objectName object name
+     * @return EasyForm|null if the return object is a EasyForm then return, or return null
+     */
+    public static function getFormObject($objectName)
+    {
+        $obj = BizSystem::ObjectFactory()->getObject($objectName, 0);
+        if(is_a($obj,'EasyForm'))
+        {
+        	return $obj;
+        }
+    }
+
+	/**
+     * Get the openbiz view object by object name
+     * 
+     * @param string $objectName object name
+     * @return EasyView|null if the return object is a EasyView then return, or return null
+     */
+    public static function getViewObject($objectName)
+    {
+        return BizSystem::ObjectFactory()->getObject($objectName, 0);
+        if(is_a($obj,'EasyView'))
+        {
+        	return $obj;
+        }        
+    }
+
     /**
      * Check if user can access the given resource action
      *
