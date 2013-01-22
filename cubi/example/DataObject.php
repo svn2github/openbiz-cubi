@@ -11,13 +11,22 @@
  * @version   $Id: sample.php 4932 2012-12-26 15:42:10Z hellojixian@gmail.com $
  */
 
+//include openbiz initail script
 require_once dirname(dirname(__FILE__)).'/bin/app_init.php';
+
 $objectName = "system.do.UserDO";
-$userDO = BizSystem::getDataObject($objectName);		//get the data object instance
+//get the data object instance
+$userDO = BizSystem::getDataObject($objectName);		
 
-$userRecord = $userDO->fetchById(1);					//fetch a user record which id=1
-$userEmail = $userRecord['email'];						//get email attribute from fetched user record
+//fetch a user record which id=1
+$userRecord = $userDO->fetchById(1);	
 
-$userRecord['last_login'] = date('Y-m-d H:i:s');		//write a user record object's attribute
-$userRecord->save();									//save the record 
+//get email attribute from fetched user record				
+$userEmail = $userRecord['email'];						
+
+//write a user record object's attribute
+$userRecord['last_login'] = date('Y-m-d H:i:s');		
+
+//save the record 
+$userRecord->save();									
 ?>

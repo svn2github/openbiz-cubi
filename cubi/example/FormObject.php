@@ -11,9 +11,17 @@
  * @version   $Id: sample.php 4932 2012-12-26 15:42:10Z hellojixian@gmail.com $
  */
 
+//include openbiz initail script
 require_once dirname(dirname(__FILE__)).'/bin/app_init.php';
+
 $objectName = "system.form.UserListForm";
-$userForm = BizSystem::getFormObject($objectName);	//get the form object instance
-$formHTML = $userForm->render();					//render the form to a html string
-echo $formHTML;										//output the html string
+
+//get the form object instance
+$userForm = BizSystem::getFormObject($objectName);
+
+//render the form to a html string
+$formHTML = $userForm->render();			
+
+//output the html string
+echo $formHTML;										
 ?>

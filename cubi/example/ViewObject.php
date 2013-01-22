@@ -11,9 +11,17 @@
  * @version   $Id: sample.php 4932 2012-12-26 15:42:10Z hellojixian@gmail.com $
  */
 
+//include openbiz initail script
 require_once dirname(dirname(__FILE__)).'/bin/app_init.php';
+
 $objectName = "system.view.UserListView";
-$userView = BizSystem::getViewObject($objectName);	//get the view object instance
-$viewHTML = $userView->render();					//render the view to a html string
-echo $viewHTML;										//output the html string
+
+//get the view object instance
+$userView = BizSystem::getViewObject($objectName);	
+
+//render the view to a html string
+$viewHTML = $userView->render();	
+
+//output the html string				
+echo $viewHTML;										
 ?>

@@ -11,6 +11,9 @@
  * @version   $Id: sample.php 4932 2012-12-26 15:42:10Z hellojixian@gmail.com $
  */
 
+//include openbiz initail script
 require_once dirname(dirname(__FILE__)).'/bin/app_init.php';
+
+//output a Openbiz Framework version
 echo "Openbiz Framework Version: ".BizSystem::getVersion();
 ?>
