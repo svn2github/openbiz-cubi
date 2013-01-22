@@ -96,7 +96,7 @@ class BizSystem
     }
 
     /**
-     * Return the version of phpOpenBiz
+     * Return the version of OpenBiz Framework
      *
      * @return string
      * @example ../../example/BizSystem.php
@@ -280,7 +280,7 @@ class BizSystem
      * it can support IDE's code auto completaion.
      * 
      * @param string $objectName object name
-     * @return BizDataObj|null if the return object is a BizDataObj then return, or return null
+     * @return BizDataObj  if the return object is a BizDataObj then return, or return null
      * @example ../../example/DataObject.php
      */
     public static function getDataObject($objectName)
@@ -298,7 +298,7 @@ class BizSystem
      * it can support IDE's code auto completaion.
      * 
      * @param string $objectName object name
-     * @return EasyForm|null if the return object is a EasyForm then return, or return null
+     * @return EasyForm  if the return object is a EasyForm then return, or return null
      * @example ../../example/FormObject.php
      */
     public static function getFormObject($objectName)
@@ -316,7 +316,7 @@ class BizSystem
      * it can support IDE's code auto completaion.
      * 
      * @param string $objectName object name
-     * @return EasyView|null if the return object is a EasyView then return, or return null
+     * @return EasyView  if the return object is a EasyView then return, or return null
      * @example ../../example/ViewObject.php      
      */
     public static function getViewObject($objectName)
