@@ -1,0 +1,16 @@
+<map id="readMetadata" name="readMetadata">
+<area shape="rect" id="node2" href="$db/d4b/class_meta_object.html#a7a34962e72564b47da11d86bfde7cf79" title="MetaObject\\prefixPackage" alt="" coords="158,5,336,33"/>
+<area shape="rect" id="node3" href="$df/d00/class_resource.html#a66826405edc53b33073ed69eac7b49f4" title="Resource\\loadMessage" alt="" coords="166,57,327,85"/>
+<area shape="rect" id="node4" href="$d3/d10/class_easy_form.html#a89ea6fc1dd64c515da7c373792fd74ff" title="translate" alt="" coords="210,109,283,137"/>
+<area shape="rect" id="node5" href="$db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="384,30,576,58"/>
+<area shape="rect" id="node6" href="$d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="453,82,507,110"/>
+<area shape="rect" id="node14" href="$d3/d10/class_easy_form.html#a23e530c2fd590d19ff1ff8ad2eba5b44" title="getTransKey" alt="" coords="432,134,528,162"/>
+<area shape="rect" id="node15" href="$d3/d10/class_easy_form.html#a22fdacfc845865345b35660767bf9073" title="getTransPrefix" alt="" coords="426,186,534,214"/>
+<area shape="rect" id="node7" href="$d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="625,82,759,110"/>
+<area shape="rect" id="node8" href="$d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="808,82,984,110"/>
+<area shape="rect" id="node9" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1280,55,1459,83"/>
+<area shape="rect" id="node11" href="$d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1032,107,1232,135"/>
+<area shape="rect" id="node10" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1511,55,1649,83"/>
+<area shape="rect" id="node12" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1294,107,1445,135"/>
+<area shape="rect" id="node13" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1507,107,1653,135"/>
+</map>

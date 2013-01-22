@@ -141,7 +141,7 @@ Static Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L26">26</a> of file <a class="el" href="../../">ViewRenderer.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/d92/_view_renderer_8php_source.html#l00026">26</a> of file <a class="el" href="../../d6/d92/_view_renderer_8php_source.html">ViewRenderer.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a3ff47ffac8a02c41f2c4d018156fc112"></a>
 <div class="memitem">
@@ -173,72 +173,30 @@ Static Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array associative array holding all needed VIEW based template variables </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L105">105</a> of file <a class="el" href="../../">ViewRenderer.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// Assocative Array to hold all Template Values</span></div>
-<div class="line">        <span class="comment">// Fill with default viewobj attributes</span></div>
-<div class="line">        <span class="comment">//$tplAttributes = $viewObj-&gt;outputAttrs();</span></div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">//Not sure what this is doing...</span></div>
-<div class="line">        $newClntObjs = <span class="stringliteral">&#39;&#39;</span>;</div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">//Fill other direct view variables</span></div>
-<div class="line">        $tplAttributes[<span class="stringliteral">&quot;module&quot;</span>] = $viewObj-&gt;getModuleName($viewObj-&gt;m_Name);</div>
-<div class="line">        $tplAttributes[<span class="stringliteral">&quot;description&quot;</span>] = $viewObj-&gt;m_Description;</div>
-<div class="line">        $tplAttributes[<span class="stringliteral">&quot;keywords&quot;</span>] = $viewObj-&gt;m_Keywords;</div>
-<div class="line">        <span class="keywordflow">if</span> ($viewObj-&gt;m_Tiles) {</div>
-<div class="line">            <span class="keywordflow">foreach</span> ($viewObj-&gt;m_Tiles as $tname =&gt; $tile) {</div>
-<div class="line">                <span class="keywordflow">foreach</span> ($tile as $formRef) {</div>
-<div class="line">                    <span class="keywordflow">if</span> ($formRef-&gt;m_Display == <span class="keyword">false</span>)</div>
-<div class="line">                        <span class="keywordflow">continue</span>;</div>
-<div class="line">                    $tiles[$tname][$formRef-&gt;m_Name] = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($formRef-&gt;m_Name)-&gt;render();</div>
-<div class="line">                    $tiletabs[$tname][$formRef-&gt;m_Name] = $formRef-&gt;m_Description;</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">        } <span class="keywordflow">else</span> {</div>
-<div class="line">            <span class="keywordflow">foreach</span> ($viewObj-&gt;m_FormRefs as $formRef) {</div>
-<div class="line">                <span class="keywordflow">if</span> ($formRef-&gt;m_Display == <span class="keyword">false</span>)</div>
-<div class="line">                    <span class="keywordflow">continue</span>;</div>
-<div class="line">                $forms[$formRef-&gt;m_Name] = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($formRef-&gt;m_Name)-&gt;render();</div>
-<div class="line">                $formtabs[$formRef-&gt;m_Name] = $formRef-&gt;m_Description;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span>(count($viewObj-&gt;m_Widgets)){</div>
-<div class="line">      <span class="keywordflow">foreach</span> ($viewObj-&gt;m_Widgets as $formRef) {</div>
-<div class="line">                <span class="keywordflow">if</span> ($formRef-&gt;m_Display == <span class="keyword">false</span>)</div>
-<div class="line">                    <span class="keywordflow">continue</span>;</div>
-<div class="line">                $widgets[$formRef-&gt;m_Name] = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($formRef-&gt;m_Name)-&gt;render();</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">//Fill Loop related data</span></div>
-<div class="line">        $tplAttributes[<span class="stringliteral">&quot;forms&quot;</span>] = $forms;</div>
-<div class="line">        $tplAttributes[<span class="stringliteral">&quot;widgets&quot;</span>] = $widgets;</div>
-<div class="line">        $tplAttributes[<span class="stringliteral">&quot;formtabs&quot;</span>] = $formtabs;</div>
-<div class="line">        $tplAttributes[<span class="stringliteral">&quot;tiles&quot;</span>] = $tiles;</div>
-<div class="line">        $tplAttributes[<span class="stringliteral">&quot;tiletabs&quot;</span>] = $tiletabs;</div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">// add clientProxy scripts</span></div>
-<div class="line">        $includedScripts = <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;getAppendedScripts();</div>
-<div class="line">        $tplAttributes[<span class="stringliteral">&quot;style_sheets&quot;</span>] = <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;getAppendedStyles();</div>
-<div class="line">        <span class="keywordflow">if</span> ($viewObj-&gt;m_IsPopup &amp;&amp; $bReRender == <span class="keyword">false</span>) {</div>
-<div class="line">            $moveToCenter = <span class="stringliteral">&quot;moveToCenter(self, &quot;</span> . $viewObj-&gt;m_Width . <span class="stringliteral">&quot;, &quot;</span> . $viewObj-&gt;m_Height . <span class="stringliteral">&quot;);&quot;</span>;</div>
-<div class="line">            $tplAttributes[<span class="stringliteral">&quot;scripts&quot;</span>] = $includedScripts . <span class="stringliteral">&quot;\n&lt;script&gt;\n&quot;</span> . $newClntObjs . $moveToCenter . <span class="stringliteral">&quot;&lt;/script&gt;\n&quot;</span>;</div>
-<div class="line">        } <span class="keywordflow">else</span></div>
-<div class="line">            $tplAttributes[<span class="stringliteral">&quot;scripts&quot;</span>] = $includedScripts . <span class="stringliteral">&quot;\n&lt;script&gt;\n&quot;</span> . $newClntObjs . <span class="stringliteral">&quot;&lt;/script&gt;\n&quot;</span>;</div>
-<div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> ($viewObj-&gt;m_Title)</div>
-<div class="line">            $tplAttributes[<span class="stringliteral">&quot;title&quot;</span>] = <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>($viewObj-&gt;m_Title, $viewObj);</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            $tplAttributes[<span class="stringliteral">&quot;title&quot;</span>] = $viewObj-&gt;m_Description;</div>
-<div class="line">            </div>
-<div class="line">     <span class="keywordflow">if</span>(<a class="code" href="../../d1/df2/sys__init_8php.html#a1469602668efeabc7063dc6be114043c">DEFAULT_SYSTEM_NAME</a>){</div>
-<div class="line">         $tplAttributes[<span class="stringliteral">&quot;title&quot;</span>] = $tplAttributes[<span class="stringliteral">&quot;title&quot;</span>].<span class="stringliteral">&#39; - &#39;</span>.<a class="code" href="../../d1/df2/sys__init_8php.html#a1469602668efeabc7063dc6be114043c">DEFAULT_SYSTEM_NAME</a>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $tplAttributes;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d6/d92/_view_renderer_8php_source.html#l00105">105</a> of file <a class="el" href="../../d6/d92/_view_renderer_8php_source.html">ViewRenderer.php</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/dfb/class_view_renderer_a3ff47ffac8a02c41f2c4d018156fc112_cgraph.png" border="0" usemap="#d4/dfb/class_view_renderer_a3ff47ffac8a02c41f2c4d018156fc112_cgraph" alt=""/></div>
+<map name="d4/dfb/class_view_renderer_a3ff47ffac8a02c41f2c4d018156fc112_cgraph" id="d4/dfb/class_view_renderer_a3ff47ffac8a02c41f2c4d018156fc112_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1185,162,1330,190"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="746,6,899,34"/><area shape="rect" id="node5" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="214,110,421,138"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1188,33,1326,61"/><area shape="rect" id="node6" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="488,58,670,86"/><area shape="rect" id="node10" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="480,162,678,190"/><area shape="rect" id="node11" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="470,214,688,242"/><area shape="rect" id="node12" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="498,110,659,138"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="736,58,909,86"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="971,110,1122,138"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="957,58,1136,86"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/dfb/class_view_renderer_a3ff47ffac8a02c41f2c4d018156fc112_icgraph.png" border="0" usemap="#d4/dfb/class_view_renderer_a3ff47ffac8a02c41f2c4d018156fc112_icgraph" alt=""/></div>
+<map name="d4/dfb/class_view_renderer_a3ff47ffac8a02c41f2c4d018156fc112_icgraph" id="d4/dfb/class_view_renderer_a3ff47ffac8a02c41f2c4d018156fc112_icgraph">
+<area shape="rect" id="node2" href="../../d4/dfb/class_view_renderer.html#a588ca768528b47207177dfd1ff7ced52" title="render" alt="" coords="214,5,274,33"/><area shape="rect" id="node3" href="../../db/d40/class_easy_view.html#a30bcc620a40b8f755dbafb28ff1c76d4" title="EasyView\\_render" alt="" coords="323,5,453,33"/><area shape="rect" id="node4" href="../../db/d40/class_easy_view.html#afde88292c44dc59faf017738dae6dffb" title="EasyView\\render" alt="" coords="502,5,624,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a5e0c4739372a3862b569f88c8f032ad2"></a>
@@ -271,37 +229,8 @@ Static Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string $html </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L68">68</a> of file <a class="el" href="../../">ViewRenderer.php</a>.</p>
-<div class="fragment"><div class="line">    {     </div>
-<div class="line">     </div>
-<div class="line">     $minifyURL = APP_URL.<span class="stringliteral">&quot;/bin/min/index.php&quot;</span>;</div>
-<div class="line">     $headEnd=<span class="stringliteral">&quot;&lt;/head&gt;&quot;</span>; </div>
-<div class="line"></div>
-<div class="line">     <span class="comment">//fetch js requests</span></div>
-<div class="line">     preg_match_all(<span class="stringliteral">&quot;/&lt;script.*?src\s?\=\s?[\&quot;|\&#39;](.*?\.js)[\&quot;|\&#39;]/i&quot;</span>,$html, $matches);     </div>
-<div class="line">     $jsListStr = implode(array_unique($matches[1]), <span class="charliteral">&#39;,&#39;</span>);</div>
-<div class="line">     $jsURL = $minifyURL . <span class="stringliteral">&#39;?f=&#39;</span>.$jsListStr;</div>
-<div class="line">     $jsCode = <span class="stringliteral">&quot;&lt;script type=\&quot;text/javascript\&quot; src=\&quot;$jsURL\&quot;&gt;&lt;/script&gt;&quot;</span>;</div>
-<div class="line">     </div>
-<div class="line">     <span class="comment">//remove old js include</span></div>
-<div class="line">     $html = preg_replace(<span class="stringliteral">&quot;/&lt;script.*?src\s?\=\s?[\&quot;|\&#39;].*?\.js[\&quot;|\&#39;].*?&lt;\/script&gt;/i&quot;</span>,<span class="stringliteral">&quot;&quot;</span>,$html);</div>
-<div class="line"></div>
-<div class="line">     <span class="comment">//add new js include</span></div>
-<div class="line">     $html = str_replace($headEnd,$jsCode.<span class="stringliteral">&quot;\n&quot;</span>.$headEnd,$html);</div>
-<div class="line">     </div>
-<div class="line">     preg_match_all(<span class="stringliteral">&quot;/&lt;link.*?href\s?\=\s?\&quot;(.*?\.css)\&quot;/i&quot;</span>,$html, $matches);</div>
-<div class="line">     $cssListStr = implode(array_unique($matches[1]), <span class="charliteral">&#39;,&#39;</span>);</div>
-<div class="line">     $cssURL = $minifyURL . <span class="stringliteral">&#39;?f=&#39;</span>.$cssListStr;</div>
-<div class="line">     $cssCode = <span class="stringliteral">&quot;&lt;link rel=\&quot;stylesheet\&quot; href=\&quot;$cssURL\&quot; type=\&quot;text/css\&quot;&gt;&quot;</span>;</div>
-<div class="line">     </div>
-<div class="line">     $html = preg_replace(<span class="stringliteral">&quot;/&lt;link.*?href\s?\=\s?\&quot;(.*?\.css)\&quot;.*?&gt;/i&quot;</span>,<span class="stringliteral">&quot;&quot;</span>,$html);</div>
-<div class="line">     $html = str_replace($headEnd,$cssCode.<span class="stringliteral">&quot;\n&quot;</span>.$headEnd,$html);  </div>
-<div class="line">  </div>
-<div class="line">     require_once <a class="code" href="../../d1/df2/sys__init_8php.html#a252aacc48601a59f3f33f237c14b15c3">APP_HOME</a>.<span class="stringliteral">&#39;/bin/min/lib/Minify/HTML.php&#39;</span>;</div>
-<div class="line">     $html = Minify_HTML::minify($html);</div>
-<div class="line">     <span class="keywordflow">return</span> $html;</div>
-<div class="line">    } </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d6/d92/_view_renderer_8php_source.html#l00068">68</a> of file <a class="el" href="../../d6/d92/_view_renderer_8php_source.html">ViewRenderer.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a588ca768528b47207177dfd1ff7ced52"></a>
@@ -334,32 +263,30 @@ Static Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string result of rendering process </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L35">35</a> of file <a class="el" href="../../">ViewRenderer.php</a>.</p>
-<div class="fragment"><div class="line">    {     </div>
-<div class="line">        $tplEngine = $viewObj-&gt;m_TemplateEngine;</div>
-<div class="line">        $tplAttributes = <a class="code" href="../../d4/dfb/class_view_renderer.html#a3ff47ffac8a02c41f2c4d018156fc112">ViewRenderer::buildTemplateAttributes</a>($viewObj);</div>
-<div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span>(defined(<span class="stringliteral">&quot;PAGE_MINIFY&quot;</span>) &amp;&amp; PAGE_MINIFY==1)</div>
-<div class="line">        {</div>
-<div class="line">         <span class="comment">//if(!ob_start(&quot;ob_gzhandler&quot;)) ob_start();</span></div>
-<div class="line">         ob_start();</div>
-<div class="line">        }</div>
-<div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> ($tplEngine == <span class="stringliteral">&quot;Smarty&quot;</span> || $tplEngine == null)</div>
-<div class="line">            $result = <a class="code" href="../../d4/dfb/class_view_renderer.html#a271a8f8acd200d185367fb475f43df51">ViewRenderer::renderSmarty</a>($viewObj, $tplAttributes);</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            $result = <a class="code" href="../../d4/dfb/class_view_renderer.html#a288b4b665cf447481ca982c7ec7d004e">ViewRenderer::renderPHP</a>($viewObj, $tplAttributes);</div>
-<div class="line">       </div>
-<div class="line">        <span class="keywordflow">if</span>(defined(<span class="stringliteral">&quot;PAGE_MINIFY&quot;</span>) &amp;&amp; PAGE_MINIFY==1)</div>
-<div class="line">        {         </div>
-<div class="line">         $html = ob_get_contents();</div>
-<div class="line">         ob_end_clean();</div>
-<div class="line">         $html = self::MinifyOutput($html);</div>
-<div class="line">         echo $html;</div>
-<div class="line">        }    </div>
-<div class="line">        <span class="keywordflow">return</span> $html;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d6/d92/_view_renderer_8php_source.html#l00035">35</a> of file <a class="el" href="../../d6/d92/_view_renderer_8php_source.html">ViewRenderer.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/dfb/class_view_renderer_a588ca768528b47207177dfd1ff7ced52_cgraph.png" border="0" usemap="#d4/dfb/class_view_renderer_a588ca768528b47207177dfd1ff7ced52_cgraph" alt=""/></div>
+<map name="d4/dfb/class_view_renderer_a588ca768528b47207177dfd1ff7ced52_cgraph" id="d4/dfb/class_view_renderer_a588ca768528b47207177dfd1ff7ced52_cgraph">
+<area shape="rect" id="node2" href="../../d4/dfb/class_view_renderer.html#a3ff47ffac8a02c41f2c4d018156fc112" title="buildTemplateAttributes" alt="" coords="1171,154,1331,182"/><area shape="rect" id="node14" href="../../d4/dfb/class_view_renderer.html#a271a8f8acd200d185367fb475f43df51" title="renderSmarty" alt="" coords="116,303,218,331"/><area shape="rect" id="node26" href="../../d4/dfb/class_view_renderer.html#a288b4b665cf447481ca982c7ec7d004e" title="renderPHP" alt="" coords="123,355,210,383"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2377,43,2522,71"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="1925,251,2078,279"/><area shape="rect" id="node6" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="1379,121,1586,149"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2380,277,2518,305"/><area shape="rect" id="node7" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="1653,43,1835,71"/><area shape="rect" id="node11" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="1645,95,1843,123"/><area shape="rect" id="node12" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="1635,147,1853,175"/><area shape="rect" id="node13" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="1663,199,1825,227"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="1915,146,2088,174"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="2163,121,2314,149"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="2149,303,2328,331"/><area shape="rect" id="node15" href="../../d1/d7e/class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde" title="BizSystem\\getSmartyTemplate" alt="" coords="267,303,469,331"/><area shape="rect" id="node20" href="../../d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c" title="BizSystem\\getTplFileWithPath" alt="" coords="268,355,468,383"/><area shape="rect" id="node16" href="../../df/d00/class_resource.html#a1f8104d8aa899c9c115363799ed0cbde" title="Resource\\getSmartyTemplate" alt="" coords="1384,303,1581,331"/><area shape="rect" id="node17" href="../../df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="1651,355,1837,383"/><area shape="rect" id="node19" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1656,407,1832,435"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1901,355,2101,383"/><area shape="rect" id="node21" href="../../df/d00/class_resource.html#afb794bcc37996f735dfc6e7ddddf961c" title="Resource\\getTplFileWithPath" alt="" coords="517,355,712,383"/><area shape="rect" id="node22" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="760,407,920,435"/><area shape="rect" id="node23" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="968,407,1123,435"/><area shape="rect" id="node24" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1223,407,1278,435"/><area shape="rect" id="node25" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1416,407,1550,435"/><area shape="rect" id="node27" href="../../d1/d7e/class_biz_system.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="BizSystem\\getZendTemplate" alt="" coords="519,433,710,461"/><area shape="rect" id="node28" href="../../df/d00/class_resource.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="Resource\\getZendTemplate" alt="" coords="1390,459,1575,487"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/dfb/class_view_renderer_a588ca768528b47207177dfd1ff7ced52_icgraph.png" border="0" usemap="#d4/dfb/class_view_renderer_a588ca768528b47207177dfd1ff7ced52_icgraph" alt=""/></div>
+<map name="d4/dfb/class_view_renderer_a588ca768528b47207177dfd1ff7ced52_icgraph" id="d4/dfb/class_view_renderer_a588ca768528b47207177dfd1ff7ced52_icgraph">
+<area shape="rect" id="node2" href="../../db/d40/class_easy_view.html#a30bcc620a40b8f755dbafb28ff1c76d4" title="EasyView\\_render" alt="" coords="115,5,245,33"/><area shape="rect" id="node3" href="../../db/d40/class_easy_view.html#afde88292c44dc59faf017738dae6dffb" title="EasyView\\render" alt="" coords="294,5,416,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a288b4b665cf447481ca982c7ec7d004e"></a>
@@ -403,26 +330,30 @@ Static Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string result of rendering process </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L206">206</a> of file <a class="el" href="../../">ViewRenderer.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $view = <a class="code" href="../../d1/d7e/class_biz_system.html#ad15c7aaf2cda13ae9e0d32429f666fc3">BizSystem::getZendTemplate</a>();</div>
-<div class="line">        $tplFile = <a class="code" href="../../d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c">BizSystem::getTplFileWithPath</a>($viewObj-&gt;m_TemplateFile, $viewObj-&gt;m_Package);</div>
-<div class="line">        $view-&gt;addScriptPath(dirname($tplFile));</div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">//Translate Array of template variables to Zend template object</span></div>
-<div class="line">        <span class="keywordflow">foreach</span> ($tplAttributes as $key =&gt; $value) {</div>
-<div class="line">            <span class="keywordflow">if</span> ($value == NULL) {</div>
-<div class="line">                $view-&gt;$key = <span class="stringliteral">&#39;&#39;</span>;</div>
-<div class="line">            } <span class="keywordflow">else</span> {</div>
-<div class="line">                $view-&gt;$key = $value;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span> ($viewObj-&gt;m_ConsoleOutput)</div>
-<div class="line">            echo $view-&gt;render($viewObj-&gt;m_TemplateFile);</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            <span class="keywordflow">return</span> $view-&gt;render($viewObj-&gt;m_TemplateFile);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d6/d92/_view_renderer_8php_source.html#l00206">206</a> of file <a class="el" href="../../d6/d92/_view_renderer_8php_source.html">ViewRenderer.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/dfb/class_view_renderer_a288b4b665cf447481ca982c7ec7d004e_cgraph.png" border="0" usemap="#d4/dfb/class_view_renderer_a288b4b665cf447481ca982c7ec7d004e_cgraph" alt=""/></div>
+<map name="d4/dfb/class_view_renderer_a288b4b665cf447481ca982c7ec7d004e_cgraph" id="d4/dfb/class_view_renderer_a288b4b665cf447481ca982c7ec7d004e_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="BizSystem\\getZendTemplate" alt="" coords="146,6,337,34"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c" title="BizSystem\\getTplFileWithPath" alt="" coords="141,58,342,86"/><area shape="rect" id="node3" href="../../df/d00/class_resource.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="Resource\\getZendTemplate" alt="" coords="1147,6,1333,34"/><area shape="rect" id="node4" href="../../df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="1381,33,1568,61"/><area shape="rect" id="node10" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1387,85,1562,113"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1864,31,2043,59"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1616,58,1816,86"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2095,31,2233,59"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1878,83,2029,111"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2091,83,2237,111"/><area shape="rect" id="node12" href="../../df/d00/class_resource.html#afb794bcc37996f735dfc6e7ddddf961c" title="Resource\\getTplFileWithPath" alt="" coords="389,58,584,86"/><area shape="rect" id="node13" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="632,110,792,138"/><area shape="rect" id="node14" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="840,110,995,138"/><area shape="rect" id="node15" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1043,110,1098,138"/><area shape="rect" id="node16" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1173,110,1307,138"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/dfb/class_view_renderer_a288b4b665cf447481ca982c7ec7d004e_icgraph.png" border="0" usemap="#d4/dfb/class_view_renderer_a288b4b665cf447481ca982c7ec7d004e_icgraph" alt=""/></div>
+<map name="d4/dfb/class_view_renderer_a288b4b665cf447481ca982c7ec7d004e_icgraph" id="d4/dfb/class_view_renderer_a288b4b665cf447481ca982c7ec7d004e_icgraph">
+<area shape="rect" id="node2" href="../../d4/dfb/class_view_renderer.html#a588ca768528b47207177dfd1ff7ced52" title="render" alt="" coords="142,5,202,33"/><area shape="rect" id="node3" href="../../db/d40/class_easy_view.html#a30bcc620a40b8f755dbafb28ff1c76d4" title="EasyView\\_render" alt="" coords="251,5,381,33"/><area shape="rect" id="node4" href="../../db/d40/class_easy_view.html#afde88292c44dc59faf017738dae6dffb" title="EasyView\\render" alt="" coords="430,5,552,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a271a8f8acd200d185367fb475f43df51"></a>
@@ -466,27 +397,30 @@ Static Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string result of rendering process </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L178">178</a> of file <a class="el" href="../../">ViewRenderer.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $smarty = <a class="code" href="../../d1/d7e/class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde">BizSystem::getSmartyTemplate</a>();</div>
-<div class="line">  </div>
-<div class="line">  $viewOutput = $viewObj-&gt;outputAttrs();</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($viewOutput as $k=&gt;$v) {</div>
-<div class="line">            $smarty-&gt;assign($k, $v);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">// render the formobj attributes</span></div>
-<div class="line">        $smarty-&gt;assign(<span class="stringliteral">&quot;view&quot;</span>, $viewOutput);</div>
-<div class="line">  </div>
-<div class="line">        <span class="comment">//Translate Array of template variables to Zend template object</span></div>
-<div class="line">        <span class="keywordflow">foreach</span> ($tplAttributes as $key =&gt; $value) {</div>
-<div class="line">            $smarty-&gt;assign($key, $value);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span> ($viewObj-&gt;m_ConsoleOutput)</div>
-<div class="line">            $smarty-&gt;display(<a class="code" href="../../d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c">BizSystem::getTplFileWithPath</a>($viewObj-&gt;m_TemplateFile, $viewObj-&gt;m_Package));</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            <span class="keywordflow">return</span> $smarty-&gt;fetch(<a class="code" href="../../d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c">BizSystem::getTplFileWithPath</a>($viewObj-&gt;m_TemplateFile, $viewObj-&gt;m_Package));</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d6/d92/_view_renderer_8php_source.html#l00178">178</a> of file <a class="el" href="../../d6/d92/_view_renderer_8php_source.html">ViewRenderer.php</a>.</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/dfb/class_view_renderer_a271a8f8acd200d185367fb475f43df51_cgraph.png" border="0" usemap="#d4/dfb/class_view_renderer_a271a8f8acd200d185367fb475f43df51_cgraph" alt=""/></div>
+<map name="d4/dfb/class_view_renderer_a271a8f8acd200d185367fb475f43df51_cgraph" id="d4/dfb/class_view_renderer_a271a8f8acd200d185367fb475f43df51_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde" title="BizSystem\\getSmartyTemplate" alt="" coords="157,6,360,34"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c" title="BizSystem\\getTplFileWithPath" alt="" coords="158,58,359,86"/><area shape="rect" id="node3" href="../../df/d00/class_resource.html#a1f8104d8aa899c9c115363799ed0cbde" title="Resource\\getSmartyTemplate" alt="" coords="1166,6,1362,34"/><area shape="rect" id="node4" href="../../df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="1411,33,1597,61"/><area shape="rect" id="node10" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1416,85,1592,113"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1893,31,2072,59"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1645,58,1845,86"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2124,31,2262,59"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1907,83,2058,111"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2121,83,2266,111"/><area shape="rect" id="node12" href="../../df/d00/class_resource.html#afb794bcc37996f735dfc6e7ddddf961c" title="Resource\\getTplFileWithPath" alt="" coords="408,58,603,86"/><area shape="rect" id="node13" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="650,110,811,138"/><area shape="rect" id="node14" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="859,110,1013,138"/><area shape="rect" id="node15" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1062,110,1117,138"/><area shape="rect" id="node16" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1197,110,1331,138"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/dfb/class_view_renderer_a271a8f8acd200d185367fb475f43df51_icgraph.png" border="0" usemap="#d4/dfb/class_view_renderer_a271a8f8acd200d185367fb475f43df51_icgraph" alt=""/></div>
+<map name="d4/dfb/class_view_renderer_a271a8f8acd200d185367fb475f43df51_icgraph" id="d4/dfb/class_view_renderer_a271a8f8acd200d185367fb475f43df51_icgraph">
+<area shape="rect" id="node2" href="../../d4/dfb/class_view_renderer.html#a588ca768528b47207177dfd1ff7ced52" title="render" alt="" coords="158,5,218,33"/><area shape="rect" id="node3" href="../../db/d40/class_easy_view.html#a30bcc620a40b8f755dbafb28ff1c76d4" title="EasyView\\_render" alt="" coords="267,5,397,33"/><area shape="rect" id="node4" href="../../db/d40/class_easy_view.html#afde88292c44dc59faf017738dae6dffb" title="EasyView\\render" alt="" coords="446,5,568,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a660cfc005e8950d40a9b13907e1ce38b"></a>
@@ -519,17 +453,8 @@ Static Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L232">232</a> of file <a class="el" href="../../">ViewRenderer.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// get the cache attribute</span></div>
-<div class="line">        <span class="comment">// if cache = browser, set the cache control in headers</span></div>
-<div class="line">        header(<span class="stringliteral">&#39;Pragma:&#39;</span>, <span class="keyword">true</span>);</div>
-<div class="line">        header(<span class="stringliteral">&#39;Cache-Control: max-age=3600&#39;</span>, <span class="keyword">true</span>);</div>
-<div class="line">        $offset = 60 * 60 * 24 * - 1;</div>
-<div class="line">        $ExpStr = <span class="stringliteral">&quot;Expires: &quot;</span> . gmdate(<span class="stringliteral">&quot;D, d M Y H:i:s&quot;</span>, time() + $offset) . <span class="stringliteral">&quot; GMT&quot;</span>;</div>
-<div class="line">        header($ExpStr, <span class="keyword">true</span>);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d6/d92/_view_renderer_8php_source.html#l00232">232</a> of file <a class="el" href="../../d6/d92/_view_renderer_8php_source.html">ViewRenderer.php</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -538,7 +463,7 @@ Static Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d4/dfb/class_view_renderer.html">ViewRenderer</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:27 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:22:08 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

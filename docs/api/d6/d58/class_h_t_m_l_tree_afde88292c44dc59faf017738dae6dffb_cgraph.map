@@ -1,0 +1,15 @@
+<map id="render" name="render">
+<area shape="rect" id="node2" href="$d6/d58/class_h_t_m_l_tree.html#a1ad6f1d47a702a09a81d27017c736e1d" title="renderNodeItems" alt="" coords="115,57,240,85"/>
+<area shape="rect" id="node3" href="$d6/d58/class_h_t_m_l_tree.html#a3ed53b0875e0f7cdab7d5c6237bb426d" title="renderSingleNodeItem" alt="" coords="288,57,443,85"/>
+<area shape="rect" id="node4" href="$d6/d58/class_h_t_m_l_tree.html#abfd36177592aaa81627a95651853787b" title="translate" alt="" coords="490,57,563,85"/>
+<area shape="rect" id="node5" href="$db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="611,5,802,33"/>
+<area shape="rect" id="node6" href="$d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="679,57,734,85"/>
+<area shape="rect" id="node14" href="$d6/d58/class_h_t_m_l_tree.html#a23e530c2fd590d19ff1ff8ad2eba5b44" title="getTransKey" alt="" coords="658,109,755,137"/>
+<area shape="rect" id="node7" href="$d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="852,57,986,85"/>
+<area shape="rect" id="node8" href="$d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1035,57,1210,85"/>
+<area shape="rect" id="node9" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1506,30,1686,58"/>
+<area shape="rect" id="node11" href="$d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1259,82,1459,110"/>
+<area shape="rect" id="node10" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1738,30,1876,58"/>
+<area shape="rect" id="node12" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1520,82,1672,110"/>
+<area shape="rect" id="node13" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1734,82,1879,110"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="getEventLogMsg" name="getEventLogMsg">
+<area shape="rect" id="node2" href="$d3/d10/class_easy_form.html#af7869ff2f0c1b81688eb42db0552a9be" title="runEventLog" alt="" coords="177,135,274,163"/>
+<area shape="rect" id="node3" href="$d3/d10/class_easy_form.html#a0b269ace607ab745b5c2ac549f1f3b08" title="runSearch" alt="" coords="336,5,419,33"/>
+<area shape="rect" id="node4" href="$d3/d10/class_easy_form.html#a5d3f4160632eebbdec1d1e9bf8a3d510" title="resetSearch" alt="" coords="331,57,424,85"/>
+<area shape="rect" id="node5" href="$d3/d10/class_easy_form.html#abaacec03117854cd7fcc2540295768e8" title="deleteRecord" alt="" coords="327,109,428,137"/>
+<area shape="rect" id="node6" href="$d3/d10/class_easy_form.html#a5eca79a16a171c80aea4860c2e8fbe84" title="removeRecord" alt="" coords="323,161,432,189"/>
+<area shape="rect" id="node7" href="$d3/d10/class_easy_form.html#a22a8409a820a88e424d9fc9a71a5932a" title="_doUpdate" alt="" coords="334,213,421,241"/>
+<area shape="rect" id="node13" href="$d3/d10/class_easy_form.html#a613a31d4e8c9693801fa4ae1ba0644b6" title="_doInsert" alt="" coords="339,265,416,293"/>
+<area shape="rect" id="node8" href="$d3/d10/class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="490,213,595,241"/>
+<area shape="rect" id="node10" href="$d3/d10/class_easy_form.html#a386c5a3fcb3daea95ab0e98a4cafd8bf" title="updateFieldValue" alt="" coords="481,161,605,189"/>
+<area shape="rect" id="node9" href="$d3/d10/class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="saveRecord" alt="" coords="682,239,774,267"/>
+<area shape="rect" id="node11" href="$d3/d10/class_easy_form.html#a326d668daf6787a96d8fad30cb3fe3ce" title="updateFieldValueAdd" alt="" coords="654,174,802,202"/>
+<area shape="rect" id="node12" href="$d3/d10/class_easy_form.html#ad925ac5856b187d0d0bdb4691cec8f6f" title="updateFieldValueXor" alt="" coords="656,122,800,150"/>
+<area shape="rect" id="node14" href="$d3/d10/class_easy_form.html#a3510e359acc3518312436d50f9cbde51" title="insertRecord" alt="" coords="494,265,591,293"/>
+</map>

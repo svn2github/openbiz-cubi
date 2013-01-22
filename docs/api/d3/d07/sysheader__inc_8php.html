@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('d3/d07/sysheader__inc_8php.html','../.
 </div><!--header-->
 <div class="contents">
 
-<p><a href="">Go to the source code of this file.</a></p>
+<p><a href="../../d3/d07/sysheader__inc_8php_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -233,21 +233,19 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L100">100</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
-<div class="fragment"><div class="line">{</div>
-<div class="line">    <span class="comment">/*$filePath = BizSystem::getLibFileWithPath($className);</span></div>
-<div class="line"><span class="comment">    if ($filePath)</span></div>
-<div class="line"><span class="comment">    {</span></div>
-<div class="line"><span class="comment">        include_once($filePath);</span></div>
-<div class="line"><span class="comment">        return;</span></div>
-<div class="line"><span class="comment">    }*/</span></div>
-<div class="line"> <a class="code" href="../../d3/ddd/class_biz_class_loader.html#af60e1ab4d8265fd8e7993845fa3a2144">BizClassLoader::loadClass</a>($className);</div>
-<div class="line">}</div>
-<div class="line"><span class="keywordflow">if</span>(!function_exists(<span class="stringliteral">&quot;__autoload&quot;</span>))</div>
-<div class="line">{</div>
-<div class="line"> spl_autoload_register(<span class="stringliteral">&quot;__autoload_openbiz&quot;</span>); </div>
-<div class="line">}</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00100">100</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
+
+<p><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d07/sysheader__inc_8php_aaa3c62808ae599d9b14076cb357f2bdf_cgraph.png" border="0" usemap="#d3/d07/sysheader__inc_8php_aaa3c62808ae599d9b14076cb357f2bdf_cgraph" alt=""/></div>
+<map name="d3/d07/sysheader__inc_8php_aaa3c62808ae599d9b14076cb357f2bdf_cgraph" id="d3/d07/sysheader__inc_8php_aaa3c62808ae599d9b14076cb357f2bdf_cgraph">
+<area shape="rect" id="node2" href="../../d3/ddd/class_biz_class_loader.html#af60e1ab4d8265fd8e7993845fa3a2144" title="BizClassLoader\\loadClass" alt="" coords="196,5,372,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a54b12493afb4a866bb71de1e6d30189d"></a>
@@ -283,16 +281,8 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L160">160</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
-<div class="fragment"><div class="line">{</div>
-<div class="line"> <span class="keywordflow">if</span>($debug)</div>
-<div class="line">  $debug_fun=<span class="stringliteral">&#39;debug_print_backtrace();&#39;</span>;</div>
-<div class="line"> echo <span class="stringliteral">&#39;&lt;pre&gt;&#39;</span>;</div>
-<div class="line"> array_walk(func_get_args(), create_function(<span class="stringliteral">&#39;&amp;$item, $key&#39;</span>, <span class="stringliteral">&#39;print_r($item);&#39;</span>.$debug_fun.<span class="stringliteral">&#39;&#39;</span>));</div>
-<div class="line"> echo <span class="stringliteral">&#39;&lt;/pre&gt;&#39;</span>;</div>
-<div class="line"> exit();</div>
-<div class="line">}</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00160">160</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a19d3c5479623431030e97e486f7d52bd"></a>
@@ -308,16 +298,8 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L142">142</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
-<div class="fragment"><div class="line">{</div>
-<div class="line">    <span class="keywordflow">if</span>(!isset($_SERVER[<span class="stringliteral">&#39;DOCUMENT_ROOT&#39;</span>])){ <span class="keywordflow">if</span>(isset($_SERVER[<span class="stringliteral">&#39;SCRIPT_FILENAME&#39;</span>])){</div>
-<div class="line">    $_SERVER[<span class="stringliteral">&#39;DOCUMENT_ROOT&#39;</span>] = str_replace( <span class="charliteral">&#39;\\&#39;</span>, <span class="charliteral">&#39;/&#39;</span>, substr($_SERVER[<span class="stringliteral">&#39;SCRIPT_FILENAME&#39;</span>], 0, 0-strlen($_SERVER[<span class="stringliteral">&#39;PHP_SELF&#39;</span>])));</div>
-<div class="line">    }; };</div>
-<div class="line">    <span class="keywordflow">if</span>(!isset($_SERVER[<span class="stringliteral">&#39;DOCUMENT_ROOT&#39;</span>])){ <span class="keywordflow">if</span>(isset($_SERVER[<span class="stringliteral">&#39;PATH_TRANSLATED&#39;</span>])){</div>
-<div class="line">    $_SERVER[<span class="stringliteral">&#39;DOCUMENT_ROOT&#39;</span>] = str_replace( <span class="charliteral">&#39;\\&#39;</span>, <span class="charliteral">&#39;/&#39;</span>, substr(str_replace(<span class="stringliteral">&#39;\\\\&#39;</span>, <span class="charliteral">&#39;\\&#39;</span>, $_SERVER[<span class="stringliteral">&#39;PATH_TRANSLATED&#39;</span>]), 0, 0-strlen($_SERVER[<span class="stringliteral">&#39;PHP_SELF&#39;</span>])));</div>
-<div class="line">    }; };</div>
-<div class="line">}</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00142">142</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ad3184406c932c7b3dc43489b64657dd6"></a>
@@ -362,12 +344,8 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L122">122</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
-<div class="fragment"><div class="line">{</div>
-<div class="line">    <span class="comment">//include_once(OPENBIZ_BIN.&#39;ErrorHandler.php&#39;);</span></div>
-<div class="line">    OB_ErrorHandler::ErrorHandler($errno, $errmsg, $filename, $linenum, $vars);</div>
-<div class="line">}</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00122">122</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a933c13043268940259ab94cc4f686358"></a>
@@ -384,12 +362,8 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L133">133</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
-<div class="fragment"><div class="line">{</div>
-<div class="line">    <span class="comment">//include_once(OPENBIZ_BIN.&#39;ErrorHandler.php&#39;);</span></div>
-<div class="line">    OB_ErrorHandler::ExceptionHandler($exc);</div>
-<div class="line">}</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00133">133</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="abcc56effed365d60c475acbc7c7ebf60"></a>
@@ -425,16 +399,8 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L177">177</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
-<div class="fragment"><div class="line">{</div>
-<div class="line"> <span class="keywordflow">if</span>($debug)</div>
-<div class="line">  $debug_fun=<span class="stringliteral">&#39;debug_print_backtrace();&#39;</span>;</div>
-<div class="line"> echo <span class="stringliteral">&#39;&lt;pre&gt;&#39;</span>;</div>
-<div class="line"> array_walk(func_get_args(), create_function(<span class="stringliteral">&#39;&amp;$item, $key&#39;</span>, <span class="stringliteral">&#39;var_dump($item);&#39;</span>.$debug_fun.<span class="stringliteral">&#39;&#39;</span>));</div>
-<div class="line"> echo <span class="stringliteral">&#39;&lt;/pre&gt;&#39;</span>;</div>
-<div class="line"> exit();</div>
-<div class="line">}</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00177">177</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -448,7 +414,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L87">87</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00087">87</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -462,7 +428,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L88">88</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00088">88</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -476,7 +442,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L116">116</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00116">116</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -490,7 +456,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L40">40</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00040">40</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -504,7 +470,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L41">41</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00041">41</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -518,7 +484,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L39">39</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00039">39</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -532,7 +498,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00027">27</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -546,7 +512,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L54">54</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00054">54</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -560,7 +526,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L55">55</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00055">55</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -574,7 +540,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L48">48</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00048">48</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -588,7 +554,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L20">20</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00020">20</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -602,7 +568,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L47">47</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00047">47</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -616,7 +582,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L53">53</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00053">53</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -630,7 +596,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L44">44</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00044">44</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -644,7 +610,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L49">49</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00049">49</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -658,7 +624,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L59">59</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00059">59</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -672,7 +638,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L46">46</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00046">46</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -686,7 +652,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L34">34</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00034">34</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -700,7 +666,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L56">56</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00056">56</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -714,7 +680,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L43">43</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00043">43</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -728,7 +694,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L28">28</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00028">28</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -742,7 +708,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L20">20</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00020">20</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -756,7 +722,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L45">45</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00045">45</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -770,7 +736,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L74">74</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00074">74</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -784,7 +750,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L42">42</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00042">42</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -798,7 +764,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L51">51</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00051">51</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -812,7 +778,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L52">52</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00052">52</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -826,7 +792,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L50">50</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00050">50</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -840,7 +806,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L71">71</a> of file <a class="el" href="../../">sysheader_inc.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html#l00071">71</a> of file <a class="el" href="../../d3/d07/sysheader__inc_8php_source.html">sysheader_inc.php</a>.</p>
 
 </div>
 </div>
@@ -850,7 +816,7 @@ define('LOCALEINFO_SERVICE'service&#160;</td><td class="memItemRight" valign="bo
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_9e51036813d6151dfecc72d5fa7c02b3.html">Users</a></li><li class="navelem"><a class="el" href="../../dir_b0446a7b2c4e13f76e78dcf7715ad478.html">jixian</a></li><li class="navelem"><a class="el" href="../../dir_c1d932a277628715986f941f0ae2ef99.html">Workspace</a></li><li class="navelem"><a class="el" href="../../dir_dd87cfccd83ac043527f7444db3022b2.html">Openbiz_Project_Google</a></li><li class="navelem"><a class="el" href="../../dir_583a7b4370c1d82f6d6d7fc9f59a4283.html">cubi</a></li><li class="navelem"><a class="el" href="../../dir_ac0478a135b22ff1f794c875c5bf9aa9.html">openbiz</a></li><li class="navelem"><a class="el" href="../../dir_0ee2580413d323b809fede65055b96ff.html">bin</a></li><li class="navelem"><a class="el" href="../../d3/d07/sysheader__inc_8php.html">sysheader_inc.php</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:10 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:35 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

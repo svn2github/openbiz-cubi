@@ -347,7 +347,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L28">28</a> of file <a class="el" href="../../">ColumnText.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/dcb/_column_text_8php_source.html#l00028">28</a> of file <a class="el" href="../../d4/dcb/_column_text_8php_source.html">ColumnText.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a5d9d9b4c33382ff6dd4d7e0033986905"></a>
 <div class="memitem">
@@ -363,11 +363,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L89">89</a> of file <a class="el" href="../../">ColumnText.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> ($this-&gt;m_Sortable == <span class="stringliteral">&quot;Y&quot;</span> &amp;&amp; $method == <span class="stringliteral">&quot;sortrecord&quot;</span>);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d4/dcb/_column_text_8php_source.html#l00089">89</a> of file <a class="el" href="../../d4/dcb/_column_text_8php_source.html">ColumnText.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a5888f7e5883c7c2d486f7ddc1bd64760"></a>
@@ -400,13 +397,8 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L39">39</a> of file <a class="el" href="../../">ColumnText.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::readMetaData($xmlArr);</div>
-<div class="line">        $this-&gt;m_Sortable = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;SORTABLE&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;SORTABLE&quot;</span>] : null;        </div>
-<div class="line">        $this-&gt;m_ColumnStyle = <a class="code" href="../../d5/d50/class_element.html#aa0f4777c83305ff549427e18e42dc14b">$this-&gt;m_Style</a>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d4/dcb/_column_text_8php_source.html#l00039">39</a> of file <a class="el" href="../../d4/dcb/_column_text_8php_source.html">ColumnText.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a107d3e8b67d4aa25011c2ba626033fd3"></a>
@@ -424,32 +416,8 @@ Protected Member Functions</h2></td></tr>
 <p>Render label, When render table, it return the table header; when render array, it return the display name</p>
 <dl class="section return"><dt>Returns</dt><dd>string HTML text </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L63">63</a> of file <a class="el" href="../../">ColumnText.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_Sortable == <span class="stringliteral">&quot;Y&quot;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $rule = <a class="code" href="../../db/d4b/class_meta_object.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">$this-&gt;m_Name</a>;</div>
-<div class="line"></div>
-<div class="line">            $function = $this-&gt;m_FormName . <span class="stringliteral">&quot;.SortRecord($rule,$this-&gt;m_SortFlag)&quot;</span>;</div>
-<div class="line">            <span class="keywordflow">if</span>($this-&gt;m_SortFlag == <span class="stringliteral">&quot;ASC&quot;</span> || $this-&gt;m_SortFlag == <span class="stringliteral">&quot;DESC&quot;</span>){</div>
-<div class="line">             $class=<span class="stringliteral">&quot; class=\&quot;current\&quot; &quot;</span>;</div>
-<div class="line">            }<span class="keywordflow">else</span>{</div>
-<div class="line">             $class=<span class="stringliteral">&quot; class=\&quot;normal\&quot; &quot;</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> ($this-&gt;m_SortFlag == <span class="stringliteral">&quot;ASC&quot;</span>)</div>
-<div class="line">             $span_class = <span class="stringliteral">&quot; class=\&quot;sort_up\&quot; &quot;</span>;</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($this-&gt;m_SortFlag == <span class="stringliteral">&quot;DESC&quot;</span>)</div>
-<div class="line">                $span_class = <span class="stringliteral">&quot; class=\&quot;sort_down\&quot; &quot;</span>;</div>
-<div class="line">            $sHTML = <span class="stringliteral">&quot;&lt;a href=javascript:Openbiz.CallFunction(&#39;&quot;</span> . $function . <span class="stringliteral">&quot;&#39;) $class &gt;&lt;span $span_class &gt;&quot;</span> . $this-&gt;m_Label .<span class="stringliteral">&quot;&lt;/span&gt;&quot;</span>;            </div>
-<div class="line">            $sHTML .= <span class="stringliteral">&quot;&lt;/a&gt;&quot;</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {</div>
-<div class="line">            $sHTML = <a class="code" href="../../d6/d00/class_label_text.html#a1f831539f3b0a50f98b77b7ac014d6b0">$this-&gt;m_Label</a>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $sHTML;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d4/dcb/_column_text_8php_source.html#l00063">63</a> of file <a class="el" href="../../d4/dcb/_column_text_8php_source.html">ColumnText.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae16014dd733bc0cebf0f9e72a317af18"></a>
@@ -474,11 +442,8 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L52">52</a> of file <a class="el" href="../../">ColumnText.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;m_SortFlag = $flag;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d4/dcb/_column_text_8php_source.html#l00052">52</a> of file <a class="el" href="../../d4/dcb/_column_text_8php_source.html">ColumnText.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -492,7 +457,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L31">31</a> of file <a class="el" href="../../">ColumnText.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/dcb/_column_text_8php_source.html#l00031">31</a> of file <a class="el" href="../../d4/dcb/_column_text_8php_source.html">ColumnText.php</a>.</p>
 
 </div>
 </div>
@@ -506,7 +471,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L30">30</a> of file <a class="el" href="../../">ColumnText.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/dcb/_column_text_8php_source.html#l00030">30</a> of file <a class="el" href="../../d4/dcb/_column_text_8php_source.html">ColumnText.php</a>.</p>
 
 </div>
 </div>
@@ -516,7 +481,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d5/d3e/class_column_text.html">ColumnText</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:17 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:45 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

@@ -185,7 +185,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L24">24</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00024">24</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a095c5d389db211932136b53f25f39685"></a>
 <div class="memitem">
@@ -200,10 +200,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L37">37</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00037">37</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -229,65 +227,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L236">236</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $where = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">if</span> ($assoc[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;1-M&quot;</span> || $assoc[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;M-1&quot;</span> || $assoc[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;1-1&quot;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="comment">// assc table should same as maintable</span></div>
-<div class="line">            <span class="keywordflow">if</span> ($assoc[<span class="stringliteral">&quot;Table&quot;</span>] != $this-&gt;_mainTable) <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="comment">// add table to join table</span></div>
-<div class="line">            $mytable_col = $this-&gt;<a class="code" href="../../d8/d47/class_biz_data_sql.html#a2ffb420f93014db5ffcd6c1256a3ab80">getTableColumn</a>(null, $assoc[<span class="stringliteral">&quot;Column&quot;</span>]);</div>
-<div class="line">            <span class="comment">// construct table.column = &#39;field value&#39;</span></div>
-<div class="line">            $where = $mytable_col.<span class="stringliteral">&quot; = &#39;&quot;</span>.$assoc[<span class="stringliteral">&quot;FieldRefVal&quot;</span>].<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">            </div>
-<div class="line">            $mytable_col2 = $this-&gt;<a class="code" href="../../d8/d47/class_biz_data_sql.html#a2ffb420f93014db5ffcd6c1256a3ab80">getTableColumn</a>(null, $assoc[<span class="stringliteral">&quot;Column2&quot;</span>]);</div>
-<div class="line">            <span class="keywordflow">if</span>($assoc[<span class="stringliteral">&quot;Column2&quot;</span>]){</div>
-<div class="line">             $where .= <span class="stringliteral">&quot; AND &quot;</span>.$mytable_col2.<span class="stringliteral">&quot; = &#39;&quot;</span>.$assoc[<span class="stringliteral">&quot;FieldRefVal2&quot;</span>].<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">            }</div>
-<div class="line">            $mytable_cond_col = $this-&gt;<a class="code" href="../../d8/d47/class_biz_data_sql.html#a2ffb420f93014db5ffcd6c1256a3ab80">getTableColumn</a>(null, $assoc[<span class="stringliteral">&quot;CondColumn&quot;</span>]);</div>
-<div class="line">            <span class="keywordflow">if</span>($assoc[<span class="stringliteral">&quot;CondColumn&quot;</span>]){</div>
-<div class="line">             $where .= <span class="stringliteral">&quot; AND $mytable_cond_col =&#39;&quot;</span>.$assoc[<span class="stringliteral">&quot;CondValue&quot;</span>].<span class="stringliteral">&quot;&#39; &quot;</span>;</div>
-<div class="line">            }</div>
-<div class="line">         <span class="keywordflow">if</span>($assoc[<span class="stringliteral">&quot;Condition&quot;</span>]){</div>
-<div class="line">             $where .= <span class="stringliteral">&quot; AND &quot;</span>.$assoc[<span class="stringliteral">&quot;Condition&quot;</span>].<span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        elseif ($assoc[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;M-M&quot;</span> || $assoc[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;Self-Self&quot;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="comment">// ... INNER JOIN xtable TX ON TX.column2 = T0.column</span></div>
-<div class="line">            <span class="comment">// WHERE ... Tx.column1 = &#39;PrtTableColumnValue&#39;</span></div>
-<div class="line">            $mytable_col = $this-&gt;<a class="code" href="../../d8/d47/class_biz_data_sql.html#a2ffb420f93014db5ffcd6c1256a3ab80">getTableColumn</a>(null, $assoc[<span class="stringliteral">&quot;Column&quot;</span>]);   <span class="comment">// this table&#39;s alias.column</span></div>
-<div class="line">            $xtable = $assoc[<span class="stringliteral">&quot;XTable&quot;</span>];    <span class="comment">// xtable&#39;s name</span></div>
-<div class="line">            $column1 = $assoc[<span class="stringliteral">&quot;XColumn1&quot;</span>]; <span class="comment">// xtable column1</span></div>
-<div class="line">            $column2 = $assoc[<span class="stringliteral">&quot;XColumn2&quot;</span>]; <span class="comment">// xtable column2</span></div>
-<div class="line">            $xalias = <span class="stringliteral">&quot;TX&quot;</span>;</div>
-<div class="line">            <span class="keywordflow">if</span> (isset($this-&gt;_tableAliasList[$xtable]))</div>
-<div class="line">                $xalias = $this-&gt;_tableAliasList[$xtable];</div>
-<div class="line"></div>
-<div class="line">            <span class="comment">// add a table join for the xtable if such join of the table is not there before (note: may report error if has same join).</span></div>
-<div class="line">            <span class="comment">//if (strpos($this-&gt;m_TableJoins, &quot;JOIN $xtable&quot;) === false)</span></div>
-<div class="line">            <span class="keywordflow">if</span> (!isset($this-&gt;_tableAliasList[$xtable]))</div>
-<div class="line">            {</div>
-<div class="line">                $this-&gt;_tableJoins .= <span class="stringliteral">&quot; INNER JOIN `$xtable` $xalias ON $xalias.$column2 = $mytable_col &quot;</span>;</div>
-<div class="line">                $this-&gt;_tableAliasList[$xtable] = $xalias;</div>
-<div class="line">            }</div>
-<div class="line">            </div>
-<div class="line">            <span class="comment">// add a new where condition</span></div>
-<div class="line">            <span class="keywordflow">if</span>($assoc[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;Self-Self&quot;</span>)</div>
-<div class="line">            {   </div>
-<div class="line">             $columnId = $this-&gt;<a class="code" href="../../d8/d47/class_biz_data_sql.html#a2ffb420f93014db5ffcd6c1256a3ab80">getTableColumn</a>(<span class="stringliteral">&quot;&quot;</span>, $assoc[<span class="stringliteral">&quot;ParentRecordIdColumn&quot;</span>]);              </div>
-<div class="line">             $where = <span class="stringliteral">&quot;($xalias.$column1 = &#39;&quot;</span>.$assoc[<span class="stringliteral">&quot;FieldRefVal&quot;</span>].<span class="stringliteral">&quot;&#39; OR $xalias.$column2 = &#39;&quot;</span>.$assoc[<span class="stringliteral">&quot;FieldRefVal&quot;</span>].<span class="stringliteral">&quot;&#39; ) AND $columnId != &#39;&quot;</span>.$assoc[<span class="stringliteral">&quot;FieldRefVal&quot;</span>].<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">             $this-&gt;_tableJoins .=  <span class="stringliteral">&quot; OR $xalias.$column1 = $mytable_col &quot;</span>;</div>
-<div class="line">            }<span class="keywordflow">else</span>{</div>
-<div class="line">             $where = <span class="stringliteral">&quot;$xalias.$column1 = &#39;&quot;</span>.$assoc[<span class="stringliteral">&quot;FieldRefVal&quot;</span>].<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> (strlen($where) &gt; 1)</div>
-<div class="line">            $this-&gt;<a class="code" href="../../d8/d47/class_biz_data_sql.html#a1f4c65ec295b96787ceeb303e08efc81">addSqlWhere</a>($where);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00236">236</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d47/class_biz_data_sql_a5c9b8ae752514b82f504afaa0aa22aa4_cgraph.png" border="0" usemap="#d8/d47/class_biz_data_sql_a5c9b8ae752514b82f504afaa0aa22aa4_cgraph" alt=""/></div>
+<map name="d8/d47/class_biz_data_sql_a5c9b8ae752514b82f504afaa0aa22aa4_cgraph" id="d8/d47/class_biz_data_sql_a5c9b8ae752514b82f504afaa0aa22aa4_cgraph">
+<area shape="rect" id="node2" href="../../d8/d47/class_biz_data_sql.html#a2ffb420f93014db5ffcd6c1256a3ab80" title="getTableColumn" alt="" coords="165,5,283,33"/><area shape="rect" id="node4" href="../../d8/d47/class_biz_data_sql.html#a1f4c65ec295b96787ceeb303e08efc81" title="addSqlWhere" alt="" coords="173,57,275,85"/><area shape="rect" id="node3" href="../../d8/d47/class_biz_data_sql.html#a9fd67124677a7562e8a6e467d6a76b44" title="getJoinAlias" alt="" coords="331,5,424,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a586c6603549259709b787c218d7ba70b"></a>
@@ -328,26 +280,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L71">71</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $table = $tableJoin-&gt;m_Table;</div>
-<div class="line">        $joinType = $tableJoin-&gt;m_JoinType;</div>
-<div class="line">        $column = $tableJoin-&gt;m_Column;</div>
-<div class="line">        $joinRef = $tableJoin-&gt;m_JoinRef;</div>
-<div class="line">        $columnRef = $tableJoin-&gt;m_ColumnRef;</div>
-<div class="line">  $joinCondition = $tableJoin-&gt;m_JoinCondition;</div>
-<div class="line"></div>
-<div class="line">        $alias = <span class="stringliteral">&quot;T&quot;</span>.(count($this-&gt;_joinAliasList)+1);   <span class="comment">// start with T1, T2</span></div>
-<div class="line">        $this-&gt;_joinAliasList[$tableJoin-&gt;m_Name] = $alias;</div>
-<div class="line">        $this-&gt;_tableAliasList[$table] = $alias;</div>
-<div class="line">        $aliasRef = $this-&gt;<a class="code" href="../../d8/d47/class_biz_data_sql.html#a9fd67124677a7562e8a6e467d6a76b44">getJoinAlias</a>($joinRef);</div>
-<div class="line">        $this-&gt;_tableJoins .= <span class="stringliteral">&quot; $joinType `$table` $alias ON $alias.$column = $aliasRef.$columnRef &quot;</span>;</div>
-<div class="line">  <span class="keywordflow">if</span> (!empty($joinCondition)) {</div>
-<div class="line">   $this-&gt;_tableJoins .= <span class="stringliteral">&quot; AND $joinCondition&quot;</span>;</div>
-<div class="line">   $this-&gt;hasJoinCondition = <span class="keyword">true</span>;</div>
-<div class="line">  }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00071">71</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d47/class_biz_data_sql_a586c6603549259709b787c218d7ba70b_cgraph.png" border="0" usemap="#d8/d47/class_biz_data_sql_a586c6603549259709b787c218d7ba70b_cgraph" alt=""/></div>
+<map name="d8/d47/class_biz_data_sql_a586c6603549259709b787c218d7ba70b_cgraph" id="d8/d47/class_biz_data_sql_a586c6603549259709b787c218d7ba70b_cgraph">
+<area shape="rect" id="node2" href="../../d8/d47/class_biz_data_sql.html#a9fd67124677a7562e8a6e467d6a76b44" title="getJoinAlias" alt="" coords="155,5,248,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a110ac4e7f1f9ef6c21b163976c44c1fe"></a>
@@ -372,12 +317,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L52">52</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;_mainTable = <span class="stringliteral">&quot;$mainTable&quot;</span>;</div>
-<div class="line">        $this-&gt;_tableJoins = <span class="stringliteral">&quot; `$mainTable` T0 &quot;</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00052">52</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae9ccd7953d9ac08d28e593772678d607"></a>
@@ -402,20 +343,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L196">196</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> ($orderBy == null)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;_orderBy == null)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;_orderBy = $orderBy;</div>
-<div class="line">        }</div>
-<div class="line">        elseif (strpos($this-&gt;_orderBy, $orderBy) === <span class="keyword">false</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;_orderBy .= <span class="stringliteral">&quot; AND &quot;</span> . $orderBy;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00196">196</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a3bceb1dbc4bcba9723e3bd0c6314ddcc"></a>
@@ -440,20 +369,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L216">216</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> ($otherSQL == null)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;_otherSQL == null)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;_otherSQL = $otherSQL;</div>
-<div class="line">        }</div>
-<div class="line">        elseif (strpos($this-&gt;_otherSQL, $otherSQL) === <span class="keyword">false</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;_otherSQL .= <span class="stringliteral">&quot; AND &quot;</span> . $otherSQL;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00216">216</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aeaaa2dfa4a70b510705e3de333c501d7"></a>
@@ -489,16 +406,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L120">120</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> ($alias)</div>
-<div class="line">            $sqlExpr .= <span class="stringliteral">&#39; AS &#39;</span>.$alias;</div>
-<div class="line">        <span class="keywordflow">if</span> (!$this-&gt;_tableColumns)</div>
-<div class="line">            $this-&gt;_tableColumns = $sqlExpr;</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            $this-&gt;_tableColumns .= <span class="stringliteral">&quot;, &quot;</span>.$sqlExpr;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00120">120</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1f4c65ec295b96787ceeb303e08efc81"></a>
@@ -523,20 +432,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L176">176</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> ($sqlWhere == null)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;_sqlWhere == null)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;_sqlWhere = $sqlWhere;</div>
-<div class="line">        }</div>
-<div class="line">        elseif (strpos($this-&gt;_sqlWhere, $sqlWhere) === <span class="keyword">false</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;_sqlWhere .= <span class="stringliteral">&quot; AND &quot;</span> . $sqlWhere;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00176">176</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d47/class_biz_data_sql_a1f4c65ec295b96787ceeb303e08efc81_icgraph.png" border="0" usemap="#d8/d47/class_biz_data_sql_a1f4c65ec295b96787ceeb303e08efc81_icgraph" alt=""/></div>
+<map name="d8/d47/class_biz_data_sql_a1f4c65ec295b96787ceeb303e08efc81_icgraph" id="d8/d47/class_biz_data_sql_a1f4c65ec295b96787ceeb303e08efc81_icgraph">
+<area shape="rect" id="node2" href="../../d8/d47/class_biz_data_sql.html#a5c9b8ae752514b82f504afaa0aa22aa4" title="addAssociation" alt="" coords="157,5,269,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a15ed9d48a89ecf52ef8bb4ff82a70ad9"></a>
@@ -578,16 +486,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L102">102</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $tcol = $this-&gt;<a class="code" href="../../d8/d47/class_biz_data_sql.html#a2ffb420f93014db5ffcd6c1256a3ab80">getTableColumn</a>($join, $column);</div>
-<div class="line">        <span class="keywordflow">if</span> ($alias) $tcol .= <span class="stringliteral">&quot; AS &quot;</span>.$alias;</div>
-<div class="line">        <span class="keywordflow">if</span> (!$this-&gt;_tableColumns)</div>
-<div class="line">            $this-&gt;_tableColumns = $tcol;</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            $this-&gt;_tableColumns .= <span class="stringliteral">&quot;, &quot;</span>.$tcol;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00102">102</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d47/class_biz_data_sql_a15ed9d48a89ecf52ef8bb4ff82a70ad9_cgraph.png" border="0" usemap="#d8/d47/class_biz_data_sql_a15ed9d48a89ecf52ef8bb4ff82a70ad9_cgraph" alt=""/></div>
+<map name="d8/d47/class_biz_data_sql_a15ed9d48a89ecf52ef8bb4ff82a70ad9_cgraph" id="d8/d47/class_biz_data_sql_a15ed9d48a89ecf52ef8bb4ff82a70ad9_cgraph">
+<area shape="rect" id="node2" href="../../d8/d47/class_biz_data_sql.html#a2ffb420f93014db5ffcd6c1256a3ab80" title="getTableColumn" alt="" coords="176,5,294,33"/><area shape="rect" id="node3" href="../../d8/d47/class_biz_data_sql.html#a9fd67124677a7562e8a6e467d6a76b44" title="getJoinAlias" alt="" coords="341,5,435,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a9fd67124677a7562e8a6e467d6a76b44"></a>
@@ -612,14 +523,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string join table alias </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L136">136</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> (!$join) <span class="comment">// main table, no join</span></div>
-<div class="line">            <span class="keywordflow">return</span> <span class="stringliteral">&quot;T0&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            <span class="keywordflow">return</span> $this-&gt;_joinAliasList[$join];</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00136">136</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d47/class_biz_data_sql_a9fd67124677a7562e8a6e467d6a76b44_icgraph.png" border="0" usemap="#d8/d47/class_biz_data_sql_a9fd67124677a7562e8a6e467d6a76b44_icgraph" alt=""/></div>
+<map name="d8/d47/class_biz_data_sql_a9fd67124677a7562e8a6e467d6a76b44_icgraph" id="d8/d47/class_biz_data_sql_a9fd67124677a7562e8a6e467d6a76b44_icgraph">
+<area shape="rect" id="node2" href="../../d8/d47/class_biz_data_sql.html#a586c6603549259709b787c218d7ba70b" title="addJoinTable" alt="" coords="155,5,255,33"/><area shape="rect" id="node3" href="../../d8/d47/class_biz_data_sql.html#a2ffb420f93014db5ffcd6c1256a3ab80" title="getTableColumn" alt="" coords="146,57,264,85"/><area shape="rect" id="node4" href="../../d8/d47/class_biz_data_sql.html#a15ed9d48a89ecf52ef8bb4ff82a70ad9" title="addTableColumn" alt="" coords="313,30,434,58"/><area shape="rect" id="node5" href="../../d8/d47/class_biz_data_sql.html#a5c9b8ae752514b82f504afaa0aa22aa4" title="addAssociation" alt="" coords="317,82,429,110"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a26ca4cbe261f722077f893bbe8083ba1"></a>
@@ -637,32 +553,8 @@ Protected Attributes</h2></td></tr>
 <p>Get the SQL statement</p>
 <dl class="section return"><dt>Returns</dt><dd>string SQL statement </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L300">300</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $ret = <span class="stringliteral">&quot;SELECT &quot;</span> . <a class="code" href="../../d8/d47/class_biz_data_sql.html#ae70983b076cc9fd8d7737dca677b57ff">$this-&gt;_tableColumns</a>;</div>
-<div class="line">        $ret .= <span class="stringliteral">&quot; FROM &quot;</span> . <a class="code" href="../../d8/d47/class_biz_data_sql.html#aa229662f5fcb2d914d483dbd575695c3">$this-&gt;_tableJoins</a>;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;_sqlWhere != null)</div>
-<div class="line">        {</div>
-<div class="line">            $ret .= <span class="stringliteral">&quot; WHERE &quot;</span> . <a class="code" href="../../d8/d47/class_biz_data_sql.html#aaeace811fc4075c07ba3f024de3af0cf">$this-&gt;_sqlWhere</a>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">/*</span></div>
-<div class="line"><span class="comment">        if ($this-&gt;m_OrderBy != null)</span></div>
-<div class="line"><span class="comment">        {</span></div>
-<div class="line"><span class="comment">            $ret .= &quot; ORDER BY &quot; . $this-&gt;m_OrderBy;</span></div>
-<div class="line"><span class="comment"> }</span></div>
-<div class="line"><span class="comment">        */</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;_otherSQL != null)</div>
-<div class="line">        {</div>
-<div class="line">            $ret .= <span class="stringliteral">&quot; &quot;</span> . <a class="code" href="../../d8/d47/class_biz_data_sql.html#ad78bf650cf2a76c53a183ee9af75db88">$this-&gt;_otherSQL</a>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;_orderBy != null)</div>
-<div class="line">        {</div>
-<div class="line">            $ret .= <span class="stringliteral">&quot; ORDER BY &quot;</span> . <a class="code" href="../../d8/d47/class_biz_data_sql.html#a7781005f393524d0766e1f488cd04bb8">$this-&gt;_orderBy</a>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $ret;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00300">300</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a2ffb420f93014db5ffcd6c1256a3ab80"></a>
@@ -698,13 +590,30 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string table column combination string </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L151">151</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// check the function format on $col</span></div>
-<div class="line">        $alias = $this-&gt;<a class="code" href="../../d8/d47/class_biz_data_sql.html#a9fd67124677a7562e8a6e467d6a76b44">getJoinAlias</a>($join);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="stringliteral">&quot;$alias.`$col`&quot;</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00151">151</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d47/class_biz_data_sql_a2ffb420f93014db5ffcd6c1256a3ab80_cgraph.png" border="0" usemap="#d8/d47/class_biz_data_sql_a2ffb420f93014db5ffcd6c1256a3ab80_cgraph" alt=""/></div>
+<map name="d8/d47/class_biz_data_sql_a2ffb420f93014db5ffcd6c1256a3ab80_cgraph" id="d8/d47/class_biz_data_sql_a2ffb420f93014db5ffcd6c1256a3ab80_cgraph">
+<area shape="rect" id="node2" href="../../d8/d47/class_biz_data_sql.html#a9fd67124677a7562e8a6e467d6a76b44" title="getJoinAlias" alt="" coords="171,5,264,33"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d47/class_biz_data_sql_a2ffb420f93014db5ffcd6c1256a3ab80_icgraph.png" border="0" usemap="#d8/d47/class_biz_data_sql_a2ffb420f93014db5ffcd6c1256a3ab80_icgraph" alt=""/></div>
+<map name="d8/d47/class_biz_data_sql_a2ffb420f93014db5ffcd6c1256a3ab80_icgraph" id="d8/d47/class_biz_data_sql_a2ffb420f93014db5ffcd6c1256a3ab80_icgraph">
+<area shape="rect" id="node2" href="../../d8/d47/class_biz_data_sql.html#a15ed9d48a89ecf52ef8bb4ff82a70ad9" title="addTableColumn" alt="" coords="171,5,293,33"/><area shape="rect" id="node3" href="../../d8/d47/class_biz_data_sql.html#a5c9b8ae752514b82f504afaa0aa22aa4" title="addAssociation" alt="" coords="176,57,288,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ae256a0a41ad28ad2547c133aecc413cb"></a>
@@ -720,9 +629,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L91">91</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">{ <span class="keywordflow">return</span> <a class="code" href="../../d8/d47/class_biz_data_sql.html#aa229662f5fcb2d914d483dbd575695c3">$this-&gt;_tableJoins</a>; }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00091">91</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a5e0a1175367acc3081606ee884f252b9"></a>
@@ -738,11 +646,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L41">41</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line"> {</div>
-<div class="line">  <span class="keywordflow">return</span> $this-&gt;_mainTable ? <span class="keyword">false</span> : <span class="keyword">true</span>;</div>
-<div class="line"> }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00041">41</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="adc8df437571fde51a235af5e6d9f99d9"></a>
@@ -760,13 +665,8 @@ Protected Attributes</h2></td></tr>
 <p>Reset SQL to be empty</p>
 <dl class="section return"><dt>Returns</dt><dd>avoid </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L163">163</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;_sqlWhere = null;</div>
-<div class="line">        $this-&gt;_orderBy = null;</div>
-<div class="line">        $this-&gt;_otherSQL = null;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00163">163</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a7d8671baf67dff71b1eb8497c85738d4"></a>
@@ -783,9 +683,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L93">93</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
-<div class="fragment"><div class="line">{ <span class="keywordflow">return</span> $this-&gt;_tableJoins = $tableJoinStm; }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00093">93</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -807,7 +706,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L33">33</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00033">33</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
 
 </div>
 </div>
@@ -829,7 +728,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L28">28</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00028">28</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
 
 </div>
 </div>
@@ -851,7 +750,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L34">34</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00034">34</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
 
 </div>
 </div>
@@ -873,7 +772,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L31">31</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00031">31</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
 
 </div>
 </div>
@@ -895,7 +794,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L32">32</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00032">32</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
 
 </div>
 </div>
@@ -917,7 +816,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L30">30</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00030">30</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
 
 </div>
 </div>
@@ -939,7 +838,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L29">29</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00029">29</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
 
 </div>
 </div>
@@ -961,7 +860,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L26">26</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00026">26</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
 
 </div>
 </div>
@@ -983,7 +882,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00027">27</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
 
 </div>
 </div>
@@ -997,7 +896,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L35">35</a> of file <a class="el" href="../../">BizDataSql.php</a>.</p>
+<p>Definition at line <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html#l00035">35</a> of file <a class="el" href="../../db/de0/_biz_data_sql_8php_source.html">BizDataSql.php</a>.</p>
 
 </div>
 </div>
@@ -1007,7 +906,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d8/d47/class_biz_data_sql.html">BizDataSql</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:13 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:40 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

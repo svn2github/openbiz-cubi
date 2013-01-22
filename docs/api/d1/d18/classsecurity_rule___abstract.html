@@ -166,7 +166,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L199">199</a> of file <a class="el" href="../../">securityService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00199">199</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a847d8d60f037d0a016aca7006cf9dec6"></a>
 <div class="memitem">
@@ -190,11 +190,19 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L214">214</a> of file <a class="el" href="../../">securityService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;<a class="code" href="../../d1/d18/classsecurity_rule___abstract.html#a1db802d93a9f0badf186a646e1cdb161">readMetadata</a>($xmlArr);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00214">214</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d1/d18/classsecurity_rule___abstract_a847d8d60f037d0a016aca7006cf9dec6_cgraph.png" border="0" usemap="#d1/d18/classsecurity_rule___abstract_a847d8d60f037d0a016aca7006cf9dec6_cgraph" alt=""/></div>
+<map name="d1/d18/classsecurity_rule___abstract_a847d8d60f037d0a016aca7006cf9dec6_cgraph" id="d1/d18/classsecurity_rule___abstract_a847d8d60f037d0a016aca7006cf9dec6_cgraph">
+<area shape="rect" id="node2" href="../../d1/d18/classsecurity_rule___abstract.html#a1db802d93a9f0badf186a646e1cdb161" title="readMetadata" alt="" coords="144,5,248,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -213,39 +221,19 @@ Protected Member Functions</h2></td></tr>
 <p>Check Effective Time</p>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L259">259</a> of file <a class="el" href="../../">securityService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        sscanf( $this-&gt;m_EffectiveTime, <span class="stringliteral">&quot;%2d%2d-%2d%2d&quot;</span>,</div>
-<div class="line">                $start_hour, $start_min,</div>
-<div class="line">                $end_hour, $end_min</div>
-<div class="line">        );</div>
-<div class="line"></div>
-<div class="line">        $startTime  = strtotime(date(<span class="stringliteral">&quot;Y-m-d &quot;</span>).$start_hour.<span class="stringliteral">&quot;:&quot;</span>.$start_min) ? strtotime(date(<span class="stringliteral">&quot;Y-m-d &quot;</span>).$start_hour.<span class="stringliteral">&quot;:&quot;</span>.$start_min) : strtotime(date(<span class="stringliteral">&quot;Y-m-d 00:00&quot;</span>));</div>
-<div class="line">        $endTime    = strtotime(date(<span class="stringliteral">&quot;Y-m-d &quot;</span>).$end_hour.<span class="stringliteral">&quot;:&quot;</span>.$end_min) ? strtotime(date(<span class="stringliteral">&quot;Y-m-d &quot;</span>).$end_hour.<span class="stringliteral">&quot;:&quot;</span>.$end_min) : strtotime(date(<span class="stringliteral">&quot;Y-m-d 23:59:59&quot;</span>));</div>
-<div class="line"></div>
-<div class="line">        $nowTime    = time();</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span>($startTime&gt;0 &amp;&amp; $endTime&gt;0)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="comment">//auto convert start time and end time</span></div>
-<div class="line">            <span class="keywordflow">if</span>($endTime &lt; $startTime)</div>
-<div class="line">            {</div>
-<div class="line">                $tmpTime = $startTime;</div>
-<div class="line">                $startTime = $endTime;</div>
-<div class="line">                $endTime = $tmpTime;</div>
-<div class="line">            }</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span>($startTime &lt; $nowTime &amp;&amp; $nowTime &lt; $endTime )</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00259">259</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d1/d18/classsecurity_rule___abstract_a71b2c76acf999ae8cc7421c86a27ee46_icgraph.png" border="0" usemap="#d1/d18/classsecurity_rule___abstract_a71b2c76acf999ae8cc7421c86a27ee46_icgraph" alt=""/></div>
+<map name="d1/d18/classsecurity_rule___abstract_a71b2c76acf999ae8cc7421c86a27ee46_icgraph" id="d1/d18/classsecurity_rule___abstract_a71b2c76acf999ae8cc7421c86a27ee46_icgraph">
+<area shape="rect" id="node2" href="../../d5/def/class_u_r_l_filter_rule.html#a7d4ad4038b036a67eece619e6f88c89e" title="URLFilterRule\\process" alt="" coords="200,5,355,33"/><area shape="rect" id="node3" href="../../d0/da5/class_domain_filter_rule.html#a7d4ad4038b036a67eece619e6f88c89e" title="DomainFilterRule\\process" alt="" coords="190,57,365,85"/><area shape="rect" id="node4" href="../../da/dd4/class_agent_filter_rule.html#a7d4ad4038b036a67eece619e6f88c89e" title="AgentFilterRule\\process" alt="" coords="196,109,359,137"/><area shape="rect" id="node5" href="../../d8/d6a/class_i_p_filter_rule.html#a7d4ad4038b036a67eece619e6f88c89e" title="IPFilterRule\\process" alt="" coords="207,161,348,189"/><area shape="rect" id="node6" href="../../d4/df1/class_post_filter_rule.html#a7d4ad4038b036a67eece619e6f88c89e" title="PostFilterRule\\process" alt="" coords="200,213,355,241"/><area shape="rect" id="node7" href="../../da/d94/class_get_filter_rule.html#a7d4ad4038b036a67eece619e6f88c89e" title="GetFilterRule\\process" alt="" coords="202,265,352,293"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a3d24ed0e93b212b4d5e382fa795bf4ef"></a>
@@ -263,11 +251,8 @@ Protected Member Functions</h2></td></tr>
 <p>Get message error</p>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L249">249</a> of file <a class="el" href="../../">securityService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> <a class="code" href="../../d1/d18/classsecurity_rule___abstract.html#acf9dd54a23516566a0b7d083ee4a336a">$this-&gt;m_ErrorMessage</a>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00249">249</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a7d4ad4038b036a67eece619e6f88c89e"></a>
@@ -287,11 +272,8 @@ Protected Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d6/d38/interfacei_security_rule.html#a7d4ad4038b036a67eece619e6f88c89e">iSecurityRule</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L239">239</a> of file <a class="el" href="../../">securityService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00239">239</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1db802d93a9f0badf186a646e1cdb161"></a>
@@ -324,15 +306,19 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L225">225</a> of file <a class="el" href="../../">securityService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;m_Name  = $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAME&quot;</span>];</div>
-<div class="line">        $this-&gt;m_Action = $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;ACTION&quot;</span>];</div>
-<div class="line">        $this-&gt;m_Status = $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;STATUS&quot;</span>];</div>
-<div class="line">        $this-&gt;m_Match  = $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;MATCH&quot;</span>];</div>
-<div class="line">        $this-&gt;m_EffectiveTime = $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;EFFECTIVETIME&quot;</span>];</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00225">225</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d1/d18/classsecurity_rule___abstract_a1db802d93a9f0badf186a646e1cdb161_icgraph.png" border="0" usemap="#d1/d18/classsecurity_rule___abstract_a1db802d93a9f0badf186a646e1cdb161_icgraph" alt=""/></div>
+<map name="d1/d18/classsecurity_rule___abstract_a1db802d93a9f0badf186a646e1cdb161_icgraph" id="d1/d18/classsecurity_rule___abstract_a1db802d93a9f0badf186a646e1cdb161_icgraph">
+<area shape="rect" id="node2" href="../../d1/d18/classsecurity_rule___abstract.html#a847d8d60f037d0a016aca7006cf9dec6" title="__construct" alt="" coords="158,5,248,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -346,7 +332,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L202">202</a> of file <a class="el" href="../../">securityService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00202">202</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
 
 </div>
 </div>
@@ -360,7 +346,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L205">205</a> of file <a class="el" href="../../">securityService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00205">205</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
 
 </div>
 </div>
@@ -374,7 +360,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L206">206</a> of file <a class="el" href="../../">securityService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00206">206</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
 
 </div>
 </div>
@@ -388,7 +374,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L203">203</a> of file <a class="el" href="../../">securityService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00203">203</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
 
 </div>
 </div>
@@ -402,7 +388,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L201">201</a> of file <a class="el" href="../../">securityService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00201">201</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
 
 </div>
 </div>
@@ -416,7 +402,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L204">204</a> of file <a class="el" href="../../">securityService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00204">204</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
 
 </div>
 </div>
@@ -426,7 +412,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d1/d18/classsecurity_rule___abstract.html">securityRule_Abstract</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:25 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:22:06 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

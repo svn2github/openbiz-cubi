@@ -1,0 +1,9 @@
+<map id="getObject" name="getObject">
+<area shape="rect" id="node2" href="$db/d60/class_object_factory.html#a276a15d5187194e2c92b31b8c1f23997" title="constructObject" alt="" coords="166,65,280,93"/>
+<area shape="rect" id="node7" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="133,121,312,149"/>
+<area shape="rect" id="node3" href="$d1/d7e/class_biz_system.html#afb3b9597319d812f889a89ab0c7c5e4b" title="BizSystem\\getXmlArray" alt="" coords="367,5,529,33"/>
+<area shape="rect" id="node5" href="$d3/ddd/class_biz_class_loader.html#a6bbd0684f00be761ca64e9c4eb57a0c7" title="BizClassLoader\\getLibFile\lWithPath" alt="" coords="360,57,536,101"/>
+<area shape="rect" id="node4" href="$df/d00/class_resource.html#afb3b9597319d812f889a89ab0c7c5e4b" title="Resource\\getXmlArray" alt="" coords="598,5,754,33"/>
+<area shape="rect" id="node6" href="$d3/ddd/class_biz_class_loader.html#a43b9bb5f52377fabc68e21785b5afcb6" title="BizClassLoader\\getCoreLib\lFilePath" alt="" coords="584,57,768,101"/>
+<area shape="rect" id="node8" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="379,125,517,153"/>
+</map>

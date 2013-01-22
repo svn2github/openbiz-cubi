@@ -268,7 +268,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">IDCardReader.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d3c/_i_d_card_reader_8php_source.html#l00027">27</a> of file <a class="el" href="../../d9/d3c/_i_d_card_reader_8php_source.html">IDCardReader.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a5888f7e5883c7c2d486f7ddc1bd64760"></a>
 <div class="memitem">
@@ -292,14 +292,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L29">29</a> of file <a class="el" href="../../">IDCardReader.php</a>.</p>
-<div class="fragment"><div class="line">                                          {</div>
-<div class="line">  parent::readMetaData($xmlArr);</div>
-<div class="line">  $this-&gt;m_cssClass = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CSSCLASS&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CSSCLASS&quot;</span>] : <span class="stringliteral">&quot;input_cardreader&quot;</span>;</div>
-<div class="line">  $this-&gt;m_cssErrorClass = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CSSERRORCLASS&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CSSERRORCLASS&quot;</span>] : $this-&gt;m_cssClass.<span class="stringliteral">&quot;_error&quot;</span>;</div>
-<div class="line">  $this-&gt;m_cssFocusClass = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CSSFOCUSCLASS&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CSSFOCUSCLASS&quot;</span>] : $this-&gt;m_cssClass.<span class="stringliteral">&quot;_focus&quot;</span>;</div>
-<div class="line"> }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d9/d3c/_i_d_card_reader_8php_source.html#l00029">29</a> of file <a class="el" href="../../d9/d3c/_i_d_card_reader_8php_source.html">IDCardReader.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="afde88292c44dc59faf017738dae6dffb"></a>
@@ -319,41 +313,19 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/d2b/interfacei_u_i_control.html#afde88292c44dc59faf017738dae6dffb">iUIControl</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L40">40</a> of file <a class="el" href="../../">IDCardReader.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     <span class="keywordflow">if</span>($this-&gt;m_Value!=null){</div>
-<div class="line">      $value = <a class="code" href="../../d5/d50/class_element.html#acab8a119e17bf4955d23bd05c09ee4cd">$this-&gt;m_Value</a>;</div>
-<div class="line">     }<span class="keywordflow">else</span>{</div>
-<div class="line">      $value = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a8a2999b1d846c0a7bc77187e28facd99">getText</a>();</div>
-<div class="line">     } </div>
-<div class="line">     </div>
-<div class="line">     <span class="keywordflow">if</span>($value==<span class="stringliteral">&quot;&quot;</span>){</div>
-<div class="line">      $value = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#af9b9401c63918169457fe8516324950f">getDefaultValue</a>();</div>
-<div class="line">     }     </div>
-<div class="line">        $disabledStr = ($this-&gt;<a class="code" href="../../d3/d05/class_input_element.html#ab442a42d8265e71787a82ef3a1b4549c">getEnabled</a>() == <span class="stringliteral">&quot;N&quot;</span>) ? <span class="stringliteral">&quot;READONLY=\&quot;true\&quot;&quot;</span> : <span class="stringliteral">&quot;&quot;</span>;        </div>
-<div class="line">        $style = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a1a9c641ae8a39113009425cbccaee5d5">getStyle</a>();        </div>
-<div class="line">        $func = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a3cb728ca27acfebd282caecdb8a1f5fc">getFunction</a>();</div>
-<div class="line">        </div>
-<div class="line">        $formobj = $this-&gt;GetFormObj();</div>
-<div class="line">     <span class="keywordflow">if</span>($formobj-&gt;m_Errors[$this-&gt;m_Name]){</div>
-<div class="line">   $func .= <span class="stringliteral">&quot;onchange=\&quot;this.className=&#39;$this-&gt;m_cssClass&#39;\&quot;&quot;</span>;</div>
-<div class="line">  }<span class="keywordflow">else</span>{</div>
-<div class="line">   $func .= <span class="stringliteral">&quot;onfocus=\&quot;this.className=&#39;$this-&gt;m_cssFocusClass&#39;\&quot; onblur=\&quot;this.className=&#39;$this-&gt;m_cssClass&#39;\&quot;&quot;</span>;</div>
-<div class="line">  }        </div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">//$sHTML = &quot;&lt;INPUT ReadOnly=\&quot;Enabled\&quot; NAME=\&quot;&quot; . $this-&gt;m_Name . &quot;\&quot; ID=\&quot;&quot; . $this-&gt;m_Name .&quot;\&quot; VALUE=\&quot;&quot; . $value . &quot;\&quot; $disabledStr $this-&gt;m_HTMLAttr $style $func /&gt;&quot;;</span></div>
-<div class="line">        <span class="comment">//$sHTML .= &quot;&lt;br/&gt;&lt;span ID=\&quot;&quot; . $this-&gt;m_Name .&quot;_status\&quot; &gt;Standing By&lt;/span&gt;&quot;;</span></div>
-<div class="line">        </div>
-<div class="line">        $sHTML = <span class="stringliteral">&quot; &lt;div id=\&quot;&quot;</span> . $this-&gt;m_Name . <span class="stringliteral">&quot;_reader\&quot; $disabledStr $this-&gt;m_HTMLAttr $style $func &gt;</span></div>
-<div class="line"><span class="stringliteral">            &lt;span class=\&quot;cardcode\&quot; ID=\&quot;&quot;</span> . $this-&gt;m_Name .<span class="stringliteral">&quot;_code\&quot; &gt;$value&lt;/span&gt;</span></div>
-<div class="line"><span class="stringliteral">            &lt;div style=\&quot;display:none;\&quot; &gt;&lt;input ReadOnly=\&quot;Enabled\&quot; type=\&quot;hidden\&quot; NAME=\&quot;&quot;</span> . $this-&gt;m_Name . <span class="stringliteral">&quot;\&quot; ID=\&quot;&quot;</span> . $this-&gt;m_Name .<span class="stringliteral">&quot;\&quot; VALUE=\&quot;\&quot; /&gt;&lt;/div&gt;</span></div>
-<div class="line"><span class="stringliteral">           &lt;/div&gt;&quot;</span>; </div>
-<div class="line">        </div>
-<div class="line">  $elementName = <a class="code" href="../../db/d4b/class_meta_object.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">$this-&gt;m_Name</a>;</div>
-<div class="line">        $sHTML .= <span class="stringliteral">&quot;&lt;script&gt;Openbiz.IDCardReader.init(&#39;$elementName&#39;);\n&lt;/script&gt;&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">return</span> $sHTML;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d9/d3c/_i_d_card_reader_8php_source.html#l00040">40</a> of file <a class="el" href="../../d9/d3c/_i_d_card_reader_8php_source.html">IDCardReader.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/df3/class_i_d_card_reader_afde88292c44dc59faf017738dae6dffb_cgraph.png" border="0" usemap="#da/df3/class_i_d_card_reader_afde88292c44dc59faf017738dae6dffb_cgraph" alt=""/></div>
+<map name="da/df3/class_i_d_card_reader_afde88292c44dc59faf017738dae6dffb_cgraph" id="da/df3/class_i_d_card_reader_afde88292c44dc59faf017738dae6dffb_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#a8a2999b1d846c0a7bc77187e28facd99" title="Element\\getText" alt="" coords="142,161,258,189"/><area shape="rect" id="node15" href="../../d5/d50/class_element.html#af9b9401c63918169457fe8516324950f" title="Element\\getDefaultValue" alt="" coords="116,213,284,241"/><area shape="rect" id="node16" href="../../d3/d05/class_input_element.html#ab442a42d8265e71787a82ef3a1b4549c" title="InputElement\\getEnabled" alt="" coords="114,57,286,85"/><area shape="rect" id="node17" href="../../d5/d50/class_element.html#a1a9c641ae8a39113009425cbccaee5d5" title="Element\\getStyle" alt="" coords="139,109,261,137"/><area shape="rect" id="node18" href="../../d5/d50/class_element.html#a3cb728ca27acfebd282caecdb8a1f5fc" title="Element\\getFunction" alt="" coords="128,5,272,33"/><area shape="rect" id="node3" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="626,106,771,134"/><area shape="rect" id="node6" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="334,261,541,289"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="859,126,1027,154"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1308,223,1446,251"/><area shape="rect" id="node7" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="608,314,790,342"/><area shape="rect" id="node12" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="600,158,798,186"/><area shape="rect" id="node13" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="590,210,808,238"/><area shape="rect" id="node14" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="618,262,779,290"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="856,237,1029,265"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1091,287,1242,315"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1305,301,1450,329"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1077,235,1256,263"/><area shape="rect" id="node19" href="../../d5/d50/class_element.html#a54ecee00f83d387598096653b07f10c5" title="Element\\getEvents" alt="" coords="371,5,504,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -362,7 +334,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/df3/class_i_d_card_reader.html">IDCardReader</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:21 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:55 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

@@ -145,7 +145,7 @@ Data Fields</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L25">25</a> of file <a class="el" href="../../">chartService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d88/chart_service_8php_source.html#l00025">25</a> of file <a class="el" href="../../df/d88/chart_service_8php_source.html">chartService.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a847d8d60f037d0a016aca7006cf9dec6"></a>
 <div class="memitem">
@@ -169,10 +169,8 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L40">40</a> of file <a class="el" href="../../">chartService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d88/chart_service_8php_source.html#l00040">40</a> of file <a class="el" href="../../df/d88/chart_service_8php_source.html">chartService.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -216,25 +214,19 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array reference of the array [field][index] </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L94">94</a> of file <a class="el" href="../../">chartService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $oldCacheMode = $bizObj-&gt;GetCacheMode();</div>
-<div class="line">        $bizObj-&gt;SetCacheMode(0);    <span class="comment">// turn off cache mode, not affect the current cache</span></div>
-<div class="line">        $bizObj-&gt;runSearch(-1);  <span class="comment">// don&#39;t use page search</span></div>
-<div class="line">        <span class="keywordflow">while</span> (1)</div>
-<div class="line">        {</div>
-<div class="line">            $recArray = $bizObj-&gt;GetRecord(1);</div>
-<div class="line">            <span class="keywordflow">if</span> (!$recArray) <span class="keywordflow">break</span>;</div>
-<div class="line">            $bizObj-&gt;UnformatInputRecArr($recArray);</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">foreach</span>($fields as $fld)</div>
-<div class="line">                $recMatrix[$fld][] = $recArray[$fld];   <span class="comment">// get data without format</span></div>
-<div class="line">            $recMatrix[$labelField][] = $recArray[$labelField];   <span class="comment">// get symbol with format</span></div>
-<div class="line">        }</div>
-<div class="line">        $bizObj-&gt;SetCacheMode($oldCacheMode);</div>
-<div class="line">        <span class="keywordflow">return</span> $recMatrix;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d88/chart_service_8php_source.html#l00094">94</a> of file <a class="el" href="../../df/d88/chart_service_8php_source.html">chartService.php</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/d97/classchart_service_ac9b785ecb13ca092c65186ff4db61145_icgraph.png" border="0" usemap="#de/d97/classchart_service_ac9b785ecb13ca092c65186ff4db61145_icgraph" alt=""/></div>
+<map name="de/d97/classchart_service_ac9b785ecb13ca092c65186ff4db61145_icgraph" id="de/d97/classchart_service_ac9b785ecb13ca092c65186ff4db61145_icgraph">
+<area shape="rect" id="node2" href="../../de/d97/classchart_service.html#a64b84e5acee897e0eee7f3a27b1e7b1e" title="xyGraphRender" alt="" coords="146,5,262,33"/><area shape="rect" id="node4" href="../../de/d97/classchart_service.html#ab0d8abc93415bda5749abaa148c156cc" title="pieGraphRender" alt="" coords="144,57,264,85"/><area shape="rect" id="node3" href="../../de/d97/classchart_service.html#a35f264cfe1f35b372af6b9fd46335eb5" title="render" alt="" coords="313,31,373,59"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ab0d8abc93415bda5749abaa148c156cc"></a>
@@ -270,37 +262,30 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L188">188</a> of file <a class="el" href="../../">chartService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        include_once (JPGRAPH_DIR.<span class="stringliteral">&#39;/jpgraph.php&#39;</span>);</div>
-<div class="line">        include_once (JPGRAPH_DIR.<span class="stringliteral">&#39;/jpgraph_pie.php&#39;</span>);</div>
-<div class="line">        include_once (JPGRAPH_DIR.<span class="stringliteral">&#39;/jpgraph_pie3d.php&#39;</span>);</div>
-<div class="line"></div>
-<div class="line">        $graph = <span class="keyword">new</span> PieGraph($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;WIDTH&quot;</span>],$xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;HEIGHT&quot;</span>]);</div>
-<div class="line">        <span class="comment">//$graph-&gt;SetAntiAliasing();</span></div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// get the data set - only support one data</span></div>
-<div class="line">        $fields[0] = $xmlArr[<span class="stringliteral">&#39;DATASET&#39;</span>][<span class="stringliteral">&#39;DATAPIE&#39;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FIELD&quot;</span>];</div>
-<div class="line">        $legendFld = $xmlArr[<span class="stringliteral">&#39;DATASET&#39;</span>][<span class="stringliteral">&#39;DATAPIE&#39;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;LEGENDFIELD&quot;</span>];</div>
-<div class="line"></div>
-<div class="line">        $recArray = &amp;$this-&gt;<a class="code" href="../../de/d97/classchart_service.html#ac9b785ecb13ca092c65186ff4db61145">getPlotData</a>($bizObj, $fields, $legendFld);</div>
-<div class="line"></div>
-<div class="line">        $chartData = $xmlArr[<span class="stringliteral">&#39;DATASET&#39;</span>][<span class="stringliteral">&#39;DATAPIE&#39;</span>];</div>
-<div class="line">        $plot = $this-&gt;<a class="code" href="../../de/d97/classchart_service.html#aa1b475cc77bb9f1f9d4ddeec9e9a7245">renderPiePlot</a>($recArray[$fields[0]], $chartData);</div>
-<div class="line">        $plot-&gt;SetLegends($recArray[$legendFld]);</div>
-<div class="line">        $graph-&gt;Add($plot);</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// render titles</span></div>
-<div class="line">        $graph-&gt;title-&gt;Set($xmlArr[<span class="stringliteral">&#39;TITLE&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;CAPTION&#39;</span>]);</div>
-<div class="line">        $this-&gt;_drawString($graph-&gt;title,$xmlArr[<span class="stringliteral">&#39;TITLE&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;FONT&#39;</span>],$xmlArr[<span class="stringliteral">&#39;TITLE&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;COLOR&#39;</span>]);</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// render legend</span></div>
-<div class="line">        $this-&gt;_drawLegend($graph-&gt;legend,$xmlArr[<span class="stringliteral">&#39;LEGEND&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;POSITION&#39;</span>],</div>
-<div class="line">                $xmlArr[<span class="stringliteral">&#39;LEGEND&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;LAYOUT&#39;</span>], $xmlArr[<span class="stringliteral">&#39;LEGEND&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;FONT&#39;</span>],</div>
-<div class="line">                $xmlArr[<span class="stringliteral">&#39;LEGEND&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;COLOR&#39;</span>], $xmlArr[<span class="stringliteral">&#39;LEGEND&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;FILLCOLOR&#39;</span>]);</div>
-<div class="line">        $graph-&gt;Stroke();</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d88/chart_service_8php_source.html#l00188">188</a> of file <a class="el" href="../../df/d88/chart_service_8php_source.html">chartService.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/d97/classchart_service_ab0d8abc93415bda5749abaa148c156cc_cgraph.png" border="0" usemap="#de/d97/classchart_service_ab0d8abc93415bda5749abaa148c156cc_cgraph" alt=""/></div>
+<map name="de/d97/classchart_service_ab0d8abc93415bda5749abaa148c156cc_cgraph" id="de/d97/classchart_service_ab0d8abc93415bda5749abaa148c156cc_cgraph">
+<area shape="rect" id="node2" href="../../de/d97/classchart_service.html#ac9b785ecb13ca092c65186ff4db61145" title="getPlotData" alt="" coords="180,5,271,33"/><area shape="rect" id="node3" href="../../de/d97/classchart_service.html#aa1b475cc77bb9f1f9d4ddeec9e9a7245" title="renderPiePlot" alt="" coords="174,57,276,85"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/d97/classchart_service_ab0d8abc93415bda5749abaa148c156cc_icgraph.png" border="0" usemap="#de/d97/classchart_service_ab0d8abc93415bda5749abaa148c156cc_icgraph" alt=""/></div>
+<map name="de/d97/classchart_service_ab0d8abc93415bda5749abaa148c156cc_icgraph" id="de/d97/classchart_service_ab0d8abc93415bda5749abaa148c156cc_icgraph">
+<area shape="rect" id="node2" href="../../de/d97/classchart_service.html#a35f264cfe1f35b372af6b9fd46335eb5" title="render" alt="" coords="174,5,234,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a35f264cfe1f35b372af6b9fd46335eb5"></a>
@@ -325,42 +310,19 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L50">50</a> of file <a class="el" href="../../">chartService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// get the value of the control that issues the call</span></div>
-<div class="line">        $chartName = <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;getFormInputs(<span class="stringliteral">&quot;__this&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// get the current UI bizobj</span></div>
-<div class="line">        $formObj = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($objName);    <span class="comment">// get the existing bizform object</span></div>
-<div class="line">        $bizDataObj = $formObj-&gt;getDataObj();</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// get chart config xml file</span></div>
-<div class="line">        $chartXmlFile = BizSystem::GetXmlFileWithPath($objName.<span class="stringliteral">&quot;_chart&quot;</span>);</div>
-<div class="line">        $xmlArr = <a class="code" href="../../d1/d7e/class_biz_system.html#afb3b9597319d812f889a89ab0c7c5e4b">BizSystem::getXmlArray</a>($chartXmlFile);</div>
-<div class="line"></div>
-<div class="line">        ob_clean();</div>
-<div class="line">        <span class="comment">// get the chart section from config xml file</span></div>
-<div class="line">        <span class="keywordflow">foreach</span>($xmlArr[<span class="stringliteral">&quot;BIZFORM_CHART&quot;</span>][<span class="stringliteral">&quot;CHARTLIST&quot;</span>][<span class="stringliteral">&quot;CHART&quot;</span>] as $chart)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> (count($xmlArr[<span class="stringliteral">&quot;BIZFORM_CHART&quot;</span>][<span class="stringliteral">&quot;CHARTLIST&quot;</span>][<span class="stringliteral">&quot;CHART&quot;</span>]) == 1)</div>
-<div class="line">                $chart = $xmlArr[<span class="stringliteral">&quot;BIZFORM_CHART&quot;</span>][<span class="stringliteral">&quot;CHARTLIST&quot;</span>][<span class="stringliteral">&quot;CHART&quot;</span>];</div>
-<div class="line">            <span class="comment">// try to match the chartName, if no chartName given, always draw the first chart defined in xml file</span></div>
-<div class="line">            <span class="keywordflow">if</span> (($chartName &amp;&amp; $chart[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAME&quot;</span>] == $chartName) || !$chartName)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">if</span> ($chart[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;GRAPHTYPE&quot;</span>] == <span class="stringliteral">&#39;XY&#39;</span>)</div>
-<div class="line">                {</div>
-<div class="line">                    $this-&gt;<a class="code" href="../../de/d97/classchart_service.html#a64b84e5acee897e0eee7f3a27b1e7b1e">xyGraphRender</a>($bizDataObj, $chart);</div>
-<div class="line">                    <span class="keywordflow">break</span>;</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">if</span> ($chart[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;GRAPHTYPE&quot;</span>] == <span class="stringliteral">&#39;Pie&#39;</span>)</div>
-<div class="line">                {</div>
-<div class="line">                    $this-&gt;<a class="code" href="../../de/d97/classchart_service.html#ab0d8abc93415bda5749abaa148c156cc">pieGraphRender</a>($bizDataObj, $chart);</div>
-<div class="line">                    <span class="keywordflow">break</span>;</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d88/chart_service_8php_source.html#l00050">50</a> of file <a class="el" href="../../df/d88/chart_service_8php_source.html">chartService.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/d97/classchart_service_a35f264cfe1f35b372af6b9fd46335eb5_cgraph.png" border="0" usemap="#de/d97/classchart_service_a35f264cfe1f35b372af6b9fd46335eb5_cgraph" alt=""/></div>
+<map name="de/d97/classchart_service_a35f264cfe1f35b372af6b9fd46335eb5_cgraph" id="de/d97/classchart_service_a35f264cfe1f35b372af6b9fd46335eb5_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="119,5,273,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="123,57,269,85"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#afb3b9597319d812f889a89ab0c7c5e4b" title="BizSystem\\getXmlArray" alt="" coords="115,109,277,137"/><area shape="rect" id="node7" href="../../de/d97/classchart_service.html#a64b84e5acee897e0eee7f3a27b1e7b1e" title="xyGraphRender" alt="" coords="138,161,254,189"/><area shape="rect" id="node10" href="../../de/d97/classchart_service.html#ab0d8abc93415bda5749abaa148c156cc" title="pieGraphRender" alt="" coords="136,213,256,241"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="335,5,473,33"/><area shape="rect" id="node6" href="../../df/d00/class_resource.html#afb3b9597319d812f889a89ab0c7c5e4b" title="Resource\\getXmlArray" alt="" coords="326,109,482,137"/><area shape="rect" id="node8" href="../../de/d97/classchart_service.html#ac9b785ecb13ca092c65186ff4db61145" title="getPlotData" alt="" coords="358,213,450,241"/><area shape="rect" id="node9" href="../../de/d97/classchart_service.html#ac7b354e7322fed7df4a6109bca99930b" title="renderXYPlot" alt="" coords="354,161,454,189"/><area shape="rect" id="node11" href="../../de/d97/classchart_service.html#aa1b475cc77bb9f1f9d4ddeec9e9a7245" title="renderPiePlot" alt="" coords="353,265,455,293"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aa1b475cc77bb9f1f9d4ddeec9e9a7245"></a>
@@ -396,38 +358,19 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>object refernce Pie plot object reference </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L293">293</a> of file <a class="el" href="../../">chartService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $id = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;ID&#39;</span>];</div>
-<div class="line">        $field = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;FIELD&#39;</span>];</div>
-<div class="line">        $chartType = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;CHARTTYPE&#39;</span>];</div>
-<div class="line">        $size = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;SIZE&#39;</span>];</div>
-<div class="line">        $center = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;CENTER&#39;</span>];</div>
-<div class="line">        $height = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;HEIGHT&#39;</span>];</div>
-<div class="line">        $angle = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;ANGLE&#39;</span>];</div>
-<div class="line">        $labelPos = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;LABELPOS&#39;</span>];</div>
-<div class="line">        $legendField = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;LAGENDFIELD&#39;</span>];</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($chartType == <span class="stringliteral">&quot;Pie&quot;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $plot = <span class="keyword">new</span> PiePlot($data);</div>
-<div class="line">            $plot-&gt;SetLabelPos($labelPos);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($chartType == <span class="stringliteral">&quot;Pie3D&quot;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $plot = <span class="keyword">new</span> PiePlot3D($data);</div>
-<div class="line">            $plot-&gt;SetHeight($height);</div>
-<div class="line">            $plot-&gt;SetAngle($angle);</div>
-<div class="line">        }</div>
-<div class="line">        list($c1, $c2) = explode(<span class="charliteral">&#39;,&#39;</span>, $center);</div>
-<div class="line">        $plot-&gt;SetCenter($c1,$c2);</div>
-<div class="line">        $plot-&gt;SetSize($size);</div>
-<div class="line"></div>
-<div class="line">        $this-&gt;_drawString($plot-&gt;value,$xmlArr[<span class="stringliteral">&#39;VALUE&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;FONT&#39;</span>],$xmlArr[<span class="stringliteral">&#39;VALUE&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;COLOR&#39;</span>]);</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">return</span> $plot;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d88/chart_service_8php_source.html#l00293">293</a> of file <a class="el" href="../../df/d88/chart_service_8php_source.html">chartService.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/d97/classchart_service_aa1b475cc77bb9f1f9d4ddeec9e9a7245_icgraph.png" border="0" usemap="#de/d97/classchart_service_aa1b475cc77bb9f1f9d4ddeec9e9a7245_icgraph" alt=""/></div>
+<map name="de/d97/classchart_service_aa1b475cc77bb9f1f9d4ddeec9e9a7245_icgraph" id="de/d97/classchart_service_aa1b475cc77bb9f1f9d4ddeec9e9a7245_icgraph">
+<area shape="rect" id="node2" href="../../de/d97/classchart_service.html#ab0d8abc93415bda5749abaa148c156cc" title="pieGraphRender" alt="" coords="157,5,277,33"/><area shape="rect" id="node3" href="../../de/d97/classchart_service.html#a35f264cfe1f35b372af6b9fd46335eb5" title="render" alt="" coords="326,5,386,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ac7b354e7322fed7df4a6109bca99930b"></a>
@@ -463,66 +406,19 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>object refernce XY plot object reference </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L226">226</a> of file <a class="el" href="../../">chartService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $id = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;ID&#39;</span>];</div>
-<div class="line">        $field = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;FIELD&#39;</span>];</div>
-<div class="line">        $chartType = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;CHARTTYPE&#39;</span>];</div>
-<div class="line">        $pointType = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;POINTTYPE&#39;</span>];</div>
-<div class="line">        $weight = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;WEIGHT&#39;</span>];</div>
-<div class="line">        $color = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;COLOR&#39;</span>];</div>
-<div class="line">        $fillColor = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;FILLCOLOR&#39;</span>];</div>
-<div class="line">        $showVal = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;SHOWVALUE&#39;</span>];</div>
-<div class="line">        $legend = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;LEGENDFIELD&#39;</span>];</div>
-<div class="line">        $visible = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;VISIBLE&#39;</span>];</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($chartType == <span class="stringliteral">&#39;Line&#39;</span> or $chartType == <span class="stringliteral">&#39;Bar&#39;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> ($chartType == <span class="stringliteral">&#39;Line&#39;</span>)</div>
-<div class="line">            {</div>
-<div class="line">                include_once (JPGRAPH_DIR.<span class="stringliteral">&#39;/jpgraph_line.php&#39;</span>);</div>
-<div class="line">                $plot = <span class="keyword">new</span> LinePlot($data);</div>
-<div class="line">                $this-&gt;_drawMark($plot-&gt;mark,</div>
-<div class="line">                        $xmlArr[<span class="stringliteral">&#39;POINTMARK&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;TYPE&#39;</span>], $xmlArr[<span class="stringliteral">&#39;POINTMARK&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;COLOR&#39;</span>],</div>
-<div class="line">                        $xmlArr[<span class="stringliteral">&#39;POINTMARK&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;FILLCOLOR&#39;</span>], $xmlArr[<span class="stringliteral">&#39;POINTMARK&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;SIZE&#39;</span>]);</div>
-<div class="line">                $plot-&gt;SetBarCenter();</div>
-<div class="line">                $plot-&gt;SetCenter();</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($chartType == <span class="stringliteral">&#39;Bar&#39;</span>)</div>
-<div class="line">            {</div>
-<div class="line">                include_once (JPGRAPH_DIR.<span class="stringliteral">&#39;/jpgraph_bar.php&#39;</span>);</div>
-<div class="line">                $plot = <span class="keyword">new</span> BarPlot($data);</div>
-<div class="line">                $plot-&gt;SetAlign(<span class="stringliteral">&#39;center&#39;</span>);</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> ($color) $plot-&gt;SetColor($color);</div>
-<div class="line">            <span class="keywordflow">if</span> ($fillColor) $plot-&gt;SetFillColor($fillColor);</div>
-<div class="line">            <span class="keywordflow">if</span> ($weight) $plot-&gt;SetWeight($weight);</div>
-<div class="line">            <span class="keywordflow">if</span> ($showVal == 1) $plot-&gt;value-&gt;Show();</div>
-<div class="line">            <span class="keywordflow">if</span> ($legend) $plot-&gt;SetLegend($legend);</div>
-<div class="line">            $this-&gt;_drawString($plot-&gt;value,$xmlArr[<span class="stringliteral">&#39;VALUE&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;FONT&#39;</span>],$xmlArr[<span class="stringliteral">&#39;VALUE&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;COLOR&#39;</span>]);</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($chartType == <span class="stringliteral">&#39;GroupBar&#39;</span> or $chartType == <span class="stringliteral">&#39;AccBar&#39;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $children = $xmlArr[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;CHILDREN&#39;</span>];</div>
-<div class="line">            $childList = explode(<span class="stringliteral">&quot;,&quot;</span>,$children);</div>
-<div class="line">            <span class="keywordflow">foreach</span>($childList as $child)</div>
-<div class="line">            {</div>
-<div class="line">                $childPlotList[] = $this-&gt;m_PlotList[$child];</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> ($chartType == <span class="stringliteral">&#39;GroupBar&#39;</span>)</div>
-<div class="line">                $plot = <span class="keyword">new</span> GroupBarPlot($childPlotList);</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($chartType == <span class="stringliteral">&#39;AccBar&#39;</span>)</div>
-<div class="line">                $plot = <span class="keyword">new</span> AccBarPlot($childPlotList);</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        $this-&gt;m_PlotList[$id] = $plot;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($visible == 1)</div>
-<div class="line">            <span class="keywordflow">return</span> $plot;</div>
-<div class="line">        <span class="keywordflow">return</span> null;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d88/chart_service_8php_source.html#l00226">226</a> of file <a class="el" href="../../df/d88/chart_service_8php_source.html">chartService.php</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/d97/classchart_service_ac7b354e7322fed7df4a6109bca99930b_icgraph.png" border="0" usemap="#de/d97/classchart_service_ac7b354e7322fed7df4a6109bca99930b_icgraph" alt=""/></div>
+<map name="de/d97/classchart_service_ac7b354e7322fed7df4a6109bca99930b_icgraph" id="de/d97/classchart_service_ac7b354e7322fed7df4a6109bca99930b_icgraph">
+<area shape="rect" id="node2" href="../../de/d97/classchart_service.html#a64b84e5acee897e0eee7f3a27b1e7b1e" title="xyGraphRender" alt="" coords="156,5,271,33"/><area shape="rect" id="node3" href="../../de/d97/classchart_service.html#a35f264cfe1f35b372af6b9fd46335eb5" title="render" alt="" coords="321,5,381,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a64b84e5acee897e0eee7f3a27b1e7b1e"></a>
@@ -558,67 +454,30 @@ Data Fields</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L120">120</a> of file <a class="el" href="../../">chartService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        include_once (JPGRAPH_DIR.<span class="stringliteral">&#39;/jpgraph.php&#39;</span>);</div>
-<div class="line"></div>
-<div class="line">        $graph = <span class="keyword">new</span> Graph($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;WIDTH&quot;</span>],$xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;HEIGHT&quot;</span>],<span class="stringliteral">&quot;auto&quot;</span>);</div>
-<div class="line">        <span class="comment">//$graph-&gt;img-&gt;SetAntiAliasing();</span></div>
-<div class="line">        $graph-&gt;SetScale(<span class="stringliteral">&quot;textlin&quot;</span>);</div>
-<div class="line">        $graph-&gt;yaxis-&gt;scale-&gt;SetGrace(10);</div>
-<div class="line">        list($m1, $m2, $m3, $m4) = explode(<span class="charliteral">&#39;,&#39;</span>, $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;MARGIN&quot;</span>]);</div>
-<div class="line">        $graph-&gt;img-&gt;SetMargin($m1, $m2, $m3, $m4);</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// get the data set</span></div>
-<div class="line">        <span class="keywordflow">foreach</span>($xmlArr[<span class="stringliteral">&#39;DATASET&#39;</span>][<span class="stringliteral">&#39;DATA&#39;</span>] as $dtmp)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> ($xmlArr[<span class="stringliteral">&#39;DATASET&#39;</span>][<span class="stringliteral">&#39;DATA&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>])</div>
-<div class="line">                $dtmp = $xmlArr[<span class="stringliteral">&#39;DATASET&#39;</span>][<span class="stringliteral">&#39;DATA&#39;</span>];</div>
-<div class="line">            $fieldName = $dtmp[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FIELD&quot;</span>];</div>
-<div class="line">            <span class="keywordflow">if</span> ($fieldName)</div>
-<div class="line">                $fields[$fieldName] = $fieldName;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        $labelFld = $xmlArr[<span class="stringliteral">&#39;XAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;LABELFIELD&#39;</span>];</div>
-<div class="line"></div>
-<div class="line">        $recArray = &amp;$this-&gt;<a class="code" href="../../de/d97/classchart_service.html#ac9b785ecb13ca092c65186ff4db61145">getPlotData</a>($bizObj, $fields, $labelFld);</div>
-<div class="line"></div>
-<div class="line">        $i = 0;</div>
-<div class="line">        <span class="keywordflow">foreach</span>($xmlArr[<span class="stringliteral">&#39;DATASET&#39;</span>][<span class="stringliteral">&#39;DATA&#39;</span>] as $dtmp)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> ($xmlArr[<span class="stringliteral">&#39;DATASET&#39;</span>][<span class="stringliteral">&#39;DATA&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>])</div>
-<div class="line">                $dtmp = $xmlArr[<span class="stringliteral">&#39;DATASET&#39;</span>][<span class="stringliteral">&#39;DATA&#39;</span>];</div>
-<div class="line">            $data = $recArray[$dtmp[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FIELD&quot;</span>]];</div>
-<div class="line">            $plot = $this-&gt;<a class="code" href="../../de/d97/classchart_service.html#ac7b354e7322fed7df4a6109bca99930b">renderXYPlot</a>($data, $dtmp);</div>
-<div class="line">            <span class="keywordflow">if</span> ($plot)</div>
-<div class="line">                $graph-&gt;Add($plot);</div>
-<div class="line">            $i++;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// render titles</span></div>
-<div class="line">        $graph-&gt;title-&gt;Set($xmlArr[<span class="stringliteral">&#39;TITLE&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;CAPTION&#39;</span>]);</div>
-<div class="line">        $this-&gt;_drawString($graph-&gt;title,$xmlArr[<span class="stringliteral">&#39;TITLE&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;FONT&#39;</span>],$xmlArr[<span class="stringliteral">&#39;TITLE&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;COLOR&#39;</span>]);</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// render xaxis</span></div>
-<div class="line">        $this-&gt;_drawAxis($graph-&gt;xaxis, $recArray[$labelFld],</div>
-<div class="line">                $xmlArr[<span class="stringliteral">&#39;XAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;FONT&#39;</span>], $xmlArr[<span class="stringliteral">&#39;XAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;COLOR&#39;</span>],</div>
-<div class="line">                $xmlArr[<span class="stringliteral">&#39;XAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;LABELANGLE&#39;</span>], $xmlArr[<span class="stringliteral">&#39;XAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;TITLE&#39;</span>],</div>
-<div class="line">                $xmlArr[<span class="stringliteral">&#39;XAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;TITLEFONT&#39;</span>], $xmlArr[<span class="stringliteral">&#39;XAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;TITLECOLOR&#39;</span>],</div>
-<div class="line">                $xmlArr[<span class="stringliteral">&#39;XAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;TITLEMARGIN&#39;</span>]);</div>
-<div class="line">        <span class="comment">// render yaxis</span></div>
-<div class="line">        $this-&gt;_drawAxis($graph-&gt;yaxis, null,</div>
-<div class="line">                $xmlArr[<span class="stringliteral">&#39;YAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;FONT&#39;</span>], $xmlArr[<span class="stringliteral">&#39;YAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;COLOR&#39;</span>],</div>
-<div class="line">                $xmlArr[<span class="stringliteral">&#39;YAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;LABELANGLE&#39;</span>], $xmlArr[<span class="stringliteral">&#39;YAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;TITLE&#39;</span>],</div>
-<div class="line">                $xmlArr[<span class="stringliteral">&#39;YAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;TITLEFONT&#39;</span>], $xmlArr[<span class="stringliteral">&#39;YAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;TITLECOLOR&#39;</span>],</div>
-<div class="line">                $xmlArr[<span class="stringliteral">&#39;YAXIS&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;TITLEMARGIN&#39;</span>]);</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// render legend</span></div>
-<div class="line">        $this-&gt;_drawLegend($graph-&gt;legend,$xmlArr[<span class="stringliteral">&#39;LAGEND&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;POSITION&#39;</span>],</div>
-<div class="line">                $xmlArr[<span class="stringliteral">&#39;LAGEND&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;LAYOUT&#39;</span>], $xmlArr[<span class="stringliteral">&#39;legend&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;FONT&#39;</span>],</div>
-<div class="line">                $xmlArr[<span class="stringliteral">&#39;LAGEND&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;COLOR&#39;</span>], $xmlArr[<span class="stringliteral">&#39;legend&#39;</span>][<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>][<span class="stringliteral">&#39;FILLCOLOR&#39;</span>]);</div>
-<div class="line">        $graph-&gt;Stroke();</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d88/chart_service_8php_source.html#l00120">120</a> of file <a class="el" href="../../df/d88/chart_service_8php_source.html">chartService.php</a>.</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/d97/classchart_service_a64b84e5acee897e0eee7f3a27b1e7b1e_cgraph.png" border="0" usemap="#de/d97/classchart_service_a64b84e5acee897e0eee7f3a27b1e7b1e_cgraph" alt=""/></div>
+<map name="de/d97/classchart_service_a64b84e5acee897e0eee7f3a27b1e7b1e_cgraph" id="de/d97/classchart_service_a64b84e5acee897e0eee7f3a27b1e7b1e_cgraph">
+<area shape="rect" id="node2" href="../../de/d97/classchart_service.html#ac9b785ecb13ca092c65186ff4db61145" title="getPlotData" alt="" coords="176,5,267,33"/><area shape="rect" id="node3" href="../../de/d97/classchart_service.html#ac7b354e7322fed7df4a6109bca99930b" title="renderXYPlot" alt="" coords="171,57,272,85"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/d97/classchart_service_a64b84e5acee897e0eee7f3a27b1e7b1e_icgraph.png" border="0" usemap="#de/d97/classchart_service_a64b84e5acee897e0eee7f3a27b1e7b1e_icgraph" alt=""/></div>
+<map name="de/d97/classchart_service_a64b84e5acee897e0eee7f3a27b1e7b1e_icgraph" id="de/d97/classchart_service_a64b84e5acee897e0eee7f3a27b1e7b1e_icgraph">
+<area shape="rect" id="node2" href="../../de/d97/classchart_service.html#a35f264cfe1f35b372af6b9fd46335eb5" title="render" alt="" coords="171,5,231,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -632,7 +491,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L32">32</a> of file <a class="el" href="../../">chartService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d88/chart_service_8php_source.html#l00032">32</a> of file <a class="el" href="../../df/d88/chart_service_8php_source.html">chartService.php</a>.</p>
 
 </div>
 </div>
@@ -642,7 +501,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../de/d97/classchart_service.html">chartService</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:14 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:42 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

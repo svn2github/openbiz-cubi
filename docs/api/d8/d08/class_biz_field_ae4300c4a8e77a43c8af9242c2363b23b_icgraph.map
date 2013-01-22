@@ -1,0 +1,10 @@
+<map id="getDataObj" name="getDataObj">
+<area shape="rect" id="node2" href="$d8/d08/class_biz_field.html#a56ed2c64ed12456cea61c55446cebacd" title="lookupValue" alt="" coords="325,12,419,40"/>
+<area shape="rect" id="node4" href="$d8/d08/class_biz_field.html#a80314b4a8ff745a399a730231eaf74b8" title="getValue" alt="" coords="174,37,247,65"/>
+<area shape="rect" id="node5" href="$d8/d08/class_biz_field.html#af9b9401c63918169457fe8516324950f" title="getDefaultValue" alt="" coords="153,89,268,117"/>
+<area shape="rect" id="node6" href="$d8/d08/class_biz_field.html#a28e2f59b6c1f32d18693464e7f558ae0" title="getValueOnCreate" alt="" coords="145,141,276,169"/>
+<area shape="rect" id="node7" href="$d8/d08/class_biz_field.html#adae62abd872e582cd8617cf81b47f615" title="getValueOnUpdate" alt="" coords="144,193,278,221"/>
+<area shape="rect" id="node8" href="$d8/d08/class_biz_field.html#aa4c8c1cac65717e36ec2dd2f08535857" title="checkRequired" alt="" coords="156,245,266,273"/>
+<area shape="rect" id="node9" href="$d8/d08/class_biz_field.html#a184909dab34698899937d810a9f5d393" title="validate" alt="" coords="177,297,244,325"/>
+<area shape="rect" id="node3" href="$d8/d08/class_biz_field.html#ade17b04a708bb62c5c29d4cd0b68fc32" title="getProperty" alt="" coords="467,12,557,40"/>
+</map>

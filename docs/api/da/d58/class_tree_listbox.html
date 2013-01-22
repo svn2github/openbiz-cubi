@@ -314,7 +314,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L3">3</a> of file <a class="el" href="../../">TreeListbox.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/dfe/_tree_listbox_8php_source.html#l00003">3</a> of file <a class="el" href="../../df/dfe/_tree_listbox_8php_source.html">TreeListbox.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="aea0b19f3861838e01007f60f7f8977ac"></a>
 <div class="memitem">
@@ -348,86 +348,19 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L7">7</a> of file <a class="el" href="../../">TreeListbox.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// from Database</span></div>
-<div class="line">        $pos0 = strpos($selectFrom, <span class="stringliteral">&quot;[&quot;</span>);</div>
-<div class="line">        $pos1 = strpos($selectFrom, <span class="stringliteral">&quot;]&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($pos0 &gt; 0 &amp;&amp; $pos1 &gt; $pos0)</div>
-<div class="line">        {  <span class="comment">// select from bizObj</span></div>
-<div class="line">            <span class="comment">// support BizObjName[BizFieldName] or BizObjName[BizFieldName4Text:BizFieldName4Value]</span></div>
-<div class="line">            $bizObjName = substr($selectFrom, 0, $pos0);</div>
-<div class="line">            $pos3 = strpos($selectFrom, <span class="stringliteral">&quot;:&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">if</span>($pos3 &gt; $pos0 &amp;&amp; $pos3 &lt; $pos1)</div>
-<div class="line">            {</div>
-<div class="line">                $fieldName = substr($selectFrom, $pos0 + 1, $pos3 - $pos0 - 1);</div>
-<div class="line">                $fieldName_v = substr($selectFrom, $pos3 + 1, $pos1 - $pos3 - 1);</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">            {</div>
-<div class="line">                $fieldName = substr($selectFrom, $pos0 + 1, $pos1 - $pos0 - 1);</div>
-<div class="line">                $fieldName_v = $fieldName;</div>
-<div class="line">            }</div>
-<div class="line">            $this-&gt;m_SelectFieldName = $fieldName; </div>
-<div class="line">            $commaPos = strpos($selectFrom, <span class="stringliteral">&quot;,&quot;</span>, $pos1);</div>
-<div class="line">            $commaPos2 = strpos($selectFrom, <span class="stringliteral">&quot;,&quot;</span>, $commaPos+1);</div>
-<div class="line">            </div>
-<div class="line">            <span class="keywordflow">if</span> ($commaPos &gt; $pos1)</div>
-<div class="line">            {</div>
-<div class="line">    <span class="keywordflow">if</span>($commaPos2){</div>
-<div class="line">              $searchRule = trim(substr($selectFrom, $commaPos + 1, ($commaPos2-$commaPos-1)));</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">else</span></div>
-<div class="line">    {</div>
-<div class="line">     $searchRule = trim(substr($selectFrom, $commaPos + 1));</div>
-<div class="line">    }</div>
-<div class="line">            }</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> ($commaPos2 &gt; $commaPos)</div>
-<div class="line">                $rootSearchRule = trim(substr($selectFrom, $commaPos2 + 1));</div>
-<div class="line">                </div>
-<div class="line">            $bizObj = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($bizObjName);</div>
-<div class="line">            <span class="keywordflow">if</span> (!$bizObj)</div>
-<div class="line">                <span class="keywordflow">return</span>;</div>
-<div class="line"></div>
-<div class="line">            $recList = array();</div>
-<div class="line"></div>
-<div class="line">            $oldAssoc = $bizObj-&gt;m_Association;</div>
-<div class="line">            $bizObj-&gt;m_Association = null;</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> ($searchRule)</div>
-<div class="line">            {</div>
-<div class="line">                $searchRule = <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>($searchRule, $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>());</div>
-<div class="line">            }</div>
-<div class="line">   </div>
-<div class="line">            <span class="keywordflow">if</span>($rootSearchRule)</div>
-<div class="line">            {</div>
-<div class="line">             $rootSearchRule = <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>($rootSearchRule, $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>());             </div>
-<div class="line">            }<span class="keywordflow">else</span>{</div>
-<div class="line">             $rootSearchRule = <span class="stringliteral">&quot;[PId]=0 OR [PId]=&#39;&#39; OR [PId] is NULL&quot;</span>;</div>
-<div class="line">            }</div>
-<div class="line">            </div>
-<div class="line">            $recListTree = $bizObj-&gt;fetchTree($rootSearchRule,100,$searchRule);</div>
-<div class="line">            $bizObj-&gt;m_Association = $oldAssoc;</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> (!$recListTree) <span class="keywordflow">return</span>; <span class="comment">// bugfix : error if data blank</span></div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">foreach</span>($recListTree as $recListTreeNode)</div>
-<div class="line">            {</div>
-<div class="line">                $this-&gt;tree2array($recListTreeNode, $recList);</div>
-<div class="line">            }</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">foreach</span> ($recList as $rec)</div>
-<div class="line">            {</div>
-<div class="line">                $list[$i][<span class="stringliteral">&#39;val&#39;</span>] = $rec[$fieldName_v];</div>
-<div class="line">                $list[$i][<span class="stringliteral">&#39;txt&#39;</span>] = $rec[$fieldName];</div>
-<div class="line">                $i++;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/dfe/_tree_listbox_8php_source.html#l00007">7</a> of file <a class="el" href="../../df/dfe/_tree_listbox_8php_source.html">TreeListbox.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d58/class_tree_listbox_aea0b19f3861838e01007f60f7f8977ac_cgraph.png" border="0" usemap="#da/d58/class_tree_listbox_aea0b19f3861838e01007f60f7f8977ac_cgraph" alt=""/></div>
+<map name="da/d58/class_tree_listbox_aea0b19f3861838e01007f60f7f8977ac_cgraph" id="da/d58/class_tree_listbox_aea0b19f3861838e01007f60f7f8977ac_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1137,162,1282,190"/><area shape="rect" id="node3" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="166,110,373,138"/><area shape="rect" id="node12" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="197,33,342,61"/><area shape="rect" id="node4" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="440,58,622,86"/><area shape="rect" id="node9" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="432,162,630,190"/><area shape="rect" id="node10" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="422,214,640,242"/><area shape="rect" id="node11" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="450,110,611,138"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="688,58,861,86"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="923,110,1074,138"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="909,58,1088,86"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1140,33,1278,61"/><area shape="rect" id="node13" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="691,6,859,34"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -441,7 +374,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L5">5</a> of file <a class="el" href="../../">TreeListbox.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/dfe/_tree_listbox_8php_source.html#l00005">5</a> of file <a class="el" href="../../df/dfe/_tree_listbox_8php_source.html">TreeListbox.php</a>.</p>
 
 </div>
 </div>
@@ -451,7 +384,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/d58/class_tree_listbox.html">TreeListbox</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:26 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:22:07 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

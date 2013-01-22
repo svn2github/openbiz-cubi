@@ -155,7 +155,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L30">30</a> of file <a class="el" href="../../">I18n.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/dbf/_i18n_8php_source.html#l00030">30</a> of file <a class="el" href="../../d7/dbf/_i18n_8php_source.html">I18n.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a978e858b8746ad6aa29e061db3d8e5dd"></a>
 <div class="memitem">
@@ -189,24 +189,19 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L104">104</a> of file <a class="el" href="../../">I18n.php</a>.</p>
-<div class="fragment"><div class="line">    {              </div>
-<div class="line">     <span class="keywordflow">if</span>($to_module==null){</div>
-<div class="line">      $to_module = $from_module;</div>
-<div class="line">     }</div>
-<div class="line">     $langCode = <a class="code" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197">I18n::getCurrentLangCode</a>();              </div>
-<div class="line">     $filename = <span class="stringliteral">&quot;mod.$from_module.ini&quot;</span>;</div>
-<div class="line">     $langFile = <a class="code" href="../../d1/df2/sys__init_8php.html#a27d18e0ee5b4aff2113b7b6f0cd23619">LANGUAGE_PATH</a>.<span class="stringliteral">&quot;/$langCode/$filename&quot;</span>;     </div>
-<div class="line">     <span class="keywordflow">if</span> (!file_exists($langFile)) <span class="keywordflow">return</span> <span class="keyword">false</span>;          </div>
-<div class="line">     $inidata = parse_ini_file($langFile, <span class="keyword">false</span>);</div>
-<div class="line">     <span class="keywordflow">if</span>(is_array(<a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$to_module])){</div>
-<div class="line">      <a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$to_module] = array_merge(<a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$to_module],$inidata);</div>
-<div class="line">     }<span class="keywordflow">else</span>{</div>
-<div class="line">      <a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$to_module] = $inidata;</div>
-<div class="line">     }</div>
-<div class="line">     <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }     </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d7/dbf/_i18n_8php_source.html#l00104">104</a> of file <a class="el" href="../../d7/dbf/_i18n_8php_source.html">I18n.php</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d59/class_i18n_a978e858b8746ad6aa29e061db3d8e5dd_cgraph.png" border="0" usemap="#d6/d59/class_i18n_a978e858b8746ad6aa29e061db3d8e5dd_cgraph" alt=""/></div>
+<map name="d6/d59/class_i18n_a978e858b8746ad6aa29e061db3d8e5dd_cgraph" id="d6/d59/class_i18n_a978e858b8746ad6aa29e061db3d8e5dd_cgraph">
+<area shape="rect" id="node2" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="getCurrentLangCode" alt="" coords="158,31,304,59"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="600,5,779,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="352,57,552,85"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="831,5,969,33"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="614,57,765,85"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="827,57,973,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a13d425e8b2f796041ce30c928925c197"></a>
@@ -230,33 +225,30 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L122">122</a> of file <a class="el" href="../../">I18n.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     <span class="keywordflow">if</span> (<a class="code" href="../../d6/d59/class_i18n.html#a3b4b03596c3719084b20462c0046fd75">I18n::$_langCode</a> != null)</div>
-<div class="line">            <span class="keywordflow">return</span> <a class="code" href="../../d6/d59/class_i18n.html#a3b4b03596c3719084b20462c0046fd75">I18n::$_langCode</a>;</div>
-<div class="line">        $currentLanguage = <a class="code" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d">BizSystem::sessionContext</a>()-&gt;getVar(<span class="stringliteral">&quot;LANG&quot;</span>);        </div>
-<div class="line">        <span class="comment">// default language</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($currentLanguage == <span class="stringliteral">&quot;&quot;</span>){</div>
-<div class="line">         $currentLanguage = <a class="code" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1">BizSystem::getUserPreference</a>(<span class="stringliteral">&quot;language&quot;</span>);</div>
-<div class="line">         </div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span>($currentLanguage == <span class="stringliteral">&quot;&quot;</span>){</div>
-<div class="line">            $currentLanguage = <a class="code" href="../../d6/d59/class_i18n.html#a3a381d1466ac51b22ea1905440471c57">I18n::DEFAULT_LANGUAGE</a>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">// language from url</span></div>
-<div class="line">        <span class="keywordflow">if</span> (isset($_GET[<span class="stringliteral">&#39;lang&#39;</span>])){</div>
-<div class="line">            $currentLanguage = $_GET[<span class="stringliteral">&#39;lang&#39;</span>];</div>
-<div class="line">            <a class="code" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d">BizSystem::sessionContext</a>()-&gt;setVar(<span class="stringliteral">&quot;LANG&quot;</span>,$currentLanguage );</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// TODO: user pereference has language setting</span></div>
-<div class="line">        </div>
-<div class="line">        <a class="code" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d">BizSystem::sessionContext</a>()-&gt;setVar(<span class="stringliteral">&quot;LANG&quot;</span>, $currentLanguage);</div>
-<div class="line">        <a class="code" href="../../d6/d59/class_i18n.html#a3b4b03596c3719084b20462c0046fd75">I18n::$_langCode</a> = $currentLanguage;</div>
-<div class="line">        </div>
-<div class="line">        <span class="keywordflow">return</span> $currentLanguage;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d7/dbf/_i18n_8php_source.html#l00122">122</a> of file <a class="el" href="../../d7/dbf/_i18n_8php_source.html">I18n.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d59/class_i18n_a13d425e8b2f796041ce30c928925c197_cgraph.png" border="0" usemap="#d6/d59/class_i18n_a13d425e8b2f796041ce30c928925c197_cgraph" alt=""/></div>
+<map name="d6/d59/class_i18n_a13d425e8b2f796041ce30c928925c197_cgraph" id="d6/d59/class_i18n_a13d425e8b2f796041ce30c928925c197_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="448,5,627,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="200,57,400,85"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="679,5,817,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="462,57,613,85"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="675,57,821,85"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d59/class_i18n_a13d425e8b2f796041ce30c928925c197_icgraph.png" border="0" usemap="#d6/d59/class_i18n_a13d425e8b2f796041ce30c928925c197_icgraph" alt=""/></div>
+<map name="d6/d59/class_i18n_a13d425e8b2f796041ce30c928925c197_icgraph" id="d6/d59/class_i18n_a13d425e8b2f796041ce30c928925c197_icgraph">
+<area shape="rect" id="node2" href="../../de/d7a/class_client_proxy.html#aaa814d1556a600170ba9af6dbc5e1b6c" title="ClientProxy\\getAppendedStyles" alt="" coords="201,1085,410,1113"/><area shape="rect" id="node3" href="../../d1/dd9/class_c_k_editor.html#afde88292c44dc59faf017738dae6dffb" title="CKEditor\\render" alt="" coords="247,1137,364,1165"/><area shape="rect" id="node4" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="loadLangData" alt="" coords="253,1189,358,1217"/><area shape="rect" id="node47" href="../../d6/d59/class_i18n.html#a978e858b8746ad6aa29e061db3d8e5dd" title="AddLangData" alt="" coords="254,1241,357,1269"/><area shape="rect" id="node48" href="../../df/d00/class_resource.html#a1f8104d8aa899c9c115363799ed0cbde" title="Resource\\getSmartyTemplate" alt="" coords="207,1293,404,1321"/><area shape="rect" id="node54" href="../../df/d00/class_resource.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="Resource\\getZendTemplate" alt="" coords="213,1345,398,1373"/><area shape="rect" id="node58" href="../../d3/d66/class_type_manager.html#a4d0002ded66d2b100fcb314be00832d3" title="TypeManager\\__construct" alt="" coords="218,1397,393,1425"/><area shape="rect" id="node5" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="t" alt="" coords="541,701,579,729"/><area shape="rect" id="node6" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="733,428,878,472"/><area shape="rect" id="node16" href="../../d3/d10/class_easy_form.html#a52e9eb4fb51cfef13a1648efe1d0c3d3" title="EasyForm\\getMessage" alt="" coords="726,643,885,671"/><area shape="rect" id="node22" href="../../d3/d10/class_easy_form.html#a89ea6fc1dd64c515da7c373792fd74ff" title="EasyForm\\translate" alt="" coords="737,701,874,729"/><area shape="rect" id="node24" href="../../db/d40/class_easy_view.html#af7a9468daf21334ee8c8c792e1ae64d0" title="EasyView\\getMessage" alt="" coords="727,753,883,781"/><area shape="rect" id="node25" href="../../db/d40/class_easy_view.html#a89ea6fc1dd64c515da7c373792fd74ff" title="EasyView\\translate" alt="" coords="738,819,873,847"/><area shape="rect" id="node27" href="../../db/d96/class_form_reference.html#a89ea6fc1dd64c515da7c373792fd74ff" title="FormReference\\translate" alt="" coords="721,875,890,903"/><area shape="rect" id="node29" href="../../dc/d58/class_drop_down_list.html#a908afc7586e184ef9383f051ff4dc7f3" title="DropDownList\\translateList" alt="" coords="715,928,896,956"/><area shape="rect" id="node31" href="../../d5/d50/class_element.html#a89ea6fc1dd64c515da7c373792fd74ff" title="Element\\translate" alt="" coords="743,981,868,1009"/><area shape="rect" id="node34" href="../../d5/d50/class_element.html#a1293239f7cbd82ab23c9d14ce8d491d1" title="Element\\translateString" alt="" coords="725,1111,885,1139"/><area shape="rect" id="node40" href="../../d1/d27/class_event_handler.html#a89ea6fc1dd64c515da7c373792fd74ff" title="EventHandler\\translate" alt="" coords="727,1163,884,1191"/><area shape="rect" id="node41" href="../../da/d7f/class_option_element.html#a908afc7586e184ef9383f051ff4dc7f3" title="OptionElement\\translateList" alt="" coords="713,116,898,144"/><area shape="rect" id="node42" href="../../d1/d09/class_h_t_m_l_menus.html#abfd36177592aaa81627a95651853787b" title="HTMLMenus\\translate" alt="" coords="729,168,882,196"/><area shape="rect" id="node43" href="../../d9/dab/class_tab_view.html#abfd36177592aaa81627a95651853787b" title="TabView\\translate" alt="" coords="742,220,869,248"/><area shape="rect" id="node44" href="../../d6/d58/class_h_t_m_l_tree.html#abfd36177592aaa81627a95651853787b" title="HTMLTree\\translate" alt="" coords="736,272,875,300"/><area shape="rect" id="node45" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="728,324,883,352"/><area shape="rect" id="node46" href="../../d8/d18/block_8t_8php.html#a50124680a1593dd01f59f8b0f10d8241" title="smarty_block_t" alt="" coords="750,376,861,404"/><area shape="rect" id="node7" href="../../d3/d2c/class_biz_data_obj.html#aced64a0f4fd1647229efda490d90b8a0" title="BizDataObj\\validateInput" alt="" coords="1208,192,1376,220"/><area shape="rect" id="node10" href="../../d3/d2c/class_biz_data_obj.html#a32bd6c3b9b933671846cd1b6c3209ed5" title="BizDataObj\\validateUniqueness" alt="" coords="950,119,1159,147"/><area shape="rect" id="node8" href="../../d3/d2c/class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="BizDataObj\\updateRecord" alt="" coords="1424,192,1600,220"/><area shape="rect" id="node11" href="../../d3/d2c/class_biz_data_obj.html#aed5b6a1f292ba8f7f88bf34e37c6309c" title="BizDataObj\\updateRecords" alt="" coords="963,67,1146,95"/><area shape="rect" id="node9" href="../../d3/d2c/class_biz_data_obj.html#ad6122472319985567e31b7276a78c889" title="BizDataObj\\insertRecord" alt="" coords="1428,389,1596,417"/><area shape="rect" id="node12" href="../../d3/d2c/class_biz_data_obj.html#a8e1b49a9d10f77cd27239ecef9fdc075" title="BizDataObj\\deleteRecord" alt="" coords="969,171,1141,199"/><area shape="rect" id="node13" href="../../d3/d2c/class_biz_data_obj.html#a689275e60b48404e101c6b6ccf5e187e" title="BizDataObj\\deleteRecords" alt="" coords="965,223,1144,251"/><area shape="rect" id="node14" href="../../d3/d2c/class_biz_data_obj.html#aa9f8e225938574a7a5a8892df3f494ca" title="BizDataObj\\processCascade\lAction" alt="" coords="959,275,1151,319"/><area shape="rect" id="node15" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="981,343,1129,387"/><area shape="rect" id="node17" href="../../d3/d10/class_easy_form.html#a0a9be34d99077d5d3ea572ca7e59200a" title="EasyForm\\copyRecord" alt="" coords="976,513,1133,541"/><area shape="rect" id="node18" href="../../d3/d10/class_easy_form.html#a32687fce665ec940eadd9d119c193632" title="EasyForm\\editRecord" alt="" coords="980,565,1130,593"/><area shape="rect" id="node19" href="../../d3/d10/class_easy_form.html#aef7c4ff0a903eb04e7af25a6baea3d35" title="EasyForm\\_showForm" alt="" coords="977,617,1132,645"/><area shape="rect" id="node20" href="../../d3/d10/class_easy_form.html#abaacec03117854cd7fcc2540295768e8" title="EasyForm\\deleteRecord" alt="" coords="972,669,1137,697"/><area shape="rect" id="node21" href="../../d3/d10/class_easy_form.html#a9c69d48ee0b1af84d7d55331ee7f6bda" title="EasyForm\\validateForm" alt="" coords="973,721,1136,749"/><area shape="rect" id="node23" href="../../d3/d10/class_easy_form.html#a1db802d93a9f0badf186a646e1cdb161" title="EasyForm\\readMetadata" alt="" coords="971,773,1139,801"/><area shape="rect" id="node26" href="../../db/d40/class_easy_view.html#a1db802d93a9f0badf186a646e1cdb161" title="EasyView\\readMetadata" alt="" coords="972,825,1137,853"/><area shape="rect" id="node28" href="../../db/d96/class_form_reference.html#a727850fb11d66a2df8cfd92c03c77df0" title="FormReference\\setViewName" alt="" coords="955,877,1155,905"/><area shape="rect" id="node30" href="../../dc/d58/class_drop_down_list.html#a8f00502ff32da626abb188c91faad283" title="DropDownList\\getXMLFromList" alt="" coords="951,929,1158,957"/><area shape="rect" id="node32" href="../../d5/d50/class_element.html#a7769e22339dece2c9a013f316a5bbc29" title="Element\\__construct" alt="" coords="983,1033,1126,1061"/><area shape="rect" id="node33" href="../../d4/d5f/class_image_uploader.html#a7769e22339dece2c9a013f316a5bbc29" title="ImageUploader\\__construct" alt="" coords="962,981,1147,1009"/><area shape="rect" id="node35" href="../../d7/dd8/class_column_sorting.html#afde88292c44dc59faf017738dae6dffb" title="ColumnSorting\\render" alt="" coords="979,1085,1131,1113"/><area shape="rect" id="node36" href="../../dc/d58/class_drop_down_list.html#a5888f7e5883c7c2d486f7ddc1bd64760" title="DropDownList\\readMetaData" alt="" coords="958,1137,1151,1165"/><area shape="rect" id="node37" href="../../d5/d50/class_element.html#a107d3e8b67d4aa25011c2ba626033fd3" title="Element\\renderLabel" alt="" coords="982,1189,1127,1217"/><area shape="rect" id="node38" href="../../db/dc1/class_h_t_m_l_preview.html#afde88292c44dc59faf017738dae6dffb" title="HTMLPreview\\render" alt="" coords="981,1241,1128,1269"/><area shape="rect" id="node39" href="../../d3/d05/class_input_element.html#a107d3e8b67d4aa25011c2ba626033fd3" title="InputElement\\renderLabel" alt="" coords="967,1293,1142,1321"/><area shape="rect" id="node49" href="../../d1/d7e/class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde" title="BizSystem\\getSmartyTemplate" alt="" coords="459,1293,661,1321"/><area shape="rect" id="node50" href="../../df/d1a/class_form_renderer.html#aaae8885482d48a3eba78c4856ff7ac0a" title="FormRenderer\\renderSmarty" alt="" coords="709,1319,902,1347"/><area shape="rect" id="node51" href="../../d4/db9/class_h_t_m_l_tabs.html#afde88292c44dc59faf017738dae6dffb" title="HTMLTabs\\render" alt="" coords="742,1371,869,1399"/><area shape="rect" id="node52" href="../../d4/dfb/class_view_renderer.html#a271a8f8acd200d185367fb475f43df51" title="ViewRenderer\\renderSmarty" alt="" coords="710,1215,900,1243"/><area shape="rect" id="node53" href="../../d0/d6b/classreport_service.html#aeb9dec8acd53bf30e11a393a1c0bf26e" title="reportService\\render" alt="" coords="734,1267,877,1295"/><area shape="rect" id="node55" href="../../d1/d7e/class_biz_system.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="BizSystem\\getZendTemplate" alt="" coords="464,1423,656,1451"/><area shape="rect" id="node56" href="../../df/d1a/class_form_renderer.html#a240405d51345da30f40261fb9b5522f1" title="FormRenderer\\renderPHP" alt="" coords="716,1423,894,1451"/><area shape="rect" id="node57" href="../../d4/dfb/class_view_renderer.html#a288b4b665cf447481ca982c7ec7d004e" title="ViewRenderer\\renderPHP" alt="" coords="718,1475,893,1503"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="af3480f0ccde12b3cbd8bb517c8150d52"></a>
@@ -281,34 +273,30 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L76">76</a> of file <a class="el" href="../../">I18n.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     <span class="keywordflow">if</span> (isset(<a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module])) {</div>
-<div class="line">      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">     }</div>
-<div class="line">     </div>
-<div class="line">     <span class="comment">// get language code</span></div>
-<div class="line">     $langCode = <a class="code" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197">I18n::getCurrentLangCode</a>();</div>
-<div class="line">     </div>
-<div class="line">     <span class="comment">// load language file</span></div>
-<div class="line">     <span class="keywordflow">if</span> ($module == <span class="stringliteral">&#39;_system&#39;</span>) $filename = <span class="stringliteral">&#39;system.ini&#39;</span>;</div>
-<div class="line">  <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($module == <span class="stringliteral">&#39;_theme&#39;</span>) { $filename = <span class="stringliteral">&#39;theme.&#39;</span>.THEME_NAME.<span class="stringliteral">&#39;.ini&#39;</span>; }</div>
-<div class="line">     <span class="keywordflow">else</span> $filename = <span class="stringliteral">&quot;mod.$module.ini&quot;</span>;</div>
-<div class="line">     $langFile = <a class="code" href="../../d1/df2/sys__init_8php.html#a27d18e0ee5b4aff2113b7b6f0cd23619">LANGUAGE_PATH</a>.<span class="stringliteral">&quot;/$langCode/$filename&quot;</span>;</div>
-<div class="line">     <span class="comment">//echo &quot;check ini file $langFile&quot;.nl;</span></div>
-<div class="line">     <span class="keywordflow">if</span> (!file_exists($langFile)) {</div>
-<div class="line">   <a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module] = array();</div>
-<div class="line">   <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">     }</div>
-<div class="line">     <span class="comment">//echo &quot;parse ini file $langFile&quot;.nl;</span></div>
-<div class="line">     $inidata = parse_ini_file($langFile, <span class="keyword">false</span>);</div>
-<div class="line">     </div>
-<div class="line">     <a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module] = $inidata;</div>
-<div class="line">     <span class="comment">//print_r(I18n::$_langData[$module]);</span></div>
-<div class="line"></div>
-<div class="line">     <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    } </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d7/dbf/_i18n_8php_source.html#l00076">76</a> of file <a class="el" href="../../d7/dbf/_i18n_8php_source.html">I18n.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d59/class_i18n_af3480f0ccde12b3cbd8bb517c8150d52_cgraph.png" border="0" usemap="#d6/d59/class_i18n_af3480f0ccde12b3cbd8bb517c8150d52_cgraph" alt=""/></div>
+<map name="d6/d59/class_i18n_af3480f0ccde12b3cbd8bb517c8150d52_cgraph" id="d6/d59/class_i18n_af3480f0ccde12b3cbd8bb517c8150d52_cgraph">
+<area shape="rect" id="node2" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="getCurrentLangCode" alt="" coords="158,31,304,59"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="600,5,779,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="352,57,552,85"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="831,5,969,33"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="614,57,765,85"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="827,57,973,85"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d59/class_i18n_af3480f0ccde12b3cbd8bb517c8150d52_icgraph.png" border="0" usemap="#d6/d59/class_i18n_af3480f0ccde12b3cbd8bb517c8150d52_icgraph" alt=""/></div>
+<map name="d6/d59/class_i18n_af3480f0ccde12b3cbd8bb517c8150d52_icgraph" id="d6/d59/class_i18n_af3480f0ccde12b3cbd8bb517c8150d52_icgraph">
+<area shape="rect" id="node2" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="t" alt="" coords="158,1263,197,1291"/><area shape="rect" id="node3" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="266,376,411,420"/><area shape="rect" id="node19" href="../../d3/d10/class_easy_form.html#a52e9eb4fb51cfef13a1648efe1d0c3d3" title="EasyForm\\getMessage" alt="" coords="259,899,418,927"/><area shape="rect" id="node25" href="../../d3/d10/class_easy_form.html#a89ea6fc1dd64c515da7c373792fd74ff" title="EasyForm\\translate" alt="" coords="270,1028,407,1056"/><area shape="rect" id="node27" href="../../db/d40/class_easy_view.html#af7a9468daf21334ee8c8c792e1ae64d0" title="EasyView\\getMessage" alt="" coords="261,1080,417,1108"/><area shape="rect" id="node28" href="../../db/d40/class_easy_view.html#a89ea6fc1dd64c515da7c373792fd74ff" title="EasyView\\translate" alt="" coords="271,1132,406,1160"/><area shape="rect" id="node30" href="../../db/d96/class_form_reference.html#a89ea6fc1dd64c515da7c373792fd74ff" title="FormReference\\translate" alt="" coords="254,1184,423,1212"/><area shape="rect" id="node32" href="../../dc/d58/class_drop_down_list.html#a908afc7586e184ef9383f051ff4dc7f3" title="DropDownList\\translateList" alt="" coords="248,1236,429,1264"/><area shape="rect" id="node34" href="../../d5/d50/class_element.html#a89ea6fc1dd64c515da7c373792fd74ff" title="Element\\translate" alt="" coords="276,1288,401,1316"/><area shape="rect" id="node37" href="../../d5/d50/class_element.html#a1293239f7cbd82ab23c9d14ce8d491d1" title="Element\\translateString" alt="" coords="259,1469,419,1497"/><area shape="rect" id="node46" href="../../d1/d27/class_event_handler.html#a89ea6fc1dd64c515da7c373792fd74ff" title="EventHandler\\translate" alt="" coords="260,1521,417,1549"/><area shape="rect" id="node48" href="../../da/d7f/class_option_element.html#a908afc7586e184ef9383f051ff4dc7f3" title="OptionElement\\translateList" alt="" coords="246,1573,431,1601"/><area shape="rect" id="node50" href="../../d1/d09/class_h_t_m_l_menus.html#abfd36177592aaa81627a95651853787b" title="HTMLMenus\\translate" alt="" coords="262,1625,415,1653"/><area shape="rect" id="node52" href="../../d9/dab/class_tab_view.html#abfd36177592aaa81627a95651853787b" title="TabView\\translate" alt="" coords="275,1677,402,1705"/><area shape="rect" id="node54" href="../../d6/d58/class_h_t_m_l_tree.html#abfd36177592aaa81627a95651853787b" title="HTMLTree\\translate" alt="" coords="269,1729,408,1757"/><area shape="rect" id="node56" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="261,741,416,769"/><area shape="rect" id="node58" href="../../d8/d18/block_8t_8php.html#a50124680a1593dd01f59f8b0f10d8241" title="smarty_block_t" alt="" coords="283,1781,394,1809"/><area shape="rect" id="node4" href="../../d3/d2c/class_biz_data_obj.html#aced64a0f4fd1647229efda490d90b8a0" title="BizDataObj\\validateInput" alt="" coords="1281,199,1449,227"/><area shape="rect" id="node7" href="../../d3/d2c/class_biz_data_obj.html#a32bd6c3b9b933671846cd1b6c3209ed5" title="BizDataObj\\validateUniqueness" alt="" coords="1014,95,1223,123"/><area shape="rect" id="node5" href="../../d3/d2c/class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="BizDataObj\\updateRecord" alt="" coords="1507,560,1683,588"/><area shape="rect" id="node8" href="../../d3/d2c/class_biz_data_obj.html#aed5b6a1f292ba8f7f88bf34e37c6309c" title="BizDataObj\\updateRecords" alt="" coords="774,509,957,537"/><area shape="rect" id="node6" href="../../d3/d2c/class_biz_data_obj.html#ad6122472319985567e31b7276a78c889" title="BizDataObj\\insertRecord" alt="" coords="1511,96,1679,124"/><area shape="rect" id="node9" href="../../d3/d2c/class_biz_data_obj.html#a8e1b49a9d10f77cd27239ecef9fdc075" title="BizDataObj\\deleteRecord" alt="" coords="1033,405,1205,433"/><area shape="rect" id="node10" href="../../d3/d2c/class_biz_data_obj.html#a689275e60b48404e101c6b6ccf5e187e" title="BizDataObj\\deleteRecords" alt="" coords="776,664,955,692"/><area shape="rect" id="node11" href="../../d3/d2c/class_biz_data_obj.html#aa9f8e225938574a7a5a8892df3f494ca" title="BizDataObj\\processCascade\lAction" alt="" coords="503,405,695,449"/><area shape="rect" id="node14" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="525,191,673,235"/><area shape="rect" id="node12" href="../../d3/d2c/class_biz_data_obj.html#aae6158ea6c2e59049c9c0d06b56446a8" title="BizDataObj\\cascadeDelete" alt="" coords="775,405,956,433"/><area shape="rect" id="node13" href="../../d3/d2c/class_biz_data_obj.html#a78198f79425515a8fcfa48d4e6408f5b" title="BizDataObj\\cascadeUpdate" alt="" coords="1273,508,1458,536"/><area shape="rect" id="node15" href="../../dc/d2b/class_biz_data_obj___lite.html#ae48cc10bd727774bb36203986ce3b176" title="BizDataObj_Lite\\fetch" alt="" coords="790,147,940,175"/><area shape="rect" id="node16" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="772,95,959,123"/><area shape="rect" id="node17" href="../../dc/d2b/class_biz_data_obj___lite.html#afd5f4b134ae2380599eee8876f11cdc7" title="BizDataObj_Lite\\fetchRecords" alt="" coords="765,199,965,227"/><area shape="rect" id="node18" href="../../dc/d2b/class_biz_data_obj___lite.html#a39ec161e9a5372e002b889d276208899" title="BizDataObj_Lite\\find" alt="" coords="794,251,937,279"/><area shape="rect" id="node20" href="../../d3/d10/class_easy_form.html#a0a9be34d99077d5d3ea572ca7e59200a" title="EasyForm\\copyRecord" alt="" coords="520,976,677,1004"/><area shape="rect" id="node21" href="../../d3/d10/class_easy_form.html#a32687fce665ec940eadd9d119c193632" title="EasyForm\\editRecord" alt="" coords="524,768,674,796"/><area shape="rect" id="node22" href="../../d3/d10/class_easy_form.html#aef7c4ff0a903eb04e7af25a6baea3d35" title="EasyForm\\_showForm" alt="" coords="521,820,676,848"/><area shape="rect" id="node23" href="../../d3/d10/class_easy_form.html#abaacec03117854cd7fcc2540295768e8" title="EasyForm\\deleteRecord" alt="" coords="516,872,681,900"/><area shape="rect" id="node24" href="../../d3/d10/class_easy_form.html#a9c69d48ee0b1af84d7d55331ee7f6bda" title="EasyForm\\validateForm" alt="" coords="517,924,680,952"/><area shape="rect" id="node26" href="../../d3/d10/class_easy_form.html#a1db802d93a9f0badf186a646e1cdb161" title="EasyForm\\readMetadata" alt="" coords="515,1028,683,1056"/><area shape="rect" id="node29" href="../../db/d40/class_easy_view.html#a1db802d93a9f0badf186a646e1cdb161" title="EasyView\\readMetadata" alt="" coords="516,1080,681,1108"/><area shape="rect" id="node31" href="../../db/d96/class_form_reference.html#a727850fb11d66a2df8cfd92c03c77df0" title="FormReference\\setViewName" alt="" coords="499,1132,699,1160"/><area shape="rect" id="node33" href="../../dc/d58/class_drop_down_list.html#a8f00502ff32da626abb188c91faad283" title="DropDownList\\getXMLFromList" alt="" coords="495,1184,702,1212"/><area shape="rect" id="node35" href="../../d5/d50/class_element.html#a7769e22339dece2c9a013f316a5bbc29" title="Element\\__construct" alt="" coords="527,1236,670,1264"/><area shape="rect" id="node36" href="../../d4/d5f/class_image_uploader.html#a7769e22339dece2c9a013f316a5bbc29" title="ImageUploader\\__construct" alt="" coords="506,1288,691,1316"/><area shape="rect" id="node38" href="../../d7/dd8/class_column_sorting.html#afde88292c44dc59faf017738dae6dffb" title="ColumnSorting\\render" alt="" coords="523,1444,675,1472"/><area shape="rect" id="node39" href="../../dc/d58/class_drop_down_list.html#a5888f7e5883c7c2d486f7ddc1bd64760" title="DropDownList\\readMetaData" alt="" coords="502,1496,695,1524"/><area shape="rect" id="node40" href="../../d5/d50/class_element.html#a107d3e8b67d4aa25011c2ba626033fd3" title="Element\\renderLabel" alt="" coords="526,1548,671,1576"/><area shape="rect" id="node41" href="../../db/dc1/class_h_t_m_l_preview.html#afde88292c44dc59faf017738dae6dffb" title="HTMLPreview\\render" alt="" coords="525,1600,672,1628"/><area shape="rect" id="node42" href="../../d3/d05/class_input_element.html#a107d3e8b67d4aa25011c2ba626033fd3" title="InputElement\\renderLabel" alt="" coords="511,1652,686,1680"/><area shape="rect" id="node43" href="../../d6/d00/class_label_text.html#afde88292c44dc59faf017738dae6dffb" title="LabelText\\render" alt="" coords="538,1704,659,1732"/><area shape="rect" id="node44" href="../../d2/d34/class_label_textarea.html#afde88292c44dc59faf017738dae6dffb" title="LabelTextarea\\render" alt="" coords="525,1340,672,1368"/><area shape="rect" id="node45" href="../../d1/d3a/class_raw_data.html#afde88292c44dc59faf017738dae6dffb" title="RawData\\render" alt="" coords="539,1392,658,1420"/><area shape="rect" id="node47" href="../../d1/d27/class_event_handler.html#a9b5db39b68ef488277c2e4f5f01368fa" title="EventHandler\\setFormName" alt="" coords="504,1756,694,1784"/><area shape="rect" id="node49" href="../../da/d7f/class_option_element.html#a8f00502ff32da626abb188c91faad283" title="OptionElement\\getXMLFromList" alt="" coords="493,1808,704,1836"/><area shape="rect" id="node51" href="../../d1/d09/class_h_t_m_l_menus.html#a31b584f5cc3dfa5f7614e227bcb521af" title="HTMLMenus\\renderSingleMenuItem" alt="" coords="481,1860,717,1888"/><area shape="rect" id="node53" href="../../d9/dab/class_tab_view.html#a847d8d60f037d0a016aca7006cf9dec6" title="TabView\\__construct" alt="" coords="527,1912,671,1940"/><area shape="rect" id="node55" href="../../d6/d58/class_h_t_m_l_tree.html#a3ed53b0875e0f7cdab7d5c6237bb426d" title="HTMLTree\\renderSingleNodeItem" alt="" coords="488,1964,709,1992"/><area shape="rect" id="node57" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="518,612,679,640"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a9d5d3b8239dc8b6571ba07d9f838ca9a"></a>
@@ -355,43 +343,30 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L39">39</a> of file <a class="el" href="../../">I18n.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     <span class="comment">// TODO: use cache, apc cache? special handling for menu?</span></div>
-<div class="line">     </div>
-<div class="line">     <span class="comment">//echo &quot;to translate $text, $key, $module&quot;.nl;</span></div>
-<div class="line">     <span class="keywordflow">if</span> (!<a class="code" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52">I18n::loadLangData</a>($module)) <span class="comment">// cannot load lang data, return orig text</span></div>
-<div class="line">   <span class="keywordflow">return</span> $text;</div>
-<div class="line">     </div>
-<div class="line">  <span class="keywordflow">if</span> ($key &amp;&amp; isset(<a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module][$prefix.$key]) &amp;&amp; <a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module][$prefix.$key]!=$text)</div>
-<div class="line">      <span class="keywordflow">return</span> <a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module][$prefix.$key]; </div>
-<div class="line">             </div>
-<div class="line">     $str_key = strtoupper(<span class="stringliteral">&#39;STRING_&#39;</span>.md5($text));</div>
-<div class="line">     <span class="keywordflow">if</span> ($key &amp;&amp; isset(<a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module][$str_key])  &amp;&amp; <a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module][$str_key]!=$text)</div>
-<div class="line">      <span class="keywordflow">return</span> <a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module][$str_key];</div>
-<div class="line">     </div>
-<div class="line">     <span class="keywordflow">if</span> ($key &amp;&amp; isset(<a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module][$key]))</div>
-<div class="line">      <span class="keywordflow">return</span> <a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module][$key]; </div>
-<div class="line">      </div>
-<div class="line">  <span class="comment">// try to load theme.THEME_NAME.ini</span></div>
-<div class="line">  $module = <span class="stringliteral">&#39;_theme&#39;</span>;</div>
-<div class="line">  <span class="keywordflow">if</span> (!<a class="code" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52">I18n::loadLangData</a>($module))</div>
-<div class="line">   <span class="keywordflow">return</span> $text;</div>
-<div class="line">  </div>
-<div class="line">     <span class="keywordflow">if</span> ($key &amp;&amp; isset(<a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module][$key]))</div>
-<div class="line">      <span class="keywordflow">return</span> <a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module][$key];</div>
-<div class="line">  </div>
-<div class="line">     <span class="comment">// try to load system.ini if previous steps can&#39;t find match</span></div>
-<div class="line">     $module != <span class="stringliteral">&#39;_system&#39;</span>;</div>
-<div class="line">     <span class="keywordflow">if</span> (!<a class="code" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52">I18n::loadLangData</a>($module))</div>
-<div class="line">   <span class="keywordflow">return</span> $text;</div>
-<div class="line">  </div>
-<div class="line">     <span class="keywordflow">if</span> ($key &amp;&amp; isset(<a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module][$key]))</div>
-<div class="line">      <span class="keywordflow">return</span> <a class="code" href="../../d6/d59/class_i18n.html#aa2ff157bac572fe39e17da39023007d5">I18n::$_langData</a>[$module][$key];</div>
-<div class="line"></div>
-<div class="line">     <span class="keywordflow">return</span> $text;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d7/dbf/_i18n_8php_source.html#l00039">39</a> of file <a class="el" href="../../d7/dbf/_i18n_8php_source.html">I18n.php</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d59/class_i18n_a9d5d3b8239dc8b6571ba07d9f838ca9a_cgraph.png" border="0" usemap="#d6/d59/class_i18n_a9d5d3b8239dc8b6571ba07d9f838ca9a_cgraph" alt=""/></div>
+<map name="d6/d59/class_i18n_a9d5d3b8239dc8b6571ba07d9f838ca9a_cgraph" id="d6/d59/class_i18n_a9d5d3b8239dc8b6571ba07d9f838ca9a_cgraph">
+<area shape="rect" id="node2" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="loadLangData" alt="" coords="93,31,198,59"/><area shape="rect" id="node3" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="getCurrentLangCode" alt="" coords="246,31,392,59"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="688,5,867,33"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="440,57,640,85"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="919,5,1057,33"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="702,57,853,85"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="915,57,1061,85"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d59/class_i18n_a9d5d3b8239dc8b6571ba07d9f838ca9a_icgraph.png" border="0" usemap="#d6/d59/class_i18n_a9d5d3b8239dc8b6571ba07d9f838ca9a_icgraph" alt=""/></div>
+<map name="d6/d59/class_i18n_a9d5d3b8239dc8b6571ba07d9f838ca9a_icgraph" id="d6/d59/class_i18n_a9d5d3b8239dc8b6571ba07d9f838ca9a_icgraph">
+<area shape="rect" id="node2" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="114,476,259,520"/><area shape="rect" id="node18" href="../../d3/d10/class_easy_form.html#a52e9eb4fb51cfef13a1648efe1d0c3d3" title="EasyForm\\getMessage" alt="" coords="107,871,266,899"/><area shape="rect" id="node25" href="../../d3/d10/class_easy_form.html#a89ea6fc1dd64c515da7c373792fd74ff" title="EasyForm\\translate" alt="" coords="118,1000,255,1028"/><area shape="rect" id="node27" href="../../db/d40/class_easy_view.html#af7a9468daf21334ee8c8c792e1ae64d0" title="EasyView\\getMessage" alt="" coords="109,1052,265,1080"/><area shape="rect" id="node28" href="../../db/d40/class_easy_view.html#a89ea6fc1dd64c515da7c373792fd74ff" title="EasyView\\translate" alt="" coords="119,1104,254,1132"/><area shape="rect" id="node30" href="../../db/d96/class_form_reference.html#a89ea6fc1dd64c515da7c373792fd74ff" title="FormReference\\translate" alt="" coords="102,1156,271,1184"/><area shape="rect" id="node32" href="../../dc/d58/class_drop_down_list.html#a908afc7586e184ef9383f051ff4dc7f3" title="DropDownList\\translateList" alt="" coords="96,1208,277,1236"/><area shape="rect" id="node34" href="../../d5/d50/class_element.html#a89ea6fc1dd64c515da7c373792fd74ff" title="Element\\translate" alt="" coords="124,1260,249,1288"/><area shape="rect" id="node37" href="../../d5/d50/class_element.html#a1293239f7cbd82ab23c9d14ce8d491d1" title="Element\\translateString" alt="" coords="107,1441,267,1469"/><area shape="rect" id="node46" href="../../d1/d27/class_event_handler.html#a89ea6fc1dd64c515da7c373792fd74ff" title="EventHandler\\translate" alt="" coords="108,1493,265,1521"/><area shape="rect" id="node48" href="../../da/d7f/class_option_element.html#a908afc7586e184ef9383f051ff4dc7f3" title="OptionElement\\translateList" alt="" coords="94,1545,279,1573"/><area shape="rect" id="node50" href="../../d1/d09/class_h_t_m_l_menus.html#abfd36177592aaa81627a95651853787b" title="HTMLMenus\\translate" alt="" coords="110,1597,263,1625"/><area shape="rect" id="node52" href="../../d9/dab/class_tab_view.html#abfd36177592aaa81627a95651853787b" title="TabView\\translate" alt="" coords="123,1649,250,1677"/><area shape="rect" id="node54" href="../../d6/d58/class_h_t_m_l_tree.html#abfd36177592aaa81627a95651853787b" title="HTMLTree\\translate" alt="" coords="117,1701,256,1729"/><area shape="rect" id="node56" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="109,196,264,224"/><area shape="rect" id="node58" href="../../d8/d18/block_8t_8php.html#a50124680a1593dd01f59f8b0f10d8241" title="smarty_block_t" alt="" coords="131,1753,242,1781"/><area shape="rect" id="node3" href="../../d3/d2c/class_biz_data_obj.html#aced64a0f4fd1647229efda490d90b8a0" title="BizDataObj\\validateInput" alt="" coords="1129,611,1297,639"/><area shape="rect" id="node6" href="../../d3/d2c/class_biz_data_obj.html#a32bd6c3b9b933671846cd1b6c3209ed5" title="BizDataObj\\validateUniqueness" alt="" coords="862,585,1071,613"/><area shape="rect" id="node4" href="../../d3/d2c/class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="BizDataObj\\updateRecord" alt="" coords="1355,456,1531,484"/><area shape="rect" id="node7" href="../../d3/d2c/class_biz_data_obj.html#aed5b6a1f292ba8f7f88bf34e37c6309c" title="BizDataObj\\updateRecords" alt="" coords="622,120,805,148"/><area shape="rect" id="node5" href="../../d3/d2c/class_biz_data_obj.html#ad6122472319985567e31b7276a78c889" title="BizDataObj\\insertRecord" alt="" coords="1359,649,1527,677"/><area shape="rect" id="node8" href="../../d3/d2c/class_biz_data_obj.html#a8e1b49a9d10f77cd27239ecef9fdc075" title="BizDataObj\\deleteRecord" alt="" coords="881,172,1053,200"/><area shape="rect" id="node9" href="../../d3/d2c/class_biz_data_obj.html#a689275e60b48404e101c6b6ccf5e187e" title="BizDataObj\\deleteRecords" alt="" coords="624,68,803,96"/><area shape="rect" id="node10" href="../../d3/d2c/class_biz_data_obj.html#aa9f8e225938574a7a5a8892df3f494ca" title="BizDataObj\\processCascade\lAction" alt="" coords="351,268,543,312"/><area shape="rect" id="node13" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="373,424,521,468"/><area shape="rect" id="node11" href="../../d3/d2c/class_biz_data_obj.html#aae6158ea6c2e59049c9c0d06b56446a8" title="BizDataObj\\cascadeDelete" alt="" coords="623,224,804,252"/><area shape="rect" id="node12" href="../../d3/d2c/class_biz_data_obj.html#a78198f79425515a8fcfa48d4e6408f5b" title="BizDataObj\\cascadeUpdate" alt="" coords="1121,379,1306,407"/><area shape="rect" id="node14" href="../../dc/d2b/class_biz_data_obj___lite.html#ae48cc10bd727774bb36203986ce3b176" title="BizDataObj_Lite\\fetch" alt="" coords="638,380,788,408"/><area shape="rect" id="node15" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="620,484,807,512"/><area shape="rect" id="node16" href="../../dc/d2b/class_biz_data_obj___lite.html#afd5f4b134ae2380599eee8876f11cdc7" title="BizDataObj_Lite\\fetchRecords" alt="" coords="613,432,813,460"/><area shape="rect" id="node17" href="../../dc/d2b/class_biz_data_obj___lite.html#a39ec161e9a5372e002b889d276208899" title="BizDataObj_Lite\\find" alt="" coords="642,328,785,356"/><area shape="rect" id="node19" href="../../d3/d10/class_easy_form.html#a0a9be34d99077d5d3ea572ca7e59200a" title="EasyForm\\copyRecord" alt="" coords="368,844,525,872"/><area shape="rect" id="node20" href="../../d3/d10/class_easy_form.html#a32687fce665ec940eadd9d119c193632" title="EasyForm\\editRecord" alt="" coords="372,896,522,924"/><area shape="rect" id="node21" href="../../d3/d10/class_easy_form.html#aef7c4ff0a903eb04e7af25a6baea3d35" title="EasyForm\\_showForm" alt="" coords="369,948,524,976"/><area shape="rect" id="node23" href="../../d3/d10/class_easy_form.html#abaacec03117854cd7fcc2540295768e8" title="EasyForm\\deleteRecord" alt="" coords="364,740,529,768"/><area shape="rect" id="node24" href="../../d3/d10/class_easy_form.html#a9c69d48ee0b1af84d7d55331ee7f6bda" title="EasyForm\\validateForm" alt="" coords="365,792,528,820"/><area shape="rect" id="node22" href="../../d3/d10/class_easy_form.html#a56bc9bbdeded1bff01a31a7255d6811a" title="EasyForm\\loadDialog" alt="" coords="639,948,788,976"/><area shape="rect" id="node26" href="../../d3/d10/class_easy_form.html#a1db802d93a9f0badf186a646e1cdb161" title="EasyForm\\readMetadata" alt="" coords="363,1000,531,1028"/><area shape="rect" id="node29" href="../../db/d40/class_easy_view.html#a1db802d93a9f0badf186a646e1cdb161" title="EasyView\\readMetadata" alt="" coords="364,1052,529,1080"/><area shape="rect" id="node31" href="../../db/d96/class_form_reference.html#a727850fb11d66a2df8cfd92c03c77df0" title="FormReference\\setViewName" alt="" coords="347,1104,547,1132"/><area shape="rect" id="node33" href="../../dc/d58/class_drop_down_list.html#a8f00502ff32da626abb188c91faad283" title="DropDownList\\getXMLFromList" alt="" coords="343,1156,550,1184"/><area shape="rect" id="node35" href="../../d5/d50/class_element.html#a7769e22339dece2c9a013f316a5bbc29" title="Element\\__construct" alt="" coords="375,1208,518,1236"/><area shape="rect" id="node36" href="../../d4/d5f/class_image_uploader.html#a7769e22339dece2c9a013f316a5bbc29" title="ImageUploader\\__construct" alt="" coords="354,1260,539,1288"/><area shape="rect" id="node38" href="../../d7/dd8/class_column_sorting.html#afde88292c44dc59faf017738dae6dffb" title="ColumnSorting\\render" alt="" coords="371,1624,523,1652"/><area shape="rect" id="node39" href="../../dc/d58/class_drop_down_list.html#a5888f7e5883c7c2d486f7ddc1bd64760" title="DropDownList\\readMetaData" alt="" coords="350,1676,543,1704"/><area shape="rect" id="node40" href="../../d5/d50/class_element.html#a107d3e8b67d4aa25011c2ba626033fd3" title="Element\\renderLabel" alt="" coords="374,1312,519,1340"/><area shape="rect" id="node41" href="../../db/dc1/class_h_t_m_l_preview.html#afde88292c44dc59faf017738dae6dffb" title="HTMLPreview\\render" alt="" coords="373,1364,520,1392"/><area shape="rect" id="node42" href="../../d3/d05/class_input_element.html#a107d3e8b67d4aa25011c2ba626033fd3" title="InputElement\\renderLabel" alt="" coords="359,1416,534,1444"/><area shape="rect" id="node43" href="../../d6/d00/class_label_text.html#afde88292c44dc59faf017738dae6dffb" title="LabelText\\render" alt="" coords="386,1468,507,1496"/><area shape="rect" id="node44" href="../../d2/d34/class_label_textarea.html#afde88292c44dc59faf017738dae6dffb" title="LabelTextarea\\render" alt="" coords="373,1520,520,1548"/><area shape="rect" id="node45" href="../../d1/d3a/class_raw_data.html#afde88292c44dc59faf017738dae6dffb" title="RawData\\render" alt="" coords="387,1572,506,1600"/><area shape="rect" id="node47" href="../../d1/d27/class_event_handler.html#a9b5db39b68ef488277c2e4f5f01368fa" title="EventHandler\\setFormName" alt="" coords="352,1728,542,1756"/><area shape="rect" id="node49" href="../../da/d7f/class_option_element.html#a8f00502ff32da626abb188c91faad283" title="OptionElement\\getXMLFromList" alt="" coords="341,1780,552,1808"/><area shape="rect" id="node51" href="../../d1/d09/class_h_t_m_l_menus.html#a31b584f5cc3dfa5f7614e227bcb521af" title="HTMLMenus\\renderSingleMenuItem" alt="" coords="329,1832,565,1860"/><area shape="rect" id="node53" href="../../d9/dab/class_tab_view.html#a847d8d60f037d0a016aca7006cf9dec6" title="TabView\\__construct" alt="" coords="375,1884,519,1912"/><area shape="rect" id="node55" href="../../d6/d58/class_h_t_m_l_tree.html#a3ed53b0875e0f7cdab7d5c6237bb426d" title="HTMLTree\\renderSingleNodeItem" alt="" coords="336,1936,557,1964"/><area shape="rect" id="node57" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="366,19,527,47"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -413,7 +388,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L37">37</a> of file <a class="el" href="../../">I18n.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/dbf/_i18n_8php_source.html#l00037">37</a> of file <a class="el" href="../../d7/dbf/_i18n_8php_source.html">I18n.php</a>.</p>
 
 </div>
 </div>
@@ -435,7 +410,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L36">36</a> of file <a class="el" href="../../">I18n.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/dbf/_i18n_8php_source.html#l00036">36</a> of file <a class="el" href="../../d7/dbf/_i18n_8php_source.html">I18n.php</a>.</p>
 
 </div>
 </div>
@@ -449,7 +424,7 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L34">34</a> of file <a class="el" href="../../">I18n.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/dbf/_i18n_8php_source.html#l00034">34</a> of file <a class="el" href="../../d7/dbf/_i18n_8php_source.html">I18n.php</a>.</p>
 
 </div>
 </div>
@@ -463,7 +438,7 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L32">32</a> of file <a class="el" href="../../">I18n.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/dbf/_i18n_8php_source.html#l00032">32</a> of file <a class="el" href="../../d7/dbf/_i18n_8php_source.html">I18n.php</a>.</p>
 
 </div>
 </div>
@@ -477,7 +452,7 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L33">33</a> of file <a class="el" href="../../">I18n.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d7/dbf/_i18n_8php_source.html#l00033">33</a> of file <a class="el" href="../../d7/dbf/_i18n_8php_source.html">I18n.php</a>.</p>
 
 </div>
 </div>
@@ -487,7 +462,7 @@ Static Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d59/class_i18n.html">I18n</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:21 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:55 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

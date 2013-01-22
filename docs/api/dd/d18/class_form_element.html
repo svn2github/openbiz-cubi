@@ -280,7 +280,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L4">4</a> of file <a class="el" href="../../">FormElement.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d47/_form_element_8php_source.html#l00004">4</a> of file <a class="el" href="../../d2/d47/_form_element_8php_source.html">FormElement.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a35a3e938545e8d5fb56dde950e69b072"></a>
 <div class="memitem">
@@ -295,51 +295,30 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L15">15</a> of file <a class="el" href="../../">FormElement.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     <span class="keywordflow">if</span>(strtoupper($this-&gt;m_RenameElementSet)!=<span class="charliteral">&#39;Y&#39;</span>){</div>
-<div class="line">      <span class="keywordflow">return</span>;</div>
-<div class="line">     }</div>
-<div class="line">     $formElementObj = BizSystem::GetObject($this-&gt;m_FormReference);</div>
-<div class="line">     <span class="keywordflow">if</span>(strtolower($formElementObj-&gt;m_FormType)!=<span class="stringliteral">&#39;list&#39;</span>){</div>
-<div class="line">      <span class="keywordflow">return</span>;</div>
-<div class="line">     }</div>
-<div class="line">     <span class="keywordflow">if</span>(!$formElementObj-&gt;getDataObj())</div>
-<div class="line">     {</div>
-<div class="line">      $methodName = <span class="stringliteral">&quot;getRecordList&quot;</span>;</div>
-<div class="line">      <span class="keywordflow">if</span>(method_exists($formElementObj, $methodName))</div>
-<div class="line">      {</div>
-<div class="line">       $recs = $formElementObj-&gt;$methodName();</div>
-<div class="line">       $count = count($recs);</div>
-<div class="line">      }<span class="keywordflow">else</span>{</div>
-<div class="line">       <span class="keywordflow">return</span>;</div>
-<div class="line">      }</div>
-<div class="line">     }<span class="keywordflow">else</span>{      </div>
-<div class="line">      $prtDO = $formElementObj-&gt;getDataObj();</div>
-<div class="line">      $prtDO-&gt;clearSearchRule();</div>
-<div class="line">      $count = $prtDO-&gt;count();</div>
-<div class="line">     }</div>
-<div class="line">     </div>
-<div class="line">      <span class="keywordflow">if</span>($count&lt;0){</div>
-<div class="line">       <span class="keywordflow">return</span>;</div>
-<div class="line">     }</div>
-<div class="line">     $my_elementset = <a class="code" href="../../d5/d50/class_element.html#a54a1e0e8a3121abf2e41c7ec88985054">$this-&gt;m_ElementSet</a>;</div>
-<div class="line">     </div>
-<div class="line">     <span class="comment">//update other elements</span></div>
-<div class="line">     $panel = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>()-&gt;m_DataPanel;</div>
-<div class="line">     $panel-&gt;rewind();</div>
-<div class="line">        <span class="keywordflow">while</span>($panel-&gt;valid())          </div>
-<div class="line">        {      </div>
-<div class="line">         $elem = $panel-&gt;current();</div>
-<div class="line">         <span class="keywordflow">if</span>($elem-&gt;m_ElementSet ){     </div>
-<div class="line">          <span class="keywordflow">if</span>($elem-&gt;m_ElementSet == $my_elementset &amp;&amp; !preg_match(<span class="stringliteral">&quot;/tab_label_count/si&quot;</span>,$elem-&gt;m_ElementSet)){</div>
-<div class="line">           $elem-&gt;m_ElementSet.=<span class="stringliteral">&quot; &lt;span class=\&quot;tab_label_count\&quot;&gt;$count&lt;/span&gt;&quot;</span>;</div>
-<div class="line">          }</div>
-<div class="line">         }     </div>
-<div class="line">         $panel-&gt;next();                                           </div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/d47/_form_element_8php_source.html#l00015">15</a> of file <a class="el" href="../../d2/d47/_form_element_8php_source.html">FormElement.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dd/d18/class_form_element_a35a3e938545e8d5fb56dde950e69b072_cgraph.png" border="0" usemap="#dd/d18/class_form_element_a35a3e938545e8d5fb56dde950e69b072_cgraph" alt=""/></div>
+<map name="dd/d18/class_form_element_a35a3e938545e8d5fb56dde950e69b072_cgraph" id="dd/d18/class_form_element_a35a3e938545e8d5fb56dde950e69b072_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="184,5,328,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="376,5,544,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="592,5,730,33"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dd/d18/class_form_element_a35a3e938545e8d5fb56dde950e69b072_icgraph.png" border="0" usemap="#dd/d18/class_form_element_a35a3e938545e8d5fb56dde950e69b072_icgraph" alt=""/></div>
+<map name="dd/d18/class_form_element_a35a3e938545e8d5fb56dde950e69b072_icgraph" id="dd/d18/class_form_element_a35a3e938545e8d5fb56dde950e69b072_icgraph">
+<area shape="rect" id="node2" href="../../dd/d18/class_form_element.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="185,5,245,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ac0bc18784b182c89fcfd276625aef435"></a>
@@ -355,18 +334,19 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L112">112</a> of file <a class="el" href="../../">FormElement.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     <span class="keywordflow">if</span>($this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1">allowAccess</a>())</div>
-<div class="line">     {</div>
-<div class="line">      $formElementObj = BizSystem::GetObject($this-&gt;m_FormReference);</div>
-<div class="line">      <span class="keywordflow">if</span>(method_exists($formElementObj, <span class="stringliteral">&quot;getValue&quot;</span>))</div>
-<div class="line">      {</div>
-<div class="line">       <span class="keywordflow">return</span> $formElementObj-&gt;getValue();</div>
-<div class="line">      }</div>
-<div class="line">     }</div>
-<div class="line">    }    </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/d47/_form_element_8php_source.html#l00112">112</a> of file <a class="el" href="../../d2/d47/_form_element_8php_source.html">FormElement.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dd/d18/class_form_element_ac0bc18784b182c89fcfd276625aef435_cgraph.png" border="0" usemap="#dd/d18/class_form_element_ac0bc18784b182c89fcfd276625aef435_cgraph" alt=""/></div>
+<map name="dd/d18/class_form_element_ac0bc18784b182c89fcfd276625aef435_cgraph" id="dd/d18/class_form_element_ac0bc18784b182c89fcfd276625aef435_cgraph">
+<area shape="rect" id="node2" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1" title="MetaObject\\allowAccess" alt="" coords="129,5,295,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a4133bb0c948ac1d650827a15fb52072c" title="BizSystem\\allowUserAccess" alt="" coords="344,5,533,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="582,5,733,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="782,5,927,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a5888f7e5883c7c2d486f7ddc1bd64760"></a>
@@ -391,13 +371,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L8">8</a> of file <a class="el" href="../../">FormElement.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::readMetaData($xmlArr);</div>
-<div class="line">        $this-&gt;m_FormReference = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FORMREFERENCE&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FORMREFERENCE&quot;</span>] : null;        </div>
-<div class="line">        $this-&gt;m_RenameElementSet = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;RENAMEELEMENTSET&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;RENAMEELEMENTSET&quot;</span>] : <span class="charliteral">&#39;Y&#39;</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/d47/_form_element_8php_source.html#l00008">8</a> of file <a class="el" href="../../d2/d47/_form_element_8php_source.html">FormElement.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="afde88292c44dc59faf017738dae6dffb"></a>
@@ -417,41 +392,19 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/d2b/interfacei_u_i_control.html#afde88292c44dc59faf017738dae6dffb">iUIControl</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L65">65</a> of file <a class="el" href="../../">FormElement.php</a>.</p>
-<div class="fragment"><div class="line">    {     </div>
-<div class="line">        <span class="keywordflow">if</span>(!$this-&gt;m_FormReference)</div>
-<div class="line">        {</div>
-<div class="line">         <span class="keywordflow">return</span> null;</div>
-<div class="line">        }</div>
-<div class="line">        $formObj = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>();   </div>
-<div class="line">        $formElementObj = BizSystem::GetObject($this-&gt;m_FormReference);</div>
-<div class="line">        $formElementObj-&gt;m_ParentFormName = $formObj-&gt;m_Name;</div>
-<div class="line">        $formElementObj-&gt;m_ParentFormElementMeta = <a class="code" href="../../d5/d50/class_element.html#a873ca0528c0c11fea788b3e79355f9df">$this-&gt;m_XMLMeta</a>;</div>
-<div class="line">  $formElementObj-&gt;m_CanUpdateRecord = $formObj-&gt;m_CanUpdateRecord;</div>
-<div class="line">        <span class="keywordflow">if</span> (method_exists($formObj,<span class="stringliteral">&quot;SetSubForms&quot;</span>))</div>
-<div class="line">        {</div>
-<div class="line">                $formObj-&gt;setSubForms($this-&gt;m_FormReference);   </div>
-<div class="line">                <span class="keywordflow">if</span>($formObj-&gt;m_DataObjName){             </div>
-<div class="line">                 $formDataObj = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($formObj-&gt;m_DataObjName);</div>
-<div class="line">                  $dataObj = $formDataObj-&gt;getRefObject($formElementObj-&gt;m_DataObjName);</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">if</span> ($dataObj)</div>
-<div class="line">                    $formObj-&gt;setDataObj($dataObj);                </div>
-<div class="line">        }        </div>
-<div class="line">     $sHTML = $formElementObj-&gt;render();     </div>
-<div class="line">     $formObj-&gt;setDataObj($formDataObj);</div>
-<div class="line">     $this-&gt;<a class="code" href="../../dd/d18/class_form_element.html#a35a3e938545e8d5fb56dde950e69b072">FormRecordCount</a>();    </div>
-<div class="line">     <span class="keywordflow">if</span>(strlen($sHTML))</div>
-<div class="line">     {</div>
-<div class="line">      $this-&gt;m_Hidden = <span class="stringliteral">&quot;N&quot;</span>;</div>
-<div class="line">     }</div>
-<div class="line">     <span class="keywordflow">else</span></div>
-<div class="line">     {</div>
-<div class="line">      $this-&gt;m_Hidden = <span class="stringliteral">&quot;Y&quot;</span>;</div>
-<div class="line">     }</div>
-<div class="line">        <span class="keywordflow">return</span> $sHTML;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/d47/_form_element_8php_source.html#l00065">65</a> of file <a class="el" href="../../d2/d47/_form_element_8php_source.html">FormElement.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dd/d18/class_form_element_afde88292c44dc59faf017738dae6dffb_cgraph.png" border="0" usemap="#dd/d18/class_form_element_afde88292c44dc59faf017738dae6dffb_cgraph" alt=""/></div>
+<map name="dd/d18/class_form_element_afde88292c44dc59faf017738dae6dffb_cgraph" id="dd/d18/class_form_element_afde88292c44dc59faf017738dae6dffb_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="309,24,454,52"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="115,24,261,52"/><area shape="rect" id="node6" href="../../dd/d18/class_form_element.html#a35a3e938545e8d5fb56dde950e69b072" title="FormRecordCount" alt="" coords="122,76,254,104"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="501,24,669,52"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="718,24,856,52"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a7494441b6ed08a391704971873f31432"></a>
@@ -468,18 +421,19 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L100">100</a> of file <a class="el" href="../../">FormElement.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     <span class="keywordflow">if</span>($this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1">allowAccess</a>())</div>
-<div class="line">     {</div>
-<div class="line">      $formElementObj = BizSystem::GetObject($this-&gt;m_FormReference);</div>
-<div class="line">      <span class="keywordflow">if</span>(method_exists($formElementObj, <span class="stringliteral">&quot;setValue&quot;</span>))</div>
-<div class="line">      {</div>
-<div class="line">       <span class="keywordflow">return</span> $formElementObj-&gt;setValue($value);</div>
-<div class="line">      }</div>
-<div class="line">     }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/d47/_form_element_8php_source.html#l00100">100</a> of file <a class="el" href="../../d2/d47/_form_element_8php_source.html">FormElement.php</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dd/d18/class_form_element_a7494441b6ed08a391704971873f31432_cgraph.png" border="0" usemap="#dd/d18/class_form_element_a7494441b6ed08a391704971873f31432_cgraph" alt=""/></div>
+<map name="dd/d18/class_form_element_a7494441b6ed08a391704971873f31432_cgraph" id="dd/d18/class_form_element_a7494441b6ed08a391704971873f31432_cgraph">
+<area shape="rect" id="node2" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1" title="MetaObject\\allowAccess" alt="" coords="126,5,293,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a4133bb0c948ac1d650827a15fb52072c" title="BizSystem\\allowUserAccess" alt="" coords="341,5,531,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="579,5,730,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="779,5,925,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -501,7 +455,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L6">6</a> of file <a class="el" href="../../">FormElement.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d47/_form_element_8php_source.html#l00006">6</a> of file <a class="el" href="../../d2/d47/_form_element_8php_source.html">FormElement.php</a>.</p>
 
 </div>
 </div>
@@ -511,7 +465,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dd/d18/class_form_element.html">FormElement</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:20 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:52 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

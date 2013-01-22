@@ -1,0 +1,12 @@
+<map id="getText" name="getText">
+<area shape="rect" id="node2" href="$d0/de8/class_column_bar.html#afde88292c44dc59faf017738dae6dffb" title="ColumnBar\\render" alt="" coords="128,5,258,33"/>
+<area shape="rect" id="node3" href="$d3/d37/class_column_bool.html#afde88292c44dc59faf017738dae6dffb" title="ColumnBool\\render" alt="" coords="125,57,261,85"/>
+<area shape="rect" id="node4" href="$dc/d5d/class_column_image.html#afde88292c44dc59faf017738dae6dffb" title="ColumnImage\\render" alt="" coords="120,109,267,137"/>
+<area shape="rect" id="node5" href="$d7/de0/class_column_share.html#afde88292c44dc59faf017738dae6dffb" title="ColumnShare\\render" alt="" coords="121,161,266,189"/>
+<area shape="rect" id="node6" href="$d7/dd8/class_column_sorting.html#afde88292c44dc59faf017738dae6dffb" title="ColumnSorting\\render" alt="" coords="117,213,269,241"/>
+<area shape="rect" id="node7" href="$d0/df2/class_label_bar.html#afde88292c44dc59faf017738dae6dffb" title="LabelBar\\render" alt="" coords="135,265,252,293"/>
+<area shape="rect" id="node8" href="$da/dfd/class_label_bool.html#afde88292c44dc59faf017738dae6dffb" title="LabelBool\\render" alt="" coords="132,317,255,345"/>
+<area shape="rect" id="node9" href="$d9/d69/class_label_image.html#afde88292c44dc59faf017738dae6dffb" title="LabelImage\\render" alt="" coords="127,369,260,397"/>
+<area shape="rect" id="node10" href="$d6/d00/class_label_text.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="163,421,223,449"/>
+<area shape="rect" id="node11" href="$d2/d34/class_label_textarea.html#afde88292c44dc59faf017738dae6dffb" title="LabelTextarea\\render" alt="" coords="120,473,267,501"/>
+</map>

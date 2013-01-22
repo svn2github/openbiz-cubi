@@ -210,7 +210,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L24">24</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00024">24</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa02059674a60ef0a21af10de7c6925cd"></a>
 <div class="memitem">
@@ -252,12 +252,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L52">52</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::__construct($xmlArr, $className, $parentObj);</div>
-<div class="line">        $this-&gt;_initSetup();</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00052">52</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -283,21 +279,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array field-value record array </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L295">295</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $recArr = array();</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_var as $key=&gt;$field)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> ($field-&gt;m_Column || $field-&gt;m_SqlExpression)</div>
-<div class="line">            {</div>
-<div class="line">                $recArr[$key] = $sqlArr[$field-&gt;m_Index];</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">                $recArr[$key] = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $recArr;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00295">295</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="adab1e00ab89d56398ccddf869bee0a48"></a>
@@ -323,16 +306,8 @@ Protected Attributes</h2></td></tr>
 <p>Get an empty record array. Called by <a class="el" href="../../d3/d2c/class_biz_data_obj.html#a44283849d1849ef432f360425f8c6907">BizDataObj::newRecord()</a></p>
 <dl class="section return"><dt>Returns</dt><dd>array record array </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L125">125</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $recArr = array();</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_var as $key=&gt;$field)</div>
-<div class="line">        {</div>
-<div class="line">            $recArr[$key] = $field-&gt;getDefaultValue();</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $recArr;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00125">125</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a6de72fc603dbdc16ee7a69cfd0fe6610"></a>
@@ -368,14 +343,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d8/d08/class_biz_field.html">BizField</a> instant of <a class="el" href="../../d8/d08/class_biz_field.html">BizField</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L112">112</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// TODO: 2 columns can have the same name in case of joined fields</span></div>
-<div class="line">        <span class="keywordflow">if</span>(array_key_exists($column, $this-&gt;m_ColFldMap))</div>
-<div class="line">            <span class="keywordflow">return</span> $this-&gt;m_ColFldMap[$column];</div>
-<div class="line">        <span class="keywordflow">return</span> null;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00112">112</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d9/d86/class_biz_record_a6de72fc603dbdc16ee7a69cfd0fe6610_icgraph.png" border="0" usemap="#d9/d86/class_biz_record_a6de72fc603dbdc16ee7a69cfd0fe6610_icgraph" alt=""/></div>
+<map name="d9/d86/class_biz_record_a6de72fc603dbdc16ee7a69cfd0fe6610_icgraph" id="d9/d86/class_biz_record_a6de72fc603dbdc16ee7a69cfd0fe6610_icgraph">
+<area shape="rect" id="node2" href="../../d9/d86/class_biz_record.html#a3662fb65e804894b98bc93f9e4e98548" title="getJoinSearchRule" alt="" coords="184,5,318,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a53380abfc442581da2879c14af9bda75"></a>
@@ -400,28 +380,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L335">335</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $inputFields = <a class="code" href="../../d9/d86/class_biz_record.html#a19419a3fa729a4161a263365b7a3ef08">$this-&gt;m_InputFields</a>;  <span class="comment">// Added by Jixian on 2009-02-15 for implement onSaveDataObj</span></div>
-<div class="line">        $recArr = array();</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_var as $key=&gt;$value)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="comment">// do not consider joined columns</span></div>
-<div class="line">            <span class="comment">// Added by Jixian on 2009-02-15 for implement onSaveDataObj</span></div>
-<div class="line">            <span class="comment">/*</span></div>
-<div class="line"><span class="comment">             * It&#39;s the time to consider about joined columns</span></div>
-<div class="line"><span class="comment">             */</span></div>
-<div class="line"></div>
-<div class="line">            $field = $value;</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> ($field-&gt;m_Join == $join)</div>
-<div class="line">            {</div>
-<div class="line">                $recArr[$key] = $value;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $recArr;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00335">335</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a3662fb65e804894b98bc93f9e4e98548"></a>
@@ -458,15 +418,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L367">367</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $joinFieldName = $this-&gt;<a class="code" href="../../d9/d86/class_biz_record.html#a6de72fc603dbdc16ee7a69cfd0fe6610">getFieldByColumn</a>($tableJoin-&gt;m_ColumnRef, $tableJoin-&gt;m_Table);</div>
-<div class="line">        $joinField=$this-&gt;m_var[$joinFieldName];</div>
-<div class="line">        $rhs = $isUseOldValue ? $joinField-&gt;m_OldValue : $joinField-&gt;m_Value;</div>
-<div class="line">        $retStr = $tableJoin-&gt;m_Column . <span class="stringliteral">&quot;=&#39;&quot;</span> . $rhs . <span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">return</span> $retStr;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00367">367</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d9/d86/class_biz_record_a3662fb65e804894b98bc93f9e4e98548_cgraph.png" border="0" usemap="#d9/d86/class_biz_record_a3662fb65e804894b98bc93f9e4e98548_cgraph" alt=""/></div>
+<map name="d9/d86/class_biz_record_a3662fb65e804894b98bc93f9e4e98548_cgraph" id="d9/d86/class_biz_record_a3662fb65e804894b98bc93f9e4e98548_cgraph">
+<area shape="rect" id="node2" href="../../d9/d86/class_biz_record.html#a6de72fc603dbdc16ee7a69cfd0fe6610" title="getFieldByColumn" alt="" coords="187,5,317,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="afedaa305ba993804478e782e04938a42"></a>
@@ -492,16 +456,19 @@ Protected Attributes</h2></td></tr>
 <p>Get a list of fields (name) who are defined as keys columns</p>
 <dl class="section return"><dt>Returns</dt><dd>array array of key fields </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L163">163</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $keyFields = array();</div>
-<div class="line">        <span class="keywordflow">foreach</span>($this-&gt;m_KeyFldColMap as $fieldName=&gt;$colName)</div>
-<div class="line">        {</div>
-<div class="line">            $keyFields[$fieldName] = $this-&gt;m_var[$fieldName];</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $keyFields;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00163">163</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d9/d86/class_biz_record_afedaa305ba993804478e782e04938a42_icgraph.png" border="0" usemap="#d9/d86/class_biz_record_afedaa305ba993804478e782e04938a42_icgraph" alt=""/></div>
+<map name="d9/d86/class_biz_record_afedaa305ba993804478e782e04938a42_icgraph" id="d9/d86/class_biz_record_afedaa305ba993804478e782e04938a42_icgraph">
+<area shape="rect" id="node2" href="../../d9/d86/class_biz_record.html#a625db7e8efc8aed7c69898496a5334e8" title="getKeySearchRule" alt="" coords="152,5,285,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a625db7e8efc8aed7c69898496a5334e8"></a>
@@ -537,23 +504,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string search rule </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L181">181</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $keyFields = $this-&gt;<a class="code" href="../../d9/d86/class_biz_record.html#afedaa305ba993804478e782e04938a42">getKeyFields</a>();</div>
-<div class="line">        $retStr = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($keyFields as $fieldName=&gt;$fieldObj)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> ($retStr != <span class="stringliteral">&quot;&quot;</span>) $retStr .= <span class="stringliteral">&quot; AND &quot;</span>;</div>
-<div class="line">            $lhs = $isUseColumnName ? $fieldObj-&gt;m_Column : <span class="stringliteral">&quot;[$fieldName]&quot;</span>;</div>
-<div class="line">            $rhs = $isUseOldValue ? $fieldObj-&gt;m_OldValue : $fieldObj-&gt;m_Value;</div>
-<div class="line">            <span class="keywordflow">if</span> ($rhs == <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line">                $retStr .= <span class="stringliteral">&quot;(&quot;</span>.$lhs.<span class="stringliteral">&quot;=&#39;&quot;</span>.$rhs.<span class="stringliteral">&quot;&#39; or &quot;</span>.$lhs.<span class="stringliteral">&quot; is null)&quot;</span>;</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">                $retStr .= $lhs.<span class="stringliteral">&quot;=&#39;&quot;</span>.$rhs.<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $retStr;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00181">181</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d9/d86/class_biz_record_a625db7e8efc8aed7c69898496a5334e8_cgraph.png" border="0" usemap="#d9/d86/class_biz_record_a625db7e8efc8aed7c69898496a5334e8_cgraph" alt=""/></div>
+<map name="d9/d86/class_biz_record_a625db7e8efc8aed7c69898496a5334e8_cgraph" id="d9/d86/class_biz_record_a625db7e8efc8aed7c69898496a5334e8_cgraph">
+<area shape="rect" id="node2" href="../../d9/d86/class_biz_record.html#afedaa305ba993804478e782e04938a42" title="getKeyFields" alt="" coords="187,5,285,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a8d406b22252e2ddf4b36a1880e48cf09"></a>
@@ -586,21 +549,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string key field string </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L143">143</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $keyValue = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">foreach</span>($this-&gt;m_KeyFldColMap as $fieldName=&gt;$colName)</div>
-<div class="line">        {</div>
-<div class="line">            $val = $isUseOldValue ? $this-&gt;m_var[$fieldName]-&gt;m_OldValue : $this-&gt;m_var[$fieldName]-&gt;m_Value;</div>
-<div class="line">            <span class="keywordflow">if</span> ($keyValue == <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line">                $keyValue .= $val;</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">            <span class="comment">// use base64 (a-zA-Z1-9+-) to encode the key and connect them with &quot;#&quot;</span></div>
-<div class="line">                $keyValue .= <a class="code" href="../../d6/d75/_biz_data_obj___lite_8php.html#a29bbf49a6d02f642a228c56245a44023">CK_CONNECTOR</a> . $val;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $keyValue;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00143">143</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ad0e88544139a6f59458bc93d38e6a0d2"></a>
@@ -633,23 +583,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array record array </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L272">272</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> ($sqlArr)</div>
-<div class="line">            $this-&gt;_setSqlRecord($sqlArr);</div>
-<div class="line">        $recArr = array();</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_var as $key=&gt;$field){</div>
-<div class="line">         <span class="keywordflow">if</span>($field-&gt;m_Encrypted==<span class="charliteral">&#39;Y&#39;</span>){</div>
-<div class="line">             $svcobj = <a class="code" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96">BizSystem::getService</a>(CRYPT_SERVICE);         </div>
-<div class="line">          $value = $svcobj-&gt;decrypt($field-&gt;getValue()); </div>
-<div class="line">             $recArr[$key] = $value;</div>
-<div class="line">         }<span class="keywordflow">else</span>{</div>
-<div class="line">          $recArr[$key] = $field-&gt;getValue(); </div>
-<div class="line">         }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $recArr;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00272">272</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d9/d86/class_biz_record_ad0e88544139a6f59458bc93d38e6a0d2_cgraph.png" border="0" usemap="#d9/d86/class_biz_record_ad0e88544139a6f59458bc93d38e6a0d2_cgraph" alt=""/></div>
+<map name="d9/d86/class_biz_record_ad0e88544139a6f59458bc93d38e6a0d2_cgraph" id="d9/d86/class_biz_record_ad0e88544139a6f59458bc93d38e6a0d2_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="155,5,306,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="355,5,501,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="afa079150cb964a0ec556b61d79d9579b"></a>
@@ -676,38 +622,19 @@ Protected Attributes</h2></td></tr>
 <p>Get insert/update fields. Ignore unchanged field in UPDATE case</p>
 <dl class="section return"><dt>Returns</dt><dd>array field value pair array </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L382">382</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// TODO: if join != null, get columns only for the join</span></div>
-<div class="line">        $sqlFields = array();</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// expand input fields with oncreate or onupdate fields</span></div>
-<div class="line">        $inputFields = <a class="code" href="../../d9/d86/class_biz_record.html#a19419a3fa729a4161a263365b7a3ef08">$this-&gt;m_InputFields</a>;</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_var as $key=&gt;$field)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> (($type==<span class="stringliteral">&#39;UPDATE&#39;</span> &amp;&amp; $field-&gt;m_ValueOnUpdate != null)</div>
-<div class="line">                || ($type==<span class="stringliteral">&#39;CREATE&#39;</span> &amp;&amp; $field-&gt;m_ValueOnCreate != null))</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">if</span> (!in_array($key, $this-&gt;m_InputFields))</div>
-<div class="line">                    $inputFields[] = $key;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">foreach</span> ($inputFields as $key)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="comment">// ignore the composite key Id field</span></div>
-<div class="line">            <span class="keywordflow">if</span> ($key == <span class="stringliteral">&quot;Id&quot;</span> &amp;&amp; <a class="code" href="../../dd/d21/class_meta_iterator.html#ac751e87b3d4c4bf2feb03bee8b092755">count</a>($this-&gt;m_KeyFldColMap) &gt; 1)</div>
-<div class="line">                <span class="keywordflow">continue</span>;</div>
-<div class="line">            $field = $this-&gt;m_var[$key];</div>
-<div class="line">            <span class="comment">// do not consider joined columns</span></div>
-<div class="line">            <span class="keywordflow">if</span> ($field-&gt;m_Column &amp;&amp; !$field-&gt;m_Join)</div>
-<div class="line">            {</div>
-<div class="line">                $sqlFields[] = $field;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $sqlFields;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00382">382</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d9/d86/class_biz_record_afa079150cb964a0ec556b61d79d9579b_cgraph.png" border="0" usemap="#d9/d86/class_biz_record_afa079150cb964a0ec556b61d79d9579b_cgraph" alt=""/></div>
+<map name="d9/d86/class_biz_record_afa079150cb964a0ec556b61d79d9579b_cgraph" id="d9/d86/class_biz_record_afa079150cb964a0ec556b61d79d9579b_cgraph">
+<area shape="rect" id="node2" href="../../dd/d21/class_meta_iterator.html#ac751e87b3d4c4bf2feb03bee8b092755" title="MetaIterator\\count" alt="" coords="174,5,303,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aadc292a000a7fafbc3ca091ebb54a2f4"></a>
@@ -732,12 +659,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L64">64</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::merge($anotherMIObj);</div>
-<div class="line">        $this-&gt;_initSetup();</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00064">64</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ac7aa84aab57384308444311f8139b869"></a>
@@ -770,18 +693,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>avoid </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L254">254</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> (!$inputArr)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        <span class="keywordflow">foreach</span>($inputArr as $key=&gt;$value)</div>
-<div class="line">        {</div>
-<div class="line">            $bizField = $this-&gt;m_var[$key];</div>
-<div class="line">            <span class="keywordflow">if</span> (!$bizField) <span class="keywordflow">continue</span>;</div>
-<div class="line">            $bizField-&gt;saveOldValue($value);</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00254">254</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a4a02f0ef11ea4feb96c5a11e7be86a57"></a>
@@ -814,32 +727,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L221">221</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// unformat the inputs</span></div>
-<div class="line">        unset($this-&gt;m_InputFields);</div>
-<div class="line">        <span class="keywordflow">foreach</span>($inputArr as $key=&gt;$value)</div>
-<div class="line">        {   </div>
-<div class="line">            <span class="comment">// if allow changing key field, need to keep the old value which is also useful for audit trail</span></div>
-<div class="line">            <span class="comment">// if (!$value)</span></div>
-<div class="line">            <span class="comment">//    continue;</span></div>
-<div class="line">            $bizField = $this-&gt;m_var[$key];</div>
-<div class="line">            <span class="keywordflow">if</span> (!$bizField) <span class="keywordflow">continue</span>;</div>
-<div class="line"></div>
-<div class="line">            $realVal = <a class="code" href="../../d1/d7e/class_biz_system.html#ab657b15f46b32b11920d2021e9c257c3">BizSystem::typeManager</a>()-&gt;formattedStringToValue($bizField-&gt;m_Type, $bizField-&gt;m_Format, $value);</div>
-<div class="line">            <span class="keywordflow">if</span>(strtoupper($bizField-&gt;m_Encrypted)==<span class="charliteral">&#39;Y&#39;</span>){</div>
-<div class="line">     $svcobj = <a class="code" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96">BizSystem::getService</a>(CRYPT_SERVICE);     </div>
-<div class="line">     $realVal = $svcobj-&gt;encrypt($realVal);</div>
-<div class="line">              $bizField-&gt;setValue($realVal);</div>
-<div class="line">            }</div>
-<div class="line">            <span class="comment">// todo: need to optimize on lob column            </span></div>
-<div class="line">            $bizField-&gt;setValue($realVal);</div>
-<div class="line">            </div>
-<div class="line">            $this-&gt;m_InputFields[] = $key;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">//$this-&gt;m_var[&quot;Id&quot;]-&gt;setValue($this-&gt;getKeyValue());</span></div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00221">221</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d9/d86/class_biz_record_a4a02f0ef11ea4feb96c5a11e7be86a57_cgraph.png" border="0" usemap="#d9/d86/class_biz_record_a4a02f0ef11ea4feb96c5a11e7be86a57_cgraph" alt=""/></div>
+<map name="d9/d86/class_biz_record_a4a02f0ef11ea4feb96c5a11e7be86a57_cgraph" id="d9/d86/class_biz_record_a4a02f0ef11ea4feb96c5a11e7be86a57_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#ab657b15f46b32b11920d2021e9c257c3" title="BizSystem\\typeManager" alt="" coords="165,5,331,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="172,57,324,85"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="383,5,521,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="379,57,525,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="af6680a0c6343b3c4c789f971980e8f58"></a>
@@ -864,17 +764,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L204">204</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> (!$recArr) <span class="keywordflow">return</span>;</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_var as $key=&gt;$field)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> (key_exists($key, $recArr)){</div>
-<div class="line">     $recArr[$key] = $field-&gt;setValue($recArr[$key]);</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00204">204</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -896,7 +787,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L35">35</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00035">35</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
 
 </div>
 </div>
@@ -918,7 +809,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L42">42</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00042">42</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
 
 </div>
 </div>
@@ -932,7 +823,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L40">40</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00040">40</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
 
 </div>
 </div>
@@ -954,7 +845,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L30">30</a> of file <a class="el" href="../../">BizRecord.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/d71/_biz_record_8php_source.html#l00030">30</a> of file <a class="el" href="../../d0/d71/_biz_record_8php_source.html">BizRecord.php</a>.</p>
 
 </div>
 </div>
@@ -964,7 +855,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d86/class_biz_record.html">BizRecord</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:14 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:41 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

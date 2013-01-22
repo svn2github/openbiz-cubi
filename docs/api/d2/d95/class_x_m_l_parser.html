@@ -145,7 +145,7 @@ Data Fields</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L33">33</a> of file <a class="el" href="../../">xmltoarray.src.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html#l00033">33</a> of file <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html">xmltoarray.src.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a6a9b07e4151592b74416a0fb79d8c754"></a>
 <div class="memitem">
@@ -183,23 +183,30 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L100">100</a> of file <a class="el" href="../../">xmltoarray.src.php</a>.</p>
-<div class="fragment"><div class="line">                                                 {</div>
-<div class="line"></div>
-<div class="line">  <span class="keywordflow">if</span> (isset($thisvals[<span class="stringliteral">&#39;attributes&#39;</span>]))</div>
-<div class="line">   $tag[<span class="stringliteral">&#39;ATTRIBUTES&#39;</span>] = $thisvals[<span class="stringliteral">&#39;attributes&#39;</span>]; </div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// complete tag, just return it for storage in array</span></div>
-<div class="line">  <span class="keywordflow">if</span> ($type === <span class="stringliteral">&#39;complete&#39;</span>)</div>
-<div class="line">   $tag[<span class="stringliteral">&#39;VALUE&#39;</span>] = $thisvals[<span class="stringliteral">&#39;value&#39;</span>];</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// open tag, recurse</span></div>
-<div class="line">  <span class="keywordflow">else</span></div>
-<div class="line">   $tag = array_merge((array)$tag, (array)$this-&gt;<a class="code" href="../../d2/d95/class_x_m_l_parser.html#a1854f2d6d1389e58acb7b20423645801">getchildren</a>(<a class="code" href="../../d2/d95/class_x_m_l_parser.html#a746c1e65be1b1dc482b633e025b71e2d">$vals</a>, $i));</div>
-<div class="line"></div>
-<div class="line">  <span class="keywordflow">return</span> $tag;</div>
-<div class="line"> }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html#l00100">100</a> of file <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html">xmltoarray.src.php</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d95/class_x_m_l_parser_a6a9b07e4151592b74416a0fb79d8c754_cgraph.png" border="0" usemap="#d2/d95/class_x_m_l_parser_a6a9b07e4151592b74416a0fb79d8c754_cgraph" alt=""/></div>
+<map name="d2/d95/class_x_m_l_parser_a6a9b07e4151592b74416a0fb79d8c754_cgraph" id="d2/d95/class_x_m_l_parser_a6a9b07e4151592b74416a0fb79d8c754_cgraph">
+<area shape="rect" id="node2" href="../../d2/d95/class_x_m_l_parser.html#a1854f2d6d1389e58acb7b20423645801" title="getchildren" alt="" coords="123,5,210,33"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d95/class_x_m_l_parser_a6a9b07e4151592b74416a0fb79d8c754_icgraph.png" border="0" usemap="#d2/d95/class_x_m_l_parser_a6a9b07e4151592b74416a0fb79d8c754_icgraph" alt=""/></div>
+<map name="d2/d95/class_x_m_l_parser_a6a9b07e4151592b74416a0fb79d8c754_icgraph" id="d2/d95/class_x_m_l_parser_a6a9b07e4151592b74416a0fb79d8c754_icgraph">
+<area shape="rect" id="node2" href="../../d2/d95/class_x_m_l_parser.html#a1854f2d6d1389e58acb7b20423645801" title="getchildren" alt="" coords="123,5,210,33"/><area shape="rect" id="node3" href="../../d2/d95/class_x_m_l_parser.html#a4a4fdaa7cc22b68ace67e181b7b1627b" title="getTree" alt="" coords="259,5,325,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1854f2d6d1389e58acb7b20423645801"></a>
@@ -226,47 +233,30 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L117">117</a> of file <a class="el" href="../../">xmltoarray.src.php</a>.</p>
-<div class="fragment"><div class="line">                                  { </div>
-<div class="line">  $children = array();     <span class="comment">// Contains node data</span></div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// Node has CDATA before it&#39;s children</span></div>
-<div class="line">                <span class="keywordflow">if</span> ($i &gt; -1 &amp;&amp; isset(<a class="code" href="../../d2/d95/class_x_m_l_parser.html#a746c1e65be1b1dc482b633e025b71e2d">$vals</a>[$i][<span class="stringliteral">&#39;value&#39;</span>]))</div>
-<div class="line">   $children[<span class="stringliteral">&#39;VALUE&#39;</span>] = <a class="code" href="../../d2/d95/class_x_m_l_parser.html#a746c1e65be1b1dc482b633e025b71e2d">$vals</a>[$i][<span class="stringliteral">&#39;value&#39;</span>];</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// Loop through children, until hit close tag or run out of tags</span></div>
-<div class="line">  <span class="keywordflow">while</span> (++$i &lt; count(<a class="code" href="../../d2/d95/class_x_m_l_parser.html#a746c1e65be1b1dc482b633e025b71e2d">$vals</a>)) { </div>
-<div class="line"></div>
-<div class="line">   $type = <a class="code" href="../../d2/d95/class_x_m_l_parser.html#a746c1e65be1b1dc482b633e025b71e2d">$vals</a>[$i][<span class="stringliteral">&#39;type&#39;</span>];</div>
-<div class="line"></div>
-<div class="line">   <span class="comment">// &#39;cdata&#39;: Node has CDATA after one of it&#39;s children</span></div>
-<div class="line">   <span class="comment">//   (Add to cdata found before in this case)</span></div>
-<div class="line">   <span class="keywordflow">if</span> ($type === <span class="stringliteral">&#39;cdata&#39;</span>)</div>
-<div class="line">    $children[<span class="stringliteral">&#39;VALUE&#39;</span>] .= <a class="code" href="../../d2/d95/class_x_m_l_parser.html#a746c1e65be1b1dc482b633e025b71e2d">$vals</a>[$i][<span class="stringliteral">&#39;value&#39;</span>];</div>
-<div class="line"></div>
-<div class="line">   <span class="comment">// &#39;complete&#39;: At end of current branch</span></div>
-<div class="line">   <span class="comment">// &#39;open&#39;: Node has children, recurse</span></div>
-<div class="line">   elseif ($type === <span class="stringliteral">&#39;complete&#39;</span> || $type === <span class="stringliteral">&#39;open&#39;</span>) {</div>
-<div class="line">    $tag = $this-&gt;<a class="code" href="../../d2/d95/class_x_m_l_parser.html#a6a9b07e4151592b74416a0fb79d8c754">buildtag</a>(<a class="code" href="../../d2/d95/class_x_m_l_parser.html#a746c1e65be1b1dc482b633e025b71e2d">$vals</a>[$i], <a class="code" href="../../d2/d95/class_x_m_l_parser.html#a746c1e65be1b1dc482b633e025b71e2d">$vals</a>, $i, $type);</div>
-<div class="line">    <span class="keywordflow">if</span> ($this-&gt;index_numeric) {</div>
-<div class="line">     $tag[<span class="stringliteral">&#39;TAG&#39;</span>] = <a class="code" href="../../d2/d95/class_x_m_l_parser.html#a746c1e65be1b1dc482b633e025b71e2d">$vals</a>[$i][<span class="stringliteral">&#39;tag&#39;</span>];</div>
-<div class="line">     $children[] = $tag;</div>
-<div class="line">    } <span class="keywordflow">else</span></div>
-<div class="line">     $children[<a class="code" href="../../d2/d95/class_x_m_l_parser.html#a746c1e65be1b1dc482b633e025b71e2d">$vals</a>[$i][<span class="stringliteral">&#39;tag&#39;</span>]][] = $tag;</div>
-<div class="line">   }</div>
-<div class="line"></div>
-<div class="line">   <span class="comment">// &#39;close: End of node, return collected data</span></div>
-<div class="line">   <span class="comment">//  Do not increment $i or nodes disappear!</span></div>
-<div class="line">   elseif ($type === <span class="stringliteral">&#39;close&#39;</span>)</div>
-<div class="line">    break;</div>
-<div class="line">  } </div>
-<div class="line">  <a class="code" href="../../d3/d07/sysheader__inc_8php.html#a6cf9ee4d2b5d66ab50414ac61cf1acc6">if</a> ($this-&gt;collapse_dups)</div>
-<div class="line">   foreach($children as $key =&gt; $value)</div>
-<div class="line">    <a class="code" href="../../d3/d07/sysheader__inc_8php.html#a6cf9ee4d2b5d66ab50414ac61cf1acc6">if</a> (is_array($value) &amp;&amp; (count($value) == 1))</div>
-<div class="line">     $children[$key] = $value[0];</div>
-<div class="line">  return $children;</div>
-<div class="line"> } </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html#l00117">117</a> of file <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html">xmltoarray.src.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d95/class_x_m_l_parser_a1854f2d6d1389e58acb7b20423645801_cgraph.png" border="0" usemap="#d2/d95/class_x_m_l_parser_a1854f2d6d1389e58acb7b20423645801_cgraph" alt=""/></div>
+<map name="d2/d95/class_x_m_l_parser_a1854f2d6d1389e58acb7b20423645801_cgraph" id="d2/d95/class_x_m_l_parser_a1854f2d6d1389e58acb7b20423645801_cgraph">
+<area shape="rect" id="node2" href="../../d2/d95/class_x_m_l_parser.html#a6a9b07e4151592b74416a0fb79d8c754" title="buildtag" alt="" coords="142,5,210,33"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d95/class_x_m_l_parser_a1854f2d6d1389e58acb7b20423645801_icgraph.png" border="0" usemap="#d2/d95/class_x_m_l_parser_a1854f2d6d1389e58acb7b20423645801_icgraph" alt=""/></div>
+<map name="d2/d95/class_x_m_l_parser_a1854f2d6d1389e58acb7b20423645801_icgraph" id="d2/d95/class_x_m_l_parser_a1854f2d6d1389e58acb7b20423645801_icgraph">
+<area shape="rect" id="node2" href="../../d2/d95/class_x_m_l_parser.html#a4a4fdaa7cc22b68ace67e181b7b1627b" title="getTree" alt="" coords="143,5,209,33"/><area shape="rect" id="node3" href="../../d2/d95/class_x_m_l_parser.html#a6a9b07e4151592b74416a0fb79d8c754" title="buildtag" alt="" coords="142,57,210,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a4a4fdaa7cc22b68ace67e181b7b1627b"></a>
@@ -282,23 +272,19 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L83">83</a> of file <a class="el" href="../../">xmltoarray.src.php</a>.</p>
-<div class="fragment"><div class="line">                     {</div>
-<div class="line">     <span class="comment">// load xml and check if it turns a valid object. TODO: it will throw error.</span></div>
-<div class="line">     <span class="comment">/*$xml = simplexml_load_file($this-&gt;data);</span></div>
-<div class="line"><span class="comment">     if (!$xml) {</span></div>
-<div class="line"><span class="comment">         echo &#39;invalid xml file &#39;.$this-&gt;data; exit;</span></div>
-<div class="line"><span class="comment">     }*/</span></div>
-<div class="line">  <span class="comment">//$parser = xml_parser_create(&#39;ISO-8859-1&#39;);</span></div>
-<div class="line">  $parser = xml_parser_create(<span class="stringliteral">&#39;&#39;</span>);</div>
-<div class="line">  xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);</div>
-<div class="line">  xml_parse_into_struct($parser, $this-&gt;data, <a class="code" href="../../d2/d95/class_x_m_l_parser.html#a746c1e65be1b1dc482b633e025b71e2d">$vals</a>, $index); </div>
-<div class="line">  xml_parser_free($parser);</div>
-<div class="line"></div>
-<div class="line">  $i = -1;</div>
-<div class="line">  <span class="keywordflow">return</span> $this-&gt;<a class="code" href="../../d2/d95/class_x_m_l_parser.html#a1854f2d6d1389e58acb7b20423645801">getchildren</a>(<a class="code" href="../../d2/d95/class_x_m_l_parser.html#a746c1e65be1b1dc482b633e025b71e2d">$vals</a>, $i);</div>
-<div class="line"> }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html#l00083">83</a> of file <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html">xmltoarray.src.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d95/class_x_m_l_parser_a4a4fdaa7cc22b68ace67e181b7b1627b_cgraph.png" border="0" usemap="#d2/d95/class_x_m_l_parser_a4a4fdaa7cc22b68ace67e181b7b1627b_cgraph" alt=""/></div>
+<map name="d2/d95/class_x_m_l_parser_a4a4fdaa7cc22b68ace67e181b7b1627b_cgraph" id="d2/d95/class_x_m_l_parser_a4a4fdaa7cc22b68ace67e181b7b1627b_cgraph">
+<area shape="rect" id="node2" href="../../d2/d95/class_x_m_l_parser.html#a1854f2d6d1389e58acb7b20423645801" title="getchildren" alt="" coords="121,5,207,33"/><area shape="rect" id="node3" href="../../d2/d95/class_x_m_l_parser.html#a6a9b07e4151592b74416a0fb79d8c754" title="buildtag" alt="" coords="257,5,325,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aaa2c2d8e1350acd0d09a5291151b3180"></a>
@@ -337,45 +323,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L43">43</a> of file <a class="el" href="../../">xmltoarray.src.php</a>.</p>
-<div class="fragment"><div class="line">                                                                                               {</div>
-<div class="line">  $this-&gt;collapse_dups = <a class="code" href="../../d2/d95/class_x_m_l_parser.html#abfd619147849c2dc629593161c24c75a">$collapse_dups</a>;</div>
-<div class="line">  $this-&gt;index_numeric = <a class="code" href="../../d2/d95/class_x_m_l_parser.html#a3c31d49e22a28e91b1fcd661ee5a7694">$index_numeric</a>;</div>
-<div class="line">  </div>
-<div class="line">  $this-&gt;data = <span class="stringliteral">&#39;&#39;</span>;</div>
-<div class="line">  <span class="keywordflow">if</span> ($data_source_type == <span class="stringliteral">&#39;raw&#39;</span>)</div>
-<div class="line">   $this-&gt;data = $data_source;</div>
-<div class="line"></div>
-<div class="line">  elseif ($data_source_type == <span class="stringliteral">&#39;stream&#39;</span>) {</div>
-<div class="line">   <span class="keywordflow">while</span> (!feof($data_source))</div>
-<div class="line">    $this-&gt;data .= fread($data_source, 1000);</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// try filename, then if that fails...</span></div>
-<div class="line">  } elseif (file_exists($data_source)) {</div>
-<div class="line">   $this-&gt;data = implode(<span class="stringliteral">&#39;&#39;</span>, file($data_source)); </div>
-<div class="line">        }</div>
-<div class="line">  <span class="comment">// try url</span></div>
-<div class="line">  <span class="keywordflow">else</span> {</div>
-<div class="line">   $fp = fopen($data_source,<span class="charliteral">&#39;r&#39;</span>);</div>
-<div class="line">   <span class="keywordflow">while</span> (!feof($fp))</div>
-<div class="line">    $this-&gt;data .= fread($fp, 1000);</div>
-<div class="line">   fclose($fp);</div>
-<div class="line">  }</div>
-<div class="line">  </div>
-<div class="line">  <span class="comment">//add support for load encoded files</span></div>
-<div class="line">  <span class="keywordflow">if</span>(function_exists(<span class="stringliteral">&quot;ioncube_read_file&quot;</span>))</div>
-<div class="line">  {</div>
-<div class="line">   <a class="code" href="../../d2/d95/class_x_m_l_parser.html#a6efc15b5a2314dd4b5aaa556a375c6d6">$data</a> = ioncube_read_file($data_source);</div>
-<div class="line">   <span class="keywordflow">if</span> (!is_int(<a class="code" href="../../d2/d95/class_x_m_l_parser.html#a6efc15b5a2314dd4b5aaa556a375c6d6">$data</a>)) {</div>
-<div class="line">    $this-&gt;data = <a class="code" href="../../d2/d95/class_x_m_l_parser.html#a6efc15b5a2314dd4b5aaa556a375c6d6">$data</a>;  </div>
-<div class="line">   }</div>
-<div class="line">  }elseif(substr($this-&gt;data,0,7)==<span class="stringliteral">&#39;!odMbo!&#39;</span>)</div>
-<div class="line">  {</div>
-<div class="line">   header(<span class="stringliteral">&quot;Location: &quot;</span>.<a class="code" href="../../d1/df2/sys__init_8php.html#a6d8e212843c2fc5591e2b8bcc43eabb0">APP_INDEX</a>.<span class="stringliteral">&#39;/common/loader_not_installed&#39;</span>);</div>
-<div class="line">   exit;</div>
-<div class="line">  }</div>
-<div class="line"> }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html#l00043">43</a> of file <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html">xmltoarray.src.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -389,7 +338,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L36">36</a> of file <a class="el" href="../../">xmltoarray.src.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html#l00036">36</a> of file <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html">xmltoarray.src.php</a>.</p>
 
 </div>
 </div>
@@ -403,7 +352,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L34">34</a> of file <a class="el" href="../../">xmltoarray.src.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html#l00034">34</a> of file <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html">xmltoarray.src.php</a>.</p>
 
 </div>
 </div>
@@ -417,7 +366,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L38">38</a> of file <a class="el" href="../../">xmltoarray.src.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html#l00038">38</a> of file <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html">xmltoarray.src.php</a>.</p>
 
 </div>
 </div>
@@ -431,7 +380,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L35">35</a> of file <a class="el" href="../../">xmltoarray.src.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html#l00035">35</a> of file <a class="el" href="../../d0/da4/xmltoarray_8src_8php_source.html">xmltoarray.src.php</a>.</p>
 
 </div>
 </div>
@@ -441,7 +390,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d2/d95/class_x_m_l_parser.html">XMLParser</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:27 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:22:08 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

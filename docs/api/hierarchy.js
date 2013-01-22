@@ -162,7 +162,6 @@ var hierarchy =
       [ "HTMLTree", "d6/d58/class_h_t_m_l_tree.html", null ],
       [ "Panel", "df/d77/class_panel.html", null ]
     ] ],
-    [ "localeInfoService", "d4/d44/classlocale_info_service.html", null ],
     [ "MetaObject", "db/d4b/class_meta_object.html", [
       [ "BizDataObj_Abstract", "d7/d32/class_biz_data_obj___abstract.html", null ],
       [ "BizField", "d8/d08/class_biz_field.html", null ],
@@ -175,6 +174,7 @@ var hierarchy =
       [ "HTMLMenus", "d1/d09/class_h_t_m_l_menus.html", null ],
       [ "HTMLTabs", "d4/db9/class_h_t_m_l_tabs.html", null ],
       [ "HTMLTree", "d6/d58/class_h_t_m_l_tree.html", null ],
+      [ "localeInfoService", "d4/d44/classlocale_info_service.html", null ],
       [ "logService", "db/d75/classlog_service.html", null ],
       [ "ObjReference", "da/d71/class_obj_reference.html", null ],
       [ "reportService", "d0/d6b/classreport_service.html", null ],

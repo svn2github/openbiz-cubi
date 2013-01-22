@@ -1,0 +1,10 @@
+<map id="getSmartyTemplate" name="getSmartyTemplate">
+<area shape="rect" id="node2" href="$df/d00/class_resource.html#a1f8104d8aa899c9c115363799ed0cbde" title="Resource\\getSmartyTemplate" alt="" coords="190,33,386,61"/>
+<area shape="rect" id="node3" href="$df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="435,58,621,86"/>
+<area shape="rect" id="node9" href="$d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="440,6,616,34"/>
+<area shape="rect" id="node4" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="sessionContext" alt="" coords="850,6,963,34"/>
+<area shape="rect" id="node6" href="$d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="getUserPreference" alt="" coords="669,31,803,59"/>
+<area shape="rect" id="node5" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="instance" alt="" coords="1015,6,1086,34"/>
+<area shape="rect" id="node7" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="getService" alt="" coords="865,58,949,86"/>
+<area shape="rect" id="node8" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="getObject" alt="" coords="1011,58,1090,86"/>
+</map>

@@ -113,7 +113,7 @@ $(document).ready(function(){initNavTree('d7/d06/_biz_data_obj___s_q_l_helper_8p
 </div><!--header-->
 <div class="contents">
 
-<p><a href="">Go to the source code of this file.</a></p>
+<p><a href="../../d7/d06/_biz_data_obj___s_q_l_helper_8php_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
@@ -175,38 +175,8 @@ Functions</h2></td></tr>
 <p><a class="el" href="../../d7/d06/_biz_data_obj___s_q_l_helper_8php.html#ace8520272e6bcb5b477164d1f90fb398">substr_lr()</a> - help function (helper). Get the sub string whose left and right boundary character is $left and $right. The search is in $str, starting from position of $startpos. If $findfirst is true, $left must be the charater on the $startpos.</p>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L600">600</a> of file <a class="el" href="../../">BizDataObj_SQLHelper.php</a>.</p>
-<div class="fragment"><div class="line">{</div>
-<div class="line">    $pos0 = strpos($str, $left, $startpos);</div>
-<div class="line">    <span class="keywordflow">if</span> ($pos0 === <span class="keyword">false</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    $tmp = trim(substr($str,$startpos,$pos0-$startpos));</div>
-<div class="line">    <span class="keywordflow">if</span> ($findfirst &amp;&amp; $tmp!=<span class="stringliteral">&quot;&quot;</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"></div>
-<div class="line">    $posleft = $pos0+strlen($left);</div>
-<div class="line">    <span class="keywordflow">while</span>(<span class="keyword">true</span>)</div>
-<div class="line">    {</div>
-<div class="line">        $pos1 = strpos($str, $right, $posleft);</div>
-<div class="line">        <span class="keywordflow">if</span> ($pos1 === <span class="keyword">false</span>)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> (trim($right)==<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line">            {</div>
-<div class="line">                $pos1 = strlen($str); <span class="comment">// if right is whitespace</span></div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {   <span class="comment">// avoid \$right is found</span></div>
-<div class="line">            <span class="keywordflow">if</span> (substr($str,$pos1-1,1) == <span class="stringliteral">&quot;\\&quot;</span>)  $posleft = $pos1+1;</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">break</span>;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line"></div>
-<div class="line">    $startpos = $pos1 + strlen($right);</div>
-<div class="line">    $retStr = substr($str, $pos0 + strlen($left), $pos1-$pos0-strlen($left));</div>
-<div class="line">    <span class="keywordflow">return</span> $retStr;</div>
-<div class="line">}</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d7/d06/_biz_data_obj___s_q_l_helper_8php_source.html#l00600">600</a> of file <a class="el" href="../../d7/d06/_biz_data_obj___s_q_l_helper_8php_source.html">BizDataObj_SQLHelper.php</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -215,7 +185,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_9e51036813d6151dfecc72d5fa7c02b3.html">Users</a></li><li class="navelem"><a class="el" href="../../dir_b0446a7b2c4e13f76e78dcf7715ad478.html">jixian</a></li><li class="navelem"><a class="el" href="../../dir_c1d932a277628715986f941f0ae2ef99.html">Workspace</a></li><li class="navelem"><a class="el" href="../../dir_dd87cfccd83ac043527f7444db3022b2.html">Openbiz_Project_Google</a></li><li class="navelem"><a class="el" href="../../dir_583a7b4370c1d82f6d6d7fc9f59a4283.html">cubi</a></li><li class="navelem"><a class="el" href="../../dir_ac0478a135b22ff1f794c875c5bf9aa9.html">openbiz</a></li><li class="navelem"><a class="el" href="../../dir_0ee2580413d323b809fede65055b96ff.html">bin</a></li><li class="navelem"><a class="el" href="../../dir_1ed4f493fb1f0fc522ee8d423b8c8be3.html">data</a></li><li class="navelem"><a class="el" href="../../dir_9eaecb9f2151525b88857f1c6b39a78b.html">private</a></li><li class="navelem"><a class="el" href="../../d7/d06/_biz_data_obj___s_q_l_helper_8php.html">BizDataObj_SQLHelper.php</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:05 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:32 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

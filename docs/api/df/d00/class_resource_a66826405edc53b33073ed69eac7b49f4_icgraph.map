@@ -1,0 +1,9 @@
+<map id="loadMessage" name="loadMessage">
+<area shape="rect" id="node2" href="$d7/d32/class_biz_data_obj___abstract.html#a1db802d93a9f0badf186a646e1cdb161" title="BizDataObj_Abstract\l\\readMetadata" alt="" coords="174,5,319,49"/>
+<area shape="rect" id="node4" href="$d3/d10/class_easy_form.html#a1db802d93a9f0badf186a646e1cdb161" title="EasyForm\\readMetadata" alt="" coords="163,73,331,101"/>
+<area shape="rect" id="node6" href="$d3/d10/class_easy_form.html#af2761d5e4dc7c2fc4ac4955afe2ef1e8" title="EasyForm\\inheritParentObj" alt="" coords="156,125,338,153"/>
+<area shape="rect" id="node7" href="$db/d40/class_easy_view.html#a1db802d93a9f0badf186a646e1cdb161" title="EasyView\\readMetadata" alt="" coords="164,177,329,205"/>
+<area shape="rect" id="node3" href="$d7/d32/class_biz_data_obj___abstract.html#a847d8d60f037d0a016aca7006cf9dec6" title="BizDataObj_Abstract\l\\__construct" alt="" coords="391,5,537,49"/>
+<area shape="rect" id="node5" href="$d3/d10/class_easy_form.html#a847d8d60f037d0a016aca7006cf9dec6" title="EasyForm\\__construct" alt="" coords="387,99,541,127"/>
+<area shape="rect" id="node8" href="$db/d40/class_easy_view.html#a847d8d60f037d0a016aca7006cf9dec6" title="EasyView\\__construct" alt="" coords="388,177,540,205"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="canDeleteRecordCondition" name="canDeleteRecordCondition">
+<area shape="rect" id="node2" href="$d3/d2c/class_biz_data_obj.html#a67d94f354839a005d97b8376df820540" title="canDeleteRecord" alt="" coords="235,5,360,33"/>
+<area shape="rect" id="node4" href="$d3/d2c/class_biz_data_obj.html#a689275e60b48404e101c6b6ccf5e187e" title="deleteRecords" alt="" coords="244,57,351,85"/>
+<area shape="rect" id="node3" href="$d3/d2c/class_biz_data_obj.html#a8e1b49a9d10f77cd27239ecef9fdc075" title="deleteRecord" alt="" coords="408,5,509,33"/>
+</map>

@@ -480,7 +480,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L26">26</a> of file <a class="el" href="../../">EasyFormTree.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/db2/_easy_form_tree_8php_source.html#l00026">26</a> of file <a class="el" href="../../dc/db2/_easy_form_tree_8php_source.html">EasyFormTree.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="ad3526d375e393f0f13721877488493b6"></a>
 <div class="memitem">
@@ -495,57 +495,19 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L40">40</a> of file <a class="el" href="../../">EasyFormTree.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        </div>
-<div class="line">        $dataObj = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b">getDataObj</a>();</div>
-<div class="line">        <span class="keywordflow">if</span> (!$dataObj) <span class="keywordflow">return</span> null;</div>
-<div class="line">        </div>
-<div class="line">        <a class="code" href="../../d1/d2c/class_query_string_param.html#a03a34bddde00ab8e85f84e0f55421497">QueryStringParam::setBindValues</a>($this-&gt;m_SearchRuleBindValues);</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_RefreshData)</div>
-<div class="line">            $dataObj-&gt;resetRules();</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            $dataObj-&gt;clearSearchRule();</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_FixSearchRule)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> ($this-&gt;m_SearchRule)</div>
-<div class="line">                $searchRule = $this-&gt;m_SearchRule . <span class="stringliteral">&quot; AND &quot;</span> . <a class="code" href="../../d3/d10/class_easy_form.html#a0297dee6a963cc67edc56e3905cee470">$this-&gt;m_FixSearchRule</a>;</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">                $searchRule = <a class="code" href="../../d3/d10/class_easy_form.html#a0297dee6a963cc67edc56e3905cee470">$this-&gt;m_FixSearchRule</a>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            $searchRule = <a class="code" href="../../d3/d10/class_easy_form.html#ac41a09c26ea7ca368444f9e3fe85fe76">$this-&gt;m_SearchRule</a>;</div>
-<div class="line"></div>
-<div class="line">        $dataObj-&gt;setSearchRule($searchRule);</div>
-<div class="line">        <span class="keywordflow">if</span>($this-&gt;m_StartItem&gt;1)</div>
-<div class="line">        {</div>
-<div class="line">            $dataObj-&gt;setLimit($this-&gt;m_Range, $this-&gt;m_StartItem);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {</div>
-<div class="line">            $dataObj-&gt;setLimit($this-&gt;m_Range, ($this-&gt;m_CurrentPage-1)*$this-&gt;m_Range);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">//$resultRecords = $dataObj-&gt;fetch();</span></div>
-<div class="line">        </div>
-<div class="line">        $resultRecordTree = $dataObj-&gt;fetchTree($this-&gt;m_RootSearchRule,$this-&gt;m_TreeDepth);</div>
-<div class="line">        <span class="keywordflow">if</span>(is_array($resultRecordTree)){</div>
-<div class="line">         <span class="keywordflow">foreach</span> ($resultRecordTree as $resultRecordTreeNode){</div>
-<div class="line">          $this-&gt;tree2array($resultRecordTreeNode, $resultRecords);</div>
-<div class="line">         }</div>
-<div class="line">        }</div>
-<div class="line">        $this-&gt;m_TotalRecords = $dataObj-&gt;count();</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_Range &amp;&amp; $this-&gt;m_Range &gt; 0)</div>
-<div class="line">            $this-&gt;m_TotalPages = ceil($this-&gt;m_TotalRecords/$this-&gt;m_Range);</div>
-<div class="line">        $selectedIndex = 0;</div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b">getDataObj</a>()-&gt;setActiveRecord($resultRecords[$selectedIndex]);</div>
-<div class="line"></div>
-<div class="line">        QueryStringParam::ReSet();</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">return</span> $resultRecords;</div>
-<div class="line">    }    </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/db2/_easy_form_tree_8php_source.html#l00040">40</a> of file <a class="el" href="../../dc/db2/_easy_form_tree_8php_source.html">EasyFormTree.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d8e/class_easy_form_tree_ad3526d375e393f0f13721877488493b6_cgraph.png" border="0" usemap="#da/d8e/class_easy_form_tree_ad3526d375e393f0f13721877488493b6_cgraph" alt=""/></div>
+<map name="da/d8e/class_easy_form_tree_ad3526d375e393f0f13721877488493b6_cgraph" id="da/d8e/class_easy_form_tree_ad3526d375e393f0f13721877488493b6_cgraph">
+<area shape="rect" id="node2" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm\\getDataObj" alt="" coords="166,5,319,33"/><area shape="rect" id="node5" href="../../d1/d2c/class_query_string_param.html#a03a34bddde00ab8e85f84e0f55421497" title="QueryStringParam\\setBind\lValues" alt="" coords="153,57,333,101"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="381,5,549,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="598,5,736,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1db802d93a9f0badf186a646e1cdb161"></a>
@@ -570,14 +532,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L32">32</a> of file <a class="el" href="../../">EasyFormTree.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::readMetaData($xmlArr);</div>
-<div class="line">        $this-&gt;m_TitleField = isset($xmlArr[<span class="stringliteral">&quot;EASYFORM&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TITLEFIELD&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;EASYFORM&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TITLEFIELD&quot;</span>] : <span class="stringliteral">&quot;title&quot;</span>;</div>
-<div class="line">        $this-&gt;m_RootSearchRule = isset($xmlArr[<span class="stringliteral">&quot;EASYFORM&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;ROOTSEARCHRULE&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;EASYFORM&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;ROOTSEARCHRULE&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_TreeDepth = isset($xmlArr[<span class="stringliteral">&quot;EASYFORM&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TREEDEPTH&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;EASYFORM&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TREEDEPTH&quot;</span>] : 10;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/db2/_easy_form_tree_8php_source.html#l00032">32</a> of file <a class="el" href="../../dc/db2/_easy_form_tree_8php_source.html">EasyFormTree.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -591,7 +547,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L29">29</a> of file <a class="el" href="../../">EasyFormTree.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/db2/_easy_form_tree_8php_source.html#l00029">29</a> of file <a class="el" href="../../dc/db2/_easy_form_tree_8php_source.html">EasyFormTree.php</a>.</p>
 
 </div>
 </div>
@@ -605,7 +561,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L28">28</a> of file <a class="el" href="../../">EasyFormTree.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/db2/_easy_form_tree_8php_source.html#l00028">28</a> of file <a class="el" href="../../dc/db2/_easy_form_tree_8php_source.html">EasyFormTree.php</a>.</p>
 
 </div>
 </div>
@@ -619,7 +575,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L30">30</a> of file <a class="el" href="../../">EasyFormTree.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/db2/_easy_form_tree_8php_source.html#l00030">30</a> of file <a class="el" href="../../dc/db2/_easy_form_tree_8php_source.html">EasyFormTree.php</a>.</p>
 
 </div>
 </div>
@@ -629,7 +585,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/d8e/class_easy_form_tree.html">EasyFormTree</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:18 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:49 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

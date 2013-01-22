@@ -135,7 +135,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">ErrorHandler.php</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d96/_error_handler_8php_source.html#l00027">27</a> of file <a class="el" href="../../da/d96/_error_handler_8php_source.html">ErrorHandler.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="aeab2ae978e70b1e83495d3a6f418cb71"></a>
 <div class="memitem">
@@ -199,36 +199,19 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L41">41</a> of file <a class="el" href="../../">ErrorHandler.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// don&#39;t respond to the error if it</span></div>
-<div class="line">        <span class="comment">// was suppressed with a &#39;@&#39;</span></div>
-<div class="line">        <span class="keywordflow">if</span> (error_reporting() == 0)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        <span class="keywordflow">if</span> ($errNo == E_NOTICE || $errNo == E_STRICT) { <span class="comment">// || $errno == E_WARNING) </span></div>
-<div class="line">   <span class="comment">//echo &quot;errorHandler ($errNo, $errMsg, $fileName, $lineNum, $vars)\n&quot;;</span></div>
-<div class="line">   <span class="keywordflow">return</span>; <span class="comment">// ignore notice error</span></div>
-<div class="line">  }</div>
-<div class="line">        $debug_array = debug_backtrace();</div>
-<div class="line">        $back_trace = self::_errorBacktrace($debug_array);</div>
-<div class="line">        $err = self::_getOutputErrorMsg($errNo, $errMsg, $fileName, $lineNum, $back_trace);</div>
-<div class="line">        <span class="comment">//Send Error to Log Service;</span></div>
-<div class="line">        require_once dirname(__FILE__).<span class="stringliteral">&#39;/BizSystem.php&#39;</span>;</div>
-<div class="line">        <a class="code" href="../../d1/d7e/class_biz_system.html#a7a2db7d6416fe74983fa1a6d16e70297">BizSystem::logError</a> ($errNo, <span class="stringliteral">&quot;ErrorHandler&quot;</span>, $errMsg, null, $back_trace);</div>
-<div class="line">        <span class="keywordflow">if</span> ((defined(<span class="stringliteral">&#39;CLI&#39;</span>) &amp;&amp; CLI) || self::$errorMode == <span class="stringliteral">&#39;text&#39;</span>)</div>
-<div class="line">        {</div>
-<div class="line">         echo $err;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {</div>
-<div class="line">         <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;showErrorMessage($err, <span class="keyword">true</span>);     </div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span> ($errNo == E_USER_ERROR || $errNo == E_ERROR){</div>
-<div class="line">   <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;printOutput();</div>
-<div class="line">         exit();</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../da/d96/_error_handler_8php_source.html#l00041">41</a> of file <a class="el" href="../../da/d96/_error_handler_8php_source.html">ErrorHandler.php</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/dba/class_o_b___error_handler_aeab2ae978e70b1e83495d3a6f418cb71_cgraph.png" border="0" usemap="#db/dba/class_o_b___error_handler_aeab2ae978e70b1e83495d3a6f418cb71_cgraph" alt=""/></div>
+<map name="db/dba/class_o_b___error_handler_aeab2ae978e70b1e83495d3a6f418cb71_cgraph" id="db/dba/class_o_b___error_handler_aeab2ae978e70b1e83495d3a6f418cb71_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a7a2db7d6416fe74983fa1a6d16e70297" title="BizSystem\\logError" alt="" coords="159,5,294,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="150,57,303,85"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="352,5,504,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="553,5,698,33"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="359,57,497,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a6bd90e7db546a24d9cb4a319248d486e"></a>
@@ -261,29 +244,19 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L77">77</a> of file <a class="el" href="../../">ErrorHandler.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $errno = $exc-&gt;getCode();</div>
-<div class="line">        $errmsg = $exc-&gt;getMessage();</div>
-<div class="line">        $filename = $exc-&gt;getFile();</div>
-<div class="line">        $linenum = $exc-&gt;getLine();</div>
-<div class="line">        $debug_array = $exc-&gt;getTrace();</div>
-<div class="line">        $back_trace = self::_errorBacktrace($debug_array);</div>
-<div class="line">        $err = self::_getOutputErrorMsg($errno, $errmsg, $filename, $linenum, $back_trace);</div>
-<div class="line"></div>
-<div class="line">        <a class="code" href="../../d1/d7e/class_biz_system.html#a7a2db7d6416fe74983fa1a6d16e70297">BizSystem::logError</a> ($errno, <span class="stringliteral">&quot;ExceptionHandler&quot;</span>, $errmsg, null, $back_trace);</div>
-<div class="line">        <span class="keywordflow">if</span> ((defined(<span class="stringliteral">&#39;CLI&#39;</span>) &amp;&amp; CLI) || self::$errorMode == <span class="stringliteral">&#39;text&#39;</span>){</div>
-<div class="line">         echo $err;</div>
-<div class="line">        }<span class="keywordflow">else</span>{</div>
-<div class="line">         <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;showErrorMessage($err, <span class="keyword">true</span>);         </div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span>(!$exc-&gt;no_exit)</div>
-<div class="line">        {</div>
-<div class="line">         <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;printOutput();</div>
-<div class="line">         exit();</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../da/d96/_error_handler_8php_source.html#l00077">77</a> of file <a class="el" href="../../da/d96/_error_handler_8php_source.html">ErrorHandler.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/dba/class_o_b___error_handler_a6bd90e7db546a24d9cb4a319248d486e_cgraph.png" border="0" usemap="#db/dba/class_o_b___error_handler_a6bd90e7db546a24d9cb4a319248d486e_cgraph" alt=""/></div>
+<map name="db/dba/class_o_b___error_handler_a6bd90e7db546a24d9cb4a319248d486e_cgraph" id="db/dba/class_o_b___error_handler_a6bd90e7db546a24d9cb4a319248d486e_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a7a2db7d6416fe74983fa1a6d16e70297" title="BizSystem\\logError" alt="" coords="188,5,324,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="179,57,333,85"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="382,5,533,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="582,5,727,33"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="388,57,526,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -305,7 +278,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L29">29</a> of file <a class="el" href="../../">ErrorHandler.php</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d96/_error_handler_8php_source.html#l00029">29</a> of file <a class="el" href="../../da/d96/_error_handler_8php_source.html">ErrorHandler.php</a>.</p>
 
 </div>
 </div>
@@ -315,7 +288,7 @@ Static Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/dba/class_o_b___error_handler.html">OB_ErrorHandler</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:24 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:22:01 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

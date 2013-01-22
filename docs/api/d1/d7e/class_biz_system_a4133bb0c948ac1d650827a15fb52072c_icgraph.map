@@ -1,0 +1,19 @@
+<map id="allowUserAccess" name="allowUserAccess">
+<area shape="rect" id="node2" href="$db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1" title="MetaObject\\allowAccess" alt="" coords="177,207,343,235"/>
+<area shape="rect" id="node3" href="$d3/d2c/class_biz_data_obj.html#a509f69a27719e17ae032ca0fbfb064d0" title="BizDataObj\\canUpdateRecord\lCondition" alt="" coords="392,45,592,89"/>
+<area shape="rect" id="node7" href="$d3/d2c/class_biz_data_obj.html#aabdf3f8346fd3a11412b9b4c33787355" title="BizDataObj\\canDeleteRecord\lCondition" alt="" coords="394,113,590,157"/>
+<area shape="rect" id="node11" href="$db/d40/class_easy_view.html#afde88292c44dc59faf017738dae6dffb" title="EasyView\\render" alt="" coords="431,181,553,209"/>
+<area shape="rect" id="node12" href="$d5/d50/class_element.html#a48b5ed29b83de497db5958d0afc9f271" title="Element\\canDisplayed" alt="" coords="415,233,569,261"/>
+<area shape="rect" id="node17" href="$dd/d18/class_form_element.html#a7494441b6ed08a391704971873f31432" title="FormElement\\setValue" alt="" coords="414,285,570,313"/>
+<area shape="rect" id="node18" href="$dd/d18/class_form_element.html#ac0bc18784b182c89fcfd276625aef435" title="FormElement\\getValue" alt="" coords="414,337,570,365"/>
+<area shape="rect" id="node4" href="$d3/d2c/class_biz_data_obj.html#afc9d51989ea40913cc84c3ebe0130e9a" title="BizDataObj\\canUpdateRecord" alt="" coords="640,5,840,33"/>
+<area shape="rect" id="node6" href="$d3/d2c/class_biz_data_obj.html#aed5b6a1f292ba8f7f88bf34e37c6309c" title="BizDataObj\\updateRecords" alt="" coords="649,57,831,85"/>
+<area shape="rect" id="node5" href="$d3/d2c/class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="BizDataObj\\updateRecord" alt="" coords="901,5,1077,33"/>
+<area shape="rect" id="node8" href="$d3/d2c/class_biz_data_obj.html#a67d94f354839a005d97b8376df820540" title="BizDataObj\\canDeleteRecord" alt="" coords="642,117,838,145"/>
+<area shape="rect" id="node10" href="$d3/d2c/class_biz_data_obj.html#a689275e60b48404e101c6b6ccf5e187e" title="BizDataObj\\deleteRecords" alt="" coords="651,169,829,197"/>
+<area shape="rect" id="node9" href="$d3/d2c/class_biz_data_obj.html#a8e1b49a9d10f77cd27239ecef9fdc075" title="BizDataObj\\deleteRecord" alt="" coords="903,117,1075,145"/>
+<area shape="rect" id="node13" href="$d5/d50/class_element.html#a8a66f9e4e198d439cfc261f0809765f1" title="Element\\getSCKeyFuncMap" alt="" coords="645,227,835,255"/>
+<area shape="rect" id="node16" href="$d5/d50/class_element.html#a7fac6d7d61649e64b12681889f72527b" title="Element\\getContextMenu" alt="" coords="654,279,826,307"/>
+<area shape="rect" id="node14" href="$d3/d05/class_input_element.html#a27c5f8826518b7325863e6886f9b94d1" title="InputElement\\addSCKeyScript" alt="" coords="889,227,1090,255"/>
+<area shape="rect" id="node15" href="$d4/d77/class_button.html#afde88292c44dc59faf017738dae6dffb" title="Button\\render" alt="" coords="1140,227,1242,255"/>
+</map>

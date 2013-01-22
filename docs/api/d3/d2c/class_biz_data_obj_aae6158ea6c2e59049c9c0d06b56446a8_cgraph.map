@@ -1,0 +1,32 @@
+<map id="cascadeDelete" name="cascadeDelete">
+<area shape="rect" id="node2" href="$d3/d2c/class_biz_data_obj.html#aa9f8e225938574a7a5a8892df3f494ca" title="processCascadeAction" alt="" coords="162,643,320,671"/>
+<area shape="rect" id="node3" href="$dc/d2b/class_biz_data_obj___lite.html#aa593ade9bce0ebe2d57c99d8ae2017d7" title="BizDataObj_Lite\\getField" alt="" coords="369,5,538,33"/>
+<area shape="rect" id="node4" href="$dc/d2b/class_biz_data_obj___lite.html#a73b7596e4d1242bb3ae3b12f26aeb18a" title="BizDataObj_Lite\\getField\lValue" alt="" coords="369,550,538,594"/>
+<area shape="rect" id="node12" href="$d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="1513,389,1658,433"/>
+<area shape="rect" id="node31" href="$d7/d32/class_biz_data_obj___abstract.html#a8256cabbe4c7a88a89287e36c6ff69b3" title="BizDataObj_Abstract\l\\getRefObject" alt="" coords="602,822,747,866"/>
+<area shape="rect" id="node17" href="$dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite\\count" alt="" coords="1267,569,1421,597"/>
+<area shape="rect" id="node23" href="$d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="1271,621,1417,665"/>
+<area shape="rect" id="node21" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2646,770,2791,798"/>
+<area shape="rect" id="node22" href="$d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1291,689,1397,717"/>
+<area shape="rect" id="node5" href="$dc/d2b/class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9" title="BizDataObj_Lite\\getActive\lRecord" alt="" coords="587,550,763,594"/>
+<area shape="rect" id="node6" href="$dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="812,355,999,383"/>
+<area shape="rect" id="node7" href="$d7/d32/class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract\l\\clearSearchRule" alt="" coords="1054,109,1199,153"/>
+<area shape="rect" id="node8" href="$d7/d32/class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract\l\\setSearchRule" alt="" coords="1054,177,1199,221"/>
+<area shape="rect" id="node9" href="$d7/d32/class_biz_data_obj___abstract.html#aa70182035e20efcd63a8bd3cb36c5c92" title="BizDataObj_Abstract\l\\clearSortRule" alt="" coords="1054,245,1199,289"/>
+<area shape="rect" id="node10" href="$d7/d32/class_biz_data_obj___abstract.html#ad9767fc4b371a704f36c9408cd92bfab" title="BizDataObj_Abstract\l\\setSortRule" alt="" coords="1054,313,1199,357"/>
+<area shape="rect" id="node11" href="$dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="1053,449,1201,493"/>
+<area shape="rect" id="node30" href="$dc/d2b/class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="BizDataObj_Lite\\_fetch\l_record" alt="" coords="1048,381,1206,425"/>
+<area shape="rect" id="node15" href="$dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="1482,521,1688,549"/>
+<area shape="rect" id="node18" href="$d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5" title="QueryStringParam\\getBind\lValues" alt="" coords="1254,449,1434,493"/>
+<area shape="rect" id="node19" href="$d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2" title="QueryStringParam\\getBind\lValueString" alt="" coords="1254,381,1434,425"/>
+<area shape="rect" id="node20" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="2432,661,2584,689"/>
+<area shape="rect" id="node13" href="$d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="1950,497,2120,525"/>
+<area shape="rect" id="node14" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2650,547,2788,575"/>
+<area shape="rect" id="node16" href="$d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="1736,513,1898,557"/>
+<area shape="rect" id="node24" href="$d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1558,582,1613,610"/>
+<area shape="rect" id="node29" href="$db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="1490,634,1681,662"/>
+<area shape="rect" id="node25" href="$d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1750,582,1884,610"/>
+<area shape="rect" id="node26" href="$d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1947,582,2122,610"/>
+<area shape="rect" id="node27" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="2418,582,2598,610"/>
+<area shape="rect" id="node28" href="$d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="2171,634,2371,662"/>
+</map>

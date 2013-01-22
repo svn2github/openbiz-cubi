@@ -1,0 +1,5 @@
+<map id="authenticateUser" name="authenticateUser">
+<area shape="rect" id="node2" href="$d9/d94/classauth_service.html#a8cfce1113ad6393e0632eafaeb03a835" title="authDBUser" alt="" coords="176,31,270,59"/>
+<area shape="rect" id="node3" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="318,5,463,33"/>
+<area shape="rect" id="node4" href="$d9/d94/classauth_service.html#a4d6f35640b09c142b5dcf1245e335e3f" title="checkPassword" alt="" coords="333,57,448,85"/>
+</map>

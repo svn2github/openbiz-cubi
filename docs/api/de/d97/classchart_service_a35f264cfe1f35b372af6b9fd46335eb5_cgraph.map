@@ -1,0 +1,12 @@
+<map id="render" name="render">
+<area shape="rect" id="node2" href="$d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="119,5,273,33"/>
+<area shape="rect" id="node4" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="123,57,269,85"/>
+<area shape="rect" id="node5" href="$d1/d7e/class_biz_system.html#afb3b9597319d812f889a89ab0c7c5e4b" title="BizSystem\\getXmlArray" alt="" coords="115,109,277,137"/>
+<area shape="rect" id="node7" href="$de/d97/classchart_service.html#a64b84e5acee897e0eee7f3a27b1e7b1e" title="xyGraphRender" alt="" coords="138,161,254,189"/>
+<area shape="rect" id="node10" href="$de/d97/classchart_service.html#ab0d8abc93415bda5749abaa148c156cc" title="pieGraphRender" alt="" coords="136,213,256,241"/>
+<area shape="rect" id="node3" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="335,5,473,33"/>
+<area shape="rect" id="node6" href="$df/d00/class_resource.html#afb3b9597319d812f889a89ab0c7c5e4b" title="Resource\\getXmlArray" alt="" coords="326,109,482,137"/>
+<area shape="rect" id="node8" href="$de/d97/classchart_service.html#ac9b785ecb13ca092c65186ff4db61145" title="getPlotData" alt="" coords="358,213,450,241"/>
+<area shape="rect" id="node9" href="$de/d97/classchart_service.html#ac7b354e7322fed7df4a6109bca99930b" title="renderXYPlot" alt="" coords="354,161,454,189"/>
+<area shape="rect" id="node11" href="$de/d97/classchart_service.html#aa1b475cc77bb9f1f9d4ddeec9e9a7245" title="renderPiePlot" alt="" coords="353,265,455,293"/>
+</map>

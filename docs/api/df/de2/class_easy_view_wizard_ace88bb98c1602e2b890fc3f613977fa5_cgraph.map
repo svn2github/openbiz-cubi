@@ -1,0 +1,9 @@
+<map id="renderStep" name="renderStep">
+<area shape="rect" id="node2" href="$df/de2/class_easy_view_wizard.html#a8c10d82ce4005a51c021f375175e117a" title="getCurrentStep" alt="" coords="169,5,281,33"/>
+<area shape="rect" id="node3" href="$df/de2/class_easy_view_wizard.html#a896ae030bd01256bab2bcd8b95ec1741" title="getStepName" alt="" coords="174,57,277,85"/>
+<area shape="rect" id="node4" href="$d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="141,109,309,137"/>
+<area shape="rect" id="node6" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="150,213,301,241"/>
+<area shape="rect" id="node8" href="$d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="149,161,302,189"/>
+<area shape="rect" id="node5" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="362,135,500,163"/>
+<area shape="rect" id="node7" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="358,213,503,241"/>
+</map>

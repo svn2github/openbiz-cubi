@@ -133,7 +133,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L25">25</a> of file <a class="el" href="../../">queryService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d06/query_service_8php_source.html#l00025">25</a> of file <a class="el" href="../../d5/d06/query_service_8php_source.html">queryService.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a095c5d389db211932136b53f25f39685"></a>
 <div class="memitem">
@@ -150,11 +150,8 @@ Public Member Functions</h2></td></tr>
 <p>Initialize <a class="el" href="../../d0/df8/classquery_service.html">queryService</a></p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L33">33</a> of file <a class="el" href="../../">queryService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line"></div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d06/query_service_8php_source.html#l00033">33</a> of file <a class="el" href="../../d5/d06/query_service_8php_source.html">queryService.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -191,17 +188,19 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array array of records </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L45">45</a> of file <a class="el" href="../../">queryService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $do = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($doName);</div>
-<div class="line">        <span class="keywordflow">if</span> (!$do)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;System cannot get object of $doName.&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $do-&gt;directFetch($searchRule);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d06/query_service_8php_source.html#l00045">45</a> of file <a class="el" href="../../d5/d06/query_service_8php_source.html">queryService.php</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/df8/classquery_service_a5a5b6cf1f88172a4f69b93090959481f_cgraph.png" border="0" usemap="#d0/df8/classquery_service_a5a5b6cf1f88172a4f69b93090959481f_cgraph" alt=""/></div>
+<map name="d0/df8/classquery_service_a5a5b6cf1f88172a4f69b93090959481f_cgraph" id="d0/df8/classquery_service_a5a5b6cf1f88172a4f69b93090959481f_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="121,5,266,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a870e92d961ec793a1a7f2b5cac8514e1"></a>
@@ -244,14 +243,19 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>mixed </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L85">85</a> of file <a class="el" href="../../">queryService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $rec = $this-&gt;<a class="code" href="../../d0/df8/classquery_service.html#a07662b138cb9dee2bf87f1281cdf1548">fetchRecord</a>($doName, $searchRule);</div>
-<div class="line">        <span class="keywordflow">if</span> ($rec)</div>
-<div class="line">            <span class="keywordflow">return</span> $rec[$fieldName];</div>
-<div class="line">        <span class="keywordflow">return</span> null;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d06/query_service_8php_source.html#l00085">85</a> of file <a class="el" href="../../d5/d06/query_service_8php_source.html">queryService.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/df8/classquery_service_a870e92d961ec793a1a7f2b5cac8514e1_cgraph.png" border="0" usemap="#d0/df8/classquery_service_a870e92d961ec793a1a7f2b5cac8514e1_cgraph" alt=""/></div>
+<map name="d0/df8/classquery_service_a870e92d961ec793a1a7f2b5cac8514e1_cgraph" id="d0/df8/classquery_service_a870e92d961ec793a1a7f2b5cac8514e1_cgraph">
+<area shape="rect" id="node2" href="../../d0/df8/classquery_service.html#a07662b138cb9dee2bf87f1281cdf1548" title="fetchRecord" alt="" coords="133,5,227,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="275,5,421,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a07662b138cb9dee2bf87f1281cdf1548"></a>
@@ -287,20 +291,30 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>mixed </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L63">63</a> of file <a class="el" href="../../">queryService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $do = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($doName);</div>
-<div class="line">        <span class="keywordflow">if</span> (!$do)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;System cannot get object of $doName.&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
-<div class="line">        $r = $do-&gt;directFetch($searchRule, 1);</div>
-<div class="line">        <span class="keywordflow">if</span> (count($r)&gt;0)</div>
-<div class="line">            <span class="keywordflow">return</span> $r[0];</div>
-<div class="line">        <span class="keywordflow">return</span> null;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d06/query_service_8php_source.html#l00063">63</a> of file <a class="el" href="../../d5/d06/query_service_8php_source.html">queryService.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/df8/classquery_service_a07662b138cb9dee2bf87f1281cdf1548_cgraph.png" border="0" usemap="#d0/df8/classquery_service_a07662b138cb9dee2bf87f1281cdf1548_cgraph" alt=""/></div>
+<map name="d0/df8/classquery_service_a07662b138cb9dee2bf87f1281cdf1548_cgraph" id="d0/df8/classquery_service_a07662b138cb9dee2bf87f1281cdf1548_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="147,5,293,33"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/df8/classquery_service_a07662b138cb9dee2bf87f1281cdf1548_icgraph.png" border="0" usemap="#d0/df8/classquery_service_a07662b138cb9dee2bf87f1281cdf1548_icgraph" alt=""/></div>
+<map name="d0/df8/classquery_service_a07662b138cb9dee2bf87f1281cdf1548_icgraph" id="d0/df8/classquery_service_a07662b138cb9dee2bf87f1281cdf1548_icgraph">
+<area shape="rect" id="node2" href="../../d0/df8/classquery_service.html#a870e92d961ec793a1a7f2b5cac8514e1" title="fetchField" alt="" coords="147,5,226,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -309,7 +323,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/df8/classquery_service.html">queryService</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:25 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:22:04 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

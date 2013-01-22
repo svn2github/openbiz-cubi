@@ -501,7 +501,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L25">25</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00025">25</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a649b2b3005c687ae78c9d1d65e973493"></a>
 <div class="memitem">
@@ -518,13 +518,19 @@ Protected Attributes</h2></td></tr>
 <p>Clean up the sessions of view and all forms</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L261">261</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// clean the session record</span></div>
-<div class="line">        $this-&gt;m_DropSession = <span class="keyword">true</span>;</div>
-<div class="line">        <a class="code" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d">BizSystem::sessionContext</a>()-&gt;cleanObj($this-&gt;m_Name, <span class="keyword">true</span>);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00261">261</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d76/class_easy_form_wizard_a649b2b3005c687ae78c9d1d65e973493_cgraph.png" border="0" usemap="#dc/d76/class_easy_form_wizard_a649b2b3005c687ae78c9d1d65e973493_cgraph" alt=""/></div>
+<map name="dc/d76/class_easy_form_wizard_a649b2b3005c687ae78c9d1d65e973493_cgraph" id="dc/d76/class_easy_form_wizard_a649b2b3005c687ae78c9d1d65e973493_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="114,5,294,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="342,5,480,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="af5674c27d4a92f6228565010eacbb9cb"></a>
@@ -542,37 +548,19 @@ Protected Attributes</h2></td></tr>
 <p>Save wizard data of current+previous pages into database or other storage</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L218">218</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">  <span class="keywordflow">if</span>(!$this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b">getDataObj</a>()){</div>
-<div class="line">   <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">  }</div>
-<div class="line">     <span class="comment">// commit the form input. call SaveRecord()        </span></div>
-<div class="line">        $recArr = <a class="code" href="../../d3/d10/class_easy_form.html#af7f390effd9c3244f2ced5285e946a1f">$this-&gt;m_ActiveRecord</a>;</div>
-<div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span> (strtoupper($this-&gt;m_FormType) == <span class="stringliteral">&quot;NEW&quot;</span>)</div>
-<div class="line">            $dataRec = <span class="keyword">new</span> <a class="code" href="../../db/da0/class_data_record.html">DataRecord</a>(null, $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b">getDataObj</a>());</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {</div>
-<div class="line">            <span class="comment">//$currentRec = $this-&gt;fetchData(); // wrong way to get current data. need to query the old one</span></div>
-<div class="line">            $currentRec = array(); <span class="comment">// to get record with &quot;&quot; values</span></div>
-<div class="line">            $dataRec = <span class="keyword">new</span> <a class="code" href="../../db/da0/class_data_record.html">DataRecord</a>($currentRec, $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b">getDataObj</a>());</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">foreach</span> ($recArr as $k =&gt; $v)</div>
-<div class="line">            $dataRec[$k] = $v; <span class="comment">// or $dataRec-&gt;$k = $v;</span></div>
-<div class="line">        <span class="keywordflow">try</span></div>
-<div class="line">        {</div>
-<div class="line">            $dataRec-&gt;save();</div>
-<div class="line">        } <span class="keywordflow">catch</span> (<a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a> $e)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#af9731432265713729727ea8a96d73842">processBDOException</a>($e);</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00218">218</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d76/class_easy_form_wizard_af5674c27d4a92f6228565010eacbb9cb_cgraph.png" border="0" usemap="#dc/d76/class_easy_form_wizard_af5674c27d4a92f6228565010eacbb9cb_cgraph" alt=""/></div>
+<map name="dc/d76/class_easy_form_wizard_af5674c27d4a92f6228565010eacbb9cb_cgraph" id="dc/d76/class_easy_form_wizard_af5674c27d4a92f6228565010eacbb9cb_cgraph">
+<area shape="rect" id="node2" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm\\getDataObj" alt="" coords="151,5,305,33"/><area shape="rect" id="node5" href="../../d3/d10/class_easy_form.html#af9731432265713729727ea8a96d73842" title="EasyForm\\processBDOException" alt="" coords="118,57,338,85"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="387,5,555,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="610,5,748,33"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="418,57,524,85"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="603,57,754,85"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="803,57,949,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ac92d8f8d82ac65fb9e2afb21c97b147e"></a>
@@ -590,15 +578,19 @@ Protected Attributes</h2></td></tr>
 <p>Cancel the wizard process</p>
 <dl class="section return"><dt>Returns</dt><dd>void  remote </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L203">203</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">/* @var $viewObj EasyViewWizard */</span></div>
-<div class="line">        $viewObj = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad">getViewObject</a>();</div>
-<div class="line">        $viewObj-&gt;cancel();</div>
-<div class="line"></div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#af446ebc060117e121c1ebff59f6bb02f">processPostAction</a>();</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00203">203</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d76/class_easy_form_wizard_ac92d8f8d82ac65fb9e2afb21c97b147e_cgraph.png" border="0" usemap="#dc/d76/class_easy_form_wizard_ac92d8f8d82ac65fb9e2afb21c97b147e_cgraph" alt=""/></div>
+<map name="dc/d76/class_easy_form_wizard_ac92d8f8d82ac65fb9e2afb21c97b147e_cgraph" id="dc/d76/class_easy_form_wizard_ac92d8f8d82ac65fb9e2afb21c97b147e_cgraph">
+<area shape="rect" id="node2" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad" title="EasyForm\\getViewObject" alt="" coords="1358,5,1530,33"/><area shape="rect" id="node4" href="../../d3/d10/class_easy_form.html#af446ebc060117e121c1ebff59f6bb02f" title="EasyForm\\processPostAction" alt="" coords="131,471,327,499"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="3822,31,3967,59"/><area shape="rect" id="node5" href="../../d3/d10/class_easy_form.html#a622f315c5158bfbd3968ee3c4da51bcd" title="EasyForm\\getRedirectPage" alt="" coords="377,613,562,641"/><area shape="rect" id="node10" href="../../d3/d10/class_easy_form.html#aef7c4ff0a903eb04e7af25a6baea3d35" title="EasyForm\\_showForm" alt="" coords="392,407,547,435"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="1845,485,1998,513"/><area shape="rect" id="node6" href="../../d3/d10/class_easy_form.html#a15d343efcbc80c8b61a60c3f2f01e759" title="EasyForm\\getInvokingElement" alt="" coords="616,613,819,641"/><area shape="rect" id="node9" href="../../d3/d10/class_easy_form.html#a214fbd6ab24d8a6efdcb305a5ecdae6b" title="EasyForm\\getElement" alt="" coords="891,663,1045,691"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="3826,366,3964,394"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="1592,366,1760,394"/><area shape="rect" id="node12" href="../../d3/d10/class_easy_form.html#a52e9eb4fb51cfef13a1648efe1d0c3d3" title="EasyForm\\getMessage" alt="" coords="638,381,797,409"/><area shape="rect" id="node20" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="2584,57,2690,85"/><area shape="rect" id="node21" href="../../d3/d10/class_easy_form.html#a44d87432a7016815c9a8bdc468b4c74e" title="EasyForm\\processFormObjError" alt="" coords="610,433,824,461"/><area shape="rect" id="node13" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="2763,263,2818,291"/><area shape="rect" id="node19" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="872,381,1064,409"/><area shape="rect" id="node14" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="2898,263,3032,291"/><area shape="rect" id="node15" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="3118,211,3293,239"/><area shape="rect" id="node16" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="3594,210,3774,238"/><area shape="rect" id="node17" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="3347,185,3547,213"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="3608,57,3760,85"/><area shape="rect" id="node22" href="../../d3/d10/class_easy_form.html#a75545a3a11720fe6d5c316d316fb2df6" title="EasyForm\\rerender" alt="" coords="900,433,1036,461"/><area shape="rect" id="node23" href="../../d3/d10/class_easy_form.html#aa1008c36a9f8e921dc8cd0b5d462ff78" title="EasyForm\\renderHTML" alt="" coords="1130,194,1291,222"/><area shape="rect" id="node37" href="../../d3/d10/class_easy_form.html#a9e579367ca9368a8ee3426757db0998d" title="EasyForm\\rerenderSubForms" alt="" coords="1112,407,1310,435"/><area shape="rect" id="node24" href="../../df/d1a/class_form_renderer.html#a6bc1378b4d3403da3f5a0cdf19d2c110" title="FormRenderer\\render" alt="" coords="1369,194,1519,222"/><area shape="rect" id="node25" href="../../df/d1a/class_form_renderer.html#a8a2b7c95c06bfdd98ed556d4a4243a28" title="FormRenderer\\buildTemplate\lAttributes" alt="" coords="1579,246,1773,290"/><area shape="rect" id="node26" href="../../df/d1a/class_form_renderer.html#aaae8885482d48a3eba78c4856ff7ac0a" title="FormRenderer\\renderSmarty" alt="" coords="1580,142,1772,170"/><area shape="rect" id="node34" href="../../df/d1a/class_form_renderer.html#a240405d51345da30f40261fb9b5522f1" title="FormRenderer\\renderPHP" alt="" coords="1587,194,1765,222"/><area shape="rect" id="node27" href="../../d1/d7e/class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde" title="BizSystem\\getSmartyTemplate" alt="" coords="2069,109,2272,137"/><area shape="rect" id="node30" href="../../d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c" title="BizSystem\\getTplFileWithPath" alt="" coords="1821,161,2022,189"/><area shape="rect" id="node28" href="../../df/d00/class_resource.html#a1f8104d8aa899c9c115363799ed0cbde" title="Resource\\getSmartyTemplate" alt="" coords="2867,159,3064,187"/><area shape="rect" id="node29" href="../../df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="3112,159,3299,187"/><area shape="rect" id="node31" href="../../df/d00/class_resource.html#afb794bcc37996f735dfc6e7ddddf961c" title="Resource\\getTplFileWithPath" alt="" coords="2073,161,2268,189"/><area shape="rect" id="node32" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="2336,263,2496,291"/><area shape="rect" id="node33" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="2560,263,2715,291"/><area shape="rect" id="node35" href="../../d1/d7e/class_biz_system.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="BizSystem\\getZendTemplate" alt="" coords="2320,211,2512,239"/><area shape="rect" id="node36" href="../../df/d00/class_resource.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="Resource\\getZendTemplate" alt="" coords="2873,211,3058,239"/><area shape="rect" id="node38" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm\\getDataObj" alt="" coords="1367,357,1521,385"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="af5df107b0b9aca9b5deb9e7bccb33eb6"></a>
@@ -616,35 +608,19 @@ Protected Attributes</h2></td></tr>
 <p>Finish the wizard process</p>
 <dl class="section return"><dt>Returns</dt><dd>void  remote </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L167">167</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// call ValidateForm()</span></div>
-<div class="line">        $recArr = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#aa1cca28cf3008654e803cee1d0381efc">readInputRecord</a>();</div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a66ca3cc82efeedbd58aa6923c1410bb7">setActiveRecord</a>($recArr);                </div>
-<div class="line">     $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a6b4fa88d835845e33fd8a01cbf2c61ff">setFormInputs</a>($this-&gt;m_FormInputs);</div>
-<div class="line">     </div>
-<div class="line">      <span class="keywordflow">try</span></div>
-<div class="line">        {</div>
-<div class="line">             <span class="keywordflow">if</span> ($this-&gt;ValidateForm() == <span class="keyword">false</span>)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }<span class="keywordflow">catch</span> (<a class="code" href="../../db/dd2/class_validation_exception.html">ValidationException</a> $e)</div>
-<div class="line">        {                     </div>
-<div class="line">         $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a44d87432a7016815c9a8bdc468b4c74e">processFormObjError</a>($e-&gt;m_Errors);</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        $this-&gt;m_ActiveRecord = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#aa1cca28cf3008654e803cee1d0381efc">readInputRecord</a>();</div>
-<div class="line">  </div>
-<div class="line">        <span class="comment">/* @var $viewObj EasyViewWizard */</span></div>
-<div class="line">        $viewObj = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad">getViewObject</a>();</div>
-<div class="line">        </div>
-<div class="line">        $r = $viewObj-&gt;commit();        </div>
-<div class="line">        <span class="keywordflow">if</span> (!$r)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line"></div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#af446ebc060117e121c1ebff59f6bb02f">processPostAction</a>();</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00167">167</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d76/class_easy_form_wizard_af5df107b0b9aca9b5deb9e7bccb33eb6_cgraph.png" border="0" usemap="#dc/d76/class_easy_form_wizard_af5df107b0b9aca9b5deb9e7bccb33eb6_cgraph" alt=""/></div>
+<map name="dc/d76/class_easy_form_wizard_af5df107b0b9aca9b5deb9e7bccb33eb6_cgraph" id="dc/d76/class_easy_form_wizard_af5df107b0b9aca9b5deb9e7bccb33eb6_cgraph">
+<area shape="rect" id="node2" href="../../d3/d10/class_easy_form.html#aa1cca28cf3008654e803cee1d0381efc" title="EasyForm\\readInputRecord" alt="" coords="371,197,557,225"/><area shape="rect" id="node5" href="../../d3/d10/class_easy_form.html#a66ca3cc82efeedbd58aa6923c1410bb7" title="EasyForm\\setActiveRecord" alt="" coords="1114,402,1297,430"/><area shape="rect" id="node8" href="../../d3/d10/class_easy_form.html#a6b4fa88d835845e33fd8a01cbf2c61ff" title="EasyForm\\setFormInputs" alt="" coords="138,710,310,738"/><area shape="rect" id="node9" href="../../d3/d10/class_easy_form.html#a44d87432a7016815c9a8bdc468b4c74e" title="EasyForm\\processFormObjError" alt="" coords="605,505,819,533"/><area shape="rect" id="node32" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad" title="EasyForm\\getViewObject" alt="" coords="1353,658,1524,686"/><area shape="rect" id="node34" href="../../d3/d10/class_easy_form.html#af446ebc060117e121c1ebff59f6bb02f" title="EasyForm\\processPostAction" alt="" coords="126,209,322,237"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="1839,197,1993,225"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="3826,295,3964,323"/><area shape="rect" id="node6" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm\\getDataObj" alt="" coords="1362,401,1515,429"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="1587,301,1755,329"/><area shape="rect" id="node10" href="../../d3/d10/class_easy_form.html#a75545a3a11720fe6d5c316d316fb2df6" title="EasyForm\\rerender" alt="" coords="895,505,1031,533"/><area shape="rect" id="node11" href="../../d3/d10/class_easy_form.html#aa1008c36a9f8e921dc8cd0b5d462ff78" title="EasyForm\\renderHTML" alt="" coords="1125,506,1286,534"/><area shape="rect" id="node33" href="../../d3/d10/class_easy_form.html#a9e579367ca9368a8ee3426757db0998d" title="EasyForm\\rerenderSubForms" alt="" coords="1106,350,1304,378"/><area shape="rect" id="node12" href="../../df/d1a/class_form_renderer.html#a6bc1378b4d3403da3f5a0cdf19d2c110" title="FormRenderer\\render" alt="" coords="1364,505,1514,533"/><area shape="rect" id="node13" href="../../df/d1a/class_form_renderer.html#a8a2b7c95c06bfdd98ed556d4a4243a28" title="FormRenderer\\buildTemplate\lAttributes" alt="" coords="1574,409,1768,453"/><area shape="rect" id="node14" href="../../df/d1a/class_form_renderer.html#aaae8885482d48a3eba78c4856ff7ac0a" title="FormRenderer\\renderSmarty" alt="" coords="1574,482,1767,510"/><area shape="rect" id="node29" href="../../df/d1a/class_form_renderer.html#a240405d51345da30f40261fb9b5522f1" title="FormRenderer\\renderPHP" alt="" coords="1582,534,1760,562"/><area shape="rect" id="node15" href="../../d1/d7e/class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde" title="BizSystem\\getSmartyTemplate" alt="" coords="2064,426,2267,454"/><area shape="rect" id="node23" href="../../d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c" title="BizSystem\\getTplFileWithPath" alt="" coords="1816,495,2016,523"/><area shape="rect" id="node16" href="../../df/d00/class_resource.html#a1f8104d8aa899c9c115363799ed0cbde" title="Resource\\getSmartyTemplate" alt="" coords="2867,399,3064,427"/><area shape="rect" id="node17" href="../../df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="3112,451,3299,479"/><area shape="rect" id="node22" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="3118,399,3293,427"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="3594,399,3774,427"/><area shape="rect" id="node19" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="3347,477,3547,505"/><area shape="rect" id="node20" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="3608,606,3760,634"/><area shape="rect" id="node21" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="3822,631,3967,659"/><area shape="rect" id="node24" href="../../df/d00/class_resource.html#afb794bcc37996f735dfc6e7ddddf961c" title="Resource\\getTplFileWithPath" alt="" coords="2068,495,2263,523"/><area shape="rect" id="node25" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="2314,451,2475,479"/><area shape="rect" id="node26" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="2541,398,2696,426"/><area shape="rect" id="node27" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="2763,347,2818,375"/><area shape="rect" id="node28" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="2898,347,3032,375"/><area shape="rect" id="node30" href="../../d1/d7e/class_biz_system.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="BizSystem\\getZendTemplate" alt="" coords="2523,555,2714,583"/><area shape="rect" id="node31" href="../../df/d00/class_resource.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="Resource\\getZendTemplate" alt="" coords="2873,451,3058,479"/><area shape="rect" id="node35" href="../../d3/d10/class_easy_form.html#a622f315c5158bfbd3968ee3c4da51bcd" title="EasyForm\\getRedirectPage" alt="" coords="371,119,557,147"/><area shape="rect" id="node38" href="../../d3/d10/class_easy_form.html#aef7c4ff0a903eb04e7af25a6baea3d35" title="EasyForm\\_showForm" alt="" coords="386,275,542,303"/><area shape="rect" id="node36" href="../../d3/d10/class_easy_form.html#a15d343efcbc80c8b61a60c3f2f01e759" title="EasyForm\\getInvokingElement" alt="" coords="611,94,813,122"/><area shape="rect" id="node37" href="../../d3/d10/class_easy_form.html#a214fbd6ab24d8a6efdcb305a5ecdae6b" title="EasyForm\\getElement" alt="" coords="886,94,1039,122"/><area shape="rect" id="node39" href="../../d3/d10/class_easy_form.html#a52e9eb4fb51cfef13a1648efe1d0c3d3" title="EasyForm\\getMessage" alt="" coords="633,249,791,277"/><area shape="rect" id="node41" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="2342,606,2448,634"/><area shape="rect" id="node40" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="867,249,1058,277"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a17fc636f618667ab56a05046d4bbf6c1"></a>
@@ -660,13 +636,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L249">249</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
-<div class="fragment"><div class="line">                                 {</div>
-<div class="line">     <span class="comment">// clean the session record     </span></div>
-<div class="line">        $this-&gt;m_DropSession = <span class="keyword">true</span>;</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }    </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00249">249</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a0497a4964b544d4cb511f7809a191a5d"></a>
@@ -693,14 +664,19 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d6a/interfacei_session_object.html#acc26613c5c4f7b91d25f7454aebc0c9b">iSessionObject</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L42">42</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     parent::getSessionVars($sessionContext);</div>
-<div class="line">        $sessionContext-&gt;getObjVar($this-&gt;m_Name, <span class="stringliteral">&quot;ActiveRecord&quot;</span>, $this-&gt;m_ActiveRecord, <span class="keyword">true</span>);</div>
-<div class="line">        $sessionContext-&gt;getObjVar($this-&gt;m_Name, <span class="stringliteral">&quot;FormInputs&quot;</span>, $this-&gt;m_FormInputs, <span class="keyword">true</span>);</div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a66ca3cc82efeedbd58aa6923c1410bb7">setActiveRecord</a>($this-&gt;m_ActiveRecord);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00042">42</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d76/class_easy_form_wizard_a0497a4964b544d4cb511f7809a191a5d_cgraph.png" border="0" usemap="#dc/d76/class_easy_form_wizard_a0497a4964b544d4cb511f7809a191a5d_cgraph" alt=""/></div>
+<map name="dc/d76/class_easy_form_wizard_a0497a4964b544d4cb511f7809a191a5d_cgraph" id="dc/d76/class_easy_form_wizard_a0497a4964b544d4cb511f7809a191a5d_cgraph">
+<area shape="rect" id="node2" href="../../d3/d10/class_easy_form.html#a66ca3cc82efeedbd58aa6923c1410bb7" title="EasyForm\\setActiveRecord" alt="" coords="169,5,351,33"/><area shape="rect" id="node3" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm\\getDataObj" alt="" coords="401,5,554,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="603,5,771,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="819,5,957,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aaf844d081d5136e0871bb7e1a9c7cfa5"></a>
@@ -718,27 +694,19 @@ Protected Attributes</h2></td></tr>
 <p>Go to previous wizard page</p>
 <dl class="section return"><dt>Returns</dt><dd>void  remote </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L140">140</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $recArr = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#aa1cca28cf3008654e803cee1d0381efc">readInputRecord</a>();</div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a66ca3cc82efeedbd58aa6923c1410bb7">setActiveRecord</a>($recArr);</div>
-<div class="line">  $this-&gt;m_ActiveRecord = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#aa1cca28cf3008654e803cee1d0381efc">readInputRecord</a>();</div>
-<div class="line">  </div>
-<div class="line">        $viewObj = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad">getViewObject</a>();</div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">// get the step</span></div>
-<div class="line">        <span class="keywordflow">if</span>($viewObj-&gt;getCurrentStep()){</div>
-<div class="line">         $step = $viewObj-&gt;getCurrentStep();</div>
-<div class="line">        }<span class="keywordflow">else</span>{</div>
-<div class="line">         $step = $_GET[<span class="stringliteral">&#39;step&#39;</span>];</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// redirect the prev step</span></div>
-<div class="line">        <span class="comment">/* @var $viewObj EasyViewWizard */</span></div>
-<div class="line">        </div>
-<div class="line">        $viewObj-&gt;renderStep($step-1);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00140">140</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d76/class_easy_form_wizard_aaf844d081d5136e0871bb7e1a9c7cfa5_cgraph.png" border="0" usemap="#dc/d76/class_easy_form_wizard_aaf844d081d5136e0871bb7e1a9c7cfa5_cgraph" alt=""/></div>
+<map name="dc/d76/class_easy_form_wizard_aaf844d081d5136e0871bb7e1a9c7cfa5_cgraph" id="dc/d76/class_easy_form_wizard_aaf844d081d5136e0871bb7e1a9c7cfa5_cgraph">
+<area shape="rect" id="node2" href="../../d3/d10/class_easy_form.html#aa1cca28cf3008654e803cee1d0381efc" title="EasyForm\\readInputRecord" alt="" coords="121,5,306,33"/><area shape="rect" id="node5" href="../../d3/d10/class_easy_form.html#a66ca3cc82efeedbd58aa6923c1410bb7" title="EasyForm\\setActiveRecord" alt="" coords="122,57,305,85"/><area shape="rect" id="node8" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad" title="EasyForm\\getViewObject" alt="" coords="128,109,299,137"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="565,5,718,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="774,31,912,59"/><area shape="rect" id="node6" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm\\getDataObj" alt="" coords="355,57,509,85"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="557,57,725,85"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="359,109,505,137"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a94deddbc1de2ba018dcc2880f435a64e"></a>
@@ -763,39 +731,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void  remote </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L80">80</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// call ValidateForm()</span></div>
-<div class="line">        $recArr = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#aa1cca28cf3008654e803cee1d0381efc">readInputRecord</a>();</div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a66ca3cc82efeedbd58aa6923c1410bb7">setActiveRecord</a>($recArr);</div>
-<div class="line">     </div>
-<div class="line">      <span class="keywordflow">try</span></div>
-<div class="line">        {</div>
-<div class="line">             <span class="keywordflow">if</span> ($this-&gt;ValidateForm() == <span class="keyword">false</span>)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }<span class="keywordflow">catch</span> (<a class="code" href="../../db/dd2/class_validation_exception.html">ValidationException</a> $e)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a44d87432a7016815c9a8bdc468b4c74e">processFormObjError</a>($e-&gt;m_Errors);</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        $this-&gt;m_ActiveRecord = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#aa1cca28cf3008654e803cee1d0381efc">readInputRecord</a>();</div>
-<div class="line">  $viewObj = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad">getViewObject</a>();</div>
-<div class="line">        <span class="comment">// get the step</span></div>
-<div class="line">     <span class="keywordflow">if</span>($viewObj-&gt;getCurrentStep()){</div>
-<div class="line">         $step = $viewObj-&gt;getCurrentStep();</div>
-<div class="line">        }<span class="keywordflow">else</span>{</div>
-<div class="line">         $step = $_GET[<span class="stringliteral">&#39;step&#39;</span>];</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span> (!$step || $step==<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line">            $step=1;</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// redirect the prev step</span></div>
-<div class="line">        <span class="comment">/* @var $viewObj EasyViewWizard */</span></div>
-<div class="line">        </div>
-<div class="line">        $viewObj-&gt;renderStep($step+1);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00080">80</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d76/class_easy_form_wizard_a94deddbc1de2ba018dcc2880f435a64e_cgraph.png" border="0" usemap="#dc/d76/class_easy_form_wizard_a94deddbc1de2ba018dcc2880f435a64e_cgraph" alt=""/></div>
+<map name="dc/d76/class_easy_form_wizard_a94deddbc1de2ba018dcc2880f435a64e_cgraph" id="dc/d76/class_easy_form_wizard_a94deddbc1de2ba018dcc2880f435a64e_cgraph">
+<area shape="rect" id="node2" href="../../d3/d10/class_easy_form.html#aa1cca28cf3008654e803cee1d0381efc" title="EasyForm\\readInputRecord" alt="" coords="379,6,565,34"/><area shape="rect" id="node5" href="../../d3/d10/class_easy_form.html#a66ca3cc82efeedbd58aa6923c1410bb7" title="EasyForm\\setActiveRecord" alt="" coords="133,83,315,111"/><area shape="rect" id="node8" href="../../d3/d10/class_easy_form.html#a44d87432a7016815c9a8bdc468b4c74e" title="EasyForm\\processFormObjError" alt="" coords="117,135,331,163"/><area shape="rect" id="node31" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad" title="EasyForm\\getViewObject" alt="" coords="860,247,1031,275"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="1346,31,1499,59"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="3327,83,3465,111"/><area shape="rect" id="node6" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm\\getDataObj" alt="" coords="869,83,1022,111"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="1093,83,1261,111"/><area shape="rect" id="node9" href="../../d3/d10/class_easy_form.html#a75545a3a11720fe6d5c316d316fb2df6" title="EasyForm\\rerender" alt="" coords="404,135,540,163"/><area shape="rect" id="node10" href="../../d3/d10/class_easy_form.html#aa1008c36a9f8e921dc8cd0b5d462ff78" title="EasyForm\\renderHTML" alt="" coords="632,195,792,223"/><area shape="rect" id="node32" href="../../d3/d10/class_easy_form.html#a9e579367ca9368a8ee3426757db0998d" title="EasyForm\\rerenderSubForms" alt="" coords="613,135,811,163"/><area shape="rect" id="node11" href="../../df/d1a/class_form_renderer.html#a6bc1378b4d3403da3f5a0cdf19d2c110" title="FormRenderer\\render" alt="" coords="870,195,1020,223"/><area shape="rect" id="node12" href="../../df/d1a/class_form_renderer.html#a8a2b7c95c06bfdd98ed556d4a4243a28" title="FormRenderer\\buildTemplate\lAttributes" alt="" coords="1080,135,1274,179"/><area shape="rect" id="node13" href="../../df/d1a/class_form_renderer.html#aaae8885482d48a3eba78c4856ff7ac0a" title="FormRenderer\\renderSmarty" alt="" coords="1081,255,1274,283"/><area shape="rect" id="node28" href="../../df/d1a/class_form_renderer.html#a240405d51345da30f40261fb9b5522f1" title="FormRenderer\\renderPHP" alt="" coords="1088,203,1266,231"/><area shape="rect" id="node14" href="../../d1/d7e/class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde" title="BizSystem\\getSmartyTemplate" alt="" coords="1571,325,1773,353"/><area shape="rect" id="node22" href="../../d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c" title="BizSystem\\getTplFileWithPath" alt="" coords="1322,251,1523,279"/><area shape="rect" id="node15" href="../../df/d00/class_resource.html#a1f8104d8aa899c9c115363799ed0cbde" title="Resource\\getSmartyTemplate" alt="" coords="2368,239,2565,267"/><area shape="rect" id="node16" href="../../df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="2613,239,2800,267"/><area shape="rect" id="node21" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="2619,187,2794,215"/><area shape="rect" id="node17" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="3096,187,3275,215"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="2848,265,3048,293"/><area shape="rect" id="node19" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="3110,302,3261,330"/><area shape="rect" id="node20" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="3323,347,3469,375"/><area shape="rect" id="node23" href="../../df/d00/class_resource.html#afb794bcc37996f735dfc6e7ddddf961c" title="Resource\\getTplFileWithPath" alt="" coords="1575,251,1769,279"/><area shape="rect" id="node24" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="1837,239,1998,267"/><area shape="rect" id="node25" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="2061,239,2216,267"/><area shape="rect" id="node26" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="2265,239,2319,267"/><area shape="rect" id="node27" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="2400,135,2534,163"/><area shape="rect" id="node29" href="../../d1/d7e/class_biz_system.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="BizSystem\\getZendTemplate" alt="" coords="1822,187,2013,215"/><area shape="rect" id="node30" href="../../df/d00/class_resource.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="Resource\\getZendTemplate" alt="" coords="2374,187,2559,215"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="afbb8fcc4c21113c915263f4a1ca3c0c5"></a>
@@ -811,22 +759,19 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L280">280</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $output = parent::outputAttrs();</div>
-<div class="line">        $viewobj = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad">getViewObject</a>();</div>
-<div class="line">        $forms = array();</div>
-<div class="line">        $viewobj-&gt;m_FormRefs-&gt;rewind();</div>
-<div class="line">        <span class="keywordflow">while</span>($viewobj-&gt;m_FormRefs-&gt;valid()){</div>
-<div class="line">         $form=$viewobj-&gt;m_FormRefs-&gt;current();</div>
-<div class="line">         $forms[$form-&gt;m_Name] = $form;</div>
-<div class="line">         $viewobj-&gt;m_FormRefs-&gt;next();</div>
-<div class="line">        }        </div>
-<div class="line">        $output[<span class="stringliteral">&#39;forms&#39;</span>] = $forms;                </div>
-<div class="line">        $output[<span class="stringliteral">&#39;step&#39;</span>] = $viewobj-&gt;getCurrentStep();        </div>
-<div class="line">        <span class="keywordflow">return</span> $output;</div>
-<div class="line">    }    </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00280">280</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
+
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d76/class_easy_form_wizard_afbb8fcc4c21113c915263f4a1ca3c0c5_cgraph.png" border="0" usemap="#dc/d76/class_easy_form_wizard_afbb8fcc4c21113c915263f4a1ca3c0c5_cgraph" alt=""/></div>
+<map name="dc/d76/class_easy_form_wizard_afbb8fcc4c21113c915263f4a1ca3c0c5_cgraph" id="dc/d76/class_easy_form_wizard_afbb8fcc4c21113c915263f4a1ca3c0c5_cgraph">
+<area shape="rect" id="node2" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad" title="EasyForm\\getViewObject" alt="" coords="140,5,311,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="361,5,506,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1db802d93a9f0badf186a646e1cdb161"></a>
@@ -851,12 +796,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L50">50</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::readMetaData($xmlArr);        </div>
-<div class="line">        $this-&gt;m_WizardPanel = <span class="keyword">new</span> <a class="code" href="../../df/d77/class_panel.html">Panel</a>($xmlArr[<span class="stringliteral">&quot;EASYFORM&quot;</span>][<span class="stringliteral">&quot;WIZARDPANEL&quot;</span>][<span class="stringliteral">&quot;ELEMENT&quot;</span>],<span class="stringliteral">&quot;&quot;</span>,$this);</div>
-<div class="line">    }    </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00050">50</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="afde88292c44dc59faf017738dae6dffb"></a>
@@ -876,14 +817,19 @@ Protected Attributes</h2></td></tr>
 <dd>
 string - HTML text of this form's read mode </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L273">273</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $viewobj = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad">getViewObject</a>();</div>
-<div class="line">        $viewobj-&gt;setFormState($this-&gt;m_Name, <span class="stringliteral">&#39;visited&#39;</span>, 1);</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">return</span> parent::render();</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00273">273</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
+
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d76/class_easy_form_wizard_afde88292c44dc59faf017738dae6dffb_cgraph.png" border="0" usemap="#dc/d76/class_easy_form_wizard_afde88292c44dc59faf017738dae6dffb_cgraph" alt=""/></div>
+<map name="dc/d76/class_easy_form_wizard_afde88292c44dc59faf017738dae6dffb_cgraph" id="dc/d76/class_easy_form_wizard_afde88292c44dc59faf017738dae6dffb_cgraph">
+<area shape="rect" id="node2" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad" title="EasyForm\\getViewObject" alt="" coords="116,5,287,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="337,5,482,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a14c87f47346e9868b05b6cc33d020021"></a>
@@ -910,17 +856,8 @@ string - HTML text of this form's read mode </dd></dl>
 
 <p>Implements <a class="el" href="../../d4/d6a/interfacei_session_object.html#a3304da0964c3e2af774162fcef949527">iSessionObject</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L62">62</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {     </div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_DropSession)</div>
-<div class="line">            $sessionContext-&gt;cleanObj($this-&gt;m_Name, <span class="keyword">true</span>);</div>
-<div class="line">        <span class="keywordflow">else</span> {</div>
-<div class="line">         parent::setSessionVars($sessionContext);</div>
-<div class="line">            $sessionContext-&gt;setObjVar($this-&gt;m_Name, <span class="stringliteral">&quot;ActiveRecord&quot;</span>, $this-&gt;m_ActiveRecord, <span class="keyword">true</span>);</div>
-<div class="line">            $sessionContext-&gt;setObjVar($this-&gt;m_Name, <span class="stringliteral">&quot;FormInputs&quot;</span>, $this-&gt;m_FormInputs, <span class="keyword">true</span>);</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00062">62</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a72d303844a2d71da1340a30207d9f7e7"></a>
@@ -938,21 +875,19 @@ string - HTML text of this form's read mode </dd></dl>
 <p>Skip current wizard page</p>
 <dl class="section return"><dt>Returns</dt><dd>void  remote </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L119">119</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">  $viewObj = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad">getViewObject</a>();</div>
-<div class="line">        <span class="comment">// get the step</span></div>
-<div class="line">     <span class="keywordflow">if</span>($viewObj-&gt;getCurrentStep()){</div>
-<div class="line">         $step = $viewObj-&gt;getCurrentStep();</div>
-<div class="line">        }<span class="keywordflow">else</span>{</div>
-<div class="line">         $step = $_GET[<span class="stringliteral">&#39;step&#39;</span>];</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span> (!$step || $step==<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line">            $step=1;</div>
-<div class="line"></div>
-<div class="line">        $viewObj-&gt;renderStep($step+2);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00119">119</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
+
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d76/class_easy_form_wizard_a72d303844a2d71da1340a30207d9f7e7_cgraph.png" border="0" usemap="#dc/d76/class_easy_form_wizard_a72d303844a2d71da1340a30207d9f7e7_cgraph" alt=""/></div>
+<map name="dc/d76/class_easy_form_wizard_a72d303844a2d71da1340a30207d9f7e7_cgraph" id="dc/d76/class_easy_form_wizard_a72d303844a2d71da1340a30207d9f7e7_cgraph">
+<area shape="rect" id="node2" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad" title="EasyForm\\getViewObject" alt="" coords="100,5,271,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="321,5,466,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -974,7 +909,7 @@ string - HTML text of this form's read mode </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00027">27</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
 
 </div>
 </div>
@@ -988,7 +923,7 @@ string - HTML text of this form's read mode </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L34">34</a> of file <a class="el" href="../../">EasyFormWizard.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html#l00034">34</a> of file <a class="el" href="../../d3/da1/_easy_form_wizard_8php_source.html">EasyFormWizard.php</a>.</p>
 
 </div>
 </div>
@@ -998,7 +933,7 @@ string - HTML text of this form's read mode </dd></dl>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dc/d76/class_easy_form_wizard.html">EasyFormWizard</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:19 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:49 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

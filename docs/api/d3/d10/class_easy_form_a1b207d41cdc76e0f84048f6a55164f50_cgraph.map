@@ -1,0 +1,35 @@
+<map id="switchForm" name="switchForm">
+<area shape="rect" id="node2" href="$d3/d10/class_easy_form.html#aef7c4ff0a903eb04e7af25a6baea3d35" title="_showForm" alt="" coords="144,197,235,225"/>
+<area shape="rect" id="node3" href="$d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="1115,94,1283,122"/>
+<area shape="rect" id="node5" href="$d3/d10/class_easy_form.html#a52e9eb4fb51cfef13a1648efe1d0c3d3" title="getMessage" alt="" coords="310,283,404,311"/>
+<area shape="rect" id="node14" href="$d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="2326,423,2432,451"/>
+<area shape="rect" id="node15" href="$d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="1367,7,1521,35"/>
+<area shape="rect" id="node16" href="$d3/d10/class_easy_form.html#a44d87432a7016815c9a8bdc468b4c74e" title="processFormObjError" alt="" coords="283,145,432,173"/>
+<area shape="rect" id="node4" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="3439,59,3577,87"/>
+<area shape="rect" id="node6" href="$d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="2351,319,2406,347"/>
+<area shape="rect" id="node13" href="$db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="480,283,672,311"/>
+<area shape="rect" id="node7" href="$d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="2512,319,2646,347"/>
+<area shape="rect" id="node8" href="$d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="2731,267,2906,295"/>
+<area shape="rect" id="node9" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="3208,215,3387,243"/>
+<area shape="rect" id="node10" href="$d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="2960,293,3160,321"/>
+<area shape="rect" id="node11" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="3222,319,3373,347"/>
+<area shape="rect" id="node12" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="3435,345,3581,373"/>
+<area shape="rect" id="node17" href="$d3/d10/class_easy_form.html#a75545a3a11720fe6d5c316d316fb2df6" title="rerender" alt="" coords="540,145,612,173"/>
+<area shape="rect" id="node18" href="$d3/d10/class_easy_form.html#aa1008c36a9f8e921dc8cd0b5d462ff78" title="renderHTML" alt="" coords="739,249,835,277"/>
+<area shape="rect" id="node33" href="$d3/d10/class_easy_form.html#a9e579367ca9368a8ee3426757db0998d" title="rerenderSubForms" alt="" coords="720,145,853,173"/>
+<area shape="rect" id="node19" href="$df/d1a/class_form_renderer.html#a6bc1378b4d3403da3f5a0cdf19d2c110" title="FormRenderer\\render" alt="" coords="902,249,1052,277"/>
+<area shape="rect" id="node32" href="$d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad" title="getViewObject" alt="" coords="1636,318,1743,346"/>
+<area shape="rect" id="node20" href="$df/d1a/class_form_renderer.html#a8a2b7c95c06bfdd98ed556d4a4243a28" title="FormRenderer\\buildTemplate\lAttributes" alt="" coords="1102,146,1296,190"/>
+<area shape="rect" id="node21" href="$df/d1a/class_form_renderer.html#aaae8885482d48a3eba78c4856ff7ac0a" title="FormRenderer\\renderSmarty" alt="" coords="1102,266,1295,294"/>
+<area shape="rect" id="node29" href="$df/d1a/class_form_renderer.html#a240405d51345da30f40261fb9b5522f1" title="FormRenderer\\renderPHP" alt="" coords="1110,214,1288,242"/>
+<area shape="rect" id="node22" href="$d1/d7e/class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde" title="BizSystem\\getSmartyTemplate" alt="" coords="1835,267,2037,295"/>
+<area shape="rect" id="node25" href="$d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c" title="BizSystem\\getTplFileWithPath" alt="" coords="1344,214,1544,242"/>
+<area shape="rect" id="node23" href="$df/d00/class_resource.html#a1f8104d8aa899c9c115363799ed0cbde" title="Resource\\getSmartyTemplate" alt="" coords="2480,267,2677,295"/>
+<area shape="rect" id="node24" href="$df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="2725,215,2912,243"/>
+<area shape="rect" id="node26" href="$df/d00/class_resource.html#afb794bcc37996f735dfc6e7ddddf961c" title="Resource\\getTplFileWithPath" alt="" coords="1592,214,1787,242"/>
+<area shape="rect" id="node27" href="$d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="1856,215,2016,243"/>
+<area shape="rect" id="node28" href="$df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="2104,269,2259,297"/>
+<area shape="rect" id="node30" href="$d1/d7e/class_biz_system.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="BizSystem\\getZendTemplate" alt="" coords="2086,111,2277,139"/>
+<area shape="rect" id="node31" href="$df/d00/class_resource.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="Resource\\getZendTemplate" alt="" coords="2486,215,2671,243"/>
+<area shape="rect" id="node34" href="$d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="getDataObj" alt="" coords="933,94,1022,122"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="getSelectFromSQL" name="getSelectFromSQL">
+<area shape="rect" id="node2" href="$da/d7f/class_option_element.html#aa54a9a65ac7416558061dc3579136d43" title="getSQLFromList" alt="" coords="190,265,309,293"/>
+<area shape="rect" id="node3" href="$da/d7f/class_option_element.html#af9b9251ea754aa65bc036e5bd9eb2e1d" title="getFromList" alt="" coords="358,265,450,293"/>
+<area shape="rect" id="node4" href="$d2/df4/class_checkbox.html#afde88292c44dc59faf017738dae6dffb" title="Checkbox\\render" alt="" coords="513,5,636,33"/>
+<area shape="rect" id="node5" href="$d7/d25/class_check_listbox.html#afde88292c44dc59faf017738dae6dffb" title="CheckListbox\\render" alt="" coords="503,57,646,85"/>
+<area shape="rect" id="node6" href="$d5/d09/class_column_list.html#afde88292c44dc59faf017738dae6dffb" title="ColumnList\\render" alt="" coords="510,109,640,137"/>
+<area shape="rect" id="node7" href="$db/d5d/class_column_listbox.html#afde88292c44dc59faf017738dae6dffb" title="ColumnListbox\\render" alt="" coords="499,161,651,189"/>
+<area shape="rect" id="node8" href="$d0/dec/class_edit_combobox.html#afde88292c44dc59faf017738dae6dffb" title="EditCombobox\\render" alt="" coords="499,213,650,241"/>
+<area shape="rect" id="node9" href="$db/d5a/class_image_selector.html#afde88292c44dc59faf017738dae6dffb" title="ImageSelector\\render" alt="" coords="500,265,649,293"/>
+<area shape="rect" id="node10" href="$d9/d80/class_label_list.html#afde88292c44dc59faf017738dae6dffb" title="LabelList\\render" alt="" coords="516,317,633,345"/>
+<area shape="rect" id="node11" href="$d7/dc3/class_listbox.html#afde88292c44dc59faf017738dae6dffb" title="Listbox\\render" alt="" coords="522,369,628,397"/>
+<area shape="rect" id="node12" href="$d2/d23/class_radio.html#afde88292c44dc59faf017738dae6dffb" title="Radio\\render" alt="" coords="525,421,624,449"/>
+<area shape="rect" id="node13" href="$db/dbf/class_textarea.html#afde88292c44dc59faf017738dae6dffb" title="Textarea\\render" alt="" coords="517,473,632,501"/>
+<area shape="rect" id="node14" href="$d7/d83/class_tree_label_text.html#afde88292c44dc59faf017738dae6dffb" title="TreeLabelText\\render" alt="" coords="501,525,648,553"/>
+</map>

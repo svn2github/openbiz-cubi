@@ -334,7 +334,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00027">27</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a27c5f8826518b7325863e6886f9b94d1"></a>
 <div class="memitem">
@@ -359,25 +359,30 @@ Protected Member Functions</h2></td></tr>
 <p>Add sort-cut key scripts</p>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L119">119</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $keyMap = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a8a66f9e4e198d439cfc261f0809765f1">getSCKeyFuncMap</a>();</div>
-<div class="line">        <span class="keywordflow">if</span> (count($keyMap) == 0)</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">        <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;appendScripts(<span class="stringliteral">&quot;shortcut&quot;</span>, <span class="stringliteral">&quot;shortcut.js&quot;</span>);</div>
-<div class="line">        $str = <span class="stringliteral">&quot;&lt;script&gt;\n&quot;</span>;</div>
-<div class="line">        $formObj = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>();</div>
-<div class="line">        <span class="keywordflow">if</span> (!$formObj-&gt;removeall_sck) {</div>
-<div class="line">            $str .= <span class="stringliteral">&quot; shortcut.removeall(); \n&quot;</span>;</div>
-<div class="line">            $formObj-&gt;removeall_sck = <span class="keyword">true</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($keyMap as $key =&gt; $func)</div>
-<div class="line">            $str .= <span class="stringliteral">&quot; shortcut.remove(\&quot;$key\&quot;); \n&quot;</span>;</div>
-<div class="line">        $str .= <span class="stringliteral">&quot; shortcut.add(\&quot;$key\&quot;,function() { $func }); \n&quot;</span>;</div>
-<div class="line">        $str .= <span class="stringliteral">&quot;&lt;/script&gt;\n&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">return</span> $str;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00119">119</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d05/class_input_element_a27c5f8826518b7325863e6886f9b94d1_cgraph.png" border="0" usemap="#d3/d05/class_input_element_a27c5f8826518b7325863e6886f9b94d1_cgraph" alt=""/></div>
+<map name="d3/d05/class_input_element_a27c5f8826518b7325863e6886f9b94d1_cgraph" id="d3/d05/class_input_element_a27c5f8826518b7325863e6886f9b94d1_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#a8a66f9e4e198d439cfc261f0809765f1" title="Element\\getSCKeyFuncMap" alt="" coords="173,191,363,219"/><area shape="rect" id="node19" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="411,311,565,339"/><area shape="rect" id="node9" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="861,246,1006,274"/><area shape="rect" id="node3" href="../../d5/d50/class_element.html#a48b5ed29b83de497db5958d0afc9f271" title="Element\\canDisplayed" alt="" coords="411,185,565,213"/><area shape="rect" id="node4" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1" title="MetaObject\\allowAccess" alt="" coords="614,69,781,97"/><area shape="rect" id="node8" href="../../d5/d50/class_element.html#a1d032efbce2b4edb7c269a1e13562f40" title="Element\\getHidden" alt="" coords="630,185,765,213"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a4133bb0c948ac1d650827a15fb52072c" title="BizSystem\\allowUserAccess" alt="" coords="1352,5,1541,33"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1603,109,1754,137"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1817,83,1962,111"/><area shape="rect" id="node12" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="830,134,1037,162"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="1363,263,1531,291"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1820,263,1958,291"/><area shape="rect" id="node13" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="1104,57,1286,85"/><area shape="rect" id="node16" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="1096,213,1294,241"/><area shape="rect" id="node17" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="1086,109,1304,137"/><area shape="rect" id="node18" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="1114,161,1275,189"/><area shape="rect" id="node14" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="1360,159,1533,187"/><area shape="rect" id="node15" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1589,186,1768,214"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d05/class_input_element_a27c5f8826518b7325863e6886f9b94d1_icgraph.png" border="0" usemap="#d3/d05/class_input_element_a27c5f8826518b7325863e6886f9b94d1_icgraph" alt=""/></div>
+<map name="d3/d05/class_input_element_a27c5f8826518b7325863e6886f9b94d1_icgraph" id="d3/d05/class_input_element_a27c5f8826518b7325863e6886f9b94d1_icgraph">
+<area shape="rect" id="node2" href="../../d4/d77/class_button.html#afde88292c44dc59faf017738dae6dffb" title="Button\\render" alt="" coords="174,5,276,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ab442a42d8265e71787a82ef3a1b4549c"></a>
@@ -403,12 +408,30 @@ Protected Member Functions</h2></td></tr>
 <p>Get enable status</p>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L70">70</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $formObj = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>();</div>
-<div class="line">        <span class="keywordflow">return</span> <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>($this-&gt;m_Enabled, $formObj);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00070">70</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d05/class_input_element_ab442a42d8265e71787a82ef3a1b4549c_cgraph.png" border="0" usemap="#d3/d05/class_input_element_ab442a42d8265e71787a82ef3a1b4549c_cgraph" alt=""/></div>
+<map name="d3/d05/class_input_element_ab442a42d8265e71787a82ef3a1b4549c_cgraph" id="d3/d05/class_input_element_ab442a42d8265e71787a82ef3a1b4549c_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="176,33,320,61"/><area shape="rect" id="node5" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="144,110,352,138"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="669,6,837,34"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1119,46,1257,74"/><area shape="rect" id="node6" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="418,110,600,138"/><area shape="rect" id="node11" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="410,162,608,190"/><area shape="rect" id="node12" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="400,214,618,242"/><area shape="rect" id="node13" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="429,58,590,86"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="667,58,840,86"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="902,110,1053,138"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1115,123,1261,151"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="888,58,1067,86"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d05/class_input_element_ab442a42d8265e71787a82ef3a1b4549c_icgraph.png" border="0" usemap="#d3/d05/class_input_element_ab442a42d8265e71787a82ef3a1b4549c_icgraph" alt=""/></div>
+<map name="d3/d05/class_input_element_ab442a42d8265e71787a82ef3a1b4549c_icgraph" id="d3/d05/class_input_element_ab442a42d8265e71787a82ef3a1b4549c_icgraph">
+<area shape="rect" id="node2" href="../../d3/d1b/class_barcode_scanner.html#afde88292c44dc59faf017738dae6dffb" title="BarcodeScanner\\render" alt="" coords="145,5,308,33"/><area shape="rect" id="node3" href="../../d4/d77/class_button.html#afde88292c44dc59faf017738dae6dffb" title="Button\\render" alt="" coords="176,57,278,85"/><area shape="rect" id="node4" href="../../d2/df4/class_checkbox.html#afde88292c44dc59faf017738dae6dffb" title="Checkbox\\render" alt="" coords="165,109,288,137"/><area shape="rect" id="node5" href="../../dd/d48/class_color_picker.html#afde88292c44dc59faf017738dae6dffb" title="ColorPicker\\render" alt="" coords="160,161,293,189"/><area shape="rect" id="node6" href="../../d3/d09/class_column_input_text.html#afde88292c44dc59faf017738dae6dffb" title="ColumnInputText\\render" alt="" coords="145,213,308,241"/><area shape="rect" id="node7" href="../../db/d5d/class_column_listbox.html#afde88292c44dc59faf017738dae6dffb" title="ColumnListbox\\render" alt="" coords="151,265,303,293"/><area shape="rect" id="node8" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="DropDownList\\render" alt="" coords="153,317,300,345"/><area shape="rect" id="node9" href="../../d0/dec/class_edit_combobox.html#afde88292c44dc59faf017738dae6dffb" title="EditCombobox\\render" alt="" coords="151,369,302,397"/><area shape="rect" id="node10" href="../../d1/d31/class_file.html#afde88292c44dc59faf017738dae6dffb" title="File\\render" alt="" coords="184,421,269,449"/><area shape="rect" id="node11" href="../../d6/dd3/class_file_input.html#afde88292c44dc59faf017738dae6dffb" title="FileInput\\render" alt="" coords="169,473,284,501"/><area shape="rect" id="node12" href="../../d3/d71/class_file_uploader.html#afde88292c44dc59faf017738dae6dffb" title="FileUploader\\render" alt="" coords="157,525,296,553"/><area shape="rect" id="node13" href="../../d1/d73/class_h_t_m_l_button.html#afde88292c44dc59faf017738dae6dffb" title="HTMLButton\\render" alt="" coords="157,577,296,605"/><area shape="rect" id="node14" href="../../da/df3/class_i_d_card_reader.html#afde88292c44dc59faf017738dae6dffb" title="IDCardReader\\render" alt="" coords="152,629,301,657"/><area shape="rect" id="node15" href="../../db/d5a/class_image_selector.html#afde88292c44dc59faf017738dae6dffb" title="ImageSelector\\render" alt="" coords="152,681,301,709"/><area shape="rect" id="node16" href="../../d4/d5f/class_image_uploader.html#afde88292c44dc59faf017738dae6dffb" title="ImageUploader\\render" alt="" coords="149,733,304,761"/><area shape="rect" id="node17" href="../../dd/db3/class_input_password.html#afde88292c44dc59faf017738dae6dffb" title="InputPassword\\render" alt="" coords="151,785,303,813"/><area shape="rect" id="node18" href="../../d0/d5a/class_input_text.html#afde88292c44dc59faf017738dae6dffb" title="InputText\\render" alt="" coords="168,837,286,865"/><area shape="rect" id="node19" href="../../d7/dc3/class_listbox.html#afde88292c44dc59faf017738dae6dffb" title="Listbox\\render" alt="" coords="174,889,280,917"/><area shape="rect" id="node20" href="../../d4/dfe/class_password.html#afde88292c44dc59faf017738dae6dffb" title="Password\\render" alt="" coords="166,941,288,969"/><area shape="rect" id="node21" href="../../d2/d23/class_radio.html#afde88292c44dc59faf017738dae6dffb" title="Radio\\render" alt="" coords="177,993,276,1021"/><area shape="rect" id="node22" href="../../d9/d6b/class_reset_button.html#afde88292c44dc59faf017738dae6dffb" title="ResetButton\\render" alt="" coords="158,1045,295,1073"/><area shape="rect" id="node23" href="../../dd/d24/class_submit_button.html#afde88292c44dc59faf017738dae6dffb" title="SubmitButton\\render" alt="" coords="155,1097,298,1125"/><area shape="rect" id="node24" href="../../db/dbf/class_textarea.html#afde88292c44dc59faf017738dae6dffb" title="Textarea\\render" alt="" coords="169,1149,284,1177"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a51bd39a627fe91242fa2d879a702b4c3"></a>
@@ -432,12 +455,19 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L76">76</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $formObj = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>();</div>
-<div class="line">        <span class="keywordflow">return</span> <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>($this-&gt;m_Required, $formObj);</div>
-<div class="line">    }    </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00076">76</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d05/class_input_element_a51bd39a627fe91242fa2d879a702b4c3_cgraph.png" border="0" usemap="#d3/d05/class_input_element_a51bd39a627fe91242fa2d879a702b4c3_cgraph" alt=""/></div>
+<map name="d3/d05/class_input_element_a51bd39a627fe91242fa2d879a702b4c3_cgraph" id="d3/d05/class_input_element_a51bd39a627fe91242fa2d879a702b4c3_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="178,33,323,61"/><area shape="rect" id="node5" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="147,110,354,138"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="672,6,840,34"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1122,46,1260,74"/><area shape="rect" id="node6" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="421,110,603,138"/><area shape="rect" id="node11" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="413,162,611,190"/><area shape="rect" id="node12" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="403,214,621,242"/><area shape="rect" id="node13" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="431,58,593,86"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="670,58,842,86"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="904,110,1056,138"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1118,123,1263,151"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="890,58,1070,86"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ac0bc18784b182c89fcfd276625aef435"></a>
@@ -453,17 +483,19 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L82">82</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     $value=parent::getValue();</div>
-<div class="line">     <span class="keywordflow">if</span>($value==$this-&gt;m_Hint)</div>
-<div class="line">     {</div>
-<div class="line">      $this-&gt;m_Value = null;</div>
-<div class="line">      <span class="keywordflow">return</span> null;</div>
-<div class="line">     }</div>
-<div class="line">     <span class="keywordflow">return</span> $value;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00082">82</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d05/class_input_element_ac0bc18784b182c89fcfd276625aef435_icgraph.png" border="0" usemap="#d3/d05/class_input_element_ac0bc18784b182c89fcfd276625aef435_icgraph" alt=""/></div>
+<map name="d3/d05/class_input_element_ac0bc18784b182c89fcfd276625aef435_icgraph" id="d3/d05/class_input_element_ac0bc18784b182c89fcfd276625aef435_icgraph">
+<area shape="rect" id="node2" href="../../d1/dd9/class_c_k_editor.html#afde88292c44dc59faf017738dae6dffb" title="CKEditor\\render" alt="" coords="144,5,261,33"/><area shape="rect" id="node3" href="../../db/d5a/class_image_selector.html#afde88292c44dc59faf017738dae6dffb" title="ImageSelector\\render" alt="" coords="128,57,277,85"/><area shape="rect" id="node4" href="../../d7/dc3/class_listbox.html#afde88292c44dc59faf017738dae6dffb" title="Listbox\\render" alt="" coords="150,109,256,137"/><area shape="rect" id="node5" href="../../d2/d23/class_radio.html#afde88292c44dc59faf017738dae6dffb" title="Radio\\render" alt="" coords="153,161,252,189"/><area shape="rect" id="node6" href="../../d3/d6e/class_rich_text.html#afde88292c44dc59faf017738dae6dffb" title="RichText\\render" alt="" coords="145,213,260,241"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a5888f7e5883c7c2d486f7ddc1bd64760"></a>
@@ -496,24 +528,19 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L45">45</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::readMetaData($xmlArr);</div>
-<div class="line">        $this-&gt;m_FieldName = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FIELDNAME&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FIELDNAME&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_Label = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;LABEL&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;LABEL&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_Description = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DESCRIPTION&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DESCRIPTION&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_DefaultValue = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DEFAULTVALUE&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DEFAULTVALUE&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_DefaultValueRename = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DEFAULTVALUERENAME&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DEFAULTVALUERENAME&quot;</span>] : <span class="stringliteral">&quot;Y&quot;</span>;</div>
-<div class="line">        $this-&gt;m_Required = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;REQUIRED&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;REQUIRED&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_Enabled = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;ENABLED&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;ENABLED&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_Text = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TEXT&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TEXT&quot;</span>] : null;</div>
-<div class="line"></div>
-<div class="line">        $this-&gt;m_Hint = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;HINT&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;HINT&quot;</span>] : null;</div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">// if no class name, add default class name. i.e. NewRecord =&gt; ObjName.NewRecord</span></div>
-<div class="line">        $this-&gt;m_ValuePicker = $this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a7a34962e72564b47da11d86bfde7cf79">prefixPackage</a>($this-&gt;m_ValuePicker);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00045">45</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d05/class_input_element_a5888f7e5883c7c2d486f7ddc1bd64760_cgraph.png" border="0" usemap="#d3/d05/class_input_element_a5888f7e5883c7c2d486f7ddc1bd64760_cgraph" alt=""/></div>
+<map name="d3/d05/class_input_element_a5888f7e5883c7c2d486f7ddc1bd64760_cgraph" id="d3/d05/class_input_element_a5888f7e5883c7c2d486f7ddc1bd64760_cgraph">
+<area shape="rect" id="node2" href="../../db/d4b/class_meta_object.html#a7a34962e72564b47da11d86bfde7cf79" title="MetaObject\\prefixPackage" alt="" coords="160,5,338,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="afde88292c44dc59faf017738dae6dffb"></a>
@@ -533,11 +560,8 @@ Protected Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/d2b/interfacei_u_i_control.html#afde88292c44dc59faf017738dae6dffb">iUIControl</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L109">109</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> <a class="code" href="../../d5/d50/class_element.html#acab8a119e17bf4955d23bd05c09ee4cd">$this-&gt;m_Value</a>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00109">109</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a107d3e8b67d4aa25011c2ba626033fd3"></a>
@@ -555,12 +579,19 @@ Protected Member Functions</h2></td></tr>
 <p>Render label, just return label value</p>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L97">97</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $sHTML = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a1293239f7cbd82ab23c9d14ce8d491d1">translateString</a>($this-&gt;m_Label);       </div>
-<div class="line">        <span class="keywordflow">return</span> $sHTML;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00097">97</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
+
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d05/class_input_element_a107d3e8b67d4aa25011c2ba626033fd3_cgraph.png" border="0" usemap="#d3/d05/class_input_element_a107d3e8b67d4aa25011c2ba626033fd3_cgraph" alt=""/></div>
+<map name="d3/d05/class_input_element_a107d3e8b67d4aa25011c2ba626033fd3_cgraph" id="d3/d05/class_input_element_a107d3e8b67d4aa25011c2ba626033fd3_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#a1293239f7cbd82ab23c9d14ce8d491d1" title="Element\\translateString" alt="" coords="147,31,307,59"/><area shape="rect" id="node3" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="355,5,546,33"/><area shape="rect" id="node4" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="423,57,478,85"/><area shape="rect" id="node5" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="596,57,730,85"/><area shape="rect" id="node6" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="779,57,954,85"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1250,30,1430,58"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1003,82,1203,110"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1482,30,1620,58"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1264,82,1416,110"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1478,82,1623,110"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -574,7 +605,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L32">32</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00032">32</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
 
 </div>
 </div>
@@ -588,7 +619,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L33">33</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00033">33</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
 
 </div>
 </div>
@@ -602,7 +633,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L31">31</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00031">31</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
 
 </div>
 </div>
@@ -616,7 +647,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L35">35</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00035">35</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
 
 </div>
 </div>
@@ -630,7 +661,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L29">29</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00029">29</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
 
 </div>
 </div>
@@ -644,7 +675,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L37">37</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00037">37</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
 
 </div>
 </div>
@@ -658,7 +689,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L30">30</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00030">30</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
 
 </div>
 </div>
@@ -672,7 +703,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L34">34</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00034">34</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
 
 </div>
 </div>
@@ -686,7 +717,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L36">36</a> of file <a class="el" href="../../">InputElement.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d03/_input_element_8php_source.html#l00036">36</a> of file <a class="el" href="../../d8/d03/_input_element_8php_source.html">InputElement.php</a>.</p>
 
 </div>
 </div>
@@ -696,7 +727,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/d05/class_input_element.html">InputElement</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:22 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:57 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

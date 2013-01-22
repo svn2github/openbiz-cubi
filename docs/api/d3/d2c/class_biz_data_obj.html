@@ -383,7 +383,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00027">27</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a847d8d60f037d0a016aca7006cf9dec6"></a>
 <div class="memitem">
@@ -407,11 +407,8 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L35">35</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::__construct($xmlArr);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00035">35</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -448,15 +445,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L874">874</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     $oldBaseSearchRule=<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#ab5438da6d68802a28076cf7e569bec88">$this-&gt;m_BaseSearchRule</a>;</div>
-<div class="line">     $this-&gt;m_BaseSearchRule=<span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">        $result = <a class="code" href="../../df/daa/class_biz_data_obj___assoc.html#aa3ed3c3019ffd023f864674d6bc7d6a1">BizDataObj_Assoc::addRecord</a>($this, $recArr, $isParentObjUpdated);</div>
-<div class="line">        <span class="comment">//$this-&gt;m_BaseSearchRule=$oldBaseSearchRule;</span></div>
-<div class="line">        <span class="keywordflow">return</span> $result;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00874">874</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_aa3823738998075933adb24a32249de48_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_aa3823738998075933adb24a32249de48_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_aa3823738998075933adb24a32249de48_cgraph" id="d3/d2c/class_biz_data_obj_aa3823738998075933adb24a32249de48_cgraph">
+<area shape="rect" id="node2" href="../../df/daa/class_biz_data_obj___assoc.html#aa3ed3c3019ffd023f864674d6bc7d6a1" title="BizDataObj_Assoc\\addRecord" alt="" coords="142,5,343,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a67d94f354839a005d97b8376df820540"></a>
@@ -475,26 +476,30 @@ Additional Inherited Members</h2></td></tr>
 <p>Check if the current record can be deleted</p>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L191">191</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     <span class="keywordflow">if</span>($this-&gt;m_DataPermControl==<span class="charliteral">&#39;Y&#39;</span>)</div>
-<div class="line">        {</div>
-<div class="line">         $svcObj = BizSystem::GetService(<a class="code" href="../../d1/df2/sys__init_8php.html#ad3e9ef4e7280b3f3a6c0e2b178831664">DATAPERM_SERVICE</a>);</div>
-<div class="line">         <span class="keywordflow">if</span>(!$record)</div>
-<div class="line">         {</div>
-<div class="line">          $record = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9">getActiveRecord</a>();</div>
-<div class="line">         }</div>
-<div class="line">         $result = $svcObj-&gt;checkDataPerm($record,3,$this);</div>
-<div class="line">         <span class="keywordflow">if</span>($result == <span class="keyword">false</span>)</div>
-<div class="line">         {</div>
-<div class="line">          <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">         }</div>
-<div class="line">        }</div>
-<div class="line">     </div>
-<div class="line">        $result = $this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#aabdf3f8346fd3a11412b9b4c33787355">canDeleteRecordCondition</a>();</div>
-<div class="line">        <span class="keywordflow">return</span> $result;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00191">191</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_a67d94f354839a005d97b8376df820540_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_a67d94f354839a005d97b8376df820540_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_a67d94f354839a005d97b8376df820540_cgraph" id="d3/d2c/class_biz_data_obj_a67d94f354839a005d97b8376df820540_cgraph">
+<area shape="rect" id="node2" href="../../dc/d2b/class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9" title="BizDataObj_Lite\\getActive\lRecord" alt="" coords="181,194,357,238"/><area shape="rect" id="node28" href="../../d3/d2c/class_biz_data_obj.html#aabdf3f8346fd3a11412b9b4c33787355" title="canDeleteRecordCondition" alt="" coords="179,338,360,366"/><area shape="rect" id="node3" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="409,202,596,230"/><area shape="rect" id="node14" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite\\count" alt="" coords="864,106,1018,134"/><area shape="rect" id="node4" href="../../d7/d32/class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract\l\\clearSearchRule" alt="" coords="651,126,797,170"/><area shape="rect" id="node5" href="../../d7/d32/class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract\l\\setSearchRule" alt="" coords="651,194,797,238"/><area shape="rect" id="node6" href="../../d7/d32/class_biz_data_obj___abstract.html#aa70182035e20efcd63a8bd3cb36c5c92" title="BizDataObj_Abstract\l\\clearSortRule" alt="" coords="651,262,797,306"/><area shape="rect" id="node7" href="../../d7/d32/class_biz_data_obj___abstract.html#ad9767fc4b371a704f36c9408cd92bfab" title="BizDataObj_Abstract\l\\setSortRule" alt="" coords="651,330,797,374"/><area shape="rect" id="node8" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="650,398,798,442"/><area shape="rect" id="node27" href="../../dc/d2b/class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="BizDataObj_Lite\\_fetch\l_record" alt="" coords="645,58,803,102"/><area shape="rect" id="node9" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="1110,150,1255,194"/><area shape="rect" id="node12" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="1080,262,1286,290"/><area shape="rect" id="node15" href="../../d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5" title="QueryStringParam\\getBind\lValues" alt="" coords="851,210,1032,254"/><area shape="rect" id="node16" href="../../d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2" title="QueryStringParam\\getBind\lValueString" alt="" coords="851,330,1032,374"/><area shape="rect" id="node17" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="2056,491,2208,519"/><area shape="rect" id="node19" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1842,465,1948,493"/><area shape="rect" id="node20" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="869,398,1014,442"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="1574,206,1744,234"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2274,315,2412,343"/><area shape="rect" id="node13" href="../../d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="1347,254,1509,298"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2270,491,2415,519"/><area shape="rect" id="node21" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1155,358,1210,386"/><area shape="rect" id="node26" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="1087,410,1278,438"/><area shape="rect" id="node22" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1361,358,1495,386"/><area shape="rect" id="node23" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1571,358,1746,386"/><area shape="rect" id="node24" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="2042,358,2222,386"/><area shape="rect" id="node25" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1795,410,1995,438"/><area shape="rect" id="node29" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1" title="MetaObject\\allowAccess" alt="" coords="419,491,586,519"/><area shape="rect" id="node30" href="../../d1/d7e/class_biz_system.html#a4133bb0c948ac1d650827a15fb52072c" title="BizSystem\\allowUserAccess" alt="" coords="1333,569,1523,597"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_a67d94f354839a005d97b8376df820540_icgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_a67d94f354839a005d97b8376df820540_icgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_a67d94f354839a005d97b8376df820540_icgraph" id="d3/d2c/class_biz_data_obj_a67d94f354839a005d97b8376df820540_icgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#a8e1b49a9d10f77cd27239ecef9fdc075" title="deleteRecord" alt="" coords="179,5,280,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aabdf3f8346fd3a11412b9b4c33787355"></a>
@@ -510,16 +515,30 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L211">211</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {     </div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_DeleteCondition)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="comment">// return Expression::evaluateExpression($this-&gt;m_DeleteCondition,$this);</span></div>
-<div class="line">            <span class="keywordflow">return</span> $this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1">allowAccess</a>($this-&gt;m_DeleteCondition);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }    </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00211">211</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_aabdf3f8346fd3a11412b9b4c33787355_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_aabdf3f8346fd3a11412b9b4c33787355_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_aabdf3f8346fd3a11412b9b4c33787355_cgraph" id="d3/d2c/class_biz_data_obj_aabdf3f8346fd3a11412b9b4c33787355_cgraph">
+<area shape="rect" id="node2" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1" title="MetaObject\\allowAccess" alt="" coords="235,5,402,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a4133bb0c948ac1d650827a15fb52072c" title="BizSystem\\allowUserAccess" alt="" coords="451,5,640,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="688,5,840,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="889,5,1034,33"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_aabdf3f8346fd3a11412b9b4c33787355_icgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_aabdf3f8346fd3a11412b9b4c33787355_icgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_aabdf3f8346fd3a11412b9b4c33787355_icgraph" id="d3/d2c/class_biz_data_obj_aabdf3f8346fd3a11412b9b4c33787355_icgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#a67d94f354839a005d97b8376df820540" title="canDeleteRecord" alt="" coords="235,5,360,33"/><area shape="rect" id="node4" href="../../d3/d2c/class_biz_data_obj.html#a689275e60b48404e101c6b6ccf5e187e" title="deleteRecords" alt="" coords="244,57,351,85"/><area shape="rect" id="node3" href="../../d3/d2c/class_biz_data_obj.html#a8e1b49a9d10f77cd27239ecef9fdc075" title="deleteRecord" alt="" coords="408,5,509,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="afc9d51989ea40913cc84c3ebe0130e9a"></a>
@@ -538,27 +557,30 @@ Additional Inherited Members</h2></td></tr>
 <p>Check if the current record can be updated</p>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L156">156</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     </div>
-<div class="line">     <span class="keywordflow">if</span>($this-&gt;m_DataPermControl==<span class="charliteral">&#39;Y&#39;</span>)</div>
-<div class="line">        {</div>
-<div class="line">         $svcObj = BizSystem::GetService(<a class="code" href="../../d1/df2/sys__init_8php.html#ad3e9ef4e7280b3f3a6c0e2b178831664">DATAPERM_SERVICE</a>);</div>
-<div class="line">         <span class="keywordflow">if</span>(!$record)</div>
-<div class="line">         {</div>
-<div class="line">          $record = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9">getActiveRecord</a>();</div>
-<div class="line">         }</div>
-<div class="line">         $result = $svcObj-&gt;checkDataPerm($record,2,$this);</div>
-<div class="line">         <span class="keywordflow">if</span>($result == <span class="keyword">false</span>)</div>
-<div class="line">         {</div>
-<div class="line">          <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">         }</div>
-<div class="line">        }</div>
-<div class="line">     </div>
-<div class="line">        $result = $this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#a509f69a27719e17ae032ca0fbfb064d0">canUpdateRecordCondition</a>();</div>
-<div class="line">        <span class="keywordflow">return</span> $result;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00156">156</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_afc9d51989ea40913cc84c3ebe0130e9a_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_afc9d51989ea40913cc84c3ebe0130e9a_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_afc9d51989ea40913cc84c3ebe0130e9a_cgraph" id="d3/d2c/class_biz_data_obj_afc9d51989ea40913cc84c3ebe0130e9a_cgraph">
+<area shape="rect" id="node2" href="../../dc/d2b/class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9" title="BizDataObj_Lite\\getActive\lRecord" alt="" coords="189,194,365,238"/><area shape="rect" id="node28" href="../../d3/d2c/class_biz_data_obj.html#a509f69a27719e17ae032ca0fbfb064d0" title="canUpdateRecordCondition" alt="" coords="185,338,370,366"/><area shape="rect" id="node3" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="420,202,607,230"/><area shape="rect" id="node14" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite\\count" alt="" coords="875,106,1029,134"/><area shape="rect" id="node4" href="../../d7/d32/class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract\l\\clearSearchRule" alt="" coords="662,126,807,170"/><area shape="rect" id="node5" href="../../d7/d32/class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract\l\\setSearchRule" alt="" coords="662,194,807,238"/><area shape="rect" id="node6" href="../../d7/d32/class_biz_data_obj___abstract.html#aa70182035e20efcd63a8bd3cb36c5c92" title="BizDataObj_Abstract\l\\clearSortRule" alt="" coords="662,262,807,306"/><area shape="rect" id="node7" href="../../d7/d32/class_biz_data_obj___abstract.html#ad9767fc4b371a704f36c9408cd92bfab" title="BizDataObj_Abstract\l\\setSortRule" alt="" coords="662,330,807,374"/><area shape="rect" id="node8" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="661,398,809,442"/><area shape="rect" id="node27" href="../../dc/d2b/class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="BizDataObj_Lite\\_fetch\l_record" alt="" coords="656,58,814,102"/><area shape="rect" id="node9" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="1121,150,1266,194"/><area shape="rect" id="node12" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="1090,262,1296,290"/><area shape="rect" id="node15" href="../../d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5" title="QueryStringParam\\getBind\lValues" alt="" coords="862,210,1042,254"/><area shape="rect" id="node16" href="../../d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2" title="QueryStringParam\\getBind\lValueString" alt="" coords="862,330,1042,374"/><area shape="rect" id="node17" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="2067,491,2218,519"/><area shape="rect" id="node19" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1852,465,1958,493"/><area shape="rect" id="node20" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="879,398,1025,442"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="1584,206,1754,234"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2284,315,2422,343"/><area shape="rect" id="node13" href="../../d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="1358,254,1520,298"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2281,491,2426,519"/><area shape="rect" id="node21" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1166,358,1221,386"/><area shape="rect" id="node26" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="1098,410,1289,438"/><area shape="rect" id="node22" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1372,358,1506,386"/><area shape="rect" id="node23" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1582,358,1757,386"/><area shape="rect" id="node24" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="2053,358,2232,386"/><area shape="rect" id="node25" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1805,410,2005,438"/><area shape="rect" id="node29" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1" title="MetaObject\\allowAccess" alt="" coords="430,491,597,519"/><area shape="rect" id="node30" href="../../d1/d7e/class_biz_system.html#a4133bb0c948ac1d650827a15fb52072c" title="BizSystem\\allowUserAccess" alt="" coords="1344,569,1533,597"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_afc9d51989ea40913cc84c3ebe0130e9a_icgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_afc9d51989ea40913cc84c3ebe0130e9a_icgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_afc9d51989ea40913cc84c3ebe0130e9a_icgraph" id="d3/d2c/class_biz_data_obj_afc9d51989ea40913cc84c3ebe0130e9a_icgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="updateRecord" alt="" coords="185,5,290,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a509f69a27719e17ae032ca0fbfb064d0"></a>
@@ -574,16 +596,30 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L177">177</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {     </div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_UpdateCondition)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="comment">//return Expression::evaluateExpression($this-&gt;m_UpdateCondition,$this);</span></div>
-<div class="line">            <span class="keywordflow">return</span> $this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1">allowAccess</a>($this-&gt;m_UpdateCondition);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00177">177</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_a509f69a27719e17ae032ca0fbfb064d0_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_a509f69a27719e17ae032ca0fbfb064d0_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_a509f69a27719e17ae032ca0fbfb064d0_cgraph" id="d3/d2c/class_biz_data_obj_a509f69a27719e17ae032ca0fbfb064d0_cgraph">
+<area shape="rect" id="node2" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1" title="MetaObject\\allowAccess" alt="" coords="241,5,407,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a4133bb0c948ac1d650827a15fb52072c" title="BizSystem\\allowUserAccess" alt="" coords="456,5,645,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="694,5,845,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="894,5,1039,33"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_a509f69a27719e17ae032ca0fbfb064d0_icgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_a509f69a27719e17ae032ca0fbfb064d0_icgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_a509f69a27719e17ae032ca0fbfb064d0_icgraph" id="d3/d2c/class_biz_data_obj_a509f69a27719e17ae032ca0fbfb064d0_icgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#afc9d51989ea40913cc84c3ebe0130e9a" title="canUpdateRecord" alt="" coords="241,5,370,33"/><area shape="rect" id="node4" href="../../d3/d2c/class_biz_data_obj.html#aed5b6a1f292ba8f7f88bf34e37c6309c" title="updateRecords" alt="" coords="249,57,361,85"/><area shape="rect" id="node3" href="../../d3/d2c/class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="updateRecord" alt="" coords="419,5,525,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aae6158ea6c2e59049c9c0d06b56446a8"></a>
@@ -609,13 +645,30 @@ Additional Inherited Members</h2></td></tr>
 <p>Run cascade delete </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L725">725</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_ObjReferences as $objRef) {</div>
-<div class="line">            $this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#aa9f8e225938574a7a5a8892df3f494ca">processCascadeAction</a>($objRef, <span class="stringliteral">&quot;Delete&quot;</span>);</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00725">725</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_aae6158ea6c2e59049c9c0d06b56446a8_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_aae6158ea6c2e59049c9c0d06b56446a8_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_aae6158ea6c2e59049c9c0d06b56446a8_cgraph" id="d3/d2c/class_biz_data_obj_aae6158ea6c2e59049c9c0d06b56446a8_cgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#aa9f8e225938574a7a5a8892df3f494ca" title="processCascadeAction" alt="" coords="162,643,320,671"/><area shape="rect" id="node3" href="../../dc/d2b/class_biz_data_obj___lite.html#aa593ade9bce0ebe2d57c99d8ae2017d7" title="BizDataObj_Lite\\getField" alt="" coords="369,5,538,33"/><area shape="rect" id="node4" href="../../dc/d2b/class_biz_data_obj___lite.html#a73b7596e4d1242bb3ae3b12f26aeb18a" title="BizDataObj_Lite\\getField\lValue" alt="" coords="369,550,538,594"/><area shape="rect" id="node12" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="1513,389,1658,433"/><area shape="rect" id="node31" href="../../d7/d32/class_biz_data_obj___abstract.html#a8256cabbe4c7a88a89287e36c6ff69b3" title="BizDataObj_Abstract\l\\getRefObject" alt="" coords="602,822,747,866"/><area shape="rect" id="node17" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite\\count" alt="" coords="1267,569,1421,597"/><area shape="rect" id="node23" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="1271,621,1417,665"/><area shape="rect" id="node21" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2646,770,2791,798"/><area shape="rect" id="node22" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1291,689,1397,717"/><area shape="rect" id="node5" href="../../dc/d2b/class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9" title="BizDataObj_Lite\\getActive\lRecord" alt="" coords="587,550,763,594"/><area shape="rect" id="node6" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="812,355,999,383"/><area shape="rect" id="node7" href="../../d7/d32/class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract\l\\clearSearchRule" alt="" coords="1054,109,1199,153"/><area shape="rect" id="node8" href="../../d7/d32/class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract\l\\setSearchRule" alt="" coords="1054,177,1199,221"/><area shape="rect" id="node9" href="../../d7/d32/class_biz_data_obj___abstract.html#aa70182035e20efcd63a8bd3cb36c5c92" title="BizDataObj_Abstract\l\\clearSortRule" alt="" coords="1054,245,1199,289"/><area shape="rect" id="node10" href="../../d7/d32/class_biz_data_obj___abstract.html#ad9767fc4b371a704f36c9408cd92bfab" title="BizDataObj_Abstract\l\\setSortRule" alt="" coords="1054,313,1199,357"/><area shape="rect" id="node11" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="1053,449,1201,493"/><area shape="rect" id="node30" href="../../dc/d2b/class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="BizDataObj_Lite\\_fetch\l_record" alt="" coords="1048,381,1206,425"/><area shape="rect" id="node15" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="1482,521,1688,549"/><area shape="rect" id="node18" href="../../d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5" title="QueryStringParam\\getBind\lValues" alt="" coords="1254,449,1434,493"/><area shape="rect" id="node19" href="../../d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2" title="QueryStringParam\\getBind\lValueString" alt="" coords="1254,381,1434,425"/><area shape="rect" id="node20" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="2432,661,2584,689"/><area shape="rect" id="node13" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="1950,497,2120,525"/><area shape="rect" id="node14" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2650,547,2788,575"/><area shape="rect" id="node16" href="../../d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="1736,513,1898,557"/><area shape="rect" id="node24" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1558,582,1613,610"/><area shape="rect" id="node29" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="1490,634,1681,662"/><area shape="rect" id="node25" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1750,582,1884,610"/><area shape="rect" id="node26" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1947,582,2122,610"/><area shape="rect" id="node27" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="2418,582,2598,610"/><area shape="rect" id="node28" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="2171,634,2371,662"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_aae6158ea6c2e59049c9c0d06b56446a8_icgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_aae6158ea6c2e59049c9c0d06b56446a8_icgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_aae6158ea6c2e59049c9c0d06b56446a8_icgraph" id="d3/d2c/class_biz_data_obj_aae6158ea6c2e59049c9c0d06b56446a8_icgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#a8e1b49a9d10f77cd27239ecef9fdc075" title="deleteRecord" alt="" coords="163,5,264,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a78198f79425515a8fcfa48d4e6408f5b"></a>
@@ -641,13 +694,30 @@ Additional Inherited Members</h2></td></tr>
 <p>Run cascade update </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L736">736</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_ObjReferences as $objRef) {</div>
-<div class="line">            $this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#aa9f8e225938574a7a5a8892df3f494ca">processCascadeAction</a>($objRef, <span class="stringliteral">&quot;Update&quot;</span>);</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00736">736</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_a78198f79425515a8fcfa48d4e6408f5b_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_a78198f79425515a8fcfa48d4e6408f5b_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_a78198f79425515a8fcfa48d4e6408f5b_cgraph" id="d3/d2c/class_biz_data_obj_a78198f79425515a8fcfa48d4e6408f5b_cgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#aa9f8e225938574a7a5a8892df3f494ca" title="processCascadeAction" alt="" coords="168,643,326,671"/><area shape="rect" id="node3" href="../../dc/d2b/class_biz_data_obj___lite.html#aa593ade9bce0ebe2d57c99d8ae2017d7" title="BizDataObj_Lite\\getField" alt="" coords="374,5,543,33"/><area shape="rect" id="node4" href="../../dc/d2b/class_biz_data_obj___lite.html#a73b7596e4d1242bb3ae3b12f26aeb18a" title="BizDataObj_Lite\\getField\lValue" alt="" coords="374,550,543,594"/><area shape="rect" id="node12" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="1518,389,1663,433"/><area shape="rect" id="node31" href="../../d7/d32/class_biz_data_obj___abstract.html#a8256cabbe4c7a88a89287e36c6ff69b3" title="BizDataObj_Abstract\l\\getRefObject" alt="" coords="607,822,753,866"/><area shape="rect" id="node17" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite\\count" alt="" coords="1272,569,1426,597"/><area shape="rect" id="node23" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="1277,621,1422,665"/><area shape="rect" id="node21" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2651,770,2797,798"/><area shape="rect" id="node22" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1296,689,1402,717"/><area shape="rect" id="node5" href="../../dc/d2b/class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9" title="BizDataObj_Lite\\getActive\lRecord" alt="" coords="592,550,768,594"/><area shape="rect" id="node6" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="817,355,1004,383"/><area shape="rect" id="node7" href="../../d7/d32/class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract\l\\clearSearchRule" alt="" coords="1059,109,1205,153"/><area shape="rect" id="node8" href="../../d7/d32/class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract\l\\setSearchRule" alt="" coords="1059,177,1205,221"/><area shape="rect" id="node9" href="../../d7/d32/class_biz_data_obj___abstract.html#aa70182035e20efcd63a8bd3cb36c5c92" title="BizDataObj_Abstract\l\\clearSortRule" alt="" coords="1059,245,1205,289"/><area shape="rect" id="node10" href="../../d7/d32/class_biz_data_obj___abstract.html#ad9767fc4b371a704f36c9408cd92bfab" title="BizDataObj_Abstract\l\\setSortRule" alt="" coords="1059,313,1205,357"/><area shape="rect" id="node11" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="1058,449,1206,493"/><area shape="rect" id="node30" href="../../dc/d2b/class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="BizDataObj_Lite\\_fetch\l_record" alt="" coords="1053,381,1211,425"/><area shape="rect" id="node15" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="1488,521,1694,549"/><area shape="rect" id="node18" href="../../d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5" title="QueryStringParam\\getBind\lValues" alt="" coords="1259,449,1440,493"/><area shape="rect" id="node19" href="../../d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2" title="QueryStringParam\\getBind\lValueString" alt="" coords="1259,381,1440,425"/><area shape="rect" id="node20" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="2438,661,2589,689"/><area shape="rect" id="node13" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="1955,497,2125,525"/><area shape="rect" id="node14" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2655,547,2793,575"/><area shape="rect" id="node16" href="../../d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="1742,513,1904,557"/><area shape="rect" id="node24" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1563,582,1618,610"/><area shape="rect" id="node29" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="1495,634,1686,662"/><area shape="rect" id="node25" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1756,582,1890,610"/><area shape="rect" id="node26" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1952,582,2128,610"/><area shape="rect" id="node27" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="2424,582,2603,610"/><area shape="rect" id="node28" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="2176,634,2376,662"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_a78198f79425515a8fcfa48d4e6408f5b_icgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_a78198f79425515a8fcfa48d4e6408f5b_icgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_a78198f79425515a8fcfa48d4e6408f5b_icgraph" id="d3/d2c/class_biz_data_obj_a78198f79425515a8fcfa48d4e6408f5b_icgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="updateRecord" alt="" coords="169,5,274,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a79777aeaff8398feac96662c64d39655"></a>
@@ -666,17 +736,30 @@ Additional Inherited Members</h2></td></tr>
 <p><a class="el" href="../../d1/d7e/class_biz_system.html">BizSystem</a> $g_BizSystem </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L901">901</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span>($this-&gt;m_CacheLifeTime &gt; 0)</div>
-<div class="line">        {</div>
-<div class="line">            $cacheSvc = <a class="code" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96">BizSystem::getService</a>(CACHE_SERVICE,1);</div>
-<div class="line">            $cacheSvc-&gt;init($this-&gt;m_Name, $this-&gt;m_CacheLifeTime);</div>
-<div class="line">            $cacheSvc-&gt;cleanAll();</div>
-<div class="line">            </div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00901">901</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_a79777aeaff8398feac96662c64d39655_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_a79777aeaff8398feac96662c64d39655_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_a79777aeaff8398feac96662c64d39655_cgraph" id="d3/d2c/class_biz_data_obj_a79777aeaff8398feac96662c64d39655_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="147,5,298,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="347,5,493,33"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_a79777aeaff8398feac96662c64d39655_icgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_a79777aeaff8398feac96662c64d39655_icgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_a79777aeaff8398feac96662c64d39655_icgraph" id="d3/d2c/class_biz_data_obj_a79777aeaff8398feac96662c64d39655_icgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="updateRecord" alt="" coords="150,5,255,33"/><area shape="rect" id="node3" href="../../d3/d2c/class_biz_data_obj.html#aed5b6a1f292ba8f7f88bf34e37c6309c" title="updateRecords" alt="" coords="147,57,259,85"/><area shape="rect" id="node4" href="../../d3/d2c/class_biz_data_obj.html#ad6122472319985567e31b7276a78c889" title="insertRecord" alt="" coords="154,109,251,137"/><area shape="rect" id="node5" href="../../d3/d2c/class_biz_data_obj.html#a8e1b49a9d10f77cd27239ecef9fdc075" title="deleteRecord" alt="" coords="152,161,253,189"/><area shape="rect" id="node6" href="../../d3/d2c/class_biz_data_obj.html#a689275e60b48404e101c6b6ccf5e187e" title="deleteRecords" alt="" coords="149,213,256,241"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a8e1b49a9d10f77cd27239ecef9fdc075"></a>
@@ -701,55 +784,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean - if return false, the caller can call GetErrorMessage to get the error. </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L534">534</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {     </div>
-<div class="line">        <span class="keywordflow">if</span> (!$this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#a67d94f354839a005d97b8376df820540">canDeleteRecord</a>())</div>
-<div class="line">        {            </div>
-<div class="line">            $this-&gt;m_ErrorMessage = <a class="code" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866">BizSystem::getMessage</a>(<span class="stringliteral">&quot;DATA_NO_PERMISSION_DELETE&quot;</span>,$this-&gt;m_Name);</div>
-<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a>($this-&gt;m_ErrorMessage);</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($recArr)</div>
-<div class="line">            $this-&gt;m_BizRecord-&gt;setInputRecord($recArr);</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            $this-&gt;m_BizRecord-&gt;setInputRecord($this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9">getActiveRecord</a>());</div>
-<div class="line"></div>
-<div class="line">        $sql = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80">getSQLHelper</a>()-&gt;buildDeleteSQL($this);</div>
-<div class="line">        <span class="keywordflow">if</span> ($sql)</div>
-<div class="line">        {</div>
-<div class="line">            $db = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed">getDBConnection</a>(<span class="stringliteral">&quot;WRITE&quot;</span>);</div>
-<div class="line">            $db-&gt;beginTransaction();</div>
-<div class="line">            <span class="keywordflow">try</span></div>
-<div class="line">            {</div>
-<div class="line">                $this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#aae6158ea6c2e59049c9c0d06b56446a8">cascadeDelete</a>(); <span class="comment">// cascade delete</span></div>
-<div class="line"></div>
-<div class="line">                <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_DEBUG, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, <span class="stringliteral">&quot;Delete Sql = $sql&quot;</span>);</div>
-<div class="line">                $db-&gt;query($sql);</div>
-<div class="line"></div>
-<div class="line">                $db-&gt;commit();</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">catch</span> (Exception $e)</div>
-<div class="line">            {</div>
-<div class="line">                $db-&gt;rollBack();</div>
-<div class="line">                <span class="keywordflow">if</span> ($e instanceof <a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a>)</div>
-<div class="line">                    <span class="keywordflow">throw</span> $e;</div>
-<div class="line">                <span class="keywordflow">else</span> {</div>
-<div class="line">                    <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_ERR, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, <span class="stringliteral">&quot;Query error : &quot;</span>.$e-&gt;getMessage());</div>
-<div class="line">                    $this-&gt;m_ErrorMessage = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff">getMessage</a>(<span class="stringliteral">&quot;DATA_ERROR_QUERY&quot;</span>).<span class="stringliteral">&quot;: &quot;</span>.$sql.<span class="stringliteral">&quot;. &quot;</span>.$e-&gt;getMessage();</div>
-<div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> BDOException($this-&gt;m_ErrorMessage);</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">//clean cached data</span></div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#a79777aeaff8398feac96662c64d39655">cleanCache</a>();</div>
-<div class="line"></div>
-<div class="line">        $this-&gt;_postDeleteRecord($this-&gt;m_BizRecord-&gt;getKeyValue());</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00534">534</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_a8e1b49a9d10f77cd27239ecef9fdc075_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_a8e1b49a9d10f77cd27239ecef9fdc075_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_a8e1b49a9d10f77cd27239ecef9fdc075_cgraph" id="d3/d2c/class_biz_data_obj_a8e1b49a9d10f77cd27239ecef9fdc075_cgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#a67d94f354839a005d97b8376df820540" title="canDeleteRecord" alt="" coords="591,931,716,959"/><area shape="rect" id="node32" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="154,65,315,93"/><area shape="rect" id="node3" href="../../dc/d2b/class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9" title="BizDataObj_Lite\\getActive\lRecord" alt="" coords="789,471,965,515"/><area shape="rect" id="node13" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="1688,621,1894,649"/><area shape="rect" id="node10" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="1718,378,1863,422"/><area shape="rect" id="node34" href="../../d3/d2c/class_biz_data_obj.html#aae6158ea6c2e59049c9c0d06b56446a8" title="cascadeDelete" alt="" coords="180,753,289,781"/><area shape="rect" id="node20" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1496,881,1602,909"/><area shape="rect" id="node21" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="1477,779,1622,823"/><area shape="rect" id="node39" href="../../d3/d2c/class_biz_data_obj.html#a79777aeaff8398feac96662c64d39655" title="cleanCache" alt="" coords="395,1123,487,1151"/><area shape="rect" id="node29" href="../../d3/d2c/class_biz_data_obj.html#aabdf3f8346fd3a11412b9b4c33787355" title="canDeleteRecordCondition" alt="" coords="787,931,968,959"/><area shape="rect" id="node4" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="1017,479,1204,507"/><area shape="rect" id="node15" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite\\count" alt="" coords="1472,386,1626,414"/><area shape="rect" id="node5" href="../../d7/d32/class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract\l\\clearSearchRule" alt="" coords="1259,403,1405,447"/><area shape="rect" id="node6" href="../../d7/d32/class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract\l\\setSearchRule" alt="" coords="1259,471,1405,515"/><area shape="rect" id="node7" href="../../d7/d32/class_biz_data_obj___abstract.html#aa70182035e20efcd63a8bd3cb36c5c92" title="BizDataObj_Abstract\l\\clearSortRule" alt="" coords="1259,539,1405,583"/><area shape="rect" id="node8" href="../../d7/d32/class_biz_data_obj___abstract.html#ad9767fc4b371a704f36c9408cd92bfab" title="BizDataObj_Abstract\l\\setSortRule" alt="" coords="1259,267,1405,311"/><area shape="rect" id="node9" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="1258,659,1406,703"/><area shape="rect" id="node28" href="../../dc/d2b/class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="BizDataObj_Lite\\_fetch\l_record" alt="" coords="1253,335,1411,379"/><area shape="rect" id="node16" href="../../d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5" title="QueryStringParam\\getBind\lValues" alt="" coords="1459,490,1640,534"/><area shape="rect" id="node17" href="../../d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2" title="QueryStringParam\\getBind\lValueString" alt="" coords="1459,558,1640,602"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="2664,926,2816,954"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="2182,410,2352,438"/><area shape="rect" id="node12" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2882,449,3020,477"/><area shape="rect" id="node14" href="../../d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="1955,609,2117,653"/><area shape="rect" id="node19" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2878,1025,3023,1053"/><area shape="rect" id="node22" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1763,502,1818,530"/><area shape="rect" id="node27" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="1695,787,1886,815"/><area shape="rect" id="node23" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1969,502,2103,530"/><area shape="rect" id="node24" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="2179,502,2354,530"/><area shape="rect" id="node25" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="2650,477,2830,505"/><area shape="rect" id="node26" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="2403,529,2603,557"/><area shape="rect" id="node30" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1" title="MetaObject\\allowAccess" alt="" coords="1027,931,1194,959"/><area shape="rect" id="node31" href="../../d1/d7e/class_biz_system.html#a4133bb0c948ac1d650827a15fb52072c" title="BizSystem\\allowUserAccess" alt="" coords="1941,965,2131,993"/><area shape="rect" id="node33" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="364,65,519,93"/><area shape="rect" id="node35" href="../../d3/d2c/class_biz_data_obj.html#aa9f8e225938574a7a5a8892df3f494ca" title="processCascadeAction" alt="" coords="362,727,520,755"/><area shape="rect" id="node36" href="../../dc/d2b/class_biz_data_obj___lite.html#aa593ade9bce0ebe2d57c99d8ae2017d7" title="BizDataObj_Lite\\getField" alt="" coords="569,675,738,703"/><area shape="rect" id="node37" href="../../dc/d2b/class_biz_data_obj___lite.html#a73b7596e4d1242bb3ae3b12f26aeb18a" title="BizDataObj_Lite\\getField\lValue" alt="" coords="569,539,738,583"/><area shape="rect" id="node38" href="../../d7/d32/class_biz_data_obj___abstract.html#a8256cabbe4c7a88a89287e36c6ff69b3" title="BizDataObj_Abstract\l\\getRefObject" alt="" coords="2430,1017,2575,1061"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a689275e60b48404e101c6b6ccf5e187e"></a>
@@ -766,40 +813,19 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L583">583</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> (!$this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#aabdf3f8346fd3a11412b9b4c33787355">canDeleteRecordCondition</a>())</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a>( <a class="code" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866">BizSystem::getMessage</a>(<span class="stringliteral">&quot;DATA_NO_PERMISSION_DELETE&quot;</span>,$this-&gt;m_Name) );</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line"></div>
-<div class="line">        $sql = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80">getSQLHelper</a>()-&gt;buildDeleteSQLwithCondition($this,$condition);</div>
-<div class="line">        $db = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed">getDBConnection</a>(<span class="stringliteral">&quot;WRITE&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">try</span></div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span>($sql)</div>
-<div class="line">            {  <span class="comment">// delete joint table first then delete main table&#39;s data&#39;</span></div>
-<div class="line">                <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_DEBUG, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, <span class="stringliteral">&quot;Delete Sql = $sql&quot;</span>);</div>
-<div class="line">                $db-&gt;query($sql);</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">catch</span> (Exception $e)</div>
-<div class="line">        {</div>
-<div class="line">            <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_ERR, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, <span class="stringliteral">&quot;Query error : &quot;</span>.$e-&gt;getMessage());</div>
-<div class="line">            $db-&gt;rollBack(); <span class="comment">//if one failed then rollback all</span></div>
-<div class="line">            $this-&gt;m_ErrorMessage = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff">getMessage</a>(<span class="stringliteral">&quot;DATA_ERROR_QUERY&quot;</span>).<span class="stringliteral">&quot;: &quot;</span>.$sql.<span class="stringliteral">&quot;. &quot;</span>.$e-&gt;getMessage();</div>
-<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a>($this-&gt;m_ErrorMessage);</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">//clean cached data</span></div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#a79777aeaff8398feac96662c64d39655">cleanCache</a>();</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00583">583</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_a689275e60b48404e101c6b6ccf5e187e_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_a689275e60b48404e101c6b6ccf5e187e_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_a689275e60b48404e101c6b6ccf5e187e_cgraph" id="d3/d2c/class_biz_data_obj_a689275e60b48404e101c6b6ccf5e187e_cgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#aabdf3f8346fd3a11412b9b4c33787355" title="canDeleteRecordCondition" alt="" coords="172,6,353,34"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="182,255,343,283"/><area shape="rect" id="node15" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="160,375,366,403"/><area shape="rect" id="node17" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="437,317,582,361"/><area shape="rect" id="node19" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1144,57,1250,85"/><area shape="rect" id="node20" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="190,170,335,214"/><area shape="rect" id="node22" href="../../d3/d2c/class_biz_data_obj.html#a79777aeaff8398feac96662c64d39655" title="cleanCache" alt="" coords="1387,109,1479,137"/><area shape="rect" id="node3" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1" title="MetaObject\\allowAccess" alt="" coords="426,5,593,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a4133bb0c948ac1d650827a15fb52072c" title="BizSystem\\allowUserAccess" alt="" coords="872,5,1061,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1595,83,1746,111"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1809,83,1954,111"/><area shape="rect" id="node8" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="432,265,587,293"/><area shape="rect" id="node9" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="711,217,766,245"/><area shape="rect" id="node10" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="900,217,1034,245"/><area shape="rect" id="node11" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1110,217,1285,245"/><area shape="rect" id="node12" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1581,242,1760,270"/><area shape="rect" id="node14" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1333,190,1533,218"/><area shape="rect" id="node13" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1812,271,1950,299"/><area shape="rect" id="node16" href="../../d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="428,385,590,429"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="654,319,824,347"/><area shape="rect" id="node21" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="414,161,605,189"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="adb4caeff31619b6a9b7af24032b66df4"></a>
@@ -850,43 +876,30 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>long|string|boolean </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L417">417</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// Identity type id is generated after insert is done.</span></div>
-<div class="line">        <span class="comment">// If this method is called before insert, return null.</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($isBeforeInsert &amp;&amp; $this-&gt;m_IdGeneration == <span class="stringliteral">&#39;Identity&#39;</span>)</div>
-<div class="line">            <span class="keywordflow">return</span> null;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> (!$isBeforeInsert &amp;&amp; $this-&gt;m_IdGeneration != <span class="stringliteral">&#39;Identity&#39;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;m_ErrorMessage = <a class="code" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866">BizSystem::getMessage</a>( <span class="stringliteral">&quot;DATA_UNABLE_GET_ID&quot;</span>,$this-&gt;m_Name);</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">/* @var $genIdService genIdService */</span></div>
-<div class="line">        $genIdService = <a class="code" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96">BizSystem::getService</a>(GENID_SERVICE);</div>
-<div class="line">        <span class="keywordflow">if</span>($this-&gt;m_db){</div>
-<div class="line">         $db = $this-&gt;m_db;</div>
-<div class="line">        }<span class="keywordflow">else</span>{</div>
-<div class="line">         $db = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed">getDBConnection</a>(<span class="stringliteral">&quot;READ&quot;</span>);</div>
-<div class="line">        }</div>
-<div class="line">        $dbInfo = BizSystem::Configuration()-&gt;getDatabaseInfo($this-&gt;m_Database);</div>
-<div class="line">        $dbType = $dbInfo[<span class="stringliteral">&quot;Driver&quot;</span>];</div>
-<div class="line">        $table = $tableName ? $tableName : <a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#a420bedf6e380522fdc9bd59ba02570ac">$this-&gt;m_MainTable</a>;</div>
-<div class="line">        $column = $idCloumnName ? $idCloumnName : $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#aa593ade9bce0ebe2d57c99d8ae2017d7">getField</a>(<span class="stringliteral">&quot;Id&quot;</span>)-&gt;m_Column;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">try</span></div>
-<div class="line">        {</div>
-<div class="line">            $newId = $genIdService-&gt;getNewID($this-&gt;m_IdGeneration, $db, $dbType, $table, $column);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">catch</span> (Exception $e)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;m_ErrorMessage = $e-&gt;getMessage();</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $newId;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00417">417</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_adb4caeff31619b6a9b7af24032b66df4_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_adb4caeff31619b6a9b7af24032b66df4_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_adb4caeff31619b6a9b7af24032b66df4_cgraph" id="d3/d2c/class_biz_data_obj_adb4caeff31619b6a9b7af24032b66df4_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="144,97,304,125"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1448,123,1600,151"/><area shape="rect" id="node12" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="362,5,507,49"/><area shape="rect" id="node14" href="../../dc/d2b/class_biz_data_obj___lite.html#aa593ade9bce0ebe2d57c99d8ae2017d7" title="BizDataObj_Lite\\getField" alt="" coords="140,201,308,229"/><area shape="rect" id="node3" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="357,97,512,125"/><area shape="rect" id="node4" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="618,97,673,125"/><area shape="rect" id="node5" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="780,97,914,125"/><area shape="rect" id="node6" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="963,97,1138,125"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1434,46,1614,74"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1187,97,1387,125"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1666,46,1804,74"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1662,123,1807,151"/><area shape="rect" id="node13" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="560,6,730,34"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_adb4caeff31619b6a9b7af24032b66df4_icgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_adb4caeff31619b6a9b7af24032b66df4_icgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_adb4caeff31619b6a9b7af24032b66df4_icgraph" id="d3/d2c/class_biz_data_obj_adb4caeff31619b6a9b7af24032b66df4_icgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#ad6122472319985567e31b7276a78c889" title="insertRecord" alt="" coords="140,5,236,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a7c87b166c153df76d01a5fc91c209c78"></a>
@@ -911,42 +924,8 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array joined fields array </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L786">786</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// get the maintable of the joindataobj</span></div>
-<div class="line">        $joinTable = $joinDataObj-&gt;m_MainTable;</div>
-<div class="line">        $returnRecord = array();</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// find the proper join according to the maintable</span></div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_TableJoins as $tableJoin)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> ($tableJoin-&gt;m_Table == $joinTable)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="comment">// populate the column-fieldvalue to columnRef-fieldvalue</span></div>
-<div class="line">                <span class="comment">// get the field mapping to the column, then get the field value</span></div>
-<div class="line">                $joinFieldName = $joinDataObj-&gt;m_BizRecord-&gt;getFieldByColumn($tableJoin-&gt;m_Column); <span class="comment">// joined-main table</span></div>
-<div class="line"></div>
-<div class="line">                <span class="keywordflow">if</span> (!$joinFieldName) <span class="keywordflow">continue</span>;</div>
-<div class="line"></div>
-<div class="line">                $refFieldName = $this-&gt;m_BizRecord-&gt;getFieldByColumn($tableJoin-&gt;m_ColumnRef); <span class="comment">// join table</span></div>
-<div class="line">                $returnRecord[$refFieldName] = $joinFieldName;</div>
-<div class="line"></div>
-<div class="line">                <span class="comment">// populate joinRecord&#39;s field to current record</span></div>
-<div class="line">                <span class="keywordflow">foreach</span> ($this-&gt;m_BizRecord as $field)</div>
-<div class="line">                {</div>
-<div class="line">                    <span class="keywordflow">if</span> ($field-&gt;m_Join == $tableJoin-&gt;m_Name)</div>
-<div class="line">                    {</div>
-<div class="line">                        <span class="comment">// use join column to match joinRecord field&#39;s column</span></div>
-<div class="line">                        $jFieldName = $joinDataObj-&gt;m_BizRecord-&gt;getFieldByColumn($field-&gt;m_Column); <span class="comment">// joined-main table</span></div>
-<div class="line">                        $returnRecord[$field-&gt;m_Name] = $jFieldName;</div>
-<div class="line">                    }</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $returnRecord;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00786">786</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ad6ee5ec2b0f43eb02e459207950ad77d"></a>
@@ -964,17 +943,8 @@ Additional Inherited Members</h2></td></tr>
 <p>Get auditable fields</p>
 <dl class="section return"><dt>Returns</dt><dd>array list of <a class="el" href="../../d8/d08/class_biz_field.html">BizField</a> objects who are auditable </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L748">748</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $fieldList = array();</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_BizRecord as $field)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> ($field-&gt;m_OnAudit)</div>
-<div class="line">                $fieldList[] = $field;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $fieldList;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00748">748</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ad6122472319985567e31b7276a78c889"></a>
@@ -999,63 +969,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean - if return false, the caller can call getErrorMessage to get the error. </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L460">460</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> ( $this-&gt;_isNeedGenerateId($recArr) )</div>
-<div class="line">            $recArr[<span class="stringliteral">&quot;Id&quot;</span>] = $this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#adb4caeff31619b6a9b7af24032b66df4">generateId</a>();    <span class="comment">// for certain cases, id is generated before insert</span></div>
-<div class="line"></div>
-<div class="line">        $this-&gt;m_BizRecord-&gt;setInputRecord($recArr);</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> (!$this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#aced64a0f4fd1647229efda490d90b8a0">validateInput</a>()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"></div>
-<div class="line">        $db = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed">getDBConnection</a>(<span class="stringliteral">&quot;WRITE&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">try</span></div>
-<div class="line">        {</div>
-<div class="line">            $sql = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80">getSQLHelper</a>()-&gt;buildInsertSQL($this, $joinValues);</div>
-<div class="line">            <span class="keywordflow">if</span>($sql)</div>
-<div class="line">            {</div>
-<div class="line">                $bindValues = <a class="code" href="../../d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5">QueryStringParam::getBindValues</a>();</div>
-<div class="line">                $bindValueString = <a class="code" href="../../d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2">QueryStringParam::getBindValueString</a>();</div>
-<div class="line">                <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_DEBUG, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, <span class="stringliteral">&quot;Insert Sql = $sql&quot;</span>.<span class="stringliteral">&quot;; BIND: $bindValueString&quot;</span>);</div>
-<div class="line">                <a class="code" href="../../d1/d2c/class_query_string_param.html#a2325df26721fdbe820d577d2482725f8">QueryStringParam::reset</a>();</div>
-<div class="line">                $db-&gt;query($sql, $bindValues);                </div>
-<div class="line">            }</div>
-<div class="line">            <span class="comment">//$mainId = $db-&gt;lastInsertId();</span></div>
-<div class="line">            <span class="keywordflow">if</span> ( $this-&gt;_isNeedGenerateId($recArr) )</div>
-<div class="line">            {</div>
-<div class="line">             $this-&gt;m_db = $db; <span class="comment">//compatiable for CLI mode and also speed up of it running</span></div>
-<div class="line">                $mainId = $this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#adb4caeff31619b6a9b7af24032b66df4">generateId</a>(<span class="keyword">false</span>);</div>
-<div class="line">                $recArr[<span class="stringliteral">&quot;Id&quot;</span>] = $mainId;</div>
-<div class="line">            }</div>
-<div class="line">            <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_DEBUG, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, <span class="stringliteral">&quot;New record Id is &quot;</span>.$recArr[<span class="stringliteral">&quot;Id&quot;</span>]);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">catch</span> (Exception $e)</div>
-<div class="line">        {</div>
-<div class="line">            <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_ERR, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, <span class="stringliteral">&quot;Query Error : &quot;</span> . $e-&gt;getMessage());</div>
-<div class="line">            $this-&gt;m_ErrorMessage = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff">getMessage</a>(<span class="stringliteral">&quot;DATA_ERROR_QUERY&quot;</span>).<span class="stringliteral">&quot;: &quot;</span>.$sql.<span class="stringliteral">&quot;. &quot;</span>.$e-&gt;getMessage();</div>
-<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a>($this-&gt;m_ErrorMessage);</div>
-<div class="line">            <span class="keywordflow">return</span> null;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        $this-&gt;m_BizRecord-&gt;setInputRecord($recArr);</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;_postUpdateLobFields($recArr) === <span class="keyword">false</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;m_ErrorMessage = $db-&gt;ErrorMsg();</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#a79777aeaff8398feac96662c64d39655">cleanCache</a>();</div>
-<div class="line"></div>
-<div class="line">        $this-&gt;m_RecordId = $recArr[<span class="stringliteral">&quot;Id&quot;</span>];</div>
-<div class="line">        $this-&gt;m_CurrentRecord = null;</div>
-<div class="line"></div>
-<div class="line">        $this-&gt;_postInsertRecord($recArr);</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">return</span> $recArr[<span class="stringliteral">&quot;Id&quot;</span>];</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00460">460</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_ad6122472319985567e31b7276a78c889_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_ad6122472319985567e31b7276a78c889_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_ad6122472319985567e31b7276a78c889_cgraph" id="d3/d2c/class_biz_data_obj_ad6122472319985567e31b7276a78c889_cgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#adb4caeff31619b6a9b7af24032b66df4" title="generateId" alt="" coords="604,146,689,174"/><area shape="rect" id="node16" href="../../d3/d2c/class_biz_data_obj.html#aced64a0f4fd1647229efda490d90b8a0" title="validateInput" alt="" coords="186,843,283,871"/><area shape="rect" id="node13" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="1267,35,1413,79"/><area shape="rect" id="node20" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="1237,769,1443,797"/><area shape="rect" id="node29" href="../../d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5" title="QueryStringParam\\getBind\lValues" alt="" coords="1008,878,1189,922"/><area shape="rect" id="node30" href="../../d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2" title="QueryStringParam\\getBind\lValueString" alt="" coords="1008,946,1189,990"/><area shape="rect" id="node31" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1046,1066,1152,1094"/><area shape="rect" id="node33" href="../../d1/d2c/class_query_string_param.html#a2325df26721fdbe820d577d2482725f8" title="QueryStringParam\\reset" alt="" coords="152,1242,317,1270"/><area shape="rect" id="node17" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="1026,291,1171,335"/><area shape="rect" id="node34" href="../../d3/d2c/class_biz_data_obj.html#a79777aeaff8398feac96662c64d39655" title="cleanCache" alt="" coords="389,1205,481,1233"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="794,146,955,174"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="2187,921,2338,949"/><area shape="rect" id="node15" href="../../dc/d2b/class_biz_data_obj___lite.html#aa593ade9bce0ebe2d57c99d8ae2017d7" title="BizDataObj_Lite\\getField" alt="" coords="790,94,959,122"/><area shape="rect" id="node4" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="1021,146,1176,174"/><area shape="rect" id="node5" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1313,146,1367,174"/><area shape="rect" id="node6" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1505,146,1639,174"/><area shape="rect" id="node7" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1702,146,1877,174"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="2173,95,2352,123"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1925,146,2125,174"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2404,70,2542,98"/><area shape="rect" id="node12" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2401,921,2546,949"/><area shape="rect" id="node14" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="1704,43,1874,71"/><area shape="rect" id="node19" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite\\count" alt="" coords="1022,505,1176,533"/><area shape="rect" id="node22" href="../../d3/d2c/class_biz_data_obj.html#a32bd6c3b9b933671846cd1b6c3209ed5" title="validateUniqueness" alt="" coords="366,523,504,551"/><area shape="rect" id="node18" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="1244,299,1436,327"/><area shape="rect" id="node21" href="../../d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="1491,758,1653,802"/><area shape="rect" id="node23" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="553,613,740,641"/><area shape="rect" id="node24" href="../../d7/d32/class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract\l\\clearSearchRule" alt="" coords="802,639,947,683"/><area shape="rect" id="node25" href="../../d7/d32/class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract\l\\setSearchRule" alt="" coords="802,707,947,751"/><area shape="rect" id="node26" href="../../d7/d32/class_biz_data_obj___abstract.html#aa70182035e20efcd63a8bd3cb36c5c92" title="BizDataObj_Abstract\l\\clearSortRule" alt="" coords="802,775,947,819"/><area shape="rect" id="node27" href="../../d7/d32/class_biz_data_obj___abstract.html#ad9767fc4b371a704f36c9408cd92bfab" title="BizDataObj_Abstract\l\\setSortRule" alt="" coords="802,503,947,547"/><area shape="rect" id="node28" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="801,895,949,939"/><area shape="rect" id="node32" href="../../dc/d2b/class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="BizDataObj_Lite\\_fetch\l_record" alt="" coords="796,571,954,615"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aba6f0bf902a6eef6d5b72cd098792e33"></a>
@@ -1091,44 +1017,8 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array return a modified record with joined record data </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L829">829</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// get the maintable of the joindataobj</span></div>
-<div class="line">        $joinTable = $joinDataObj-&gt;m_MainTable;</div>
-<div class="line">        $joinRecord = null;</div>
-<div class="line">        $returnRecord = array();</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// find the proper join according to join name and the maintable</span></div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_TableJoins as $tableJoin)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> (($joinName == $tableJoin-&gt;m_Name || $joinName == <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line">                    &amp;&amp; $tableJoin-&gt;m_Table == $joinTable)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="comment">// populate the column-fieldvalue to columnRef-fieldvalue</span></div>
-<div class="line">                <span class="comment">// get the field mapping to the column, then get the field value</span></div>
-<div class="line">                $joinFieldName = $joinDataObj-&gt;m_BizRecord-&gt;getFieldByColumn($tableJoin-&gt;m_Column); <span class="comment">// joined-main table</span></div>
-<div class="line">                <span class="keywordflow">if</span> (!$joinFieldName) <span class="keywordflow">continue</span>;</div>
-<div class="line">                <span class="keywordflow">if</span> (!$joinRecord)</div>
-<div class="line">                    $joinRecord = $joinDataObj-&gt;getActiveRecord();</div>
-<div class="line">                $refFieldName = $this-&gt;m_BizRecord-&gt;getFieldByColumn($tableJoin-&gt;m_ColumnRef); <span class="comment">// join table</span></div>
-<div class="line">                $returnRecord[$refFieldName] = $joinRecord[$joinFieldName];</div>
-<div class="line">                <span class="comment">// populate joinRecord&#39;s field to current record</span></div>
-<div class="line">                <span class="keywordflow">foreach</span> ($this-&gt;m_BizRecord as $fld)</div>
-<div class="line">                {</div>
-<div class="line">                    <span class="keywordflow">if</span> ($fld-&gt;m_Join == $tableJoin-&gt;m_Name)</div>
-<div class="line">                    {</div>
-<div class="line">                        <span class="comment">// use join column to match joinRecord field&#39;s column</span></div>
-<div class="line">                        $jfldname = $joinDataObj-&gt;m_BizRecord-&gt;getFieldByColumn($fld-&gt;m_Column); <span class="comment">// joined-main table</span></div>
-<div class="line">                        $returnRecord[$fld-&gt;m_Name] = $joinRecord[$jfldname];</div>
-<div class="line">                    }</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">// return a modified record with joined record data</span></div>
-<div class="line">        <span class="keywordflow">return</span> $returnRecord;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00829">829</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a44283849d1849ef432f360425f8c6907"></a>
@@ -1146,26 +1036,8 @@ Additional Inherited Members</h2></td></tr>
 <p>Create an empty new record</p>
 <dl class="section return"><dt>Returns</dt><dd>array - empty record array with default values </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L389">389</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $recArr = $this-&gt;m_BizRecord-&gt;getEmptyRecordArr();</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// if association is 1-M, set the field (pointing to the column) value as the FieldRefVal</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_Association[<span class="stringliteral">&quot;Relationship&quot;</span>] == <span class="stringliteral">&quot;1-M&quot;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">foreach</span> ($this-&gt;m_BizRecord as $field)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">if</span> ($field-&gt;m_Column == $this-&gt;m_Association[<span class="stringliteral">&quot;Column&quot;</span>] &amp;&amp; !$field-&gt;m_Join)</div>
-<div class="line">                {</div>
-<div class="line">                    $recArr[$field-&gt;m_Name] = $this-&gt;m_Association[<span class="stringliteral">&quot;FieldRefVal&quot;</span>];</div>
-<div class="line">                    <span class="keywordflow">break</span>;</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">return</span> $recArr;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00389">389</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aa9f8e225938574a7a5a8892df3f494ca"></a>
@@ -1200,98 +1072,30 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L629">629</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> (($cascadeType==<span class="stringliteral">&#39;Delete&#39;</span> &amp;&amp; $objRef-&gt;m_OnDelete)</div>
-<div class="line">            || ($cascadeType==<span class="stringliteral">&#39;Update&#39;</span> &amp;&amp; $objRef-&gt;m_OnUpdate))</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> ($objRef-&gt;m_Relationship == <span class="stringliteral">&quot;1-M&quot;</span> || $objRef-&gt;m_Relationship == <span class="stringliteral">&quot;1-1&quot;</span>) {</div>
-<div class="line">                $table = $objRef-&gt;m_Table;</div>
-<div class="line">                $column = $objRef-&gt;m_Column;</div>
-<div class="line">                $column2 = $objRef-&gt;m_Column2;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($objRef-&gt;m_Relationship == <span class="stringliteral">&quot;M-M&quot;</span> || $objRef-&gt;m_Relationship == <span class="stringliteral">&quot;Self-Self&quot;</span>) {</div>
-<div class="line">                $table = $objRef-&gt;m_XTable;</div>
-<div class="line">                $column = $objRef-&gt;m_XColumn1;</div>
-<div class="line">            }</div>
-<div class="line">            $refField = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#aa593ade9bce0ebe2d57c99d8ae2017d7">getField</a>($objRef-&gt;m_FieldRef);</div>
-<div class="line">            $fieldVal = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#a73b7596e4d1242bb3ae3b12f26aeb18a">getFieldValue</a>($objRef-&gt;m_FieldRef);</div>
-<div class="line">            </div>
-<div class="line">            $fieldVal2 = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#a73b7596e4d1242bb3ae3b12f26aeb18a">getFieldValue</a>($objRef-&gt;m_FieldRef2);</div>
-<div class="line">            <span class="keywordflow">if</span> (!$fieldVal) <span class="keywordflow">return</span>;      </div>
-<div class="line">            <span class="keywordflow">if</span>($column2){     </div>
-<div class="line">             <span class="keywordflow">if</span> (!$fieldVal2) <span class="keywordflow">return</span>;</div>
-<div class="line">            }</div>
-<div class="line"></div>
-<div class="line">            $db = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed">getDBConnection</a>(<span class="stringliteral">&quot;WRITE&quot;</span>);</div>
-<div class="line">            <span class="comment">// get the cascade action sql</span></div>
-<div class="line">            <span class="keywordflow">if</span> ($cascadeType==<span class="stringliteral">&#39;Delete&#39;</span>) {</div>
-<div class="line">                <span class="keywordflow">if</span> ($objRef-&gt;m_OnDelete == <span class="stringliteral">&quot;Cascade&quot;</span>) {</div>
-<div class="line">                    $sql = <span class="stringliteral">&quot;DELETE FROM &quot;</span>.$table.<span class="stringliteral">&quot; WHERE &quot;</span>.$column.<span class="stringliteral">&quot;=&#39;&quot;</span>.$fieldVal.<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">                    <span class="keywordflow">if</span>($column2 &amp;&amp; $fieldVal2){</div>
-<div class="line">                     $sql .= <span class="stringliteral">&quot; AND &quot;</span>.$column2.<span class="stringliteral">&quot;=&#39;&quot;</span>.$fieldVal2.<span class="stringliteral">&quot;&#39;&quot;</span>;  </div>
-<div class="line">                    }</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($objRef-&gt;m_OnDelete == <span class="stringliteral">&quot;SetNull&quot;</span>) {</div>
-<div class="line">                    $sql = <span class="stringliteral">&quot;UPDATE &quot;</span>.$table.<span class="stringliteral">&quot; SET $column=null WHERE &quot;</span>.$column.<span class="stringliteral">&quot;=&#39;&quot;</span>.$fieldVal.<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">                 <span class="keywordflow">if</span>($column2 &amp;&amp; $fieldVal2){</div>
-<div class="line">                     $sql .= <span class="stringliteral">&quot; AND &quot;</span>.$column2.<span class="stringliteral">&quot;=&#39;&quot;</span>.$fieldVal2.<span class="stringliteral">&quot;&#39;&quot;</span>;  </div>
-<div class="line">                    }</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($objRef-&gt;m_OnDelete == <span class="stringliteral">&quot;Restrict&quot;</span>) {</div>
-<div class="line">                    <span class="comment">// check if objRef has records</span></div>
-<div class="line">                    $refObj = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#a8256cabbe4c7a88a89287e36c6ff69b3">getRefObject</a>($objRef-&gt;m_Name);  </div>
-<div class="line">                 $sql = <span class="stringliteral">&quot;`$column`=&#39;&quot;</span>.$refField-&gt;m_Value.<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">                    <span class="keywordflow">if</span>($column2 &amp;&amp; $fieldVal2){</div>
-<div class="line">                     $sql .= <span class="stringliteral">&quot; AND &quot;</span>.$column2.<span class="stringliteral">&quot;=&#39;&quot;</span>.$fieldVal2.<span class="stringliteral">&quot;&#39;&quot;</span>;  </div>
-<div class="line">                    }                  </div>
-<div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755">count</a>($refObj-&gt;directFetch($sql,1)) == 1) {</div>
-<div class="line">                        <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a>($this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff">getMessage</a>(<span class="stringliteral">&quot;DATA_UNABLE_DEL_REC_CASCADE&quot;</span>,array($objRef-&gt;m_Name)));</div>
-<div class="line">                    }</div>
-<div class="line">                    <span class="keywordflow">return</span>;</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($cascadeType==<span class="stringliteral">&#39;Update&#39;</span>) {</div>
-<div class="line">                <span class="comment">// check if the column value is actually changed</span></div>
-<div class="line">                <span class="keywordflow">if</span> ($refField-&gt;m_OldValue == $refField-&gt;m_Value) <span class="keywordflow">return</span>;</div>
-<div class="line">                </div>
-<div class="line">                <span class="keywordflow">if</span> ($objRef-&gt;m_OnUpdate == <span class="stringliteral">&quot;Cascade&quot;</span>) {</div>
-<div class="line">                    $sql = <span class="stringliteral">&quot;UPDATE &quot;</span>.$table.<span class="stringliteral">&quot; SET $column=&#39;&quot;</span>.$refField-&gt;m_Value.<span class="stringliteral">&quot;&#39; WHERE &quot;</span>.$column.<span class="stringliteral">&quot;=&#39;&quot;</span>.$refField-&gt;m_OldValue.<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">                  <span class="keywordflow">if</span>($column2 &amp;&amp; $fieldVal2){</div>
-<div class="line">                     $sql .= <span class="stringliteral">&quot; AND &quot;</span>.$column2.<span class="stringliteral">&quot;=&#39;&quot;</span>.$fieldVal2.<span class="stringliteral">&quot;&#39;&quot;</span>;  </div>
-<div class="line">                    }</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($objRef-&gt;m_OnUpdate == <span class="stringliteral">&quot;SetNull&quot;</span>) {</div>
-<div class="line">                    $sql = <span class="stringliteral">&quot;UPDATE &quot;</span>.$table.<span class="stringliteral">&quot; SET $column=null WHERE &quot;</span>.$column.<span class="stringliteral">&quot;=&#39;&quot;</span>.$refField-&gt;m_OldValue.<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">                 <span class="keywordflow">if</span>($column2 &amp;&amp; $fieldVal2){</div>
-<div class="line">                     $sql .= <span class="stringliteral">&quot; AND &quot;</span>.$column2.<span class="stringliteral">&quot;=&#39;&quot;</span>.$fieldVal2.<span class="stringliteral">&quot;&#39;&quot;</span>;  </div>
-<div class="line">                    }</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($objRef-&gt;m_OnUpdate == <span class="stringliteral">&quot;Restrict&quot;</span>) {</div>
-<div class="line">                    <span class="comment">// check if objRef has records</span></div>
-<div class="line">                    $refObj = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($objRef-&gt;m_Name);</div>
-<div class="line">     $sql = <span class="stringliteral">&quot;[&quot;</span>.$objRef-&gt;m_FieldRef.<span class="stringliteral">&quot;]=&#39;&quot;</span>.$refField-&gt;m_OldValue.<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">                    <span class="keywordflow">if</span>($column2 &amp;&amp; $fieldVal2){</div>
-<div class="line">                     $sql .= <span class="stringliteral">&quot; AND &quot;</span>.$column2.<span class="stringliteral">&quot;=&#39;&quot;</span>.$fieldVal2.<span class="stringliteral">&quot;&#39;&quot;</span>;  </div>
-<div class="line">                    }</div>
-<div class="line">                    <span class="keywordflow">if</span> (<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755">count</a>($refObj-&gt;directFetch($sql,1)) == 1) {</div>
-<div class="line">                        <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a>($this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff">getMessage</a>(<span class="stringliteral">&quot;DATA_UNABLE_UPD_REC_CASCADE&quot;</span>,array($objRef-&gt;m_Name)));</div>
-<div class="line">                    }</div>
-<div class="line">                    <span class="keywordflow">return</span>;</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">try</span> {</div>
-<div class="line">                <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_DEBUG, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, <span class="stringliteral">&quot;Cascade $cascadeType Sql = $sql&quot;</span>);</div>
-<div class="line">                $db-&gt;query($sql);</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">catch</span> (Exception $e) {</div>
-<div class="line">                <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_Err, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, <span class="stringliteral">&quot;Cascade $cascadeType Error: &quot;</span>.$e-&gt;getMessage());</div>
-<div class="line">                $this-&gt;m_ErrorMessage = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff">getMessage</a>(<span class="stringliteral">&quot;DATA_ERROR_QUERY&quot;</span>).<span class="stringliteral">&quot;: &quot;</span>.$sql.<span class="stringliteral">&quot;. &quot;</span>.$e-&gt;getMessage();</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a>($this-&gt;m_ErrorMessage);</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00629">629</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_aa9f8e225938574a7a5a8892df3f494ca_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_aa9f8e225938574a7a5a8892df3f494ca_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_aa9f8e225938574a7a5a8892df3f494ca_cgraph" id="d3/d2c/class_biz_data_obj_aa9f8e225938574a7a5a8892df3f494ca_cgraph">
+<area shape="rect" id="node2" href="../../dc/d2b/class_biz_data_obj___lite.html#aa593ade9bce0ebe2d57c99d8ae2017d7" title="BizDataObj_Lite\\getField" alt="" coords="212,5,380,33"/><area shape="rect" id="node3" href="../../dc/d2b/class_biz_data_obj___lite.html#a73b7596e4d1242bb3ae3b12f26aeb18a" title="BizDataObj_Lite\\getField\lValue" alt="" coords="212,550,380,594"/><area shape="rect" id="node11" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="1355,389,1501,433"/><area shape="rect" id="node30" href="../../d7/d32/class_biz_data_obj___abstract.html#a8256cabbe4c7a88a89287e36c6ff69b3" title="BizDataObj_Abstract\l\\getRefObject" alt="" coords="445,822,590,866"/><area shape="rect" id="node16" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite\\count" alt="" coords="1110,569,1264,597"/><area shape="rect" id="node22" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="1114,621,1259,665"/><area shape="rect" id="node20" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2489,770,2634,798"/><area shape="rect" id="node21" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1134,689,1240,717"/><area shape="rect" id="node4" href="../../dc/d2b/class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9" title="BizDataObj_Lite\\getActive\lRecord" alt="" coords="429,550,605,594"/><area shape="rect" id="node5" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="654,355,842,383"/><area shape="rect" id="node6" href="../../d7/d32/class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract\l\\clearSearchRule" alt="" coords="897,109,1042,153"/><area shape="rect" id="node7" href="../../d7/d32/class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract\l\\setSearchRule" alt="" coords="897,177,1042,221"/><area shape="rect" id="node8" href="../../d7/d32/class_biz_data_obj___abstract.html#aa70182035e20efcd63a8bd3cb36c5c92" title="BizDataObj_Abstract\l\\clearSortRule" alt="" coords="897,245,1042,289"/><area shape="rect" id="node9" href="../../d7/d32/class_biz_data_obj___abstract.html#ad9767fc4b371a704f36c9408cd92bfab" title="BizDataObj_Abstract\l\\setSortRule" alt="" coords="897,313,1042,357"/><area shape="rect" id="node10" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="895,449,1043,493"/><area shape="rect" id="node29" href="../../dc/d2b/class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="BizDataObj_Lite\\_fetch\l_record" alt="" coords="890,381,1048,425"/><area shape="rect" id="node14" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="1325,521,1531,549"/><area shape="rect" id="node17" href="../../d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5" title="QueryStringParam\\getBind\lValues" alt="" coords="1096,449,1277,493"/><area shape="rect" id="node18" href="../../d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2" title="QueryStringParam\\getBind\lValueString" alt="" coords="1096,381,1277,425"/><area shape="rect" id="node19" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="2275,661,2426,689"/><area shape="rect" id="node12" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="1792,497,1962,525"/><area shape="rect" id="node13" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2492,547,2630,575"/><area shape="rect" id="node15" href="../../d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="1579,513,1741,557"/><area shape="rect" id="node23" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1401,582,1455,610"/><area shape="rect" id="node28" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="1332,634,1524,662"/><area shape="rect" id="node24" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1593,582,1727,610"/><area shape="rect" id="node25" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1790,582,1965,610"/><area shape="rect" id="node26" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="2261,582,2440,610"/><area shape="rect" id="node27" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="2013,634,2213,662"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_aa9f8e225938574a7a5a8892df3f494ca_icgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_aa9f8e225938574a7a5a8892df3f494ca_icgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_aa9f8e225938574a7a5a8892df3f494ca_icgraph" id="d3/d2c/class_biz_data_obj_aa9f8e225938574a7a5a8892df3f494ca_icgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#aae6158ea6c2e59049c9c0d06b56446a8" title="cascadeDelete" alt="" coords="213,5,323,33"/><area shape="rect" id="node4" href="../../d3/d2c/class_biz_data_obj.html#a78198f79425515a8fcfa48d4e6408f5b" title="cascadeUpdate" alt="" coords="211,57,325,85"/><area shape="rect" id="node3" href="../../d3/d2c/class_biz_data_obj.html#a8e1b49a9d10f77cd27239ecef9fdc075" title="deleteRecord" alt="" coords="376,5,477,33"/><area shape="rect" id="node5" href="../../d3/d2c/class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="updateRecord" alt="" coords="374,57,479,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a22f9e10d547964fad174e94c47ed0f8d"></a>
@@ -1327,11 +1131,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L890">890</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> <a class="code" href="../../df/daa/class_biz_data_obj___assoc.html#ae29c04c0e56715bc9ace9479ff3c19d4">BizDataObj_Assoc::removeRecord</a>($this, $recArr, $isParentObjUpdated);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00890">890</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_a22f9e10d547964fad174e94c47ed0f8d_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_a22f9e10d547964fad174e94c47ed0f8d_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_a22f9e10d547964fad174e94c47ed0f8d_cgraph" id="d3/d2c/class_biz_data_obj_a22f9e10d547964fad174e94c47ed0f8d_cgraph">
+<area shape="rect" id="node2" href="../../df/daa/class_biz_data_obj___assoc.html#ae29c04c0e56715bc9ace9479ff3c19d4" title="BizDataObj_Assoc\\removeRecord" alt="" coords="163,5,386,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="af898facab0e63caf9581bdde8c6e92c8"></a>
@@ -1367,69 +1179,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean - if return false, the caller can call GetErrorMessage to get the error. </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L227">227</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> (!$this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#afc9d51989ea40913cc84c3ebe0130e9a">canUpdateRecord</a>($oldRecord))</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;m_ErrorMessage = <a class="code" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866">BizSystem::getMessage</a>(<span class="stringliteral">&quot;DATA_NO_PERMISSION_UPDATE&quot;</span>,$this-&gt;m_Name);</div>
-<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a>($this-&gt;m_ErrorMessage);</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> (!$oldRecord)</div>
-<div class="line">            $oldRecord = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9">getActiveRecord</a>();</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> (!$recArr[<span class="stringliteral">&quot;Id&quot;</span>])</div>
-<div class="line">            $recArr[<span class="stringliteral">&quot;Id&quot;</span>] = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#a73b7596e4d1242bb3ae3b12f26aeb18a">getFieldValue</a>(<span class="stringliteral">&quot;Id&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// save the old values</span></div>
-<div class="line">        $this-&gt;m_BizRecord-&gt;saveOldRecord($oldRecord);</div>
-<div class="line">        <span class="comment">// set the new values</span></div>
-<div class="line">        $this-&gt;m_BizRecord-&gt;setInputRecord($recArr);</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> (!$this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#aced64a0f4fd1647229efda490d90b8a0">validateInput</a>()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        </div>
-<div class="line">        <a class="code" href="../../d1/d2c/class_query_string_param.html#a2325df26721fdbe820d577d2482725f8">QueryStringParam::reset</a>();</div>
-<div class="line"></div>
-<div class="line">        $sql = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80">getSQLHelper</a>()-&gt;buildUpdateSQL($this);</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($sql)</div>
-<div class="line">        {</div>
-<div class="line">            $db = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed">getDBConnection</a>(<span class="stringliteral">&quot;WRITE&quot;</span>);</div>
-<div class="line">            $db-&gt;beginTransaction();</div>
-<div class="line">            <span class="keywordflow">try</span></div>
-<div class="line">            {</div>
-<div class="line">                $this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#a78198f79425515a8fcfa48d4e6408f5b">cascadeUpdate</a>(); <span class="comment">// cascade update</span></div>
-<div class="line">                </div>
-<div class="line">                $bindValues = <a class="code" href="../../d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5">QueryStringParam::getBindValues</a>();</div>
-<div class="line">                $bindValueString = <a class="code" href="../../d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2">QueryStringParam::getBindValueString</a>();</div>
-<div class="line">                <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_DEBUG, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, <span class="stringliteral">&quot;Update Sql = $sql&quot;</span>.<span class="stringliteral">&quot;; BIND: $bindValueString&quot;</span>);</div>
-<div class="line">                <a class="code" href="../../d1/d2c/class_query_string_param.html#a2325df26721fdbe820d577d2482725f8">QueryStringParam::reset</a>();</div>
-<div class="line">                $db-&gt;query($sql, $bindValues);</div>
-<div class="line">                </div>
-<div class="line">                $db-&gt;commit();</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">catch</span> (Exception $e)</div>
-<div class="line">            {</div>
-<div class="line">                $db-&gt;rollBack();</div>
-<div class="line">                <span class="keywordflow">if</span> ($e instanceof <a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a>)</div>
-<div class="line">                    <span class="keywordflow">throw</span> $e;</div>
-<div class="line">                <span class="keywordflow">else</span> {</div>
-<div class="line">                    <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_ERR, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, <span class="stringliteral">&quot;Query error : &quot;</span>.$e-&gt;getMessage());</div>
-<div class="line">                    $this-&gt;m_ErrorMessage = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff">getMessage</a>(<span class="stringliteral">&quot;DATA_ERROR_QUERY&quot;</span>).<span class="stringliteral">&quot;: &quot;</span>.$sql.<span class="stringliteral">&quot;. &quot;</span>.$e-&gt;getMessage();</div>
-<div class="line">                    <span class="keywordflow">throw</span> <span class="keyword">new</span> BDOException($this-&gt;m_ErrorMessage);</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">            }</div>
-<div class="line"></div>
-<div class="line">            $this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#a79777aeaff8398feac96662c64d39655">cleanCache</a>(); <span class="comment">//clean cached data</span></div>
-<div class="line">            $this-&gt;_postUpdateLobFields($recArr);</div>
-<div class="line">            $this-&gt;m_CurrentRecord = null; </div>
-<div class="line">            $this-&gt;_postUpdateRecord($recArr);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00227">227</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_af898facab0e63caf9581bdde8c6e92c8_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_af898facab0e63caf9581bdde8c6e92c8_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_af898facab0e63caf9581bdde8c6e92c8_cgraph" id="d3/d2c/class_biz_data_obj_af898facab0e63caf9581bdde8c6e92c8_cgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#afc9d51989ea40913cc84c3ebe0130e9a" title="canUpdateRecord" alt="" coords="600,198,728,226"/><area shape="rect" id="node32" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="162,1315,323,1343"/><area shape="rect" id="node3" href="../../dc/d2b/class_biz_data_obj___lite.html#af3ee501304ccde7a62673e7a003f20b9" title="BizDataObj_Lite\\getActive\lRecord" alt="" coords="803,783,979,827"/><area shape="rect" id="node34" href="../../dc/d2b/class_biz_data_obj___lite.html#a73b7596e4d1242bb3ae3b12f26aeb18a" title="BizDataObj_Lite\\getField\lValue" alt="" coords="580,891,748,935"/><area shape="rect" id="node35" href="../../d3/d2c/class_biz_data_obj.html#aced64a0f4fd1647229efda490d90b8a0" title="validateInput" alt="" coords="616,629,712,657"/><area shape="rect" id="node37" href="../../d1/d2c/class_query_string_param.html#a2325df26721fdbe820d577d2482725f8" title="QueryStringParam\\reset" alt="" coords="160,1521,325,1549"/><area shape="rect" id="node13" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="1704,791,1910,819"/><area shape="rect" id="node10" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="1734,1367,1879,1411"/><area shape="rect" id="node38" href="../../d3/d2c/class_biz_data_obj.html#a78198f79425515a8fcfa48d4e6408f5b" title="cascadeUpdate" alt="" coords="186,998,300,1026"/><area shape="rect" id="node16" href="../../d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5" title="QueryStringParam\\getBind\lValues" alt="" coords="1475,1130,1656,1174"/><area shape="rect" id="node17" href="../../d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2" title="QueryStringParam\\getBind\lValueString" alt="" coords="1475,1198,1656,1242"/><area shape="rect" id="node20" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1512,195,1618,223"/><area shape="rect" id="node21" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="1493,1062,1638,1106"/><area shape="rect" id="node42" href="../../d3/d2c/class_biz_data_obj.html#a79777aeaff8398feac96662c64d39655" title="cleanCache" alt="" coords="406,18,498,46"/><area shape="rect" id="node29" href="../../d3/d2c/class_biz_data_obj.html#a509f69a27719e17ae032ca0fbfb064d0" title="canUpdateRecordCondition" alt="" coords="798,198,983,226"/><area shape="rect" id="node4" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="1033,629,1220,657"/><area shape="rect" id="node15" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite\\count" alt="" coords="1488,791,1642,819"/><area shape="rect" id="node5" href="../../d7/d32/class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract\l\\clearSearchRule" alt="" coords="1275,587,1421,631"/><area shape="rect" id="node6" href="../../d7/d32/class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract\l\\setSearchRule" alt="" coords="1275,655,1421,699"/><area shape="rect" id="node7" href="../../d7/d32/class_biz_data_obj___abstract.html#aa70182035e20efcd63a8bd3cb36c5c92" title="BizDataObj_Abstract\l\\clearSortRule" alt="" coords="1275,723,1421,767"/><area shape="rect" id="node8" href="../../d7/d32/class_biz_data_obj___abstract.html#ad9767fc4b371a704f36c9408cd92bfab" title="BizDataObj_Abstract\l\\setSortRule" alt="" coords="1275,451,1421,495"/><area shape="rect" id="node9" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="1274,894,1422,938"/><area shape="rect" id="node28" href="../../dc/d2b/class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="BizDataObj_Lite\\_fetch\l_record" alt="" coords="1269,519,1427,563"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="2680,247,2832,275"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="2198,1373,2368,1401"/><area shape="rect" id="node12" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2898,1345,3036,1373"/><area shape="rect" id="node14" href="../../d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="1971,783,2133,827"/><area shape="rect" id="node19" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2894,959,3039,987"/><area shape="rect" id="node22" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1779,1315,1834,1343"/><area shape="rect" id="node27" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="1711,1070,1902,1098"/><area shape="rect" id="node23" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1985,1315,2119,1343"/><area shape="rect" id="node24" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="2195,1315,2370,1343"/><area shape="rect" id="node25" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="2666,1319,2846,1347"/><area shape="rect" id="node26" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="2419,1267,2619,1295"/><area shape="rect" id="node30" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1" title="MetaObject\\allowAccess" alt="" coords="1043,43,1210,71"/><area shape="rect" id="node31" href="../../d1/d7e/class_biz_system.html#a4133bb0c948ac1d650827a15fb52072c" title="BizSystem\\allowUserAccess" alt="" coords="1957,93,2147,121"/><area shape="rect" id="node33" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="375,1315,529,1343"/><area shape="rect" id="node36" href="../../d3/d2c/class_biz_data_obj.html#a32bd6c3b9b933671846cd1b6c3209ed5" title="validateUniqueness" alt="" coords="822,629,960,657"/><area shape="rect" id="node39" href="../../d3/d2c/class_biz_data_obj.html#aa9f8e225938574a7a5a8892df3f494ca" title="processCascadeAction" alt="" coords="373,1011,531,1039"/><area shape="rect" id="node40" href="../../dc/d2b/class_biz_data_obj___lite.html#aa593ade9bce0ebe2d57c99d8ae2017d7" title="BizDataObj_Lite\\getField" alt="" coords="580,1011,748,1039"/><area shape="rect" id="node41" href="../../d7/d32/class_biz_data_obj___abstract.html#a8256cabbe4c7a88a89287e36c6ff69b3" title="BizDataObj_Abstract\l\\getRefObject" alt="" coords="2446,1105,2591,1149"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aed5b6a1f292ba8f7f88bf34e37c6309c"></a>
@@ -1456,47 +1218,19 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L290">290</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> (!$this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#a509f69a27719e17ae032ca0fbfb064d0">canUpdateRecordCondition</a>())</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;m_ErrorMessage = <a class="code" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866">BizSystem::getMessage</a>(<span class="stringliteral">&quot;DATA_NO_PERMISSION_UPDATE&quot;</span>,$this-&gt;m_Name);</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">  <span class="comment">/*当$setValue是数组时转成[field]=value格式*/</span></div>
-<div class="line">  <span class="keywordflow">if</span>(is_array($setValue)){</div>
-<div class="line">   $setValue_srt=<span class="stringliteral">&#39;&#39;</span>;</div>
-<div class="line">   <span class="keywordflow">foreach</span>($setValue as $key=&gt;$value){</div>
-<div class="line">    <span class="keywordflow">if</span>($value!=<span class="stringliteral">&#39;&#39;</span>){</div>
-<div class="line">     $setValue_srt.=$setValue_srt?<span class="stringliteral">&quot;,[$key]=&#39;$value&#39;&quot;</span>:<span class="stringliteral">&quot;[$key]=&#39;$value&#39;&quot;</span>;</div>
-<div class="line">    }</div>
-<div class="line">   }</div>
-<div class="line">   $setValue=$setValue_srt; </div>
-<div class="line">  } </div>
-<div class="line">        $sql = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80">getSQLHelper</a>()-&gt;buildUpdateSQLwithCondition($this,$setValue ,$condition);</div>
-<div class="line">        $db = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed">getDBConnection</a>(<span class="stringliteral">&quot;WRITE&quot;</span>);</div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordflow">try</span></div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span>($sql)</div>
-<div class="line">            {  <span class="comment">// delete joint table first then delete main table&#39;s data&#39;</span></div>
-<div class="line">                <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_DEBUG, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, <span class="stringliteral">&quot;Delete Sql = $sql&quot;</span>); </div>
-<div class="line">                $db-&gt;query($sql);</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">catch</span> (Exception $e)</div>
-<div class="line">        {</div>
-<div class="line">            <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_ERR, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, <span class="stringliteral">&quot;Query error : &quot;</span>.$e-&gt;getMessage());</div>
-<div class="line">            $this-&gt;m_ErrorMessage = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff">getMessage</a>(<span class="stringliteral">&quot;DATA_ERROR_QUERY&quot;</span>).<span class="stringliteral">&quot;: &quot;</span>.$sql.<span class="stringliteral">&quot;. &quot;</span>.$e-&gt;getMessage();</div>
-<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a>($this-&gt;m_ErrorMessage);</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">//clean cached data</span></div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#a79777aeaff8398feac96662c64d39655">cleanCache</a>();</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00290">290</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_aed5b6a1f292ba8f7f88bf34e37c6309c_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_aed5b6a1f292ba8f7f88bf34e37c6309c_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_aed5b6a1f292ba8f7f88bf34e37c6309c_cgraph" id="d3/d2c/class_biz_data_obj_aed5b6a1f292ba8f7f88bf34e37c6309c_cgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#a509f69a27719e17ae032ca0fbfb064d0" title="canUpdateRecordCondition" alt="" coords="175,6,361,34"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="188,255,348,283"/><area shape="rect" id="node15" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="165,375,371,403"/><area shape="rect" id="node17" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="442,317,587,361"/><area shape="rect" id="node19" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1150,57,1256,85"/><area shape="rect" id="node20" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="195,170,341,214"/><area shape="rect" id="node22" href="../../d3/d2c/class_biz_data_obj.html#a79777aeaff8398feac96662c64d39655" title="cleanCache" alt="" coords="1393,109,1485,137"/><area shape="rect" id="node3" href="../../db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1" title="MetaObject\\allowAccess" alt="" coords="431,5,598,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a4133bb0c948ac1d650827a15fb52072c" title="BizSystem\\allowUserAccess" alt="" coords="877,5,1067,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1600,83,1752,111"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1814,83,1959,111"/><area shape="rect" id="node8" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="437,265,592,293"/><area shape="rect" id="node9" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="717,217,771,245"/><area shape="rect" id="node10" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="905,217,1039,245"/><area shape="rect" id="node11" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1115,217,1290,245"/><area shape="rect" id="node12" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1586,242,1766,270"/><area shape="rect" id="node14" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1339,190,1539,218"/><area shape="rect" id="node13" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1818,271,1956,299"/><area shape="rect" id="node16" href="../../d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="434,385,596,429"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="659,319,829,347"/><area shape="rect" id="node21" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="419,161,610,189"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aced64a0f4fd1647229efda490d90b8a0"></a>
@@ -1514,61 +1248,30 @@ Additional Inherited Members</h2></td></tr>
 <p>Validate user input data and trigger error message and adjust <a class="el" href="../../d8/d08/class_biz_field.html">BizField</a> if invalid.</p>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L46">46</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;m_ErrorFields = array();</div>
-<div class="line">        <span class="keywordflow">foreach</span>($this-&gt;m_BizRecord-&gt;m_InputFields as $fld)</div>
-<div class="line">        {</div>
-<div class="line"></div>
-<div class="line">            <span class="comment">/* @var $bizField BizField */</span></div>
-<div class="line">            $bizField = $this-&gt;m_BizRecord-&gt;get($fld);</div>
-<div class="line">            <span class="keywordflow">if</span>($bizField-&gt;m_Encrypted==<span class="stringliteral">&quot;Y&quot;</span>){</div>
-<div class="line">             <span class="keywordflow">if</span> ($bizField-&gt;checkRequired() == <span class="keyword">true</span> &amp;&amp;</div>
-<div class="line">                     ($bizField-&gt;m_Value===null || $bizField-&gt;m_Value === <span class="stringliteral">&quot;&quot;</span>))</div>
-<div class="line">             {</div>
-<div class="line">                 $this-&gt;m_ErrorMessage = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff">getMessage</a>(<span class="stringliteral">&quot;DATA_FIELD_REQUIRED&quot;</span>,array($fld));</div>
-<div class="line">                 $this-&gt;m_ErrorFields[$bizField-&gt;m_Name] = <a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#acf9dd54a23516566a0b7d083ee4a336a">$this-&gt;m_ErrorMessage</a>;</div>
-<div class="line">             }</div>
-<div class="line">             <span class="keywordflow">continue</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> ($bizField-&gt;checkRequired() == <span class="keyword">true</span> &amp;&amp;</div>
-<div class="line">                    ($bizField-&gt;m_Value===null || $bizField-&gt;m_Value === <span class="stringliteral">&quot;&quot;</span>))</div>
-<div class="line">            {</div>
-<div class="line">                $this-&gt;m_ErrorMessage = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff">getMessage</a>(<span class="stringliteral">&quot;DATA_FIELD_REQUIRED&quot;</span>,array($fld));</div>
-<div class="line">                $this-&gt;m_ErrorFields[$bizField-&gt;m_Name] = <a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#acf9dd54a23516566a0b7d083ee4a336a">$this-&gt;m_ErrorMessage</a>;</div>
-<div class="line">            }</div>
-<div class="line">            elseif ($bizField-&gt;m_Value!==null &amp;&amp; $bizField-&gt;checkValueType() == <span class="keyword">false</span>)</div>
-<div class="line">            {</div>
-<div class="line">                $this-&gt;m_ErrorMessage = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff">getMessage</a>(<span class="stringliteral">&quot;DATA_FIELD_INCORRECT_TYPE&quot;</span>, array($fld, $bizField-&gt;m_Type));</div>
-<div class="line">                $this-&gt;m_ErrorFields[$bizField-&gt;m_Name] = <a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#acf9dd54a23516566a0b7d083ee4a336a">$this-&gt;m_ErrorMessage</a>;</div>
-<div class="line">            }</div>
-<div class="line">            elseif ($bizField-&gt;m_Value!==null &amp;&amp; $bizField-&gt;Validate() == <span class="keyword">false</span>)</div>
-<div class="line">            {</div>
-<div class="line"></div>
-<div class="line">                <span class="comment">/* @var $validateService validateService */</span></div>
-<div class="line">                $validateService = <a class="code" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96">BizSystem::getService</a>(VALIDATE_SERVICE);</div>
-<div class="line">                $this-&gt;m_ErrorMessage = $validateService-&gt;getErrorMessage($bizField-&gt;m_Validator, $bizField-&gt;m_Name);</div>
-<div class="line">                <span class="keywordflow">if</span> ($this-&gt;m_ErrorMessage == <span class="keyword">false</span>)</div>
-<div class="line">                { <span class="comment">//Couldn&#39;t get a clear error message so let&#39;s try this</span></div>
-<div class="line">                    $this-&gt;m_ErrorMessage = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff">getMessage</a>(<span class="stringliteral">&quot;DATA_FIELD_INVALID_INPUT&quot;</span>,array($fld,$value,$bizField-&gt;m_Validator));                <span class="comment">//</span></div>
-<div class="line">                }</div>
-<div class="line">                $this-&gt;m_ErrorFields[$bizField-&gt;m_Name] = <a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#acf9dd54a23516566a0b7d083ee4a336a">$this-&gt;m_ErrorMessage</a>;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755">count</a>($this-&gt;m_ErrorFields)&gt;0)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="comment">//print_r($this-&gt;m_ErrorFields);</span></div>
-<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="../../db/dd2/class_validation_exception.html">ValidationException</a>($this-&gt;m_ErrorFields);</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// validate uniqueness</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;<a class="code" href="../../d3/d2c/class_biz_data_obj.html#a32bd6c3b9b933671846cd1b6c3209ed5">validateUniqueness</a>() == <span class="keyword">false</span>)</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00046">46</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-27" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-27-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_aced64a0f4fd1647229efda490d90b8a0_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_aced64a0f4fd1647229efda490d90b8a0_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_aced64a0f4fd1647229efda490d90b8a0_cgraph" id="d3/d2c/class_biz_data_obj_aced64a0f4fd1647229efda490d90b8a0_cgraph">
+<area shape="rect" id="node2" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="799,79,945,123"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1960,159,2112,187"/><area shape="rect" id="node12" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite\\count" alt="" coords="795,533,949,561"/><area shape="rect" id="node17" href="../../d3/d2c/class_biz_data_obj.html#a32bd6c3b9b933671846cd1b6c3209ed5" title="validateUniqueness" alt="" coords="152,215,290,243"/><area shape="rect" id="node3" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1086,95,1141,123"/><area shape="rect" id="node11" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="1018,43,1209,71"/><area shape="rect" id="node4" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1278,146,1412,174"/><area shape="rect" id="node5" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1475,250,1650,278"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1946,302,2126,330"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1699,250,1899,278"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2178,338,2316,366"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2174,159,2319,187"/><area shape="rect" id="node13" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="1041,429,1186,473"/><area shape="rect" id="node15" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="1010,307,1216,335"/><area shape="rect" id="node14" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="1478,415,1648,443"/><area shape="rect" id="node16" href="../../d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="1264,299,1426,343"/><area shape="rect" id="node18" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="340,346,527,374"/><area shape="rect" id="node19" href="../../d7/d32/class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract\l\\clearSearchRule" alt="" coords="582,235,727,279"/><area shape="rect" id="node20" href="../../d7/d32/class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract\l\\setSearchRule" alt="" coords="582,303,727,347"/><area shape="rect" id="node21" href="../../d7/d32/class_biz_data_obj___abstract.html#aa70182035e20efcd63a8bd3cb36c5c92" title="BizDataObj_Abstract\l\\clearSortRule" alt="" coords="582,371,727,415"/><area shape="rect" id="node22" href="../../d7/d32/class_biz_data_obj___abstract.html#ad9767fc4b371a704f36c9408cd92bfab" title="BizDataObj_Abstract\l\\setSortRule" alt="" coords="582,439,727,483"/><area shape="rect" id="node23" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="581,167,729,211"/><area shape="rect" id="node27" href="../../dc/d2b/class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="BizDataObj_Lite\\_fetch\l_record" alt="" coords="576,507,734,551"/><area shape="rect" id="node24" href="../../d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5" title="QueryStringParam\\getBind\lValues" alt="" coords="782,301,962,345"/><area shape="rect" id="node25" href="../../d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2" title="QueryStringParam\\getBind\lValueString" alt="" coords="782,369,962,413"/><area shape="rect" id="node26" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1746,119,1852,147"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-28" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-28-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_aced64a0f4fd1647229efda490d90b8a0_icgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_aced64a0f4fd1647229efda490d90b8a0_icgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_aced64a0f4fd1647229efda490d90b8a0_icgraph" id="d3/d2c/class_biz_data_obj_aced64a0f4fd1647229efda490d90b8a0_icgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="updateRecord" alt="" coords="153,5,258,33"/><area shape="rect" id="node3" href="../../d3/d2c/class_biz_data_obj.html#ad6122472319985567e31b7276a78c889" title="insertRecord" alt="" coords="157,57,254,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a32bd6c3b9b933671846cd1b6c3209ed5"></a>
@@ -1594,50 +1297,30 @@ Additional Inherited Members</h2></td></tr>
 <p>Validate uniqueness Uniqueness = "fld1,fld2;fld3,fld4;..."</p>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L107">107</a> of file <a class="el" href="../../">BizDataObj.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> (!$this-&gt;m_Uniqueness)</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">        $groupList = explode(<span class="stringliteral">&quot;;&quot;</span>,$this-&gt;m_Uniqueness);</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($groupList as $group)</div>
-<div class="line">        {</div>
-<div class="line">            $searchRule = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">            $needCheck = <span class="keyword">true</span>;</div>
-<div class="line">            $fields = explode(<span class="stringliteral">&quot;,&quot;</span>,$group);</div>
-<div class="line">            <span class="keywordflow">foreach</span> ($fields as $fld)</div>
-<div class="line">            {</div>
-<div class="line">                $bizField = $this-&gt;m_BizRecord-&gt;get($fld);</div>
-<div class="line">                <span class="keywordflow">if</span> ($bizField-&gt;m_Value===null || $bizField-&gt;m_Value === <span class="stringliteral">&quot;&quot;</span> || $bizField-&gt;m_Value==$bizField-&gt;m_OldValue)</div>
-<div class="line">                {</div>
-<div class="line">                    $needCheck = <span class="keyword">false</span>;</div>
-<div class="line">                    <span class="keywordflow">break</span>;</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">if</span> ($searchRule == <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line">                    $searchRule = <span class="stringliteral">&quot;[&quot;</span>.$bizField-&gt;m_Name.<span class="stringliteral">&quot;]=&#39;&quot;</span>.addslashes($bizField-&gt;m_Value).<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">                <span class="keywordflow">else</span></div>
-<div class="line">                    $searchRule .= <span class="stringliteral">&quot; AND [&quot;</span>.$bizField-&gt;m_Name.<span class="stringliteral">&quot;]=&#39;&quot;</span>.addslashes($bizField-&gt;m_Value).<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> ($needCheck)</div>
-<div class="line">            {</div>
-<div class="line">                $recordList = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21">directFetch</a>($searchRule, 1);                </div>
-<div class="line">                <span class="keywordflow">if</span> ($recordList-&gt;count()&gt;0)</div>
-<div class="line">                {</div>
-<div class="line">                    $this-&gt;m_ErrorMessage = $this-&gt;<a class="code" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff">getMessage</a>(<span class="stringliteral">&quot;DATA_NOT_UNIQUE&quot;</span>,array($group));</div>
-<div class="line">                    <span class="keywordflow">foreach</span> ($fields as $fld)</div>
-<div class="line">                    {</div>
-<div class="line">                        $this-&gt;m_ErrorFields[$fld] = <a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#acf9dd54a23516566a0b7d083ee4a336a">$this-&gt;m_ErrorMessage</a>;</div>
-<div class="line">                    }</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755">count</a>($this-&gt;m_ErrorFields)&gt;0)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="../../db/dd2/class_validation_exception.html">ValidationException</a>($this-&gt;m_ErrorFields);</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html#l00107">107</a> of file <a class="el" href="../../d3/d14/_biz_data_obj_8php_source.html">BizDataObj.php</a>.</p>
+
+<p><div id="dynsection-29" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-29-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-29-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_a32bd6c3b9b933671846cd1b6c3209ed5_cgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_a32bd6c3b9b933671846cd1b6c3209ed5_cgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_a32bd6c3b9b933671846cd1b6c3209ed5_cgraph" id="d3/d2c/class_biz_data_obj_a32bd6c3b9b933671846cd1b6c3209ed5_cgraph">
+<area shape="rect" id="node2" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="193,211,380,239"/><area shape="rect" id="node19" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="653,451,798,495"/><area shape="rect" id="node13" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite\\count" alt="" coords="648,15,802,43"/><area shape="rect" id="node3" href="../../d7/d32/class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract\l\\clearSearchRule" alt="" coords="435,339,581,383"/><area shape="rect" id="node4" href="../../d7/d32/class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract\l\\setSearchRule" alt="" coords="435,407,581,451"/><area shape="rect" id="node5" href="../../d7/d32/class_biz_data_obj___abstract.html#aa70182035e20efcd63a8bd3cb36c5c92" title="BizDataObj_Abstract\l\\clearSortRule" alt="" coords="435,67,581,111"/><area shape="rect" id="node6" href="../../d7/d32/class_biz_data_obj___abstract.html#ad9767fc4b371a704f36c9408cd92bfab" title="BizDataObj_Abstract\l\\setSortRule" alt="" coords="435,135,581,179"/><area shape="rect" id="node7" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="434,203,582,247"/><area shape="rect" id="node26" href="../../dc/d2b/class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="BizDataObj_Lite\\_fetch\l_record" alt="" coords="429,271,587,315"/><area shape="rect" id="node8" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="894,59,1039,103"/><area shape="rect" id="node11" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="864,152,1070,180"/><area shape="rect" id="node14" href="../../d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5" title="QueryStringParam\\getBind\lValues" alt="" coords="635,290,816,334"/><area shape="rect" id="node15" href="../../d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2" title="QueryStringParam\\getBind\lValueString" alt="" coords="635,119,816,163"/><area shape="rect" id="node16" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1814,358,1965,386"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1599,272,1705,300"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="1331,134,1501,162"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2031,242,2169,270"/><area shape="rect" id="node12" href="../../d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="1118,144,1280,188"/><area shape="rect" id="node17" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2027,358,2173,386"/><area shape="rect" id="node20" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="939,443,994,471"/><area shape="rect" id="node25" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="871,495,1062,523"/><area shape="rect" id="node21" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1132,443,1266,471"/><area shape="rect" id="node22" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1328,443,1504,471"/><area shape="rect" id="node23" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1800,410,1979,438"/><area shape="rect" id="node24" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1552,410,1752,438"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-30" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-30-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-30-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-30-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/d2c/class_biz_data_obj_a32bd6c3b9b933671846cd1b6c3209ed5_icgraph.png" border="0" usemap="#d3/d2c/class_biz_data_obj_a32bd6c3b9b933671846cd1b6c3209ed5_icgraph" alt=""/></div>
+<map name="d3/d2c/class_biz_data_obj_a32bd6c3b9b933671846cd1b6c3209ed5_icgraph" id="d3/d2c/class_biz_data_obj_a32bd6c3b9b933671846cd1b6c3209ed5_icgraph">
+<area shape="rect" id="node2" href="../../d3/d2c/class_biz_data_obj.html#aced64a0f4fd1647229efda490d90b8a0" title="validateInput" alt="" coords="193,31,290,59"/><area shape="rect" id="node3" href="../../d3/d2c/class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="updateRecord" alt="" coords="339,5,445,33"/><area shape="rect" id="node4" href="../../d3/d2c/class_biz_data_obj.html#ad6122472319985567e31b7276a78c889" title="insertRecord" alt="" coords="344,57,440,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -1646,7 +1329,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/d2c/class_biz_data_obj.html">BizDataObj</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:12 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:38 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

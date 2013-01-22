@@ -193,7 +193,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L29">29</a> of file <a class="el" href="../../">emailService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d38/email_service_8php_source.html#l00029">29</a> of file <a class="el" href="../../dc/d38/email_service_8php_source.html">emailService.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a847d8d60f037d0a016aca7006cf9dec6"></a>
 <div class="memitem">
@@ -217,16 +217,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L87">87</a> of file <a class="el" href="../../">emailService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;<a class="code" href="../../de/dfa/classemail_service.html#a1db802d93a9f0badf186a646e1cdb161">readMetadata</a>($xmlArr);</div>
-<div class="line">        $this-&gt;_constructMail();</div>
-<div class="line">        $acct = $this-&gt;m_Accounts-&gt;current();</div>
-<div class="line">        <span class="keywordflow">if</span> (! $acct)</div>
-<div class="line">            <span class="keywordflow">return</span>; <span class="comment">//TODO Throw exception</span></div>
-<div class="line">        $this-&gt;<a class="code" href="../../de/dfa/classemail_service.html#adc058c3898cea65061f9e9f0ae30fbdf">useAccount</a>($acct-&gt;m_Name);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d38/email_service_8php_source.html#l00087">87</a> of file <a class="el" href="../../dc/d38/email_service_8php_source.html">emailService.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/dfa/classemail_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph.png" border="0" usemap="#de/dfa/classemail_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph" alt=""/></div>
+<map name="de/dfa/classemail_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph" id="de/dfa/classemail_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph">
+<area shape="rect" id="node2" href="../../de/dfa/classemail_service.html#a1db802d93a9f0badf186a646e1cdb161" title="readMetadata" alt="" coords="144,5,248,33"/><area shape="rect" id="node3" href="../../de/dfa/classemail_service.html#adc058c3898cea65061f9e9f0ae30fbdf" title="useAccount" alt="" coords="150,57,242,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -245,11 +248,8 @@ Protected Attributes</h2></td></tr>
 <p>Get error message</p>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L120">120</a> of file <a class="el" href="../../">emailService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> $this-&gt;_errorMessage;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d38/email_service_8php_source.html#l00120">120</a> of file <a class="el" href="../../dc/d38/email_service_8php_source.html">emailService.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a3dfbfe7d3d191293fc58f512a4a5e576"></a>
@@ -311,102 +311,30 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>mixed boolean|string|void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L275">275</a> of file <a class="el" href="../../">emailService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">//Log the email attempt</span></div>
-<div class="line">        $recipients = <span class="stringliteral">&#39;&#39;</span>;</div>
-<div class="line">    <span class="comment">// add TO addresses</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($TOs)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">foreach</span> ($TOs as $to)</div>
-<div class="line">            {</div>
-<div class="line">             <span class="keywordflow">if</span>(is_array($to))</div>
-<div class="line">             {                 </div>
-<div class="line">                 $recipients .= $to[<span class="stringliteral">&#39;name&#39;</span>].<span class="stringliteral">&quot;&lt;&quot;</span>.$to[<span class="stringliteral">&#39;email&#39;</span>].<span class="stringliteral">&quot;&gt;;&quot;</span>;</div>
-<div class="line">             }</div>
-<div class="line">             <span class="keywordflow">else</span></div>
-<div class="line">             {</div>
-<div class="line">              $recipients .= $to.<span class="stringliteral">&quot;;&quot;</span>;</div>
-<div class="line">             }</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">// add CC addresses</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($CCs)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">foreach</span> ($CCs as $cc)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">if</span>(is_array($cc))</div>
-<div class="line">                {</div>
-<div class="line">              $recipients .= $cc[<span class="stringliteral">&#39;name&#39;</span>].<span class="stringliteral">&quot;&lt;&quot;</span>.$cc[<span class="stringliteral">&#39;email&#39;</span>].<span class="stringliteral">&quot;&gt;;&quot;</span>;</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">else</span></div>
-<div class="line">                {</div>
-<div class="line">                 $recipients .= $cc.<span class="stringliteral">&quot;;&quot;</span>;</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">// add BCC addresses</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($BCCs)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">foreach</span> ($BCCs as $bcc)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">if</span>(is_array($bcc))</div>
-<div class="line">                {</div>
-<div class="line">              $recipients .= $bcc[<span class="stringliteral">&#39;name&#39;</span>].<span class="stringliteral">&quot;&lt;&quot;</span>.$bcc[<span class="stringliteral">&#39;email&#39;</span>].<span class="stringliteral">&quot;&gt;;&quot;</span>;</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">else</span></div>
-<div class="line">                {</div>
-<div class="line">                 $recipients .= $bcc.<span class="stringliteral">&quot;;&quot;</span>;</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;_logType == <span class="stringliteral">&#39;DB&#39;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $account = $this-&gt;m_Accounts-&gt;get($this-&gt;m_UseAccount);</div>
-<div class="line">            $sender_name = $account-&gt;m_FromName;</div>
-<div class="line">            $sender = $account-&gt;m_FromEmail;</div>
-<div class="line">            </div>
-<div class="line">            <span class="comment">// Store the message log</span></div>
-<div class="line">            $boMessageLog = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($this-&gt;_logObject);</div>
-<div class="line">            $mlArr = $boMessageLog-&gt;newRecord();            </div>
-<div class="line">            $mlArr[<span class="stringliteral">&quot;sender&quot;</span>] = $sender;</div>
-<div class="line">            $mlArr[<span class="stringliteral">&quot;sender_name&quot;</span>] = $sender_name;</div>
-<div class="line">            $mlArr[<span class="stringliteral">&quot;recipients&quot;</span>] = $recipients;</div>
-<div class="line">            $mlArr[<span class="stringliteral">&quot;subject&quot;</span>] = $subject;</div>
-<div class="line">            $mlArr[<span class="stringliteral">&quot;content&quot;</span>] = $body;            </div>
-<div class="line">            $mlArr[<span class="stringliteral">&quot;result&quot;</span>] = $result;</div>
-<div class="line">   <span class="comment">/*</span></div>
-<div class="line"><span class="comment">    * as long as data could read from db, its no longer need to addslashes</span></div>
-<div class="line"><span class="comment">            //Escape Data since this may contain quotes or other goodies</span></div>
-<div class="line"><span class="comment">            foreach ($mlArr as $key =&gt; $value)</span></div>
-<div class="line"><span class="comment">            {</span></div>
-<div class="line"><span class="comment">                $mlArr[$key] = addslashes($value);</span></div>
-<div class="line"><span class="comment">            }</span></div>
-<div class="line"><span class="comment">   */</span></div>
-<div class="line">            $ok = $boMessageLog-&gt;insertRecord($mlArr);</div>
-<div class="line">            <span class="keywordflow">if</span> (! $ok)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">return</span> $boMessageLog-&gt;getErrorMessage();</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">return</span> TRUE;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {</div>
-<div class="line">            $back_trace = debug_backtrace();</div>
-<div class="line">            <span class="keywordflow">if</span> ($result == <span class="stringliteral">&#39;Success&#39;</span>)</div>
-<div class="line">            {</div>
-<div class="line">                $logNum = LOG_INFO;</div>
-<div class="line">            } <span class="keywordflow">else</span></div>
-<div class="line">            {</div>
-<div class="line">                $logNum = LOG_ERR;</div>
-<div class="line">            }</div>
-<div class="line">            <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>($logNum, <span class="stringliteral">&quot;EmailService&quot;</span>, <span class="stringliteral">&quot;Sent email with subject - \&quot;$subject\&quot; and body - $body to - $recipients with result $result.&quot;</span>, NULL, $back_trace);</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d38/email_service_8php_source.html#l00275">275</a> of file <a class="el" href="../../dc/d38/email_service_8php_source.html">emailService.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/dfa/classemail_service_a3dfbfe7d3d191293fc58f512a4a5e576_cgraph.png" border="0" usemap="#de/dfa/classemail_service_a3dfbfe7d3d191293fc58f512a4a5e576_cgraph" alt=""/></div>
+<map name="de/dfa/classemail_service_a3dfbfe7d3d191293fc58f512a4a5e576_cgraph" id="de/dfa/classemail_service_a3dfbfe7d3d191293fc58f512a4a5e576_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="481,6,626,34"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="126,31,232,59"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="280,31,432,59"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/dfa/classemail_service_a3dfbfe7d3d191293fc58f512a4a5e576_icgraph.png" border="0" usemap="#de/dfa/classemail_service_a3dfbfe7d3d191293fc58f512a4a5e576_icgraph" alt=""/></div>
+<map name="de/dfa/classemail_service_a3dfbfe7d3d191293fc58f512a4a5e576_icgraph" id="de/dfa/classemail_service_a3dfbfe7d3d191293fc58f512a4a5e576_icgraph">
+<area shape="rect" id="node2" href="../../de/dfa/classemail_service.html#a1ae4da3b61a4540096d8e351d4048201" title="sendEmail" alt="" coords="126,5,210,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1db802d93a9f0badf186a646e1cdb161"></a>
@@ -439,18 +367,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L103">103</a> of file <a class="el" href="../../">emailService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::readMetaData($xmlArr);</div>
-<div class="line">        $this-&gt;m_Accounts = <span class="keyword">new</span> <a class="code" href="../../dd/d21/class_meta_iterator.html">MetaIterator</a>($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;ACCOUNTS&quot;</span>][<span class="stringliteral">&quot;ACCOUNT&quot;</span>], <span class="stringliteral">&quot;EmailAccount&quot;</span>);</div>
-<div class="line">        $this-&gt;_logEnabled = $xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;LOGGING&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;ENABLED&quot;</span>];</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;_logEnabled)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;_logType = $xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;LOGGING&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TYPE&quot;</span>];</div>
-<div class="line">            $this-&gt;_logObject = $xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;LOGGING&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;OBJECT&quot;</span>];</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d38/email_service_8php_source.html#l00103">103</a> of file <a class="el" href="../../dc/d38/email_service_8php_source.html">emailService.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/dfa/classemail_service_a1db802d93a9f0badf186a646e1cdb161_icgraph.png" border="0" usemap="#de/dfa/classemail_service_a1db802d93a9f0badf186a646e1cdb161_icgraph" alt=""/></div>
+<map name="de/dfa/classemail_service_a1db802d93a9f0badf186a646e1cdb161_icgraph" id="de/dfa/classemail_service_a1db802d93a9f0badf186a646e1cdb161_icgraph">
+<area shape="rect" id="node2" href="../../de/dfa/classemail_service.html#a847d8d60f037d0a016aca7006cf9dec6" title="__construct" alt="" coords="158,5,248,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1ae4da3b61a4540096d8e351d4048201"></a>
@@ -521,83 +450,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean $result - TRUE on success, FALSE on failure </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L188">188</a> of file <a class="el" href="../../">emailService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $mail = $this-&gt;_mail;</div>
-<div class="line">        <span class="comment">// add TO addresses</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($TOs)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">foreach</span> ($TOs as $to)</div>
-<div class="line">            {</div>
-<div class="line">             <span class="keywordflow">if</span>(is_array($to))</div>
-<div class="line">             {</div>
-<div class="line">                 $mail-&gt;addTo($to[<span class="stringliteral">&#39;email&#39;</span>],$to[<span class="stringliteral">&#39;name&#39;</span>]);</div>
-<div class="line">             }</div>
-<div class="line">             <span class="keywordflow">else</span></div>
-<div class="line">             {</div>
-<div class="line">              $mail-&gt;addTo($to);</div>
-<div class="line">             }</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">// add CC addresses</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($CCs)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">foreach</span> ($CCs as $cc)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">if</span>(is_array($cc))</div>
-<div class="line">                {</div>
-<div class="line">              $mail-&gt;AddCC($cc[<span class="stringliteral">&#39;email&#39;</span>],$cc[<span class="stringliteral">&#39;name&#39;</span>]);</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">else</span></div>
-<div class="line">                {</div>
-<div class="line">                 $mail-&gt;AddCC($cc);</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">// add BCC addresses</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($BCCs)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">foreach</span> ($BCCs as $bcc)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">if</span>(is_array($bcc))</div>
-<div class="line">                {</div>
-<div class="line">              $mail-&gt;AddBCC($bcc[<span class="stringliteral">&#39;email&#39;</span>],$bcc[<span class="stringliteral">&#39;name&#39;</span>]);</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">else</span></div>
-<div class="line">                {</div>
-<div class="line">                 $mail-&gt;AddBCC($bcc);</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">// add attachments</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($attachments)</div>
-<div class="line">            <span class="keywordflow">foreach</span> ($attachments as $att)</div>
-<div class="line">                $mail-&gt;CreateAttachment(file_get_contents($att));</div>
-<div class="line">        $mail-&gt;setSubject($subject);</div>
-<div class="line">        $body = str_replace(<span class="stringliteral">&quot;\\n&quot;</span>, <span class="stringliteral">&quot;\n&quot;</span>, $body);</div>
-<div class="line">        <span class="keywordflow">if</span> ($isHTML == TRUE)</div>
-<div class="line">        {</div>
-<div class="line">            $mail-&gt;setBodyHTML($body);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {</div>
-<div class="line">            $mail-&gt;setBodyText($body);</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">try</span></div>
-<div class="line">        {</div>
-<div class="line">            $result = $mail-&gt;Send(); <span class="comment">//Will throw an exception if sending fails</span></div>
-<div class="line">            $this-&gt;<a class="code" href="../../de/dfa/classemail_service.html#a3dfbfe7d3d191293fc58f512a4a5e576">logEmail</a>(<span class="stringliteral">&#39;Success&#39;</span>, $subject, $body, $TOs, $CCs, $BCCs);</div>
-<div class="line">            <span class="keywordflow">return</span> TRUE;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">catch</span> (Exception $e)</div>
-<div class="line">        {</div>
-<div class="line">            $result = <span class="stringliteral">&quot;ERROR: &quot;</span>.$e-&gt;getMessage();</div>
-<div class="line">            $this-&gt;<a class="code" href="../../de/dfa/classemail_service.html#a3dfbfe7d3d191293fc58f512a4a5e576">logEmail</a>($result, $subject, $body, $TOs, $CCs, $BCCs);</div>
-<div class="line">            <span class="keywordflow">return</span> FALSE;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d38/email_service_8php_source.html#l00188">188</a> of file <a class="el" href="../../dc/d38/email_service_8php_source.html">emailService.php</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/dfa/classemail_service_a1ae4da3b61a4540096d8e351d4048201_cgraph.png" border="0" usemap="#de/dfa/classemail_service_a1ae4da3b61a4540096d8e351d4048201_cgraph" alt=""/></div>
+<map name="de/dfa/classemail_service_a1ae4da3b61a4540096d8e351d4048201_cgraph" id="de/dfa/classemail_service_a1ae4da3b61a4540096d8e351d4048201_cgraph">
+<area shape="rect" id="node2" href="../../de/dfa/classemail_service.html#a3dfbfe7d3d191293fc58f512a4a5e576" title="logEmail" alt="" coords="138,6,211,34"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="614,6,759,34"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="259,31,365,59"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="414,31,565,59"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="adc058c3898cea65061f9e9f0ae30fbdf"></a>
@@ -622,39 +487,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean TRUE/FALSE </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L142">142</a> of file <a class="el" href="../../">emailService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">//If a mail object exists, overwrite with new object</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;_mail)</div>
-<div class="line">            $this-&gt;_constructMail();</div>
-<div class="line"></div>
-<div class="line">        $this-&gt;m_UseAccount = $accountName;</div>
-<div class="line">        $account = $this-&gt;m_Accounts-&gt;get($accountName);</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($account-&gt;m_IsSMTP == <span class="stringliteral">&quot;Y&quot;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            require_once <span class="stringliteral">&#39;Zend/Mail/Transport/Smtp.php&#39;</span>;</div>
-<div class="line">            <span class="keywordflow">if</span> ($account-&gt;m_SMTPAuth == <span class="stringliteral">&quot;Y&quot;</span>)</div>
-<div class="line">            {</div>
-<div class="line">                $config = array(<span class="stringliteral">&#39;auth&#39;</span> =&gt;<span class="stringliteral">&#39;login&#39;</span>, <span class="stringliteral">&#39;username&#39;</span>=&gt;$account-&gt;m_Username , <span class="stringliteral">&#39;password&#39;</span>=&gt;$account-&gt;m_Password, <span class="stringliteral">&quot;port&quot;</span>=&gt;$account-&gt;m_Port, <span class="stringliteral">&#39;ssl&#39;</span>=&gt;$account-&gt;m_SSL);</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">            {</div>
-<div class="line">                $config = array();</div>
-<div class="line">            }</div>
-<div class="line">            $mailTransport = <span class="keyword">new</span> Zend_Mail_Transport_Smtp($account-&gt;m_Host, $config);</div>
-<div class="line">            $this-&gt;_mail-&gt;setDefaultTransport($mailTransport);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span> </div>
-<div class="line">        {</div>
-<div class="line">            require_once <span class="stringliteral">&#39;Zend/Mail/Transport/Sendmail.php&#39;</span>;</div>
-<div class="line">            $mailTransport = <span class="keyword">new</span> Zend_Mail_Transport_Sendmail();</div>
-<div class="line">            $this-&gt;_mail-&gt;setDefaultTransport($mailTransport);</div>
-<div class="line">        }</div>
-<div class="line">        $this-&gt;_mail-&gt;setFrom($account-&gt;m_FromEmail, $account-&gt;m_FromName);</div>
-<div class="line">        <span class="keywordflow">return</span> $this;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d38/email_service_8php_source.html#l00142">142</a> of file <a class="el" href="../../dc/d38/email_service_8php_source.html">emailService.php</a>.</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/dfa/classemail_service_adc058c3898cea65061f9e9f0ae30fbdf_icgraph.png" border="0" usemap="#de/dfa/classemail_service_adc058c3898cea65061f9e9f0ae30fbdf_icgraph" alt=""/></div>
+<map name="de/dfa/classemail_service_adc058c3898cea65061f9e9f0ae30fbdf_icgraph" id="de/dfa/classemail_service_adc058c3898cea65061f9e9f0ae30fbdf_icgraph">
+<area shape="rect" id="node2" href="../../de/dfa/classemail_service.html#a847d8d60f037d0a016aca7006cf9dec6" title="__construct" alt="" coords="144,5,234,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -668,7 +513,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L36">36</a> of file <a class="el" href="../../">emailService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d38/email_service_8php_source.html#l00036">36</a> of file <a class="el" href="../../dc/d38/email_service_8php_source.html">emailService.php</a>.</p>
 
 </div>
 </div>
@@ -690,7 +535,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L50">50</a> of file <a class="el" href="../../">emailService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d38/email_service_8php_source.html#l00050">50</a> of file <a class="el" href="../../dc/d38/email_service_8php_source.html">emailService.php</a>.</p>
 
 </div>
 </div>
@@ -700,7 +545,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../de/dfa/classemail_service.html">emailService</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:19 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:51 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

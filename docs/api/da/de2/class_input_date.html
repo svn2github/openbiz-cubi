@@ -258,7 +258,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">InputDate.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d18/_input_date_8php_source.html#l00027">27</a> of file <a class="el" href="../../df/d18/_input_date_8php_source.html">InputDate.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a5888f7e5883c7c2d486f7ddc1bd64760"></a>
 <div class="memitem">
@@ -290,12 +290,8 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L36">36</a> of file <a class="el" href="../../">InputDate.php</a>.</p>
-<div class="fragment"><div class="line">                                              {</div>
-<div class="line">        parent::readMetaData($xmlArr);</div>
-<div class="line">        $this-&gt;m_DateFormat  = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DATEFORMAT&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DATEFORMAT&quot;</span>] : null;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d18/_input_date_8php_source.html#l00036">36</a> of file <a class="el" href="../../df/d18/_input_date_8php_source.html">InputDate.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="afde88292c44dc59faf017738dae6dffb"></a>
@@ -315,20 +311,19 @@ Protected Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/d2b/interfacei_u_i_control.html#afde88292c44dc59faf017738dae6dffb">iUIControl</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L46">46</a> of file <a class="el" href="../../">InputDate.php</a>.</p>
-<div class="fragment"><div class="line">                             {</div>
-<div class="line">        <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;includeCalendarScripts();</div>
-<div class="line"></div>
-<div class="line">        $format = $this-&gt;m_DateFormat ? $this-&gt;m_DateFormat : <span class="stringliteral">&quot;%Y-%m-%d&quot;</span>;</div>
-<div class="line"></div>
-<div class="line">        $sHTML = parent::render();</div>
-<div class="line"></div>
-<div class="line">        $showTime = <span class="stringliteral">&#39;false&#39;</span>;</div>
-<div class="line">        <span class="comment">//$image = &quot;&lt;img src=\&quot;&quot;.Resource::getImageUrl().&quot;/calendar.gif\&quot; border=0 title=\&quot;Select date...\&quot; align=&#39;top&#39; hspace=&#39;2&#39;&gt;&quot;;</span></div>
-<div class="line">        $sHTML .= <span class="stringliteral">&quot;&lt;a class=\&quot;date_picker\&quot; href=\&quot;javascript: void(0);\&quot; onclick=\&quot;return showCalendar(&#39;$this-&gt;m_Name&#39;,&#39;$format&#39;,$showTime,true);\&quot;&gt;&lt;/a&gt;&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">return</span> $sHTML;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d18/_input_date_8php_source.html#l00046">46</a> of file <a class="el" href="../../df/d18/_input_date_8php_source.html">InputDate.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/de2/class_input_date_afde88292c44dc59faf017738dae6dffb_cgraph.png" border="0" usemap="#da/de2/class_input_date_afde88292c44dc59faf017738dae6dffb_cgraph" alt=""/></div>
+<map name="da/de2/class_input_date_afde88292c44dc59faf017738dae6dffb_cgraph" id="da/de2/class_input_date_afde88292c44dc59faf017738dae6dffb_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="115,5,269,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="318,5,456,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -342,7 +337,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L28">28</a> of file <a class="el" href="../../">InputDate.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d18/_input_date_8php_source.html#l00028">28</a> of file <a class="el" href="../../df/d18/_input_date_8php_source.html">InputDate.php</a>.</p>
 
 </div>
 </div>
@@ -352,7 +347,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/de2/class_input_date.html">InputDate</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:22 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:56 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

@@ -1,0 +1,7 @@
+<map id="_doUpdate" name="_doUpdate">
+<area shape="rect" id="node2" href="$d3/d10/class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="151,5,257,33"/>
+<area shape="rect" id="node4" href="$d3/d10/class_easy_form.html#a386c5a3fcb3daea95ab0e98a4cafd8bf" title="updateFieldValue" alt="" coords="142,57,266,85"/>
+<area shape="rect" id="node3" href="$d3/d10/class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="saveRecord" alt="" coords="343,5,436,33"/>
+<area shape="rect" id="node5" href="$d3/d10/class_easy_form.html#a326d668daf6787a96d8fad30cb3fe3ce" title="updateFieldValueAdd" alt="" coords="315,57,463,85"/>
+<area shape="rect" id="node6" href="$d3/d10/class_easy_form.html#ad925ac5856b187d0d0bdb4691cec8f6f" title="updateFieldValueXor" alt="" coords="317,109,462,137"/>
+</map>

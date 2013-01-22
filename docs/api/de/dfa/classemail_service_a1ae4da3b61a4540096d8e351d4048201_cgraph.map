@@ -1,0 +1,6 @@
+<map id="sendEmail" name="sendEmail">
+<area shape="rect" id="node2" href="$de/dfa/classemail_service.html#a3dfbfe7d3d191293fc58f512a4a5e576" title="logEmail" alt="" coords="138,6,211,34"/>
+<area shape="rect" id="node3" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="614,6,759,34"/>
+<area shape="rect" id="node4" href="$d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="259,31,365,59"/>
+<area shape="rect" id="node5" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="414,31,565,59"/>
+</map>

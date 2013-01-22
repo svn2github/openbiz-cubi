@@ -1,0 +1,6 @@
+<map id="canDeleteRecordCondition" name="canDeleteRecordCondition">
+<area shape="rect" id="node2" href="$db/d4b/class_meta_object.html#a6ababfde848794c7d2cf1679caaf57d1" title="MetaObject\\allowAccess" alt="" coords="235,5,402,33"/>
+<area shape="rect" id="node3" href="$d1/d7e/class_biz_system.html#a4133bb0c948ac1d650827a15fb52072c" title="BizSystem\\allowUserAccess" alt="" coords="451,5,640,33"/>
+<area shape="rect" id="node4" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="688,5,840,33"/>
+<area shape="rect" id="node5" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="889,5,1034,33"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="runEventLog" name="runEventLog">
+<area shape="rect" id="node2" href="$d3/d10/class_easy_form.html#a27936a509c257572409599f157ff681a" title="getEventLogMsg" alt="" coords="167,30,289,58"/>
+<area shape="rect" id="node7" href="$d3/d10/class_easy_form.html#a69fa9e0c4d5e4506a6e6fc38af5e53d8" title="getOnEventElements" alt="" coords="154,82,302,110"/>
+<area shape="rect" id="node8" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="152,134,304,162"/>
+<area shape="rect" id="node3" href="$d3/d10/class_easy_form.html#a15d343efcbc80c8b61a60c3f2f01e759" title="getInvokingElement" alt="" coords="356,30,495,58"/>
+<area shape="rect" id="node4" href="$d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="547,5,701,33"/>
+<area shape="rect" id="node6" href="$d3/d10/class_easy_form.html#a214fbd6ab24d8a6efdcb305a5ecdae6b" title="getElement" alt="" coords="580,57,668,85"/>
+<area shape="rect" id="node5" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="750,5,888,33"/>
+<area shape="rect" id="node9" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="353,134,498,162"/>
+</map>

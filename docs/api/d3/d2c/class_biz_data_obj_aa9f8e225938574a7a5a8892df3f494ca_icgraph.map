@@ -1,0 +1,6 @@
+<map id="processCascadeAction" name="processCascadeAction">
+<area shape="rect" id="node2" href="$d3/d2c/class_biz_data_obj.html#aae6158ea6c2e59049c9c0d06b56446a8" title="cascadeDelete" alt="" coords="213,5,323,33"/>
+<area shape="rect" id="node4" href="$d3/d2c/class_biz_data_obj.html#a78198f79425515a8fcfa48d4e6408f5b" title="cascadeUpdate" alt="" coords="211,57,325,85"/>
+<area shape="rect" id="node3" href="$d3/d2c/class_biz_data_obj.html#a8e1b49a9d10f77cd27239ecef9fdc075" title="deleteRecord" alt="" coords="376,5,477,33"/>
+<area shape="rect" id="node5" href="$d3/d2c/class_biz_data_obj.html#af898facab0e63caf9581bdde8c6e92c8" title="updateRecord" alt="" coords="374,57,479,85"/>
+</map>

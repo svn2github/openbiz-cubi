@@ -139,7 +139,7 @@ Static Public Attributes</h2></td></tr>
 <div class="textblock"><p>Description of <a class="el" href="../../d3/ddd/class_biz_class_loader.html">BizClassLoader</a></p>
 <dl class="section author"><dt>Author</dt><dd>k6 </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L13">13</a> of file <a class="el" href="../../">BizClassLoader.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d20/_biz_class_loader_8php_source.html#l00013">13</a> of file <a class="el" href="../../df/d20/_biz_class_loader_8php_source.html">BizClassLoader.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a43b9bb5f52377fabc68e21785b5afcb6"></a>
 <div class="memitem">
@@ -171,36 +171,19 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string full file name of class </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L40">40</a> of file <a class="el" href="../../">BizClassLoader.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">  <span class="comment">//echo &quot;_getCoreLibFilePath($className, $packageName)\n&quot;;</span></div>
-<div class="line">        <span class="comment">// use class map first        </span></div>
-<div class="line">        <span class="keywordflow">if</span> ( @isset( self::$coreClassMap[$className]  )) {</div>
-<div class="line">            $classFile = <a class="code" href="../../d1/df2/sys__init_8php.html#a5d2655ad8b3027f114bef469a60483c7">OPENBIZ_HOME</a> . self::$coreClassMap[$className];</div>
-<div class="line">            <span class="comment">//if (file_exists($classFile)) // core file always exist</span></div>
-<div class="line">            <span class="keywordflow">return</span> $classFile;</div>
-<div class="line">        } <span class="keywordflow">else</span> { <span class="comment">// if class not yet collect on class map, scan core path.                 </span></div>
-<div class="line">            $classFile = $className . <span class="stringliteral">&#39;.php&#39;</span>;</div>
-<div class="line">            <span class="comment">// TODO: search the file under bin/, bin/data, bin/ui. bin/service, bin/easy, bin/easy/element.</span></div>
-<div class="line">            <span class="comment">// guess class type and folder</span></div>
-<div class="line">            $lowClassName = strtolower($className);</div>
-<div class="line">            <span class="keywordflow">if</span> (strrpos($lowClassName,<span class="stringliteral">&#39;service&#39;</span>)&gt;0) $corePaths = array(<span class="stringliteral">&#39;service/&#39;</span>);</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strrpos($lowClassName,<span class="stringliteral">&#39;form&#39;</span>)&gt;0 || strrpos($lowClassName,<span class="stringliteral">&#39;form&#39;</span>)===0) $corePaths = array(<span class="stringliteral">&#39;easy/&#39;</span>);</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strrpos($lowClassName,<span class="stringliteral">&#39;view&#39;</span>)&gt;0 || strrpos($lowClassName,<span class="stringliteral">&#39;view&#39;</span>)===0) $corePaths = array(<span class="stringliteral">&#39;easy/&#39;</span>);</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strrpos($lowClassName,<span class="stringliteral">&#39;dataobj&#39;</span>)&gt;0) $corePaths = array(<span class="stringliteral">&#39;data/&#39;</span>);</div>
-<div class="line">            <span class="keywordflow">else</span> $corePaths = array(<span class="stringliteral">&#39;easy/element/&#39;</span>,<span class="stringliteral">&#39;&#39;</span>,<span class="stringliteral">&#39;data/&#39;</span>, <span class="stringliteral">&#39;easy/&#39;</span>, <span class="stringliteral">&#39;service/&#39;</span>);</div>
-<div class="line">            <span class="comment">//$corePaths = array(&#39;&#39;, &#39;data/&#39;, &#39;easy/&#39;, &#39;easy/element/&#39;, &#39;ui/&#39;, &#39;service/&#39;);</span></div>
-<div class="line">            <span class="keywordflow">foreach</span> ($corePaths as $path)</div>
-<div class="line">            {</div>
-<div class="line">                $_classFile = OPENBIZ_BIN . $path . $classFile;</div>
-<div class="line">                <span class="comment">//echo &quot;file_exists($_classFile)\n&quot;;</span></div>
-<div class="line">                <span class="keywordflow">if</span> (file_exists($_classFile))</div>
-<div class="line">                    <span class="keywordflow">return</span> $_classFile;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">return</span> null;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d20/_biz_class_loader_8php_source.html#l00040">40</a> of file <a class="el" href="../../df/d20/_biz_class_loader_8php_source.html">BizClassLoader.php</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/ddd/class_biz_class_loader_a43b9bb5f52377fabc68e21785b5afcb6_icgraph.png" border="0" usemap="#d3/ddd/class_biz_class_loader_a43b9bb5f52377fabc68e21785b5afcb6_icgraph" alt=""/></div>
+<map name="d3/ddd/class_biz_class_loader_a43b9bb5f52377fabc68e21785b5afcb6_icgraph" id="d3/ddd/class_biz_class_loader_a43b9bb5f52377fabc68e21785b5afcb6_icgraph">
+<area shape="rect" id="node2" href="../../d3/ddd/class_biz_class_loader.html#a6bbd0684f00be761ca64e9c4eb57a0c7" title="getLibFileWithPath" alt="" coords="221,82,355,110"/><area shape="rect" id="node11" href="../../df/d00/class_resource.html#a43b9bb5f52377fabc68e21785b5afcb6" title="Resource\\getCoreLibFilePath" alt="" coords="190,134,386,162"/><area shape="rect" id="node3" href="../../db/d60/class_object_factory.html#a276a15d5187194e2c92b31b8c1f23997" title="ObjectFactory\\constructObject" alt="" coords="434,57,635,85"/><area shape="rect" id="node6" href="../../df/d00/class_resource.html#a6bbd0684f00be761ca64e9c4eb57a0c7" title="Resource\\getLibFileWithPath" alt="" coords="438,109,632,137"/><area shape="rect" id="node4" href="../../db/d60/class_object_factory.html#a86e8283cbea7d216dd40aa6db8651d51" title="ObjectFactory\\getObject" alt="" coords="700,5,865,33"/><area shape="rect" id="node5" href="../../db/d60/class_object_factory.html#a271930bb6cceaa4c4d52e61d06bdf71e" title="ObjectFactory\\createObject" alt="" coords="691,57,874,85"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a6bbd0684f00be761ca64e9c4eb57a0c7" title="BizSystem\\getLibFileWithPath" alt="" coords="683,109,883,137"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#af60e1ab4d8265fd8e7993845fa3a2144" title="BizSystem\\loadClass" alt="" coords="931,109,1077,137"/><area shape="rect" id="node9" href="../../db/d4b/class_meta_object.html#a7fe35e06352b9e3048662626d19ce45b" title="MetaObject\\getElementObject" alt="" coords="1126,82,1325,110"/><area shape="rect" id="node10" href="../../dd/d21/class_meta_iterator.html#ae2b7944b324fca80f9af8fa8293b12cc" title="MetaIterator\\__construct" alt="" coords="1142,134,1308,162"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a6bbd0684f00be761ca64e9c4eb57a0c7"></a>
@@ -243,62 +226,30 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string php library file path </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L77">77</a> of file <a class="el" href="../../">BizClassLoader.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> (!$className)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        </div>
-<div class="line">  <span class="comment">//echo &quot;getLibFileWithPath($className, $packageName)\n&quot;;</span></div>
-<div class="line">  <span class="comment">// search it in cache first</span></div>
-<div class="line">        $cacheKey = $className . <span class="stringliteral">&quot;_path&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">if</span> (extension_loaded(<span class="charliteral">&#39;0&#39;</span>) &amp;&amp; ($filePath = apc_fetch($cacheKey)) != null)</div>
-<div class="line">            <span class="keywordflow">return</span> $filePath;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> (strpos($className, <span class="stringliteral">&quot;.&quot;</span>) &gt; 0)</div>
-<div class="line">            $className = str_replace(<span class="stringliteral">&quot;.&quot;</span>, <span class="stringliteral">&quot;/&quot;</span>, $className);</div>
-<div class="line"></div>
-<div class="line">        $filePath = null;</div>
-<div class="line">        $classFile = $className . <span class="stringliteral">&quot;.php&quot;</span>;</div>
-<div class="line">        $classFile_0 = $className . <span class="stringliteral">&quot;.php&quot;</span>;</div>
-<div class="line">        <span class="comment">// convert package name to path, add it to classfile</span></div>
-<div class="line">        $classFileIsFound = <span class="keyword">false</span>;</div>
-<div class="line">        <span class="keywordflow">if</span> ($packageName)</div>
-<div class="line">        {</div>
-<div class="line">            $path = str_replace(<span class="stringliteral">&quot;.&quot;</span>, <span class="stringliteral">&quot;/&quot;</span>, $packageName);</div>
-<div class="line">            <span class="comment">// check the leading char &#39;@&#39;</span></div>
-<div class="line">            $checkExtModule = <span class="keyword">true</span>;</div>
-<div class="line">            <span class="keywordflow">if</span> (strpos($path, <span class="charliteral">&#39;@&#39;</span>) === 0) {</div>
-<div class="line">                $path = substr($path, 1);</div>
-<div class="line">                $checkExtModule = <span class="keyword">false</span>;</div>
-<div class="line">            }</div>
-<div class="line">            </div>
-<div class="line">            <span class="comment">// search in apphome/modules directory first, search in apphome/bin directory then</span></div>
-<div class="line">            $classFiles[0] = <a class="code" href="../../d1/df2/sys__init_8php.html#ac741a5c484b794e0f4c08337608b625b">MODULE_PATH</a> . <span class="stringliteral">&quot;/&quot;</span> . $path . <span class="stringliteral">&quot;/&quot;</span> . $classFile;</div>
-<div class="line">            $classFiles[1] = <a class="code" href="../../d1/df2/sys__init_8php.html#a252aacc48601a59f3f33f237c14b15c3">APP_HOME</a> . <span class="stringliteral">&quot;/bin/&quot;</span> . $path . <span class="stringliteral">&quot;/&quot;</span> . $classFile;</div>
-<div class="line">            <span class="keywordflow">if</span> ($checkExtModule &amp;&amp; defined(<span class="stringliteral">&#39;MODULE_EX_PATH&#39;</span>)) array_unshift($classFiles, <a class="code" href="../../d1/df2/sys__init_8php.html#a52a4b3defcb31506af17423c123ed26e">MODULE_EX_PATH</a> . <span class="stringliteral">&quot;/&quot;</span> . $path . <span class="stringliteral">&quot;/&quot;</span> . $classFile);</div>
-<div class="line">            <span class="keywordflow">foreach</span> ($classFiles as $classFile)</div>
-<div class="line">            {</div>
-<div class="line">    <span class="comment">//echo &quot;file_exists($classFile)\n&quot;;</span></div>
-<div class="line">                <span class="keywordflow">if</span> (file_exists($classFile))</div>
-<div class="line">                {</div>
-<div class="line">                    $filePath = $classFile;</div>
-<div class="line">                    $classFileIsFound = <span class="keyword">true</span>;</div>
-<div class="line">                    <span class="keywordflow">break</span>;</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> (!$classFileIsFound)</div>
-<div class="line">            $filePath = <a class="code" href="../../d3/ddd/class_biz_class_loader.html#a43b9bb5f52377fabc68e21785b5afcb6">BizClassLoader::getCoreLibFilePath</a>($className);</div>
-<div class="line">        <span class="comment">// cache it to save file search</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($filePath &amp;&amp; extension_loaded(<span class="stringliteral">&#39;apc&#39;</span>))</div>
-<div class="line">            apc_store($cacheKey, $filePath);</div>
-<div class="line">        <span class="comment">/*if (!file_exists($filePath)) {</span></div>
-<div class="line"><span class="comment">            trigger_error(&quot;Cannot find the library file of $className&quot;, E_USER_ERROR);</span></div>
-<div class="line"><span class="comment">        }*/</span></div>
-<div class="line">        <span class="keywordflow">return</span> $filePath;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d20/_biz_class_loader_8php_source.html#l00077">77</a> of file <a class="el" href="../../df/d20/_biz_class_loader_8php_source.html">BizClassLoader.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/ddd/class_biz_class_loader_a6bbd0684f00be761ca64e9c4eb57a0c7_cgraph.png" border="0" usemap="#d3/ddd/class_biz_class_loader_a6bbd0684f00be761ca64e9c4eb57a0c7_cgraph" alt=""/></div>
+<map name="d3/ddd/class_biz_class_loader_a6bbd0684f00be761ca64e9c4eb57a0c7_cgraph" id="d3/ddd/class_biz_class_loader_a6bbd0684f00be761ca64e9c4eb57a0c7_cgraph">
+<area shape="rect" id="node2" href="../../d3/ddd/class_biz_class_loader.html#a43b9bb5f52377fabc68e21785b5afcb6" title="getCoreLibFilePath" alt="" coords="187,5,322,33"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/ddd/class_biz_class_loader_a6bbd0684f00be761ca64e9c4eb57a0c7_icgraph.png" border="0" usemap="#d3/ddd/class_biz_class_loader_a6bbd0684f00be761ca64e9c4eb57a0c7_icgraph" alt=""/></div>
+<map name="d3/ddd/class_biz_class_loader_a6bbd0684f00be761ca64e9c4eb57a0c7_icgraph" id="d3/ddd/class_biz_class_loader_a6bbd0684f00be761ca64e9c4eb57a0c7_icgraph">
+<area shape="rect" id="node2" href="../../db/d60/class_object_factory.html#a276a15d5187194e2c92b31b8c1f23997" title="ObjectFactory\\constructObject" alt="" coords="186,57,387,85"/><area shape="rect" id="node5" href="../../df/d00/class_resource.html#a6bbd0684f00be761ca64e9c4eb57a0c7" title="Resource\\getLibFileWithPath" alt="" coords="190,109,384,137"/><area shape="rect" id="node3" href="../../db/d60/class_object_factory.html#a86e8283cbea7d216dd40aa6db8651d51" title="ObjectFactory\\getObject" alt="" coords="452,5,617,33"/><area shape="rect" id="node4" href="../../db/d60/class_object_factory.html#a271930bb6cceaa4c4d52e61d06bdf71e" title="ObjectFactory\\createObject" alt="" coords="443,57,626,85"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a6bbd0684f00be761ca64e9c4eb57a0c7" title="BizSystem\\getLibFileWithPath" alt="" coords="435,109,635,137"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#af60e1ab4d8265fd8e7993845fa3a2144" title="BizSystem\\loadClass" alt="" coords="683,109,829,137"/><area shape="rect" id="node8" href="../../db/d4b/class_meta_object.html#a7fe35e06352b9e3048662626d19ce45b" title="MetaObject\\getElementObject" alt="" coords="878,82,1077,110"/><area shape="rect" id="node9" href="../../dd/d21/class_meta_iterator.html#ae2b7944b324fca80f9af8fa8293b12cc" title="MetaIterator\\__construct" alt="" coords="894,134,1060,162"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="af60e1ab4d8265fd8e7993845fa3a2144"></a>
@@ -333,22 +284,19 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L17">17</a> of file <a class="el" href="../../">BizClassLoader.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">//echo __METHOD__ . &#39;-&#39; . $className . &#39;-&#39; . $packageName.PHP_EOL; </span></div>
-<div class="line">        <span class="keywordflow">if</span> (isset(self::$_classNameCache[$packageName.$className])) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">        <span class="keywordflow">if</span> (strpos($className, <span class="stringliteral">&#39;Zend&#39;</span>) === 0) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">        $filePath = self::getLibFileWithPath($className, $packageName);</div>
-<div class="line">        <span class="comment">//var_dump( $filePath);</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($filePath)</div>
-<div class="line">        {</div>
-<div class="line">            include_once($filePath); <span class="comment">// auto_load</span></div>
-<div class="line">            self::$_classNameCache[$packageName.$className] = 1;</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d20/_biz_class_loader_8php_source.html#l00017">17</a> of file <a class="el" href="../../df/d20/_biz_class_loader_8php_source.html">BizClassLoader.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d3/ddd/class_biz_class_loader_af60e1ab4d8265fd8e7993845fa3a2144_icgraph.png" border="0" usemap="#d3/ddd/class_biz_class_loader_af60e1ab4d8265fd8e7993845fa3a2144_icgraph" alt=""/></div>
+<map name="d3/ddd/class_biz_class_loader_af60e1ab4d8265fd8e7993845fa3a2144_icgraph" id="d3/ddd/class_biz_class_loader_af60e1ab4d8265fd8e7993845fa3a2144_icgraph">
+<area shape="rect" id="node2" href="../../d3/d07/sysheader__inc_8php.html#aaa3c62808ae599d9b14076cb357f2bdf" title="__autoload_openbiz" alt="" coords="133,5,275,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -370,7 +318,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L140">140</a> of file <a class="el" href="../../">BizClassLoader.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d20/_biz_class_loader_8php_source.html#l00140">140</a> of file <a class="el" href="../../df/d20/_biz_class_loader_8php_source.html">BizClassLoader.php</a>.</p>
 
 </div>
 </div>
@@ -380,7 +328,7 @@ Static Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d3/ddd/class_biz_class_loader.html">BizClassLoader</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:12 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:37 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

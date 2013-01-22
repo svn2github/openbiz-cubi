@@ -347,7 +347,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L19">19</a> of file <a class="el" href="../../">LabelBool.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/dcb/_label_bool_8php_source.html#l00019">19</a> of file <a class="el" href="../../df/dcb/_label_bool_8php_source.html">LabelBool.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a5888f7e5883c7c2d486f7ddc1bd64760"></a>
 <div class="memitem">
@@ -379,15 +379,8 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L31">31</a> of file <a class="el" href="../../">LabelBool.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::readMetaData($xmlArr);</div>
-<div class="line">        $this-&gt;m_TrueImg=isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TRUEIMG&quot;</span>])?$xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TRUEIMG&quot;</span>]:<span class="stringliteral">&quot;flag_y.gif&quot;</span>;</div>
-<div class="line">        $this-&gt;m_FalseImg=isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FALSEIMG&quot;</span>])?$xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FALSEIMG&quot;</span>]:<span class="stringliteral">&quot;flag_n.gif&quot;</span>;</div>
-<div class="line">        $this-&gt;m_TrueValue=isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TRUEVALUE&quot;</span>])?$xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TRUEVALUE&quot;</span>]:<span class="keyword">true</span>;</div>
-<div class="line">        $this-&gt;m_FalseValue=isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FLASEVALUE&quot;</span>])?$xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FLASEVALUE&quot;</span>]:<span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/dcb/_label_bool_8php_source.html#l00031">31</a> of file <a class="el" href="../../df/dcb/_label_bool_8php_source.html">LabelBool.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="afde88292c44dc59faf017738dae6dffb"></a>
@@ -407,47 +400,19 @@ Protected Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/d2b/interfacei_u_i_control.html#afde88292c44dc59faf017738dae6dffb">iUIControl</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L44">44</a> of file <a class="el" href="../../">LabelBool.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     <span class="keywordflow">if</span>(!$this-&gt;m_TrueImg)</div>
-<div class="line">     {</div>
-<div class="line">      $this-&gt;m_TrueImg = <span class="stringliteral">&quot;flag_y.gif&quot;</span>;</div>
-<div class="line">     }</div>
-<div class="line">     <span class="keywordflow">if</span>(!$this-&gt;m_FalseImg)</div>
-<div class="line">     {</div>
-<div class="line">      $this-&gt;m_FalseImg = <span class="stringliteral">&quot;flag_n.gif&quot;</span>;</div>
-<div class="line">     }</div>
-<div class="line">        $val=<a class="code" href="../../d5/d50/class_element.html#acab8a119e17bf4955d23bd05c09ee4cd">$this-&gt;m_Value</a>;</div>
-<div class="line">        $style = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a1a9c641ae8a39113009425cbccaee5d5">getStyle</a>();</div>
-<div class="line">        $text = $this-&gt;<a class="code" href="../../d6/d00/class_label_text.html#a8a2999b1d846c0a7bc77187e28facd99">getText</a>();</div>
-<div class="line">        $id = <a class="code" href="../../db/d4b/class_meta_object.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">$this-&gt;m_Name</a>;</div>
-<div class="line">        $func = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a3cb728ca27acfebd282caecdb8a1f5fc">getFunction</a>();</div>
-<div class="line">        <span class="keywordflow">if</span>($val===<span class="charliteral">&#39;1&#39;</span> || $val===<span class="stringliteral">&#39;true&#39;</span> || strtoupper($val) == <span class="charliteral">&#39;Y&#39;</span> || $val&gt;0 || $val==$this-&gt;m_TrueValue)</div>
-<div class="line">     {</div>
-<div class="line">         $image_url  = <a class="code" href="../../da/dfd/class_label_bool.html#ac6b6359611ab35fca834de740984dd4d">$this-&gt;m_TrueImg</a>;            </div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {</div>
-<div class="line">         $image_url  = $this-&gt;m_FalseImg;            </div>
-<div class="line">        }   </div>
-<div class="line">        <span class="keywordflow">if</span>(preg_match(<span class="stringliteral">&quot;/\{.*\}/si&quot;</span>,$image_url))</div>
-<div class="line">        {</div>
-<div class="line">         $formobj = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>();</div>
-<div class="line">         $image_url =  <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>($image_url, $formobj);</div>
-<div class="line">        }<span class="keywordflow">else</span>{</div>
-<div class="line">         $image_url = <a class="code" href="../../df/d00/class_resource.html#a7b561ddf50dd090a4e4d4e4f0cf54d78">Resource::getImageUrl</a>().<span class="stringliteral">&quot;/&quot;</span>.$image_url;</div>
-<div class="line">        }                   </div>
-<div class="line">     <span class="keywordflow">if</span> ($this-&gt;m_Link)</div>
-<div class="line">        {</div>
-<div class="line">            $link = $this-&gt;<a class="code" href="../../d6/d00/class_label_text.html#abea978f4dcd47c4289232744d3ed2f01">getLink</a>();</div>
-<div class="line">            $target = $this-&gt;<a class="code" href="../../d6/d00/class_label_text.html#afd77d5a1c164c8d6f4a18cbf9c341410">getTarget</a>();</div>
-<div class="line">            $sHTML = <span class="stringliteral">&quot;&lt;a alt=\&quot;&quot;</span>.$text.<span class="stringliteral">&quot;\&quot; title=\&quot;&quot;</span>.$text.<span class="stringliteral">&quot;\&quot; id=\&quot;$id\&quot; href=\&quot;$link\&quot; $target $func $style&gt;&lt;img src=&#39;$image_url&#39; /&gt;&lt;/a&gt;&quot;</span>;</div>
-<div class="line">        }<span class="keywordflow">else</span>{</div>
-<div class="line">         $sHTML = <span class="stringliteral">&quot;&lt;span id=\&quot;$id\&quot;  &gt;&lt;img style=\&quot;padding-top:2px;\&quot; alt=\&quot;&quot;</span>.$text.<span class="stringliteral">&quot;\&quot; title=\&quot;&quot;</span>.$text.<span class="stringliteral">&quot;\&quot; src=&#39;$image_url&#39; /&gt;&lt;/span&gt;&quot;</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $sHTML;</div>
-<div class="line">    }     </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/dcb/_label_bool_8php_source.html#l00044">44</a> of file <a class="el" href="../../df/dcb/_label_bool_8php_source.html">LabelBool.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/dfd/class_label_bool_afde88292c44dc59faf017738dae6dffb_cgraph.png" border="0" usemap="#da/dfd/class_label_bool_afde88292c44dc59faf017738dae6dffb_cgraph" alt=""/></div>
+<map name="da/dfd/class_label_bool_afde88292c44dc59faf017738dae6dffb_cgraph" id="da/dfd/class_label_bool_afde88292c44dc59faf017738dae6dffb_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#a1a9c641ae8a39113009425cbccaee5d5" title="Element\\getStyle" alt="" coords="126,183,248,211"/><area shape="rect" id="node15" href="../../d6/d00/class_label_text.html#a8a2999b1d846c0a7bc77187e28facd99" title="LabelText\\getText" alt="" coords="124,235,249,263"/><area shape="rect" id="node16" href="../../d5/d50/class_element.html#a3cb728ca27acfebd282caecdb8a1f5fc" title="Element\\getFunction" alt="" coords="115,339,258,367"/><area shape="rect" id="node3" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="600,237,744,265"/><area shape="rect" id="node6" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="307,83,514,111"/><area shape="rect" id="node18" href="../../df/d00/class_resource.html#a7b561ddf50dd090a4e4d4e4f0cf54d78" title="Resource\\getImageUrl" alt="" coords="333,391,488,419"/><area shape="rect" id="node21" href="../../d6/d00/class_label_text.html#abea978f4dcd47c4289232744d3ed2f01" title="LabelText\\getLink" alt="" coords="124,131,249,159"/><area shape="rect" id="node22" href="../../d6/d00/class_label_text.html#afd77d5a1c164c8d6f4a18cbf9c341410" title="LabelText\\getTarget" alt="" coords="118,443,256,471"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="1083,237,1251,265"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1308,250,1446,278"/><area shape="rect" id="node7" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="581,109,763,137"/><area shape="rect" id="node12" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="573,161,771,189"/><area shape="rect" id="node13" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="563,5,781,33"/><area shape="rect" id="node14" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="591,57,753,85"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="843,185,1016,213"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1091,185,1242,213"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1305,173,1450,201"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1077,289,1256,317"/><area shape="rect" id="node17" href="../../d5/d50/class_element.html#a54ecee00f83d387598096653b07f10c5" title="Element\\getEvents" alt="" coords="344,339,477,367"/><area shape="rect" id="node19" href="../../df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="579,341,765,369"/><area shape="rect" id="node20" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="829,289,1029,317"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -461,7 +426,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L21">21</a> of file <a class="el" href="../../">LabelBool.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/dcb/_label_bool_8php_source.html#l00021">21</a> of file <a class="el" href="../../df/dcb/_label_bool_8php_source.html">LabelBool.php</a>.</p>
 
 </div>
 </div>
@@ -475,7 +440,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L23">23</a> of file <a class="el" href="../../">LabelBool.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/dcb/_label_bool_8php_source.html#l00023">23</a> of file <a class="el" href="../../df/dcb/_label_bool_8php_source.html">LabelBool.php</a>.</p>
 
 </div>
 </div>
@@ -489,7 +454,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L20">20</a> of file <a class="el" href="../../">LabelBool.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/dcb/_label_bool_8php_source.html#l00020">20</a> of file <a class="el" href="../../df/dcb/_label_bool_8php_source.html">LabelBool.php</a>.</p>
 
 </div>
 </div>
@@ -503,7 +468,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L22">22</a> of file <a class="el" href="../../">LabelBool.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/dcb/_label_bool_8php_source.html#l00022">22</a> of file <a class="el" href="../../df/dcb/_label_bool_8php_source.html">LabelBool.php</a>.</p>
 
 </div>
 </div>
@@ -513,7 +478,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/dfd/class_label_bool.html">LabelBool</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:23 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:59 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

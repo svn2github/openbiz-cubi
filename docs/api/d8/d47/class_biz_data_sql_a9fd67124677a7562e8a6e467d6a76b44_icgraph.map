@@ -1,0 +1,6 @@
+<map id="getJoinAlias" name="getJoinAlias">
+<area shape="rect" id="node2" href="$d8/d47/class_biz_data_sql.html#a586c6603549259709b787c218d7ba70b" title="addJoinTable" alt="" coords="155,5,255,33"/>
+<area shape="rect" id="node3" href="$d8/d47/class_biz_data_sql.html#a2ffb420f93014db5ffcd6c1256a3ab80" title="getTableColumn" alt="" coords="146,57,264,85"/>
+<area shape="rect" id="node4" href="$d8/d47/class_biz_data_sql.html#a15ed9d48a89ecf52ef8bb4ff82a70ad9" title="addTableColumn" alt="" coords="313,30,434,58"/>
+<area shape="rect" id="node5" href="$d8/d47/class_biz_data_sql.html#a5c9b8ae752514b82f504afaa0aa22aa4" title="addAssociation" alt="" coords="317,82,429,110"/>
+</map>

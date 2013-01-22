@@ -1,0 +1,11 @@
+<map id="smarty_block_t" name="smarty_block_t">
+<area shape="rect" id="node2" href="$d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="214,31,269,59"/>
+<area shape="rect" id="node10" href="$d8/d18/block_8t_8php.html#af3605d7e4fc8d4d75ce008489c50914d" title="smarty_gettext_strarg" alt="" coords="166,83,316,111"/>
+<area shape="rect" id="node3" href="$d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="366,31,500,59"/>
+<area shape="rect" id="node4" href="$d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="550,31,725,59"/>
+<area shape="rect" id="node5" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1021,5,1200,33"/>
+<area shape="rect" id="node7" href="$d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="773,57,973,85"/>
+<area shape="rect" id="node6" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1252,5,1390,33"/>
+<area shape="rect" id="node8" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1035,57,1186,85"/>
+<area shape="rect" id="node9" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1249,57,1394,85"/>
+</map>

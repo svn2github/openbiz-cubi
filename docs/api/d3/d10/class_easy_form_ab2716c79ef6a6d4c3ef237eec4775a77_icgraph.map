@@ -1,0 +1,12 @@
+<map id="getActiveRecord" name="getActiveRecord">
+<area shape="rect" id="node2" href="$d3/d10/class_easy_form.html#a0a9be34d99077d5d3ea572ca7e59200a" title="copyRecord" alt="" coords="174,5,266,33"/>
+<area shape="rect" id="node3" href="$d3/d10/class_easy_form.html#a32687fce665ec940eadd9d119c193632" title="editRecord" alt="" coords="177,57,263,85"/>
+<area shape="rect" id="node4" href="$d3/d10/class_easy_form.html#a386c5a3fcb3daea95ab0e98a4cafd8bf" title="updateFieldValue" alt="" coords="315,109,439,137"/>
+<area shape="rect" id="node7" href="$d3/d10/class_easy_form.html#a22a8409a820a88e424d9fc9a71a5932a" title="_doUpdate" alt="" coords="177,161,263,189"/>
+<area shape="rect" id="node10" href="$d3/d10/class_easy_form.html#a613a31d4e8c9693801fa4ae1ba0644b6" title="_doInsert" alt="" coords="182,213,258,241"/>
+<area shape="rect" id="node5" href="$d3/d10/class_easy_form.html#a326d668daf6787a96d8fad30cb3fe3ce" title="updateFieldValueAdd" alt="" coords="489,83,637,111"/>
+<area shape="rect" id="node6" href="$d3/d10/class_easy_form.html#ad925ac5856b187d0d0bdb4691cec8f6f" title="updateFieldValueXor" alt="" coords="490,135,635,163"/>
+<area shape="rect" id="node8" href="$d3/d10/class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="325,161,430,189"/>
+<area shape="rect" id="node9" href="$d3/d10/class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="saveRecord" alt="" coords="516,187,609,215"/>
+<area shape="rect" id="node11" href="$d3/d10/class_easy_form.html#a3510e359acc3518312436d50f9cbde51" title="insertRecord" alt="" coords="329,213,426,241"/>
+</map>

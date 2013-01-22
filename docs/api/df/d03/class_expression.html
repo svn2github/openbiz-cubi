@@ -157,7 +157,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L26">26</a> of file <a class="el" href="../../">Expression.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d31/_expression_8php_source.html#l00026">26</a> of file <a class="el" href="../../d5/d31/_expression_8php_source.html">Expression.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a847d8d60f037d0a016aca7006cf9dec6"></a>
 <div class="memitem">
@@ -173,10 +173,8 @@ Static Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L31">31</a> of file <a class="el" href="../../">Expression.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d31/_expression_8php_source.html#l00031">31</a> of file <a class="el" href="../../d5/d31/_expression_8php_source.html">Expression.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -210,39 +208,19 @@ Static Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L405">405</a> of file <a class="el" href="../../">Expression.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $b = 0;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">foreach</span> (token_get_all($code) as $token)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> (<span class="charliteral">&#39;{&#39;</span> == $token) ++$b;</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="charliteral">&#39;}&#39;</span> == $token) --$b;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($b) <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Unbalanced braces would break the eval below</span></div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {</div>
-<div class="line">            ob_start(); <span class="comment">// Catch potential parse error messages</span></div>
-<div class="line">           <span class="comment">// if(preg_match(&quot;/.*?\= &#39;.*?&#39;/si&quot;,$code)){</span></div>
-<div class="line">            <span class="comment">//if(!preg_match(&quot;/,/si&quot;,$code) &amp;&amp; !preg_match(&quot;/\//si&quot;,$code)){</span></div>
-<div class="line">            <span class="comment">//if( !preg_match(&quot;/\//si&quot;,$code)){</span></div>
-<div class="line">          $r = eval(<span class="stringliteral">&#39;if(0){&#39;</span> . $code . <span class="charliteral">&#39;}&#39;</span>); <span class="comment">// Put $code in a dead code sandbox to prevent its execution</span></div>
-<div class="line">            <span class="comment">//}else{</span></div>
-<div class="line">            <span class="comment">// return false;</span></div>
-<div class="line">            <span class="comment">//}</span></div>
-<div class="line">            $error = ob_get_contents();</div>
-<div class="line">            <span class="keywordflow">if</span> ($r === <span class="keyword">false</span>)</div>
-<div class="line">            {</div>
-<div class="line">            <span class="comment">//trigger_error(&quot;EVAL: $code &quot;.$error, E_USER_ERROR);</span></div>
-<div class="line">            <span class="comment">//BizSystem::log(LOG_ERR, &quot;ERROR&quot;, &quot;EVAL: $code. &quot;.$error);</span></div>
-<div class="line">            }</div>
-<div class="line">            ob_end_clean();</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span> !== $r;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d31/_expression_8php_source.html#l00405">405</a> of file <a class="el" href="../../d5/d31/_expression_8php_source.html">Expression.php</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d03/class_expression_a9bf8699028d3ae5289bd968a6447a09c_icgraph.png" border="0" usemap="#df/d03/class_expression_a9bf8699028d3ae5289bd968a6447a09c_icgraph" alt=""/></div>
+<map name="df/d03/class_expression_a9bf8699028d3ae5289bd968a6447a09c_icgraph" id="df/d03/class_expression_a9bf8699028d3ae5289bd968a6447a09c_icgraph">
+<area shape="rect" id="node2" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="evaluateExpression" alt="" coords="147,1431,285,1459"/><area shape="rect" id="node3" href="../../d8/d08/class_biz_field.html#a80314b4a8ff745a399a730231eaf74b8" title="BizField\\getValue" alt="" coords="385,5,509,33"/><area shape="rect" id="node4" href="../../d8/d08/class_biz_field.html#af9b9401c63918169457fe8516324950f" title="BizField\\getDefaultValue" alt="" coords="363,57,530,85"/><area shape="rect" id="node5" href="../../d8/d08/class_biz_field.html#a28e2f59b6c1f32d18693464e7f558ae0" title="BizField\\getValueOnCreate" alt="" coords="356,109,538,137"/><area shape="rect" id="node6" href="../../d8/d08/class_biz_field.html#adae62abd872e582cd8617cf81b47f615" title="BizField\\getValueOnUpdate" alt="" coords="354,161,539,189"/><area shape="rect" id="node7" href="../../d8/d08/class_biz_field.html#aa4c8c1cac65717e36ec2dd2f08535857" title="BizField\\checkRequired" alt="" coords="366,213,527,241"/><area shape="rect" id="node8" href="../../d8/d08/class_biz_field.html#a184909dab34698899937d810a9f5d393" title="BizField\\validate" alt="" coords="387,265,506,293"/><area shape="rect" id="node9" href="../../d3/d10/class_easy_form.html#afbb8fcc4c21113c915263f4a1ca3c0c5" title="EasyForm\\outputAttrs" alt="" coords="372,317,522,345"/><area shape="rect" id="node10" href="../../db/d40/class_easy_view.html#afbb8fcc4c21113c915263f4a1ca3c0c5" title="EasyView\\outputAttrs" alt="" coords="373,369,521,397"/><area shape="rect" id="node11" href="../../d2/df4/class_checkbox.html#a94343a26b3068d62d2374bf4a8cfeb91" title="Checkbox\\getDefaultChecked" alt="" coords="348,421,546,449"/><area shape="rect" id="node12" href="../../d0/de8/class_column_bar.html#afde88292c44dc59faf017738dae6dffb" title="ColumnBar\\render" alt="" coords="627,525,757,553"/><area shape="rect" id="node13" href="../../d0/de8/class_column_bar.html#a1a9c641ae8a39113009425cbccaee5d5" title="ColumnBar\\getStyle" alt="" coords="377,525,517,553"/><area shape="rect" id="node15" href="../../d3/d37/class_column_bool.html#afde88292c44dc59faf017738dae6dffb" title="ColumnBool\\render" alt="" coords="624,738,760,766"/><area shape="rect" id="node16" href="../../dc/d5d/class_column_image.html#a07e72be0677630865d3292e14670096b" title="ColumnImage\\getAlt" alt="" coords="376,1353,518,1381"/><area shape="rect" id="node17" href="../../dc/d5d/class_column_image.html#a95e859a4588a39a1824b717378a84c29" title="ColumnImage\\getTitle" alt="" coords="371,1405,522,1433"/><area shape="rect" id="node18" href="../../d5/d09/class_column_list.html#abea978f4dcd47c4289232744d3ed2f01" title="ColumnList\\getLink" alt="" coords="379,1457,514,1485"/><area shape="rect" id="node19" href="../../d7/de0/class_column_share.html#afde88292c44dc59faf017738dae6dffb" title="ColumnShare\\render" alt="" coords="619,802,765,830"/><area shape="rect" id="node20" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="DropDownList\\render" alt="" coords="824,1173,971,1201"/><area shape="rect" id="node21" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="DropDownList\\renderList" alt="" coords="608,1250,776,1278"/><area shape="rect" id="node22" href="../../dc/d58/class_drop_down_list.html#a6bf46184c1f8fff5f182aa3c2f5326a6" title="DropDownList\\getSelectFrom" alt="" coords="349,1509,544,1537"/><area shape="rect" id="node23" href="../../dc/d58/class_drop_down_list.html#a8338e531153b75a023f7ee86a080f092" title="DropDownList\\getSelectedList" alt="" coords="347,1561,547,1589"/><area shape="rect" id="node24" href="../../dc/d58/class_drop_down_list.html#a738c28f6c74aff9a8548462b945c2a84" title="DropDownList\\getSelectFromSQL" alt="" coords="336,1613,558,1641"/><area shape="rect" id="node25" href="../../d0/dec/class_edit_combobox.html#a1a9c641ae8a39113009425cbccaee5d5" title="EditCombobox\\getStyle" alt="" coords="366,1665,527,1693"/><area shape="rect" id="node26" href="../../d5/d50/class_element.html#af9b9401c63918169457fe8516324950f" title="Element\\getDefaultValue" alt="" coords="363,1042,531,1070"/><area shape="rect" id="node28" href="../../d5/d50/class_element.html#a1d032efbce2b4edb7c269a1e13562f40" title="Element\\getHidden" alt="" coords="379,1717,514,1745"/><area shape="rect" id="node29" href="../../d5/d50/class_element.html#a1a9c641ae8a39113009425cbccaee5d5" title="Element\\getStyle" alt="" coords="386,938,508,966"/><area shape="rect" id="node32" href="../../d5/d50/class_element.html#a4ad6a97aea312d45fb3d2690f8e642dd" title="Element\\getBackgroundColor" alt="" coords="349,1769,544,1797"/><area shape="rect" id="node33" href="../../d5/d50/class_element.html#a8a2999b1d846c0a7bc77187e28facd99" title="Element\\getText" alt="" coords="388,1301,505,1329"/><area shape="rect" id="node34" href="../../d5/d50/class_element.html#a2e7bb35c71bf1824456ceb944cb7a845" title="Element\\getDescription" alt="" coords="367,1821,526,1849"/><area shape="rect" id="node35" href="../../d5/d50/class_element.html#a6e1c6c2cc8de5bd666dd9ba68f9b89fe" title="Element\\getFunctionByEvent\lHandlerName" alt="" coords="350,1873,543,1917"/><area shape="rect" id="node36" href="../../d5/d50/class_element.html#abc801caf128622d68070e5b656c2fc3a" title="Element\\getRedirectPage" alt="" coords="360,1941,533,1969"/><area shape="rect" id="node37" href="../../d5/d50/class_element.html#a9948e3272704960f325b9e0b1fc6a5b6" title="Element\\getParameter" alt="" coords="369,1993,524,2021"/><area shape="rect" id="node38" href="../../d5/d50/class_element.html#aa4c8c1cac65717e36ec2dd2f08535857" title="Element\\checkRequired" alt="" coords="365,2045,528,2073"/><area shape="rect" id="node39" href="../../d5/d50/class_element.html#a184909dab34698899937d810a9f5d393" title="Element\\validate" alt="" coords="387,2097,507,2125"/><area shape="rect" id="node40" href="../../d1/d27/class_event_handler.html#a5f77b4f1921d9d5851bdc2319dec3fb5" title="EventHandler\\getFormedFunction" alt="" coords="336,2149,557,2177"/><area shape="rect" id="node41" href="../../d1/d27/class_event_handler.html#a4eaa46af53f92b3462f3d2d18d8a11b7" title="EventHandler\\getInvokeAction" alt="" coords="346,2201,547,2229"/><area shape="rect" id="node42" href="../../db/dc1/class_h_t_m_l_preview.html#abea978f4dcd47c4289232744d3ed2f01" title="HTMLPreview\\getLink" alt="" coords="371,2253,523,2281"/><area shape="rect" id="node43" href="../../db/dc1/class_h_t_m_l_preview.html#a8a2999b1d846c0a7bc77187e28facd99" title="HTMLPreview\\getText" alt="" coords="371,2305,523,2333"/><area shape="rect" id="node44" href="../../d1/d37/class_i_frame_box.html#abea978f4dcd47c4289232744d3ed2f01" title="IFrameBox\\getLink" alt="" coords="380,2357,513,2385"/><area shape="rect" id="node45" href="../../d1/d37/class_i_frame_box.html#ae7fba4c8be1972cf80dc1a95f390df23" title="IFrameBox\\getWidth" alt="" coords="375,2409,518,2437"/><area shape="rect" id="node46" href="../../d1/d37/class_i_frame_box.html#aa725283ffc599b3f6563cada4cbeb2c7" title="IFrameBox\\getHeight" alt="" coords="373,2461,520,2489"/><area shape="rect" id="node27" href="../../db/d5a/class_image_selector.html#afde88292c44dc59faf017738dae6dffb" title="ImageSelector\\render" alt="" coords="617,1094,767,1122"/><area shape="rect" id="node47" href="../../d3/d05/class_input_element.html#ab442a42d8265e71787a82ef3a1b4549c" title="InputElement\\getEnabled" alt="" coords="361,1146,532,1174"/><area shape="rect" id="node48" href="../../d3/d05/class_input_element.html#a51bd39a627fe91242fa2d879a702b4c3" title="InputElement\\getRequired" alt="" coords="359,2513,535,2541"/><area shape="rect" id="node14" href="../../d0/df2/class_label_bar.html#afde88292c44dc59faf017738dae6dffb" title="LabelBar\\render" alt="" coords="634,577,750,605"/><area shape="rect" id="node30" href="../../da/dfd/class_label_bool.html#afde88292c44dc59faf017738dae6dffb" title="LabelBool\\render" alt="" coords="631,879,753,907"/><area shape="rect" id="node49" href="../../d9/d69/class_label_image.html#a5888f7e5883c7c2d486f7ddc1bd64760" title="LabelImage\\readMetaData" alt="" coords="357,2565,536,2593"/><area shape="rect" id="node50" href="../../d9/d69/class_label_image.html#afde88292c44dc59faf017738dae6dffb" title="LabelImage\\render" alt="" coords="625,679,759,707"/><area shape="rect" id="node51" href="../../d9/d80/class_label_list.html#abea978f4dcd47c4289232744d3ed2f01" title="LabelList\\getLink" alt="" coords="386,2617,507,2645"/><area shape="rect" id="node52" href="../../d6/d00/class_label_text.html#abea978f4dcd47c4289232744d3ed2f01" title="LabelText\\getLink" alt="" coords="384,783,509,811"/><area shape="rect" id="node53" href="../../d6/d00/class_label_text.html#a8a2999b1d846c0a7bc77187e28facd99" title="LabelText\\getText" alt="" coords="384,679,509,707"/><area shape="rect" id="node31" href="../../d8/da5/class_label_text_paging.html#afde88292c44dc59faf017738dae6dffb" title="LabelTextPaging\\render" alt="" coords="611,990,773,1018"/><area shape="rect" id="node54" href="../../da/d7f/class_option_element.html#a6bf46184c1f8fff5f182aa3c2f5326a6" title="OptionElement\\getSelectFrom" alt="" coords="347,2669,547,2697"/><area shape="rect" id="node55" href="../../da/d7f/class_option_element.html#a8338e531153b75a023f7ee86a080f092" title="OptionElement\\getSelectedList" alt="" coords="344,2721,549,2749"/><area shape="rect" id="node56" href="../../da/d7f/class_option_element.html#a738c28f6c74aff9a8548462b945c2a84" title="OptionElement\\getSelectFromSQL" alt="" coords="333,2773,560,2801"/><area shape="rect" id="node57" href="../../d2/d23/class_radio.html#a1a9c641ae8a39113009425cbccaee5d5" title="Radio\\getStyle" alt="" coords="393,2825,501,2853"/><area shape="rect" id="node58" href="../../d1/d3a/class_raw_data.html#abea978f4dcd47c4289232744d3ed2f01" title="RawData\\getLink" alt="" coords="385,2877,508,2905"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a85d5504074029bc1ebe18dd8de91571c"></a>
@@ -287,68 +265,19 @@ Static Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>mixed </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L319">319</a> of file <a class="el" href="../../">Expression.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">    <span class="comment">// TODO: check if it&#39;s &quot;\[&quot;, &quot;\]&quot;, &quot;\{&quot; or &quot;\}&quot;</span></div>
-<div class="line">        $script = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">        $start = 0;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> (strpos($expression, <span class="stringliteral">&quot;{&quot;</span>, $start) === <span class="keyword">false</span>)    <span class="comment">// do nothing if no { symbol</span></div>
-<div class="line">            <span class="keywordflow">return</span> $expression;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span>($expression==<span class="stringliteral">&quot;{@}&quot;</span>){</div>
-<div class="line">         <span class="keywordflow">return</span> $object;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">// evaluate the expression between {}</span></div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
-<div class="line">        {</div>
-<div class="line">            list($tag,$pos0,$pos1) = self::getNextContainerPos($expression, $start);</div>
-<div class="line">            <span class="keywordflow">if</span> ($pos0 === <span class="keyword">false</span>)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">if</span> (substr($expression, $start))</div>
-<div class="line">                    $script .= substr($expression, $start);</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> ($pos0 &gt;= 0 &amp;&amp; $pos1 &gt; $pos0)</div>
-<div class="line">            {</div>
-<div class="line">                $script .= substr($expression, $start, $pos0 - $start);</div>
-<div class="line">                $start = $pos1 + strlen(self::$expContainers[$tag]);</div>
-<div class="line">                $section = substr($expression, $pos0 + strlen($tag), $pos1 - $pos0 - strlen($tag));</div>
-<div class="line">                $_section = $section;</div>
-<div class="line">                <span class="keywordflow">if</span> ($object) {</div>
-<div class="line">                    <span class="comment">//BizSystem::log(LOG_DEBUG, &quot;EXPRESSION&quot;, &quot;###expression 1: &quot;.$section.&quot;&quot;);</span></div>
-<div class="line">                    $section = <a class="code" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6">Expression::replaceVarExpr</a>($section, $object);  <span class="comment">// replace variable expr;</span></div>
-<div class="line">                    <span class="comment">//BizSystem::log(LOG_DEBUG, &quot;EXPRESSION&quot;, &quot;###expression 2: &quot;.$section.&quot;&quot;); </span></div>
-<div class="line">                    <span class="keywordflow">if</span> ($_section == $section) {</div>
-<div class="line">                        <span class="keywordflow">if</span> ((is_subclass_of($object, <span class="stringliteral">&quot;BizDataObj&quot;</span>) || get_class($object)==<span class="stringliteral">&quot;BizDataObj&quot;</span>) AND strstr($section, <span class="charliteral">&#39;[&#39;</span>))</div>
-<div class="line">                            $section = <a class="code" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f">Expression::replaceFieldsExpr</a>($section, $object);  <span class="comment">// replace [field] with its value</span></div>
-<div class="line"></div>
-<div class="line">                        <span class="keywordflow">if</span> ((is_subclass_of($object, <span class="stringliteral">&quot;EasyForm&quot;</span>)|| get_class($object)==<span class="stringliteral">&quot;EasyForm&quot;</span>) AND strstr($section, <span class="charliteral">&#39;[&#39;</span>))</div>
-<div class="line">                            $section = <a class="code" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b">Expression::replaceElementsExpr</a>($section, $object);  <span class="comment">// replace [field] with its value</span></div>
-<div class="line">                    }</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">if</span> ($section === <span class="keyword">false</span>)</div>
-<div class="line">                    $script = ($script == <span class="stringliteral">&#39;&#39;</span>) ? $section : ($script . $section);</div>
-<div class="line">                <span class="keywordflow">if</span> ($section != null AND trim($section) != <span class="stringliteral">&quot;&quot;</span> AND $section != <span class="keyword">false</span>)</div>
-<div class="line">                {</div>
-<div class="line">                    $ret == null;</div>
-<div class="line">                    <span class="comment">//if (Expression::eval_syntax(&quot;\$ret = $section;&quot;))</span></div>
-<div class="line">                    <span class="keywordflow">if</span> (($tag == <span class="stringliteral">&#39;{fx}&#39;</span> || $tag == <span class="charliteral">&#39;{&#39;</span>) &amp;&amp; <a class="code" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c">Expression::eval_syntax</a>(<span class="stringliteral">&quot;\$ret = $section;&quot;</span>))</div>
-<div class="line">                    {</div>
-<div class="line">                        eval (<span class="stringliteral">&quot;\$ret = $section;&quot;</span>);</div>
-<div class="line">                    }</div>
-<div class="line">                    <span class="keywordflow">if</span> ($ret === null)</div>
-<div class="line">                        $ret = $section;</div>
-<div class="line">                    $script = ($script == <span class="stringliteral">&#39;&#39;</span>) ? $ret : ($script . $ret);</div>
-<div class="line">                    unset($ret);</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">            elseif ($pos0 &gt;= 0 &amp;&amp; $pos1 &lt;= $pos0)</div>
-<div class="line">                break;</div>
-<div class="line">        }</div>
-<div class="line">        return $script;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d31/_expression_8php_source.html#l00319">319</a> of file <a class="el" href="../../d5/d31/_expression_8php_source.html">Expression.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d03/class_expression_a85d5504074029bc1ebe18dd8de91571c_cgraph.png" border="0" usemap="#df/d03/class_expression_a85d5504074029bc1ebe18dd8de91571c_cgraph" alt=""/></div>
+<map name="df/d03/class_expression_a85d5504074029bc1ebe18dd8de91571c_cgraph" id="df/d03/class_expression_a85d5504074029bc1ebe18dd8de91571c_cgraph">
+<area shape="rect" id="node2" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="replaceVarExpr" alt="" coords="211,29,323,57"/><area shape="rect" id="node8" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="replaceFieldsExpr" alt="" coords="203,81,331,109"/><area shape="rect" id="node9" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="replaceElementsExpr" alt="" coords="193,133,341,161"/><area shape="rect" id="node10" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="eval_syntax" alt="" coords="221,185,313,213"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="390,81,562,109"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="624,30,776,58"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="838,5,983,33"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="610,82,790,110"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="842,82,980,110"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a4def20e1b81a3b477f902c950792b021"></a>
@@ -383,22 +312,8 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L381">381</a> of file <a class="el" href="../../">Expression.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">foreach</span> (self::$expContainers as $left=&gt;$right)</div>
-<div class="line">        {</div>
-<div class="line">            $pos0 = strpos($expression, $left, $start);</div>
-<div class="line">            $pos1 = strpos($expression, $right, $start);</div>
-<div class="line">            <span class="keywordflow">if</span> ($pos0 === <span class="keyword">false</span>)</div>
-<div class="line">                <span class="keywordflow">continue</span>;</div>
-<div class="line">            <span class="keywordflow">if</span> ($pos0 &gt;= 0 &amp;&amp; $pos1 &gt; $pos0)</div>
-<div class="line">                <span class="keywordflow">return</span> array($left, $pos0, $pos1);</div>
-<div class="line">            <span class="keywordflow">if</span> ($pos0 &gt;= 0 &amp;&amp; $pos1 &lt;= $pos0)</div>
-<div class="line">                trigger_error(<span class="stringliteral">&quot;Incorrect Expression - no matching end tag $right for $left.&quot;</span>, E_USER_ERROR);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> array(null,<span class="keyword">false</span>,<span class="keyword">false</span>);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d31/_expression_8php_source.html#l00381">381</a> of file <a class="el" href="../../d5/d31/_expression_8php_source.html">Expression.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae990aef1e90abdb103def6d730e87c2b"></a>
@@ -442,50 +357,19 @@ Static Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>mixed </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L89">89</a> of file <a class="el" href="../../">Expression.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $script = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">        $start = 0;</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// replace [field] with field value</span></div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $pos0 = strpos($expression, <span class="stringliteral">&quot;[&quot;</span>, $start);</div>
-<div class="line">            $pos1 = strpos($expression, <span class="stringliteral">&quot;]&quot;</span>, $start);</div>
-<div class="line">            <span class="keywordflow">if</span> ($pos0 === <span class="keyword">false</span>)</div>
-<div class="line">            {</div>
-<div class="line">                $script .= substr($expression, $start);</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> ($pos0 &gt;= 0 &amp;&amp; $pos1 &gt; $pos0)</div>
-<div class="line">            {</div>
-<div class="line">                $script .= substr($expression, $start, $pos0 - $start);</div>
-<div class="line">                $start = $pos1 + 1;</div>
-<div class="line">                $elementName = substr($expression, $pos0 + 1, $pos1 - $pos0-1);</div>
-<div class="line">                <span class="comment">// get field value</span></div>
-<div class="line">                $element = $formObj-&gt;getElement($elementName);</div>
-<div class="line">                <span class="keywordflow">if</span>($element)</div>
-<div class="line">                {</div>
-<div class="line">                    $fldval = $element-&gt;getValue();</div>
-<div class="line">                }<span class="keywordflow">else</span></div>
-<div class="line">                {</div>
-<div class="line">                    $fldval = null;</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">if</span> ($fldval !== null)</div>
-<div class="line">                    $script .= $fldval;</div>
-<div class="line">                <span class="keywordflow">else</span></div>
-<div class="line">                {</div>
-<div class="line">                <span class="comment">//$script .= substr($expression, $pos0, $pos1 - $pos0);</span></div>
-<div class="line">                <span class="comment">//return &quot;fail to evaluate $expression&quot;;</span></div>
-<div class="line">                    <span class="keywordflow">return</span> $expression;  <span class="comment">// return the original expression once it can&#39;t find element</span></div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">            elseif ($pos0 &gt;= 0 &amp;&amp; $pos1 &lt;= $pos0)</div>
-<div class="line">                break;</div>
-<div class="line">        }</div>
-<div class="line">        return $script;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d31/_expression_8php_source.html#l00089">89</a> of file <a class="el" href="../../d5/d31/_expression_8php_source.html">Expression.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d03/class_expression_ae990aef1e90abdb103def6d730e87c2b_icgraph.png" border="0" usemap="#df/d03/class_expression_ae990aef1e90abdb103def6d730e87c2b_icgraph" alt=""/></div>
+<map name="df/d03/class_expression_ae990aef1e90abdb103def6d730e87c2b_icgraph" id="df/d03/class_expression_ae990aef1e90abdb103def6d730e87c2b_icgraph">
+<area shape="rect" id="node2" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="evaluateExpression" alt="" coords="203,1431,341,1459"/><area shape="rect" id="node3" href="../../d8/d08/class_biz_field.html#a80314b4a8ff745a399a730231eaf74b8" title="BizField\\getValue" alt="" coords="441,5,565,33"/><area shape="rect" id="node4" href="../../d8/d08/class_biz_field.html#af9b9401c63918169457fe8516324950f" title="BizField\\getDefaultValue" alt="" coords="419,57,586,85"/><area shape="rect" id="node5" href="../../d8/d08/class_biz_field.html#a28e2f59b6c1f32d18693464e7f558ae0" title="BizField\\getValueOnCreate" alt="" coords="412,109,594,137"/><area shape="rect" id="node6" href="../../d8/d08/class_biz_field.html#adae62abd872e582cd8617cf81b47f615" title="BizField\\getValueOnUpdate" alt="" coords="410,161,595,189"/><area shape="rect" id="node7" href="../../d8/d08/class_biz_field.html#aa4c8c1cac65717e36ec2dd2f08535857" title="BizField\\checkRequired" alt="" coords="422,213,583,241"/><area shape="rect" id="node8" href="../../d8/d08/class_biz_field.html#a184909dab34698899937d810a9f5d393" title="BizField\\validate" alt="" coords="443,265,562,293"/><area shape="rect" id="node9" href="../../d3/d10/class_easy_form.html#afbb8fcc4c21113c915263f4a1ca3c0c5" title="EasyForm\\outputAttrs" alt="" coords="428,317,578,345"/><area shape="rect" id="node10" href="../../db/d40/class_easy_view.html#afbb8fcc4c21113c915263f4a1ca3c0c5" title="EasyView\\outputAttrs" alt="" coords="429,369,577,397"/><area shape="rect" id="node11" href="../../d2/df4/class_checkbox.html#a94343a26b3068d62d2374bf4a8cfeb91" title="Checkbox\\getDefaultChecked" alt="" coords="404,421,602,449"/><area shape="rect" id="node12" href="../../d0/de8/class_column_bar.html#afde88292c44dc59faf017738dae6dffb" title="ColumnBar\\render" alt="" coords="683,525,813,553"/><area shape="rect" id="node13" href="../../d0/de8/class_column_bar.html#a1a9c641ae8a39113009425cbccaee5d5" title="ColumnBar\\getStyle" alt="" coords="433,525,573,553"/><area shape="rect" id="node15" href="../../d3/d37/class_column_bool.html#afde88292c44dc59faf017738dae6dffb" title="ColumnBool\\render" alt="" coords="680,738,816,766"/><area shape="rect" id="node16" href="../../dc/d5d/class_column_image.html#a07e72be0677630865d3292e14670096b" title="ColumnImage\\getAlt" alt="" coords="432,1353,574,1381"/><area shape="rect" id="node17" href="../../dc/d5d/class_column_image.html#a95e859a4588a39a1824b717378a84c29" title="ColumnImage\\getTitle" alt="" coords="427,1405,578,1433"/><area shape="rect" id="node18" href="../../d5/d09/class_column_list.html#abea978f4dcd47c4289232744d3ed2f01" title="ColumnList\\getLink" alt="" coords="435,1457,570,1485"/><area shape="rect" id="node19" href="../../d7/de0/class_column_share.html#afde88292c44dc59faf017738dae6dffb" title="ColumnShare\\render" alt="" coords="675,802,821,830"/><area shape="rect" id="node20" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="DropDownList\\render" alt="" coords="880,1173,1027,1201"/><area shape="rect" id="node21" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="DropDownList\\renderList" alt="" coords="664,1250,832,1278"/><area shape="rect" id="node22" href="../../dc/d58/class_drop_down_list.html#a6bf46184c1f8fff5f182aa3c2f5326a6" title="DropDownList\\getSelectFrom" alt="" coords="405,1509,600,1537"/><area shape="rect" id="node23" href="../../dc/d58/class_drop_down_list.html#a8338e531153b75a023f7ee86a080f092" title="DropDownList\\getSelectedList" alt="" coords="403,1561,603,1589"/><area shape="rect" id="node24" href="../../dc/d58/class_drop_down_list.html#a738c28f6c74aff9a8548462b945c2a84" title="DropDownList\\getSelectFromSQL" alt="" coords="392,1613,614,1641"/><area shape="rect" id="node25" href="../../d0/dec/class_edit_combobox.html#a1a9c641ae8a39113009425cbccaee5d5" title="EditCombobox\\getStyle" alt="" coords="422,1665,583,1693"/><area shape="rect" id="node26" href="../../d5/d50/class_element.html#af9b9401c63918169457fe8516324950f" title="Element\\getDefaultValue" alt="" coords="419,1042,587,1070"/><area shape="rect" id="node28" href="../../d5/d50/class_element.html#a1d032efbce2b4edb7c269a1e13562f40" title="Element\\getHidden" alt="" coords="435,1717,570,1745"/><area shape="rect" id="node29" href="../../d5/d50/class_element.html#a1a9c641ae8a39113009425cbccaee5d5" title="Element\\getStyle" alt="" coords="442,938,564,966"/><area shape="rect" id="node32" href="../../d5/d50/class_element.html#a4ad6a97aea312d45fb3d2690f8e642dd" title="Element\\getBackgroundColor" alt="" coords="405,1769,600,1797"/><area shape="rect" id="node33" href="../../d5/d50/class_element.html#a8a2999b1d846c0a7bc77187e28facd99" title="Element\\getText" alt="" coords="444,1301,561,1329"/><area shape="rect" id="node34" href="../../d5/d50/class_element.html#a2e7bb35c71bf1824456ceb944cb7a845" title="Element\\getDescription" alt="" coords="423,1821,582,1849"/><area shape="rect" id="node35" href="../../d5/d50/class_element.html#a6e1c6c2cc8de5bd666dd9ba68f9b89fe" title="Element\\getFunctionByEvent\lHandlerName" alt="" coords="406,1873,599,1917"/><area shape="rect" id="node36" href="../../d5/d50/class_element.html#abc801caf128622d68070e5b656c2fc3a" title="Element\\getRedirectPage" alt="" coords="416,1941,589,1969"/><area shape="rect" id="node37" href="../../d5/d50/class_element.html#a9948e3272704960f325b9e0b1fc6a5b6" title="Element\\getParameter" alt="" coords="425,1993,580,2021"/><area shape="rect" id="node38" href="../../d5/d50/class_element.html#aa4c8c1cac65717e36ec2dd2f08535857" title="Element\\checkRequired" alt="" coords="421,2045,584,2073"/><area shape="rect" id="node39" href="../../d5/d50/class_element.html#a184909dab34698899937d810a9f5d393" title="Element\\validate" alt="" coords="443,2097,563,2125"/><area shape="rect" id="node40" href="../../d1/d27/class_event_handler.html#a5f77b4f1921d9d5851bdc2319dec3fb5" title="EventHandler\\getFormedFunction" alt="" coords="392,2149,613,2177"/><area shape="rect" id="node41" href="../../d1/d27/class_event_handler.html#a4eaa46af53f92b3462f3d2d18d8a11b7" title="EventHandler\\getInvokeAction" alt="" coords="402,2201,603,2229"/><area shape="rect" id="node42" href="../../db/dc1/class_h_t_m_l_preview.html#abea978f4dcd47c4289232744d3ed2f01" title="HTMLPreview\\getLink" alt="" coords="427,2253,579,2281"/><area shape="rect" id="node43" href="../../db/dc1/class_h_t_m_l_preview.html#a8a2999b1d846c0a7bc77187e28facd99" title="HTMLPreview\\getText" alt="" coords="427,2305,579,2333"/><area shape="rect" id="node44" href="../../d1/d37/class_i_frame_box.html#abea978f4dcd47c4289232744d3ed2f01" title="IFrameBox\\getLink" alt="" coords="436,2357,569,2385"/><area shape="rect" id="node45" href="../../d1/d37/class_i_frame_box.html#ae7fba4c8be1972cf80dc1a95f390df23" title="IFrameBox\\getWidth" alt="" coords="431,2409,574,2437"/><area shape="rect" id="node46" href="../../d1/d37/class_i_frame_box.html#aa725283ffc599b3f6563cada4cbeb2c7" title="IFrameBox\\getHeight" alt="" coords="429,2461,576,2489"/><area shape="rect" id="node27" href="../../db/d5a/class_image_selector.html#afde88292c44dc59faf017738dae6dffb" title="ImageSelector\\render" alt="" coords="673,1094,823,1122"/><area shape="rect" id="node47" href="../../d3/d05/class_input_element.html#ab442a42d8265e71787a82ef3a1b4549c" title="InputElement\\getEnabled" alt="" coords="417,1146,588,1174"/><area shape="rect" id="node48" href="../../d3/d05/class_input_element.html#a51bd39a627fe91242fa2d879a702b4c3" title="InputElement\\getRequired" alt="" coords="415,2513,591,2541"/><area shape="rect" id="node14" href="../../d0/df2/class_label_bar.html#afde88292c44dc59faf017738dae6dffb" title="LabelBar\\render" alt="" coords="690,577,806,605"/><area shape="rect" id="node30" href="../../da/dfd/class_label_bool.html#afde88292c44dc59faf017738dae6dffb" title="LabelBool\\render" alt="" coords="687,879,809,907"/><area shape="rect" id="node49" href="../../d9/d69/class_label_image.html#a5888f7e5883c7c2d486f7ddc1bd64760" title="LabelImage\\readMetaData" alt="" coords="413,2565,592,2593"/><area shape="rect" id="node50" href="../../d9/d69/class_label_image.html#afde88292c44dc59faf017738dae6dffb" title="LabelImage\\render" alt="" coords="681,679,815,707"/><area shape="rect" id="node51" href="../../d9/d80/class_label_list.html#abea978f4dcd47c4289232744d3ed2f01" title="LabelList\\getLink" alt="" coords="442,2617,563,2645"/><area shape="rect" id="node52" href="../../d6/d00/class_label_text.html#abea978f4dcd47c4289232744d3ed2f01" title="LabelText\\getLink" alt="" coords="440,783,565,811"/><area shape="rect" id="node53" href="../../d6/d00/class_label_text.html#a8a2999b1d846c0a7bc77187e28facd99" title="LabelText\\getText" alt="" coords="440,679,565,707"/><area shape="rect" id="node31" href="../../d8/da5/class_label_text_paging.html#afde88292c44dc59faf017738dae6dffb" title="LabelTextPaging\\render" alt="" coords="667,990,829,1018"/><area shape="rect" id="node54" href="../../da/d7f/class_option_element.html#a6bf46184c1f8fff5f182aa3c2f5326a6" title="OptionElement\\getSelectFrom" alt="" coords="403,2669,603,2697"/><area shape="rect" id="node55" href="../../da/d7f/class_option_element.html#a8338e531153b75a023f7ee86a080f092" title="OptionElement\\getSelectedList" alt="" coords="400,2721,605,2749"/><area shape="rect" id="node56" href="../../da/d7f/class_option_element.html#a738c28f6c74aff9a8548462b945c2a84" title="OptionElement\\getSelectFromSQL" alt="" coords="389,2773,616,2801"/><area shape="rect" id="node57" href="../../d2/d23/class_radio.html#a1a9c641ae8a39113009425cbccaee5d5" title="Radio\\getStyle" alt="" coords="449,2825,557,2853"/><area shape="rect" id="node58" href="../../d1/d3a/class_raw_data.html#abea978f4dcd47c4289232744d3ed2f01" title="RawData\\getLink" alt="" coords="441,2877,564,2905"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a55ce66e2ff3349d1cd7d27e1df5c604f"></a>
@@ -529,46 +413,19 @@ Static Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>mixed </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L42">42</a> of file <a class="el" href="../../">Expression.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $script = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">        $start = 0;</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// replace [field] with field value</span></div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $pos0 = strpos($expression, <span class="stringliteral">&quot;[&quot;</span>, $start);</div>
-<div class="line">            $pos1 = strpos($expression, <span class="stringliteral">&quot;]&quot;</span>, $start);</div>
-<div class="line">            <span class="keywordflow">if</span> ($pos0 === <span class="keyword">false</span>)</div>
-<div class="line">            {</div>
-<div class="line">                $script .= substr($expression, $start);</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> ($pos0 &gt;= 0 &amp;&amp; $pos1 &gt; $pos0)</div>
-<div class="line">            {</div>
-<div class="line">                $script .= substr($expression, $start, $pos0 - $start);</div>
-<div class="line">                $start = $pos1 + 1;</div>
-<div class="line">                $fieldName = substr($expression, $pos0 + 1, $pos1 - $pos0-1);</div>
-<div class="line">                <span class="comment">// get field value</span></div>
-<div class="line">                $fieldValue = $bizObj-&gt;getField($fieldName)-&gt;m_Value;</div>
-<div class="line">                <span class="keywordflow">if</span> ($fieldValue == null)</div>
-<div class="line">                    $fieldValue = $bizObj-&gt;getFieldValue($fieldName);</div>
-<div class="line"></div>
-<div class="line">                <span class="keywordflow">if</span> ($fieldValue !== null)</div>
-<div class="line">                    $script .= $fieldValue;</div>
-<div class="line">                <span class="keywordflow">else</span></div>
-<div class="line">                {</div>
-<div class="line">                <span class="comment">//$script .= substr($expression, $pos0, $pos1 - $pos0);</span></div>
-<div class="line">                <span class="comment">//return &quot;fail to evaluate $expression&quot;;</span></div>
-<div class="line">                    <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">            elseif ($pos0 &gt;= 0 &amp;&amp; $pos1 &lt;= $pos0)</div>
-<div class="line">                break;</div>
-<div class="line">        }</div>
-<div class="line">        return $script;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d31/_expression_8php_source.html#l00042">42</a> of file <a class="el" href="../../d5/d31/_expression_8php_source.html">Expression.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d03/class_expression_a55ce66e2ff3349d1cd7d27e1df5c604f_icgraph.png" border="0" usemap="#df/d03/class_expression_a55ce66e2ff3349d1cd7d27e1df5c604f_icgraph" alt=""/></div>
+<map name="df/d03/class_expression_a55ce66e2ff3349d1cd7d27e1df5c604f_icgraph" id="df/d03/class_expression_a55ce66e2ff3349d1cd7d27e1df5c604f_icgraph">
+<area shape="rect" id="node2" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="evaluateExpression" alt="" coords="182,1431,320,1459"/><area shape="rect" id="node3" href="../../d8/d08/class_biz_field.html#a80314b4a8ff745a399a730231eaf74b8" title="BizField\\getValue" alt="" coords="419,5,543,33"/><area shape="rect" id="node4" href="../../d8/d08/class_biz_field.html#af9b9401c63918169457fe8516324950f" title="BizField\\getDefaultValue" alt="" coords="398,57,565,85"/><area shape="rect" id="node5" href="../../d8/d08/class_biz_field.html#a28e2f59b6c1f32d18693464e7f558ae0" title="BizField\\getValueOnCreate" alt="" coords="390,109,572,137"/><area shape="rect" id="node6" href="../../d8/d08/class_biz_field.html#adae62abd872e582cd8617cf81b47f615" title="BizField\\getValueOnUpdate" alt="" coords="389,161,574,189"/><area shape="rect" id="node7" href="../../d8/d08/class_biz_field.html#aa4c8c1cac65717e36ec2dd2f08535857" title="BizField\\checkRequired" alt="" coords="401,213,562,241"/><area shape="rect" id="node8" href="../../d8/d08/class_biz_field.html#a184909dab34698899937d810a9f5d393" title="BizField\\validate" alt="" coords="422,265,541,293"/><area shape="rect" id="node9" href="../../d3/d10/class_easy_form.html#afbb8fcc4c21113c915263f4a1ca3c0c5" title="EasyForm\\outputAttrs" alt="" coords="406,317,556,345"/><area shape="rect" id="node10" href="../../db/d40/class_easy_view.html#afbb8fcc4c21113c915263f4a1ca3c0c5" title="EasyView\\outputAttrs" alt="" coords="407,369,555,397"/><area shape="rect" id="node11" href="../../d2/df4/class_checkbox.html#a94343a26b3068d62d2374bf4a8cfeb91" title="Checkbox\\getDefaultChecked" alt="" coords="382,421,580,449"/><area shape="rect" id="node12" href="../../d0/de8/class_column_bar.html#afde88292c44dc59faf017738dae6dffb" title="ColumnBar\\render" alt="" coords="662,525,792,553"/><area shape="rect" id="node13" href="../../d0/de8/class_column_bar.html#a1a9c641ae8a39113009425cbccaee5d5" title="ColumnBar\\getStyle" alt="" coords="411,525,551,553"/><area shape="rect" id="node15" href="../../d3/d37/class_column_bool.html#afde88292c44dc59faf017738dae6dffb" title="ColumnBool\\render" alt="" coords="659,738,795,766"/><area shape="rect" id="node16" href="../../dc/d5d/class_column_image.html#a07e72be0677630865d3292e14670096b" title="ColumnImage\\getAlt" alt="" coords="410,1353,552,1381"/><area shape="rect" id="node17" href="../../dc/d5d/class_column_image.html#a95e859a4588a39a1824b717378a84c29" title="ColumnImage\\getTitle" alt="" coords="406,1405,557,1433"/><area shape="rect" id="node18" href="../../d5/d09/class_column_list.html#abea978f4dcd47c4289232744d3ed2f01" title="ColumnList\\getLink" alt="" coords="414,1457,549,1485"/><area shape="rect" id="node19" href="../../d7/de0/class_column_share.html#afde88292c44dc59faf017738dae6dffb" title="ColumnShare\\render" alt="" coords="654,802,799,830"/><area shape="rect" id="node20" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="DropDownList\\render" alt="" coords="858,1173,1006,1201"/><area shape="rect" id="node21" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="DropDownList\\renderList" alt="" coords="643,1250,811,1278"/><area shape="rect" id="node22" href="../../dc/d58/class_drop_down_list.html#a6bf46184c1f8fff5f182aa3c2f5326a6" title="DropDownList\\getSelectFrom" alt="" coords="384,1509,579,1537"/><area shape="rect" id="node23" href="../../dc/d58/class_drop_down_list.html#a8338e531153b75a023f7ee86a080f092" title="DropDownList\\getSelectedList" alt="" coords="381,1561,581,1589"/><area shape="rect" id="node24" href="../../dc/d58/class_drop_down_list.html#a738c28f6c74aff9a8548462b945c2a84" title="DropDownList\\getSelectFromSQL" alt="" coords="370,1613,592,1641"/><area shape="rect" id="node25" href="../../d0/dec/class_edit_combobox.html#a1a9c641ae8a39113009425cbccaee5d5" title="EditCombobox\\getStyle" alt="" coords="401,1665,562,1693"/><area shape="rect" id="node26" href="../../d5/d50/class_element.html#af9b9401c63918169457fe8516324950f" title="Element\\getDefaultValue" alt="" coords="397,1042,565,1070"/><area shape="rect" id="node28" href="../../d5/d50/class_element.html#a1d032efbce2b4edb7c269a1e13562f40" title="Element\\getHidden" alt="" coords="414,1717,549,1745"/><area shape="rect" id="node29" href="../../d5/d50/class_element.html#a1a9c641ae8a39113009425cbccaee5d5" title="Element\\getStyle" alt="" coords="420,938,542,966"/><area shape="rect" id="node32" href="../../d5/d50/class_element.html#a4ad6a97aea312d45fb3d2690f8e642dd" title="Element\\getBackgroundColor" alt="" coords="384,1769,579,1797"/><area shape="rect" id="node33" href="../../d5/d50/class_element.html#a8a2999b1d846c0a7bc77187e28facd99" title="Element\\getText" alt="" coords="423,1301,540,1329"/><area shape="rect" id="node34" href="../../d5/d50/class_element.html#a2e7bb35c71bf1824456ceb944cb7a845" title="Element\\getDescription" alt="" coords="402,1821,561,1849"/><area shape="rect" id="node35" href="../../d5/d50/class_element.html#a6e1c6c2cc8de5bd666dd9ba68f9b89fe" title="Element\\getFunctionByEvent\lHandlerName" alt="" coords="385,1873,578,1917"/><area shape="rect" id="node36" href="../../d5/d50/class_element.html#abc801caf128622d68070e5b656c2fc3a" title="Element\\getRedirectPage" alt="" coords="395,1941,568,1969"/><area shape="rect" id="node37" href="../../d5/d50/class_element.html#a9948e3272704960f325b9e0b1fc6a5b6" title="Element\\getParameter" alt="" coords="404,1993,559,2021"/><area shape="rect" id="node38" href="../../d5/d50/class_element.html#aa4c8c1cac65717e36ec2dd2f08535857" title="Element\\checkRequired" alt="" coords="400,2045,563,2073"/><area shape="rect" id="node39" href="../../d5/d50/class_element.html#a184909dab34698899937d810a9f5d393" title="Element\\validate" alt="" coords="421,2097,541,2125"/><area shape="rect" id="node40" href="../../d1/d27/class_event_handler.html#a5f77b4f1921d9d5851bdc2319dec3fb5" title="EventHandler\\getFormedFunction" alt="" coords="371,2149,592,2177"/><area shape="rect" id="node41" href="../../d1/d27/class_event_handler.html#a4eaa46af53f92b3462f3d2d18d8a11b7" title="EventHandler\\getInvokeAction" alt="" coords="381,2201,582,2229"/><area shape="rect" id="node42" href="../../db/dc1/class_h_t_m_l_preview.html#abea978f4dcd47c4289232744d3ed2f01" title="HTMLPreview\\getLink" alt="" coords="405,2253,557,2281"/><area shape="rect" id="node43" href="../../db/dc1/class_h_t_m_l_preview.html#a8a2999b1d846c0a7bc77187e28facd99" title="HTMLPreview\\getText" alt="" coords="405,2305,557,2333"/><area shape="rect" id="node44" href="../../d1/d37/class_i_frame_box.html#abea978f4dcd47c4289232744d3ed2f01" title="IFrameBox\\getLink" alt="" coords="415,2357,548,2385"/><area shape="rect" id="node45" href="../../d1/d37/class_i_frame_box.html#ae7fba4c8be1972cf80dc1a95f390df23" title="IFrameBox\\getWidth" alt="" coords="410,2409,553,2437"/><area shape="rect" id="node46" href="../../d1/d37/class_i_frame_box.html#aa725283ffc599b3f6563cada4cbeb2c7" title="IFrameBox\\getHeight" alt="" coords="408,2461,555,2489"/><area shape="rect" id="node27" href="../../db/d5a/class_image_selector.html#afde88292c44dc59faf017738dae6dffb" title="ImageSelector\\render" alt="" coords="652,1094,801,1122"/><area shape="rect" id="node47" href="../../d3/d05/class_input_element.html#ab442a42d8265e71787a82ef3a1b4549c" title="InputElement\\getEnabled" alt="" coords="396,1146,567,1174"/><area shape="rect" id="node48" href="../../d3/d05/class_input_element.html#a51bd39a627fe91242fa2d879a702b4c3" title="InputElement\\getRequired" alt="" coords="393,2513,569,2541"/><area shape="rect" id="node14" href="../../d0/df2/class_label_bar.html#afde88292c44dc59faf017738dae6dffb" title="LabelBar\\render" alt="" coords="668,577,785,605"/><area shape="rect" id="node30" href="../../da/dfd/class_label_bool.html#afde88292c44dc59faf017738dae6dffb" title="LabelBool\\render" alt="" coords="665,879,788,907"/><area shape="rect" id="node49" href="../../d9/d69/class_label_image.html#a5888f7e5883c7c2d486f7ddc1bd64760" title="LabelImage\\readMetaData" alt="" coords="392,2565,571,2593"/><area shape="rect" id="node50" href="../../d9/d69/class_label_image.html#afde88292c44dc59faf017738dae6dffb" title="LabelImage\\render" alt="" coords="660,679,793,707"/><area shape="rect" id="node51" href="../../d9/d80/class_label_list.html#abea978f4dcd47c4289232744d3ed2f01" title="LabelList\\getLink" alt="" coords="421,2617,542,2645"/><area shape="rect" id="node52" href="../../d6/d00/class_label_text.html#abea978f4dcd47c4289232744d3ed2f01" title="LabelText\\getLink" alt="" coords="419,783,544,811"/><area shape="rect" id="node53" href="../../d6/d00/class_label_text.html#a8a2999b1d846c0a7bc77187e28facd99" title="LabelText\\getText" alt="" coords="419,679,544,707"/><area shape="rect" id="node31" href="../../d8/da5/class_label_text_paging.html#afde88292c44dc59faf017738dae6dffb" title="LabelTextPaging\\render" alt="" coords="646,990,808,1018"/><area shape="rect" id="node54" href="../../da/d7f/class_option_element.html#a6bf46184c1f8fff5f182aa3c2f5326a6" title="OptionElement\\getSelectFrom" alt="" coords="381,2669,581,2697"/><area shape="rect" id="node55" href="../../da/d7f/class_option_element.html#a8338e531153b75a023f7ee86a080f092" title="OptionElement\\getSelectedList" alt="" coords="379,2721,584,2749"/><area shape="rect" id="node56" href="../../da/d7f/class_option_element.html#a738c28f6c74aff9a8548462b945c2a84" title="OptionElement\\getSelectFromSQL" alt="" coords="368,2773,595,2801"/><area shape="rect" id="node57" href="../../d2/d23/class_radio.html#a1a9c641ae8a39113009425cbccaee5d5" title="Radio\\getStyle" alt="" coords="427,2825,535,2853"/><area shape="rect" id="node58" href="../../d1/d3a/class_raw_data.html#abea978f4dcd47c4289232744d3ed2f01" title="RawData\\getLink" alt="" coords="420,2877,543,2905"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a60becb0cb08a03dfd56e5219b74db325"></a>
@@ -593,23 +450,19 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L283">283</a> of file <a class="el" href="../../">Expression.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// replace macro @var:key to $userProfile[$key]</span></div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $pattern = <span class="stringliteral">&quot;/@(\w+):(\w+)/&quot;</span>;</div>
-<div class="line">            <span class="keywordflow">if</span> (!preg_match($pattern, $expression, $matches)) <span class="keywordflow">break</span>;</div>
-<div class="line">            $macro = $matches[0];</div>
-<div class="line">            $macro_var = $matches[1];  $macro_key = $matches[2];</div>
-<div class="line">            $val = <a class="code" href="../../d1/d7e/class_biz_system.html#a52273e36e768edfc31f6d13261b6592f">BizSystem::getMacroValue</a>($macro_var, $macro_key);</div>
-<div class="line">            <span class="keywordflow">if</span> (!$val) $val = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">            <span class="comment">// throw error</span></div>
-<div class="line">            $expression = str_replace($macro, $val, $expression);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $expression;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d31/_expression_8php_source.html#l00283">283</a> of file <a class="el" href="../../d5/d31/_expression_8php_source.html">Expression.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d03/class_expression_a60becb0cb08a03dfd56e5219b74db325_cgraph.png" border="0" usemap="#df/d03/class_expression_a60becb0cb08a03dfd56e5219b74db325_cgraph" alt=""/></div>
+<map name="df/d03/class_expression_a60becb0cb08a03dfd56e5219b74db325_cgraph" id="df/d03/class_expression_a60becb0cb08a03dfd56e5219b74db325_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a52273e36e768edfc31f6d13261b6592f" title="BizSystem\\getMacroValue" alt="" coords="190,5,367,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="416,5,554,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a01547a166789d39853e468a05887c4c6"></a>
@@ -654,136 +507,30 @@ Static Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L144">144</a> of file <a class="el" href="../../">Expression.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        global <a class="code" href="../../d1/df2/sys__init_8php.html#a29029bee8b3be2a793b4173b002ead1c">$g_ServiceAlias</a>;</div>
-<div class="line">        <span class="comment">// read service symbols from global var.</span></div>
-<div class="line">        <span class="keywordflow">if</span> (isset($g_ServiceAlias) &amp;&amp; empty(self::$services))</div>
-<div class="line">            self::$services = <a class="code" href="../../d1/df2/sys__init_8php.html#a29029bee8b3be2a793b4173b002ead1c">$g_ServiceAlias</a>;</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// replace @objname:property to GetObject()-&gt;getProperty(property)</span></div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
-<div class="line">        {</div>
-<div class="line">        <span class="comment">// TODO: one clause must be separated by whitespace</span></div>
-<div class="line">        <span class="comment">//modified by jixian for support package full name of a object</span></div>
-<div class="line">        <span class="comment">//e.g : shared.objects.compaines.objCompany:Field[Id].Value</span></div>
-<div class="line">            $pattern = <span class="stringliteral">&quot;/@([[a-zA-Z0-9_\.]*):([a-zA-Z0-9_\.\[\]]+)/&quot;</span>;</div>
-<div class="line">            <span class="keywordflow">if</span> (!preg_match($pattern, $expression, $matches)) { <span class="keywordflow">break</span>; }</div>
-<div class="line">            $macro = $matches[0];</div>
-<div class="line">            $objName = $matches[1];  $propExpr = $matches[2];</div>
-<div class="line">            $obj = null;</div>
-<div class="line">            <span class="keywordflow">if</span> ($objName == <span class="stringliteral">&quot;profile&quot;</span>)</div>
-<div class="line">            {  <span class="comment">// @profile:attribute is reserved</span></div>
-<div class="line">                $profileAttribute = <a class="code" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17">BizSystem::getUserProfile</a>($propExpr);</div>
-<div class="line">                $expression = str_replace($macro, $profileAttribute, $expression);</div>
-<div class="line">                <span class="keywordflow">continue</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> ($objName == <span class="stringliteral">&quot;home&quot;</span>)</div>
-<div class="line">            {  <span class="comment">// @home:url is reserved</span></div>
-<div class="line">             <span class="keywordflow">switch</span>($propExpr){</div>
-<div class="line">              <span class="keywordflow">case</span> <span class="stringliteral">&quot;url&quot;</span>:</div>
-<div class="line">                  $value = <span class="stringliteral">&quot;&#39;&quot;</span>.APP_INDEX.<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">                  <span class="keywordflow">break</span>;</div>
-<div class="line">                 <span class="keywordflow">case</span> <span class="stringliteral">&quot;base_url&quot;</span>:</div>
-<div class="line">                  $value = <span class="stringliteral">&quot;&#39;&quot;</span>.APP_URL.<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">                  <span class="keywordflow">break</span>;</div>
-<div class="line">             }</div>
-<div class="line">             $expression = str_replace($macro, $value, $expression);</div>
-<div class="line">                <span class="keywordflow">continue</span>;</div>
-<div class="line">            }</div>
-<div class="line">            elseif (in_array($objName, array_keys(<a class="code" href="../../df/d03/class_expression.html#a23d6d124a35cf4b31e238cc34be9d653">Expression::$services</a>)))</div>
-<div class="line">            { <span class="comment">// reserved keywords</span></div>
-<div class="line">                $body           = $expression;</div>
-<div class="line">                $objFunc        = <span class="charliteral">&#39;@&#39;</span>.$objName.<span class="charliteral">&#39;:&#39;</span>.$propExpr;</div>
-<div class="line">                $posStart       = strpos($body, $objFunc);</div>
-<div class="line">                $beforeString   = substr($body, 0, $posStart);</div>
-<div class="line">                $paramStart     = strpos($body, $objFunc.<span class="charliteral">&#39;(&#39;</span>) + strlen($objFunc.<span class="charliteral">&#39;(&#39;</span>);</div>
-<div class="line">                $paramEnd       = strpos($body, <span class="charliteral">&#39;)&#39;</span>, $paramStart);</div>
-<div class="line">                $paramLen       = $paramEnd-$paramStart;</div>
-<div class="line">                $function       = $propExpr;</div>
-<div class="line">                $paramString   = substr($body, $paramStart, $paramLen);</div>
-<div class="line">                $restString    = substr($body, $paramEnd + 1);</div>
-<div class="line"></div>
-<div class="line">                $paramString = <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>(<span class="charliteral">&#39;{&#39;</span>.$paramString.<span class="charliteral">&#39;}&#39;</span>, $object);</div>
-<div class="line">                $serviceName = <a class="code" href="../../df/d03/class_expression.html#a23d6d124a35cf4b31e238cc34be9d653">Expression::$services</a>[$objName];</div>
-<div class="line">                $serviceObj = <a class="code" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96">BizSystem::getService</a>($serviceName);</div>
-<div class="line"></div>
-<div class="line">                $params = explode(<span class="charliteral">&#39;,&#39;</span>, $paramString);</div>
-<div class="line">                <span class="keywordflow">for</span> ($i=0; $i &lt; count($params); $i++)</div>
-<div class="line">                    $params[$i] = trim($params[$i]);</div>
-<div class="line">                $val_result = call_user_func_array(array($serviceObj, $function), $params);</div>
-<div class="line">                <span class="keywordflow">return</span> $beforeString . $val_result . $restString;</div>
-<div class="line">            }</div>
-<div class="line"></div>
-<div class="line">            elseif ($objName == <span class="stringliteral">&quot;&quot;</span> || $objName == <span class="stringliteral">&quot;this&quot;</span>){</div>
-<div class="line">             $obj = $object;</div>
-<div class="line">             $body           = $expression;</div>
-<div class="line">             $objFunc        = <span class="charliteral">&#39;@&#39;</span>.$objName.<span class="charliteral">&#39;:&#39;</span>.$propExpr;</div>
-<div class="line">                $posStart       = strpos($body, $objFunc);</div>
-<div class="line">                $beforeString   = substr($body, 0, $posStart);</div>
-<div class="line"> </div>
-<div class="line">                <span class="keywordflow">if</span>(strpos($body, <span class="charliteral">&#39;(&#39;</span>)&gt;0 &amp;&amp; substr($expression,0,2)== <span class="stringliteral">&#39;@:&#39;</span>)</div>
-<div class="line">                {</div>
-<div class="line">                 $paramStart     = strpos($body, $objFunc.<span class="charliteral">&#39;(&#39;</span>) + strlen($objFunc.<span class="charliteral">&#39;(&#39;</span>);</div>
-<div class="line">     $paramEnd       = strpos($body, <span class="charliteral">&#39;)&#39;</span>, $paramStart);</div>
-<div class="line">                 $paramLen       = $paramEnd-$paramStart;</div>
-<div class="line">                 $function       = $propExpr;</div>
-<div class="line">                 $paramString   = substr($body, $paramStart, $paramLen);</div>
-<div class="line">                 $restString    = substr($body, $paramEnd + 1);</div>
-<div class="line">                 </div>
-<div class="line">                 <span class="keywordflow">for</span> ($i=0; $i &lt; count($params); $i++)</div>
-<div class="line">                     $params[$i] = trim($params[$i]); </div>
-<div class="line">                                      </div>
-<div class="line">                 <span class="keywordflow">if</span>(!is_array($params)){</div>
-<div class="line">                  $params = array();</div>
-<div class="line">                 }</div>
-<div class="line">                 <span class="keywordflow">if</span> (method_exists($obj, $function)){</div>
-<div class="line">                  $val_result = call_user_func_array(array($obj, $function), $params);</div>
-<div class="line">                  <span class="keywordflow">return</span> $beforeString . $val_result . $restString;</div>
-<div class="line">                 }</div>
-<div class="line">                }</div>
-<div class="line">            }                </div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">                $obj = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($objName);</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span> ($obj == null)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Wrong expression syntax &quot;</span>.$expression.<span class="stringliteral">&quot;, cannot get object &quot;</span>.$objName);</div>
-<div class="line">            }</div>
-<div class="line"></div>
-<div class="line">            $pos = strpos($propExpr, <span class="stringliteral">&quot;.&quot;</span>);</div>
-<div class="line">            </div>
-<div class="line">            $paramStart = strpos($expression, $objFunc.<span class="charliteral">&#39;(&#39;</span>);</div>
-<div class="line">            <span class="keywordflow">if</span> ($pos&gt;0)</div>
-<div class="line">            { <span class="comment">// in case of @objname:field[fldname].property</span></div>
-<div class="line">                $property1   = substr($propExpr,0,$pos);</div>
-<div class="line">                $property2   = substr($propExpr,$pos+1);</div>
-<div class="line">                $propertyObj = $obj-&gt;getProperty($property1);</div>
-<div class="line">                <span class="keywordflow">if</span> ($propertyObj == null)</div>
-<div class="line">                {</div>
-<div class="line">                 $propertyObj = $obj-&gt;getDataObj()-&gt;getProperty($property1);</div>
-<div class="line">                    <span class="keywordflow">if</span>($propertyObj == null){</div>
-<div class="line">                     <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Wrong expression syntax &quot;</span>.$expression.<span class="stringliteral">&quot;, cannot get property object &quot;</span>.$property1.<span class="stringliteral">&quot; of object &quot;</span>.$objName);</div>
-<div class="line">                    }<span class="keywordflow">else</span>{</div>
-<div class="line">                     $val = $propertyObj-&gt;getProperty($property2);</div>
-<div class="line">                  </div>
-<div class="line">                    }</div>
-<div class="line">                }</div>
-<div class="line">                $val = $propertyObj-&gt;getProperty($property2);</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">            { </div>
-<div class="line">             <span class="comment">// in case of @objname:property             </span></div>
-<div class="line">                $val = $obj-&gt;getProperty($propExpr);</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> ($val === null) $val = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">            <span class="keywordflow">if</span> (is_string($val))</div>
-<div class="line">                $val = <span class="stringliteral">&quot;&#39;$val&#39;&quot;</span>;</div>
-<div class="line">            $expression = str_replace($macro, $val, $expression);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $expression;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d31/_expression_8php_source.html#l00144">144</a> of file <a class="el" href="../../d5/d31/_expression_8php_source.html">Expression.php</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d03/class_expression_a01547a166789d39853e468a05887c4c6_cgraph.png" border="0" usemap="#df/d03/class_expression_a01547a166789d39853e468a05887c4c6_cgraph" alt=""/></div>
+<map name="df/d03/class_expression_a01547a166789d39853e468a05887c4c6_cgraph" id="df/d03/class_expression_a01547a166789d39853e468a05887c4c6_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="166,190,338,218"/><area shape="rect" id="node7" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="evaluateExpression" alt="" coords="183,86,321,114"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="400,190,552,218"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="614,86,759,114"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="386,242,566,270"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="618,242,756,270"/><area shape="rect" id="node8" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="replaceFieldsExpr" alt="" coords="412,34,540,62"/><area shape="rect" id="node9" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="replaceElementsExpr" alt="" coords="402,86,550,114"/><area shape="rect" id="node10" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="eval_syntax" alt="" coords="430,138,522,166"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d03/class_expression_a01547a166789d39853e468a05887c4c6_icgraph.png" border="0" usemap="#df/d03/class_expression_a01547a166789d39853e468a05887c4c6_icgraph" alt=""/></div>
+<map name="df/d03/class_expression_a01547a166789d39853e468a05887c4c6_icgraph" id="df/d03/class_expression_a01547a166789d39853e468a05887c4c6_icgraph">
+<area shape="rect" id="node2" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="evaluateExpression" alt="" coords="166,1431,304,1459"/><area shape="rect" id="node3" href="../../d8/d08/class_biz_field.html#a80314b4a8ff745a399a730231eaf74b8" title="BizField\\getValue" alt="" coords="403,5,527,33"/><area shape="rect" id="node4" href="../../d8/d08/class_biz_field.html#af9b9401c63918169457fe8516324950f" title="BizField\\getDefaultValue" alt="" coords="382,57,549,85"/><area shape="rect" id="node5" href="../../d8/d08/class_biz_field.html#a28e2f59b6c1f32d18693464e7f558ae0" title="BizField\\getValueOnCreate" alt="" coords="374,109,556,137"/><area shape="rect" id="node6" href="../../d8/d08/class_biz_field.html#adae62abd872e582cd8617cf81b47f615" title="BizField\\getValueOnUpdate" alt="" coords="373,161,558,189"/><area shape="rect" id="node7" href="../../d8/d08/class_biz_field.html#aa4c8c1cac65717e36ec2dd2f08535857" title="BizField\\checkRequired" alt="" coords="385,213,546,241"/><area shape="rect" id="node8" href="../../d8/d08/class_biz_field.html#a184909dab34698899937d810a9f5d393" title="BizField\\validate" alt="" coords="406,265,525,293"/><area shape="rect" id="node9" href="../../d3/d10/class_easy_form.html#afbb8fcc4c21113c915263f4a1ca3c0c5" title="EasyForm\\outputAttrs" alt="" coords="390,317,540,345"/><area shape="rect" id="node10" href="../../db/d40/class_easy_view.html#afbb8fcc4c21113c915263f4a1ca3c0c5" title="EasyView\\outputAttrs" alt="" coords="391,369,539,397"/><area shape="rect" id="node11" href="../../d2/df4/class_checkbox.html#a94343a26b3068d62d2374bf4a8cfeb91" title="Checkbox\\getDefaultChecked" alt="" coords="366,421,564,449"/><area shape="rect" id="node12" href="../../d0/de8/class_column_bar.html#afde88292c44dc59faf017738dae6dffb" title="ColumnBar\\render" alt="" coords="646,525,776,553"/><area shape="rect" id="node13" href="../../d0/de8/class_column_bar.html#a1a9c641ae8a39113009425cbccaee5d5" title="ColumnBar\\getStyle" alt="" coords="395,525,535,553"/><area shape="rect" id="node15" href="../../d3/d37/class_column_bool.html#afde88292c44dc59faf017738dae6dffb" title="ColumnBool\\render" alt="" coords="643,738,779,766"/><area shape="rect" id="node16" href="../../dc/d5d/class_column_image.html#a07e72be0677630865d3292e14670096b" title="ColumnImage\\getAlt" alt="" coords="394,1353,536,1381"/><area shape="rect" id="node17" href="../../dc/d5d/class_column_image.html#a95e859a4588a39a1824b717378a84c29" title="ColumnImage\\getTitle" alt="" coords="390,1405,541,1433"/><area shape="rect" id="node18" href="../../d5/d09/class_column_list.html#abea978f4dcd47c4289232744d3ed2f01" title="ColumnList\\getLink" alt="" coords="398,1457,533,1485"/><area shape="rect" id="node19" href="../../d7/de0/class_column_share.html#afde88292c44dc59faf017738dae6dffb" title="ColumnShare\\render" alt="" coords="638,802,783,830"/><area shape="rect" id="node20" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="DropDownList\\render" alt="" coords="842,1173,990,1201"/><area shape="rect" id="node21" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="DropDownList\\renderList" alt="" coords="627,1250,795,1278"/><area shape="rect" id="node22" href="../../dc/d58/class_drop_down_list.html#a6bf46184c1f8fff5f182aa3c2f5326a6" title="DropDownList\\getSelectFrom" alt="" coords="368,1509,563,1537"/><area shape="rect" id="node23" href="../../dc/d58/class_drop_down_list.html#a8338e531153b75a023f7ee86a080f092" title="DropDownList\\getSelectedList" alt="" coords="365,1561,565,1589"/><area shape="rect" id="node24" href="../../dc/d58/class_drop_down_list.html#a738c28f6c74aff9a8548462b945c2a84" title="DropDownList\\getSelectFromSQL" alt="" coords="354,1613,576,1641"/><area shape="rect" id="node25" href="../../d0/dec/class_edit_combobox.html#a1a9c641ae8a39113009425cbccaee5d5" title="EditCombobox\\getStyle" alt="" coords="385,1665,546,1693"/><area shape="rect" id="node26" href="../../d5/d50/class_element.html#af9b9401c63918169457fe8516324950f" title="Element\\getDefaultValue" alt="" coords="381,1042,549,1070"/><area shape="rect" id="node28" href="../../d5/d50/class_element.html#a1d032efbce2b4edb7c269a1e13562f40" title="Element\\getHidden" alt="" coords="398,1717,533,1745"/><area shape="rect" id="node29" href="../../d5/d50/class_element.html#a1a9c641ae8a39113009425cbccaee5d5" title="Element\\getStyle" alt="" coords="404,938,526,966"/><area shape="rect" id="node32" href="../../d5/d50/class_element.html#a4ad6a97aea312d45fb3d2690f8e642dd" title="Element\\getBackgroundColor" alt="" coords="368,1769,563,1797"/><area shape="rect" id="node33" href="../../d5/d50/class_element.html#a8a2999b1d846c0a7bc77187e28facd99" title="Element\\getText" alt="" coords="407,1301,524,1329"/><area shape="rect" id="node34" href="../../d5/d50/class_element.html#a2e7bb35c71bf1824456ceb944cb7a845" title="Element\\getDescription" alt="" coords="386,1821,545,1849"/><area shape="rect" id="node35" href="../../d5/d50/class_element.html#a6e1c6c2cc8de5bd666dd9ba68f9b89fe" title="Element\\getFunctionByEvent\lHandlerName" alt="" coords="369,1873,562,1917"/><area shape="rect" id="node36" href="../../d5/d50/class_element.html#abc801caf128622d68070e5b656c2fc3a" title="Element\\getRedirectPage" alt="" coords="379,1941,552,1969"/><area shape="rect" id="node37" href="../../d5/d50/class_element.html#a9948e3272704960f325b9e0b1fc6a5b6" title="Element\\getParameter" alt="" coords="388,1993,543,2021"/><area shape="rect" id="node38" href="../../d5/d50/class_element.html#aa4c8c1cac65717e36ec2dd2f08535857" title="Element\\checkRequired" alt="" coords="384,2045,547,2073"/><area shape="rect" id="node39" href="../../d5/d50/class_element.html#a184909dab34698899937d810a9f5d393" title="Element\\validate" alt="" coords="405,2097,525,2125"/><area shape="rect" id="node40" href="../../d1/d27/class_event_handler.html#a5f77b4f1921d9d5851bdc2319dec3fb5" title="EventHandler\\getFormedFunction" alt="" coords="355,2149,576,2177"/><area shape="rect" id="node41" href="../../d1/d27/class_event_handler.html#a4eaa46af53f92b3462f3d2d18d8a11b7" title="EventHandler\\getInvokeAction" alt="" coords="365,2201,566,2229"/><area shape="rect" id="node42" href="../../db/dc1/class_h_t_m_l_preview.html#abea978f4dcd47c4289232744d3ed2f01" title="HTMLPreview\\getLink" alt="" coords="389,2253,541,2281"/><area shape="rect" id="node43" href="../../db/dc1/class_h_t_m_l_preview.html#a8a2999b1d846c0a7bc77187e28facd99" title="HTMLPreview\\getText" alt="" coords="389,2305,541,2333"/><area shape="rect" id="node44" href="../../d1/d37/class_i_frame_box.html#abea978f4dcd47c4289232744d3ed2f01" title="IFrameBox\\getLink" alt="" coords="399,2357,532,2385"/><area shape="rect" id="node45" href="../../d1/d37/class_i_frame_box.html#ae7fba4c8be1972cf80dc1a95f390df23" title="IFrameBox\\getWidth" alt="" coords="394,2409,537,2437"/><area shape="rect" id="node46" href="../../d1/d37/class_i_frame_box.html#aa725283ffc599b3f6563cada4cbeb2c7" title="IFrameBox\\getHeight" alt="" coords="392,2461,539,2489"/><area shape="rect" id="node27" href="../../db/d5a/class_image_selector.html#afde88292c44dc59faf017738dae6dffb" title="ImageSelector\\render" alt="" coords="636,1094,785,1122"/><area shape="rect" id="node47" href="../../d3/d05/class_input_element.html#ab442a42d8265e71787a82ef3a1b4549c" title="InputElement\\getEnabled" alt="" coords="380,1146,551,1174"/><area shape="rect" id="node48" href="../../d3/d05/class_input_element.html#a51bd39a627fe91242fa2d879a702b4c3" title="InputElement\\getRequired" alt="" coords="377,2513,553,2541"/><area shape="rect" id="node14" href="../../d0/df2/class_label_bar.html#afde88292c44dc59faf017738dae6dffb" title="LabelBar\\render" alt="" coords="652,577,769,605"/><area shape="rect" id="node30" href="../../da/dfd/class_label_bool.html#afde88292c44dc59faf017738dae6dffb" title="LabelBool\\render" alt="" coords="649,879,772,907"/><area shape="rect" id="node49" href="../../d9/d69/class_label_image.html#a5888f7e5883c7c2d486f7ddc1bd64760" title="LabelImage\\readMetaData" alt="" coords="376,2565,555,2593"/><area shape="rect" id="node50" href="../../d9/d69/class_label_image.html#afde88292c44dc59faf017738dae6dffb" title="LabelImage\\render" alt="" coords="644,679,777,707"/><area shape="rect" id="node51" href="../../d9/d80/class_label_list.html#abea978f4dcd47c4289232744d3ed2f01" title="LabelList\\getLink" alt="" coords="405,2617,526,2645"/><area shape="rect" id="node52" href="../../d6/d00/class_label_text.html#abea978f4dcd47c4289232744d3ed2f01" title="LabelText\\getLink" alt="" coords="403,783,528,811"/><area shape="rect" id="node53" href="../../d6/d00/class_label_text.html#a8a2999b1d846c0a7bc77187e28facd99" title="LabelText\\getText" alt="" coords="403,679,528,707"/><area shape="rect" id="node31" href="../../d8/da5/class_label_text_paging.html#afde88292c44dc59faf017738dae6dffb" title="LabelTextPaging\\render" alt="" coords="630,990,792,1018"/><area shape="rect" id="node54" href="../../da/d7f/class_option_element.html#a6bf46184c1f8fff5f182aa3c2f5326a6" title="OptionElement\\getSelectFrom" alt="" coords="365,2669,565,2697"/><area shape="rect" id="node55" href="../../da/d7f/class_option_element.html#a8338e531153b75a023f7ee86a080f092" title="OptionElement\\getSelectedList" alt="" coords="363,2721,568,2749"/><area shape="rect" id="node56" href="../../da/d7f/class_option_element.html#a738c28f6c74aff9a8548462b945c2a84" title="OptionElement\\getSelectFromSQL" alt="" coords="352,2773,579,2801"/><area shape="rect" id="node57" href="../../d2/d23/class_radio.html#a1a9c641ae8a39113009425cbccaee5d5" title="Radio\\getStyle" alt="" coords="411,2825,519,2853"/><area shape="rect" id="node58" href="../../d1/d3a/class_raw_data.html#abea978f4dcd47c4289232744d3ed2f01" title="RawData\\getLink" alt="" coords="404,2877,527,2905"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -805,7 +552,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L29">29</a> of file <a class="el" href="../../">Expression.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d31/_expression_8php_source.html#l00029">29</a> of file <a class="el" href="../../d5/d31/_expression_8php_source.html">Expression.php</a>.</p>
 
 </div>
 </div>
@@ -827,7 +574,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L28">28</a> of file <a class="el" href="../../">Expression.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d31/_expression_8php_source.html#l00028">28</a> of file <a class="el" href="../../d5/d31/_expression_8php_source.html">Expression.php</a>.</p>
 
 </div>
 </div>
@@ -837,7 +584,7 @@ Static Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../df/d03/class_expression.html">Expression</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:20 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:51 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

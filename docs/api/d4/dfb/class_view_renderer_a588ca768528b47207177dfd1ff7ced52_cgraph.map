@@ -1,0 +1,29 @@
+<map id="render" name="render">
+<area shape="rect" id="node2" href="$d4/dfb/class_view_renderer.html#a3ff47ffac8a02c41f2c4d018156fc112" title="buildTemplateAttributes" alt="" coords="1171,154,1331,182"/>
+<area shape="rect" id="node14" href="$d4/dfb/class_view_renderer.html#a271a8f8acd200d185367fb475f43df51" title="renderSmarty" alt="" coords="116,303,218,331"/>
+<area shape="rect" id="node26" href="$d4/dfb/class_view_renderer.html#a288b4b665cf447481ca982c7ec7d004e" title="renderPHP" alt="" coords="123,355,210,383"/>
+<area shape="rect" id="node3" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2377,43,2522,71"/>
+<area shape="rect" id="node4" href="$d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="1925,251,2078,279"/>
+<area shape="rect" id="node6" href="$df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="1379,121,1586,149"/>
+<area shape="rect" id="node5" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2380,277,2518,305"/>
+<area shape="rect" id="node7" href="$df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="1653,43,1835,71"/>
+<area shape="rect" id="node11" href="$df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="1645,95,1843,123"/>
+<area shape="rect" id="node12" href="$df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="1635,147,1853,175"/>
+<area shape="rect" id="node13" href="$df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="1663,199,1825,227"/>
+<area shape="rect" id="node8" href="$d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="1915,146,2088,174"/>
+<area shape="rect" id="node9" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="2163,121,2314,149"/>
+<area shape="rect" id="node10" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="2149,303,2328,331"/>
+<area shape="rect" id="node15" href="$d1/d7e/class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde" title="BizSystem\\getSmartyTemplate" alt="" coords="267,303,469,331"/>
+<area shape="rect" id="node20" href="$d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c" title="BizSystem\\getTplFileWithPath" alt="" coords="268,355,468,383"/>
+<area shape="rect" id="node16" href="$df/d00/class_resource.html#a1f8104d8aa899c9c115363799ed0cbde" title="Resource\\getSmartyTemplate" alt="" coords="1384,303,1581,331"/>
+<area shape="rect" id="node17" href="$df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="1651,355,1837,383"/>
+<area shape="rect" id="node19" href="$d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1656,407,1832,435"/>
+<area shape="rect" id="node18" href="$d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1901,355,2101,383"/>
+<area shape="rect" id="node21" href="$df/d00/class_resource.html#afb794bcc37996f735dfc6e7ddddf961c" title="Resource\\getTplFileWithPath" alt="" coords="517,355,712,383"/>
+<area shape="rect" id="node22" href="$d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="760,407,920,435"/>
+<area shape="rect" id="node23" href="$df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="968,407,1123,435"/>
+<area shape="rect" id="node24" href="$d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1223,407,1278,435"/>
+<area shape="rect" id="node25" href="$d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1416,407,1550,435"/>
+<area shape="rect" id="node27" href="$d1/d7e/class_biz_system.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="BizSystem\\getZendTemplate" alt="" coords="519,433,710,461"/>
+<area shape="rect" id="node28" href="$df/d00/class_resource.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="Resource\\getZendTemplate" alt="" coords="1390,459,1575,487"/>
+</map>

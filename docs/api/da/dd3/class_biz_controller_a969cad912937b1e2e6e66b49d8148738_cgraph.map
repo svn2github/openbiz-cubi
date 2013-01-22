@@ -1,0 +1,14 @@
+<map id="invoke" name="invoke">
+<area shape="rect" id="node2" href="$d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="323,5,477,33"/>
+<area shape="rect" id="node4" href="$d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="114,95,275,123"/>
+<area shape="rect" id="node12" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1513,109,1658,137"/>
+<area shape="rect" id="node13" href="$da/dd3/class_biz_controller.html#a2ec72f0923e727171d17323ee4311cad" title="validateRequest" alt="" coords="136,199,253,227"/>
+<area shape="rect" id="node3" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1516,31,1654,59"/>
+<area shape="rect" id="node5" href="$df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="323,95,477,123"/>
+<area shape="rect" id="node6" href="$d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="526,95,581,123"/>
+<area shape="rect" id="node7" href="$d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="630,95,764,123"/>
+<area shape="rect" id="node8" href="$d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="814,95,989,123"/>
+<area shape="rect" id="node9" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1285,43,1464,71"/>
+<area shape="rect" id="node10" href="$d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1037,95,1237,123"/>
+<area shape="rect" id="node11" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1299,95,1450,123"/>
+</map>

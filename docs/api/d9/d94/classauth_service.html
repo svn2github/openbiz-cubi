@@ -147,7 +147,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L70">70</a> of file <a class="el" href="../../">authService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d38/auth_service_8php_source.html#l00070">70</a> of file <a class="el" href="../../d2/d38/auth_service_8php_source.html">authService.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a847d8d60f037d0a016aca7006cf9dec6"></a>
 <div class="memitem">
@@ -171,11 +171,19 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L81">81</a> of file <a class="el" href="../../">authService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;<a class="code" href="../../d9/d94/classauth_service.html#a1db802d93a9f0badf186a646e1cdb161">readMetadata</a>($xmlArr);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/d38/auth_service_8php_source.html#l00081">81</a> of file <a class="el" href="../../d2/d38/auth_service_8php_source.html">authService.php</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d9/d94/classauth_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph.png" border="0" usemap="#d9/d94/classauth_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph" alt=""/></div>
+<map name="d9/d94/classauth_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph" id="d9/d94/classauth_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph">
+<area shape="rect" id="node2" href="../../d9/d94/classauth_service.html#a1db802d93a9f0badf186a646e1cdb161" title="readMetadata" alt="" coords="144,5,248,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -220,23 +228,30 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L119">119</a> of file <a class="el" href="../../">authService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $boAuth = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($this-&gt;m_AuthticationDataObj);</div>
-<div class="line">        <span class="keywordflow">if</span> (!$boAuth)</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        $searchRule = <span class="stringliteral">&quot;[login]=&#39;$userName&#39;&quot;</span>;</div>
-<div class="line">        $recordList = array();</div>
-<div class="line">        $boAuth-&gt;fetchRecords($searchRule, $recordList, 1);</div>
-<div class="line"></div>
-<div class="line">        $encType   = $recordList[0][<span class="stringliteral">&quot;enctype&quot;</span>];</div>
-<div class="line">        $realPassword = $recordList[0][<span class="stringliteral">&quot;password&quot;</span>];</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;<a class="code" href="../../d9/d94/classauth_service.html#a4d6f35640b09c142b5dcf1245e335e3f">checkPassword</a>($encType,$password,$realPassword))</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/d38/auth_service_8php_source.html#l00119">119</a> of file <a class="el" href="../../d2/d38/auth_service_8php_source.html">authService.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d9/d94/classauth_service_a8cfce1113ad6393e0632eafaeb03a835_cgraph.png" border="0" usemap="#d9/d94/classauth_service_a8cfce1113ad6393e0632eafaeb03a835_cgraph" alt=""/></div>
+<map name="d9/d94/classauth_service_a8cfce1113ad6393e0632eafaeb03a835_cgraph" id="d9/d94/classauth_service_a8cfce1113ad6393e0632eafaeb03a835_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="147,5,293,33"/><area shape="rect" id="node3" href="../../d9/d94/classauth_service.html#a4d6f35640b09c142b5dcf1245e335e3f" title="checkPassword" alt="" coords="163,57,277,85"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d9/d94/classauth_service_a8cfce1113ad6393e0632eafaeb03a835_icgraph.png" border="0" usemap="#d9/d94/classauth_service_a8cfce1113ad6393e0632eafaeb03a835_icgraph" alt=""/></div>
+<map name="d9/d94/classauth_service_a8cfce1113ad6393e0632eafaeb03a835_icgraph" id="d9/d94/classauth_service_a8cfce1113ad6393e0632eafaeb03a835_icgraph">
+<area shape="rect" id="node2" href="../../d9/d94/classauth_service.html#adf82adbefcf688efacaa37a77f3034f0" title="authenticateUser" alt="" coords="147,5,269,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="adf82adbefcf688efacaa37a77f3034f0"></a>
@@ -272,13 +287,19 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L105">105</a> of file <a class="el" href="../../">authService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_AuthticationType == <span class="stringliteral">&quot;database&quot;</span>)</div>
-<div class="line">            <span class="keywordflow">return</span> $this-&gt;<a class="code" href="../../d9/d94/classauth_service.html#a8cfce1113ad6393e0632eafaeb03a835">authDBUser</a>($userName, $password);</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/d38/auth_service_8php_source.html#l00105">105</a> of file <a class="el" href="../../d2/d38/auth_service_8php_source.html">authService.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d9/d94/classauth_service_adf82adbefcf688efacaa37a77f3034f0_cgraph.png" border="0" usemap="#d9/d94/classauth_service_adf82adbefcf688efacaa37a77f3034f0_cgraph" alt=""/></div>
+<map name="d9/d94/classauth_service_adf82adbefcf688efacaa37a77f3034f0_cgraph" id="d9/d94/classauth_service_adf82adbefcf688efacaa37a77f3034f0_cgraph">
+<area shape="rect" id="node2" href="../../d9/d94/classauth_service.html#a8cfce1113ad6393e0632eafaeb03a835" title="authDBUser" alt="" coords="176,31,270,59"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="318,5,463,33"/><area shape="rect" id="node4" href="../../d9/d94/classauth_service.html#a4d6f35640b09c142b5dcf1245e335e3f" title="checkPassword" alt="" coords="333,57,448,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a4d6f35640b09c142b5dcf1245e335e3f"></a>
@@ -329,25 +350,19 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L144">144</a> of file <a class="el" href="../../">authService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">foreach</span>(hash_algos() as $algos)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span>(strtoupper($encType)==strtoupper($algos))</div>
-<div class="line">            {</div>
-<div class="line">                $password=hash($algos, $password);</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span>($password==$realPassword)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/d38/auth_service_8php_source.html#l00144">144</a> of file <a class="el" href="../../d2/d38/auth_service_8php_source.html">authService.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d9/d94/classauth_service_a4d6f35640b09c142b5dcf1245e335e3f_icgraph.png" border="0" usemap="#d9/d94/classauth_service_a4d6f35640b09c142b5dcf1245e335e3f_icgraph" alt=""/></div>
+<map name="d9/d94/classauth_service_a4d6f35640b09c142b5dcf1245e335e3f_icgraph" id="d9/d94/classauth_service_a4d6f35640b09c142b5dcf1245e335e3f_icgraph">
+<area shape="rect" id="node2" href="../../d9/d94/classauth_service.html#a8cfce1113ad6393e0632eafaeb03a835" title="authDBUser" alt="" coords="168,5,262,33"/><area shape="rect" id="node3" href="../../d9/d94/classauth_service.html#adf82adbefcf688efacaa37a77f3034f0" title="authenticateUser" alt="" coords="310,5,432,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1db802d93a9f0badf186a646e1cdb161"></a>
@@ -380,12 +395,19 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L92">92</a> of file <a class="el" href="../../">authService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;m_AuthticationType  = $xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;AUTHTYPE&quot;</span>];</div>
-<div class="line">        $this-&gt;m_AuthticationDataObj  = $xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;BIZDATAOBJ&quot;</span>];</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/d38/auth_service_8php_source.html#l00092">92</a> of file <a class="el" href="../../d2/d38/auth_service_8php_source.html">authService.php</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d9/d94/classauth_service_a1db802d93a9f0badf186a646e1cdb161_icgraph.png" border="0" usemap="#d9/d94/classauth_service_a1db802d93a9f0badf186a646e1cdb161_icgraph" alt=""/></div>
+<map name="d9/d94/classauth_service_a1db802d93a9f0badf186a646e1cdb161_icgraph" id="d9/d94/classauth_service_a1db802d93a9f0badf186a646e1cdb161_icgraph">
+<area shape="rect" id="node2" href="../../d9/d94/classauth_service.html#a847d8d60f037d0a016aca7006cf9dec6" title="__construct" alt="" coords="158,5,248,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -399,7 +421,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L73">73</a> of file <a class="el" href="../../">authService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d38/auth_service_8php_source.html#l00073">73</a> of file <a class="el" href="../../d2/d38/auth_service_8php_source.html">authService.php</a>.</p>
 
 </div>
 </div>
@@ -413,7 +435,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L72">72</a> of file <a class="el" href="../../">authService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/d38/auth_service_8php_source.html#l00072">72</a> of file <a class="el" href="../../d2/d38/auth_service_8php_source.html">authService.php</a>.</p>
 
 </div>
 </div>
@@ -423,7 +445,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d9/d94/classauth_service.html">authService</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:11 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:36 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

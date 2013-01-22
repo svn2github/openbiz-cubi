@@ -203,7 +203,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L26">26</a> of file <a class="el" href="../../">HTMLTabs.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html#l00026">26</a> of file <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html">HTMLTabs.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a847d8d60f037d0a016aca7006cf9dec6"></a>
 <div class="memitem">
@@ -227,11 +227,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L40">40</a> of file <a class="el" href="../../">HTMLTabs.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;<a class="code" href="../../d4/db9/class_h_t_m_l_tabs.html#a1db802d93a9f0badf186a646e1cdb161">readMetadata</a>($xmlArr);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html#l00040">40</a> of file <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html">HTMLTabs.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/db9/class_h_t_m_l_tabs_a847d8d60f037d0a016aca7006cf9dec6_cgraph.png" border="0" usemap="#d4/db9/class_h_t_m_l_tabs_a847d8d60f037d0a016aca7006cf9dec6_cgraph" alt=""/></div>
+<map name="d4/db9/class_h_t_m_l_tabs_a847d8d60f037d0a016aca7006cf9dec6_cgraph" id="d4/db9/class_h_t_m_l_tabs_a847d8d60f037d0a016aca7006cf9dec6_cgraph">
+<area shape="rect" id="node2" href="../../d4/db9/class_h_t_m_l_tabs.html#a1db802d93a9f0badf186a646e1cdb161" title="readMetadata" alt="" coords="144,5,248,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -275,29 +283,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean TRUE if on the current tab, otherwise FALSE </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L135">135</a> of file <a class="el" href="../../">HTMLTabs.php</a>.</p>
-<div class="fragment"><div class="line">    { <span class="comment">//--jmmz</span></div>
-<div class="line">        $currentTab = <span class="keyword">false</span>; <span class="comment">//this variable save &#39;true&#39; if is the current tab and &#39;false&#39; in otherwise --jmmz</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_CurrentTab)</div>
-<div class="line">        {</div>
-<div class="line">            $currentTab = ($this-&gt;m_CurrentTab == $tabView-&gt;m_Name || $this-&gt;m_CurrentTab == $tabView-&gt;m_Tab)</div>
-<div class="line">                    ? TRUE</div>
-<div class="line">                    : FALSE;</div>
-<div class="line">        }</div>
-<div class="line">        elseif ($tabView-&gt;m_ViewSet)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> ($curViewObj)</div>
-<div class="line">            <span class="comment">// check if current view&#39;s viewset == tview-&gt;m_ViewSet</span></div>
-<div class="line">                $currentTab = ($curViewObj-&gt;getViewSet() == $tabView-&gt;m_ViewSet) ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {</div>
-<div class="line">            $currentTab = ($curViewName == $tabView-&gt;m_View || $curViewObj-&gt;m_Tab == $tabView-&gt;m_Name) ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">return</span> $currentTab;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html#l00135">135</a> of file <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html">HTMLTabs.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/db9/class_h_t_m_l_tabs_aa36dd47233ae06f5e1b8c03fb07fe0a5_icgraph.png" border="0" usemap="#d4/db9/class_h_t_m_l_tabs_aa36dd47233ae06f5e1b8c03fb07fe0a5_icgraph" alt=""/></div>
+<map name="d4/db9/class_h_t_m_l_tabs_aa36dd47233ae06f5e1b8c03fb07fe0a5_icgraph" id="d4/db9/class_h_t_m_l_tabs_aa36dd47233ae06f5e1b8c03fb07fe0a5_icgraph">
+<area shape="rect" id="node2" href="../../d4/db9/class_h_t_m_l_tabs.html#a3e730d6b77836656e475c29e5d78789f" title="setCurrentTabInSession" alt="" coords="153,5,316,33"/><area shape="rect" id="node3" href="../../d4/db9/class_h_t_m_l_tabs.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="366,31,426,59"/><area shape="rect" id="node4" href="../../d4/db9/class_h_t_m_l_tabs.html#a8a8e352ebee041a7f73f0f6ddd249769" title="rerender" alt="" coords="475,31,547,59"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1db802d93a9f0badf186a646e1cdb161"></a>
@@ -329,17 +327,19 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../#L50">50</a> of file <a class="el" href="../../">HTMLTabs.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;m_Name = $xmlArr[<span class="stringliteral">&quot;TABS&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAME&quot;</span>];</div>
-<div class="line">        $this-&gt;m_Package = $xmlArr[<span class="stringliteral">&quot;TABS&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;PACKAGE&quot;</span>];</div>
-<div class="line">        $this-&gt;m_Class = $xmlArr[<span class="stringliteral">&quot;TABS&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CLASS&quot;</span>];</div>
-<div class="line">        $this-&gt;m_TemplateFile = $xmlArr[<span class="stringliteral">&quot;TABS&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TEMPLATEFILE&quot;</span>];</div>
-<div class="line">        $this-&gt;m_TabViews = <span class="keyword">new</span> <a class="code" href="../../dd/d21/class_meta_iterator.html">MetaIterator</a>($xmlArr[<span class="stringliteral">&quot;TABS&quot;</span>][<span class="stringliteral">&quot;TABVIEWS&quot;</span>][<span class="stringliteral">&quot;VIEW&quot;</span>],<span class="stringliteral">&quot;TabView&quot;</span>);</div>
-<div class="line">        $this-&gt;m_ActiveCssClassName = <span class="stringliteral">&quot;&#39;{$xmlArr[&quot;</span>TABS<span class="stringliteral">&quot;][&quot;</span>ATTRIBUTES<span class="stringliteral">&quot;][&quot;</span>ACTIVECSSCLASSNAME<span class="stringliteral">&quot;]}&#39;&quot;</span>;</div>
-<div class="line">        $this-&gt;m_InactiveCssClassName = <span class="stringliteral">&quot;&#39;{$xmlArr[&quot;</span>TABS<span class="stringliteral">&quot;][&quot;</span>ATTRIBUTES<span class="stringliteral">&quot;][&quot;</span>INACTIVECSSCLASSNAME<span class="stringliteral">&quot;]}&#39;&quot;</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html#l00050">50</a> of file <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html">HTMLTabs.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/db9/class_h_t_m_l_tabs_a1db802d93a9f0badf186a646e1cdb161_icgraph.png" border="0" usemap="#d4/db9/class_h_t_m_l_tabs_a1db802d93a9f0badf186a646e1cdb161_icgraph" alt=""/></div>
+<map name="d4/db9/class_h_t_m_l_tabs_a1db802d93a9f0badf186a646e1cdb161_icgraph" id="d4/db9/class_h_t_m_l_tabs_a1db802d93a9f0badf186a646e1cdb161_icgraph">
+<area shape="rect" id="node2" href="../../d4/db9/class_h_t_m_l_tabs.html#a847d8d60f037d0a016aca7006cf9dec6" title="__construct" alt="" coords="158,5,248,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="afde88292c44dc59faf017738dae6dffb"></a>
@@ -360,57 +360,30 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/d2b/interfacei_u_i_control.html#afde88292c44dc59faf017738dae6dffb">iUIControl</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L193">193</a> of file <a class="el" href="../../">HTMLTabs.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        global <a class="code" href="../../d3/d07/sysheader__inc_8php.html#a0cb3ec03bacff361c21e7450d93aed66">$g_BizSystem</a>;</div>
-<div class="line"></div>
-<div class="line">        $curView = $g_BizSystem-&gt;getCurrentViewName();</div>
-<div class="line">        $curViewobj = ($curView) ? <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($curView) : null;</div>
-<div class="line"></div>
-<div class="line">        $profile = $g_BizSystem-&gt;getUserProfile();</div>
-<div class="line">        $svcobj = <a class="code" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96">BizSystem::getService</a>(ACCESS_SERVICE);</div>
-<div class="line">        $role = isset($profile[<span class="stringliteral">&quot;ROLE&quot;</span>]) ? $profile[<span class="stringliteral">&quot;ROLE&quot;</span>] : null;</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// list all views and highlight the current view</span></div>
-<div class="line">        <span class="comment">// pass $tabs(caption, url, target, icon, current) to template</span></div>
-<div class="line">        $smarty = <a class="code" href="../../d1/d7e/class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde">BizSystem::getSmartyTemplate</a>();</div>
-<div class="line">        $tabs = array();</div>
-<div class="line">        $i = 0;</div>
-<div class="line">        $hasForms = <span class="keyword">false</span>;</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_TabViews as $tview)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="comment">// tab is renderd if  no definition  is found in accessservice.xml (default)</span></div>
-<div class="line">            <span class="keywordflow">if</span> ($svcobj-&gt;allowViewAccess($tview-&gt;m_View, $role))</div>
-<div class="line">            {</div>
-<div class="line"></div>
-<div class="line">                $tabs[$i][<span class="stringliteral">&#39;name&#39;</span>]=$tview-&gt;m_Name; <span class="comment">//Name of each tab--jmmz</span></div>
-<div class="line">                $tabs[$i][<span class="stringliteral">&#39;forms&#39;</span>]=$this-&gt;_renderJSCodeForForms($tview-&gt;m_Forms);<span class="comment">//Configuration of the forms to hide or show--jmmz</span></div>
-<div class="line">                $tabs[$i][<span class="stringliteral">&#39;caption&#39;</span>] = $tview-&gt;m_Caption;</div>
-<div class="line"></div>
-<div class="line">                $tabs[$i][<span class="stringliteral">&#39;url&#39;</span>] = $this-&gt;_renderURL($tview); <span class="comment">//Call the method to render the url--jmmz</span></div>
-<div class="line"></div>
-<div class="line">                <span class="comment">//If I have forms to hide or show I add the event because I don&#39;t need an URL, I need an event</span></div>
-<div class="line">                <span class="keywordflow">if</span>( (<span class="keywordtype">bool</span>) $tview-&gt;hasForms() )</div>
-<div class="line">                {</div>
-<div class="line">                    $tabs[$i][<span class="stringliteral">&#39;event&#39;</span>]=$tabs[$i][<span class="stringliteral">&#39;url&#39;</span>]; <span class="comment">//Assign The url rendered to the event on click</span></div>
-<div class="line">                    $tabs[$i][<span class="stringliteral">&#39;url&#39;</span>]=<span class="stringliteral">&#39;javascript:void(0)&#39;</span>; <span class="comment">//If I put url in &#39;&#39; then the href want send me to another direction</span></div>
-<div class="line">                    $this-&gt;<a class="code" href="../../d4/db9/class_h_t_m_l_tabs.html#a3e730d6b77836656e475c29e5d78789f">setCurrentTabInSession</a>($tview, $curViewobj, $curView); <span class="comment">//I set the current tab wrote in session</span></div>
-<div class="line">                    $hasForms = TRUE;</div>
-<div class="line">                }</div>
-<div class="line"></div>
-<div class="line">                $tabs[$i][<span class="stringliteral">&#39;target&#39;</span>] = $tview-&gt;m_Target;</div>
-<div class="line">                $tabs[$i][<span class="stringliteral">&#39;icon&#39;</span>] = $tview-&gt;m_Icon;</div>
-<div class="line">                $tabs[$i][<span class="stringliteral">&#39;current&#39;</span>] = $this-&gt;<a class="code" href="../../d4/db9/class_h_t_m_l_tabs.html#aa36dd47233ae06f5e1b8c03fb07fe0a5">isCurrentTab</a>($tview,$curViewobj, $curView); <span class="comment">//I get the current tab.</span></div>
-<div class="line">                $i++;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        $this-&gt;<a class="code" href="../../d4/db9/class_h_t_m_l_tabs.html#a9e353bda0cf6e289264cc381f2eaa312">setClientScripts</a>($tabs, $hasForms);</div>
-<div class="line">        $smarty-&gt;assign(<span class="stringliteral">&quot;tabs&quot;</span>, $tabs);</div>
-<div class="line">        $smarty-&gt;assign(<span class="stringliteral">&quot;tabs_Name&quot;</span>,$this-&gt;m_Name);</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">return</span> $smarty-&gt;fetch(<a class="code" href="../../d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c">BizSystem::getTplFileWithPath</a>($this-&gt;m_TemplateFile, $this-&gt;m_Package));</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html#l00193">193</a> of file <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html">HTMLTabs.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/db9/class_h_t_m_l_tabs_afde88292c44dc59faf017738dae6dffb_cgraph.png" border="0" usemap="#d4/db9/class_h_t_m_l_tabs_afde88292c44dc59faf017738dae6dffb_cgraph" alt=""/></div>
+<map name="d4/db9/class_h_t_m_l_tabs_afde88292c44dc59faf017738dae6dffb_cgraph" id="d4/db9/class_h_t_m_l_tabs_afde88292c44dc59faf017738dae6dffb_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2123,20,2269,48"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1910,45,2061,73"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde" title="BizSystem\\getSmartyTemplate" alt="" coords="813,96,1016,124"/><area shape="rect" id="node11" href="../../d4/db9/class_h_t_m_l_tabs.html#a3e730d6b77836656e475c29e5d78789f" title="setCurrentTabInSession" alt="" coords="133,251,296,279"/><area shape="rect" id="node12" href="../../d4/db9/class_h_t_m_l_tabs.html#aa36dd47233ae06f5e1b8c03fb07fe0a5" title="isCurrentTab" alt="" coords="412,341,508,369"/><area shape="rect" id="node14" href="../../d4/db9/class_h_t_m_l_tabs.html#a9e353bda0cf6e289264cc381f2eaa312" title="setClientScripts" alt="" coords="158,381,272,409"/><area shape="rect" id="node16" href="../../d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c" title="BizSystem\\getTplFileWithPath" alt="" coords="114,160,315,188"/><area shape="rect" id="node5" href="../../df/d00/class_resource.html#a1f8104d8aa899c9c115363799ed0cbde" title="Resource\\getSmartyTemplate" alt="" coords="1168,96,1365,124"/><area shape="rect" id="node6" href="../../df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="1413,173,1600,201"/><area shape="rect" id="node10" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1419,96,1594,124"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1896,200,2075,228"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1648,148,1848,176"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2127,260,2265,288"/><area shape="rect" id="node13" href="../../d4/db9/class_h_t_m_l_tabs.html#a63b8aae2fd9ebc823ac45a927192a09b" title="setCurrentTab" alt="" coords="407,289,513,317"/><area shape="rect" id="node15" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="609,341,762,369"/><area shape="rect" id="node17" href="../../df/d00/class_resource.html#afb794bcc37996f735dfc6e7ddddf961c" title="Resource\\getTplFileWithPath" alt="" coords="363,160,557,188"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="605,148,766,176"/><area shape="rect" id="node19" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="837,148,992,176"/><area shape="rect" id="node20" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1065,148,1119,176"/><area shape="rect" id="node21" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1200,148,1334,176"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/db9/class_h_t_m_l_tabs_afde88292c44dc59faf017738dae6dffb_icgraph.png" border="0" usemap="#d4/db9/class_h_t_m_l_tabs_afde88292c44dc59faf017738dae6dffb_icgraph" alt=""/></div>
+<map name="d4/db9/class_h_t_m_l_tabs_afde88292c44dc59faf017738dae6dffb_icgraph" id="d4/db9/class_h_t_m_l_tabs_afde88292c44dc59faf017738dae6dffb_icgraph">
+<area shape="rect" id="node2" href="../../d4/db9/class_h_t_m_l_tabs.html#a8a8e352ebee041a7f73f0f6ddd249769" title="rerender" alt="" coords="115,5,187,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a8a8e352ebee041a7f73f0f6ddd249769"></a>
@@ -428,11 +401,19 @@ Protected Attributes</h2></td></tr>
 <p>Rerender the tabs</p>
 <dl class="section return"><dt>Returns</dt><dd>string html content of the menu </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L249">249</a> of file <a class="el" href="../../">HTMLTabs.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> $this-&gt;<a class="code" href="../../d4/db9/class_h_t_m_l_tabs.html#afde88292c44dc59faf017738dae6dffb">render</a>();</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html#l00249">249</a> of file <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html">HTMLTabs.php</a>.</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/db9/class_h_t_m_l_tabs_a8a8e352ebee041a7f73f0f6ddd249769_cgraph.png" border="0" usemap="#d4/db9/class_h_t_m_l_tabs_a8a8e352ebee041a7f73f0f6ddd249769_cgraph" alt=""/></div>
+<map name="d4/db9/class_h_t_m_l_tabs_a8a8e352ebee041a7f73f0f6ddd249769_cgraph" id="d4/db9/class_h_t_m_l_tabs_a8a8e352ebee041a7f73f0f6ddd249769_cgraph">
+<area shape="rect" id="node2" href="../../d4/db9/class_h_t_m_l_tabs.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="126,160,186,188"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2243,20,2389,48"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="2030,45,2181,73"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde" title="BizSystem\\getSmartyTemplate" alt="" coords="933,96,1136,124"/><area shape="rect" id="node12" href="../../d4/db9/class_h_t_m_l_tabs.html#a3e730d6b77836656e475c29e5d78789f" title="setCurrentTabInSession" alt="" coords="253,251,416,279"/><area shape="rect" id="node13" href="../../d4/db9/class_h_t_m_l_tabs.html#aa36dd47233ae06f5e1b8c03fb07fe0a5" title="isCurrentTab" alt="" coords="532,341,628,369"/><area shape="rect" id="node15" href="../../d4/db9/class_h_t_m_l_tabs.html#a9e353bda0cf6e289264cc381f2eaa312" title="setClientScripts" alt="" coords="278,381,392,409"/><area shape="rect" id="node17" href="../../d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c" title="BizSystem\\getTplFileWithPath" alt="" coords="234,160,435,188"/><area shape="rect" id="node6" href="../../df/d00/class_resource.html#a1f8104d8aa899c9c115363799ed0cbde" title="Resource\\getSmartyTemplate" alt="" coords="1288,96,1485,124"/><area shape="rect" id="node7" href="../../df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="1533,173,1720,201"/><area shape="rect" id="node11" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1539,96,1714,124"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="2016,200,2195,228"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1768,148,1968,176"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2247,260,2385,288"/><area shape="rect" id="node14" href="../../d4/db9/class_h_t_m_l_tabs.html#a63b8aae2fd9ebc823ac45a927192a09b" title="setCurrentTab" alt="" coords="527,289,633,317"/><area shape="rect" id="node16" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="729,341,882,369"/><area shape="rect" id="node18" href="../../df/d00/class_resource.html#afb794bcc37996f735dfc6e7ddddf961c" title="Resource\\getTplFileWithPath" alt="" coords="483,160,677,188"/><area shape="rect" id="node19" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="725,148,886,176"/><area shape="rect" id="node20" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="957,148,1112,176"/><area shape="rect" id="node21" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="1185,148,1239,176"/><area shape="rect" id="node22" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1320,148,1454,176"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a9e353bda0cf6e289264cc381f2eaa312"></a>
@@ -476,27 +457,30 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L261">261</a> of file <a class="el" href="../../">HTMLTabs.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        global <a class="code" href="../../d3/d07/sysheader__inc_8php.html#a0cb3ec03bacff361c21e7450d93aed66">$g_BizSystem</a>;</div>
-<div class="line"></div>
-<div class="line">        <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;appendScripts(<span class="stringliteral">&quot;tabs&quot;</span>, <span class="stringliteral">&quot;tabs.js&quot;</span>);</div>
-<div class="line">        <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;appendStyles(<span class="stringliteral">&quot;tabs&quot;</span>, <span class="stringliteral">&quot;tabs.css&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($hasForms)</div>
-<div class="line">        {</div>
-<div class="line">            $tab_script = <span class="stringliteral">&#39;&lt;script type = &quot;text/javascript&quot;&gt;&#39;</span>.PHP_EOL;</div>
-<div class="line">            <span class="keywordflow">foreach</span> ($tabs as $tab)</div>
-<div class="line">            {</div>
-<div class="line">                $tab_script .=   <span class="stringliteral">&#39;var &#39;</span>.$tab[<span class="stringliteral">&#39;name&#39;</span>].<span class="stringliteral">&#39;_config = &#39;</span>.$tab[<span class="stringliteral">&#39;forms&#39;</span>].<span class="charliteral">&#39;;&#39;</span>.PHP_EOL;</div>
-<div class="line">            }</div>
-<div class="line">            $tab_script .=   <span class="stringliteral">&#39;var &#39;</span>.$this-&gt;m_Name.<span class="stringliteral">&#39;_active = &#39;</span>.$this-&gt;m_ActiveCssClassName.<span class="charliteral">&#39;;&#39;</span>.PHP_EOL;</div>
-<div class="line">            $tab_script .=   <span class="stringliteral">&#39;var &#39;</span>.$this-&gt;m_Name.<span class="stringliteral">&#39;_inactive = &#39;</span>.$this-&gt;m_InactiveCssClassName.<span class="charliteral">&#39;;&#39;</span>.PHP_EOL;</div>
-<div class="line">            $tab_script .= <span class="stringliteral">&#39;&lt;/script&gt;&#39;</span>;</div>
-<div class="line">            <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;appendScripts(<span class="stringliteral">&quot;tab_forms_$this-&gt;m_Name&quot;</span>, $tab_script, FALSE);</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html#l00261">261</a> of file <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html">HTMLTabs.php</a>.</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/db9/class_h_t_m_l_tabs_a9e353bda0cf6e289264cc381f2eaa312_cgraph.png" border="0" usemap="#d4/db9/class_h_t_m_l_tabs_a9e353bda0cf6e289264cc381f2eaa312_cgraph" alt=""/></div>
+<map name="d4/db9/class_h_t_m_l_tabs_a9e353bda0cf6e289264cc381f2eaa312_cgraph" id="d4/db9/class_h_t_m_l_tabs_a9e353bda0cf6e289264cc381f2eaa312_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="169,5,322,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="371,5,509,33"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/db9/class_h_t_m_l_tabs_a9e353bda0cf6e289264cc381f2eaa312_icgraph.png" border="0" usemap="#d4/db9/class_h_t_m_l_tabs_a9e353bda0cf6e289264cc381f2eaa312_icgraph" alt=""/></div>
+<map name="d4/db9/class_h_t_m_l_tabs_a9e353bda0cf6e289264cc381f2eaa312_icgraph" id="d4/db9/class_h_t_m_l_tabs_a9e353bda0cf6e289264cc381f2eaa312_icgraph">
+<area shape="rect" id="node2" href="../../d4/db9/class_h_t_m_l_tabs.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="169,5,229,33"/><area shape="rect" id="node3" href="../../d4/db9/class_h_t_m_l_tabs.html#a8a8e352ebee041a7f73f0f6ddd249769" title="rerender" alt="" coords="277,5,349,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a63b8aae2fd9ebc823ac45a927192a09b"></a>
@@ -521,11 +505,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L122">122</a> of file <a class="el" href="../../">HTMLTabs.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;m_CurrentTab = $viewName;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html#l00122">122</a> of file <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html">HTMLTabs.php</a>.</p>
+
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/db9/class_h_t_m_l_tabs_a63b8aae2fd9ebc823ac45a927192a09b_icgraph.png" border="0" usemap="#d4/db9/class_h_t_m_l_tabs_a63b8aae2fd9ebc823ac45a927192a09b_icgraph" alt=""/></div>
+<map name="d4/db9/class_h_t_m_l_tabs_a63b8aae2fd9ebc823ac45a927192a09b_icgraph" id="d4/db9/class_h_t_m_l_tabs_a63b8aae2fd9ebc823ac45a927192a09b_icgraph">
+<area shape="rect" id="node2" href="../../d4/db9/class_h_t_m_l_tabs.html#a3e730d6b77836656e475c29e5d78789f" title="setCurrentTabInSession" alt="" coords="161,5,324,33"/><area shape="rect" id="node3" href="../../d4/db9/class_h_t_m_l_tabs.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="374,5,434,33"/><area shape="rect" id="node4" href="../../d4/db9/class_h_t_m_l_tabs.html#a8a8e352ebee041a7f73f0f6ddd249769" title="rerender" alt="" coords="483,5,555,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a3e730d6b77836656e475c29e5d78789f"></a>
@@ -568,27 +560,30 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L166">166</a> of file <a class="el" href="../../">HTMLTabs.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $sessionContext = <a class="code" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d">BizSystem::sessionContext</a>();</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> (!$sessionContext-&gt;varExists(<span class="stringliteral">&#39;CURRENT_TAB_&#39;</span>.$this-&gt;m_Name))</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> ($this-&gt;<a class="code" href="../../d4/db9/class_h_t_m_l_tabs.html#aa36dd47233ae06f5e1b8c03fb07fe0a5">isCurrentTab</a>($tview,$curViewObj, $curViewName))</div>
-<div class="line">            {</div>
-<div class="line">                $sessionContext-&gt;setVar(<span class="stringliteral">&#39;CURRENT_TAB_&#39;</span>.$this-&gt;m_Name,$tview-&gt;m_Name);</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">            {</div>
-<div class="line">                <span class="comment">//Don&#39;t set var if isn&#39;t the current var</span></div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;<a class="code" href="../../d4/db9/class_h_t_m_l_tabs.html#a63b8aae2fd9ebc823ac45a927192a09b">setCurrentTab</a>($sessionContext-&gt;getVar(<span class="stringliteral">&#39;CURRENT_TAB_&#39;</span>.$this-&gt;m_Name));</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html#l00166">166</a> of file <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html">HTMLTabs.php</a>.</p>
+
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/db9/class_h_t_m_l_tabs_a3e730d6b77836656e475c29e5d78789f_cgraph.png" border="0" usemap="#d4/db9/class_h_t_m_l_tabs_a3e730d6b77836656e475c29e5d78789f_cgraph" alt=""/></div>
+<map name="d4/db9/class_h_t_m_l_tabs_a3e730d6b77836656e475c29e5d78789f_cgraph" id="d4/db9/class_h_t_m_l_tabs_a3e730d6b77836656e475c29e5d78789f_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="218,5,398,33"/><area shape="rect" id="node4" href="../../d4/db9/class_h_t_m_l_tabs.html#aa36dd47233ae06f5e1b8c03fb07fe0a5" title="isCurrentTab" alt="" coords="260,57,356,85"/><area shape="rect" id="node5" href="../../d4/db9/class_h_t_m_l_tabs.html#a63b8aae2fd9ebc823ac45a927192a09b" title="setCurrentTab" alt="" coords="255,109,361,137"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="446,5,584,33"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/db9/class_h_t_m_l_tabs_a3e730d6b77836656e475c29e5d78789f_icgraph.png" border="0" usemap="#d4/db9/class_h_t_m_l_tabs_a3e730d6b77836656e475c29e5d78789f_icgraph" alt=""/></div>
+<map name="d4/db9/class_h_t_m_l_tabs_a3e730d6b77836656e475c29e5d78789f_icgraph" id="d4/db9/class_h_t_m_l_tabs_a3e730d6b77836656e475c29e5d78789f_icgraph">
+<area shape="rect" id="node2" href="../../d4/db9/class_h_t_m_l_tabs.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="219,5,279,33"/><area shape="rect" id="node3" href="../../d4/db9/class_h_t_m_l_tabs.html#a8a8e352ebee041a7f73f0f6ddd249769" title="rerender" alt="" coords="328,5,400,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -610,7 +605,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L31">31</a> of file <a class="el" href="../../">HTMLTabs.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html#l00031">31</a> of file <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html">HTMLTabs.php</a>.</p>
 
 </div>
 </div>
@@ -632,7 +627,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L30">30</a> of file <a class="el" href="../../">HTMLTabs.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html#l00030">30</a> of file <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html">HTMLTabs.php</a>.</p>
 
 </div>
 </div>
@@ -654,7 +649,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L32">32</a> of file <a class="el" href="../../">HTMLTabs.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html#l00032">32</a> of file <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html">HTMLTabs.php</a>.</p>
 
 </div>
 </div>
@@ -668,7 +663,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L29">29</a> of file <a class="el" href="../../">HTMLTabs.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html#l00029">29</a> of file <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html">HTMLTabs.php</a>.</p>
 
 </div>
 </div>
@@ -682,7 +677,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L28">28</a> of file <a class="el" href="../../">HTMLTabs.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html#l00028">28</a> of file <a class="el" href="../../d2/db2/_h_t_m_l_tabs_8php_source.html">HTMLTabs.php</a>.</p>
 
 </div>
 </div>
@@ -692,7 +687,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d4/db9/class_h_t_m_l_tabs.html">HTMLTabs</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:21 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:55 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

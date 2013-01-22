@@ -385,7 +385,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00027">27</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a64597ad197b5d3d27e571c950e030d9c"></a>
 <div class="memitem">
@@ -401,50 +401,30 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L200">200</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     <span class="keywordflow">if</span>($value===null)</div>
-<div class="line">     {</div>
-<div class="line">      <span class="keywordflow">return</span> null;</div>
-<div class="line">     }</div>
-<div class="line">  $list = $this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#a5610c1415bd5fd946a42fd0fd4da4cff">getList</a>();</div>
-<div class="line">     <span class="comment">/*$selectFrom = $this-&gt;m_SelectFrom;</span></div>
-<div class="line"><span class="comment">     $selectFrom = substr($selectFrom,0,strpos($selectFrom,&#39;,&#39;));</span></div>
-<div class="line"><span class="comment">        </span></div>
-<div class="line"><span class="comment">     $list= array();        </span></div>
-<div class="line"><span class="comment">        if (!$selectFrom) {</span></div>
-<div class="line"><span class="comment">         $this-&gt;getSQLFromList($list);</span></div>
-<div class="line"><span class="comment">        }</span></div>
-<div class="line"><span class="comment">        else</span></div>
-<div class="line"><span class="comment">        {</span></div>
-<div class="line"><span class="comment">         $this-&gt;getXMLFromList($list, $selectFrom);          </span></div>
-<div class="line"><span class="comment">         if (!is_array($list) || count($list)==0){</span></div>
-<div class="line"><span class="comment">          $this-&gt;getDOFromList($list, $selectFrom);          </span></div>
-<div class="line"><span class="comment">          if (!is_array($list) || count($list)==0){</span></div>
-<div class="line"><span class="comment">           $this-&gt;getSimpleFromList($list, $selectFrom);</span></div>
-<div class="line"><span class="comment">          }    </span></div>
-<div class="line"><span class="comment">         }</span></div>
-<div class="line"><span class="comment">        }*/</span></div>
-<div class="line">            </div>
-<div class="line">        <span class="keywordflow">if</span>(!is_array($list)||count($list)==0){</div>
-<div class="line">         <span class="keywordflow">return</span> $value;</div>
-<div class="line">        }</div>
-<div class="line">        </div>
-<div class="line">     <span class="keywordflow">foreach</span> ($list as $item){</div>
-<div class="line">         <span class="keywordflow">if</span>($item[<span class="stringliteral">&#39;val&#39;</span>]==$value){</div>
-<div class="line">          <span class="keywordflow">if</span>(!preg_match(<span class="stringliteral">&quot;/&lt;/si&quot;</span>,$item[<span class="stringliteral">&#39;txt&#39;</span>])){</div>
-<div class="line">           $display_value = $item[<span class="stringliteral">&#39;txt&#39;</span>];</div>
-<div class="line">           <span class="keywordflow">return</span> $display_value;</div>
-<div class="line">          }<span class="keywordflow">else</span>{</div>
-<div class="line">           $display_value = $item[<span class="stringliteral">&#39;val&#39;</span>];</div>
-<div class="line">           <span class="keywordflow">return</span> $display_value;</div>
-<div class="line">          }</div>
-<div class="line">          <span class="keywordflow">break</span>;</div>
-<div class="line">         }</div>
-<div class="line">        }        </div>
-<div class="line">     <span class="keywordflow">return</span> $display_value;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00200">200</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a64597ad197b5d3d27e571c950e030d9c_cgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a64597ad197b5d3d27e571c950e030d9c_cgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a64597ad197b5d3d27e571c950e030d9c_cgraph" id="dc/d58/class_drop_down_list_a64597ad197b5d3d27e571c950e030d9c_cgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#a5610c1415bd5fd946a42fd0fd4da4cff" title="getList" alt="" coords="171,251,232,279"/><area shape="rect" id="node3" href="../../dc/d58/class_drop_down_list.html#a6bf46184c1f8fff5f182aa3c2f5326a6" title="getSelectFrom" alt="" coords="717,147,825,175"/><area shape="rect" id="node16" href="../../dc/d58/class_drop_down_list.html#aa54a9a65ac7416558061dc3579136d43" title="getSQLFromList" alt="" coords="485,251,603,279"/><area shape="rect" id="node19" href="../../dc/d58/class_drop_down_list.html#a8f00502ff32da626abb188c91faad283" title="getXMLFromList" alt="" coords="287,329,406,357"/><area shape="rect" id="node29" href="../../dc/d58/class_drop_down_list.html#aea0b19f3861838e01007f60f7f8977ac" title="getDOFromList" alt="" coords="291,82,403,110"/><area shape="rect" id="node31" href="../../dc/d58/class_drop_down_list.html#a6b6c589b81ab68cc413a8c3776072fce" title="getSimpleFromList" alt="" coords="280,381,413,409"/><area shape="rect" id="node4" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="946,225,1091,253"/><area shape="rect" id="node7" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="915,147,1122,175"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="1453,250,1621,278"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1916,307,2054,335"/><area shape="rect" id="node8" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="1189,147,1371,175"/><area shape="rect" id="node13" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="1181,199,1379,227"/><area shape="rect" id="node14" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="1171,43,1389,71"/><area shape="rect" id="node15" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="1199,95,1361,123"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="1451,198,1624,226"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1699,198,1850,226"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1913,95,2058,123"/><area shape="rect" id="node12" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1685,341,1864,369"/><area shape="rect" id="node17" href="../../dc/d58/class_drop_down_list.html#a738c28f6c74aff9a8548462b945c2a84" title="getSelectFromSQL" alt="" coords="703,199,838,227"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="966,302,1072,330"/><area shape="rect" id="node20" href="../../d1/d7e/class_biz_system.html#afb3b9597319d812f889a89ab0c7c5e4b" title="BizSystem\\getXmlArray" alt="" coords="463,341,625,369"/><area shape="rect" id="node22" href="../../dc/d58/class_drop_down_list.html#a908afc7586e184ef9383f051ff4dc7f3" title="translateList" alt="" coords="497,433,591,461"/><area shape="rect" id="node21" href="../../df/d00/class_resource.html#afb3b9597319d812f889a89ab0c7c5e4b" title="Resource\\getXmlArray" alt="" coords="693,354,848,382"/><area shape="rect" id="node23" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="675,458,866,486"/><area shape="rect" id="node24" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="743,406,798,434"/><area shape="rect" id="node28" href="../../dc/d58/class_drop_down_list.html#acdc8141d0fb446e2d26f78282138c465" title="getTransLOVPrefix" alt="" coords="704,510,838,538"/><area shape="rect" id="node25" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="952,406,1086,434"/><area shape="rect" id="node26" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1192,406,1368,434"/><area shape="rect" id="node27" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1437,354,1637,382"/><area shape="rect" id="node30" href="../../d1/d2c/class_query_string_param.html#a2325df26721fdbe820d577d2482725f8" title="QueryStringParam\\reset" alt="" coords="461,82,627,110"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a64597ad197b5d3d27e571c950e030d9c_icgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a64597ad197b5d3d27e571c950e030d9c_icgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a64597ad197b5d3d27e571c950e030d9c_icgraph" id="dc/d58/class_drop_down_list_a64597ad197b5d3d27e571c950e030d9c_icgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="171,5,231,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aea0b19f3861838e01007f60f7f8977ac"></a>
@@ -479,62 +459,30 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L414">414</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $pos0 = strpos($selectFrom, <span class="stringliteral">&quot;[&quot;</span>);</div>
-<div class="line">        $pos1 = strpos($selectFrom, <span class="stringliteral">&quot;]&quot;</span>);</div>
-<div class="line">        <span class="keywordflow">if</span> ($pos0 &gt; 0 &amp;&amp; $pos1 &gt; $pos0)</div>
-<div class="line">        {  <span class="comment">// select from bizObj</span></div>
-<div class="line">            <span class="comment">// support BizObjName[BizFieldName] or </span></div>
-<div class="line">            <span class="comment">// BizObjName[BizFieldName4Text:BizFieldName4Value] or </span></div>
-<div class="line">            <span class="comment">// BizObjName[BizFieldName4Text:BizFieldName4Value:BizFieldName4Pic]</span></div>
-<div class="line">            $bizObjName = substr($selectFrom, 0, $pos0);</div>
-<div class="line">            $pos3 = strpos($selectFrom, <span class="stringliteral">&quot;:&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">if</span>($pos3 &gt; $pos0 &amp;&amp; $pos3 &lt; $pos1)</div>
-<div class="line">            {</div>
-<div class="line">                $fieldName = substr($selectFrom, $pos0 + 1, $pos3 - $pos0 - 1);</div>
-<div class="line">                $fieldName_v = substr($selectFrom, $pos3 + 1, $pos1 - $pos3 - 1);</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">            {</div>
-<div class="line">                $fieldName = substr($selectFrom, $pos0 + 1, $pos1 - $pos0 - 1);</div>
-<div class="line">                $fieldName_v = $fieldName;</div>
-<div class="line">            }</div>
-<div class="line">            $pos4 = strpos($fieldName_v, <span class="stringliteral">&quot;:&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">if</span>($pos4){</div>
-<div class="line">             $fieldName_v_mixed = $fieldName_v;</div>
-<div class="line">             $fieldName_v = substr($fieldName_v_mixed,0,$pos4);</div>
-<div class="line">             $fieldName_p = substr($fieldName_v_mixed, $pos4+1, strlen($fieldName_v_mixed)-$pos4-1);</div>
-<div class="line">             unset($fieldName_v_mixed);</div>
-<div class="line">            }</div>
-<div class="line">            $commaPos = strpos($selectFrom, <span class="stringliteral">&quot;,&quot;</span>, $pos1);</div>
-<div class="line">            <span class="keywordflow">if</span> ($commaPos &gt; $pos1)</div>
-<div class="line">                $searchRule = trim(substr($selectFrom, $commaPos + 1));</div>
-<div class="line">            </div>
-<div class="line">            <span class="comment">/* @var $bizObj BizDataObj */</span></div>
-<div class="line">            $bizObj = <a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($bizObjName);</div>
-<div class="line">            <span class="keywordflow">if</span> (!$bizObj)</div>
-<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"></div>
-<div class="line">            $recList = array();</div>
-<div class="line">            $oldAssoc = $bizObj-&gt;m_Association;</div>
-<div class="line">            $bizObj-&gt;m_Association = null;</div>
-<div class="line">            <a class="code" href="../../d1/d2c/class_query_string_param.html#a2325df26721fdbe820d577d2482725f8">QueryStringParam::reset</a>();</div>
-<div class="line">            $recList = $bizObj-&gt;directFetch($searchRule);</div>
-<div class="line">            $bizObj-&gt;m_Association = $oldAssoc;</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">foreach</span> ($recList as $rec)</div>
-<div class="line">            {</div>
-<div class="line">                $list[$i][<span class="stringliteral">&#39;val&#39;</span>] = $rec[$fieldName_v];</div>
-<div class="line">                $list[$i][<span class="stringliteral">&#39;txt&#39;</span>] = $rec[$fieldName];</div>
-<div class="line">                $list[$i][<span class="stringliteral">&#39;pic&#39;</span>] = $rec[$fieldName_p];</div>
-<div class="line">                $i++;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00414">414</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_aea0b19f3861838e01007f60f7f8977ac_cgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_aea0b19f3861838e01007f60f7f8977ac_cgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_aea0b19f3861838e01007f60f7f8977ac_cgraph" id="dc/d58/class_drop_down_list_aea0b19f3861838e01007f60f7f8977ac_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="175,5,321,33"/><area shape="rect" id="node3" href="../../d1/d2c/class_query_string_param.html#a2325df26721fdbe820d577d2482725f8" title="QueryStringParam\\reset" alt="" coords="165,57,331,85"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_aea0b19f3861838e01007f60f7f8977ac_icgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_aea0b19f3861838e01007f60f7f8977ac_icgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_aea0b19f3861838e01007f60f7f8977ac_icgraph" id="dc/d58/class_drop_down_list_aea0b19f3861838e01007f60f7f8977ac_icgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#a5610c1415bd5fd946a42fd0fd4da4cff" title="getList" alt="" coords="166,23,226,51"/><area shape="rect" id="node3" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="441,23,501,51"/><area shape="rect" id="node4" href="../../dc/d58/class_drop_down_list.html#a64597ad197b5d3d27e571c950e030d9c" title="getDisplayValue" alt="" coords="275,23,392,51"/><area shape="rect" id="node5" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="renderList" alt="" coords="293,75,374,103"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a5610c1415bd5fd946a42fd0fd4da4cff"></a>
@@ -558,32 +506,30 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L327">327</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">                                {</div>
-<div class="line">  <span class="keywordflow">if</span> ($this-&gt;_listCache) <span class="keywordflow">return</span> <a class="code" href="../../dc/d58/class_drop_down_list.html#ae4939e0c4cb26e0ec83529f786b97522">$this-&gt;_listCache</a>;</div>
-<div class="line">     $list= array();</div>
-<div class="line">        <span class="keywordflow">if</span> (!$selectFrom) {</div>
-<div class="line">            $selectFrom = $this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#a6bf46184c1f8fff5f182aa3c2f5326a6">getSelectFrom</a>();</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span> (!$selectFrom) {</div>
-<div class="line">         <span class="keywordflow">return</span> $this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#aa54a9a65ac7416558061dc3579136d43">getSQLFromList</a>($list);</div>
-<div class="line">        }</div>
-<div class="line">        $this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#a8f00502ff32da626abb188c91faad283">getXMLFromList</a>($list, $selectFrom);</div>
-<div class="line">        <span class="keywordflow">if</span> ($list != null) {</div>
-<div class="line">            $this-&gt;_listCache=$list; <span class="keywordflow">return</span> $list;</div>
-<div class="line">  }   </div>
-<div class="line">        $this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#aea0b19f3861838e01007f60f7f8977ac">getDOFromList</a>($list, $selectFrom);</div>
-<div class="line">        <span class="keywordflow">if</span> ($list != null) {</div>
-<div class="line">            $this-&gt;_listCache=$list; <span class="keywordflow">return</span> $list;</div>
-<div class="line">  }</div>
-<div class="line">        $this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#a6b6c589b81ab68cc413a8c3776072fce">getSimpleFromList</a>($list, $selectFrom);</div>
-<div class="line">        <span class="keywordflow">if</span> ($list != null) {</div>
-<div class="line">            $this-&gt;_listCache=$list; <span class="keywordflow">return</span> $list;</div>
-<div class="line">  }</div>
-<div class="line">                </div>
-<div class="line">     <span class="keywordflow">return</span> $list;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00327">327</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a5610c1415bd5fd946a42fd0fd4da4cff_cgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a5610c1415bd5fd946a42fd0fd4da4cff_cgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a5610c1415bd5fd946a42fd0fd4da4cff_cgraph" id="dc/d58/class_drop_down_list_a5610c1415bd5fd946a42fd0fd4da4cff_cgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#a6bf46184c1f8fff5f182aa3c2f5326a6" title="getSelectFrom" alt="" coords="551,147,659,175"/><area shape="rect" id="node15" href="../../dc/d58/class_drop_down_list.html#aa54a9a65ac7416558061dc3579136d43" title="getSQLFromList" alt="" coords="319,251,438,279"/><area shape="rect" id="node18" href="../../dc/d58/class_drop_down_list.html#a8f00502ff32da626abb188c91faad283" title="getXMLFromList" alt="" coords="122,329,241,357"/><area shape="rect" id="node28" href="../../dc/d58/class_drop_down_list.html#aea0b19f3861838e01007f60f7f8977ac" title="getDOFromList" alt="" coords="125,82,237,110"/><area shape="rect" id="node30" href="../../dc/d58/class_drop_down_list.html#a6b6c589b81ab68cc413a8c3776072fce" title="getSimpleFromList" alt="" coords="115,381,248,409"/><area shape="rect" id="node3" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="781,225,926,253"/><area shape="rect" id="node6" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="750,147,957,175"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="1288,250,1456,278"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1751,307,1889,335"/><area shape="rect" id="node7" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="1024,147,1206,175"/><area shape="rect" id="node12" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="1016,199,1214,227"/><area shape="rect" id="node13" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="1006,43,1224,71"/><area shape="rect" id="node14" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="1034,95,1195,123"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="1286,198,1458,226"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1534,198,1685,226"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1747,95,1893,123"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1520,341,1699,369"/><area shape="rect" id="node16" href="../../dc/d58/class_drop_down_list.html#a738c28f6c74aff9a8548462b945c2a84" title="getSelectFromSQL" alt="" coords="538,199,673,227"/><area shape="rect" id="node17" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="800,302,906,330"/><area shape="rect" id="node19" href="../../d1/d7e/class_biz_system.html#afb3b9597319d812f889a89ab0c7c5e4b" title="BizSystem\\getXmlArray" alt="" coords="298,341,459,369"/><area shape="rect" id="node21" href="../../dc/d58/class_drop_down_list.html#a908afc7586e184ef9383f051ff4dc7f3" title="translateList" alt="" coords="332,433,425,461"/><area shape="rect" id="node20" href="../../df/d00/class_resource.html#afb3b9597319d812f889a89ab0c7c5e4b" title="Resource\\getXmlArray" alt="" coords="528,354,683,382"/><area shape="rect" id="node22" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="510,458,701,486"/><area shape="rect" id="node23" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="578,406,633,434"/><area shape="rect" id="node27" href="../../dc/d58/class_drop_down_list.html#acdc8141d0fb446e2d26f78282138c465" title="getTransLOVPrefix" alt="" coords="538,510,672,538"/><area shape="rect" id="node24" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="786,406,920,434"/><area shape="rect" id="node25" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1027,406,1202,434"/><area shape="rect" id="node26" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1272,354,1472,382"/><area shape="rect" id="node29" href="../../d1/d2c/class_query_string_param.html#a2325df26721fdbe820d577d2482725f8" title="QueryStringParam\\reset" alt="" coords="296,82,461,110"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a5610c1415bd5fd946a42fd0fd4da4cff_icgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a5610c1415bd5fd946a42fd0fd4da4cff_icgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a5610c1415bd5fd946a42fd0fd4da4cff_icgraph" id="dc/d58/class_drop_down_list_a5610c1415bd5fd946a42fd0fd4da4cff_icgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="281,23,341,51"/><area shape="rect" id="node3" href="../../dc/d58/class_drop_down_list.html#a64597ad197b5d3d27e571c950e030d9c" title="getDisplayValue" alt="" coords="115,23,232,51"/><area shape="rect" id="node4" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="renderList" alt="" coords="133,75,214,103"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="abb45fb76e4ce8619b454eb439dc39d2c"></a>
@@ -607,41 +553,30 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L511">511</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $name = <a class="code" href="../../db/d4b/class_meta_object.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">$this-&gt;m_Name</a>;</div>
-<div class="line">        <span class="comment">// loop through the event handlers</span></div>
-<div class="line">        $func = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_EventHandlers == null)</div>
-<div class="line">            <span class="keywordflow">return</span> null;</div>
-<div class="line">        $formobj = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>();</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_EventHandlers as $eventHandler)</div>
-<div class="line">        {</div>
-<div class="line">            $ehName = $eventHandler-&gt;m_Name;</div>
-<div class="line">            $event = $eventHandler-&gt;m_Event;</div>
-<div class="line">            $type = $eventHandler-&gt;m_FunctionType;</div>
-<div class="line">            <span class="keywordflow">if</span> (!$event) <span class="keywordflow">continue</span>;</div>
-<div class="line">            <span class="keywordflow">if</span>($events[$event]!=<span class="stringliteral">&quot;&quot;</span>){</div>
-<div class="line">             $events[$event]=array_merge(array($events[$event]),array($eventHandler-&gt;getFormedFunction()));</div>
-<div class="line">            }<span class="keywordflow">else</span>{</div>
-<div class="line">             $events[$event]=$eventHandler-&gt;getFormedFunction();</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">  </div>
-<div class="line">  $function=$events[<span class="stringliteral">&#39;onchange&#39;</span>];</div>
-<div class="line">  <span class="keywordflow">if</span>(is_array($function)){</div>
-<div class="line">   <span class="keywordflow">foreach</span>($function as $f){</div>
-<div class="line">    $function_str.=$f.<span class="stringliteral">&quot;;&quot;</span>;</div>
-<div class="line">   }</div>
-<div class="line">   $func .= $function_str;</div>
-<div class="line">  }<span class="keywordflow">else</span>{</div>
-<div class="line">   $func .= $function;</div>
-<div class="line">  }</div>
-<div class="line">  </div>
-<div class="line">        <span class="keywordflow">return</span> $func;</div>
-<div class="line">    }    </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00511">511</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_abb45fb76e4ce8619b454eb439dc39d2c_cgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_abb45fb76e4ce8619b454eb439dc39d2c_cgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_abb45fb76e4ce8619b454eb439dc39d2c_cgraph" id="dc/d58/class_drop_down_list_abb45fb76e4ce8619b454eb439dc39d2c_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="210,5,355,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="403,5,571,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="619,5,757,33"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_abb45fb76e4ce8619b454eb439dc39d2c_icgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_abb45fb76e4ce8619b454eb439dc39d2c_icgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_abb45fb76e4ce8619b454eb439dc39d2c_icgraph" id="dc/d58/class_drop_down_list_abb45fb76e4ce8619b454eb439dc39d2c_icgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="339,5,399,33"/><area shape="rect" id="node3" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="renderList" alt="" coords="210,30,291,58"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a8338e531153b75a023f7ee86a080f092"></a>
@@ -665,12 +600,19 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L358">358</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $formobj = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>();</div>
-<div class="line">        <span class="keywordflow">return</span> <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>($this-&gt;m_SelectedList, $formobj);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00358">358</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a8338e531153b75a023f7ee86a080f092_cgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a8338e531153b75a023f7ee86a080f092_cgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a8338e531153b75a023f7ee86a080f092_cgraph" id="dc/d58/class_drop_down_list_a8338e531153b75a023f7ee86a080f092_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="197,33,342,61"/><area shape="rect" id="node5" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="166,110,373,138"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="691,6,859,34"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1140,46,1278,74"/><area shape="rect" id="node6" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="440,110,622,138"/><area shape="rect" id="node11" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="432,162,630,190"/><area shape="rect" id="node12" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="422,214,640,242"/><area shape="rect" id="node13" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="450,58,611,86"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="688,58,861,86"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="923,110,1074,138"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1137,123,1282,151"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="909,58,1088,86"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a6bf46184c1f8fff5f182aa3c2f5326a6"></a>
@@ -694,12 +636,30 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L352">352</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $formobj = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>();</div>
-<div class="line">        <span class="keywordflow">return</span> <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>($this-&gt;m_SelectFrom, $formobj);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00352">352</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a6bf46184c1f8fff5f182aa3c2f5326a6_cgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a6bf46184c1f8fff5f182aa3c2f5326a6_cgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a6bf46184c1f8fff5f182aa3c2f5326a6_cgraph" id="dc/d58/class_drop_down_list_a6bf46184c1f8fff5f182aa3c2f5326a6_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="194,33,339,61"/><area shape="rect" id="node5" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="163,110,370,138"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="688,6,856,34"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1138,46,1276,74"/><area shape="rect" id="node6" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="437,110,619,138"/><area shape="rect" id="node11" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="429,162,627,190"/><area shape="rect" id="node12" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="419,214,637,242"/><area shape="rect" id="node13" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="447,58,609,86"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="686,58,858,86"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="920,110,1072,138"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1134,123,1279,151"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="906,58,1086,86"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a6bf46184c1f8fff5f182aa3c2f5326a6_icgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a6bf46184c1f8fff5f182aa3c2f5326a6_icgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a6bf46184c1f8fff5f182aa3c2f5326a6_icgraph" id="dc/d58/class_drop_down_list_a6bf46184c1f8fff5f182aa3c2f5326a6_icgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#a5610c1415bd5fd946a42fd0fd4da4cff" title="getList" alt="" coords="163,23,224,51"/><area shape="rect" id="node3" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="438,23,498,51"/><area shape="rect" id="node4" href="../../dc/d58/class_drop_down_list.html#a64597ad197b5d3d27e571c950e030d9c" title="getDisplayValue" alt="" coords="272,23,389,51"/><area shape="rect" id="node5" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="renderList" alt="" coords="290,75,371,103"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a738c28f6c74aff9a8548462b945c2a84"></a>
@@ -723,12 +683,30 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L364">364</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $formobj = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>();</div>
-<div class="line">        <span class="keywordflow">return</span> <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>($this-&gt;m_SelectFromSQL, $formobj);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00364">364</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a738c28f6c74aff9a8548462b945c2a84_cgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a738c28f6c74aff9a8548462b945c2a84_cgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a738c28f6c74aff9a8548462b945c2a84_cgraph" id="dc/d58/class_drop_down_list_a738c28f6c74aff9a8548462b945c2a84_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="221,33,366,61"/><area shape="rect" id="node5" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="190,110,397,138"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="715,6,883,34"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1164,46,1302,74"/><area shape="rect" id="node6" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="464,110,646,138"/><area shape="rect" id="node11" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="456,162,654,190"/><area shape="rect" id="node12" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="446,214,664,242"/><area shape="rect" id="node13" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="474,58,635,86"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="712,58,885,86"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="947,110,1098,138"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1161,123,1306,151"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="933,58,1112,86"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-14" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-14-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a738c28f6c74aff9a8548462b945c2a84_icgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a738c28f6c74aff9a8548462b945c2a84_icgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a738c28f6c74aff9a8548462b945c2a84_icgraph" id="dc/d58/class_drop_down_list_a738c28f6c74aff9a8548462b945c2a84_icgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#aa54a9a65ac7416558061dc3579136d43" title="getSQLFromList" alt="" coords="190,23,309,51"/><area shape="rect" id="node3" href="../../dc/d58/class_drop_down_list.html#a5610c1415bd5fd946a42fd0fd4da4cff" title="getList" alt="" coords="358,23,418,51"/><area shape="rect" id="node4" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="633,23,693,51"/><area shape="rect" id="node5" href="../../dc/d58/class_drop_down_list.html#a64597ad197b5d3d27e571c950e030d9c" title="getDisplayValue" alt="" coords="467,23,584,51"/><area shape="rect" id="node6" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="renderList" alt="" coords="485,75,566,103"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a6b6c589b81ab68cc413a8c3776072fce"></a>
@@ -763,21 +741,19 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L470">470</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// in case of a|b|c</span></div>
-<div class="line">        <span class="keywordflow">if</span> (strpos($selectFrom, <span class="stringliteral">&quot;[&quot;</span>) &gt; 0 || strpos($selectFrom, <span class="stringliteral">&quot;(&quot;</span>) &gt; 0)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        $recList = explode(<span class="charliteral">&#39;|&#39;</span>,$selectFrom);</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($recList as $rec)</div>
-<div class="line">        {</div>
-<div class="line">            $list[$i][<span class="stringliteral">&#39;val&#39;</span>] = $rec;</div>
-<div class="line">            $list[$i][<span class="stringliteral">&#39;txt&#39;</span>] = $rec;</div>
-<div class="line">            $list[$i][<span class="stringliteral">&#39;pic&#39;</span>] = $rec;</div>
-<div class="line">            $i++;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00470">470</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-15" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a6b6c589b81ab68cc413a8c3776072fce_icgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a6b6c589b81ab68cc413a8c3776072fce_icgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a6b6c589b81ab68cc413a8c3776072fce_icgraph" id="dc/d58/class_drop_down_list_a6b6c589b81ab68cc413a8c3776072fce_icgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#a5610c1415bd5fd946a42fd0fd4da4cff" title="getList" alt="" coords="187,23,248,51"/><area shape="rect" id="node3" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="462,23,522,51"/><area shape="rect" id="node4" href="../../dc/d58/class_drop_down_list.html#a64597ad197b5d3d27e571c950e030d9c" title="getDisplayValue" alt="" coords="296,23,413,51"/><area shape="rect" id="node5" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="renderList" alt="" coords="314,75,395,103"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aa54a9a65ac7416558061dc3579136d43"></a>
@@ -794,32 +770,30 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L485">485</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     $sql = $this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#a738c28f6c74aff9a8548462b945c2a84">getSelectFromSQL</a>();</div>
-<div class="line">     <span class="keywordflow">if</span> (!$sql) <span class="keywordflow">return</span>;</div>
-<div class="line">     $formObj = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>();</div>
-<div class="line">     $do = $formObj-&gt;getDataObj();</div>
-<div class="line">     $db = $do-&gt;getDBConnection();</div>
-<div class="line">     <span class="keywordflow">try</span> {</div>
-<div class="line">      $resultSet = $db-&gt;query($sql);</div>
-<div class="line">      $recList = $resultSet-&gt;fetchAll();</div>
-<div class="line">      <span class="keywordflow">foreach</span> ($recList as $rec)</div>
-<div class="line">         {</div>
-<div class="line">             $list[$i][<span class="stringliteral">&#39;val&#39;</span>] = $rec[0];</div>
-<div class="line">             $list[$i][<span class="stringliteral">&#39;txt&#39;</span>] = isset($rec[1]) ? $rec[1] : $rec[0];</div>
-<div class="line">             $i++;</div>
-<div class="line">         }</div>
-<div class="line">     }</div>
-<div class="line">     <span class="keywordflow">catch</span> (Exception $e)</div>
-<div class="line">        {</div>
-<div class="line">            <a class="code" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7">BizSystem::log</a>(LOG_ERR, <span class="stringliteral">&quot;DATAOBJ&quot;</span>, <span class="stringliteral">&quot;Query Error: &quot;</span>.$e-&gt;getMessage());</div>
-<div class="line">            $this-&gt;m_ErrorMessage = <span class="stringliteral">&quot;Error in SQL query: &quot;</span>.$sql.<span class="stringliteral">&quot;. &quot;</span>.$e-&gt;getMessage();</div>
-<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> <a class="code" href="../../db/da6/class_b_d_o_exception.html">BDOException</a>($this-&gt;m_ErrorMessage);</div>
-<div class="line">            <span class="keywordflow">return</span> null;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00485">485</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-16" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-16-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_aa54a9a65ac7416558061dc3579136d43_cgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_aa54a9a65ac7416558061dc3579136d43_cgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_aa54a9a65ac7416558061dc3579136d43_cgraph" id="dc/d58/class_drop_down_list_aa54a9a65ac7416558061dc3579136d43_cgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#a738c28f6c74aff9a8548462b945c2a84" title="getSelectFromSQL" alt="" coords="174,110,309,138"/><area shape="rect" id="node3" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="389,58,534,86"/><area shape="rect" id="node15" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="188,214,294,242"/><area shape="rect" id="node6" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="358,110,565,138"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="883,6,1051,34"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1332,46,1470,74"/><area shape="rect" id="node7" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="632,58,814,86"/><area shape="rect" id="node12" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="624,110,822,138"/><area shape="rect" id="node13" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="614,162,832,190"/><area shape="rect" id="node14" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="642,214,803,242"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="880,58,1053,86"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1115,110,1266,138"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1329,123,1474,151"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1101,58,1280,86"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-17" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_aa54a9a65ac7416558061dc3579136d43_icgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_aa54a9a65ac7416558061dc3579136d43_icgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_aa54a9a65ac7416558061dc3579136d43_icgraph" id="dc/d58/class_drop_down_list_aa54a9a65ac7416558061dc3579136d43_icgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#a5610c1415bd5fd946a42fd0fd4da4cff" title="getList" alt="" coords="174,23,234,51"/><area shape="rect" id="node3" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="449,23,509,51"/><area shape="rect" id="node4" href="../../dc/d58/class_drop_down_list.html#a64597ad197b5d3d27e571c950e030d9c" title="getDisplayValue" alt="" coords="283,23,400,51"/><area shape="rect" id="node5" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="renderList" alt="" coords="301,75,382,103"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="acdc8141d0fb446e2d26f78282138c465"></a>
@@ -843,16 +817,19 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L558">558</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">    {     </div>
-<div class="line">     $nameArr = explode(<span class="stringliteral">&quot;.&quot;</span>,$this-&gt;m_SelectFrom);</div>
-<div class="line">     <span class="keywordflow">for</span>($i=1;$i&lt;count($nameArr)-1;$i++)</div>
-<div class="line">     {</div>
-<div class="line">      $prefix .= strtoupper($nameArr[$i]).<span class="stringliteral">&quot;_&quot;</span>;</div>
-<div class="line">     }     </div>
-<div class="line">     <span class="keywordflow">return</span> $prefix;</div>
-<div class="line">    }   </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00558">558</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-18" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_acdc8141d0fb446e2d26f78282138c465_icgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_acdc8141d0fb446e2d26f78282138c465_icgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_acdc8141d0fb446e2d26f78282138c465_icgraph" id="dc/d58/class_drop_down_list_acdc8141d0fb446e2d26f78282138c465_icgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#a908afc7586e184ef9383f051ff4dc7f3" title="translateList" alt="" coords="189,23,283,51"/><area shape="rect" id="node3" href="../../dc/d58/class_drop_down_list.html#a8f00502ff32da626abb188c91faad283" title="getXMLFromList" alt="" coords="331,23,450,51"/><area shape="rect" id="node4" href="../../dc/d58/class_drop_down_list.html#a5610c1415bd5fd946a42fd0fd4da4cff" title="getList" alt="" coords="499,23,560,51"/><area shape="rect" id="node5" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="774,23,834,51"/><area shape="rect" id="node6" href="../../dc/d58/class_drop_down_list.html#a64597ad197b5d3d27e571c950e030d9c" title="getDisplayValue" alt="" coords="608,23,725,51"/><area shape="rect" id="node7" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="renderList" alt="" coords="626,75,707,103"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a8f00502ff32da626abb188c91faad283"></a>
@@ -887,50 +864,30 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L370">370</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $pos0 = strpos($selectFrom, <span class="stringliteral">&quot;(&quot;</span>);</div>
-<div class="line">        $pos1 = strpos($selectFrom, <span class="stringliteral">&quot;)&quot;</span>);</div>
-<div class="line">        <span class="keywordflow">if</span> ($pos0&gt;0 &amp;&amp; $pos1 &gt; $pos0)</div>
-<div class="line">        {  <span class="comment">// select from xml file</span></div>
-<div class="line">            $xmlFile = substr($selectFrom, 0, $pos0);</div>
-<div class="line">            $tag = substr($selectFrom, $pos0 + 1, $pos1 - $pos0-1);</div>
-<div class="line">            $tag = strtoupper($tag);</div>
-<div class="line">            $xmlFile = BizSystem::GetXmlFileWithPath ($xmlFile);</div>
-<div class="line">            <span class="keywordflow">if</span> (!$xmlFile) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"></div>
-<div class="line">            $xmlArr = &amp;<a class="code" href="../../d1/d7e/class_biz_system.html#afb3b9597319d812f889a89ab0c7c5e4b">BizSystem::getXmlArray</a>($xmlFile);</div>
-<div class="line">            <span class="keywordflow">if</span> ($xmlArr)</div>
-<div class="line">            {</div>
-<div class="line">                $i = 0;</div>
-<div class="line">                <span class="keywordflow">if</span> (!key_exists($tag, $xmlArr[<span class="stringliteral">&quot;SELECTION&quot;</span>]))</div>
-<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">                <span class="keywordflow">if</span>(!$xmlArr[<span class="stringliteral">&quot;SELECTION&quot;</span>][$tag][0]){</div>
-<div class="line">                 $array = $xmlArr[<span class="stringliteral">&quot;SELECTION&quot;</span>][$tag];</div>
-<div class="line">                 unset($xmlArr[<span class="stringliteral">&quot;SELECTION&quot;</span>][$tag]);</div>
-<div class="line">                 $xmlArr[<span class="stringliteral">&quot;SELECTION&quot;</span>][$tag][0]=$array;</div>
-<div class="line">                }</div>
-<div class="line">                <span class="keywordflow">foreach</span>($xmlArr[<span class="stringliteral">&quot;SELECTION&quot;</span>][$tag] as $node)</div>
-<div class="line">                {</div>
-<div class="line">                    $list[$i][<span class="stringliteral">&#39;val&#39;</span>] = $node[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;VALUE&quot;</span>];</div>
-<div class="line">                    $list[$i][<span class="stringliteral">&#39;pic&#39;</span>] = $node[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;PICTURE&quot;</span>];</div>
-<div class="line">                    <span class="keywordflow">if</span> ($node[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TEXT&quot;</span>])</div>
-<div class="line">                    {</div>
-<div class="line">                        $list[$i][<span class="stringliteral">&#39;txt&#39;</span>] = $node[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TEXT&quot;</span>];                        </div>
-<div class="line">                    }</div>
-<div class="line">                    <span class="keywordflow">else</span></div>
-<div class="line">                    {</div>
-<div class="line">                        $list[$i][<span class="stringliteral">&#39;txt&#39;</span>] = $list[$i][<span class="stringliteral">&#39;val&#39;</span>];</div>
-<div class="line">                    }</div>
-<div class="line">                    $i++; </div>
-<div class="line">                }</div>
-<div class="line">                $this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#a908afc7586e184ef9383f051ff4dc7f3">translateList</a>($list, $tag); <span class="comment">// supprot multi-language</span></div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00370">370</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-19" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a8f00502ff32da626abb188c91faad283_cgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a8f00502ff32da626abb188c91faad283_cgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a8f00502ff32da626abb188c91faad283_cgraph" id="dc/d58/class_drop_down_list_a8f00502ff32da626abb188c91faad283_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#afb3b9597319d812f889a89ab0c7c5e4b" title="BizSystem\\getXmlArray" alt="" coords="174,18,335,46"/><area shape="rect" id="node4" href="../../dc/d58/class_drop_down_list.html#a908afc7586e184ef9383f051ff4dc7f3" title="translateList" alt="" coords="208,95,301,123"/><area shape="rect" id="node3" href="../../df/d00/class_resource.html#afb3b9597319d812f889a89ab0c7c5e4b" title="Resource\\getXmlArray" alt="" coords="402,5,558,33"/><area shape="rect" id="node5" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="384,57,576,85"/><area shape="rect" id="node6" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="453,109,507,137"/><area shape="rect" id="node14" href="../../dc/d58/class_drop_down_list.html#acdc8141d0fb446e2d26f78282138c465" title="getTransLOVPrefix" alt="" coords="413,161,547,189"/><area shape="rect" id="node7" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="625,109,759,137"/><area shape="rect" id="node8" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="808,109,984,137"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1280,82,1459,110"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1032,134,1232,162"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1511,82,1649,110"/><area shape="rect" id="node12" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1294,134,1445,162"/><area shape="rect" id="node13" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1507,134,1653,162"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-20" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a8f00502ff32da626abb188c91faad283_icgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a8f00502ff32da626abb188c91faad283_icgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a8f00502ff32da626abb188c91faad283_icgraph" id="dc/d58/class_drop_down_list_a8f00502ff32da626abb188c91faad283_icgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#a5610c1415bd5fd946a42fd0fd4da4cff" title="getList" alt="" coords="174,23,234,51"/><area shape="rect" id="node3" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="449,23,509,51"/><area shape="rect" id="node4" href="../../dc/d58/class_drop_down_list.html#a64597ad197b5d3d27e571c950e030d9c" title="getDisplayValue" alt="" coords="283,23,400,51"/><area shape="rect" id="node5" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="renderList" alt="" coords="301,75,382,103"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a5888f7e5883c7c2d486f7ddc1bd64760"></a>
@@ -955,23 +912,19 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L38">38</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">                                          {</div>
-<div class="line">  parent::readMetaData($xmlArr);</div>
-<div class="line">  $this-&gt;m_cssClass = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CSSCLASS&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CSSCLASS&quot;</span>] : <span class="stringliteral">&quot;input_select_w&quot;</span>;</div>
-<div class="line">  $this-&gt;m_cssErrorClass = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CSSERRORCLASS&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CSSERRORCLASS&quot;</span>] : $this-&gt;m_cssClass.<span class="stringliteral">&quot;_error&quot;</span>;</div>
-<div class="line">  $this-&gt;m_cssFocusClass = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CSSFOCUSCLASS&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CSSFOCUSCLASS&quot;</span>] : $this-&gt;m_cssClass.<span class="stringliteral">&quot;_focus&quot;</span>;</div>
-<div class="line">  $this-&gt;m_cssHoverClass = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CSSHOVERCLASS&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CSSHOVERCLASS&quot;</span>] : $this-&gt;m_cssClass.<span class="stringliteral">&quot;_hover&quot;</span>;</div>
-<div class="line">  <span class="comment">//$this-&gt;m_Value = isset($xmlArr[&quot;ATTRIBUTES&quot;][&quot;DEFAULTVALUE&quot;]) ? $xmlArr[&quot;ATTRIBUTES&quot;][&quot;DEFAULTVALUE&quot;] : null;        </span></div>
-<div class="line">  $this-&gt;m_ReadOnly = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;READONLY&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;READONLY&quot;</span>] : <span class="stringliteral">&quot;N&quot;</span>;</div>
-<div class="line">        $this-&gt;m_SelectFrom = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;SELECTFROM&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;SELECTFROM&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_SelectedList = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;SELECTEDLIST&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;SELECTEDLIST&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_SelectFromSQL = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;SELECTFROMSQL&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;SELECTFROMSQL&quot;</span>] : null;</div>
-<div class="line">     $this-&gt;m_BlankOption = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;BLANKOPTION&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;BLANKOPTION&quot;</span>] : null;</div>
-<div class="line">  $this-&gt;m_DefaultValueRename = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DEFAULTVALUERENAME&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DEFAULTVALUERENAME&quot;</span>] : <span class="stringliteral">&quot;N&quot;</span>;  </div>
-<div class="line">  $this-&gt;m_BlankOption = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a1293239f7cbd82ab23c9d14ce8d491d1">translateString</a>($this-&gt;m_BlankOption);</div>
-<div class="line"> }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00038">38</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-21" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a5888f7e5883c7c2d486f7ddc1bd64760_cgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a5888f7e5883c7c2d486f7ddc1bd64760_cgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a5888f7e5883c7c2d486f7ddc1bd64760_cgraph" id="dc/d58/class_drop_down_list_a5888f7e5883c7c2d486f7ddc1bd64760_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#a1293239f7cbd82ab23c9d14ce8d491d1" title="Element\\translateString" alt="" coords="160,31,320,59"/><area shape="rect" id="node3" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="368,5,560,33"/><area shape="rect" id="node4" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="437,57,491,85"/><area shape="rect" id="node5" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="609,57,743,85"/><area shape="rect" id="node6" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="792,57,968,85"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1264,30,1443,58"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1016,82,1216,110"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1495,30,1633,58"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1278,82,1429,110"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1491,82,1637,110"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="afde88292c44dc59faf017738dae6dffb"></a>
@@ -991,148 +944,19 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/d2b/interfacei_u_i_control.html#afde88292c44dc59faf017738dae6dffb">iUIControl</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L58">58</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     <span class="keywordflow">if</span>($this-&gt;m_FormPrefix){</div>
-<div class="line">      $formNameStr = str_replace(<span class="stringliteral">&quot;.&quot;</span>,<span class="stringliteral">&quot;_&quot;</span>, $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>()-&gt;m_Name).<span class="stringliteral">&quot;_&quot;</span>;</div>
-<div class="line">     }        </div>
-<div class="line">     <span class="keywordflow">if</span>($this-&gt;m_Value!=null){</div>
-<div class="line">      $value = <a class="code" href="../../d5/d50/class_element.html#acab8a119e17bf4955d23bd05c09ee4cd">$this-&gt;m_Value</a>;</div>
-<div class="line">     }<span class="keywordflow">else</span>{</div>
-<div class="line">      $value = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a8a2999b1d846c0a7bc77187e28facd99">getText</a>();</div>
-<div class="line">     }        </div>
-<div class="line">     <span class="keywordflow">if</span>($value==null){</div>
-<div class="line">      $value = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#af9b9401c63918169457fe8516324950f">getDefaultValue</a>();</div>
-<div class="line">     }</div>
-<div class="line">     <span class="keywordflow">if</span>(preg_match(<span class="stringliteral">&#39;/\{.*?@.*?\}/si&#39;</span>,$value)){</div>
-<div class="line">      $formObj = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>();</div>
-<div class="line">      $value = <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>($value, $formObj);</div>
-<div class="line">     }</div>
-<div class="line">        $disabledStr = ($this-&gt;<a class="code" href="../../d3/d05/class_input_element.html#ab442a42d8265e71787a82ef3a1b4549c">getEnabled</a>() == <span class="stringliteral">&quot;N&quot;</span>) ? <span class="stringliteral">&quot;READONLY=\&quot;true\&quot;&quot;</span> : <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">        $style = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a1a9c641ae8a39113009425cbccaee5d5">getStyle</a>();</div>
-<div class="line">        $func = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a3cb728ca27acfebd282caecdb8a1f5fc">getFunction</a>();</div>
-<div class="line">        $optionList= $this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41">renderList</a>();</div>
-<div class="line">        </div>
-<div class="line">        $htmlClass = <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>($this-&gt;m_cssClass, $formobj);</div>
-<div class="line">        $htmlClass = <span class="stringliteral">&quot;CLASS=&#39;$htmlClass&#39;&quot;</span>;</div>
-<div class="line">        </div>
-<div class="line">        $sHTML .= <span class="stringliteral">&quot;&lt;div class=\&quot;div_&quot;</span>.$this-&gt;m_cssClass.<span class="stringliteral">&quot;\&quot;&gt;&quot;</span>;                     </div>
-<div class="line">        <span class="keywordflow">if</span>($this-&gt;m_ReadOnly==<span class="charliteral">&#39;Y&#39;</span>)</div>
-<div class="line">        {</div>
-<div class="line">         $display_input = <span class="stringliteral">&quot;style=\&quot;display:none;\&quot;&quot;</span>;</div>
-<div class="line">         $display_span = <span class="stringliteral">&quot;style=\&quot;position:;\&quot;&quot;</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {</div>
-<div class="line">         $display_span = <span class="stringliteral">&quot;style=\&quot;display:none;\&quot;&quot;</span>;</div>
-<div class="line">         $display_input = <span class="stringliteral">&quot;style=\&quot;position:;\&quot;&quot;</span>;</div>
-<div class="line">        }</div>
-<div class="line">        $list = $this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#a5610c1415bd5fd946a42fd0fd4da4cff">getList</a>();</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_BlankOption) <span class="comment">// ADD a blank option</span></div>
-<div class="line">        {</div>
-<div class="line">            $entry = explode(<span class="stringliteral">&quot;,&quot;</span>,$this-&gt;m_BlankOption);</div>
-<div class="line">            $text = $entry[0];</div>
-<div class="line">            $blkvalue = ($entry[1]!= <span class="stringliteral">&quot;&quot;</span>) ? $entry[1] : null;</div>
-<div class="line">            $display_value = $text;</div>
-<div class="line">            $entryList = array(array(<span class="stringliteral">&quot;val&quot;</span> =&gt; $blkvalue, <span class="stringliteral">&quot;txt&quot;</span> =&gt; $text ));</div>
-<div class="line">            $list = array_merge($entryList, $list);</div>
-<div class="line">        }        </div>
-<div class="line">        </div>
-<div class="line">        $display_value=$this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#a64597ad197b5d3d27e571c950e030d9c">getDisplayValue</a>($value);</div>
-<div class="line">     <span class="keywordflow">if</span>(!$list){$list=array();}</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($list as $item){</div>
-<div class="line">         <span class="keywordflow">if</span>($item[<span class="stringliteral">&#39;val&#39;</span>]==$value){</div>
-<div class="line">          <span class="keywordflow">if</span>(!preg_match(<span class="stringliteral">&quot;/&lt;/si&quot;</span>,$item[<span class="stringliteral">&#39;txt&#39;</span>])){</div>
-<div class="line">           $display_value = $item[<span class="stringliteral">&#39;txt&#39;</span>];</div>
-<div class="line">          }<span class="keywordflow">else</span>{</div>
-<div class="line">           $display_value = $item[<span class="stringliteral">&#39;val&#39;</span>];</div>
-<div class="line">          }</div>
-<div class="line">          <span class="keywordflow">break</span>;</div>
-<div class="line">         }</div>
-<div class="line">        }</div>
-<div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span>($value==<span class="stringliteral">&#39;&#39;</span>){</div>
-<div class="line">            $defaultOpt = array_shift($list);</div>
-<div class="line">            <span class="keywordflow">if</span>($display_value==<span class="stringliteral">&#39;&#39;</span>){</div>
-<div class="line">             $value = $defaultOpt[<span class="stringliteral">&#39;val&#39;</span>];</div>
-<div class="line">          $display_value = $defaultOpt[<span class="stringliteral">&#39;txt&#39;</span>];</div>
-<div class="line">            }</div>
-<div class="line">         array_unshift($list,$defaultOpt);          </div>
-<div class="line">        }</div>
-<div class="line">                </div>
-<div class="line">        $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a7494441b6ed08a391704971873f31432">setValue</a>($value);</div>
-<div class="line">        $display_value = strip_tags($display_value);</div>
-<div class="line">  </div>
-<div class="line">  $elem_id = $formNameStr.$this-&gt;m_Name;</div>
-<div class="line">  $elem_scroll_id = $formNameStr.$this-&gt;m_Name.<span class="stringliteral">&quot;_scroll&quot;</span>;</div>
-<div class="line">  $elem_list_id = $formNameStr.$this-&gt;m_Name.<span class="stringliteral">&quot;_list&quot;</span>;</div>
-<div class="line">  $elem_hidden_id = $formNameStr.$this-&gt;m_Name.<span class="stringliteral">&quot;_hidden&quot;</span>;</div>
-<div class="line">        </div>
-<div class="line">  $onchange_func = $this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#abb45fb76e4ce8619b454eb439dc39d2c">getOnChangeFunction</a>();</div>
-<div class="line">  $sHTML .= $optionList;</div>
-<div class="line">  $sHTML .= <span class="stringliteral">&quot;\n&lt;div $display_span&gt;&quot;</span>;</div>
-<div class="line">  <span class="comment">// jquery $j(&#39;a.maxmin&#39;).click(function() {...});</span></div>
-<div class="line">  <span class="comment">// jquery $j(&#39;a.maxmin&#39;).hover(function() {...}, function() {...});</span></div>
-<div class="line">  <span class="keywordflow">if</span> (defined(<span class="stringliteral">&#39;JSLIB_BASE&#39;</span>) &amp;&amp; JSLIB_BASE == <span class="stringliteral">&#39;JQUERY&#39;</span>) {</div>
-<div class="line">   $sHTML .= <span class="stringliteral">&quot;\n&lt;span ID=\&quot;span_$elem_id\&quot;  $this-&gt;m_HTMLAttr $style&gt;$display_value&lt;/span&gt;\n&quot;</span>;</div>
-<div class="line">  }</div>
-<div class="line">  <span class="keywordflow">else</span> {</div>
-<div class="line">         $sHTML .= <span class="stringliteral">&quot;&lt;span ID=\&quot;span_$elem_id\&quot;  $this-&gt;m_HTMLAttr $style</span></div>
-<div class="line"><span class="stringliteral">      onclick=\&quot;if($(&#39;$elem_list_id&#39;).visible()){\$(&#39;$elem_list_id&#39;).hide();\$(&#39;$elem_scroll_id&#39;).hide();$(&#39;$elem_id&#39;).className=&#39;&quot;</span>.$this-&gt;m_cssClass.<span class="stringliteral">&quot;&#39;}else{\$(&#39;$elem_list_id&#39;).show();\$(&#39;$elem_scroll_id&#39;).show();$(&#39;$elem_id&#39;).className=&#39;&quot;</span>.$this-&gt;m_cssFocusClass.<span class="stringliteral">&quot;&#39;}\&quot;</span></div>
-<div class="line"><span class="stringliteral">      onmouseover=\&quot;$(&#39;span_$elem_id&#39;).className=&#39;&quot;</span>.$this-&gt;m_cssHoverClass.<span class="stringliteral">&quot;&#39;\&quot;</span></div>
-<div class="line"><span class="stringliteral">      onmouseout=\&quot;$(&#39;span_$elem_id&#39;).className=&#39;&quot;</span>.$this-&gt;m_cssClass.<span class="stringliteral">&quot;&#39;\&quot;</span></div>
-<div class="line"><span class="stringliteral">      &gt;$display_value&lt;/span&gt;&quot;</span>;</div>
-<div class="line">  }</div>
-<div class="line">  $sHTML .= <span class="stringliteral">&quot;&lt;/div&gt;&quot;</span>;</div>
-<div class="line">  $sHTML .= <span class="stringliteral">&quot;&lt;div $display_input&gt;&quot;</span>;</div>
-<div class="line">  <span class="keywordflow">if</span> (defined(<span class="stringliteral">&#39;JSLIB_BASE&#39;</span>) &amp;&amp; JSLIB_BASE == <span class="stringliteral">&#39;JQUERY&#39;</span>) {</div>
-<div class="line">   $sHTML .= <span class="stringliteral">&quot;&lt;INPUT NAME=\&quot;$elem_id\&quot; ID=\&quot;$elem_id\&quot; VALUE=\&quot;&quot;</span> . $display_value . <span class="stringliteral">&quot;\&quot; $disabledStr $this-&gt;m_HTMLAttr $style /&gt;\n&quot;</span>;</div>
-<div class="line">  }</div>
-<div class="line">  <span class="keywordflow">else</span> {</div>
-<div class="line">   $sHTML .= <span class="stringliteral">&quot;&lt;INPUT NAME=\&quot;$elem_id\&quot; ID=\&quot;$elem_id\&quot; VALUE=\&quot;&quot;</span> . $display_value . <span class="stringliteral">&quot;\&quot; $disabledStr $this-&gt;m_HTMLAttr $style </span></div>
-<div class="line"><span class="stringliteral">      onclick=\&quot;if($(&#39;$elem_list_id&#39;).visible()){\$(&#39;$elem_list_id&#39;).hide();\$(&#39;$elem_scroll_id&#39;).hide();$(&#39;$elem_id&#39;).className=&#39;&quot;</span>.$this-&gt;m_cssClass.<span class="stringliteral">&quot;&#39;}else{\$(&#39;$elem_list_id&#39;).show();\$(&#39;$elem_scroll_id&#39;).show();$(&#39;$elem_id&#39;).className=&#39;&quot;</span>.$this-&gt;m_cssFocusClass.<span class="stringliteral">&quot;&#39;}\&quot;</span></div>
-<div class="line"><span class="stringliteral">       onmouseover=\&quot;$(&#39;span_$elem_id&#39;).className=&#39;&quot;</span>.$this-&gt;m_cssHoverClass.<span class="stringliteral">&quot;&#39;\&quot;</span></div>
-<div class="line"><span class="stringliteral">       onmouseout=\&quot;$(&#39;span_$elem_id&#39;).className=&#39;&quot;</span>.$this-&gt;m_cssClass.<span class="stringliteral">&quot;&#39;\&quot;</span></div>
-<div class="line"><span class="stringliteral">      /&gt;&quot;</span>;</div>
-<div class="line">  }</div>
-<div class="line">  $sHTML .= <span class="stringliteral">&quot;&lt;INPUT NAME=\&quot;$elem_id\&quot; ID=\&quot;$elem_hidden_id\&quot; VALUE=\&quot;&quot;</span> . $value . <span class="stringliteral">&quot;\&quot; type=\&quot;hidden\&quot; $func /&gt;&quot;</span>;         </div>
-<div class="line">  $sHTML .= <span class="stringliteral">&quot;&lt;/div&gt;&quot;</span>;         </div>
-<div class="line">         </div>
-<div class="line">        $sHTML .= <span class="stringliteral">&quot;&lt;/div&gt;&quot;</span>;</div>
-<div class="line">        </div>
-<div class="line"><span class="keywordflow">if</span> (defined(<span class="stringliteral">&#39;JSLIB_BASE&#39;</span>) &amp;&amp; JSLIB_BASE == <span class="stringliteral">&#39;JQUERY&#39;</span>) {</div>
-<div class="line"> $sHTML .= <span class="stringliteral">&quot;&lt;script&gt;$(&#39;#$elem_list_id&#39;).hide();</span></div>
-<div class="line"><span class="stringliteral"> $(&#39;#span_$elem_id, #$elem_id&#39;).click(</span></div>
-<div class="line"><span class="stringliteral">  function() {</span></div>
-<div class="line"><span class="stringliteral">   $(&#39;#$elem_list_id, #$elem_scroll_id&#39;).toggle();</span></div>
-<div class="line"><span class="stringliteral">  }</span></div>
-<div class="line"><span class="stringliteral"> );</span></div>
-<div class="line"><span class="stringliteral"> $(&#39;#span_$elem_id, #$elem_id&#39;).hover(</span></div>
-<div class="line"><span class="stringliteral">  function () {</span></div>
-<div class="line"><span class="stringliteral">   $(this).attr(&#39;class&#39;,&#39;$this-&gt;m_cssHoverClass&#39;);</span></div>
-<div class="line"><span class="stringliteral">  },</span></div>
-<div class="line"><span class="stringliteral">  function () {</span></div>
-<div class="line"><span class="stringliteral">   $(this).attr(&#39;class&#39;,&#39;$this-&gt;m_cssClass&#39;);</span></div>
-<div class="line"><span class="stringliteral">  }</span></div>
-<div class="line"><span class="stringliteral"> );</span></div>
-<div class="line"><span class="stringliteral"> $(&#39;#$elem_list_id li&#39;).click(</span></div>
-<div class="line"><span class="stringliteral">  function(){</span></div>
-<div class="line"><span class="stringliteral">   $(&#39;#$elem_list_id, #$elem_scroll_id&#39;).hide();</span></div>
-<div class="line"><span class="stringliteral">   $(&#39;#$elem_id&#39;).val($(this).attr(&#39;disp_value&#39;));</span></div>
-<div class="line"><span class="stringliteral">   $(&#39;#$elem_hidden_id&#39;).val($(this).attr(&#39;real_value&#39;));</span></div>
-<div class="line"><span class="stringliteral">   $(&#39;#span_$elem_id&#39;).html($(this).html());</span></div>
-<div class="line"><span class="stringliteral">   $(&#39;#$elem_id&#39;).attr(&#39;class&#39;,&#39;$this-&gt;m_cssClass&#39;);</span></div>
-<div class="line"><span class="stringliteral">   $onchange_func;</span></div>
-<div class="line"><span class="stringliteral">  }</span></div>
-<div class="line"><span class="stringliteral"> );</span></div>
-<div class="line"><span class="stringliteral"> &lt;/script&gt;&quot;</span>;</div>
-<div class="line">}</div>
-<div class="line"><span class="keywordflow">else</span> {</div>
-<div class="line"> $sHTML .= <span class="stringliteral">&quot;&lt;script&gt;$(&#39;$elem_list_id&#39;).hide();&lt;/script&gt;&quot;</span>;</div>
-<div class="line">}</div>
-<div class="line">        <span class="keywordflow">return</span> $sHTML;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00058">58</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-22" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_afde88292c44dc59faf017738dae6dffb_cgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_afde88292c44dc59faf017738dae6dffb_cgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_afde88292c44dc59faf017738dae6dffb_cgraph" id="dc/d58/class_drop_down_list_afde88292c44dc59faf017738dae6dffb_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="944,307,1088,335"/><area shape="rect" id="node5" href="../../d5/d50/class_element.html#a8a2999b1d846c0a7bc77187e28facd99" title="Element\\getText" alt="" coords="327,358,444,386"/><area shape="rect" id="node15" href="../../d5/d50/class_element.html#af9b9401c63918169457fe8516324950f" title="Element\\getDefaultValue" alt="" coords="695,255,863,283"/><area shape="rect" id="node6" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="912,513,1120,541"/><area shape="rect" id="node16" href="../../d3/d05/class_input_element.html#ab442a42d8265e71787a82ef3a1b4549c" title="InputElement\\getEnabled" alt="" coords="693,307,864,335"/><area shape="rect" id="node17" href="../../d5/d50/class_element.html#a1a9c641ae8a39113009425cbccaee5d5" title="Element\\getStyle" alt="" coords="718,513,840,541"/><area shape="rect" id="node18" href="../../d5/d50/class_element.html#a3cb728ca27acfebd282caecdb8a1f5fc" title="Element\\getFunction" alt="" coords="115,74,258,102"/><area shape="rect" id="node20" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="renderList" alt="" coords="146,410,227,438"/><area shape="rect" id="node22" href="../../dc/d58/class_drop_down_list.html#a5610c1415bd5fd946a42fd0fd4da4cff" title="getList" alt="" coords="355,719,416,747"/><area shape="rect" id="node42" href="../../dc/d58/class_drop_down_list.html#a64597ad197b5d3d27e571c950e030d9c" title="getDisplayValue" alt="" coords="128,571,245,599"/><area shape="rect" id="node43" href="../../d5/d50/class_element.html#a7494441b6ed08a391704971873f31432" title="Element\\setValue" alt="" coords="124,138,249,166"/><area shape="rect" id="node21" href="../../dc/d58/class_drop_down_list.html#abb45fb76e4ce8619b454eb439dc39d2c" title="getOnChangeFunction" alt="" coords="308,254,463,282"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="1685,398,1853,426"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2148,511,2286,539"/><area shape="rect" id="node7" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="1437,571,1619,599"/><area shape="rect" id="node12" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="1178,455,1376,483"/><area shape="rect" id="node13" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="1168,507,1386,535"/><area shape="rect" id="node14" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="1197,403,1358,431"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="1683,617,1856,645"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1931,642,2082,670"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2145,642,2290,670"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1917,719,2096,747"/><area shape="rect" id="node19" href="../../d5/d50/class_element.html#a54ecee00f83d387598096653b07f10c5" title="Element\\getEvents" alt="" coords="512,50,645,78"/><area shape="rect" id="node40" href="../../df/d00/class_resource.html#a7b561ddf50dd090a4e4d4e4f0cf54d78" title="Resource\\getImageUrl" alt="" coords="308,667,463,695"/><area shape="rect" id="node23" href="../../dc/d58/class_drop_down_list.html#a6bf46184c1f8fff5f182aa3c2f5326a6" title="getSelectFrom" alt="" coords="725,565,833,593"/><area shape="rect" id="node24" href="../../dc/d58/class_drop_down_list.html#aa54a9a65ac7416558061dc3579136d43" title="getSQLFromList" alt="" coords="519,718,638,746"/><area shape="rect" id="node27" href="../../dc/d58/class_drop_down_list.html#a8f00502ff32da626abb188c91faad283" title="getXMLFromList" alt="" coords="519,1003,638,1031"/><area shape="rect" id="node37" href="../../dc/d58/class_drop_down_list.html#aea0b19f3861838e01007f60f7f8977ac" title="getDOFromList" alt="" coords="523,874,635,902"/><area shape="rect" id="node39" href="../../dc/d58/class_drop_down_list.html#a6b6c589b81ab68cc413a8c3776072fce" title="getSimpleFromList" alt="" coords="512,822,645,850"/><area shape="rect" id="node25" href="../../dc/d58/class_drop_down_list.html#a738c28f6c74aff9a8548462b945c2a84" title="getSelectFromSQL" alt="" coords="711,617,846,645"/><area shape="rect" id="node26" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1475,693,1581,721"/><area shape="rect" id="node28" href="../../d1/d7e/class_biz_system.html#afb3b9597319d812f889a89ab0c7c5e4b" title="BizSystem\\getXmlArray" alt="" coords="698,1055,859,1083"/><area shape="rect" id="node30" href="../../dc/d58/class_drop_down_list.html#a908afc7586e184ef9383f051ff4dc7f3" title="translateList" alt="" coords="732,1003,825,1031"/><area shape="rect" id="node29" href="../../df/d00/class_resource.html#afb3b9597319d812f889a89ab0c7c5e4b" title="Resource\\getXmlArray" alt="" coords="938,1055,1094,1083"/><area shape="rect" id="node31" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="920,1003,1112,1031"/><area shape="rect" id="node32" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="989,822,1043,850"/><area shape="rect" id="node36" href="../../dc/d58/class_drop_down_list.html#acdc8141d0fb446e2d26f78282138c465" title="getTransLOVPrefix" alt="" coords="949,951,1083,979"/><area shape="rect" id="node33" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1210,822,1344,850"/><area shape="rect" id="node34" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1440,822,1616,850"/><area shape="rect" id="node35" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1669,771,1869,799"/><area shape="rect" id="node38" href="../../d1/d2c/class_query_string_param.html#a2325df26721fdbe820d577d2482725f8" title="QueryStringParam\\reset" alt="" coords="696,899,861,927"/><area shape="rect" id="node41" href="../../df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="1435,770,1621,798"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a7d91d8d8e577a0875dde7809472d3a41"></a>
@@ -1156,90 +980,30 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L244">244</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">                                   {</div>
-<div class="line">     </div>
-<div class="line">     <span class="keywordflow">if</span>($this-&gt;m_FormPrefix){</div>
-<div class="line">      $formNameStr = str_replace(<span class="stringliteral">&quot;.&quot;</span>,<span class="stringliteral">&quot;_&quot;</span>, $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>()-&gt;m_Name).<span class="stringliteral">&quot;_&quot;</span>;</div>
-<div class="line">     } </div>
-<div class="line">     $onchange_func = $this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#abb45fb76e4ce8619b454eb439dc39d2c">getOnChangeFunction</a>();</div>
-<div class="line">     $list = $this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#a5610c1415bd5fd946a42fd0fd4da4cff">getList</a>();</div>
-<div class="line">     </div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_BlankOption) <span class="comment">// ADD a blank option</span></div>
-<div class="line">        {</div>
-<div class="line">            $entry = explode(<span class="stringliteral">&quot;,&quot;</span>,$this-&gt;m_BlankOption);</div>
-<div class="line">            $text = $entry[0];</div>
-<div class="line">            $value = ($entry[1]!= <span class="stringliteral">&quot;&quot;</span>) ? $entry[1] : null;</div>
-<div class="line">            $entryList = array(array(<span class="stringliteral">&quot;val&quot;</span> =&gt; $value, <span class="stringliteral">&quot;txt&quot;</span> =&gt; $text ));</div>
-<div class="line">            $list = array_merge($entryList, $list);</div>
-<div class="line">        }     </div>
-<div class="line">     </div>
-<div class="line">     $value = $this-&gt;m_Value!==null ? $this-&gt;m_Value : $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a8a2999b1d846c0a7bc77187e28facd99">getText</a>();</div>
-<div class="line">  $elem_id = $formNameStr.$this-&gt;m_Name;</div>
-<div class="line">  $elem_scroll_id = $formNameStr.$this-&gt;m_Name.<span class="stringliteral">&quot;_scroll&quot;</span>;</div>
-<div class="line">  $elem_list_id = $formNameStr.$this-&gt;m_Name.<span class="stringliteral">&quot;_list&quot;</span>;</div>
-<div class="line">  $elem_hidden_id = $formNameStr.$this-&gt;m_Name.<span class="stringliteral">&quot;_hidden&quot;</span>;</div>
-<div class="line">     $sHTML = <span class="stringliteral">&quot;\n&lt;div  class=\&quot;dropdownlist\&quot;  id=\&quot;$elem_scroll_id\&quot; style=\&quot;display:none;\&quot;&gt;&quot;</span>.</div>
-<div class="line">     $sHTML .= <span class="stringliteral">&quot;\n&lt;ul style=\&quot;display:none;z-index:50\&quot; id=\&quot;$elem_list_id\&quot;&gt;\n&quot;</span>;</div>
-<div class="line">     <span class="keywordflow">if</span>(!$list){$list=array();}</div>
-<div class="line">     <span class="keywordflow">foreach</span>($list as $item){</div>
-<div class="line">      $val = $item[<span class="stringliteral">&#39;val&#39;</span>];</div>
-<div class="line">      $txt = $item[<span class="stringliteral">&#39;txt&#39;</span>];</div>
-<div class="line">      $pic = $item[<span class="stringliteral">&#39;pic&#39;</span>];</div>
-<div class="line">      <span class="keywordflow">if</span>($pic){</div>
-<div class="line">       <span class="keywordflow">if</span>(preg_match(<span class="stringliteral">&#39;/\{.*\}/si&#39;</span>,$pic)){</div>
-<div class="line">        $pic = <a class="code" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c">Expression::evaluateExpression</a>($pic,null);</div>
-<div class="line">       }elseif(!preg_match(<span class="stringliteral">&#39;/\//si&#39;</span>,$pic)){</div>
-<div class="line">           $pic = <a class="code" href="../../df/d00/class_resource.html#a7b561ddf50dd090a4e4d4e4f0cf54d78">Resource::getImageUrl</a>().<span class="stringliteral">&quot;/&quot;</span>.$pic;</div>
-<div class="line">          } </div>
-<div class="line">       $str_pic=<span class="stringliteral">&quot;&lt;img src=\&quot;$pic\&quot; /&gt;&quot;</span>;</div>
-<div class="line">       </div>
-<div class="line">      }<span class="keywordflow">else</span>{</div>
-<div class="line">       $str_pic = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">      }      </div>
-<div class="line">         <span class="keywordflow">if</span>(!preg_match(<span class="stringliteral">&quot;/&lt;/si&quot;</span>,$txt)){</div>
-<div class="line">          $display_value = $txt;</div>
-<div class="line">         }<span class="keywordflow">else</span>{</div>
-<div class="line">          $display_value = $val;</div>
-<div class="line">         }    </div>
-<div class="line">         <span class="keywordflow">if</span>($str_pic){</div>
-<div class="line">          $li_option_value =  $str_pic.<span class="stringliteral">&quot;&lt;span&gt;&quot;</span>.$txt.<span class="stringliteral">&quot;&lt;/span&gt;&quot;</span>;</div>
-<div class="line">         }</div>
-<div class="line">         <span class="keywordflow">else</span>{</div>
-<div class="line">          $li_option_value = <span class="stringliteral">&quot;&lt;span&gt;&quot;</span>.$txt.<span class="stringliteral">&quot;&lt;/span&gt;&quot;</span>; <span class="comment">//$txt ;</span></div>
-<div class="line">         }</div>
-<div class="line">         </div>
-<div class="line">         <span class="keywordflow">if</span>($val==$value)</div>
-<div class="line">         {          </div>
-<div class="line">          $option_item_style=<span class="stringliteral">&quot; class=&#39;selected&#39; &quot;</span>;</div>
-<div class="line">         }<span class="keywordflow">else</span>{</div>
-<div class="line">          $option_item_style=<span class="stringliteral">&quot; onmouseover=\&quot;this.className=&#39;hover&#39;\&quot; onmouseout=\&quot;this.className=&#39;&#39;\&quot; &quot;</span>;</div>
-<div class="line">         }</div>
-<div class="line">         <span class="comment">// jquery $j(&#39;a.maxmin&#39;).click( function () {...} );</span></div>
-<div class="line">   <span class="keywordflow">if</span> (defined(<span class="stringliteral">&#39;JSLIB_BASE&#39;</span>) &amp;&amp; JSLIB_BASE == <span class="stringliteral">&#39;JQUERY&#39;</span>) {</div>
-<div class="line">    $sHTML .= <span class="stringliteral">&quot;&lt;li $option_item_style disp_value=&#39;$display_value&#39; real_value=&#39;$val&#39;&gt;$li_option_value&lt;/li&gt;\n&quot;</span>;</div>
-<div class="line">   }</div>
-<div class="line">   <span class="keywordflow">else</span> {</div>
-<div class="line">    $sHTML .= <span class="stringliteral">&quot;&lt;li $option_item_style   </span></div>
-<div class="line"><span class="stringliteral">       onclick=\&quot;$(&#39;$elem_list_id&#39;).hide();</span></div>
-<div class="line"><span class="stringliteral">         $(&#39;$elem_scroll_id&#39;).hide();</span></div>
-<div class="line"><span class="stringliteral">         $(&#39;$elem_id&#39;).setValue(&#39;&quot;</span>.addslashes($display_value).<span class="stringliteral">&quot;&#39;);</span></div>
-<div class="line"><span class="stringliteral">         $(&#39;$elem_hidden_id&#39;).setValue(&#39;&quot;</span>.addslashes($val).<span class="stringliteral">&quot;&#39;);</span></div>
-<div class="line"><span class="stringliteral">         $(&#39;span_$elem_id&#39;).innerHTML = this.innerHTML;</span></div>
-<div class="line"><span class="stringliteral">         $onchange_func ;</span></div>
-<div class="line"><span class="stringliteral">         $(&#39;$elem_id&#39;).className=&#39;&quot;</span>.$this-&gt;m_cssClass.<span class="stringliteral">&quot;&#39;</span></div>
-<div class="line"><span class="stringliteral">         \&quot; </span></div>
-<div class="line"><span class="stringliteral">     &gt;$li_option_value&lt;/li&gt;&quot;</span>;</div>
-<div class="line">      }</div>
-<div class="line">      <span class="keywordflow">if</span>($val == $value){</div>
-<div class="line">       $this-&gt;m_DefaultDisplayValue=<span class="stringliteral">&quot;&quot;</span>.$str_pic.<span class="stringliteral">&quot;&lt;span&gt;&quot;</span>.$txt.<span class="stringliteral">&quot;&lt;/span&gt;&quot;</span>;</div>
-<div class="line">      }  </div>
-<div class="line">     }</div>
-<div class="line">     $sHTML .= <span class="stringliteral">&quot;&lt;/ul&gt;&quot;</span>;</div>
-<div class="line">     $sHTML .= <span class="stringliteral">&quot;&lt;/div&gt;&quot;</span>;</div>
-<div class="line">     <span class="keywordflow">return</span> $sHTML;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00244">244</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-23" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-23-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a7d91d8d8e577a0875dde7809472d3a41_cgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a7d91d8d8e577a0875dde7809472d3a41_cgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a7d91d8d8e577a0875dde7809472d3a41_cgraph" id="dc/d58/class_drop_down_list_a7d91d8d8e577a0875dde7809472d3a41_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="765,289,910,317"/><area shape="rect" id="node5" href="../../dc/d58/class_drop_down_list.html#abb45fb76e4ce8619b454eb439dc39d2c" title="getOnChangeFunction" alt="" coords="134,185,290,213"/><area shape="rect" id="node6" href="../../dc/d58/class_drop_down_list.html#a5610c1415bd5fd946a42fd0fd4da4cff" title="getList" alt="" coords="182,417,242,445"/><area shape="rect" id="node33" href="../../d5/d50/class_element.html#a8a2999b1d846c0a7bc77187e28facd99" title="Element\\getText" alt="" coords="544,289,661,317"/><area shape="rect" id="node8" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="734,393,941,421"/><area shape="rect" id="node34" href="../../df/d00/class_resource.html#a7b561ddf50dd090a4e4d4e4f0cf54d78" title="Resource\\getImageUrl" alt="" coords="135,55,289,83"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="1507,214,1675,242"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1970,189,2108,217"/><area shape="rect" id="node7" href="../../dc/d58/class_drop_down_list.html#a6bf46184c1f8fff5f182aa3c2f5326a6" title="getSelectFrom" alt="" coords="549,393,657,421"/><area shape="rect" id="node17" href="../../dc/d58/class_drop_down_list.html#aa54a9a65ac7416558061dc3579136d43" title="getSQLFromList" alt="" coords="346,443,465,471"/><area shape="rect" id="node20" href="../../dc/d58/class_drop_down_list.html#a8f00502ff32da626abb188c91faad283" title="getXMLFromList" alt="" coords="346,134,465,162"/><area shape="rect" id="node30" href="../../dc/d58/class_drop_down_list.html#aea0b19f3861838e01007f60f7f8977ac" title="getDOFromList" alt="" coords="349,599,461,627"/><area shape="rect" id="node32" href="../../dc/d58/class_drop_down_list.html#a6b6c589b81ab68cc413a8c3776072fce" title="getSimpleFromList" alt="" coords="339,495,472,523"/><area shape="rect" id="node9" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="1258,277,1440,305"/><area shape="rect" id="node14" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="1000,341,1198,369"/><area shape="rect" id="node15" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="990,393,1208,421"/><area shape="rect" id="node16" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="1018,445,1179,473"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="1504,266,1677,294"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1752,317,1904,345"/><area shape="rect" id="node12" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1966,369,2111,397"/><area shape="rect" id="node13" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1738,162,1918,190"/><area shape="rect" id="node18" href="../../dc/d58/class_drop_down_list.html#a738c28f6c74aff9a8548462b945c2a84" title="getSelectFromSQL" alt="" coords="535,445,670,473"/><area shape="rect" id="node19" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1296,458,1402,486"/><area shape="rect" id="node21" href="../../d1/d7e/class_biz_system.html#afb3b9597319d812f889a89ab0c7c5e4b" title="BizSystem\\getXmlArray" alt="" coords="522,134,683,162"/><area shape="rect" id="node23" href="../../dc/d58/class_drop_down_list.html#a908afc7586e184ef9383f051ff4dc7f3" title="translateList" alt="" coords="556,82,649,110"/><area shape="rect" id="node22" href="../../df/d00/class_resource.html#afb3b9597319d812f889a89ab0c7c5e4b" title="Resource\\getXmlArray" alt="" coords="760,199,915,227"/><area shape="rect" id="node24" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="742,43,933,71"/><area shape="rect" id="node25" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="810,147,865,175"/><area shape="rect" id="node29" href="../../dc/d58/class_drop_down_list.html#acdc8141d0fb446e2d26f78282138c465" title="getTransLOVPrefix" alt="" coords="770,95,904,123"/><area shape="rect" id="node26" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1032,147,1166,175"/><area shape="rect" id="node27" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1262,147,1437,175"/><area shape="rect" id="node28" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1491,110,1691,138"/><area shape="rect" id="node31" href="../../d1/d2c/class_query_string_param.html#a2325df26721fdbe820d577d2482725f8" title="QueryStringParam\\reset" alt="" coords="520,599,685,627"/><area shape="rect" id="node35" href="../../df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="1256,58,1443,86"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-24" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a7d91d8d8e577a0875dde7809472d3a41_icgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a7d91d8d8e577a0875dde7809472d3a41_icgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a7d91d8d8e577a0875dde7809472d3a41_icgraph" id="dc/d58/class_drop_down_list_a7d91d8d8e577a0875dde7809472d3a41_icgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="134,5,194,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a908afc7586e184ef9383f051ff4dc7f3"></a>
@@ -1274,18 +1038,30 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L546">546</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     $module = $this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e">getModuleName</a>($this-&gt;m_SelectFrom);</div>
-<div class="line">        <span class="keywordflow">if</span> (empty($module))</div>
-<div class="line">            $module = $this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e">getModuleName</a>($this-&gt;m_FormName);</div>
-<div class="line">     <span class="keywordflow">for</span> ($i=0; $i&lt;count($list); $i++)</div>
-<div class="line">     {</div>
-<div class="line">      $key = <span class="stringliteral">&#39;SELECTION_&#39;</span>.strtoupper($tag).<span class="charliteral">&#39;_&#39;</span>.$i.<span class="stringliteral">&#39;_TEXT&#39;</span>;</div>
-<div class="line">      $list[$i][<span class="stringliteral">&#39;txt&#39;</span>] = <a class="code" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a">I18n::t</a>($list[$i][<span class="stringliteral">&#39;txt&#39;</span>], $key, $module, $this-&gt;<a class="code" href="../../dc/d58/class_drop_down_list.html#acdc8141d0fb446e2d26f78282138c465">getTransLOVPrefix</a>());</div>
-<div class="line">     }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00546">546</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
+
+<p><div id="dynsection-25" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a908afc7586e184ef9383f051ff4dc7f3_cgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a908afc7586e184ef9383f051ff4dc7f3_cgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a908afc7586e184ef9383f051ff4dc7f3_cgraph" id="dc/d58/class_drop_down_list_a908afc7586e184ef9383f051ff4dc7f3_cgraph">
+<area shape="rect" id="node2" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="147,5,338,33"/><area shape="rect" id="node3" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="215,57,270,85"/><area shape="rect" id="node11" href="../../dc/d58/class_drop_down_list.html#acdc8141d0fb446e2d26f78282138c465" title="getTransLOVPrefix" alt="" coords="176,109,310,137"/><area shape="rect" id="node4" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="388,57,522,85"/><area shape="rect" id="node5" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="571,57,746,85"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1042,30,1222,58"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="795,82,995,110"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1274,30,1412,58"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1056,82,1208,110"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1270,82,1415,110"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-26" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-26-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dc/d58/class_drop_down_list_a908afc7586e184ef9383f051ff4dc7f3_icgraph.png" border="0" usemap="#dc/d58/class_drop_down_list_a908afc7586e184ef9383f051ff4dc7f3_icgraph" alt=""/></div>
+<map name="dc/d58/class_drop_down_list_a908afc7586e184ef9383f051ff4dc7f3_icgraph" id="dc/d58/class_drop_down_list_a908afc7586e184ef9383f051ff4dc7f3_icgraph">
+<area shape="rect" id="node2" href="../../dc/d58/class_drop_down_list.html#a8f00502ff32da626abb188c91faad283" title="getXMLFromList" alt="" coords="147,23,266,51"/><area shape="rect" id="node3" href="../../dc/d58/class_drop_down_list.html#a5610c1415bd5fd946a42fd0fd4da4cff" title="getList" alt="" coords="315,23,376,51"/><area shape="rect" id="node4" href="../../dc/d58/class_drop_down_list.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="590,23,650,51"/><area shape="rect" id="node5" href="../../dc/d58/class_drop_down_list.html#a64597ad197b5d3d27e571c950e030d9c" title="getDisplayValue" alt="" coords="424,23,541,51"/><area shape="rect" id="node6" href="../../dc/d58/class_drop_down_list.html#a7d91d8d8e577a0875dde7809472d3a41" title="renderList" alt="" coords="442,75,523,103"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -1307,7 +1083,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L36">36</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00036">36</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
 
 </div>
 </div>
@@ -1321,7 +1097,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L32">32</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00032">32</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
 
 </div>
 </div>
@@ -1335,7 +1111,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L31">31</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00031">31</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
 
 </div>
 </div>
@@ -1349,7 +1125,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L30">30</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00030">30</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
 
 </div>
 </div>
@@ -1363,7 +1139,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L35">35</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00035">35</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
 
 </div>
 </div>
@@ -1377,7 +1153,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L33">33</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00033">33</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
 
 </div>
 </div>
@@ -1391,7 +1167,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L34">34</a> of file <a class="el" href="../../">DropDownList.php</a>.</p>
+<p>Definition at line <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html#l00034">34</a> of file <a class="el" href="../../dc/d46/_drop_down_list_8php_source.html">DropDownList.php</a>.</p>
 
 </div>
 </div>
@@ -1401,7 +1177,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dc/d58/class_drop_down_list.html">DropDownList</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:18 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:48 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

@@ -1,0 +1,11 @@
+<map id="includePropWindowScripts" name="includePropWindowScripts">
+<area shape="rect" id="node2" href="$de/d7a/class_client_proxy.html#af8524efca3cda4b17fa90af7e28ca79d" title="appendScripts" alt="" coords="235,5,341,33"/>
+<area shape="rect" id="node3" href="$de/d7a/class_client_proxy.html#adc10e6fb12b1fe905ac5452d9b884c38" title="appendStyles" alt="" coords="237,57,339,85"/>
+<area shape="rect" id="node4" href="$df/d00/class_resource.html#a867ba152a2aeeae244630f0f9da79d0d" title="Resource\\getCssUrl" alt="" coords="390,57,530,85"/>
+<area shape="rect" id="node5" href="$df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="579,57,765,85"/>
+<area shape="rect" id="node6" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1061,30,1240,58"/>
+<area shape="rect" id="node8" href="$d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="813,82,1013,110"/>
+<area shape="rect" id="node7" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1292,30,1430,58"/>
+<area shape="rect" id="node9" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1075,82,1226,110"/>
+<area shape="rect" id="node10" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1289,82,1434,110"/>
+</map>

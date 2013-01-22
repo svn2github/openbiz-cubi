@@ -382,7 +382,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">ColumnListbox.php</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df0/_column_listbox_8php_source.html#l00027">27</a> of file <a class="el" href="../../de/df0/_column_listbox_8php_source.html">ColumnListbox.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a0385ba5c210c12b486acdaff644320a4"></a>
 <div class="memitem">
@@ -398,12 +398,19 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L31">31</a> of file <a class="el" href="../../">ColumnListbox.php</a>.</p>
-<div class="fragment"><div class="line"> {</div>
-<div class="line">  $valueArr = <a class="code" href="../../d5/d50/class_element.html#acab8a119e17bf4955d23bd05c09ee4cd">$this-&gt;m_Value</a>;</div>
-<div class="line">  <span class="keywordflow">return</span> $valueArr[$id];  </div>
-<div class="line"> }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../de/df0/_column_listbox_8php_source.html#l00031">31</a> of file <a class="el" href="../../de/df0/_column_listbox_8php_source.html">ColumnListbox.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d5d/class_column_listbox_a0385ba5c210c12b486acdaff644320a4_icgraph.png" border="0" usemap="#db/d5d/class_column_listbox_a0385ba5c210c12b486acdaff644320a4_icgraph" alt=""/></div>
+<map name="db/d5d/class_column_listbox_a0385ba5c210c12b486acdaff644320a4_icgraph" id="db/d5d/class_column_listbox_a0385ba5c210c12b486acdaff644320a4_icgraph">
+<area shape="rect" id="node2" href="../../db/d5d/class_column_listbox.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="153,5,213,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a5888f7e5883c7c2d486f7ddc1bd64760"></a>
@@ -436,12 +443,8 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L87">87</a> of file <a class="el" href="../../">ColumnListbox.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::readMetaData($xmlArr);</div>
-<div class="line">        $this-&gt;m_BlankOption = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;BLANKOPTION&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;BLANKOPTION&quot;</span>] : null;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../de/df0/_column_listbox_8php_source.html#l00087">87</a> of file <a class="el" href="../../de/df0/_column_listbox_8php_source.html">ColumnListbox.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="afde88292c44dc59faf017738dae6dffb"></a>
@@ -461,59 +464,19 @@ Protected Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d5/d2b/interfacei_u_i_control.html#afde88292c44dc59faf017738dae6dffb">iUIControl</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L98">98</a> of file <a class="el" href="../../">ColumnListbox.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     $rec = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>()-&gt;getActiveRecord();</div>
-<div class="line">  $recId = $rec[<span class="stringliteral">&quot;Id&quot;</span>];     </div>
-<div class="line">     </div>
-<div class="line">        $fromList = array();</div>
-<div class="line">        $this-&gt;<a class="code" href="../../da/d7f/class_option_element.html#af9b9251ea754aa65bc036e5bd9eb2e1d">getFromList</a>($fromList);</div>
-<div class="line">        $value = $this-&gt;<a class="code" href="../../db/d5d/class_column_listbox.html#a0385ba5c210c12b486acdaff644320a4">getItemValue</a>($recId)!==null?$this-&gt;<a class="code" href="../../db/d5d/class_column_listbox.html#a0385ba5c210c12b486acdaff644320a4">getItemValue</a>($recId):$this-&gt;<a class="code" href="../../d5/d50/class_element.html#af9b9401c63918169457fe8516324950f">getDefaultValue</a>();</div>
-<div class="line">        $valueArray = explode(<span class="charliteral">&#39;,&#39;</span>, $value);</div>
-<div class="line">        </div>
-<div class="line">        $disabledStr = ($this-&gt;<a class="code" href="../../d3/d05/class_input_element.html#ab442a42d8265e71787a82ef3a1b4549c">getEnabled</a>() == <span class="stringliteral">&quot;N&quot;</span>) ? <span class="stringliteral">&quot;DISABLED=\&quot;true\&quot;&quot;</span> : <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">        $style = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a1a9c641ae8a39113009425cbccaee5d5">getStyle</a>();</div>
-<div class="line">        $func = $this-&gt;<a class="code" href="../../d5/d50/class_element.html#a3cb728ca27acfebd282caecdb8a1f5fc">getFunction</a>();</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">//$sHTML = &quot;&lt;SELECT NAME=\&quot;&quot; . $this-&gt;m_Name . &quot;[]\&quot; ID=\&quot;&quot; . $this-&gt;m_Name .&quot;\&quot; $disabledStr $this-&gt;m_HTMLAttr $style $func&gt;&quot;;</span></div>
-<div class="line">        $sHTML = <span class="stringliteral">&quot;&lt;SELECT NAME=\&quot;&quot;</span> . $this-&gt;m_Name . <span class="stringliteral">&quot;[$recId]\&quot; ID=\&quot;&quot;</span> . $this-&gt;m_Name .<span class="stringliteral">&quot;\&quot; $disabledStr $this-&gt;m_HTMLAttr $style $func&gt;&quot;</span>;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_BlankOption) <span class="comment">// ADD a blank option</span></div>
-<div class="line">        {</div>
-<div class="line">            $entry = explode(<span class="stringliteral">&quot;,&quot;</span>,$this-&gt;m_BlankOption);</div>
-<div class="line">            $text = $entry[0];</div>
-<div class="line">            $value = ($entry[1]!= <span class="stringliteral">&quot;&quot;</span>) ? $entry[1] : null;</div>
-<div class="line">            $entryList = array(array(<span class="stringliteral">&quot;val&quot;</span> =&gt; $value, <span class="stringliteral">&quot;txt&quot;</span> =&gt; $text ));</div>
-<div class="line">            $fromList = array_merge($entryList, $fromList);</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        $defaultValue = null;</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($fromList as $option)</div>
-<div class="line">        {</div>
-<div class="line">            $test = array_search($option[<span class="stringliteral">&#39;val&#39;</span>], $valueArray);</div>
-<div class="line">            <span class="keywordflow">if</span> ($test === <span class="keyword">false</span>)</div>
-<div class="line">            {</div>
-<div class="line">                $selectedStr = <span class="stringliteral">&#39;&#39;</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">            {</div>
-<div class="line">                $selectedStr = <span class="stringliteral">&quot;SELECTED&quot;</span>;</div>
-<div class="line">                $defaultValue = $option[<span class="stringliteral">&#39;val&#39;</span>];                </div>
-<div class="line">            }</div>
-<div class="line">            $sHTML .= <span class="stringliteral">&quot;&lt;OPTION VALUE=\&quot;&quot;</span> . $option[<span class="stringliteral">&#39;val&#39;</span>] . <span class="stringliteral">&quot;\&quot; $selectedStr&gt;&quot;</span> . $option[<span class="stringliteral">&#39;txt&#39;</span>] . <span class="stringliteral">&quot;&lt;/OPTION&gt;&quot;</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span>($defaultValue == null){</div>
-<div class="line">         $defaultOpt = array_shift($fromList);</div>
-<div class="line">         $defaultValue = $defaultOpt[<span class="stringliteral">&#39;val&#39;</span>];</div>
-<div class="line">         array_unshift($fromList,$defaultOpt);</div>
-<div class="line">        }</div>
-<div class="line">     </div>
-<div class="line">        </div>
-<div class="line">        $this-&gt;<a class="code" href="../../db/d5d/class_column_listbox.html#a7494441b6ed08a391704971873f31432">setValue</a>($defaultValue);</div>
-<div class="line">        $sHTML .= <span class="stringliteral">&quot;&lt;/SELECT&gt;&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">return</span> $sHTML;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../de/df0/_column_listbox_8php_source.html#l00098">98</a> of file <a class="el" href="../../de/df0/_column_listbox_8php_source.html">ColumnListbox.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d5d/class_column_listbox_afde88292c44dc59faf017738dae6dffb_cgraph.png" border="0" usemap="#db/d5d/class_column_listbox_afde88292c44dc59faf017738dae6dffb_cgraph" alt=""/></div>
+<map name="db/d5d/class_column_listbox_afde88292c44dc59faf017738dae6dffb_cgraph" id="db/d5d/class_column_listbox_afde88292c44dc59faf017738dae6dffb_cgraph">
+<area shape="rect" id="node2" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="934,535,1079,563"/><area shape="rect" id="node5" href="../../da/d7f/class_option_element.html#af9b9251ea754aa65bc036e5bd9eb2e1d" title="OptionElement\\getFromList" alt="" coords="115,265,298,293"/><area shape="rect" id="node32" href="../../db/d5d/class_column_listbox.html#a0385ba5c210c12b486acdaff644320a4" title="getItemValue" alt="" coords="157,485,256,513"/><area shape="rect" id="node33" href="../../d5/d50/class_element.html#af9b9401c63918169457fe8516324950f" title="Element\\getDefaultValue" alt="" coords="648,483,816,511"/><area shape="rect" id="node34" href="../../d3/d05/class_input_element.html#ab442a42d8265e71787a82ef3a1b4549c" title="InputElement\\getEnabled" alt="" coords="646,587,818,615"/><area shape="rect" id="node35" href="../../d5/d50/class_element.html#a1a9c641ae8a39113009425cbccaee5d5" title="Element\\getStyle" alt="" coords="671,431,793,459"/><area shape="rect" id="node36" href="../../d5/d50/class_element.html#a3cb728ca27acfebd282caecdb8a1f5fc" title="Element\\getFunction" alt="" coords="135,690,278,718"/><area shape="rect" id="node38" href="../../db/d5d/class_column_listbox.html#a7494441b6ed08a391704971873f31432" title="setValue" alt="" coords="696,742,768,770"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="1441,631,1609,659"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2143,566,2281,594"/><area shape="rect" id="node6" href="../../da/d7f/class_option_element.html#a6bf46184c1f8fff5f182aa3c2f5326a6" title="OptionElement\\getSelectFrom" alt="" coords="632,379,832,407"/><area shape="rect" id="node16" href="../../da/d7f/class_option_element.html#aa54a9a65ac7416558061dc3579136d43" title="OptionElement\\getSQLFromList" alt="" coords="354,290,564,318"/><area shape="rect" id="node19" href="../../da/d7f/class_option_element.html#a8f00502ff32da626abb188c91faad283" title="OptionElement\\getXMLFromList" alt="" coords="353,135,564,163"/><area shape="rect" id="node29" href="../../da/d7f/class_option_element.html#aea0b19f3861838e01007f60f7f8977ac" title="OptionElement\\getDOFromList" alt="" coords="357,213,560,241"/><area shape="rect" id="node31" href="../../da/d7f/class_option_element.html#a6b6c589b81ab68cc413a8c3776072fce" title="OptionElement\\getSimpleFromList" alt="" coords="346,83,571,111"/><area shape="rect" id="node7" href="../../df/d03/class_expression.html#a85d5504074029bc1ebe18dd8de91571c" title="Expression\\evaluateExpression" alt="" coords="903,431,1110,459"/><area shape="rect" id="node8" href="../../df/d03/class_expression.html#a01547a166789d39853e468a05887c4c6" title="Expression\\replaceVarExpr" alt="" coords="1434,461,1616,489"/><area shape="rect" id="node13" href="../../df/d03/class_expression.html#a55ce66e2ff3349d1cd7d27e1df5c604f" title="Expression\\replaceFieldsExpr" alt="" coords="1178,535,1376,563"/><area shape="rect" id="node14" href="../../df/d03/class_expression.html#ae990aef1e90abdb103def6d730e87c2b" title="Expression\\replaceElementsExpr" alt="" coords="1168,431,1386,459"/><area shape="rect" id="node15" href="../../df/d03/class_expression.html#a9bf8699028d3ae5289bd968a6447a09c" title="Expression\\eval_syntax" alt="" coords="1197,483,1358,511"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#aed230e19f64738a52940c043542e3b17" title="BizSystem\\getUserProfile" alt="" coords="1678,461,1850,489"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1926,461,2077,489"/><area shape="rect" id="node11" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="2139,461,2285,489"/><area shape="rect" id="node12" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1912,409,2091,437"/><area shape="rect" id="node17" href="../../da/d7f/class_option_element.html#a738c28f6c74aff9a8548462b945c2a84" title="OptionElement\\getSelectFromSQL" alt="" coords="619,327,845,355"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1711,357,1817,385"/><area shape="rect" id="node20" href="../../d1/d7e/class_biz_system.html#afb3b9597319d812f889a89ab0c7c5e4b" title="BizSystem\\getXmlArray" alt="" coords="651,31,813,59"/><area shape="rect" id="node22" href="../../da/d7f/class_option_element.html#a908afc7586e184ef9383f051ff4dc7f3" title="OptionElement\\translateList" alt="" coords="639,109,825,137"/><area shape="rect" id="node21" href="../../df/d00/class_resource.html#afb3b9597319d812f889a89ab0c7c5e4b" title="Resource\\getXmlArray" alt="" coords="929,5,1084,33"/><area shape="rect" id="node23" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="911,109,1102,137"/><area shape="rect" id="node24" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="979,161,1034,189"/><area shape="rect" id="node28" href="../../da/d7f/class_option_element.html#acdc8141d0fb446e2d26f78282138c465" title="OptionElement\\getTransLOVPrefix" alt="" coords="894,57,1120,85"/><area shape="rect" id="node25" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1210,253,1344,281"/><area shape="rect" id="node26" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1438,253,1613,281"/><area shape="rect" id="node27" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1664,305,1864,333"/><area shape="rect" id="node30" href="../../d1/d2c/class_query_string_param.html#a2325df26721fdbe820d577d2482725f8" title="QueryStringParam\\reset" alt="" coords="649,161,815,189"/><area shape="rect" id="node37" href="../../d5/d50/class_element.html#a54ecee00f83d387598096653b07f10c5" title="Element\\getEvents" alt="" coords="392,690,525,718"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a107d3e8b67d4aa25011c2ba626033fd3"></a>
@@ -531,32 +494,8 @@ Protected Member Functions</h2></td></tr>
 <p>When render table, it return the table header; when render array, it return the display name</p>
 <dl class="section return"><dt>Returns</dt><dd>string HTML text </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L56">56</a> of file <a class="el" href="../../">ColumnListbox.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_Sortable == <span class="stringliteral">&quot;Y&quot;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $rule = <a class="code" href="../../db/d4b/class_meta_object.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">$this-&gt;m_Name</a>;</div>
-<div class="line"></div>
-<div class="line">            $function = $this-&gt;m_FormName . <span class="stringliteral">&quot;.SortRecord($rule,$this-&gt;m_SortFlag)&quot;</span>;</div>
-<div class="line">            <span class="keywordflow">if</span>($this-&gt;m_SortFlag == <span class="stringliteral">&quot;ASC&quot;</span> || $this-&gt;m_SortFlag == <span class="stringliteral">&quot;DESC&quot;</span>){</div>
-<div class="line">             $class=<span class="stringliteral">&quot; class=\&quot;current\&quot; &quot;</span>;</div>
-<div class="line">            }<span class="keywordflow">else</span>{</div>
-<div class="line">             $class=<span class="stringliteral">&quot; class=\&quot;normal\&quot; &quot;</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> ($this-&gt;m_SortFlag == <span class="stringliteral">&quot;ASC&quot;</span>)</div>
-<div class="line">             $span_class = <span class="stringliteral">&quot; class=\&quot;sort_up\&quot; &quot;</span>;</div>
-<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($this-&gt;m_SortFlag == <span class="stringliteral">&quot;DESC&quot;</span>)</div>
-<div class="line">                $span_class = <span class="stringliteral">&quot; class=\&quot;sort_down\&quot; &quot;</span>;</div>
-<div class="line">            $sHTML = <span class="stringliteral">&quot;&lt;a href=javascript:Openbiz.CallFunction(&#39;&quot;</span> . $function . <span class="stringliteral">&quot;&#39;) $class &gt;&lt;span $span_class &gt;&quot;</span> . $this-&gt;m_Label .<span class="stringliteral">&quot;&lt;/span&gt;&quot;</span>;            </div>
-<div class="line">            $sHTML .= <span class="stringliteral">&quot;&lt;/a&gt;&quot;</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {</div>
-<div class="line">            $sHTML = <a class="code" href="../../d3/d05/class_input_element.html#a1f831539f3b0a50f98b77b7ac014d6b0">$this-&gt;m_Label</a>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $sHTML;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../de/df0/_column_listbox_8php_source.html#l00056">56</a> of file <a class="el" href="../../de/df0/_column_listbox_8php_source.html">ColumnListbox.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a7494441b6ed08a391704971873f31432"></a>
@@ -573,20 +512,30 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L37">37</a> of file <a class="el" href="../../">ColumnListbox.php</a>.</p>
-<div class="fragment"><div class="line"> {</div>
-<div class="line">  <a class="code" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d">BizSystem::sessionContext</a>()-&gt;getObjVar($this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>()-&gt;m_Name, $this-&gt;m_Name, $this-&gt;m_Value);</div>
-<div class="line">  $valueArr = $_POST[<a class="code" href="../../db/d4b/class_meta_object.html#a8dc06948da84d3c7f1ad5b7fc0f27b2d">$this-&gt;m_Name</a>];</div>
-<div class="line">  <span class="keywordflow">if</span>(is_array($valueArr))</div>
-<div class="line">  {</div>
-<div class="line">   <span class="keywordflow">foreach</span>($valueArr as $key=&gt;$value)</div>
-<div class="line">   {</div>
-<div class="line">    $this-&gt;m_Value[$key] = $value;</div>
-<div class="line">   }</div>
-<div class="line">  }</div>
-<div class="line">  <a class="code" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d">BizSystem::sessionContext</a>()-&gt;setObjVar($this-&gt;<a class="code" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a">getFormObj</a>()-&gt;m_Name, $this-&gt;m_Name, $this-&gt;m_Value);</div>
-<div class="line"> }    </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../de/df0/_column_listbox_8php_source.html#l00037">37</a> of file <a class="el" href="../../de/df0/_column_listbox_8php_source.html">ColumnListbox.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d5d/class_column_listbox_a7494441b6ed08a391704971873f31432_cgraph.png" border="0" usemap="#db/d5d/class_column_listbox_a7494441b6ed08a391704971873f31432_cgraph" alt=""/></div>
+<map name="db/d5d/class_column_listbox_a7494441b6ed08a391704971873f31432_cgraph" id="db/d5d/class_column_listbox_a7494441b6ed08a391704971873f31432_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="317,5,496,33"/><area shape="rect" id="node4" href="../../d5/d50/class_element.html#abf87088a2cd6b615e8e8add31567ba5a" title="Element\\getFormObj" alt="" coords="125,57,270,85"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="544,31,682,59"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="323,57,491,85"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d5d/class_column_listbox_a7494441b6ed08a391704971873f31432_icgraph.png" border="0" usemap="#db/d5d/class_column_listbox_a7494441b6ed08a391704971873f31432_icgraph" alt=""/></div>
+<map name="db/d5d/class_column_listbox_a7494441b6ed08a391704971873f31432_icgraph" id="db/d5d/class_column_listbox_a7494441b6ed08a391704971873f31432_icgraph">
+<area shape="rect" id="node2" href="../../db/d5d/class_column_listbox.html#afde88292c44dc59faf017738dae6dffb" title="render" alt="" coords="126,5,186,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -600,7 +549,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L29">29</a> of file <a class="el" href="../../">ColumnListbox.php</a>.</p>
+<p>Definition at line <a class="el" href="../../de/df0/_column_listbox_8php_source.html#l00029">29</a> of file <a class="el" href="../../de/df0/_column_listbox_8php_source.html">ColumnListbox.php</a>.</p>
 
 </div>
 </div>
@@ -610,7 +559,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d5d/class_column_listbox.html">ColumnListbox</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:16 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:44 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

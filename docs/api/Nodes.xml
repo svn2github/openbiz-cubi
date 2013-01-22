@@ -8845,10 +8845,6 @@
             </Subnodes>
            </Node>
            <Node>
-            <Name>localeInfoService</Name>
-            <Path>d4/d44/classlocale_info_service.html</Path>
-           </Node>
-           <Node>
             <Name>MetaObject</Name>
             <Path>db/d4b/class_meta_object.html</Path>
             <Subnodes>
@@ -8895,6 +8891,10 @@
              <Node>
               <Name>HTMLTree</Name>
               <Path>d6/d58/class_h_t_m_l_tree.html</Path>
+             </Node>
+             <Node>
+              <Name>localeInfoService</Name>
+              <Path>d4/d44/classlocale_info_service.html</Path>
              </Node>
              <Node>
               <Name>logService</Name>

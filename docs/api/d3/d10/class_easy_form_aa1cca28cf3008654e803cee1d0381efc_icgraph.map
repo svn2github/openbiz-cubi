@@ -1,0 +1,12 @@
+<map id="readInputRecord" name="readInputRecord">
+<area shape="rect" id="node2" href="$d3/d10/class_easy_form.html#a4cba68e60908d93a2f10dddee940a689" title="loadPicker" alt="" coords="221,5,304,33"/>
+<area shape="rect" id="node3" href="$d3/d10/class_easy_form.html#a0b269ace607ab745b5c2ac549f1f3b08" title="runSearch" alt="" coords="221,57,304,85"/>
+<area shape="rect" id="node4" href="$d3/d10/class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="210,109,315,137"/>
+<area shape="rect" id="node6" href="$d3/d10/class_easy_form.html#a3510e359acc3518312436d50f9cbde51" title="insertRecord" alt="" coords="214,161,311,189"/>
+<area shape="rect" id="node7" href="$d3/d10/class_easy_form.html#a10bc86aec45f3e2b6737f7cff2cf0feb" title="updateForm" alt="" coords="216,213,309,241"/>
+<area shape="rect" id="node8" href="$dc/d76/class_easy_form_wizard.html#a94deddbc1de2ba018dcc2880f435a64e" title="EasyFormWizard\\goNext" alt="" coords="178,265,347,293"/>
+<area shape="rect" id="node9" href="$dc/d76/class_easy_form_wizard.html#aaf844d081d5136e0871bb7e1a9c7cfa5" title="EasyFormWizard\\goBack" alt="" coords="177,317,349,345"/>
+<area shape="rect" id="node10" href="$dc/d76/class_easy_form_wizard.html#af5df107b0b9aca9b5deb9e7bccb33eb6" title="EasyFormWizard\\doFinish" alt="" coords="174,369,352,397"/>
+<area shape="rect" id="node11" href="$d7/dcf/class_picker_form.html#a6262f37c214bb0ab53d9175cda6d4568" title="PickerForm\\insertToParent" alt="" coords="173,421,352,449"/>
+<area shape="rect" id="node5" href="$d3/d10/class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="saveRecord" alt="" coords="400,135,493,163"/>
+</map>

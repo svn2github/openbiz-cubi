@@ -161,7 +161,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L25">25</a> of file <a class="el" href="../../">profileService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00025">25</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a095c5d389db211932136b53f25f39685"></a>
 <div class="memitem">
@@ -178,11 +178,8 @@ Protected Member Functions</h2></td></tr>
 <p>Initialize <a class="el" href="../../d6/d59/classprofile_service.html">profileService</a></p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L43">43</a> of file <a class="el" href="../../">profileService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line"></div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00043">43</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -219,10 +216,8 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L117">117</a> of file <a class="el" href="../../">profileService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00117">117</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a83934a97efa42568c52fa5b1cfeb6c51"></a>
@@ -265,28 +260,19 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="../../#L87">87</a> of file <a class="el" href="../../">profileService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// CASE 1: simple one table query</span></div>
-<div class="line">        <span class="comment">// SELECT role, group, pstn, divn, org FROm user_table AS t1</span></div>
-<div class="line">        <span class="comment">// WHERE t1.userid=&#39;$userid&#39;</span></div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// CASE 2: intersection table user_pstn (user_role, user_divn, user_org ...), need to query multiple times</span></div>
-<div class="line">        <span class="comment">// SELECT t1.pstnid, t2.name FROM user_pstn_table AS t1</span></div>
-<div class="line">        <span class="comment">// JOIN pstn_table AS t2 ON t1.pstnid=t2.id</span></div>
-<div class="line">        <span class="comment">// WHERE t1.userid=&#39;$userid&#39;</span></div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// CASE 3: all hierarchy info contained in one big party table, do query once, then filter on type column</span></div>
-<div class="line">        <span class="comment">// SELECT t1.partyid, t2.name, t2.type FROM user_party_table AS t1</span></div>
-<div class="line">        <span class="comment">// JOIN party_table AS t2 ON t1.partyid=t2.id</span></div>
-<div class="line">        <span class="comment">// WHERE t1.userid=&#39;$userid&#39;</span></div>
-<div class="line"></div>
-<div class="line">        $db = <a class="code" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d">BizSystem::dbConnection</a>();</div>
-<div class="line">        $resultSet = $db-&gt;execute($sql);</div>
-<div class="line">        $sqlArr = $resultSet-&gt;fetchRow();</div>
-<div class="line">        <span class="comment">// process the result</span></div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00087">87</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d59/classprofile_service_a83934a97efa42568c52fa5b1cfeb6c51_cgraph.png" border="0" usemap="#d6/d59/classprofile_service_a83934a97efa42568c52fa5b1cfeb6c51_cgraph" alt=""/></div>
+<map name="d6/d59/classprofile_service_a83934a97efa42568c52fa5b1cfeb6c51_cgraph" id="d6/d59/classprofile_service_a83934a97efa42568c52fa5b1cfeb6c51_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="150,5,320,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="368,5,506,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1046590782d94ef2387c402a9d74a489"></a>
@@ -311,32 +297,8 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array array of user profile </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L54">54</a> of file <a class="el" href="../../">profileService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// with the userid, query for role, group, position, division, org</span></div>
-<div class="line">        <span class="keywordflow">if</span> (!$userId) <span class="keywordflow">return</span> null;</div>
-<div class="line"></div>
-<div class="line">        $profile[<span class="stringliteral">&#39;USERID&#39;</span>] = $userId;</div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">// just make up something for test. must be replace in real application</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($userId == <span class="stringliteral">&quot;admin&quot;</span>)</div>
-<div class="line">            $profile[<span class="stringliteral">&#39;ROLE&#39;</span>] = <span class="stringliteral">&#39;admin&#39;</span>;</div>
-<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> ($userId == <span class="stringliteral">&quot;member&quot;</span>)</div>
-<div class="line">            $profile[<span class="stringliteral">&#39;ROLE&#39;</span>] = <span class="stringliteral">&#39;member&#39;</span>;</div>
-<div class="line"></div>
-<div class="line">        $profile[<span class="stringliteral">&#39;ROLEID&#39;</span>] = <span class="stringliteral">&#39;RLE_2&#39;</span>;</div>
-<div class="line">        $profile[<span class="stringliteral">&#39;GROUP&#39;</span>] = <span class="stringliteral">&#39;Member&#39;</span>;</div>
-<div class="line">        $profile[<span class="stringliteral">&#39;GROUPID&#39;</span>] = <span class="stringliteral">&#39;GRP_3&#39;</span>;</div>
-<div class="line">        $profile[<span class="stringliteral">&#39;POSITION&#39;</span>] = <span class="stringliteral">&#39;Marketing - France&#39;</span>;</div>
-<div class="line">        $profile[<span class="stringliteral">&#39;POSITIONID&#39;</span>] = <span class="stringliteral">&#39;PSN_10&#39;</span>;</div>
-<div class="line">        $profile[<span class="stringliteral">&#39;DIVISION&#39;</span>] = <span class="stringliteral">&#39;Marketing - Europe&#39;</span>;</div>
-<div class="line">        $profile[<span class="stringliteral">&#39;DIVISIONID&#39;</span>] = <span class="stringliteral">&#39;DVN_5&#39;</span>;</div>
-<div class="line">        $profile[<span class="stringliteral">&#39;ORG&#39;</span>] = <span class="stringliteral">&#39;IBM&#39;</span>;</div>
-<div class="line">        $profile[<span class="stringliteral">&#39;ORGID&#39;</span>] = <span class="stringliteral">&#39;ORG_101&#39;</span>;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">return</span> $profile;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00054">54</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -350,7 +312,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L33">33</a> of file <a class="el" href="../../">profileService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00033">33</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
 
 </div>
 </div>
@@ -364,7 +326,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L34">34</a> of file <a class="el" href="../../">profileService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00034">34</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
 
 </div>
 </div>
@@ -378,7 +340,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L29">29</a> of file <a class="el" href="../../">profileService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00029">29</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
 
 </div>
 </div>
@@ -392,7 +354,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L30">30</a> of file <a class="el" href="../../">profileService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00030">30</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
 
 </div>
 </div>
@@ -406,7 +368,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L35">35</a> of file <a class="el" href="../../">profileService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00035">35</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
 
 </div>
 </div>
@@ -420,7 +382,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L36">36</a> of file <a class="el" href="../../">profileService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00036">36</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
 
 </div>
 </div>
@@ -434,7 +396,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L31">31</a> of file <a class="el" href="../../">profileService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00031">31</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
 
 </div>
 </div>
@@ -448,7 +410,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L32">32</a> of file <a class="el" href="../../">profileService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00032">32</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
 
 </div>
 </div>
@@ -462,7 +424,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">profileService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00027">27</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
 
 </div>
 </div>
@@ -476,7 +438,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L28">28</a> of file <a class="el" href="../../">profileService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/da8/profile_service_8php_source.html#l00028">28</a> of file <a class="el" href="../../d6/da8/profile_service_8php_source.html">profileService.php</a>.</p>
 
 </div>
 </div>
@@ -486,7 +448,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d59/classprofile_service.html">profileService</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:25 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:22:03 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

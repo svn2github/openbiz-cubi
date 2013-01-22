@@ -279,7 +279,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L25">25</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00025">25</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a649b2b3005c687ae78c9d1d65e973493"></a>
 <div class="memitem">
@@ -296,19 +296,19 @@ Additional Inherited Members</h2></td></tr>
 <p>Cancel, clean up the sessions of view and all forms</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L245">245</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// call all step forms Cancel method</span></div>
-<div class="line">        <span class="keywordflow">if</span>(is_array($this-&gt;m_FormStates)){</div>
-<div class="line">         <span class="keywordflow">foreach</span> ($this-&gt;m_FormStates as $formName=&gt;$state)</div>
-<div class="line">         {</div>
-<div class="line">             <span class="keywordflow">if</span> ($state[<span class="stringliteral">&#39;visited&#39;</span>])</div>
-<div class="line">                 <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject($formName)-&gt;cancel();</div>
-<div class="line">         }</div>
-<div class="line">        }</div>
-<div class="line">        $this-&gt;m_DropSession = <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00245">245</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/de2/class_easy_view_wizard_a649b2b3005c687ae78c9d1d65e973493_cgraph.png" border="0" usemap="#df/de2/class_easy_view_wizard_a649b2b3005c687ae78c9d1d65e973493_cgraph" alt=""/></div>
+<map name="df/de2/class_easy_view_wizard_a649b2b3005c687ae78c9d1d65e973493_cgraph" id="df/de2/class_easy_view_wizard_a649b2b3005c687ae78c9d1d65e973493_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="115,5,283,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="331,5,469,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="af5674c27d4a92f6228565010eacbb9cb"></a>
@@ -326,35 +326,19 @@ Additional Inherited Members</h2></td></tr>
 <p>Save wizard data of current+previous pages into database or other storage</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L211">211</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// call all step forms Commit method     </span></div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_FormStates as $formName=&gt;$state)</div>
-<div class="line">        {         </div>
-<div class="line">            <span class="keywordflow">if</span> ($state[<span class="stringliteral">&#39;visited&#39;</span>])</div>
-<div class="line">            {</div>
-<div class="line">                $r = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject($formName)-&gt;commit();                </div>
-<div class="line">                <span class="keywordflow">if</span> (!$r)</div>
-<div class="line">                {                                  </div>
-<div class="line">                 <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">        }              </div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_FormStates as $formName=&gt;$state)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> ($state[<span class="stringliteral">&#39;visited&#39;</span>])</div>
-<div class="line">            {</div>
-<div class="line">                $r = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject($formName)-&gt;dropSession();</div>
-<div class="line">                <span class="keywordflow">if</span> (!$r)</div>
-<div class="line">                {                 </div>
-<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">        }         </div>
-<div class="line">        $this-&gt;m_DropSession = <span class="keyword">true</span>;</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00211">211</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/de2/class_easy_view_wizard_af5674c27d4a92f6228565010eacbb9cb_cgraph.png" border="0" usemap="#df/de2/class_easy_view_wizard_af5674c27d4a92f6228565010eacbb9cb_cgraph" alt=""/></div>
+<map name="df/de2/class_easy_view_wizard_af5674c27d4a92f6228565010eacbb9cb_cgraph" id="df/de2/class_easy_view_wizard_af5674c27d4a92f6228565010eacbb9cb_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="117,5,285,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="334,5,472,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a8c10d82ce4005a51c021f375175e117a"></a>
@@ -372,36 +356,19 @@ Additional Inherited Members</h2></td></tr>
 <p>Get current step</p>
 <dl class="section return"><dt>Returns</dt><dd>number </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L116">116</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {   <span class="keywordflow">if</span>($_GET[<span class="stringliteral">&#39;step&#39;</span>])</div>
-<div class="line">     {</div>
-<div class="line">      $this-&gt;m_CurrentStep=$_GET[<span class="stringliteral">&#39;step&#39;</span>];</div>
-<div class="line">      <span class="keywordflow">return</span> <a class="code" href="../../df/de2/class_easy_view_wizard.html#a48cdb40f79cfe33dc056db2b324f321d">$this-&gt;m_CurrentStep</a>;</div>
-<div class="line">     }</div>
-<div class="line">     elseif($this-&gt;m_CurrentStep)</div>
-<div class="line">     {</div>
-<div class="line">      <span class="keywordflow">if</span>($this-&gt;m_CurrentStep &gt; $this-&gt;m_FormRefs-&gt;count()){                      </div>
-<div class="line">       <span class="keywordflow">return</span> $this-&gt;m_FormRefs-&gt;count(); </div>
-<div class="line">      }<span class="keywordflow">else</span>{</div>
-<div class="line">       <span class="keywordflow">return</span> <a class="code" href="../../df/de2/class_easy_view_wizard.html#a48cdb40f79cfe33dc056db2b324f321d">$this-&gt;m_CurrentStep</a>; </div>
-<div class="line">      }      </div>
-<div class="line">     }</div>
-<div class="line">     <span class="keywordflow">else</span></div>
-<div class="line">     {</div>
-<div class="line">         $step = isset($_GET[<span class="stringliteral">&#39;step&#39;</span>]) ? $_GET[<span class="stringliteral">&#39;step&#39;</span>] : 1;</div>
-<div class="line">         $numForms = 0;</div>
-<div class="line">         <span class="keywordflow">foreach</span> ($this-&gt;m_FormRefs as $formRef)</div>
-<div class="line">             $numForms++;</div>
-<div class="line"> </div>
-<div class="line">         <span class="keywordflow">if</span> ($step &lt; 1)</div>
-<div class="line">             $step = 1;</div>
-<div class="line">         <span class="keywordflow">if</span> ($step &gt; $numForms)</div>
-<div class="line">             $step = $numForms;</div>
-<div class="line">         $this-&gt;m_CurrentStep = $step;</div>
-<div class="line">         <span class="keywordflow">return</span> $step;</div>
-<div class="line">     }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00116">116</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/de2/class_easy_view_wizard_a8c10d82ce4005a51c021f375175e117a_icgraph.png" border="0" usemap="#df/de2/class_easy_view_wizard_a8c10d82ce4005a51c021f375175e117a_icgraph" alt=""/></div>
+<map name="df/de2/class_easy_view_wizard_a8c10d82ce4005a51c021f375175e117a_icgraph" id="df/de2/class_easy_view_wizard_a8c10d82ce4005a51c021f375175e117a_icgraph">
+<area shape="rect" id="node2" href="../../df/de2/class_easy_view_wizard.html#a3c934047380a0debb627d77d51bb85c8" title="processRequest" alt="" coords="165,5,283,33"/><area shape="rect" id="node3" href="../../df/de2/class_easy_view_wizard.html#ace88bb98c1602e2b890fc3f613977fa5" title="renderStep" alt="" coords="180,57,268,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a68bb8e459e5d77692e8ab5cf7eb4e79a"></a>
@@ -426,13 +393,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L186">186</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $formObj = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject($formName);</div>
-<div class="line">        $rec = $formObj-&gt;getActiveRecord();</div>
-<div class="line">        <span class="keywordflow">return</span> $rec;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00186">186</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/de2/class_easy_view_wizard_a68bb8e459e5d77692e8ab5cf7eb4e79a_cgraph.png" border="0" usemap="#df/de2/class_easy_view_wizard_a68bb8e459e5d77692e8ab5cf7eb4e79a_cgraph" alt=""/></div>
+<map name="df/de2/class_easy_view_wizard_a68bb8e459e5d77692e8ab5cf7eb4e79a_cgraph" id="df/de2/class_easy_view_wizard_a68bb8e459e5d77692e8ab5cf7eb4e79a_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="160,5,328,33"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="376,5,514,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a0497a4964b544d4cb511f7809a191a5d"></a>
@@ -459,12 +432,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d6a/interfacei_session_object.html#acc26613c5c4f7b91d25f7454aebc0c9b">iSessionObject</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L43">43</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $sessionContext-&gt;getObjVar($this-&gt;m_Name, <span class="stringliteral">&quot;FormStates&quot;</span>, $this-&gt;m_FormStates, <span class="keyword">true</span>);</div>
-<div class="line">        $sessionContext-&gt;getObjVar($this-&gt;m_Name, <span class="stringliteral">&quot;CurrentStep&quot;</span>, $this-&gt;m_CurrentStep, <span class="keyword">true</span>);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00043">43</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a896ae030bd01256bab2bcd8b95ec1741"></a>
@@ -489,18 +458,19 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L99">99</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">  $i = 1;</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_FormRefs as $formRef){</div>
-<div class="line">            <span class="keywordflow">if</span>($i == $step){             </div>
-<div class="line">             <span class="keywordflow">return</span> $formRef-&gt;m_Name;</div>
-<div class="line">            }         </div>
-<div class="line">            $i++;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00099">99</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/de2/class_easy_view_wizard_a896ae030bd01256bab2bcd8b95ec1741_icgraph.png" border="0" usemap="#df/de2/class_easy_view_wizard_a896ae030bd01256bab2bcd8b95ec1741_icgraph" alt=""/></div>
+<map name="df/de2/class_easy_view_wizard_a896ae030bd01256bab2bcd8b95ec1741_icgraph" id="df/de2/class_easy_view_wizard_a896ae030bd01256bab2bcd8b95ec1741_icgraph">
+<area shape="rect" id="node2" href="../../df/de2/class_easy_view_wizard.html#ace88bb98c1602e2b890fc3f613977fa5" title="renderStep" alt="" coords="158,5,245,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a5ea617defced2833678b138544810d35"></a>
@@ -526,10 +496,8 @@ Additional Inherited Members</h2></td></tr>
 <p>Initialize all form objects. NOTE: Do not initiate the all forms</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L72">72</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00072">72</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="afbb8fcc4c21113c915263f4a1ca3c0c5"></a>
@@ -547,14 +515,8 @@ Additional Inherited Members</h2></td></tr>
 <p>Get output attributs</p>
 <dl class="section return"><dt>Returns</dt><dd>array </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L264">264</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $out = parent::outputAttrs();</div>
-<div class="line">        $out[<span class="stringliteral">&#39;step&#39;</span>] = <a class="code" href="../../df/de2/class_easy_view_wizard.html#a48cdb40f79cfe33dc056db2b324f321d">$this-&gt;m_CurrentStep</a>;</div>
-<div class="line">        $out[<span class="stringliteral">&#39;forms&#39;</span>] = <a class="code" href="../../db/d40/class_easy_view.html#acd0ebad1b64f708ec0d41b5b0ae7ab0e">$this-&gt;m_FormRefs</a>;</div>
-<div class="line">        <span class="keywordflow">return</span> $out;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00264">264</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a3c934047380a0debb627d77d51bb85c8"></a>
@@ -580,24 +542,19 @@ Additional Inherited Members</h2></td></tr>
 <p>Process request</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L81">81</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::processRequest();</div>
-<div class="line"></div>
-<div class="line">        $step = $this-&gt;<a class="code" href="../../df/de2/class_easy_view_wizard.html#a8c10d82ce4005a51c021f375175e117a">getCurrentStep</a>();</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// only display given step form</span></div>
-<div class="line">        $i = 1;</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;m_FormRefs as $formRef)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> ($i == $step)</div>
-<div class="line">                $formRef-&gt;m_Display = <span class="keyword">true</span>;</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">                $formRef-&gt;m_Display = <span class="keyword">false</span>;</div>
-<div class="line">            $i++;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00081">81</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/de2/class_easy_view_wizard_a3c934047380a0debb627d77d51bb85c8_cgraph.png" border="0" usemap="#df/de2/class_easy_view_wizard_a3c934047380a0debb627d77d51bb85c8_cgraph" alt=""/></div>
+<map name="df/de2/class_easy_view_wizard_a3c934047380a0debb627d77d51bb85c8_cgraph" id="df/de2/class_easy_view_wizard_a3c934047380a0debb627d77d51bb85c8_cgraph">
+<area shape="rect" id="node2" href="../../df/de2/class_easy_view_wizard.html#a8c10d82ce4005a51c021f375175e117a" title="getCurrentStep" alt="" coords="171,5,283,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1db802d93a9f0badf186a646e1cdb161"></a>
@@ -622,12 +579,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L32">32</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::readMetaData($xmlArr);</div>
-<div class="line">        $this-&gt;m_NaviMethod = isset($xmlArr[<span class="stringliteral">&quot;EASYVIEW&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAVIMETHOD&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;EASYVIEW&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAVIMETHOD&quot;</span>] :<span class="stringliteral">&#39;SwitchPage&#39;</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00032">32</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ace88bb98c1602e2b890fc3f613977fa5"></a>
@@ -652,34 +605,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L152">152</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     <span class="keywordflow">if</span>($this-&gt;m_CurrentStep){</div>
-<div class="line">      $currentStep = <a class="code" href="../../df/de2/class_easy_view_wizard.html#a48cdb40f79cfe33dc056db2b324f321d">$this-&gt;m_CurrentStep</a>;</div>
-<div class="line">     }<span class="keywordflow">else</span>{</div>
-<div class="line">         $currentStep = $this-&gt;<a class="code" href="../../df/de2/class_easy_view_wizard.html#a8c10d82ce4005a51c021f375175e117a">getCurrentStep</a>();</div>
-<div class="line">     }</div>
-<div class="line">        <span class="keywordflow">if</span> ($currentStep == $step)</div>
-<div class="line">            <span class="keywordflow">return</span>;            </div>
-<div class="line">  <span class="keywordflow">switch</span>(strtoupper($this-&gt;m_NaviMethod)){</div>
-<div class="line">   <span class="keywordflow">case</span> <span class="stringliteral">&quot;SWITCHFORM&quot;</span>:</div>
-<div class="line">    $targetForm = $this-&gt;<a class="code" href="../../df/de2/class_easy_view_wizard.html#a896ae030bd01256bab2bcd8b95ec1741">getStepName</a>($step);</div>
-<div class="line">    $currentForm = $this-&gt;<a class="code" href="../../df/de2/class_easy_view_wizard.html#a896ae030bd01256bab2bcd8b95ec1741">getStepName</a>($currentStep);</div>
-<div class="line">    $this-&gt;m_CurrentStep = $step;  </div>
-<div class="line">    $formObj = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject($currentForm);</div>
-<div class="line">    $formObj-&gt;switchForm($targetForm);</div>
-<div class="line">    <span class="keywordflow">break</span>;</div>
-<div class="line">    </div>
-<div class="line">   <span class="keywordflow">case</span> <span class="stringliteral">&quot;SWITCHPAGE&quot;</span>:</div>
-<div class="line">   <span class="keywordflow">default</span>:</div>
-<div class="line">    $currentURL = <a class="code" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96">BizSystem::getService</a>(<a class="code" href="../../d1/df2/sys__init_8php.html#a7caba3182884e1faf203c5e98b802e38">UTIL_SERVICE</a>)-&gt;getViewURL($this-&gt;m_Name);</div>
-<div class="line">          $url = <a class="code" href="../../d1/df2/sys__init_8php.html#a6d8e212843c2fc5591e2b8bcc43eabb0">APP_INDEX</a>.<span class="charliteral">&#39;/&#39;</span>.$currentURL.<span class="stringliteral">&#39;/step_&#39;</span>.$step;</div>
-<div class="line">    <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;ReDirectPage($url);</div>
-<div class="line">    <span class="keywordflow">break</span>;</div>
-<div class="line">   </div>
-<div class="line">  }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00152">152</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/de2/class_easy_view_wizard_ace88bb98c1602e2b890fc3f613977fa5_cgraph.png" border="0" usemap="#df/de2/class_easy_view_wizard_ace88bb98c1602e2b890fc3f613977fa5_cgraph" alt=""/></div>
+<map name="df/de2/class_easy_view_wizard_ace88bb98c1602e2b890fc3f613977fa5_cgraph" id="df/de2/class_easy_view_wizard_ace88bb98c1602e2b890fc3f613977fa5_cgraph">
+<area shape="rect" id="node2" href="../../df/de2/class_easy_view_wizard.html#a8c10d82ce4005a51c021f375175e117a" title="getCurrentStep" alt="" coords="169,5,281,33"/><area shape="rect" id="node3" href="../../df/de2/class_easy_view_wizard.html#a896ae030bd01256bab2bcd8b95ec1741" title="getStepName" alt="" coords="174,57,277,85"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="141,109,309,137"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="150,213,301,241"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="149,161,302,189"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="362,135,500,163"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="358,213,503,241"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a2ad6a0c00970808f725d322bec69b824"></a>
@@ -722,11 +660,8 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L201">201</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;m_FormStates[$formName][$state] = $value;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00201">201</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a14c87f47346e9868b05b6cc33d020021"></a>
@@ -753,17 +688,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d6a/interfacei_session_object.html#a3304da0964c3e2af774162fcef949527">iSessionObject</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L55">55</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_DropSession){</div>
-<div class="line">            $sessionContext-&gt;cleanObj($this-&gt;m_Name, <span class="keyword">true</span>);</div>
-<div class="line">        }<span class="keywordflow">else</span>{</div>
-<div class="line">            $sessionContext-&gt;setObjVar($this-&gt;m_Name, <span class="stringliteral">&quot;FormStates&quot;</span>, $this-&gt;m_FormStates, <span class="keyword">true</span>);</div>
-<div class="line">            $sessionContext-&gt;setObjVar($this-&gt;m_Name, <span class="stringliteral">&quot;CurrentStep&quot;</span>, $this-&gt;m_CurrentStep, <span class="keyword">true</span>);</div>
-<div class="line">        }</div>
-<div class="line">        </div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00055">55</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -785,7 +711,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00027">27</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
 
 </div>
 </div>
@@ -807,7 +733,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L29">29</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00029">29</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
 
 </div>
 </div>
@@ -829,7 +755,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L28">28</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00028">28</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
 
 </div>
 </div>
@@ -851,7 +777,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L30">30</a> of file <a class="el" href="../../">EasyViewWizard.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html#l00030">30</a> of file <a class="el" href="../../d1/d00/_easy_view_wizard_8php_source.html">EasyViewWizard.php</a>.</p>
 
 </div>
 </div>
@@ -861,7 +787,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../df/de2/class_easy_view_wizard.html">EasyViewWizard</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:19 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:50 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

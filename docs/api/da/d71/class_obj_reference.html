@@ -208,7 +208,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L25">25</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00025">25</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a4087c04354f34ea51e86290eeda161e0"></a>
 <div class="memitem">
@@ -243,38 +243,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L74">74</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;m_Name = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAME&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAME&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_Package = $bizObj-&gt;m_Package;</div>
-<div class="line">        $this-&gt;m_Description= isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DESCRIPTION&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DESCRIPTION&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_Relationship = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;RELATIONSHIP&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;RELATIONSHIP&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_Table = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TABLE&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;TABLE&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_Column = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;COLUMN&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;COLUMN&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_FieldRef = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FIELDREF&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FIELDREF&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_Column2 = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;COLUMN2&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;COLUMN2&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_FieldRef2 = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FIELDREF2&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FIELDREF2&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_CascadeDelete = (isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CASCADEDELETE&quot;</span>]) &amp;&amp; $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CASCADEDELETE&quot;</span>] == <span class="stringliteral">&quot;Y&quot;</span>);</div>
-<div class="line">        $this-&gt;m_OnDelete = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;ONDELETE&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;ONDELETE&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_OnUpdate = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;ONUPDATE&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;ONUPDATE&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_CondColumn = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CONDCOLUMN&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CONDCOLUMN&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_CondValue = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CONDVALUE&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CONDVALUE&quot;</span>] : null;</div>
-<div class="line">        $this-&gt;m_Condition = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CONDITION&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;CONDITION&quot;</span>] : null;</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_CascadeDelete) $this-&gt;m_OnDelete = <span class="stringliteral">&quot;Cascade&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_Relationship == <span class="stringliteral">&quot;M-M&quot;</span> || $this-&gt;m_Relationship == <span class="stringliteral">&quot;Self-Self&quot;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;m_XTable = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;XTABLE&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;XTABLE&quot;</span>] : null;</div>
-<div class="line">            $this-&gt;m_XColumn1 = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;XCOLUMN1&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;XCOLUMN1&quot;</span>] : null;</div>
-<div class="line">            $this-&gt;m_XColumn2 = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;XCOLUMN2&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;XCOLUMN2&quot;</span>] : null;</div>
-<div class="line">            $this-&gt;m_XKeyColumn = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;XKEYCOLUMN&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;XKEYCOLUMN&quot;</span>] : null;</div>
-<div class="line">            $this-&gt;m_XDataObj = isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;XDATAOBJ&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;XDATAOBJ&quot;</span>] : null;</div>
-<div class="line">            $this-&gt;m_XDataObj = $this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a7a34962e72564b47da11d86bfde7cf79">prefixPackage</a>($this-&gt;m_XDataObj);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">//$this-&gt;m_Association = @$xmlArr[&quot;ATTRIBUTES&quot;][&quot;ASSOCIATION&quot;];</span></div>
-<div class="line"></div>
-<div class="line">        $this-&gt;m_Name = $this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a7a34962e72564b47da11d86bfde7cf79">prefixPackage</a>($this-&gt;m_Name);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00074">74</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/d71/class_obj_reference_a4087c04354f34ea51e86290eeda161e0_cgraph.png" border="0" usemap="#da/d71/class_obj_reference_a4087c04354f34ea51e86290eeda161e0_cgraph" alt=""/></div>
+<map name="da/d71/class_obj_reference_a4087c04354f34ea51e86290eeda161e0_cgraph" id="da/d71/class_obj_reference_a4087c04354f34ea51e86290eeda161e0_cgraph">
+<area shape="rect" id="node2" href="../../db/d4b/class_meta_object.html#a7a34962e72564b47da11d86bfde7cf79" title="MetaObject\\prefixPackage" alt="" coords="144,5,322,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -288,7 +269,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L58">58</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00058">58</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -302,7 +283,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L39">39</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00039">39</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -316,7 +297,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L40">40</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00040">40</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -330,7 +311,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L62">62</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00062">62</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -344,7 +325,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L64">64</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00064">64</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -358,7 +339,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L63">63</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00063">63</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -372,7 +353,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L46">46</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00046">46</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -386,7 +367,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L47">47</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00047">47</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -400,7 +381,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L59">59</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00059">59</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -414,7 +395,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L60">60</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00060">60</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -428,7 +409,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00027">27</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -442,7 +423,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L33">33</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00033">33</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -456,7 +437,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L49">49</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00049">49</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -470,7 +451,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L50">50</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00050">50</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -484,7 +465,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L52">52</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00052">52</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -498,7 +479,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L51">51</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00051">51</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -512,7 +493,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L48">48</a> of file <a class="el" href="../../">ObjReference.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d4/df0/_obj_reference_8php_source.html#l00048">48</a> of file <a class="el" href="../../d4/df0/_obj_reference_8php_source.html">ObjReference.php</a>.</p>
 
 </div>
 </div>
@@ -522,7 +503,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../da/d71/class_obj_reference.html">ObjReference</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:24 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:22:02 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

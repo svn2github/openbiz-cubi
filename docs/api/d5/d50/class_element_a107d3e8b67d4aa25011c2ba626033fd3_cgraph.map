@@ -1,0 +1,12 @@
+<map id="renderLabel" name="renderLabel">
+<area shape="rect" id="node2" href="$d5/d50/class_element.html#a1293239f7cbd82ab23c9d14ce8d491d1" title="translateString" alt="" coords="146,31,254,59"/>
+<area shape="rect" id="node3" href="$db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="302,5,493,33"/>
+<area shape="rect" id="node4" href="$d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="370,57,425,85"/>
+<area shape="rect" id="node5" href="$d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="542,57,676,85"/>
+<area shape="rect" id="node6" href="$d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="726,57,901,85"/>
+<area shape="rect" id="node7" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1197,30,1376,58"/>
+<area shape="rect" id="node9" href="$d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="949,82,1149,110"/>
+<area shape="rect" id="node8" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1428,30,1566,58"/>
+<area shape="rect" id="node10" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1211,82,1362,110"/>
+<area shape="rect" id="node11" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1425,82,1570,110"/>
+</map>

@@ -188,7 +188,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L28">28</a> of file <a class="el" href="../../">logService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d84/log_service_8php_source.html#l00028">28</a> of file <a class="el" href="../../d5/d84/log_service_8php_source.html">logService.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a847d8d60f037d0a016aca7006cf9dec6"></a>
 <div class="memitem">
@@ -212,16 +212,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L84">84</a> of file <a class="el" href="../../">logService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;<a class="code" href="../../db/d75/classlog_service.html#a1db802d93a9f0badf186a646e1cdb161">readMetadata</a>($xmlArr);</div>
-<div class="line">        <span class="comment">//Check that logging is enabled</span></div>
-<div class="line">        <span class="keywordflow">if</span> (is_int($this-&gt;_level) == FALSE)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        $this-&gt;<a class="code" href="../../db/d75/classlog_service.html#a6bda4bc8e53ee7600fda4059785c4663">setFormatter</a>();</div>
-<div class="line">        $this-&gt;<a class="code" href="../../db/d75/classlog_service.html#a95515f551cb8e0ae27ee7df61d4e7ed0">setExtension</a>();</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d84/log_service_8php_source.html#l00084">84</a> of file <a class="el" href="../../d5/d84/log_service_8php_source.html">logService.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d75/classlog_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph.png" border="0" usemap="#db/d75/classlog_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph" alt=""/></div>
+<map name="db/d75/classlog_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph" id="db/d75/classlog_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph">
+<area shape="rect" id="node2" href="../../db/d75/classlog_service.html#a1db802d93a9f0badf186a646e1cdb161" title="readMetadata" alt="" coords="144,5,248,33"/><area shape="rect" id="node3" href="../../db/d75/classlog_service.html#a6bda4bc8e53ee7600fda4059785c4663" title="setFormatter" alt="" coords="148,57,244,85"/><area shape="rect" id="node4" href="../../db/d75/classlog_service.html#a95515f551cb8e0ae27ee7df61d4e7ed0" title="setExtension" alt="" coords="147,109,245,137"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -241,28 +244,19 @@ Additional Inherited Members</h2></td></tr>
 <p>Close a file with the correct string depending on the configured format</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L335">335</a> of file <a class="el" href="../../">logService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">//Close up the file if needed</span></div>
-<div class="line">        <span class="keywordflow">switch</span> ($this-&gt;_format)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">case</span> <span class="stringliteral">&#39;HTML&#39;</span>:</div>
-<div class="line">                $html = <span class="stringliteral">&quot;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;&quot;</span>;</div>
-<div class="line">                $file = fopen($path, <span class="charliteral">&#39;a&#39;</span>);</div>
-<div class="line">                fwrite($file, $html);</div>
-<div class="line">                fclose($file);</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> <span class="stringliteral">&#39;XML&#39;</span>:</div>
-<div class="line">                $xml = <span class="stringliteral">&quot;&lt;/log&gt;&quot;</span>;</div>
-<div class="line">                $file = fopen($path, <span class="charliteral">&#39;a&#39;</span>);</div>
-<div class="line">                fwrite($file, $xml);</div>
-<div class="line">                fclose($file);</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            <span class="keywordflow">default</span>:</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d84/log_service_8php_source.html#l00335">335</a> of file <a class="el" href="../../d5/d84/log_service_8php_source.html">logService.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d75/classlog_service_a7a4f7567dcaf9b14e2e2ca87f1605a6a_icgraph.png" border="0" usemap="#db/d75/classlog_service_a7a4f7567dcaf9b14e2e2ca87f1605a6a_icgraph" alt=""/></div>
+<map name="db/d75/classlog_service_a7a4f7567dcaf9b14e2e2ca87f1605a6a_icgraph" id="db/d75/classlog_service_a7a4f7567dcaf9b14e2e2ca87f1605a6a_icgraph">
+<area shape="rect" id="node2" href="../../db/d75/classlog_service.html#a275b92030481b514bdba2fd901ba0b2b" title="log" alt="" coords="143,5,182,33"/><area shape="rect" id="node3" href="../../db/d75/classlog_service.html#a1b14c2886b59628cefba164611574a57" title="logError" alt="" coords="128,57,197,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a275b92030481b514bdba2fd901ba0b2b"></a>
@@ -305,65 +299,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean -TRUE on success otherwise FALSE </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L119">119</a> of file <a class="el" href="../../">logService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="../../d1/df2/sys__init_8php.html#a758c150b67e476ecf77478f16b387c61">DEBUG</a> == 0 &amp;&amp; $priority == LOG_DEBUG)</div>
-<div class="line">         <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">     <span class="comment">//Adapt PHP LOG priority</span></div>
-<div class="line">        <span class="keywordflow">switch</span> ($priority)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">case</span> LOG_EMERG : <span class="comment">//  system is unusable</span></div>
-<div class="line">            <span class="keywordflow">case</span> LOG_ALERT : <span class="comment">// action must be taken immediately</span></div>
-<div class="line">            <span class="keywordflow">case</span> LOG_CRIT : <span class="comment">// critical conditions</span></div>
-<div class="line">                $level = 2;</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> LOG_ERR : <span class="comment">// error conditions</span></div>
-<div class="line">                $level = 3;</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> LOG_WARNING : <span class="comment">// warning conditions</span></div>
-<div class="line">                $level = 4;</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> LOG_NOTICE : <span class="comment">// normal, but significant, condition</span></div>
-<div class="line">            <span class="keywordflow">case</span> LOG_INFO : <span class="comment">// informational message</span></div>
-<div class="line">            <span class="keywordflow">case</span> LOG_DEBUG : <span class="comment">// debug-level message</span></div>
-<div class="line">                $level = 7;</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">//echo &quot;log levels: &quot;.LOG_EMERG.&quot;, &quot;.LOG_ALERT.&quot;, &quot;.LOG_CRIT.&quot;, &quot;.LOG_ERR.&quot;, &quot;.LOG_WARNING.&quot;, &quot;.LOG_NOTICE.&quot;, &quot;.LOG_INFO.&quot;, &quot;.LOG_DEBUG.&quot;&lt;br&gt;&quot;;</span></div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;_level == FALSE)</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">        <span class="comment">//Get the file path</span></div>
-<div class="line">        $this-&gt;_level = $level;</div>
-<div class="line">        $path = $this-&gt;_getPath($file_name);</div>
-<div class="line">        <span class="keywordflow">if</span>(!is_file($path))</div>
-<div class="line">        {</div>
-<div class="line">         @touch($path);</div>
-<div class="line">         @chmod($path,0777);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span> (!is_writable($path))</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;        </div>
-<div class="line">        $this-&gt;<a class="code" href="../../db/d75/classlog_service.html#a6e340901524c28dceca022257417ba7a">prepFile</a>($path);</div>
-<div class="line">        <span class="comment">//Create the log writer object</span></div>
-<div class="line">        $writer = <span class="keyword">new</span> Zend_Log_Writer_Stream($path);</div>
-<div class="line">        $writer-&gt;setFormatter($this-&gt;_formatter);</div>
-<div class="line">        <span class="comment">//Instantiate logging object</span></div>
-<div class="line">        $logger = <span class="keyword">new</span> Zend_Log($writer);</div>
-<div class="line">        <span class="comment">//Filter log entries to those allowed by configuration</span></div>
-<div class="line">        $filter = <span class="keyword">new</span> Zend_Log_Filter_Priority($this-&gt;_level);</div>
-<div class="line">        $logger-&gt;addFilter($filter);</div>
-<div class="line"></div>
-<div class="line">        $logger-&gt;setEventItem(<span class="stringliteral">&#39;back_trace&#39;</span>, <span class="stringliteral">&#39;n/a&#39;</span>);</div>
-<div class="line">        $logger-&gt;setEventItem(<span class="stringliteral">&#39;package&#39;</span>, $package);</div>
-<div class="line">        $logger-&gt;setEventItem(<span class="stringliteral">&#39;date&#39;</span>, date(<span class="stringliteral">&quot;m/d/Y&quot;</span>));</div>
-<div class="line">        $logger-&gt;setEventItem(<span class="stringliteral">&#39;time&#39;</span>, date(<span class="stringliteral">&quot;H:i:s&quot;</span>));</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">//Write Log Entry</span></div>
-<div class="line">        $logger-&gt;log($message, $level);</div>
-<div class="line">        $this-&gt;<a class="code" href="../../db/d75/classlog_service.html#a7a4f7567dcaf9b14e2e2ca87f1605a6a">closeFile</a>($path);</div>
-<div class="line">        <span class="keywordflow">return</span> TRUE;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d84/log_service_8php_source.html#l00119">119</a> of file <a class="el" href="../../d5/d84/log_service_8php_source.html">logService.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d75/classlog_service_a275b92030481b514bdba2fd901ba0b2b_cgraph.png" border="0" usemap="#db/d75/classlog_service_a275b92030481b514bdba2fd901ba0b2b_cgraph" alt=""/></div>
+<map name="db/d75/classlog_service_a275b92030481b514bdba2fd901ba0b2b_cgraph" id="db/d75/classlog_service_a275b92030481b514bdba2fd901ba0b2b_cgraph">
+<area shape="rect" id="node2" href="../../db/d75/classlog_service.html#a6e340901524c28dceca022257417ba7a" title="prepFile" alt="" coords="96,5,165,33"/><area shape="rect" id="node3" href="../../db/d75/classlog_service.html#a7a4f7567dcaf9b14e2e2ca87f1605a6a" title="closeFile" alt="" coords="94,57,168,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1b14c2886b59628cefba164611574a57"></a>
@@ -420,68 +368,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean -TRUE on success otherwise FALSE </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L189">189</a> of file <a class="el" href="../../">logService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">//Adapt PHP Errors</span></div>
-<div class="line">        <span class="keywordflow">switch</span> ($level)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">case</span> 8:          <span class="comment">// E_NOTICE</span></div>
-<div class="line">            <span class="keywordflow">case</span> 1024:       <span class="comment">// E_USER_NOTICE</span></div>
-<div class="line">                $level = 4;</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">case</span> 2048:       <span class="comment">//E_STRICT</span></div>
-<div class="line">            <span class="keywordflow">case</span> 8192:       <span class="comment">//E_DEPRICIATED</span></div>
-<div class="line">            <span class="keywordflow">case</span> 16384:      <span class="comment">//E_DEPRICIATED</span></div>
-<div class="line">                $level = 5;</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">case</span> 2:          <span class="comment">//E_WARNING</span></div>
-<div class="line">            <span class="keywordflow">case</span> 512:        <span class="comment">//E_USER_WARNING</span></div>
-<div class="line">                $level = 3;</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">case</span> 256:</div>
-<div class="line">                $level = 2;</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            </div>
-<div class="line">            <span class="keywordflow">default</span>:</div>
-<div class="line">                $level = 2;</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;_level == FALSE)</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">        <span class="comment">//Get the file path</span></div>
-<div class="line">        $this-&gt;_level = $level;</div>
-<div class="line">        $path = $this-&gt;_getPath($fileName);</div>
-<div class="line">        <span class="keywordflow">if</span> (!is_writable($path))</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        $this-&gt;<a class="code" href="../../db/d75/classlog_service.html#a6e340901524c28dceca022257417ba7a">prepFile</a>($path);</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">//Create the log writer object</span></div>
-<div class="line">        $writer = <span class="keyword">new</span> Zend_Log_Writer_Stream($path);</div>
-<div class="line">        $writer-&gt;setFormatter($this-&gt;_formatter);</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">//Instantiate logging object</span></div>
-<div class="line">        $logger = <span class="keyword">new</span> Zend_Log($writer);</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">//Filter log entries to those allowed by configuration</span></div>
-<div class="line">        $filter = <span class="keyword">new</span> Zend_Log_Filter_Priority($this-&gt;_level);</div>
-<div class="line">        $logger-&gt;addFilter($filter);</div>
-<div class="line">        <span class="comment">//Set additional information about the class and function that called the log</span></div>
-<div class="line"></div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// Add custom elements to default log package</span></div>
-<div class="line">        $logger-&gt;setEventItem(<span class="stringliteral">&#39;back_trace&#39;</span>, $backTrace);</div>
-<div class="line">        $logger-&gt;setEventItem(<span class="stringliteral">&#39;package&#39;</span>, $package);</div>
-<div class="line">        $logger-&gt;setEventItem(<span class="stringliteral">&#39;date&#39;</span>, date(<span class="stringliteral">&quot;m/d/Y&quot;</span>));</div>
-<div class="line">        $logger-&gt;setEventItem(<span class="stringliteral">&#39;time&#39;</span>, date(<span class="stringliteral">&quot;H:i:s&quot;</span>));</div>
-<div class="line">        <span class="comment">//Write Log Entry</span></div>
-<div class="line">        $logger-&gt;log($message, $level);</div>
-<div class="line">        $this-&gt;<a class="code" href="../../db/d75/classlog_service.html#a7a4f7567dcaf9b14e2e2ca87f1605a6a">closeFile</a>($path);</div>
-<div class="line">        <span class="keywordflow">return</span> TRUE;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d84/log_service_8php_source.html#l00189">189</a> of file <a class="el" href="../../d5/d84/log_service_8php_source.html">logService.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d75/classlog_service_a1b14c2886b59628cefba164611574a57_cgraph.png" border="0" usemap="#db/d75/classlog_service_a1b14c2886b59628cefba164611574a57_cgraph" alt=""/></div>
+<map name="db/d75/classlog_service_a1b14c2886b59628cefba164611574a57_cgraph" id="db/d75/classlog_service_a1b14c2886b59628cefba164611574a57_cgraph">
+<area shape="rect" id="node2" href="../../db/d75/classlog_service.html#a6e340901524c28dceca022257417ba7a" title="prepFile" alt="" coords="125,5,195,33"/><area shape="rect" id="node3" href="../../db/d75/classlog_service.html#a7a4f7567dcaf9b14e2e2ca87f1605a6a" title="closeFile" alt="" coords="123,57,197,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a6e340901524c28dceca022257417ba7a"></a>
@@ -500,34 +399,19 @@ Additional Inherited Members</h2></td></tr>
 <p>Either open a new file with the correct string or remove a previous closing string</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L302">302</a> of file <a class="el" href="../../">logService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">//Check for existing file and HTML format</span></div>
-<div class="line">        <span class="keywordflow">if</span> (file_exists($path) and $this-&gt;_format == <span class="stringliteral">&#39;HTML&#39;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $file = file($path);</div>
-<div class="line">            array_pop($file);</div>
-<div class="line">            file_put_contents($path, $file);</div>
-<div class="line">        } elseif ($this-&gt;_format == <span class="stringliteral">&#39;HTML&#39;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $html = <span class="stringliteral">&#39;&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;table border=&quot;1&quot;&gt;&#39;</span> . PHP_EOL;</div>
-<div class="line">            $file = fopen($path, <span class="charliteral">&#39;a&#39;</span>);</div>
-<div class="line">            fwrite($file, $html);</div>
-<div class="line">            fclose($file);</div>
-<div class="line">        } elseif (file_exists($path) and $this-&gt;_format == <span class="stringliteral">&#39;XML&#39;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $file = file($path);</div>
-<div class="line">            array_pop($file);</div>
-<div class="line">            file_put_contents($path, $file);</div>
-<div class="line">        } elseif ($this-&gt;_format == <span class="stringliteral">&#39;XML&#39;</span>)</div>
-<div class="line">        {</div>
-<div class="line">            $xml = <span class="stringliteral">&#39;&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;&lt;log&gt;&#39;</span> . PHP_EOL;</div>
-<div class="line">            $file = fopen($path, <span class="charliteral">&#39;a&#39;</span>);</div>
-<div class="line">            fwrite($file, $xml);</div>
-<div class="line">            fclose($file);</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d84/log_service_8php_source.html#l00302">302</a> of file <a class="el" href="../../d5/d84/log_service_8php_source.html">logService.php</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d75/classlog_service_a6e340901524c28dceca022257417ba7a_icgraph.png" border="0" usemap="#db/d75/classlog_service_a6e340901524c28dceca022257417ba7a_icgraph" alt=""/></div>
+<map name="db/d75/classlog_service_a6e340901524c28dceca022257417ba7a_icgraph" id="db/d75/classlog_service_a6e340901524c28dceca022257417ba7a_icgraph">
+<area shape="rect" id="node2" href="../../db/d75/classlog_service.html#a275b92030481b514bdba2fd901ba0b2b" title="log" alt="" coords="138,5,177,33"/><area shape="rect" id="node3" href="../../db/d75/classlog_service.html#a1b14c2886b59628cefba164611574a57" title="logError" alt="" coords="123,57,192,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1db802d93a9f0badf186a646e1cdb161"></a>
@@ -560,16 +444,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L100">100</a> of file <a class="el" href="../../">logService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::readMetaData($xmlArr);</div>
-<div class="line">        $level = strtoupper($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;LOG_CONFIG&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;LEVEL&quot;</span>]);</div>
-<div class="line">        $this-&gt;_level = (int) $level;</div>
-<div class="line">        $this-&gt;_format = strtoupper($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;LOG_CONFIG&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;FORMAT&quot;</span>]);</div>
-<div class="line">        $this-&gt;_org = strtoupper($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;LOG_CONFIG&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;ORG&quot;</span>]);</div>
-<div class="line">        $this-&gt;_daystolive = $xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;LOG_CONFIG&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DAYSTOLIVE&quot;</span>]?strtoupper($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;LOG_CONFIG&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;DAYSTOLIVE&quot;</span>]):<span class="stringliteral">&#39;0&#39;</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d84/log_service_8php_source.html#l00100">100</a> of file <a class="el" href="../../d5/d84/log_service_8php_source.html">logService.php</a>.</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d75/classlog_service_a1db802d93a9f0badf186a646e1cdb161_icgraph.png" border="0" usemap="#db/d75/classlog_service_a1db802d93a9f0badf186a646e1cdb161_icgraph" alt=""/></div>
+<map name="db/d75/classlog_service_a1db802d93a9f0badf186a646e1cdb161_icgraph" id="db/d75/classlog_service_a1db802d93a9f0badf186a646e1cdb161_icgraph">
+<area shape="rect" id="node2" href="../../db/d75/classlog_service.html#a847d8d60f037d0a016aca7006cf9dec6" title="__construct" alt="" coords="158,5,248,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a95515f551cb8e0ae27ee7df61d4e7ed0"></a>
@@ -587,23 +474,19 @@ Additional Inherited Members</h2></td></tr>
 <p>Set the extension based on the type of format selected in app.inc</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L281">281</a> of file <a class="el" href="../../">logService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">switch</span> ($this-&gt;_format)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">case</span> <span class="stringliteral">&#39;HTML&#39;</span>:</div>
-<div class="line">                $this-&gt;_extension = <span class="stringliteral">&#39;.html&#39;</span>;</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> <span class="stringliteral">&#39;XML&#39;</span>:</div>
-<div class="line">                $this-&gt;_extension = <span class="stringliteral">&#39;.xml&#39;</span>;</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> <span class="stringliteral">&#39;CSV&#39;</span>:</div>
-<div class="line">            <span class="keywordflow">default</span>:</div>
-<div class="line">                $this-&gt;_extension = <span class="stringliteral">&#39;.log&#39;</span>;</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d84/log_service_8php_source.html#l00281">281</a> of file <a class="el" href="../../d5/d84/log_service_8php_source.html">logService.php</a>.</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d75/classlog_service_a95515f551cb8e0ae27ee7df61d4e7ed0_icgraph.png" border="0" usemap="#db/d75/classlog_service_a95515f551cb8e0ae27ee7df61d4e7ed0_icgraph" alt=""/></div>
+<map name="db/d75/classlog_service_a95515f551cb8e0ae27ee7df61d4e7ed0_icgraph" id="db/d75/classlog_service_a95515f551cb8e0ae27ee7df61d4e7ed0_icgraph">
+<area shape="rect" id="node2" href="../../db/d75/classlog_service.html#a847d8d60f037d0a016aca7006cf9dec6" title="__construct" alt="" coords="152,5,242,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a6bda4bc8e53ee7600fda4059785c4663"></a>
@@ -621,27 +504,19 @@ Additional Inherited Members</h2></td></tr>
 <p>Set the formatter based on the type of format selected in app.inc</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L256">256</a> of file <a class="el" href="../../">logService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">switch</span> ($this-&gt;_format)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">case</span> <span class="stringliteral">&#39;HTML&#39;</span>:</div>
-<div class="line">            <span class="comment">//HTML Format</span></div>
-<div class="line">                $this-&gt;_formatter = <span class="keyword">new</span> Zend_Log_Formatter_Simple(<span class="stringliteral">&#39;&lt;tr&gt;&lt;td&gt;%date%&lt;/td&gt; &lt;td&gt;%time%&lt;/td&gt; &lt;td&gt;%priorityName%&lt;/td&gt; &lt;td&gt;%package%&lt;/td&gt; &lt;td&gt;%message%&lt;/td&gt; &lt;td&gt;%back_trace%&lt;/td&gt; &lt;/tr&gt;&#39;</span> . PHP_EOL);</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> <span class="stringliteral">&#39;XML&#39;</span>:</div>
-<div class="line">            <span class="comment">//XML Format</span></div>
-<div class="line">                require_once <span class="stringliteral">&#39;Zend/Log/Formatter/Xml.php&#39;</span>;</div>
-<div class="line">                $this-&gt;_formatter = <span class="keyword">new</span> Zend_Log_Formatter_Xml();</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> <span class="stringliteral">&#39;CSV&#39;</span>:</div>
-<div class="line">            <span class="keywordflow">default</span>:</div>
-<div class="line">            <span class="comment">//CSV Format</span></div>
-<div class="line">                $this-&gt;_formatter = <span class="keyword">new</span> Zend_Log_Formatter_Simple(<span class="stringliteral">&quot;&#39;%date%&#39;,&#39;%time%&#39;,&#39;%priorityName%&#39;,&#39;%package%&#39;,&#39;%message%&#39;,&#39;%back_trace%&#39;&quot;</span> . PHP_EOL);</div>
-<div class="line">                <span class="keywordflow">break</span>;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d84/log_service_8php_source.html#l00256">256</a> of file <a class="el" href="../../d5/d84/log_service_8php_source.html">logService.php</a>.</p>
+
+<p><div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d75/classlog_service_a6bda4bc8e53ee7600fda4059785c4663_icgraph.png" border="0" usemap="#db/d75/classlog_service_a6bda4bc8e53ee7600fda4059785c4663_icgraph" alt=""/></div>
+<map name="db/d75/classlog_service_a6bda4bc8e53ee7600fda4059785c4663_icgraph" id="db/d75/classlog_service_a6bda4bc8e53ee7600fda4059785c4663_icgraph">
+<area shape="rect" id="node2" href="../../db/d75/classlog_service.html#a847d8d60f037d0a016aca7006cf9dec6" title="__construct" alt="" coords="152,5,242,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -650,7 +525,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d75/classlog_service.html">logService</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:23 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:22:01 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

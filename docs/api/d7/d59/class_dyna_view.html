@@ -245,7 +245,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L26">26</a> of file <a class="el" href="../../">DynaView.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/d40/_dyna_view_8php_source.html#l00026">26</a> of file <a class="el" href="../../d6/d40/_dyna_view_8php_source.html">DynaView.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a847d8d60f037d0a016aca7006cf9dec6"></a>
 <div class="memitem">
@@ -269,13 +269,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L34">34</a> of file <a class="el" href="../../">DynaView.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::__construct($xmlArr);</div>
-<div class="line"></div>
-<div class="line">        $this-&gt;<a class="code" href="../../d7/d59/class_dyna_view.html#ac9103f0e2460e6104556db591ced4332">processURL</a>();</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d6/d40/_dyna_view_8php_source.html#l00034">34</a> of file <a class="el" href="../../d6/d40/_dyna_view_8php_source.html">DynaView.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d7/d59/class_dyna_view_a847d8d60f037d0a016aca7006cf9dec6_cgraph.png" border="0" usemap="#d7/d59/class_dyna_view_a847d8d60f037d0a016aca7006cf9dec6_cgraph" alt=""/></div>
+<map name="d7/d59/class_dyna_view_a847d8d60f037d0a016aca7006cf9dec6_cgraph" id="d7/d59/class_dyna_view_a847d8d60f037d0a016aca7006cf9dec6_cgraph">
+<area shape="rect" id="node2" href="../../d7/d59/class_dyna_view.html#ac9103f0e2460e6104556db591ced4332" title="processURL" alt="" coords="145,57,239,85"/><area shape="rect" id="node3" href="../../db/d40/class_easy_view.html#a8a480e6598e952dc7c2cdbe258cdd8d1" title="EasyView\\isInFormRefLibs" alt="" coords="288,5,469,33"/><area shape="rect" id="node4" href="../../db/d4b/class_meta_object.html#a7a34962e72564b47da11d86bfde7cf79" title="MetaObject\\prefixPackage" alt="" coords="290,57,468,85"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="295,109,463,137"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="518,109,656,137"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -302,58 +308,30 @@ Additional Inherited Members</h2></td></tr>
 <p>Process URL to get the form param and add the form in the FormRefs</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L46">46</a> of file <a class="el" href="../../">DynaView.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">// if url has form=...</span></div>
-<div class="line">        $paramForm = isset($_GET[<span class="stringliteral">&#39;form&#39;</span>]) ? $_GET[<span class="stringliteral">&#39;form&#39;</span>] : null;</div>
-<div class="line">        $paramCForm = isset($_GET[<span class="stringliteral">&#39;cform&#39;</span>]) ? $_GET[<span class="stringliteral">&#39;cform&#39;</span>] : null;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> (!$paramForm)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// add the form in FormRefs</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($paramForm)</div>
-<div class="line">        {</div>
-<div class="line">         <span class="keywordflow">if</span>($this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a8a480e6598e952dc7c2cdbe258cdd8d1">isInFormRefLibs</a>($paramForm))</div>
-<div class="line">          {</div>
-<div class="line">             $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAME&quot;</span>] = $paramForm;</div>
-<div class="line">             $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;SUBFORMS&quot;</span>] = $paramCForm ? $paramCForm : <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">             $formRef = <span class="keyword">new</span> <a class="code" href="../../db/d96/class_form_reference.html">FormReference</a>($xmlArr);</div>
-<div class="line">             $this-&gt;m_FormRefs-&gt;set($paramForm, $formRef);</div>
-<div class="line">             <span class="keywordflow">if</span> ($paramCForm)</div>
-<div class="line">             {</div>
-<div class="line">              <span class="keywordflow">if</span>($this-&gt;<a class="code" href="../../db/d40/class_easy_view.html#a8a480e6598e952dc7c2cdbe258cdd8d1">isInFormRefLibs</a>($paramCForm))</div>
-<div class="line">              {</div>
-<div class="line">                  $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;NAME&quot;</span>] = $paramCForm;</div>
-<div class="line">                  $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;SUBFORMS&quot;</span>] = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">                  $cformRef = <span class="keyword">new</span> <a class="code" href="../../db/d96/class_form_reference.html">FormReference</a>($xmlArr);</div>
-<div class="line">                  $this-&gt;m_FormRefs-&gt;set($paramCForm, $cformRef);</div>
-<div class="line">              }</div>
-<div class="line">             }</div>
-<div class="line">         }</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// check url arg as fld:name=val</span></div>
-<div class="line">        $getKeys = array_keys($_GET);</div>
-<div class="line">        $paramFields = null;</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($getKeys as $key)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> (substr($key, 0, 4) == <span class="stringliteral">&quot;fld:&quot;</span>)</div>
-<div class="line">            {</div>
-<div class="line">                $fieldName = substr($key, 4);</div>
-<div class="line">                $fieldValue = $_GET[$key];</div>
-<div class="line">                $paramFields[$fieldName] = $fieldValue;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> (!$paramFields)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line"></div>
-<div class="line">        $paramForm = $this-&gt;<a class="code" href="../../db/d4b/class_meta_object.html#a7a34962e72564b47da11d86bfde7cf79">prefixPackage</a>($paramForm);</div>
-<div class="line">        $formObj = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject($paramForm);</div>
-<div class="line">        $formObj-&gt;setRequestParams($paramFields);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d6/d40/_dyna_view_8php_source.html#l00046">46</a> of file <a class="el" href="../../d6/d40/_dyna_view_8php_source.html">DynaView.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d7/d59/class_dyna_view_ac9103f0e2460e6104556db591ced4332_cgraph.png" border="0" usemap="#d7/d59/class_dyna_view_ac9103f0e2460e6104556db591ced4332_cgraph" alt=""/></div>
+<map name="d7/d59/class_dyna_view_ac9103f0e2460e6104556db591ced4332_cgraph" id="d7/d59/class_dyna_view_ac9103f0e2460e6104556db591ced4332_cgraph">
+<area shape="rect" id="node2" href="../../db/d40/class_easy_view.html#a8a480e6598e952dc7c2cdbe258cdd8d1" title="EasyView\\isInFormRefLibs" alt="" coords="150,5,330,33"/><area shape="rect" id="node3" href="../../db/d4b/class_meta_object.html#a7a34962e72564b47da11d86bfde7cf79" title="MetaObject\\prefixPackage" alt="" coords="151,57,329,85"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="156,109,324,137"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="379,109,517,137"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d7/d59/class_dyna_view_ac9103f0e2460e6104556db591ced4332_icgraph.png" border="0" usemap="#d7/d59/class_dyna_view_ac9103f0e2460e6104556db591ced4332_icgraph" alt=""/></div>
+<map name="d7/d59/class_dyna_view_ac9103f0e2460e6104556db591ced4332_icgraph" id="d7/d59/class_dyna_view_ac9103f0e2460e6104556db591ced4332_icgraph">
+<area shape="rect" id="node2" href="../../d7/d59/class_dyna_view.html#a847d8d60f037d0a016aca7006cf9dec6" title="__construct" alt="" coords="150,5,240,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -362,7 +340,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d7/d59/class_dyna_view.html">DynaView</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:18 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:48 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

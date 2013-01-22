@@ -359,7 +359,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">BizDataTree.php</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d49/_biz_data_tree_8php_source.html#l00027">27</a> of file <a class="el" href="../../da/d49/_biz_data_tree_8php_source.html">BizDataTree.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a389a4f4f663f435f55858948da2c7ca9"></a>
 <div class="memitem">
@@ -394,23 +394,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>&lt;type&gt; </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L84">84</a> of file <a class="el" href="../../">BizDataTree.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $recordList = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21">directFetch</a>($nodeSearchRule);</div>
-<div class="line">        <span class="keywordflow">if</span>(<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755">count</a>($recordList)&gt;=1)</div>
-<div class="line">        {</div>
-<div class="line"></div>
-<div class="line">            <span class="keywordflow">if</span>($recordList[0][<span class="stringliteral">&#39;PId&#39;</span>]!=<span class="charliteral">&#39;0&#39;</span>)</div>
-<div class="line">            {</div>
-<div class="line">                $searchRule = <span class="stringliteral">&quot;[Id]=&#39;&quot;</span>.$recordList[0][<span class="stringliteral">&#39;PId&#39;</span>].<span class="stringliteral">&quot;&#39;&quot;</span>;</div>
-<div class="line">                $this-&gt;<a class="code" href="../../d6/d21/class_biz_data_tree.html#a389a4f4f663f435f55858948da2c7ca9">fetchNodePath</a>($searchRule, $pathArray);</div>
-<div class="line">            }</div>
-<div class="line">            $nodes = <span class="keyword">new</span> <a class="code" href="../../d3/d07/class_node_record.html">NodeRecord</a>($recordList[0]);</div>
-<div class="line">            array_push($pathArray,$nodes);</div>
-<div class="line">            <span class="keywordflow">return</span> $pathArray;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../da/d49/_biz_data_tree_8php_source.html#l00084">84</a> of file <a class="el" href="../../da/d49/_biz_data_tree_8php_source.html">BizDataTree.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d21/class_biz_data_tree_a389a4f4f663f435f55858948da2c7ca9_cgraph.png" border="0" usemap="#d6/d21/class_biz_data_tree_a389a4f4f663f435f55858948da2c7ca9_cgraph" alt=""/></div>
+<map name="d6/d21/class_biz_data_tree_a389a4f4f663f435f55858948da2c7ca9_cgraph" id="d6/d21/class_biz_data_tree_a389a4f4f663f435f55858948da2c7ca9_cgraph">
+<area shape="rect" id="node2" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="164,220,351,248"/><area shape="rect" id="node13" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite\\count" alt="" coords="619,239,773,267"/><area shape="rect" id="node3" href="../../d7/d32/class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract\l\\clearSearchRule" alt="" coords="406,110,551,154"/><area shape="rect" id="node4" href="../../d7/d32/class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract\l\\setSearchRule" alt="" coords="406,178,551,222"/><area shape="rect" id="node5" href="../../d7/d32/class_biz_data_obj___abstract.html#aa70182035e20efcd63a8bd3cb36c5c92" title="BizDataObj_Abstract\l\\clearSortRule" alt="" coords="406,246,551,290"/><area shape="rect" id="node6" href="../../d7/d32/class_biz_data_obj___abstract.html#ad9767fc4b371a704f36c9408cd92bfab" title="BizDataObj_Abstract\l\\setSortRule" alt="" coords="406,314,551,358"/><area shape="rect" id="node7" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="405,434,553,478"/><area shape="rect" id="node26" href="../../dc/d2b/class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="BizDataObj_Lite\\_fetch\l_record" alt="" coords="400,42,558,86"/><area shape="rect" id="node8" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="865,283,1010,327"/><area shape="rect" id="node11" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="834,363,1040,391"/><area shape="rect" id="node14" href="../../d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5" title="QueryStringParam\\getBind\lValues" alt="" coords="606,583,786,627"/><area shape="rect" id="node15" href="../../d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2" title="QueryStringParam\\getBind\lValueString" alt="" coords="606,343,786,387"/><area shape="rect" id="node16" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1784,531,1936,559"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1570,616,1676,644"/><area shape="rect" id="node19" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="623,463,769,507"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="1302,318,1472,346"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="2002,391,2140,419"/><area shape="rect" id="node12" href="../../d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="1088,355,1250,399"/><area shape="rect" id="node17" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1998,531,2143,559"/><area shape="rect" id="node20" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="910,475,965,503"/><area shape="rect" id="node25" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="842,423,1033,451"/><area shape="rect" id="node21" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1102,475,1236,503"/><area shape="rect" id="node22" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1299,475,1474,503"/><area shape="rect" id="node23" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1770,426,1950,454"/><area shape="rect" id="node24" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1523,478,1723,506"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="abed09406b8b4ab1618c60375ca26c840"></a>
@@ -445,36 +441,19 @@ Additional Inherited Members</h2></td></tr>
 <p>Fetch records in tree structure</p>
 <dl class="section return"><dt>Returns</dt><dd>&lt;type&gt; </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L47">47</a> of file <a class="el" href="../../">BizDataTree.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;m_Depth = $depth;</div>
-<div class="line">        $this-&gt;m_globalSearchRule = $globalSearchRule;</div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// query on given search rule</span></div>
-<div class="line">        $searchRule = <span class="stringliteral">&quot;(&quot;</span> . $rootSearchRule . <span class="stringliteral">&quot;)&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">if</span> ($globalSearchRule!=<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line">            $searchRule .= <span class="stringliteral">&quot; AND (&quot;</span> . $globalSearchRule . <span class="stringliteral">&quot;)&quot;</span>;</div>
-<div class="line">        $recordList = $this-&gt;<a class="code" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21">directFetch</a>($searchRule);</div>
-<div class="line">        <span class="keywordflow">if</span> (!$recordList)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;m_RootNodes = array();</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($recordList as $rec)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;m_RootNodes[] = <span class="keyword">new</span> <a class="code" href="../../d3/d07/class_node_record.html">NodeRecord</a>($rec);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_Depth &lt;= 1)</div>
-<div class="line">            <span class="keywordflow">return</span> <a class="code" href="../../d6/d21/class_biz_data_tree.html#a174d14a31de6b15880c5c1bf9817a382">$this-&gt;m_RootNodes</a>;</div>
-<div class="line">        <span class="keywordflow">if</span>(is_array($this-&gt;m_RootNodes)){</div>
-<div class="line">         <span class="keywordflow">foreach</span> ($this-&gt;m_RootNodes as $node)</div>
-<div class="line">         {</div>
-<div class="line">             $this-&gt;_getChildrenNodes($node, 1);</div>
-<div class="line">         }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <a class="code" href="../../d6/d21/class_biz_data_tree.html#a174d14a31de6b15880c5c1bf9817a382">$this-&gt;m_RootNodes</a>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../da/d49/_biz_data_tree_8php_source.html#l00047">47</a> of file <a class="el" href="../../da/d49/_biz_data_tree_8php_source.html">BizDataTree.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d21/class_biz_data_tree_abed09406b8b4ab1618c60375ca26c840_cgraph.png" border="0" usemap="#d6/d21/class_biz_data_tree_abed09406b8b4ab1618c60375ca26c840_cgraph" alt=""/></div>
+<map name="d6/d21/class_biz_data_tree_abed09406b8b4ab1618c60375ca26c840_cgraph" id="d6/d21/class_biz_data_tree_abed09406b8b4ab1618c60375ca26c840_cgraph">
+<area shape="rect" id="node2" href="../../dc/d2b/class_biz_data_obj___lite.html#a76dc543332df35530951dfd060fe1b21" title="BizDataObj_Lite\\directFetch" alt="" coords="132,217,319,245"/><area shape="rect" id="node3" href="../../d7/d32/class_biz_data_obj___abstract.html#aa90d598c9a75ae1f9e326e48c31eb370" title="BizDataObj_Abstract\l\\clearSearchRule" alt="" coords="374,5,519,49"/><area shape="rect" id="node4" href="../../d7/d32/class_biz_data_obj___abstract.html#a0ff0005acab3ee4cd3b4e6fe96aa432d" title="BizDataObj_Abstract\l\\setSearchRule" alt="" coords="374,73,519,117"/><area shape="rect" id="node5" href="../../d7/d32/class_biz_data_obj___abstract.html#aa70182035e20efcd63a8bd3cb36c5c92" title="BizDataObj_Abstract\l\\clearSortRule" alt="" coords="374,141,519,185"/><area shape="rect" id="node6" href="../../d7/d32/class_biz_data_obj___abstract.html#ad9767fc4b371a704f36c9408cd92bfab" title="BizDataObj_Abstract\l\\setSortRule" alt="" coords="374,209,519,253"/><area shape="rect" id="node7" href="../../dc/d2b/class_biz_data_obj___lite.html#a1ef5a759812a2c480fc69f31fc4f6898" title="BizDataObj_Lite\\_run\l_search" alt="" coords="373,329,521,373"/><area shape="rect" id="node26" href="../../dc/d2b/class_biz_data_obj___lite.html#aa11b2fe08f52bdb3646d99d318e2bd9b" title="BizDataObj_Lite\\_fetch\l_record" alt="" coords="368,397,526,441"/><area shape="rect" id="node13" href="../../dc/d2b/class_biz_data_obj___lite.html#ac751e87b3d4c4bf2feb03bee8b092755" title="BizDataObj_Lite\\count" alt="" coords="587,225,741,253"/><area shape="rect" id="node8" href="../../d7/d32/class_biz_data_obj___abstract.html#aaf4d30308675d2626c88842911848eed" title="BizDataObj_Abstract\l\\getDBConnection" alt="" coords="833,209,978,253"/><area shape="rect" id="node11" href="../../dc/d2b/class_biz_data_obj___lite.html#afbc21279ee9601fe5bf21700f5245f80" title="BizDataObj_Lite\\getSQLHelper" alt="" coords="802,277,1008,305"/><area shape="rect" id="node14" href="../../d1/d2c/class_query_string_param.html#a5f5178ba6a939066124770d70cf1bef5" title="QueryStringParam\\getBind\lValues" alt="" coords="574,397,754,441"/><area shape="rect" id="node15" href="../../d1/d2c/class_query_string_param.html#a1c4ee4523515decff2d7e7a539e18bd2" title="QueryStringParam\\getBind\lValueString" alt="" coords="574,517,754,561"/><area shape="rect" id="node16" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1752,465,1904,493"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#adb0b456d79a64e00937a2832d4bab0d7" title="BizSystem\\log" alt="" coords="1538,550,1644,578"/><area shape="rect" id="node19" href="../../d7/d32/class_biz_data_obj___abstract.html#accd792fba6dc91e621a7473a9acf38ff" title="BizDataObj_Abstract\l\\getMessage" alt="" coords="591,329,737,373"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a8f2d352158e1605a7121780c060eb28d" title="BizSystem\\dbConnection" alt="" coords="1270,227,1440,255"/><area shape="rect" id="node10" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1970,281,2108,309"/><area shape="rect" id="node12" href="../../d0/d58/class_biz_data_obj___s_q_l_helper.html#a0deb004950b8dc4f51836316fd19c111" title="BizDataObj_SQLHelper\l\\instance" alt="" coords="1056,269,1218,313"/><area shape="rect" id="node17" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1966,465,2111,493"/><area shape="rect" id="node20" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="878,337,933,365"/><area shape="rect" id="node25" href="../../db/d4b/class_meta_object.html#a76beb20a7208694e1d755be0d1bf2d7e" title="MetaObject\\getModuleName" alt="" coords="810,389,1001,417"/><area shape="rect" id="node21" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="1070,337,1204,365"/><area shape="rect" id="node22" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="1267,337,1442,365"/><area shape="rect" id="node23" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1738,311,1918,339"/><area shape="rect" id="node24" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="1491,363,1691,391"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -496,7 +475,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L34">34</a> of file <a class="el" href="../../">BizDataTree.php</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d49/_biz_data_tree_8php_source.html#l00034">34</a> of file <a class="el" href="../../da/d49/_biz_data_tree_8php_source.html">BizDataTree.php</a>.</p>
 
 </div>
 </div>
@@ -518,7 +497,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L40">40</a> of file <a class="el" href="../../">BizDataTree.php</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d49/_biz_data_tree_8php_source.html#l00040">40</a> of file <a class="el" href="../../da/d49/_biz_data_tree_8php_source.html">BizDataTree.php</a>.</p>
 
 </div>
 </div>
@@ -540,7 +519,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L29">29</a> of file <a class="el" href="../../">BizDataTree.php</a>.</p>
+<p>Definition at line <a class="el" href="../../da/d49/_biz_data_tree_8php_source.html#l00029">29</a> of file <a class="el" href="../../da/d49/_biz_data_tree_8php_source.html">BizDataTree.php</a>.</p>
 
 </div>
 </div>
@@ -550,7 +529,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d21/class_biz_data_tree.html">BizDataTree</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:13 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:40 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

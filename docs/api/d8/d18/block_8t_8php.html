@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('d8/d18/block_8t_8php.html','../../');}
 </div><!--header-->
 <div class="contents">
 
-<p><a href="">Go to the source code of this file.</a></p>
+<p><a href="../../d8/d18/block_8t_8php_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -171,65 +171,19 @@ Functions</h2></td></tr>
 <li>count - The item count for plural mode (3rd parameter of ngettext()) </li>
 </ul>
 
-<p>Definition at line <a class="el" href="../../#L73">73</a> of file <a class="el" href="../../">block.t.php</a>.</p>
-<div class="fragment"><div class="line">{</div>
-<div class="line"> $text = stripslashes($text);</div>
-<div class="line"> </div>
-<div class="line"> <span class="comment">// set escape mode</span></div>
-<div class="line"> <span class="keywordflow">if</span> (isset($params[<span class="stringliteral">&#39;escape&#39;</span>])) {</div>
-<div class="line">  $escape = $params[<span class="stringliteral">&#39;escape&#39;</span>];</div>
-<div class="line">  unset($params[<span class="stringliteral">&#39;escape&#39;</span>]);</div>
-<div class="line"> }</div>
-<div class="line"> </div>
-<div class="line"> <span class="comment">// set plural version</span></div>
-<div class="line"> <span class="keywordflow">if</span> (isset($params[<span class="stringliteral">&#39;plural&#39;</span>])) {</div>
-<div class="line">  $plural = $params[<span class="stringliteral">&#39;plural&#39;</span>];</div>
-<div class="line">  unset($params[<span class="stringliteral">&#39;plural&#39;</span>]);</div>
-<div class="line">  </div>
-<div class="line">  <span class="comment">// set count</span></div>
-<div class="line">  <span class="keywordflow">if</span> (isset($params[<span class="stringliteral">&#39;count&#39;</span>])) {</div>
-<div class="line">   $count = $params[<span class="stringliteral">&#39;count&#39;</span>];</div>
-<div class="line">   unset($params[<span class="stringliteral">&#39;count&#39;</span>]);</div>
-<div class="line">  }</div>
-<div class="line"> }</div>
-<div class="line"> <span class="comment">//debut modif lolo</span></div>
-<div class="line"> <span class="comment">//utilisons Zend_translate</span></div>
-<div class="line"> <span class="comment">// use plural if required parameters are set</span></div>
-<div class="line"> <span class="comment">/*if (isset($count) &amp;&amp; isset($plural)) {</span></div>
-<div class="line"><span class="comment">  $text = ngettext($text, $plural, $count);</span></div>
-<div class="line"><span class="comment"> } else { // use normal</span></div>
-<div class="line"><span class="comment">  $text = gettext($text);</span></div>
-<div class="line"><span class="comment"> }*/</span></div>
-<div class="line"> <span class="comment">//$text=I18n::getInstance()-&gt;translate($text);</span></div>
-<div class="line"> $module = $smarty-&gt;_tpl_vars[<span class="stringliteral">&#39;module&#39;</span>];</div>
-<div class="line"> $key = strtoupper(<span class="stringliteral">&#39;STRING_&#39;</span>.md5($text));</div>
-<div class="line"> $text = <a class="code" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a">I18n::t</a>($text, $key, $module);</div>
-<div class="line"> <span class="comment">//fin modif lolo</span></div>
-<div class="line"></div>
-<div class="line"> <span class="comment">// run strarg if there are parameters</span></div>
-<div class="line"> <span class="keywordflow">if</span> (count($params)) {</div>
-<div class="line">  $text = <a class="code" href="../../d8/d18/block_8t_8php.html#af3605d7e4fc8d4d75ce008489c50914d">smarty_gettext_strarg</a>($text, $params);</div>
-<div class="line"> }</div>
-<div class="line"></div>
-<div class="line"> <span class="keywordflow">if</span> (!isset($escape) || $escape == <span class="stringliteral">&#39;html&#39;</span>) { <span class="comment">// html escape, default</span></div>
-<div class="line">    $text = nl2br(htmlspecialchars($text));</div>
-<div class="line">   } elseif (isset($escape)) {</div>
-<div class="line">  <span class="keywordflow">switch</span> ($escape) {</div>
-<div class="line">   <span class="keywordflow">case</span> <span class="stringliteral">&#39;javascript&#39;</span>:</div>
-<div class="line">   <span class="keywordflow">case</span> <span class="stringliteral">&#39;js&#39;</span>:</div>
-<div class="line">    <span class="comment">// javascript escape</span></div>
-<div class="line">    $text = str_replace(<span class="charliteral">&#39;\&#39;&#39;</span>, <span class="stringliteral">&#39;\\\&#39;&#39;</span>, stripslashes($text));</div>
-<div class="line">    <span class="keywordflow">break</span>;</div>
-<div class="line">   <span class="keywordflow">case</span> <span class="stringliteral">&#39;url&#39;</span>:</div>
-<div class="line">    <span class="comment">// url escape</span></div>
-<div class="line">    $text = urlencode($text);</div>
-<div class="line">    <span class="keywordflow">break</span>;</div>
-<div class="line">  }</div>
-<div class="line"> }</div>
-<div class="line"> </div>
-<div class="line"> <span class="keywordflow">return</span> $text;</div>
-<div class="line">}</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d8/d18/block_8t_8php_source.html#l00073">73</a> of file <a class="el" href="../../d8/d18/block_8t_8php_source.html">block.t.php</a>.</p>
+
+<p><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d18/block_8t_8php_a50124680a1593dd01f59f8b0f10d8241_cgraph.png" border="0" usemap="#d8/d18/block_8t_8php_a50124680a1593dd01f59f8b0f10d8241_cgraph" alt=""/></div>
+<map name="d8/d18/block_8t_8php_a50124680a1593dd01f59f8b0f10d8241_cgraph" id="d8/d18/block_8t_8php_a50124680a1593dd01f59f8b0f10d8241_cgraph">
+<area shape="rect" id="node2" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="214,31,269,59"/><area shape="rect" id="node10" href="../../d8/d18/block_8t_8php.html#af3605d7e4fc8d4d75ce008489c50914d" title="smarty_gettext_strarg" alt="" coords="166,83,316,111"/><area shape="rect" id="node3" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="366,31,500,59"/><area shape="rect" id="node4" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="550,31,725,59"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="1021,5,1200,33"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="773,57,973,85"/><area shape="rect" id="node6" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="1252,5,1390,33"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="1035,57,1186,85"/><area shape="rect" id="node9" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="1249,57,1394,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="af3605d7e4fc8d4d75ce008489c50914d"></a>
@@ -255,26 +209,19 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string Modified string </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L38">38</a> of file <a class="el" href="../../">block.t.php</a>.</p>
-<div class="fragment"><div class="line">{</div>
-<div class="line"> $tr = array();</div>
-<div class="line"> $p = 0;</div>
-<div class="line"></div>
-<div class="line"> <span class="keywordflow">for</span> ($i=1; $i &lt; func_num_args(); $i++) {</div>
-<div class="line">  $arg = func_get_arg($i);</div>
-<div class="line">  </div>
-<div class="line">  <span class="keywordflow">if</span> (is_array($arg)) {</div>
-<div class="line">   <span class="keywordflow">foreach</span> ($arg as $aarg) {</div>
-<div class="line">    $tr[<span class="charliteral">&#39;%&#39;</span>.++$p] = $aarg;</div>
-<div class="line">   }</div>
-<div class="line">  } <span class="keywordflow">else</span> {</div>
-<div class="line">   $tr[<span class="charliteral">&#39;%&#39;</span>.++$p] = $arg;</div>
-<div class="line">  }</div>
-<div class="line"> }</div>
-<div class="line"> </div>
-<div class="line"> <span class="keywordflow">return</span> strtr($str, $tr);</div>
-<div class="line">}</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d8/d18/block_8t_8php_source.html#l00038">38</a> of file <a class="el" href="../../d8/d18/block_8t_8php_source.html">block.t.php</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d8/d18/block_8t_8php_af3605d7e4fc8d4d75ce008489c50914d_icgraph.png" border="0" usemap="#d8/d18/block_8t_8php_af3605d7e4fc8d4d75ce008489c50914d_icgraph" alt=""/></div>
+<map name="d8/d18/block_8t_8php_af3605d7e4fc8d4d75ce008489c50914d_icgraph" id="d8/d18/block_8t_8php_af3605d7e4fc8d4d75ce008489c50914d_icgraph">
+<area shape="rect" id="node2" href="../../d8/d18/block_8t_8php.html#a50124680a1593dd01f59f8b0f10d8241" title="smarty_block_t" alt="" coords="206,5,317,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -283,7 +230,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_9e51036813d6151dfecc72d5fa7c02b3.html">Users</a></li><li class="navelem"><a class="el" href="../../dir_b0446a7b2c4e13f76e78dcf7715ad478.html">jixian</a></li><li class="navelem"><a class="el" href="../../dir_c1d932a277628715986f941f0ae2ef99.html">Workspace</a></li><li class="navelem"><a class="el" href="../../dir_dd87cfccd83ac043527f7444db3022b2.html">Openbiz_Project_Google</a></li><li class="navelem"><a class="el" href="../../dir_583a7b4370c1d82f6d6d7fc9f59a4283.html">cubi</a></li><li class="navelem"><a class="el" href="../../dir_ac0478a135b22ff1f794c875c5bf9aa9.html">openbiz</a></li><li class="navelem"><a class="el" href="../../dir_0ee2580413d323b809fede65055b96ff.html">bin</a></li><li class="navelem"><a class="el" href="../../dir_9ca94da1b550e6479c520ab305ae79d3.html">util</a></li><li class="navelem"><a class="el" href="../../d8/d18/block_8t_8php.html">block.t.php</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:11 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:35 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

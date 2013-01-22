@@ -492,7 +492,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L25">25</a> of file <a class="el" href="../../">PickerForm.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d43/_picker_form_8php_source.html#l00025">25</a> of file <a class="el" href="../../df/d43/_picker_form_8php_source.html">PickerForm.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a2d0ab0ba374d594562be8d58ce16f1d3"></a>
 <div class="memitem">
@@ -524,20 +524,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array picker map array </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L317">317</a> of file <a class="el" href="../../">PickerForm.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $returnList = array();</div>
-<div class="line">        $pickerList = explode(<span class="stringliteral">&quot;,&quot;</span>, $pickerMap);</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($pickerList as $pair)</div>
-<div class="line">        {</div>
-<div class="line">            $controlMap = explode(<span class="stringliteral">&quot;:&quot;</span>, $pair);</div>
-<div class="line">            $controlMap[0] = trim($controlMap[0]);</div>
-<div class="line">            $controlMap[1] = trim($controlMap[1]);</div>
-<div class="line">            $returnList[] = $controlMap;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> $returnList;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d43/_picker_form_8php_source.html#l00317">317</a> of file <a class="el" href="../../df/d43/_picker_form_8php_source.html">PickerForm.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d7/dcf/class_picker_form_a2d0ab0ba374d594562be8d58ce16f1d3_icgraph.png" border="0" usemap="#d7/dcf/class_picker_form_a2d0ab0ba374d594562be8d58ce16f1d3_icgraph" alt=""/></div>
+<map name="d7/dcf/class_picker_form_a2d0ab0ba374d594562be8d58ce16f1d3_icgraph" id="d7/dcf/class_picker_form_a2d0ab0ba374d594562be8d58ce16f1d3_icgraph">
+<area shape="rect" id="node2" href="../../d7/dcf/class_picker_form.html#a967aa4a81d97ae394ac4d653d8015372" title="joinToParent" alt="" coords="179,5,274,33"/><area shape="rect" id="node3" href="../../d7/dcf/class_picker_form.html#aac9acfa9c77aa11f394ff4e515c52527" title="pickToParent" alt="" coords="323,5,421,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1eef9310b3a3db65a47996df866d032e"></a>
@@ -556,51 +555,30 @@ Additional Inherited Members</h2></td></tr>
 <p>Add a record (popup) to the parent form if OK button clicked, (M-M or M-1/1-1)</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L265">265</a> of file <a class="el" href="../../">PickerForm.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     <span class="keywordflow">if</span>(!is_array($recIds))</div>
-<div class="line">     {      </div>
-<div class="line">      $recIdArr = array();</div>
-<div class="line">      $recIdArr[] = $recIds;</div>
-<div class="line">     }<span class="keywordflow">else</span>{</div>
-<div class="line">      $recIdArr = $recIds;</div>
-<div class="line">     }</div>
-<div class="line">     </div>
-<div class="line">     <span class="comment">/* @var $parentForm EasyForm */</span></div>
-<div class="line">     $parentForm = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject($this-&gt;m_ParentFormName);</div>
-<div class="line">     <span class="keywordflow">foreach</span>($recIdArr as $recId)</div>
-<div class="line">     {</div>
-<div class="line">                          </div>
-<div class="line">         <span class="comment">//clear parent form search rules</span></div>
-<div class="line">         $this-&gt;m_SearchRule=<span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">         $parentForm-&gt;getDataObj()-&gt;clearSearchRule();</div>
-<div class="line">         </div>
-<div class="line">         $do = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b">getDataObj</a>();</div>
-<div class="line">         $baseSearchRule = $do-&gt;m_BaseSearchRule;</div>
-<div class="line">         $do-&gt;m_BaseSearchRule = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">         $do-&gt;clearSearchRule();                  </div>
-<div class="line">         $rec = $do-&gt;fetchById($recId); </div>
-<div class="line">   $do-&gt;m_BaseSearchRule = $baseSearchRule;</div>
-<div class="line">   </div>
-<div class="line">   <span class="keywordflow">if</span>(!$rec){</div>
-<div class="line">    $rec=<a class="code" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3">BizSystem::getObject</a>($do-&gt;m_Name,1)-&gt;fetchById($recId);</div>
-<div class="line">   }</div>
-<div class="line">   </div>
-<div class="line">         <span class="comment">// add record to parent form&#39;s dataObj who is M-M or M-1/1-1 to its parent dataobj</span></div>
-<div class="line">         $ok = $parentForm-&gt;getDataObj()-&gt;addRecord($rec, $bPrtObjUpdated);</div>
-<div class="line">         <span class="keywordflow">if</span> (!$ok){          </div>
-<div class="line">             <span class="keywordflow">return</span> $parentForm-&gt;processDataObjError($ok);</div>
-<div class="line">         }</div>
-<div class="line">     }   </div>
-<div class="line">        </div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#aa69c8bf1f1dcf4e72552efff1fe3e87e">close</a>();</div>
-<div class="line"></div>
-<div class="line">        $parentForm-&gt;rerender();</div>
-<div class="line">  <span class="keywordflow">if</span>($parentForm-&gt;m_ParentFormName){</div>
-<div class="line">   $parentForm-&gt;renderParent();</div>
-<div class="line">  }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d43/_picker_form_8php_source.html#l00265">265</a> of file <a class="el" href="../../df/d43/_picker_form_8php_source.html">PickerForm.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d7/dcf/class_picker_form_a1eef9310b3a3db65a47996df866d032e_cgraph.png" border="0" usemap="#d7/dcf/class_picker_form_a1eef9310b3a3db65a47996df866d032e_cgraph" alt=""/></div>
+<map name="d7/dcf/class_picker_form_a1eef9310b3a3db65a47996df866d032e_cgraph" id="d7/dcf/class_picker_form_a1eef9310b3a3db65a47996df866d032e_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="355,27,523,55"/><area shape="rect" id="node4" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm\\getDataObj" alt="" coords="153,27,306,55"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="157,79,302,107"/><area shape="rect" id="node6" href="../../d3/d10/class_easy_form.html#aa69c8bf1f1dcf4e72552efff1fe3e87e" title="EasyForm\\close" alt="" coords="171,131,288,159"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="571,53,709,81"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="362,105,515,133"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d7/dcf/class_picker_form_a1eef9310b3a3db65a47996df866d032e_icgraph.png" border="0" usemap="#d7/dcf/class_picker_form_a1eef9310b3a3db65a47996df866d032e_icgraph" alt=""/></div>
+<map name="d7/dcf/class_picker_form_a1eef9310b3a3db65a47996df866d032e_icgraph" id="d7/dcf/class_picker_form_a1eef9310b3a3db65a47996df866d032e_icgraph">
+<area shape="rect" id="node2" href="../../d7/dcf/class_picker_form.html#aac9acfa9c77aa11f394ff4e515c52527" title="pickToParent" alt="" coords="156,5,255,33"/><area shape="rect" id="node3" href="../../d7/dcf/class_picker_form.html#a6262f37c214bb0ab53d9175cda6d4568" title="insertToParent" alt="" coords="152,57,259,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a0497a4964b544d4cb511f7809a191a5d"></a>
@@ -627,14 +605,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d6a/interfacei_session_object.html#acc26613c5c4f7b91d25f7454aebc0c9b">iSessionObject</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L46">46</a> of file <a class="el" href="../../">PickerForm.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::getSessionVars($sessionContext);</div>
-<div class="line">        $sessionContext-&gt;getObjVar($this-&gt;m_Name, <span class="stringliteral">&quot;ParentFormElemName&quot;</span>, $this-&gt;m_ParentFormElemName);</div>
-<div class="line">        $sessionContext-&gt;getObjVar($this-&gt;m_Name, <span class="stringliteral">&quot;PickerMap&quot;</span>, $this-&gt;m_PickerMap);</div>
-<div class="line">        $sessionContext-&gt;getObjVar($this-&gt;m_Name, <span class="stringliteral">&quot;ParentFormRecord&quot;</span>, $this-&gt;m_ParentFormRecord);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d43/_picker_form_8php_source.html#l00046">46</a> of file <a class="el" href="../../df/d43/_picker_form_8php_source.html">PickerForm.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a6262f37c214bb0ab53d9175cda6d4568"></a>
@@ -650,71 +622,19 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L113">113</a> of file <a class="el" href="../../">PickerForm.php</a>.</p>
-<div class="fragment"><div class="line">    {        </div>
-<div class="line">      </div>
-<div class="line">  $recArr = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#aa1cca28cf3008654e803cee1d0381efc">readInputRecord</a>();</div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a66ca3cc82efeedbd58aa6923c1410bb7">setActiveRecord</a>($recArr);</div>
-<div class="line">        <span class="keywordflow">if</span> (count($recArr) == 0)</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">try</span></div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;ValidateForm();</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">catch</span> (<a class="code" href="../../db/dd2/class_validation_exception.html">ValidationException</a> $e)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a44d87432a7016815c9a8bdc468b4c74e">processFormObjError</a>($e-&gt;m_Errors);</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
-<div class="line">        </div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> (!$this-&gt;m_ParentFormElemName)</div>
-<div class="line">        {</div>
-<div class="line">         <span class="comment">//its only supports 1-m assoc now                  </span></div>
-<div class="line">         $parentForm = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject($this-&gt;m_ParentFormName);</div>
-<div class="line">         <span class="comment">//$parentForm-&gt;getDataObj()-&gt;clearSearchRule();</span></div>
-<div class="line">         $parentDo = $parentForm-&gt;getDataObj();</div>
-<div class="line">         </div>
-<div class="line">         $column = $parentDo-&gt;m_Association[<span class="stringliteral">&#39;Column&#39;</span>];</div>
-<div class="line">      $field = $parentDo-&gt;getFieldNameByColumn($column);           </div>
-<div class="line">      $parentRefVal = $parentDo-&gt;m_Association[<span class="stringliteral">&quot;FieldRefVal&quot;</span>];</div>
-<div class="line">      </div>
-<div class="line">   $recArr[$field] = $parentRefVal;</div>
-<div class="line">      <span class="keywordflow">if</span>($parentDo-&gt;m_Association[<span class="stringliteral">&#39;Relationship&#39;</span>]==<span class="stringliteral">&#39;1-M&#39;</span>){             </div>
-<div class="line">       $cond_column = $parentDo-&gt;m_Association[<span class="stringliteral">&#39;CondColumn&#39;</span>];</div>
-<div class="line">       $cond_value = $parentDo-&gt;m_Association[<span class="stringliteral">&#39;CondValue&#39;</span>];</div>
-<div class="line">       <span class="keywordflow">if</span>($cond_column)</div>
-<div class="line">       {</div>
-<div class="line">        $cond_field = $parentDo-&gt;getFieldNameByColumn($cond_column);</div>
-<div class="line">        $recArr[$cond_field] = $cond_value;</div>
-<div class="line">       }    </div>
-<div class="line">       $recId = $parentDo-&gt;InsertRecord($recArr); </div>
-<div class="line">      }<span class="keywordflow">else</span>{</div>
-<div class="line">       $recId = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b">getDataObj</a>()-&gt;InsertRecord($recArr);              </div>
-<div class="line">       $this-&gt;<a class="code" href="../../d7/dcf/class_picker_form.html#a1eef9310b3a3db65a47996df866d032e">addToParent</a>($recId);</div>
-<div class="line">      }</div>
-<div class="line">        }                </div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_ParentFormElemName &amp;&amp; $this-&gt;m_PickerMap)</div>
-<div class="line">        {</div>
-<div class="line">            return ; <span class="comment">//not supported yet</span></div>
-<div class="line">        }</div>
-<div class="line">       </div>
-<div class="line">        </div>
-<div class="line">        $selIds[] = $recId;</div>
-<div class="line">        </div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#aa69c8bf1f1dcf4e72552efff1fe3e87e">close</a>();       </div>
-<div class="line">        <span class="keywordflow">if</span>($parentForm-&gt;m_ParentFormName){</div>
-<div class="line">         $parentParentForm = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject($parentForm-&gt;m_ParentFormName);</div>
-<div class="line">         $parentParentForm-&gt;rerender();</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">        {       </div>
-<div class="line">         $parentForm-&gt;rerender();</div>
-<div class="line">        }</div>
-<div class="line">    }    </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d43/_picker_form_8php_source.html#l00113">113</a> of file <a class="el" href="../../df/d43/_picker_form_8php_source.html">PickerForm.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d7/dcf/class_picker_form_a6262f37c214bb0ab53d9175cda6d4568_cgraph.png" border="0" usemap="#d7/dcf/class_picker_form_a6262f37c214bb0ab53d9175cda6d4568_cgraph" alt=""/></div>
+<map name="d7/dcf/class_picker_form_a6262f37c214bb0ab53d9175cda6d4568_cgraph" id="d7/dcf/class_picker_form_a6262f37c214bb0ab53d9175cda6d4568_cgraph">
+<area shape="rect" id="node2" href="../../d3/d10/class_easy_form.html#aa1cca28cf3008654e803cee1d0381efc" title="EasyForm\\readInputRecord" alt="" coords="422,49,607,77"/><area shape="rect" id="node5" href="../../d3/d10/class_easy_form.html#a66ca3cc82efeedbd58aa6923c1410bb7" title="EasyForm\\setActiveRecord" alt="" coords="175,414,358,442"/><area shape="rect" id="node8" href="../../d3/d10/class_easy_form.html#a44d87432a7016815c9a8bdc468b4c74e" title="EasyForm\\processFormObjError" alt="" coords="160,362,374,390"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="1117,383,1285,411"/><area shape="rect" id="node6" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm\\getDataObj" alt="" coords="902,415,1055,443"/><area shape="rect" id="node33" href="../../d7/dcf/class_picker_form.html#a1eef9310b3a3db65a47996df866d032e" title="addToParent" alt="" coords="706,518,803,546"/><area shape="rect" id="node34" href="../../d3/d10/class_easy_form.html#aa69c8bf1f1dcf4e72552efff1fe3e87e" title="EasyForm\\close" alt="" coords="920,158,1037,186"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="1370,73,1523,101"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="3370,177,3508,205"/><area shape="rect" id="node9" href="../../d3/d10/class_easy_form.html#a75545a3a11720fe6d5c316d316fb2df6" title="EasyForm\\rerender" alt="" coords="447,362,583,390"/><area shape="rect" id="node10" href="../../d3/d10/class_easy_form.html#aa1008c36a9f8e921dc8cd0b5d462ff78" title="EasyForm\\renderHTML" alt="" coords="674,259,835,287"/><area shape="rect" id="node32" href="../../d3/d10/class_easy_form.html#a9e579367ca9368a8ee3426757db0998d" title="EasyForm\\rerenderSubForms" alt="" coords="656,363,854,391"/><area shape="rect" id="node11" href="../../df/d1a/class_form_renderer.html#a6bc1378b4d3403da3f5a0cdf19d2c110" title="FormRenderer\\render" alt="" coords="904,210,1054,238"/><area shape="rect" id="node31" href="../../d3/d10/class_easy_form.html#a70ed31c90f3ad9bd31b8ad60a39f87ad" title="EasyForm\\getViewObject" alt="" coords="1846,331,2018,359"/><area shape="rect" id="node12" href="../../df/d1a/class_form_renderer.html#a8a2b7c95c06bfdd98ed556d4a4243a28" title="FormRenderer\\buildTemplate\lAttributes" alt="" coords="1104,142,1298,186"/><area shape="rect" id="node13" href="../../df/d1a/class_form_renderer.html#aaae8885482d48a3eba78c4856ff7ac0a" title="FormRenderer\\renderSmarty" alt="" coords="1105,262,1298,290"/><area shape="rect" id="node28" href="../../df/d1a/class_form_renderer.html#a240405d51345da30f40261fb9b5522f1" title="FormRenderer\\renderPHP" alt="" coords="1112,210,1290,238"/><area shape="rect" id="node14" href="../../d1/d7e/class_biz_system.html#a1f8104d8aa899c9c115363799ed0cbde" title="BizSystem\\getSmartyTemplate" alt="" coords="1595,262,1797,290"/><area shape="rect" id="node22" href="../../d1/d7e/class_biz_system.html#afb794bcc37996f735dfc6e7ddddf961c" title="BizSystem\\getTplFileWithPath" alt="" coords="1346,210,1547,238"/><area shape="rect" id="node15" href="../../df/d00/class_resource.html#a1f8104d8aa899c9c115363799ed0cbde" title="Resource\\getSmartyTemplate" alt="" coords="2411,229,2608,257"/><area shape="rect" id="node16" href="../../df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="2656,229,2843,257"/><area shape="rect" id="node21" href="../../d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="2662,177,2837,205"/><area shape="rect" id="node17" href="../../d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="3138,177,3318,205"/><area shape="rect" id="node18" href="../../d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="BizSystem\\getUserPreference" alt="" coords="2891,177,3091,205"/><area shape="rect" id="node19" href="../../d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="BizSystem\\getService" alt="" coords="3152,281,3304,309"/><area shape="rect" id="node20" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="3366,333,3511,361"/><area shape="rect" id="node23" href="../../df/d00/class_resource.html#afb794bcc37996f735dfc6e7ddddf961c" title="Resource\\getTplFileWithPath" alt="" coords="1599,210,1793,238"/><area shape="rect" id="node24" href="../../d1/d7e/class_biz_system.html#ac501e57202820a4520e080c9771fb866" title="BizSystem\\getMessage" alt="" coords="1852,177,2012,205"/><area shape="rect" id="node25" href="../../df/d00/class_resource.html#ac6905723ead55f99e9e96d722bf39289" title="Resource\\getMessage" alt="" coords="2085,177,2240,205"/><area shape="rect" id="node26" href="../../d6/d59/class_i18n.html#a9d5d3b8239dc8b6571ba07d9f838ca9a" title="I18n\\t" alt="" coords="2307,125,2362,153"/><area shape="rect" id="node27" href="../../d6/d59/class_i18n.html#af3480f0ccde12b3cbd8bb517c8150d52" title="I18n\\loadLangData" alt="" coords="2442,125,2576,153"/><area shape="rect" id="node29" href="../../d1/d7e/class_biz_system.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="BizSystem\\getZendTemplate" alt="" coords="2067,125,2258,153"/><area shape="rect" id="node30" href="../../df/d00/class_resource.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="Resource\\getZendTemplate" alt="" coords="2417,177,2602,205"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a967aa4a81d97ae394ac4d653d8015372"></a>
@@ -739,82 +659,30 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L184">184</a> of file <a class="el" href="../../">PickerForm.php</a>.</p>
-<div class="fragment"><div class="line">    {     </div>
-<div class="line">     <span class="keywordflow">if</span>(!is_array($recIds))</div>
-<div class="line">     {      </div>
-<div class="line">      $recIdArr = array();</div>
-<div class="line">      $recIdArr[] = $recIds;</div>
-<div class="line">     }<span class="keywordflow">else</span>{</div>
-<div class="line">      $recIdArr = $recIds;</div>
-<div class="line">     }</div>
-<div class="line">     </div>
-<div class="line">     $parentForm = <a class="code" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c">BizSystem::objectFactory</a>()-&gt;getObject($this-&gt;m_ParentFormName);</div>
-<div class="line">     $updArray = array();</div>
-<div class="line">     $updRec = <a class="code" href="../../d7/dcf/class_picker_form.html#abb4f5dd8ff3608a115be9d67a06a6864">$this-&gt;m_ParentFormRecord</a>;</div>
-<div class="line"></div>
-<div class="line">     <span class="keywordflow">foreach</span>($recIdArr as $recId)</div>
-<div class="line">     {</div>
-<div class="line">         $rec = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b">getDataObj</a>()-&gt;fetchById($recId);</div>
-<div class="line">              </div>
-<div class="line">         <span class="comment">// get the picker map of the control</span></div>
-<div class="line">         <span class="keywordflow">if</span> ($this-&gt;m_PickerMap)</div>
-<div class="line">         {</div>
-<div class="line">             $pickerList = $this-&gt;<a class="code" href="../../d7/dcf/class_picker_form.html#a2d0ab0ba374d594562be8d58ce16f1d3">_parsePickerMap</a>($this-&gt;m_PickerMap);             </div>
-<div class="line">             <span class="keywordflow">foreach</span> ($pickerList as $ctrlPair)</div>
-<div class="line">             {</div>
-<div class="line">                 $this_ctrl = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#a214fbd6ab24d8a6efdcb305a5ecdae6b">getElement</a>($ctrlPair[1]);</div>
-<div class="line">                 <span class="keywordflow">if</span> (!$this_ctrl)</div>
-<div class="line">                     <span class="keywordflow">continue</span>;</div>
-<div class="line">                                  </div>
-<div class="line">                 $this_ctrl_val = $rec[$this_ctrl-&gt;m_FieldName];</div>
-<div class="line">                 $other_ctrl = $parentForm-&gt;getElement($ctrlPair[0]);</div>
-<div class="line">                 <span class="keywordflow">if</span> ($other_ctrl)</div>
-<div class="line">                 {</div>
-<div class="line">                  <span class="keywordflow">if</span>(!$updArray[$other_ctrl-&gt;m_Name]){</div>
-<div class="line">                   $updArray[$other_ctrl-&gt;m_Name] = $this_ctrl_val;</div>
-<div class="line">                   $updRec[$other_ctrl-&gt;m_FieldName] = $this_ctrl_val; </div>
-<div class="line">                  }<span class="keywordflow">else</span>{</div>
-<div class="line">                   $updArray[$other_ctrl-&gt;m_Name] .= <span class="charliteral">&#39;;&#39;</span>.$this_ctrl_val;</div>
-<div class="line">                   $updRec[$other_ctrl-&gt;m_FieldName] .= <span class="charliteral">&#39;;&#39;</span>.$this_ctrl_val;</div>
-<div class="line">                  }</div>
-<div class="line">                 }</div>
-<div class="line">             }             </div>
-<div class="line">         }</div>
-<div class="line">         <span class="keywordflow">else</span></div>
-<div class="line">             <span class="keywordflow">return</span>;</div>
-<div class="line">     }</div>
-<div class="line">          </div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#aa69c8bf1f1dcf4e72552efff1fe3e87e">close</a>();                                                </div>
-<div class="line">        $elem = $parentForm-&gt;getElement($this-&gt;m_ParentFormElemName);</div>
-<div class="line">        <span class="keywordflow">if</span>($elem-&gt;m_UpdateForm==<span class="charliteral">&#39;Y&#39;</span>){</div>
-<div class="line">         $parentForm-&gt;setActiveRecord($updRec);         </div>
-<div class="line">         $parentForm-&gt;rerender();</div>
-<div class="line">        }<span class="keywordflow">else</span>{</div>
-<div class="line">         <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;updateFormElements($parentForm-&gt;m_Name, $updArray);</div>
-<div class="line">         <span class="keywordflow">foreach</span>($updArray as $elemName=&gt;$value)</div>
-<div class="line">         {</div>
-<div class="line">          $elem = $parentForm-&gt;getElement($elemName);</div>
-<div class="line">           $elemEvents = $elem-&gt;getEvents();</div>
-<div class="line">           <span class="keywordflow">foreach</span>($elemEvents as $event=&gt;$function)</div>
-<div class="line">           {</div>
-<div class="line">            <span class="keywordflow">if</span>(strtolower($event)==<span class="stringliteral">&#39;onchange&#39;</span>)</div>
-<div class="line">            {</div>
-<div class="line">             </div>
-<div class="line">             <span class="keywordflow">if</span>(is_array($function)){</div>
-<div class="line">        <span class="keywordflow">foreach</span>($function as $f){</div>
-<div class="line">         $function_str.=$f.<span class="stringliteral">&quot;;&quot;</span>;</div>
-<div class="line">        }</div>
-<div class="line">       }<span class="keywordflow">else</span>{</div>
-<div class="line">        $function_str .= $function;</div>
-<div class="line">       }</div>
-<div class="line">             <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;runClientScript(<span class="stringliteral">&quot;&lt;script&gt;$function_str&lt;/script&gt;&quot;</span>);  </div>
-<div class="line">            }</div>
-<div class="line">           } </div>
-<div class="line">         }</div>
-<div class="line">        }                               </div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d43/_picker_form_8php_source.html#l00184">184</a> of file <a class="el" href="../../df/d43/_picker_form_8php_source.html">PickerForm.php</a>.</p>
+
+<p><div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d7/dcf/class_picker_form_a967aa4a81d97ae394ac4d653d8015372_cgraph.png" border="0" usemap="#d7/dcf/class_picker_form_a967aa4a81d97ae394ac4d653d8015372_cgraph" alt=""/></div>
+<map name="d7/dcf/class_picker_form_a967aa4a81d97ae394ac4d653d8015372_cgraph" id="d7/dcf/class_picker_form_a967aa4a81d97ae394ac4d653d8015372_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="352,35,520,63"/><area shape="rect" id="node4" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm\\getDataObj" alt="" coords="150,35,303,63"/><area shape="rect" id="node5" href="../../d7/dcf/class_picker_form.html#a2d0ab0ba374d594562be8d58ce16f1d3" title="_parsePickerMap" alt="" coords="164,87,289,115"/><area shape="rect" id="node6" href="../../d3/d10/class_easy_form.html#a214fbd6ab24d8a6efdcb305a5ecdae6b" title="EasyForm\\getElement" alt="" coords="150,139,303,167"/><area shape="rect" id="node7" href="../../d3/d10/class_easy_form.html#aa69c8bf1f1dcf4e72552efff1fe3e87e" title="EasyForm\\close" alt="" coords="168,191,285,219"/><area shape="rect" id="node8" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="359,191,513,219"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="568,114,706,142"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d7/dcf/class_picker_form_a967aa4a81d97ae394ac4d653d8015372_icgraph.png" border="0" usemap="#d7/dcf/class_picker_form_a967aa4a81d97ae394ac4d653d8015372_icgraph" alt=""/></div>
+<map name="d7/dcf/class_picker_form_a967aa4a81d97ae394ac4d653d8015372_icgraph" id="d7/dcf/class_picker_form_a967aa4a81d97ae394ac4d653d8015372_icgraph">
+<area shape="rect" id="node2" href="../../d7/dcf/class_picker_form.html#aac9acfa9c77aa11f394ff4e515c52527" title="pickToParent" alt="" coords="149,5,248,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aac9acfa9c77aa11f394ff4e515c52527"></a>
@@ -839,29 +707,19 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void  remote </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L90">90</a> of file <a class="el" href="../../">PickerForm.php</a>.</p>
-<div class="fragment"><div class="line">    {        </div>
-<div class="line">     <span class="keywordflow">if</span> ($recId==null || $recId==<span class="stringliteral">&#39;&#39;</span>)</div>
-<div class="line">            $recId = <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;getFormInputs(<span class="stringliteral">&#39;_selectedId&#39;</span>);</div>
-<div class="line"></div>
-<div class="line">        $selIds = <a class="code" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa">BizSystem::clientProxy</a>()-&gt;getFormInputs(<span class="stringliteral">&#39;row_selections&#39;</span>, <span class="keyword">false</span>);</div>
-<div class="line">        <span class="keywordflow">if</span> ($selIds == null)</div>
-<div class="line">            $selIds[] = $recId;</div>
-<div class="line">            </div>
-<div class="line">        <span class="comment">// if no parent elem or picker map, call AddToParent</span></div>
-<div class="line">        <span class="keywordflow">if</span> (!$this-&gt;m_ParentFormElemName)</div>
-<div class="line">        {         </div>
-<div class="line">            $this-&gt;<a class="code" href="../../d7/dcf/class_picker_form.html#a1eef9310b3a3db65a47996df866d032e">addToParent</a>($selIds);</div>
-<div class="line">        }                </div>
-<div class="line"></div>
-<div class="line">        <span class="comment">// if has parent elem and picker map, call JoinToParent</span></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_ParentFormElemName &amp;&amp; $this-&gt;m_PickerMap)</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;<a class="code" href="../../d7/dcf/class_picker_form.html#a967aa4a81d97ae394ac4d653d8015372">joinToParent</a>($selIds);</div>
-<div class="line">        }</div>
-<div class="line">        </div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d43/_picker_form_8php_source.html#l00090">90</a> of file <a class="el" href="../../df/d43/_picker_form_8php_source.html">PickerForm.php</a>.</p>
+
+<p><div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d7/dcf/class_picker_form_aac9acfa9c77aa11f394ff4e515c52527_cgraph.png" border="0" usemap="#d7/dcf/class_picker_form_aac9acfa9c77aa11f394ff4e515c52527_cgraph" alt=""/></div>
+<map name="d7/dcf/class_picker_form_aac9acfa9c77aa11f394ff4e515c52527_cgraph" id="d7/dcf/class_picker_form_aac9acfa9c77aa11f394ff4e515c52527_cgraph">
+<area shape="rect" id="node2" href="../../d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="509,167,662,195"/><area shape="rect" id="node4" href="../../d7/dcf/class_picker_form.html#a1eef9310b3a3db65a47996df866d032e" title="addToParent" alt="" coords="153,115,250,143"/><area shape="rect" id="node9" href="../../d7/dcf/class_picker_form.html#a967aa4a81d97ae394ac4d653d8015372" title="joinToParent" alt="" coords="154,244,249,272"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="718,194,856,222"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="501,232,669,260"/><area shape="rect" id="node6" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm\\getDataObj" alt="" coords="299,244,453,272"/><area shape="rect" id="node7" href="../../d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="BizSystem\\getObject" alt="" coords="303,36,449,64"/><area shape="rect" id="node8" href="../../d3/d10/class_easy_form.html#aa69c8bf1f1dcf4e72552efff1fe3e87e" title="EasyForm\\close" alt="" coords="318,140,434,168"/><area shape="rect" id="node10" href="../../d7/dcf/class_picker_form.html#a2d0ab0ba374d594562be8d58ce16f1d3" title="_parsePickerMap" alt="" coords="313,296,439,324"/><area shape="rect" id="node11" href="../../d3/d10/class_easy_form.html#a214fbd6ab24d8a6efdcb305a5ecdae6b" title="EasyForm\\getElement" alt="" coords="299,348,453,376"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a10e5919ac1d5f9482cdef29b4cfadce6"></a>
@@ -904,13 +762,8 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L76">76</a> of file <a class="el" href="../../">PickerForm.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;m_ParentFormName = $formName;</div>
-<div class="line">        $this-&gt;m_ParentFormElemName = $elemName;</div>
-<div class="line">        $this-&gt;m_PickerMap = $pickerMap;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d43/_picker_form_8php_source.html#l00076">76</a> of file <a class="el" href="../../df/d43/_picker_form_8php_source.html">PickerForm.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a14c87f47346e9868b05b6cc33d020021"></a>
@@ -937,14 +790,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d4/d6a/interfacei_session_object.html#a3304da0964c3e2af774162fcef949527">iSessionObject</a>.</p>
 
-<p>Definition at line <a class="el" href="../../#L60">60</a> of file <a class="el" href="../../">PickerForm.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::setSessionVars($sessionContext);</div>
-<div class="line">        $sessionContext-&gt;setObjVar($this-&gt;m_Name, <span class="stringliteral">&quot;ParentFormElemName&quot;</span>, $this-&gt;m_ParentFormElemName);</div>
-<div class="line">        $sessionContext-&gt;setObjVar($this-&gt;m_Name, <span class="stringliteral">&quot;PickerMap&quot;</span>, $this-&gt;m_PickerMap);</div>
-<div class="line">        $sessionContext-&gt;setObjVar($this-&gt;m_Name, <span class="stringliteral">&quot;ParentFormRecord&quot;</span>, $this-&gt;m_ParentFormRecord);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../df/d43/_picker_form_8php_source.html#l00060">60</a> of file <a class="el" href="../../df/d43/_picker_form_8php_source.html">PickerForm.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -958,7 +805,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L31">31</a> of file <a class="el" href="../../">PickerForm.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d43/_picker_form_8php_source.html#l00031">31</a> of file <a class="el" href="../../df/d43/_picker_form_8php_source.html">PickerForm.php</a>.</p>
 
 </div>
 </div>
@@ -972,7 +819,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L39">39</a> of file <a class="el" href="../../">PickerForm.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d43/_picker_form_8php_source.html#l00039">39</a> of file <a class="el" href="../../df/d43/_picker_form_8php_source.html">PickerForm.php</a>.</p>
 
 </div>
 </div>
@@ -986,7 +833,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L37">37</a> of file <a class="el" href="../../">PickerForm.php</a>.</p>
+<p>Definition at line <a class="el" href="../../df/d43/_picker_form_8php_source.html#l00037">37</a> of file <a class="el" href="../../df/d43/_picker_form_8php_source.html">PickerForm.php</a>.</p>
 
 </div>
 </div>
@@ -996,7 +843,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d7/dcf/class_picker_form.html">PickerForm</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:24 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:22:03 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

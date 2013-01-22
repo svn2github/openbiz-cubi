@@ -469,7 +469,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L18">18</a> of file <a class="el" href="../../">EasyFormGrouping.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/dbc/_easy_form_grouping_8php_source.html#l00018">18</a> of file <a class="el" href="../../d3/dbc/_easy_form_grouping_8php_source.html">EasyFormGrouping.php</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a6dbc3c0530511816451285e1698f01e5"></a>
 <div class="memitem">
@@ -484,113 +484,30 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L28">28</a> of file <a class="el" href="../../">EasyFormGrouping.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     <span class="comment">//get group list first</span></div>
-<div class="line">     $dataObj = $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b">getDataObj</a>();          </div>
-<div class="line"></div>
-<div class="line">     <span class="keywordflow">if</span> (!$dataObj) <span class="keywordflow">return</span> null;</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_RefreshData)</div>
-<div class="line">            $dataObj-&gt;resetRules();</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            $dataObj-&gt;clearSearchRule();</div>
-<div class="line">        </div>
-<div class="line">        <span class="keywordflow">if</span>(strpos($this-&gt;m_GroupBy,<span class="stringliteral">&quot;:&quot;</span>)){</div>
-<div class="line">         preg_match(<span class="stringliteral">&quot;/\[(.*?):(.*?)\]/si&quot;</span>,$this-&gt;m_GroupBy,$match);         </div>
-<div class="line">         $GroupFieldName = $match[1];</div>
-<div class="line">         $GroupField = $match[2];</div>
-<div class="line">         </div>
-<div class="line">        }<span class="keywordflow">else</span>{</div>
-<div class="line">         </div>
-<div class="line">         $GroupField = str_replace(<span class="stringliteral">&quot;[&quot;</span>,<span class="stringliteral">&quot;&quot;</span>,$this-&gt;m_GroupBy);</div>
-<div class="line">         $GroupField = str_replace(<span class="stringliteral">&quot;]&quot;</span>,<span class="stringliteral">&quot;&quot;</span>,$GroupField);         </div>
-<div class="line">        }</div>
-<div class="line">        $GroupSQLRule=<span class="stringliteral">&quot;GROUP BY [$GroupField]&quot;</span>;</div>
-<div class="line">        $dataObj-&gt;setOtherSQLRule($GroupSQLRule);</div>
-<div class="line">        </div>
-<div class="line">     <span class="comment">//within each group, search records like before</span></div>
-<div class="line">        <a class="code" href="../../d1/d2c/class_query_string_param.html#a03a34bddde00ab8e85f84e0f55421497">QueryStringParam::setBindValues</a>($this-&gt;m_SearchRuleBindValues);       </div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_FixSearchRule)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> ($this-&gt;m_SearchRule)</div>
-<div class="line">                $searchRule = $this-&gt;m_SearchRule . <span class="stringliteral">&quot; AND &quot;</span> . <a class="code" href="../../d3/d10/class_easy_form.html#a0297dee6a963cc67edc56e3905cee470">$this-&gt;m_FixSearchRule</a>;</div>
-<div class="line">            <span class="keywordflow">else</span></div>
-<div class="line">                $searchRule = <a class="code" href="../../d3/d10/class_easy_form.html#a0297dee6a963cc67edc56e3905cee470">$this-&gt;m_FixSearchRule</a>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">else</span></div>
-<div class="line">            $searchRule = <a class="code" href="../../d3/d10/class_easy_form.html#ac41a09c26ea7ca368444f9e3fe85fe76">$this-&gt;m_SearchRule</a>;</div>
-<div class="line"></div>
-<div class="line">        $dataObj-&gt;setSearchRule($searchRule);</div>
-<div class="line">        </div>
-<div class="line">        $resultRecords = $dataObj-&gt;fetch();</div>
-<div class="line">        $this-&gt;m_TotalRecords = $dataObj-&gt;count();</div>
-<div class="line">        <span class="keywordflow">if</span> ($this-&gt;m_Range &amp;&amp; $this-&gt;m_Range &gt; 0)</div>
-<div class="line">            $this-&gt;m_TotalPages = ceil($this-&gt;m_TotalRecords/$this-&gt;m_Range);</div>
-<div class="line">            </div>
-<div class="line">        $this-&gt;m_TotalPagesBak = <a class="code" href="../../d3/d10/class_easy_form.html#a777be0a2c15970bf7ae3b331cae6a88c">$this-&gt;m_TotalPages</a>;</div>
-<div class="line">        QueryStringParam::ReSet();</div>
-<div class="line">        <span class="comment">//looping</span></div>
-<div class="line">        $i=0;</div>
-<div class="line">        $results = array();</div>
-<div class="line">        <span class="keywordflow">foreach</span>($resultRecords as $record){</div>
-<div class="line">         <span class="keywordflow">if</span> ($this-&gt;m_RefreshData)</div>
-<div class="line">             $dataObj-&gt;resetRules();</div>
-<div class="line">         <span class="keywordflow">else</span></div>
-<div class="line">             $dataObj-&gt;clearSearchRule();</div>
-<div class="line">         <a class="code" href="../../d1/d2c/class_query_string_param.html#a03a34bddde00ab8e85f84e0f55421497">QueryStringParam::setBindValues</a>($this-&gt;m_SearchRuleBindValues);</div>
-<div class="line">         $group_val = $record[$GroupField];</div>
-<div class="line">         <span class="keywordflow">if</span> ($this-&gt;m_FixSearchRule)</div>
-<div class="line">         {</div>
-<div class="line">             <span class="keywordflow">if</span> ($this-&gt;m_SearchRule)</div>
-<div class="line">                 $searchRule = $this-&gt;m_SearchRule . <span class="stringliteral">&quot; AND &quot;</span> . <a class="code" href="../../d3/d10/class_easy_form.html#a0297dee6a963cc67edc56e3905cee470">$this-&gt;m_FixSearchRule</a>;</div>
-<div class="line">             <span class="keywordflow">else</span></div>
-<div class="line">                 $searchRule = <a class="code" href="../../d3/d10/class_easy_form.html#a0297dee6a963cc67edc56e3905cee470">$this-&gt;m_FixSearchRule</a>;</div>
-<div class="line">         }</div>
-<div class="line">         <span class="keywordflow">else</span></div>
-<div class="line">             $searchRule = <a class="code" href="../../d3/d10/class_easy_form.html#ac41a09c26ea7ca368444f9e3fe85fe76">$this-&gt;m_SearchRule</a>;</div>
-<div class="line">   <span class="keywordflow">if</span>($group_val){</div>
-<div class="line">          <span class="keywordflow">if</span>($searchRule!=<span class="stringliteral">&quot;&quot;</span>){</div>
-<div class="line">     $searchRule = $searchRule.<span class="stringliteral">&quot; AND [$GroupField]=&#39;$group_val&#39;&quot;</span>; </div>
-<div class="line">    }<span class="keywordflow">else</span>{</div>
-<div class="line">     $searchRule = <span class="stringliteral">&quot; [$GroupField]=&#39;$group_val&#39;&quot;</span>; </div>
-<div class="line">    }</div>
-<div class="line">   }<span class="keywordflow">else</span>{</div>
-<div class="line">    <span class="keywordflow">if</span>($searchRule!=<span class="stringliteral">&quot;&quot;</span>){</div>
-<div class="line">     $searchRule = $searchRule.<span class="stringliteral">&quot; AND [$GroupField]  is NULL&quot;</span>; </div>
-<div class="line">    }<span class="keywordflow">else</span>{</div>
-<div class="line">     $searchRule = <span class="stringliteral">&quot; [$GroupField] is NULL&quot;</span>; </div>
-<div class="line">    }    </div>
-<div class="line">   }</div>
-<div class="line">   </div>
-<div class="line">   $dataObj-&gt;setOtherSQLRule(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line">   $dataObj-&gt;setLimit(0,0);</div>
-<div class="line">         $dataObj-&gt;setSearchRule($searchRule); </div>
-<div class="line">         $resultRecords_grouped = $dataObj-&gt;fetch();</div>
-<div class="line">         <span class="comment">//renderTable</span></div>
-<div class="line">         $resultRecords_grouped_table = $this-&gt;m_DataPanel-&gt;renderTable($resultRecords_grouped);</div>
-<div class="line">         </div>
-<div class="line">         <span class="keywordflow">if</span>($record[$GroupField]){</div>
-<div class="line">          <span class="keywordflow">if</span>($GroupFieldName){</div>
-<div class="line">           $results[$record[$GroupFieldName]] = $resultRecords_grouped_table;</div>
-<div class="line">          }<span class="keywordflow">else</span>{</div>
-<div class="line">           $results[$record[$GroupField]] = $resultRecords_grouped_table;</div>
-<div class="line">          }</div>
-<div class="line">         }<span class="keywordflow">else</span>{</div>
-<div class="line">          $results[<span class="stringliteral">&quot;Empty&quot;</span>] = $resultRecords_grouped_table;</div>
-<div class="line">         }</div>
-<div class="line">        </div>
-<div class="line">         </div>
-<div class="line">         $i++;  </div>
-<div class="line">         QueryStringParam::ReSet();</div>
-<div class="line">        }</div>
-<div class="line">        </div>
-<div class="line">        <span class="comment">//set active records</span></div>
-<div class="line">        $selectedIndex = 0;</div>
-<div class="line">        $this-&gt;<a class="code" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b">getDataObj</a>()-&gt;setActiveRecord($resultRecords[$selectedIndex]);</div>
-<div class="line">        <span class="keywordflow">return</span> $results;</div>
-<div class="line">    } </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/dbc/_easy_form_grouping_8php_source.html#l00028">28</a> of file <a class="el" href="../../d3/dbc/_easy_form_grouping_8php_source.html">EasyFormGrouping.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d52/class_easy_form_grouping_a6dbc3c0530511816451285e1698f01e5_cgraph.png" border="0" usemap="#d6/d52/class_easy_form_grouping_a6dbc3c0530511816451285e1698f01e5_cgraph" alt=""/></div>
+<map name="d6/d52/class_easy_form_grouping_a6dbc3c0530511816451285e1698f01e5_cgraph" id="d6/d52/class_easy_form_grouping_a6dbc3c0530511816451285e1698f01e5_cgraph">
+<area shape="rect" id="node2" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm\\getDataObj" alt="" coords="185,5,338,33"/><area shape="rect" id="node5" href="../../d1/d2c/class_query_string_param.html#a03a34bddde00ab8e85f84e0f55421497" title="QueryStringParam\\setBind\lValues" alt="" coords="171,57,351,101"/><area shape="rect" id="node3" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="400,5,568,33"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="616,5,754,33"/></map>
+</div>
+</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d52/class_easy_form_grouping_a6dbc3c0530511816451285e1698f01e5_icgraph.png" border="0" usemap="#d6/d52/class_easy_form_grouping_a6dbc3c0530511816451285e1698f01e5_icgraph" alt=""/></div>
+<map name="d6/d52/class_easy_form_grouping_a6dbc3c0530511816451285e1698f01e5_icgraph" id="d6/d52/class_easy_form_grouping_a6dbc3c0530511816451285e1698f01e5_icgraph">
+<area shape="rect" id="node2" href="../../d6/d52/class_easy_form_grouping.html#ad3526d375e393f0f13721877488493b6" title="fetchDataSet" alt="" coords="171,5,269,33"/><area shape="rect" id="node3" href="../../d6/d52/class_easy_form_grouping.html#afbb8fcc4c21113c915263f4a1ca3c0c5" title="outputAttrs" alt="" coords="177,57,263,85"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ad3526d375e393f0f13721877488493b6"></a>
@@ -606,14 +523,19 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L135">135</a> of file <a class="el" href="../../">EasyFormGrouping.php</a>.</p>
-<div class="fragment"><div class="line">                                  {</div>
-<div class="line">     $this-&gt;<a class="code" href="../../d6/d52/class_easy_form_grouping.html#a6dbc3c0530511816451285e1698f01e5">fetchDataGroup</a>();</div>
-<div class="line">     $resultset = parent::fetchDataSet();</div>
-<div class="line">     $this-&gt;m_TotalPages = $this-&gt;m_TotalPagesBak;</div>
-<div class="line">     <span class="keywordflow">return</span> $resultset; </div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/dbc/_easy_form_grouping_8php_source.html#l00135">135</a> of file <a class="el" href="../../d3/dbc/_easy_form_grouping_8php_source.html">EasyFormGrouping.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d52/class_easy_form_grouping_ad3526d375e393f0f13721877488493b6_cgraph.png" border="0" usemap="#d6/d52/class_easy_form_grouping_ad3526d375e393f0f13721877488493b6_cgraph" alt=""/></div>
+<map name="d6/d52/class_easy_form_grouping_ad3526d375e393f0f13721877488493b6_cgraph" id="d6/d52/class_easy_form_grouping_ad3526d375e393f0f13721877488493b6_cgraph">
+<area shape="rect" id="node2" href="../../d6/d52/class_easy_form_grouping.html#a6dbc3c0530511816451285e1698f01e5" title="fetchDataGroup" alt="" coords="153,35,268,63"/><area shape="rect" id="node3" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm\\getDataObj" alt="" coords="331,5,485,33"/><area shape="rect" id="node6" href="../../d1/d2c/class_query_string_param.html#a03a34bddde00ab8e85f84e0f55421497" title="QueryStringParam\\setBind\lValues" alt="" coords="318,57,498,101"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="547,5,715,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="763,5,901,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="afbb8fcc4c21113c915263f4a1ca3c0c5"></a>
@@ -629,14 +551,19 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L142">142</a> of file <a class="el" href="../../">EasyFormGrouping.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">     $output = parent::outputAttrs();</div>
-<div class="line">     $output[<span class="stringliteral">&#39;dataGroup&#39;</span>] = $this-&gt;<a class="code" href="../../d6/d52/class_easy_form_grouping.html#a6dbc3c0530511816451285e1698f01e5">fetchDataGroup</a>();</div>
-<div class="line">     <span class="keywordflow">return</span> $output; </div>
-<div class="line">    </div>
-<div class="line">    }     </div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/dbc/_easy_form_grouping_8php_source.html#l00142">142</a> of file <a class="el" href="../../d3/dbc/_easy_form_grouping_8php_source.html">EasyFormGrouping.php</a>.</p>
+
+<p><div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/d52/class_easy_form_grouping_afbb8fcc4c21113c915263f4a1ca3c0c5_cgraph.png" border="0" usemap="#d6/d52/class_easy_form_grouping_afbb8fcc4c21113c915263f4a1ca3c0c5_cgraph" alt=""/></div>
+<map name="d6/d52/class_easy_form_grouping_afbb8fcc4c21113c915263f4a1ca3c0c5_cgraph" id="d6/d52/class_easy_form_grouping_afbb8fcc4c21113c915263f4a1ca3c0c5_cgraph">
+<area shape="rect" id="node2" href="../../d6/d52/class_easy_form_grouping.html#a6dbc3c0530511816451285e1698f01e5" title="fetchDataGroup" alt="" coords="140,35,255,63"/><area shape="rect" id="node3" href="../../d3/d10/class_easy_form.html#ae4300c4a8e77a43c8af9242c2363b23b" title="EasyForm\\getDataObj" alt="" coords="318,5,471,33"/><area shape="rect" id="node6" href="../../d1/d2c/class_query_string_param.html#a03a34bddde00ab8e85f84e0f55421497" title="QueryStringParam\\setBind\lValues" alt="" coords="305,57,485,101"/><area shape="rect" id="node4" href="../../d1/d7e/class_biz_system.html#ac53aa9a66aa8dbab908914d61820ff0c" title="BizSystem\\objectFactory" alt="" coords="533,5,701,33"/><area shape="rect" id="node5" href="../../d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="750,5,888,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1db802d93a9f0badf186a646e1cdb161"></a>
@@ -661,12 +588,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L22">22</a> of file <a class="el" href="../../">EasyFormGrouping.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        parent::readMetaData($xmlArr);</div>
-<div class="line">     $this-&gt;m_GroupBy = isset($xmlArr[<span class="stringliteral">&quot;EASYFORM&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;GROUPBY&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;EASYFORM&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;GROUPBY&quot;</span>] : null;    </div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d3/dbc/_easy_form_grouping_8php_source.html#l00022">22</a> of file <a class="el" href="../../d3/dbc/_easy_form_grouping_8php_source.html">EasyFormGrouping.php</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -688,7 +611,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L20">20</a> of file <a class="el" href="../../">EasyFormGrouping.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d3/dbc/_easy_form_grouping_8php_source.html#l00020">20</a> of file <a class="el" href="../../d3/dbc/_easy_form_grouping_8php_source.html">EasyFormGrouping.php</a>.</p>
 
 </div>
 </div>
@@ -698,7 +621,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d52/class_easy_form_grouping.html">EasyFormGrouping</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:18 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:49 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

@@ -1,0 +1,8 @@
+<map id="valueToFormattedString" name="valueToFormattedString">
+<area shape="rect" id="node2" href="$d3/d66/class_type_manager.html#ad1036ab8bf363e183b146965fde251e0" title="valueToNumber" alt="" coords="220,5,335,33"/>
+<area shape="rect" id="node3" href="$d3/d66/class_type_manager.html#a7503ec06c63983cc000b196c2e5620bb" title="valueToText" alt="" coords="231,57,323,85"/>
+<area shape="rect" id="node4" href="$d3/d66/class_type_manager.html#aa09a348802e9c7c2a70b5003da1d8bd5" title="valueToDate" alt="" coords="387,135,482,163"/>
+<area shape="rect" id="node5" href="$d3/d66/class_type_manager.html#af59f9876a93301c8742644cc44558cbd" title="valueToDatetime" alt="" coords="217,161,338,189"/>
+<area shape="rect" id="node6" href="$d3/d66/class_type_manager.html#ace5ddb0d2cf979e84f86ac7139e90853" title="valueToCurrency" alt="" coords="217,213,338,241"/>
+<area shape="rect" id="node7" href="$d3/d66/class_type_manager.html#a668538cc5afbd106de7e5c4a3b6eb556" title="valueToPhone" alt="" coords="224,265,330,293"/>
+</map>

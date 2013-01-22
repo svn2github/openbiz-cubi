@@ -1,0 +1,10 @@
+<map id="getZendTemplate" name="getZendTemplate">
+<area shape="rect" id="node2" href="$df/d00/class_resource.html#ad15c7aaf2cda13ae9e0d32429f666fc3" title="Resource\\getZendTemplate" alt="" coords="179,33,365,61"/>
+<area shape="rect" id="node3" href="$df/d00/class_resource.html#a1fba0833b16e3ca8470ef13b70f66a40" title="Resource\\getCurrentTheme" alt="" coords="413,58,600,86"/>
+<area shape="rect" id="node9" href="$d6/d59/class_i18n.html#a13d425e8b2f796041ce30c928925c197" title="I18n\\getCurrentLangCode" alt="" coords="419,6,594,34"/>
+<area shape="rect" id="node4" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="sessionContext" alt="" coords="829,6,942,34"/>
+<area shape="rect" id="node6" href="$d1/d7e/class_biz_system.html#a24cea9a3a36a9387a2b6da23706f24f1" title="getUserPreference" alt="" coords="648,31,781,59"/>
+<area shape="rect" id="node5" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="instance" alt="" coords="994,6,1065,34"/>
+<area shape="rect" id="node7" href="$d1/d7e/class_biz_system.html#a6729150f2baee41fce746a2f21defd96" title="getService" alt="" coords="843,58,927,86"/>
+<area shape="rect" id="node8" href="$d1/d7e/class_biz_system.html#a923ad83ce9295b8338032bd9f02720c3" title="getObject" alt="" coords="990,58,1069,86"/>
+</map>

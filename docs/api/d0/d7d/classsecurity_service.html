@@ -149,7 +149,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L27">27</a> of file <a class="el" href="../../">securityService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00027">27</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a847d8d60f037d0a016aca7006cf9dec6"></a>
 <div class="memitem">
@@ -173,11 +173,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L40">40</a> of file <a class="el" href="../../">securityService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;<a class="code" href="../../d0/d7d/classsecurity_service.html#a1db802d93a9f0badf186a646e1cdb161">readMetadata</a>($xmlArr);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00040">40</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d7d/classsecurity_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph.png" border="0" usemap="#d0/d7d/classsecurity_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph" alt=""/></div>
+<map name="d0/d7d/classsecurity_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph" id="d0/d7d/classsecurity_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph">
+<area shape="rect" id="node2" href="../../d0/d7d/classsecurity_service.html#a1db802d93a9f0badf186a646e1cdb161" title="readMetadata" alt="" coords="144,5,248,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -196,11 +204,8 @@ Protected Attributes</h2></td></tr>
 <p>Get error message</p>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L70">70</a> of file <a class="el" href="../../">securityService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> <a class="code" href="../../d0/d7d/classsecurity_service.html#acf9dd54a23516566a0b7d083ee4a336a">$this-&gt;m_ErrorMessage</a>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00070">70</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="abeafb72987ec46a07cce6b32eafbe0b8"></a>
@@ -218,21 +223,8 @@ Protected Attributes</h2></td></tr>
 <p>Proses filter</p>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L80">80</a> of file <a class="el" href="../../">securityService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">foreach</span>($this-&gt;_securityFilters as $filter)</div>
-<div class="line">        {</div>
-<div class="line">            $filter-&gt;processRules();</div>
-<div class="line">            <span class="keywordflow">if</span>($filter-&gt;getErrorMessage())</div>
-<div class="line">            {</div>
-<div class="line">                $this-&gt;m_ErrorMessage = $filter-&gt;getErrorMessage();</div>
-<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"></div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00080">80</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1db802d93a9f0badf186a646e1cdb161"></a>
@@ -265,20 +257,19 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L51">51</a> of file <a class="el" href="../../">securityService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;m_Mode =   isset($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;SECURITY&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;MODE&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;SECURITY&quot;</span>][<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;MODE&quot;</span>] : <span class="stringliteral">&quot;DISABLED&quot;</span>;</div>
-<div class="line">        <span class="keywordflow">if</span>(strtoupper($this-&gt;m_Mode) == <span class="stringliteral">&#39;ENABLED&#39;</span> )</div>
-<div class="line">        {</div>
-<div class="line">            $this-&gt;_securityFilters[] = <span class="keyword">new</span> <a class="code" href="../../d0/db4/classsecurity_filter.html">securityFilter</a>($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;SECURITY&quot;</span>][<span class="stringliteral">&quot;URLFILTER&quot;</span>],  <span class="stringliteral">&quot;securityFilter&quot;</span>, <span class="stringliteral">&quot;URLFilter&quot;</span>);</div>
-<div class="line">            $this-&gt;_securityFilters[] = <span class="keyword">new</span> <a class="code" href="../../d0/db4/classsecurity_filter.html">securityFilter</a>($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;SECURITY&quot;</span>][<span class="stringliteral">&quot;DOMAINFILTER&quot;</span>], <span class="stringliteral">&quot;securityFilter&quot;</span>, <span class="stringliteral">&quot;DomainFilter&quot;</span>);</div>
-<div class="line">            $this-&gt;_securityFilters[] = <span class="keyword">new</span> <a class="code" href="../../d0/db4/classsecurity_filter.html">securityFilter</a>($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;SECURITY&quot;</span>][<span class="stringliteral">&quot;IPFILTER&quot;</span>],  <span class="stringliteral">&quot;securityFilter&quot;</span>, <span class="stringliteral">&quot;IPFilter&quot;</span>);</div>
-<div class="line">            $this-&gt;_securityFilters[] = <span class="keyword">new</span> <a class="code" href="../../d0/db4/classsecurity_filter.html">securityFilter</a>($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;SECURITY&quot;</span>][<span class="stringliteral">&quot;AGENTFILTER&quot;</span>],  <span class="stringliteral">&quot;securityFilter&quot;</span>, <span class="stringliteral">&quot;AgentFilter&quot;</span>);</div>
-<div class="line">            $this-&gt;_securityFilters[] = <span class="keyword">new</span> <a class="code" href="../../d0/db4/classsecurity_filter.html">securityFilter</a>($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;SECURITY&quot;</span>][<span class="stringliteral">&quot;POSTFILTER&quot;</span>],  <span class="stringliteral">&quot;securityFilter&quot;</span>, <span class="stringliteral">&quot;PostFilter&quot;</span>);</div>
-<div class="line">            $this-&gt;_securityFilters[] = <span class="keyword">new</span> <a class="code" href="../../d0/db4/classsecurity_filter.html">securityFilter</a>($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;SECURITY&quot;</span>][<span class="stringliteral">&quot;GETFILTER&quot;</span>],  <span class="stringliteral">&quot;securityFilter&quot;</span>, <span class="stringliteral">&quot;GetFilter&quot;</span>);</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00051">51</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d7d/classsecurity_service_a1db802d93a9f0badf186a646e1cdb161_icgraph.png" border="0" usemap="#d0/d7d/classsecurity_service_a1db802d93a9f0badf186a646e1cdb161_icgraph" alt=""/></div>
+<map name="d0/d7d/classsecurity_service_a1db802d93a9f0badf186a646e1cdb161_icgraph" id="d0/d7d/classsecurity_service_a1db802d93a9f0badf186a646e1cdb161_icgraph">
+<area shape="rect" id="node2" href="../../d0/d7d/classsecurity_service.html#a847d8d60f037d0a016aca7006cf9dec6" title="__construct" alt="" coords="158,5,248,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -300,7 +291,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L32">32</a> of file <a class="el" href="../../">securityService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00032">32</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
 
 </div>
 </div>
@@ -314,7 +305,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../#L29">29</a> of file <a class="el" href="../../">securityService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00029">29</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
 
 </div>
 </div>
@@ -324,7 +315,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d7d/classsecurity_service.html">securityService</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:26 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:22:06 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

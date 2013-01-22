@@ -137,7 +137,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="../../#L39">39</a> of file <a class="el" href="../../">accessService.php</a>.</p>
+<p>Definition at line <a class="el" href="../../d1/daa/access_service_8php_source.html#l00039">39</a> of file <a class="el" href="../../d1/daa/access_service_8php_source.html">accessService.php</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a847d8d60f037d0a016aca7006cf9dec6"></a>
 <div class="memitem">
@@ -161,11 +161,19 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L50">50</a> of file <a class="el" href="../../">accessService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $this-&gt;<a class="code" href="../../d1/d73/classaccess_service.html#a1db802d93a9f0badf186a646e1cdb161">readMetadata</a>($xmlArr);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/daa/access_service_8php_source.html#l00050">50</a> of file <a class="el" href="../../d1/daa/access_service_8php_source.html">accessService.php</a>.</p>
+
+<p><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d1/d73/classaccess_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph.png" border="0" usemap="#d1/d73/classaccess_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph" alt=""/></div>
+<map name="d1/d73/classaccess_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph" id="d1/d73/classaccess_service_a847d8d60f037d0a016aca7006cf9dec6_cgraph">
+<area shape="rect" id="node2" href="../../d1/d73/classaccess_service.html#a1db802d93a9f0badf186a646e1cdb161" title="readMetadata" alt="" coords="144,5,248,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -202,24 +210,19 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>boolean </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L74">74</a> of file <a class="el" href="../../">accessService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> (!$role)</div>
-<div class="line">            $role = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"></div>
-<div class="line">        $view = $this-&gt;<a class="code" href="../../d1/d73/classaccess_service.html#a33896ca37d0f0fd57b007ca9b7e8b523">getMatchView</a>($viewName);</div>
-<div class="line">        <span class="keywordflow">if</span> (!$view)</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"></div>
-<div class="line">        $roleList = $view-&gt;getRoleList();</div>
-<div class="line">        <span class="keywordflow">if</span> (!$roleList)</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">        <span class="keywordflow">if</span> ($roleList-&gt;get($role))</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"></div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/daa/access_service_8php_source.html#l00074">74</a> of file <a class="el" href="../../d1/daa/access_service_8php_source.html">accessService.php</a>.</p>
+
+<p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d1/d73/classaccess_service_aa02ec5d86ff63989c1f5b732436c39a0_cgraph.png" border="0" usemap="#d1/d73/classaccess_service_aa02ec5d86ff63989c1f5b732436c39a0_cgraph" alt=""/></div>
+<map name="d1/d73/classaccess_service_aa02ec5d86ff63989c1f5b732436c39a0_cgraph" id="d1/d73/classaccess_service_aa02ec5d86ff63989c1f5b732436c39a0_cgraph">
+<area shape="rect" id="node2" href="../../d1/d73/classaccess_service.html#a33896ca37d0f0fd57b007ca9b7e8b523" title="getMatchView" alt="" coords="180,5,284,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a33896ca37d0f0fd57b007ca9b7e8b523"></a>
@@ -252,23 +255,19 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>EasyView|null </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L98">98</a> of file <a class="el" href="../../">accessService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        <span class="comment">/* @var $viewObj EasyView */</span></div>
-<div class="line">        $viewObj = $this-&gt;_restrictedViewList-&gt;get($viewName);</div>
-<div class="line">        <span class="keywordflow">if</span> ($viewObj)</div>
-<div class="line">            <span class="keywordflow">return</span> $viewObj;</div>
-<div class="line">        <span class="keywordflow">foreach</span> ($this-&gt;_restrictedViewList as $view =&gt; $viewObj)</div>
-<div class="line">        {</div>
-<div class="line">            $preg_view = <span class="stringliteral">&quot;/&quot;</span>.$view.<span class="stringliteral">&quot;/&quot;</span>;</div>
-<div class="line">            <span class="keywordflow">if</span> (preg_match($preg_view, $viewName))</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">return</span> $viewObj;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> null;</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/daa/access_service_8php_source.html#l00098">98</a> of file <a class="el" href="../../d1/daa/access_service_8php_source.html">accessService.php</a>.</p>
+
+<p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d1/d73/classaccess_service_a33896ca37d0f0fd57b007ca9b7e8b523_icgraph.png" border="0" usemap="#d1/d73/classaccess_service_a33896ca37d0f0fd57b007ca9b7e8b523_icgraph" alt=""/></div>
+<map name="d1/d73/classaccess_service_a33896ca37d0f0fd57b007ca9b7e8b523_icgraph" id="d1/d73/classaccess_service_a33896ca37d0f0fd57b007ca9b7e8b523_icgraph">
+<area shape="rect" id="node2" href="../../d1/d73/classaccess_service.html#aa02ec5d86ff63989c1f5b732436c39a0" title="allowViewAccess" alt="" coords="161,5,284,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1db802d93a9f0badf186a646e1cdb161"></a>
@@ -301,12 +300,19 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p>Definition at line <a class="el" href="../../#L61">61</a> of file <a class="el" href="../../">accessService.php</a>.</p>
-<div class="fragment"><div class="line">    {</div>
-<div class="line">        $viewCollection = $xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;ACCESS-CONSTRAINT&quot;</span>][<span class="stringliteral">&quot;VIEW-COLLECTION&quot;</span>];</div>
-<div class="line">        $this-&gt;_restrictedViewList = <span class="keyword">new</span> <a class="code" href="../../dd/d21/class_meta_iterator.html">MetaIterator</a>($xmlArr[<span class="stringliteral">&quot;PLUGINSERVICE&quot;</span>][<span class="stringliteral">&quot;ACCESS-CONSTRAINT&quot;</span>][<span class="stringliteral">&quot;VIEW-COLLECTION&quot;</span>][<span class="stringliteral">&quot;VIEW&quot;</span>],<span class="stringliteral">&quot;RestrictedView&quot;</span>);</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
+<p>Definition at line <a class="el" href="../../d1/daa/access_service_8php_source.html#l00061">61</a> of file <a class="el" href="../../d1/daa/access_service_8php_source.html">accessService.php</a>.</p>
+
+<p><div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d1/d73/classaccess_service_a1db802d93a9f0badf186a646e1cdb161_icgraph.png" border="0" usemap="#d1/d73/classaccess_service_a1db802d93a9f0badf186a646e1cdb161_icgraph" alt=""/></div>
+<map name="d1/d73/classaccess_service_a1db802d93a9f0badf186a646e1cdb161_icgraph" id="d1/d73/classaccess_service_a1db802d93a9f0badf186a646e1cdb161_icgraph">
+<area shape="rect" id="node2" href="../../d1/d73/classaccess_service.html#a847d8d60f037d0a016aca7006cf9dec6" title="__construct" alt="" coords="158,5,248,33"/></map>
+</div>
+</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -315,7 +321,7 @@ Protected Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d1/d73/classaccess_service.html">accessService</a></li>
-    <li class="footer">Generated on Mon Jan 21 2013 12:49:11 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 00:21:36 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>
