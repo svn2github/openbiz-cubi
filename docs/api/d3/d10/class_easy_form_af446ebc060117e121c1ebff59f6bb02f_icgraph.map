@@ -1,12 +1,12 @@
 <map id="processPostAction" name="processPostAction">
-<area shape="rect" id="node2" href="$d3/d10/class_easy_form.html#a44283849d1849ef432f360425f8c6907" title="newRecord" alt="" coords="234,5,323,33"/>
+<area shape="rect" id="node2" href="$d3/d10/class_easy_form.html#a649b2b3005c687ae78c9d1d65e973493" title="cancel" alt="" coords="249,5,309,33"/>
 <area shape="rect" id="node3" href="$d3/d10/class_easy_form.html#a0a9be34d99077d5d3ea572ca7e59200a" title="copyRecord" alt="" coords="232,57,325,85"/>
-<area shape="rect" id="node4" href="$d3/d10/class_easy_form.html#a32687fce665ec940eadd9d119c193632" title="editRecord" alt="" coords="236,109,322,137"/>
-<area shape="rect" id="node5" href="$d3/d10/class_easy_form.html#abaacec03117854cd7fcc2540295768e8" title="deleteRecord" alt="" coords="228,161,329,189"/>
-<area shape="rect" id="node6" href="$d3/d10/class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="226,213,331,241"/>
-<area shape="rect" id="node8" href="$d3/d10/class_easy_form.html#a3510e359acc3518312436d50f9cbde51" title="insertRecord" alt="" coords="230,265,327,293"/>
-<area shape="rect" id="node9" href="$d3/d10/class_easy_form.html#a649b2b3005c687ae78c9d1d65e973493" title="cancel" alt="" coords="249,317,309,345"/>
-<area shape="rect" id="node10" href="$dc/d76/class_easy_form_wizard.html#af5df107b0b9aca9b5deb9e7bccb33eb6" title="EasyFormWizard\\doFinish" alt="" coords="190,369,368,397"/>
-<area shape="rect" id="node11" href="$dc/d76/class_easy_form_wizard.html#ac92d8f8d82ac65fb9e2afb21c97b147e" title="EasyFormWizard\\doCancel" alt="" coords="187,421,370,449"/>
-<area shape="rect" id="node7" href="$d3/d10/class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="saveRecord" alt="" coords="419,239,512,267"/>
+<area shape="rect" id="node4" href="$d3/d10/class_easy_form.html#abaacec03117854cd7fcc2540295768e8" title="deleteRecord" alt="" coords="228,109,329,137"/>
+<area shape="rect" id="node5" href="$dc/d76/class_easy_form_wizard.html#ac92d8f8d82ac65fb9e2afb21c97b147e" title="EasyFormWizard\\doCancel" alt="" coords="187,161,370,189"/>
+<area shape="rect" id="node6" href="$dc/d76/class_easy_form_wizard.html#af5df107b0b9aca9b5deb9e7bccb33eb6" title="EasyFormWizard\\doFinish" alt="" coords="190,213,368,241"/>
+<area shape="rect" id="node7" href="$d3/d10/class_easy_form.html#a32687fce665ec940eadd9d119c193632" title="editRecord" alt="" coords="236,265,322,293"/>
+<area shape="rect" id="node8" href="$d3/d10/class_easy_form.html#a3510e359acc3518312436d50f9cbde51" title="insertRecord" alt="" coords="230,317,327,345"/>
+<area shape="rect" id="node10" href="$d3/d10/class_easy_form.html#a44283849d1849ef432f360425f8c6907" title="newRecord" alt="" coords="234,369,323,397"/>
+<area shape="rect" id="node11" href="$d3/d10/class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="226,421,331,449"/>
+<area shape="rect" id="node9" href="$d3/d10/class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="saveRecord" alt="" coords="419,369,512,397"/>
 </map>

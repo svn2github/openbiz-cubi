@@ -1,5 +1,5 @@
 <map id="dispatchRequest" name="dispatchRequest">
-<area shape="rect" id="node2" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="173,5,352,33"/>
-<area shape="rect" id="node4" href="$d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="186,57,339,85"/>
+<area shape="rect" id="node2" href="$d1/d7e/class_biz_system.html#aa26ed2b3200c70e2037b46220a7e22aa" title="BizSystem\\clientProxy" alt="" coords="186,5,339,33"/>
+<area shape="rect" id="node4" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="173,57,352,85"/>
 <area shape="rect" id="node3" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="400,31,538,59"/>
 </map>

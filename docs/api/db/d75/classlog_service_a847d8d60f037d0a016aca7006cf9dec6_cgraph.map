@@ -1,5 +1,5 @@
 <map id="__construct" name="__construct">
 <area shape="rect" id="node2" href="$db/d75/classlog_service.html#a1db802d93a9f0badf186a646e1cdb161" title="readMetadata" alt="" coords="144,5,248,33"/>
-<area shape="rect" id="node3" href="$db/d75/classlog_service.html#a6bda4bc8e53ee7600fda4059785c4663" title="setFormatter" alt="" coords="148,57,244,85"/>
-<area shape="rect" id="node4" href="$db/d75/classlog_service.html#a95515f551cb8e0ae27ee7df61d4e7ed0" title="setExtension" alt="" coords="147,109,245,137"/>
+<area shape="rect" id="node3" href="$db/d75/classlog_service.html#a95515f551cb8e0ae27ee7df61d4e7ed0" title="setExtension" alt="" coords="147,57,245,85"/>
+<area shape="rect" id="node4" href="$db/d75/classlog_service.html#a6bda4bc8e53ee7600fda4059785c4663" title="setFormatter" alt="" coords="148,109,244,137"/>
 </map>

@@ -233,6 +233,11 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00120">120</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
 
+<p>References <a class="el" href="../../d5/d85/security_service_8php_source.html#l00133">readMetadata()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $this-&gt;<a class="code" href="../../d0/db4/classsecurity_filter.html#ad37a37735b17fb5e6efb3a80cef35f85">readMetadata</a>($xmlArr, $filterName, $ruleName);</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -264,6 +269,11 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00148">148</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
 
+<p>References <a class="el" href="../../d5/d85/security_service_8php_source.html#l00109">$m_ErrorMessage</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code" href="../../d0/db4/classsecurity_filter.html#acf9dd54a23516566a0b7d083ee4a336a">$this-&gt;m_ErrorMessage</a>;</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="a2b2dd0ccdbe0b82b753fa17d616f9fcc"></a>
@@ -282,7 +292,21 @@ Protected Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>boolean|void </dd></dl>
 
 <p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00158">158</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
-
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        <span class="keywordflow">if</span>(is_array($this-&gt;m_Rules-&gt;m_var))</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">foreach</span>($this-&gt;m_Rules-&gt;m_var as $name=&gt;$obj)</div>
+<div class="line">            {</div>
+<div class="line">                $obj-&gt;process();</div>
+<div class="line">                <span class="keywordflow">if</span>($obj-&gt;getErrorMessage())</div>
+<div class="line">                {</div>
+<div class="line">                    $this-&gt;m_ErrorMessage = $obj-&gt;getErrorMessage();</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a class="anchor" id="ad37a37735b17fb5e6efb3a80cef35f85"></a>
@@ -335,6 +359,16 @@ Protected Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00133">133</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
 
+<p>Referenced by <a class="el" href="../../d5/d85/security_service_8php_source.html#l00120">__construct()</a>.</p>
+<div class="fragment"><div class="line">    {</div>
+<div class="line">        $this-&gt;m_Name = $ruleName;</div>
+<div class="line">        $this-&gt;m_Mode =   isset($xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;MODE&quot;</span>]) ? $xmlArr[<span class="stringliteral">&quot;ATTRIBUTES&quot;</span>][<span class="stringliteral">&quot;MODE&quot;</span>] : <span class="stringliteral">&quot;DISABLED&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">if</span>(strtoupper($this-&gt;m_Mode) == <span class="stringliteral">&#39;ENABLED&#39;</span> )</div>
+<div class="line">        {</div>
+<div class="line">            $this-&gt;m_Rules  = <span class="keyword">new</span> <a class="code" href="../../dd/d21/class_meta_iterator.html">MetaIterator</a>($xmlArr[<span class="stringliteral">&quot;RULE&quot;</span>],  $ruleName.<span class="stringliteral">&quot;Rule&quot;</span>, $this);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p><div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -368,6 +402,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="../../d5/d85/security_service_8php_source.html#l00109">109</a> of file <a class="el" href="../../d5/d85/security_service_8php_source.html">securityService.php</a>.</p>
+
+<p>Referenced by <a class="el" href="../../d5/d85/security_service_8php_source.html#l00148">getErrorMessage()</a>.</p>
 
 </div>
 </div>
@@ -443,7 +479,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/db4/classsecurity_filter.html">securityFilter</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 11:35:02 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:58 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

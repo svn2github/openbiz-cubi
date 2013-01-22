@@ -1,8 +1,8 @@
 <map id="typeManager" name="typeManager">
 <area shape="rect" id="node2" href="$d8/d08/class_biz_field.html#a80314b4a8ff745a399a730231eaf74b8" title="BizField\\getValue" alt="" coords="179,5,303,33"/>
-<area shape="rect" id="node5" href="$d9/d86/class_biz_record.html#a4a02f0ef11ea4feb96c5a11e7be86a57" title="BizRecord\\setInputRecord" alt="" coords="153,57,330,85"/>
-<area shape="rect" id="node6" href="$d5/d72/_search_helper_8php.html#adcd71bc23513acbade9981e7c6fabfb8" title="inputValToRule" alt="" coords="186,109,296,137"/>
+<area shape="rect" id="node5" href="$d5/d72/_search_helper_8php.html#adcd71bc23513acbade9981e7c6fabfb8" title="inputValToRule" alt="" coords="186,57,296,85"/>
+<area shape="rect" id="node7" href="$d9/d86/class_biz_record.html#a4a02f0ef11ea4feb96c5a11e7be86a57" title="BizRecord\\setInputRecord" alt="" coords="153,109,330,137"/>
 <area shape="rect" id="node3" href="$d8/d08/class_biz_field.html#a56ed2c64ed12456cea61c55446cebacd" title="BizField\\lookupValue" alt="" coords="380,5,524,33"/>
 <area shape="rect" id="node4" href="$d8/d08/class_biz_field.html#ade17b04a708bb62c5c29d4cd0b68fc32" title="BizField\\getProperty" alt="" coords="573,5,715,33"/>
-<area shape="rect" id="node7" href="$d3/d10/class_easy_form.html#a0b269ace607ab745b5c2ac549f1f3b08" title="EasyForm\\runSearch" alt="" coords="378,109,526,137"/>
+<area shape="rect" id="node6" href="$d3/d10/class_easy_form.html#a0b269ace607ab745b5c2ac549f1f3b08" title="EasyForm\\runSearch" alt="" coords="378,57,526,85"/>
 </map>

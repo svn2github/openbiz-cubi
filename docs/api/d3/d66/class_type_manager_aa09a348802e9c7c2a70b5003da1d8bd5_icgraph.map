@@ -1,4 +1,4 @@
 <map id="valueToDate" name="valueToDate">
-<area shape="rect" id="node2" href="$d3/d66/class_type_manager.html#a4d218fcbcf828911483ecb7f4c3c9f39" title="valueToFormattedString" alt="" coords="317,5,480,33"/>
-<area shape="rect" id="node3" href="$d3/d66/class_type_manager.html#af59f9876a93301c8742644cc44558cbd" title="valueToDatetime" alt="" coords="149,30,270,58"/>
+<area shape="rect" id="node2" href="$d3/d66/class_type_manager.html#af59f9876a93301c8742644cc44558cbd" title="valueToDatetime" alt="" coords="149,5,270,33"/>
+<area shape="rect" id="node3" href="$d3/d66/class_type_manager.html#a4d218fcbcf828911483ecb7f4c3c9f39" title="valueToFormattedString" alt="" coords="317,31,480,59"/>
 </map>

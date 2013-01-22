@@ -1,6 +1,6 @@
 <map id="setCurrentTabInSession" name="setCurrentTabInSession">
-<area shape="rect" id="node2" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="218,5,398,33"/>
-<area shape="rect" id="node4" href="$d4/db9/class_h_t_m_l_tabs.html#aa36dd47233ae06f5e1b8c03fb07fe0a5" title="isCurrentTab" alt="" coords="260,57,356,85"/>
+<area shape="rect" id="node2" href="$d4/db9/class_h_t_m_l_tabs.html#aa36dd47233ae06f5e1b8c03fb07fe0a5" title="isCurrentTab" alt="" coords="260,5,356,33"/>
+<area shape="rect" id="node3" href="$d1/d7e/class_biz_system.html#af4e34e77c3fcde41b5c49a48a0b58b0d" title="BizSystem\\sessionContext" alt="" coords="218,57,398,85"/>
 <area shape="rect" id="node5" href="$d4/db9/class_h_t_m_l_tabs.html#a63b8aae2fd9ebc823ac45a927192a09b" title="setCurrentTab" alt="" coords="255,109,361,137"/>
-<area shape="rect" id="node3" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="446,5,584,33"/>
+<area shape="rect" id="node4" href="$d1/d7e/class_biz_system.html#a0deb004950b8dc4f51836316fd19c111" title="BizSystem\\instance" alt="" coords="446,57,584,85"/>
 </map>

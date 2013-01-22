@@ -1,4 +1,4 @@
 <map id="getTableColumn" name="getTableColumn">
-<area shape="rect" id="node2" href="$d8/d47/class_biz_data_sql.html#a15ed9d48a89ecf52ef8bb4ff82a70ad9" title="addTableColumn" alt="" coords="171,5,293,33"/>
-<area shape="rect" id="node3" href="$d8/d47/class_biz_data_sql.html#a5c9b8ae752514b82f504afaa0aa22aa4" title="addAssociation" alt="" coords="176,57,288,85"/>
+<area shape="rect" id="node2" href="$d8/d47/class_biz_data_sql.html#a5c9b8ae752514b82f504afaa0aa22aa4" title="addAssociation" alt="" coords="176,5,288,33"/>
+<area shape="rect" id="node3" href="$d8/d47/class_biz_data_sql.html#a15ed9d48a89ecf52ef8bb4ff82a70ad9" title="addTableColumn" alt="" coords="171,57,293,85"/>
 </map>

@@ -6,10 +6,10 @@
 <area shape="rect" id="node6" href="$d3/d10/class_easy_form.html#a5eca79a16a171c80aea4860c2e8fbe84" title="removeRecord" alt="" coords="347,161,456,189"/>
 <area shape="rect" id="node7" href="$d3/d10/class_easy_form.html#a22a8409a820a88e424d9fc9a71a5932a" title="_doUpdate" alt="" coords="358,213,445,241"/>
 <area shape="rect" id="node13" href="$d3/d10/class_easy_form.html#a613a31d4e8c9693801fa4ae1ba0644b6" title="_doInsert" alt="" coords="363,265,440,293"/>
-<area shape="rect" id="node8" href="$d3/d10/class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="514,213,619,241"/>
-<area shape="rect" id="node10" href="$d3/d10/class_easy_form.html#a386c5a3fcb3daea95ab0e98a4cafd8bf" title="updateFieldValue" alt="" coords="505,161,629,189"/>
-<area shape="rect" id="node9" href="$d3/d10/class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="saveRecord" alt="" coords="706,239,798,267"/>
-<area shape="rect" id="node11" href="$d3/d10/class_easy_form.html#a326d668daf6787a96d8fad30cb3fe3ce" title="updateFieldValueAdd" alt="" coords="678,174,826,202"/>
-<area shape="rect" id="node12" href="$d3/d10/class_easy_form.html#ad925ac5856b187d0d0bdb4691cec8f6f" title="updateFieldValueXor" alt="" coords="680,122,824,150"/>
+<area shape="rect" id="node8" href="$d3/d10/class_easy_form.html#a386c5a3fcb3daea95ab0e98a4cafd8bf" title="updateFieldValue" alt="" coords="505,161,629,189"/>
+<area shape="rect" id="node11" href="$d3/d10/class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="514,213,619,241"/>
+<area shape="rect" id="node9" href="$d3/d10/class_easy_form.html#a326d668daf6787a96d8fad30cb3fe3ce" title="updateFieldValueAdd" alt="" coords="678,122,826,150"/>
+<area shape="rect" id="node10" href="$d3/d10/class_easy_form.html#ad925ac5856b187d0d0bdb4691cec8f6f" title="updateFieldValueXor" alt="" coords="680,174,824,202"/>
+<area shape="rect" id="node12" href="$d3/d10/class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="saveRecord" alt="" coords="706,251,798,279"/>
 <area shape="rect" id="node14" href="$d3/d10/class_easy_form.html#a3510e359acc3518312436d50f9cbde51" title="insertRecord" alt="" coords="518,265,615,293"/>
 </map>

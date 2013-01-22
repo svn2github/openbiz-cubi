@@ -1,12 +1,12 @@
 <map id="processBDOException" name="processBDOException">
-<area shape="rect" id="node2" href="$d3/d10/class_easy_form.html#abaacec03117854cd7fcc2540295768e8" title="deleteRecord" alt="" coords="246,43,346,71"/>
-<area shape="rect" id="node3" href="$d3/d10/class_easy_form.html#a22a8409a820a88e424d9fc9a71a5932a" title="_doUpdate" alt="" coords="253,95,339,123"/>
-<area shape="rect" id="node9" href="$d3/d10/class_easy_form.html#a613a31d4e8c9693801fa4ae1ba0644b6" title="_doInsert" alt="" coords="258,147,334,175"/>
-<area shape="rect" id="node11" href="$dc/d76/class_easy_form_wizard.html#af5674c27d4a92f6228565010eacbb9cb" title="EasyFormWizard\\commit" alt="" coords="211,199,381,227"/>
-<area shape="rect" id="node4" href="$d3/d10/class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="439,95,545,123"/>
-<area shape="rect" id="node6" href="$d3/d10/class_easy_form.html#a386c5a3fcb3daea95ab0e98a4cafd8bf" title="updateFieldValue" alt="" coords="430,43,554,71"/>
-<area shape="rect" id="node5" href="$d3/d10/class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="saveRecord" alt="" coords="631,122,724,150"/>
-<area shape="rect" id="node7" href="$d3/d10/class_easy_form.html#a326d668daf6787a96d8fad30cb3fe3ce" title="updateFieldValueAdd" alt="" coords="603,57,751,85"/>
-<area shape="rect" id="node8" href="$d3/d10/class_easy_form.html#ad925ac5856b187d0d0bdb4691cec8f6f" title="updateFieldValueXor" alt="" coords="605,5,750,33"/>
-<area shape="rect" id="node10" href="$d3/d10/class_easy_form.html#a3510e359acc3518312436d50f9cbde51" title="insertRecord" alt="" coords="444,147,540,175"/>
+<area shape="rect" id="node2" href="$d3/d10/class_easy_form.html#a613a31d4e8c9693801fa4ae1ba0644b6" title="_doInsert" alt="" coords="258,5,334,33"/>
+<area shape="rect" id="node5" href="$d3/d10/class_easy_form.html#a22a8409a820a88e424d9fc9a71a5932a" title="_doUpdate" alt="" coords="253,57,339,85"/>
+<area shape="rect" id="node10" href="$dc/d76/class_easy_form_wizard.html#af5674c27d4a92f6228565010eacbb9cb" title="EasyFormWizard\\commit" alt="" coords="211,109,381,137"/>
+<area shape="rect" id="node11" href="$d3/d10/class_easy_form.html#abaacec03117854cd7fcc2540295768e8" title="deleteRecord" alt="" coords="246,161,346,189"/>
+<area shape="rect" id="node3" href="$d3/d10/class_easy_form.html#a3510e359acc3518312436d50f9cbde51" title="insertRecord" alt="" coords="444,5,540,33"/>
+<area shape="rect" id="node4" href="$d3/d10/class_easy_form.html#aae5ece995d0eadd7585a080c1952fb83" title="saveRecord" alt="" coords="631,18,724,46"/>
+<area shape="rect" id="node6" href="$d3/d10/class_easy_form.html#a386c5a3fcb3daea95ab0e98a4cafd8bf" title="updateFieldValue" alt="" coords="430,109,554,137"/>
+<area shape="rect" id="node9" href="$d3/d10/class_easy_form.html#ae5ce2b9e429c3f400d1a9b74c78b48f1" title="updateRecord" alt="" coords="439,57,545,85"/>
+<area shape="rect" id="node7" href="$d3/d10/class_easy_form.html#a326d668daf6787a96d8fad30cb3fe3ce" title="updateFieldValueAdd" alt="" coords="603,82,751,110"/>
+<area shape="rect" id="node8" href="$d3/d10/class_easy_form.html#ad925ac5856b187d0d0bdb4691cec8f6f" title="updateFieldValueXor" alt="" coords="605,134,750,162"/>
 </map>

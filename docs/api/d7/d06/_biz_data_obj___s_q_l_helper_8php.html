@@ -177,7 +177,37 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>string </dd></dl>
 
 <p>Definition at line <a class="el" href="../../d7/d06/_biz_data_obj___s_q_l_helper_8php_source.html#l00600">600</a> of file <a class="el" href="../../d7/d06/_biz_data_obj___s_q_l_helper_8php_source.html">BizDataObj_SQLHelper.php</a>.</p>
-
+<div class="fragment"><div class="line">{</div>
+<div class="line">    $pos0 = strpos($str, $left, $startpos);</div>
+<div class="line">    <span class="keywordflow">if</span> ($pos0 === <span class="keyword">false</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    $tmp = trim(substr($str,$startpos,$pos0-$startpos));</div>
+<div class="line">    <span class="keywordflow">if</span> ($findfirst &amp;&amp; $tmp!=<span class="stringliteral">&quot;&quot;</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line">    $posleft = $pos0+strlen($left);</div>
+<div class="line">    <span class="keywordflow">while</span>(<span class="keyword">true</span>)</div>
+<div class="line">    {</div>
+<div class="line">        $pos1 = strpos($str, $right, $posleft);</div>
+<div class="line">        <span class="keywordflow">if</span> ($pos1 === <span class="keyword">false</span>)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">if</span> (trim($right)==<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line">            {</div>
+<div class="line">                $pos1 = strlen($str); <span class="comment">// if right is whitespace</span></div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span></div>
+<div class="line">        {   <span class="comment">// avoid \$right is found</span></div>
+<div class="line">            <span class="keywordflow">if</span> (substr($str,$pos1-1,1) == <span class="stringliteral">&quot;\\&quot;</span>)  $posleft = $pos1+1;</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">break</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    $startpos = $pos1 + strlen($right);</div>
+<div class="line">    $retStr = substr($str, $pos0 + strlen($left), $pos1-$pos0-strlen($left));</div>
+<div class="line">    <span class="keywordflow">return</span> $retStr;</div>
+<div class="line">}</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
@@ -186,7 +216,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_e4e4c5f4edba5c3fa361c78d4ddae30e.html">openbiz</a></li><li class="navelem"><a class="el" href="../../dir_adf578fe019b0c440775390e615de841.html">bin</a></li><li class="navelem"><a class="el" href="../../dir_fab744cdac670b07043e2cf2d565ca70.html">data</a></li><li class="navelem"><a class="el" href="../../dir_5950cead85c4bc0b777a04e4df88aed5.html">private</a></li><li class="navelem"><a class="el" href="../../d7/d06/_biz_data_obj___s_q_l_helper_8php.html">BizDataObj_SQLHelper.php</a></li>
-    <li class="footer">Generated on Tue Jan 22 2013 11:34:56 for Openbiz Framework API by
+    <li class="footer">Generated on Tue Jan 22 2013 11:49:50 for Openbiz Framework API by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>
