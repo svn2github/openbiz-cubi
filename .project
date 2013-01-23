@@ -21,30 +21,39 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1358924974272</id>
+			<id>1358925205149</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-build\src</arguments>
+				<arguments>1.0-projectRelativePath-matches-false-false-build\src</arguments>
 			</matcher>
 		</filter>
 		<filter>
-			<id>1358924974277</id>
-			<name></name>
-			<type>5</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-build\encoded</arguments>
-			</matcher>
-		</filter>
-		<filter>
-			<id>1358924974289</id>
+			<id>1358925205177</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-build\src</arguments>
+				<arguments>1.0-projectRelativePath-matches-false-false-build\encoded</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1358925205286</id>
+			<name></name>
+			<type>30</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-projectRelativePath-matches-false-false-build\src</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1358925205291</id>
+			<name></name>
+			<type>30</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-projectRelativePath-matches-false-false-build\encoded</arguments>
 			</matcher>
 		</filter>
 	</filteredResources>
