@@ -21,12 +21,30 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1358818984696</id>
+			<id>1358924974272</id>
 			<name></name>
-			<type>26</type>
+			<type>30</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-build</arguments>
+				<arguments>1.0-name-matches-false-false-build\src</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1358924974277</id>
+			<name></name>
+			<type>5</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-build\encoded</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1358924974289</id>
+			<name></name>
+			<type>30</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-build\src</arguments>
 			</matcher>
 		</filter>
 	</filteredResources>
