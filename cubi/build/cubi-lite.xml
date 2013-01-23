@@ -22,6 +22,7 @@ jsMin, SvnCheckout, Version, Documentor
         <exclude name="install.lock" />
         <include name="bin/**" />
         <include name="build/*" />
+        <include name="example/**" />
         <include name="build/src" />
         <include name="build/dist" />
         <include name="build/encoded" />

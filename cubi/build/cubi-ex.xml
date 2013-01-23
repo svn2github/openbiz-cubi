@@ -21,6 +21,7 @@ jsMin, SvnCheckout, Version, Documentor
         <include name="favicon.ico" />
         <exclude name="install.lock" />
         <include name="bin/**" />
+        <include name="example/**" />        
         <include name="build/*" />
         <include name="build/src" />
         <include name="build/dist" />
