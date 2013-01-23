@@ -45,14 +45,14 @@ jsMin, SvnCheckout, Version, Documentor
     <target name="encode">
 	    <ioncubeencoder phpVersion="5" binary="false" ioncubepath="/Users/jixian/ioncube" optimize="max"
 		  targetoption="replace" withoutruntimeloadersupport="false"  Encrypt="*.tpl *.html *.htm *.xml"
-		  CallbackFile ="license_expection.php"   ActionIfNoLoader="header('Location: '.APP_INDEX.'/common/loader_not_installed');"
+		  CallbackFile ="license_exception.php"   ActionIfNoLoader="header('Location: '.APP_INDEX.'/common/loader_not_installed');"
 		  Copy="*LoadHandler.php register_handler.php mod.xml upgrade.xml resource/"
 		  fromdir="build/src/${package}" todir="build/encoded/${package}" licensepath="license.key" passphrase="${passphrase}">		  
 		</ioncubeencoder>
 		
 		<ioncubeencoder phpVersion="5" binary="false" ioncubepath="/Users/jixian/ioncube" optimize="max"
 		  targetoption="replace" withoutruntimeloadersupport="false"  
-		  CallbackFile ="license_expection.php"   ActionIfNoLoader="header('Location: '.APP_INDEX.'/common/loader_not_installed');"
+		  CallbackFile ="license_exception.php"   ActionIfNoLoader="header('Location: '.APP_INDEX.'/common/loader_not_installed');"
 		  fromdir="build/src/${package}/modules/${buildName}/register_handler.php" todir="build/encoded/${package}/modules/${buildName}/register_handler.php" >		  
 		</ioncubeencoder>
     </target>
