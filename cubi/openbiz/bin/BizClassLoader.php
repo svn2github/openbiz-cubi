@@ -82,7 +82,7 @@ class BizClassLoader {
 		//echo "getLibFileWithPath($className, $packageName)\n";
 		// search it in cache first
         $cacheKey = $className . "_path";
-        if (extension_loaded('0') && ($filePath = apc_fetch($cacheKey)) != null)
+        if (extension_loaded('apc') && ($filePath = apc_fetch($cacheKey)) != null)
             return $filePath;
 
         if (strpos($className, ".") > 0)
