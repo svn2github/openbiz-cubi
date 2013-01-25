@@ -12,6 +12,7 @@
  */
 
 //$start = (float) array_sum(explode(' ',microtime())); 
+define("USE_CUSTOM_SESSION_HANDLER",true);     
 include_once("bin/app_init.php");
 
 include_once(OPENBIZ_BIN."BizController.php");
