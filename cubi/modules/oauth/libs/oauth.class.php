@@ -103,7 +103,9 @@ class oauthClass extends EasyForm
 		$oauth_data['oauth_token']=$access_token['oauth_token'] ; 
 		$oauth_data['oauth_token_secret']=$access_token['oauth_token_secret']; 
 		$oauth_data['access_token_json']=$access_token['access_token_json']; 
-	
+		
+		BizSystem::sessionContext()->setVar('_OauthUserInfo',$oauth_data);
+
 		if($UserToken)
 		{
 			 $UserOAuthArr['oauth_token']=$oauth_data['oauth_token'];
@@ -116,55 +118,58 @@ class oauthClass extends EasyForm
 			$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
 			$logComment=array(	$userinfo['username'], $_SERVER['REMOTE_ADDR']);
     		$eventlog->log("LOGIN", "MSG_LOGIN_SUCCESSFUL", $logComment);
-			 
+			
 			 
 			$UserTokenObj->updateRecords($UserOAuthArr,"[Id]={$UserToken['Id']}"); 
 			$userObj = BizSystem::getObject('system.do.UserDO');
 			$userinfo=$userObj->fetchOne("[Id]='".$UserToken['user_id']."'");
-		
 			if($userinfo){
-			
 				
-				$profile=BizSystem::instance()->InituserProfile($userinfo['username']);
-				
-				
+				$username=$userinfo['username'];
 				$userinfo['lastlogin'] = date("Y-m-d H:i:s");
-				$userinfo->save();
-				
-				
-				//获取当前用户角色的默认页
-				$index=$profile['roles'][0];  
-				$roleStartpage=$rec_info['roleStartpage'][$index];
-				$redirectPage = APP_INDEX.$roleStartpage;
-				$redirectURL = BizSystem::sessionContext()->getVar("oauth_redirect_url");
-				if($redirectURL){
-					$redirectPage = $redirectURL;
-				}
-				
-				BizSystem::clientProxy()->ReDirectPage($redirectPage);
+				$userinfo->save();  
+				$this->RunJumpPage($username);
 			}else{
 				//found a isolate oauth account
 				$UserTokenObj->deleteRecords("[Id]={$UserToken['Id']}");
 				BizSystem::clientProxy()->ReDirectPage(APP_INDEX.'/user/logout');
 			}
 		}
+		elseif (method_exists($this,'autoCreateUser'))
+		{
+			return $this->autoCreateUser();
+		}
 		else
-		{	 
+		{	
 			//未找到用户，跳转到注册页
-			BizSystem::sessionContext()->setVar('_OauthUserInfo',$oauth_data);
+			
 			$assocURL = BizSystem::sessionContext()->getVar("oauth_assoc_url");
 			if($assocURL){
 				header("Location: ".$assocURL);
 			}
 			else
-			{
+			{	
+	
 				header("Location: ".APP_INDEX."/oauth/connect_user");
 			}
 		}
 		 	return $profile;
 	}
 	
-	
+	public function RunJumpPage($username)
+	{
+		$profile=BizSystem::instance()->InituserProfile($username);
+		//获取当前用户角色的默认页
+		$index=$profile['roles'][0];  
+		$roleStartpage=$rec_info['roleStartpage'][$index];
+		$redirectPage = APP_INDEX.$roleStartpage;
+		$redirectURL = BizSystem::sessionContext()->getVar("oauth_redirect_url");
+		if($redirectURL){
+			$redirectPage = $redirectURL;
+		}
+	 
+		BizSystem::clientProxy()->ReDirectPage($redirectPage);
+	}
 	public function saveUserOAuth($user_id, $OauthUserInfo)
 	{
 		if(!$user_id || !$OauthUserInfo)
@@ -192,7 +197,88 @@ class oauthClass extends EasyForm
 		 }
 		 return $return;
 	}
+	public function CreateUser()
+	{
+		global $g_BizSystem;   
+		$userObj = BizSystem::getObject('system.do.UserDO');
+		$oauth_data=BizSystem::sessionContext()->getVar('_OauthUserInfo');
+		
+		$recArr['username']=$oauth_data['uname'];      
+		$recArr['password'] = hash('sha1',$this->m_UserPass);
+		$recArr['create_by']="0";
+        $recArr['update_by']="0";
+		$user_id=$userObj->insertRecord($recArr);
 
+		//set default user role to member
+		$userinfo = $userObj->getActiveRecord();
+		
+		$RoleDOName = "system.do.RoleDO";
+		$UserRoleDOName = "system.do.UserRoleDO";
+		
+		$roleDo = BizSystem::getObject($RoleDOName,1);
+		$userRoleDo = BizSystem::getObject($UserRoleDOName,1);
+		
+		$roleDo->setSearchRule("[default]=1");
+		$defaultRoles = $roleDo->fetch();
+		foreach($defaultRoles as $role){
+			$role_id = $role['Id'];
+			$userRoleArr = array(
+				"user_id" => $userinfo['Id'],
+				"role_id" => $role_id
+			);
+			$userRoleDo->insertRecord($userRoleArr);
+		}
+
+		//assign a default group to new user
+		$GroupDOName = "system.do.GroupDO";
+		$UserGroupDOName = "system.do.UserGroupDO";
+		
+		$groupDo = BizSystem::getObject($GroupDOName,1);
+		$userGroupDo = BizSystem::getObject($UserGroupDOName,1);
+		
+		$groupDo->setSearchRule("[default]=1");
+		$defaultGroups = $groupDo->fetch();
+		foreach($defaultGroups as $group){
+			$group_id = $group['Id'];
+			$userGroupArr = array(
+				"user_id" => $userinfo['Id'],
+				"group_id" => $group_id
+			);
+			$userGroupDo->insertRecord($userGroupArr);
+		}        
+			
+		$userRoleObj = BizSystem::getObject('system.do.UserRoleDO');
+		$uesrRoloArr =array(
+						"user_id"=>$userinfo['Id'],
+						"role_id"=>"2",  //role 2 is Member
+						); 
+		$userRoleObj->insertRecord($uesrRoloArr);
+		//record event log   
+		    
+		$eventlog 	= BizSystem::getService(EVENTLOG_SERVICE);
+		$logComment=array($userinfo['username'],$_SERVER['REMOTE_ADDR']);
+		$eventlog->log("USER_MANAGEMENT", "MSG_USER_REGISTERED", $logComment);   
+		//init profile for future use like redirect to my account view
+	
+		//$profile_id = BizSystem::getService(PROFILE_SERVICE)->CreateProfile($userinfo['Id']);
+		 //send user email
+		$emailObj 	= BizSystem::getService(USER_EMAIL_SERVICE);
+		$emailObj->UserWelcomeEmail($userinfo['Id']);
+	
+		if($userinfo['Id'])
+		{	
+			$this->saveUserOAuth($userinfo['Id'],$oauth_data);
+		}
+		if($g_BizSystem->InituserProfile($userinfo['username']))
+		{
+			$this->RunJumpPage($userinfo['username']);
+		}
+		else
+		{
+			return false;
+		}
+ 
+	}
 	public function clearUserOAuth($user_id, $oauth_id)
 	{
 		
