@@ -20,9 +20,9 @@
     </ACL>
     <Menu>
 {if $dashboard_enable == 1}
-		<MenuItem Name="{$module_name|capitalize|replace:'.':''}" Title="{$module_name|capitalize|replace:'.':' '}" Description="{$module_name|capitalize|replace:'.':' '} Description" URL="{literal}{/literal}/{$module_name|replace:'.':'/'}/dashboard" Parent="" Order="10">
+		<MenuItem Name="{$module_name|capitalize|replace:'.':''}Top" Title="{$module_name|capitalize|replace:'.':' '}" Description="{$module_name|capitalize|replace:'.':' '} Description" URL="{literal}{/literal}/{$module_name|replace:'.':'/'}/dashboard" Parent="" Order="10">
 {/if}
-			<MenuItem Name="{$module|capitalize}" Title="{$comp|capitalize|replace:'.':' '}" Description="{$module|capitalize|replace:'.':' '} description" URL="" Parent="" Order="10">
+			<MenuItem Name="{$module|capitalize}" Title="{$comp|capitalize|replace:'.':' '}" Description="{$module|capitalize|replace:'.':' '} description" URL="" Order="10">
 				<MenuItem Name="{$module|capitalize}.List" Title="{$comp|capitalize|replace:'.':' '} Manage" Description=""  URL="{literal}{/literal}/{$module_name|lower|replace:'.':'/'}/{$listview_uri}" Order="10"/>
 			</MenuItem>	
 {if $dashboard_enable == 1}
