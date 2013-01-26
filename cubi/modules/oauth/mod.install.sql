@@ -27,4 +27,6 @@ INSERT INTO `oauth_provider`
 (4, 'google', 'https://code.google.com/apis/console/','', '', 0, 1, 1),
 (5, 'facebook', 'https://developers.facebook.com/apps','', '', 0, 1, 1),
 (6, 'qzone', 'http://connect.qq.com',  '', '', 0, 1, 1),
-(7, 'twitter', 'https://dev.twitter.com/','', '', 0, 1, 1);
+(7, 'twitter', 'http://api.twitter.com',  '', '', 0, 1, 1),
+(8, 'alitao', 'https://open.taobao.com/','', '', 0, 1, 1);
+(9, 'baiduapp', 'http://developer.baidu.com','', '', 0, 1, 1);
