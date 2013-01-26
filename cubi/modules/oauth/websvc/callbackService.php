@@ -2,7 +2,7 @@
 require_once MODULE_PATH.'/websvc/lib/WebsvcService.php';
 class callbackService extends  WebsvcService
 {
-	
+	protected $m_oauthProviderDo='oauth.do.OauthProviderDO';
 	public function __call($method,$arguments=null)
 	{		
 		$type=BizSystem::ClientProxy()->getRequestParam("type");  
@@ -19,9 +19,13 @@ class callbackService extends  WebsvcService
 			BizSystem::sessionContext()->setVar("oauth_assoc_url", $assocURL);
 		}
 		
-		$whitelist_arr = BizSystem::getService(LOV_SERVICE)->getDictionary("oauth.lov.ProviderLOV(Provider)");
-		
-		if(!in_array($type,$whitelist_arr)){
+		// $whitelist_arr = BizSystem::getService(LOV_SERVICE)->getDictionary("oauth.lov.ProviderLOV(Provider)");
+		$whitelist_arr=BizSystem::getObject($this->m_oauthProviderDo)->fetchOne("[status]=1 and [type]='{$type}'",1);
+		if($whitelist_arr)
+		{
+			$whitelist_arr=$whitelist_arr->toArray();
+		} 
+		if(!$whitelist_arr && !in_array($type,$whitelist_arr)){
 			throw new Exception('Unknown service');
 			return;
 		}
