@@ -975,7 +975,7 @@ line-height:18px;
 	color:#454545;
 }
 .button_gray:active{
-	background-position:0px bottom;
+	background-position:0px -40px;
 	color:#666666;
 }
 .button_switch_on{
