@@ -43,7 +43,6 @@ class BizClassLoader {
         // use class map first        
         if ( @isset( self::$coreClassMap[$className]  )) {
             $classFile = OPENBIZ_HOME . self::$coreClassMap[$className];
-            //if (file_exists($classFile)) // core file always exist
             return $classFile;
         } else { // if class not yet collect on class map, scan core path.                 
             $classFile = $className . '.php';
@@ -56,8 +55,7 @@ class BizClassLoader {
             else if (strrpos($lowClassName,'dataobj')>0) $corePaths = array('data/');
             else $corePaths = array('easy/element/','','data/', 'easy/', 'service/');
             //$corePaths = array('', 'data/', 'easy/', 'easy/element/', 'ui/', 'service/');
-            foreach ($corePaths as $path)
-            {
+            foreach ($corePaths as $path) {
                 $_classFile = OPENBIZ_BIN . $path . $classFile;
                 //echo "file_exists($_classFile)\n";
                 if (file_exists($_classFile))
@@ -79,8 +77,7 @@ class BizClassLoader {
         if (!$className)
             return;
         
-		//echo "getLibFileWithPath($className, $packageName)\n";
-		// search it in cache first
+        // search it in cache first
         $cacheKey = $className . "_path";
         if (extension_loaded('apc') && ($filePath = apc_fetch($cacheKey)) != null)
             return $filePath;
@@ -109,7 +106,6 @@ class BizClassLoader {
             if ($checkExtModule && defined('MODULE_EX_PATH')) array_unshift($classFiles, MODULE_EX_PATH . "/" . $path . "/" . $classFile);
             foreach ($classFiles as $classFile)
             {
-				//echo "file_exists($classFile)\n";
                 if (file_exists($classFile))
                 {
                     $filePath = $classFile;

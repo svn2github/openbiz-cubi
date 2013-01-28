@@ -757,7 +757,7 @@ class BizSystem
      **/
     public static function getLibFileWithPath($className, $packageName="")
     {
-        return Resource::getLibFileWithPath($className, $packageName);
+        return BizClassLoader::getLibFileWithPath($className, $packageName);
     }
 
     /**
@@ -769,7 +769,7 @@ class BizSystem
      */
     private static function _getCoreLibFilePath($className)
     {
-        return Resource::getCoreLibFilePath($className);
+        return BizClassLoader::getCoreLibFilePath($className);
     }
 
     /**
@@ -796,6 +796,7 @@ class BizSystem
      * @return string message
      */
     public static function getMessage($msgid, $params=array())
+            
     {
         return Resource::getMessage($msgid, $params);
     }
