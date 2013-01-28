@@ -137,7 +137,7 @@ class ResetPasswordForm extends UserForm
     	//validate password
     	$password = BizSystem::ClientProxy()->GetFormInputs("fld_password");
 		$validateSvc = BizSystem::getService(VALIDATE_SERVICE);
-		if(!$validateSvc->betweenLength($password,6,12))
+		if(!$validateSvc->betweenLength($password,6,50))
 		{
 			$errorMessage = $this->GetMessage("PASSWORD_LENGTH");
 			$this->m_ValidateErrors['fld_password'] = $errorMessage;
