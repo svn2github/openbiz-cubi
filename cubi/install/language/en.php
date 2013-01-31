@@ -19,7 +19,7 @@ define('STR_OPENBIZ_PATH_FAIL',		'FAIL - OPENBIZ_HOME does not point to Openbiz 
 define('STR_ZEND_PATH',				'Zend Framework Path');
 define('STR_ZEND_PATH_FAIL',		"FAIL - ZEND_FRWK_HOME doesn't point to Zend Framework installed path. Please modify ZEND_FRWK_HOME in ".OPENBIZ_HOME."/bin/sysheader_inc.php");
 define('STR_PDO_EXTENSION',			'PDO Extensions');
-define('STR_PDO_EXTENSION_FAIL',	'FAIL - PDO extensions are required.');
+define('STR_PDO_EXTENSION_FAIL',	'FAIL - PDO and pdo_mysql extensions are required.');
 
 define('STR_DATABASE_CONFIGURATION',		'Database Configuration');
 define('STR_DATABASE_CONFIGURATION_DESC_1',	'Please enter your database configuration information below.<br />If you are unsure of what to fill in, we suggest that you use the default values.');
