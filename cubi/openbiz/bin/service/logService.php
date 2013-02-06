@@ -379,12 +379,14 @@ class logService extends MetaObject
                 $level = $this->_level2filename($level);
                 //delete old log files                
                 if($this->_daystolive>0){
-	                foreach (glob(LOG_PATH . '/' . $level .'-*' .  $this->_extension) as $filename) {
-					    $mtime = filemtime($filename);
-					    if((time() - $mtime) >= $this->_daystolive*86400 ){
-					    	@unlink($filename);
-					    }
-					}
+	                if(is_array(glob(LOG_PATH . '/' . $level .'-*' .  $this->_extension))){
+		                foreach (glob(LOG_PATH . '/' . $level .'-*' .  $this->_extension) as $filename) {
+						    $mtime = filemtime($filename);
+						    if((time() - $mtime) >= $this->_daystolive*86400 ){
+						    	@unlink($filename);
+						    }
+						}
+                	}
                 }
                 return LOG_PATH . '/' . $level .'-'. date("Y_m_d") .  $this->_extension;
                 break;
