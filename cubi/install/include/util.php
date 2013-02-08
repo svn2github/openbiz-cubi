@@ -42,8 +42,8 @@ function getSystemStatus()
 	if (extension_loaded('pdo_oci')) $pdos[] = "pdo_oci";
 	if (extension_loaded('pdo_pgsql')) $pdos[] = "pdo_pgsql";
 	$status[5]['value'] = implode(", ", $pdos);
-	//$status[5]['status'] = ($pdos[0]=='pdo' && $pdos[1]=='pdo_mysql') ? 'OK' : STR_PDO_EXTENSION_FAIL;
-	$status[5]['status'] = ($pdos[0]=='pdo') ? 'OK' : STR_PDO_EXTENSION_FAIL;
+	$status[5]['status'] = ($pdos[0]=='pdo' && $pdos[1]=='pdo_mysql') ? 'OK' : STR_PDO_EXTENSION_FAIL;
+	//$status[5]['status'] = ($pdos[0]=='pdo') ? 'OK' : STR_PDO_EXTENSION_FAIL;
 	return $status;
 }
 
