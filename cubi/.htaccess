@@ -60,10 +60,13 @@ Options FollowSymLinks
   ExpiresByType application/x-javascript "access plus 7 days"
   ExpiresByType application/javascript "access plus 7 days"  
   
+</IfModule>  
+
+<IfModule mod_headers.c>
   <filesMatch "\\.(css)$">
     Header set Cache-Control "max-age=604800, public"
   </filesMatch>
   <filesMatch "\\.(js)$">
     Header set Cache-Control "max-age=216000, public"
   </filesMatch>
-</IfModule>  
+</IfModule> 
