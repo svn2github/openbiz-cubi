@@ -29,6 +29,11 @@ class EasyFormORM extends EasyForm
         return $this->m_AssocDOs;
 	}
 	
+	/**
+	 * 
+	 * get an input record by specified DO name
+	 * @param array $inputRecord
+	 */
 	protected function getAssocRec($doName)
 	{
 		$recArr = array();
@@ -53,8 +58,7 @@ class EasyFormORM extends EasyForm
         }
         return $recArr;
 	}
-	
-	
+		
     protected function _doInsert($inputRecord)
     {
     	$recId = parent::_doInsert($inputRecord);
