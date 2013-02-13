@@ -8,6 +8,7 @@
 <BizDataObj Name="ContactDO" Description="" DataPermControl="Y" Class="BizDataObj" DBName="Default" Table="contact" SearchRule="" SortRule="[sortorder] ASC, [Id] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
 	<BizFieldList>
         <BizField Name="Id" Column="id"     Type="Number"/>
+        <BizField Name="account_id" Column="account_id"     Type="Number"/>
         <BizField Name="first_name" Column="first_name" Required="N" Length="255"  Type="Text"/>
         <BizField Name="last_name" Column="last_name" Required="N" Length="255"  Type="Text"/>
         <BizField Name="display_name" Column="display_name" Length="255"  Type="Text"/>

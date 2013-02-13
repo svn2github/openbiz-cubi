@@ -18,5 +18,10 @@ CREATE TABLE `contact_related` (
   KEY `contact_id` (`contact_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
         ]]></UpgradeSql>
-    </Version>       
+    </Version>     
+    <Version Name="0.7.10">
+        <UpgradeSql><![CDATA[
+ALTER TABLE `contact` ADD `account_id` INT NOT NULL AFTER `id` ;
+        ]]></UpgradeSql>
+    </Version>  
 </Upgrade>
