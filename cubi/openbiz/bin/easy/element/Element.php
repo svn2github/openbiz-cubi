@@ -29,6 +29,7 @@ class Element extends MetaObject implements iUIControl
     public $m_cssErrorClass;
     public $m_Width;
     public $m_Height;
+    public $m_BizDataObj;
     public $m_Hidden = "N";       // support expression
     public $m_HTMLAttr;
     public $m_Label;
@@ -83,6 +84,7 @@ class Element extends MetaObject implements iUIControl
     protected function readMetaData(&$xmlArr)
     {
         $this->m_Name = isset($xmlArr["ATTRIBUTES"]["NAME"]) ? $xmlArr["ATTRIBUTES"]["NAME"] : null;
+        $this->m_BizDataObj = isset($xmlArr["ATTRIBUTES"]["BIZDATAOBJ"]) ? $xmlArr["ATTRIBUTES"]["BIZDATAOBJ"] : null;
 		$this->m_BackgroundColor = isset($xmlArr["ATTRIBUTES"]["BACKGROUNDCOLOR"]) ? $xmlArr["ATTRIBUTES"]["BACKGROUNDCOLOR"] : null;        
         $this->m_Class = isset($xmlArr["ATTRIBUTES"]["CLASS"]) ? $xmlArr["ATTRIBUTES"]["CLASS"] : null;
         $this->m_Description = isset($xmlArr["ATTRIBUTES"]["DESCRIPTION"]) ? $xmlArr["ATTRIBUTES"]["DESCRIPTION"] : null;
