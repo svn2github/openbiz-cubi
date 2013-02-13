@@ -54,11 +54,6 @@ class EasyFormORM extends EasyForm
         return $recArr;
 	}
 	
-	public function fetchData()
-	{
-		
-		return parent::fetchData();
-	}
 	
     protected function _doInsert($inputRecord)
     {
