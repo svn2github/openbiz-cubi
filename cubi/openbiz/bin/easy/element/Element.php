@@ -613,6 +613,15 @@ class Element extends MetaObject implements iUIControl
         if(defined($value)) $value = constant($value);
         return I18n::t($value, 'STRING_'.$value, $module);
     }
+    
+    public function getDataObj()
+    {
+    	if(!$this->m_BizDataObj){
+    		return $this->getFormObj()->getDataObj();
+    	}else{
+    		return BizSystem::getDataObject($this->m_BizDataObj);
+    	}
+    }
 }
 
 /**
@@ -812,5 +821,6 @@ class EventHandler
     	$shortFormName = substr($this->m_FormName,intval(strrpos($this->m_FormName,'.'))+1);
     	return strtoupper($shortFormName.'_'.$this->m_Name.'_'.$name);
     }
+    
 }
 ?>
