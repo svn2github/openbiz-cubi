@@ -120,15 +120,17 @@ class CacheForm extends EasyFormGrouping
     	//Application data
     	$appdata = array();
     	$i=0;
-    	foreach ( glob(CACHE_DATA_PATH.DIRECTORY_SEPARATOR."*",GLOB_ONLYDIR) as $dir){
-    		$appdata[$i]['Id'] = "APPDATA_".$i;
-    		$appdata[$i]['name'] = ucwords(basename($dir));
-    		if(!$lite){
-	    		$appdata[$i]['space'] = $this->GetSpaceUsage($dir);
-	    		$appdata[$i]['items'] = $this->GetChildItems($dir);
-    		}
-    		$appdata[$i]['path'] = $dir;
-    		$i++; 
+    	if(is_array(glob(CACHE_DATA_PATH.DIRECTORY_SEPARATOR."*",GLOB_ONLYDIR))){
+	    	foreach ( glob(CACHE_DATA_PATH.DIRECTORY_SEPARATOR."*",GLOB_ONLYDIR) as $dir){
+	    		$appdata[$i]['Id'] = "APPDATA_".$i;
+	    		$appdata[$i]['name'] = ucwords(basename($dir));
+	    		if(!$lite){
+		    		$appdata[$i]['space'] = $this->GetSpaceUsage($dir);
+		    		$appdata[$i]['items'] = $this->GetChildItems($dir);
+	    		}
+	    		$appdata[$i]['path'] = $dir;
+	    		$i++; 
+	    	}
     	}
     	if(!$lite)
     	{
