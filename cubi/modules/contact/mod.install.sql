@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `foreign_key` varchar(255) default '',
   `source` VARCHAR(255) NULL,
   `owner_id` int(11) default 0,
+  `account_id` int(11) default 0,
   `group_id` int(11) default 0,
   `group_perm` INT(11) NULL,
   `other_perm` INT(11) NULL,
