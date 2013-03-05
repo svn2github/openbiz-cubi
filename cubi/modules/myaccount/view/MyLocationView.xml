@@ -5,7 +5,7 @@
   Copyright (c) 2005-2011, Openbiz Technology LLC
   Version $Id$
 -->
-<EasyView Name="MyLocationView" Description="My Locations" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="myaccount.access">
+<EasyView Name="MyLocationView" Description="My Locations" class="MyProfileView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="myaccount.access">
     <FormReferences>
         <Reference Name="myaccount.form.LocationDetailForm"/>
     </FormReferences>
