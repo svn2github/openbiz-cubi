@@ -212,6 +212,7 @@ class BizClassLoader {
             "FormElement" => "/bin/easy/element/FormElement.php",
             "HTMLBlock" => "/bin/easy/element/HTMLBlock.php",
             "HTMLButton" => "/bin/easy/element/HTMLButton.php",
+    		"HTMLPreview" => "/bin/easy/element/HTMLPreview.php",
             "Hidden" => "/bin/easy/element/Hidden.php",
             "IDCardReader" => "/bin/easy/element/IDCardReader.php",
             "IFrameBox" => "/bin/easy/element/IFrameBox.php",
