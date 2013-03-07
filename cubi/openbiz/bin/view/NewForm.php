@@ -14,6 +14,12 @@ include_once "BaseForm.php";
   */
 class NewForm extends BaseForm
 {
+	//list of method that can directly from browser
+	protected $m_DirectMethodList = array('insertrecord','switchform'); 
+	
+	public $m_RecordId;
+	public $m_ActiveRecord;
+	
 	/**
      * Fetch single record
      *
@@ -32,7 +38,7 @@ class NewForm extends BaseForm
     public function insertRecord()
     {
         $recArr = $this->readInputRecord();
-        $this->setActiveRecord($recArr);
+        //$this->setActiveRecord($recArr);
         if (count($recArr) == 0)
             return;
 
@@ -48,15 +54,15 @@ class NewForm extends BaseForm
 
         $this->_doInsert($recArr);
         
-        $this->commitFormElements(); // commit change in FormElement
+        //$this->commitFormElements(); // commit change in FormElement
 
         // in case of popup form, close it, then rerender the parent form
-        if ($this->m_ParentFormName)
+        /*if ($this->m_ParentFormName)
         {
             $this->close();
 
             $this->renderParent();
-        }
+        }*/
 
         $this->processPostAction();
     }
