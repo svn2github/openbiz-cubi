@@ -237,7 +237,7 @@ class ListForm extends BaseForm
 		
 		$_REQUEST['fld:Id'] = $id;
 
-        $this->processPostAction();
+        $this->formHelper->processPostAction();
     }
 	
 	/**

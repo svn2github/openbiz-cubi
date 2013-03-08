@@ -45,6 +45,7 @@ class InputForm extends BaseForm
             if ( $element->m_FieldName)
                 $recArr[$element->m_FieldName] = $value;
         }
+		$this->m_ActiveRecord = $recArr;
 		return $recArr;
     }
 

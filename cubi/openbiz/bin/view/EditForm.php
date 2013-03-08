@@ -88,7 +88,7 @@ class EditForm extends InputForm
             $this->renderParent();
         }*/
         
-        $this->processPostAction();
+        $this->formHelper->processPostAction();
     }
 	
 	 /**
@@ -114,7 +114,7 @@ class EditForm extends InputForm
         {
             $errElements = $this->getErrorElements($e->m_Errors);           
         	if(count($e->m_Errors)==count($errElements)){
-            	$this->processFormObjError($errElements);
+            	$this->formHelper->processFormObjError($errElements);
             }else{            	
             	$errmsg = implode("<br />",$e->m_Errors);
 		        BizSystem::clientProxy()->showErrorMessage($errmsg);

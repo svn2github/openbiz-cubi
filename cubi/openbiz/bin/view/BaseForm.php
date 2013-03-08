@@ -7,6 +7,9 @@
  * @copyright Copyright (c) 2005-2009
  * @access public
  */
+
+include_once "FormHelper.php"; 
+
 class BaseForm extends MetaObject implements iSessionObject
 {
     // metadata vars are public, necessary for metadata inheritance
@@ -63,6 +66,8 @@ class BaseForm extends MetaObject implements iSessionObject
     protected $m_Messages;
 	
 	protected $m_DirectMethodList = array(); //list of method that can directly from browser
+	
+	protected $formHelper;
     
     /**
      * Initialize BizForm with xml array
@@ -72,8 +77,9 @@ class BaseForm extends MetaObject implements iSessionObject
      */
     function __construct(&$xmlArr)
     {
-        $this->readMetadata($xmlArr);
+		$this->readMetadata($xmlArr);
         $this->inheritParentObj();
+		$this->formHelper = new FormHelper($this);
     }
 
     public function allowAccess($access=null)
@@ -310,6 +316,23 @@ class BaseForm extends MetaObject implements iSessionObject
         }
     }
 	
+	/**
+     * Get error elements
+     *
+     * @param array $fields
+     * @return array
+     */
+    public function getErrorElements($fields)
+    {
+        $errElements = array();
+        foreach ($fields as $field=>$error)
+        {
+            $element = $this->m_DataPanel->getByField($field);
+            $errElements[$element->m_Name]=$error;
+        }
+        return $errElements;
+    }
+	
 	public function setRecordId($val){
     	$this->m_RecordId = $val;
     }
@@ -521,8 +544,8 @@ class BaseForm extends MetaObject implements iSessionObject
 			$this->m_ActiveRecord[$key] = $record[$key];
 		}
 	}
-	
-// -------------------------- Navigation Methods ---------------------- //
+
+// -------------------------- Methods Handled by FormHelper ---------------------- //
 	/**
      * Switch to other form
      *
@@ -533,149 +556,7 @@ class BaseForm extends MetaObject implements iSessionObject
      */
     public function switchForm($formName=null, $id=null)
     {    	
-		$formObj = BizSystem::getObject($formName);
-		$formObj->setRecordId($id);
-		BizSystem::clientProxy()->redrawForm($this->m_Name, $formObj->render());
-    }
-    
-    public function parentSwitchForm($formName=null, $id=null, $params=null, $target=null)
-    {
-    	if($this->m_ParentFormName){
-    		$formObj = BizSystem::getObject($this->m_ParentFormName);
-    		return $formObj->switchForm($formName, $id, $params, $target);
-    	}
-    }
-
-	public function targetSwitchForm($targetForm, $formName=null, $id=null, $params=null, $target=null)
-    {
-    	if($targetForm){
-    		$formObj = BizSystem::getObject($targetForm);
-    		if($formObj){
-    			return $formObj->switchForm($formName, $id, $params, $target);
-    		}
-    	}
-    }
-
-    /**
-     * Process Post Action
-     *
-     * @return void
-     */
-    protected function processPostAction()
-    {
-        // get the $redirectPage from eventHandler
-        list($redirectPage,$target) = $this->getRedirectPage();
-        if ($redirectPage && $this->m_hasError==false)
-        {
-			// if the redirectpage start with "form=", render the form to the target which is defined by FuntionType
-			if (strpos($redirectPage,"form=") === 0)
-			{
-				parse_str($redirectPage, $output);
-				$formName = $output['form'];
-				
-				$id = null;
-				if (isset($output['fld:Id'])) {
-					$id = $output['fld:Id'];
-				}
-				$this->switchForm($formName, $id);
-			}
-			else
-			{
-				// otherwise, do page redirection
-				BizSystem::clientProxy()->ReDirectPage($redirectPage);
-			}
-        }
-    }
-	
-    /**
-     * return redirect page and target array
-     *
-     * @return array {redirectPage, $target}
-     */
-    protected function getRedirectPage()
-    {
-        // get the control that issues the call
-        // __this is elementName:eventHandlerName
-        list($element, $eventHandler) = $this->getInvokingElement();
-        $eventHandlerName = $eventHandler->m_Name;
-        $redirectPage = $element->getRedirectPage($eventHandlerName); // need to get postaction of eventhandler
-        $functionType = $element->getFunctionType($eventHandlerName);
-        switch ($functionType)
-        {
-            case "Popup":
-            case "Prop_Window":
-            case "Prop_Dialog":
-                $target = "Popup";
-                break;
-            default:
-                $target = "";
-        }
-        return array($redirectPage, $target);
-    }
-	
-	/**
-     * Get the element that issues the call.
-     *
-     * @return array element object and event handler name
-     */
-    protected function getInvokingElement()
-    {
-    	if ($this->m_InvokingElement)
-        	return $this->m_InvokingElement;
-    	// __this is elementName:eventHandlerName
-        $elementAndEventName = BizSystem::clientProxy()->getFormInputs("__this");
-        if (! $elementAndEventName)
-        	return array(null,null);
-        list ($elementName, $eventHandlerName) = explode(":", $elementAndEventName);
-        $element = $this->getElement($elementName);
-        $eventHandler = $element->m_EventHandlers->get($eventHandlerName);
-        $this->m_InvokingElement = array($element, $eventHandler);
-        return $this->m_InvokingElement;
-    }
-	
-// -------------------------- Error Handling Methods ---------------------- //
-    /**
-     * Handle the error from {@link BizDataObj::getErrorMessage} method,
-     * report the error as an alert window and log.
-     *
-     * @param int $errCode
-     * @return void
-     */
-    public function processDataObjError($errCode = 0)
-    {
-        $errorMsg = $this->getDataObj()->getErrorMessage();
-        BizSystem::log(LOG_ERR, "DATAOBJ", "DataObj error = ".$errorMsg);
-        BizSystem::clientProxy()->showErrorMessage($errorMsg);
-    }
-
-    /**
-     * Process error of form object
-     *
-     * @param array $errors
-     * @return string - HTML text of this form's read mode
-     */
-    public function processFormObjError($errors)
-    {
-        $this->m_Errors = $errors;
-        $this->m_hasError = true;
-        return $this->rerender();
-    }
-
-    /**
-     * Handle the exception from DataObj method,
-     *  report the error as an alert window
-     *
-     * @param int $errCode
-     * @return string
-     */
-    public function processBDOException($e)
-    {
-        $errorMsg = $e->getMessage();
-        BizSystem::log(LOG_ERR, "DATAOBJ", "DataObj error = ".$errorMsg);
-        //BizSystem::clientProxy()->showClientAlert($errorMsg);   //showErrorMessage($errorMsg);
-        //BizSystem::clientProxy()->showErrorMessage($errorMsg);	
-        $e->no_exit=true;        
-	    OB_ErrorHandler::ExceptionHandler($e);
+		$this->formHelper->switchForm($formName, $id);
     }
     
 // -------------------------- Tranlation Methods ---------------------- //
