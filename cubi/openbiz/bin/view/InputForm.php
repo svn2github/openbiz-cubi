@@ -45,17 +45,7 @@ class InputForm extends BaseForm
             if ( $element->m_FieldName)
                 $recArr[$element->m_FieldName] = $value;
         }
-
-        foreach ($this->m_SearchPanel as $element)
-        {
-            $value = BizSystem::clientProxy()->getFormInputs($element->m_Name);
-            $element->setValue($value);
-            $this->m_FormInputs[$element->m_Name] = $value;
-            $value = $element->getValue();
-            if ($value !== null && $element->m_FieldName)
-                $recArr[$element->m_FieldName] = $value;
-        }
-        return $recArr;
+		return $recArr;
     }
 
     /**

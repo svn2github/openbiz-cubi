@@ -15,7 +15,7 @@ include_once "BaseForm.php";
 class ListForm extends BaseForm
 {
 	//list of method that can directly from browser
-	protected $m_DirectMethodList = array('selectrecord','sortrecord','removerecord','runsearch','gotopage','setpagesize','gotoselectedpage','switchform'); 
+	protected $m_DirectMethodList = array('selectrecord','sortrecord','editrecord','copyrecord','deleterecord','removerecord','runsearch','gotopage','setpagesize','gotoselectedpage','switchform'); 
 	
 	public $m_Range = 10;
 	public $m_SearchRule = null;
@@ -183,19 +183,7 @@ class ListForm extends BaseForm
         foreach ($selIds as $id)
         {        	
             $dataRec = $this->getDataObj()->fetchById($id);
-            $this->getDataObj()->setActiveRecord($dataRec);
-            
-            if(!$this->canDeleteRecord($dataRec))
-            {
-            	$this->m_ErrorMessage = $this->getMessage("FORM_OPERATION_NOT_PERMITTED",$this->m_Name);         
-        		if (strtoupper($this->m_FormType) == "LIST"){
-        			BizSystem::log(LOG_ERR, "DATAOBJ", "DataObj error = ".$errorMsg);
-        			BizSystem::clientProxy()->showClientAlert($this->m_ErrorMessage);
-        		}else{
-        			$this->processFormObjError(array($this->m_ErrorMessage));	
-        		}	
-        		return;
-            }
+            //$this->getDataObj()->setActiveRecord($dataRec);
             
             // take care of exception
             try
@@ -208,11 +196,8 @@ class ListForm extends BaseForm
                 return;
             }
         }
-        if (strtoupper($this->m_FormType) == "LIST")
-            $this->rerender();
-
-        $this->runEventLog();
-        $this->processPostAction();
+		//$this->runEventLog();
+        $this->rerender();
     }
 
     /**
@@ -232,6 +217,41 @@ class ListForm extends BaseForm
         }
         $this->rerender(false); // not redraw the this form, but draw the subforms
         //$this->rerender(); 
+    }
+	
+	/**
+     * Edit Record
+     * NOTE: append fld:Id=$id to the redirect page url
+     *
+     * @param mixed $id
+     * @return void
+     */
+    public function editRecord($id=null)
+    {
+        if ($id==null || $id=='')
+            $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
+	
+        if (!isset($id))
+        {
+            BizSystem::clientProxy()->showClientAlert($this->getMessage("PLEASE_EDIT_A_RECORD"));
+            return;
+        }
+		
+		$_REQUEST['fld:Id'] = $id;
+
+        $this->processPostAction();
+    }
+	
+	/**
+     * Copy record to new record
+     *
+     * @param mixed $id id of record that want to copy,
+     * it parameter not passed, id is '_selectedId'
+     * @return void
+     */
+    public function copyRecord($id=null)
+    {
+        $this->editRecord($id);
     }
 	
     /**

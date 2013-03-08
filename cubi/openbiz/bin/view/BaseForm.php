@@ -505,6 +505,23 @@ class BaseForm extends MetaObject implements iSessionObject
         return $rec;
     }
 	
+	 /**
+     * Set active record
+     *
+     * @param array $record
+     * @return void
+     */
+    protected function setActiveRecord($record)
+    {
+        // update the record row
+        $this->m_DataPanel->setRecordArr($record);           
+  	        
+		foreach($record as $key=>$value){
+			//if($key=='extend')continue;
+			$this->m_ActiveRecord[$key] = $record[$key];
+		}
+	}
+	
 // -------------------------- Navigation Methods ---------------------- //
 	/**
      * Switch to other form
@@ -548,35 +565,25 @@ class BaseForm extends MetaObject implements iSessionObject
     {
         // get the $redirectPage from eventHandler
         list($redirectPage,$target) = $this->getRedirectPage();
-        if ($redirectPage)
+        if ($redirectPage && $this->m_hasError==false)
         {
-            if($this->m_hasError==false)
-            {
-                // if the redirectpage start with "form=", render the form to the target which is defined by FuntionType
-                if (strpos($redirectPage,"form=") === 0)
-                {
-                    parse_str($redirectPage, $output);
-                    $formName = $output['form'];
-
-                    // parse query string. e.g. fld:Id=val&fld:name=val
-                    $paramFields = array();
-                    foreach ($output as $key=>$value)
-                    {
-                        if (substr($key, 0, 4) == "fld:")
-                        {
-                            $fieldName = substr($key, 4);
-                            $paramFields[$fieldName] = $value;
-                        }
-                    }
-
-                    $this->_showForm($formName, $target, $paramFields);
-                }
-                else
-                {
-                    // otherwise, do page redirection
-                    BizSystem::clientProxy()->ReDirectPage($redirectPage);
-                }
-            }
+			// if the redirectpage start with "form=", render the form to the target which is defined by FuntionType
+			if (strpos($redirectPage,"form=") === 0)
+			{
+				parse_str($redirectPage, $output);
+				$formName = $output['form'];
+				
+				$id = null;
+				if (isset($output['fld:Id'])) {
+					$id = $output['fld:Id'];
+				}
+				$this->switchForm($formName, $id);
+			}
+			else
+			{
+				// otherwise, do page redirection
+				BizSystem::clientProxy()->ReDirectPage($redirectPage);
+			}
         }
     }
 	

@@ -8,11 +8,11 @@
  * @access public
  */
  
-include_once "BaseForm.php";
+include_once "InputForm.php";
  /*
   * public methods: fetchData, insertRecord, 
   */
-class NewForm extends BaseForm
+class NewForm extends InputForm
 {
 	//list of method that can directly from browser
 	protected $m_DirectMethodList = array('insertrecord','switchform'); 
@@ -105,7 +105,7 @@ class NewForm extends BaseForm
 		$this->m_ActiveRecord = null;
         $this->getActiveRecord($dataRec["Id"]);
 
-        $this->runEventLog();
+        //$this->runEventLog();
         return $dataRec["Id"];
     }
 	

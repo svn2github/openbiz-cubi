@@ -88,7 +88,7 @@ class DetailForm extends BaseForm
 			return;
 		}
 
-        $this->runEventLog();
+        //$this->runEventLog();
         $this->processPostAction();
 	}
 
