@@ -63,26 +63,12 @@ class DetailForm extends BaseForm
     public function deleteRecord($id)
 	{  	
 		$dataRec = $this->getDataObj()->fetchById($id);
-		$this->getDataObj()->setActiveRecord($dataRec);
-		
-		if(!$this->canDeleteRecord($dataRec))
-		{
-			$this->m_ErrorMessage = $this->getMessage("FORM_OPERATION_NOT_PERMITTED",$this->m_Name);         
-			if (strtoupper($this->m_FormType) == "LIST"){
-				BizSystem::log(LOG_ERR, "DATAOBJ", "DataObj error = ".$errorMsg);
-				BizSystem::clientProxy()->showClientAlert($this->m_ErrorMessage);
-			}else{
-				$this->processFormObjError(array($this->m_ErrorMessage));	
-			}	
-			return;
-		}
+		//$this->getDataObj()->setActiveRecord($dataRec);
 		
 		// take care of exception
-		try
-		{
+		try {
 			$dataRec->delete();
-		} catch (BDOException $e)
-		{
+		} catch (BDOException $e) {
 			// call $this->processBDOException($e);
 			$this->processBDOException($e);
 			return;
@@ -91,6 +77,5 @@ class DetailForm extends BaseForm
         //$this->runEventLog();
         $this->processPostAction();
 	}
-
 }
 ?>

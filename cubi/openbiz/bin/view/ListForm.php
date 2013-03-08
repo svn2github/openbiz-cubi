@@ -186,11 +186,9 @@ class ListForm extends BaseForm
             //$this->getDataObj()->setActiveRecord($dataRec);
             
             // take care of exception
-            try
-            {
+            try {
                 $dataRec->delete();
-            } catch (BDOException $e)
-            {
+            } catch (BDOException $e) {
                 // call $this->processBDOException($e);
                 $this->processBDOException($e);
                 return;
@@ -269,7 +267,6 @@ class ListForm extends BaseForm
             $selIds[] = $id;
         foreach ($selIds as $id)
         { 
-        	
         	$rec = $this->getDataObj()->fetchById($id);
 	        $ok = $this->getDataObj()->removeRecord($rec, $bPrtObjUpdated);
 	        if (! $ok)
