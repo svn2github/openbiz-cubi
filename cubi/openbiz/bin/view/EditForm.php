@@ -60,7 +60,7 @@ class EditForm extends InputForm
 		$recArr = $this->readInputRecord();
 		
 		$this->m_RecordId = $recArr['Id'];
-        $currentRec = $this->fetchData();
+        $currentRec = $this->getDataObj()->fetchById($this->m_RecordId);
 		
         //$this->setActiveRecord($recArr);
         if (count($recArr) == 0)

@@ -545,7 +545,6 @@ class BaseForm extends MetaObject implements iSessionObject
 		}
 	}
 
-// -------------------------- Methods Handled by FormHelper ---------------------- //
 	/**
      * Switch to other form
      *
