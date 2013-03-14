@@ -36,7 +36,17 @@ class FormHelper
     {    	
 		$formObj1 = BizSystem::getObject($formName);
 		$formObj1->setRecordId($id);
-		BizSystem::clientProxy()->redrawForm($this->formObj->m_Name, $formObj1->render());
+		$output = $formObj1->render();
+		if (!empty($output)) BizSystem::clientProxy()->redrawForm($this->formObj->m_Name, $output);
+    }
+	
+	public function loadDialog($formName=null, $id=null)
+    {    	
+		$formObj1 = BizSystem::getObject($formName);
+		$formObj1->setRecordId($id);
+		//$formObj1->setParentForm($this->formObj->m_Name);
+		$output = $formObj1->render();
+		if (!empty($output)) BizSystem::clientProxy()->redrawForm("DIALOG", $output);
     }
 	
     /**

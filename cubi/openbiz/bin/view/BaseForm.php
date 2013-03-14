@@ -557,6 +557,11 @@ class BaseForm extends MetaObject implements iSessionObject
     {    	
 		$this->formHelper->switchForm($formName, $id);
     }
+	
+	public function loadDialog($formName=null, $id=null)
+    {    	
+		$this->formHelper->loadDialog($formName, $id);
+    }
     
 // -------------------------- Tranlation Methods ---------------------- //
 

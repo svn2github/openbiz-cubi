@@ -15,7 +15,7 @@ include_once "BaseForm.php";
 class ListForm extends BaseForm
 {
 	//list of method that can directly from browser
-	protected $m_DirectMethodList = array('selectrecord','sortrecord','editrecord','copyrecord','deleterecord','removerecord','runsearch','gotopage','setpagesize','gotoselectedpage','switchform'); 
+	protected $m_DirectMethodList = array('selectrecord','sortrecord','editrecord','copyrecord','deleterecord','removerecord','runsearch','gotopage','setpagesize','gotoselectedpage','switchform','loaddialog'); 
 	
 	public $m_Range = 10;
 	public $m_SearchRule = null;
@@ -163,6 +163,20 @@ class ListForm extends BaseForm
 		}
 		
         return $resultRecords;
+    }
+	
+	public function switchForm($formName=null, $id=null)
+    {    	
+		if ($id==null || $id=='')
+            $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
+		$this->formHelper->switchForm($formName, $id);
+    }
+	
+	public function loadDialog($formName=null, $id=null)
+    {    	
+		if ($id==null || $id=='')
+            $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
+		$this->formHelper->loadDialog($formName, $id);
     }
 	
 	/**

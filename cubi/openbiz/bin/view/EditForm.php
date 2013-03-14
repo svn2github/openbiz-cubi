@@ -28,6 +28,11 @@ class EditForm extends InputForm
 	public function render()
 	{
 		$this->getUrlParameters();
+		if (empty($this->m_RecordId))
+        {
+            BizSystem::clientProxy()->showClientAlert($this->getMessage("PLEASE_EDIT_A_RECORD"));
+            return;
+        }
 		return parent::render();
 	}
 	
