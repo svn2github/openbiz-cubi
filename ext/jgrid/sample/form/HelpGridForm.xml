@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: HelpListForm.xml 3660 2012-07-18 02:31:35Z hellojixian@gmail.com $
+-->
+<EasyForm Name="HelpGridForm" Class="jgrid.lib.GridForm" Icon="icon_help_tips.gif" FormType="List" jsClass="Openbiz.GridForm" Title="Management Help Tips" Description="Help module is a document system, which manages a online manual and \nhelp tips quick reference box on the left side of application panel." BizDataObj="help.do.HelpDO" PageSize="10" TemplateEngine="PHP" TemplateFile="jgrid_php.tpl.html" EventName="HELP" MessageFile="Help.msg">
+    <DataPanel>
+        
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+        <Element Name="fld_Id" Class="common.element.ColumnTitle" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N"/>                  	
+        <Element Name="fld_category_id" Class="Hidden" Hidden="Y" FieldName="c" Label="Category ID"  Sortable="Y" AllowURLParam="Y" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_category_name" Class="ColumnText" FieldName="category_name" Label="Category"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        <Element Name="fld_title" Class="ColumnText"  MaxLength="30" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"  Link="javascript:">
+        <EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(help.form.HelpDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>	
+        <Element Name="fld_description" MaxLength="30" StripTags="Y" Class="ColumnText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+        <Element Name="fld_sortorder" Class="ColumnSorting" FieldName="sort_order" Label="Sorting"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        	<EventHandler Name="fld_sortorder_up" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value-5})" />
+        	<EventHandler Name="fld_sortorder_down" Event="onclick" EventLogMsg="" Function="UpdateFieldValue({@:Elem[fld_Id].Value},fld_sortorder,{@:Elem[fld_sortorder].Value+5})" />
+        </Element>          	
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(help.form.HelpNewForm)" />
+        </Element>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="LoadDialog(help.form.HelpEditForm)" />
+        </Element>
+        <Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)" >
+            <EventHandler Name="btn_copy_onclick" Event="onclick" EventLogMsg="" Function="LoadDialog(help.form.HelpCopyForm)" />
+        </Element>
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+        
+    </NavPanel> 
+    <SearchPanel>
+          
+    </SearchPanel>
+</EasyForm>

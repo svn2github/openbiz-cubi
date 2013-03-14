@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: mod.xml 4463 2012-10-26 04:44:57Z hellojixian@gmail.com $
+-->
+<Module Name="jqgrid" Description="jqgrid lib module" Version="1.0" OpenbizVersion="3.0">
+	<ACL>
+	</ACL>
+	<Menu>
+    </Menu>
+    <Dependency>
+    </Dependency>
+    <ChangeLog>
+	</ChangeLog>
+</Module>

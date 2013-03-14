@@ -1,0 +1,48 @@
+<?php $name = $this->formname; ?>
+<form id="<?php echo $name?>" name="<?php echo $name?>">
+<div style="padding-left:25px;padding-right:20px;padding-bottom:10px">
+<h2 ><?php echo $this->title?></h2>
+<table id="<?php echo $name?>_data_table"><tr><td/></tr></table> 
+<div id="<?php echo str_replace('.','_',$name)?>_pager"></div>
+</div>
+</form>
+
+<script type="text/javascript">
+
+  $j(jq("<?php echo $name?>_data_table")).jqGrid(
+  {
+    url:'<?php echo APP_URL;?>/bin/controller.php?F=RPCInvoke&P0=[<?php echo $name?>]&P1=[getData]',
+    datatype: 'json',
+    mtype: 'GET',
+    colNames:['Id','Title','Description'],
+    colModel :[ 
+      {name:'Id', index:'Id', width:55}, 
+      {name:'title', index:'title', width:90}, 
+      {name:'description', index:'description', width:120}
+    ],
+    pager: $j(jq('<?php echo str_replace('.','_',$name)?>_pager')),
+    rowNum:10,
+    rowList:[10,20,30],
+	autowidth: true,
+	height: "300",
+    sortname: 'Id',
+    sortorder: 'asc',
+    viewrecords: true,
+    gridview: true,
+    caption: 'My first grid',
+	toolbar: [true,"top"],
+	onSelectRow: function(id){
+		alert('select row '+id);
+	}
+  }); 
+  $j(".ui-jqgrid-titlebar").hide();
+  $j(jq("t_<?php echo $name?>_data_table")).css('background','none');
+  $j(jq("t_<?php echo $name?>_data_table")).css('padding','3px 0 3px 0');
+  
+<?php foreach ($this->actionPanel as $elem ): ?>
+ $j(jq("t_<?php echo $name?>_data_table")).append("<?php echo trim(str_replace('"','\"',$elem['element']));?>");
+<?php endforeach; ?>
+
+// common actions, new record, edit record, copy record, delete record
+
+</script>
