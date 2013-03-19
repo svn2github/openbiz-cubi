@@ -540,11 +540,14 @@ class BizDataObj extends BizDataObj_Lite
             return false;
         }
 
-        if ($recArr)
-            $this->m_BizRecord->setInputRecord($recArr);
-        else
-            $this->m_BizRecord->setInputRecord($this->getActiveRecord());
-
+        if ($recArr) {
+            $delrec = $recArr;
+        } else {
+            $delrec = $this->getActiveRecord();
+        }
+        
+        $this->m_BizRecord->setInputRecord($delrec);
+        
         $sql = $this->getSQLHelper()->buildDeleteSQL($this);
         if ($sql)
         {
@@ -553,11 +556,10 @@ class BizDataObj extends BizDataObj_Lite
             try
             {
                 $this->cascadeDelete(); // cascade delete
-
                 BizSystem::log(LOG_DEBUG, "DATAOBJ", "Delete Sql = $sql");
                 $db->query($sql);
-
                 $db->commit();
+                $this->m_BizRecord->saveOldRecord($delrec); // save old record only if delete success
             }
             catch (Exception $e)
             {
