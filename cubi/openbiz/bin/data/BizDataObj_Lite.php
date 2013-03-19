@@ -130,6 +130,18 @@ class BizDataObj_Lite extends BizDataObj_Abstract
     }
 
     /**
+     * Get the old value of field before active record
+     *
+     * @param string $fieldName field name
+     * @return mix
+     */
+    public function getOldValue($fieldName)
+    {
+        return $this->getField($fieldName)->m_OldValue;
+    }    
+
+	
+    /**
      * Get object property
      *
      * @param string $propertyName
