@@ -1,14 +1,30 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * PHPOpenBiz Framework
+ *
+ * This file contain BizController class, the C from MVC of phpOpenBiz framework,
+ * and execute it. So bootstrap script simply include this file. For sample of
+ * bootstrap script please see controller.php under baseapp/bin
+ *
+ * LICENSE
+ *
+ * This source file is subject to the BSD license that is bundled
+ * with this package in the file LICENSE.txt.
+ *
+ * @package   openbiz.bin
+ * @copyright Copyright (c) 2005-2011, Rocky Swen
+ * @license   http://www.opensource.org/licenses/bsd-license.php
+ * @link      http://www.phpopenbiz.org/
+ * @version   $Id: BizController.php 4882 2012-11-30 07:48:46Z hellojixian@gmail.com $
  */
 
 /**
- * Description of BizClassLoader
+ * BizController is the class that dispatches client requests to proper objects
  *
- * @author k6
+ * @package   openbiz.bin
+ * @author    Rocky Swen <rocky@phpopenbiz.org> and Openbiz Dev Team
+ * @copyright Copyright (c) 2005-2011, Rocky Swen
+ * @access    public
  */
 class BizClassLoader {
     

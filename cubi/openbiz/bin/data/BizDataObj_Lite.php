@@ -14,10 +14,10 @@
  * @version   $Id: BizDataObj_Lite.php 4108 2011-05-08 06:01:30Z jixian2003 $
  */
 
-include_once(OPENBIZ_BIN.'data/BizDataObj_Abstract.php');
-include_once(OPENBIZ_BIN.'data/BizDataSql.php');
-include_once(OPENBIZ_BIN."util/QueryStringParam.php");
-include_once(OPENBIZ_BIN."data/DataSet.php");
+//include_once(OPENBIZ_BIN.'data/BizDataObj_Abstract.php');
+//include_once(OPENBIZ_BIN.'data/BizDataSql.php');
+//include_once(OPENBIZ_BIN."util/QueryStringParam.php");
+//include_once(OPENBIZ_BIN."data/DataSet.php");
 
 // constant defination
 define('CK_CONNECTOR', "#");  // composite key connector character
@@ -650,5 +650,3 @@ class BizDataObj_Lite extends BizDataObj_Abstract
 
     }
 }
-
-?>

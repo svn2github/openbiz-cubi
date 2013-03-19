@@ -267,7 +267,7 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
         $this->m_MainTable    = $this->m_MainTable ? $this->m_MainTable: $parentObj->m_MainTable;
         $this->m_IdGeneration = $this->m_IdGeneration ? $this->m_IdGeneration: $parentObj->m_IdGeneration;
         $this->m_Stateless    = $this->m_Stateless ? $this->m_Stateless: $parentObj->m_Stateless;
-		$this->m_DataPermControl = $this->m_DataPermControl ? $this->m_DataPermControl : $parentObj->m_DataPermControl;
+	$this->m_DataPermControl = $this->m_DataPermControl ? $this->m_DataPermControl : $parentObj->m_DataPermControl;
         $this->m_BizRecord->merge($parentObj->m_BizRecord);
 
         foreach ($this->m_BizRecord as $field)
@@ -327,7 +327,7 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
      * Clear search rule.
      * Reset the search rule to default search rule set in metadata
      *
-     * @return void
+     * @return BizDataObj_Abstract
      */
     public function clearSearchRule()
     {
@@ -460,7 +460,7 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
      *
      * @return Zend_Db_Adapter_Abstract
      **/
-	public function getDBConnection($type='default')
+    public function getDBConnection($type='default')
     {
     	switch(strtolower($type))
     	{
@@ -685,4 +685,3 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
      */
     abstract public function count();
 }
-?>
