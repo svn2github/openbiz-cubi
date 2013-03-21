@@ -22,6 +22,7 @@ class ListForm extends BaseForm
     public $m_FixSearchRule = null; // FixSearchRule is the search rule always applying on the search
     public $m_SortRule = null;
     protected $m_DefaultFixSearchRule = null;
+	protected $queryParams = array();
 	
 	// vars for grid(list)
     protected $m_CurrentPage = 1;
@@ -96,14 +97,12 @@ class ListForm extends BaseForm
         $dataObj = $this->getDataObj();
 
         if (!$dataObj) return null;
-        
-        QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
 
         if ($this->m_RefreshData)
             $dataObj->resetRules();
         else
             $dataObj->clearSearchRule();
-
+/*
         if ($this->m_FixSearchRule)
         {
             if ($this->m_SearchRule)
@@ -113,8 +112,10 @@ class ListForm extends BaseForm
         }
         else
             $searchRule = $this->m_SearchRule;
-
-        $dataObj->setSearchRule($searchRule);        
+		
+        $dataObj->setSearchRule($searchRule);
+		*/
+		$dataObj->setQueryParameters($this->queryParams);
         if($this->m_StartItem>1)
         {
             $dataObj->setLimit($this->m_Range, $this->m_StartItem);
@@ -143,7 +144,6 @@ class ListForm extends BaseForm
         
         $this->getDataObj()->setActiveRecord($resultRecords[$selectedIndex]);
 
-        QueryStringParam::ReSet();
 		if(!$this->m_RecordId)
 		{
 			$this->m_RecordId = $resultRecords[0]["Id"];
@@ -357,42 +357,29 @@ class ListForm extends BaseForm
      */
     public function runSearch()
     {
-        static $isSearchHelperLoaded = false;
+        /*static $isSearchHelperLoaded = false;
         
         if (!$isSearchHelperLoaded) {
             include_once(OPENBIZ_BIN."/easy/SearchHelper.php");
             $isSearchHelperLoaded = true;
-        }
-        $searchRule = "";
+        }*/
+		$queryArray = array();
         foreach ($this->m_SearchPanel as $element)
-        {
-            $searchStr = '';
-        	if(method_exists($element,"getSearchRule")){
-        		$searchStr = $element->getSearchRule();        		
-        	}else{        	
-	            if (!$element->m_FieldName)
-	                continue;
-	
-	            $value = BizSystem::clientProxy()->getFormInputs($element->m_Name);  
-	            $this->m_SearchPanelValues[$element->m_FieldName] = $value;
-	            if($element->m_FuzzySearch=="Y")
-	            {
-	                $value="*$value*";
-	            }
-	            if ($value!='')
-	            {
-	                $searchStr = inputValToRule($element->m_FieldName, $value, $this);	               
-	            }
-        	}
-        	if($searchStr){
-        		if ($searchRule == "")
-                    $searchRule .= $searchStr;
-                else
-                    $searchRule .= " AND " . $searchStr;
-        	}
+        {       	
+			if (!$element->m_FieldName)
+				continue;
+
+			$value = BizSystem::clientProxy()->getFormInputs($element->m_Name);  
+			$this->m_SearchPanelValues[$element->m_FieldName] = $value;	// ??? neede
+			if($element->m_FuzzySearch=="Y")
+			{
+				$value="*$value*";
+			}
+			if ($value!='')
+			{	               
+				$this->queryParams[$element->m_FieldName] = $value;
+			}
         }
-        $this->m_SearchRule = $searchRule;
-        $this->m_SearchRuleBindValues = QueryStringParam::getBindValues();
 
         $this->m_RefreshData = true;
 
