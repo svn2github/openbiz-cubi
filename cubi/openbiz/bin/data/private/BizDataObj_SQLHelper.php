@@ -135,6 +135,13 @@ class BizDataObj_SQLHelper
 	        $dataSqlObj->addSqlWhere($sqlSearchRule);
         }
         
+		// append QueryPameters in the WHERE clause
+		foreach ($dataObj->getQueryParameters() as $fieldName=>$value) {
+			$queryRule = queryParamToRule($fieldName, $value, $dataObj);
+			$sqlSearchRule = $this->_ruleToSql($dataObj, $queryRule);
+			$dataSqlObj->addSqlWhere($sqlSearchRule);
+		}
+		
         // append SearchRule in the WHERE clause
         $sqlSearchRule = $this->_ruleToSql($dataObj, $dataObj->m_SearchRule);
         $dataSqlObj->addSqlWhere($sqlSearchRule);
@@ -232,10 +239,12 @@ class BizDataObj_SQLHelper
             }
         }
 
+		$db = $dataObj->getDBConnection('WRITE');
         $sql = "";
         foreach ($colval_pairs as $col=>$val)
         {
-            $queryString = QueryStringParam::formatQueryString("`$col`", "=", $val);
+            //$queryString = QueryStringParam::formatQueryString("`$col`", "=", $val);
+			$queryString = "`$col`=".$db->quote($val);
             if ($sql!="") $sql .= ", $queryString";
             else $sql .= $queryString;
         }
@@ -366,6 +375,7 @@ class BizDataObj_SQLHelper
 
         $sql_col = "";
         $sql_val = "";
+		$db = $dataObj->getDBConnection('WRITE');
         foreach($sqlFlds as $fldobj)
         {
             $col = $fldobj->m_Column;
@@ -387,8 +397,8 @@ class BizDataObj_SQLHelper
             // modified by jixian for not ignore 0 value
             if ( $_val === '') continue;
             $sql_col .= "`" . $col . "`, ";
-            //$sql_val .= $_val. ", ";
-            $sql_val .= QueryStringParam::formatQueryValue($_val). ", ";
+            $sql_val .= $db->quote($_val). ", ";
+            //$sql_val .= QueryStringParam::formatQueryValue($_val). ", ";
         }
 
         // if joinValues is given then add join values in to the main table InsertSQL.
@@ -468,39 +478,6 @@ class BizDataObj_SQLHelper
 			}
 		}
 		
-		/*
-        foreach($dataObj->m_BizRecord as $bizFld)
-        {
-		echo "loop ".$dataObj->m_Name.".".$bizFld->m_Name."\n";
-            if (!$bizFld->m_Column && !$bizFld->m_Alias && !$bizFld->m_SqlExpression)
-                continue;   // ignore if no column mapped
-            $fld_pattern = "[".$bizFld->m_Name."]";
-            if (strpos($rule, $fld_pattern) === false)
-                continue;   // ignore if no [field] found
-            else
-            {
-                if ($bizFld->m_Column && (strpos($bizFld->m_Column,',') != 0))
-                {  // handle composite key
-                    preg_match('/\['.$bizFld->m_Name.'\].*=.*\'(.+)\'/', $rule, $matches); //print_r($matches);
-                    $keyval = $matches[1];
-                    $rule = $this->_compKeyRuleToSql($bizFld->m_Column,$keyval);
-                }
-                else
-                {
-                    if ($bizFld->m_Alias){
-                        $rule = str_replace($fld_pattern, $bizFld->m_Alias, $rule);
-                    }
-                    elseif($bizFld->m_SqlExpression){
-                    	$rule = str_replace($fld_pattern, $bizFld->m_SqlExpression, $rule);
-                    }
-                    else
-                    {
-                        $tableColumn = $dataSqlObj->getTableColumn($bizFld->m_Join, $bizFld->m_Column);
-                        $rule = str_replace($fld_pattern, $tableColumn, $rule);
-                    }
-                }
-            }
-        }*/
 		$this->_doRuleCache[$cacheKey] = $rule;
         return $rule;
     }
@@ -588,6 +565,95 @@ class BizDataObj_SQLHelper
     }
 }
 
+/**
+ * Convert the user input on a given fieldcontrol in query mode to search rule
+ *
+ * @param string $fieldName - field name
+ * @param string $value - field value
+ * @param EasyForm $formObj
+ * @return string - searchRule
+ */
+function queryParamToRule($fieldName, $value, $dataObj)
+{
+    // todo: should check single quote for nonoperators clauses
+    // find locations for all sql key words
+    // search for starting ' and closing ' pair, check if sql key word in the pair
+
+    $val = trim($value);
+	// unformat the data
+	$bizField = $dataObj->getField($fieldName);
+	$val = BizSystem::typeManager()->formattedStringToValue($bizField->m_Type, $bizField->m_Format, $val);
+    // check " AND ", " OR "
+    if (($pos=strpos($val, " AND "))!==false)
+    {
+        $inputArr = explode(" AND ", $val);
+        $retStr = null;
+        foreach($inputArr as $v)
+            $retStr .= ($retStr) ? " AND ".inputValToRule($fieldName, $v, $formObj) : inputValToRule($fieldName, $v, $formObj);
+        return $retStr;
+    }
+    else if (($pos=strpos($val, " OR "))!==false)
+    {
+        $inputArr = explode(" OR ", $val);
+        $retStr = null;
+        foreach($inputArr as $v)
+            $retStr .= ($retStr) ? " OR ".inputValToRule($fieldName, $v, $formObj) : inputValToRule($fieldName, $v, $formObj);
+        return "(".$retStr.")";
+    }
+
+    // check >=, >, <=, <, =
+    if (($pos=strpos($val, "<>"))!==false || ($pos=strpos($val, "!="))!==false)
+    {
+        $opr = "<>";
+        $oprlen = 2;
+    }
+    else if (($pos=strpos($val, ">="))!==false)
+    {
+        $opr = ">=";
+        $oprlen = 2;
+    }
+    else if (($pos=strpos($val, ">"))!==false)
+    {
+        $opr = ">";
+        $oprlen = 1;
+    }
+    else if (($pos=strpos($val, "<="))!==false)
+    {
+        $opr = "<=";
+        $oprlen = 2;
+    }
+    else if (($pos=strpos($val, "<"))!==false)
+    {
+        $opr = "<";
+        $oprlen = 1;
+    }
+    else if (($pos=strpos($val, "="))!==false)
+    {
+        $opr = "=";
+        $oprlen = 1;
+    }
+    if ($opr)
+    {
+        $val = trim(substr($val, $pos+$oprlen));
+    }
+
+    if (strpos($val, "*") !== false)
+    {
+        $opr = "LIKE";
+        $val = str_replace("*", "%", $val);
+    }
+    //if (strpos($val, "'") !== false) {   // not needed since addslashes() is called before
+    //   $val = str_replace("'", "\\'", $val);
+    //}
+    if (!$opr)
+        $opr = "=";
+    
+	// set the query param
+    //$queryString = QueryStringParam::formatQueryString("[$fieldName]", $opr, $realValue);
+    //return $queryString;
+	$db = $dataObj->getDBConnection("READ");
+    return "[" . $fieldName . "] " . $opr . $db->quote($val);
+}
 
 /**
  * substr_lr() - help function (helper).

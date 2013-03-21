@@ -14,10 +14,10 @@
  * @version   $Id: BizDataObj_Lite.php 4108 2011-05-08 06:01:30Z jixian2003 $
  */
 
-//include_once(OPENBIZ_BIN.'data/BizDataObj_Abstract.php');
-//include_once(OPENBIZ_BIN.'data/BizDataSql.php');
+include_once(OPENBIZ_BIN.'data/BizDataObj_Abstract.php');
+include_once(OPENBIZ_BIN.'data/BizDataSql.php');
 //include_once(OPENBIZ_BIN."util/QueryStringParam.php");
-//include_once(OPENBIZ_BIN."data/DataSet.php");
+include_once(OPENBIZ_BIN."data/DataSet.php");
 
 // constant defination
 define('CK_CONNECTOR', "#");  // composite key connector character
@@ -469,8 +469,6 @@ class BizDataObj_Lite extends BizDataObj_Abstract
 
         try
         {
-            $bindValues = QueryStringParam::getBindValues();
-            $bindValueString = QueryStringParam::getBindValueString();
             if($this->m_CacheLifeTime>0)
             {
                 $cache_id = md5($this->m_Name . $sql . serialize($bindValues));
@@ -479,21 +477,21 @@ class BizDataObj_Lite extends BizDataObj_Abstract
                 $cacheSvc->init($this->m_Name,$this->m_CacheLifeTime);
                 if($cacheSvc->test($cache_id))
                 {
-                    //BizSystem::log(LOG_DEBUG, "DATAOBJ", "Cache Hit. Query Sql = ".$sql." BIND: $bindValueString");
+                    //BizSystem::log(LOG_DEBUG, "DATAOBJ", "Cache Hit. Query Sql = ".$sql);
                     $resultSetArray = $cacheSvc->load($cache_id);
                 }
                 else
                 {
-                    BizSystem::log(LOG_DEBUG, "DATAOBJ", "Query Sql = ".$sql." BIND: $bindValueString");
-                    $resultSet = $db->query($sql, $bindValues);
+                    BizSystem::log(LOG_DEBUG, "DATAOBJ", "Query Sql = ".$sql);
+                    $resultSet = $db->query($sql);
                     $resultSetArray = $resultSet->fetchAll();
                     $cacheSvc->save($resultSetArray,$cache_id);
                 }
             }
             else
             {
-                BizSystem::log(LOG_DEBUG, "DATAOBJ", "Query Sql = ".$sql." BIND: $bindValueString");
-                $resultSet = $db->query($sql, $bindValues);
+                BizSystem::log(LOG_DEBUG, "DATAOBJ", "Query Sql = ".$sql);
+                $resultSet = $db->query($sql);
                 $resultSetArray = $resultSet->fetchAll();
             }
         }
@@ -539,8 +537,6 @@ class BizDataObj_Lite extends BizDataObj_Abstract
 
         try
         {
-            $bindValues = QueryStringParam::getBindValues();
-            $bindValueString = QueryStringParam::getBindValueString();
             if($this->m_CacheLifeTime>0)
             {
                 $cache_id = md5($this->m_Name . $rewritesql . serialize($bindValues));
@@ -549,21 +545,21 @@ class BizDataObj_Lite extends BizDataObj_Abstract
                 $cacheSvc->init($this->m_Name,$this->m_CacheLifeTime);
                 if($cacheSvc->test($cache_id))
                 {
-                    //BizSystem::log(LOG_DEBUG, "DATAOBJ", ". Query Sql = ".$rewritesql." BIND: $bindValueString");
+                    //BizSystem::log(LOG_DEBUG, "DATAOBJ", ". Query Sql = ".$rewritesql);
                     $resultArray = $cacheSvc->load($cache_id);
                 }
                 else
                 {
-                    BizSystem::log(LOG_DEBUG, "DATAOBJ", "Query Sql = ".$rewritesql." BIND: $bindValueString");
-                    $result = $db->query($rewritesql, $bindValues);
+                    BizSystem::log(LOG_DEBUG, "DATAOBJ", "Query Sql = ".$rewritesql);
+                    $result = $db->query($rewritesql);
                     $resultArray = $result->fetch();
                     $cacheSvc->save($resultArray,$cache_id);
                 }
             }
             else
             {
-                BizSystem::log(LOG_DEBUG, "DATAOBJ", "Query Sql = ".$rewritesql." BIND: $bindValueString");
-                $resultSet = $db->query($rewritesql, $bindValues);                
+                BizSystem::log(LOG_DEBUG, "DATAOBJ", "Query Sql = ".$rewritesql);
+                $resultSet = $db->query($rewritesql);                
                 $resultArray = $resultSet->fetch();
             }
         }

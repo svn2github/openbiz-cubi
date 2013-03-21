@@ -180,6 +180,8 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
      * @var array
      */
     protected $m_Messages;
+	
+	protected $m_QueryParams = array();
     
     public $m_DataPermControl;
     
@@ -399,15 +401,18 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
     /**
      * Set query parameter for parameter binding in the query
      *
-     * @param string $queryStr
-     * @param array $paramValues
+     * @param array {fieldname:value} list
      * @return void
      **/
-    public function setQueryParam($queryStr, $paramValues)
+    public function setQueryParameters($paramValues)
     {
-        $this->setSearchRule($queryStr);
         foreach ($paramValues as $param=>$value)
             $this->m_QueryParams[$param] = $value;
+    }
+	
+	public function getQueryParameters()
+    {
+        return $this->m_QueryParams;
     }
 
     /**
