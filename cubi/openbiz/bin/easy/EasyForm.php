@@ -88,9 +88,6 @@ class EasyForm extends MetaObject implements iSessionObject
     // the form that drives navigation - the 1st form deplayed in the view
     public $m_DefaultFormName = null;
 
-    // query helper
-    public $m_QueryStringParam;
-
     public $m_Errors;   // errors array (error_element, error_message)
     public $m_Notices;  // list of notice messages
 
@@ -110,6 +107,7 @@ class EasyForm extends MetaObject implements iSessionObject
     public $m_MessageFile = null;
     protected $m_hasError = false;
     protected $m_ValidateErrors = array();
+	protected $queryParams = array();
 
     // vars for grid(list)
     protected $m_CurrentPage = 1;
@@ -816,9 +814,6 @@ class EasyForm extends MetaObject implements iSessionObject
 	                    if($this->getDataObj()->getField($fieldName)->checkValueType($val))
 	                    {
 	                        $this->setFixSearchRule("[$fieldName]='$val'");
-	                        //$queryString = QueryStringParam::formatQueryString("[$fieldName]", "=", $val);
-	                        //$this->setFixSearchRule($queryString,false);
-	                        //$this->m_SearchRuleBindValues = QueryStringParam::getBindValues();
 	                    }
                 	}
                 }
@@ -888,8 +883,6 @@ class EasyForm extends MetaObject implements iSessionObject
 
         if (!$dataObj) return null;
         
-        QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
-
         if ($this->m_RefreshData)
             $dataObj->resetRules();
         else
@@ -905,6 +898,7 @@ class EasyForm extends MetaObject implements iSessionObject
         else
             $searchRule = $this->m_SearchRule;
 
+		$dataObj->setQueryParameters($this->queryParams);
         $dataObj->setSearchRule($searchRule);        
         if($this->m_StartItem>1)
         {
@@ -934,7 +928,6 @@ class EasyForm extends MetaObject implements iSessionObject
         
         $this->getDataObj()->setActiveRecord($resultRecords[$selectedIndex]);
 
-        QueryStringParam::ReSet();
 		if(!$this->m_RecordId)
 		{
 			$this->m_RecordId = $resultRecords[0]["Id"];
@@ -980,9 +973,6 @@ class EasyForm extends MetaObject implements iSessionObject
         		return array();
         	}
         }else{	
-	    	QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
-	        
-	        	
 	        if ($this->m_RefreshData)   $dataObj->resetRules();
 	        else $dataObj->clearSearchRule();
 	
@@ -995,7 +985,6 @@ class EasyForm extends MetaObject implements iSessionObject
 	        }
 	        
 	        $dataObj->setSearchRule($searchRule);
-	        QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
 	        $dataObj->setLimit(1);
         }
         $resultRecords = $dataObj->fetch();
@@ -1007,7 +996,6 @@ class EasyForm extends MetaObject implements iSessionObject
         $this->m_RecordId = $resultRecords[0]['Id'];
         $this->setActiveRecord($resultRecords[0]);    	
         
-        QueryStringParam::ReSet();
     	if($this->getDataObj()){
 			$this->m_CanUpdateRecord = (int)$this->getDataObj()->canUpdateRecord();
     	}        
@@ -1098,7 +1086,8 @@ class EasyForm extends MetaObject implements iSessionObject
 	            }
 	            if ($value!='')
 	            {
-	                $searchStr = inputValToRule($element->m_FieldName, $value, $this);	               
+	                //$searchStr = inputValToRule($element->m_FieldName, $value, $this);	
+	                $this->queryParams[$element->m_FieldName] = $value;			
 	            }
         	}
         	if($searchStr){
@@ -1109,8 +1098,6 @@ class EasyForm extends MetaObject implements iSessionObject
         	}
         }
         $this->m_SearchRule = $searchRule;
-        $this->m_SearchRuleBindValues = QueryStringParam::getBindValues();
-        
 
         $this->m_RefreshData = true;
 
@@ -1121,8 +1108,7 @@ class EasyForm extends MetaObject implements iSessionObject
 		$recArr = $this->readInputRecord();		
 		
 		$this->m_SearchPanelValues = $recArr;
-		
-        
+		        
         $this->runEventLog();
         $this->rerender();
     }
