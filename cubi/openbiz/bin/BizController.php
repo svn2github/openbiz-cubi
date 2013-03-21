@@ -349,18 +349,15 @@ class BizController
      */
     protected function validateRequest($obj, $methodName)
     {
-        if (!is_a($obj, "EasyForm") && !is_a($obj, "BizForm"))
-        {
-            return false;
-        }
-        if (is_a($obj, "EasyForm"))
+        if (is_a($obj, "EasyForm") || is_a($obj, "BaseForm"))
         {
             if (!$obj->validateRequest($methodName))
             {
                 return false;
             }
+			return true;
         }
-        return true;
+        return false;
     }
 
     /**
