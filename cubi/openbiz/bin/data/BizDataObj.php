@@ -226,7 +226,8 @@ class BizDataObj extends BizDataObj_Lite
      **/
     public function updateRecord($recArr, $oldRecord=null)
     {
-        if (!$this->canUpdateRecord($oldRecord))
+        $this->m_EventManager->trigger(__FUNCTION__ . '.pre', $this, array('record'=>$recArr,'old_record'=>$oldRecord));
+		if (!$this->canUpdateRecord($oldRecord))
         {
             $this->m_ErrorMessage = BizSystem::getMessage("DATA_NO_PERMISSION_UPDATE",$this->m_Name);
             throw new BDOException($this->m_ErrorMessage);
@@ -245,8 +246,6 @@ class BizDataObj extends BizDataObj_Lite
         $this->m_BizRecord->setInputRecord($recArr);
 
         if (!$this->validateInput()) return false;
-        
-        QueryStringParam::reset();
 
         $sql = $this->getSQLHelper()->buildUpdateSQL($this);
 
@@ -258,11 +257,8 @@ class BizDataObj extends BizDataObj_Lite
             {
                 $this->cascadeUpdate(); // cascade update
                 
-                $bindValues = QueryStringParam::getBindValues();
-                $bindValueString = QueryStringParam::getBindValueString();
-                BizSystem::log(LOG_DEBUG, "DATAOBJ", "Update Sql = $sql"."; BIND: $bindValueString");
-                QueryStringParam::reset();
-                $db->query($sql, $bindValues);
+                BizSystem::log(LOG_DEBUG, "DATAOBJ", "Update Sql = $sql");
+                $db->query($sql);
                 
                 $db->commit();
             }
@@ -284,6 +280,7 @@ class BizDataObj extends BizDataObj_Lite
             $this->m_CurrentRecord = null; 
             $this->_postUpdateRecord($recArr);
         }
+		$this->m_EventManager->trigger(__FUNCTION__ . '.post', $this, array('record'=>$recArr,'old_record'=>$oldRecord));
         return true;
     }
 
@@ -459,7 +456,8 @@ class BizDataObj extends BizDataObj_Lite
      **/
     public function insertRecord($recArr)
     {
-        if ( $this->_isNeedGenerateId($recArr) )
+        $this->m_EventManager->trigger(__FUNCTION__ . '.pre', $this, array('record',$recArr));
+		if ( $this->_isNeedGenerateId($recArr) )
             $recArr["Id"] = $this->generateId();    // for certain cases, id is generated before insert
 
         $this->m_BizRecord->setInputRecord($recArr);
@@ -473,10 +471,7 @@ class BizDataObj extends BizDataObj_Lite
             $sql = $this->getSQLHelper()->buildInsertSQL($this, $joinValues);
             if($sql)
             {
-                $bindValues = QueryStringParam::getBindValues();
-                $bindValueString = QueryStringParam::getBindValueString();
-                BizSystem::log(LOG_DEBUG, "DATAOBJ", "Insert Sql = $sql"."; BIND: $bindValueString");
-                QueryStringParam::reset();
+                BizSystem::log(LOG_DEBUG, "DATAOBJ", "Insert Sql = $sql");
                 $db->query($sql, $bindValues);                
             }
             //$mainId = $db->lastInsertId();
@@ -510,7 +505,7 @@ class BizDataObj extends BizDataObj_Lite
         $this->m_CurrentRecord = null;
 
         $this->_postInsertRecord($recArr);
-
+		$this->m_EventManager->trigger(__FUNCTION__ . '.post', $this, array('record',$recArr));
         return $recArr["Id"];
     }
 
@@ -533,7 +528,8 @@ class BizDataObj extends BizDataObj_Lite
      **/
     public function deleteRecord($recArr)
     {    	
-        if (!$this->canDeleteRecord())
+        $this->m_EventManager->trigger(__FUNCTION__ . '.pre', $this, array('record',$recArr));
+		if (!$this->canDeleteRecord())
         {            
             $this->m_ErrorMessage = BizSystem::getMessage("DATA_NO_PERMISSION_DELETE",$this->m_Name);
             throw new BDOException($this->m_ErrorMessage);
@@ -579,6 +575,7 @@ class BizDataObj extends BizDataObj_Lite
         $this->cleanCache();
 
         $this->_postDeleteRecord($this->m_BizRecord->getKeyValue());
+		$this->m_EventManager->trigger(__FUNCTION__ . '.pre', $this, array('record',$recArr));
         return true;
     }
 
@@ -589,7 +586,6 @@ class BizDataObj extends BizDataObj_Lite
             throw new BDOException( BizSystem::getMessage("DATA_NO_PERMISSION_DELETE",$this->m_Name) );
             return false;
         }
-
 
         $sql = $this->getSQLHelper()->buildDeleteSQLwithCondition($this,$condition);
         $db = $this->getDBConnection("WRITE");

@@ -184,6 +184,8 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
 	protected $m_QueryParams = array();
     
     public $m_DataPermControl;
+	
+	public $m_EventManager;
     
     /**
      * Initialize BizDataObj_Abstract with xml array
@@ -242,6 +244,9 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
 
         $this->m_MessageFile = isset($xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["MESSAGEFILE"]) ? $xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["MESSAGEFILE"] : null;
         $this->m_Messages = Resource::loadMessage($this->m_MessageFile , $this->m_Package);
+		
+		$this->m_EvtMgrName = isset($xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["EVENTMANAGER"]) ? $xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["EVENTMANAGER"] : null;
+		$this->m_EventManager = $this->m_EvtMgrName ? new $this->m_EvtMgrName() : new EventManager();
         
         $this->m_DataPermControl = isset($xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["DATAPERMCONTROL"]) ? strtoupper($xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["DATAPERMCONTROL"]) : 'N';
     }

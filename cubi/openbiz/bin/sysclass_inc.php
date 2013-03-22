@@ -496,4 +496,5 @@ class ValidationException extends Exception
     }
 }
 
+include_once "EventManager.php";
 ?>
