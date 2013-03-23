@@ -99,14 +99,9 @@ setDocumentRoot();
  **/
 function __autoload_openbiz($className)
 {
-    /*$filePath = BizSystem::getLibFileWithPath($className);
-    if ($filePath)
-    {
-        include_once($filePath);
-        return;
-    }*/
- BizClassLoader::loadClass($className);
+    BizClassLoader::autoload($className);
 }
+
 if(!function_exists("__autoload"))
 {
 	spl_autoload_register("__autoload_openbiz");	
