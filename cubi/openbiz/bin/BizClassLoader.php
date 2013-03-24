@@ -41,8 +41,6 @@ class BizClassLoader
      */
     public static function autoload($className)
     {
-        //if (strpos($className, 'Zend') === 0) return true;
-
         $filePath = self::getAutoloadLibFileWithPath($className);
 
         //var_dump( $filePath);
@@ -99,6 +97,24 @@ class BizClassLoader
         // autodiscover the path from the class name
         $classFile = ZEND_FRWK_HOME . str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
         return $classFile;
+    }
+
+    public static function loadMetadataClass($className, $packageName = '')
+    {
+        if (class_exists($className, false))
+            return true;
+        if (isset(self::$_classNameCache[$packageName . $className]))
+            return true;
+        if (strpos($className, 'Zend') === 0)
+            return true;
+        $filePath = BizSystem::getLibFileWithPath($className, $packageName);
+        if ($filePath)
+        {
+            include_once($filePath);
+            self::$_classNameCache[$packageName . $className] = 1;
+            return true;
+        }
+        return false;
     }
 
     /**

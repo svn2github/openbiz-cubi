@@ -735,18 +735,7 @@ class BizSystem
     
     public static function loadClass($className, $packageName='')
     {
-        //echo "loadClass($className, $packageName)\n";
-		if (class_exists($className, false)) return true;
-		if (isset(self::$_classNameCache[$packageName.$className])) return true;
-        if (strpos($className, 'Zend') === 0) return true;
-        $filePath = BizSystem::getLibFileWithPath($className, $packageName);
-        if ($filePath)
-        {
-            include_once($filePath);
-            self::$_classNameCache[$packageName.$className] = 1;
-            return true;
-        }
-        return false;
+        BizClassLoader::loadMetadataClass($className, $packageName);
     }
 
     /**
