@@ -82,7 +82,7 @@ class MenuWidget extends MetaObject implements iUIControl {
 
     protected function renderHTML()
     {
-        include_once(dirname(__FILE__)."/MenuRenderer.php");   
+        //include_once(dirname(__FILE__)."/MenuRenderer.php");   
         $sHTML = MenuRenderer::render($this);
         return $sHTML;
     }    
