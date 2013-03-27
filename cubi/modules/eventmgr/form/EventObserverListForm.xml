@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventObserverListForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Event Observer Management" Description="" BizDataObj="eventmgr.do.EventObserverDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="grid.tpl" EventName="" MessageFile="" Access="eventmgr.Access">
+    <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+		<Element Name="fld_module" Class="ColumnText" FieldName="module" Label="Module"  Sortable="Y"/>
+        <Element Name="fld_Id" Class="ColumnText" FieldName="Id" Label="Id" Sortable="Y" />
+		<Element Name="fld_name" Class="ColumnText" FieldName="name" Label="Name" Sortable="Y" Link="javascript:">
+			<EventHandler Name="fld_name_onclick" Event="onclick" Function="SwitchForm(eventmgr.form.EventObserverDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>
+		<Element Name="fld_observer_name" Class="ColumnText" FieldName="observer_name" Label="Observer Name"  Sortable="Y"/>
+		<Element Name="fld_event_target" Class="ColumnText" FieldName="event_target" Label="Event Target"  Sortable="Y"/>
+		<Element Name="fld_event_name" Class="ColumnText" FieldName="event_name" Label="Event Name"  Sortable="Y"/>
+		<Element Name="fld_priority" Class="ColumnText" FieldName="priority" Label="Priority" Sortable="Y"/>
+		<Element Name="fld_status" Class="ColumnBool" FieldName="status" Label="Status" Sortable="Y"/>
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
+            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+  		<!--<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+        </Element>-->
+        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
+        </Element>      
+        <Element Name="btn_first" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+		<Element Name="qry_name" Class="AutoSuggest" SelectFrom="eventmgr.do.EventObserverDO[name],[name] like '%{@:Elem[qry_name].Value}%' GROUP BY [name]" FuzzySearch="Y" FieldName="name" Label="" cssFocusClass="input_text_search_focus" CssClass="input_text_search" />
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element>	
+    </SearchPanel>
+</EasyForm>

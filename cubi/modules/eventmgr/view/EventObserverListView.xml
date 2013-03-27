@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="EventObserverListView" Description="eventmgr" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="eventmgr.Access">
+   <FormReferences>
+   		<Reference Name="eventmgr.form.EventObserverListForm"/>
+   </FormReferences>
+</EasyView>

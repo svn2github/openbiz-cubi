@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="eventmgr" Description="eventmgr module" Version="0.1.0" OpenbizVersion="3.0">
+	<ACL>
+		<Resource Name="eventmgr">
+            <Action Name="Access" Description="Access Eventmgr"/>
+            <Action Name="Manage" Description="Manage Eventmgr"/>
+		</Resource>
+    </ACL>
+    <Menu>
+		<MenuItem Name="EventObs" Title="Event Observers" Parent="System" Description="Event Observers" URL="" Order="60">
+			<MenuItem Name="EventObs.List" Title="Event Observers" Description=""  URL="/eventmgr/event_observer_list" Order="10"/>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    </Dependency>
+	<EventObservers>
+		<Observer Name="EventLogger1" ObserverName="eventmgr.sample.EventLogger" EventTarget="system.do.UserDO" EventName="deleteRecord.post"/>
+		<Observer Name="EventLogger2" ObserverName="eventmgr.sample.EventLogger" EventTarget="system.do.UserDO" EventName="updateRecord.post"/>
+		<Observer Name="EventLogger3" ObserverName="eventmgr.sample.EventLogger" EventTarget="system.do.UserDO" EventName="insertRecord.post"/>
+	</EventObservers>
+</Module>

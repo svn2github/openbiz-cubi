@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="EventObserverDO" Description="" Class="BizDataObj" DBName="Default" Table="event_observer" SearchRule="" SortRule="" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0" CreateCondition="eventmgr.Manage" UpdateCondition="eventmgr.Manage" DeleteCondition="eventmgr.Manage">
+	<BizFieldList>
+        <BizField Name="Id" Column="id"     Type="Number"/>
+        <BizField Name="name" Column="name" Length="64"   Required="Y" Type="Text"/>
+		<BizField Name="observer_name" Column="observer_name" Length="64"   Required="Y" Type="Text"/>
+		<BizField Name="module" Column="module" Length="64"   Required="Y" Type="Text"/>
+        <BizField Name="event_target" Column="event_target" Length="64"   Required="Y" Type="Text"/>
+        <BizField Name="event_name" Column="event_name" Length="64"   Required="Y" Type="Text"/>
+        <BizField Name="priority" Column="priority"    Required="N" Type="Number"/>
+        <BizField Name="status" Column="status"    Required="N" Type="Number"/>
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time" Column="create_time"  Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>		
+		<BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>
