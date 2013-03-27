@@ -226,7 +226,7 @@ class BizDataObj extends BizDataObj_Lite
      **/
     public function updateRecord($recArr, $oldRecord=null)
     {
-        $this->m_EventManager->trigger(__FUNCTION__ . '.pre', $this, array('record'=>$recArr,'old_record'=>$oldRecord));
+        $this->events()->trigger(__FUNCTION__ . '.pre', $this, array('record'=>$recArr,'old_record'=>$oldRecord));
 		if (!$this->canUpdateRecord($oldRecord))
         {
             $this->m_ErrorMessage = BizSystem::getMessage("DATA_NO_PERMISSION_UPDATE",$this->m_Name);
@@ -280,7 +280,7 @@ class BizDataObj extends BizDataObj_Lite
             $this->m_CurrentRecord = null; 
             $this->_postUpdateRecord($recArr);
         }
-		$this->m_EventManager->trigger(__FUNCTION__ . '.post', $this, array('record'=>$recArr,'old_record'=>$oldRecord));
+		$this->events()->trigger(__FUNCTION__ . '.post', $this, array('record'=>$recArr,'old_record'=>$oldRecord));
         return true;
     }
 
@@ -456,7 +456,7 @@ class BizDataObj extends BizDataObj_Lite
      **/
     public function insertRecord($recArr)
     {
-        $this->m_EventManager->trigger(__FUNCTION__ . '.pre', $this, array('record',$recArr));
+        $this->events()->trigger(__FUNCTION__ . '.pre', $this, array('record',$recArr));
 		if ( $this->_isNeedGenerateId($recArr) )
             $recArr["Id"] = $this->generateId();    // for certain cases, id is generated before insert
 
@@ -505,7 +505,7 @@ class BizDataObj extends BizDataObj_Lite
         $this->m_CurrentRecord = null;
 
         $this->_postInsertRecord($recArr);
-		$this->m_EventManager->trigger(__FUNCTION__ . '.post', $this, array('record',$recArr));
+		$this->events()->trigger(__FUNCTION__ . '.post', $this, array('record',$recArr));
         return $recArr["Id"];
     }
 
@@ -528,7 +528,7 @@ class BizDataObj extends BizDataObj_Lite
      **/
     public function deleteRecord($recArr)
     {    	
-        $this->m_EventManager->trigger(__FUNCTION__ . '.pre', $this, array('record',$recArr));
+        $this->events()->trigger(__FUNCTION__ . '.pre', $this, array('record',$recArr));
 		if (!$this->canDeleteRecord())
         {            
             $this->m_ErrorMessage = BizSystem::getMessage("DATA_NO_PERMISSION_DELETE",$this->m_Name);
@@ -575,7 +575,7 @@ class BizDataObj extends BizDataObj_Lite
         $this->cleanCache();
 
         $this->_postDeleteRecord($this->m_BizRecord->getKeyValue());
-		$this->m_EventManager->trigger(__FUNCTION__ . '.pre', $this, array('record',$recArr));
+		$this->events()->trigger(__FUNCTION__ . '.pre', $this, array('record',$recArr));
         return true;
     }
 

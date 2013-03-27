@@ -185,7 +185,7 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
     
     public $m_DataPermControl;
 	
-	public $m_EventManager;
+	public $m_EvtMgrName, $m_EventManager;
     
     /**
      * Initialize BizDataObj_Abstract with xml array
@@ -246,7 +246,6 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
         $this->m_Messages = Resource::loadMessage($this->m_MessageFile , $this->m_Package);
 		
 		$this->m_EvtMgrName = isset($xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["EVENTMANAGER"]) ? $xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["EVENTMANAGER"] : null;
-		$this->m_EventManager = $this->m_EvtMgrName ? new $this->m_EvtMgrName() : new EventManager();
         
         $this->m_DataPermControl = isset($xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["DATAPERMCONTROL"]) ? strtoupper($xmlArr["BIZDATAOBJ"]["ATTRIBUTES"]["DATAPERMCONTROL"]) : 'N';
     }
@@ -316,6 +315,14 @@ abstract class BizDataObj_Abstract extends MetaObject implements iSessionObject
      */
     public function setSessionVars($sessionContext)
     {}
+	
+	public function events() 
+	{
+		if (!$this->m_EvtMgrName && defined('EVENT_MANAGER')) $this->m_EvtMgrName = EVENT_MANAGER;
+		else $this->m_EventManager = new EventManager();
+		if (!$this->m_EventManager) $this->m_EventManager = BizSystem::getObject($this->m_EvtMgrName);
+		return $this->m_EventManager;
+	}
 
     /**
      * Reset rules
