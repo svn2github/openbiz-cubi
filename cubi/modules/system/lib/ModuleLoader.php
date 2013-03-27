@@ -494,6 +494,9 @@ class ModuleLoader
         
         // install widget
         if (!$skipDBChanges) $this->installWidgets($xml);
+		
+		// install event observer
+        if (!$skipDBChanges) $this->installEventObservers($xml);
         
         // install resource
         $this->installResource($xml);
@@ -727,7 +730,7 @@ class ModuleLoader
             } 
     	}
     	return true;
-    }   
+    }
 
     protected function loadWidget($widget,$moduleName='')
     {
@@ -759,8 +762,68 @@ class ModuleLoader
     	{
     		var_dump($e->getMessage());
     	}
-        return true;    	
+        return true;
     }
+		
+	protected function installEventObservers($xml)
+	{
+		$this->log("Install Module EventObservers.");
+    	$module = $this->name;
+    	if (isset($xml->EventObservers) && isset($xml->EventObservers->Observer))
+    	{
+	    	// delete all menu item first
+	    	$db = $this->DBConnection();
+            $sql = "DELETE FROM event_observer WHERE module='$module'";
+	        try {
+	            //BizSystem::log(LOG_DEBUG, "DATAOBJ", $sql);
+	            $db->query($sql);
+	        }
+	        catch (Exception $e) {
+	            $this->errors = $e->getMessage();
+	            //BizSystem::log(LOG_DEBUG, "DATAOBJ", $this->errors." $sql");
+	            return false;
+	        }
+	        //clean  obj cache
+			$obsObj = BizSystem::getObject("eventmgr.do.EventObserverDO");
+			$obsObj->CleanCache();
+			
+            for ($i=0; $i<count($xml->EventObservers->Observer); $i++) {
+				$m = $xml->EventObservers->Observer[$i];
+            	if ($this->loadObserver($m) == false) return false;
+            } 
+    	}
+    	return true;
+	}
+	
+	protected function loadObserver($observer,$moduleName='')
+	{
+		$module 	= $this->name;
+    	$db 		= $this->DBConnection();
+    	$name 		= (string)$observer['Name'];
+		$observer_name = (string)$observer['ObserverName'];
+    	$event_target = (string)$observer['EventTarget'];
+    	$event_name	= (string)$observer['EventName'];   	
+    	$priority	= $observer['Priority'];
+
+    	$do = BizSystem::getObject("eventmgr.do.EventObserverDO");
+    	$recArr = array(
+    		"name"		=>$name,
+			"observer_name"	=>$observer_name,
+    		"module"	=>$module,
+    		"event_target"	=>$event_target,
+    		"event_name"=>$event_name,
+    		"priority"	=>$priority,
+    		"status"	=>1,    		
+    	);
+	    	
+    	try{
+		$do->insertRecord($recArr);    	
+    	}catch (Exception $e)
+    	{
+    		var_dump($e->getMessage());
+    	}
+        return true;
+	}
     
     protected function installACL($xml)
     {
