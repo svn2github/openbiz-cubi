@@ -16,7 +16,7 @@
     </Dependency>
 	<EventObservers>
 		<Observer Name="EventLogger1" ObserverName="eventmgr.sample.EventLogger" EventTarget="system.do.UserDO" EventName="deleteRecord.post"/>
-		<Observer Name="EventLogger2" ObserverName="eventmgr.sample.EventLogger" EventTarget="system.do.UserDO" EventName="updateRecord.post"/>
+		<Observer Name="EventLogger2" ObserverName="eventmgr.sample.EventLogger" EventTarget="system.do.UserDO" EventName="updateRecord.pre"/>
 		<Observer Name="EventLogger3" ObserverName="eventmgr.sample.EventLogger" EventTarget="system.do.UserDO" EventName="insertRecord.post"/>
 	</EventObservers>
 </Module>
