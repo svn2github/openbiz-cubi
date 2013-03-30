@@ -31,6 +31,17 @@ class BizClassLoader
 {
 
     private static $_classNameCache = array();
+    
+    
+    
+    protected function __construct()
+    {
+      //  $coreClassMap = include(__DIR__ . DIRECTORY_SEPARATOR  . 'autoload_classmap.php' )  ;
+      //  print_r($coreClassMap);
+       // exit;
+        //self::registerClassMap($coreClassMap);
+    }
+        
 
     /**
      * Class autoloading
@@ -67,8 +78,7 @@ class BizClassLoader
         // use class map first        
         if (@isset(self::$classMap[$className]))
         {
-            $classFile = OPENBIZ_HOME . self::$classMap[$className];
-            return $classFile;
+            return self::$classMap[$className];
         }
 
         // search it in cache first
@@ -166,8 +176,7 @@ class BizClassLoader
         // use class map first
         if (@isset(self::$classMap[$packageName . $className]))
         {
-            $classFile = OPENBIZ_HOME . self::$classMap[$packageName . $className];
-            return $classFile;
+            return self::$classMap[$packageName . $className];
         }
 
         // search it in cache first
@@ -221,11 +230,16 @@ class BizClassLoader
         return $filePath;
     }
 
+    public static function registerClassMap($classMap) {
+        self::$classMap = array_merge(self::$classMap, $classMap);
+    }
     /**
      * class map for openbiz core class
      * @author agus suhartono
      * @var array
      */
+    public static $classMap = array();
+    /*
     public static $classMap = array(
         "BizController" => "/bin/BizController.php",
         "BizSystem" => "/bin/BizSystem.php",
@@ -363,5 +377,5 @@ class BizClassLoader
         "XMLParser" => "/bin/util/xmltoarray.php",
         "Smarty" => "/others/Smarty/libs/Smarty.class.php",
     );
-
+   */   
 }
