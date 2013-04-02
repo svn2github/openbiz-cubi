@@ -24,12 +24,14 @@
  * @access    public
  * // version 1.2 ??//
  */
-class Expression {
+class Expression
+{
 
     static protected $services = array();
     static protected $expContainers = array('{fx}' => '{/fx}', '{tx}' => '{/tx}', '{' => '}');
 
-    function __construct(&$xmlArr) {
+    function __construct(&$xmlArr)
+    {
         
     }
 
@@ -40,19 +42,23 @@ class Expression {
      * @param BizDataObj $bizObj
      * @return mixed
      */
-    protected static function replaceFieldsExpr($expression, $bizObj) {
+    protected static function replaceFieldsExpr($expression, $bizObj)
+    {
         $script = "";
         $start = 0;
 
         // replace [field] with field value
-        while (true) {
+        while (true)
+        {
             $pos0 = strpos($expression, "[", $start);
             $pos1 = strpos($expression, "]", $start);
-            if ($pos0 === false) {
+            if ($pos0 === false)
+            {
                 $script .= substr($expression, $start);
                 break;
             }
-            if ($pos0 >= 0 && $pos1 > $pos0) {
+            if ($pos0 >= 0 && $pos1 > $pos0)
+            {
                 $script .= substr($expression, $start, $pos0 - $start);
                 $start = $pos1 + 1;
                 $fieldName = substr($expression, $pos0 + 1, $pos1 - $pos0 - 1);
@@ -63,7 +69,8 @@ class Expression {
 
                 if ($fieldValue !== null)
                     $script .= $fieldValue;
-                else {
+                else
+                {
                     //$script .= substr($expression, $pos0, $pos1 - $pos0);
                     //return "fail to evaluate $expression";
                     return "";
@@ -81,32 +88,39 @@ class Expression {
      * @param EasyForm $formObj
      * @return mixed
      */
-    protected static function replaceElementsExpr($expression, $formObj) {
+    protected static function replaceElementsExpr($expression, $formObj)
+    {
         $script = "";
         $start = 0;
 
         // replace [field] with field value
-        while (true) {
+        while (true)
+        {
             $pos0 = strpos($expression, "[", $start);
             $pos1 = strpos($expression, "]", $start);
-            if ($pos0 === false) {
+            if ($pos0 === false)
+            {
                 $script .= substr($expression, $start);
                 break;
             }
-            if ($pos0 >= 0 && $pos1 > $pos0) {
+            if ($pos0 >= 0 && $pos1 > $pos0)
+            {
                 $script .= substr($expression, $start, $pos0 - $start);
                 $start = $pos1 + 1;
                 $elementName = substr($expression, $pos0 + 1, $pos1 - $pos0 - 1);
                 // get field value
                 $element = $formObj->getElement($elementName);
-                if ($element) {
+                if ($element)
+                {
                     $fldval = $element->getValue();
-                } else {
+                } else
+                {
                     $fldval = null;
                 }
                 if ($fldval !== null)
                     $script .= $fldval;
-                else {
+                else
+                {
                     //$script .= substr($expression, $pos0, $pos1 - $pos0);
                     //return "fail to evaluate $expression";
                     return $expression;  // return the original expression once it can't find element
@@ -127,32 +141,38 @@ class Expression {
      * @param object $object
      * @return string
      */
-    protected static function replaceVarExpr($expression, $object) {
+    protected static function replaceVarExpr($expression, $object)
+    {
         global $g_ServiceAlias;
         // read service symbols from global var.
         if (isset($g_ServiceAlias) && empty(self::$services))
             self::$services = $g_ServiceAlias;
 
         // replace @objname:property to GetObject()->getProperty(property)
-        while (true) {
+        while (true)
+        {
             // TODO: one clause must be separated by whitespace
             //modified by jixian for support package full name of a object
             //e.g : shared.objects.compaines.objCompany:Field[Id].Value
             $pattern = "/@([[a-zA-Z0-9_\.]*):([a-zA-Z0-9_\.\[\]]+)/";
-            if (!preg_match($pattern, $expression, $matches)) {
+            if (!preg_match($pattern, $expression, $matches))
+            {
                 break;
             }
             $macro = $matches[0];
             $objName = $matches[1];
             $propExpr = $matches[2];
             $obj = null;
-            if ($objName == "profile") {  // @profile:attribute is reserved
+            if ($objName == "profile")
+            {  // @profile:attribute is reserved
                 $profileAttribute = BizSystem::getUserProfile($propExpr);
                 $expression = str_replace($macro, $profileAttribute, $expression);
                 continue;
             }
-            if ($objName == "home") {  // @home:url is reserved
-                switch ($propExpr) {
+            if ($objName == "home")
+            {  // @home:url is reserved
+                switch ($propExpr)
+                {
                     case "url":
                         $value = "'" . APP_INDEX . "'";
                         break;
@@ -162,7 +182,8 @@ class Expression {
                 }
                 $expression = str_replace($macro, $value, $expression);
                 continue;
-            } elseif (in_array($objName, array_keys(Expression::$services))) { // reserved keywords
+            } elseif (in_array($objName, array_keys(Expression::$services)))
+            { // reserved keywords
                 $body = $expression;
                 $objFunc = '@' . $objName . ':' . $propExpr;
                 $posStart = strpos($body, $objFunc);
@@ -183,14 +204,16 @@ class Expression {
                     $params[$i] = trim($params[$i]);
                 $val_result = call_user_func_array(array($serviceObj, $function), $params);
                 return $beforeString . $val_result . $restString;
-            } elseif ($objName == "" || $objName == "this") {
+            } elseif ($objName == "" || $objName == "this")
+            {
                 $obj = $object;
                 $body = $expression;
                 $objFunc = '@' . $objName . ':' . $propExpr;
                 $posStart = strpos($body, $objFunc);
                 $beforeString = substr($body, 0, $posStart);
 
-                if (strpos($body, '(') > 0 && substr($expression, 0, 2) == '@:') {
+                if (strpos($body, '(') > 0 && substr($expression, 0, 2) == '@:')
+                {
                     $paramStart = strpos($body, $objFunc . '(') + strlen($objFunc . '(');
                     $paramEnd = strpos($body, ')', $paramStart);
                     $paramLen = $paramEnd - $paramStart;
@@ -198,14 +221,16 @@ class Expression {
                     $paramString = substr($body, $paramStart, $paramLen);
                     $restString = substr($body, $paramEnd + 1);
 
-                    $params = explode(',', $paramString);                    
+                    $params = explode(',', $paramString);
                     for ($i = 0; $i < count($params); $i++)
                         $params[$i] = trim($params[$i]);
 
-                    if (!is_array($params)) {
+                    if (!is_array($params))
+                    {
                         $params = array();
                     }
-                    if (method_exists($obj, $function)) {
+                    if (method_exists($obj, $function))
+                    {
                         $val_result = call_user_func_array(array($obj, $function), $params);
                         return $beforeString . $val_result . $restString;
                     }
@@ -214,27 +239,33 @@ class Expression {
             else
                 $obj = BizSystem::getObject($objName);
 
-            if ($obj == null) {
+            if ($obj == null)
+            {
                 throw new Exception("Wrong expression syntax " . $expression . ", cannot get object " . $objName);
             }
 
             $pos = strpos($propExpr, ".");
 
             $paramStart = strpos($expression, $objFunc . '(');
-            if ($pos > 0) { // in case of @objname:field[fldname].property
+            if ($pos > 0)
+            { // in case of @objname:field[fldname].property
                 $property1 = substr($propExpr, 0, $pos);
                 $property2 = substr($propExpr, $pos + 1);
                 $propertyObj = $obj->getProperty($property1);
-                if ($propertyObj == null) {
+                if ($propertyObj == null)
+                {
                     $propertyObj = $obj->getDataObj()->getProperty($property1);
-                    if ($propertyObj == null) {
+                    if ($propertyObj == null)
+                    {
                         throw new Exception("Wrong expression syntax " . $expression . ", cannot get property object " . $property1 . " of object " . $objName);
-                    } else {
+                    } else
+                    {
                         $val = $propertyObj->getProperty($property2);
                     }
                 }
                 $val = $propertyObj->getProperty($property2);
-            } else {
+            } else
+            {
                 // in case of @objname:property            	
                 $val = $obj->getProperty($propExpr);
             }
@@ -256,9 +287,11 @@ class Expression {
      * @param string $expression
      * @return string
      */
-    protected static function replaceMacrosExpr($expression) {
+    protected static function replaceMacrosExpr($expression)
+    {
         // replace macro @var:key to $userProfile[$key]
-        while (true) {
+        while (true)
+        {
             $pattern = "/@(\w+):(\w+)/";
             if (!preg_match($pattern, $expression, $matches))
                 break;
@@ -293,7 +326,8 @@ class Expression {
      * @param object $object
      * @return mixed
      * */
-    public static function evaluateExpression($expression, $object) {
+    public static function evaluateExpression($expression, $object)
+    {
         // TODO: check if it's "\[", "\]", "\{" or "\}"
         $script = "";
         $start = 0;
@@ -301,27 +335,33 @@ class Expression {
         if (strpos($expression, "{", $start) === false)    // do nothing if no { symbol
             return $expression;
 
-        if ($expression == "{@}") {
+        if ($expression == "{@}")
+        {
             return $object;
         }
         // evaluate the expression between {}
-        while (true) {
+        while (true)
+        {
             list($tag, $pos0, $pos1) = self::getNextContainerPos($expression, $start);
-            if ($pos0 === false) {
+            if ($pos0 === false)
+            {
                 if (substr($expression, $start))
                     $script .= substr($expression, $start);
                 break;
             }
-            if ($pos0 >= 0 && $pos1 > $pos0) {
+            if ($pos0 >= 0 && $pos1 > $pos0)
+            {
                 $script .= substr($expression, $start, $pos0 - $start);
                 $start = $pos1 + strlen(self::$expContainers[$tag]);
                 $section = substr($expression, $pos0 + strlen($tag), $pos1 - $pos0 - strlen($tag));
                 $_section = $section;
-                if ($object) {
+                if ($object)
+                {
                     //BizSystem::log(LOG_DEBUG, "EXPRESSION", "###expression 1: ".$section."");
                     $section = Expression::replaceVarExpr($section, $object);  // replace variable expr;
                     //BizSystem::log(LOG_DEBUG, "EXPRESSION", "###expression 2: ".$section.""); 
-                    if ($_section == $section) {
+                    if ($_section == $section)
+                    {
                         if ((is_subclass_of($object, "BizDataObj") || get_class($object) == "BizDataObj") AND strstr($section, '['))
                             $section = Expression::replaceFieldsExpr($section, $object);  // replace [field] with its value
 
@@ -331,10 +371,12 @@ class Expression {
                 }
                 if ($section === false)
                     $script = ($script == '') ? $section : ($script . $section);
-                if ($section != null AND trim($section) != "" AND $section != false) {
+                if ($section != null AND trim($section) != "" AND $section != false)
+                {
                     $ret == null;
                     //if (Expression::eval_syntax("\$ret = $section;"))
-                    if (($tag == '{fx}' || $tag == '{') && Expression::eval_syntax("\$ret = $section;")) {
+                    if (($tag == '{fx}' || $tag == '{') && Expression::eval_syntax("\$ret = $section;"))
+                    {
                         eval("\$ret = $section;");
                     }
                     if ($ret === null)
@@ -349,8 +391,10 @@ class Expression {
         return $script;
     }
 
-    protected static function getNextContainerPos($expression, &$start) {
-        foreach (self::$expContainers as $left => $right) {
+    protected static function getNextContainerPos($expression, &$start)
+    {
+        foreach (self::$expContainers as $left => $right)
+        {
             $pos0 = strpos($expression, $left, $start);
             $pos1 = strpos($expression, $right, $start);
             if ($pos0 === false)
@@ -370,10 +414,12 @@ class Expression {
      * @param string $code - expression text
      * @return boolean
      * */
-    public static function eval_syntax($code) {
+    public static function eval_syntax($code)
+    {
         $b = 0;
 
-        foreach (token_get_all($code) as $token) {
+        foreach (token_get_all($code) as $token)
+        {
             if ('{' == $token)
                 ++$b;
             else if ('}' == $token)
@@ -382,7 +428,8 @@ class Expression {
 
         if ($b)
             return false; // Unbalanced braces would break the eval below
-        else {
+        else
+        {
             ob_start(); // Catch potential parse error messages
             // if(preg_match("/.*?\= '.*?'/si",$code)){
             //if(!preg_match("/,/si",$code) && !preg_match("/\//si",$code)){
@@ -392,7 +439,8 @@ class Expression {
             //	return false;
             //}
             $error = ob_get_contents();
-            if ($r === false) {
+            if ($r === false)
+            {
                 //trigger_error("EVAL: $code ".$error, E_USER_ERROR);
                 //BizSystem::log(LOG_ERR, "ERROR", "EVAL: $code. ".$error);
             }
