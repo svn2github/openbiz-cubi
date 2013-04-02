@@ -221,7 +221,7 @@ class Expression
                     $paramString = substr($body, $paramStart, $paramLen);
                     $restString = substr($body, $paramEnd + 1);
 
-                    $params = explode(',', $paramString);
+                    $params = explode(',', $paramString); // bug fix
                     for ($i = 0; $i < count($params); $i++)
                         $params[$i] = trim($params[$i]);
 
