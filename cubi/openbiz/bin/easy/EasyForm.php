@@ -102,7 +102,6 @@ class EasyForm extends MetaObject implements iSessionObject
     public $m_SortRule = null;
     
     protected $m_DefaultFixSearchRule = null;
-    protected $m_SearchRuleBindValues;
     protected $m_Referer = "";
     public $m_MessageFile = null;
     protected $m_hasError = false;
@@ -349,7 +348,7 @@ class EasyForm extends MetaObject implements iSessionObject
         $sessionContext->getObjVar($this->m_Name, "RecordId", $this->m_RecordId);
         $sessionContext->getObjVar($this->m_Name, "FixSearchRule", $this->m_FixSearchRule);
         $sessionContext->getObjVar($this->m_Name, "SearchRule", $this->m_SearchRule);
-        $sessionContext->getObjVar($this->m_Name, "SearchRuleBindValues", $this->m_SearchRuleBindValues);
+        $sessionContext->getObjVar($this->m_Name, "QueryParams", $this->queryParams);
         $sessionContext->getObjVar($this->m_Name, "SubForms", $this->m_SubForms);
         $sessionContext->getObjVar($this->m_Name, "ParentFormName", $this->m_ParentFormName);
         $sessionContext->getObjVar($this->m_Name, "DefaultFormName", $this->m_DefaultFormName);
@@ -370,7 +369,7 @@ class EasyForm extends MetaObject implements iSessionObject
         $sessionContext->setObjVar($this->m_Name, "RecordId", $this->m_RecordId);
         $sessionContext->setObjVar($this->m_Name, "FixSearchRule", $this->m_FixSearchRule);
         $sessionContext->setObjVar($this->m_Name, "SearchRule", $this->m_SearchRule);        
-        $sessionContext->setObjVar($this->m_Name, "SearchRuleBindValues", $this->m_SearchRuleBindValues);
+        $sessionContext->setObjVar($this->m_Name, "QueryParams", $this->queryParams);
         $sessionContext->setObjVar($this->m_Name, "SubForms", $this->m_SubForms);
         $sessionContext->setObjVar($this->m_Name, "ParentFormName", $this->m_ParentFormName);
         $sessionContext->setObjVar($this->m_Name, "DefaultFormName", $this->m_DefaultFormName);
@@ -1127,10 +1126,10 @@ class EasyForm extends MetaObject implements iSessionObject
         $this->rerender();
     }
     
-    public function setSearchRule($searchRule, $searchRuleBindValues=null)
+    public function setSearchRule($searchRule, $queryParams=null)
     {
     	$this->m_SearchRule = $searchRule;
-    	$this->m_SearchRuleBindValues = $searchRuleBindValues;
+    	$this->queryParams = $queryParams;
     	$this->m_RefreshData = true;
         $this->m_CurrentPage = 1;
     }
