@@ -25,16 +25,41 @@ require 'bin/Slim/Slim.php';
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim();
-$app->get('/:module/:resource+', function ($module,$resource) {
-	global $app;
-    /*echo "Hit $module"; 
-	print_r($resource);
-	print_r($app->request()->get());
-	return;*/
+// GET request
+$app->get('/:module/:resource/:id', function ($module,$resource,$id) {
+	$app = \Slim\Slim::getInstance();
 	// forward to module rest service implementation
 	$restServiceName = $module.".websvc."."RestService";
 	$restSvc = BizSystem::getObject($restServiceName);
-	$restSvc->get($resource, $app->request(), $app->response());
+	$restSvc->get($resource, $id, $app->request(), $app->response());
 });
+
+// POST request
+$app->post('/:module/:resource',  function ($module,$resource) {
+	$app = \Slim\Slim::getInstance();
+	// forward to module rest service implementation
+	$restServiceName = $module.".websvc."."RestService";
+	$restSvc = BizSystem::getObject($restServiceName);
+	$restSvc->post($resource, $app->request(), $app->response());
+});
+
+// PUT request
+$app->put('/:module/:resource/:id',  function ($module,$resource,$id) {
+	$app = \Slim\Slim::getInstance();
+	// forward to module rest service implementation
+	$restServiceName = $module.".websvc."."RestService";
+	$restSvc = BizSystem::getObject($restServiceName);
+	$restSvc->put($resource, $id, $app->request(), $app->response());
+});
+
+// DELETE request
+$app->delete('/:module/:resource/:id',  function ($module,$resource,$id) {
+	$app = \Slim\Slim::getInstance();
+	// forward to module rest service implementation
+	$restServiceName = $module.".websvc."."RestService";
+	$restSvc = BizSystem::getObject($restServiceName);
+	$restSvc->delete($resource, $id, $app->request(), $app->response());
+});
+
 $app->run();
 ?>
