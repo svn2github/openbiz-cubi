@@ -47,7 +47,7 @@ class ContactRestTest
 
 $restTest = new ContactRestTest();
 $restTest->testGet(1,'xml');
-$restTest->testGet(1,'json');
+$restTest->testGet(1,'json');return;
 
 $contactRec = array('email'=>'test@gmail.com','first_name'=>'John','last_name'=>'Smith','company'=>'ibm');
 $restTest->testPost($contactRec);
