@@ -7,6 +7,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . ZEND_FRWK_HOME);
 
 require_once 'Zend/Http/Client.php';
 
+define('REST_URL_QUERY', 'http://localhost/gcubi/cubi/rest.php/contact/contacts/q');
 define('REST_URL_GET', 'http://localhost/gcubi/cubi/rest.php/contact/contacts');
 define('REST_URL_POST', 'http://localhost/gcubi/cubi/rest.php/contact/contacts');
 define('REST_URL_PUT', 'http://localhost/gcubi/cubi/rest.php/contact/contacts');
@@ -14,6 +15,14 @@ define('REST_URL_DELETE', 'http://localhost/gcubi/cubi/rest.php/contact/contacts
 
 class ContactRestTest
 {
+	public function testQuery($queryFields, $format='xml')
+	{
+		$client = new Zend_Http_Client(REST_URL_QUERY.'?format='.$format);
+		$client->setParameterGet(queryFields);
+		$response = $client->request('GET');
+		print $response->getBody();
+	}
+	
 	public function testGet($id, $format='xml')
 	{
 		$client = new Zend_Http_Client(REST_URL_GET.'/'.$id.'?format='.$format);
@@ -46,8 +55,12 @@ class ContactRestTest
 }
 
 $restTest = new ContactRestTest();
+$searchFields = array('first_name'=>'john');
+$restTest->testQuery($searchFields,'xml');
+$restTest->testQuery($searchFields,'json');
+
 $restTest->testGet(1,'xml');
-$restTest->testGet(1,'json');return;
+$restTest->testGet(1,'json');
 
 $contactRec = array('email'=>'test@gmail.com','first_name'=>'John','last_name'=>'Smith','company'=>'ibm');
 $restTest->testPost($contactRec);
