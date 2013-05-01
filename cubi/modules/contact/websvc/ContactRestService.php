@@ -76,7 +76,7 @@ class ContactRestService
 		$response->status(200);
 		if ($format == 'json') {
 			$response['Content-Type'] = 'application/json';
-			$response->body(json_encode($rec->toArray()));
+			$response->body(json_encode($dataRec->toArray()));
 		}
 		else {
 			$response['Content-Type'] = "text/xml; charset=utf-8"; 
@@ -125,13 +125,54 @@ class ContactRestService
 		$format = strtolower($request->params('format'));
 		
 		$response->status(200);
+		$message = "Successfully updated record of $resource $id";
 		if ($format == 'json') {
 			$response['Content-Type'] = 'application/json';
-			$response->body(json_encode($rec->toArray()));
+			$response->body($message);
 		}
 		else {
 			$response['Content-Type'] = "text/xml; charset=utf-8"; 
-			$response->body("Successfully update record of $resource $id");
+			$response->body($message);
+		}
+		return;
+    }
+	
+	public function delete($resource, $id, $request, $response)
+    {
+		$DOName = $this->getDOName($resource);
+		if (empty($DOName)) {
+			$response->status(404);
+			$response->body("Resource '$resource' is not found.");
+			return;
+		}
+		$dataObj = BizSystem::getObject($DOName);
+		$rec = $dataObj->fetchById($id);
+		if (empty($rec)) {
+			$response->status(400);
+			$response->body("No data is found for $resource $id");
+			return;
+		}
+		$dataRec = new DataRecord($rec, $dataObj);
+        try {
+           $dataRec->delete();
+        }
+        catch (BDOException $e) {
+            $response->status(400);
+			$response->body($e->getMessage());
+			return;
+        }
+		
+		$format = strtolower($request->params('format'));
+		
+		$response->status(200);
+		$message = "Successfully deleted record of $resource $id";
+		if ($format == 'json') {
+			$response['Content-Type'] = 'application/json';
+			$response->body($message);
+		}
+		else {
+			$response['Content-Type'] = "text/xml; charset=utf-8"; 
+			$response->body($message);
 		}
 		return;
     }
