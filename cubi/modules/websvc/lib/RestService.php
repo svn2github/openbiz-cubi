@@ -1,12 +1,36 @@
 <?php
+/**
+ * Openbiz Cubi Application Platform
+ *
+ * LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ *
+ * @package   cubi.websvc.lib
+ * @copyright Copyright (c) 2005-2011, Openbiz Technology LLC
+ * @license   http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+ * @link      http://code.google.com/p/openbiz-cubi/
+ * @version   $Id$
+ */
 
 include_once 'Array2Xml.php';
 
+/**
+ * Base class of rest service
+ *
+ */
 class RestService
 {
-	// please change the following mapping
+	/*
+	 * Resource DataObject name mapping
+	 * Please change the following mapping in the extended classes
+	 */
 	protected $resourceDOMap = array('resource_name'=>'module.do.ResourceDO');
     
+	/*
+	 * Get DataObject name
+	 *
+	 * @param string $resource
+     * @return string 
+	 */
     public function getDOName($resource)
     {
 		return $this->resourceDOMap[$resource];
@@ -14,6 +38,11 @@ class RestService
 	
 	/*
 	 * Query by page, rows, sort, sorder
+	 *
+	 * @param string $resource
+	 * @param Object $request, Slim Request object
+	 * @param Object $response, Slim Response object
+     * @return void 
 	 */
 	public function query($resource, $request, $response)
     {
@@ -66,6 +95,15 @@ class RestService
 		return;
     }
     
+	/*
+	 * Get data record by id
+	 *
+	 * @param string $resource
+	 * @param mixed $id
+	 * @param Object $request, Slim Request object
+	 * @param Object $response, Slim Response object
+     * @return void 
+	 */
     public function get($resource, $id, $request, $response)
     {
 		$DOName = $this->getDOName($resource);
@@ -92,6 +130,14 @@ class RestService
 		return;
     }
 	
+	/*
+	 * Insert data record
+	 *
+	 * @param string $resource
+	 * @param Object $request, Slim Request object
+	 * @param Object $response, Slim Response object
+     * @return void 
+	 */
 	public function post($resource, $request, $response)
     {
 		$DOName = $this->getDOName($resource);
@@ -137,6 +183,15 @@ class RestService
 		return;
     }
 	
+	/*
+	 * Update data record by id
+	 *
+	 * @param string $resource
+	 * @param mixed $id
+	 * @param Object $request, Slim Request object
+	 * @param Object $response, Slim Response object
+     * @return void 
+	 */
 	public function put($resource, $id, $request, $response)
     {
 		$DOName = $this->getDOName($resource);
@@ -187,6 +242,15 @@ class RestService
 		return;
     }
 	
+	/*
+	 * Delete data record by id
+	 *
+	 * @param string $resource
+	 * @param mixed $id
+	 * @param Object $request, Slim Request object
+	 * @param Object $response, Slim Response object
+     * @return void 
+	 */
 	public function delete($resource, $id, $request, $response)
     {
 		$DOName = $this->getDOName($resource);
