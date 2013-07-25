@@ -26,6 +26,7 @@
  */
 class BizDataObj extends BizDataObj_Lite
 {
+    public $useTransaction = true;
     /**
      * Initialize BizDataObj_Abstract with xml array
      *
@@ -252,19 +253,24 @@ class BizDataObj extends BizDataObj_Lite
         if ($sql)
         {
             $db = $this->getDBConnection("WRITE");
-            $db->beginTransaction();
+            if ($this->useTransaction)
+                $db->beginTransaction();
+
             try
             {
                 $this->cascadeUpdate(); // cascade update
                 
                 BizSystem::log(LOG_DEBUG, "DATAOBJ", "Update Sql = $sql");
                 $db->query($sql);
-                
-                $db->commit();
+
+                if ($this->useTransaction)
+                    $db->commit();
             }
             catch (Exception $e)
             {
-                $db->rollBack();
+                if ($this->useTransaction)
+                    $db->rollBack();
+
                 if ($e instanceof BDOException)
                     throw $e;
                 else {
