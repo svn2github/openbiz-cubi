@@ -59,10 +59,12 @@ class ContactGrabberForm extends EasyForm
         $user_id = BizSystem::GetUserProfile("Id");
         
         $contactImportDO->deleteRecords("[user_id]='$user_id'");
-        foreach ($contacts as $contactRec)
-        {
-        	$contactRec['user_id'] = $user_id;
-        	$contactImportDO->insertRecord($contactRec);
+        if(is_array($contacts)){
+	        foreach ($contacts as $contactRec)
+	        {
+	        	$contactRec['user_id'] = $user_id;
+	        	$contactImportDO->insertRecord($contactRec);
+	        }
         }
         $this->switchForm("contact.form.ContactGrabberListForm");
 	}
