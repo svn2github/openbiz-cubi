@@ -1336,7 +1336,7 @@ class EasyForm extends MetaObject implements iSessionObject
      *
      * @return void
      */
-    public function removeRecord ()
+    public function removeRecord ($id=null)
     {
     	if ($id==null || $id=='')
             $id = BizSystem::clientProxy()->getFormInputs('_selectedId');
