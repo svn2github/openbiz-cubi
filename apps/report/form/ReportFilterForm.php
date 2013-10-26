@@ -91,6 +91,7 @@ class ReportFilterForm extends ReportForm
         $this->m_SearchRule = "";
         $this->m_RefreshData = true;
         $this->m_CurrentPage = 1;
+		$this->queryParams = array();
         
     	foreach ($viewObj->m_FormRefs as $formRef)
         {
@@ -100,7 +101,7 @@ class ReportFilterForm extends ReportForm
             $formObj = BizSystem::objectFactory()->getObject($formName);
             if ($formObj->m_DataObjName == $this->m_DataObjName)
             {
-            	$formObj->setSearchRule("");
+            	$formObj->setSearchRule("", $this->queryParams);
    				$formObj->rerender();
             }
         }        
