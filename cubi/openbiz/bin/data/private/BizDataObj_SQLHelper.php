@@ -589,7 +589,7 @@ function queryParamToRule($fieldName, $value, $dataObj)
         $inputArr = explode(" AND ", $val);
         $retStr = null;
         foreach($inputArr as $v)
-            $retStr .= ($retStr) ? " AND ".inputValToRule($fieldName, $v, $formObj) : inputValToRule($fieldName, $v, $formObj);
+            $retStr .= ($retStr) ? " AND ".queryParamToRule($fieldName, $v, $dataObj) : queryParamToRule($fieldName, $v, $dataObj);
         return $retStr;
     }
     else if (($pos=strpos($val, " OR "))!==false)
@@ -597,7 +597,7 @@ function queryParamToRule($fieldName, $value, $dataObj)
         $inputArr = explode(" OR ", $val);
         $retStr = null;
         foreach($inputArr as $v)
-            $retStr .= ($retStr) ? " OR ".inputValToRule($fieldName, $v, $formObj) : inputValToRule($fieldName, $v, $formObj);
+            $retStr .= ($retStr) ? " OR ".queryParamToRule($fieldName, $v, $dataObj) : queryParamToRule($fieldName, $v, $dataObj);
         return "(".$retStr.")";
     }
 
