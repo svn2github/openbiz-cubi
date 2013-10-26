@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<EasyView Name="SamplePivotTableView" Description="report.sample" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl" Access="">
+<EasyView Name="SamplePivotTableView" Description="report.sample" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_report.tpl.html" Access="">
    <FormReferences>
    		<Reference Name="report.sample.form.SamplePivotTableForm"/>
    </FormReferences> 
