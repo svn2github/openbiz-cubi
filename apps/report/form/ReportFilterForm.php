@@ -39,7 +39,7 @@ class ReportFilterForm extends ReportForm
 		
    		include_once(OPENBIZ_BIN."/easy/SearchHelper.php");
 		
-		// compose search rule like ([field1]='a' OR [field1]='b') AND ([field2]='c' OR [field2]='d') AND ...
+		// support more advanced search like ">2000 AND <2003"
 		$searchRule = "";
 		$searchRuleList = array();
 		foreach ($this->m_DataPanel as $element)
@@ -47,24 +47,26 @@ class ReportFilterForm extends ReportForm
 			$searchStrs = array();
 			if (!$element->m_FieldName) continue;
 			$value = BizSystem::clientProxy()->getFormInputs($element->m_Name);
-			if (!$value && $value !== 0 && $value!=='0') continue;
-			$valueArr = explode(",",$value);
-			foreach($valueArr as $value){
+			// compose search rule like ([field1]='a' OR [field1]='b') AND ([field2]='c' OR [field2]='d') AND ...
+			//if (!$value && $value !== 0 && $value!=='0') continue;
+			//$valueArr = explode(",",$value);
+			//foreach($valueArr as $value){
 				if($element->m_FuzzySearch=="Y")
 				{
 					$value="*$value*";
 				}
 				if ($value)
 				{
-					$searchStrs[] = inputValToRule($element->m_FieldName, $value, $this);
+					//$searchStrs[] = inputValToRule($element->m_FieldName, $value, $this);
+					$this->queryParams[$element->m_FieldName] = $value;
 				}
-			}
-			$searchRuleList[] = "(".implode(' OR ',$searchStrs).")";
+			//}
+			//$searchRuleList[] = "(".implode(' OR ',$searchStrs).")";
 		}
-		$searchRule = implode(' AND ',$searchRuleList);
-        if (empty($searchRule)) 
-            return;
-		$searchRuleBindValues = QueryStringParam::getBindValues();
+		//$searchRule = implode(' AND ',$searchRuleList);
+        //if (empty($searchRule)) 
+        //    return;
+		//$searchRuleBindValues = QueryStringParam::getBindValues();
 		// redraw all forms other than this filter form
 		foreach ($viewObj->m_FormRefs as $formRef)
         {
@@ -74,7 +76,7 @@ class ReportFilterForm extends ReportForm
             $formObj = BizSystem::objectFactory()->getObject($formName);
             if ($formObj->m_DataObjName == $this->m_DataObjName)
             {
-            	$formObj->setSearchRule($searchRule, $searchRuleBindValues);
+            	$formObj->setSearchRule($searchRule, $this->queryParams);
    				$formObj->rerender();
             }
         }
