@@ -47,7 +47,7 @@ class ReportChartForm extends ReportForm
         $dataObj->setSearchRule($searchRule);
 
         $dataObj->setLimit("");
-        QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
+		$dataObj->setQueryParameters($this->queryParams);
         $resultRecords = $dataObj->fetch();
 		//$resultRecords = $dataObj->directFetch($searchRule);
 		$counter = 0;
