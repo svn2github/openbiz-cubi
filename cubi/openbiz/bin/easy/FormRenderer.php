@@ -100,7 +100,7 @@ class FormRenderer
         	$tplAttributes['wizardPanel'] = $formObj->m_WizardPanel->render();
         }
                 
-        //$tplAttributes['form'] = $formObj->outputAttrs();
+        $tplAttributes['form'] = $formObj->outputAttrs();
 		$outputAttrs = $formObj->outputAttrs();
 		foreach ($outputAttrs as $k=>$v) {
 			$tplAttributes[$k] = $v;
