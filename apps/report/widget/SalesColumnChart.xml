@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="SalesColumnChart" Class="report.form.ChartForm" FormType="Detail" ChartType="MSColumn3D" Width="100%" Height="300" jsClass="Openbiz.Form" Title="Sales of HD TVs - west division " BizDataObj="report.sample.do.SampleSalesDO" TemplateEngine="Smarty" TemplateFile="widget_chart.tpl.html" SearchRule="[division]='west' and [product]='HDTV'">
+    <DataPanel>
+        <Element Name="fld_name" Class="report.lib.ChartCategory" FieldName="name" Label="Name"/>
+        <Element Name="fld_revenue" Class="report.lib.ChartData" FieldName="revenue" Label="Revenue"/>
+        <Element Name="fld_cost" Class="report.lib.ChartData" FieldName="cost" Label="Cost"/>
+    </DataPanel>
+    <ActionPanel>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

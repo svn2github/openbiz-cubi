@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="SalesListGrid" Class="EasyForm" FormType="List" jsClass="jbForm" Title="Sales of TVs - west division" Description="" BizDataObj="report.sample.do.SampleSalesDO" PageSize="10" TemplateEngine="Smarty" TemplateFile="widget_grid.tpl.html" SearchRule="[division]='west'">
+    <DataPanel> 
+        <Element Name="fld_division" Class="ColumnText" FieldName="division" Label="Division"  Sortable="Y"/>
+        <Element Name="fld_product" Class="ColumnText" FieldName="product" Label="Product"  Sortable="Y"/>
+        <Element Name="fld_year" Class="ColumnText" FieldName="year" Label="Year"  Sortable="Y"/>
+        <Element Name="fld_revenue" Class="ColumnText" FieldName="revenue" Label="Revenue"  Sortable="Y"/>
+        <Element Name="fld_cost" Class="ColumnText" FieldName="cost" Label="Cost"  Sortable="Y"/>
+    </DataPanel>
+    <ActionPanel> 	
+		<Element Name="btn_print" Class="LabelText" Text="Print" CssClass="button_gray_m" link="sample_sales_print" target="_blank"></Element>
+		
+        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
+            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" ShortcutKey="Ctrl+Shift+X" ContextMenu="Export"/>
+        </Element>
+
+    </ActionPanel> 
+    <NavPanel>     
+        <Element Name="btn_first" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

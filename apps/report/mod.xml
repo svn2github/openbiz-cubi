@@ -20,12 +20,17 @@
                  <MenuItem Name="System.Report.ReportMy" Title="My Reports" Description=""  URL="/report/my_reports" Order="10"/>
                  <MenuItem Name="System.Report.ReportMytree" Title="My Reports Map" Description=""  URL="/report/my_reports_map" Order="20"/>
             </MenuItem>
-            <MenuItem Name="System.Report.Sample" Title="Sample Report" Description="View sample reports" IconImage="spacer.gif" IconCssClass="icon_my_report" Order="30">			 
+            <MenuItem Name="System.Report.Sample" Title="Sample Report" Description="View sample reports" IconImage="spacer.gif" IconCssClass="icon_my_report" Order="30">
+				 <MenuItem Name="System.Report.MyDashboard" Title="Dashboard" Description=""  URL="/report/my_dashboard" Order="5"/>
                  <MenuItem Name="System.Report.SampleSalesAdmin" Title="Sales Admin" Description=""  URL="/report/sample_sales_list" Order="10"/>
                  <MenuItem Name="System.Report.SampleSalesReport" Title="Sales Report" Description=""  URL="/report/sample_sales_report" Order="20"/>
             </MenuItem>
         </MenuItem>
     </Menu>
+	<Widgets>
+    	<Widget Name="report.widget.SalesListGrid" Title="All TV Sales" Description="" Ordering="10" />
+		<Widget Name="report.widget.SalesColumnChart" Title="Sales HD TV" Description="" Ordering="20" />
+    </Widgets>
     <Dependency>
     	<Module Name="system"/>
     </Dependency>

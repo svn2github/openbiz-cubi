@@ -1,0 +1,24 @@
+<form id='{$form.name}' name='{$form.name}'>
+
+<h2 style="display:none">{$form.title}</h2>
+
+<div style="padding-left:5px;padding-right:5px;">
+{if $actionPanel or $searchPanel }	
+	<div class="form_header_panel">	
+				<div class="action_panel">
+		{foreach item=elem from=$actionPanel}
+		    	{$elem.element}
+		{/foreach}
+				</div>
+				<div class="search_panel">
+		
+		{foreach item=elem from=$searchPanel}
+			{if $elem.label} {$elem.label} {/if} {$elem.element}
+		{/foreach}
+				</div>
+	</div>
+{/if}
+<div>{$form.data}</div>
+
+</div>
+</form>
