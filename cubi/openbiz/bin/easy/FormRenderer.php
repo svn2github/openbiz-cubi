@@ -100,7 +100,11 @@ class FormRenderer
         	$tplAttributes['wizardPanel'] = $formObj->m_WizardPanel->render();
         }
                 
-        $tplAttributes['form'] = $formObj->outputAttrs();   
+        //$tplAttributes['form'] = $formObj->outputAttrs();
+		$outputAttrs = $formObj->outputAttrs();
+		foreach ($outputAttrs as $k=>$v) {
+			$tplAttributes[$k] = $v;
+		}
         
         return $tplAttributes;
     }
@@ -118,6 +122,7 @@ class FormRenderer
         $tplFile = BizSystem::getTplFileWithPath($formObj->m_TemplateFile, $formObj->m_Package);
                 
         //Translate Array of template variables to Zend template object
+		//print_r($tplAttributes);
         foreach ($tplAttributes as $key => $value) {
             $smarty->assign($key, $value);
         };     
