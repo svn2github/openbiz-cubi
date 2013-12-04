@@ -1069,6 +1069,7 @@ class EasyForm extends MetaObject implements iSessionObject
             $isSearchHelperLoaded = true;
         }
         $searchRule = "";
+        $this->queryParams = array();
         foreach ($this->m_SearchPanel as $element)
         {
             $searchStr = '';
@@ -1085,10 +1086,12 @@ class EasyForm extends MetaObject implements iSessionObject
 	            }
 	            if ($value!='')
 	            {
-	                //$searchStr = inputValToRule($element->m_FieldName, $value, $this);	
-	                $this->queryParams[$element->m_FieldName] = $value;			
+	                //$searchStr = inputValToRule($element->m_FieldName, $value, $this);
+	                $this->queryParams[$element->m_FieldName] = $value;
 	            }
         	}
+
+            //BizSystem::clientProxy()->showClientAlert($searchStr);
         	if($searchStr){
         		if ($searchRule == "")
                     $searchRule .= $searchStr;
@@ -1096,6 +1099,8 @@ class EasyForm extends MetaObject implements iSessionObject
                     $searchRule .= " AND " . $searchStr;
         	}
         }
+
+
         $this->m_SearchRule = $searchRule;
 
         $this->m_RefreshData = true;
