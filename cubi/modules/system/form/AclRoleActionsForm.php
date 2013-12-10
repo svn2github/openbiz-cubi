@@ -48,30 +48,27 @@ class AclRoleActionsForm extends EasyForm
 
         $this->rerender();
     }
-	
     
 	public function fetchDataSet()
     {
-        $roleId = $this->GetRoleId();        
-        if($this->m_SearchRuleBindValues){
-        	QueryStringParam::setBindValues($this->m_SearchRuleBindValues);
-        }
+        $roleId = $this->GetRoleId();
+
         // fetch acl_action records
-        $do = BizSystem::getObject("system.do.AclActionDO",1);
-        //var_dump($this->m_SearchRuleBindValues);
-        if($this->m_SearchRule){
-        	$do->setSearchRule($this->m_SearchRule);
-        }
-        $do->setLimit($this->m_Range, ($this->m_CurrentPage-1)*$this->m_Range);
-        $rs = $do->fetch()->toArray();
-        $this->m_TotalRecords = $do->count();
-        if ($this->m_Range && $this->m_Range > 0)
-            $this->m_TotalPages = ceil($this->m_TotalRecords/$this->m_Range);
+        $aclActionDO = BizSystem::getDataObject("system.do.AclActionDO", 1);
+
+        $aclActionDO->setQueryParameters($this->queryParams);
+
+        $aclActionDO->setLimit($this->m_Range, ($this->m_CurrentPage-1)*$this->m_Range);
+        $rs = $aclActionDO->fetch()->toArray();
+
+        $this->m_TotalRecords = $aclActionDO->count();
+        if ( $this->m_Range && $this->m_Range > 0 )
+            $this->m_TotalPages = ceil($this->m_TotalRecords/$this->m_Range );
         
         // fetch role and access
         //$this->getDataObj()->m_SearchRule .= "[role_id]=$roleId ";        
         $this->getDataObj()->setSearchRule("[role_id]=$roleId");
-        if($this->m_SearchRule){
+        if ($this->m_SearchRule) {
         	$this->getDataObj()->setSearchRule($this->m_SearchRule);
         }
         $rs1 = $this->getDataObj()->fetch();
