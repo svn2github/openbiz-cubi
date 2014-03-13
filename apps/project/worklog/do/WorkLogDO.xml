@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="WorkLogDO" Description="" DataPermControl="Y" Class="BizDataObj" DBName="Default" Table="work_log" SearchRule="" SortRule="[Id] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" Column="id"     Type=""/>
+		<BizField Name="task_id" Column="task_id" Type=""/>
+		<BizField Name="task_title" Join="JoinTask" Column="task_title" SQLExpr="T1.title AS task_title"/>
+		<BizField Name="title" Column="title" Length="255"   Required="N" Type=""/>
+		<BizField Name="description" Column="description" Type=""/>
+		<BizField Name="worked_hours" Column="worked_hours" Type=""/>
+		<BizField Name="updated_progress" Column="updated_progress" Type=""/>	
+		
+		<BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>
+		<BizField Name="group_perm" Column="group_perm" ValueOnCreate="{1}"   Required="N" Type="Number"/>
+        <BizField Name="other_perm" Column="other_perm" ValueOnCreate="{1}"   Required="N" Type="Number"/>
+
+        <BizField Name="work_date" SQLExpr="date_format(T0.`create_time`,'%Y-%m-%d')" />
+   		   								        		    	
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+    <TableJoins>
+    		<Join Name="JoinTask" Table="task" Column="id" ColumnRef="task_id" JoinType="LEFT JOIN"/>
+    </TableJoins>
+    <ObjReferences>
+    	<Object Name="changelog.do.ChangeLogDO" Description="" Relationship="1-M" Table="changelog" CondColumn='type' CondValue='worklog' Column="foreign_id" FieldRef="Id" />
+    	<Object Name="calendar.do.EventDO" Description="" Relationship="M-M" Table="event" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="work_log_event" XColumn1="worklog_id" XColumn2="event_id" XDataObj="project.worklog.do.WorklogEventDO"/>
+    	<Object Name="collab.document.do.DocumentDO" Description="" Relationship="M-M" Table="document" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="work_log_document" XColumn1="worklog_id" XColumn2="document_id" XDataObj="project.worklog.do.WorklogDocumentDO"/>
+    </ObjReferences>
+</BizDataObj>

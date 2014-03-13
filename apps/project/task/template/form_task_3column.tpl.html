@@ -1,0 +1,417 @@
+<form id='{$form.name}' name='{$form.name}'>
+{literal}
+<style>
+#main #right_panel .content table.input_row td .label_text{
+width:350px;
+}
+.action_panel{
+width:310px;
+}
+.search_panel{
+width:380px;
+}
+.search_panel select{
+float:left;
+margin-right:5px;
+}
+.panel_title
+{
+display:block;
+color:#333333;
+text-indent:10px;
+margin-bottom:2px;
+}
+.task_list .form_table{
+margin:0px;
+margin-bottom:2px;
+}
+.form_table td{
+padding-left:5px;
+}
+.form_table .odd td{
+background-color:#f8f8f8;
+}
+.form_table td.task_desc
+{
+height:auto;
+background-image:none;
+white-space:inherit;
+color:#999999;
+line-height:18px;
+font-size:12px;
+}
+.form_table .not_found
+{
+	color:#999999;
+	display:block;
+	padding-top:5px;
+	padding-bottom:5px;
+	text-align:center;	
+}
+.other_task
+{
+float:left;
+}
+
+.task_list .not_start
+{
+	background-image:url({/literal}{$resource_url}{literal}/project/task/images/menu_row_bg.gif);
+	background-position:0px 0px;
+}
+
+.task_list .in_progress
+{
+	background-image:url({/literal}{$resource_url}{literal}/project/task/images/menu_row_bg.gif);
+	background-position:0px -24px;
+}
+
+.task_list .completed
+{
+	background-image:url({/literal}{$resource_url}{literal}/project/task/images/menu_row_bg.gif);
+	background-position:0px -48px;
+}
+.task_list .other_status
+{
+	background-image:url({/literal}{$resource_url}{literal}/project/task/images/menu_row_bg.gif);
+	background-position:0px -72px;
+}
+
+.task_list .perv_task
+{
+	background-image:url({/literal}{$resource_url}{literal}/project/task/images/menu_row_bg.gif);
+	background-position:0px -96px;
+}
+</style>
+{/literal}
+<div style="padding-left:25px;padding-right:40px;">
+
+
+
+{if  $searchPanel }	
+	<div class="form_header_panel" style="background-color:#efefef;padding-left:10px;margin-top:2px;width:690px;">			
+		<div class="search_panel" style="width:688px;">
+		{foreach item=elem key=name from=$searchPanel}
+				{if $elem.label} {$elem.label} {/if} 
+				{$elem.element}
+		{/foreach}
+		</div>
+	</div>	
+{/if}	
+
+<div class="from_table_container" style="width:700px;">
+<table border="0" cellpadding="0" cellspacing="0" class="form_table" id="{$form.name}_data_table"  style="margin:0px;border-right:none;">
+	<tr>
+		<td class="task_list" width="170" style="padding:1px;padding-left:0px;background-image:none;background-color:#faf9f8;"  valign="top">
+			<span class="panel_title not_start" style="background-color:#66c2ff;height:auto;">{t}Not Started{/t}</span>
+
+				 {if $form.dataGroup.0.data|count}
+			     {assign var=row_counter value=0}
+			     {foreach item=row from=$form.dataGroup.0.data}
+			     {if $row.fld_description}
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:170px;" class="form_table" id="{$form.name}_data_table">
+			     {else}
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:174px;" class="form_table" id="{$form.name}_data_table">
+			     {/if}	
+			         {if $row_style != ''}
+					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+					 {elseif $row_counter is odd}
+					   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					   			style="{$row_style}"
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+			         {else}
+						<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+								style="{$row_style}"
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+			         {/if}
+			         
+			         
+				        <td nowrap="nowrap" width="24" >{$row.fld_share}</td>
+				        <td width="80" ><div style="width:80px;height:18px;overflow:hidden;">{$row.fld_title}</div></td>
+				        <td nowrap="nowrap" style="padding-left:3px;">{$row.fld_priority}</td>
+				        <td nowrap="nowrap" style="padding-left:3px;" >{$row.fld_severity}</td>
+				        <td nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}"></td>
+				           				           			                  
+					{assign var=row_counter value=$row_counter+1}
+					</tr>
+					{if $row.fld_description}
+					<tr>						
+						<td class="task_desc" style="padding:0px;"  colspan="4" >
+						<div style="padding-left:5px;width:160px;overflow:hidden;">
+						{$row.fld_description}
+						</div>
+						</td>
+						<td nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}"></td>
+					</tr>
+					{/if}
+					</table>	
+			     {/foreach}
+			  	 {else}
+			     <span class="not_found">{t}-- No not started tasks --{/t}</span>
+			     {/if}
+										
+					
+
+		</td>
+		<td class="task_list" style="padding:1px;background-image:none;" valign="top">
+			<span class="panel_title in_progress" style="background-color:#ffb053;height:auto;">{t}In Progress{/t}</span>
+			{assign var=row_counter value=0}   
+				{if $form.dataGroup.1.data|count}           
+			     {foreach item=row from=$form.dataGroup.1.data}
+			     {if $row.fld_description}
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:340px;overflow:hidden;border-bottom-color:#ffb053;" class="form_table" id="{$form.name}_data_table">
+			     {else}
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:342px;overflow:hidden;border-bottom-color:#ffb053;" class="form_table" id="{$form.name}_data_table">
+			     {/if}		
+			         {if $row_style != ''}
+					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+					 {elseif $row_counter is odd}
+					   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					   			style="{$row_style}"
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+			         {else}
+						<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+								style="{$row_style}"
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+			         {/if}
+			         
+			         
+				        <td nowrap="nowrap" width="24" >{$row.fld_share}</td>				        
+				        <td width="85" ><div style="width:90px;height:18px;overflow:hidden;">{$row.fld_title}</div></td>
+				        
+				        <td nowrap="nowrap" style="padding-left:3px;">{$row.fld_progress}</td>				        
+				        <td width="50" nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}">
+				        	<div style="width:45px;overflow:hidden;">{$row.fld_type}</div>
+				        </td>
+				           				           			                  
+					{assign var=row_counter value=$row_counter+1}
+					</tr>
+					{if $row.fld_description}
+					<tr>						
+						<td class="task_desc" style="padding:0px;" nowrap="" colspan="4" >
+						<div style="padding-left:5px;">
+						{$row.fld_description}
+						</div>
+						</td>
+					</tr>
+					{/if}
+					</table>	
+			     {/foreach}
+			     {else}
+			     <span class="not_found">{t}-- No in progress tasks --{/t}</span>
+			     {/if}
+		</td>
+		<td class="task_list" width="170" style="padding:1px;padding-right:0px;background-image:none;background-color:#faf9f8;"  valign="top">
+			<span class="panel_title completed" style="background-color:#7fff6b;height:auto;">{t}Completed{/t}</span>
+				{assign var=row_counter value=0}        
+				{if $form.dataGroup.2.data|count}    
+			     {foreach item=row from=$form.dataGroup.2.data}
+				 {if $row.fld_description}
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:170px;" class="form_table" id="{$form.name}_data_table">
+			     {else}
+			     	<table border="0" cellpadding="0" cellspacing="0" style="width:174px;" class="form_table" id="{$form.name}_data_table">
+			     {/if}				         {if $row_style != ''}
+					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+								style="{$row_style}"										
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+					 {elseif $row_counter is odd}
+					   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					   			style="{$row_style}"
+					   			class="odd"  normal="odd" select="selected"								  
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+			         {else}
+						<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+								style="{$row_style}"
+								class="even"  normal="even" select="selected"								 								 
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+			         {/if}
+			         
+			         
+				        <td nowrap="nowrap" width="24" >{$row.fld_share}</td>
+						<td width="80" ><div style="width:80px;height:18px;overflow:hidden;">{$row.fld_title}</div></td>
+				        <td nowrap="nowrap" style="padding-left:3px;">{$row.fld_priority}</td>
+				        <td nowrap="nowrap" style="padding-left:3px;" >{$row.fld_severity}</td>
+				        <td nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}"></td>
+				           				           			                  
+					{assign var=row_counter value=$row_counter+1}
+					</tr>
+					{if $row.fld_description}
+					<tr>						
+						<td class="task_desc" style="padding:0px;"  colspan="4" >
+						<div style="padding-left:5px;width:160px;overflow:hidden;">
+						{$row.fld_description}
+						</div>
+						</td>
+						<td nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}"></td>
+					</tr>
+					{/if}
+					</table>	
+			     {/foreach}
+			     {else}
+			     <span class="not_found">{t}-- No comepleted tasks --{/t}</span>
+			     {/if}
+		</td>
+	</tr>
+	<tr>
+		<td class="task_list" colspan="3"  style="padding:1px;background-image:none;background-color:#f6f6f6;height:auto;width:auto;">
+			<span class="panel_title other_status" style="background-color:#cccccc;height:auto;width:694px;">{t}Other Status{/t}</span>
+			{if $form.dataGroup.3.data|count ||  $form.dataGroup.4.data|count }
+				{foreach item=row from=$form.dataGroup.3.data}
+			     <table border="0" cellpadding="0" cellspacing="0" style="width:172px;margin-right:1px;" class="form_table other_task" id="{$form.name}_data_table">	
+			         {if $row_style != ''}
+					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+								style="{$row_style}"										
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+					 {elseif $row_counter is odd}
+					   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					   			style="{$row_style}"
+					   			class="odd"  normal="odd" select="selected"								  
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+			         {else}
+						<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+								style="{$row_style}"
+								class="even"  normal="even" select="selected"								 								 
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+			         {/if}
+			         
+			         
+				        <td nowrap="nowrap" width="24" >{$row.fld_share}</td>
+				        <td width="80" ><div style="width:80px;height:18px;overflow:hidden;">{$row.fld_title}</div></td>
+				        <td nowrap="nowrap" style="padding-left:3px;background-color:#EEEEEE;">{$row.fld_status|strip_tags}</td>				        
+				        <td nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}"></td>
+				           				           			                  
+					{assign var=row_counter value=$row_counter+1}
+					</tr>
+					{if $row.fld_description}
+					<tr>						
+						<td class="task_desc" style="padding:0px;" nowrap="" colspan="3" >
+						<div style="padding-left:5px;">
+						{$row.fld_description}
+						</div>
+						</td>
+						<td nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}"></td>
+					</tr>
+					{/if}
+					</table>	
+			     {/foreach}
+			     
+			     {foreach item=row from=$form.dataGroup.4.data}
+			     <table border="0" cellpadding="0" cellspacing="0" style="width:172px;margin-right:2px;" class="form_table other_task" id="{$form.name}_data_table">	
+			         {if $row_style != ''}
+					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+								style="{$row_style}"										
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+					 {elseif $row_counter is odd}
+					   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					   			style="{$row_style}"
+					   			class="odd"  normal="odd" select="selected"								  
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+			         {else}
+						<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+								style="{$row_style}"
+								class="even"  normal="even" select="selected"								 								 
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+			         {/if}
+			         
+			         
+				        <td nowrap="nowrap" width="24" >{$row.fld_share}</td>
+				        <td width="80" ><div style="width:80px;height:18px;overflow:hidden;">{$row.fld_title}</div></td>
+				        <td nowrap="nowrap" style="padding-left:3px;background-color:#EEEEEE;">{$row.fld_status|strip_tags}</td>				        
+				        <td nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}"></td>
+				           				           			                  
+					{assign var=row_counter value=$row_counter+1}
+					</tr>
+					{if $row.fld_description}
+					<tr>						
+						<td class="task_desc" style="padding:0px;" nowrap="" colspan="3" >
+						<div style="padding-left:5px;">
+						{$row.fld_description}
+						</div>
+						</td>
+						<td nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}"></td>
+					</tr>
+					{/if}
+					</table>	
+			     {/foreach}
+			
+			{else}
+				<span class="not_found" style="padding:0px;text-align:left;text-indent:10px;">{t}-- No other tasks --{/t}</span>
+			{/if}
+		</td>
+	</tr>
+	<!-- Perviously Deferred -->
+	<tr>
+		<td class="task_list" colspan="3"  style="padding:1px;background-image:none;background-color:#f6f6f6;height:auto;width:auto;">
+			<span class="panel_title perv_task" style="background-color:#cccccc;height:auto;width:694px;">{t}Previously Not Completed Tasks{/t}</span>
+			{if $form.dataGroup.prev.data|count  }
+				{foreach item=row from=$form.dataGroup.prev.data}
+			     <table border="0" cellpadding="0" cellspacing="0" style="width:172px;margin-right:2px;" class="form_table other_task" id="{$form.name}_data_table">	
+			         {if $row_style != ''}
+					 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+								style="{$row_style}"										
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+					 {elseif $row_counter is odd}
+					   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					   			style="{$row_style}"
+					   			class="odd"  normal="odd" select="selected"								  
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+			         {else}
+						<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+								style="{$row_style}"
+								class="even"  normal="even" select="selected"								 								 
+								onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+			         {/if}
+			         
+			         
+				        <td nowrap="nowrap" width="24" >{$row.fld_share}</td>
+				        <td width="80" ><div style="width:80px;height:18px;overflow:hidden;">{$row.fld_title}</div></td>
+				        <td nowrap="nowrap" style="padding-left:3px;background-color:#EEEEEE;"><div style="width:40px;height:18px;overflow:hidden;">{$row.fld_status|strip_tags}</div></td>				        
+				        <td nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}"></td>
+				           				           			                  
+					{assign var=row_counter value=$row_counter+1}
+					</tr>
+					{if $row.fld_description}
+					<tr>						
+						<td class="task_desc" style="padding:0px;" nowrap="" colspan="3" >
+						<div style="padding-left:5px;">
+						{$row.fld_description}
+						</div>
+						</td>
+						<td nowrap="nowrap" style="background-image:none;background-color:#{$row.fld_color}"></td>
+					</tr>
+					{/if}
+					</table>	
+			     {/foreach}
+			     
+			
+			{else}
+				<span class="not_found" style="padding:0px;text-align:left;text-indent:10px;">{t}-- No previously not completed tasks --{/t}</span>
+			{/if}
+		</td>
+	</tr>
+
+	
+</table>
+</div>
+
+<!-- status switch  -->
+
+<span id='{$form.name}_selected_id' style="display:none">{$default_selected_id}</span>
+<!-- table end -->	
+
+	<div class="form_footer_panel">
+		<div class="ajax_indicator">
+			<div id='{$form.name}.load_disp' style="display:none" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
+		</div>
+		<div class="navi_panel">
+
+		</div>		
+	</div>
+	
+	<div class="v_spacer"></div>
+	<p class="form_desc">{$form.description}</p>
+</div>
+</form>

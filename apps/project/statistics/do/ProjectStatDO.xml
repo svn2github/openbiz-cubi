@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ProjectStatDO" Description="" Class="ProjectStatDO" DBName="Default" Table="project" SearchRule="" SortRule="" OtherSQLRule="GROUP BY [Id]" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+        <BizField Name="Id" Column="priority" Type="Number"/>
+        <BizField Name="condition" Column="condition" Type="Number"/>
+        <BizField Name="start_time" Column="start_time" />        
+        <BizField Name="cond_name" SQLExpr="'name'"/>
+        <BizField Name="cond_color" SQLExpr="'cond_color'"/>
+        <BizField Name="pri_0_count" SQLExpr="'pri_0_count'"/>
+        <BizField Name="pri_1_count" SQLExpr="'pri_1_count'"/>
+        <BizField Name="pri_2_count" SQLExpr="'pri_2_count'"/>
+        <BizField Name="data_count" SQLExpr="COUNT(*)"/>
+        
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

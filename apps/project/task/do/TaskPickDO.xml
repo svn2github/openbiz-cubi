@@ -1,0 +1,60 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="TaskPickDO" Description="" DataPermControl="Y" Class="BizDataObj" DBName="Default" Table="task" SearchRule="" SortRule="[priority] DESC, [Id] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" Column="id"     Type=""/>
+		<BizField Name="project_id" Column="project_id"  Required="N" Type=""/>
+		<BizField Name="project_name" Column="name" Alias="project_name" Join="JoinProject" />
+		<BizField Name="title" Column="title" Length="255"   Required="N" Type=""/>
+		<BizField Name="description" Column="description" Type=""/>
+		
+		<BizField Name="parent_task_id" Column="parent_task_id" Type=""/>
+		<BizField Name="dependency_task_id" Column="dependency_task_id" Type=""/>
+		<BizField Name="status" Column="status" Type=""/>
+		<BizField Name="priority" Column="priority" Type=""/>
+		<BizField Name="severity" Column="severity" Type=""/>
+		<BizField Name="milestone" Column="milestone" Type=""/>
+
+		<BizField Name="reminder" 		Column="reminder"  Required="N" Type=""/>
+		<BizField Name="reminder_status" Column="reminder_status"  Type=""/>
+		<BizField Name="reminder_time" 	Column="reminder_time"  Required="N" Type=""/>
+		<BizField Name="reminder_method_sms" Column="reminder_method_sms"  Required="N" Type=""/>
+		<BizField Name="reminder_method_email" Column="reminder_method_email"  Required="N" Type=""/>
+		<BizField Name="reminder_method_systray" Column="reminder_method_systray"  Required="N" Type=""/>
+				
+		<BizField Name="progress" Column="progress" Type=""/>
+		
+		<BizField Name="start_time" Column="start_time" Required="Y" Type=""/>
+		<BizField Name="finish_time" Column="finish_time" Type=""/>
+		<BizField Name="actual_finish_time" Column="actual_finish_time" Type=""/>
+		
+		<BizField Name="total_workhour" Column="total_workhour"  Required="Y" Type=""/>
+		<BizField Name="actual_workhour" Column="actual_workhour" Type=""/>
+		
+		<BizField Name="budget_cost" Column="budget_cost" Type=""/>
+		<BizField Name="actual_cost" Column="actual_cost" Type=""/>
+		
+		<BizField Name="type_id" Column="type_id"  ValueOnCreate="1"  Required="N" Type=""/>
+		<BizField Name="type_color" Column="color"  Join="JoinEventType" />
+	    <BizField Name="type_name" Column="name" Join="JoinEventType" />
+   		
+		<BizField Name="sortorder" Column="sortorder"  ValueOnCreate="50"   Required="N" Type=""/>
+		
+		<BizField Name="owner_id" Column="owner_id" ValueOnCreate="{@profile:Id}"   Required="N" Type="Number"/>
+		<BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>
+        <BizField Name="group_perm" Column="group_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   Required="N" Type="Number"/>
+        <BizField Name="other_perm" Column="other_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"   Required="N" Type="Number"/>
+   		
+			        		    		
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+    <TableJoins>
+		<Join Name="JoinEventType" Table="task_type" Column="id" ColumnRef="type_id" JoinType="LEFT JOIN"/>    	
+		<Join Name="JoinProject" Table="project" Column="id" ColumnRef="project_id" JoinType="LEFT JOIN"/>
+    </TableJoins>
+    <ObjReferences>      
+    </ObjReferences>
+    
+</BizDataObj>

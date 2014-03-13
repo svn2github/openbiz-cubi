@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <TypeViewMode Value="project.statistics.form.ContactTypeReportForm" text="Contact Statistics"/>
+   <TypeViewMode Value="project.statistics.form.EventTypeReportForm" text="Event Statistics"/>
+   <TypeViewMode Value="project.statistics.form.ProjectTypeReportForm" text="Project Statistics"/>
+   <TypeViewMode Value="project.statistics.form.TaskTypeReportForm" text="Task Statistics"/>
+   <TypeViewMode Value="project.statistics.form.DocumentTypeReportForm" text="Document Statistics"/>
+   <!-- 
+   <TypeViewMode Value="project.statistics.form.BookmarkTypeReportForm" text="Bookmark Statistics"/>
+   <TypeViewMode Value="project.statistics.form.AnnouncementTypeReportForm" text="Announcement Stat"/>
+   <TypeViewMode Value="project.statistics.form.NoteTypeReportForm" text="Note Statistics"/>
+ 	-->
+	
+   <OwnerViewMode Value="project.statistics.form.ContactOwnerReportForm" text="Contact Statistics"/>
+   <OwnerViewMode Value="project.statistics.form.EventOwnerReportForm" text="Event Statistics"/>
+   <OwnerViewMode Value="project.statistics.form.ProjectOwnerReportForm" text="Project Statistics"/>
+   <OwnerViewMode Value="project.statistics.form.TaskOwnerReportForm" text="Task Statistics"/>
+   <OwnerViewMode Value="project.statistics.form.DocumentOwnerReportForm" text="Document Statistics"/>	
+</Selection>

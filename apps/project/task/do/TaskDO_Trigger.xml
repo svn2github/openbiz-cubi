@@ -1,0 +1,23 @@
+<PluginService Name="TaskDO_Trigger" Description="" Package="" Class="doTriggerService" BizObjectName="project.task.do.TaskDO">  
+  <DOTrigger TriggerType="UPDATE"  >
+   <TriggerCondition Expression="" ExtraSearchRule="" />
+   <TriggerActions>
+      <TriggerAction Action="CallService" Immediate="Y" DelayMinutes="" RepeatMinutes="">
+         <ActionArgument Name="Service" Value="project.task.lib.TaskService" />
+         <ActionArgument Name="Method" Value="updateTaskStatus" /> 
+         <ActionArgument Name="type" Value="{@}" />         
+      </TriggerAction>
+	  <TriggerAction Action="CallService" Immediate="Y" DelayMinutes="" RepeatMinutes="">
+         <ActionArgument Name="Service" Value="project.task.lib.TaskService" />
+         <ActionArgument Name="Method" Value="notifyUserUpdate" /> 
+         <ActionArgument Name="type" Value="{@}" />         
+      </TriggerAction>   
+      <TriggerAction Action="CallService" Immediate="Y" DelayMinutes="" RepeatMinutes="">
+         <ActionArgument Name="Service" Value="project.lib.ReminderService" />
+         <ActionArgument Name="Method" Value="ClearTaskReminderStatus" /> 
+         <ActionArgument Name="data" Value="{@}" />         
+      </TriggerAction>	  
+         
+   </TriggerActions>
+  </DOTrigger>  
+</PluginService>

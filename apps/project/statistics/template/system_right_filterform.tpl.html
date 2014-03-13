@@ -1,0 +1,38 @@
+<form id='{$form.name}' name='{$form.name}'>
+<div style="padding-left:25px;padding-right:40px;padding-bottom:5px;">
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+	
+		<div style="float:left; width:600px;">
+			<h2>
+			{$form.title}
+			</h2> 
+			{if $form.description}
+			<p >		
+			<span>{$form.description}</span>
+			</p>
+			{else}
+			{/if}
+		</div>
+	</td></tr></table>
+{if $actionPanel or $searchPanel }	
+	<div class="form_header_panel">	
+				<div class="action_panel" style="width:688px;">
+		{foreach item=elem from=$searchPanel}
+		    	{if $elem.label}
+		    	<span style="float:left;padding-right:10px;padding-top:2px;">{$elem.label}</span> 
+		    	{/if}
+		    	{$elem.element}
+		{/foreach}
+					<div id='{$form.name}.load_disp' style="float:left;display:none;padding-top:6px;padding-left:10px;" >
+						<img src="{$image_url}/form_ajax_loader.gif"/>
+					</div>
+				</div>
+				
+	</div>
+{/if}
+</div></div>
+
+</form>

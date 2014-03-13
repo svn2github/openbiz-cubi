@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventNewForm" Class="EasyForm" Icon="{RESOURCE_URL}/calendar/images/icon_calendar_list.gif" FormType="New" jsClass="jbForm" Title="New Event" Description="Create a new event and place it on the Calendar.\n A typical event could be appointment, meeting or other types" BizDataObj="calendar.do.EventDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="CALENDAR" MessageFile="Event.msg"  Access="calendar.access" >
+    <DataPanel>
+	    <Element Name="fld_type_id" ElementSet="General" Class="common.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="calendar.do.EventTypeDO[name:Id:color]" AllowURLParam="N" />			    
+        <Element Name="fld_subject" ElementSet="General" Class="InputText" DefaultValue="New Event" FieldName="subject" Label="Subject"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
+        <Element Name="fld_location" ElementSet="General" Class="InputText" FieldName="location" Label="Location"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		<Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+		
+		<Element Name="fld_all_day" ElementSet="Time" Class="Checkbox" FieldName="all_day" DefaultChecked="{@:Params[all_day]?'Y':'N'}" Label="All Day" DefaultValue="0" SelectFrom="1" Description="All day event" AllowURLParam="Y" >
+		</Element>
+		<Element Name="fld_start_time" ElementSet="Time" DefaultValue="{@:Params[start_time]?date('Y-m-d H:i:s',@:Params[start_time]):date('Y-m-d H:i:s',time())}" Class="InputDatetime" FieldName="start_time" Label="Start Time"  AllowURLParam="Y" />
+		<Element Name="fld_end_time"  ElementSet="Time" DefaultValue="{@:Params[end_time]?date('Y-m-d H:i:s',@:Params[end_time]):date('Y-m-d H:i:s',time()+7200)}" Class="InputDatetime" FieldName="end_time" Label="End Time"  AllowURLParam="Y" />
+		<Element Name="fld_recurrence" ElementSet="Time" Class="Listbox" selectFrom="calendar.lov.EventLOV(RecurrenceType)" FieldName="recurrence" Label="Recurrence"  AllowURLParam="N" />
+		
+		<Element Name="fld_reminder" ElementSet="Reminder" DefaultValue="0" Class="Listbox" selectFrom="calendar.lov.ReminderLOV(ReminderType)" FieldName="reminder" Label="Reminder" AllowURLParam="N" >
+			<EventHandler Name="fld_reminder_onclick" Event="onchange" Function="UpdateForm()"  />
+		</Element>
+		<Element Name="fld_reminder_time" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="Listbox" selectFrom="calendar.lov.ReminderLOV(ReminderTimeType)" FieldName="reminder_time" Label="Time Setting" AllowURLParam="N" />
+		<Element Name="fld_reminder_method_email" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="Checkbox"  FieldName="reminder_method_email" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Email" AllowURLParam="N" />
+		<!-- <Element Name="fld_reminder_method_systray" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="Checkbox"  FieldName="reminder_method_systray" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Systray" AllowURLParam="N" />-->
+		<Element Name="fld_reminder_method_sms" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="Checkbox"  FieldName="reminder_method_sms" DefaultValue="0" SelectFrom="1" Label="Send SMS" AllowURLParam="N" />
+		
+		<!-- 
+		<Element Name="fld_notify_contacts" ElementSet="Notify Contacts" Class="Listbox" selectFrom="calendar.lov.EventLOV(NotifyType)" FieldName="notify_contacts" Label="Notify" AllowURLParam="N" >
+			<EventHandler Name="fld_notify_contacts_onclick" Event="onchange" Function="UpdateForm()"  />
+		</Element>
+		<Element Name="fld_notify_contacts_method_sms"  Hidden="{@:Elem[fld_notify_contacts].Value=='0'?'Y':'N'}" ElementSet="Notify Contacts" Class="Checkbox" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" FieldName="notify_contacts_email" Label="Send Email" AllowURLParam="N" />
+		<Element Name="fld_notify_contacts_time"  Hidden="{@:Elem[fld_notify_contacts].Value=='0'?'Y':'N'}" ElementSet="Notify Contacts" Class="Checkbox" DefaultValue="0" SelectFrom="1" FieldName="notify_contacts_sms" Label="Send SMS" AllowURLParam="N" />
+		 -->
+		
+               
+        <Element Name="fld_sortorder" Class="Listbox" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />
+        <Element Name="fld_published" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="1" FieldName="group_perm" Label="Group Share"  /><Element Name="fld_published_other" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="0" FieldName="other_perm" Label="Other Group"  /><Element Name="fld_published_other" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="0" FieldName="other_perm" Label="Other Group"  />
+    </DataPanel>
+    <ActionPanel>
+    	<Element Name="btn_finish" Class="Button" Text="Next Step" CssClass="button_gray_w">
+            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=calendar.form.EventEditExtendForm&amp;fld:Id={@calendar.do.EventDO:Field[Id].Value}"  ContextMenu="Quick Finish"  />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TaskListDetailForm" Class="TaskWidgetForm" FormType="List" SortRule="[start_time] ASC" jsClass="jbForm" BizDataObj="project.task.do.TaskDO"   PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="project_task.access">
+    <DataPanel>
+        <Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{RESOURCE_URL}/project/task/images/icon_task_private.png"
+				MySharedImg="{RESOURCE_URL}/project/task/images/icon_task_shared.png" 
+				MyAssignedImg="{RESOURCE_URL}/project/task/images/icon_task_assigned.gif"
+				MyDistributedImg="{RESOURCE_URL}/project/task/images/icon_task_distributed.gif" 
+				GroupSharedImg="{RESOURCE_URL}/project/task/images/icon_task_shared_group.png"
+				OtherSharedImg="{RESOURCE_URL}/project/task/images/icon_task_shared_other.png"
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+		</Element>	
+		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y"/>
+
+        <Element Name="fld_title" MaxLength="20" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/project/task_detail/{@:Elem[fld_Id].Value}">         
+                        <!-- 	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="ParentSwitchForm(project.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   /> -->         
+        </Element>
+        <Element Name="fld_status" Class="ColumnList" SelectFrom="project.task.lov.TaskLOV(TaskStatus)" FieldName="status" Label="Status"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        </Element>
+        <Element Name="fld_progress" Class="ColumnBar" Width="120" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:170px" MaxValue="100" FieldName="progress" Label="Progress"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
+        </Element>
+		<Element Name="fld_reminder" Class="ColumnBool" TrueImg="{RESOURCE_URL}/project/task/images/icon_reminder_enable.gif"  FalseImg="{RESOURCE_URL}/project/task/images/icon_reminder_disable.gif" FieldName="reminder" Sortable="Y" Label="Rmd" >
+		</Element>
+        <Element Name="fld_priority_value" Class="Hidden" Hidden="Y" FieldName="priority"  />
+        <Element Name="fld_priority" Class="ColumnImage" Text="{RESOURCE_URL}/project/task/images/icon_task_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Pri" >
+		</Element>
+        <Element Name="fld_type" Class="ColumnBool" TrueImg="{RESOURCE_URL}/project/task/images/icon_task_milestone_enable.gif"  FalseImg="{RESOURCE_URL}/project/task/images/icon_task_milestone_disable.gif" FieldName="milestone" Sortable="Y" Label="Mst" >
+		</Element>
+		<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_colorx" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_remove" Class="Button" Label="Action" Text="Remove" CssClass="button_gray_m" Style="color:gray">
+            <EventHandler Name="remove_onclick" Event="onclick" Function="RemoveRecord({@:Elem[fld_Id].Value})"/>
+        </Element>	
+	</DataPanel>
+	<ActionPanel>
+		<Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add">
+            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(project.task.widget.TaskNewForm)"/>
+        </Element>
+        <Element Name="btn_spacer" Class="Spacer" Width="10" ></Element>    
+        <Element Name="btn_pick" Class="Button" text="Pick Tasks" CssClass="button_gray_w">
+            <EventHandler Name="pick_onclick" Event="onclick" Function="LoadDialog(project.task.widget.TaskMultiPickForm)"/>
+        </Element>   
+    </ActionPanel> 
+	<NavPanel>
+    </NavPanel> 
+</EasyForm>

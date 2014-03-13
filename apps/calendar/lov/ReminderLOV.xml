@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <ReminderType Value="0" text="Do not remind"/>
+   <ReminderType Value="1" text="Remind me"/>  
+   
+   <ReminderTimeType Value="5" text="Before 5 minutes"/>
+   <ReminderTimeType Value="10" text="Before 10 minutes"/>
+   <ReminderTimeType Value="15" text="Before 15 minutes"/>
+   <ReminderTimeType Value="30" text="Before 30 minutes"/>
+   <ReminderTimeType Value="45" text="Before 45 minutes"/>
+   <ReminderTimeType Value="60" text="Before 1 hour"/>
+   <ReminderTimeType Value="180" text="Before 3 hours"/>
+   <ReminderTimeType Value="720" text="Before half a day"/>
+   <ReminderTimeType Value="1440" text="Before 1 day"/>
+</Selection>   

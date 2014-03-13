@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TaskListBudgetForm" Class="TaskBudgetForm" FormType="List" jsClass="jbForm" BizDataObj="project.task.do.TaskDO"   PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="project_task.access">
+    <DataPanel>
+           <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+      <Element Name="fld_icon" Class="ColumnImage" 
+				Text="{RESOURCE_URL}/project/budget/images/icon_budget_out.gif"
+				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">				
+		</Element>
+        <Element Name="fld_title" Class="common.element.ColumnTitle" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+        	<EventHandler Name="fld_subject_onclick" Event="onclick" Function="ParentSwitchForm(project.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   />         
+        </Element>
+        <Element Name="fld_budget"  Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_budget].Value)}"  Class="ColumnText"  FieldName="budget_cost" Label="Budget"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_spend"  Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_spend].Value)}"  Class="ColumnText"  FieldName="budget_spend" Label="Expenses"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		
+        <Element Name="fld_progress" Class="ColumnBar" Width="150" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:230px" MaxValue="100" FieldName="budget_precent" Label="Expenses"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
+        </Element>
+        <Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+	</DataPanel>
+</EasyForm>

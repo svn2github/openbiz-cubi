@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+    <Year Value="2005"/>
+    <Year Value="2006"/>
+    <Year Value="2007"/>
+    <Year Value="2008"/>
+    <Year Value="2009"/>
+ 	<Year Value="2010"/>
+	<Year Value="2011"/>
+	<Year Value="2012"/>
+	<Year Value="2013"/>
+	<Year Value="2014"/>
+	<Year Value="2015"/>
+	<Year Value="2016"/>
+	<Year Value="2017"/>
+	<Year Value="2018"/>
+	<Year Value="2019"/>
+	<Year Value="2020"/>
+ 
+ 	<Month Value="01"/>
+	<Month Value="02"/>
+	<Month Value="03"/>
+	<Month Value="04"/>
+	<Month Value="05"/>
+	<Month Value="06"/>
+	<Month Value="07"/>
+	<Month Value="08"/>
+	<Month Value="09"/>
+	<Month Value="10"/>
+	<Month Value="11"/>
+	<Month Value="12"/>
+ 
+	<Week Value="1"/>
+	<Week Value="5"/>
+	<Week Value="10"/>
+	<Week Value="15"/>
+	<Week Value="20"/>
+	<Week Value="25"/>
+	<Week Value="30"/>
+	<Week Value="35"/>
+	<Week Value="40"/>
+	<Week Value="45"/>
+	<Week Value="50"/>
+	    
+</Selection>

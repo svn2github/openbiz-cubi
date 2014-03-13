@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="EventQtipView" Description="Calendar and Event Management" Class="EasyView" Tab="" Access="calendar.access" TemplateEngine="Smarty" TemplateFile="view_qtip.tpl">
+   <FormReferences>   		
+   		<Reference Name="calendar.widget.EventQtipForm"/>
+   </FormReferences> 
+</EasyView>

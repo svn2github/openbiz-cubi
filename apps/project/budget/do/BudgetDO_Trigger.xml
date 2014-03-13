@@ -1,0 +1,32 @@
+<PluginService Name="BudgetDO_Trigger" Description="" Package="" Class="doTriggerService" BizObjectName="project.budget.do.BudgetDO">
+  <DOTrigger TriggerType="INSERT"  >
+   <TriggerCondition Expression="" ExtraSearchRule="" />
+   <TriggerActions>
+      <TriggerAction Action="CallService" Immediate="Y" DelayMinutes="" RepeatMinutes="">
+         <ActionArgument Name="Service" Value="project.task.lib.TaskService" />
+         <ActionArgument Name="Method" Value="updateTaskFinancial" />
+         <ActionArgument Name="DO" Value="{@}" />
+      </TriggerAction>
+   </TriggerActions>
+  </DOTrigger>
+  <DOTrigger TriggerType="UPDATE"  >
+   <TriggerCondition Expression="" ExtraSearchRule="" />
+   <TriggerActions>
+      <TriggerAction Action="CallService" Immediate="Y" DelayMinutes="" RepeatMinutes="">
+         <ActionArgument Name="Service" Value="project.task.lib.TaskService" />
+         <ActionArgument Name="Method" Value="updateTaskFinancial" /> 
+         <ActionArgument Name="type" Value="{@}" />         
+      </TriggerAction>
+   </TriggerActions>
+  </DOTrigger>
+  <DOTrigger TriggerType="DELETE"  >
+   <TriggerCondition Expression="" ExtraSearchRule="" />
+   <TriggerActions>
+      <TriggerAction Action="CallService" Immediate="Y" DelayMinutes="" RepeatMinutes="">
+         <ActionArgument Name="Service" Value="project.task.lib.TaskService" />
+         <ActionArgument Name="Method" Value="updateTaskFinancial" /> 
+         <ActionArgument Name="type" Value="{@}" />
+      </TriggerAction>
+   </TriggerActions>
+  </DOTrigger>
+</PluginService>

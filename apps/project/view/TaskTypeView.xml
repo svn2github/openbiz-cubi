@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="TaskTypeView" Description="Task Type Management" Class="EasyView" Tab="" Access="project_task.access" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="project.task.form.TaskTypeListForm"/>
+   </FormReferences>
+</EasyView>

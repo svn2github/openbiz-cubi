@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="WorklogManageView" Description="Worklog Manage Management" Class="EasyView" Tab="" Access="project_worklog.access" TemplateEngine="Smarty" TemplateFile="view_worklog.tpl">
+   <FormReferences>
+   		<Reference Name="project.worklog.form.WorklogListForm"/>
+   </FormReferences>
+</EasyView>

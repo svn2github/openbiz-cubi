@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?>
+<Selection>
+   <EventViewMode Value="calendar.form.EventListForm" text="Event List View"/>
+   <EventViewMode Value="calendar.form.EventAssignListForm" text="Event Assignment View"/>
+   <EventViewMode Value="calendar.form.EventMonthListForm" text="Calendar View"/>   
+<!-- 
+   <ViewMode Value="calendar.form.EventWeekListForm" text="Calendar Week View"/>
+   <ViewMode Value="calendar.form.EventDayListForm" text="Calendar Day View"/>
+ -->
+</Selection>

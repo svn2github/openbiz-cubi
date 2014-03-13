@@ -1,0 +1,284 @@
+<form id='{$form.name}' name='{$form.name}'>
+{literal}
+<style>
+#main #right_panel .content table.input_row td .label_text{
+width:350px;
+}
+.action_panel{
+width:310px;
+}
+.search_panel{
+width:380px;
+}
+.search_panel select{
+float:left;
+margin-right:5px;
+}
+.timesheet_block
+{
+padding:2px;
+cursor:pointer;
+}
+.timesheet_block .normal
+{
+padding:2px;
+background-color:none;
+border-bottom:3px solid #efefef;
+}
+.timesheet_block .selected
+{
+padding:2px;
+background-color:none;
+border-bottom:3px solid #0d95c8;
+}
+.timesheet_block .selected .day_name,.timesheet_block .selected  .day_name_today
+{
+background-color:#0d95c8;
+color:#ffffff;
+opacity:1;
+}
+.timesheet_block .selected .day_name,.timesheet_block .selected  .day_name_today{
+background-image:url({/literal}{$resource_url}{literal}/project/task/images/menu_item_weekday_bg.gif);
+background-position:0px -48px;
+}
+.timesheet_block .selected .date
+{
+background-color:#9fddfa;
+border-bottom:3px solid #4fcbfa;
+color:#333333;
+}
+
+.timesheet_block .selected .total_label{
+color:#0d95c8;
+}
+.timesheet_block .hover
+{
+padding:2px;
+background-color:#effbff;
+border-bottom:3px solid #6bd0fe;
+}
+.timesheet_block .hover .day_name
+{
+background-color:#6bd0fe;
+background-image:url({/literal}{$resource_url}{literal}/project/task/images/menu_item_weekday_bg.gif);
+background-position:0px -48px;
+}
+.timesheet_block .hover .date
+{
+border-bottom:3px solid #bfeeff;
+}
+.timesheet_block .day_name
+{
+background-color:#cccccc;
+color:#000000;
+font-size:12px;
+display:block;
+height:24px;
+line-height:24px;
+padding-left:10px;
+opacity:0.6;
+background-image:url({/literal}{$resource_url}{literal}/project/task/images/menu_item_weekday_bg.gif);
+background-position:0px -72px;
+}
+.timesheet_block .day_name_today
+{
+background-color:#6bd0fe;
+color:#454545;
+font-size:12px;
+display:block;
+height:24px;
+line-height:24px;
+padding-left:10px;
+background-image:url({/literal}{$resource_url}{literal}/project/task/images/menu_item_weekday_bg.gif);
+background-position:0px -0px;
+
+}
+.timesheet_block .date
+{
+
+font-size:12px;
+display:block;
+height:22px;
+line-height:24px;
+padding-left:2px;
+border-bottom:3px solid #eeeeee;
+}
+
+.timesheet_block .label_title
+{
+display:block;
+color:#999999;
+padding-top:0px;
+}
+.timesheet_block .bar
+{
+display:block;
+height:4px;
+float:left;
+}
+.timesheet_block .bar_bgcolor{
+background-color:#eeeeee;width:70px;float:left;
+padding:1px;
+background-image:url({/literal}{$resource_url}{literal}/project/task/images/mini_bar_bg.gif);
+}
+.timesheet_block .bar_label
+{
+display:block;
+height:8px;
+width:10px;
+overflow:hidden;
+float:left;
+font-size:8px;
+line-height:8px;
+}
+.timesheet_block .bar_block
+{
+display:block;
+height:12px;
+}
+.timesheet_block .total_num{
+font-size:26px;display:inline;float:none;line-height:26px;
+}
+</style>
+{/literal}
+<div style="padding-left:25px;padding-right:40px;">
+	<div>
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+		<div style="float:left; width:690px;">
+		<h2 style="width:300px;float:left;">
+		{$form.title}
+		</h2> 
+		<h3 id="txt_sel_date" style="width:300px;float:right;text-align:right;font-size:14px;padding-bottom:0px;padding-top:20px;">
+		{$navPanel.txt_sel_date.element}
+		</h3>
+	
+		 
+		{if $form.description}
+		<p class="form_desc">{$form.description}</p>
+		{/if}
+		</div>
+	</td></tr></table>
+	</div>
+
+{if  $searchPanel }	
+	<div class="form_header_panel" style="background-color:#efefef;padding-left:10px;margin-top:2px;width:690px;">			
+		<div class="navi_panel" style="float:left;width:140px;">
+{$navPanel.btn_prev.element}
+{$navPanel.txt_start_date.element}
+				
+		</div>	
+		<div class="search_panel" style="width:430px;float:left;">
+		{foreach item=elem key=name from=$searchPanel}
+				{if $elem.label} 
+				<span style="float:left;display:block;line-height:20px;padding-right:5px;">{$elem.label}</span> 
+				{/if} 
+				{$elem.element}
+		{/foreach}
+			<div id='{$form.name}.load_disp' style="display:none;padding-top:6px;" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
+		</div>
+		<div class="navi_panel" style="padding-right:5px;">
+{$navPanel.txt_end_date.element}
+{$navPanel.btn_next.element}
+		</div>			
+		
+	</div>	
+{/if}	
+
+
+<div class="from_table_container" style="width:705px;">
+<!-- table start -->
+<table border="0" cellpadding="0" cellspacing="0" class="form_table" id="{$form.name}_data_table" style="margin:0px;border-right:none;">
+	 <tr>
+		<!--  <td width="20" style="padding:0px;background-image:none;padding-left:2px;">{$navPanel.btn_prev.element}</td> -->
+		 <td width="658" style="padding:0px;background-image:none;">
+		 	<table border="0" cellpadding="0" cellspacing="0" >
+		 		<tr>
+		 		{assign var=row_counter value=0}            
+     			{foreach item=row from=$form.dataGroup}
+     				{if $row.istoday}     				
+     					{assign var=day_bgcolor value='background-color:#bfedfb;'}
+     				{elseif $row.dayofweek eq 0 or $row.dayofweek eq 6}
+     					{assign var=day_bgcolor value='background-color:#f4f4f4;'}
+     				{else}
+     					{assign var=day_bgcolor value=''}
+     				{/if}
+     				
+     				{if $row.istoday}
+     					{assign var=day_name_class value='day_name_today'} 
+     				{else}
+     					{assign var=day_name_class value='day_name'}
+     				{/if}
+     				<td width="99" style="padding:0px;background-image:none;{$day_bgcolor}">
+	     				<div class="timesheet_block">	     				
+						 {if $form.currentRecordId == $row.Id}  
+				         {assign var=default_selected_id value=$row.Id}       	
+							<div id="{$form.name}-{$row.Id}" 									
+									class="normal"   normal="normal" select="selected"
+									onmouseover="if(this.className!='selected')this.className='hover'" 
+									onmouseout="if(this.className!='selected')this.className='normal'" 
+									onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$row.Id})');">
+				         {elseif $row_counter == 0 and $form.currentRecordId == ""}
+				         {assign var=default_selected_id value=$row.Id}    
+							<div  id="{$form.name}-{$row.Id}" 									
+									class="selected"   normal="normal" select="selected"
+									onmouseover="if(this.className!='selected')this.className='hover'" 
+									onmouseout="if(this.className!='selected')this.className='normal'" 
+									onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$row.Id})');">
+				         {else}
+							<div  id="{$form.name}-{$row.Id}" 									
+									class="normal"  normal="normal" select="selected"
+									onmouseover="if(this.className!='selected')this.className='hover'" 
+									onmouseout="if(this.className!='selected')this.className='normal'" 
+									onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$row.Id})');">
+				         {/if}
+	     				
+	     				
+	     					<div class="{$day_name_class}">{$row.weekdate}</div>
+	     					<div class="date">{$row.date}</div>	
+	     					<div style="padding-top:2px;">
+	     						
+	     						<div style="padding-top:5px;">
+	     						<div class="bar_block">
+	     							<span class="bar_label">{$row.not_started}</span>	<div class="bar_bgcolor" ><img src="{$image_url}/spacer.gif" class="bar" style="background-color:#66c2ff;border-top:1px solid #51b9fd;border-bottom:1px solid #51b9fd;width:{$row.not_started_wid}px;" /></div>
+	     						</div>
+	     						<div class="bar_block">
+	     							<span class="bar_label">{$row.in_progress}</span>	<div class="bar_bgcolor" ><img src="{$image_url}/spacer.gif" class="bar" style="background-color:#ffb053;border-top:1px solid #fda640;border-bottom:1px solid #fda640;width:{$row.in_progress_wid}px;" /></div>
+	     						</div>
+	     						<div class="bar_block">
+	     							<span class="bar_label">{$row.completed}</span>	<div class="bar_bgcolor" ><img src="{$image_url}/spacer.gif" class="bar" style="background-color:#7fff6b;border-top:1px solid #6bfd54;border-bottom:1px solid #6bfd54;width:{$row.completed_wid}px;" /></div>
+	     						</div>
+	     						<div class="bar_block">
+	     							<span class="bar_label">{$row.other}</span>		<div class="bar_bgcolor" ><img src="{$image_url}/spacer.gif" class="bar" style="background-color:#cccccc;border-top:1px solid #bbbbbb;border-bottom:1px solid #bbbbbb;width:{$row.other_wid}px;" /></div>
+	     						</div>
+	     						</div>	     						
+	     					</div>
+	     					<span class="label_title">{t}Total{/t}:</span> 
+	     						<p class="total_label" style="padding:0px; margin:0px;text-align:left;">
+	     							<span class="total_num" >{$row.total}</span> 
+	     							{t}tasks{/t}
+	     						</p>
+	     					</div>
+     					</div>
+     				</td>
+     				{assign var=row_counter value=$row_counter+1}		
+     			{/foreach}
+		 		</tr>
+		 	</table>		 
+		 </td>
+	<!-- 	 <td width="20" style="padding:0px;background-image:none;">{$navPanel.btn_next.element}</td> -->
+	 </tr>							
+</table>
+<div class="v_spacer"></div>
+</div>
+
+<span id='{$form.name}_selected_id' style="display:none">{$default_selected_id}</span>
+<!-- table end -->	
+
+ 
+</div>
+</form>

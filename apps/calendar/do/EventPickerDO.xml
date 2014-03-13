@@ -1,0 +1,52 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="EventPickerDO" Description="" DataPermControl="Y" Class="BizDataObj" DBName="" Table="event" SearchRule="" SortRule="[recurrence]!=0 DESC,[start_time] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" Column="id"     Type=""/>
+	    <BizField Name="subject" Column="subject" Length="255"   Required="Y" Type=""/>
+	    <BizField Name="location" Column="location" Length="255"   Required="N" Type=""/>
+	    <BizField Name="description" Column="description" Type=""/>
+	    
+		<BizField Name="all_day" Column="all_day"    Required="N" Type=""/>
+	    <BizField Name="start_time" Column="start_time"    Required="N" Type=""/>
+	    <BizField Name="end_time" Column="end_time"    Required="N" Type=""/>
+	    
+
+		<BizField Name="type_id" Column="type_id"    Required="N" Type=""/>
+	    <BizField Name="type_color" Column="color"  Join="JoinEventType" />
+	    <BizField Name="type_name" Column="name" Join="JoinEventType" />
+		
+		
+	    <BizField Name="recurrence" Column="recurrence"  Required="N" Type=""/>
+		
+		<BizField Name="reminder" 		Column="reminder"  Required="N" Type=""/>
+		<BizField Name="reminder_status" Column="reminder_status"  Type=""/>
+		<BizField Name="reminder_lasttime" Column="reminder_lasttime"  Type=""/>
+		<BizField Name="reminder_time" 	Column="reminder_time"  Required="N" Type=""/>
+		<BizField Name="reminder_method_sms" Column="reminder_method_sms"  Required="N" Type=""/>
+		<BizField Name="reminder_method_email" Column="reminder_method_email"  Required="N" Type=""/>
+		<BizField Name="reminder_method_systray" Column="reminder_method_systray"  Required="N" Type=""/>
+		
+		<BizField Name="notify_contacts" 		Column="notify_contacts" ValueOnCreate="0" Required="N" Type=""/>
+		<BizField Name="notify_contacts_status" Column="notify_contacts_status"  Type=""/>
+		<BizField Name="notify_contacts_lasttime" Column="notify_contacts_lasttime"  Type=""/>
+		<BizField Name="notify_contacts_time" 	Column="notify_contacts_time"  Required="N" Type=""/>
+		<BizField Name="notify_contacts_sms" 	Column="notify_contacts_sms"  Required="N" Type=""/>
+		<BizField Name="notify_contacts_email" 	Column="notify_contacts_email"  Required="N" Type=""/>
+		
+	    <BizField Name="sortorder" Column="sortorder"    Required="N" Type=""/>
+	    <BizField Name="owner_id" Column="owner_id" ValueOnCreate="{@profile:Id}"   Required="N" Type="Number"/>
+	    <BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>
+        <BizField Name="group_perm" Column="group_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   Required="N" Type="Number"/>
+        <BizField Name="other_perm" Column="other_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"   Required="N" Type="Number"/>
+        
+		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+		<BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+		<BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+		<BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>
+	</BizFieldList>
+    <TableJoins>
+		<Join Name="JoinEventType" Table="event_type" Column="id" ColumnRef="type_id" JoinType="LEFT JOIN"/>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

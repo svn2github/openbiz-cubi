@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="StatisticsTaskView" Description="General Task Statistics" Class="EasyView" Tab="" Access="project_statistics.access" TemplateEngine="Smarty" TemplateFile="view_statistics.tpl">
+   <FormReferences>
+   		<Reference Name="project.statistics.form.TaskStatReportForm" subforms="project.statistics.form.TaskStatListForm"/>
+   		<Reference Name="project.statistics.form.TaskStatListForm"/>
+   		
+   </FormReferences>
+</EasyView>

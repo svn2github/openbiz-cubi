@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TaskQuickNewForm" Class="TaskForm" FormType="New" jsClass="jbForm" Icon="{RESOURCE_URL}/project/task/images/icon_task_gantt.gif" Title="New Task" Description="This module could help you manage tasks." BizDataObj="project.task.do.TaskDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_quick_add.tpl.html" EventName="TASK" MessageFile="Task.msg" Access="project_task.access">
+    <DataPanel>
+	       
+		<Element Name="fld_type_id" ElementSet="General" Class="common.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="project.task.do.TaskTypeDO[name:Id:color]" AllowURLParam="N" />			    
+        <Element Name="fld_title" ElementSet="General" Class="InputText" DefaultValue="New Task" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
+		<Element Name="fld_parent" ElementSet="General" Description="{@:m_parent_task_desc}" Class="Listbox" BlankOption="none,0" FieldName="parent_task_id" Label="Parent Task" SelectFrom="project.task.do.TaskListDO[title:Id]" AllowURLParam="N" >
+			<EventHandler Name="fld_parent_onchange" Event="onchange" Function="UpdateForm()"  />		
+		</Element>
+		<Element Name="fld_dependency" ElementSet="General" Description="{@:m_dependency_task_desc}"  Class="Listbox" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="project.task.do.TaskListDO[title:Id]" AllowURLParam="N" >
+			<EventHandler Name="fld_dependency_onchange" Event="onchange" Function="UpdateForm()"  />
+		</Element>
+		<Element Name="fld_priority" ElementSet="General" Class="Listbox" DefaultValue="2" FieldName="priority" Label="Priority" SelectFrom="project.task.lov.TaskLOV(Priority)" AllowURLParam="N" />
+			
+		<!-- 
+		<Element Name="fld_status" ElementSet="General" Class="Listbox" FieldName="status" Label="Status" SelectFrom="project.task.lov.TaskLOV(TaskStatus)" AllowURLParam="N" />				
+		<Element Name="fld_progress" ElementSet="General" Class="Listbox"  FieldName="progress" Label="Progress" SelectFrom="project.task.lov.TaskLOV(Progress)" AllowURLParam="N" />
+		 -->
+		<Element Name="fld_milestone" ElementSet="General" Class="Checkbox" FieldName="milestone" DefaultChecked="{@:Params[all_day]?'Y':'N'}" Label="Milestone" DefaultValue="0" SelectFrom="1" Description="" AllowURLParam="Y" >
+		</Element>
+				
+		<Element Name="fld_start_time" ElementSet="Time" DefaultValue="{@:Params[start_time]?date('Y-m-d H:i:s',@:Params[start_time]):date('Y-m-d H:i:s',time())}" Class="InputDatetime" FieldName="start_time" Label="Start Time"  AllowURLParam="Y" >
+			<EventHandler Name="fld_start_time_onchange" Event="onchange" Function="js:calcWorkHours()"  />
+		</Element>
+		<Element Name="fld_finish_time"  ElementSet="Time" DefaultValue="{@:Params[finish_time]?date('Y-m-d H:i:s',@:Params[finish_time]):date('Y-m-d H:i:s',time()+7200)}" Class="InputDatetime" FieldName="finish_time" Label="End Time"  AllowURLParam="Y" Description="only used for auto calculate time budget" >
+			<EventHandler Name="fld_finish_time_onchange" Event="onchange" Function="js:calcWorkHours()"  />
+		</Element>
+		<Element Name="fld_workhours" ElementSet="Time" Class="InputText" DefaultValue="2" FieldName="total_workhour" Label="Time Budget"  Description="unit in Hours, total work hours as planned" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus">
+			<EventHandler Name="fld_workhours_onchange" Event="onchange" Function="js:calcFinishTime()"  />
+		</Element>
+
+		
+			        
+    </DataPanel>
+    <ActionPanel>
+    	<Element Name="btn_finish" Class="Button" Text="Quick Finish" CssClass="button_gray_w">
+            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()"  ContextMenu="Quick Finish"   />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="close()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

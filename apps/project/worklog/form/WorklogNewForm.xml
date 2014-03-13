@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="WorklogNewForm" Class="WorklogForm" Icon="{RESOURCE_URL}/project/worklog/images/icon_worklog.gif" FormType="New" jsClass="jbForm" Title="New Work Log" Description="Please fill in below field to create a new work log. " BizDataObj="project.worklog.do.WorkLogDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl"  Access="project_worklog.access">
+    <DataPanel>
+        <Element Name="fld_task_id" Class="Hidden" FieldName="task_id" Label="Related Task"   />
+    	<Element Name="fld_task_name" Class="InputPicker" Enabled="N" UpdateForm="Y" ValuePicker="project.task.widget.TaskSinglePickForm" PickerMap="fld_task_id:fld_Id,fld_task_name:fld_title,fld_progress_update:fld_progress" FieldName="task_title" Label="Related Task"  >    		
+    	</Element>
+        <Element Name="fld_progress_update" Hidden="{@:Elem[fld_task_name].Value?'N':'Y'}" Class="Listbox"  FieldName="progress" Label="Task Progress" SelectFrom="project.task.lov.TaskLOV(Progress)" Description="Also update related task to new progress" AllowURLParam="N" />
+        
+        <Element Name="fld_title" DefaultValue="New Work Log" Class="InputText" FieldName="title" Label="Title"   />	
+        <Element Name="fld_worked_hours" Class="InputText"  DefaultValue="1" FieldName="worked_hours" Label="Hours" Description="Worked Hours" />
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	
+        	
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=project.worklog.form.WorklogDetailForm&amp;fld:Id={@project.worklog.do.WorkLogDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

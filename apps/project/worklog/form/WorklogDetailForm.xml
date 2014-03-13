@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="WorklogDetailForm" Class="EasyForm" FormType="Detail" jsClass="jbForm" Icon="{RESOURCE_URL}/project/worklog/images/icon_worklog.gif" Title="Work Log Detail" Description="Detailed work log information." BizDataObj="project.worklog.do.WorkLogDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="system_right_detailform_elementset_adv.tpl.html"   Access="project_worklog.access">
+    <DataPanel>
+			<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+			<Element Name="fld_task_id" ElementSet="General" Hidden="Y" Class="Hidden" FieldName="task_id" Label="Id" AllowURLParam="N"/>
+			<Element Name="fld_form_title"  Class="LabelText" FieldName="title" Label="Title" style="font-size:24px;color:#333333;line-height:24px;"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+      		<Element Name="fld_form_description"  Class="LabelBar" Color="ff6600" Width="350" DisplayUnit=" Hours" Style="width:500px" MaxValue="8" FieldName="worked_hours" Label="Worked Hours"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		      		
+      		<Element Name="fld_task" Hidden="{@:Elem[fld_task_id].Value?'N':'Y'}" ElementSet="General" Class="LabelText" FieldName="task_title" Label="Related Task"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/project/task_detail/{@:Elem[fld_task_id].Value}" >
+      			<!-- <EventHandler Name="fld_task_onclick" Event="onclick" Function="SwitchForm(project.task.form.TaskDetailForm,{@:Elem[fld_task_id].Value})"  /> -->
+      		</Element>	        	
+      		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+      	
+		<Element Name="fld_related_document"   ElementSet="Docuemnts" Class="FormElement" FormReference="collab.document.widget.DocumentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_document" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Docuemnts" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_document_onclick" Event="onclick" Function="SwitchForm(project.worklog.form.WorklogEditDocumentForm,{@:Elem[fld_Id].Value})"  />
+        </Element> 	
+		
+		<Element Name="fld_related_events"   ElementSet="Events" Class="FormElement" FormReference="calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_event" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Events" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_event_onclick" Event="onclick" Function="SwitchForm(project.worklog.form.WorklogEditEventForm,{@:Elem[fld_Id].Value})"  />
+        </Element> 		
+      	
+      	<Element Name="fld_changelog"   ElementSet="ChangeLog" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetForm" FieldName="" Label="" AllowURLParam="N" />
+      			        	
+		    <Element Name="fld_create_by" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}"  Link="{APP_INDEX}/project/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>
+		    <Element Name="fld_create_time" ElementSet="Miscellaneous" Class="LabelText" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
+		    <Element Name="fld_update_by" ElementSet="Miscellaneous" Class="LabelText" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}"  Link="{APP_INDEX}/project/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>
+		    <Element Name="fld_update_time" ElementSet="Miscellaneous" Class="LabelText" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+	</DataPanel>
+    <ActionPanel>       
+        <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(project.worklog.form.WorklogNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
+        </Element>          
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(project.worklog.form.WorklogEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=project.worklog.form.WorklogListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+        </Element>
+        <Element Name="btn_cancel" Class="LabelBack" Text="Back" CssClass="button_gray_m"  Link="{APP_INDEX}/project/worklog_manage">
+            <!-- <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" /> -->
+        </Element>          
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

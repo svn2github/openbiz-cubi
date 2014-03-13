@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TaskNewForm" Class="TaskForm" FormType="New" jsClass="jbForm" Icon="{RESOURCE_URL}/project/task/images/icon_task_gantt.gif" Title="New Task" Description="This module could help you manage tasks." BizDataObj="project.task.do.TaskDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="TASK" MessageFile="Task.msg" Access="project_task.access">
+    <DataPanel>
+	       
+		<Element Name="fld_type_id" ElementSet="General" Class="common.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="project.task.do.TaskTypeDO[name:Id:color]" AllowURLParam="N" />			    
+        <Element Name="fld_title" ElementSet="General" Class="InputText" DefaultValue="New Task" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
+		<Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+		<!--
+		<Element Name="fld_project" ElementSet="General" Description="This task will belong selected project" Class="Listbox" BlankOption="none,0" FieldName="project_id" Label="Project" SelectFrom="project.project.do.ProjectDO[name:Id]" DefaultValue="{@:m_DefaultProject}" AllowURLParam="N" >
+			<EventHandler Name="fld_project_onchange" Event="onchange" Function="UpdateForm()"  />
+		</Element>
+		-->     
+		<Element Name="fld_project" DefaultValueRename="N" DefaultValue="0" ElementSet="General" Description="This task will belong selected project" Class="Hidden" FieldName="project_id" Label="Project"  AllowURLParam="N" >
+		</Element>
+		<Element Name="fld_project_name"  Class="InputPicker" ElementSet="General" Description="This task will belong selected project" Enabled="N" UpdateForm="Y" ValuePicker="project.project.widget.ProjectSinglePickForm" PickerMap="fld_project:fld_Id,fld_project_name:fld_title" DefaultValue="{@:Elem[fld_project].Value>0?@:Field[project_name].Value:''}" DefaultValueRename="N" FieldName="project_name" Label="Project"  >    		
+    	</Element> 
+		<!-- 
+		<Element Name="fld_parent" ElementSet="General" Description="{@:m_parent_task_desc}" Class="Listbox" BlankOption="none,0" FieldName="parent_task_id" Label="Parent Task" SelectFrom="project.task.do.TaskListDO[title:Id]" AllowURLParam="N" >
+			<EventHandler Name="fld_parent_onchange" Event="onchange" Function="UpdateForm()"  />		
+		</Element>
+		 -->
+		<Element Name="fld_dependency" ElementSet="General" Description="{@:m_dependency_task_desc}"  Class="Listbox" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="project.task.do.TaskListDO[title:Id],[project_id]={@:Elem[fld_project].Value}" AllowURLParam="N" >
+			<EventHandler Name="fld_dependency_onchange" Event="onchange" Function="UpdateForm()"  />
+		</Element>
+		<Element Name="fld_priority" ElementSet="General" Class="Listbox" DefaultValue="1" FieldName="priority" Label="Priority" SelectFrom="project.task.lov.TaskLOV(Priority)" AllowURLParam="N" />
+		<Element Name="fld_severity" ElementSet="General" Class="Listbox" DefaultValue="2" FieldName="severity" Label="Severity" SelectFrom="project.task.lov.TaskLOV(Severity)" AllowURLParam="N" />
+		<!-- 
+		<Element Name="fld_status" ElementSet="General" Class="Listbox" FieldName="status" Label="Status" SelectFrom="project.task.lov.TaskLOV(TaskStatus)" AllowURLParam="N" />				
+		<Element Name="fld_progress" ElementSet="General" Class="Listbox"  FieldName="progress" Label="Progress" SelectFrom="project.task.lov.TaskLOV(Progress)" AllowURLParam="N" />
+		 -->
+		<Element Name="fld_milestone" ElementSet="General" Class="Checkbox" FieldName="milestone" DefaultChecked="{@:Params[all_day]?'Y':'N'}" Label="Milestone" DefaultValue="0" SelectFrom="1" Description="" AllowURLParam="Y" >
+		</Element>
+				
+		<Element Name="fld_start_time" ElementSet="Time" DefaultValue="{@:Params[start_time]?date('Y-m-d H:i:s',@:Params[start_time]):date('Y-m-d H:i:s',time())}" Class="InputDatetime" FieldName="start_time" Label="Start Time"  AllowURLParam="Y" >
+			<EventHandler Name="fld_start_time_onchange" Event="onchange" Function="js:calcWorkHours()"  />
+		</Element>
+		<Element Name="fld_finish_time"  ElementSet="Time" DefaultValue="{@:Params[finish_time]?date('Y-m-d H:i:s',@:Params[finish_time]):date('Y-m-d H:i:s',time()+7200)}" Class="InputDatetime" FieldName="finish_time" Label="End Time"  AllowURLParam="Y" Description="only used for auto calculate time budget" >
+			<EventHandler Name="fld_finish_time_onchange" Event="onchange" Function="js:calcWorkHours()"  />
+		</Element>
+		<Element Name="fld_workhours" ElementSet="Time" Class="InputText" DefaultValue="2" FieldName="total_workhour" Label="Time Budget"  Description="unit in Hours, total work hours as planned" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus">
+			<EventHandler Name="fld_workhours_onchange" Event="onchange" Function="js:calcFinishTime()"  />
+		</Element>
+		<Element Name="fld_recurrence" ElementSet="Time" Class="Listbox" selectFrom="project.task.lov.TaskLOV(RecurrenceType)"  Description="how often the task will occur" FieldName="recurrence" Label="Recurrence"  AllowURLParam="N" >
+			<EventHandler Name="fld_reminder_onclick" Event="onchange" Function="UpdateForm()"  />
+		</Element>
+		<Element Name="fld_recurrence_time" Hidden="{@:Elem[fld_recurrence].Value=='0'?'Y':'N'}" DefaultValue="5" Description="how many times will the task repeat" ElementSet="Time" Class="InputText"  FieldName="recurrence_times" Label="Repeat Times"  AllowURLParam="N" />
+		
+		<Element Name="fld_budget" ElementSet="Budget" Class="InputText" FieldName="budget_cost" Label="Budget"  Description="unit in {DEFAULT_CURRENCY}, total budget" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+
+		<Element Name="fld_reminder" ElementSet="Reminder" DefaultValue="0" Class="Listbox" selectFrom="collab.lov.ReminderLOV(ReminderType)" FieldName="reminder" Label="Reminder" AllowURLParam="N" >
+			<EventHandler Name="fld_reminder_onclick" Event="onchange" Function="UpdateForm()"  />
+		</Element>
+		<Element Name="fld_reminder_time" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="Listbox" selectFrom="collab.lov.ReminderLOV(ReminderTimeType)" FieldName="reminder_time" Label="Time Setting" AllowURLParam="N" />
+		<Element Name="fld_reminder_method_email" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="Checkbox"  FieldName="reminder_method_email" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Email" AllowURLParam="N" />
+		<!-- <Element Name="fld_reminder_method_systray" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="Checkbox"  FieldName="reminder_method_systray" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Systray" AllowURLParam="N" /> -->
+		<Element Name="fld_reminder_method_sms" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="Checkbox"  FieldName="reminder_method_sms" DefaultValue="0" SelectFrom="1" Label="Send SMS" AllowURLParam="N" />
+		<Element Name="fld_published" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="1" FieldName="group_perm" Label="Group Share"  /><Element Name="fld_published_other" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="0" FieldName="other_perm" Label="Other Group"  /><Element Name="fld_published_other" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="0" FieldName="other_perm" Label="Other Group"  />				        
+    </DataPanel>
+    <ActionPanel>
+    	<Element Name="btn_finish" Class="Button" Text="Next Step" CssClass="button_gray_w">
+            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=project.task.form.TaskEditExtendForm&amp;fld:Id={@project.task.do.TaskDO:Field[Id].Value}"  ContextMenu="Quick Finish"   />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="TaskDetailView" Description="Task Detail" Access="project_task.access" Class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view_task.tpl">
+ 	<FormReferences>
+        <Reference Name="project.task.form.TaskDetailForm"/>        
+    </FormReferences>
+</EasyView>

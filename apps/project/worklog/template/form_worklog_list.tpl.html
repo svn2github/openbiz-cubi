@@ -1,0 +1,105 @@
+<div id='{$form.name}' name='{$form.name}'>
+<style>
+{literal}
+table.input_row .form_footer_panel .navi_panel label{
+color:#666666;
+}
+.form_table .odd td{
+background-color:#f8f8f8;
+}
+{/literal}
+</style>
+<div style="padding-left:0px;padding-right:0px;">
+<div class="from_table_container" style="width:642px;padding-top:0px;">
+<!-- table start -->
+<table border="0" cellpadding="0" cellspacing="0" class="form_table" style="width:642px;border-color:#efefef;border-color-bottom:#aaaaaa" id="{$form.name}_data_table">
+	<thead>		
+     	
+
+         <th  style="background-image:none;background-color:#efefef;color:#AAAAAA;border-color:#cccccc"
+				nowrap="nowrap" style="{$th_style}"
+			>{$dataPanel.elems.fld_icon.label|strip_tags}</th>	 
+		<th  style="background-image:none;background-color:#efefef;color:#AAAAAA;border-color:#cccccc"
+				nowrap="nowrap" style="{$th_style}"
+			>{$dataPanel.elems.fld_title.label|strip_tags}</th>
+     	<th  style="background-image:none;background-color:#efefef;color:#AAAAAA;border-color:#cccccc"
+				nowrap="nowrap" style="{$th_style}"
+			>{$dataPanel.elems.fld_worked_hours.label|strip_tags}</th>
+		<th  style="background-image:none;background-color:#efefef;color:#AAAAAA;border-color:#cccccc"
+				nowrap="nowrap" style="{$th_style}"
+			>{$dataPanel.elems.fld_create_time.label|strip_tags}</th>
+	</thead>
+     {assign var=row_counter value=0}            
+     {foreach item=row from=$dataPanel.data}
+     	
+     	 {if $row.$row_style_name != ''}
+     	 	{assign var=row_style value=$dataPanel.data.$row_counter.$row_style_name}
+     	 {else}
+     	 	{assign var=row_style value=''}
+     	 {/if}
+     	 
+         {if $row_style != ''}
+		 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					style="{$row_style}"										
+					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">		
+         {elseif $row_counter == 0 and $form.currentRecordId == ""}
+         {assign var=default_selected_id value=$dataPanel.ids[$row_counter]}    
+			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					style="{$row_style}"
+					class="even"  normal="even" select="even"
+					
+					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+          {elseif $row_counter is odd}
+		   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+		   			style="{$row_style}"
+		   			class="odd"  normal="odd" select="odd"
+					
+					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+         {else}
+			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					style="{$row_style}"
+					class="even"  normal="even" select="even"
+					
+					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+         {/if}
+         
+         
+	              <td nowrap="nowrap" >{$row.fld_icon}</td>
+	              <td nowrap="nowrap" >{$row.fld_title}</td>
+	              <td nowrap="nowrap" >{$row.fld_worked_hours}</td>
+	              <td nowrap="nowrap" >{$row.fld_create_time}</td>
+	        
+		</tr>
+		<tr>
+			<td nowrap="nowrap" style="background-image:none;background-color:#FAFAFA;padding-top:8px;text-align:right;" valign="top">
+							<img border="0" src="{$resource_url}/project/worklog/images/icon_worklog_arrow.png" style="padding-right:5px;" />			
+			</td>
+			<td colspan="3" style="background-image:none;background-color:#FAFAFA;height:auto;" valign="top">
+			{if $row.fld_description}
+			{$row.fld_description}<br/>
+			{/if}
+		<span style="color:#999999;">{$row.fld_create_by}</span></td>
+		</tr>
+     {/foreach}
+  
+							
+</table>
+
+
+{if $navPanel}
+<div class="form_footer_panel" style="width:640px;">
+		<div class="ajax_indicator" style="width:130px;">
+			<div id='{$form.name}.load_disp' style="display:none" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
+		</div>
+		<div class="navi_panel"  style="width:460px;">
+   {foreach item=elem from=$navPanel}
+   		{if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
+    	{$elem.element}
+   {/foreach}				
+		</div>		
+	</div>
+{/if}		
+</div>
+</div>

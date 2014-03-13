@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProjectTaskTemplateCopyForm" Class="ProjectTaskTemplateForm" FormType="Copy" jsClass="jbForm"  BizDataObj="project.project.do.ProjectTaskTemplateDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="TASK_TYPE" MessageFile="ProjectTemplate.msg" Access="project_project.access">
+    <DataPanel>
+		<Element Name="fld_type_id" ElementSet="General" Class="common.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="project.task.do.TaskTypeDO[name:Id:color]" AllowURLParam="N" />
+		<Element Name="fld_title" ElementSet="General" Class="InputText" DefaultValue="New Task" FieldName="title" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
+		<Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+		
+		<Element Name="fld_project" ElementSet="General" Description="This task will belong selected project" Class="Listbox" BlankOption="none,0" FieldName="project_id" Label="Project" SelectFrom="project.project.do.ProjectTemplateDO[name:Id]" DefaultValue="{@project.project.form.ProjectTemplateListForm:m_RecordId}" AllowURLParam="N" >
+			<EventHandler Name="fld_project_onchange" Event="onchange" Function="UpdateForm()"  />
+		</Element>      
+		
+		<Element Name="fld_dependency" ElementSet="General"  Class="Listbox" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="project.project.do.ProjectTaskTemplateDO[title:Id],[project_id]={@:Elem[fld_project].Value}" AllowURLParam="N" >
+			<EventHandler Name="fld_dependency_onchange" Event="onchange" Function="UpdateForm()"  />
+		</Element>
+		<Element Name="fld_priority" ElementSet="General" Class="Listbox"  FieldName="priority" Label="Priority" SelectFrom="project.task.lov.TaskLOV(Priority)" AllowURLParam="N" />
+		<Element Name="fld_severity" ElementSet="General" Class="Listbox"  FieldName="severity" Label="Severity" SelectFrom="project.task.lov.TaskLOV(Severity)" AllowURLParam="N" />
+		<Element Name="fld_milestone" ElementSet="General" Class="Checkbox" FieldName="milestone" DefaultChecked="{@:Params[all_day]?'Y':'N'}" Label="Milestone" DefaultValue="0" SelectFrom="1" Description="" AllowURLParam="Y" >
+		</Element>
+				
+		<Element Name="fld_start_time" ElementSet="Time" Class="InputText" FieldName="start_date" Required="Y" Label="Start Date"  AllowURLParam="Y" Description="how many days after project start time" >
+		</Element>
+
+		<Element Name="fld_workhours" ElementSet="Time" Class="InputText"  FieldName="during_days" Required="Y" Label="During Days"  Description="how many days the task will takes" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus">
+		</Element>
+		<Element Name="fld_budget" ElementSet="Budget" Class="InputText" FieldName="budget_cost" Label="Budget"  Description="unit in {DEFAULT_CURRENCY}, total budget" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+        	      				  					
+        	
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=project.project.form.ProjectTaskTemplateDetailForm&amp;fld:Id={@project.project.do.ProjectTaskTemplateDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

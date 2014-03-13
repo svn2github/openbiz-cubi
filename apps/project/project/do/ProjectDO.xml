@@ -1,0 +1,50 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ProjectDO" Description="" DataPermControl="Y" Class="BizDataObj" DBName="" Table="project" SearchRule="" SortRule="[sortorder] ASC, [Id] ASC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+   		<BizField Name="Id" Column="id"     Type="Number"/>
+   		<BizField Name="name" Column="name" Length="255"  Required="Y" Type="Text"/>
+   		<BizField Name="description" Column="description"  Type="Text"/>
+   		<BizField Name="start_time" Column="start_time" />
+		<BizField Name="status" Column="status" Type=""/>
+		<BizField Name="condition" Column="condition" Type=""/>
+		<BizField Name="budget_cost" Column="budget_cost" Type=""/>
+		
+		<BizField Name="priority" Column="priority" Type=""/>
+
+		<BizField Name="type_id" Column="type_id"  ValueOnCreate="1"  Required="N" Type=""/>
+		<BizField Name="type_color" Column="color"  Join="JoinEventType" />
+	    <BizField Name="type_name" Column="name" Join="JoinEventType" />
+
+		<BizField Name="sortorder" Column="sortorder"  ValueOnCreate="50"   Required="N" Type=""/>
+
+		<BizField Name="owner_id" Column="owner_id" ValueOnCreate="{@profile:Id}"   Required="N" Type="Number"/>   		
+   		<BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>
+        <BizField Name="group_perm" Column="group_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   Required="N" Type="Number"/>
+        <BizField Name="other_perm" Column="other_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"   Required="N" Type="Number"/>
+   		
+   		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>	 </BizFieldList>
+    <TableJoins>
+		<Join Name="JoinEventType" Table="project_type" Column="id" ColumnRef="type_id" JoinType="LEFT JOIN"/>    	
+    </TableJoins>
+    <ObjReferences>
+        <!-- 1-M -->
+        <Object Name="location.do.LocationDO" Description="" Relationship="1-M" Table="location" CondColumn='type' CondValue='project' Column="foreign_id" FieldRef="Id" />
+        <Object Name="changelog.do.ChangeLogDO" Description="" Relationship="1-M" Table="changelog" CondColumn='type' CondValue='project' Column="foreign_id" FieldRef="Id" />    
+    	<Object Name="picture.do.PictureDO" Description="" Relationship="1-M" Table="picture" CondColumn='type' CondValue='project' Column="foreign_id" FieldRef="Id" />
+     	<Object Name="project.task.do.TaskDO" Description="" Relationship="1-M" Table="task" Column="project_id" FieldRef="Id" />
+     	<Object Name="attachment.do.AttachmentDO" Description="" Relationship="1-M" Table="attachment" CondColumn='type' CondValue='project' Column="foreign_id" FieldRef="Id" />
+     	
+		<Object Name="extend.do.ExtendDataDO" Relationship="1-M" Table="extend_data" CondColumn='module' CondValue='project' Column="type_id" FieldRef="type_id" Column2="record_id" FieldRef2="Id" onDelete="Cascade"/>
+		
+     	<!-- M-M -->
+     	<Object Name="project.project.do.ProjectRefDO" Description="" Relationship="Self-Self" Table="project" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="project_related" XColumn1="project_id" XColumn2="related_id" XDataObj="project.project.do.ProjectRelatedDO"/>
+     	
+     	<Object Name="contact.do.ContactDO" Description="" Relationship="M-M" Table="contact" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="project_contact" XColumn1="project_id" XColumn2="contact_id" XDataObj="project.project.do.ProjectContactDO"/>
+        <Object Name="calendar.do.EventDO" Description="" Relationship="M-M" Table="event" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="project_event" XColumn1="project_id" XColumn2="event_id" XDataObj="project.project.do.ProjectEventDO"/>        
+        <Object Name="collab.document.do.DocumentDO" Description="" Relationship="M-M" Table="document" Column="id" FieldRef="Id" OnDelete="Cascade" OnUpdate="" XTable="project_document" XColumn1="project_id" XColumn2="document_id" XDataObj="project.project.do.ProjectDocumentDO"/>
+           
+    </ObjReferences>
+</BizDataObj>

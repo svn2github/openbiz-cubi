@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ProjectStatDO" Description="" DataPermControl="Y" Class="ProjectStatDO" DBName="Default" Table="project" SearchRule="" SortRule="" OtherSQLRule="GROUP BY [Id]" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+        <BizField Name="Id" Column="priority" Type="Number"/>
+        <BizField Name="condition" Column="condition" Type="Number"/>
+        <BizField Name="start_time" Column="start_time" />        
+        <BizField Name="cond_name" SQLExpr="'name'"/>
+        <BizField Name="cond_color" SQLExpr="'cond_color'"/>
+        <BizField Name="pri_0_count" SQLExpr="'pri_0_count'"/>
+        <BizField Name="pri_1_count" SQLExpr="'pri_1_count'"/>
+        <BizField Name="pri_2_count" SQLExpr="'pri_2_count'"/>
+        <BizField Name="data_count" SQLExpr="COUNT(*)"/>
+        
+        <BizField Name="owner_id" Column="owner_id" ValueOnCreate="{@profile:Id}"   Required="N" Type="Number"/>   		
+   		<BizField Name="group_id" Column="group_id" ValueOnCreate="{@profile:default_group}"   Required="N" Type="Number"/>
+        <BizField Name="group_perm" Column="group_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(group)}"   Required="N" Type="Number"/>
+        <BizField Name="other_perm" Column="other_perm" ValueOnCreate="{BizSystem::GetDefaultPerm(other)}"   Required="N" Type="Number"/>
+   		
+   		<BizField Name="create_by" Column="create_by" Type="Number" ValueOnCreate="{@profile:Id}"/>
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="update_by" Column="update_by" Type="Number" ValueOnCreate="{@profile:Id}" ValueOnUpdate="{@profile:Id}"/>
+        <BizField Name="update_time" Column="update_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}" ValueOnUpdate="{date('Y-m-d H:i:s')}"/>	
+        
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

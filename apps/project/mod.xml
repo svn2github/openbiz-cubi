@@ -1,0 +1,83 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="project" Description="Openbiz Project Management" Version="0.1.3" OpenbizVersion="3.0" >
+	<ACL>
+		<Resource Name="project">
+			<Action Name="access" Description="access Project Management dashboard"/>
+			<Action Name="access" Description="access Project Management dashboard"/>
+		</Resource>
+        <Resource Name="project_task">
+			<Action Name="access" Description="access task"/>
+			<Action Name="report" Description="view task statistics report"/>
+			<Action Name="view_level_1" Description="Task Access Level 1"/>
+			<Action Name="view_level_2" Description="Task Access Level 2"/>
+			<Action Name="view_level_3" Description="Task Access Level 3"/>
+		</Resource>
+        <Resource Name="project_worklog">
+			<Action Name="access" Description="access work log"/>
+			<Action Name="report" Description="view work log statistics report"/>
+		</Resource>
+		<Resource Name="project_project">
+			<Action Name="access" Description="access and manage project"/>
+			<Action Name="report" Description="view task statistics report"/>
+			<Action Name="view_level_1" Description="Project Access Level 1"/>
+			<Action Name="view_level_2" Description="Project Access Level 2"/>
+			<Action Name="view_level_3" Description="Project Access Level 3"/>
+		</Resource>
+		<Resource Name="project_statistics">
+			<Action Name="access" Description="access project statistics"/>
+		</Resource>
+	</ACL>
+    <Menu>
+    	<MenuItem Name="ProjectTopMenu" Title="Project" Description="" URL="/project/dashboard" Order="50" Access="project.access">
+		</MenuItem>	
+        
+		 <!-- Project menus -->
+    	<MenuItem Name="Project" Title="Project" Parent="ProjectTopMenu" Description="" IconImage="spacer.gif" IconCssClass="icon_project" Order="25" Access="project_project.access" >
+			<MenuItem Name="Project.ProjectManage" Title="Project Manage" Description=""  URL="/project/project_manage" Order="40" Access="project_project.access" >
+				<MenuItem Name="Project.ProjectDetail" Title="Project Detail" Description=""  URL="/project/project_detail" Order="10"  Access="project_project.access" ></MenuItem>
+			</MenuItem>
+			<MenuItem Name="Project.AssignManage" Title="Project Assignment" Description=""  URL="/project/project_assign" Access="project_project.access"  Order="45" ></MenuItem>
+			<MenuItem Name="Project.TaskList" Title="Project Task List" Description=""  URL="/project/project_task" Order="48" Access="project_project.access" />
+			<MenuItem Name="Project.Gantt" Title="Project Gantt Chart" Description=""  URL="/project/project_gantt" Order="50" Access="project_project.access">
+				<MenuItem Name="Project.GanttDetail" Title="Project Gantt Detail" Description=""  URL="/project/project_gantt_detail" Order="50" Access="project_project.access" />
+			</MenuItem>
+			<MenuItem Name="Project.Statistics" Title="Project Statistics" Description=""  URL="/project/project_statistics" Access="project_project.access"  Order="55" ></MenuItem>
+			<MenuItem Name="Project.Template" Title="Project Template" Description=""  URL="/project/project_template" Order="60" Access="project_project.access"></MenuItem>			
+			<MenuItem Name="Project.Type" Title="Project Type" Description=""  URL="/project/project_type" Order="70" Access="project_project.access"></MenuItem>
+		</MenuItem>
+        <!-- Task menus -->
+    	<MenuItem Name="Task" Title="Task" Parent="ProjectTopMenu" Description="" IconImage="spacer.gif" IconCssClass="icon_task" Order="30" Access="project_task.access">
+			<MenuItem Name="Task.Manage" Title="Task Manage " Description=""  URL="/project/task_manage" Order="40" Access="project_task.access" >
+				<MenuItem Name="Task.Detail" Title="Task Detail" Description=""  URL="/project/task_detail" Order="5"  Access="project_task.access" ></MenuItem>				
+				<MenuItem Name="Task.New" Title="New Task" Description=""  URL="/project/task_new" Order="15"  Access="project_task.access" ></MenuItem>
+			</MenuItem>
+			<MenuItem Name="Task.AssignManage" Title="Task Assignment" Description=""  URL="/project/task_assign" Order="43"  Access="project_task.access" ></MenuItem>
+			<MenuItem Name="Task.Timesheet" Title="Task Timesheet" Description=""  URL="/project/task_timesheet" Order="44"  Access="project_task.access"></MenuItem>
+			<MenuItem Name="Task.Gantt" Title="Task Gantt Chart" Description=""  URL="/project/task_gantt" Order="45"  Access="project_task.access" ></MenuItem>
+			<MenuItem Name="Task.Statistics" Title="Task Statistics" Description=""  URL="/project/task_statistics" Access="project_task.access"  Order="48" ></MenuItem>
+						
+			<MenuItem Name="Task.Type" Title="Task Type" Description=""  URL="/project/task_type" Order="60"  Access="project_task.access"></MenuItem>			
+		</MenuItem>
+        <!-- worklog menus -->
+    	<MenuItem Name="Worklog" Title="Work Log" Parent="ProjectTopMenu" Description="" IconImage="spacer.gif" IconCssClass="icon_worklog" Order="40" Access="project_worklog.access">
+			<MenuItem Name="Worklog.Manage" Title="Work Log Manage " Description=""  URL="/project/worklog_manage" Order="40"  Access="project_worklog.access" >
+				<MenuItem Name="Worklog.Detail" Title="Work Log Detail " Description=""  URL="/project/worklog_detail" Order="10"  Access="project_worklog.access" ></MenuItem>
+			</MenuItem>
+			<MenuItem Name="Worklog.Statistics" Title="Work Statistics" Description=""  URL="/project/worklog_statistics" Access="project_worklog.access"  Order="50" ></MenuItem>
+		</MenuItem>	
+
+		<!-- statistics menus -->
+        <MenuItem Name="project_statistics" Title="Statistics" Parent="ProjectTopMenu" Description="" IconImage="spacer.gif" IconCssClass="icon_statistics" Order="110" Access="project_statistics.access">
+			<MenuItem Name="project_statistics.ProjectStat" Title="Project Statistics" Description=""  URL="/project/statistics_project" Access="project_statistics.access"  Order="20" ></MenuItem>
+			<MenuItem Name="project_statistics.TaskStat" Title="Task Statistics" Description=""  URL="/project/statistics_task" Access="project_statistics.access"  Order="30" ></MenuItem>
+			<MenuItem Name="project_statistics.WorkStat" Title="Work Statistics" Description=""  URL="/project/statistics_work" Access="project_statistics.access"  Order="40" ></MenuItem>
+		</MenuItem>	
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    	<Module Name="cronjob"/>
+    </Dependency>
+    <ChangeLog>
+    </ChangeLog>    
+</Module>

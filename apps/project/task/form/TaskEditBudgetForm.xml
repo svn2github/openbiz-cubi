@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TaskEditBudgetForm" Class="TaskForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/project/task/images/icon_task_gantt.gif" Title="Edit Task Budget" Description="This module could help you manage tasks work log." BizDataObj="project.task.do.TaskDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_detail.tpl.html" EventName="TASK" MessageFile="Task.msg" Access="project_task.access">
+    <DataPanel>
+		<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+		<Element Name="fld_form_title"  Class="LabelText"   FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />
+				    <Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="project.task.do.TaskTypeDO[name:Id:color]" AllowURLParam="N" />		
+					    
+            	        		
+		<Element Name="fld_status" ElementSet="General" Class="LabelList" FieldName="status" Label="Status" SelectFrom="project.task.lov.TaskLOV(TaskStatus)" AllowURLParam="N" />
+		
+		<Element Name="fld_total_progress" ElementSet="General" Class="LabelBar" Width="300" height="14"  DisplayUnit="%" MaxValue="100" FieldName="progress" Label="Progress" SelectFrom="task.lov.TaskLOV(Progress)" AllowURLParam="N" />
+		<Element Name="fld_time_progress" Color="ff6600" ElementSet="General"  Class="LabelBar" Width="300" height="14"  DisplayUnit="%" MaxValue="100" FieldName="time_bar" Label="Time"  AllowURLParam="N" />		
+		<Element Name="fld_spend_progress" Color="ffAA00" ElementSet="General" Class="LabelBar" Width="300" height="14"  DisplayUnit="%" MaxValue="100" FieldName="cost_spend_bar" Label="Expenses"  AllowURLParam="N" />
+		
+		
+		<Element Name="fld_priority" Class="LabelImage" Text="{RESOURCE_URL}/project/task/images/icon_task_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Priority" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value},0,2)"/>		
+		</Element>
+		
+        <Element Name="fld_severity" Class="LabelImage" Text="{RESOURCE_URL}/project/task/images/icon_task_severity_{@:Elem[fld_severity].Value}.gif" FieldName="severity" Sortable="Y" Label="Severity" Link="javascript:;">
+			<EventHandler Name="fld_severity_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_severity,{@:Elem[fld_severity].Value},1,4)"/>		
+		</Element>
+		
+		 <Element Name="fld_milestone" Class="LabelBool" ElementSet="General" TrueImg="{RESOURCE_URL}/project/task/images/icon_task_milestone_enable.gif"  FalseImg="{RESOURCE_URL}/project/task/images/icon_task_milestone_disable.gif" FieldName="milestone" Sortable="Y" Label="Milestone" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_milestone,{@:Elem[fld_milestone].Value})"/>		
+		</Element>
+		<Element Name="fld_parent" ElementSet="General" Class="LabelList" BlankOption="none" FieldName="parent_task_id" Label="Parent Task" SelectFrom="project.task.do.TaskListDO[title:Id]" AllowURLParam="N" />
+		
+		<Element Name="fld_dependency" ElementSet="General" Class="LabelList" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="project.task.do.TaskListDO[title:Id]" AllowURLParam="N" />
+		
+		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+
+		<Element Name="fld_budget" ElementSet="Expenses" Class="LabelText"  Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_budget].Value)}"  FieldName="budget_cost" Label="Budget"  Description="unit in {DEFAULT_CURRENCY}, total budget" AllowURLParam="N" />
+		<Element Name="fld_cost" ElementSet="Expenses" Class="LabelText"  Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_cost].Value)}"  FieldName="actual_cost" Label="Expenses"  Description="unit in {DEFAULT_CURRENCY}, actual spend cost" AllowURLParam="N" />
+		
+	    <Element Name="fld_budget_worklog"  Access="collab_budget.access"  ElementSet="Expenses" Class="FormElement" FormReference="project.budget.widget.BudgetListEditForm" FieldName="" Label="" AllowURLParam="N" />
+
+		
+		
+	    </DataPanel>
+    <ActionPanel>  
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="SwitchForm(project.task.form.TaskDetailForm,{@project.task.do.TaskDO:Field[Id].Value})"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>        
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

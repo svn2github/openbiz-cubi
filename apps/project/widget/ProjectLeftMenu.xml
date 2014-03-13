@@ -1,0 +1,2 @@
+<MenuWidget Name="ProjectLeftMenu" Title="Project" Class="menu.widget.MenuWidget" CssCLass="" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='ProjectTopMenu'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="project_menu.tpl" CacheLifeTime="0">
+</MenuWidget>

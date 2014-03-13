@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="no"?>
+<Module Name="calendar" Description="Openbiz Calendar" Version="0.1.5" OpenbizVersion="3.0"  LoadHandler="">
+	<ACL>
+        <Resource Name="calendar">
+			<Action Name="access" Description="access and manage event"/>
+			<Action Name="view_level_1" Description="Event Access Level 1"/>
+			<Action Name="view_level_2" Description="Event Access Level 2"/>
+			<Action Name="view_level_3" Description="Event Access Level 3"/>
+		</Resource>
+		
+	</ACL>
+    <Menu>
+    	<MenuItem Name="CalendarTopMenu" Title="Calendar" Parent="" Description="" URL="/calendar/event_manage" Order="50" Access="calendar.access">
+		</MenuItem>	
+        
+        <!-- Calendar menus -->
+    	<MenuItem Name="Calendar" Title="Calendar" Parent="CalendarTopMenu" Description="" IconImage="spacer.gif" IconCssClass="icon_calendar" Order="20" Access="calendar.access" >
+			<MenuItem Name="Calendar.EventManage" Title="Event Manage" Description=""  URL="/calendar/event_manage" Order="10" Access="calendar.access" >
+				<MenuItem Name="Calendar.EventNew" Title="Create Event" Description=""  URL="/calendar/event_new" Order="10" Access="calendar.access" ></MenuItem>
+				<MenuItem Name="Calendar.EventDetail" Title="EventDetail" Description=""  URL="/calendar/event_detail" Order="20" Access="calendar.access" ></MenuItem>
+			</MenuItem>
+			<MenuItem Name="Calendar.AssignManage" Title="Event Assignment" Description=""  URL="/calendar/event_assign" Order="13"  Access="calendar.access" ></MenuItem>
+			<MenuItem Name="Calendar.Calendar" Title="Event Calendar" Description=""  URL="/calendar/event_calendar" Order="15"  Access="calendar.access" ></MenuItem>
+			<MenuItem Name="Calendar.TypeManage" Title="Event Type" Description=""  URL="/calendar/event_type" Order="20"  Access="calendar.access"></MenuItem>
+		</MenuItem>	
+
+    </Menu>
+    <Dependency>
+    	<Module Name="system"/>
+    	<Module Name="menu"/>
+    	<Module Name="cronjob"/>
+    </Dependency>
+	<ChangeLog>     
+    </ChangeLog>    
+</Module>

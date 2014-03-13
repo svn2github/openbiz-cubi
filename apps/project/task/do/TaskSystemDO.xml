@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="TaskSystemDO" Description="" DataPermControl="N" Class="BizDataObj" DBName="Default" Table="task" inheritFrom="project.task.do.TaskDO">
+
+</BizDataObj>

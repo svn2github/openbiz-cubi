@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProjectGanttDetailForm" Class="ProjectGanttForm" FormType="List" jsClass="Openbiz.GanttForm" Icon="{RESOURCE_URL}/project/task/images/icon_task_gantt.gif" Title="Task Gantt View" Description="This module could help you manage tasks." BizDataObj="project.project.do.ProjectGanttDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_gantt_detail.tpl.html" EventName="TASK" MessageFile="Task.msg" Access="project_project.access">
+    <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        <Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{RESOURCE_URL}/project/task/images/icon_task_private.png"
+				MySharedImg="{RESOURCE_URL}/project/task/images/icon_task_shared.png" 
+				MyAssignedImg="{RESOURCE_URL}/project/task/images/icon_task_assigned.gif"
+				MyDistributedImg="{RESOURCE_URL}/project/task/images/icon_task_distributed.gif" 
+				GroupSharedImg="{RESOURCE_URL}/project/task/images/icon_task_shared_group.png"
+				OtherSharedImg="{RESOURCE_URL}/project/task/images/icon_task_shared_other.png"
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
+		</Element>	
+
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
+         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(project.task.form.TaskDetailForm,{@:Elem[fld_Id].Value})"   />
+        </Element>
+               <Element Name="fld_status" Class="ColumnList" SelectFrom="project.task.lov.TaskLOV(TaskStatus)" FieldName="status" Label="Status"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
+        </Element>
+        <Element Name="fld_progress" Class="ColumnBar" Width="120" Color="{@:Elem[fld_color].Value}" DisplayUnit="%" Style="width:160px" MaxValue="100" FieldName="progress" Label="Progress"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >         
+        </Element>
+		<Element Name="fld_reminder" Class="ColumnBool" TrueImg="{RESOURCE_URL}/project/task/images/icon_reminder_enable.gif"  FalseImg="{RESOURCE_URL}/project/task/images/icon_reminder_disable.gif" FieldName="reminder" Sortable="Y" Label="Rmd" Link="javascript:;">
+			<EventHandler Name="fld_reminder_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_reminder,{@:Elem[fld_reminder].Value})"/>		
+		</Element>
+        <Element Name="fld_priority_value" Class="Hidden" Hidden="Y" FieldName="priority"  />
+        <Element Name="fld_priority" Class="ColumnImage" Text="{RESOURCE_URL}/project/task/images/icon_task_status_{@:Elem[fld_priority_value].Value}.png" FieldName="" Sortable="Y" Label="Pri" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority_value,{@:Elem[fld_priority_value].Value},0,2)"/>		
+		</Element>
+        <Element Name="fld_milestone" Class="ColumnBool" TrueImg="{RESOURCE_URL}/project/task/images/icon_task_milestone_enable.gif"  FalseImg="{RESOURCE_URL}/project/task/images/icon_task_milestone_disable.gif" FieldName="milestone" Sortable="Y" Label="Mst" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_milestone,{@:Elem[fld_milestone].Value})"/>		
+		</Element>
+		<Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_type" Class="ColumnText"  Style="line-height:24px;" FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
+                <Element Name="btn_update_time" Class="Hidden" Hidden="Y" Text="Print" CssClass="button_gray_m">
+            <EventHandler Name="btn_update_time_onchange" Event="onchange" EventLogMsg="" Function="taskUpdateTime()" />
+        </Element>
+        <Element Name="fld_total_workhour" Class="ColumnText"  FieldName="total_workhour" Sortable="Y" Label="Work Hours"></Element>
+        <Element Name="fld_start_time" Class="ColumnText"  FieldName="start_time" Sortable="Y" Label="Start Time"></Element>
+        <Element Name="fld_finish_time" Class="ColumnText"  FieldName="finish_time" Sortable="Y" Label="Finish Time"></Element>
+    </DataPanel>
+    <ActionPanel>
+
+        <Element Name="btn_detail_view"  Class="LabelText" Text="Detail View" CssClass="button_gray_w" Description="" Link="{@home:url}/project/project_detail/{$_GET['fld:Id']}">
+        </Element>      
+    		<Element Name="btn_spacer3" Class="Spacer" width="10" />		
+            
+<Element Name="btn_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button"   Text="Share" CssClass="button_gray_share" Description="Share or Assign Data">
+			<EventHandler Name="btn_update_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+        <Element Name="btn_spacer_for_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Spacer" Width="10"></Element>
+                      
+            
+        <Element Name="btn_cancel" Class="LabelText"  Text="Back" CssClass="button_gray_m" Link="{@home:url}/project/project_gantt">
+        </Element>         
+		<Element Name="btn_print" Class="Button" Text="Print" CssClass="button_gray_m">
+            <EventHandler Name="print_onclick" Event="onclick" EventLogMsg="" Function="js:ganttChartControl.printToWindow();" />
+        </Element>
+        
+    </ActionPanel> 
+    <NavPanel>
+   
+    </NavPanel> 
+    <SearchPanel>
+    
+    </SearchPanel>
+</EasyForm>

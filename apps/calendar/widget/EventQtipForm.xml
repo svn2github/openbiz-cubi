@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventQtipForm" Class="EventQtipForm" FormType="Detail" jsClass="jbForm" Title="Event Details " Description="A typical event could be appointment, meeting or other types.\nEacho event could related to many contacts." BizDataObj="calendar.do.EventDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_qtip.tpl.html" EventName="CALENDAR" MessageFile="Event.msg"  Access="calendar.access" >
+    <DataPanel>
+			<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+	        <Element Name="fld_subject" ElementSet="General" Class="LabelText" FieldName="subject" Label="Subject"  AllowURLParam="N" />    	        
+	        <Element Name="fld_location" ElementSet="General" Class="LabelText" FieldName="location" Label="Location"  AllowURLParam="N" />
+			<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+		    <Element Name="fld_type_id" ElementSet="General" Class="LabelList" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="calendar.do.EventTypeDO[name:Id]" AllowURLParam="N" />			    
+			<Element Name="fld_share" Class="ColumnShare" width="20" 
+				MyPrivateImg="{RESOURCE_URL}/calendar/images/icon_event_private.gif"
+				MySharedImg="{RESOURCE_URL}/calendar/images/icon_event_shared.gif" 
+				MyAssignedImg="{RESOURCE_URL}/calendar/images/icon_event_assigned.gif"
+				MyDistributedImg="{RESOURCE_URL}/calendar/images/icon_event_distributed.gif" 
+				GroupSharedImg="{RESOURCE_URL}/calendar/images/icon_event_shared_group.gif"
+				OtherSharedImg="{RESOURCE_URL}/calendar/images/icon_event_shared_other.gif"
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
+		</Element>	
+		<Element Name="fld_reminder" Class="ColumnBool" TrueImg="{RESOURCE_URL}/calendar/images/icon_reminder_enable.gif"  FalseImg="{RESOURCE_URL}/calendar/images/icon_reminder_disable.gif" FieldName="reminder" Sortable="Y" Label="Rmd" Link="javascript:;">
+			<EventHandler Name="fld_reminder_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_reminder,{@:Elem[fld_reminder].Value})"/>		
+		</Element>
+		<Element Name="fld_notify" Class="ColumnBool" TrueImg="{RESOURCE_URL}/calendar/images/icon_notify_enable.gif"  FalseImg="{RESOURCE_URL}/calendar/images/icon_notify_disable.gif" FieldName="notify_contacts" Sortable="Y" Label="Nty" Link="javascript:;">
+			<EventHandler Name="fld_notify_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_notify,{@:Elem[fld_notify].Value})"/>		
+		</Element>
+		<Element Name="fld_repeat" Class="ColumnBool" TrueImg="{RESOURCE_URL}/calendar/images/icon_repeat_enable.gif"  FalseImg="{RESOURCE_URL}/calendar/images/icon_repeat_disable.gif" FieldName="recurrence" Sortable="Y" Label="Rpt" Link="javascript:;">
+		</Element>			
+		<Element Name="fld_allday" Class="ColumnBool" TrueImg="{RESOURCE_URL}/calendar/images/icon_allday_enable.png"  FalseImg="{RESOURCE_URL}/calendar/images/icon_allday_disable.png" FieldName="all_day" Sortable="Y" Label="All Day" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_allday,{@:Elem[fld_allday].Value})"/>		
+		</Element>			
+	    </DataPanel>
+    <ActionPanel>       
+        <Element Name="btn_edit" Link="javascript:;" Class="LabelImage" Text="{RESOURCE_URL}/calendar/images/icon_calendar_item_edit.png"   CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="js:closeAllTips();Openbiz.CallFunction(parentFormName+'.EditRecord({fx}@:Elem[fld_Id].Value{/fx})',{tx}{'type':'','target':'','evthdl':'btn_edit:btn_edit_onclick'}{/tx});" />
+        </Element>
+		<Element Name="btn_detail" Link="{APP_INDEX}/calendar/event_detail/{@:Elem[fld_Id].Value}" Class="LabelImage" Text="{RESOURCE_URL}/calendar/images/icon_calendar_item_detail.png"  CssClass="button_gray_m" >
+            <!-- <EventHandler Name="btn_new_onclick" Event="onclick" Function="js:closeAllTips();Openbiz.CallFunction(parentFormName+'.SwitchForm(calendar.form.EventDetailForm,{fx}@:Elem[fld_Id].Value{/fx})',{tx}{'type':'','target':'','evthdl':'lnk_detail:lnk_detail_onclick'}{/tx});" /> -->
+        </Element> 
+        <Element Name="btn_delete" Link="javascript:;" Class="LabelImage" Text="{RESOURCE_URL}/calendar/images/icon_calendar_item_delete.gif"  CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="js:closeAllTips();Openbiz.CallFunction(parentFormName+'.DeleteRecord({fx}@:Elem[fld_Id].Value{/fx})',{tx}{'type':'','target':'','evthdl':'btn_delete:del_onclick'}{/tx});" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="EventTypeView" Description="Event Type" Class="EasyView" Tab="" Access="calendar.access" TemplateEngine="Smarty" TemplateFile="view.tpl">
+   <FormReferences>
+   		<Reference Name="calendar.form.EventTypeListForm"/>
+   </FormReferences>       
+</EasyView>

@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="WorklogStatisticsView" Description="Worklog Statistics" Class="EasyView" Tab="" Access="project_worklog.access" TemplateEngine="Smarty" TemplateFile="view_statistics.tpl">
+   <FormReferences>
+   		<Reference Name="project.worklog.form.WorklogStatReportForm" subforms="project.worklog.form.WorklogStatListForm"/>
+   		<Reference Name="project.worklog.form.WorklogStatListForm"/>
+   </FormReferences>
+</EasyView>

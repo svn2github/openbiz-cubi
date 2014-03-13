@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProjectTemplateCopyForm" Class="ProjectTypeForm"  Icon="{RESOURCE_URL}/project/project/images/icon_project_template.png" FormType="Copy" jsClass="jbForm" Title="Copy Project Template" Description="Copy project type from an existing item." BizDataObj="project.project.do.ProjectTemplateDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="PROJECT_TYPE" MessageFile="ProjectType.msg" Access="project_project.access">
+    <DataPanel>        
+        <Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y"/>	
+	    <Element Name="fld_type_id" ElementSet="General" Class="common.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="project.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" />
+	    <Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"   />	
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	
+		<Element Name="fld_sortorder" Class="Listbox" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=project.project.form.ProjectTemplateDetailForm&amp;fld:Id={@project.project.do.ProjectTemplateDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

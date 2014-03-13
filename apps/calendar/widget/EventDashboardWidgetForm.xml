@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventDashboardWidgetForm" Class="DashboardWidgetForm" FormType="List" jsClass="jbForm" Title="Calendar" Description="{@:m_TotalRecords} events"  BizDataObj="calendar.do.EventIncomingDO" PageSize="6" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="dashboard_widget_form.tpl.html"  Access="calendar.access" >
+    <DataPanel>
+        <Element Name="row_selections" Class="RowCheckbox"  Label="" FieldName="Id"/>
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        <Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{RESOURCE_URL}/calendar/images/icon_event_private.gif"
+				MySharedImg="{RESOURCE_URL}/calendar/images/icon_event_shared.gif" 
+				MyAssignedImg="{RESOURCE_URL}/calendar/images/icon_event_assigned.gif"
+				MyDistributedImg="{RESOURCE_URL}/calendar/images/icon_event_distributed.gif" 
+				GroupSharedImg="{RESOURCE_URL}/calendar/images/icon_event_shared_group.gif"
+				OtherSharedImg="{RESOURCE_URL}/calendar/images/icon_event_shared_other.gif"
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{@home:url}/calendar/event_detail/{@:Elem[fld_Id].Value}">
+			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
+		</Element>	
+		
+        <Element Name="fld_subject" MaxLength="10" Class="ColumnText" FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="{@home:url}/calendar/event_detail/{@:Elem[fld_Id].Value}" Translatable="N" OnEventLog="N" >
+        	
+        </Element>	
+        <Element Name="fld_location" Class="ColumnText" FieldName="location" Label="Location"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        <Element Name="fld_start_time" Class="ColumnText"  FieldName="start_time_display"  />
+        <Element Name="fld_end_time" Class="ColumnText"  FieldName="end_time_display"  />
+        
+        <Element Name="fld_reminder" Class="ColumnBool" TrueImg="{RESOURCE_URL}/calendar/images/icon_reminder_enable.gif"  FalseImg="{RESOURCE_URL}/calendar/images/icon_reminder_disable.gif" FieldName="reminder" Sortable="Y" Label="Rmd" Link="javascript:;">
+			<EventHandler Name="fld_reminder_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_reminder,{@:Elem[fld_reminder].Value})"/>		
+		</Element>
+		<Element Name="fld_notify" Class="ColumnBool" TrueImg="{RESOURCE_URL}/calendar/images/icon_notify_enable.gif"  FalseImg="{RESOURCE_URL}/calendar/images/icon_notify_disable.gif" FieldName="notify_contacts" Sortable="Y" Label="Nty" Link="javascript:;">
+			<EventHandler Name="fld_notify_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_notify,{@:Elem[fld_notify].Value})"/>		
+		</Element>
+		<Element Name="fld_repeat" Class="ColumnBool" TrueImg="{RESOURCE_URL}/calendar/images/icon_repeat_enable.gif"  FalseImg="{RESOURCE_URL}/calendar/images/icon_repeat_disable.gif" FieldName="recurrence" Sortable="Y" Label="Rpt" Link="javascript:;">
+			<EventHandler Name="fld_repeat_onclick" Event="onclick" Function=""/>		
+		</Element>
+		<Element Name="fld_allday" Class="ColumnBool" TrueImg="{RESOURCE_URL}/calendar/images/icon_allday_enable.png"  FalseImg="{RESOURCE_URL}/calendar/images/icon_allday_disable.png" FieldName="all_day" Sortable="Y" Label="All Day" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_allday,{@:Elem[fld_allday].Value})"/>		
+		</Element>
+        
+        
+        
+        <Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_type" Class="ColumnText"  Style="line-height:24px;" FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
+        	
+       	
+    </DataPanel>
+    <ActionPanel>
+    	<Element Name="btn_compose" Class="LabelText" text=" " CssClass="icon_compose" Link="{@home:url}/calendar/event_new"></Element>
+        <Element Name="btn_index" Class="LabelText" text=" " CssClass="icon_list" Link="{@home:url}/calendar/event_calendar"></Element>   
+    </ActionPanel> 
+    <NavPanel>
+    	
+    </NavPanel> 
+    <SearchPanel>
+    
+    </SearchPanel>
+</EasyForm>

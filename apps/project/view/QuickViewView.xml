@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="QuickViewView" Access="project.access" Description="Collaboration Dashboard" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="view.tpl">
+    <FormReferences>
+        <Reference Name="project.widget.DashboardForm"/>
+    </FormReferences>
+</EasyView>

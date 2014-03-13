@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventEditReminderForm" Class="EventListForm" Icon="{RESOURCE_URL}/calendar/images/icon_calendar_list.gif"  FormType="Edit" jsClass="jbForm" Title="Edit Event Reminder" Description="Each event could have related contacts.\nYou can assign contacts to this event and notify related contacts about this event." BizDataObj="calendar.do.EventDO" ShowComment="N" TemplateEngine="Smarty" TemplateFile="form_popup_edit.tpl.html" EventName="CALENDAR" MessageFile="Event.msg"  Access="calendar.access" >
+    <DataPanel>
+		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
+    	
+    	<Element Name="fld_form_title" Class="InputText" FieldName="subject" Enabled="N" Label="Subject" AllowURLParam="N" />    	        
+    	
+		<Element Name="fld_reminder" DefaultValue="0" Class="Listbox" selectFrom="calendar.lov.ReminderLOV(ReminderType)" FieldName="reminder" Label="Reminder" AllowURLParam="N" >
+			<EventHandler Name="fld_reminder_onclick" Event="onchange" Function="UpdateForm()"  />
+		</Element>
+		<Element Name="fld_reminder_time" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" Class="Listbox" selectFrom="calendar.lov.ReminderLOV(ReminderTimeType)" FieldName="reminder_time" Label="Time Setting" AllowURLParam="N" />
+		<Element Name="fld_reminder_method_email" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" Class="Checkbox"  FieldName="reminder_method_email" DefaultValue="0" SelectFrom="1"  Label="Send Email" AllowURLParam="N" />
+		<!-- <Element Name="fld_reminder_method_systray" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" Class="Checkbox"  FieldName="reminder_method_systray" DefaultValue="0" SelectFrom="1"  Label="Send Systray" AllowURLParam="N" />-->
+		<Element Name="fld_reminder_method_sms" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" Class="Checkbox"  FieldName="reminder_method_sms" DefaultValue="0" SelectFrom="1" Label="Send SMS" AllowURLParam="N" />
+		
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="Close()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

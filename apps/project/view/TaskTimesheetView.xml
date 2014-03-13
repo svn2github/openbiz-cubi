@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="TaskTimesheetView" Description="Task Timesheet" Access="project_task.access" Class="EasyView"  Tab="" TemplateEngine="Smarty" TemplateFile="view_task.tpl"> 
+ 	<FormReferences>
+        <Reference Name="project.task.form.TaskTimesheetForm" subforms="project.task.form.TaskTimesheetListForm"/>      
+        <Reference Name="project.task.form.TaskTimesheetListForm"/>   
+    </FormReferences>
+</EasyView>

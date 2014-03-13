@@ -1,0 +1,2 @@
+<MenuWidget Name="DashboardForm" Access="project.access"  Title="Collaboration" Description="Easy to use \n Make your work more visiable" Class="menu.widget.MenuWidget" CssCLass="system" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='collab'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="sitemap_menu.tpl" CacheLifeTime="0">
+</MenuWidget>

@@ -1,0 +1,2 @@
+<MenuWidget Name="CalendarLeftMenu" Title="Calendar" Class="menu.widget.MenuWidget" CssCLass="" BizDataObj="menu.do.MenuTreeDO" SearchRule="[PId]='CalendarTopMenu'" GlobalSearchRule="[published] = 1" MenuDeep="2" TemplateEngine="Smarty" TemplateFile="calendar_menu.tpl" CacheLifeTime="0">
+</MenuWidget>

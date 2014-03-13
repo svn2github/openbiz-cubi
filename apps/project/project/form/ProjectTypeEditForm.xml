@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProjectTypeEditForm" Class="ProjectTypeForm" Icon="{RESOURCE_URL}/project/project/images/icon_project_type.png"  FormType="Edit" jsClass="jbForm" Title="Edit Project Type" Description="Edit selected project type item." BizDataObj="project.project.do.ProjectTypeDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="PROJECT_TYPE" MessageFile="ProjectType.msg" Access="project_project.access">
+    <DataPanel>
+		<Element Name="fld_Id" Class="Hidden" FieldName="Id" Label="Id" AllowURLParam="Y" Translatable="N" OnEventLog="N" CssClass="input" CssErrorClass="input_error"/>
+		<Element Name="fld_name" Class="InputText" FieldName="name" Label="Name"   />	
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	
+        <Element Name="fld_color_code" Class="ColorPicker" mode="" FieldName="color" Label="Color Code"  AllowURLParam="N" />
+        <Element Name="fld_published" Class="Listbox" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)"  DefaultValue="1" FieldName="group_perm" Label="Group Share"  /><Element Name="fld_published_other" Class="Listbox" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)"  DefaultValue="0" FieldName="other_perm" Label="Other Group"  />	
+        <Element Name="fld_sortorder" Class="Listbox" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=project.project.form.ProjectTypeDetailForm&amp;fld:Id={@project.project.do.ProjectTypeDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProjectNewForm" Class="ProjectForm" FormType="New" jsClass="jbForm" Icon="{RESOURCE_URL}/project/project/images/icon_project.png" Title="New Project" Description="Please input the information about of project's budget, start time and so on." BizDataObj="project.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset.tpl" EventName="Project" MessageFile="Project.msg" Access="project_project.access">
+    <DataPanel>
+	       
+		<Element Name="fld_type_id" ElementSet="General" Class="common.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="project.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" />			    
+        <Element Name="fld_name" ElementSet="General" Class="InputText" DefaultValue="New Project" FieldName="name" Label="Title"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
+		<Element Name="fld_description" ElementSet="General" Class="Textarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+						
+		<Element Name="fld_budget" ElementSet="Budget" Class="InputText" FieldName="budget_cost" Label="Budget"  Description="unit in {DEFAULT_CURRENCY}, total budget" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>						
+		<Element Name="fld_start_time" ElementSet="Setting" DefaultValue="{@:Params[start_time]?date('Y-m-d H:i:s',@:Params[start_time]):date('Y-m-d H:i:s',time())}" Class="InputDatetime" FieldName="start_time" Label="Start Time"  AllowURLParam="Y" >
+		</Element>
+		<Element Name="fld_priority" ElementSet="Setting" Class="Listbox" DefaultValue="1" FieldName="priority" Label="Priority" SelectFrom="project.project.lov.ProjectLOV(Priority)" AllowURLParam="N" />
+		<Element Name="fld_status_update" ElementSet="Setting" Class="project.lib.DataStatusList" FieldName="status" Label="Status" SelectFrom="project.project.lov.ProjectLOV(ProjectStatus)" AllowURLParam="N" />
+		<Element Name="fld_condition_update" ElementSet="Setting" Class="Listbox" FieldName="condition" Label="Condition" SelectFrom="project.project.lov.ProjectLOV(ProjectCondition)" AllowURLParam="N" />
+		<Element Name="fld_published" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="1" FieldName="group_perm" Label="Group Share"  /><Element Name="fld_published_other" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="0" FieldName="other_perm" Label="Other Group"  /><Element Name="fld_published_other" Class="Listbox" ElementSet="Miscellaneous" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)" DefaultValue="0" FieldName="other_perm" Label="Other Group"  />			        
+    </DataPanel>
+    <ActionPanel>
+    	<Element Name="btn_save" Class="Button" Text="Next Step" CssClass="button_gray_w">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=project.project.form.ProjectEditExtendForm&amp;fld:Id={@project.project.do.ProjectDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Next" />
+        </Element>
+		<Element Name="btn_spacer" Class="Spacer" width="10" />
+        
+		<Element Name="btn_finish" Class="Button" Text="Quick Finish" CssClass="button_gray_w">
+            <EventHandler Name="finish_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=project.project.form.ProjectDetailForm&amp;fld:Id={@project.project.do.ProjectDO:Field[Id].Value}"  ContextMenu="Quick Finish"   />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

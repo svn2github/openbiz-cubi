@@ -1,0 +1,3 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="EventManageView" Description="Calendar and Event Management" Class="common.view.SelectorView" FromSelecotr="calendar.widget.EventViewSelectorLeftWidget" Tab="" Access="calendar.access" TemplateEngine="Smarty" TemplateFile="view_calendar.tpl">
+</EasyView>

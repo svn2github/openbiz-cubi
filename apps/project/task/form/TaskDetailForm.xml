@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TaskDetailForm" Class="TaskForm" FormType="" jsClass="jbForm" Icon="{RESOURCE_URL}/project/task/images/icon_task_gantt.gif" Title="Task Detail" Description="This module could help you manage tasks." BizDataObj="project.task.do.TaskDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_detail_view_tabs.tpl.html" EventName="TASK" MessageFile="Task.msg" Access="project_task.access">
+    <DataPanel>
+		<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+		<Element Name="fld_dependency_id" Hidden="Y" Class="LabelText" FieldName="dependency_task_id" Label="Id" AllowURLParam="Y"/>
+		<Element Name="fld_form_title"  Class="LabelText"   FieldName="title" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />
+		<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="project.task.do.TaskTypeDO[name:Id:color]" AllowURLParam="N" />		
+
+		<Element Name="fld_project_intro" ElementSet="Project Information" Class="FormElement" FormReference="project.project.widget.ProjectBriefForm" FieldName="" Label="" AllowURLParam="N" />
+		
+		<Element Name="fld_status" ElementSet="General" Class="LabelList" FieldName="status" Label="Status" SelectFrom="project.task.lov.TaskLOV(TaskStatus)" AllowURLParam="N" />
+		
+		<Element Name="fld_total_progress" ElementSet="General" Class="LabelBar" Width="300" height="14"  DisplayUnit="%" MaxValue="100" FieldName="progress" Label="Progress" SelectFrom="project.task.lov.TaskLOV(Progress)" AllowURLParam="N" />
+		<Element Name="fld_time_progress" Color="ff6600" ElementSet="General"  Class="LabelBar" Width="300" height="14"  DisplayUnit="%" MaxValue="100" FieldName="time_bar" Label="Time"  AllowURLParam="N" />		
+		<Element Name="fld_spend_progress" Color="ffAA00" ElementSet="General" Class="LabelBar" Width="300" height="14"  DisplayUnit="%" MaxValue="100" FieldName="cost_spend_bar" Label="Expenses"  AllowURLParam="N" />
+		
+		<Element Name="fld_priority" Class="LabelImage" Text="{RESOURCE_URL}/project/task/images/icon_task_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Priority" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value},0,2)"/>		
+		</Element>
+		
+        <Element Name="fld_severity" Class="LabelImage" Text="{RESOURCE_URL}/project/task/images/icon_task_severity_{@:Elem[fld_severity].Value}.gif" FieldName="severity" Sortable="Y" Label="Severity" Link="javascript:;">
+			<EventHandler Name="fld_severity_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_severity,{@:Elem[fld_severity].Value},1,4)"/>		
+		</Element>
+		
+		 <Element Name="fld_milestone" Class="LabelBool" ElementSet="General" TrueImg="{RESOURCE_URL}/project/task/images/icon_task_milestone_enable.gif"  FalseImg="{RESOURCE_URL}/project/task/images/icon_task_milestone_disable.gif" FieldName="milestone" Sortable="Y" Label="Milestone" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_milestone,{@:Elem[fld_milestone].Value})"/>		
+		</Element>
+		
+		<Element Name="fld_parent" ElementSet="General" Class="LabelList" BlankOption="none" FieldName="parent_task_id" Label="Parent Task" SelectFrom="project.task.do.TaskListDO[title:Id]" AllowURLParam="N" />
+		<Element Name="fld_dependency" ElementSet="General" Class="project.task.element.LabelDependencyList" BlankOption="none" FieldName="dependency_task_id" Label="Dependency" SelectFrom="project.task.do.TaskListDO[title:Id]" AllowURLParam="N" Link="{@:Elem[fld_dependency_id].Value?@:Elem[fld_dependency_id].Value:''}" />
+		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+		
+		<Element Name="fld_extend_fields"   ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N" />
+
+		
+		<!-- 1-M -->
+		
+		<Element Name="fld_start_time"   TabSet="Extra Information" Access="project_worklog.access" ElementSet="Worklog"  Class="LabelText" FieldName="start_time" Label="Start Time"  AllowURLParam="Y" />
+		<Element Name="fld_finish_time"  TabSet="Extra Information"  Access="project_worklog.access" ElementSet="Worklog"  Class="LabelText" FieldName="finish_time" Label="End Time"  AllowURLParam="Y" />
+		<Element Name="fld_workhour" TabSet="Extra Information"  Access="project_worklog.access" ElementSet="Worklog" Class="LabelText" Text="{@:Elem[fld_workhour].Value} Hours" FieldName="total_workhour" Label="Time Budget"   AllowURLParam="N"  />
+		<Element Name="fld_actualhour" TabSet="Extra Information"  Access="project_worklog.access" ElementSet="Worklog" Class="LabelText" Text="{@:Elem[fld_actualhour].Value} Hours" FieldName="actual_workhour" Label="Worked Hours"   AllowURLParam="N"  />
+		<Element Name="fld_work_log" TabSet="Extra Information"  Access="project_worklog.access"  ElementSet="Worklog" Class="FormElement" FormReference="project.worklog.widget.WorklogListDetailForm" FieldName="" Label="" AllowURLParam="N" />	
+        
+		<Element Name="fld_budget" TabSet="Extra Information"  Access="collab_budget.access" ElementSet="Expenses" width="200" Class="LabelText"  Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_budget].Value)}"  FieldName="budget_cost" Label="Budget"  Description="unit in {DEFAULT_CURRENCY}, total budget" AllowURLParam="N" />
+		<Element Name="fld_cost" TabSet="Extra Information"  Access="collab_budget.access" ElementSet="Expenses"  width="200" Class="LabelText"  Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_cost].Value)}"  FieldName="actual_cost" Label="Expenses"  Description="unit in {DEFAULT_CURRENCY}, actual spend cost" AllowURLParam="N" />
+		<Element Name="fld_financial_log" TabSet="Extra Information"  Access="collab_budget.access"  ElementSet="Expenses" Class="FormElement" FormReference="project.budget.widget.BudgetListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+        
+		<Element Name="fld_related_attachment" TabSet="Extra Information"  Access="attachment.access"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_attachment" TabSet="Extra Information"  Access="attachment.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(project.task.form.TaskEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+        
+         <Element Name="fld_related_picture" TabSet="Extra Information"  Access="picture.access" ElementSet="Picture" Class="FormElement" FormReference="picture.widget.PictureListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_picture" TabSet="Extra Information"  Access="picture.access" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Picture"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(project.task.form.TaskEditPictureForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+
+		<Element Name="fld_changelog" TabSet="Extra Information"  Access="changelog.access"   ElementSet="Changes" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetForm" FieldName="" Label="" AllowURLParam="N" />
+
+		<!-- Remind tab -->
+			<Element Name="fld_reminder" TabSet="Extra Information"  ElementSet="Remind" DefaultValue="0" Class="LabelList" selectFrom="project.task.lov.ReminderLOV(ReminderType)" FieldName="reminder" Label="Reminder" AllowURLParam="N" >
+				<EventHandler Name="fld_reminder_onclick" Event="onchange" Function="UpdateForm()"  />
+			</Element>
+			<Element Name="fld_reminder_time" TabSet="Extra Information"  Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelList" selectFrom="calendar.lov.EventLOV(ReminderTimeType)" FieldName="reminder_time" Label="Time Setting" AllowURLParam="N" />
+			<Element Name="fld_reminder_method_email" TabSet="Extra Information"  Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelBool"  FieldName="reminder_method_email" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Email" AllowURLParam="N" />
+			<!--<Element Name="fld_reminder_method_systray" TabSet="Extra Information"  Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelBool"  FieldName="reminder_method_systray" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Systray" AllowURLParam="N" />-->
+			<Element Name="fld_reminder_method_sms" TabSet="Extra Information"  Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Remind" Class="LabelBool"  FieldName="reminder_method_sms" DefaultValue="0" SelectFrom="1" Label="Send SMS" AllowURLParam="N" />
+			
+			<Element Name="btn_manage_reminder" TabSet="Extra Information"  Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Remind"  Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Setting" CssClass="button_gray_w" Description="">
+				<EventHandler Name="btn_manage_reminder_onclick" Event="onclick" Function="LoadDialog(project.task.form.TaskEditReminderForm,{@:Elem[fld_Id].Value})"  />
+	        </Element>
+		
+		
+		<!-- Misc tab -->
+			<Element Name="fld_sortorder" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />		     
+			<Element Name="fld_published" TabSet="Extra Information"  Class="LabelList" ElementSet="Misc"  SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  />
+			<Element Name="fld_published_others"  TabSet="Extra Information" Class="LabelList" ElementSet="Misc"  SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  />		     
+			
+			<Element Name="fld_create_by" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}"  Link="{APP_INDEX}/project/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_create_time" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
+			<Element Name="fld_update_by" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}"  Link="{APP_INDEX}/project/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_update_time" TabSet="Extra Information"  Class="LabelText" ElementSet="Misc" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+		
+		<!-- M-M -->
+		<Element Name="fld_related_tasks" TabSet="Related Data"   ElementSet="Related Tasks" Class="FormElement" FormReference="project.task.widget.TaskListRelatedForm" FieldName="" Label="" AllowURLParam="N" />
+		<!--
+		<Element Name="fld_restricted_tasks" TabSet="Related Data"   ElementSet="Restricted Tasks" Class="FormElement" FormReference="project.task.widget.TaskListRestrictedForm" FieldName="" Label="" AllowURLParam="N" /> 		
+		-->
+		<Element Name="fld_related_events"  TabSet="Related Data"   Access="calendar.access"  ElementSet="Event" Class="FormElement" FormReference="calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		
+		<Element Name="fld_related_contacts"  TabSet="Related Data"  Access="contact.access"  ElementSet="Contact" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />		    	
+		
+	</DataPanel>
+    <ActionPanel>  
+        <Element Name="btn_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button"   Text="Share" CssClass="button_gray_share" Description="update status (Ctrl+U)">
+			<EventHandler Name="btn_update_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+        <Element Name="btn_spacer_for_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Spacer" Width="10"></Element>
+        <Element Name="btn_new" Class="Button"   Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(project.task.form.TaskNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
+        </Element>     
+        <Element Name="btn_update" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button"   Text="Update" CssClass="button_gray_m" Description="update status (Ctrl+U)">
+			<EventHandler Name="btn_update_onclick" Event="onclick" Function="SwitchForm(project.task.form.TaskUpdateStatusForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+U" ContextMenu="Update Status" />
+        </Element>     
+        <Element Name="btn_edit" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(project.task.form.TaskEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        
+		<Element Name="btn_copy" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
+            <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=project.task.form.TaskCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element> 
+        <Element Name="btn_delete" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button"   Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=project.task.form.TaskListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+        </Element>
+        <Element Name="btn_spacer_for_cancel"  Class="Spacer" Width="10"></Element>
+        <Element Name="btn_cancel"  Class="LabelBack"  Text="Back" CssClass="button_gray_m" Link="{APP_INDEX}/project/task_manage">
+            <!-- <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />-->
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,227 @@
+<form id='{$form.name}' name='{$form.name}'>
+{literal}
+<style>
+#main #right_panel .content table.input_row td .label_text{
+width:350px;
+}
+.action_panel{
+width:310px;
+}
+.search_panel{
+width:380px;
+}
+.search_panel select{
+float:left;
+margin-right:5px;
+}
+#main #right_panel .fc-header-title h2{
+width:300px;
+}
+</style>
+{/literal}
+<link rel="stylesheet" href="{$resource_url}/calendar/css/calendar.css" type="text/css" />
+
+<div style="padding-left:25px;padding-right:40px;">
+	<div>
+
+{if $actionPanel or $searchPanel }	
+	<div class="form_header_panel">	
+		<div class="action_panel"  style="width:292px;">
+		{foreach item=elem from=$actionPanel}
+		    	{$elem.element}
+		{/foreach}
+		</div>
+		<div class="search_panel" style="width:398px;">
+		{foreach item=elem key=name from=$searchPanel}
+			 
+				{if $elem.label} {$elem.label} {/if} 
+				{$elem.element}
+			
+		{/foreach}
+		</div>
+	</div>
+	
+{/if}	
+
+<div class="from_table_container" >
+<!-- table start -->
+	<div  id="{$form.name|replace:'.':'_'}_calendar" style="padding:10px 0px 10px 0px;width:700px;">	
+	</div>	
+</div>
+<!-- status switch  -->
+<script>
+{literal}	
+	$j('#{/literal}{$form.name|replace:'.':'_'}{literal}_calendar').fullCalendar({
+		header: {
+			left: 'prevYear,prev,today,next,nextYear',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay'
+		},
+		editable: true,
+		selectable: true,
+		selectHelper: true,
+		select: function(startDate, endDate, allDay, jsEvent, view)
+		{
+			var paramFields='';
+			if(allDay==true){
+				allDay=1;
+			}else{
+				allDay=0;
+			}
+			if(view.name=='month'){
+				paramFields += 'start_time='+(startDate.getTime()/1000+3600*9)+'&';
+				paramFields += 'end_time='+(endDate.getTime()/1000+3600*17)+'&';
+			}else{
+				paramFields += 'start_time='+(startDate.getTime()/1000)+'&';
+				paramFields += 'end_time='+(endDate.getTime()/1000)+'&';
+			}
+			paramFields += 'all_day='+allDay+'&';
+			Openbiz.CallFunction('{/literal}{$form.name}{literal}.SwitchForm(calendar.form.EventNewQuickForm,,'+paramFields+',Dialog)',{'type':'','target':'','evthdl':'fld_subject:fld_subject_onclick'});
+		},
+		eventClick: function(event,jsEvent,view){
+						
+			{/literal}			
+			form_name = '{$form.name}';
+			{literal}			
+			if(prev_selectedId = Openbiz.getFormObject(form_name).selectedItem)
+			{
+				$j('.'+prev_selectedId).each(function(i){					
+					this.style.backgroundColor=Openbiz.getFormObject(form_name).selectedItemColor;					
+					this.style.border=Openbiz.getFormObject(form_name).selectedItemStyle;
+					this.style.color='#666666';
+					});
+				$j('.'+prev_selectedId+' .fc-event-head').each(function(i){
+					this.style.backgroundColor=Openbiz.getFormObject(form_name).selectedItemTitleColor;					
+					//this.style.border=Openbiz.getFormObject(form.name).selectedItemStyle;
+					this.style.color='#666666';
+					});
+			}
+			
+			$j('.'+event.ui_id).each(function(i){
+				Openbiz.getFormObject(form_name).selectedItemStyle = this.style.border;
+				Openbiz.getFormObject(form_name).selectedItemColor = this.style.backgroundColor;
+				this.style.backgroundColor='#FF0000';
+				this.style.color='#FFFFFF';
+				this.style.border='1px solid #000000';
+				});
+			$j('.'+event.ui_id+' .fc-event-head').each(function(i){
+				Openbiz.getFormObject(form_name).selectedItemTitleColor = this.style.backgroundColor;
+				this.style.backgroundColor='#b20304';
+				this.style.color='#FFFFFF';
+				});
+			Openbiz.getFormObject(form_name).selectedId = event.id;
+			Openbiz.getFormObject(form_name).selectedItem = event.ui_id;
+			Openbiz.CallFunction('{/literal}{$form.name}{literal}.SelectRecord('+event.id+')');			
+		},
+		eventRender: function(event, element) {
+				element[0].childNodes[0].className+=' '+event.ui_id;
+				element.id = 'fc_event_'+event.id;
+				element.qtip({
+		        	style: { 
+		        		name: 'cream', 
+		        		tip: true,
+		        		width: {min:300,max:400},
+		        		border:{width:2, radius:5}
+		        	}, 
+		            content: {
+		            	title: {text: event.title, button:''},
+						url:'{/literal}{$app_index}{literal}/calendar/event_qtip/'+event.id,
+						data:{timestamp: Math.random()},
+						method: 'post'
+		            },
+		            position: {
+		            	corner:{target: 'center',tooltip: 'leftMiddle'}
+		            },
+		            hide: { when: { event: 'unfocus' } },
+		            show: {solo: true,delay:0,when: { event: 'click' }}
+		        });
+			
+	    },
+	    viewDisplay: function(view){
+	    	if(view.name=='month'){
+	    			Openbiz.CallFunction('{/literal}{$form.name}{literal}.UpdateViewName('+view.name+','+(view.start.getTime()/1000+86400*7)+')');	
+	    	}else{
+	    			Openbiz.CallFunction('{/literal}{$form.name}{literal}.UpdateViewName('+view.name+','+(view.start.getTime()/1000)+')');	
+	    	}	    	
+	    },
+	    eventDrop: function( event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view ) 
+	    { 
+	    	{/literal}
+	    	Openbiz.getFormObject('{$form.name}').selectedId = event.id;
+	    	Openbiz.getFormObject('{$form.name}').dayDelta = dayDelta;
+	    	Openbiz.getFormObject('{$form.name}').minuteDelta = minuteDelta;
+	    	Openbiz.getFormObject('{$form.name}').allDay = allDay;
+	    	Openbiz.getFormObject('{$form.name}').updateType = 'eventDrop';
+	    	{literal}
+			Openbiz.CallFunction('{/literal}{$form.name}{literal}.SelectRecord('+event.id+')');
+	    	Openbiz.CallFunction('{/literal}{$form.name}{literal}.UpdateRecord()',{'type':'','target':'','evthdl':'fld_subject:fld_subject_onclick'});
+	    },
+	    eventResize: function( event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view ) 
+	    { 
+	    	{/literal}
+	    	Openbiz.getFormObject('{$form.name}').selectedId = event.id;
+	    	Openbiz.getFormObject('{$form.name}').dayDelta = dayDelta;
+	    	Openbiz.getFormObject('{$form.name}').minuteDelta = minuteDelta;
+	    	Openbiz.getFormObject('{$form.name}').allDay = allDay;
+	    	Openbiz.getFormObject('{$form.name}').updateType = 'eventResize';
+	    	{literal}
+			Openbiz.CallFunction('{/literal}{$form.name}{literal}.SelectRecord('+event.id+')');
+	    	Openbiz.CallFunction('{/literal}{$form.name}{literal}.UpdateRecord()',{'type':'','target':'','evthdl':'fld_subject:fld_subject_onclick'});
+	    },
+		eventSources: [
+			 {
+				 url: Openbiz.appHome+'?F=RPCInvoke&P0=[{/literal}{$form.name}{literal}]&P1=[outputEvents]&__this=btn_fetchevent:btn_fetchevent_onclick',				
+				 type:'POST',
+				 data:{
+					_selectedId: 'undefined'
+				 }
+			 }
+		],
+		loading: function(isLoading, view)
+		{
+			formObj = Openbiz.getFormObject('{/literal}{$form.name}{literal}');
+			if(formObj){
+				formObj.displayLoading(isLoading);
+			}
+			
+		},
+		defaultView: '{/literal}{$form.defaultView}{literal}',
+		year:'{/literal}{$form.calYear}{literal}',
+		month:'{/literal}{$form.calMonth}{literal}',
+		date:'{/literal}{$form.calDay}{literal}'
+	});
+		
+	parentFormName = '{/literal}{$form.name}{literal}';
+
+
+	
+{/literal}
+
+
+{if $form.status eq 'Enabled'}
+{elseif $form.status eq 'Disabled'}
+$('{$form.name}_data_table').fade({literal}{ duration: 0.5, from: 1, to: 0.35 }{/literal});
+{/if}
+</script>
+<span id='{$form.name}_selected_id' style="display:none">{$default_selected_id}</span>
+<!-- table end -->	
+
+	<div class="form_footer_panel">
+		<div class="ajax_indicator">
+			<div id='{$form.name}.load_disp' style="display:none" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
+		</div>
+		<div class="navi_panel">
+{if $navPanel}
+   {foreach item=elem from=$navPanel}
+   		{if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
+    	{$elem.element}
+   {/foreach}
+{/if}			
+		
+		</div>		
+	</div>
+	<div class="v_spacer"></div>
+</div>
+</form>

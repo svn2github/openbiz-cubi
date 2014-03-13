@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="BudgetStatDO" Description=""  Class="BizDataObj" DBName="Default" Table="task_budget" SearchRule="" SortRule="" OtherSQLRule="GROUP BY [foreign_id],[type]" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" Column="id"     Type=""/>
+		<BizField Name="type" Column="type" Type=""/>
+        <BizField Name="foreign_id" Column="foreign_id" Type=""/>        
+		<BizField Name="total_credit" SQLExpr="SUM(credit)"/>
+		<BizField Name="total_debit" SQLExpr="SUM(debit)"/>	
+	</BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventListDetailForm" Class="EasyForm" FormType="List" jsClass="jbForm" Title="" Description="" BizDataObj="calendar.do.EventDO" PageSize="-1" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="calendar.access" >
+    <DataPanel>           
+        <Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{RESOURCE_URL}/calendar/images/icon_event_private.gif"
+				MySharedImg="{RESOURCE_URL}/calendar/images/icon_event_shared.gif" 
+				MyAssignedImg="{RESOURCE_URL}/calendar/images/icon_event_assigned.gif"
+				MyDistributedImg="{RESOURCE_URL}/calendar/images/icon_event_distributed.gif" 
+				GroupSharedImg="{RESOURCE_URL}/calendar/images/icon_event_shared_group.gif"
+				OtherSharedImg="{RESOURCE_URL}/calendar/images/icon_event_shared_other.gif"
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+ 		</Element>	
+		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y"/>
+        <Element Name="fld_subject"  MaxLength="20"  Class="ColumnText" FieldName="subject" Label="Subject"  Sortable="Y" AllowURLParam="N"  Link="{APP_INDEX}/calendar/event_detail/{@:Elem[fld_Id].Value}" Translatable="N" OnEventLog="N" >
+                	<!-- <EventHandler Name="fld_subject_onclick" Event="onclick" Function="ParentSwitchForm(calendar.form.EventDetailForm,{@:Elem[fld_Id].Value})"   />-->        
+        </Element>	
+        <Element Name="fld_location" Class="ColumnText" FieldName="location" Label="Location"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+        <Element Name="fld_start_time" Class="Hidden" Hidden="Y" FieldName="start_time"  />
+        <Element Name="fld_starttime" Class="ColumnText" FieldName="" Text="{date('Y-m-d H:i',strtotime(@:elem[fld_start_time].Value))}" Label="Start Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+		<Element Name="fld_type" Class="ColumnText" Style="line-height:24px;" FieldName="type_name" Label="Type" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N"/>						        
+		<Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" /> 
+		<Element Name="fld_remove" Class="Button" Label="Action" Text="Remove" CssClass="button_gray_m" Style="color:gray">
+            <EventHandler Name="remove_onclick" Event="onclick" Function="RemoveRecord({@:Elem[fld_Id].Value})"/>
+        </Element>	
+    </DataPanel>
+    <ActionPanel>
+		<Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add">
+            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(calendar.widget.EventNewForm)"/>
+        </Element>
+        <Element Name="btn_spacer" Class="Spacer" Width="10" ></Element>    
+        <Element Name="btn_pick" Class="Button" text="Pick Events" CssClass="button_gray_w">
+            <EventHandler Name="pick_onclick" Event="onclick" Function="LoadDialog(calendar.widget.EventPickForm)"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+
+    </NavPanel> 
+
+</EasyForm>

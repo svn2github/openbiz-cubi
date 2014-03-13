@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ProjectGanttView" Description="Project Gantt View" Class="EasyView" Tab="" Access="project_project.access" TemplateEngine="Smarty" TemplateFile="view_project.tpl">
+   <FormReferences>
+   		<Reference Name="project.project.form.ProjectFilterForm" subforms="project.project.form.ProjectGanttForm"/>
+   		<Reference Name="project.project.form.ProjectGanttForm"/>
+   </FormReferences>
+</EasyView>

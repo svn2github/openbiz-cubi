@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProjectFilterForm" Class="ProjectForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/project/project/images/icon_project.png" Title="Project Gantt View" Description="Click a project then you can see the Gantt chart of the project" BizDataObj="project.project.do.ProjectDO" PageSize="4" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_filter.tpl.html" EventName="PROJECT" MessageFile="Project.msg" Access="project_project.access">
+    <DataPanel>
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        <Element Name="fld_share" Class="ColumnShare" 
+				MyPrivateImg="{RESOURCE_URL}/project/project/images/icon_project_private.png"
+				MySharedImg="{RESOURCE_URL}/project/project/images/icon_project_shared.png" 
+				MyAssignedImg="{RESOURCE_URL}/project/project/images/icon_project_assigned.png"
+				MyDistributedImg="{RESOURCE_URL}/project/project/images/icon_project_distributed.png" 
+				GroupSharedImg="{RESOURCE_URL}/project/project/images/icon_project_shared_group.png"
+				OtherSharedImg="{RESOURCE_URL}/project/project/images/icon_project_shared_other.png"
+				FieldName="create_by" Label="Share"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">
+			<EventHandler Name="fld_share_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"/>		
+		</Element>	
+
+        <Element Name="fld_title" MaxLength="16" Class="ColumnText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{@home:url}/project/project_gantt_detail/{@:Elem[fld_Id].Value}">         
+        </Element>
+        <Element Name="fld_desc" MaxLength="16" Class="ColumnText" FieldName="description" Label="Description" Maxlenght="20"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="">         
+        </Element>
+        <Element Name="fld_status" Class="ColumnList" SelectFrom="project.project.lov.ProjectLOV(ProjectStatus)" FieldName="status" Label="Status" Link="javascript:;" Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" >
+        <EventHandler Name="fld_status_onclick" Event="onclick" Function="UpdateProjectStatus({@:Elem[fld_Id].Value},fld_status,{@:Elem[fld_status].Value})"/>         
+        </Element>
+
+		<Element Name="fld_condition" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/project/project/images/icon_project_condition_{@:Elem[fld_condition].Value}.png" FieldName="condition" Sortable="Y" Label="Cond" Link="javascript:;">		
+        	<EventHandler Name="fld_conditoin_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_condition,{@:Elem[fld_condition].Value},0,2)"/>         
+        </Element>
+        		
+		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/project/project/images/icon_project_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Pri" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value},0,2)"/>		
+		</Element>
+		<!--
+        <Element Name="fld_importance" Class="ColumnBool" TrueImg="{RESOURCE_URL}/project/project/images/icon_project_importance_yes.gif"  FalseImg="{RESOURCE_URL}/project/project/images/icon_project_importance_no.gif" FieldName="importance" Sortable="Y" Label="Flag" Link="javascript:;">
+			<EventHandler Name="fld_importamce_onclick" Event="onclick" Function="UpdateFieldValueXor({@:Elem[fld_Id].Value},fld_importance,{@:Elem[fld_importance].Value})"/>		
+		</Element>
+		-->
+		<Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_type" Class="ColumnText"  Style="line-height:24px;" FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />						        
+        
+    </DataPanel>
+    <ActionPanel>
+      
+    </ActionPanel> 
+    <NavPanel>
+    	<Element Name="page_selector" Class="PageSelector" Text="{@:m_CurrentPage}" Label="Go to Page" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_page_selector_onchange" Event="onchange" Function="GotoSelectedPage(page_selector)"/>
+        </Element>
+        <Element Name="pagesize_selector" Class="PagesizeSelector" Text="{@:m_Range}" Label="Show Rows" CssClass="input_select" cssFocusClass="input_select_focus">
+            <EventHandler Name="btn_pagesize_selector_onchange" Event="onchange" Function="SetPageSize(pagesize_selector)"/>
+        </Element>    
+        <Element Name="btn_first" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+    	<Element Name="data_filter_filter"  BlankOption="All Data" cssclass="input_select_m" Class="common.element.ShareDataFilter" FieldName="create_by" Label="" SelectFrom="common.lov.DataSharingLOV(DataFilter)" >
+            <EventHandler Name="datafilter_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element>
+        <Element Name="status_selector_filter" cssclass="input_select_m" BlankOption="All Status" Class="project.lib.DataStatusFilter" FieldName="status" Label="" SelectFrom="project.project.lov.ProjectLOV(ProjectStatus)" >
+            <EventHandler Name="status_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element> 
+        <Element Name="pri_selecto_filter" cssclass="input_select_m" BlankOption="All Priority" Class="DropDownList" FieldName="priority" Label="" SelectFrom="project.project.lov.ProjectLOV(Priority)" >
+            <EventHandler Name="pri_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element> 
+    	<Element Name="type_selector_filter" cssclass="input_select_m" BlankOption="All Types" Class="common.lib.TypeSelector" FieldName="type_id" Label="" SelectFrom="project.project.do.ProjectTypeDO[name:Id:color]" >
+            <EventHandler Name="type_selector_onchange" Event="onchange" Function="RunSearch()"/>
+        </Element> 
+        <Element Name="btn_spacer3_filter" Class="Spacer" Width="10"></Element>
+        <Element Name="qry_name_filter"  Class="AutoSuggest" FuzzySearch="Y" SelectFrom="project.project.do.ProjectDO[name],[name] like '%{$_POST['qry_name']}%' GROUP BY [name]" FieldName="name" cssFocusClass="input_text_search_focus" CssClass="input_text_search"/>
+        <Element Name="btn_dosearch_filter" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="RunSearch()" ShortcutKey="Enter"/>
+        </Element>  
+    </SearchPanel>
+</EasyForm>

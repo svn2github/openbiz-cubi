@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventWeekListForm" Class="CalendarForm" CalendarDefaultView="agendaWeek"  inheritFrom="calendar.form.EventMonthListForm"  Access="calendar.access" >     
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add"  >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(calendar.form.EventNewForm)"  />
+        </Element>
+        <Element Name="lnk_detail" Class="Hidden" Hidden="Y" Text="Add" CssClass="button_gray_add"  >
+            <EventHandler Name="lnk_detail_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(calendar.form.EventDetailForm)"  />
+        </Element>
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" >
+            <EventHandler Name="btn_edit_onclick" Event="onclick" EventLogMsg="" Function="EditRecord()" RedirectPage="form=calendar.form.EventEditForm&amp;fld:Id={@:Elem[fld_Id].Value}"  />
+        </Element>
+        <Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m"  >
+            <EventHandler Name="btn_copy_onclick" Event="onclick" EventLogMsg="" Function="CopyRecord()" RedirectPage="form=calendar.form.EventCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" />
+        </Element>
+                
+        <Element Name="btn_delete" Class="Button" Text="Delete" CssClass="button_gray_m" >
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord()" />
+        </Element>
+        <Element Name="btn_excel" Class="Button" Text="Export" CssClass="button_gray_m">
+            <EventHandler Name="exc_onclick" Event="onclick" EventLogMsg="" Function="CallService(excelService,renderCSV)" FunctionType="Popup" />
+        </Element>
+    </ActionPanel> 
+</EasyForm>

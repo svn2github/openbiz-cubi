@@ -1,0 +1,20 @@
+<form id="{$form.name}" name="{$form.name}">
+{literal}
+<style>
+.left_widget_element label{
+	width:170px;
+}	
+</style>
+{/literal}
+<div class="title">
+	<h2 style="width:150px;">{$form.title}</h2>
+	
+</div>
+<div style="padding-left:10px;">
+<table class="left_widget_element"><tr><td>
+	    {foreach item=elem from=$dataPanel}
+	    	{$elem.element}
+	    {/foreach}	
+</td></tr></table>
+</div>
+</form>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TaskTimesheetForm" Class="TaskTimesheetForm" FormType="List" jsClass="jbForm" Icon="" Title="Task Timesheet" Description="" BizDataObj="project.task.do.TaskDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_task_timesheet.tpl.html" EventName="TASK" MessageFile="Task.msg" Access="project_task.access">
+    <DataPanel>
+        
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        
+    </DataPanel>
+    <ActionPanel>
+        
+    </ActionPanel> 
+    <NavPanel>
+      
+        <Element Name="btn_prev" Class="Button" Text="" CssClass="button_gray_navi prev">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoWeek({@:m_week_num - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        
+        <Element Name="txt_start_date" Class="LabelText" Text="{date('Y-m-d',strtotime(@:m_start_date)-86400)}" />
+        
+        <Element Name="txt_sel_date" Class="RawData" Text="{date('l, jS \of F Y',@:m_RecordId)}" />
+        
+        <Element Name="txt_end_date" Class="LabelText" Text="{date('Y-m-d',strtotime(@:m_end_date))}" />                
+        
+        <Element Name="btn_next" Class="Button" Text="" CssClass="button_gray_navi next">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoWeek({@:m_week_num + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel>
+    	<Element Name="btn_spacer1" Class="Spacer" Width="10"></Element>
+    	<Element Name="year_selector" cssclass="input_select_m" DefaultValue="{@:m_year_num}"   Class="DropDownList" SelectFrom="project.task.lov.TimesheetLOV(Year)" FieldName="" Label="Year"  >
+            <EventHandler Name="year_selector_onchange" Event="onchange" Function="ChangeDateRange()"/>
+        </Element> 
+        <Element Name="week_selector" cssclass="input_select" DefaultValue="{(int)@:m_week_num}" Class="DropDownList" SelectFrom="project.task.lov.TimesheetLOV(Week)" FieldName="" Label="Week" >
+            <EventHandler Name="week_selector_onchange" Event="onchange" Function="ChangeDateRange()"/>
+        </Element> 
+        
+        
+        <Element Name="btn_dosearch" Class="Button" text="Go" CssClass="button_gray">
+            <EventHandler Name="search_onclick" Event="onclick" Function="ChangeDateRange()" ShortcutKey="Enter"/>
+        </Element>        
+        <Element Name="btn_spacer2" Class="Spacer" Width="10"></Element>
+        <Element Name="btn_today" Class="Button" text="Today" CssClass="button_gray_m">
+            <EventHandler Name="today_onclick" Event="onclick" Function="GotoToday()" />
+        </Element>  
+        <Element Name="btn_spacer3" Class="Spacer" Width="10"></Element>
+    </SearchPanel>
+</EasyForm>

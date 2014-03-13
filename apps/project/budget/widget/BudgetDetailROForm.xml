@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="BudgetDetailROForm" Class="PickerForm" Icon="{RESOURCE_URL}/project/budget/images/icon_budget.png" FormType="Detail" jsClass="jbForm" Title="Budget Record Detail" Description="below information is about budget record." BizDataObj="project.budget.do.BudgetPickDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_budget_quick_detail.tpl.html"  Access="collab_budget.access">
+    <DataPanel>        
+        <Element Name="fld_title"  Class="LabelText" FieldName="title" Label="Title"   />	
+        <Element Name="fld_credit" Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_credit].Value)}" Class="LabelText" FieldName="credit" Label="Credit" />
+        <Element Name="fld_timestamp"  Class="LabelText"  FieldName="create_time" Label="Timestamp" />
+        <Element Name="fld_description" Class="LabelTextarea" FieldName="description" Label="Description" />	        	
+    </DataPanel>
+    <ActionPanel>
+        
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

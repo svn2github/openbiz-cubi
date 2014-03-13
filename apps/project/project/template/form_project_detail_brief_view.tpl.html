@@ -1,0 +1,208 @@
+<form id="{$form.name}" name="{$form.name}">
+<link rel="stylesheet" href="{$js_url}/jquery-ui/ui-openbiz/jquery.css" type="text/css" />
+{literal}
+<style>
+.ui-tabs-panel .input_row{
+width:100%;
+padding-bottom:0px;
+}
+.ui-tabs-panel .odd{
+background-color:#f5f5f5;
+width:100%;
+}
+.ui-tabs-panel table.input_row td.label_text{
+padding-top:4px;
+height:20px;
+}
+.ui-tabs-panel .input_row label {
+padding-left:15px;
+line-height:24px;
+}
+.input_row .column_bar .bar_bg{
+margin-top:4px;
+}
+.input_row .column_bar .value{
+margin-top:4px;
+}
+</style>
+{/literal}
+<div style="padding-left:35px; padding-right:30px;">
+{include file="system_appbuilder_btn.tpl.html"}
+	<div style="padding-left:0px;" >
+	<h2><span class="title_id" style="margin-right:10px;">{$form.currentRecordId}</span>{$form.title}</h2>
+	<table><tr><td>
+		{if $form.icon !='' }
+		<div class="form_icon"><img  src="{$form.icon}" border="0" /></div>
+		{/if}
+	
+		<div style="float:left; width:600px;padding-top:10px;">
+			{if $dataPanel.fld_form_title.element}
+			<h1 style="padding-bottom:5px;">
+			{$dataPanel.fld_form_title.element}
+			</h1>
+			{/if} 
+			{if $dataPanel.fld_form_description.element}
+			<div class="input_row" style="line-height:20px;padding-bottom:5px;">		
+			{$dataPanel.fld_form_description.element}
+			</div>
+			{else}
+			<div style="height:15px;"></div>
+			{/if}
+		</div>
+	</td></tr></table>
+	</div>
+	<div class="element_set_panel">
+			{assign var=item value=$dataPanel.fld_starttime}	
+			<table  class="input_row">				
+			<tr>	
+				<td >			
+					<label style="text-align:left;">{$item.label}</label>			
+				</td>
+						
+				<td>
+					<span class="label_text" style="width:300px;">{$item.element}</span>
+				</td>			
+				{assign var=item value=$dataPanel.fld_priority}
+			
+				<td >			
+					<label style="text-align:left;width:60px;">{$item.label}</label>			
+				</td>
+				<td>
+					<span class="label_text" style="width:150px;">{$item.element}</span>
+				</td>	
+			</tr> 
+			</table>
+					
+					
+
+
+			
+			<table  class="input_row">				
+			<tr>	
+				{assign var=item value=$dataPanel.fld_spend_progress}	
+				
+				<td >			
+					<label style="text-align:left;">{$item.label}</label>			
+				</td>
+				<td>
+					<span class="label_textarea" style="width:300px;">{$item.element}</span>
+				</td>	
+				{assign var=item value=$dataPanel.fld_condition}
+				<td >			
+					<label style="text-align:left;width:60px;">{$item.label}</label>			
+				</td>
+				<td>
+					<span class="label_text" style="width:150px;">{$item.element}</span>
+				</td>				
+			</tr> 
+			</table>		
+			
+			<table  class="input_row">				
+			<tr>	
+				{assign var=item value=$dataPanel.fld_budget}	
+				
+				<td >			
+					<label style="text-align:left;">{$item.label}</label>			
+				</td>
+				<td>
+					<span class="label_textarea" style="width:300px;">{$item.element}</span>
+				</td>	
+				{assign var=item value=$dataPanel.fld_status}
+				<td >			
+					<label style="text-align:left;width:60px;">{$item.label}</label>			
+				</td>
+				<td>
+					<span class="label_text" style="width:150px;">{$item.element}</span>
+				</td>				
+			</tr> 
+			</table>			
+			
+			<table  class="input_row">				
+			<tr>	
+				{assign var=item value=$dataPanel.fld_description}	
+				<td >			
+					<label style="text-align:left;">{$item.label}</label>			
+				</td>
+				<td>
+					<span class="label_textarea" style="width:500px;">{$item.element}</span>
+				</td>	
+							
+			</tr> 
+			</table>					
+	</div>
+	
+	{if $dataPanel.fld_extend_fields.element}
+	<div id="element_tabset_ext" class="underline upline" style="width:680px;padding-top:10px;padding-bottom:10px;padding-left:0px;">
+		<div id="element_set_panel_ext">
+		{$dataPanel.fld_extend_fields.element}
+		</div>
+	</div>
+	{/if}
+	
+	<div style="padding-left:20px;display:none" id="tabs">
+	<ul style="border-radius: none;">
+	{assign var=es_counter value=0}
+	{foreach item=setname name=elemsets  from=$form.elementSets}			
+		{if $es_counter != 0 }
+		<li><a href="#element_set_panel_{$es_counter}">{$setname}</a></li>
+		{/if}
+		{assign var=es_counter value=$es_counter+1}
+	{/foreach}
+	</ul>
+	{assign var=es_counter value=0}
+	{foreach item=setname name=elemsets  from=$form.elementSets}
+
+		<div id="element_set_panel_{$es_counter}" >			
+		
+		{if $es_counter eq 0 }
+		
+		<div style="display:none;">
+		{else}
+		<div style="padding-bottom:15px;">
+		{assign var=es_elem_counter value=0}
+		{foreach item=item key=itemName from=$dataPanel}						
+			{if $item.elementset eq $setname}
+			{if $item.type eq 'CKEditor' or $item.type eq 'RichText' 
+				or $item.type eq 'Textarea' or $item.type eq 'LabelTextarea'
+				or $item.type eq 'LabelTextarea' or $item.type eq 'LabelImage'
+				 or $item.type eq 'RawData'
+				 or $item.type eq 'IDCardReader'
+				 or $item.type eq 'FormElement'
+			}
+				<table  id="{$itemName}_container" class="input_row">
+				{if $item.label}
+				<tr>				
+				<td style="width:160px;">	
+					<label style="text-align:left;width:160px;">{$item.label}</label>
+				</td>				
+				<td>
+					{if $errors.$itemName}
+					<span class="input_error_msg" style="width:240px;">{$errors.$itemName}</span>
+					{elseif $item.description}
+					<span class="input_desc" style="width:240px;">{$item.description}</span>			
+					{/if}
+				</td>
+				</tr>
+				{/if}
+				<tr><td colspan="2" align="center" >
+					<span class="label_textarea" style="{if $item.width}width:{$item.width+15}px;{else}{if $default_label_textarea_width}{$default_label_textarea_width}{else}width:655px;{/if}{/if}">{$item.element}</span>
+								
+				</td></tr>
+				</table>		
+			
+			{assign var=es_elem_counter value=$es_elem_counter+1}					
+			{/if}
+			{/if}
+		{/foreach}
+		{/if}
+			</div>
+	 			
+		</div>
+	
+	{assign var=es_counter value=$es_counter+1}			
+	{/foreach}
+
+	 	
+	
+</div>
+</form>

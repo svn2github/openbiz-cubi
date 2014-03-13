@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="ProjectTemplateView" Description="Project Template Management" Class="EasyView" Tab="" Access="project_project.access" TemplateEngine="Smarty" TemplateFile="view_project.tpl">
+   <FormReferences>
+   		<Reference Name="project.project.form.ProjectTemplateListForm" subforms="project.project.form.ProjectTaskTemplateListForm" />
+   		<Reference Name="project.project.form.ProjectTaskTemplateListForm"/>
+   </FormReferences>
+</EasyView>

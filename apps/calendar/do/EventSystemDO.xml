@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="EventSystemDO" Description="" DataPermControl="N" Class="BizDataObj" DBName="Default" Table="event" inheritFrom="calendar.do.EventDO">
+
+</BizDataObj>

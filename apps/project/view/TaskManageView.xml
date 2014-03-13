@@ -1,0 +1,3 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="TaskManageView" Description="Task Management" Access="project_task.access" Class="common.view.SelectorView" FromSelecotr="project.task.widget.TaskViewSelectorLeftWidget" Tab="" TemplateEngine="Smarty" TemplateFile="view_task.tpl"> 
+</EasyView>

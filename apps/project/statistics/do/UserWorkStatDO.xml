@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="UserWorkStatDO" Description="" DataPermControl="N" Class="UserWorkStatDO" DBName="Default" Table="work_log" SearchRule="" SortRule="[worked_hours] DESC" OtherSQLRule="GROUP BY [Id]" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+	<BizFieldList>
+		<BizField Name="Id" Column="create_by"     Type=""/>				
+		<BizField Name="worked_hours" SQLExpr="sum(worked_hours)" Type=""/>
+		<BizField Name="creator" SQLExpr="'creator'" />
+        <BizField Name="create_time" Column="create_time" Type="Datetime" ValueOnCreate="{date('Y-m-d H:i:s')}"/>
+        <BizField Name="group_id" Column="group_id"  Join="JoinUser" />
+	</BizFieldList>
+    <TableJoins>
+        <Join Name="JoinUser"  ColumnRef="create_by" JoinType="LEFT JOIN" Column="user_id"  Table="user_group"/>        
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

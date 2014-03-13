@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="TaskTypeCustomForm" Class="TaskTypeForm" FormType="Edit" jsClass="jbForm" Icon="{RESOURCE_URL}/project/calendar/images/icon_event_type.png" Title="Custom Task Type" Description="Your can setup custom fields for this type of tasks." BizDataObj="project.task.do.TaskTypeDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail_elementset_adv.tpl" EventName="TASK_TYPE" MessageFile="TaskType.msg" Access="project_task.access">
+    <DataPanel>
+			<Element Name="fld_Id" ElementSet="General" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+			<Element Name="fld_form_title"  Class="LabelText" FieldName="name" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" />	
+			<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+			<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="description" Label="" KeepCookie="Y" AllowURLParam="N" />
+			
+			<Element Name="fld_name" ElementSet="General" Class="LabelText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />	
+     		<Element Name="fld_description" ElementSet="General" Class="LabelText" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+    		<Element Name="fld_color_code" ElementSet="General" Class="ColorPicker" mode="viewOnly" FieldName="color" Label="Color Code" AllowURLParam="N"></Element>
+    	
+			
+			<Element Name="fld_extend_setting" Access="extend.access"  ElementSet="Extend Fields" Class="FormElement" AccessSelectFrom="project.task.lov.TaskExtendPermLOV(TaskAccess)" FormReference="extend.widget.ExtendSettingListEditForm" FieldName="" Label="" AllowURLParam="N" />     		
+	</DataPanel>
+    <ActionPanel> 
+		<Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" Event="onclick" EventLogMsg=""  Function="UpdateRecord()" RedirectPage="form=project.task.form.TaskTypeDetailForm&amp;fld:Id={@project.task.do.TaskTypeDO:Field[Id].Value}" ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm(project.task.form.TaskTypeListForm)"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>     
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

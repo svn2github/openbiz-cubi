@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProjectTaskListForm" Class="project.task.form.TaskForm" TemplateFile="form_task_list.tpl.html"  PageSize="10"  Icon="" Title="" Description="" Access="project_project.access" inheritFrom="project.task.form.TaskListForm">
+   
+</EasyForm>

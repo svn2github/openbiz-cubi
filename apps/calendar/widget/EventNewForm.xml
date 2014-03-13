@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventNewForm" Class="PickerForm" Icon="{RESOURCE_URL}/calendar/images/icon_calendar_list.gif" FormType="New" jsClass="jbForm" Title="New Event" Description="Create a new event and place it on the Calendar.\n A typical event could be appointment, meeting or other types" BizDataObj="calendar.do.EventPickerDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_event_quick_add.tpl.html" EventName="CALENDAR" MessageFile="Event.msg"  Access="calendar.access" >
+    <DataPanel>
+	    <Element Name="fld_type_id" ElementSet="General" Class="common.lib.TypeSelector" FieldName="type_id" Label="Type" KeepCookie="Y" SelectFrom="calendar.do.EventTypeDO[name:Id:color]" AllowURLParam="N" />			    
+        <Element Name="fld_subject" ElementSet="General" Class="InputText" DefaultValue="New Event" FieldName="subject" Label="Subject"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>    	        
+        <Element Name="fld_location" ElementSet="General" Class="InputText" FieldName="location" Label="Location"  AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
+		
+		<Element Name="fld_all_day" ElementSet="Time" Class="Checkbox" FieldName="all_day" DefaultChecked="{@:Params[all_day]?'Y':'N'}" Label="All Day" DefaultValue="0" SelectFrom="1" Description="All day event" AllowURLParam="Y" >
+		</Element>
+		<Element Name="fld_start_time" ElementSet="Time" DefaultValue="{@:Params[start_time]?date('Y-m-d H:i:s',@:Params[start_time]):date('Y-m-d H:i:s',time())}" Class="InputDatetime" FieldName="start_time" Label="Start Time"  AllowURLParam="Y" />
+		<Element Name="fld_end_time"  ElementSet="Time" DefaultValue="{@:Params[end_time]?date('Y-m-d H:i:s',@:Params[end_time]):date('Y-m-d H:i:s',time()+7200)}" Class="InputDatetime" FieldName="end_time" Label="End Time"  AllowURLParam="Y" />
+		<Element Name="fld_recurrence" ElementSet="Time" Class="Listbox" selectFrom="calendar.lov.EventLOV(RecurrenceType)" FieldName="recurrence" Label="Recurrence"  AllowURLParam="N" />
+
+               
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="insertToParent()"   ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="onclick" Event="onclick" Function="js:Openbiz.Window.closeDialog()"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

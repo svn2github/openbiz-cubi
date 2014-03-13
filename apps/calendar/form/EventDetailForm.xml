@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventDetailForm" Icon="{RESOURCE_URL}/calendar/images/icon_calendar_list.gif" Class="EasyForm" FormType="Detail" jsClass="jbForm" Title="Event Details " Description="A typical event could be appointment, meeting or other types.\nEacho event could related to many contacts." BizDataObj="calendar.do.EventDO" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_event_detail_tabs.tpl.html" EventName="CALENDAR" MessageFile="Event.msg"  Access="calendar.access" >
+    <DataPanel>
+		<Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+		<Element Name="fld_form_title" ElementSet="" Class="LabelText" FieldName="subject" Label="Subject" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />    	        
+		<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_form_description" ElementSet="" BackgroundColor="{@:Elem[fld_color].Value}" Width="600" Class="LabelText" FieldName="type_name" Label="Type" KeepCookie="Y" SelectFrom="calendar.do.EventTypeDO[name:Id]" AllowURLParam="N" />			    
+		<Element Name="fld_location" ElementSet="General" Class="LabelText" FieldName="location" Label="Location"  AllowURLParam="N" />
+		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+		
+
+		<Element Name="fld_start_time" ElementSet="General" DefaultValue="{date('Y-m-d H:i:s')}" Class="LabelText" FieldName="start_time" Label="Start Time"  AllowURLParam="N" />
+		<Element Name="fld_end_time"  ElementSet="General" DefaultValue="{date('Y-m-d H:i:s',time()+7200)}" Class="LabelText" FieldName="end_time" Label="End Time"  AllowURLParam="N" />
+
+		<Element Name="fld_recurrence" ElementSet="General" Class="LabelList" selectFrom="calendar.lov.EventLOV(RecurrenceType)" FieldName="recurrence" Label="Recurrence"  AllowURLParam="N" />
+		<Element Name="fld_all_day" ElementSet="General" Class="LabelBool" FieldName="all_day" Label="All Day" DefaultValue="0" SelectFrom="1" Description="All day event" AllowURLParam="N" >
+		</Element>
+				
+		<Element Name="fld_notify" ElementSet="General" Class="Hidden"  FieldName="notify_contacts" />		
+		<Element Name="fld_allday" ElementSet="General" Class="Hidden"  FieldName="all_day" />
+		<Element Name="fld_repeat" ElementSet="General" Class="Hidden"  FieldName="recurrence" />
+		
+		<Element Name="fld_extend_fields"   ElementSet="Extend Fields" Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N" />
+
+		
+		<!-- 1-M -->
+		<Element Name="fld_locations" Access="location.access"  TabSet="Extra Information" ElementSet="Locations" Class="FormElement" FormReference="location.widget.LocationListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		
+		<Element Name="fld_related_contacts"  TabSet="Extra Information" Access="contact.access"  ElementSet="Contacts" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />       		 
+		
+		<Element Name="fld_notify_contacts"  TabSet="Extra Information" ElementSet="Notify Contacts" Class="LabelList" selectFrom="calendar.lov.EventLOV(NotifyType)" FieldName="notify_contacts" Label="Notify" AllowURLParam="N" >
+			<EventHandler Name="fld_notify_contacts_onclick" Event="onchange" Function="UpdateForm()"  />
+		</Element>
+		<Element Name="fld_notify_contacts_time"  TabSet="Extra Information" Hidden="{@:Elem[fld_notify_contacts].Value=='0'?'Y':'N'}" ElementSet="Notify Contacts" Class="LabelList" selectFrom="calendar.lov.EventLOV(NotifyTimeType)" FieldName="notify_contacts_time" Label="Time Setting" AllowURLParam="N" />			
+		<Element Name="fld_notify_contacts_method_sms"   TabSet="Extra Information" Hidden="{@:Elem[fld_notify_contacts].Value=='0'?'Y':'N'}" ElementSet="Notify Contacts" Class="LabelBool" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" FieldName="notify_contacts_email" Label="Send Email" AllowURLParam="N" />
+		<Element Name="fld_notify_contacts_method_email"  TabSet="Extra Information" Hidden="{@:Elem[fld_notify_contacts].Value=='0'?'Y':'N'}" ElementSet="Notify Contacts" Class="LabelBool" DefaultValue="0" SelectFrom="1" FieldName="notify_contacts_sms" Label="Send SMS" AllowURLParam="N" />
+		<Element Name="btn_manage_contact_notify"  TabSet="Extra Information" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Notify Contacts" Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Setting" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_contact_onclick" Event="onclick" Function="LoadDialog(calendar.form.EventEditContactNotifyForm,{@:Elem[fld_Id].Value})"   />
+		 </Element> 
+		 
+		<Element Name="fld_reminder" ElementSet="Reminder" TabSet="Extra Information"  DefaultValue="0" Class="LabelList" selectFrom="calendar.lov.ReminderLOV(ReminderType)" FieldName="reminder" Label="Reminder" AllowURLParam="N" >
+			<EventHandler Name="fld_reminder_onclick" Event="onchange" Function="UpdateForm()"  />
+		</Element>
+		<Element Name="fld_reminder_time"  TabSet="Extra Information" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelList" selectFrom="calendar.lov.ReminderLOV(ReminderTimeType)" FieldName="reminder_time" Label="Time Setting" AllowURLParam="N" />
+		<Element Name="fld_reminder_method_email"  TabSet="Extra Information" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelBool"  FieldName="reminder_method_email" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Email" AllowURLParam="N" />
+		<!--<Element Name="fld_reminder_method_systray"  TabSet="Extra Information" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelBool"  FieldName="reminder_method_systray" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Systray" AllowURLParam="N" />-->
+		<Element Name="fld_reminder_method_sms" TabSet="Extra Information"  Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="LabelBool"  FieldName="reminder_method_sms" DefaultValue="0" SelectFrom="1" Label="Send SMS" AllowURLParam="N" />
+		<Element Name="btn_manage_reminder"  TabSet="Extra Information" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Reminder"  Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Setting" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_reminder_onclick" Event="onclick" Function="LoadDialog(calendar.form.EventEditReminderForm,{@:Elem[fld_Id].Value})" />
+		</Element> 
+		
+		 <Element Name="fld_changelog"  TabSet="Extra Information"  Access="changelog.access" ElementSet="ChangeLog" Class="FormElement" FormReference="changelog.widget.ChangeLogWidgetForm" FieldName="" Label="" AllowURLParam="N" /> 
+		 <Element Name="fld_sortorder" TabSet="Extra Information"  Class="LabelText" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />
+		 <Element Name="fld_published"  TabSet="Extra Information" Class="LabelList" ElementSet="Miscellaneous"  SelectFrom="common.lov.CommLOV(Published)" FieldName="group_perm" Label="Group Share"  />
+		 <Element Name="fld_published_others" TabSet="Extra Information"  Class="LabelList" ElementSet="Miscellaneous"  SelectFrom="common.lov.CommLOV(Published)" FieldName="other_perm" Label="Other Group"  />     
+		 <Element Name="fld_create_by" TabSet="Extra Information"  Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}"  Link="{APP_INDEX}/collab/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>
+		<Element Name="fld_create_time" TabSet="Extra Information"  Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>
+		<Element Name="fld_update_by" TabSet="Extra Information"  Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}"  Link="{APP_INDEX}/collab/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>
+		<Element Name="fld_update_time" TabSet="Extra Information"  Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+		
+		
+		<!-- M-M -->
+		<Element Name="fld_related_worklog" Access="project_worklog.access"  TabSet="Related Data"   ElementSet="Worklog" Class="FormElement" FormReference="project.worklog.widget.WorklogListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		
+		<Element Name="fld_related_events" TabSet="Related Data"   ElementSet="Events" Class="FormElement" FormReference="calendar.widget.EventListRelatedForm" FieldName="" Label="" AllowURLParam="N" />			
+		
+		<Element Name="fld_related_projects" Access="project_project.access"  TabSet="Related Data"   ElementSet="Project" Class="FormElement" FormReference="project.project.widget.ProjectListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		
+		<Element Name="fld_related_tasks" Access="project_task.access"  TabSet="Related Data"   ElementSet="Task" Class="FormElement" FormReference="project.task.widget.TaskListDetailForm" FieldName="" Label="" AllowURLParam="N" />	
+		
+		<!--<Element Name="fld_related_docs"  TabSet="Related Data" Access="collab_document.access"  ElementSet="Document" Class="FormElement" FormReference="collab.document.widget.DocumentListDetailForm" FieldName="" Label="" AllowURLParam="N" />-->
+
+	</DataPanel>
+    <ActionPanel>   
+
+        <Element Name="btn_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button"   Text="Share" CssClass="button_gray_share" Description="Share or Assign Data">
+			<EventHandler Name="btn_update_onclick" Event="onclick" Function="LoadDialog(common.form.DataSharingForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+        <Element Name="btn_spacer_for_share" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Spacer" Width="10"></Element>
+        
+        <Element Name="btn_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(calendar.form.EventNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
+        </Element>          
+        <Element Name="btn_edit" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}"  Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(calendar.form.EventEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+     	      
+		<Element Name="btn_copy" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}"  Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
+            <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=calendar.form.EventCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element> 
+        <Element Name="btn_delete" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}"  Class="Button" Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=calendar.form.EventListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+        </Element>
+        <Element Name="btn_spacer_for_cancel"  Class="Spacer" Width="10"></Element>
+        <Element Name="btn_cancel" Class="LabelBack" Link="{APP_INDEX}/calendar/event_calendar" Text="Back" CssClass="button_gray_m">
+           <!--  <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />-->
+        </Element>         
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

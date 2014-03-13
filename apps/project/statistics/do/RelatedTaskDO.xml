@@ -1,0 +1,3 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="RelatedTaskDO" Description="" DataPermControl="N" Class="BizDataObj" InheritFrom="project.task.do.TaskDO" IdGeneration="Identity" CacheLifeTime="0">
+</BizDataObj>

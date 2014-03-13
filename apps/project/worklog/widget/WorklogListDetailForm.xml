@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="WorklogListDetailForm" Class="EasyForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/project/worklog/images/icon_worklog.gif" Title="Work Log Management" Description="This module could help you manage worklogs. \n You can write work log for tasks or stand alone task." BizDataObj="project.worklog.do.WorkLogDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="project_worklog.access">
+    <DataPanel>
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        <Element Name="fld_icon" Class="ColumnImage" 
+				Text="{RESOURCE_URL}/project/worklog/images/icon_worklog_private.png"
+				FieldName="" Label="Type"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">				
+		</Element>
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/project/worklog_detail/{@:Elem[fld_Id].Value}">         
+         	<!-- <EventHandler Name="fld_Id_onclick" Event="onclick" Function="ParentSwitchForm(project.worklog.form.WorklogDetailForm,{@:Elem[fld_Id].Value})"   /> -->
+        </Element>
+        <!--<Element Name="fld_description"  Class="LabelTextarea" FieldName="description" Label="Description"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />-->
+        <Element Name="fld_worked_hours" Class="ColumnBar" Width="120" Color="ff6600" DisplayUnit=" Hours" Style="width:195px" MaxValue="8" FieldName="worked_hours" Label="Worked Hours"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
+        <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Create Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
+        <Element Name="fld_create_by" Class="ColumnText" FieldName="create_by" Label="Create By" style="color:#999999" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}" AllowURLParam="N" MaxLength="10"/>
+        
+    </DataPanel>
+	<ActionPanel>
+		<Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add">
+            <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(project.worklog.widget.WorklogNewForm)"/>
+        </Element>
+        <Element Name="btn_spacer" Class="Spacer" Width="10" ></Element>        
+        <Element Name="btn_pick" Class="Button" text="Pick Work Log" CssClass="button_gray_w">
+            <EventHandler Name="pick_onclick" Event="onclick" Function="LoadDialog(project.worklog.widget.WorklogPickForm)"/>
+        </Element>
+    </ActionPanel> 
+
+</EasyForm>

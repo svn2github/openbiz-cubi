@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventListRelatedForm"  PageSize="-1" Class="EasyForm" FormType="List" jsClass="jbForm" Title="" Description="" BizDataObj="calendar.do.EventRefDO" inheritFrom="calendar.widget.EventListDetailForm"  Access="calendar.access" >
+
+
+</EasyForm>

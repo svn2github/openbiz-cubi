@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="EventTypeNewForm" Class="EventTypeForm" Icon="{RESOURCE_URL}/calendar/images/icon_event_type.png" FormType="New" jsClass="jbForm" Title="New Event Type" Description="Please fill in below field to create a new event type" BizDataObj="calendar.do.EventTypeDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="detail.tpl" EventName="CALENDAR_TYPE" MessageFile="EventType.msg"  Access="calendar.access" >
+    <DataPanel>
+        <Element Name="fld_name" DefaultValue="New Event Type" Class="InputText" FieldName="name" Label="Name"   />	
+        <Element Name="fld_description" Class="Textarea" FieldName="description" Label="Description" />	
+        <Element Name="fld_color_code" Class="ColorPicker" mode="" FieldName="color" Label="Color Code"  AllowURLParam="N" />	        
+        <Element Name="fld_published" Class="Listbox" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)"  DefaultValue="1" FieldName="group_perm" Label="Group Share"  /><Element Name="fld_published_other" Class="Listbox" KeepCookie="Y" SelectFrom="common.lov.CommLOV(Published)"  DefaultValue="0" FieldName="other_perm" Label="Other Group"  />	
+        <Element Name="fld_sortorder" Class="Listbox" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />	        	
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_save" Class="Button" Text="Save" CssClass="button_gray_m">
+            <EventHandler Name="save_onclick" EventLogMsg="" Event="onclick" Function="InsertRecord()" RedirectPage="form=calendar.form.EventTypeCustomForm&amp;fld:Id={@calendar.do.EventTypeDO:Field[Id].Value}"  ShortcutKey="Ctrl+Enter" ContextMenu="Save" />
+        </Element>
+        <Element Name="btn_cancel" Class="Button" Text="Cancel" CssClass="button_gray_m">
+            <EventHandler Name="cancel_onclick" Event="onclick" Function="SwitchForm(calendar.form.EventTypeListForm)"  ShortcutKey="Escape" ContextMenu="Cancel"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

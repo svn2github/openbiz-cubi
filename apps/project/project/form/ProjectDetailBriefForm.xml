@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="ProjectDetailBriefForm" Class="ProjectForm" FormType="Detail" jsClass="jbForm" Icon="{RESOURCE_URL}/project/project/images/icon_project.png" Title="Project Detail" Description="This module could help you manage project. You can put projects under a project." BizDataObj="project.project.do.ProjectDO" PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="form_project_detail_brief_view.tpl.html" EventName="Project" MessageFile="Project.msg" Access="project_project.access">
+    <DataPanel>
+	    <Element Name="fld_Id" Hidden="Y" Class="LabelText" FieldName="Id" Label="Id" AllowURLParam="Y"/>
+	       
+		<Element Name="fld_form_title"  Class="LabelText"   FieldName="name" Label="" Width="500" style="font-size:24px;color:#333333;line-height:24px;" AllowURLParam="N" />
+		<Element Name="fld_color" Class="Hidden" Hidden="Y" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<Element Name="fld_form_description"  BackgroundColor="{@:Elem[fld_color].Value}" Width="648" Class="LabelText" FieldName="type_name" Label="" KeepCookie="Y" SelectFrom="project.project.do.ProjectTypeDO[name:Id:color]" AllowURLParam="N" />		
+		
+		<Element Name="fld_budget" ElementSet="General" width="200" Class="LabelText"  Text="{BizSystem::getObject('service.currencyService')->getFormatCurrency(@:Elem[fld_budget].Value)}"  FieldName="budget_cost" Label="Budget"  AllowURLParam="N" />
+		<Element Name="fld_spend_progress" Color="ffAA00" ElementSet="General" Class="LabelBar" Width="300" height="14"  DisplayUnit="%" MaxValue="100" FieldName="cost_spend_bar" Label="Expenses"  AllowURLParam="N" />
+		<Element Name="fld_starttime" ElementSet="General" Class="LabelText" FieldName="start_time" Label="Start Time" AllowURLParam="N" />
+		<Element Name="fld_status" ElementSet="General" Class="LabelList" FieldName="status" Label="Status" SelectFrom="project.project.lov.ProjectLOV(ProjectStatus)" AllowURLParam="N" />		
+		<Element Name="fld_condition" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/project/project/images/icon_project_condition_{@:Elem[fld_condition].Value}.png" FieldName="condition" Sortable="Y" Label="Condition" >		
+        </Element>
+        		
+		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/project/project/images/icon_project_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Priority">
+		</Element>	
+		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
+
+		<Element Name="fld_extend_fields" ElementSet="Extend Fields"   Class="FormElement" FormReference="extend.widget.ExtendDataDetailForm" FieldName="extend" Label="" AllowURLParam="N" />
+
+		<Element Name="fld_related_task"   ElementSet="Task" Class="FormElement" FormReference="project.task.widget.TaskListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_task" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Task"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_task_onclick" Event="onclick" Function="SwitchForm(project.project.form.ProjectEditTaskForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+
+		
+		<Element Name="fld_related_attachment"   ElementSet="Attachment" Class="FormElement" FormReference="attachment.widget.AttachmentListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_attachment" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Attachment"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(project.project.form.ProjectEditAttachmentForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+        
+         <Element Name="fld_related_picture"   ElementSet="Picture" Class="FormElement" FormReference="picture.widget.PictureListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_picture" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Picture"  Style="color:#666666;margin-left:5px;margin-top:2px;"  Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_attachment_onclick" Event="onclick" Function="SwitchForm(project.project.form.ProjectEditPictureForm,{@:Elem[fld_Id].Value})"   />
+        </Element>  
+        
+		<Element Name="fld_related_events"   ElementSet="Events" Class="FormElement" FormReference="calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="btn_manage_event" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Events" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_evnt_onclick" Event="onclick" Function="SwitchForm(project.project.form.ProjectEditEventForm,{@:Elem[fld_Id].Value})"  />
+        </Element> 
+		
+		<Element Name="fld_related_contacts"   ElementSet="Contacts" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		    	
+		<Element Name="btn_manage_contact" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" ElementSet="Contacts" Style="color:#666666;margin-left:5px;margin-top:2px;" Class="Button" Text="Manage" CssClass="button_gray_w" Description="">
+			<EventHandler Name="btn_manage_contact_onclick" Event="onclick" Function="SwitchForm(project.project.form.ProjectEditContactForm,{@:Elem[fld_Id].Value})" />
+        </Element>  		
+		
+			<Element Name="fld_sortorder" Class="LabelText" ElementSet="Miscellaneous" SelectFrom="common.lov.CommLOV(Order)" DefaultValue="50" FieldName="sortorder" Label="Ordering"  />		     
+			<Element Name="fld_create_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_by" Label="Create By" Text="{BizSystem::GetProfileName(@:Elem[fld_create_by].Value)}"  Link="{APP_INDEX}/project/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_create_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_create_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="create_time" Label="Create Time" AllowURLParam="N"/>		        
+			<Element Name="fld_update_by" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_by" Label="Update By"  Text="{BizSystem::GetProfileName(@:Elem[fld_update_by].Value)}"  Link="{APP_INDEX}/project/contact_detail/{BizSystem::GetProfileId(@:Elem[fld_update_by].Value)}" AllowURLParam="N"/>		        
+			<Element Name="fld_update_time" Class="LabelText" ElementSet="Miscellaneous" FieldName="update_time" Label="Update Time" AllowURLParam="N"/>
+		
+						        
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="btn_gantt_view"  Class="LabelText" Text="Gantt View" CssClass="button_gray_w" Description="" Link="{@home:url}/project/project_gantt_detail/{@:Elem[fld_Id].Value}">
+        </Element>      
+    		<Element Name="btn_spacer" Class="Spacer" width="10" />		
+    
+ 		<Element Name="btn_new" Class="Button"   Text="Add" CssClass="button_gray_add" Description="new record (Insert)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(project.project.form.ProjectNewForm)"  ShortcutKey="Insert" ContextMenu="New" />
+        </Element>      
+        <Element Name="btn_edit" Class="Button" Text="Edit" CssClass="button_gray_m" Description="edit record (Ctrl+E)">
+			<EventHandler Name="btn_new_onclick" Event="onclick" Function="SwitchForm(project.project.form.ProjectEditForm,{@:Elem[fld_Id].Value})"  ShortcutKey="Ctrl+E" ContextMenu="Edit" />
+        </Element>
+        <Element Name="btn_copy" Class="Button" Text="Copy" CssClass="button_gray_m" Description="copy record (Ctrl+C)">
+            <EventHandler Name="onclick" Event="onclick" EventLogMsg="" Function="CopyRecord({@:Elem[fld_Id].Value})" RedirectPage="form=project.project.form.ProjectCopyForm&amp;fld:Id={@:Elem[fld_Id].Value}" ShortcutKey="Ctrl+C" ContextMenu="Copy"/>
+        </Element> 
+        <Element Name="btn_delete" Class="Button"   Text="Delete" CssClass="button_gray_m" Description="delete record (Delete)">
+            <EventHandler Name="del_onclick" Event="onclick" EventLogMsg="" Function="DeleteRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=project.project.form.ProjectListForm" ShortcutKey="Ctrl+Delete" ContextMenu="Delete" />
+        </Element>
+        <Element Name="btn_purge" Hidden="{@:m_CanUpdateRecord=='1'?'N':'Y'}" Class="Button"   Text="Purge" CssClass="button_gray_m" Description="purge record (Delete)">
+            <EventHandler Name="purge_onclick" Event="onclick" EventLogMsg="" Function="PurgeRecord({@:Elem[fld_Id].Value})"  RedirectPage="form=project.project.form.ProjectListForm" ShortcutKey="Ctrl+Shift+Delete" ContextMenu="Purge" />
+        </Element>    				
+        
+            		<Element Name="btn_spacer_2" Class="Spacer" width="10" />		
+        
+        <Element Name="btn_cancel" Class="Button"  Text="Back" CssClass="button_gray_m">
+            <EventHandler Name="btn_cancel_onclick" Event="onclick" Function="SwitchForm()"  ShortcutKey="Escape" ContextMenu="Cancel" />
+        </Element>  
+    </ActionPanel> 
+    <NavPanel>
+    </NavPanel> 
+    <SearchPanel>
+    </SearchPanel>
+</EasyForm>

@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="BudgetPickDO" Description="" DataPermControl="N" Class="BizDataObj" InheritFrom="project.budget.do.BudgetDO" >
+	<BizFieldList>
+   </BizFieldList>
+    <TableJoins>
+    </TableJoins>
+    <ObjReferences>
+    </ObjReferences>
+</BizDataObj>

@@ -1,0 +1,186 @@
+<form id='{$form.name}' name='{$form.name}'>
+{literal}
+<style>
+#main #right_panel .content table.input_row td .label_text{
+width:350px;
+}
+.action_panel{
+width:310px;
+}
+.search_panel{
+width:380px;
+}
+.search_panel select{
+float:left;
+margin-right:5px;
+}
+</style>
+{/literal}
+<div style="padding-left:25px;padding-right:40px;">
+
+		<div class="v_spacer"></div>
+	
+{if  $searchPanel }	
+	<div class="form_header_panel">	
+		<div class="action_panel"  style="width:688px;">
+		{foreach item=elem from=$actionPanel}
+		    	{$elem.element}
+		{/foreach}
+		{$searchPanel.btn_spacer3.element}
+		{$searchPanel.qry_name.element}
+		{$searchPanel.btn_dosearch.element}
+		</div>
+	</div>	
+{/if}	
+
+{if  $searchPanel }	
+	<div class="form_header_panel" style="background-color:#efefef;padding-left:10px;margin-top:2px;width:690px;">			
+		<div class="search_panel" style="width:688px;">
+		{foreach item=elem key=name from=$searchPanel}
+			{if $name!='qry_name' AND $name!='btn_dosearch' AND $name!='btn_spacer3' }
+				{if $elem.label} {$elem.label} {/if} 
+				{$elem.element}
+			{/if}
+		{/foreach}
+		</div>
+	</div>	
+{/if}	
+
+
+<div class="from_table_container">
+<!-- table start -->
+<table border="0" cellpadding="0" cellspacing="0" class="form_table" id="{$form.name}_data_table">
+	<thead>		
+     {foreach item=cell key=elems_name from=$dataPanel.elems}	
+     	{if $cell.type=='ColumnStyle'}
+     		{assign var=row_style_name value=$elems_name}     	
+		{else}
+			{if $cell.type=='RowCheckbox'}
+				{assign var=th_style value="text-align:left;padding-left:10px;"}
+			{else}
+				{assign var=th_style value=""}
+			{/if}
+         <th onmouseover="this.className='hover'" 
+			onmouseout="this.className=''"
+				nowrap="nowrap" style="{$th_style}"
+			>{$cell.label}</th>	 
+		{/if}
+     {/foreach}
+	</thead>
+     {assign var=row_counter value=0}            
+     {foreach item=row from=$dataPanel.data}
+     	
+     	 {if $row.$row_style_name != ''}
+     	 	{assign var=col_style value=$dataPanel.data.$row_counter.$row_style_name}
+     	 {else}
+     	 	{assign var=col_style value=''}
+     	 {/if}
+     	 {assign var=row_style value=''}
+     	 
+         {if $row_style != ''}
+		 	<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					style="{$row_style}"										
+					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+		 {elseif $form.currentRecordId == $dataPanel.ids[$row_counter]}  
+         {assign var=default_selected_id value=$dataPanel.ids[$row_counter]}       	
+			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					style="{$row_style}"
+					class="selected"  normal="even" select="selected"
+					onmouseover="if(this.className!='selected')this.className='hover'" 
+					onmouseout="if(this.className!='selected')this.className='even'" 
+					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+         {elseif $row_counter == 0 and $form.currentRecordId == ""}
+         {assign var=default_selected_id value=$dataPanel.ids[$row_counter]}    
+			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					style="{$row_style}"
+					class="selected"  normal="even" select="selected"
+					onmouseover="if(this.className!='selected')this.className='hover'" 
+					onmouseout="if(this.className!='selected')this.className='even'" 
+					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+          {elseif $row_counter is odd}
+		   <tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+		   			style="{$row_style}"
+		   			class="odd"  normal="odd" select="selected"
+					onmouseover="if(this.className!='selected')this.className='hover'" 
+					onmouseout="if(this.className!='selected')this.className='odd'"  
+					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+         {else}
+			<tr id="{$form.name}-{$dataPanel.ids[$row_counter]}" 
+					style="{$row_style}"
+					class="even"  normal="even" select="selected"
+					onmouseover="if(this.className!='selected')this.className='hover'" 
+					onmouseout="if(this.className!='selected')this.className='even'" 
+					onclick="Openbiz.CallFunction('{$form.name}.SelectRecord({$dataPanel.ids[$row_counter]})');">
+         {/if}
+         
+         {assign var=col_counter value=0}    
+         {foreach item=cell key=cell_name from=$row}
+         	{if $col_counter eq 0}
+         		{assign var=col_class value=' class="row_header" '}    
+         	{else}
+         		{assign var=col_class value=' '}
+         	{/if}
+         	{if $cell_name != $row_style_name}
+         		{if $cell_name == 'fld_type'} 
+	         		{php}
+	         		$IE6 = strstr($_SERVER['HTTP_USER_AGENT'], 'MSIE 6') ? true : false ;
+	         		if($IE6){
+	         		{/php}
+	         			{assign var=bg_img value=none;}
+	         		{php}}else{{/php}
+	         			{assign var=bg_img value=url($theme_url/images/table_row_td_trans_bg.png);}
+	         		{php}}{/php}
+	         		
+         			{if $col_style != ''}
+         				{assign var=row_bgcolor value=background-color:#$col_style;background-image:$bg_img}
+         			{else}
+         				{assign var=row_bgcolor value=background-color:#ffffff;background-image:$bg_img}
+         			{/if}
+         		{else}
+         			{assign var=row_bgcolor value=''}
+         		{/if}
+	            {if $cell != ''}            	
+	              <td {$col_class} style="{$row_bgcolor}" nowrap="nowrap" >{$cell}</td>
+	            {else}
+	              <td {$col_class} style="{$row_bgcolor}" nowrap="nowrap" >&nbsp;</td>
+	            {/if}
+            {/if}
+            {assign var=col_counter value=$col_counter+1}
+         {/foreach}
+                  
+		{assign var=row_counter value=$row_counter+1}
+		</tr>
+     {/foreach}
+  
+							
+</table>
+</div>
+<!-- status switch  -->
+<script>
+{if $form.status eq 'Enabled'}
+{elseif $form.status eq 'Disabled'}
+$('{$form.name}_data_table').fade({literal}{ duration: 0.5, from: 1, to: 0.35 }{/literal});
+{/if}
+</script>
+<span id='{$form.name}_selected_id' style="display:none">{$default_selected_id}</span>
+<!-- table end -->	
+
+	<div class="form_footer_panel">
+		<div class="ajax_indicator">
+			<div id='{$form.name}.load_disp' style="display:none" >
+				<img src="{$image_url}/form_ajax_loader.gif"/>
+			</div>
+		</div>
+		<div class="navi_panel">
+{if $navPanel}
+   {foreach item=elem from=$navPanel}
+   		{if $elem.label} <label style="width:68px;">{$elem.label}</label>{/if}
+    	{$elem.element}
+   {/foreach}
+{/if}			
+		
+		</div>		
+	</div>
+	<div class="v_spacer"></div>
+</div>
+</form>

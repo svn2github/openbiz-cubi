@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<EasyView Name="DashboardView" Access="project.access" Description="Collaboration Dashboard" class="EasyView" Tab="" TemplateEngine="Smarty" TemplateFile="project_dash_view.tpl.html">
+    <FormReferences>
+        <!--<Reference Name="project.task.widget.DashboardWidgetInProgressForm"/>
+        <Reference Name="project.task.widget.DashboardWidgetNotStartedForm"/>-->
+    </FormReferences>
+</EasyView>
