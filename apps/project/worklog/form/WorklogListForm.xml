@@ -7,8 +7,7 @@
 				Text="{RESOURCE_URL}/project/worklog/images/icon_worklog_private.png"
 				FieldName="" Label="Share"  Sortable="N" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:;">				
 		</Element>
-        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="javascript:">         
-         	<EventHandler Name="fld_Id_onclick" Event="onclick" Function="SwitchForm(project.worklog.form.WorklogDetailForm,{@:Elem[fld_Id].Value})"   />
+        <Element Name="fld_title" Class="ColumnText" FieldName="title" Label="Title"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/project/worklog_detail/{@:Elem[fld_Id].Value}">
         </Element>
         <Element Name="fld_worked_hours" Class="ColumnBar" Width="120" Color="ff6600" DisplayUnit=" Hours" Style="width:190px" MaxValue="8" FieldName="worked_hours" Label="Worked Hours"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>		
         <Element Name="fld_create_time" Class="ColumnText" FieldName="create_time" Label="Create Time"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" ></Element>
