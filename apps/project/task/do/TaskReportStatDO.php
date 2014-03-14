@@ -15,7 +15,7 @@ class TaskReportStatDO extends BizDataObj
 		{			
 			if($this->m_SearchRule)
 			{
-				$searchRule = $this->m_SearchRule."[severity]='$value'";
+				$searchRule = $this->m_SearchRule." AND [severity]='$value'";
 			}else{
 				$searchRule = "[severity]='$value'";
 			}
