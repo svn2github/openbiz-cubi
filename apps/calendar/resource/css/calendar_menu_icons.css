@@ -1,0 +1,11 @@
+/* CSS Document */
+
+#main #left_panel .content  li img{
+	background-image:url(../images/left_menu_icon_calendar.gif);
+}
+/* --for hovers */
+#main #left_panel .content  a:hover .icon_calender,
+#main #left_panel .content  a.current .icon_calender,
+#main #left_panel .content  a:active .icon_calender{
+	background-position:right -0px;
+}
