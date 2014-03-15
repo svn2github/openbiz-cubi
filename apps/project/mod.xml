@@ -2,8 +2,8 @@
 <Module Name="project" Description="Openbiz Project Management" Version="0.1.3" OpenbizVersion="3.0" >
 	<ACL>
 		<Resource Name="project">
-			<Action Name="access" Description="access Project Management dashboard"/>
-			<Action Name="access" Description="access Project Management dashboard"/>
+			<Action Name="access" Description="access Project"/>
+			<Action Name="manage" Description="manage Project"/>
 		</Resource>
         <Resource Name="project_task">
 			<Action Name="access" Description="access task"/>
@@ -15,6 +15,10 @@
         <Resource Name="project_worklog">
 			<Action Name="access" Description="access work log"/>
 			<Action Name="report" Description="view work log statistics report"/>
+		</Resource>
+		<Resource Name="project_budget">
+			<Action Name="access" Description="access budget"/>
+			<Action Name="manage" Description="manage budget"/>
 		</Resource>
 		<Resource Name="project_project">
 			<Action Name="access" Description="access and manage project"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="BudgetListDetailForm" Class="EasyForm" FormType="List" jsClass="jbForm" BizDataObj="project.budget.do.BudgetDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="collab_budget.access">
+<EasyForm Name="BudgetListDetailForm" Class="EasyForm" FormType="List" jsClass="jbForm" BizDataObj="project.budget.do.BudgetDO"   PageSize="10" DefaultForm="Y" TemplateEngine="Smarty" TemplateFile="element_listform_lite.tpl.html"  Access="project_budget.access">
     <DataPanel>
         <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
         <Element Name="fld_icon" Class="ColumnImage" 
@@ -17,12 +17,12 @@
         </Element>
     </DataPanel>
 	<ActionPanel>
-		<Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add" Access="collab_budget.manage">
+		<Element Name="btn_add" Class="Button" text="Add" CssClass="button_gray_add" Access="project_budget.manage">
             <EventHandler Name="add_onclick" Event="onclick" Function="LoadDialog(project.budget.widget.BudgetNewForm)"/>
         </Element>
-        <!--<Element Name="btn_delete" Class="Button" text="Delete" CssClass="button_gray_m" Access="collab_budget.manage">
+        <!--<Element Name="btn_delete" Class="Button" text="Delete" CssClass="button_gray_m" Access="project_budget.manage">
             <EventHandler Name="delete_onclick" Event="onclick" Function="DeleteRecord()"/>
         </Element>
-        <Element Name="btn_spacer" Class="Spacer" Width="10" Access="collab_budget.manage"></Element>  -->                    
+        <Element Name="btn_spacer" Class="Spacer" Width="10" Access="project_budget.manage"></Element>  -->                    
     </ActionPanel>
 </EasyForm>

@@ -1,74 +1,74 @@
 /* CSS Document */
 
-#main #left_panel .content .collaboration li img{
+#main #left_panel .content  li img{
 	background-image:url(../images/left_menu_icon_collaboration.gif);
 }
-#main #left_panel .content .collaboration .icon_calender{
+#main #left_panel .content  .icon_calender{
 	background-position:left 0px;
 }
-#main #left_panel .content .collaboration .icon_contact{
+#main #left_panel .content  .icon_contact{
 	background-position:left -16px;
 }
-#main #left_panel .content .collaboration .icon_task{
+#main #left_panel .content  .icon_task{
 	background-position:left -32px;
 }
-#main #left_panel .content .collaboration .icon_message{
+#main #left_panel .content  .icon_message{
 	background-position:left -48px;
 }
-#main #left_panel .content .collaboration .icon_note{
+#main #left_panel .content  .icon_note{
 	background-position:left -64px;
 }
-#main #left_panel .content .collaboration .icon_announcement{
+#main #left_panel .content  .icon_announcement{
 	background-position:left -80px;
 }
-#main #left_panel .content .collaboration .icon_document{
+#main #left_panel .content  .icon_document{
 	background-position:left -96px;
 }
-#main #left_panel .content .collaboration .icon_worklog{
+#main #left_panel .content  .icon_worklog{
 	background-position:left -112px;
 }
-#main #left_panel .content .collaboration .icon_bookmark{
+#main #left_panel .content  .icon_bookmark{
 	background-position:left -128px;
 }
-#main #left_panel .content .collaboration .icon_project{
+#main #left_panel .content  .icon_project{
 	background-position:left -144px;
 }
-#main #left_panel .content .collaboration .icon_statistics{
+#main #left_panel .content  .icon_statistics{
 	background-position:left -160px;
 }
 /* --for hovers */
-#main #left_panel .content .collaboration a:hover .icon_calender,
-#main #left_panel .content .collaboration a.current .icon_calender,
-#main #left_panel .content .collaboration a:active .icon_calender{
+#main #left_panel .content  a:hover .icon_calender,
+#main #left_panel .content  a.current .icon_calender,
+#main #left_panel .content  a:active .icon_calender{
 	background-position:right -0px;
 }
-#main #left_panel .content .collaboration a:hover .icon_contact,
-#main #left_panel .content .collaboration a.current .icon_contact,
-#main #left_panel .content .collaboration a:active .icon_contact{
+#main #left_panel .content  a:hover .icon_contact,
+#main #left_panel .content  a.current .icon_contact,
+#main #left_panel .content  a:active .icon_contact{
 	background-position:right -16px;
 }
-#main #left_panel .content .collaboration a:hover .icon_task,
-#main #left_panel .content .collaboration a.current .icon_task,
-#main #left_panel .content .collaboration a:active .icon_task{
+#main #left_panel .content  a:hover .icon_task,
+#main #left_panel .content  a.current .icon_task,
+#main #left_panel .content  a:active .icon_task{
 	background-position:right -32px;
 }
-#main #left_panel .content .collaboration a:hover .icon_message,
-#main #left_panel .content .collaboration a.current .icon_message,
-#main #left_panel .content .collaboration a:active .icon_message{
+#main #left_panel .content  a:hover .icon_message,
+#main #left_panel .content  a.current .icon_message,
+#main #left_panel .content  a:active .icon_message{
 	background-position:right -48px;
 }
-#main #left_panel .content .collaboration a:hover .icon_note,
-#main #left_panel .content .collaboration a.current .icon_note,
-#main #left_panel .content .collaboration a:active .icon_note{
+#main #left_panel .content  a:hover .icon_note,
+#main #left_panel .content  a.current .icon_note,
+#main #left_panel .content  a:active .icon_note{
 	background-position:right -64px;
 }
-#main #left_panel .content .collaboration a:hover .icon_project,
-#main #left_panel .content .collaboration a.current .icon_project,
-#main #left_panel .content .collaboration a:active .icon_project{
+#main #left_panel .content  a:hover .icon_project,
+#main #left_panel .content  a.current .icon_project,
+#main #left_panel .content  a:active .icon_project{
 	background-position:left -144px;
 }
-#main #left_panel .content .collaboration a:hover .icon_statistics,
-#main #left_panel .content .collaboration a.current .icon_statistics,
-#main #left_panel .content .collaboration a:active .icon_statistics{
+#main #left_panel .content  a:hover .icon_statistics,
+#main #left_panel .content  a.current .icon_statistics,
+#main #left_panel .content  a:active .icon_statistics{
 	background-position:left -160px;
 }

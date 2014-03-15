@@ -47,10 +47,10 @@
 		
 		<Element Name="fld_budget" ElementSet="Budget" Class="InputText" FieldName="budget_cost" Label="Budget"  Description="unit in {DEFAULT_CURRENCY}, total budget" AllowURLParam="N" CssClass="input_text" CssErrorClass="input_text_error" CssFocusClass="input_text_focus"/>
 
-		<Element Name="fld_reminder" ElementSet="Reminder" DefaultValue="0" Class="Listbox" selectFrom="collab.lov.ReminderLOV(ReminderType)" FieldName="reminder" Label="Reminder" AllowURLParam="N" >
+		<Element Name="fld_reminder" ElementSet="Reminder" DefaultValue="0" Class="Listbox" selectFrom="calendar.lov.ReminderLOV(ReminderType)" FieldName="reminder" Label="Reminder" AllowURLParam="N" >
 			<EventHandler Name="fld_reminder_onclick" Event="onchange" Function="UpdateForm()"  />
 		</Element>
-		<Element Name="fld_reminder_time" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="Listbox" selectFrom="collab.lov.ReminderLOV(ReminderTimeType)" FieldName="reminder_time" Label="Time Setting" AllowURLParam="N" />
+		<Element Name="fld_reminder_time" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="Listbox" selectFrom="calendar.lov.ReminderLOV(ReminderTimeType)" FieldName="reminder_time" Label="Time Setting" AllowURLParam="N" />
 		<Element Name="fld_reminder_method_email" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="Checkbox"  FieldName="reminder_method_email" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Email" AllowURLParam="N" />
 		<!-- <Element Name="fld_reminder_method_systray" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="Checkbox"  FieldName="reminder_method_systray" DefaultValue="0" SelectFrom="1" DefaultChecked="Y" Label="Send Systray" AllowURLParam="N" /> -->
 		<Element Name="fld_reminder_method_sms" Hidden="{@:Elem[fld_reminder].Value=='0'?'Y':'N'}" ElementSet="Reminder" Class="Checkbox"  FieldName="reminder_method_sms" DefaultValue="0" SelectFrom="1" Label="Send SMS" AllowURLParam="N" />

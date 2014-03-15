@@ -48,7 +48,7 @@
         <!-- M-M -->
        	<Element Name="fld_related_projects" TabSet="Related Data"   ElementSet="Project" Class="FormElement" FormReference="project.project.widget.ProjectListRelatedForm" FieldName="" Label="" AllowURLParam="N" />
        
-		<Element Name="fld_related_events"  TabSet="Related Data"  Access="collab_calendar.access"  ElementSet="Event" Class="FormElement" FormReference="calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_related_events"  TabSet="Related Data"  Access="calendar.access"  ElementSet="Event" Class="FormElement" FormReference="calendar.widget.EventListDetailForm" FieldName="" Label="" AllowURLParam="N" />
 		
 		<Element Name="fld_related_contacts"  TabSet="Related Data" Access="contact.access"  ElementSet="Contact" Class="FormElement" FormReference="contact.widget.ContactListDetailForm" FieldName="" Label="" AllowURLParam="N" /> 
 		
