@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EasyForm Name="WorklogStatListForm" Class="WorklogStatListForm" GroupBy="[work_date:work_date]" FormType="List"  jsClass="Openbiz.TableForm" Title="" BizDataObj="project.statistics.do.WorkLogGroupingDO" TemplateEngine="Smarty" PageSize="10" TemplateFile="grid_grouping.tpl" Access="collab_project.access">
+<EasyForm Name="WorklogStatListForm" Class="WorklogStatListForm" GroupBy="[work_date:work_date]" FormType="List"  jsClass="Openbiz.TableForm" Title="" BizDataObj="project.statistics.do.WorkLogGroupingDO" TemplateEngine="Smarty" PageSize="10" TemplateFile="grid_grouping.tpl" Access="project_project.access">
     <DataPanel>
        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
         <Element Name="fld_icon" Class="ColumnImage" 

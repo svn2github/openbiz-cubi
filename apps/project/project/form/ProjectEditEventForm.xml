@@ -21,7 +21,7 @@
 		</Element>		
 		<Element Name="fld_description" ElementSet="General" Class="LabelTextarea" FieldName="description" Label="Description"  AllowURLParam="N" />
 		
-		<Element Name="fld_related_event"  Access="collab_calendar.access"  ElementSet="Events" Class="FormElement" FormReference="calendar.widget.EventListEditForm" FieldName="" Label="" AllowURLParam="N" />
+		<Element Name="fld_related_event"  Access="calendar.access"  ElementSet="Events" Class="FormElement" FormReference="calendar.widget.EventListEditForm" FieldName="" Label="" AllowURLParam="N" />
 			        
     </DataPanel>
     <ActionPanel>
