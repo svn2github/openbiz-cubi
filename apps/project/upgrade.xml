@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!--
+  Openbiz Cubi Application Platform
+  LICENSE http://code.google.com/p/openbiz-cubi/wiki/CubiLicense
+  Copyright (c) 2005-2011, Openbiz Technology LLC
+  Version $Id: upgrade.xml 4526 2012-11-01 08:34:29Z hellojixian@gmail.com $
+-->
+<Upgrade>
+    <Version Name="0.1">
+    </Version>
+    <Version Name="0.1.5">
+        <UpgradeSql><![CDATA[
+        INSERT user_widget (`user_id`, `widget`, `view`, `column`, `ordering`, `config`, `status`,create_by, create_time, update_by, update_time) 
+VALUES (0, 'project.widget.ProjectWidget', 'project.view.DashboardView', 1, 0, '', 0, 1, NOW(), 1, NOW());
+		INSERT user_widget (`user_id`, `widget`, `view`, `column`, `ordering`, `config`, `status`,create_by, create_time, update_by, update_time) 
+VALUES (0, 'project.widget.TaskWidget', 'project.view.DashboardView', 2, 0, '', 0, 1, NOW(), 1, NOW());
+        ]]></UpgradeSql>
+    </Version>
+</Upgrade>

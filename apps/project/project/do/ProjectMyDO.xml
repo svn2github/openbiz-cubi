@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="ProjectMyDO" InheritFrom="ProjectDO" DataPermControl="Y" Class="BizDataObj" DBName="" Table="project" SearchRule="[owner_id]={BizSystem::getUserProfile('Id')}" SortRule="[update_time] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+
+</BizDataObj>

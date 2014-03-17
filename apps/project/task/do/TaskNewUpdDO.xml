@@ -1,0 +1,4 @@
+<?xml version="1.0" standalone="no"?>
+<BizDataObj Name="TaskNewUpdDO" Class="BizDataObj" InheritFrom="project.task.do.TaskDO" DBName="Default" Table="task" SearchRule="" SortRule="[update_time] DESC" OtherSQLRule="" Uniqueness="" Stateless="N" IdGeneration="Identity" CacheLifeTime="0">
+    
+</BizDataObj>

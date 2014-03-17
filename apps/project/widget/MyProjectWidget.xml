@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EasyForm Name="MyProjectWidget" Class="EasyForm" FormType="List" jsClass="jbForm" Icon="{RESOURCE_URL}/project/project/images/icon_project.png" Title="My Projects" Description="" BizDataObj="project.project.do.ProjectMyDO" PageSize="5" TemplateEngine="Smarty" TemplateFile="widget_grid.tpl.html" MessageFile="Project.msg" Access="project_project.access">
+    <DataPanel>
+        <Element Name="fld_Id" Class="Hidden" Hidden="Y" FieldName="Id" Label="Id" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+		<Element Name="fld_Id" Class="common.element.ColumnTitle" Hidden="N" FieldName="Id" Label="ID" Sortable="Y" AllowURLParam="N" Link="javascript:" />
+        <Element Name="fld_title"  MaxLength="16" Class="LabelText" FieldName="name" Label="Name"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" Link="{APP_INDEX}/project/project_detail/{@:Elem[fld_Id].Value}">         
+        </Element>
+
+        <Element Name="fld_status" Class="ColumnList" SelectFrom="project.project.lov.ProjectLOV(ProjectStatus)" FieldName="status" Label="Status" >
+        </Element>
+ 		
+		<Element Name="fld_condition" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/project/project/images/icon_project_condition_{@:Elem[fld_condition].Value}.png" FieldName="condition" Sortable="Y" Label="Cond" Link="javascript:;">		
+        	<EventHandler Name="fld_conditoin_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_condition,{@:Elem[fld_condition].Value},0,2)"/>         
+        </Element>
+        		
+		<Element Name="fld_priority" ElementSet="General"  Class="LabelImage" Text="{RESOURCE_URL}/project/project/images/icon_project_status_{@:Elem[fld_priority].Value}.png" FieldName="priority" Sortable="Y" Label="Pri" Link="javascript:;">
+			<EventHandler Name="fld_dallday_onclick" Event="onclick" Function="UpdateFieldValueAdd({@:Elem[fld_Id].Value},fld_priority,{@:Elem[fld_priority].Value},0,2)"/>		
+		</Element>
+
+		<Element Name="fld_color" Class="ColumnStyle" FieldName="type_color" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />
+		<!--<Element Name="fld_type" Class="ColumnText"  Style="line-height:24px;" FieldName="type_name" Label="Type"  Sortable="Y" AllowURLParam="N" Translatable="N" OnEventLog="N" />-->					        
+        
+    </DataPanel>
+    <ActionPanel>
+        <Element Name="lnk_new" Class="Button" Text="Add" CssClass="button_gray_add" Description="new record (Insert)" >
+            <EventHandler Name="lnk_new_onclick" Event="onclick" EventLogMsg="" Function="SwitchForm(project.project.form.ProjectNewForm)"  ShortcutKey="Insert" ContextMenu="New"/>
+        </Element>
+    </ActionPanel> 
+    <NavPanel>
+        <Element Name="btn_first" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'first_gray':'first'}">
+            <EventHandler Name="first_onclick" Event="onclick" Function="GotoPage(1)"/>
+        </Element>
+        <Element Name="btn_prev" Class="Button" Enabled="{(@:m_CurrentPage == 1)?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == 1)?'prev_gray':'prev'}">
+            <EventHandler Name="prev_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage - 1})" ShortcutKey="Ctrl+Shift+Left"/>
+        </Element>
+        <Element Name="txt_page" Class="LabelText" Text="{'@:m_CurrentPage of @:m_TotalPages '}">
+        </Element>
+        <Element Name="btn_next" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'next_gray':'next'}">
+            <EventHandler Name="next_onclick" Event="onclick" Function="GotoPage({@:m_CurrentPage + 1})" ShortcutKey="Ctrl+Shift+Right"/>
+        </Element>
+        <Element Name="btn_last" Class="Button" Enabled="{(@:m_CurrentPage == @:m_TotalPages )?'N':'Y'}" Text="" CssClass="button_gray_navi {(@:m_CurrentPage == @:m_TotalPages)?'last_gray':'last'}">
+            <EventHandler Name="last_onclick" Event="onclick" Function="GotoPage({@:m_TotalPages})"/>
+        </Element>
+    </NavPanel> 
+    <SearchPanel> 
+    </SearchPanel>
+</EasyForm>
