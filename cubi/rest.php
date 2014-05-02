@@ -25,6 +25,16 @@ require 'bin/Slim/Slim.php';
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim();
+
+// GET with query
+$app->get('/:module/:resource/q', function ($module,$resource) {
+	$app = \Slim\Slim::getInstance();
+	// forward to module rest service implementation
+	$restServiceName = $module.".websvc."."RestService";
+	$restSvc = BizSystem::getObject($restServiceName);
+	$restSvc->query($resource, $app->request(), $app->response());
+});
+
 // GET request
 $app->get('/:module/:resource/:id', function ($module,$resource,$id) {
 	$app = \Slim\Slim::getInstance();
